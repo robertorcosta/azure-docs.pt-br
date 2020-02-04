@@ -11,10 +11,10 @@ ms.workload: na
 ms.date: 08/06/2019
 ms.author: banders
 ms.openlocfilehash: cc24c176b5b61210d68d2dcb244d63f15402928b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75994045"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gerenciar Reservas para recursos do Azure
@@ -28,7 +28,7 @@ Se você tiver comprado Instâncias de Máquinas Virtuais Reservadas do Azure, p
 
 ## <a name="reservation-order-and-reservation"></a>Pedido de Reserva e Reserva
 
-Quando você adquire uma reserva, dois objetos são criados: **ordem de reserva** e **reserva**.
+Quando você compra uma reserva, dois objetos são criados: **Pedido de Reserva** e **Reserva**.
 
 No momento da compra, um Pedido de Reserva tinha uma Reserva nele. Ações como dividir, mesclar, reembolsar parcialmente ou trocar criam novas reservas no **Pedido de Reserva**.
 
@@ -157,11 +157,11 @@ Se você achar que as reservas da sua organização estão sendo subutilizadas:
 - Considere trocar a quantidade não utilizada. Para obter mais informações, confira [Cancelamentos e trocas](#cancel-exchange-or-refund-reservations).
 
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Caso tenha dúvidas ou precise de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
 

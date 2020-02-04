@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 07/22/2019
 ms.author: banders
 ms.openlocfilehash: 7555fc490804a847e61a46f194e77c62f0a985d9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75989742"
 ---
 # <a name="terms-in-your-microsoft-partner-agreement-invoice"></a>Termos em sua fatura do Contrato de Parceiro da Microsoft
@@ -26,7 +26,7 @@ Sua fatura fornece um resumo de seus encargos e instruções para pagamento. Ela
 
 As seções a seguir listam importantes termos que você vê em sua fatura e fornecem descrições de cada termo.
 
-## <a name="billing-period"></a>Período de cobrança
+## <a name="billing-period"></a>Período de pagamento
 
 Você é faturado mensalmente. Os encargos incorridos entre o fim do período de cobrança e a data da fatura são incluídos na fatura do mês seguinte, pois estarão no próximo período de cobrança. As datas de início e de término do período de cobrança de cada fatura são listadas no PDF da fatura acima do **Resumo de Cobrança**.
 
@@ -36,10 +36,10 @@ O **Resumo da Fatura** está na parte superior da primeira página e mostra info
 
 <!-- add screenshot -->
 
-| Prazo | Description |
+| Termo | Descrição |
 | --- | --- |
 | Vendido para |Endereço de sua pessoa jurídica, encontrado nas propriedades da conta de cobrança|
-| Endereço de Cobrança |Endereço para cobrança do perfil de cobrança que recebe a fatura, encontrado nas propriedades do perfil de cobrança|
+| Enviar cobrança para |Endereço para cobrança do perfil de cobrança que recebe a fatura, encontrado nas propriedades do perfil de cobrança|
 | Perfil de Cobrança |O nome do perfil de cobrança que recebe a fatura |
 | OC número |Um número de ordem de compra opcional, atribuído por você para acompanhamento |
 | Número da fatura |Um número de fatura exclusivo gerado pela Microsoft, usado para fins de acompanhamento |
@@ -52,10 +52,10 @@ O **Resumo da Cobrança** mostra os encargos em relação ao perfil de cobrança
 
 <!-- add screenshot -->
 
-| Prazo | Description |
+| Termo | Descrição |
 | --- | --- |
 | Charges|Número total de encargos da Microsoft desse perfil de cobrança desde o último período de cobrança |
-| Créditos |Créditos recebidos de retornos |
+| Credits |Créditos recebidos de retornos |
 | Créditos Azure aplicados | Os créditos Azure aplicados automaticamente ao Azure são cobrados a cada período de cobrança |
 | Subtotal |O valor devido antes da incidência de impostos |
 | Imposto |O tipo e o valor do imposto que você paga, dependendo do país/região de seu perfil de cobrança. Se você não precisar pagar impostos, não os verá em sua fatura. |
@@ -77,11 +77,11 @@ Se você tiver serviços de terceiros em sua fatura, o nome e o endereço de cad
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Verificar o acesso a um Contrato de Parceiro da Microsoft
 [!INCLUDE [billing-check-mpa](../../../includes/billing-check-mpa.md)]
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Noções básicas sobre os encargos na fatura do seu perfil de cobrança](review-customer-agreement-bill.md)
 - [Como obter sua fatura de cobrança e dados de uso diário do Azure](../manage/download-azure-invoice-daily-usage-date.md)

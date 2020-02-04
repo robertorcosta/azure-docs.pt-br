@@ -1,21 +1,20 @@
 ---
 title: Configurar contas de armazenamento para o Cloudyn no Azure | Microsoft Docs
 description: Este artigo descreve como configurar contas de armazenamento do Azure e buckets de armazenamento AWS para Cloudyn.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: benshy
+ms.reviewer: benshy
 ms.custom: secdec18
-ms.openlocfilehash: 2a8f3645dcf2987d0c0a204e7e8a86cd6d718e47
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: aa5fc1dddec6931b5eff1e34cf6c12b218bdf2fd
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75994864"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76769950"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Configurar contas de armazenamento para Cloudyn
 
@@ -23,7 +22,7 @@ ms.locfileid: "75994864"
 
 Você pode salvar relatórios do Cloudyn no portal do Cloudyn, armazenamento do Azure ou AWS buckets de armazenamento. Salvar seus relatórios no portal de Cloudyn é gratuito. No entanto, salvar seus relatórios para o armazenamento de seu provedor serviço de nuvem é opcional e incorre em custos adicionais. Este artigo o ajudará a configurar contas de armazenamento do Azure e buckets de armazenamento Amazon Web Services (AWS) para armazenar seus relatórios.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Você deve ter uma conta de armazenamento do Azure ou uma bucket de armazenamento da Amazon.
 
@@ -53,7 +52,7 @@ Você pode agora salvar relatórios no armazenamento do Azure. Ao exibir qualque
 
 ## <a name="configure-an-aws-storage-bucket"></a>Configurar uma bucket de armazenamento AWS
 
-O Cloudyn usa as credenciais existentes do AWS: usuário ou função, para salvar os relatórios para o bucket. Para testar o acesso, Cloudyn tenta salvar um pequeno arquivo de texto para o bucket com o nome do arquivo _check-bucket-permission.txt_.
+O Cloudyn usa as credenciais do AWS existentes: Usuário ou Função, para salvar os relatórios no bucket. Para testar o acesso, Cloudyn tenta salvar um pequeno arquivo de texto para o bucket com o nome do arquivo _check-bucket-permission.txt_.
 
 Forneça o Cloudyn função ou o usuário com a permissão PutObject para o bucket. Em seguida, use um bucket existente ou crie um novo para salvar relatórios. Finalmente, decida como gerenciar a classe de armazenamento, definir regras de ciclo de vida ou remova arquivos desnecessários.
 
@@ -65,7 +64,7 @@ Quando você cria uma nova política, você pode fornecer as permissões exatas 
 2. Na lista de serviços, selecione **IAM**.
 3. Selecione **Políticas** no lado esquerdo do console e, em seguida, clique **Criar política**.
 4. Clique na guia **JSON**.
-5. A seguinte política permite que você salve um relatório em um bucket S3. Copie e cole o exemplo de política a seguir na guia **JSON** . Substitua &lt;bucketname&gt; pelo nome do Bucket.
+5. A seguinte política permite que você salve um relatório em um bucket S3. Copie e cole o seguinte exemplo de política para a guia **JSON**. Substitua &lt;bucketname&gt; com seu nome de bucket.
 
    ```json
    {
@@ -109,12 +108,12 @@ Para anexar a nova política, você abre o console do AWS e edita função Cloud
 1. Selecione o usuário Cloudyn.
 2. Na guia **Permissões**, clique em **Adicionar permissões**.
 3. Na seção **Conceder Permissões**, selecione **Anexar políticas existentes diretamente**.
-4. Pesquise a política que você criou e selecione-a e, então clique em **Próximo: Revisar**.
+4. Pesquise a política que você criou, selecione-a e, em seguida, clique em **Próximo: Análise**.
 5. Em adicionar permissões à página de nome de função, clique em **adicionar permissões**.  
     ![Exemplo de política anexada ao usuário do Cloudyn](./media/storage-accounts/aws-attach-policy-user.png)
 
 
-### <a name="optional-set-permission-with-bucket-policy"></a>Opcional: Definir permissão com a política de bucket
+### <a name="optional-set-permission-with-bucket-policy"></a>Opcional: Definir permissão com política de bucket
 
 Você também pode definir permissão para criar relatórios sobre o bucket S3 usando uma política de bucket. No modo de exibição clássico da S3:
 
@@ -161,6 +160,6 @@ Você também pode definir permissão para criar relatórios sobre o bucket S3 u
 
 Você pode agora salvar relatórios no armazenamento do Azure. Ao exibir qualquer relatório, clique em **Ações** e, em seguida, selecione **Agendar relatório**. Nomeie o relatório e em seguida ou adicione sua própria URL ou use uma URL criada automaticamente. Selecione **Salvar no armazenamento** e, em seguida, selecione a conta de armazenamento. Digite um prefixo que seja anexado ao nome do arquivo do relatório. Selecione um formato de arquivo CSV ou JSON e, em seguida, salve o relatório.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Examine [Reconhecimento de relatórios do Cloudyn](understanding-cost-reports.md) para saber mais sobre a estrutura básica e as funções de relatórios do Cloudyn.

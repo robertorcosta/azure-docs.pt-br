@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
 ms.openlocfilehash: d748be3a304222831a55bb9319a04fba1e28e955
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992355"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratos e aditamentos de EA do Azure
@@ -72,16 +72,16 @@ A Microsoft não acessará nem utilizará a marcação e os preços associados f
 
 ### <a name="how-the-calculation-works"></a>Como funciona o cálculo
 
-O LSP fornece um número percentual único no portal de EA.  Todas as informações comerciais no Portal serão comgradedas pelo percentual fornecido pelo LSP. Exemplo:
+O LSP fornece um número percentual único no portal de EA.  Todas as informações comerciais no portal serão elevadas pelo percentual fornecido pelo LSP. Exemplo:
 
 - O cliente assina um EA com compromisso monetário de US$ 100.000,00.
 - A taxa de medição para o Serviço A é de US$ 10/hora.
 - O LSP define a porcentagem de marcação de 10% no portal de EA.
 - O exemplo a seguir mostra como o cliente verá as informações comerciais:
-    - Saldo monetário: USD 110.000.
-    - Taxa de medição para o serviço A: USD 11/hora.
-    - Informações de uso/hospedagem para o serviço A quando usadas por 100 horas: USD 1.100.
-    - Saldo monetário disponível para o cliente após a dedução de um consumo de serviço: USD 108.900.
+    - Saldo monetário: US$ 110.000,00.
+    - Taxa de medição para o Serviço A: US$ 11/hora.
+    - Informações de uso/hospedagem para o Serviço A, quando usado por 100 horas: US$ 1.100,00.
+    - Saldo Monetário disponível para o cliente após a dedução do consumo do Serviço A: US$ 108.900,00.
 
 ### <a name="when-to-use-a-markup"></a>Quando usar uma marcação
 
@@ -101,14 +101,14 @@ Revise as informações comerciais, como informação do saldo monetário, lista
 
 ### <a name="how-to-add-a-price-markup"></a>Como adicionar uma marcação de preço
 
-**Etapa 1: Adicionar marcação de preço**
+**Etapa 1: adicionar marcação de preço**
 
 1. No Enterprise Portal, escolha **Relatórios** na área de navegação à esquerda.
 1. Em _Resumo do uso_, clique na palavra **Marcação** em azul.
 1. Insira a porcentagem de marcação (entre -100 e 100) e clique **Visualizar**.
 
 
-**Etapa dois: examinar e validar**
+**Etapa 2: revisar e validar**
 
 Revise o preço de marcação em _Resumo do uso_ no termo de compromisso na exibição de cliente. O preço da Microsoft ainda estará disponível na exibição de parceiro. É possível alternar as exibições usando a opção "pessoas" da marcação de parceiro na parte superior direita.
 
@@ -116,7 +116,7 @@ Revise o preço de marcação em _Resumo do uso_ no termo de compromisso na exib
 1. É possível fazer alterações antes da publicação selecionando **Editar** na guia _Exibir resumo de uso > Exibição de cliente_.  
   Os preços de serviço e os saldos de compromisso serão marcados com as mesmas porcentagens. Se você tem porcentagens diferentes para o saldo monetário e taxas de medição ou percentuais diferentes para serviços diferentes, não use esse recurso.
 
-**Etapa três: publicar**
+**Etapa 3: publicar**
 
 Após a revisão e validação do preço, clique em **Publicar**.
   
@@ -124,7 +124,7 @@ Os preços com marcação ficarão disponíveis para os administradores corporat
 
 ### <a name="which-enrollments-have-a-markup-enabled"></a>Quais registros têm uma marcação habilitada?
 
-Para verificar se um registro tem uma marcação publicada, clique em **gerenciar** no painel de navegação esquerdo e clique na guia **registro** . Selecione a caixa de registro a ser verificada e exiba o status de marcação em _detalhes do registro_. Lá será exibido o status atual do recurso de marcação para esse EA, que poderá ser Desabilitado, Versão Prévia ou Publicado.
+Para verificar se um registro tem uma marcação publicada, clique em **Gerenciar** no painel de navegação à esquerda e clique na guia **Registro**. Marque a caixa de registro e veja o status da marcação em _Detalhes do registro_. Lá será exibido o status atual do recurso de marcação para esse EA, que poderá ser Desabilitado, Versão Prévia ou Publicado.
 
 ### <a name="how-can-the-customer-download-usage-estimates"></a>Como o cliente pode baixar estimativas de uso?
 
@@ -145,8 +145,8 @@ Os parceiros podem usar o recurso de marcação (no Azure EA) após o processame
 | Serviços Hospedados do Microsoft Azure | Seis serviços hospedados | Esse limite de serviços hospedados não pode ser aumentado além de seis para uma assinatura individual. Se precisar de serviços hospedados adicionais, incorpore outras assinaturas. |
 | Armazenamento do Microsoft Azure | Cinco contas de armazenamento, cada uma com um tamanho máximo de 100 TB. | Você pode aumentar o número de contas de armazenamento para até 20 por assinatura. Se precisar de contas de armazenamento adicionais, incorpore outras assinaturas. |
 | SQL Azure | 149 bancos de dados de qualquer tipo (ou seja, Web Edition ou Business Edition). |   |
-| Access Control | 50 namespaces por conta. 100 milhões de transações de Controle de Acesso por mês |   |
-| Service Bus | 50 namespaces por conta. 40 conexões de Barramento de Serviço | Os clientes que adquirem conexões do Barramento de Serviço por meio de pacotes de conexão terão cotas iguais ao ponto médio entre o pacote de conexão adquirido e o próximo valor mais alto do pacote de conexão. Os clientes que escolherem um Pacote de 500 terão uma cota de 750. |
+| Controle de acesso | 50 namespaces por conta. 100 milhões de transações de Controle de Acesso por mês |   |
+| Barramento de Serviço | 50 namespaces por conta. 40 conexões de Barramento de Serviço | Os clientes que adquirem conexões do Barramento de Serviço por meio de pacotes de conexão terão cotas iguais ao ponto médio entre o pacote de conexão adquirido e o próximo valor mais alto do pacote de conexão. Os clientes que escolherem um Pacote de 500 terão uma cota de 750. |
 
 ## <a name="resource-commitment"></a>Confirmação de recurso
 
@@ -228,7 +228,7 @@ Os administradores corporativos podem adicionar novos proprietários de conta, a
 
 ### <a name="existingnew-account-owners-to-create-new-subscriptions"></a>Proprietários de conta novos/existentes para criar novas assinaturas
 
-**Etapa 1: entrar na conta**
+**Etapa 1: entre na conta**
 1. No portal do Azure EA, selecione a guia **Gerenciar** e navegue até **Assinatura** no menu superior.
 1. Verifique se você está conectado como o proprietário da conta.
 1. Clique em **+Adicionar assinatura**.
@@ -238,7 +238,7 @@ Na primeira vez que você adicionar uma assinatura a uma conta, deverá fornecer
 
 Na primeira vez que você adicionar uma assinatura à conta, receberá a solicitação para aceitar o contrato MOSA e um Plano de Taxas. Essas seções NÃO são aplicáveis a Clientes com Enterprise Agreement, mas atualmente são necessárias para provisionar sua assinatura. O aditamento de registro do Contrato Enterprise do Microsoft Azure substitui os itens acima e a sua relação contratual não será alterada. Marque a caixa indicando que você aceita os termos.
 
-**Etapa dois: atualizar o nome da assinatura**
+**Etapa 2: atualizar o nome da assinatura**
 
 Todas as novas assinaturas serão adicionadas com o nome de assinatura padrão "Microsoft Azure Enterprise". É importante atualizar o nome da assinatura para diferenciá-lo das outras assinaturas em seu Registro Corporativo e garantir que seja reconhecido em relatórios no nível corporativo.
 
@@ -259,17 +259,17 @@ Quando novos Proprietários de Conta (AO) são adicionados a um registro pela pr
 
 Esse cenário ocorre quando o cliente implantou serviços sob o número de registro errado ou selecionou os serviços incorretos.
 
-Para validar se você está implantando sob o registro correto, verifique as informações das unidades incluídas na tabela de preços. Entre como um administrador corporativo e clique em **relatórios** no painel de navegação esquerdo e selecione a guia **folha de preços** . Clique no ícone de download no canto superior direito e localize os números de peça de SKU do plano correspondente com filtro na coluna "quantidade incluída" e selecione valores maiores que "0".
+Para validar se você está implantando sob o registro correto, verifique as informações das unidades incluídas na tabela de preços. Entre como um Administrador Corporativo e clique em **Relatórios** no painel de navegação à esquerda e selecione a guia **Tabela de preços**. Clique no ícone de Download no canto superior direito e localize os números de parte do SKU do Plano correspondente com filtro na coluna "Quantidade Incluída" e selecione valores maiores do que "0".
 
 Verifique se o seu plano do OMS está aparecendo na tabela de preços sob as unidades incluídas. Se não houver unidades incluídas para o plano do OMS em seu registro, seu plano do OMS poderá estar em outro registro. Entre em contato com o Suporte do Azure Enterprise Portal em [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).
 
-Se as unidades incluídas para os serviços na folha de preços não corresponderem ao que você implantou, por exemplo, dados do Operational insights Premium analisados versus os dados padrão do insights operacionais analisados, isso significa que você pode ter implantado serviços que não são cobertos pelo plano, entre em contato com o suporte do Azure Enterprise Portal em [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport) para que possamos ajudá
+Se as unidades incluídas para os serviços na tabela de preços não corresponderem ao que você implantou, por exemplo, Dados Premium Analisados de Insights Operacionais versus Dados Padrão Analisados de Insights Operacionais, significa que você pode ter implantado serviços que não têm cobertura do plano. Entre em contato com o Suporte do Azure Enterprise Portal em [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport) para obter ajuda.
 
 **Serviços da SKU de plano provisionado no registro incorreto**
 
 Se você tem vários registros e implantou serviços sob o número de registro errado, que não tem um plano do OMS, entre em contato com o suporte do Azure Enterprise Portal em [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para começar a usar o Portal do EA do Azure, confira [Introdução ao Portal do EA do Azure](ea-portal-get-started.md).
 - Os administradores do Portal do EA do Azure devem ler [Administração do Portal do EA do Azure](ea-portal-administration.md) para aprender sobre tarefas administrativas comuns.

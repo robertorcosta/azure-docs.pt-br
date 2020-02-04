@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 09/30/2019
 ms.author: banders
 ms.openlocfilehash: f3d0c123fcbd16f3a4125ad74f0502863b6ce6d1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995254"
 ---
 # <a name="azure-software-plan-discount"></a>Desconto do plano de software do Azure
@@ -77,7 +77,7 @@ Nome do marketplace do portal do Azure:
 |SLES para HPC 3-4 vCPUs|e531e1c0-09c9-4d83-b7d0-a2c6741faa22|2|D4s_v3|
 |SLES para HPC 5+ vCPUs|4edcd5a5-8510-49a8-a9fc-c9721f501913|2.6|D8s_v3|
 
-### <a name="suse-linux-enterprise-server-for-hpc-standard"></a>SUSE Linux Enterprise Server para HPC Standard
+### <a name="suse-linux-enterprise-server-for-hpc-standard"></a>SUSE Linux Enterprise Server for HPC Standard
 
 Nome do marketplace do portal do Azure:
 
@@ -89,7 +89,7 @@ Nome do marketplace do portal do Azure:
 |SLES para HPC 3-4 vCPUs|4ed70d2d-e2bb-4dcd-b6fa-42da71861a1c|1.92308|D4s_v3|
 |SLES para HPC 5+ vCPUs |907a85de-024f-4dd6-969c-347d47a1bdff|2.92308|D8s_v3|
 
-### <a name="suse-linux-enterprise-server-for-sap-priority"></a>SUSE Linux Enterprise Server para SAP Priority
+### <a name="suse-linux-enterprise-server-for-sap-priority"></a>SUSE Linux Enterprise Server for SAP Priority
 
 Nomes do marketplace no portal do Azure:
 
@@ -99,7 +99,7 @@ Nomes do marketplace no portal do Azure:
 
 |VM SUSE | MeterId | Proporção|Tamanho de VM de exemplo|
 | ------- |------------------------| --- | --- |
-|SLES para SAP Priority 1 ou 2 vCPUs|497fe0b6-fa3c-4e3d-a66b-836097244142|1|D2s_v3|
+|SLES para SAP Priority 1 ou 2 vCPUs|497fe0b6-Fa3c-4e3d-a66b-836097244142|1|D2s_v3|
 |SLES para SAP prioridade 3 e 4 vCPUs |847887de-68ce-4adc-8a33-7a3f4133312f|2|D4s_v3|
 |SLES para SAP de prioridade 5 + vCPUs |18ae79cd-dfce-48c9-897b-ebd3053c6058|2.41176|D8s_v3|
 
@@ -119,7 +119,7 @@ Nomes do marketplace no portal do Azure:
 |SLES 6 vCPUs |e8862232-6131-4dbe-bde4-e2ae383afc6f|3||
 |SLES 8 vCPUs |e11331a8-fd32-4e71-b60e-4de2a818c67a|3.2|D8s_v3|
 |SLES 12 vCPUs de núcleo |a5afd00d-d3ef-4bcd-8b42-f158b2799782|3.2||
-|SLES 16 vCPUs |bb21066f-fe46-46d3-8006-b326b1663e52|3.2| D16s_v3|
+|SLES 16 vCPUs |bb21066f-fe46-46D3-8006-b326b1663e52|3.2| D16s_v3|
 |SLES 20 vCPUs |c5228804-1de6-4bd4-a61c-501d9003acc8|3.2| |
 |SLES 24 núcleos vCPUs |-005 d-4075 ac11 822ccde9e8f6|3.2| ND24s|
 |SLES 32 vCPUs |180c1a0a-b0a5-4de3-a032-f92925a4bf90|3.2| D32s_v3|
@@ -143,11 +143,11 @@ Nomes do marketplace no portal do Azure:
 |SLES 3 a 4 núcleos vCPUs |0c3ebb4c-db7d-4125-b45a-0534764d4bda|1.92308|D4s_v3|
 |SLES 5 + vCPUs |7b349b65-d906-42e5-833f-b2af38513468|2.30769| D8s_v3|
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Contate-nos
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
 
 Caso tenha dúvidas ou precise de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre as reservas, consulte os seguintes artigos:
 

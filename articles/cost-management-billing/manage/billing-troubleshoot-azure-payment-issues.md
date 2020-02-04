@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/12/2019
 ms.author: jaserano
 ms.openlocfilehash: 986af72ed2ac10a285cfe32768d8541b7fce2428
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75989989"
 ---
 # <a name="troubleshoot-azure-payment-issues"></a>Solucionar problemas de pagamento do Azure
@@ -50,7 +50,7 @@ Para solucionar esse problema, confira o [Erro de entrada Nenhuma assinatura enc
 
 ## <a name="unable-to-make-payment-for-a-subscription"></a>Não é possível fazer o pagamento de uma assinatura
 
-Se você receber a mensagem de erro: o *pagamento está atrasado. Há um problema com seu método de pagamento* ou *lamentamos, as informações não podem ser salvas. Feche o navegador e tente novamente.* em seguida, há um pagamento pendente no cartão, pois o cartão foi negado por sua instituição financeira.
+Se você recebe a mensagem de erro: *O pagamento está atrasado. Há um problema com sua forma de pagamento* ou *Desculpe, não foi possível salvar as informações. Feche o navegador e tente novamente.* , então deve haver um pagamento pendente no cartão, pois ele foi negado pela instituição financeira.
 
 Verifique se o cartão de crédito tem saldo suficiente para efetuar o pagamento. Se não tiver, use outro cartão para efetuar o pagamento ou entre em contato com sua instituição financeira para resolver o problema.
 
@@ -95,6 +95,6 @@ Outros artigos de solução de problemas para a Cobrança e as Assinaturas do Az
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Documentação de cobrança do Azure](../../billing/index.md)

@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 02/28/2019
 ms.author: amberb
 ms.openlocfilehash: 0cdcc26ca0ae64455f8a27b13c2e4bc87e0ecb68
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "74222672"
 ---
 Verifique o tipo de contrato para determinar se você tem acesso a uma conta de cobrança para um Contrato de Parceiro da Microsoft.
  
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
  
 2. Pesquise **Gerenciamento de Custos do Azure + Cobrança**.
  

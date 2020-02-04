@@ -1,5 +1,5 @@
 ---
-title: Economize em SQL Data Warehouse encargos com a capacidade reservada do Azure
+title: Economizar em encargos do SQL Data Warehouse com a capacidade reservada do Azure
 description: Saiba como economizar custos com o preço do SQL Data Warehouse com a capacidade reservada para economizar dinheiro.
 services: billing
 author: yashesvi
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
 ms.openlocfilehash: b4069c9b18f9591e79d983a1317f00df11cf0611
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995839"
 ---
 # <a name="save-costs-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Economizar custos com o preço do SQL Data Warehouse com a capacidade reservada
@@ -45,7 +45,7 @@ Por exemplo, suponha que o consumo total do SQL Data Warehouse seja de DW3000c. 
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Selecione **Todos os serviços** > **Reservas**.
-3. Selecione uma assinatura. Use a lista Assinatura para escolher a assinatura usada para pagar a capacidade reservada. A forma de pagamento da assinatura é cobrada nos custos da capacidade reservada. O tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou pago conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P).
+3. Selecione uma assinatura. Use a lista Assinatura para escolher a assinatura usada para pagar a capacidade reservada. A forma de pagamento da assinatura é cobrada nos custos da capacidade reservada. O tipo de assinatura deve ser um contrato empresarial (números da oferta: MS-AZR-0017P ou MS-AZR-0148P) ou Pagamento Conforme o Uso (números da oferta: MS-AZR-0003P ou MS-AZR-0023P).
    - Para uma assinatura de empresa, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como média.
    - Para a assinatura de Pagamento Conforme o Uso, as cobranças são feitas ao cartão de crédito ou à forma de pagamento de faturas na assinatura.
 4. Selecione um escopo. Use a lista Escopo para escolher um escopo da assinatura.
@@ -67,11 +67,11 @@ Por exemplo, suponha que o consumo total do SQL Data Warehouse seja de DW3000c. 
 
 Um desconto de reserva é aplicado automaticamente ao número de instâncias do SQL Data Warehouse que correspondem à região e ao escopo da capacidade reservada do SQL Data Warehouse. Você pode atualizar o escopo da capacidade reservada do SQL Data Warehouse por meio do [Portal do Azure](https://portal.azure.com/), PowerShell, CLI ou por meio da API.
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Contate-nos
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre como os descontos de reserva se aplicam ao SQL Data Warehouse do Azure, confira [Como os descontos de reserva se aplicam ao Azure SQL Data Warehouse do Azure](prepay-sql-data-warehouse-charges.md).
 

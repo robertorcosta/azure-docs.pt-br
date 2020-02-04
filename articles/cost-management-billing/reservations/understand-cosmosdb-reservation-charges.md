@@ -10,10 +10,10 @@ ms.date: 09/30/2019
 ms.author: banders
 ms.reviewer: sngun
 ms.openlocfilehash: cb20c88577bba614c70fdf5a266d482d06aeca57
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995553"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Entenda como o desconto de reserva é aplicado ao Azure Cosmos DB
@@ -50,11 +50,11 @@ O desconto de reserva é aplicado aos custos de taxa de transferência do Azure 
 |Norte do Reino Unido 100 RU/s/hora - do BD Cosmos do Azure |   Norte do Reino Unido    |     1    |
 |Azure Cosmos DB – 100 RU/s/hora - UK Sul 2|   Sul do Reino Unido 2      |     1    |
 |Azure Cosmos DB – 100 RU/s/hora – Leste dos EUA 2|  Leste dos EUA 2     |     1    |
-|Azure Cosmos DB – 100 RU/s/hora – Centro-Norte dos EUA|   E.U.A. Centro-Norte      |     1    |
+|Azure Cosmos DB – 100 RU/s/hora – Centro-Norte dos EUA|   Centro-Norte dos EUA      |     1    |
 |Azure Cosmos DB – 100 RU/s/hora - Oeste dos EUA|   Oeste dos EUA      |     1    |
 |Azure Cosmos DB – 100 RU/s/hora – EUA Central| EUA Central        |     1    |
 |Azure Cosmos DB – 100 RU/s/hora - Oeste dos EUA 2|   Oeste dos EUA 2      |      1   |
-|Azure Cosmos DB – 100 RU/s/hora - Oeste dos EUA|   Centro-oeste dos EUA      |       1  |
+|Azure Cosmos DB – 100 RU/s/hora - Oeste dos EUA|   Centro-Oeste dos EUA      |       1  |
 |Azure Cosmos DB – 100 RU/s/hora – Leste dos EUA|   Leste dos EUA      |  1       |
 |Norte do Azure Cosmos DB – 100 RU/s/hora - SA|     Norte do SA    |   1      |
 |Azure Cosmos DB – 100 RU/s/hora - SA Oeste |    Oeste do SA      |    1     |
@@ -65,7 +65,7 @@ O desconto de reserva é aplicado aos custos de taxa de transferência do Azure 
 |Azure Cosmos DB – 100 RU/s/hora – Oeste da Índia|     Oeste da Índia    |    1.1375     |
 |Azure Cosmos DB – 100 RU/s/hora – Índia Central|    Índia Central     |  1.1375       |
 |Azure Cosmos DB – 100 RU/s/hora - AU Leste|     Leste da Austrália    |   1,15       |
-|Azure Cosmos DB - 100 RU/s/Hour - CA Central|  Canadá Central       |   1.2       |
+|Azure Cosmos DB - 100 RU/s/Hour - CA Central|  CA Central       |   1.2       |
 |Azure Cosmos DB – 100 RU/s/hora - França Central|   França Central      |    1,25      |
 |Azure Cosmos DB – 100 RU/s/hora – Sul do Brasil|  Sul do Brasil       |   1.5      |
 |Azure Cosmos DB – 100 RU/s/hora – Austrália Central|   Austrália Central      |   1.5      |
@@ -89,7 +89,7 @@ O desconto coberto por uma reserva é calculado como: consumo de taxa de transfe
 
 |Descrição de medidor | Região |Consumo de taxa de transferência (RU/s) |Desconto de reserva aplicado a RU/s |
 |---------|---------|---------|---------|
-|Azure Cosmos DB – 100 RU/s/hora – Centro-Norte dos EUA  |   E.U.A. Centro-Norte  | 50.000  | 50.000  |
+|Azure Cosmos DB – 100 RU/s/hora – Centro-Norte dos EUA  |   Centro-Norte dos EUA  | 50.000  | 50.000  |
 |Azure Cosmos DB – 100 RU/s/hora - Oeste dos EUA  |  Oeste dos EUA   |  50.000  |  50.000 |
 
 **Cenário 2**
@@ -101,19 +101,19 @@ Por exemplo, suponha que você precise de implantações do Azure Cosmos DB nas 
 |Azure Cosmos DB – 100 RU/s/hora – Austrália Central 2  |  Austrália Central 2   |  50.000  |  50.000   |
 |Sul da França de - 100 RU/s/hora – Azure Cosmos DB  |  Sul da França   |  50.000 |  15,384  |
 
-Um uso de 50.000 unidades na região "Austrália Central 2" corresponde a 75.000 RU/s de uso faturável (ou uso normalizado). Esse valor é computado como: consumo de taxa de transferência * taxa_de_desconto_de_reserva_da_região. O cálculo é igual a 75.000 RU/s de uso faturável ou normalizado. Esse valor é computado como: 50.000 * 1,5 + 75.000 RU/s.
+Um uso de 50.000 unidades na região "Austrália Central 2" corresponde a 75.000 RU/s de uso faturável (ou uso normalizado). Esse valor é computado como: consumo de taxa de transferência * taxa_de_desconto_de_reserva_da_região. O cálculo é igual a 75.000 RU/s de uso faturável ou normalizado. Esse valor é computado como: 50.000 * 1,5 = 75.000 RU/s.
 
-A compra de reserva de 100.000 RU/s compensaria 75.000 RU/s da Austrália Central 2. Isso deixa 25.000 RU/s para a região do Sul da França. Das restantes 25.000 RU/s restantes, um desconto de reserva de 15.384 RU/s é aplicado à região do Sul da França. O valor de desconto é computado como: 25.000 / 1,625 = 15.384 RU/s. As restantes 34.616 RU/s na região "Sul da França" são cobradas às taxas normais de pagamento conforme o uso.
+A compra de reserva de 100.000 RU/s compensaria 75.000 RU/s da Austrália Central 2. Isso deixa 25.000 RU/s para a região do Sul da França. Das restantes 25.000 RU/s restantes, um desconto de reserva de 15.384 RU/s é aplicado à região do Sul da França. O valor de desconto é computado como: 25.000/1.625 = 15.384 RU/s. As restantes 34.616 RU/s na região "Sul da França" são cobradas às taxas normais de pagamento conforme o uso.
 
 O sistema de faturamento do Azure atribuirá o benefício de faturamento de reserva à primeira instância processada que corresponda à configuração de reserva. Por exemplo, é Austrália Central 2 neste caso.
 
 Para entender e visualizar o aplicativo de suas reservas do Azure nos relatórios de uso de faturamento, consulte [Entender o uso de reserva do Azure](understand-reserved-instance-usage-ea.md).
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre as reservas do Azure, consulte os seguintes artigos:
 

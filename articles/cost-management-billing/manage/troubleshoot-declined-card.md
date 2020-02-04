@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 08/12/2019
 ms.author: banders
 ms.openlocfilehash: 432a6f22f3c1b0c323b689103cd16cbea344cab1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75989261"
 ---
 # <a name="troubleshoot-a-declined-card-at-azure-sign-up"></a>Solucionar problemas de cartão recusado no momento da inscrição do Azure
@@ -73,6 +73,6 @@ Outros artigos de solução de problemas para a Cobrança e as Assinaturas do Az
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Documentação de cobrança do Azure](../../billing/index.md)

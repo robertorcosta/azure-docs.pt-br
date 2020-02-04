@@ -8,12 +8,12 @@ ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: effc7dfb8ca540d044b5698b90b3195da0f29b19
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
-ms.translationtype: MT
+ms.openlocfilehash: dfb46a40291a74cb8a2c172700f621ef835ef50e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547567"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76769661"
 ---
 # <a name="azure-ea-portal-administration"></a>Administração do Portal do EA do Azure
 
@@ -21,7 +21,7 @@ Este artigo explica as tarefas comuns que um administrador realiza no Portal do 
 
 ## <a name="add-a-new-enterprise-administrator"></a>Adicionar um novo administrador corporativo
 
-Os administradores corporativos têm mais privilégios ao gerenciar um registro de EA do Azure. O administrador inicial do EA do Azure foi criado quando o contrato de EA foi configurado. No entanto, você pode adicionar ou remover novos administradores a qualquer momento. Novos administradores são adicionados somente por administradores existentes. Para obter mais informações sobre como adicionar outros administradores corporativos, consulte [criar outro administrador corporativo](ea-portal-get-started.md#create-another-enterprise-admin). Para obter mais informações sobre funções e tarefas de perfil de cobrança, consulte [funções e tarefas de perfil de cobrança](understand-mca-roles.md#billing-profile-roles-and-tasks).
+Os administradores corporativos têm mais privilégios ao gerenciar um registro de EA do Azure. O administrador inicial do EA do Azure foi criado quando o contrato de EA foi configurado. No entanto, você pode adicionar ou remover novos administradores a qualquer momento. Novos administradores são adicionados somente por administradores existentes. Para obter mais informações sobre como adicionar outros admins corporativos, confira [Criar outro admin corporativo](ea-portal-get-started.md#create-another-enterprise-administrator). Para saber mais sobre funções e tarefas do perfil de cobrança, confira [Funções e tarefas do perfil de cobrança](understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## <a name="update-user-state-from-pending-to-active"></a>Atualizar estado do usuário de pendente para ativo
 
@@ -31,7 +31,7 @@ Quando novos AOs (proprietários de conta) são adicionados a um registro de EA 
 
 Depois que um administrador de EA cria um departamento, o administrador corporativo do Azure pode adicionar administradores de departamento e associar cada um deles a um departamento. Um administrador de departamento pode criar novas contas. Novas contas são necessárias para que as assinaturas de EA do Azure sejam criadas.
 
-Para obter mais informações sobre como adicionar um administrador de departamento, confira [Criar um administrador de departamento do Azure EA](ea-portal-get-started.md#add-a-department-admin).
+Para obter mais informações sobre como adicionar um administrador de departamento, confira [Criar um administrador de departamento do Azure EA](ea-portal-get-started.md#add-a-department-administrator).
 
 ## <a name="associate-an-account-to-a-department"></a>Associar uma conta a um departamento
 
@@ -63,7 +63,7 @@ O administrador do departamento pode exibir a cota de gastos, mas somente o admi
     - As propriedades Nome do Departamento e Centro de Custo também podem ser editadas nesse momento.
  1. Pressione **Salvar**.
 
-A cota de gastos do departamento agora estará visível na exibição de lista de departamentos na guia departamento. No final do compromisso atual, o portal de EA do Azure manterá as cotas de gastos para o próximo termo de compromisso.
+A cota de gastos do departamento agora estará visível no modo de exibição Lista de Departamentos na guia Departamento. No final do compromisso atual, o Portal do EA do Azure manterá as cotas de gastos para o próximo termo de compromisso.
 
 O valor da cota de departamento é independente do compromisso monetário atual e o valor e os alertas da cota se aplicam somente ao uso da primeira parte. A cota de gastos do departamento serve meramente para fins informativos e não impõe limites de gastos.
 
@@ -124,7 +124,7 @@ Tenha os pontos a seguir em mente ao transferir uma conta empresarial para um no
 - Somente as contas especificadas na solicitação são transferidas. Se todas as contas forem escolhidas, elas serão todas transferidas.
 - O registro de origem retém o próprio status como ativo ou estendido. Você poderá continuar usando o registro até que ele expire.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 Ao solicitar uma transferência de conta, forneça as seguintes informações:
 
@@ -164,7 +164,7 @@ A data de efetivação da transferência pode ser a data de início do registro 
 
 O uso do registro de origem é cobrado em relação ao compromisso monetário ou como excedente. O uso que ocorre após a data de início de vigência da transferência é transferido para o novo registro e cobrado de acordo.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 Ao solicitar uma transferência de registro, forneça as seguintes informações:
 
@@ -365,7 +365,7 @@ Antes de criar uma assinatura de oferta do Azure Enterprise (EA), sua conta deve
 
 Para criar uma assinatura do tipo de oferta do Azure Enterprise, você deve estar qualificado na função de proprietário da conta no [portal do EA](https://ea.azure.com).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Leia sobre como as [reservas de máquina virtual](ea-portal-vm-reservations.md) podem ajudá-lo a economizar dinheiro.
 - Se você precisar de ajuda para solucionar problemas do Portal do EA do Azure, confira [Solucionar problemas de acesso ao Portal do EA do Azure](ea-portal-troubleshoot.md).

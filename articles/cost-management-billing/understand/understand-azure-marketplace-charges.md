@@ -13,10 +13,10 @@ ms.date: 10/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f94b79e03cf97275ec4dacf17e097e1678e81d10
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75989417"
 ---
 # <a name="understand-your-azure-external-services-charges"></a>Entender os encargos de serviços externos do Azure
@@ -57,7 +57,7 @@ Caso não tenha um MCA ou um MPA, você terá faturas separadas para encargos de
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Pesquise **Gerenciamento de Custos + Cobrança**.
 1. No menu esquerdo, selecione **Faturas**.
-1. Clique na guia **Azure Marketplace e reservas** .  ![imagem da guia Azure Marketplace e reservas](./media/understand-azure-marketplace-charges/invoice-tabs.png)
+1. Clique na guia **Azure Marketplace e Reservas**.  ![Imagem da guia Azure Marketplace e Reservas](./media/understand-azure-marketplace-charges/invoice-tabs.png)
 1. Na lista suspensa de assinaturas, selecione a assinatura que contém os serviços externos para os quais deseja ver as faturas.
 
 ## <a name="external-spending-for-ea-customers"></a>Gastos externos para clientes do EA
@@ -111,9 +111,9 @@ Se você deseja cancelar seu pedido de serviço externo, exclua o recurso no [po
 ## <a name="check-billing-account-type"></a>Verificar o tipo de conta de cobrança
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Caso tenha dúvidas ou precise de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - [Começar a analisar os custos](../costs/quick-acm-cost-analysis.md)

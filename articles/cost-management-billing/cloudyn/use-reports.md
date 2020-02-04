@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: benshy
+ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 139ad67035a96fb67bd96c4abb14ce9e1f26bf4f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: 6f974ae35dbf23a134b775fe0d4f8cf5195a75af
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75989053"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76773926"
 ---
 # <a name="reports-available-in-the-cloudyn-portal"></a>Relatórios disponíveis no portal Cloudyn
 
@@ -198,7 +198,7 @@ Para criar uma cobrança personalizada:
 7. Em **Datas**, se uma taxa única é selecionada, em **Data de Efetivação**, insira a data em que o encargo é pago. Se Taxa Recorrente estiver selecionada, insira o intervalo de datas, incluindo a data de início e a data de término para o encargo.
 8. Em **Árvore de Entidades**, selecione as entidades em que você deseja aplicar o encargo e selecione **Ativado**.
 
-_Quando as cobranças são atribuídas a uma entidade, os usuários não podem alterá-las. Os encargos que são adicionados por um administrador a uma entidade pai são somente leitura._
+_Quando os encargos são atribuídos a uma entidade, os usuários não podem alterá-los. Os encargos que são adicionados por um administrador a uma entidade pai são somente leitura._
 
 Para exibir encargos personalizados:
 
@@ -208,11 +208,11 @@ Os encargos personalizados são mostrados em relatórios de custo. Por exemplo, 
 
 Você pode usar Alocação de custos 360 para criar modelos personalizados de alocação de custos para atribuir os custos a recursos de nuvem consumidos. Muitos relatórios mostram informações de modelos personalizados de custo que você criou com modelos personalizados de custo. E alguns relatórios mostram apenas as informações depois de você ter criado um modelo personalizado de custos com alocação de custos.
 
-Para obter mais informações sobre a criação de modelos de custo personalizados, consulte [Tutorial: gerenciar custos usando o Cloudyn](tutorial-manage-costs.md).
+Para obter mais informações sobre a criação de modelos de custo personalizados, consulte [Tutorial: Gerenciar custos usando Cloudyn](tutorial-manage-costs.md).
 
-### <a name="cost-vs-budget-over-time-report"></a>Relatório custo versus orçamento ao longo do tempo
+### <a name="cost-vs-budget-over-time-report"></a>Relatório de Custos versus  Orçamento ao Longo do Tempo
 
-O relatório custo versus orçamento ao longo do tempo permite que você compare os principais colaboradores de custo com relação ao seu orçamento. O orçamento atribuído aparece no relatório para que você possa exibir o consumo do orçamento (sobre/sob/igual) ao longo do tempo. Usando Exibir/Ocultar Campos na parte superior do relatório, você pode selecionar para visualizar o custo, orçamento, custo acumulado e orçamento total.
+O Relatório de Custos versus Orçamento ao Longo do Tempo permite que você compare as principais causas de custo em relação ao seu orçamento. O orçamento atribuído aparece no relatório para que você possa exibir o consumo do orçamento (sobre/sob/igual) ao longo do tempo. Usando Exibir/Ocultar Campos na parte superior do relatório, você pode selecionar para visualizar o custo, orçamento, custo acumulado e orçamento total.
 
 ### <a name="current-month-projected-cost-report"></a>Relatório de custo projetado do mês atual
 
@@ -246,7 +246,7 @@ Para importar um arquivo para o orçamento anual:
 
 Para exportar o orçamento concluído como arquivo CSV em **Ações**, selecione **Exportar** para realizar o download do arquivo.
 
-Quando concluído, o orçamento é mostrado nos relatórios de análise de custo e no relatório custo versus orçamento ao longo do tempo. Você também pode programar relatórios com base nos limites de orçamento.
+Ao concluir, seu orçamento será exibido nos relatórios de análise de custo e no relatório de orçamento versus o relatório de Custo ao Longo do Tempo Você também pode programar relatórios com base nos limites de orçamento.
 
 ### <a name="azure-resource-explorer-report"></a>Relatório do Azure Resource Explorer
 
@@ -448,7 +448,7 @@ A seção **Utilização da CPU** fornece a utilização da CPU para a instânci
 
 Clique no gráfico para fazer uma análise e abrir o relatório de instância da CPU ao longo tempo para ver um detalhamento das instâncias.
 
-- Use **Mostrar/Ocultar Campos** para adicionar ou remover campos: Carimbo de Data e Hora, Média de CPU, Mínimo de CPU, Máximo de CPU.
+- Use **Mostrar/ocultar campos** para adicionar ou remover campos: Carimbo de data/hora, Méd. de CPU, Mín. de CPU, Máx. de CPU.
 - Use **Intervalo de Datas** para inserir uma data ou intervalo de datas e detalhar uma InstanceID específica.
 - Use **Filtros Estendidos** para mostrar todos ou uma ID de instância específica
 - Clique em **Ampliar** para abrir o relatório de utilização de CPU
@@ -514,7 +514,7 @@ Use o relatório de tipos de instância para:
 
 Você pode usar **Pesquisar** para localizar itens de linha específicos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Aprenda a usar relatórios, incluindo como personalizar ou salvar e agendar relatórios, consulte [Noções básicas sobre relatórios de custo](understanding-cost-reports.md).
 - Saiba mais sobre os painéis incluídos no Cloudyn e sobre como criar seus próprios painéis personalizados. Consulte [Exibir as principais métricas de custo com painéis](dashboards.md).

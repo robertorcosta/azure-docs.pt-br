@@ -1,5 +1,5 @@
 ---
-title: Funções de cobrança para contratos de clientes da Microsoft – Azure
+title: Funções de cobrança para Contrato de Cliente da Microsoft – Azure
 description: Saiba mais sobre as funções de cobrança para contas de cobrança no Azure para Contratos de Cliente da Microsoft.
 author: amberbhargava
 manager: amberbhargava
@@ -11,10 +11,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: eaec828abe83164d18796cfb2e795a363353fab4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75987935"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Entender as funções administrativas do Contrato de Cliente da Microsoft no Azure
@@ -27,7 +27,7 @@ Este artigo aplica-se a uma conta de cobrança para um Contrato de Cliente da Mi
 
 A tabela a seguir descreve as funções de cobrança usadas para gerenciar sua conta de cobrança, os perfis de cobrança e as seções da fatura.
 
-|Função|Description|
+|Função|Descrição|
 |---|---|
 |Proprietário da conta de cobrança|Gerencia tudo para a conta de cobrança|
 |Colaborador da conta de cobrança|Gerencia tudo, exceto as permissões na conta de cobrança|
@@ -203,10 +203,10 @@ A tabela a seguir mostra a função que você precisa para concluir tarefas no c
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso ao Contrato de Cliente da Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Entrar em contato com o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 Se precisar de ajuda, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Confira os seguintes artigos para saber mais sobre a sua conta de cobrança:
 

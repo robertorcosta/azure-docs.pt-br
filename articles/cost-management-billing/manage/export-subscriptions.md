@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
 ms.openlocfilehash: 553cc7fd27571ebc925e33f824060c023664a369
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75991770"
 ---
 # <a name="export-and-view-your-top-level-subscription-information"></a>Exportar e exibir as informações da assinatura de nível superior
@@ -28,9 +28,9 @@ Caso seja necessário exibir o conjunto de IDs da assinatura associadas às cred
 [!INCLUDE [gdpr-dsr-and-stp-note](../../../includes/gdpr-dsr-and-stp-note.md)]
 
 O arquivo .json baixado fornece as informações a seguir:
-- Email: o endereço de email associado à conta.
+- Email: o endereço de email associado à sua conta.
 - Puid: o identificador exclusivo associado à conta de cobrança.
-- SubscriptionIds: uma lista de assinaturas que pertencem à conta, enumeradas pela ID da assinatura.
+- SubscriptionIds: uma lista das assinaturas que pertencem à conta, enumeradas pela ID da assinatura.
 
 ### <a name="subscriptionsjson-sample"></a>exemplo de subscriptions.json
 

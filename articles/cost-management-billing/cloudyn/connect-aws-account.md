@@ -1,21 +1,20 @@
 ---
 title: Conectar uma conta do Amazon Web Services para o Cloudyn no Azure | Microsoft Docs
 description: Conectar uma conta do Amazon Web Services para exibição dos dados de uso e custo em relatórios do Cloudyn.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/21/2019
+ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: benshy
+ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: b64d54df43b27abb51210995f2426e23690fa2d3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: dcb4c30fe485559834791fa567856bc78cff067e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75994877"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76770323"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Conectar uma conta do Amazon Web Services
 
@@ -45,11 +44,11 @@ A primeira etapa é obter a frase secreta de conexão exclusiva do portal do Clo
 1. Conecte-se ao console do AWS em https://console.aws.amazon.com/iam/home e selecione **Funções**.
 2. Clique em **Criar Função** e, em seguida, selecione **Outra Conta do AWS**.
 3. Na caixa **ID da conta**, cole `432263259397`. Essa ID da Conta é a conta do coletor de dados do Cloudyn atribuída pelo AWS ao serviço Cloudyn. Use a ID da conta exata mostrada.
-4. Ao lado de **Opções**, selecione **Exigir ID externa**. Cole o valor exclusivo que copiou anteriormente do campo **ID Externa** no Cloudyn. Em seguida, clique em **Avançar: Permissões**.  
+4. Ao lado de **Opções**, selecione **Exigir ID externa**. Cole o valor exclusivo que copiou anteriormente do campo **ID Externa** no Cloudyn. Em seguida, clique em **Próximo: Permissões.**  
     ![Cole a ID externa do Cloudyn na página Criar função](./media/connect-aws-account/create-role01.png)
-5. Em **Anexar políticas de permissões**, na pesquisa de caixa de filtros **Tipo de política** digite `ReadOnlyAccess`, selecione **ReadOnlyAccess** e, em seguida, clique em **Next: Review**.  
+5. Em **Anexar políticas de permissões**, na pesquisa de caixa de filtros **Tipo de política** digite `ReadOnlyAccess`, selecione **ReadOnlyAccess** e, em seguida, clique em **Próximo: Revisão**.  
     ![Selecione o acesso somente leitura na lista de nomes de política](./media/connect-aws-account/readonlyaccess.png)
-6. Na página de Revisão, assegure-se de que suas seleções estão corretas e digite um **Nome da função**. Por exemplo, *Azure-custo-gerenciamento*. Insira uma **Descrição de função**. Por exemplo, _Atribuição de função do Cloudyn_ e, em seguida, clique em **Criar função**.
+6. Na página de Revisão, assegure-se de que suas seleções estão corretas e digite um **Nome da função**. Por exemplo, *Azure-Cost-Mgt*. Insira uma **Descrição da função**. Por exemplo, _Atribuição de função do Cloudyn_ e, em seguida, clique em **Criar função**.
 7. Na lista **Funções**, clique na função criada e copie o valor da **ARN da Função** na página Resumo. Use o valor de ARN (Amazon Resource Name) da Função posteriormente ao registrar sua configuração no Cloudyn.  
     ![Copie a função ARN da página de Resumo](./media/connect-aws-account/role-arn.png)
 
@@ -80,10 +79,10 @@ As seções a seguir detalham como criar um usuário somente leitura para propor
 1. Conecte-se ao console do AWS em https://console.aws.amazon.com/iam/home e selecione **Usuários**.
 2. Clique em **Adicionar Usuário**.
 3. No campo **Nome de usuário**, digite um nome de usuário.
-4. Para **Tipo de Acesso**, selecione **Acesso programático** e clique em **Next: Permissions**.  
+4. Para **Tipo de Acesso**, selecione **Acesso programático** e clique em **Próximo: Permissões**.  
     ![Insira um nome de usuário na página Adicionar usuário](./media/connect-aws-account/add-user01.png)
 5. Para permissões, selecione **Anexar políticas existentes diretamente**.
-6. Em **Anexar políticas de permissões**, na pesquisa de caixa de filtros **Tipo de política** digite `ReadOnlyAccess`, selecione **ReadOnlyAccess** e, em seguida, clique em **Next: Review**.  
+6. Em **Anexar políticas de permissões**, na pesquisa de caixa de filtros **Tipo de política**, digite `ReadOnlyAccess`, selecione **ReadOnlyAccess** e, em seguida, clique em **Próximo: Revisão**.  
     ![Selecione ReadOnlyAccess para definir permissões para o usuário](./media/connect-aws-account/set-permission-for-user.png)
 7. Na página de Revisão, assegure-se de que suas seleções estão corretas e, em seguida, clique em **Criar usuário**.
 8. Página de Conclusão, sua ID de Chave de Acesso e a tecla de acesso Secreta são mostradas. Essas informações são usadas para configurar o registro no Cloudyn.
@@ -191,6 +190,6 @@ O Cloudyn recupera informações detalhadas de cobrança do seu bucket de S3 e p
 
 Alguns dos relatórios de otimização podem exigir alguns dias de dados para obter um tamanho de amostra de dados adequado para recomendações precisas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre o Cloudyn, continue no tutorial [Revisar o uso e os custos](tutorial-review-usage.md) do Cloudyn.

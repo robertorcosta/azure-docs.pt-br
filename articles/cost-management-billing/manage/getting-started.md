@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: a78edc29ef85430dc8af57e60dfcba1f2e46413e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75991471"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evite cobranças inesperadas com o gerenciamento de custo e a cobrança do Azure
@@ -82,7 +82,7 @@ Depois que os serviços do Azure estiverem em execução, verifique os custos re
 
 4. Filtre por várias propriedades, como marcas, tipo de recurso e período de tempo. Clique em **Adicionar filtro** para adicionar o filtro de uma propriedade e selecione os valores a serem filtrados. Selecione **Exportar** para exportar a exibição para um arquivo de valores separados por vírgula (.csv).
 
-5. Além disso, clique nos rótulos do gráfico para ver o histórico de gastos diário para esse rótulo. Por exemplo: na captura de tela abaixo, clicar em máquinas virtuais exibe o custo diário da execução de suas VMs.
+5. Além disso, clique nos rótulos do gráfico para ver o histórico de gastos diário para esse rótulo. Por exemplo: Na captura de tela abaixo, um clique em máquinas virtuais exibe o custo diário da execução das VMs.
 
     ![Captura de tela da exibição do histórico de gastos no portal do Azure](./media/getting-started/costhistory.png)
 
@@ -128,11 +128,11 @@ Use as APIs de [cobrança](https://docs.microsoft.com/rest/api/billing/) e [cons
 ### <a name="ea-csp-and-sponsorship-customers"></a>Clientes do EA, CSP e Sponsorship
 Fale com seu gerente de conta ou parceiro do Azure para começar.
 
-| Oferta | Implante |
+| Oferta | Recursos |
 |-------------------------------|-----------------------------------------------------------------------------------|
-| EA (Contrato Enterprise) | [Portal EA](https://ea.azure.com/), [documentos de ajuda](https://ea.azure.com/helpdocs) e [relatório do Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-enterprise/) |
-| CSP (Provedor de Soluções na Nuvem) | Fale com seu provedor |
-| Patrocínio do Azure | [Portal do Sponsorship](https://www.microsoftazuresponsorships.com/) |
+| EA (Enterprise Agreement) | [Portal EA](https://ea.azure.com/), [documentos de ajuda](https://ea.azure.com/helpdocs) e [relatório do Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-enterprise/) |
+| Programa do CSP (Provedor de Soluções na Nuvem) | Fale com seu provedor |
+| Azure Sponsorship | [Portal do Sponsorship](https://www.microsoftazuresponsorships.com/) |
 
 Se estiver gerenciando TI em uma grande organização, recomendamos a leitura de [Azure enterprise scaffold](/azure/architecture/cloud-adoption-guide/subscription-governance) e [enterprise IT white paper](https://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (baixe o .pdf, somente em inglês).
 
@@ -179,10 +179,10 @@ Para alguns serviços, há pré-requisitos para o SLA aplicar. Por exemplo, as m
 
 Para obter mais informações, confira [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/) e a documentação [Resumo do SLA para serviços do Azure](https://azure.microsoft.com/support/legal/sla/summary/).
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Caso tenha dúvidas ou precise de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre como usar [limites de gastos](spending-limit.md) para impedir o gasto excessivo.
 - Comece [analisando os custos do Azure](../costs/quick-acm-cost-analysis.md).

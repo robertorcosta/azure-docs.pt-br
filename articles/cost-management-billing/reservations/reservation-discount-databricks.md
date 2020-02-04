@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: c148351a4475bfdbee474a5e0951cc3b5717404e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995722"
 ---
 # <a name="how-azure-databricks-pre-purchase-discount-is-applied"></a>Como o desconto de compra prévia do Azure Databricks é aplicado
@@ -29,7 +29,7 @@ A compra prévia do Databricks aplica-se a todas as cargas de trabalho e camadas
 
 | **Carga de trabalho** | **Razão do aplicativo DBU – Camada Standard** | **Razão do aplicativo DBU – Camada Premium** |
 | --- | --- | --- |
-| Análise de dados | 0,4 | 0,55 |
+| Análise de Dados | 0,4 | 0,55 |
 | Engenharia de Dados | 0.15 | 0,30 |
 | Engenharia de Dados Leve | 0,07 | 0,22 |
 
@@ -43,11 +43,11 @@ Para determinar o uso do plano de DBCU, acesse o portal do Azure > **Reservas** 
 
 Quando o desconto de compra prévia é aplicado ao seu uso do Databricks, os encargos sob demanda são exibidos como zero nos dados de uso. Para obter mais informações sobre custos de reserva e uso, confira [Obter uso e custos de reserva do Contrato Enterprise](understand-reserved-instance-usage-ea.md).
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para aprender a gerenciar uma reserva, confira [Gerenciar Reservas do Azure](manage-reserved-vm-instance.md).
 - Para saber mais sobre como comprar previamente o Azure Databricks para economizar dinheiro, confira [Otimizar custos do Azure Databricks com uma compra prévia](prepay-databricks-reserved-capacity.md).

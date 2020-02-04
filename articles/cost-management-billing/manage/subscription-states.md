@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: andalmia
 ms.openlocfilehash: 741e7cf0869e36b5788d0a883a4e982caf041512
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995930"
 ---
 # <a name="azure-subscription-states"></a>Estados de assinatura do Azure
 Este artigo descreve os vários estados que uma assinatura do Azure pode ter. Você os encontrará exibidos como “Status” nas folhas de assinatura.
 
-| Estado da assinatura | Description |
+| Estado da assinatura | Descrição |
 |-------------| ----------------|
 | **Ativo** | Sua assinatura do Azure está ativa. Você pode usar essa assinatura para implantar recursos novos e existentes.|
 | **Vencido** | Sua assinatura do Azure tem um pagamento pendente. Sua assinatura ainda está ativa, mas o não pagamento de dívidas pode resultar na desabilitação da assinatura. [Resolver o saldo vencido de sua assinatura do Azure.](https://docs.microsoft.com/azure/billing/billing-azure-subscription-past-due-balance) |

@@ -1,6 +1,6 @@
 ---
 title: Compreenda sua fatura do Azure | Microsoft Docs
-description: Aprenda a ler e a entender o uso e a cobrança da sua assinatura do Azure
+description: Saiba como ler e entender o uso e a fatura da sua assinatura do Azure
 services: ''
 documentationcenter: ''
 author: bandersmsft
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/02/2019
 ms.author: banders
 ms.openlocfilehash: e6858d51eec1bbcb100f71418337d74d19d6db5b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75994721"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Compreenda os termos na sua fatura do Microsoft Azure
@@ -44,14 +44,14 @@ A seção de dados da conta da fatura é na parte superior da primeira página e
 
 ![Seção de dados da conta da fatura](./media/understand-invoice/account-information-section.png)
 
-| Prazo | Description |
+| Termo | Descrição |
 | --- | --- |
 | OC do cliente No. |Um número de ordem de compra opcional, atribuído por você para acompanhamento |
 | Nº da Fatura |Um número de fatura exclusivo gerado pela Microsoft, usado para fins de acompanhamento |
 | Ciclo de cobrança |Intervalo de datas coberto por esta fatura |
 | Data da fatura |Data em que a fatura foi gerada, normalmente um dia após o fim do ciclo de cobrança |
 | Método de pagamento |Tipo de pagamento usado na conta (fatura ou cartão de crédito) |
-| Endereço de Cobrança |Endereço de cobrança listado para a conta |
+| Enviar cobrança para |Endereço de cobrança listado para a conta |
 | Oferta de assinatura (pré-pago) |Tipo de oferta de assinatura que tiver sido adquirida (Pré-pago, BizSpark Plus, Azure Pass etc.). Para obter mais informações, consulte [Tipos de oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/). |
 | Email do proprietário da conta | O endereço de email da conta no qual a conta do Microsoft Azure está registrada. <br /><br />Para alterar seu endereço de email, confira [Como alterar as informações de perfil de sua conta do Azure, como email de contato, endereço e número de telefone](../manage/change-azure-account-profile.md). |
 
@@ -65,18 +65,18 @@ O nome da assinatura ("Armazenamento de Produção") é o nome da assinatura par
 #### <a name="understand-the-previous-charges"></a>Entender as cobranças anteriores
 A seção saldo anterior, pagamentos e saldo pendente da fatura resume as transações desde o último período de cobrança.
 
-| Prazo | Description |
+| Termo | Descrição |
 | --- | --- |
-| Saldo Anterior |O valor total devido no último período de cobrança |
+| Saldo anterior |O valor total devido no último período de cobrança |
 | Pagamentos |Os pagamentos totais e créditos aplicados ao último período de cobrança |
 | Saldo pendente (do ciclo de cobrança anterior) |Quaisquer créditos ou saldo restante em sua conta desde o último período de cobrança |
 
 #### <a name="understand-the-current-charges"></a>Entender os encargos atuais
 A seção Encargos Atuais da fatura mostra detalhes sobre seus encargos mensais para o último período de cobrança.
 
-| Prazo | Description |
+| Termo | Descrição |
 | --- | --- |
-| Encargos de Uso |Encargos de uso são o total de encargos mensais em uma assinatura para o período de cobrança atual|
+| Encargos de uso |Encargos de uso são o total de encargos mensais em uma assinatura para o período de cobrança atual|
 | Descontos |Descontos de serviço aplicados ao período de cobrança atual|
 | Ajustes |Créditos diversos (Uso Gratuito, Créditos, etc.) ou encargos pendentes aplicados ao período de cobrança atual.<br/><br/>Por exemplo, se você tiver a oferta Visual Studio Enterprise com MSDN, verá um crédito mensal. Se você cancelar sua assinatura, verá quaisquer encargos mensais pelo uso que excedem o crédito mensal obtido com sua oferta de assinatura. Os encargos incorrem no começo de seu período de cobrança atual até a data de cancelamento da assinatura. |
 
@@ -84,7 +84,7 @@ A seção Encargos Atuais da fatura mostra detalhes sobre seus encargos mensais 
 
 A tabela a seguir descreve as instruções de venda e pagamento mostradas na segunda página da fatura.
 
-| Prazo |Description |
+| Termo |Descrição |
 | --- | --- |
 | Vendido para |O endereço de perfil que está na conta. <br/><br/>Se você precisar alterar o endereço, confira [Como alterar as informações de perfil de sua conta do Azure, como email de contato, endereço e número de telefone](../manage/change-azure-account-profile.md).|
 | Instruções de pagamento |Instruções sobre como pagar dependendo da forma de pagamento (por exemplo, por cartão de crédito ou por fatura). |
@@ -97,15 +97,15 @@ A seção Encargos de uso da fatura exibe informações de nível de medidor nos
 
 A tabela a seguir descreve os cabeçalhos de coluna de encargos de uso mostrados na fatura.
 
-| Prazo |Description |
+| Termo |Descrição |
 | --- | --- |
 | Nome |Identifica o serviço de nível superior para o uso |
-| Tipo |Define o tipo de serviço do Azure e pode afetar a tarifa |
-| Grupos |Identifica a unidade de medida para o medidor sendo consumido |
+| Type |Define o tipo de serviço do Azure e pode afetar a tarifa |
+| Recurso |Identifica a unidade de medida para o medidor sendo consumido |
 | Região |Identifica o local do datacenter para determinados serviços que são cobrados com base no local do datacenter |
 | Consumido |O valor do medidor usado durante o período de cobrança |
 | Incluso |O valor do medidor que está incluído gratuitamente em seu período de cobrança atual |
-| Cobrável |Mostra a diferença entre a Quantidade Consumida e a Quantidade Incluída. A cobrança é feita com base nessa quantidade. Para ofertas pré-pagas sem quantidade incluída na oferta, esse total será igual à Quantidade Consumida |
+| Faturável |Mostra a diferença entre a Quantidade Consumida e a Quantidade Incluída. A cobrança é feita com base nessa quantidade. Para ofertas pré-pagas sem quantidade incluída na oferta, esse total será igual à Quantidade Consumida |
 | Tarifa |A tarifa cobrada por unidade faturável |
 | Valor |Mostra o resultado da multiplicação da coluna Quantidade Excedente pela coluna Tarifa. Se a Quantidade Consumida não exceder a Quantidade Incluída, nenhum encargo será exibido nessa coluna. |
 | Subtotal |A soma de todos os seus encargos antes do imposto para esse período de cobrança |
@@ -114,6 +114,6 @@ A tabela a seguir descreve os cabeçalhos de coluna de encargos de uso mostrados
 ## <a name="how-do-i-make-sure-that-the-charges-in-my-invoice-are-correct"></a>Como fazer para ter certeza de que os encargos na minha fatura estão corretos?
 Se há um encargo na fatura sobre o qual você deseja obter mais detalhes, consulte [Entenda sua fatura do Microsoft Azure.](review-individual-bill.md)
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Caso tenha dúvidas ou precise de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

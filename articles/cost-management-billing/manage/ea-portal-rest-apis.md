@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
 ms.openlocfilehash: 8680a575872053f4b575db70ec649b6c1669b961
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992134"
 ---
 # <a name="azure-enterprise-rest-apis"></a>APIs REST do Azure Enterprise
@@ -81,10 +81,10 @@ Um ponto de extremidade do Swagger está disponível em [APIs do Enterprise Repo
 
 Ao usar uma API, códigos de status de resposta são mostrados. Eles são descritos na tabela a seguir.
 
-| Código de status de resposta | Mensagem | Description |
+| Código de status de resposta | Mensagem | Descrição |
 | --- | --- | --- |
 | 200 | OK | Nenhum erro |
-| 401 | Não autorizado | Chave de API não encontrada, inválida, expirada, etc. |
+| 401 | Não Autorizado | Chave de API não encontrada, inválida, expirada, etc. |
 | 404 | Indisponível | Ponto de extremidade de relatório não encontrado |
 | 400 | Solicitação incorreta | Parâmetros inválidos – intervalos de datas, números de EA, etc. |
 | 500 | Erro de servidor | Erro inesperado ao processar a solicitação |
@@ -122,15 +122,15 @@ O formato JSON é gerado do relatório CSV. Como resultado, o formato é o mesmo
 | SubscriptionGuid | MOCPSubscriptionGuid | SubscriptionGuid |   |
 | Nome da assinatura | SubscriptionName | SubscriptionName |   |
 | Data | Data | Data | Mostra a data em que o relatório do catálogo de serviços foi executado. O formato é uma cadeia de caracteres de datas sem um carimbo de data/hora. |
-| Mês | Mês | Mês |   |
+| Month | Month | Month |   |
 | Dia | Dia | Dia |   |
 | Ano | Ano | Ano |   |
 | Produto | BillableItemName | Produto |   |
 | ID de medidor | ResourceGUID | MeterId |   |
-| Categoria do Medidor | Serviço | MeterCategory | É útil para ajudar a localizar serviços. Relevante para serviços que têm vários ServiceType. Por exemplo, máquinas virtuais. |
-| Subcategoria do Medidor | ServiceType | MeterSubCategory | Fornece um segundo nível de detalhes para um serviço. Por exemplo, VM A1 (não Windows).  |
+| Categoria de medidor | Serviço | MeterCategory | É útil para ajudar a localizar serviços. Relevante para serviços que têm vários ServiceType. Por exemplo, máquinas virtuais. |
+| Subcategoria de medidor | ServiceType | MeterSubCategory | Fornece um segundo nível de detalhes para um serviço. Por exemplo, VM A1 (não Windows).  |
 | Região do medidor | ServiceRegion | MeterRegion | O terceiro nível de detalhe necessário para um serviço. Útil para localizar o contexto de região do ResourceGUID. |
-| Nome do Medidor | ServiceResource | MeterName | O nome do serviço. |
+| Nome do medidor | ServiceResource | MeterName | O nome do serviço. |
 | Quantidade consumida | ResourceQtyConsumed | ConsumedQuantity |   |
 | ResourceRate | ResourceRate | ResourceRate |   |
 | ExtendedCost | ExtendedCost | ExtendedCost |   |
@@ -144,7 +144,7 @@ O formato JSON é gerado do relatório CSV. Como resultado, o formato é o mesmo
 | Identificador de Serviço de Repositório   | OrderNumber | StoreServiceIdentifier   |   |
 | Nome do departamento | DepartmentName | DepartmentName |   |
 | Centro de custo | CostCenter | CostCenter |   |
-| Unidade de medida | UnitOfMeasure | UnitOfMeasure | Valores de exemplo: horas, GB, eventos, Pushes, unidade, Horas de Unidade, MB, unidades diárias |
+| Unidade de medida | UnitOfMeasure | UnitOfMeasure | Valores de exemplo: Horas, GB, eventos, pushes, unidade, horas de unidade, MB, unidades diárias |
 | ResourceGroup | ResourceGroup | ResourceGroup |   |
 
 #### <a name="azure-marketplace-report"></a>Relatório do Azure Marketplace
@@ -157,7 +157,7 @@ O formato JSON é gerado do relatório CSV. Como resultado, o formato é o mesmo
 | SubscriptionGuid | SubscriptionGuid | SubscriptionGuid |
 | Nome da assinatura | SubscriptionName |  SubscriptionName |
 | Data | BillingCycle |  Data (somente cadeia de caracteres de data. Sem carimbo de data/hora)
-| Mês | Mês |  Mês |
+| Month | Month |  Month |
 | Dia | Dia |  Dia |
 | Ano | Ano |  Ano |
 | ID de medidor | MeterResourceId |  MeterId |
@@ -208,7 +208,7 @@ Você pode receber um erro de expiração 401 (não autorizado). O erro normalme
 
 Você pode receber erros 400 e 404 (não disponível) retornados de uma chamada à API quando não há dados atuais disponíveis para o intervalo de datas selecionado. Por exemplo, esse erro pode ocorrer porque uma transferência de registro foi iniciada recentemente. Os dados de uma data específica e posteriores a ela agora residem em um novo registro. Caso contrário, o erro poderá ocorrer se você estiver usando um novo número de registro para recuperar informações residentes em um registro antigo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Os administradores do Portal do EA do Azure devem ler [Administração do Portal do EA do Azure](ea-portal-administration.md) para aprender sobre tarefas administrativas comuns.
 - Se você precisar de ajuda para solucionar problemas do Portal do EA do Azure, confira [Solucionar problemas de acesso ao Portal do EA do Azure](ea-portal-troubleshoot.md).

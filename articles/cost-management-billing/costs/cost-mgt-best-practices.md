@@ -11,10 +11,10 @@ ms.service: cost-management-billing
 manager: vitavor
 ms.custom: seodec18
 ms.openlocfilehash: 47a53136a8f299e5c8654d122d8e319be4ae29db
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75988377"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Como otimizar seu investimento na nuvem com o Gerenciamento de Custos do Azure
@@ -56,7 +56,7 @@ Quando bem estruturado, o Gerenciamento de Custos ajuda a informar as pessoas so
 
 Atribua os custos em sua organização para garantir que as pessoas certas sejam responsabilizadas pelos gastos de suas equipes. Para entender completamente o gastos do Azure da sua organização, organize seus recursos para maximizar os insights sobre a atribuição de custos. Uma boa organização ajuda a gerenciar e reduzir os custos e a responsabilizar pessoas pela eficiência dos gastos na organização.
 
-#### <a name="optimization"></a>Otimização
+#### <a name="optimization"></a>Optimization
 
 Execute ações para reduzir seus gastos. Aproveite-a ao máximo com base nas descobertas coletadas por meio do planejamento e do aumento da visibilidade dos custos. Você poderá considerar otimizações de compra e de licenciamento juntamente com alterações de implantação da infraestrutura, que serão discutidas em detalhes mais adiante neste documento.
 
@@ -96,7 +96,7 @@ Para saber mais sobre as diversas opções, visite [Como comprar o Azure](https:
 - Sem taxas mínimas ou compromissos
 - Preços competitivos
 - Pague apenas pelo que usar
-- Cancela quando quiser
+- Cancele a qualquer momento
 
 #### <a name="enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement"></a>[Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
@@ -159,7 +159,7 @@ Adote as seguintes maneiras de otimizar os gastos.
 
 Depois de implantar sua infraestrutura no Azure, é importante garantir que ela esteja sendo usada. A maneira mais fácil de começar a economizar imediatamente é examinar seus recursos e remover os que não estão sendo usados. Neste ponto, você deve determinar se os recursos estão sendo usados da forma mais eficiente possível.
 
-#### <a name="azure-advisor"></a>Azure Advisor
+#### <a name="azure-advisor"></a>Assistente do Azure
 
 O Assistente do Azure é um serviço que, entre outras coisas, identifica as máquinas virtuais com baixa utilização do ponto de vista de uso da CPU ou de rede. Neste ponto, você pode decidir desligar ou redimensionar a máquina com base no custo estimado para continuar a executar as máquinas. O Assistente também fornece recomendações para compras de instância reservada. As recomendações baseiam-se em seus últimos 30 dias de uso das máquinas virtuais. Quando acionadas, as recomendações podem ajudar a reduzir seus gastos.
 
@@ -191,5 +191,5 @@ Para obter mais informações, confira [Calculadora de economia do Benefício H�
 
 O Azure também tem um serviço que permite que você crie serviços que aproveitam a capacidade excedente no Azure com taxas reduzidas. Para obter mais informações, confira [Usar VMs de baixa prioridade com o Lote](../../batch/batch-low-pri-vms.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Se você é novo no Gerenciamento de Custos, leia [O que é o Gerenciamento de Custos do Azure?](../cost-management-billing-overview.md) para saber como ele ajuda a monitorar e controlar os gastos do Azure e para otimizar o uso de recursos.

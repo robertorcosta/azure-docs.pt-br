@@ -10,10 +10,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2019
 ms.openlocfilehash: 7be3a7913559947be1291db35ac3531f152dfae9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995540"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-mysql"></a>Como um desconto de reserva é aplicado ao Banco de Dados do Azure para MySQL
@@ -32,17 +32,17 @@ O desconto de capacidade reservada do Banco de Dados do Azure para MySQL é apli
 
 Os exemplos a seguir mostram que a aplicação do desconto de capacidade reservada do Banco de Dados do Azure para MySQL depende do número de núcleos que você comprou e de quando estão em execução.
 
-* **Exemplo 1**: você compra uma capacidade reservada de banco de dados do Azure para MySQL para 8 vCore. Se você estiver executando um servidor de 16 vCore de Banco de Dados do Azure para MySQL que corresponda ao restante dos atributos da reserva, será cobrado pelo preço pago conforme o uso de oito vCore de sua utilização de computação do MySQL Server e obterá o desconto de reserva por uma hora do uso de computação do servidor de oito vCore do MySQL.</br>
+* **Exemplo 1**: Você comprou uma capacidade reservada do Banco de Dados do Azure para MySQL para oito vCore. Se você estiver executando um servidor de 16 vCore de Banco de Dados do Azure para MySQL que corresponda ao restante dos atributos da reserva, será cobrado pelo preço pago conforme o uso de oito vCore de sua utilização de computação do MySQL Server e obterá o desconto de reserva por uma hora do uso de computação do servidor de oito vCore do MySQL.</br>
 
 Para o restante desses exemplos, suponha que a capacidade reservada do Banco de Dados do Azure para MySQL que comprar seja para um Banco de Dados do Azure para MySQL de 16 vCore e o restante dos atributos de reserva corresponder os servidores MySQL em execução.
 
-* **Exemplo 2**: você executa dois servidores de banco de dados do Azure para MySQL com 8 vcores cada por hora. O desconto de reserva de 16 vCore é aplicado para computação de uso para os dois servidores oito vCore do Banco de Dados do Azure para MySQL.
+* **Exemplo 2**: Você executa dois servidores de oito vCore cada do Banco de Dados do Azure para MySQL por uma hora. O desconto de reserva de 16 vCore é aplicado para computação de uso para os dois servidores oito vCore do Banco de Dados do Azure para MySQL.
 
-* **Exemplo 3**: você executa a 1 16 vCore banco de dados do Azure para servidor MySQL de 1 a 1:30 PM. Você executa outro servidor de 16 vCore do Banco de Dados do Azure para MySQL das 13h30 às 14h. Ambos são cobertas pelo desconto de reserva.
+* **Exemplo 3**: Você executa um servidor de 16 vCore do Banco de Dados do Azure para MySQL das 13h às 13h30. Você executa outro servidor de 16 vCore do Banco de Dados do Azure para MySQL das 13h30 às 14h. Ambos são cobertas pelo desconto de reserva.
 
-* **Exemplo 4**: você executa o 1 16 vCore banco de dados do Azure para servidor MySQL de 1 a 1:45 PM. Você executa outro servidor de 16 vCore do Banco de Dados do Azure para MySQL das 13h30 às 14h. Você será cobrado o preço pago conforme o uso para a sobreposição de 15 minutos. O desconto de reserva se aplica ao uso de computação para o restante do tempo.
+* **Exemplo 4**: Você executa um servidor de 16 vCore do Banco de Dados do Azure para MySQL das 13h às 13h45. Você executa outro servidor de 16 vCore do Banco de Dados do Azure para MySQL das 13h30 às 14h. Você será cobrado o preço pago conforme o uso para a sobreposição de 15 minutos. O desconto de reserva se aplica ao uso de computação para o restante do tempo.
 
 Para entender e visualizar o aplicativo de suas reservas do Azure nos relatórios de uso de faturamento, consulte [Entender o uso de reserva do Azure](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Contate-nos
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

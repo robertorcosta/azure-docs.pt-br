@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: bb3aa7970f993ec5e0ceb50d10cc0907ed225c2f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995865"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Otimizar custos do Azure Databricks com uma pré-compra
@@ -29,7 +29,7 @@ A compra prévia do Databricks aplica-se a todas as cargas de trabalho e camadas
 
 | **Carga de trabalho** | **Razão do aplicativo DBU – Camada Standard** | **Razão do aplicativo DBU – Camada Premium** |
 | --- | --- | --- |
-| Análise de dados | 0,4 | 0,55 |
+| Análise de Dados | 0,4 | 0,55 |
 | Engenharia de Dados | 0.15 | 0,30 |
 | Engenharia de Dados Leve | 0,07 | 0,22 |
 
@@ -41,8 +41,8 @@ Antes de comprar, calcule a quantidade total de DBU consumida para diferentes ca
 
 É possível comprar planos do Databricks no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D). Para comprar capacidade reservada, é necessário ter a função proprietário para pelo menos uma assinatura empresarial.
 
-- Você deve estar em uma função de proprietário para pelo menos um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou contrato de cliente da Microsoft ou uma assinatura individual com tarifas pagas conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P).
-- Para assinaturas EA, a opção Adicionar instâncias reservadas deve ser habilitada no portal de EA. Ou, se essa configuração estiver desabilitada, você deverá ser um administrador de EA para a assinatura.
+- É necessário ter uma função Proprietário para pelo menos um Contrato Enterprise (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou Contrato de Cliente da Microsoft ou ainda uma assinatura individual com tarifas pagas conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P).
+- Para assinaturas de EA, a opção Adicionar Instâncias Reservadas deve estar habilitada no Portal do EA. Ou, se essa configuração estiver desabilitada, você precisará ser um Administrador de EA da assinatura.
 - Para as assinaturas Enterprise, a opção **Adicionar Instâncias Reservadas** deve estar habilitada no [Portal EA](https://ea.azure.com/). Ou, se essa configuração estiver desabilitada, você deverá ser Administrador de EA da assinatura.
 
 **Para comprar:**
@@ -71,11 +71,11 @@ Não é possível dividir ou mesclar a unidade de confirmação do Databricks an
 
 Não há suporte para cancelamentos e trocas nos planos de compra prévia do Databricks. Todas as compras são definitivas.
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
   - [O que são Reservas do Azure?](save-compute-costs-reservations.md)

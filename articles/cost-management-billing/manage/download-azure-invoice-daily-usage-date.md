@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: banders
 ms.openlocfilehash: c5068dc38597d64634f19297fa7784de8d55d590
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992550"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Baixar ou exibir a fatura de cobrança e os dados de uso diário do Azure
@@ -119,7 +119,7 @@ Se você tiver um Contrato de Cliente da Microsoft, poderá aceitar receber sua 
 
 ### <a name="opt-out-of-getting-your-billing-profile-invoices-in-email"></a>Cancelar o recebimento de faturas de perfil de cobrança no email
 
-Você pode cancelar a obtenção de sua fatura por email seguindo as etapas acima e clicando em **recusar**. Todos os proprietários, colaboradores, leitores e gerentes de fatura também serão recusados a obter a fatura por email. Se você for Leitor, não poderá alterar a preferência de fatura por email.
+É possível cancelar o recebimento de sua fatura por email seguindo as etapas acima e clicando em **Recusar**. Todos os Proprietários, Colaboradores, Leitores e Gerenciadores de faturas também não receberão mais a fatura por email. Se você for Leitor, não poderá alterar a preferência de fatura por email.
 
 ## <a name="download-usage-in-azure-portal"></a>Baixar o uso no portal do Azure
 
@@ -171,11 +171,11 @@ Também é possível baixar o uso do mês atual para o período de cobrança atu
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso ao Contrato de Cliente da Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Contate-nos
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
 
 Caso tenha dúvidas ou precise de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre a fatura e os encargos, confira:
 

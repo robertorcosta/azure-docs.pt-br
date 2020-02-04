@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: tamram
 ms.openlocfilehash: 40fba61b173979fb9362de73a87d6192aac9941d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995306"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-storage"></a>Entenda como o desconto de reserva é aplicado ao Armazenamento do Azure
@@ -47,11 +47,11 @@ Suponha que, em uma determinada hora dentro do período de reserva, você tenha 
 
 Suponha que, em uma determinada hora dentro do período de reserva, você tenha usado 101 TB de sua capacidade reservada. O desconto da reserva se aplica a 100 TB dos dados e os 1 TB restantes são cobrados com tarifas pré-pagas para aquela hora. Se, na próxima hora, seu uso mudar para 100 TB, todo o uso será coberto pela reserva.
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Contate-nos
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Otimizar custos para o armazenamento de blobs com capacidade reservada](../../storage/blobs/storage-blob-reserved-capacity.md)
 - [O que são Reservas do Azure?](save-compute-costs-reservations.md)

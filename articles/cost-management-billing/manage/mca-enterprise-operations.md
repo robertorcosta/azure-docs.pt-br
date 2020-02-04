@@ -1,5 +1,5 @@
 ---
-title: Tarefas de EA em um contrato de cliente da Microsoft – Azure
+title: 'Tarefas do EA em um Contrato de Cliente da Microsoft: Azure'
 description: Saiba como concluir as tarefas do Contrato Enterprise em sua nova conta de cobrança.
 author: amberbhargava
 manager: amberb
@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 01/02/2020
 ms.author: banders
 ms.openlocfilehash: 0cdf95b8d91938d6b9b4de413bc5d5dcb8caa2f4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75991237"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Concluir as tarefas do Contrato Enterprise em sua conta de cobrança para um Contrato de Cliente da Microsoft
@@ -29,7 +29,7 @@ O diagrama a seguir descreve como a cobrança é organizada em sua nova conta de
 
 ![Imagem da hierarquia do EA-MCA pós-transição](./media/mca-enterprise-operations/mca-post-transition-hierarchy.png)
 
-| Enterprise Agreement   | Contrato de Cliente Microsoft    |
+| Contrato Enterprise   | Contrato de Cliente da Microsoft    |
 |------------------------|--------------------------------------------------------|
 | Registro            | Você usará um perfil de cobrança para gerenciar a cobrança de sua organização, de maneira semelhante ao registro do Contrato Enterprise. Os administradores corporativos se tornam proprietários do perfil de cobrança. Para saber mais sobre os perfis de cobrança, confira [Entender os perfis de cobrança](../understand/mca-overview.md#billing-profiles).
 | department            | Você usará uma seção da fatura para organizar os custos, de maneira semelhante aos departamentos no registro do Contrato Enterprise. O departamento se torna as seções da fatura e os administradores do departamento se tornam proprietários das respectivas seções da fatura. Para saber mais sobre as seções da fatura, confira [Entender as seções da fatura](../understand/mca-overview.md#invoice-sections). |
@@ -132,7 +132,7 @@ Para criar assinaturas adicionais do Azure, você receberá a função a seguir 
 
 **Criador de assinatura do Azure** – você recebe a função de criador de assinatura do Azure na seção da fatura criada para seu departamento no Contrato Enterprise. Caso a sua conta não pertença a um departamento, você receberá a função de criador de assinatura do Azure em uma seção da fatura chamada Seção da fatura padrão. A função permite que você crie assinaturas do Azure para a seção da fatura.
 
-### <a name="create-an-azure-subscription"></a>Crie uma assinatura do Azure
+### <a name="create-an-azure-subscription"></a>Cria uma assinatura do Azure
 
 Crie assinaturas do Azure para a seção da fatura no portal do Azure. Para obter mais informações, confira [Criar uma assinatura adicional do Azure para o Contrato de Cliente da Microsoft](create-subscription.md)
 
@@ -144,11 +144,11 @@ Para exibir os encargos das assinaturas que pertenciam a uma conta, acesse a [p�
 
 Exiba os encargos de uma assinatura na [página de assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ou na análise de custo do Azure. Para obter mais informações sobre a análise de custo do Azure, confira [Explorar e analisar custos com a Análise de custo](../costs/quick-acm-cost-analysis.md).
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Entrar em contato com o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 
 Se precisar de ajuda, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Entender a conta de cobrança para um Contrato de Cliente da Microsoft](../understand/mca-overview.md)
 - [Entender sua fatura](../understand/review-individual-bill.md)

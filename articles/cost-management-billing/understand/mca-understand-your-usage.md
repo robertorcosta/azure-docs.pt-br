@@ -1,5 +1,5 @@
 ---
-title: Termos de arquivo de uso e encargos do Microsoft Customer Agreement do Azure
+title: Termos de arquivo de encargos e uso do Azure do Contrato de Cliente da Microsoft
 description: Saiba como ler e entender as seções do CSV de uso e encargos do Azure de seu perfil de cobrança.
 author: bandersmsft
 manager: jureid
@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: b48cc5d5a36a382909adb250dd76b4f5783a4340
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75990899"
 ---
 # <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Termos no arquivo de uso e encargos do Azure de um Contrato de Cliente da Microsoft
@@ -35,7 +35,7 @@ Se você for um cliente do EA, observará que os termos no arquivo CSV de uso do
 | CSV de uso do Azure EA | CSV de uso e encargos do Azure do Contrato de Cliente da Microsoft |
 | --- | --- |
 | Data | date |
-| Mês| date |
+| Month| date |
 | Dia | date |
 | Ano | date |
 | Produto | product |
@@ -65,7 +65,7 @@ Se você for um cliente do EA, observará que os termos no arquivo CSV de uso do
 
 Os termos a seguir são mostrados no arquivo de uso e encargos do Azure.
 
-Prazo | Description
+Termo | Descrição
 --- | ---
 invoiceId | A ID de documento exclusiva listada no PDF da fatura
 previousInvoiceId | Referência a uma fatura original se esse item de linha é um reembolso
@@ -107,8 +107,8 @@ resourceLocation | Identifica a localização do data center em que o recurso es
 local | Localização normalizada do recurso se localizações de recursos diferentes estão configuradas para as mesmas regiões
 quantidade | O número de unidades adquiridas ou consumidas
 unitOfMeasure | A unidade de medida para cobrança do serviço. Por exemplo, os serviços de computação são cobrados por hora.
-chargeType | O tipo de encargo. Valores: <ul><li>Aspagado-uso: encargos acumulados com base no uso de um serviço do Azure. Isso inclui o uso nas VMs que não são cobradas devido às instâncias reservadas.</li><li>Aspagod-PurchaseMarketplace: encargos recorrentes de uma vez ou fixos de compras do Marketplace</li><li>Aspagado-UsageMarketplace: encargos para serviços do Marketplace cobrados com base em unidades de consumo</li></ul>
-isAzureCreditEligible | Sinalizador que indica se a cobrança em relação ao serviço está qualificada para ser paga pelo uso de créditos do Azure (valores: true, false)
+chargeType | O tipo de encargo. Valores: <ul><li>AsCharged-Usage: Encargos acumulados com base no uso de um serviço do Azure. Isso inclui o uso nas VMs que não são cobradas devido às instâncias reservadas.</li><li>AsCharged-PurchaseMarketplace: Encargos avulsos ou recorrentes fixos de compras do Marketplace</li><li>AsCharged-UsageMarketplace: Encargos de serviços do Marketplace cobrados com base em unidades de consumo</li></ul>
+isAzureCreditEligible | Sinalizador que indica se o preço do serviço está qualificado a ser pago pelo uso de créditos Azure (valores: Verdadeiro, Falso)
 serviceInfo1 | Metadados específicos do serviço
 serviceInfo2 | Campo herdado que captura os metadados específicos do serviço opcional
 additionalInfo | Metadados adicionais específicos ao serviço.
@@ -121,11 +121,11 @@ Caso deseje ter certeza de que os encargos no arquivo de uso detalhado estão co
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso ao Contrato de Cliente da Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Exibir e baixar a fatura do Microsoft Azure](download-azure-invoice.md)
 - [Exibir e baixar o uso e os encargos do Microsoft Azure](download-azure-daily-usage.md)

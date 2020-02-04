@@ -9,10 +9,10 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.openlocfilehash: 02d446d1b70b64092501804e793b400e983a4d80
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995124"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Exibir e baixar uso e encargos do Azure
@@ -32,7 +32,7 @@ Caso tenha um MCA (Contrato de Cliente da Microsoft), você precisará ser propr
 1. No menu esquerdo, selecione **Faturas** em **Cobrança**.
 1. Na grade da fatura, encontre a linha do período de cobrança correspondente ao uso que deseja baixar.
 1. Selecione o **ícone de download** ou as reticências (`...`) à direita.
-1. O painel de download é aberto à direita. Selecione **baixar** na seção **detalhes de uso** .
+1. O painel Download se abre à direita. Selecione **Download** na seção **Detalhes de Uso**.
 
 ## <a name="download-usage-for-ea-customers"></a>Faça o download uso para clientes do EA
 
@@ -61,11 +61,11 @@ Caso tenha um Contrato de Cliente da Microsoft, você poderá baixar o uso do m�
 ## <a name="check-your-billing-account-type"></a>Verificar o tipo de conta de cobrança
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-account-type.md)]
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre a fatura e os encargos, de uso, confira:
 

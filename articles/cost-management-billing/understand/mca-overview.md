@@ -1,5 +1,5 @@
 ---
-title: Introdução à cobrança do contrato do cliente da Microsoft – Azure
+title: Introdução à cobrança do Contrato de Cliente da Microsoft – Azure
 description: Entenda sua conta de cobrança do Contrato de Cliente da Microsoft
 author: bandersmsft
 manager: amberbhargava
@@ -11,10 +11,10 @@ ms.workload: na
 ms.date: 09/10/2019
 ms.author: banders
 ms.openlocfilehash: 7d26c98ae8e5b9b95038a4a775134282703fa7c6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995111"
 ---
 # <a name="get-started-with-your-microsoft-customer-agreement-billing-account"></a>Introdução à conta de cobrança do Contrato de Cliente da Microsoft
@@ -51,7 +51,7 @@ Você pode exibir a fatura, baixar documentos e alterar a configuração para re
 
 Cada perfil de cobrança tem suas próprias formas de pagamento, usadas para pagar a fatura. As seguintes formas de pagamento têm suporte:
 
-| Tipo             | Definição  |
+| Type             | Definição  |
 |------------------|-------------|
 |Créditos do Azure    |  Os créditos são aplicados automaticamente aos encargos qualificados em sua fatura, reduzindo o valor que você precisa pagar. Para saber mais, confira [Acompanhar o saldo de crédito do Azure para seu perfil de cobrança](../manage/mca-check-azure-credits-balance.md). |
 |Cheque/transferência eletrônica | Se a conta for aprovada para pagamento por meio de cheque/transferência eletrônica. Você pode pagar o valor devido em sua fatura por cheque/transferência eletrônica. As instruções de pagamento são fornecidas na fatura |
@@ -85,7 +85,7 @@ As funções na seção da fatura têm permissões para controlar quem cria assi
 
 Se precisar de ajuda, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Confira os seguintes artigos para saber mais sobre a sua conta de cobrança:
 

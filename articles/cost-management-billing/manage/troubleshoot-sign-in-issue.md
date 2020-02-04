@@ -14,17 +14,17 @@ ms.workload: na
 ms.date: 08/12/2019
 ms.author: v-miegge
 ms.openlocfilehash: 74cf3f197895823bcbd94db0bf3c7bd8065df767
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75988130"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Solucionar problemas de credenciais da assinatura do Azure
 
 Este guia ajuda a resolver os problemas em que você não consegue entrar no portal do Azure ou no Centro de Contas do Azure.
 
-## <a name="issues"></a>Questões
+## <a name="issues"></a>Problemas
 
 ### <a name="page-hangs-in-the-loading-status"></a>A página para de responder no status de carregamento
 
@@ -32,7 +32,7 @@ Se a página do navegador da Internet parar, experimente cada uma das etapas a s
 
 - Atualize a página.
 - Use um navegador de Internet diferente.
-- Use o modo de navegação privada do seu navegador. Para o Internet Explorer: clique em **ferramentas** > **segurança** > **navegação InPrivate**e, em seguida, navegue e entre no [portal do Azure](https://portal.azure.com/) ou no [centro de contas do Azure](https://account.azure.com/Subscriptions).
+- Use o modo de navegação privada do seu navegador. Para Internet Explorer: Clique em **Ferramentas** > **Segurança** > **Navegação InPrivate** e, em seguida, navegue e entre no [portal do Azure](https://portal.azure.com/) ou no [Centro de Contas do Azure](https://account.azure.com/Subscriptions).
 
 ### <a name="you-are-automatically-signed-in-as-a-different-user"></a>Você está automaticamente conectado como um usuário diferente
 
@@ -42,7 +42,7 @@ Para resolver o problema, tente usar um dos seguintes métodos:
 
 - Limpe o cache e exclua cookies da Internet. No Internet Explorer, clique em **Ferramentas** > **Opções da Internet** > **Excluir**. Verifique se as caixas de seleção dos arquivos temporários, dos cookies, das senha e do histórico de navegação estão marcadas e clique em Excluir.
 - Redefina as configurações do Internet Explorer para reverter todas as configurações pessoais que você tenha feito. Clique em **Ferramentas** > **Opções da Internet** > **Avançado** > selecione a caixa **Excluir configurações pessoais** > **Redefinir**.
-- Use o modo de navegação privada do seu navegador. Para o Internet Explorer: clique em **ferramentas** > **segurança** > **navegação InPrivate**e, em seguida, navegue e entre no [portal do Azure](https://portal.azure.com/) ou no [centro de contas do Azure](https://account.azure.com/Subscriptions).
+- Use o modo de navegação privada do seu navegador. Para Internet Explorer:  Clique em **Ferramentas** > **Segurança** > **Navegação InPrivate** e, em seguida, navegue e entre no [portal do Azure](https://portal.azure.com/) ou no [Centro de Contas do Azure](https://account.azure.com/Subscriptions).
 
 ### <a name="i-can-sign-in-but-i-see-no-subscriptions-found"></a>Consigo entrar, mas não vejo *Nenhuma assinatura encontrada*
 
@@ -55,7 +55,7 @@ Para corrigir esse problema:
 - Verifique se o diretório correto do Azure está selecionado clicando em sua conta no canto superior direito.
 - Se o diretório correto do Azure estiver selecionado, mas você continuar recebendo a mensagem de erro, solicite que a sua conta seja [adicionada como Proprietário](add-change-subscription-administrator.md).
 
-**Cenário 2:** A mensagem de erro é recebida no [centro de contas do Azure](https://account.windowsazure.com/Subscriptions)
+**Cenário 2:** A mensagem de erro é recebida no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions)
 
 Verifique se a conta usada é o Administrador da Conta. Para verificar quem é o Administrador da Conta, siga estas etapas:
 
@@ -78,6 +78,6 @@ Outros artigos de solução de problemas para a Cobrança e as Assinaturas do Az
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Documentação de cobrança do Azure](../../billing/index.md)

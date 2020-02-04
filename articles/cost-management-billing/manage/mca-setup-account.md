@@ -1,5 +1,5 @@
 ---
-title: Configurar a cobrança do contrato do cliente da Microsoft-Azure
+title: Configurar cobrança para o Contrato de Cliente da Microsoft – Azure
 description: Saiba como configurar sua conta de cobrança para um Contrato de Cliente da Microsoft.
 author: amberbhargava
 manager: amberb
@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 117d657712eba8d24ab18987f3e761553c15a858
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75994630"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurar sua conta de cobrança para um Contrato de Cliente da Microsoft
@@ -132,7 +132,7 @@ As seções a seguir fornecem informações adicionais sobre como configurar sua
 
 ### <a name="no-service-downtime"></a>Não há tempo de inatividade do serviço
 
-Os serviços do Azure na sua assinatura continuam sendo executados sem qualquer interrupção. Apenas fazemos a transição do relacionamento de cobrança para suas assinaturas do Azure. Não haverá impacto nos recursos existentes, nos grupos de recursos ou nos grupos de gerenciamento.
+Os serviços do Azure em sua assinatura continuam sendo executados sem nenhuma interrupção. Apenas fazemos a transição do relacionamento de cobrança para suas assinaturas do Azure. Não haverá impacto em recursos, grupos de recursos ou grupos de gerenciamento existentes.
 
 ### <a name="user-access-to-azure-resources"></a>Acesso do usuário aos recursos do Azure
 
@@ -140,7 +140,7 @@ O acesso aos recursos do Azure que foi definido usando o Azure RBAC (controle de
 
 ### <a name="azure-reservations"></a>Reservas do Azure
 
-As Reservas do Azure no registro do Contrato Enterprise são migradas para sua nova conta de cobrança. Durante a transição, não haverá alterações nos descontos de reserva que estão sendo aplicados às suas assinaturas.
+As Reservas do Azure no registro do Contrato Enterprise são migradas para sua nova conta de cobrança. Durante a transição, não haverá alterações nos descontos de reserva que são aplicados às suas assinaturas.
 
 ### <a name="azure-marketplace-products"></a>Produtos do Azure Marketplace
 
@@ -186,7 +186,7 @@ Para concluir a configuração, você precisa ter acesso à nova conta de cobran
 
     - Uma hierarquia de cobrança correspondente à hierarquia do Contrato Enterprise é criada na nova conta de cobrança. Para obter mais informações, confira [Entender as alterações em sua hierarquia de cobrança](#understand-changes-to-your-billing-hierarchy).
     - Os administradores de seu registro do Contrato Enterprise obtêm acesso à nova conta de cobrança, de modo que continuem a gerenciar a cobrança de sua organização.
-    - A cobrança de suas assinaturas do Azure é transferida para a nova conta. **Não haverá nenhum impacto nos serviços do Azure durante essa transição. Eles continuarão em execução sem qualquer interrupção**.
+    - A cobrança de suas assinaturas do Azure é transferida para a nova conta. **Não haverá nenhum impacto nos serviços do Azure durante essa transição. Eles continuarão sendo executados sem nenhuma interrupção**.
     - Caso você tenha reservas do Azure, elas serão migradas para sua nova conta de cobrança com os mesmos benefícios e o mesmo prazo.
 
 4. Monitore o status da transição na página **Status da transição**.
@@ -267,11 +267,11 @@ Os administradores corporativos são listados como proprietários do perfil de c
 
 Os administradores corporativos e os administradores do departamento são listados como proprietários da seção da fatura ou leitores da seção da fatura, enquanto os proprietários da conta no departamento são listados como criadores de assinatura do Azure. Repita a etapa para todas as seções da fatura, a fim de verificar o acesso de todos os departamentos no registro do Contrato Enterprise. Os proprietários da conta que não faziam parte de nenhum departamento obterão permissão em uma seção da fatura chamada **Seção da fatura padrão**. Se acreditar que o acesso de um administrador está ausente, forneça acesso a ele no portal do Azure. Para obter mais informações, confira [Gerenciar funções de cobrança no portal do Azure](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Entrar em contato com o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 
 Se precisar de ajuda, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Introdução à sua nova conta de cobrança](../understand/mca-overview.md)
 

@@ -11,10 +11,10 @@ ms.service: cost-management-billing
 manager: benshy
 ms.custom: ''
 ms.openlocfilehash: 4ebb2a1f617da75aad8cea805ba793910375c47a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75989313"
 ---
 # <a name="create-a-support-request-for-cloudyn"></a>Criar uma solicitação de suporte para o Cloudyn
@@ -46,6 +46,6 @@ Para verificar o status de um incidente que você tiver preenchido, consulte [To
 Se for um usuário do Cloudyn herdado sem uma conta do Azure, você poderá abrir uma solicitação de suporte em https://support.microsoft.com/oas/default.aspx?prid=16451.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre o Cloudyn, continue no tutorial [Revisar o uso e os custos](../cloudyn/tutorial-review-usage.md) do Cloudyn.

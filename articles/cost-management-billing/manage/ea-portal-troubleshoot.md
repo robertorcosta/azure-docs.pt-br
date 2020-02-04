@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.service: cost-management-billing
 manager: boalcsva
 ms.openlocfilehash: 41af65c2bfa35da30a0172ae7a39b3bad56597b8
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992121"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Solucionar problemas de acesso ao Portal do EA do Azure
@@ -146,9 +146,9 @@ Se as etapas de solução de problemas acima falharem, envie uma solicitação p
 
 ### <a name="what-is-the-difference-between-a-workschool-account-and-microsoft-account"></a>Qual a diferença entre uma conta corporativa/de estudante e a conta Microsoft?
 
-**Conta Microsoft:** Contas que foram associadas ao Live ID no [https://signup.live.com](https://signup.live.com).
+**Conta Microsoft:** contas que foram associadas ao Live ID no [https://signup.live.com](https://signup.live.com).
 
-**Conta corporativa/de estudante:** Disponível somente para empresas que configuraram o Active Directory com Federação para a nuvem e todas as contas estão em um único locatário. Os usuários poderão ser adicionados com o tipo de autorização corporativo ou de estudante se o Active Directory interno da empresa for federado na nuvem.
+**Conta corporativa ou de estudante:** disponível apenas para empresas que configuraram o Active Directory com Federação na Nuvem e com todas as contas em um único locatário. Os usuários poderão ser adicionados com o tipo de autorização corporativo ou de estudante se o Active Directory interno da empresa for federado na nuvem.
 
   Desde setembro de 2016, a Microsoft não permite que emails corporativos ou de estudante sejam registrados como contas da Microsoft. Para saber mais, confira os seguintes materiais: [https://blogs.technet.microsoft.com/enterprisemobility/2016/09/15/cleaning-up-the-azure-ad-and-microsoft-account-overlap/](https://blogs.technet.microsoft.com/enterprisemobility/2016/09/15/cleaning-up-the-azure-ad-and-microsoft-account-overlap/).
 
@@ -164,6 +164,6 @@ Se você esqueceu sua senha corporativa, entre em contato com o administrador de
 
 Se você tem uma conta corporativa ou de estudante em um locatário diferente, altere o nível de autorização na página detalhes do registro para "Locatário cruzado de conta corporativa ou de estudante" e você poderá adicionar a conta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Os administradores do Portal do EA do Azure devem ler [Administração do Portal do EA do Azure](ea-portal-administration.md) para aprender sobre tarefas administrativas comuns.

@@ -11,10 +11,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 99ceebe0825c868e40f6a68f44ca55eee91f087c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992771"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Criar serviços incluídos com a conta gratuita do Azure
@@ -34,10 +34,10 @@ Para saber mais sobre a disponibilidade do serviço do Azure por região, consul
 ## <a name="create-multiple-service-instances-in-allowed-limits"></a>Criar várias instâncias de serviço em limites permitidos
 Você pode criar várias instâncias de serviços gratuitamente desde que a soma do uso esteja dentro dos limites de uso. Por exemplo, você obtém 750 horas de máquina virtual B1S do Windows gratuita por mês com a sua conta gratuita do Azure. Você pode usar as 750 horas em qualquer combinação desejada. Por exemplo, você pode criar 5 máquinas virtuais B1S do Windows e usá-las durante 150 horas.
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Caso tenha dúvidas ou precise de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Saiba como [verificar o uso de serviços gratuitos incluídos em sua conta gratuita do Azure](check-free-service-usage.md).
 - Saiba como [Evitar ser cobrado por sua conta gratuita do Azure](avoid-charges-free-account.md).

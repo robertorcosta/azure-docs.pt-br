@@ -13,10 +13,10 @@ ms.date: 09/30/2019
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 14346ceda9574d18050108e585d5ff4cdb133e31
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992017"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Exibir e baixar o preço do Azure de sua organização
@@ -36,7 +36,7 @@ Dependendo das políticas definidas para sua organização pelo Enterprise Admin
 
    ![Captura de tela que mostra o uso e as cobranças em Faturamento](./media/ea-pricing/ea-pricing-usage-charges-nav.png)
 
-1. Selecione ![captura de tela que mostra portal do Azure Pesquisar](./media/ea-pricing/download-icon.png) **Download** do mês.
+1. Selecione ![Captura de tela que mostra a pesquisa no portal do Azure](./media/ea-pricing/download-icon.png) **Download** do mês.
 
 1. Sob **tabela de preços**, selecione **fazer o download do csv**.
 
@@ -91,7 +91,7 @@ Você também pode usar o preço de sua organização para estimar os custos usa
 ## <a name="check-your-billing-account-type"></a>Verificar o tipo de conta de cobrança
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-account-type.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se você for cliente do EA, confira:
 

@@ -1,21 +1,20 @@
 ---
 title: Conecte uma conta do Google Cloud Platform ao Cloudyn no Azure | Microsoft Docs
 description: Conecte uma conta do Google Cloud Platform para visualizar dados de custo e uso nos relatórios do Cloudyn.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/21/2019
+ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: benshy
+ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 8849811560c7e3d35a40b4725dbbb63c82745123
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: 09989337b2e78277c6182630ce0f1cdf57a0e0c1
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75994565"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76770196"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Conectar uma conta do Google Cloud Platform
 
@@ -73,6 +72,6 @@ Sua conta do Google aparecerá na lista de contas e deverá indicar **Autenticad
 
 Dentro de algumas horas, os relatórios da Cloudyn mostram informações sobre custo e uso do Google.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre o Cloudyn, continue no tutorial [Revisar o uso e os custos](tutorial-review-usage.md) do Cloudyn.

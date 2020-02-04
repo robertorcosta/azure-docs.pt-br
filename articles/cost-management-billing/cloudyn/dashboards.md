@@ -1,21 +1,20 @@
 ---
 title: Exibir principais métricas com painéis do Cloudyn no Azure | Microsoft Docs
 description: Este artigo descreve como é possível exibir as principais métricas com painéis no Cloudyn.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/21/2019
+ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: vitavor
+ms.reviewer: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: c0651dd006585e4ed5b8b888d6e55974c5c45a1d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: 78af8f2541eb0b28d75be89612d158c889261adc
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75990678"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76770121"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Exibir chave métricas com painéis de custo
 
@@ -296,5 +295,5 @@ Esse widget mostra seus custos atuais do Amazon EC2 e compara-as para o Azure. A
 Esse widget realça o mapeamento de melhor de unidades de computação elástica entre EC2 Amazon e o Azure.
 - Clique no widget para abrir o relatório Instances Over Time.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Leia o artigo [Usar relatórios do Cloudyn](use-reports.md) para saber mais sobre relatórios.

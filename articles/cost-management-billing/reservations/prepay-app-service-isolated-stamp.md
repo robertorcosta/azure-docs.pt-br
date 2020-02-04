@@ -1,5 +1,5 @@
 ---
-title: Salvar para Azure App serviço com capacidade reservada
+title: Salvar para o Serviço de Aplicativo do Azure com capacidade reservada
 description: Saiba como você pode economizar custos com o Imposto de Selo do Serviço de Aplicativo Isolado do Azure com a capacidade reservada.
 services: billing
 author: yashesvi
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
 ms.openlocfilehash: 8161b169e8801fae4a9aa81290cf29ec28abf858
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995878"
 ---
 # <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Economizar custos com o Imposto de Selo do Serviço de Aplicativo Isolado do Azure com a capacidade reservada
@@ -47,7 +47,7 @@ Você pode comprar capacidade reservada do Selo Isolado no [portal do Azure](htt
 **Para comprar:**
 
 1. Vá para o [Portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D).
-1. Selecione uma assinatura. Use a lista **Assinatura** para escolher a assinatura usada para pagar a capacidade reservada. A forma de pagamento da assinatura é cobrada nos custos da capacidade reservada. O tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou pago conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P) ou uma assinatura CSP.
+1. Selecione uma assinatura. Use a lista **Assinatura** para escolher a assinatura usada para pagar a capacidade reservada. A forma de pagamento da assinatura é cobrada nos custos da capacidade reservada. O tipo de assinatura deve ser um contrato empresarial (números da oferta: MS-AZR-0017P ou MS-AZR-0148P) ou Pagamento Conforme o Uso (números da oferta: MS-AZR-0003P ou MS-AZR-0023P) ou uma assinatura de CSP.
     - Para uma assinatura de empresa, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como média.
     - Para a assinatura de Pagamento Conforme o Uso, as cobranças são feitas ao cartão de crédito ou à forma de pagamento de faturas na assinatura.
 1. Selecione **Escopo** para escolher um escopo da assinatura.
@@ -57,7 +57,7 @@ Você pode comprar capacidade reservada do Selo Isolado no [portal do Azure](htt
 1. Selecione uma **Região** para escolher uma região do Azure coberta pela capacidade reservada e adicione a reserva ao carrinho.
 1. Selecione um tipo de Plano Isolado e clique em **Selecionar**.  
     ![Exemplo ](./media/prepay-app-service-isolated-stamp/app-service-isolated-stamp-select.png)
-1. Insira a quantidade de selos do Serviço de Aplicativo Isolado a serem reservados. Por exemplo, uma quantidade de três forneceria três selos reservados por região. Clique em **Avançar: examinar + comprar**.
+1. Insira a quantidade de selos do Serviço de Aplicativo Isolado a serem reservados. Por exemplo, uma quantidade de três forneceria três selos reservados por região. Clique em **Avançar: Examinar + Comprar**.
 1. Examine e clique em **Comprar agora**.
 
 Após a compra, vá até [Reservas](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) para exibir o status de da compra e monitorá-la a qualquer momento.
@@ -72,7 +72,7 @@ Seus dados de uso têm um preço efetivo de zero para o uso, que obtém um desco
 
 Para saber mais sobre como o desconto de reserva é mostrado nos dados de uso, confira [Obter custos e uso de reserva do Contrato Enterprise](understand-reserved-instance-usage-ea.md) se você for um cliente com EA (Contrato Enterprise). Caso contrário, confira [Entenda o uso de reserva do Azure para uma assinatura individual com taxas pagas conforme o uso](understand-reserved-instance-usage.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
   - [O que são Reservas do Azure?](save-compute-costs-reservations.md)

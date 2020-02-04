@@ -13,10 +13,10 @@ ms.date: 03/01/2018
 ms.author: banders
 ROBOTS: NOINDEX
 ms.openlocfilehash: 111b95ddcff3667fa3f1e7df694af1d38887710f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75990015"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>Por que minha assinatura do Azure for Students está desabilitada e como posso reativá-la?
@@ -40,9 +40,9 @@ A conta do Azure for Students dá a você US$ 100 em créditos e uma quantidade 
 
 A tabela contém as seguintes colunas:
 
-* **Nome do serviço:** serviço que está consumindo o crédito do Azure.
-* **Recurso de serviço:** unidade de medida para o serviço que está sendo consumido.
-* **Gasto:** valor de crédito em USD($) gasto no serviço.
+* **Nome do serviço:** o serviço que está consumindo o crédito do Azure.
+* **Recurso do serviço:** unidade de medida do serviço que está sendo consumido.
+* **Gasto:** valor do crédito em USD ($) gasto no serviço.
 
 ## <a name="your-credit-has-expired"></a>Seu crédito expirou
 
@@ -52,6 +52,6 @@ O crédito do Azure for Students expira no final de 12 meses. Quando seu crédit
 
 Se você cancelou sua assinatura do Azure for Studants acidentalmente, reative-a entrando em contato com o [Suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Após a reativação, você ainda terá acesso ao crédito restante e aos serviços gratuitos por 12 meses a contar da sua data de inscrição.
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Caso tenha dúvidas ou precise de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

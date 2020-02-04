@@ -14,10 +14,10 @@ ms.date: 10/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3e1e99313454c8352b96b8f11ec35f482521f7b5
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75989768"
 ---
 # <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-account"></a>Atualizar sua conta gratuita do Azure ou sua conta do Azure for Students Starter
@@ -30,7 +30,7 @@ Se você se inscreveu em uma [conta do Azure for Students Starter](https://azure
 
 ## <a name="upgrade-your-azure-free-account"></a>Atualizar sua conta gratuita do Azure
 
-Ao atualizar sua conta gratuita do Azure, você mantém seu crédito restante pelos 30 dias completos a partir do momento em que fez a inscrição. Por exemplo: se você se inscreveu em 1 de novembro e atualiza em 5 de novembro, todos os créditos não utilizados estarão disponíveis até 30 de novembro. Você também terá acesso aos serviços gratuitos por 12 meses após a atualização.
+Ao atualizar sua conta gratuita do Azure, você mantém seu crédito restante pelos 30 dias completos a partir do momento em que fez a inscrição. Por exemplo:  Se você se inscrever em 1º de novembro e fizer a atualização em 5 de novembro, todos os créditos não utilizados estarão disponíveis até 30 de novembro. Você também terá acesso aos serviços gratuitos por 12 meses após a atualização.
 
 1. Entre no [Portal do Azure](https://portal.azure.com)
 1. Pesquise **Assinaturas.**
@@ -80,6 +80,6 @@ Se você estiver qualificado, use as etapas abaixo para atualizar para uma conta
 1. Escolha um plano de suporte para sua assinatura. Para saber mais sobre planos de suporte, confira [Planos de Suporte do Azure](https://azure.microsoft.com/us/support/plans/).
 1. Clique em **Atualizar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você atualizou sua conta, confira [Evitar encargos inesperados com o gerenciamento de custos e a cobrança do Azure.](getting-started.md)

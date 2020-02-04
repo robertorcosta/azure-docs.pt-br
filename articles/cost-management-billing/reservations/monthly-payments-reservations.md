@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/01/2019
 ms.author: banders
 ms.openlocfilehash: cf9bb7f3b9661d5957ad569fce7112fe16659761
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995943"
 ---
 # <a name="purchase-reservations-with-monthly-payments"></a>Comprar reservas com pagamentos mensais
@@ -25,7 +25,7 @@ Os pagamentos mensais estão disponíveis para:
 
 - Máquinas virtuais
 - Armazenamento do Azure
-- Banco de dados SQL
+- Banco de Dados SQL
 - SQL Data Warehouse
 - Cosmos DB
 - Imposto de selo do Serviço de Aplicativo
@@ -62,7 +62,7 @@ Ao cancelar uma reserva paga mensalmente, a Microsoft poderá aplicar uma taxa d
 
 Para saber mais sobre trocas e reembolsos, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](exchange-and-refund-azure-reservations.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter mais informações sobre reservas, confira [O que são Reservas do Azure?](save-compute-costs-reservations.md)
 - Para saber mais sobre as tarefas que você deve realizar antes de comprar uma reserva, confira [Determinar o tamanho correto da VM antes de comprar](../../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy)

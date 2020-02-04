@@ -1,5 +1,5 @@
 ---
-title: Descontos de reserva para o serviço de Azure App
+title: Descontos de reserva para o Serviço de Aplicativo do Azure
 description: Saiba como os descontos de reserva se aplicam aos Selos Isolados do Serviço de Aplicativo do Azure.
 services: billing
 author: yashesvi
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 1294ee126ecef1f635ffc4d6bec6da02c6171897
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995787"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-app-service-isolated-stamps"></a>Como os descontos de reserva se aplicam aos Selos Isolados do Serviço de Aplicativo do Azure
@@ -39,12 +39,12 @@ A única vez em que você deve comprar uma reserva do Linux é quando planeja te
 
 Os exemplos a seguir mostram como o desconto de instância reservada do Imposto de Selo Isolado se aplica, dependendo das implantações.
 
-- **Exemplo 1**: você compra uma instância de capacidade de carimbo reservado isolado em uma região sem carimbos de serviço do aplicativo isolado. Você implanta um novo selo na região e paga as taxas reservadas para esse selo.
-- **Exemplo 2**: você compra uma instância da capacidade de carimbo reservado isolado em uma região que já tem um carimbo de serviço do aplicativo isolado implantado. Você começa recebendo a taxa reservada do selo implantado.
-- **Exemplo 3**: você compra uma instância de capacidade de carimbo reservado isolado em uma região com um carimbo de serviço do aplicativo isolado já implantado. Você começa recebendo a taxa reservada no selo implantado. Posteriormente, exclua o selo e implante um novo. Você recebe a taxa reservada do novo selo. Os descontos não são transferidos para durações sem selos implantados.
-- **Exemplo 4**: você compra uma instância de capacidade de carimbo reservado do Linux isolado em uma região e, em seguida, implanta um novo carimbo na região. Quando o selo é implantado inicialmente sem trabalhos, ele emite o medidor de selo do Windows. Nenhum desconto é recebido. Quando o primeiro trabalho do Linux tiver implantado o selo, ele emitirá o medidor de Selo do Linux e o desconto de reserva será aplicado. Se um trabalho do Windows for implantado posteriormente no selo, o medidor de selo será revertido para o Windows. Você não receberá mais um desconto para a reserva de Selo Reservado do Linux Isolado.
+- **Exemplo 1**: você compra uma instância da capacidade de Selo Reservado Isolado em uma região sem Selos Isolados do Serviço de Aplicativo. Você implanta um novo selo na região e paga as taxas reservadas para esse selo.
+- **Exemplo 2**: você compra uma instância da capacidade de Selo Reservado Isolado em uma região que já tem um Selo Isolados do Serviço de Aplicativo implantado. Você começa recebendo a taxa reservada do selo implantado.
+- **Exemplo 3**: você compra uma instância da capacidade de Selo Reservado Isolado em uma região com um Selo Isolados do Serviço de Aplicativo já implantado. Você começa recebendo a taxa reservada no selo implantado. Posteriormente, exclua o selo e implante um novo. Você recebe a taxa reservada do novo selo. Os descontos não são transferidos para durações sem selos implantados.
+- **Exemplo 4**: você compra uma instância da capacidade de Selo Reservado do Linux Isolado em uma região e implanta um novo selo na região. Quando o selo é implantado inicialmente sem trabalhos, ele emite o medidor de selo do Windows. Nenhum desconto é recebido. Quando o primeiro trabalho do Linux tiver implantado o selo, ele emitirá o medidor de Selo do Linux e o desconto de reserva será aplicado. Se um trabalho do Windows for implantado posteriormente no selo, o medidor de selo será revertido para o Windows. Você não receberá mais um desconto para a reserva de Selo Reservado do Linux Isolado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para aprender a gerenciar uma reserva, confira [Gerenciar Reservas do Azure](manage-reserved-vm-instance.md).
 - Para saber mais sobre como comprar previamente uma capacidade reservada do Selo Isolado do Serviço de Aplicativo para economizar dinheiro, confira [Pagar antecipadamente o Imposto de Selo Isolado do Serviço de Aplicativo do Azure com capacidade reservada](prepay-app-service-isolated-stamp.md).

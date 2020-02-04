@@ -9,10 +9,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.openlocfilehash: 88ab9c475d417bc935cf5d2d67f1678794fb74d1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995618"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Entender como o desconto de reserva é aplicado ao Azure Data Explorer
@@ -36,7 +36,7 @@ Um desconto de reserva é aplicado ao consumo de marcação do Azure Data Explor
 ## <a name="examples"></a>Exemplos
 
 Os exemplos a seguir mostram como é a aplicação do desconto de capacidade reservada do Azure Data Explorer, dependendo do número de unidades de marcação que você comprou e de quando estão em execução.
-Por exemplo, para o tamanho do cluster do mecanismo: **2 D11_v2 VMs**, os encargos totais sob demanda são para quatro unidades do Azure data Explorer o medidor de marcação por hora. 
+Por exemplo, para o tamanho do cluster do mecanismo: **2 VMs D11_v2**, seu total de encargos sob demanda é para quatro unidades de medidor de marcação do Azure Data Explorer por hora. 
 
 **Cenário 1** 
 
@@ -58,11 +58,11 @@ Você executa um cluster de mecanismo do Azure Data Explorer de 16 núcleos das 
 
 Para entender e visualizar a aplicação de suas reservas do Azure nos relatórios de uso de faturamento, confira [Entender o uso de reserva do Azure](understand-reserved-instance-usage-ea.md).
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Contate-nos
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre as reservas do Azure, consulte os seguintes artigos:
 

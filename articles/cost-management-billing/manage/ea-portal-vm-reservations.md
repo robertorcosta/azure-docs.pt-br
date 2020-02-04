@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
 ms.openlocfilehash: 26c132d42bfc89c9b6e887c8ca02232848513698
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992069"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Instâncias reservadas de VM de EA do Azure
@@ -54,7 +54,7 @@ Depois que o registro de EA estiver habilitado para adicionar instâncias reserv
 
 ### <a name="how-to-view-reserved-instance-purchase-details"></a>Como exibir detalhes de compra da instância reservada
 
-Você pode exibir seus detalhes de compra da instância reservada por meio do menu _Reservas_ no lado esquerdo do [portal do Azure](https://aka.ms/reservations) ou no [portal de EA do Azure](https://ea.azure.com/). Selecione **relatórios** no menu do lado esquerdo e role para baixo até a seção _encargos por serviços_ na guia _Resumo de uso_ . Role até a parte inferior da seção e suas compras e uso da instância reservada serão listadas no final conforme indicado pela designação de "1 ano" ou "3 anos" ao lado do nome do serviço, por exemplo: Standard_DS1_v2 eastus 1 ano ou Standard_D2s_v3 eastus2 3
+Você pode exibir seus detalhes de compra da instância reservada por meio do menu _Reservas_ no lado esquerdo do [portal do Azure](https://aka.ms/reservations) ou no [portal de EA do Azure](https://ea.azure.com/). Selecione **Relatórios** no menu do lado esquerdo e role para baixo até a seção _Encargos por serviços_ na guia _Resumo de uso_. Role até a parte inferior da seção e suas compras e uso da instância reservada serão listadas no final, como indicado pela designação de "1 ano" ou "3 anos" ao lado do nome do serviço, por exemplo: Standard_DS1_v2 Leste dos EUA 1 ano ou Standard_D2s_v3 Leste dos EUA 2 3 anos.
 
 ### <a name="how-can-i-change-the-subscription-associated-with-reserved-instance-or-transfer-my-reserved-instance-benefits-to-a-subscription-under-the-same-account"></a>Como posso alterar a assinatura associada à instância reservada ou transferir meus benefícios de instância reservada para uma assinatura na mesma conta?
 
@@ -65,7 +65,7 @@ A qualquer momento, apenas uma assinatura pode receber benefícios de instância
 
 ### <a name="how-to-view-reserved-instance-usage-details"></a>Como exibir detalhes de uso da instância reservada
 
-Você pode exibir os detalhes de uso da instância reservada no [portal do Azure](https://aka.ms/reservations) ou no [portal do EA do Azure](https://ea.azure.com/) (para clientes do EA que têm acesso para exibir as informações de cobrança) em _Relatórios_ > _Resumo de uso_ > _Encargos por serviços_. Suas instâncias reservadas podem ser identificadas como nomes de serviço que contêm ' reserva ', por exemplo: Instâncias Reservadas de VM de base ou as máquinas virtuais Reservation-Windows SVR (1 núcleo).
+Você pode exibir os detalhes de uso da instância reservada no [portal do Azure](https://aka.ms/reservations) ou no [portal do EA do Azure](https://ea.azure.com/) (para clientes do EA que têm acesso para exibir as informações de cobrança) em _Relatórios_ > _Resumo de uso_ > _Encargos por serviços_. Suas instâncias reservadas podem ser identificadas como nomes de serviço que contêm "Reserva", por exemplo: Reservation-Base VM ou Virtual Machines Reservation-Windows Svr (1 Core).
 
 Os detalhes de uso e o CSV de download de relatório avançado contêm informações adicionais de uso da instância reservada. O campo _Informações adicionais_ ajudará a identificar o uso da instância reservada.
 
@@ -81,7 +81,7 @@ Nos cenários em que os clientes do Azure EA usaram todo o seu compromisso monet
 
 Você receberá notificações por email 30 dias antes da reserva e na expiração. Quando a reserva expirar, as VMs implantadas continuarão a ser executadas e faturadas de acordo com a taxa paga conforme o uso. Para saber mais, confira [Oferta de instâncias de Máquina Virtual Reservada.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Para obter mais informações sobre reservas do Azure, confira [O que são as Reservas do Azure?](../reservations/save-compute-costs-reservations.md).
 - Para saber mais sobre os custos e o uso da reserva com Contrato Enterprise, confira [Obter custos e uso de reserva do Contrato Enterprise](../reservations/understand-reserved-instance-usage-ea.md).
 - Para saber mais sobre os preços, confira [Preços de Máquinas Virtuais do Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) ou [Preços das Máquinas Virtuais do Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).

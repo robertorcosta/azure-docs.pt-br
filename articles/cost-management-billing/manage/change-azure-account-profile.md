@@ -14,10 +14,10 @@ ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a1cbbbcb110e9943f9714d9f6463c01b408fc1d7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75993044"
 ---
 # <a name="change-the-profile-information-for-your-azure-account"></a>Alterar as informações de perfil de sua conta do Azure
@@ -76,7 +76,7 @@ Insira o endereço de email em que você deseja receber comunicações sobre sua
 
 * Acesse a área [Informações de contato](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) no portal do Azure e insira um endereço de email. O endereço que você fornece recebe comunicações de serviço e de marketing. O endereço de email no Perfil do Centro de Contas do Azure é atualizado para corresponder automaticamente. Atualizar seu endereço de email do perfil não atualiza seu endereço de email de entrada.
 
-* No [portal do Azure](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade), selecione o ícone com suas iniciais ou imagem. Em seguida, selecione o menu de contexto ( **...** ). Em seguida, selecione **minhas informações de contato** no menu e insira um endereço de email. O endereço que você fornece recebe comunicações de serviço e de marketing. O endereço de email no seu Perfil do Centro de Contas do Azure é atualizado para corresponder automaticamente. Atualizar seu endereço de email do perfil não atualiza seu endereço de email de entrada.
+* No [portal do Azure](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade), selecione o ícone com suas iniciais ou imagem. Em seguida, selecione o menu de contexto ( **...** ). Em seguida, selecione **Minhas Informações de Contato** no menu e insira um endereço de email. O endereço que você fornece recebe comunicações de serviço e de marketing. O endereço de email no seu Perfil do Centro de Contas do Azure é atualizado para corresponder automaticamente. Atualizar seu endereço de email do perfil não atualiza seu endereço de email de entrada.
 
 ![Exemplo de atualizar um endereço de email no Azure](./media/change-azure-account-profile/azure-contact-information.png)
 
@@ -98,9 +98,9 @@ Quando você cancela o recebimento de comunicações de marketing, você ainda r
     ![Exemplo de renomeação da assinatura do Azure](./media/change-azure-account-profile/rename-sub.png)
 1. Depois de alterar o nome, selecione **Salvar**.
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - [Exibir suas contas de cobrança](view-all-accounts.md)

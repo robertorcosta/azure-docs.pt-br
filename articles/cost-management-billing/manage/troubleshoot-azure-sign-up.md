@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/12/2019
 ms.author: v-miegge
 ms.openlocfilehash: e13a55143e554a55a2902fc2350f6fde6a8afb09
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75989287"
 ---
 # <a name="troubleshoot-azure-sign-up"></a>Solucionar problemas de inscrição no Azure
@@ -32,7 +32,7 @@ Você pode ter problemas ao tentar se inscrever em uma nova conta no portal do M
 
 Para resolver eventuais erros, selecione o problema enfrentado ao tentar se inscrever no Azure.
 
-### <a name="error-we-cannot-proceed-with-sign-up-due-to-an-issue-with-your-account-please-contact-billing-support"></a>Erro: *não podemos continuar com a inscrição devido a um problema com sua conta. Entre em contato com o suporte de cobrança.*
+### <a name="error-we-cannot-proceed-with-sign-up-due-to-an-issue-with-your-account-please-contact-billing-support"></a>Erro: *Não é possível prosseguir com a inscrição devido a um problema na sua conta. Entre em contato com o suporte de cobrança.*
 
 Para resolver o problema, siga estas etapas:
 
@@ -109,7 +109,7 @@ Verifique se você está usando as credenciais de conexão corretas. Em seguida,
 
 Para criar uma assinatura do Azure via Open, você precisa ter uma chave OSA (Ativação de Serviço Online) válida com pelo menos um token do Azure via Open associado a ela. Se você não tiver uma chave OSA, entre em contato com um dos Parceiros da Microsoft listados no [Microsoft Pinpoint](https://pinpoint.microsoft.com/).
 
-### <a name="error-you-are-not-eligible-for-an-azure-subscription"></a>Erro: *você não está qualificado para uma assinatura do Azure*
+### <a name="error-you-are-not-eligible-for-an-azure-subscription"></a>Erro: *Você não está qualificado para uma assinatura do Azure*
 
 Para resolver esse problema, verifique se os seguintes itens:
 
@@ -117,7 +117,7 @@ Para resolver esse problema, verifique se os seguintes itens:
 - Se as informações do cartão de crédito estão corretas.
 - Se você já não tem uma conta Microsoft que usa as mesmas informações.
 
-### <a name="error-your-current-account-type-is-not-supported"></a>Erro: *não há suporte para o tipo de conta atual*
+### <a name="error-your-current-account-type-is-not-supported"></a>Erro: *Seu tipo de conta atual não é compatível*
 
 Esse problema poderá ocorrer se a conta estiver registrada em um [diretório não gerenciado do Azure AD](../../active-directory/users-groups-roles/directory-self-service-signup.md) e se não estiver no diretório do Azure AD da sua organização.
 
@@ -136,6 +136,6 @@ Outros artigos de solução de problemas para a Cobrança e as Assinaturas do Az
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Documentação de cobrança do Azure](../../billing/index.md)
