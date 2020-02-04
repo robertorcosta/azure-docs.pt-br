@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d0acc2d92c564f89f4777ccb243c7255e47c9105
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: eb9231a84295240c20e34bfad56f406317c107da
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514112"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845489"
 ---
 ::: zone target="chromeless"
 
@@ -155,10 +155,28 @@ Se necessário, você poderá contatar o Suporte da Quantium Solutions (em japon
 
    Se tiver problemas, entre em contato com as Operações do Data Box na Ásia pelo email adbo@microsoft.com. Forneça o nome do trabalho no cabeçalho de assunto e o problema encontrado.
 
-3. Passe para a transportadora. 
+3. Passe para a transportadora.
 
+### <a name="in-self-managedtabin-selfmanaged"></a>[Remessa autogerenciada](#tab/in-selfmanaged)
+
+Se estiver usando o Data Box Disk no Japão, em Singapura, na Coreia do Sul e no Oeste da Europa e tiver selecionado a opção de remessa autogerenciada durante a criação do pedido, siga estas instruções. 
+
+1. Vá para a folha **Visão geral** de seu pedido no portal do Azure. Examine as instruções que são exibidas ao selecionar **Agendar retirada**. Você deverá ver um código de Autorização, que será usado no momento de entrega do pedido.
+
+2. Envie um email para a equipe de Operações do Azure Data Box usando o modelo a seguir quando estiver pronto para devolver o dispositivo.
+
+    ```
+    To: adbops@microsoft.com
+    Subject: Request for Azure Data Box Disk drop-off for order: ‘orderName’
+    Body: 
+     a. Order name
+     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
+    ```
+3. A equipe de Operações do Azure Data Box trabalhará com você para organizar a devolução para o Datacenter do Azure.
 
 ::: zone target="docs"
+
+---
 
 ## <a name="next-steps"></a>Próximas etapas
 

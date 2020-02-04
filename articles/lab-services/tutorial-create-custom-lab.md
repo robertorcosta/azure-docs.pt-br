@@ -1,6 +1,6 @@
 ---
 title: Criar um laboratório usando o Azure DevTest Labs | Microsoft Docs
-description: Neste início rápido, você criará um laboratório usando o Azure DevTest Labs.
+description: Neste tutorial, você criará um laboratório no Azure DevTest Labs usando o portal do Azure. Um administrador de laboratório configura um laboratório, cria VMs no laboratório e configura políticas.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/18/2019
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: aff92e8dd45fecc3fabd005e8921eda7add07fb4
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 44539c6779afaece6d955a907819ef82d8cd7d5a
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804944"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759526"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Tutorial: Configurar um laboratório usando o Azure DevTest Labs
 Neste tutorial, você criará um laboratório usando o Portal do Azure. Um administrador de laboratório define um laboratório em uma organização, cria máquinas virtuais no laboratório e configura políticas. Os usuários de laboratório (por exemplo: desenvolvedores e testadores) solicitam máquinas virtuais no laboratório, as conectam e as usam. 
@@ -36,14 +36,14 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ## <a name="create-a-lab"></a>Criar um laboratório
 As etapas a seguir ilustram como usar o portal do Azure para criar um laboratório no Azure DevTest Labs. 
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. No menu principal no lado esquerdo, selecione **Criar um recurso** (na parte superior da lista), aponte para **Ferramentas de desenvolvedor**e clique em **DevTest Labs**. 
 
     ![Menu novo DevTest Lab](./media/tutorial-create-custom-lab/new-custom-lab-menu.png)
 1. Na janela **Criar um DevTest Lab**, execute as seguintes ações: 
     1. Para **Nome do laboratório**, insira um nome para o laboratório. 
     2. Para **Assinatura**, selecione a assinatura na qual você deseja criar o laboratório. 
-    3. Para **Grupo de Recursos**, selecione **Criar novo** e digite um nome para o grupo de recursos. 
+    3. Para **Grupo de recursos**, selecione **Criar novo** e digite um nome para o grupo de recursos. 
     4. Para **Local**, selecione o local/região em que você deseja que o laboratório seja criado. 
     5. Selecione **Criar**. 
     6. Selecione **Fixar no painel**. Depois de criar o laboratório, o laboratório aparece no painel. 
@@ -51,7 +51,7 @@ As etapas a seguir ilustram como usar o portal do Azure para criar um laboratór
         ![Criar uma seção de laboratório do DevTest Labs](./media/tutorial-create-custom-lab/create-custom-lab-blade.png)
 2. Confirme se o laboratório foi criado com êxito examinando as notificações. Selecione **Ir para o recurso**.  
 
-    ![Notificação](./media/tutorial-create-custom-lab/creation-notification.png)
+    ![Notification](./media/tutorial-create-custom-lab/creation-notification.png)
 3. Confirme que você vê a página **DevTest Lab** do seu laboratório. 
 
     ![Home page do laboratório](./media/tutorial-create-custom-lab/lab-home-page.png)
@@ -97,7 +97,7 @@ As etapas a seguir ilustram como usar o portal do Azure para criar um laboratór
 
         ![Adicionar usuário](./media/tutorial-create-custom-lab/add-user.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 O seguinte tutorial mostra como um usuário de laboratório pode solicitar e se conectar a uma máquina virtual no laboratório. Se você não quiser fazer esse tutorial e limpar os recursos criados como parte deste tutorial, siga estas etapas: 
 
 1. No portal do Azure, selecione **Grupos de recursos** no menu. 

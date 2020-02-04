@@ -1,6 +1,6 @@
 ---
-title: 'Início Rápido: Como usar filas do Barramento de Serviço com PHP'
-description: 'Início Rápido: Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de código escritos em PHP.'
+title: Como usar filas do Barramento de Serviço do Azure com o PHP
+description: Neste tutorial, você aprenderá a criar aplicativos PHP para enviar e receber mensagens em uma fila do Barramento de Serviço.
 services: service-bus-messaging
 documentationcenter: php
 author: axisc
@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: d576c269f4178c7543327c6b75f46f5487d7a205
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: fcb735d81cac587c75a133ad582f2a839551dcfa
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719196"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760684"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-php"></a>Início Rápido: Como usar filas do Barramento de Serviço com PHP
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 Neste tutorial, você aprenderá a criar aplicativos PHP para enviar e receber mensagens em uma fila do Barramento de Serviço. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 1. Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Ative seus [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscreva-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Caso você não tenha uma fila para trabalhar, siga as etapas do artigo [Usar o portal do Azure para criar uma fila do Barramento de Serviço](service-bus-quickstart-portal.md) para criar uma fila.
     1. Leia a **visão geral** rápida das **filas** do Barramento de Serviço. 

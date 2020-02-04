@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: e06c8d5373f8740e8091daae242a4f7af6c0ea4a
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 0cde8b48e7bd1d1daa8f14dcded87001fb898fa7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995857"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769228"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-java"></a>Início Rápido: Biblioteca de clientes do Azure Key Vault para Java
 
@@ -22,12 +22,12 @@ O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usa
 - Aumentar a segurança e o controle sobre chaves e senhas.
 - Criar e importar chaves de criptografia em minutos.
 - Reduzir a latência com escala de nuvem e redundância global.
-- Simplificar e automatizar tarefas para certificados SSL/TLS.
+- Simplifique e automatize tarefas para certificados TLS/SSL.
 - Usar HSMs validados para os padrões FIPS 140-2 Nível 2.
 
 [Código-fonte](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault) | [Documentação de referência da API](https://azure.github.io/azure-sdk-for-java) | [Documentação do produto](index.yml) | [Exemplos](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) versão 8 ou superior
@@ -236,7 +236,7 @@ Você pode verificar se o segredo foi excluído com o comando [az keyvault secre
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, você poderá usar a CLI do Azure ou o Azure PowerShell para remover seu cofre de chaves e o grupo de recursos correspondente.
 
@@ -248,7 +248,7 @@ az group delete -g "myResourceGroup"
 Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
-## <a name="sample-code"></a>Exemplo de código
+## <a name="sample-code"></a>Código de exemplo
 
 ```java
 package com.keyvault.quickstart;

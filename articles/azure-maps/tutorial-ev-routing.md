@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: f45859370ae178fb186399fdd2648bf37f0985aa
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: dfc9c045af5347ebd3f15df48d5a5756dd2a9e05
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910914"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844744"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: Rotear veículos elétricos usando o Azure Notebooks (Python)
 
@@ -22,7 +22,7 @@ Os Azure Mapas são um portfólio de APIs de serviço geoespacial que são nativ
 
 As APIs REST dos Azure Mapas podem ser chamadas em linguagens como Python e R para habilitar a análise de dados geoespaciais e cenários de machine learning. Os Azure Mapas oferecem um conjunto robusto de [APIs de roteamento](https://docs.microsoft.com/rest/api/maps/route) que permitem aos usuários calcular rotas entre vários pontos de dados. Os cálculos se baseiam em várias condições, como tipo de veículo ou área acessível. 
 
-Neste tutorial, você verá um cenário usado para ajudar um motorista de veículo elétrico cuja carga da bateria está fraca a encontrar o posto de recarga mais próximo possível, de acordo com o tempo de condução partindo da localização do veículo.
+Neste tutorial, você ajudará um motorista cuja bateria do veículo elétrico está acabando. O motorista precisa encontrar a estação de carga mais próxima possível da localização do veículo.
 
 Neste tutorial, você irá:
 
@@ -39,15 +39,15 @@ Neste tutorial, você irá:
 
 Para concluir este tutorial, primeiro, é necessário criar uma conta dos Azure Mapas e obter a chave primária (chave de assinatura). 
 
-Para criar uma assinatura da conta dos Azure Mapas no tipo de preço S1, siga as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma assinatura da conta dos Azure Mapas com o tipo de preço S1. 
+Para criar a assinatura de uma conta do Azure Mapas, siga as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps). Você precisa ter uma assinatura de conta do Azure Mapas da faixa de preço S1. 
 
 Para obter a chave de assinatura primária da sua conta, siga as instruções em [Obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
-Para obter mais detalhes sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](./how-to-manage-authentication.md).
+Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](./how-to-manage-authentication.md).
 
 ## <a name="create-an-azure-notebook"></a>Criar um Azure Notebook
 
-Para acompanhar este tutorial, você precisará criar um projeto do Azure Notebook e baixar e executar o arquivo do Jupyter Notebook. O arquivo do notebook contém o código Python, que implementa o cenário neste tutorial. Para criar um projeto do Azure Notebook e fazer upload do documento do Jupyter Notebook nele, faça o seguinte:
+Para acompanhar este tutorial, você precisará criar um projeto do Azure Notebook e baixar e executar o arquivo do Jupyter Notebook. O arquivo do notebook contém o código Python, que implementa o cenário neste tutorial. Para criar um projeto de notebook do Azure e fazer upload do documento do Jupyter Notebook nele, siga estas etapas:
 
 1. Vá até [Azure Notebooks](https://notebooks.azure.com) e entre. Para saber mais, confira [Início Rápido: Entrar e definir uma ID de usuário](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks).
 1. Na parte superior da página de seu perfil público, selecione **Meus Projetos**.
@@ -64,7 +64,7 @@ Para acompanhar este tutorial, você precisará criar um projeto do Azure Notebo
 
 1. Selecione **Criar**.
 
-1. Após a criação do projeto, baixe o [arquivo de documento do Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) do [repositório do Jupyter Notebook dos Azure Mapas](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook). 
+1. Após a criação do projeto, baixe este [arquivo de documento do Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) do [repositório do Jupyter Notebook dos Azure Mapas](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook).
 
 1. Na lista de projetos da página **Meus Projetos**, selecione o projeto e, em seguida, selecione **Upload** para fazer upload do arquivo de documento do Jupyter Notebook. 
 
@@ -72,15 +72,15 @@ Para acompanhar este tutorial, você precisará criar um projeto do Azure Notebo
 
 1. Faça upload do arquivo do computador e, em seguida, selecione **Concluído**.
 
-1. Depois que o upload for concluído com êxito, o arquivo será exibido na página do projeto. Selecione o arquivo para abri-lo como um Jupyter Notebook.
+1. Depois que o upload for concluído com êxito, o arquivo será exibido na página do projeto. Clique duas vezes no arquivo para abri-lo como um Jupyter Notebook.
 
-Para ajudar você a entender melhor a funcionalidade implementada no arquivo de notebook, recomendamos que você execute o código no notebook, uma célula por vez. Execute o código em cada célula selecionando o botão **Executar** na parte superior do aplicativo do notebook.
+Para ajudar você a entender melhor a funcionalidade implementada no arquivo de notebook, execute o código no notebook uma célula por vez. Execute o código em cada célula selecionando o botão **Executar** na parte superior do aplicativo do notebook.
 
   ![O botão Executar](./media/tutorial-ev-routing/run.png)
 
 ## <a name="install-project-level-packages"></a>Instalar pacotes do nível do projeto
 
-Para executar o código no notebook, instale os pacotes no nível do projeto fazendo o seguinte:
+Para executar o código no notebook, instale os pacotes no nível do projeto seguindo estas etapas:
 
 1. Baixe o arquivo [*requirements.txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) do [repositório do Jupyter Notebook nos Azure Mapas](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) e, em seguida, faça upload dele no projeto.
 1. No painel do projeto, selecione **Configurações do Projeto**. 
@@ -95,9 +95,9 @@ Para executar o código no notebook, instale os pacotes no nível do projeto faz
 
 ## <a name="load-the-required-modules-and-frameworks"></a>Carregar as estruturas e os módulos necessários
 
-Para carregar todas as estruturas e todos os módulos necessários, execute o seguinte script:
+Para carregar todas as estruturas e todos os módulos necessários, execute o script a seguir.
 
-```python
+```Python
 import time
 import aiohttp
 import urllib.parse
@@ -106,9 +106,9 @@ from IPython.display import Image, display
 
 ## <a name="request-the-reachable-range-boundary"></a>Solicitar o limite do intervalo acessível
 
-Em nosso cenário, uma empresa de entrega de pacotes tem alguns veículos elétricos na frota. Durante o dia, os veículos elétricos precisam ser recarregados sem a necessidade de retornar ao depósito. Sempre que a carga restante atual cai para menos de uma hora (ou seja, a bateria está com pouca carga), você pesquisa um conjunto de postos de recarga que estão dentro de um intervalo acessível e obtém as informações de limite para esse intervalo. 
+Uma empresa de entrega de pacotes tem alguns veículos elétricos na frota. Durante o dia, os veículos elétricos precisam ser recarregados sem a necessidade de retornar ao depósito. Sempre que a carga restante cai para menos de uma hora, você pesquisa por um conjunto de estações de carga que estão em um intervalo acessível. Essencialmente, você pesquisa por uma estação de carga quando a bateria está com pouca carga. Além disso, você obtém as informações de limite referentes a esse intervalo de estações de carga. 
 
-Como a empresa prefere usar rotas que exigem um equilíbrio entre economia e velocidade, o routeType solicitado é *eco*. O script a seguir chama a [API Obter Intervalo de Rotas](https://docs.microsoft.com/rest/api/maps/route/getrouterange) do serviço de roteamento dos Azure Mapas usando parâmetros para o modelo de consumo do veículo. Em seguida, o script analisa a resposta para criar um objeto de polígono do formato GeoJSON, que representa o intervalo máximo acessível do carro.
+Como a empresa prefere usar rotas que exigem um equilíbrio entre economia e velocidade, o routeType solicitado é *eco*. O script a seguir chama a [API Obter Intervalo de Rotas](https://docs.microsoft.com/rest/api/maps/route/getrouterange) do serviço de roteiros do Azure Mapas. Ele usa parâmetros do modelo de consumo do veículo. Em seguida, o script analisa a resposta para criar um objeto de polígono do formato GeoJSON, que representa o intervalo máximo acessível do carro.
 
 Para determinar os limites do intervalo acessível do veículo elétrico, execute o script na seguinte célula:
 
@@ -173,7 +173,7 @@ for loc in range(len(searchPolyResponse["results"])):
 
 ## <a name="upload-the-reachable-range-and-charging-points-to-azure-maps-data-service"></a>Faça upload do intervalo acessível e os pontos de recarga no Serviço de Dados dos Azure Mapas
 
-O ideal é visualizar em um mapa os postos de recarga e os limites para o intervalo máximo acessível do veículo elétrico. Para fazer isso, faça upload dos dados de limite e os dados dos postos de recarga como objetos GeoJSON no Serviço de Dados dos Azure Mapas usando a [API de Upload de Dados](https://docs.microsoft.com/rest/api/maps/data/uploadpreview). 
+Em um mapa, o ideal é visualizar as estações de carga e os limites do intervalo máximo acessível para o veículo elétrico. Para fazer isso, faça upload dos dados de limite e dos dados das estações de carga como objetos geojson para o Serviço de Dados dos Azure Mapas. Use a [API de Upload de Dados](https://docs.microsoft.com/rest/api/maps/data/uploadpreview). 
 
 Para fazer upload dos dados de pontos de recarga e de limite no Serviço de Dados dos Azure Mapas, execute as duas seguintes células:
 
@@ -239,7 +239,7 @@ poiUdid = getPoiUdid["udid"]
 
 ## <a name="render-the-charging-stations-and-reachable-range-on-a-map"></a>Renderizar os postos de recarga e o intervalo acessível em um mapa
 
-Depois que os dados forem carregados para o Serviço de Dados, chame o [serviço Obter Imagem do Mapa](https://docs.microsoft.com/rest/api/maps/render/getmapimage) dos Azure Mapas para renderizar os pontos de recarga e o limite máximo acessível na imagem do mapa estático executando o seguinte script:
+Depois de fazer upload dos dados para o serviço de dados, chame o [Serviço Obter Imagem de Mapa](https://docs.microsoft.com/rest/api/maps/render/getmapimage) dos Azure Mapas. Esse serviço é usado para renderizar os pontos de carga e o limite máximo alcançável na imagem do mapa estático executando o seguinte script:
 
 ```python
 # Get boundaries for the bounding box.
@@ -281,9 +281,9 @@ display(Image(poiRangeMap))
 
 ## <a name="find-the-optimal-charging-station"></a>Encontrar o posto de recarga ideal
 
-Depois que você determinar todos os possíveis postos de recarga dentro do intervalo acessível, o ideal será saber a qual deles se pode chegar no menor período de tempo. 
+Primeiro, determine todas as estações de carga potenciais dentro do intervalo acessível. Em seguida, descubra quais delas podem ser alcançadas em um período mínimo. 
 
-O script a seguir chama a [API de Roteamento de Matriz](https://docs.microsoft.com/rest/api/maps/route/postroutematrix) dos Azure Mapas, que retorna para a localização especificada do veículo o tempo de viagem e a distância para cada posto de recarga. O script na próxima célula analisa a resposta para localizar o posto de recarga acessível mais próximo com relação ao tempo.
+O script a seguir chama a [API de Roteiros de Matriz](https://docs.microsoft.com/rest/api/maps/route/postroutematrix) do Azure Mapas. Ele retorna a localização do veículo especificado, o tempo de viagem e a distância de cada estação carga. O script na próxima célula analisa a resposta para localizar o posto de recarga acessível mais próximo com relação ao tempo.
 
 Para encontrar o posto de recarga acessível mais próximo ao qual se pode chegar no menor período de tempo, execute o script na seguinte célula:
 
@@ -336,7 +336,7 @@ routeData = {
 
 ## <a name="visualize-the-route"></a>Visualizar a rota
 
-Para ajudar a visualizar a rota, primeiro faça upload dos dados de rota como um objeto GeoJSON no Serviço de Dados dos Azure Mapas usando a [API de Upload de Dados](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) dos Azure Mapas. Em seguida, chame o serviço de renderização, a [API Obter Imagem do Mapa](https://docs.microsoft.com/rest/api/maps/render/getmapimage), para renderizar a rota no mapa e visualizá-la.
+Para ajudar a visualizar a rota, primeiro faça upload dos dados de rota como um objeto geojson no Serviço de Dados dos Azure Mapas. Para fazer isso, use a [API de Upload de Dados](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) dos Azure Mapas. Em seguida, chame o serviço de renderização, a [API Obter Imagem do Mapa](https://docs.microsoft.com/rest/api/maps/render/getmapimage), para renderizar a rota no mapa e visualizá-la.
 
 Para obter uma imagem para a rota renderizada no mapa, execute o seguinte script:
 

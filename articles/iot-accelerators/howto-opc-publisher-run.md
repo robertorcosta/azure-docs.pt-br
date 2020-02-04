@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 66e2cb30dcd58b7ad0c6cedbb547f75c8039bc58
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2f99f50ffcccb052526981a712ac5046836a44ae
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824130"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712909"
 ---
 # <a name="run-opc-publisher"></a>Executar o OPC Publisher
 
@@ -532,7 +532,7 @@ Desempenho e memória são interdependentes e ambos dependem da configuração d
 - Tamanho de mensagem do Hub IoT (padrão `1`): `--ms`
 - Capacidade de fila de itens monitorados: `--mq`
 
-O parâmetro `--mq` controla o limite superior da capacidade da fila interna, que armazena em buffer todas as notificações de alteração de valor do nó OPC. Se o Publicador OPC não puder enviar mensagens ao Hub IoT com a rapidez suficiente, essa fila armazenará as notificações em buffer. O parâmetro define o número de notificações que podem ser armazenadas em buffer. Se você perceber que o número de itens na fila está aumentando em suas execuções de teste, para evitar perder mensagens você deverá:
+O parâmetro `--mq` controla o limite superior da capacidade da fila interna, que armazena em buffer todas as notificações de alteração de valor do nó OPC. Se o Publicador OPC não puder enviar mensagens ao Hub IoT com a rapidez suficiente, essa fila armazenará as notificações em buffer. O parâmetro define o número de notificações que podem ser armazenadas em buffer. Se perceber que o número de itens nessa fila está aumentando nas execuções de teste, para evitar a perda de mensagens, você deverá:
 
 - Reduzir o intervalo de envio do Hub IoT
 - Aumentar o tamanho de mensagem do Hub IoT
@@ -579,7 +579,7 @@ current working set in MB: 90
 ==========================================================================
 ```
 
-A configuração padrão envia dados ao Hub IoT a cada 10 segundos ou quando 256 KB de dados estão disponíveis para o Hub IoT ingerir. Essa configuração adiciona uma latência moderada de cerca de 10 segundos, mas tem menor probabilidade de perder dados devido ao grande tamanho da mensagem. A saída de diagnóstico mostra que não há nenhuma atualização de nó OPC perdida: `monitored item notifications enqueue failure: 0`.
+A configuração padrão envia dados ao Hub IoT a cada 10 segundos ou quando 256 KB de dados estão disponíveis para o Hub IoT ingerir. Essa configuração adiciona uma latência moderada de cerca de 10 segundos, mas tem a menor probabilidade de perda de dados devido ao tamanho grande da mensagem. A saída de diagnóstico mostra que não há nenhuma atualização de nó OPC perdida: `monitored item notifications enqueue failure: 0`.
 
 #### <a name="constant-send-interval---si-1---ms-0"></a>Intervalo de envio de constante (--si 1 --ms 0)
 
@@ -681,7 +681,7 @@ current working set in MB: 90
 ==========================================================================
 ```
 
-Essa configuração cria lotes com o maior número possível de atualizações de valor de nó OPC. O tamanho máximo da mensagem do Hub IoT é de 256 KB, o que é configurado aqui. Não há nenhum intervalo de envio solicitado, o que significa que a quantidade de dados para o Hub IoT ingerir determina a latência. Essa configuração tem a menor probabilidade de perder quaisquer valores de nó OPC e é adequada para publicar um grande número de nós. Quando você usa essa configuração, verifique se o cenário não tem condições em que é introduzida alta latência se o tamanho da mensagem de 256 KB não é atingido.
+Essa configuração cria lotes com o maior número possível de atualizações de valor de nó OPC. O tamanho máximo da mensagem do Hub IoT é de 256 KB, o que é configurado aqui. Não há nenhum intervalo de envio solicitado, o que significa que a quantidade de dados para o Hub IoT ingerir determina a latência. Essa configuração tem a menor probabilidade de perda de valores de nó OPC e é adequada para publicação de um grande número de nós. Quando você usa essa configuração, verifique se o cenário não tem condições em que é introduzida alta latência se o tamanho da mensagem de 256 KB não é atingido.
 
 ## <a name="debug-the-application"></a>Depurar o aplicativo
 

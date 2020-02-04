@@ -2,14 +2,14 @@
 title: Avaliar VMs do Hyper-V para migração para o Azure usando as Migrações para Azure | Microsoft Docs
 description: Descreve como avaliar as VMs locais do Hyper-V para migração para o Azure usando as Migrações para Azure.
 ms.topic: tutorial
-ms.date: 01/01/2020
+ms.date: 01/23/2020
 ms.custom: mvc
-ms.openlocfilehash: f36b0fbae01b25e604222c76d41ac21c0a7ae5a9
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: e4c505d74ff3bebc21f696b1c4b894afcdaa9974
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029018"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845523"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Avaliar VMs do Hyper-V usando a avaliação de servidor das Migrações para Azure
 
@@ -62,7 +62,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
     **Geografia** | **Região**
     --- | ---
     Ásia  | Sudeste Asiático
-    Europa | Europa Setentrional ou Europa Ocidental
+    Europa | Norte da Europa ou Europa Ocidental
     United Kingdom |  Sul do Reino Unido ou Oeste do Reino Unido
     Estados Unidos | Leste dos EUA, Oeste dos EUA 2 ou Centro-oeste dos EUA
 
@@ -138,7 +138,7 @@ Importe o arquivo baixado e crie a VM.
 2. Em **Escolher Tipo de Importação**, clique em **Copiar a máquina virtual (criar uma nova ID exclusiva)** . Em seguida, clique em **Próximo**.
 3. Em **Escolher Destino**, mantenha a configuração padrão. Clique em **Próximo**.
 4. Em **Pastas de Armazenamento**, mantenha a configuração padrão. Clique em **Próximo**.
-5. Em **Escolher Rede**, especifique o comutador virtual que será usado pela VM. O comutador precisa de conectividade com a Internet para enviar dados ao Azure.
+5. Em **Escolher Rede**, especifique o comutador virtual que será usado pela VM. O comutador precisa de conectividade com a Internet para enviar dados ao Azure. [Saiba mais](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) sobre como criar um comutador virtual.
 6. Em **Resumo**, examine as configurações. Em seguida, clique em **Concluir**.
 7. No Gerenciador do Hyper-V, > **Máquinas Virtuais**, inicie a máquina virtual.
 

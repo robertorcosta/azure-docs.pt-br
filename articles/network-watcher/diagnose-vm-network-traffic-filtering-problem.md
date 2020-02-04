@@ -4,8 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Neste início rápido, você aprende a diagnosticar um problema no filtro de tráfego de rede da máquina virtual usando a funcionalidade de verificação de fluxo de IP do Observador de Rede do Azure.
 services: network-watcher
 documentationcenter: network-watcher
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
@@ -16,14 +15,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: d436fab100dc05cde8a434af564c67477b33d8d3
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 68f575164487f726c2f6c7477ceacd731bb52b0f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276004"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844914"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Início Rápido: Diagnosticar um problema de filtro do tráfego de rede da máquina virtual usando o portal do Azure
 
@@ -43,11 +42,11 @@ Faça logon no Portal do Azure em https://portal.azure.com.
 
     |Configuração|Valor|
     |---|---|
-    |NOME|myVm|
+    |Nome|myVm|
     |Nome de usuário| Insira um nome de usuário de sua escolha.|
     |Senha| Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscription| Selecione sua assinatura.|
-    |Grupo de recursos| Selecione **Criar novo** e insira **myResourceGroup**.|
+    |Resource group| Selecione **Criar novo** e insira **myResourceGroup**.|
     |Location| Selecione **Leste dos EUA**|
 
 4. Selecione um tamanho para a VM e selecione **Selecionar**.
@@ -73,7 +72,7 @@ Se você já tiver um observador de rede habilitado em pelo menos uma região, v
 
 Quando você cria uma VM, o Azure permite e nega o tráfego de rede na VM, por padrão. Mais tarde, você pode substituir os padrões do Azure, permitindo ou negando tipos adicionais de tráfego.
 
-1. No portal, selecione **Todos os serviços**. Na caixa **Todos os serviços** *Filtro*, insira *Observador de Rede*. Quando o **Observador de Rede** for exibido nos resultados, selecione-o.
+1. No portal, selecione **Todos os serviços**. Na caixa de **Filtro** *Todos os serviços*, insira *Observador de Rede*. Quando o **Observador de Rede** for exibido nos resultados, selecione-o.
 2. Selecione **Verificação de fluxo de IP** em **FERRAMENTAS DE DIAGNÓSTICO DE REDE**.
 3. Selecione sua assinatura, insira ou selecione os seguintes valores e, em seguida, selecione **Verificar**, conforme mostrado na seguinte imagem:
 
@@ -115,7 +114,7 @@ Agora que você sabe quais regras de segurança permitem ou negam o tráfego bid
 
 As verificações deste início rápido testaram a configuração do Azure. Se as verificações retornarem resultados esperados e você ainda tiver problemas de rede, verifique se você não tem um firewall entre a VM e o ponto de extremidade com o qual está se comunicando e se o sistema operacional na VM não tem um firewall que permite ou nega a comunicação.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, exclua o grupo de recursos e todos os recursos que ele contém:
 

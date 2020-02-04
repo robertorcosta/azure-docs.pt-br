@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 10/24/2019
+ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 5aa4cc24484a4ba1da608da9676ade492db35b6c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9f25c845302d62e3bc9e230b4a6f8f2669f4ac35
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72936002"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774282"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Tutorial: Moderar comandos e postagens do Facebook com o Content Moderator do Azure
 
@@ -35,9 +35,9 @@ Este diagrama ilustra cada componente desse cenário:
 ![Diagrama do Content Moderator recebendo informações do Facebook por meio de "FBListener" e enviando informações por meio de "CMListener"](images/tutorial-facebook-moderation.png)
 
 > [!IMPORTANT]
-> Em 2018, o Facebook implementou uma habilitação mais estrita de aplicativos do Facebook. Você não poderá concluir as etapas deste tutorial caso seu aplicativo não tenha sido examinado e aprovado pela equipe de análise do Facebook.
+> Em 2018, o Facebook implementou uma política de habilitação mais estrita para Aplicativos Facebook. Você não poderá concluir as etapas deste tutorial caso seu aplicativo não tenha sido examinado e aprovado pela equipe de análise do Facebook.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma chave de assinatura do Content Moderator. Siga as instruções descritas em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar o serviço Content Moderator e obter sua chave.
 - Uma [conta do Facebook](https://www.facebook.com/).

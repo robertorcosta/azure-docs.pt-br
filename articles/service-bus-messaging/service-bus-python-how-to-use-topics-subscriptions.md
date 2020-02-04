@@ -1,10 +1,9 @@
 ---
 title: 'Início Rápido: Usar tópicos e assinaturas do Barramento de Serviço do Azure com Python'
-description: Saiba como usar tópicos do Barramento de Serviço do Azure e assinaturas do Python.
+description: Este artigo mostra como criar um tópico e uma assinatura do Barramento de Serviço do Azure e enviar mensagens a um tópico e receber mensagens da assinatura.
 services: service-bus-messaging
 documentationcenter: python
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: c4f1d76c-7567-4b33-9193-3788f82934e4
 ms.service: service-bus-messaging
@@ -12,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 94a49b31139947c6323ab391b78ecd03ee911e0a
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 03e22c4c179850e5140015c0abc2d89f16d4b624
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748494"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774553"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-python"></a>Início Rápido: Usar tópicos e assinaturas do Barramento de Serviço com Python
 
@@ -33,8 +32,8 @@ Este artigo descreve como usar o Python com tópicos e assinaturas do Barramento
 - Receber mensagens de assinaturas
 - Excluir tópicos e assinaturas
 
-## <a name="prerequisites"></a>Pré-requisitos
-- Uma assinatura do Azure. É possível ativar os [benefícios de assinante do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+## <a name="prerequisites"></a>Prerequisites
+- Uma assinatura do Azure. Ative seus [benefícios de assinante do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscreva-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Um namespace do Barramento de Serviço, criado seguindo as etapas em [Início Rápido: Usar o portal do Azure para criar assinaturas e um tópico do Barramento de Serviço](service-bus-quickstart-topics-subscriptions-portal.md). Copie o nome do namespace, o nome da chave de acesso compartilhada e o valor da chave primária da tela **Políticas de acesso compartilhado** para usar posteriormente nesse guia de início rápido. 
 - Python 3.4 x ou superior, com o pacote [SDK do Python do Azure][Azure Python package] instalado. Para obter mais informações, consulte o [Guia de instalação do Python](/azure/python/python-sdk-azure-install).
 

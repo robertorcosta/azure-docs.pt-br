@@ -1,6 +1,6 @@
 ---
-title: 'Início Rápido: Como usar os tópicos do Barramento de Serviço com PHP'
-description: 'Início Rápido: Saiba como usar tópicos do Barramento de Serviço com PHP no Azure.'
+title: Como usar os tópicos do Barramento de Serviço do Azure com o PHP
+description: Neste tutorial, você aprenderá a usar os tópicos e as assinaturas do Barramento de Serviço do Azure em um aplicativo PHP.
 services: service-bus-messaging
 documentationcenter: php
 author: axisc
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: b55d3c93f9926b7446dadf069b37a878caa81e15
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 92f25f4bdac4942478c93f717c81eadd2c2f5b4a
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721642"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760667"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Início Rápido: Como usar tópicos e assinaturas do Barramento de Serviço com PHP
 
@@ -33,7 +33,7 @@ Este artigo mostra como usar os tópicos e as assinaturas do Barramento de Servi
 - Receber mensagens de uma assinatura
 - Excluir tópicos e assinaturas
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 1. Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Ative seus [benefícios de assinante do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscreva-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Siga as etapas no [Início Rápido: Usar o portal do Azure para criar um tópico e assinaturas do Barramento de Serviço para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para criar um **namespace** do Barramento de Serviço e obter a **cadeia de conexão**.
 

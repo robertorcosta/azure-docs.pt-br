@@ -3,12 +3,13 @@ title: Visão geral do Azure Policy
 description: O Azure Policy é um serviço no Azure que você pode usar para criar, atribuir e gerenciar definições de política em seu ambiente do Azure.
 ms.date: 11/25/2019
 ms.topic: overview
-ms.openlocfilehash: a7cc5ebca74e249057d159334e4207a3efca37f5
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 9babfd52071ed7d033761802f696c3b6021287af
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885459"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846020"
 ---
 # <a name="what-is-azure-policy"></a>O que é o Azure Policy?
 
@@ -62,7 +63,7 @@ Para saber mais sobre as estruturas das definições de políticas, consulte [Es
 
 ## <a name="policy-assignment"></a>Atribuição de política
 
-Uma atribuição de política é uma definição de política que foi atribuída para entrar em vigor em um escopo específico. Esse escopo pode variar de um [grupo de gerenciamento](../management-groups/overview.md) a um grupo de recursos. O termo *escopo* refere-se a todos os grupos de recursos, assinaturas ou grupos de gerenciamento aos quais a definição de política esteja atribuída. Atribuições de política são herdadas por todos os recursos filho. Esse design significa que se uma política for aplicada a um grupo de recursos, ela será aplicada a todos os recursos desse grupo de recursos. No entanto, você pode excluir um subescopo da atribuição de política.
+Uma atribuição de política é uma definição de política que foi atribuída para entrar em vigor em um escopo específico. Esse escopo pode variar de um [grupo de gerenciamento](../management-groups/overview.md) a um recurso individual. O termo *escopo* se refere a todos os recursos, grupos de recursos, assinaturas ou grupos de gerenciamento aos quais a definição de política está atribuída. Atribuições de política são herdadas por todos os recursos filho. Esse design significa que se uma política for aplicada a um grupo de recursos, ela será aplicada a todos os recursos desse grupo de recursos. No entanto, você pode excluir um subescopo da atribuição de política.
 
 Por exemplo, no escopo da assinatura, você pode atribuir uma política que impede a criação de recursos de rede. Você poderia excluir um grupo de recursos dentro dessa assinatura que se destina à infraestrutura de rede. Depois, você permite acesso a esse grupo de recursos de rede a usuários em que você confia para criar recursos de rede.
 
@@ -93,7 +94,7 @@ Com essa iniciativa, você teria definições de política como:
 
 ## <a name="initiative-assignment"></a>Atribuição de iniciativa
 
-Assim como uma atribuição de política, uma atribuição iniciativa é uma definição de iniciativa atribuída a um escopo específico. Atribuições de iniciativa reduzem a necessidade de fazer várias definições de iniciativa para cada escopo. Esse escopo também pode variar de um grupo de gerenciamento a um grupo de recursos.
+Assim como uma atribuição de política, uma atribuição iniciativa é uma definição de iniciativa atribuída a um escopo específico. Atribuições de iniciativa reduzem a necessidade de fazer várias definições de iniciativa para cada escopo. Esse escopo também pode variar de um grupo de gerenciamento a um recurso individual.
 
 Cada iniciativa é atribuível a escopos diferentes. Uma iniciativa pode ser atribuída a ambos **subscriptionA** e **subscriptionB**.
 

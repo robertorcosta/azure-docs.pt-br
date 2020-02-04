@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: fbda2f645308e30a6f408335b7a1b37095522921
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 5082ed06b4ce5baf3869fc035654be3c7a45f29f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003313"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845299"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Tutorial: Usar o Azure Key Vault com uma máquina virtual do Windows no .NET
 
@@ -37,7 +37,7 @@ Antes de começar, leia [Conceitos básicos do Key Vault](basic-concepts.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para Windows, Mac e Linux:
   * [Git](https://git-scm.com/downloads)
@@ -181,10 +181,11 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
 
-Edite o arquivo de classe para conter o código no processo de duas etapas a seguir:
+Edite o arquivo de classe para que contenha o código seguindo este processo de três etapas:
 
 1. Efetue fetch de um token do ponto de extremidade da MSI local na VM. Isso também efetua fetch de um token no Azure AD.
-1. Passe o token para o cofre de chaves e, em seguida, efetue fetch do segredo. 
+2. Passe o token para o cofre de chaves e, em seguida, efetue fetch do segredo. 
+3. Adicione o nome do cofre e o nome do segredo à solicitação.
 
 ```csharp
  class Program
@@ -205,9 +206,10 @@ Edite o arquivo de classe para conter o código no processo de duas etapas a seg
             WebResponse response = request.GetResponse();
             return ParseWebResponse(response, "access_token");
         }
-
+        
         static string FetchSecretValueFromKeyVault(string token)
         {
+            //Step 3: Add the vault name and secret name to the request.
             WebRequest kvRequest = WebRequest.Create("https://<YourVaultName>.vault.azure.net/secrets/<YourSecretName>?api-version=2016-10-01");
             kvRequest.Headers.Add("Authorization", "Bearer "+  token);
             WebResponse kvResponse = kvRequest.GetResponse();
@@ -233,7 +235,7 @@ Edite o arquivo de classe para conter o código no processo de duas etapas a seg
 
 O código anterior mostra como realizar operações com o Azure Key Vault em uma máquina virtual do Windows.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando eles não forem mais necessários, exclua a máquina virtual e o cofre de chaves.
 

@@ -9,17 +9,16 @@ ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer components and limitations and how it will affect my environment.
 ms.devlang: na
 ms.topic: overview
-ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/14/2019
+ms.date: 01/14/2020
 ms.author: allensu
-ms.openlocfilehash: 31c247199bfbfc57ffef376649edefd487fd1962
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 341bfddb86885df225874100400a854cf12120db
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263533"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76757792"
 ---
 # <a name="load-balancer-components-and-limitations"></a>Componentes e limitações do Load Balancer
 O Azure Load Balancer contém vários componentes importantes para sua operação.  Esses componentes podem ser configurados em sua assinatura por meio do portal do Azure, da CLI do Azure ou do Azure PowerShell.  
@@ -58,7 +57,7 @@ O Load Balancer Básico não é compatível com Regras de Saída.
 
 O Azure Load Balancer fornece os seguintes recursos fundamentais para aplicativos de TCP e UDP:
 
-* **Algoritmo de balanceamento de carga**: Com o Azure Load Balancer, é possível criar uma regra de balanceamento de carga para distribuir o tráfego que chega em um front-end para instâncias do pool de back-end. O Load Balancer usa um algoritmo baseado em hash para distribuição de fluxos de entrada e regenera os cabeçalhos dos fluxos para instâncias do pool de back-end. Um servidor fica disponível para receber novos fluxos quando a investigação de integridade indica que o ponto de extremidade de back-end é íntegro.
+* **Algoritmo de balanceamento de carga**: Com o Azure Load Balancer, é possível criar uma regra de balanceamento de carga para distribuir o tráfego que chega em um front-end para instâncias do pool de back-end. O Load Balancer usa um algoritmo de hash para a distribuição de fluxos de entrada (não bytes) e reescreve os cabeçalhos dos fluxos em instâncias do pool de back-end. Um servidor fica disponível para receber novos fluxos quando a investigação de integridade indica que o ponto de extremidade de back-end é íntegro.
 Por padrão, o Load Balancer usa um hash de 5 tuplas. 
 
    O hash inclui: 

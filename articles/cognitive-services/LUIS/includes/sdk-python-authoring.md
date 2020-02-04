@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 01/14/2020
+ms.date: 01/23/2020
 ms.author: diberry
-ms.openlocfilehash: bf09d8e9b2dd8cebcf3ef8414afcc8ac031f4cdf
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 69814c89c1c44a63febbcac04a4d161cd4c0921f
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170431"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774205"
 ---
 Use a biblioteca de clientes de criação de LUIS (Reconhecimento Vocal) para Python com o objetivo de:
 
@@ -187,3 +187,7 @@ Execute o aplicativo com o comando `python` no seu arquivo de início rápido.
 ```console
 python quickstart-file.py
 ```
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Ao concluir suas previsões, limpe o trabalho deste início rápido excluindo o arquivo e os subdiretórios dele.

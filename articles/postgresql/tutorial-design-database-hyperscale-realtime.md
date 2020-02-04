@@ -8,16 +8,16 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: e38de89902c46c6a77060d0d1e2532ab5bb59bb7
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f4eeb646de8b68c2c8d30586d0c75cece5317e40
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978093"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716319"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutorial: Criar um painel de análise em tempo real usando o Banco de Dados do Azure para PostgreSQL – Hiperescala (Citus)
 
-Neste tutorial, você utiliza o Banco de Dados do Azure para PostgreSQL – Hiperescala (Citus) para saber como:
+Neste tutorial, você usa o Banco de Dados do Azure para PostgreSQL – Hiperescala (Citus) para saber como:
 
 > [!div class="checklist"]
 > * Criar um grupo de servidores Hyperscale (Citus)
@@ -28,7 +28,7 @@ Neste tutorial, você utiliza o Banco de Dados do Azure para PostgreSQL – Hipe
 > * Consultar dados brutos e agregados
 > * Expirar dados
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
@@ -128,7 +128,7 @@ A consulta insere aproximadamente oito linhas por segundo. As linhas são armaze
    > Deixe a consulta de geração de dados em execução e abra uma segunda conexão do psql para os comandos restantes neste tutorial.
    >
 
-## <a name="query"></a>Consultar
+## <a name="query"></a>Consulta
 
 A opção de hospedagem em hiperescala permite que vários nós processem as consultas em paralelo para aumentar a velocidade. Por exemplo, o banco de dados calcula agregações como SUM e COUNT em nós de trabalho e combina os resultados em uma resposta final.
 
@@ -196,7 +196,7 @@ Com nossa função no local, execute-a para acumular os dados:
 SELECT rollup_http_request();
 ```
 
-E com nossos dados em um formulário pré-agregado, é possível consultar a tabela de rollup para obter o mesmo relatório anterior. Execute a consulta a seguir:
+E com nossos dados em um formulário pré-agregado, é possível consultar a tabela de rollup para obter o mesmo relatório anterior. Execute a seguinte consulta:
 
 ```sql
 SELECT site_id, ingest_time as minute, request_count,
@@ -216,13 +216,13 @@ DELETE FROM http_request_1min WHERE ingest_time < now() - interval '1 month';
 
 Em produção, é possível encapsular essas consultas em uma função e chamá-la a cada minuto em um trabalho de Cron.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Nas etapas anteriores, você criou recursos do Azure em um grupo de servidores. Caso esses recursos não sejam mais necessários no futuro, exclua o grupo de servidores. Pressione o botão *Excluir* na página *Visão geral* do grupo de servidores. Quando solicitado em uma página pop-up, confirme o nome do grupo de servidores e clique no botão *Excluir* final.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a provisionar um grupo de servidores Hyperscale (Citus). Você conectou ele com o psql, criou um esquema e distribuiu dados. Você aprendeu a consultar os dados em forma bruta, agregar regularmente esses dados, consultar as tabelas agregadas e expirar os dados antigos.
+Neste tutorial, você aprendeu a provisionar um grupo de servidores Hyperscale (Citus). Você conectou ele com o psql, criou um esquema e distribuiu dados. Você aprendeu a consultar os dados na forma bruta, agregar regularmente esses dados, consultar as tabelas agregadas e expirar os dados antigos.
 
 A seguir, saiba mais sobre os conceitos de hiperescala.
 > [!div class="nextstepaction"]

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 01/27/2020
 ms.author: diberry
-ms.openlocfilehash: a67852d333a86c5acf20e8bf69004aa9131e1f9f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0ee2b33aa3388b3cb99aa42c338ded800c9679a4
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448064"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772489"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Início Rápido: Implantar um aplicativo no portal do LUIS
 
@@ -45,7 +45,7 @@ Você cria o recurso de ponto de extremidade de previsão no portal do Azure. Es
    |Localização de criação|**Oeste dos EUA**|A região do Azure para criação.|
    |Tipo de preço de criação|**F0**|O tipo de preço padrão para criação.|
    |Localização do runtime|**Oeste dos EUA**|A região do Azure para consultas de ponto de extremidade de previsão.|
-   |Tipo de preço do runtime|**S0**|Esse tipo de preço prevê sites de tráfego intenso.|
+   |Tipo de preço do runtime|**S0**|Esse tipo de preço possibilita sites de tráfego intenso.|
    | | | |
 
 
@@ -74,6 +74,9 @@ Sempre que você criar um novo recurso para LUIS, será necessário atribuir o r
 1. Conclua as mesmas etapas para adicionar a chave de criação ao seu aplicativo.
 
 1. Localize a nova linha na tabela do novo recurso de previsão e copie a URL do ponto de extremidade. Ela é construída corretamente para criar uma solicitação `HTTP GET` para o ponto de extremidade da API do LUIS para uma previsão.
+
+> [!TIP]
+> Se pretender usar o aprendizado ativo para aprimorar seu aplicativo LUIS, selecione **Alterar parâmetros de consulta** e selecione **Salvar logs**. Essa ação altera a URL de exemplo adicionando o parâmetro querystring `log=true`. Copie e use a URL de consulta de exemplo alterada ao fazer consultas de previsão para o ponto de extremidade do runtime.
 
 ## <a name="train-the-app"></a>Treinar o aplicativo
 

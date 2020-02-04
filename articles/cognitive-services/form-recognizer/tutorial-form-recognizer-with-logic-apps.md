@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 10/27/2019
+ms.date: 01/27/2020
 ms.author: nitinme
-ms.openlocfilehash: 14affb2c2aa53fc7a2b1a5946e81ad124800f678
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0de0c83b0c459d29c304dbf51eaa44a62e895760
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981256"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773092"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Tutorial: Usar o Reconhecimento de Formulários com Aplicativos Lógicos do Azure para analisar faturas
 
-Neste tutorial, você cria um fluxo de trabalho em Aplicativos Lógicos do Azure que usa o Reconhecimento de Formulários, um serviço que faz parte do pacote de Serviços Cognitivos do Azure, para extrair dados de faturas. Use o Reconhecimento de Formulários para treinar primeiro um modelo usando um conjunto de dados de exemplo e, em seguida, testar o modelo usando outro conjunto de dados. Os dados de exemplo usados neste tutorial são armazenados em contêineres do Azure Storage Blob.
+Neste tutorial, você cria um fluxo de trabalho em Aplicativos Lógicos do Azure que usa o Reconhecimento de Formulários, um serviço que faz parte do pacote de Serviços Cognitivos do Azure, para extrair dados de faturas. Primeiro, você treinará um modelo de Reconhecimento de Formulários usando um conjunto de dados de exemplo e testará o modelo em outro conjunto de dados.
 
 Este tutorial abrange:
 
@@ -41,12 +41,12 @@ O Reconhecimento de Formulários está disponível em uma versão prévia de ace
 
 ## <a name="understand-the-invoice-to-be-analyzed"></a>Entender a fatura a ser analisada
 
-O conjunto de dados de exemplo que usamos para treinar o modelo e testar o modelo está disponível como um arquivo .zip do [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Baixe e extraia o arquivo .zip e abra um arquivo PDF de fatura na pasta **/Train**. Observe como ele tem uma tabela com o número da fatura, a data da fatura etc. 
+O conjunto de dados de exemplo que você usará para treinar e testar o modelo está disponível como um arquivo .zip do [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Baixe e extraia o arquivo .zip e abra um arquivo PDF de fatura na pasta **/Train**. Observe que ele tem uma tabela com o número da fatura, a data da fatura e assim por diante. 
 
 > [!div class="mx-imgBorder"]
 > ![Exemplo de fatura](media/tutorial-form-recognizer-with-logic-apps/sample-receipt.png)
 
-Neste tutorial, aprendemos a extrair as informações de tais tabelas para um formato JSON usando um fluxo de trabalho criado usando Aplicativos Lógicos do Azure e o Reconhecimento de Formulários.
+Neste tutorial, você aprenderá a usar um fluxo de trabalho dos Aplicativos Lógicos do Azure para extrair as informações de tabelas como essas para o formato JSON.
 
 ## <a name="create-an-azure-storage-blob-container"></a>Criar um contêiner do Azure Storage Blob
 
@@ -62,7 +62,7 @@ Você usa esse contêiner para carregar dados de exemplo necessários para trein
 
 Baixe os dados de exemplo disponíveis no [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Extraia os dados para uma pasta local e carregue o conteúdo da pasta **/Train** para o **formrecocontainer** que você criou anteriormente. Siga as instruções em [Carregar um blob de blocos](../../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob) para carregar dados para um contêiner.
 
-Copie a URL do contêiner. Você precisará delas mais tarde neste tutorial. Se você criou a conta de armazenamento e o contêiner com os mesmos nomes listados neste tutorial, a URL será *https:\//formrecostorage.blob.core.windows.net/formrecocontainer/* .
+Copie a URL do contêiner. Você precisará dessa URL mais adiante neste tutorial. Se você criou a conta de armazenamento e o contêiner com os mesmos nomes listados neste tutorial, a URL será *https:\//formrecostorage.blob.core.windows.net/formrecocontainer/* .
 
 ## <a name="create-a-form-recognizer-resource"></a>Criar um recurso do Reconhecimento de Formulários
 
@@ -75,7 +75,7 @@ Você pode usar os Aplicativos Lógicos do Azure para automatizar e orquestrar t
 * Configure o aplicativo lógico para usar uma operação do **Modelo de Treinamento** do Reconhecimento de Formulários para treinar um modelo usando os dados de exemplo que você carregou no armazenamento de blobs do Azure.
 * Configure o aplicativo lógico para usar um operação de **Analisar o Formulário** do Reconhecimento de Formulários para usar o modelo que você já treinou. Esse componente analisará a fatura que você fornecer a esse aplicativo lógico com base no modelo treinado anteriormente.
 
-Vamos começar! Siga estas etapas para configurar seu fluxo de trabalho.
+Siga estas etapas para configurar seu fluxo de trabalho.
 
 1. No menu principal do Azure, selecione **Criar um recurso** > **Integração** > **Aplicativo Lógico**.
 
@@ -99,7 +99,7 @@ Vamos começar! Siga estas etapas para configurar seu fluxo de trabalho.
 
 ### <a name="configure-the-logic-app-to-trigger-the-workflow-when-an-email-arrives"></a>Configurar o aplicativo lógico para disparar o fluxo de trabalho quando um email chegar
 
-Neste tutorial, você disparará o fluxo de trabalho quando um email for recebido com uma fatura anexada. Para este tutorial, escolhemos o Office 365 como o serviço de email, mas você pode usar qualquer outro provedor de email que queira.
+Neste tutorial, você disparará o fluxo de trabalho quando um email for recebido com uma fatura anexada. Este tutorial usa o Office 365 como o serviço de email, mas você pode usar qualquer outro provedor de email que queira.
 
 1. Nas guias, selecione Todos, selecione **Office 365 Outlook** e, em **Gatilhos**, selecione **Quando um novo email chegar**.
 
@@ -149,14 +149,14 @@ Nesta seção, você adiciona a operação **Analisar Formulário** ao fluxo de 
     > [!div class="mx-imgBorder"]
     > ![Analisar um Modelo de Reconhecimento de Formulários](media/tutorial-form-recognizer-with-logic-apps/logic-app-form-reco-analyze-model.png)
 
-1. Na caixa de diálogo **Analisar Formulário**, faça o seguinte:
+1. Na caixa de diálogo **Analisar Formulário**, execute as seguintes etapas:
 
     1. Clique na caixa de texto **ID do Modelo** e, na caixa de diálogo que é aberta, na **Guia de Conteúdo Dinâmico**, selecione **modelId**. Ao fazer isso, você fornece ao aplicativo de fluxo a ID do modelo que você treinou na última seção.
 
         > [!div class="mx-imgBorder"]
         > ![Usar ModelID para o Reconhecimento de Formulários](media/tutorial-form-recognizer-with-logic-apps/analyze-form-model-id.png)
 
-    2. Clique na caixa de texto **Documento** e, na caixa de diálogo que é aberta, na guia **Conteúdo Dinâmico**, selecione **Conteúdo de Anexos**. Ao fazer isso, você configura o fluxo para usar o arquivo de fatura de exemplo que está anexado ao email enviado para disparar o fluxo de trabalho.
+    2. Clique na caixa de texto **Documento** e, na caixa de diálogo que é aberta, na guia **Conteúdo Dinâmico**, selecione **Conteúdo de Anexos**. Isso configura o fluxo para usar o arquivo de fatura de exemplo que está anexado ao email que dispara o fluxo de trabalho.
 
         > [!div class="mx-imgBorder"]
         > ![Usar anexo de email para analisar faturas](media/tutorial-form-recognizer-with-logic-apps/analyze-form-input-data.png)
@@ -165,7 +165,7 @@ Nesta seção, você adiciona a operação **Analisar Formulário** ao fluxo de 
 
 ### <a name="extract-the-table-information-from-the-invoice"></a>Extraia as informações da tabela da fatura
 
-Nesta seção, configuramos o aplicativo lógico para extrair as informações da tabela dentro das faturas.
+Nesta seção, você configurará o aplicativo lógico para extrair as informações da tabela dentro das faturas.
 
 1. Selecione **Adicionar uma ação** e, em **Escolher uma ação**, pesquise **Compor** e, nas ações disponíveis, selecione **Compor** novamente.
     ![Extrair as informações da tabela da fatura](media/tutorial-form-recognizer-with-logic-apps/extract-table.png)
@@ -179,7 +179,7 @@ Nesta seção, configuramos o aplicativo lógico para extrair as informações d
 
 ## <a name="test-your-logic-app"></a>Como testar o seu aplicativo lógico
 
-Para testar o aplicativo lógico, use as notas fiscais de exemplo na pasta **/Test** do conjunto de dados de exemplo que você baixou do [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Execute as seguintes etapas:
+Para testar o aplicativo lógico, use as notas fiscais de exemplo na pasta **/Test** do conjunto de dados de exemplo que você baixou do [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Siga estas etapas:
 
 1. No designer de Aplicativos Lógicos do Azure para seu aplicativo, selecione **Executar** na barra de ferramentas na parte superior. O fluxo de trabalho está ativo agora e aguarda receber um email com a fatura anexada.
 1. Envie um email com uma fatura de exemplo anexada ao endereço de email que você forneceu ao criar o aplicativo lógico. Verifique se o email foi entregue à pasta que você informou ao configurar o aplicativo lógico.

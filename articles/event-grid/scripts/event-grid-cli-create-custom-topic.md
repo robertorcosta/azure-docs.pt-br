@@ -1,22 +1,22 @@
 ---
 title: Exemplo de script da CLI do Azure – Criar um tópico personalizado | Microsoft Docs
-description: Exemplo de script da CLI do Azure – Criar um tópico personalizado
+description: Este artigo fornece um script de exemplo da CLI do Azure que mostra como criar um tópico personalizado da Grade de Eventos do Azure.
 services: event-grid
 documentationcenter: na
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2018
-ms.author: tomfitz
-ms.openlocfilehash: 16c6586939a6dad248cef3abdabd78faf04a2381
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 01/23/2020
+ms.author: spelluru
+ms.openlocfilehash: 2c6e027d234104d5e45c632dd73e79d8f069deb5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580373"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720836"
 ---
 # <a name="create-event-grid-custom-topic-with-azure-cli"></a>Criar um tópico personalizado da Grade de Eventos com a CLI do Azure
 
@@ -26,7 +26,7 @@ Este script cria um tópico personalizado da Grade de Eventos.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-azurecli[main](../../../cli_scripts/event-grid/create-custom-topic/create-custom-topic.sh "Create custom topic")]
 

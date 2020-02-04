@@ -1,6 +1,6 @@
 ---
 title: Usar filas do Barramento de Serviço do Azure no Node.js usando o pacote azure-sb
-description: 'Início Rápido: Aprenda a usar as filas do Barramento de Serviço no Azure a partir de um aplicativo Node.js.'
+description: Aprenda a criar aplicativos Node.js para enviar mensagens para uma fila do Barramento de Serviço do Azure e receber mensagens dela usando o pacote azure-sb.
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/27/2020
 ms.author: aschhab
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 5fa74bdc632154e361fc4d95ed602e4b4d39a198
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fee7ff6ffbd18cf514ce1bfda81aca727ed362c3
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462176"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773515"
 ---
 # <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Início Rápido: Usar filas do Barramento de Serviço no Azure com o Node.js e o pacote azure-sb
 

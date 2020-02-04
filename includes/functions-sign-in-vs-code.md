@@ -2,25 +2,23 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 11/27/2018
+ms.date: 01/13/2020
 ms.author: glenga
-ms.openlocfilehash: 031a460862cf12efa02c139074e5a7066f0526c6
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: c6579b8b091f9053e1e64be3793d17953e464a16
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171720"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842076"
 ---
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Antes de poder publicar seu aplicativo, você precisa entrar no Azure.
+Antes de poder publicar seu aplicativo, você precisa entrar no Azure. Se você já tiver entrado, vá para a próxima seção.
 
-1. Na área **Azure: Functions**, escolha **Entrar no Azure…** . Se você não tiver uma, poderá **Criar uma conta gratuita do Azure**.
+1. Escolha o ícone do Azure na Barra de atividade e, em seguida, na área **Azure: Functions**, escolha **Entrar no Azure…** . Se você não tiver uma, poderá **Criar uma conta gratuita do Azure**.
 
     ![Resposta da função localhost no navegador](./media/functions-sign-in-vs-code/functions-sign-into-azure.png)
 
-1. Quando solicitado, selecione **Copiar e abrir**, ou copie o código exibido e abra <https://aka.ms/devicelogin> no seu navegador.
+1. Quando solicitado no navegador, escolha sua conta do Azure e entre usando suas credenciais de conta do Azure. 
 
-1. Cole o código copiado na página **Logon do dispositivo**, verifique a entrada para o Visual Studio Code e selecione **Continuar**.  
-
-1. Conclua a entrada usando as credenciais da conta do Azure. Depois de entrar com sucesso, você pode fechar o navegador.
+1. Após entrar com êxito, você poderá fechar a nova janela do navegador. As assinaturas que pertencem à sua conta do Azure são exibidas na barra lateral.

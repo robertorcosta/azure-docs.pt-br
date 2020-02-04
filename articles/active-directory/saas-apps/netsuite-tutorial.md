@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/22/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9be353e6a030708ea0b9939689d8669506d3b80
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 6a920e58f1ffd4c3e3e9769bf6346100a8677b90
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289026"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760038"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Tutorial: Integrar o SSO (logon único) do Azure AD ao NetSuite
 
@@ -98,8 +98,12 @@ Para habilitar o SSO do Azure AD no portal do Azure, faça o seguinte:
     | `https://<Account ID>.na1.sandbox.NetSuite.com/saml2/acs`|
     | `https://<Account ID>.na2.sandbox.NetSuite.com/saml2/acs`|
 
-    > [!NOTE]
-    > Os valores nas URLs anteriores não são reais. Atualize-os com a URL de Resposta real. Para obter o valor, contate a [equipe de suporte ao cliente do NetSuite](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml). Veja também os formatos mostrados na seção **Configuração Básica do SAML** no portal do Azure.
+    * Você obterá o valor **<`Account ID`>** na seção de configuração do NetSuite, que é explicada mais adiante no tutorial na etapa 8 em Configuração do NetSuite. Você encontrará o domínio exato (como system.na0.netsuite.com, nesse caso).
+
+        ![Configurar o logon único](./media/NetSuite-tutorial/domain-value.png)
+
+        > [!NOTE]
+        > Os valores nas URLs anteriores não são reais. Atualize-os com a URL de Resposta real. Para obter o valor, contate a [equipe de suporte ao cliente do NetSuite](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml). Veja também os formatos mostrados na seção **Configuração Básica do SAML** no portal do Azure.
 
 1. O aplicativo NetSuite espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
@@ -204,7 +208,7 @@ Nesta seção, você permitirá que o usuário B.Fernandes use o logon único do
 
     b. No painel **Dados da Empresa**, na coluna à direita, copie o valor da **ID da Conta**.
 
-    c. Cole a **ID da Conta** que você copiou da conta do NetSuite na caixa **Valor do Atributo** no Azure AD. 
+    c. Cole a **ID da Conta** que você copiou da conta do NetSuite na caixa **Valor do Atributo** no Azure AD.
 
 10. Antes que os usuários possam realizar logon único no NetSuite, eles devem primeiro ter as permissões apropriadas no NetSuite. Para atribuir essas permissões, faça o seguinte:
 

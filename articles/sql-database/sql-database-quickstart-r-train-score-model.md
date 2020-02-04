@@ -13,33 +13,33 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: c1719064de53b79a127146d0ab034f461657cc64
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a54d418f668d8c7292c8332c1b14c4df45e59308
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714901"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768458"
 ---
-# <a name="create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Criar e treinar um modelo preditivo em R com os Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia)
+# <a name="quickstart-create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Início Rápido: Criar e treinar um modelo preditivo em R com os Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia)
 
-Neste início rápido, você criará e treinará um modelo preditivo usando o R, salvará o modelo em uma tabela no Banco de Dados SQL e usará o modelo para prever valores de novos dados usando a versão prévia pública dos [Serviços do Machine Learning (com R) no Banco de Dados SQL do Azure](sql-database-machine-learning-services-overview.md). 
-
-O modelo que você usará neste início rápido é um modelo de regressão simples que prevê a distância de parada de um carro com base na velocidade. Você usará o conjunto de dados **carros** incluído com o R, pois ele é pequeno e fácil de entender.
-
-> [!TIP]
-> Há vários conjuntos de dados, pequenos e grandes, incluídos no tempo de execução de R. Para obter uma lista dos conjuntos de dados instalados com R, digite `library(help="datasets")` em um prompt de comando de R.
+Neste início rápido, você criará e treinará um modelo preditivo usando o R, salvará o modelo em uma tabela no banco de dados e usará o modelo para prever valores de novos dados usando os Serviços do Machine Learning (com R) no Banco de Dados SQL do Azure.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
-- Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/) antes de começar.
+- Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Um [Banco de Dados SQL do Azure](sql-database-single-database-get-started.md) com uma [regra de firewall no nível do servidor](sql-database-server-level-firewall-rule.md)
+- [Serviços do Machine Learning](sql-database-machine-learning-services-overview.md) com R habilitado. [Inscrever-se na versão prévia](sql-database-machine-learning-services-overview.md#signup).
+- SSMS ([SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms))
 
-- Para executar o código de exemplo nestes exercícios, primeiro você precisa ter um Banco de dados SQL do Azure com os Serviços do Machine Learning (com R) habilitados. Durante a versão prévia pública, a Microsoft realizará sua integração e habilitará o aprendizado de máquina para seu banco de dados novo ou existente. Siga as etapas em [Inscrever-se na versão prévia](sql-database-machine-learning-services-overview.md#signup).
+> [!NOTE]
+> Durante a versão prévia pública, a Microsoft realizará sua integração e habilitará o aprendizado de máquina para seu banco de dados novo ou existente.
 
-- Verifique se você instalou a versão mais recente do SSMS ([SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)). Você pode executar os scripts R usando outras ferramentas de consulta ou gerenciamento de banco de dados, mas neste início rápido, você usará o SSMS.
+Este exemplo usa um modelo de regressão simples para prever a distância de parada de um carro com base na velocidade usando o conjunto de dados de **carros** incluído com o R.
 
-- Este início rápido exige a configuração de uma regra de firewall no nível de servidor. Para obter informações sobre como fazer isso, confira [Criar regra de firewall no nível de servidor](sql-database-server-level-firewall-rule.md).
+> [!TIP]
+> Muitos conjuntos de dados estão incluídos com o runtime do R, para obter uma lista dos conjuntos de valores instalados, digite `library(help="datasets")` no prompt de comando do R.
 
 ## <a name="create-and-train-a-predictive-model"></a>Criar e treinar um modelo preditivo
 
@@ -50,7 +50,7 @@ Os requisitos de um modelo linear são simples:
 - Forneça dados de entrada para usar no treinamento do modelo.
 
 > [!TIP]
-> Caso você precise relembrar os modelos lineares, experimente este tutorial, que descreve o processo de ajuste de um modelo usando rxLinMod: [Ajustando modelos lineares](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
+> Se você precisar de uma atualização sobre modelos lineares, experimente este tutorial, que descreve o processo de ajuste de um modelo usando o rxLinMod: [Ajustando modelos lineares](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
 Nas etapas a seguir, você configurará os dados de treinamento, criará um modelo de regressão, treinará esse modelo usando os dados de treinamento e o salvará em uma tabela SQL.
 
@@ -175,7 +175,7 @@ VALUES (
 
 ## <a name="score-new-data-using-the-trained-model"></a>Pontuar novos dados usando o modelo treinado
 
-*Pontuação* é um termo usado em ciência de dados para significar a geração de previsões, probabilidades ou de outros valores com base em novos dados inseridos em um modelo treinado. Você usará o modelo que você criou na seção anterior para pontuar previsões em relação a novos dados.
+*Pontuação* é um termo usado na ciência de dados para significar a geração de previsões, probabilidades ou outros valores com base em novos dados inseridos em um modelo treinado. Você usará o modelo criado na seção anterior para pontuar previsões comparando-as a novos dados.
 
 Você notou que os dados de treinamento originais param a uma velocidade de 40 km/h? Isso ocorre porque os dados originais têm base em um experimento de 1920! Talvez você se pergunte: "quanto tempo um automóvel de 1920 demoraria para parar se ele pudesse chegar a 96 km/h ou até mesmo a 160 km/h?" Para responder a essa pergunta, você pode fornecer alguns novos valores de velocidade para seu modelo.
 
@@ -253,4 +253,4 @@ Para saber mais sobre os Serviços de Machine Learning do Banco de Dados SQL do 
 - [Serviços de Machine Learning do Banco de Dados SQL do Azure com R (versão prévia)](sql-database-machine-learning-services-overview.md)
 - [Criar e executar scripts R simples em Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia)](sql-database-quickstart-r-create-script.md)
 - [Escrever funções do R avançadas em Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia)](sql-database-machine-learning-services-functions.md)
-- [Trabalhar usando dados do R e do SQL nos Serviços de Machine Learning do Banco de Dados SQL do Azure (versão prévia)](sql-database-machine-learning-services-data-issues.md)
+- [Trabalhar usando dados do R e do SQL nos Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia)](sql-database-machine-learning-services-data-issues.md)

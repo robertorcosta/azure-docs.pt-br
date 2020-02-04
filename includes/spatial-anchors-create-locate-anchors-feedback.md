@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: 685d982835042aa4a697d19a650e8dcb1476b400
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: MT
+ms.openlocfilehash: 7b9954930c668e338cc289e948a5591c09ec2654
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171620"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76694271"
 ---
 ## <a name="provide-feedback-to-the-user"></a>Fornecer comentários ao usuário
 
-Você pode escrever código para manipular o evento de sessão atualizado. Esse evento é acionado sempre que a sessão melhora a compreensão do seu ambiente. Ao fazer isso, permite que você:
+Você pode escrever um código para processar o evento atualizado da sessão. Esse evento é acionado toda vez que a sessão aprimora a compreensão do ambiente em que você está. Essa ação permite que você:
 
-- Forneça comentários sobre o dispositivo é movido para o usuário e a sessão atualiza sua compreensão do ambiente.
-- Determinar o ponto em que há tem suficiente rastreadas dados espaciais para criar ou localizar âncoras espaciais – Vamos saber mais em uma etapa posterior.
+- Use a classe `UserFeedback` para fornecer comentários ao usuário à medida que o dispositivo for movido e a sessão atualizar a compreensão do ambiente. Para fazer isso,
+- Determine em que ponto há dados espaciais controlados suficientes para criar âncoras espaciais. Determine isso com `ReadyForCreateProgress` ou `RecommendedForCreateProgress`. Depois que `ReadyForCreateProgress` estiver acima de 1, teremos dados suficientes para salvar uma âncora espacial de nuvem, embora recomendemos aguardar até que `RecommendedForCreateProgress` esteja acima de 1 para fazer isso.

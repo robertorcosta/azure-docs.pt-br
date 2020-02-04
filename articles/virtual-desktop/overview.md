@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 01/21/2020
+ms.date: 01/27/2020
 ms.author: helohr
-ms.openlocfilehash: 318997e2ebd7a423d7793a75575617d06ab842ac
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 168a345427be47dc1c33f43be1af47daa8f638ef
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514265"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772779"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é a Área de Trabalho Virtual do Windows? 
 
@@ -99,13 +99,15 @@ As máquinas virtuais do Azure criadas para a Área de Trabalho Virtual do Windo
 |kms.core.windows.net|Porta TCP 1688|Ativação do Windows 10|
 
 >[!IMPORTANT]
->Abrir essas URLs é essencial para uma implantação da Área de Trabalho Virtual do Windows confiável. Não há suporte ao bloqueio do acesso a essas URLs e isso afetará a funcionalidade do serviço. Essas URLs são correspondentes apenas aos sites e recursos da Área de Trabalho Virtual do Windows e não incluem URLs para outros serviços, como o Azure AD.
+>Abrir essas URLs é essencial para uma implantação da Área de Trabalho Virtual do Windows confiável. Não há suporte ao bloqueio do acesso a essas URLs e isso afetará a funcionalidade do serviço. Essas URLs são correspondentes apenas aos sites e recursos da Área de Trabalho Virtual do Windows e não incluem URLs para outros serviços, como o Azure Active Directory.
 
 >[!NOTE]
+>No momento, a Área de Trabalho Virtual do Windows não tem uma lista de intervalos de endereços IP que você pode adicionar à lista de permissões para permitir o tráfego de rede. Neste momento, só damos suporte à adição de URLs específicas à lista de permissões.
+>
 >Você precisa usar o caractere curinga (*) para URLs que envolvem tráfego de serviço. Se preferir não usar * para o tráfego relacionado ao agente, encontre as URLs sem curinga da seguinte forma:
 >
 >1. Registre suas máquinas virtuais no pool de hosts da Área de Trabalho Virtual do Windows.
->2. Abra o **Visualizador de Eventos** e navegue até **Windows** > **Logs de Aplicativos** e procure a ID de Evento 3702.
+>2. Abra o **Visualizador de eventos** e navegue até os **logs do Windows** > **Aplicativo** > **WVD-Agent** e pesquise a ID de Evento 3702.
 >3. Inclua na lista de permissões as URLs encontradas com a ID de Evento 3702. As URLs com a ID de Evento 3702 são específicas da região. Você precisará repetir o processo de inclusão na lista de permissões com as URLs relevantes para cada região em que quiser implantar suas máquinas virtuais.
 
 A Área de Trabalho Virtual do Windows é composta por áreas de trabalho e aplicativos do Windows que você fornece aos usuários e pela solução de gerenciamento, que é hospedada pela Microsoft como um serviço no Azure. As áreas de trabalho e os aplicativos podem ser implantados em VMs (máquinas virtuais) em qualquer região do Azure. A solução de gerenciamento e os dados dessas VMs residirão nos Estados Unidos. Isso poderá resultar na transferência de dados para os Estados Unidos.
@@ -137,7 +139,7 @@ A Área de Trabalho Virtual do Windows é compatível com as seguintes imagens d
 * Windows Server 2016
 * Windows Server 2012 R2
 
-A Área de Trabalho Virtual do Windows não é compatível com imagens do sistema operacional x86 (32 bits), Windows 10 Enterprise N ou Windows 10 Enterprise KN.
+A Área de Trabalho Virtual do Windows não é compatível com imagens do sistema operacional x86 (32 bits), Windows 10 Enterprise N ou Windows 10 Enterprise KN. O Windows 7 também não dá suporte a nenhuma solução de perfil baseada em VHD ou VHDX hospedada no Armazenamento do Azure gerenciado devido a uma limitação de tamanho de setor.
 
 As opções de automação e implantação disponíveis dependem do sistema operacional e da versão escolhidos, conforme mostrado na tabela a seguir: 
 

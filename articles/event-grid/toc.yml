@@ -88,7 +88,7 @@
           href: scripts/event-grid-powershell-resource-group.md
         - name: Inscrever-se e filtrar eventos para o grupo de recursos
           href: scripts/event-grid-powershell-resource-group-filter.md
-    - name: Modelos do Gerenciador de Recursos
+    - name: Modelos do Resource Manager
       href: template-samples.md
     - name: Exemplos de código
       href: 'https://docs.microsoft.com/samples/browse/?term=Event%20Grid'
@@ -122,7 +122,7 @@
       href: manage-event-delivery.md
     - name: Filtrar eventos
       href: how-to-filter-events.md
-    - name: Monitorize as entregas de eventos
+    - name: Monitore as entregas de eventos
       href: monitor-event-delivery.md
     - name: Assinaturas do evento de consulta
       href: query-event-subscriptions.md
@@ -138,6 +138,8 @@
       href: custom-disaster-recovery.md
     - name: Solucionar problemas de erros
       href: troubleshoot-errors.md
+    - name: Habilitar logs de diagnóstico para um tópico
+      href: enable-diagnostic-logs-topic.md
 - name: Referência
   items:
     - name: CLI do Azure
@@ -161,7 +163,7 @@
       items:
         - name: Assinaturas do Azure
           href: event-schema-subscriptions.md
-        - name: Armazenamento de blob
+        - name: Armazenamento de Blobs
           href: event-schema-blob-storage.md
         - name: Registro de Contêiner
           href: event-schema-container-registry.md
@@ -177,7 +179,7 @@
           href: event-schema-resource-groups.md
         - name: Barramento de Serviço
           href: event-schema-service-bus.md
-        - name: Mapas do Azure
+        - name: Azure Mapas
           href: event-schema-azure-maps.md
         - name: Configuração de aplicativos
           href: event-schema-app-configuration.md

@@ -6,14 +6,14 @@ ms.topic: overview
 ms.date: 09/22/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: 5c6d7ae458c30d462c599042e254f4243daf474c
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 5b320485001d6cbc457d39ef193ed8c57f7161df
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260864"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760276"
 ---
-# <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db"></a>Suporte interno para Jupyter Notebooks no Azure Cosmos DB
+# <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db-preview"></a>Suporte interno para o Jupyter Notebooks no Azure Cosmos DB (versão prévia)
 
 O Jupyter Notebook é um aplicativo Web open-source que permite que criar e compartilhar documentos que contêm código ao vivo, equações, visualizações e texto narrativo. O Azure Cosmos DB dá suporte a Blocos de notas do Jupyter internos para todas as APIs, como Cassandra, MongoDB, SQL, Gremlin e Table. O suporte interno para notebook para todas as APIs e modelos de dados do Azure Cosmos DB permite que você execute consultas de forma interativa. Os Jupyter Notebooks são executados nas contas do Azure Cosmos e permitem que os desenvolvedores realizem exploração de dados, limpeza de dados, transformações de dados, simulações numéricas, modelagem estatística, visualização de dados e aprendizado de máquina.
 

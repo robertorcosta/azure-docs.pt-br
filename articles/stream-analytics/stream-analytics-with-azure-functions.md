@@ -2,18 +2,17 @@
 title: Tutorial – Executar o Azure Functions nos trabalhos do Azure Stream Analytics
 description: Neste tutorial, você aprenderá a configurar o Azure Functions como um coletor de saída para trabalhos do Stream Analytics.
 author: mamccrea
+ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/05/2019
-ms.author: mamccrea
-ms.reviewer: mamccrea
-ms.openlocfilehash: 84df3edcebb1ca9f14a68125ae9793f004e56c4d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/27/2020
+ms.openlocfilehash: 1797654f290d751eb5c1cb65a77aaa7ca7a35aa1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369313"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772883"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Tutorial: Executar o Azure Functions a partir dos trabalhos do Azure Stream Analytics 
 
@@ -51,7 +50,7 @@ Siga o tutorial [Detecção de fraudes em tempo real](stream-analytics-real-time
 
 ## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-cache-for-redis"></a>Criar uma função no Azure Functions que pode gravar dados no Cache do Azure para Redis
 
-1. Consulte a seção [Criar um aplicativo de funções](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) da documentação do Azure Functions. Ela detalha como criar um aplicativo de funções e uma [Função disparada por HTTP no Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function) usando a linguagem CSharp.  
+1. Consulte a seção [Criar um aplicativo de funções](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) da documentação do Azure Functions. Esta seção detalha como criar um aplicativo de funções e uma [Função disparada por HTTP no Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function) usando a linguagem CSharp.  
 
 2. Navegue até a função **run.csx**. Atualize-a com o código a seguir. Substitua **"\<sua cadeia de conexão do Cache do Azure para Redis aqui\>"** pela cadeia de conexão primária do Cache do Azure para Redis que você recuperou na seção anterior. 
 
@@ -149,7 +148,7 @@ Siga o tutorial [Detecção de fraudes em tempo real](stream-analytics-real-time
    |Importar opção| Você poderá usar a função da assinatura atual ou fornecer as configurações manualmente se a função estiver localizada em outra assinatura. |
    |Aplicativo de Funções| Nome de seu aplicativo de funções. |
    |Função| Nome da função em seu aplicativo de funções (nome da função run.csx).|
-   |Tamanho Máximo do Lote|Define o tamanho máximo de cada lote de saída que é enviado para a função em bytes. Por padrão, esse valor é definido como 262.144 bytes (256 KB).|
+   |Tamanho Máximo do Lote|Define o tamanho máximo de cada lote de saída, que é enviado para a função em bytes. Por padrão, esse valor é definido como 262.144 bytes (256 KB).|
    |Contagem Máxima do Lote|Especifica o número máximo de eventos em cada lote enviado para a função. O valor padrão é 100. Essa propriedade é opcional.|
    |Chave|Permite que você use uma função de outra assinatura. Forneça o valor da chave para acessar sua função. Essa propriedade é opcional.|
 
@@ -187,13 +186,10 @@ Siga o tutorial [Detecção de fraudes em tempo real](stream-analytics-real-time
    Este comando deve imprimir o valor para a chave especificada:
 
    ![Captura de tela da saída do Cache do Azure para Redis](./media/stream-analytics-with-azure-functions/image5.png)
-   
-## <a name="error-handling-and-retries"></a>Tratamento de erros e novas tentativas
-Em caso de falha ao enviar eventos para o Azure Functions, o Stream Analytics tentará concluir a operação com êxito novamente. No entanto, há algumas falhas para o qual as repetições não são tentadas e elas são os seguintes:
 
- 1. HttpRequestExceptions
- 2. Entidade de Solicitação Muito Grande (código de erro Http 413)
- 3. ApplicationExceptions
+## <a name="error-handling-and-retries"></a>Tratamento de erros e novas tentativas
+
+Se ocorrer uma falha durante o envio de eventos para o Azure Functions, o Stream Analytics repetirá a maioria das operações. Todas as exceções http serão repetidas até serem bem-sucedidas, com exceção do erro http 413 (entidade grande demais). Um erro de entidade grande demais é tratado como um erro de dados que está sujeito à [política de repetição ou remoção](stream-analytics-output-error-policy.md).
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -203,14 +199,14 @@ Atualmente, o uso de [roteamento Http](https://docs.microsoft.com/sandbox/functi
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando não forem mais necessários, exclua o grupo de recursos, o trabalho de streaming e todos os recursos relacionados. A exclusão do trabalho evita a cobrança das unidades de streaming consumidas por ele. Se você está planejando usar o trabalho no futuro, poderá interrompê-lo e reiniciar mais tarde, quando necessário. Se você não for mais usar o trabalho, exclua todos os recursos criados neste início rápido usando as seguintes etapas:
+Quando não forem mais necessários, exclua o grupo de recursos, o trabalho de streaming e todos os recursos relacionados. A exclusão do trabalho evita a cobrança das unidades de streaming consumidas por ele. Se você está planejando usar o trabalho no futuro, pode interrompê-lo e reiniciar mais tarde, quando necessário. Se você não for mais usar o trabalho, exclua todos os recursos criados neste início rápido usando as seguintes etapas:
 
 1. No menu à esquerda no Portal do Azure, clique em **Grupos de recursos** e depois clique no nome do recurso criado.  
 2. Em sua página de grupo de recursos, clique em **Excluir**, digite o nome do recurso para excluir na caixa de texto e depois clique em **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você criou um trabalho simples do Stream Analytics que executa uma função do Azure. Para saber mais sobre trabalhos do Stream Analytics, vá para o próximo tutorial:
+Neste tutorial, você criou um trabalho simples do Stream Analytics, que executa uma função do Azure. Para saber mais sobre trabalhos do Stream Analytics, prossiga para o seguinte tutorial:
 
 > [!div class="nextstepaction"]
 > [Executar funções definidas pelo usuário do JavaScript em trabalhos do Stream Analytics](stream-analytics-javascript-user-defined-functions.md)

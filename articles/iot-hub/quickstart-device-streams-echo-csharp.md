@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 14139d56a9a733a284d0ec49cabcb3ff7ce67fce
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: ee709919f550a8b9afaf56e5e071522a494348ac
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084292"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773818"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Início Rápido: Comunicar-se com um aplicativo de dispositivo em C# por meio de fluxos de dispositivos do Hub IoT (versão prévia)
 
@@ -28,7 +28,7 @@ Os [fluxos de dispositivos do Hub IoT](./iot-hub-device-streams-overview.md) per
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Atualmente, a versão prévia dos fluxos de dispositivos só é compatível com hubs IoT criados nas seguintes regiões:
   * Centro dos EUA
@@ -50,7 +50,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
     az extension add --name azure-cli-iot-ext
     ```
 
-* [Baixe o projeto de exemplo do C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) e extraia o arquivo morto zip. Você precisará dele no lado do dispositivo e no lado do serviço.
+* [Baixe os exemplos de C# do Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) e extraia o arquivo ZIP. Você precisará dele no lado do dispositivo e no lado do serviço.
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
@@ -165,7 +165,7 @@ Saída do console no lado do serviço:
 
 O tráfego enviado pelo fluxo é passado por um túnel por meio do hub IoT, em vez de ser enviado diretamente. Confira os benefícios fornecidos com detalhes no tópico [Benefícios dos fluxos de dispositivos](./iot-hub-device-streams-overview.md#benefits).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources-device-streams](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 

@@ -1,6 +1,6 @@
 ---
 title: Visão geral de sistema de mensagens do Barramento de Serviço do Azure | Microsoft Docs
-description: Descrição do sistema de mensagens do Barramento de Serviço do Azure
+description: Este artigo fornece uma visão geral de alto nível do Barramento de Serviço do Azure, um agente de mensagem de integração empresarial totalmente gerenciado.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 12d4bada4f84098f1559ea7b59fbbd35e0801347
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 49a54491c36ef29209d1a53094cc5baf57057557
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561591"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759373"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Barramento de Serviço do Azure?
 
@@ -81,7 +81,7 @@ Um cliente de fila ou assinatura pode adiar a recuperação de uma mensagem para
 
 O envio em lote do lado do cliente permite que um cliente de tópico ou fila adie o envio de uma mensagem por um determinado período. Se o cliente enviar mensagens adicionais durante esse período, ele transmitirá as mensagens em um único lote. Para saber mais, confira [Envio em lote do lado do cliente](service-bus-performance-improvements.md#client-side-batching).
 
-### <a name="transactions"></a>Transações
+### <a name="transactions"></a>Transactions
 
 Uma transação agrupa duas ou mais operações em um *escopo de execução*. O Barramento de Serviço dá suporte a operações de agrupamento em uma única entidade de mensagens no escopo de uma única transação. Uma entidade de mensagem pode ser uma fila, um tópico ou uma assinatura. Para saber mais, confira [Visão geral do processamento de transações do Barramento de Serviço](service-bus-transactions.md).
 
@@ -120,9 +120,9 @@ O Barramento de Serviço integra-se totalmente aos serviços do Azure a seguir:
 
 * [Grade de Eventos](https://azure.microsoft.com/services/event-grid/)
 * [Aplicativos Lógicos](https://azure.microsoft.com/services/logic-apps/)
-* [Funções do Azure](https://azure.microsoft.com/services/functions/)
+* [Azure Functions](https://azure.microsoft.com/services/functions/)
 * [Dynamics 365](https://dynamics.microsoft.com)
-* [Stream Analytics do Azure](https://azure.microsoft.com/services/stream-analytics/)
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
 
 ## <a name="next-steps"></a>Próximas etapas
 

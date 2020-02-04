@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: a514dbce91a98bd51e51b1724d631bc224b2f33a
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: b76441c8b11032d3713d7679acfc7f350533b76b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75527919"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769187"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-python"></a>Início Rápido: Biblioteca de clientes do Azure Key Vault para Python
 
@@ -22,7 +22,7 @@ O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usa
 - Aumentar a segurança e o controle sobre chaves e senhas.
 - Criar e importar chaves de criptografia em minutos.
 - Reduzir a latência com escala de nuvem e redundância global.
-- Simplificar e automatizar tarefas para certificados SSL/TLS.
+- Simplifique e automatize tarefas para certificados TLS/SSL.
 - Usar HSMs validados para os padrões FIPS 140-2 Nível 2.
 
 [Documentação de referência da API](/python/api/overview/azure/key-vault?view=azure-python) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [Pacote (Índice de Pacote do Python)](https://pypi.org/project/azure-keyvault/)

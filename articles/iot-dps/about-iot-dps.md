@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: b28e09b2d304dc392442d98fe39654bab2c8d09c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: f9ac3c85bcd8e50918961649bdb5739fc66f1627
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645048"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772955"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Provisionando dispositivos com o Serviço de provisionamento de dispositivos no Hub IoT do Azure
 O Microsoft Azure fornece um conjunto avançado de serviços de nuvem pública integrados para todas as suas necessidades de soluções de IoT. O Serviço de Provisionamento de Dispositivos no Hub IoT é um serviço auxiliar para o Hub IoT que permite o provisionamento de toque zero, Just-In-Time no Hub IoT correto sem necessidade de intervenção humana, permitindo que os clientes provisionem milhões de dispositivos de modo seguro e escalonável.
@@ -80,7 +80,7 @@ O Serviço de Provisionamento de Dispositivos tem muitos recursos que o tornam i
 * A **lista de registro** que contém o registro completo de dispositivos/grupos de dispositivos que podem, em algum ponto, ser registrados. A lista de registro contém informações sobre a configuração desejada do dispositivo após ele ser registrado e ele pode ser atualizado a qualquer momento.
 * **Várias políticas de alocação** para controlar como o Serviço de Provisionamento de Dispositivos atribui dispositivos para Hubs IoT para dar suporte a seus cenários: Latência mais baixa, distribuição uniformemente ponderada (padrão) e configuração estática por meio da lista de registro. Observe que a latência é determinada usando o mesmo método que o [Gerenciador de Tráfego](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#performance).
 * **Logs de monitoramento e de diagnóstico** para verificar se tudo está funcionando corretamente.
-* O **Suporte a vários hubs** permite que o Serviço de Provisionamento de Dispositivos atribua dispositivos a mais de um Hub IoT. O Serviço de Provisionamento de Dispositivos pode se comunicar com hubs entre várias assinaturas do Azure.
+* O **suporte a vários hubs** permite que o Serviço de Provisionamento de Dispositivos faça a associação tardia de dispositivos a um hub IoT em runtime. O Serviço de Provisionamento de Dispositivos pode se comunicar com hubs entre várias assinaturas do Azure.
 * O **Suporte de região cruzada** permite que o Serviço de Provisionamento de Dispositivos atribua dispositivos a Hubs IoT em outras regiões.
 
 Você pode aprender mais sobre os conceitos e recursos envolvidos no provisionamento do dispositivo em [conceitos de dispositivo](concepts-device.md), [conceitos de serviço](concepts-service.md) e [conceitos de segurança](concepts-security.md).

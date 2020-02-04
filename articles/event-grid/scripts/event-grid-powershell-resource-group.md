@@ -1,23 +1,22 @@
 ---
 title: Exemplo de script do Azure PowerShell - Inscrever-se para o grupo de recursos | Microsoft Docs
-description: Exemplo de script do Azure PowerShell - Inscrever-se para o grupo de recursos
+description: Este artigo fornece um script de exemplo do Azure PowerShell que mostra como assinar eventos da Grade de Eventos para um grupo de recursos.
 services: event-grid
 documentationcenter: na
-author: tfitzmac
-manager: timlt
+author: spelluru
 ms.service: event-grid
 ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/10/2018
-ms.author: tomfitz
-ms.openlocfilehash: db4be11286825a8a990918a80c687f86c2294c6d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 01/23/2020
+ms.author: spelluru
+ms.openlocfilehash: e285f628d1ec3afce55dc8fe4efa50a361dab5ed
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66117182"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720787"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-with-powershell"></a>Inscrever-se em eventos para um grupo de recursos com o Azure PowerShell
 

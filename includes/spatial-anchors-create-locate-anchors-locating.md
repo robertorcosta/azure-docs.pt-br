@@ -1,13 +1,18 @@
 ---
-ms.openlocfilehash: 52dfbfca5f79a7f92848ea39eddc00aa10f05ff1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: MT
+ms.openlocfilehash: b5fec8bbc0db78454b080a411702014bd96f7db9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171638"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76887835"
 ---
-## <a name="locate-a-cloud-spatial-anchor"></a>Localize uma âncora de nuvem espacial
+## <a name="locate-a-cloud-spatial-anchor"></a>Localizar uma âncora espacial de nuvem
 
-Ser capaz de localizar uma âncora de nuvem carregado anteriormente espacial é um dos motivos principais para usar a biblioteca âncoras espacial do Azure. Para localizar as âncoras de nuvem espacial, você precisará saber seus identificadores. As IDs de âncora podem ser armazenadas no serviço de back-end do seu aplicativo e acessível a todos os dispositivos que podem autenticar corretamente a ele. Para obter um exemplo desse tipo, consulte [Tutorial: Compartilhar âncoras espacial em todos os dispositivos](/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices/).
+Ser capaz de localizar uma âncora espacial de nuvem salva anteriormente é um dos principais motivos para usar as Âncoras Espaciais do Azure. Há várias maneiras de localizar uma âncora espacial de nuvem. Você pode usar uma estratégia em um observador por vez.
+- Localizar âncoras por identificador.
+- Localizar âncoras conectadas a uma âncora localizada anteriormente. Saiba mais sobre as relações entre âncoras [aqui](/azure/spatial-anchors/concepts/anchor-relationships-way-finding/).
+- Localizar âncora usando a [Relocalização grosseira](/azure/spatial-anchors/concepts/coarse-reloc/).
 
-Criar uma instância de um `AnchorLocateCriteria` do objeto, defina os identificadores que você está procurando e invocar o `CreateWatcher` método na sessão, fornecendo seu `AnchorLocateCriteria`.
+Se estiver localizando âncoras espaciais de nuvem pelo identificador, você desejará armazenar o identificador da âncora espacial de nuvem no serviço de back-end do aplicativo e torná-lo acessível para todos os dispositivos que puderem se autenticar nele corretamente. Para ver um exemplo disso, confira [Tutorial: Compartilhar âncoras espaciais entre dispositivos](/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices/).
+
+Crie uma instância de um objeto `AnchorLocateCriteria`, defina os identificadores que está procurando e invoque o método `CreateWatcher` na sessão fornecendo seu `AnchorLocateCriteria`.

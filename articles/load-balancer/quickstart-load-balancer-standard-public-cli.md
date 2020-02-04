@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Criar um Standard Load Balancer público – CLI do Azure'
+title: 'Início Rápido: Criar um Load Balancer público – CLI do Azure'
 titleSuffix: Azure Load Balancer
 description: O início rápido mostra como criar um balanceador de carga público usando a CLI do Azure
 services: load-balancer
@@ -7,7 +7,7 @@ documentationcenter: na
 author: asudbring
 manager: twooley
 tags: azure-resource-manager
-Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
+Customer intent: I want to create a Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: a8bcdd88-f94c-4537-8143-c710eaa86818
 ms.service: load-balancer
 ms.devlang: na
@@ -17,16 +17,16 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 30f2fa7537ed481c25940a2ed67c99c58a7a80ed
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8ef24630d255876c45d9cbc072fc989288f2ac5f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214802"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76837163"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Início Rápido: Criar um Standard Load Balancer para balancear a carga de VM usando a CLI do Azure
 
-Este início rápido mostra como criar um balanceador de carga padrão. Para testar o balanceador de carga, implante duas máquinas virtuais (VMs) executando o servidor do Ubuntu e balanceie a carga de um aplicativo Web entre as duas VMs.
+Este início rápido mostra como criar um Load Balancer público. Para testar o balanceador de carga, implante duas máquinas virtuais (VMs) executando o servidor do Ubuntu e balanceie a carga de um aplicativo Web entre as duas VMs.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -44,15 +44,23 @@ O exemplo a seguir cria um grupo de recursos chamado *myResourceGroupSLB* no loc
     --location eastus
 ```
 
-## <a name="create-a-public-standard-ip-address"></a>Criar um endereço IP público padrão
+## <a name="create-a-public-ip-address"></a>Criar um endereço IP público
 
-Para acessar seu aplicativo Web na Internet, você precisará de um endereço IP público para o balanceador de carga. Um balanceador de carga padrão só oferece suporte a endereços IP públicos padrão. Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) para criar um endereço IP público padrão chamado *myPublicIP* em *myResourceGroupSLB*.
+Para acessar seu aplicativo Web na Internet, você precisará de um endereço IP público para o balanceador de carga. Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) para criar um endereço IP Público com redundância de zona Standard denominado *myPublicIP* em *myResourceGroupSLB*.
 
 ```azurecli-interactive
   az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard
 ```
 
-## <a name="create-azure-load-balancer"></a>Criar o balanceador de carga do Azure
+Para criar um endereço IP Público zonal no uso da Zona 1:
+
+```azurecli-interactive
+  az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard --zone 1
+```
+
+ Use ```--sku basic``` para criar um IP Público Básico. A versão Básica não é compatível com Zonas de Disponibilidade. A Microsoft recomenda o SKU Standard para cargas de trabalho de produção.
+
+## <a name="create-azure-load-balancer"></a>Criar o Azure Load Balancer
 
 Esta seção fornece detalhes sobre como criar e configurar os componentes do balanceador de carga abaixo:
   - um pool de IP de front-end que recebe o tráfego de rede de entrada no balanceador de carga.
@@ -62,7 +70,7 @@ Esta seção fornece detalhes sobre como criar e configurar os componentes do ba
 
 ### <a name="create-the-load-balancer"></a>Criar o balanceador de carga
 
-Criar um Azure Load Balancer com [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) chamado **myLoadBalancer** que inclua um pool de front-end chamado **myFrontEnd**, um pool de back-end chamado **myBackEndPool** associado com o endereço IP público **myPublicIP** que você criou na etapa anterior.
+Criar um Azure Load Balancer com [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) chamado **myLoadBalancer** que inclua um pool de front-end chamado **myFrontEnd**, um pool de back-end chamado **myBackEndPool** associado com o endereço IP público **myPublicIP** que você criou na etapa anterior. Use ```--sku basic``` para criar um IP Público Básico. A Microsoft recomenda o SKU Standard para cargas de trabalho de produção.
 
 ```azurecli-interactive
   az network lb create \
@@ -182,20 +190,11 @@ Crie três interfaces de rede com [az network nic create](/cli/azure/network/nic
 
 ```
 
-
 ## <a name="create-backend-servers"></a>Criar servidores de back-end
 
 Neste exemplo, você criará três máquinas virtuais a serem usadas como servidores de back-end para o balanceador de carga. Para verificar se o balanceador de carga foi criado com êxito, instale também o NGINX nas máquinas virtuais.
 
-### <a name="create-an-availability-set"></a>Criar um conjunto de disponibilidade
-
-Crie um conjunto de disponibilidade com [az vm availabilityset create](/cli/azure/network/nic)
-
- ```azurecli-interactive
-  az vm availability-set create \
-    --resource-group myResourceGroupSLB \
-    --name myAvailabilitySet
-```
+Se você estiver criando um Load Balancer Básico com um IP Público Básico, será necessário criar um Conjunto de Disponibilidade usando ([az vm availabilityset create](/cli/azure/network/nic) ao qual adicionar suas máquinas virtuais. Os Standard Load Balancers não exigem essa etapa adicional. A Microsoft recomenda usar o Standard.
 
 ### <a name="create-three-virtual-machines"></a>Criar três máquinas virtuais
 
@@ -293,16 +292,14 @@ Para obter o endereço IP público do balanceador de carga, use [az network publ
 ``` 
    ![Testar o balanceador de carga](./media/load-balancer-standard-public-cli/running-nodejs-app.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, o balanceador de carga e todos os recursos relacionados.
 
 ```azurecli-interactive 
   az group delete --name myResourceGroupSLB
 ```
-## <a name="next-step"></a>Próxima etapa
-Neste início rápido, você criou um Load Balancer Standard, anexou VMs a ele, configurou a regra de tráfego do balanceador de carga, a investigação de integridade e testou o balanceador de carga. Para saber mais sobre o Azure Load Balancer, continue nos tutoriais do Azure Load Balancer.
+## <a name="next-steps"></a>Próximas etapas
+Neste início rápido, você criou um Standard Load Balancer, anexou VMs a ele, configurou a regra de tráfego do balanceador de carga, a investigação de integridade e testou o balanceador de carga. Para obter mais informações sobre o Azure Load Balancer, prossiga para os [tutoriais do Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
 
-> [!div class="nextstepaction"]
-> [Tutoriais do Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
-
+Saiba mais sobre o [Load Balancer e as Zonas de Disponibilidade](load-balancer-standard-availability-zones.md).

@@ -1,12 +1,9 @@
 ---
-title: Tutorial – Registrar em log o fluxo de tráfego de rede de e para uma VM usando o portal do Azure
-titleSuffix: Azure Network Watcher
-description: Neste tutorial, saiba como registrar em log o fluxo de tráfego de rede bidirecionalmente em uma VM usando a funcionalidade de logs de fluxo do NSG do Observador de Rede.
+title: Registrar em log o fluxo de tráfego de rede bidirecionalmente em uma VM – tutorial – portal do Azure | Microsoft Docs
+description: Saiba como registrar em log o fluxo de tráfego de rede bidirecionalmente em uma VM usando a funcionalidade de logs de fluxo do NSG do Observador de Rede.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 tags: azure-resource-manager
 Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
@@ -16,16 +13,23 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 7f4466b6f6de5028db8b62389c9d5ddbdafc9d62
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: c295e6c8ffea564e157545c4662cbe7e1841edae
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280978"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841005"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registrar em log o tráfego de rede bidirecionalmente em uma máquina virtual usando o portal do Azure
+
+> [!div class="op_single_selector"]
+> - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
+> - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
+> - [CLI do Azure](network-watcher-nsg-flow-logging-cli.md)
+> - [REST API](network-watcher-nsg-flow-logging-rest.md)
+> - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 Um NSG (grupo de segurança de rede) permite filtrar o tráfego de entrada e o tráfego de saída bidirecionalmente em uma VM (máquina virtual). Você pode registrar em log o tráfego de rede que flui por um NSG com a funcionalidade de log de fluxo do NSG do Observador de Rede. Neste tutorial, você aprenderá como:
 
@@ -93,7 +97,10 @@ O log de fluxo do NSG exige o provedor **Microsoft.Insights**. Para registrar o 
     | Location       | Selecione **Leste dos EUA**                                           |
     | Resource group | Clique em **Usar existente** e selecione **myResourceGroup** |
 
-    A conta de armazenamento deve estar na mesma região do NSG. A conta de armazenamento pode levar cerca de um minuto para ser criada. Não continue com as etapas restantes até que a conta de armazenamento seja criada.     
+    A conta de armazenamento pode levar cerca de um minuto para ser criada. Não continue com as etapas restantes até que a conta de armazenamento seja criada. Se você usar uma conta de armazenamento existente em vez de criar uma, selecione uma conta de armazenamento que tem a opção **Todas as redes** (padrão) selecionada para **Firewalls e redes virtuais**, nas **CONFIGURAÇÕES** da conta de armazenamento. Em todos os incidentes, a conta de armazenamento deve estar na mesma região do NSG.
+
+    > [!NOTE]
+    > Embora atualmente haja suporte para os provedores Microsoft.Insight e Microsoft.Network no Armazenamento do Azure como Serviços confiáveis da Microsoft, os logs do NSG Flow ainda não estão totalmente integrados. Para habilitar o log de fluxo do NSG, a opção **Todas as Redes** ainda precisa ser selecionada até que esse recurso esteja totalmente integrado. 
 4. No canto superior esquerdo do portal, selecione **Todos os serviços**. Na caixa **Filtro**, digite *Observador de Rede*. Quando os resultados da pesquisa exibirem **Observador de Rede**, selecione essa opção.
 5. Em **LOGS**, selecione **Logs de fluxo do NSG**, conforme mostrado na seguinte imagem:
 
@@ -107,8 +114,9 @@ O log de fluxo do NSG exige o provedor **Microsoft.Insights**. Para registrar o 
 
 9. Selecione a conta de armazenamento criada na etapa 3.
    > [!NOTE]
-   > Os Logs de Fluxo do NSG não funcionarão com uma conta de armazenamento se:
-   > * A conta de armazenamento tiver o [namespace hierárquico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) habilitado.
+   > Os Logs de Fluxo do NSG não funcionarão com contas de armazenamento se:
+   > * As contas de armazenamento tiverem um firewall habilitado.
+   > * As contas de armazenamento tiverem o [namespace hierárquico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) habilitado.
 1. No canto superior esquerdo do portal, selecione **Todos os serviços**. Na caixa **Filtro**, digite *Observador de Rede*. Quando os resultados da pesquisa exibirem **Observador de Rede**, selecione essa opção.
 10. Defina **Retenção (dias)** como 5 e, em seguida, selecione **Salvar**.
 
@@ -120,7 +128,7 @@ O log de fluxo do NSG exige o provedor **Microsoft.Insights**. Para registrar o 
    ![Baixar logs de fluxo](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. Selecione a conta de armazenamento que você configurou na etapa 2 de [Habilitar o log de fluxo do NSG](#enable-nsg-flow-log).
-4. Em **Serviço Blob**, selecione **Contêineres** e, em seguida, selecione o contêiner **insights-logs-networksecuritygroupflowevent**.
+4. Em **Serviço Blob**, selecione **Blobs** e, em seguida, selecione o contêiner **insights-logs-networksecuritygroupflowevent**.
 5. No contêiner, navegue na hierarquia de pastas até chegar a um arquivo PT1H.json, conforme mostrado na figura a seguir. Arquivos de log são gravados em uma hierarquia de pastas que segue a seguinte convenção de nomenclatura: https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 
    ![Log de fluxo](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
@@ -220,4 +228,4 @@ O valor de **mac** na saída anterior é o endereço MAC do adaptador de rede qu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a habilitar o log de fluxo de um NSG. Você também aprendeu a baixar e exibir em um arquivo os dados registrados em log. Os dados brutos no arquivo json podem ser difíceis de serem interpretados. Para visualizar os dados, use a [análise de tráfego](traffic-analytics.md) do Observador de Rede, o Microsoft [PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md) e outras ferramentas.
+Neste tutorial, você aprendeu a habilitar o log de fluxo de um NSG. Você também aprendeu a baixar e exibir em um arquivo os dados registrados em log. Os dados brutos no arquivo json podem ser difíceis de serem interpretados. Para visualizar os dados dos Logs de Fluxo, você pode usar a [Análise de Tráfego do Azure](traffic-analytics.md), o [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md) e outras ferramentas. Você pode tentar métodos alternativos de habilitar Logs de Fluxo NSG como [PowerShell](network-watcher-nsg-flow-logging-powershell.md), [CLI do Azure](network-watcher-nsg-flow-logging-cli.md), [API REST](network-watcher-nsg-flow-logging-rest.md) e [modelos do ARM](network-watcher-nsg-flow-logging-azure-resource-manager.md).

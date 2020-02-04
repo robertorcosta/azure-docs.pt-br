@@ -1,22 +1,22 @@
 ---
 title: Exemplo de script da CLI do Azure - Inscreva-se em uma conta de armazenamento de Blob | Microsoft Docs
-description: Exemplo de script da CLI do Azure - Inscreva-se em uma conta de armazenamento de Blob
+description: Este artigo fornece um script de exemplo da CLI do Azure que mostra como assinar eventos para uma conta de Armazenamento de Blobs do Azure.
 services: event-grid
 documentationcenter: na
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2018
-ms.author: tomfitz
-ms.openlocfilehash: f352542f72226358cd700359eb5aac16e1aa8ad5
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.date: 01/23/2020
+ms.author: spelluru
+ms.openlocfilehash: b6cb60273b0fc3ac101eb03c55a3392bd9b942a4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652477"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720853"
 ---
 # <a name="subscribe-to-events-for-a-blob-storage-account-with-azure-cli"></a>Inscreva-se em eventos para uma conta de armazenamento de Blob com a CLI do Azure
 
@@ -26,7 +26,7 @@ Este script cria uma assinatura de Grade de Eventos para os eventos para uma con
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-blob-storage/subscribe-to-blob-storage.sh "Subscribe to Blob storage")]
 

@@ -1,28 +1,28 @@
 ---
-title: 'Início Rápido: Criar um balanceador de carga Standard – modelo do Azure'
+title: 'Início Rápido: Criar um Load Balancer – modelo do Azure'
 titleSuffix: Azure Load Balancer
-description: Este início rápido mostra como criar um Standard Load Balancer usando o modelo do Azure Resource Manager.
+description: Este início rápido mostra como criar um balanceador de carga usando o modelo do Azure Resource Manager.
 services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: twooley
-Customer intent: I want to create a Standard load balancer by using an Azure Resource Manager template so that I can load balance internet traffic to VMs.
+Customer intent: I want to create a load balancer by using an Azure Resource Manager template so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2019
+ms.date: 01/27/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 28c4ca59b20fcdd8ab0249392dc0f13cbabf1a97
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 69503968ece5e68b6e4777d72713565158009949
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970627"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843847"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>Início Rápido: Criar um Standard Load Balancer para balancear carga de VMs usando o modelo do Azure Resource Manager
+# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>Início Rápido: Criar um Load Balancer para balancear a carga de VMs usando o modelo do Azure Resource Manager
 
 O balanceamento de carga fornece um nível mais alto de disponibilidade e escala com a distribuição das solicitações recebidas entre várias VMs (máquinas virtuais). Este início rápido mostra como implantar um modelo do Azure Resource Manager que cria um Standard Load Balancer para balancear a carga de VMs. Usar o modelo do Resource Manager leva menos etapas em comparação com outros métodos de implantação.
 
@@ -30,9 +30,9 @@ O [modelo do Resource Manager](../azure-resource-manager/templates/overview.md) 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="create-a-standard-load-balancer"></a>Criar um Standard Load Balancer
+## <a name="create-a-load-balancer"></a>Criar um Load Balancer
 
-O Standard Load Balancer oferece suporte a apenas um endereço IP público padrão. Ao criar um Standard Load Balancer, você também precisa criar um novo endereço IP público padrão configurado como o front-end do Standard Load Balancer.
+Os SKUs do Load Balancer e do IP público devem coincidir. Ao criar um Standard Load Balancer, você também precisa criar um endereço IP público Standard configurado como o front-end do Standard Load Balancer. Se você quiser criar um Load Balancer Básico, use [este modelo](https://azure.microsoft.com/resources/templates/201-2-vms-loadbalancer-natrules/). A Microsoft recomenda usar o SKU Standard para cargas de trabalho de produção.
 
 O modelo usado neste início rápido é um [Modelo de início rápido](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json).
 

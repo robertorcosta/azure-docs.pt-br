@@ -1,6 +1,6 @@
 ---
-title: 'Início Rápido: Como usar filas do azure/barramento de serviço no Node.js'
-description: 'Início Rápido: Saiba como usar as filas do Barramento de Serviço no Azure de um aplicativo Node.js usando o pacote azure/service-bus.'
+title: Como usar filas do azure/barramento de serviço no Node.js
+description: Aprenda a escrever um programa Node.js para enviar mensagens para uma fila do Barramento de Serviço e receber mensagens dela usando o novo pacote @azure/service-bus.
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 9901ccd6bb1abf27bb1141c618d0bfde167b9cc3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 9db359d8331859e3eebf345d91fe5dc6e66c0d4c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721690"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774587"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>Início Rápido: Como usar filas do barramento de serviço com o Node.js e o pacote azure/service-bus
 > [!div class="op_multi_selector" title1="Linguagem de programação" title2="Pacote do Node.js"]
@@ -27,7 +27,7 @@ ms.locfileid: "73721690"
 
 Neste tutorial, você aprende a escrever um programa Nodejs para enviar e receber mensagens de uma fila do Barramento de Serviço usando o novo pacote de [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus). Esse pacote usa o [protocolo AMQP 1.0](service-bus-amqp-overview.md) mais rápido, enquanto o pacote [azure-sb](https://www.npmjs.com/package/azure-sb) mais antigo usava [APIs de tempo de execução REST do Barramento de Serviço](/rest/api/servicebus/service-bus-runtime-rest). As amostras são escritas em JavaScript.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 - Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Ative seus [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscreva-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Caso você não tenha uma fila para trabalhar, siga as etapas do artigo [Usar o portal do Azure para criar uma fila do Barramento de Serviço](service-bus-quickstart-portal.md) para criar uma fila. Anote a cadeia de conexão para sua instância do Barramento de Serviço e o nome da fila que você criou. Usaremos esses valores nas amostras.
 

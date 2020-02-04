@@ -1,12 +1,12 @@
 ---
-title: 'Início Rápido: Criar um Standard Load Balancer – portal do Azure'
+title: 'Início Rápido: Criar um Load Balancer público – portal do Azure'
 titleSuffix: Azure Load Balancer
-description: Este início rápido mostra como criar um Standard Load Balancer usando o portal do Azure.
+description: Este início rápido mostra como criar um Load Balancer usando o portal do Azure.
 services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: twooley
-Customer intent: I want to create a Standard Load Balancer so that I can load balance internet traffic to VMs.
+Customer intent: I want to create a Load Balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 027e05b3fbf7163c4a1b927a2b83db84c7eef1ff
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 4a5775be66f95fb69db761c2356a61f80068bc75
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771454"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843864"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início Rápido: Criar um balanceador de carga padrão para VMs usando o Portal do Azure
+# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início Rápido: Criar um Load Balancer para balancear a carga de VMs usando o portal do Azure
 
-O balanceamento de carga fornece um nível mais alto de disponibilidade e escala distribuindo as solicitações de entrada entre várias máquinas virtuais. Você pode usar o Portal do Azure para criar um balanceador de carga para balancear a carga de máquinas virtuais (VMs). Este início rápido mostra como carregar a carga de VMs usando um balanceador de carga padrão.
+O balanceamento de carga fornece um nível mais alto de disponibilidade e escala distribuindo as solicitações de entrada entre várias máquinas virtuais. Você pode usar o Portal do Azure para criar um balanceador de carga para balancear a carga de máquinas virtuais (VMs). Este início rápido mostra como balancear a carga de VMs usando um Load Balancer público.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
@@ -32,9 +32,9 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="create-a-standard-load-balancer"></a>Criar um Balanceador de Carga Standard
+## <a name="create-a-load-balancer"></a>Criar um Load Balancer
 
-Nesta seção, você cria um Standard Load Balancer que ajuda a balancear a carga de máquinas virtuais. Crie um Standard Load Balancer público ou um Standard Load Balancer interno. O Standard Load Balancer só dá suporte a um endereço IP público Standard; não há suporte para endereços IP públicos Básicos. Ao criar um Standard Load Balancer público, você também precisará criar um endereço IP público Standard configurado como o front-end (nomeado como *LoadBalancerFrontend*, por padrão) para o Standard Load Balancer. 
+Nesta seção, você criará um Load Balancer que ajuda a balancear a carga de máquinas virtuais. Crie um Load Balancer público ou um Load Balancer interno. Ao criar um Load Balancer público, você também precisará criar um endereço IP público configurado como o front-end (chamado de *LoadBalancerFrontend*, por padrão) para o Load Balancer.
 
 1. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Load Balancer.**
 2. Na guia **Noções Básicas** da página **Criar balanceador de carga**, insira ou selecione as seguintes informações, aceite os padrões para as configurações restantes e selecione **Revisar + criar**:
@@ -46,10 +46,11 @@ Nesta seção, você cria um Standard Load Balancer que ajuda a balancear a carg
     | Nome                   | *myLoadBalancer*                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Type          | Selecione **Público**.                                        |
-    | SKU           | Selecione **Padrão**.                          |
-    | Endereço IP público | Selecione **Criar novo**. |
+    | SKU           | Selecione **Standard** ou **Básico**. A Microsoft recomenda o Standard para cargas de trabalho de produção.  |
+    | Endereço IP público | Selecione **Criar novo**. Se você tiver um IP público existente que deseja usar, selecione **Usar existente** |
     | Nome do endereço IP público              | Digite *myPublicIP* na caixa de texto.   |
-    |Zona de disponibilidade| Selecione **Com redundância de zona**.    |
+    | Zona de disponibilidade | Digite *Com redundância de zona* para criar uma Load Balancer resiliente. Para criar um Load Balancer zonal, selecione uma zona específica de 1, 2 ou 3 |
+
 3. Na guia **Examinar + criar**, selecione **Criar**.   
 
     ![Criar um Balanceador de Carga Standard](./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png)
@@ -58,7 +59,7 @@ Nesta seção, você cria um Standard Load Balancer que ajuda a balancear a carg
 
 Nesta seção, você define as configurações do Load Balancer para um pool de endereços de back-end e uma investigação de integridade, além de especificar uma regra de balanceamento.
 
-### <a name="create-a-backend-address-pool"></a>Criar um pool de endereços de back-end
+### <a name="create-a-backend-pool"></a>Crie um pool de back-end
 
 Para distribuir o tráfego entre as VMs, um pool de endereços de back-end contém os endereços IP dos NICs virtuais conectados ao Load Balancer. Crie o pool de endereços de back-end *myBackendPool* para incluir máquinas virtuais para balanceamento de carga de tráfego da Internet.
 
@@ -122,7 +123,7 @@ Nesta seção, crie uma rede virtual, crie três máquinas virtuais para o pool 
 1. Deixe o restante dos padrões e selecione **Criar**.
 
 ### <a name="create-virtual-machines"></a>Criar máquinas virtuais
-O Standard Load Balancer só dá suporte a VMs com endereços IP Standard no pool de back-end. Nesta seção, você criará três VMs (*myVM1*, *myVM2* e *myVM3*) com um endereço IP público Standard em três regiões diferentes (*Zona 1*, *Zona 2* e *Zona 3*) que serão adicionados ao pool de back-end do Standard Load Balancer que foi criado anteriormente.
+Os SKUs do IP público e os SKUs do Load Balancer devem coincidir. Para o Standard Load Balancer, use VMs com endereços IP Standard no pool de back-end. Nesta seção, você criará três VMs (*myVM1*, *myVM2* e *myVM3*) com um endereço IP público Standard em três regiões diferentes (*Zona 1*, *Zona 2* e *Zona 3*) que serão adicionados ao pool de back-end do Load Balancer que foi criado anteriormente. Se você selecionou Básico, use VMs com endereços IP básicos.
 
 1. No canto superior esquerdo do portal, selecione **Criar um recurso** > **Computação** > **Windows Server 2019 Datacenter**. 
    
@@ -138,7 +139,7 @@ O Standard Load Balancer só dá suporte a VMs com endereços IP Standard no poo
 1. Na guia **Rede** verifique se os itens abaixo estão selecionados:
    - **Rede virtual**: *myVnet*
    - **Sub-rede**: *myBackendSubnet*
-   - **IP público** > selecione **Criar** e, na janela **Criar endereço IP público**, para **SKU**, selecione **Standard** e, para **Zona de disponibilidade**, selecione **Com redundância de zona** e, sem seguida, selecione **OK**.
+   - **IP público** > selecione **Criar** e, na janela **Criar endereço IP público**, para **SKU**, selecione **Standard** e, para **Zona de disponibilidade**, selecione **Com redundância de zona** e, sem seguida, selecione **OK**. Se você criou um Load Balancer Básico, selecione Básico. A Microsoft recomenda usar o SKU Standard para cargas de trabalho de produção.
    - Para criar um novo NSG (grupo de segurança de rede), um tipo de firewall, em **Grupo de segurança de rede**, selecione **Avançado**. 
        1. No campo **Configurar grupo de segurança de rede**, selecione **Criar novo**. 
        1. Insira *myNetworkSecurityGroup* e selecione **OK**.
@@ -167,15 +168,20 @@ Nesta seção, você criará uma regra de grupo de segurança de rede para permi
 1. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e, em seguida, na lista de recursos, selecione **myNetworkSecurityGroup** que está localizado no grupo de recursos **myResourceGroupSLB**.
 2. Em **Configurações**, selecione **Regras de segurança de entrada** e, em seguida, **Adicionar**.
 3. Insira esses valores para a regra de segurança de entrada denominada *myHTTPRule* para permitir conexões de entrada HTTP usando a porta 80:
-    - *Service Tag* – para **Origem**.
-    - *Internet* – para **Marca de serviço de origem**
-    - *80* - para os **Intervalos de porta de destino**
-    - *TCP* – para **Protocolo**
-    - *Allow* – para **Ação**
-    - *100* - para **Prioridade**
-    - *myHTTPRule* - para nome
-    - *Allow HTTP* - para descrição
+    - **Fonte**: *Marca de serviço*
+    -  **Marca de serviço de origem**: *Internet*
+    - **Intervalos de portas de destino**: *80*
+    - **Protocolo**: *TCP*
+    - **Ação**: *Permitir*
+    - **Prioridade**: *100*
+    - **Nome**: *myHTTPRule* 
+    - **Descrição**: "*Permitir HTTP* 
 4. Selecione **Adicionar**.
+5. Repita as etapas para a regra de RDP de entrada, se necessário, com os seguintes valores diferentes:
+   - **Intervalos de portas de destino**: digite *3389*.
+   - **Prioridade**: digite *200*. 
+   - **Name**: digite *MyRDPRule*. 
+   - **Descrição**: digite *Permitir RDP*. 
  
 ### <a name="install-iis"></a>Instalar o IIS
 
@@ -214,7 +220,6 @@ Quando não forem mais necessários, exclua o grupo de recursos, o Load Balancer
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou um Standard Load Balancer, anexou VMs a ele, configurou a regra de tráfego do balanceador de carga, a investigação de integridade e testou o balanceador de carga. Para saber mais sobre o Azure Load Balancer, continue nos tutoriais do Azure Load Balancer.
+Neste início rápido, você criou um Standard Load Balancer, anexou VMs a ele, configurou a regra de tráfego do balanceador de carga, a investigação de integridade e testou o balanceador de carga. Para obter mais informações sobre o Azure Load Balancer, prossiga para os [tutoriais do Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
 
-> [!div class="nextstepaction"]
-> [Tutoriais do Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+Saiba mais sobre o [Load Balancer e as Zonas de Disponibilidade](load-balancer-standard-availability-zones.md).

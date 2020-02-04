@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 8b1861b96f7ed53388d49e226bf3880bfcf657cb
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: bff6731e767fccb0800c30dfe3e75a800f54c59d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895845"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773043"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Como criar soluções de varejo com o Azure IoT Central
 
@@ -30,7 +30,7 @@ As seções a seguir descrevem as funcionalidades desses modelos de aplicativo:
 
 ## <a name="connected-logistics"></a>Logística conectada
 
-Espera-se que gastos globais com logística atinjam US$ 10,6 trilhões em 2020. O transporte de bens representa a maior parte desses gastos e os provedores de serviços de transporte estão sob intensas restrições e pressão competitiva.
+Espera-se que gastos globais com logística alcance US$ 10,6 trilhões em 2020. O transporte de bens representa a maior parte desses gastos e os provedores de serviços de transporte estão sob intensas restrições e pressão competitiva.
 
 Você pode usar sensores de IoT para coletar e monitorar condições do ambiente, como temperatura, umidade, inclinação, impacto, luz e a localização de uma remessa. Você pode combinar a telemetria obtida de sensores e dispositivos IoT com outras fontes de dados, como informações sobre clima e tráfego em sistemas de business intelligence baseados em nuvem.
 

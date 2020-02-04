@@ -5,25 +5,20 @@ description: Neste tutorial, aprenda a rotear tráfego de rede com uma tabela de
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 12/12/2018
+ms.date: 01/22/2019
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: be4a47d26bcfc407734956a3d9bf8778c5afcfb4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 96b6788e48b845ef7f0add11767eb36b47cac36b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75350287"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775274"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Rotear tráfego com uma tabela de rotas utilizando o Portal do Azure
 
@@ -48,19 +43,19 @@ Entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-route-table"></a>Criar uma tabela de rotas
 
-1. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Tela de rota**.
-
-1. Em **Criar tabela de rota**, insira ou selecione estas informações:
+1. No menu do portal do Azure, selecione **Criar um recurso**.
+2. Na caixa de pesquisa, insira *Tabela de rotas*. Quando a **Tabela de rotas** é exibida nos resultados da pesquisa, selecione-a.
+3. Na página **Tabela de rotas**, selecione **Criar**.
+4. Em **Criar tabela de rota**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
     | Nome | Insira *myRouteTablePublic*. |
     | Subscription | Selecione sua assinatura. |
     | Resource group | Selecione **Criar novo** e insira *myResourceGroup*, então selecione *OK*. |
-    | Location | Deixe o padrão **Leste dos EUA**.
+    | Location | Selecione **Leste dos EUA**.
     | Propagação de rota do gateway de rede virtual | Deixe o padrão **Habilitado**. |
-
-1. Selecione **Criar**.
+5. Selecione **Criar**.
 
 ## <a name="create-a-route"></a>Criar uma rota
 
@@ -167,7 +162,7 @@ NVAs são VMs que ajudam com as funções de rede como a otimização de roteame
     | Senha | Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Confirmar Senha | Reinsira a senha. |
     | **REGRAS DE PORTA DE ENTRADA** |  |
-    | Porta de entrada públicas | Deixar o padrão **Nenhum**.
+    | Porta de entrada públicas | Selecione **Nenhum**.
     | **ECONOMIZE DINHEIRO** |  |
     | Já tem uma licença do Windows? | Deixe o padrão **Não**. |
 

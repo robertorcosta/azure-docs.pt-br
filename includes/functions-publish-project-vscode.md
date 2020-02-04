@@ -1,47 +1,64 @@
 ---
-title: incluir arquivo
-description: incluir arquivo
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 04/16/2019
+ms.date: 01/12/2020
 ms.author: glenga
-ms.custom: include file
-ms.openlocfilehash: 30a6d8556a251ba76dff77e004fb864f3eaf04cf
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: f1553a5c9d55366b2764877b48d0606ff8e0b370
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76279394"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842072"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publicar o projeto no Azure
 
-O Visual Studio Code permite que você publique seu projeto de funções diretamente no Azure. No processo, você criará um aplicativo de funções e recursos relacionados em sua assinatura do Azure. O aplicativo de funções fornece um contexto de execução para suas funções. O projeto é empacotado e implantado para o novo aplicativo de função em sua assinatura do Azure.
+Nesta seção, você criará um aplicativo de funções e os recursos relacionados em sua assinatura do Azure e, em seguida, implantará seu código. 
 
-Por padrão, o Visual Studio Code cria todos os recursos do Azure necessários para criar seu aplicativo de funções. Os nomes desses recursos são baseados no nome do aplicativo de funções escolhido. Se precisar ter controle total sobre os recursos criados, você pode [publicar usando opções avançadas](../articles/azure-functions/functions-develop-vs-code.md#enable-publishing-with-advanced-create-options).
+1. Escolha o ícone do Azure na Barra de atividade e, em seguida, na área **Azure: Functions**, escolha o botão **Implantar no aplicativo de funções...** .
 
-Esta seção pressupõe que você está criando um novo aplicativo de funções no Azure.
+    ![Publicar seu projeto no Azure](media/functions-publish-project-vscode/function-app-publish-project.png)
 
-> [!IMPORTANT]
-> Publicar em um aplicativo de funções existente substitui o conteúdo desse aplicativo no Azure.
+1. Forneça as seguintes informações nos prompts:
 
-1. No Visual Studio Code, pressione F1 para abrir a paleta de comandos. Na paleta de comandos, pesquise e selecione `Azure Functions: Deploy to function app...`.
+    ::: zone pivot="programming-language-csharp,programming-language-powershell"
 
-1. Se você ainda não estiver conectado, será solicitado a **Entrar no Azure**. Você também pode **Criar uma conta gratuita do Azure**. Após entrar pelo navegador, volte ao Visual Studio Code. 
+    | Prompt | Valor | Descrição |
+    | ------ | ----- | ----- |
+    | Selecionar uma assinatura | Sua assinatura | Mostrado quando você tem várias assinaturas. |
+    | Selecione o Aplicativo de Funções no Azure | + Criar Aplicativo de Funções | Publicar em um aplicativo de funções existente substitui o conteúdo desse aplicativo no Azure. |
+    | Insira um nome exclusivo globalmente para o aplicativo de funções | Nome exclusivo | Caracteres válidos para um nome de aplicativo de funções são `a-z`, `0-9` e `-`. |
+    | Selecione uma localização para novos recursos | Região | Selecione uma [região](https://azure.microsoft.com/regions/) perto de você. | 
 
-1. Se você tiver mais de uma assinatura, **Escolha uma assinatura** para o aplicativo de funções e, em seguida, escolha **+ Criar novo aplicativo de funções no Azure**.
+    ::: zone-end
 
-1. Digite um nome globalmente exclusivo que identifica seu aplicativo de funções e pressione Enter. Caracteres válidos para um nome de aplicativo de funções são `a-z`, `0-9` e `-`.
+    ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python"
 
-    Quando você pressiona Enter, os seguintes recursos do Azure são criados em sua assinatura:
+    | Prompt | Valor | Descrição |
+    | ------ | ----- | ----- |
+    | Selecionar uma assinatura | Sua assinatura | Mostrado quando você tem várias assinaturas. |
+    | Selecione o Aplicativo de Funções no Azure | + Criar Aplicativo de Funções | Publicar em um aplicativo de funções existente substitui o conteúdo desse aplicativo no Azure. |
+    | Insira um nome exclusivo globalmente para o aplicativo de funções | Nome exclusivo | Caracteres válidos para um nome de aplicativo de funções são `a-z`, `0-9` e `-`. |
+    | Selecione um runtime | Sua versão | Escolha a versão da linguagem em que você está executando localmente. |
+    | Selecione uma localização para novos recursos | Região | Selecione uma [região](https://azure.microsoft.com/regions/) perto de você. | 
 
-    * **[Grupo de recursos](../articles/azure-resource-manager/management/overview.md)** : Contém todos os recursos criados do Azure. O nome é baseado no nome de seu aplicativo de funções.
-    * **[Conta de armazenamento](../articles/storage/common/storage-account-create.md)** : Uma conta de armazenamento padrão é criada com um nome exclusivo baseado no nome de seu aplicativo de funções.
-    * **[Plano de hospedagem](../articles/azure-functions/functions-scale.md)** : Um plano de consumo é criado na região Oeste dos EUA para hospedar seu aplicativo de funções sem servidor.
-    * **Aplicativo de funções**: Seu projeto é implantado e executado no novo aplicativo de funções.
+    ::: zone-end
 
-    Uma notificação é exibida depois que seu aplicativo de funções é criado e o pacote de implantação é aplicado. Escolha **Exibir Saída** nessa notificação para exibir a criação e os resultados da implantação, incluindo os recursos do Azure que você criou.
+    
+1.  Quando concluído, os seguintes recursos do Azure serão criados em sua assinatura:
 
-1. De volta na área **Azure: Functions**, expanda o novo aplicativo de funções em sua assinatura. Expanda **Funções**, clique com botão direito do mouse em **HttpTrigger** e, em seguida, escolha **Copiar URL da função**.
+    + **[Grupo de recursos](../articles/azure-resource-manager/management/overview.md)** : Contém todos os recursos criados do Azure. O nome é baseado no nome de seu aplicativo de funções.
+    + **[Conta de armazenamento](../articles//storage/common/storage-introduction.md#types-of-storage-accounts)** : Uma conta de armazenamento padrão é criada com um nome exclusivo baseado no nome de seu aplicativo de funções.
+    + **[Plano de hospedagem](../articles/azure-functions/functions-scale.md)** : Um plano de consumo é criado na região Oeste dos EUA para hospedar seu aplicativo de funções sem servidor.
+    + **Aplicativo de funções**: Seu projeto é implantado e executado no novo aplicativo de funções.
+    + **[Application Insights]()** : uma instância, que está conectada ao seu aplicativo de funções, é criada com base no nome da função.
+
+    Uma notificação é exibida depois que seu aplicativo de funções é criado e o pacote de implantação é aplicado. 
+    
+1. Escolha **Exibir Saída** nessa notificação para exibir a criação e os resultados da implantação, incluindo os recursos do Azure que você criou.
+
+    ![Criar notificação completa](media/functions-publish-project-vscode/function-create-notifications.png)
+
+1. De volta na área **Azure: Functions** na barra lateral, expanda o novo aplicativo de funções em sua assinatura. Expanda **Funções**, clique com o botão direito do mouse (Windows) ou Ctrl + clique (MacOS) em **HttpExample** e escolha **Copiar URL de função**.
 
     ![Copiar a URL da função para o novo gatilho HTTP](./media/functions-publish-project-vscode/function-copy-endpoint-url.png)

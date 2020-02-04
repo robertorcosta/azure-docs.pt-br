@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17cc6df651a82b416e670ee5ca5683c428eac6b5
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 01bcc3678485119afae1d567d97eff9dcebe6b95
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596265"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714628"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-acquireio"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao AcquireIO
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar a AcquireIO ao Azure AD (Azure Activ
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para começar, você precisará dos seguintes itens:
 
@@ -141,7 +141,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure dand
 
      ![Configuração da AcquireIO](./media/acquireio-tutorial/config01.png)
 
-1. Role para baixo até **Active Directory** e clique em **Instalar**.
+1. Role a página para baixo até **Active Directory** e clique em **Instalar**.
 
     ![Configuração da AcquireIO](./media/acquireio-tutorial/config02.png)
 

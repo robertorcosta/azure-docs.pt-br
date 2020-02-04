@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/15/2020
+ms.date: 01/28/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 1507eb4eba88fbf1ef50645390eaa9f17804359a
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: b19d8f26795dadb14f00aadd86ba99ae664b1a76
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293225"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76764939"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Firewall do Azure?
 
@@ -113,6 +113,7 @@ As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) 
 |SNAT em conexões de entrada|Além de DNAT, as conexões via o endereço IP público do firewall (entrada) estão no modo SNAT para um dos IPs privados do firewall. Esse requisito hoje (e também para NVAs ativa/ativa) garante o roteamento simétrico.|Para preservar a fonte original para HTTP/S, use os cabeçalhos [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For). Por exemplo, use um serviço como o [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-service-to-backend) ou o [Gateway de Aplicativo do Azure](../application-gateway/rewrite-http-headers.md) na frente do firewall. Você também pode adicionar o WAF como parte Porta da frente do Azure e encadear ao firewall.
 |Suporte para filtragem de FQDN do SQL apenas no modo de proxy (porta 1433)|Para o Banco de Dados SQL do Azure, o SQL Data Warehouse do Azure e a Instância Gerenciada do SQL do Azure:<br><br>Durante a versão prévia, a filtragem de FQDN do SQL tem suporte apenas no modo de proxy (a porta 1433).<br><br>Para IaaS do SQL do Azure:<br><br>Se estiver usando portas não padrão, você poderá especificar as portas nas regras do aplicativo.|Para o SQL no modo de redirecionamento, que é o padrão ao se conectar de dentro do Azure, você pode filtrar o acesso usando a tag de serviço do SQL como parte das regras de rede do Firewall do Azure.
 |O tráfego de saída na porta TCP 25 não é permitido| As conexões SMTP de saída que usam a porta TCP 25 foram bloqueadas. A porta 25 é usada principalmente para entrega de email não autenticado. Esse é o comportamento de plataforma padrão para máquinas virtuais. Para saber mais, confira [Solucionar problemas de conectividade de SMTP de saída no Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). No entanto, ao contrário de máquinas virtuais, no momento, não é possível habilitar essa funcionalidade no Firewall do Azure.|Siga o método recomendado para enviar email conforme documentado no artigo de solução de problemas de SMTP. Como alternativa, exclua a máquina virtual que precisa de acesso SMTP de saída da rota padrão para o firewall e, em vez disso, configure o acesso de saída diretamente à Internet.
+|Não há suporte para FTP Ativo|O FTP Ativo é desabilitado no Firewall do Azure para se proteger contra ataques de retorno de FTP usando o comando FTP PORT.|Em vez disso, você pode usar o FTP Passivo. Você ainda deve abrir explicitamente as portas TCP 20 e 21 no firewall.
 
 ## <a name="next-steps"></a>Próximas etapas
 

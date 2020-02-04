@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell – inscrever-se em uma conta de armazenamento de Blob
-description: Grade de Eventos do Azure e exemplo de script do Azure PowerShell – inscrever-se em uma conta de armazenamento de Blob
+description: Este artigo fornece um script de exemplo do Azure PowerShell que mostra como assinar eventos da Grade de Eventos para uma conta de Armazenamento de Blobs.
 services: event-grid
 documentationcenter: na
 author: spelluru
@@ -9,14 +9,14 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/22/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 1e394b27818456b96118f80f17cf459ac08f45a9
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: a8a0982ca118663cbf0f7e4d72412ce8feda3c4b
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790510"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721431"
 ---
 # <a name="subscribe-to-events-for-a-blob-storage-account-with-powershell"></a>Inscreva-se em eventos para uma conta de armazenamento de Blob com o PowerShell
 
