@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a07d019893e69308b35b4a941fe50d2736efe01
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: fb36b81d1b2a343da334d63d9c0555ed537ef122
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921912"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024646"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala e hospedagem no Azure Functions
 
@@ -152,7 +152,7 @@ A unidade de escala para Azure Functions é o aplicativo de funções. Quando o 
 
 O dimensionamento pode variar em uma série de fatores e ser diferente com base no gatilho e na linguagem selecionada. Há algumas complexidades de comportamentos de dimensionamento a serem considerados:
 
-* Um único aplicativo de funções será escalado verticalmente somente para um máximo de 200 instâncias. Uma única instância pode processar mais de uma mensagem ou solicitação por vez, portanto, não há um limite definido de número de execuções simultâneas.
+* Um único aplicativo de funções só pode ser dimensionado para um máximo de 200 instâncias. Uma única instância pode processar mais de uma mensagem ou solicitação por vez, portanto, não há um limite definido de número de execuções simultâneas.
 * Para gatilhos HTTP, novas instâncias só serão alocadas no máximo uma vez a cada 1 segundo.
 * Para gatilhos não HTTP, novas instâncias só serão alocadas no máximo uma vez a cada 30 segundos.
 

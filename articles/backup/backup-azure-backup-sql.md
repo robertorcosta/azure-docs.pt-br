@@ -3,12 +3,12 @@ title: Fazer backup do SQL Server no Azure como uma carga de trabalho do DPM
 description: Uma introdução ao backup de bancos de dados do SQL Server usando o serviço do Backup do Azure
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: b5709eb845d07e3638e0c100c857e5538e293317
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: ea55081d6f3b58c6c64c16e64c7a9d0f673ec196
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173256"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025394"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Fazer backup do SQL Server no Azure como uma carga de trabalho do DPM
 
@@ -32,11 +32,11 @@ Antes de começar, verifique se todos os [pré-requisitos](backup-azure-dpm-intr
 2. Na faixa de opções da ferramenta, clique em **Novo** para criar um novo grupo de proteção.
 
     ![Criar grupo de proteção](./media/backup-azure-backup-sql/protection-group.png)
-3. O DPM mostra a tela inicial com a orientação sobre como criar um **Grupo de Proteção**. Clique em **Avançar**.
+3. O DPM mostra a tela inicial com a orientação sobre como criar um **Grupo de Proteção**. Clique em **Próximo**.
 4. Selecione **Servidores**.
 
     ![Selecionar o tipo de Grupo de Proteção - ‘Servidores’](./media/backup-azure-backup-sql/pg-servers.png)
-5. Expanda o computador do SQL Server em que os bancos de dados a serem incluídos no backup estão presentes. O DPM mostra várias fontes de dados cujo backup pode vir desse servidor. Expanda **Todos os Compartilhamentos de SQL** e selecione os bancos de dados (neste caso, selecionamos ReportServer$MSDPM2012 e ReportServer$MSDPM2012TempDB) para fazer backup. Clique em **Avançar**.
+5. Expanda o computador do SQL Server em que os bancos de dados a serem incluídos no backup estão presentes. O DPM mostra várias fontes de dados cujo backup pode vir desse servidor. Expanda **Todos os Compartilhamentos de SQL** e selecione os bancos de dados (neste caso, selecionamos ReportServer$MSDPM2012 e ReportServer$MSDPM2012TempDB) para fazer backup. Clique em **Próximo**.
 
     ![Selecione o banco de dados SQL](./media/backup-azure-backup-sql/pg-databases.png)
 6. Forneça um nome para o grupo de proteção e marque a caixa de seleção **Desejo proteção online** .
@@ -53,7 +53,7 @@ Antes de começar, verifique se todos os [pré-requisitos](backup-azure-dpm-intr
    >
    >
 
-8. Clique em **Avançar**
+8. Clique em **Avançar**.
 
     O DPM mostra o espaço de armazenamento total disponível e a utilização do espaço de disco potencial.
 
@@ -62,7 +62,7 @@ Antes de começar, verifique se todos os [pré-requisitos](backup-azure-dpm-intr
     Por padrão, o DPM cria um volume por fonte de dados (banco de dados SQL Server), que é usado para a cópia de backup inicial. Usando essa abordagem, o LDM (Gerenciador de Discos Lógicos) limita a proteção do DPM a 300 fontes de dados (bancos de dados SQL Server). Para contornar essa limitação, selecione a opção **Colocalizar dados no Pool de Armazenamento do DPM**. Se você usar essa opção, o DPM usará um único volume de várias fontes de dados, o que permite que o DPM proteja até 2000 bancos de dados SQL.
 
     Se a opção **Aumentar os volumes automaticamente** estiver selecionada, o DPM poderá considerar o aumento do volume de backup conforme os dados de produção aumentarem. Se a opção **Aumentar os volumes automaticamente** não estiver selecionada, o DPM limitará o armazenamento de backup usado para fazer backup de fontes de dados no grupo de proteção.
-9. Os administradores recebem a opção de transferir este backup inicial manualmente (fora da rede) para evitar o congestionamento de largura de banda ou pela rede. Eles também podem configurar a hora em que a transferência inicial pode acontecer. Clique em **Avançar**.
+9. Os administradores recebem a opção de transferir este backup inicial manualmente (fora da rede) para evitar o congestionamento de largura de banda ou pela rede. Eles também podem configurar a hora em que a transferência inicial pode acontecer. Clique em **Próximo**.
 
     ![Método de replicação inicial](./media/backup-azure-backup-sql/pg-manual.png)
 
@@ -103,7 +103,7 @@ Antes de começar, verifique se todos os [pré-requisitos](backup-azure-dpm-intr
 14. Clique em **Avançar** e selecione a opção apropriada para transferir a cópia do backup inicial para o Azure. Você pode escolher **automaticamente pela rede** ou **Backup Offline**.
 
     * **Automaticamente pela rede** transfere os dados de backup para o Azure de acordo com o agendamento escolhido para backup.
-    * Como o **Backup Offline** funciona é explicado no [Fluxo de trabalho de backup offline no Backup do Azure](backup-azure-backup-import-export.md).
+    * O modo como o **backup offline** funciona é explicado em [visão geral do backup offline](offline-backup-overview.md).
 
     Escolha o mecanismo de transferência relevante para enviar a cópia de backup inicial para o Azure e clique em **Avançar**.
 15. Depois de examinar os detalhes da política na tela **Resumo**, clique no botão **Criar grupo** para concluir o fluxo de trabalho. Você pode clicar no botão **Fechar** e monitorar o andamento do trabalho no workspace Monitoramento.
@@ -137,12 +137,12 @@ As seguintes etapas são necessárias para recuperar uma entidade protegida (ban
 2. Clique com o botão direito do mouse no nome do banco de dados e clique em **Recuperar**.
 
     ![Recuperar do Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. O DPM mostra os detalhes do ponto de recuperação. Clique em **Avançar**. Para substituir o banco de dados, selecione o tipo de recuperação **Recuperar na instância original do SQL Server**. Clique em **Avançar**.
+3. O DPM mostra os detalhes do ponto de recuperação. Clique em **Próximo**. Para substituir o banco de dados, selecione o tipo de recuperação **Recuperar na instância original do SQL Server**. Clique em **Próximo**.
 
     ![Recuperar no local original](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
     Neste exemplo, o DPM permite a recuperação do banco de dados para outra instância do SQL Server ou em uma pasta de rede autônoma.
-4. Na tela **Especificar opções de recuperação** , você pode selecionar as opções de recuperação, como a limitação do uso da largura de banda de rede para restringir a largura de banda usada pela recuperação. Clique em **Avançar**.
+4. Na tela **Especificar opções de recuperação** , você pode selecionar as opções de recuperação, como a limitação do uso da largura de banda de rede para restringir a largura de banda usada pela recuperação. Clique em **Próximo**.
 5. Na tela **Resumo** , você vê todas as configurações de recuperação fornecidas até agora. Clique em **Recuperar**.
 
     O status de Recuperação mostra que o banco de dados está sendo recuperado. Você pode clicar em **Fechar** para fechar o assistente e exibir o andamento no workspace **Monitoramento**.
@@ -151,6 +151,6 @@ As seguintes etapas são necessárias para recuperar uma entidade protegida (ban
 
     Após a conclusão da recuperação, o banco de dados restaurado será consistente com o aplicativo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Backup do Azure - Perguntas frequentes](backup-azure-backup-faq.md)

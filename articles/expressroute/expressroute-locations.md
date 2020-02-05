@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2f76d94cc50d1451835bd14577efc8f68acb0390
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3ea5b63642328db6996a322e64360c3af5d757b2
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901602"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022470"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Locais de emparelhamento e parceiros do ExpressRoute
 
@@ -45,7 +45,7 @@ A tabela a seguir fornece um mapa das regiões do Azure para locais de ExpressRo
 | **Governo da Austrália** |Austrália Central, Austrália Central 2 |Canberra, Canberra2 |
 | **Europa** | França central, sul da França, Norte da Alemanha, Centro-oeste da Alemanha, Europa Setentrional, EUA, leste da Noruega, oeste da Noruega, Norte da Suíça, Oeste da Suíça, oeste do Reino Unido, sul do Reino Unido, Europa Ocidental |Amsterdã, Amsterdam2, Copenhague, Dublin, Frankfurt, Geneva, Londres, London2, Marselha, Milão, Munique, Newport (Gales), Oslo, Paris, Stavanger, Estocolmo, Zurique |
 | **América do Norte** |Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Oeste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Centro-Oeste dos EUA, Centro do Canadá, Leste do Canadá |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, Nova York, San Antonio, Seattle, vale do silício, silício Valley2, Washington DC, Washington DC2, Montreal, cidade de Quebec, Toronto |
-| **Ásia** | Leste da Ásia, Sudeste Asiático |Rae de Hong Kong, Jacarta, Kuala Lumpur, Cingapura, Cingapura2, Taipé |
+| **Ásia** | Leste da Ásia, Sudeste Asiático | Bancoc, Hong Kong, Hong Kong2, Jacarta, Kuala Lumpur, Cingapura, Cingapura2, Taipé |
 | **Índia** | Oeste da Índia, Índia Central, Sul da Índia |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japão** | Oeste do Japão, Leste do Japão |Osaka, Tóquio |
 | **Oceânia** | Sudeste da Austrália, Leste da Austrália |Auckland, Melbourne, Perth, Sydney, Sydney2 |
@@ -78,6 +78,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/connectivity-services/azure-expressroute)** |Com suporte |Com suporte |Melbourne, Sydney |
 | **[Airtel](https://www.airtel.in/business/#/)** | Com suporte | Com suporte | Chennai2, Mumbai2 |
+| **[AIS](http://business.ais.co.th/solution/microsoft-azure.html?category=cloud)** | Com suporte | Com suporte | Bancoc |
 | **[Aryaka Networks](https://www.aryaka.com/)** |Com suporte |Com suporte |Amsterdã, Chicago, Dallas, RAE de Hong Kong, são Paulo, Seattle, vale do silício, Cingapura, Tóquio, Washington, D.c. |
 | **[Data centers Ascenty](https://www.ascenty.com/en/cloud/microsoft-express-route)** |Com suporte |Com suporte |São Paulo |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Com suporte |Com suporte |Amsterdã, Chicago, Dallas, Londres, Vale do Silício, Singapura, Sydney, Tóquio, Toronto, Washington, D.C. |

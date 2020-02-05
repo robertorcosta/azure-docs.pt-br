@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: 61b43329fcc840bc68f454400a4b5e917f43110c
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e111bcdde9381e8e418e7027d8294aa7dad7e39d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894596"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023864"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 
@@ -142,7 +142,7 @@ A **ponte de operações** de microfocus monitora automaticamente todos os recur
 
 Saiba mais
 - [Visão geral do pacote de OB](https://www.microfocus.com/products/operations-bridge-suite/overview)
-- [Baixar](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
+- [Download](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) -SiteScope é um componente do Operations Bridge Suite.
 
 
@@ -272,7 +272,7 @@ O Turbonomic oferece automação de carga de trabalho para nuvens híbridas otim
 [elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Documentação Elástico."
 [grafana-doc]: ./grafana-plugin.md "Integração do Azure Monitor Grafana."
 [influxdata-doc]: ./../../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md "Azure Monitor integração de Telegraf de dados de influxo."
-[logicmonitor-doc]: https://www.logicmonitor.com/lmcloud-azure/ "Documentação do Logic Monitor."
+[logicmonitor-doc]: https://www.logicmonitor.com/lp/azure-monitoring/ "Documentação do Logic Monitor."
 [moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Documentação do Moogsoft."
 [newrelic-doc]: https://newrelic.com/azure "Documentação do NewRelic."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "Documentação do OpsGenie."

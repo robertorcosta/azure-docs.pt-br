@@ -4,12 +4,12 @@ description: Saiba como o agente MARS dá suporte aos cenários de backup
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: d558a19b3025ab1400e873f97b0ce5e5a860c75a
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 348980b840b814c09ce46627f286489d4caa9f8f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902854"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023949"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Sobre o agente de Serviços de Recuperação do Microsoft Azure (MARS)
 
@@ -58,8 +58,7 @@ O agente MARS dá suporte aos seguintes cenários de restauração:
 ### <a name="additional-scenarios"></a>Cenários adicionais
 -   **Fazer backup de arquivos e pastas específicos em máquinas virtuais do Azure**: o método principal para fazer backup de VMs (máquinas virtuais) do Azure é usar uma extensão de backup do Azure na VM. A extensão faz o backup de toda a VM. Se desejar fazer backup de arquivos e pastas específicos em uma VM, você poderá instalar o agente MARS nas VMs do Azure. Para obter mais informações, consulte [arquitetura: backup de VM do Azure interno](https://docs.microsoft.com/azure/backup/backup-architecture#architecture-built-in-azure-vm-backup).
 
--   **Propagação offline**: backups completos iniciais de dados no Azure normalmente transferem grandes quantidades de dados e exigem mais largura de banda de rede. Os backups subsequentes transferem apenas o Delta, ou incrementais, a quantidade de dados. O Backup do Azure compacta os backups inicias. Por meio do processo de *propagação offline*, o backup do Azure pode usar discos para carregar os dados de backup inicial compactados offline no Azure. Para obter mais informações, consulte [fluxo de trabalho de backup offline para o DPM e servidor de backup do Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export-).
-
+-   **Propagação offline**: backups completos iniciais de dados no Azure normalmente transferem grandes quantidades de dados e exigem mais largura de banda de rede. Os backups subsequentes transferem apenas o Delta, ou incrementais, a quantidade de dados. O Backup do Azure compacta os backups inicias. Por meio do processo de *propagação offline*, o backup do Azure pode usar discos para carregar os dados de backup inicial compactados offline no Azure. Para obter mais informações, consulte [backup offline do Azure-backup usando Azure data Box](offline-backup-azure-data-box.md).
 
 ## <a name="next-steps"></a>Próximos passos
 [Matriz de suporte do agente MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)

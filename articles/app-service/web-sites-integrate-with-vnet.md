@@ -6,13 +6,13 @@ ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 71dc37fc000b2f195478e06f7e755fa8df926444
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 472fe621fc7a95317f143ef96a1d7f8b5adfe581
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688300"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016962"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar seu aplicativo Web a uma Rede Virtual do Azure
 Este documento descreve o recurso de integração de rede virtual do serviço Azure App e como configurá-lo com aplicativos no [serviço Azure app](https://go.microsoft.com/fwlink/?LinkId=529714). As [redes virtuais do Azure][VNETOverview] (VNets) permitem que você coloque muitos dos seus recursos do Azure em uma rede roteável que não seja da Internet.  
@@ -74,7 +74,7 @@ Esse recurso está em versão prévia, mas há suporte para cargas de trabalho d
 * Você só pode alcançar endereços que estejam no intervalo RFC 1918. Esses são endereços nos blocos de endereços 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16.
 * Você não pode acessar recursos entre conexões de emparelhamento globais
 * Você não pode definir rotas no tráfego proveniente de seu aplicativo para sua VNet
-* O recurso só está disponível em unidades de escala do serviço de aplicativo mais recentes que dão suporte a planos do serviço de aplicativo do PremiumV2.
+* O recurso só está disponível em unidades de escala do serviço de aplicativo mais recentes que dão suporte a planos do serviço de aplicativo do PremiumV2. Observe que isso não significa que seu aplicativo deve ser executado em um SKU PremiumV2, apenas que ele deve ser executado em um plano do serviço de aplicativo em que a opção PremiumV2 está disponível (o que implica que é uma unidade de escala mais nova em que esse recurso de integração VNet também está disponível).
 * A sub-rede de integração só pode ser usada por um plano do serviço de aplicativo
 * O recurso não pode ser usado por aplicativos de plano isolado que estão em um Ambiente do Serviço de Aplicativo
 * O recurso requer uma sub-rede não usada que seja de/27 com 32 endereços ou maior em sua VNet do Resource Manager
@@ -248,7 +248,7 @@ Há três encargos relacionados ao uso do recurso de integração VNet exigido p
 * Custos de gateway de VPN – há um custo para o gateway de VNet que é necessário para a VPN ponto a site. Os detalhes estão na página de [preços do gateway de VPN][VNETPricing] .
 
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solução de problemas
 Embora o recurso seja fácil de configurar, isso não significa que sua experiência estará livre de problemas. Se você encontrar problemas ao acessar o ponto de extremidade desejado, há utilitários que você pode usar para testar a conectividade do console do aplicativo. Há dois consoles que você pode usar. Uma é o console do Kudu e a outra é o console no portal do Azure. Para acessar o console do Kudu do aplicativo, vá para Ferramentas -> Kudu. Você também pode acessar o console do Kudo em [SiteName]. SCM. azurewebsites. net. Depois que o site for carregado, vá para a guia Console de depuração. Para acessar o console do portal do Azure hospedado, em seguida, em seu aplicativo, acesse ferramentas-> console. 
 
 #### <a name="tools"></a>Ferramentas

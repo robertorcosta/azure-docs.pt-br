@@ -1,6 +1,6 @@
 ---
-title: Solução do Azure VMware por nuvens CloudSimple-Private
-description: Saiba mais sobre nuvens e conceitos privados do CloudSimple.
+title: Soluções VMware do Azure (AVS)-nuvens privadas da AVS
+description: Saiba mais sobre as nuvens e os conceitos do AVS privado.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,26 +8,26 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4fb930603455ed1a5df5d357fcab669f41a0c28c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 2688edf281a6d8bc3d61e8e294c920f115f0f3f6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877960"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024936"
 ---
-# <a name="cloudsimple-private-cloud-overview"></a>Visão geral da nuvem privada do CloudSimple
+# <a name="avs-private-cloud-overview"></a>Visão geral da sincronização de nuvem privada
 
-O CloudSimple transforma e estende as cargas de trabalho do VMware para nuvens públicas em minutos. Usando o serviço CloudSimple, você pode implantar o VMware nativamente na infraestrutura bare-metal do Azure. Sua implantação reside em locais do Azure e integra-se totalmente com o restante da nuvem do Azure.
+A AVS transforma e estende cargas de trabalho do VMware para nuvens públicas em minutos. Usando o serviço AVS, você pode implantar o VMware nativamente na infraestrutura bare-metal do Azure. Sua implantação reside em locais do Azure e integra-se totalmente com o restante da nuvem do Azure.
 
-A solução CloudSimple fornece continuidade operacional VMware completa. Essa solução oferece os benefícios da nuvem pública do:
+A solução AVS fornece continuidade operacional VMware completa. Essa solução oferece os benefícios da nuvem pública do:
 
 * Elasticidade
 * Inovação
 * Eficiência
 
-Com o CloudSimple, você se beneficia de um modelo de consumo de nuvem que reduz o custo total de propriedade. Ele também oferece provisionamento sob demanda, pagamento conforme o crescimento e otimização da capacidade.
+Com a AVS, você se beneficia de um modelo de consumo de nuvem que reduz o custo total de propriedade. Ele também oferece provisionamento sob demanda, pagamento conforme o crescimento e otimização da capacidade.
 
-O CloudSimple é totalmente compatível com:
+A AVS é totalmente compatível com:
 
 * Ferramentas existentes
 * Habilidades
@@ -38,26 +38,26 @@ Essa compatibilidade permite que suas equipes gerenciem cargas de trabalho na nu
 * Rede
 * Segurança  
 * Proteção de dados  
-* Auditoria
+* Audit
 
-O CloudSimple gerencia a infraestrutura e todos os serviços de rede e gerenciamento necessários. O serviço CloudSimple permite que sua equipe se concentre em:
+A AVS gerencia a infraestrutura e todos os serviços de rede e gerenciamento necessários. O serviço AVS permite que sua equipe se concentre:
 
 * Valor comercial
 * Provisionamento de aplicativos
 * Continuidade dos negócios
 * Suporte
-* Imposição de política
+* Aplicação de políticas
 
-## <a name="private-cloud-environment-overview"></a>Visão geral do ambiente de nuvem privada
+## <a name="avs-private-cloud-environment-overview"></a>Visão geral do ambiente de nuvem privada da AVS
 
-Uma nuvem privada é uma pilha VMware isolada que dá suporte a:
+Uma nuvem privada de AVS é uma pilha do VMware isolada que dá suporte a:
 
 * Hosts ESXi
 * vCenter
 * vSAN
 * NSX
 
-As nuvens privadas são gerenciadas por meio do portal do CloudSimple. Eles têm seu próprio servidor vCenter em seu próprio domínio de gerenciamento.
+As nuvens privadas da AVS são gerenciadas por meio do portal da AVS. Eles têm seu próprio servidor vCenter em seu próprio domínio de gerenciamento.
 
 A pilha é executada em:
 
@@ -69,25 +69,25 @@ Os usuários consomem a pilha por meio de ferramentas nativas do VMware, incluin
 * vCenter
 * NSX Manager
 
-Você pode implantar nós dedicados em locais do Azure. Em seguida, você pode gerenciá-los com o Azure e o CloudSimple. Uma nuvem privada consiste em um ou mais clusters vSphere, e cada cluster contém de 3 a 16 nós.
+Você pode implantar nós dedicados em locais do Azure. Em seguida, você pode gerenciá-los com o Azure e a AVS. Uma nuvem privada de AVS consiste em um ou mais clusters vSphere, e cada cluster contém de 3 a 16 nós.
 
-Você pode criar uma nuvem privada usando os nós adquiridos, pagos conforme o uso ou nós reservados e dedicados.
+Você pode criar uma nuvem privada de AVS usando nós adquiridos, pagos conforme o uso ou nós reservados e dedicados.
 
-Você pode conectar a nuvem privada ao seu ambiente local e à rede do Azure usando as seguintes conexões:
+Você pode conectar a nuvem privada da AVS ao seu ambiente local e à rede do Azure usando as seguintes conexões:
 
-* Segurança
+* Segura
 * VPN privada
 * Azure ExpressRoute
 
-O ambiente de nuvem privada foi projetado para eliminar pontos únicos de falha:
+O ambiente de nuvem privada AVS foi projetado para eliminar pontos únicos de falha:
 
 * Os clusters ESXi são configurados com alta disponibilidade do vSphere e são dimensionados para ter pelo menos um nó sobressalente para resiliência.
 * a vSAN fornece armazenamento primário redundante. a vSan requer pelo menos três nós para fornecer proteção contra uma única falha. Você pode configurar a vSAN para fornecer maior resiliência para clusters maiores.
 * Você pode configurar VMs do vCenter, PSC e NSX Manager com a política de armazenamento RAID-10 para proteger contra falhas de armazenamento. o vSphere HA protege contra falhas de nó e rede.
 
-## <a name="scenarios-for-deploying-a-private-cloud"></a>Cenários para implantar uma nuvem privada
+## <a name="scenarios-for-deploying-an-avs-private-cloud"></a>Cenários para implantar uma nuvem privada de AVS
 
-Aqui estão alguns exemplos de casos de uso para implantação em nuvem privada.
+Aqui estão alguns exemplos de casos de uso para a implantação de nuvem privada da AVS.
 
 ### <a name="data-center-retirement-or-migration"></a>Desativação ou migração do Data Center
 
@@ -106,11 +106,11 @@ Aqui estão alguns exemplos de casos de uso para implantação em nuvem privada.
 
 * Estabeleça acesso remoto a dados, aplicativos e áreas de trabalho na nuvem do Azure. Com conexões de largura de banda alta, você carrega/baixa dados rapidamente para se recuperar de incidentes. Redes de baixa latência oferecem tempos de resposta rápidos que os usuários esperam de um aplicativo de desktop.
 
-* Replique todas as suas políticas e redes na nuvem usando o portal do CloudSimple e ferramentas do VMware familiares. A replicação reduz o esforço e o risco de criar e gerenciar implementações de DR e de VDI.
+* Replique todas as suas políticas e redes na nuvem usando o portal da AVS e as ferramentas familiares do VMware. A replicação reduz o esforço e o risco de criar e gerenciar implementações de DR e de VDI.
 
 ### <a name="high-performance-applications-and-databases"></a>Aplicativos e bancos de dados de alto desempenho
 
-* Execute suas cargas de trabalho mais exigentes com a arquitetura hiperconvergente fornecida pelo CloudSimple.
+* Execute suas cargas de trabalho mais exigentes com a arquitetura hiperconvergente fornecida pela AVS.
 * Execute Oracle, Microsoft SQL Server, sistemas de middleware e bancos de dados não SQL de alto desempenho.
 * Experimente a nuvem como sua própria data center com conexões de rede de 25 Gbps de alta velocidade. Conexões de alta velocidade permitem que você execute aplicativos híbridos que abrangem locais, VMware no Azure e cargas de trabalho privadas do Azure, sem comprometer o desempenho.
 
@@ -123,16 +123,16 @@ Aqui estão alguns exemplos de casos de uso para implantação em nuvem privada.
 
 ## <a name="limits"></a>Limites
 
-A tabela a seguir lista os limites de nó dos recursos de uma nuvem privada.
+A tabela a seguir lista os limites de nó nos recursos de uma nuvem privada de AVS.
 
-| Recurso | Limite |
+| Grupos | Limite |
 |----------|-------|
-| Número mínimo de nós para criar uma nuvem privada | 3 |
-| Número máximo de nós em um cluster em uma nuvem privada | 16 |
-| Número máximo de nós em uma nuvem privada | 64 |
+| Número mínimo de nós para criar uma nuvem privada de AVS | 3 |
+| Número máximo de nós em um cluster em uma nuvem privada de AVS | 16 |
+| Número máximo de nós em uma nuvem privada de AVS | 64 |
 | Número mínimo de nós em um novo cluster | 3 |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* Saiba como [criar uma nuvem privada](create-private-cloud.md)
-* Saiba como [configurar um ambiente de nuvem privada](quickstart-create-private-cloud.md)
+* Saiba como [criar uma nuvem privada de AVS](create-private-cloud.md)
+* Saiba como [configurar um ambiente de nuvem privada AVS](quickstart-create-private-cloud.md)

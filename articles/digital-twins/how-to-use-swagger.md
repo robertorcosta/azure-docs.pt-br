@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 02/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 86b7a1b373d80f0e6bb7f40f57f71d20e396a6c1
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 27874e5731bd6fb9821e7aeda9333adbdbb79099
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934608"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023286"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentação de referência do Swagger de Gêmeos Digitais do Azure
 
@@ -93,11 +93,11 @@ Os exemplos também incluem os códigos de erro para ajudar a depurar ou melhora
 ## <a name="swagger-oauth-20-authorization"></a>Autorização OAuth 2.0 do Swagger
 
 > [!NOTE]
-> * A entidade de usuário que criou o recurso de gêmeos digital do Azure terá uma atribuição de função de administrador de espaço e poderá criar atribuições de função adicionais para outros usuários. Tais usuários e suas funções podem ser autorizados a chamar as APIs.
+> * A entidade de usuário que criou o recurso de gêmeos digital do Azure terá uma atribuição de função de administrador de espaço e poderá criar atribuições de função adicionais para outros usuários. Esses usuários e suas funções podem ser autorizados a chamar as APIs.
 
-1. Siga as etapas neste guia de [início rápido](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) para criar e configurar um aplicativo do Azure AD. Como alternativa, você pode reutilizar um registro de aplicativo existente.
+1. Siga as etapas no guia de [início rápido](quickstart-view-occupancy-dotnet.md#set-permissions-for-your-app) para criar e configurar um aplicativo Azure Active Directory. Como alternativa, você pode reutilizar um registro de aplicativo existente.
 
-1. Adicione a seguinte **URL de redirecionamento** ao registro do aplicativo do Azure AD:
+1. Adicione o seguinte **URI de redirecionamento** ao registro do aplicativo Azure Active Directory:
 
     [![registrar a URL de redirecionamento Swagger no AAD](media/how-to-use-swagger/swagger-aad-redirect-url-registration.png)](media/how-to-use-swagger/swagger-aad-redirect-url-registration.png#lightbox)
 
@@ -108,7 +108,9 @@ Os exemplos também incluem os códigos de erro para ajudar a depurar ou melhora
     |---------|---------|---------|
     | YOUR_SWAGGER_URL | A URL da documentação da API REST de gerenciamento encontrada no portal  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 
-1. Copie a **ID do cliente** do seu aplicativo do Azure AD.
+1. Marque a caixa de seleção **concessão implícita** > **tokens de acesso** para permitir que o fluxo de concessão implícita do OAuth 2,0 seja usado. Selecione **Configurar**e **salvar**.
+
+1. Copie a **ID do cliente** do seu aplicativo Azure Active Directory.
 
 Depois de concluir o registro de Azure Active Directory:
 

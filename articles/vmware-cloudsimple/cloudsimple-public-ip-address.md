@@ -1,6 +1,6 @@
 ---
-title: Solução do Azure VMware por endereço IP público CloudSimple
-description: Saiba mais sobre endereços IP públicos e seus benefícios na solução do Azure VMware por CloudSimple
+title: Soluções VMware do Azure (AVS)-endereço IP público
+description: Saiba mais sobre endereços IP públicos e seus benefícios em soluções VMware do Azure (AVS)
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 147ab6b5ace4493e1a0b303c320cb2e81d829b29
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 2cb9d0e33da4447760ae0be216c1dd9868c498bd
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877675"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024935"
 ---
-# <a name="cloudsimple-public-ip-address-overview"></a>Visão geral do endereço IP público do CloudSimple
+# <a name="avs-public-ip-address-overview"></a>Visão geral do endereço IP público da AVS
 
-Um endereço IP público permite que os recursos da Internet comuniquem a entrada para recursos de nuvem privada em um endereço IP privado. O endereço IP privado é uma máquina virtual ou um balanceador de carga de software em sua nuvem privada vCenter. O endereço IP público permite que você exponha serviços em execução na sua nuvem privada para a Internet.
+Um endereço IP público permite que os recursos da Internet se comuniquem de entrada para recursos de nuvem privada AVS em um endereço IP privado. O endereço IP privado é uma máquina virtual ou um balanceador de carga de software em seu vCenter de nuvem privada da AVS. O endereço IP público permite que você exponha serviços em execução na sua nuvem privada de AVS para a Internet.
 
 O endereço IP público é dedicado ao endereço IP privado até que você o cancele. Um endereço IP público só pode ser atribuído a um endereço IP privado.
 
@@ -31,6 +31,6 @@ O uso de um endereço IP público para comunicar a entrada fornece:
 * Monitoramento de tráfego sempre ativa e mitigação em tempo real de ataques comuns em nível de rede. Essas defesas são as mesmas usadas pelo Microsoft serviços online.
 * Toda a escala da rede global do Azure. A rede pode ser usada para distribuir e atenuar o tráfego de ataque entre regiões.  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [alocar um endereço IP público](public-ips.md)

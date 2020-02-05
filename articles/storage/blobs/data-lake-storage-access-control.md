@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: a35cf935d990dbb61f440d2592d59d21f33a2ae8
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6507c2a2d1100d480c879c73861c02e477d38416
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037235"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026125"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controle de acesso no Azure Data Lake Storage Gen2
 
@@ -21,7 +21,7 @@ Azure Data Lake Storage Gen2 implementa um modelo de controle de acesso que dá 
 
 <a id="azure-role-based-access-control-rbac" />
 
-## <a name="role-based-access-control"></a>Controle de acesso baseado em função
+## <a name="role-based-access-control"></a>Controle de acesso baseado em funções
 
 O RBAC usa atribuições de função para aplicar efetivamente conjuntos de permissões a *entidades de segurança*. Uma *entidade de segurança* é um objeto que representa um usuário, grupo, entidade de serviço ou identidade gerenciada que é definida no Azure Active Directory (AD) que está solicitando acesso aos recursos do Azure.
 
@@ -58,10 +58,15 @@ Você não pode usar listas de controle de acesso para fornecer um nível de ace
 
 Para definir permissões de nível de arquivo e diretório, consulte qualquer um dos seguintes artigos:
 
-|Se você quiser usar essa ferramenta:    |Consulte este artigo:    |
+|||
 |--------|-----------|
-|Explorador de Armazenamento do Azure    |[Definir permissões no nível do arquivo e do diretório usando o Gerenciador de Armazenamento do Azure com o Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)|
-|API REST    |[Caminho-atualizar](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
+|Gerenciador de Armazenamento do Azure |[Use Gerenciador de Armazenamento do Azure para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
+|.NET |[Use o .NET para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md)|
+|Java|[Use o Java para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md)|
+|Python|[Use o Python para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md)|
+|PowerShell|[Use o PowerShell para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md)|
+|Azure CLI|[Use CLI do Azure para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md)|
+|API REST |[Caminho-atualizar](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
 > Se a entidade de segurança for uma entidade de *serviço* , é importante usar a ID de objeto da entidade de serviço e não a ID de objeto do registro do aplicativo relacionado. Para obter a ID de objeto da entidade de serviço, abra o CLI do Azure e, em seguida, use este comando: `az ad sp show --id <Your App ID> --query objectId`. Certifique-se de substituir o espaço reservado `<Your App ID>` pela ID do aplicativo do registro do aplicativo.
@@ -100,7 +105,7 @@ As permissões em um objeto de contêiner são de **leitura**, **gravação**e *
 |--------------|------------|------------------------|
 | 7            | `RWX`        | Ler + Gravar + Executar |
 | 5            | `R-X`        | Ler + Executar         |
-| 4            | `R--`        | Ler                   |
+| 4            | `R--`        | Leitura                   |
 | 0            | `---`        | Nenhuma permissão         |
 
 #### <a name="permissions-inheritance"></a>Herança de permissões
@@ -281,7 +286,7 @@ Sempre use grupos de segurança do Microsoft Azure Active Directory como o princ
 
 - O chamador tem permissões de “superusuário”,
 
-ou o
+Ou
 
 - A pasta diretório deve ter permissões Gravar + Executar.
 - O diretório a ser excluído, e todas as pastas nela, exige permissões Ler + Gravar + Executar.

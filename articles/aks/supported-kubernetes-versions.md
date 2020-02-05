@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: saudas
-ms.openlocfilehash: bba4196547bda3d3ddcf3344032de5b9286639a0
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 8c144fb0c9818e21c2ca5bd61525067b485531bb
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996741"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026108"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versões do Kubernetes com suporte no AKS (Serviço de Kubernetes do Azure)
 
@@ -96,7 +96,7 @@ New Supported Version List
 * Para novas versões **secundárias** do kubernetes
   * Todos os usuários são notificados publicamente sobre a nova versão e qual versão será removida.
   * Quando uma nova versão de patch é lançada, a versão mais antiga do patch é removida ao mesmo tempo.
-  * Os clientes têm **60 dias** a partir da data de notificação pública para atualizar para uma versão de versão secundária com suporte.
+  * Os clientes têm **30 dias** a partir da data de notificação pública para atualizar para um lançamento de versão secundária com suporte.
 * Para novas versões de **patch** do kubernetes
   * Todos os usuários são notificados sobre a versão do novo patch que está sendo lançada e para atualizar para a versão mais recente do patch.
   * Os usuários têm **30 dias** para atualizar para uma versão de patch mais recente e com suporte. Os usuários têm **30 dias** para atualizar para uma versão de patch com suporte antes que o mais antigo seja removido.
@@ -135,7 +135,7 @@ Para descobrir quais versões estão disponíveis no momento para sua assinatura
 az aks get-versions --location eastus --output table
 ```
 
-## <a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a>FAQ
 
 **O que acontece quando um cliente atualiza um cluster do Kubernetes com uma versão secundária sem suporte?**
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: ddccd02e7157792d942309ae4f74933322f246f9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5c50186692438be5d0922cd329c28e665310e5c2
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225366"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023524"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configurar o modo de distribuição para o Azure Load Balancer
 
@@ -181,7 +181,7 @@ Use o modelo de implantação clássico do Azure para alterar uma configuração
 
 Conforme descrito anteriormente, defina o elemento `LoadBalancerDistribution` como sourceIP para afinidade de duas tuplas, sourceIPProtocol para afinidade de três tuplas ou nenhum para nenhuma afinidade (afinidade de cinco tuplas).
 
-#### <a name="response"></a>resposta
+#### <a name="response"></a>Resposta
 
     HTTP/1.1 202 Accepted
     Cache-Control: no-cache
@@ -191,8 +191,8 @@ Conforme descrito anteriormente, defina o elemento `LoadBalancerDistribution` co
     x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af
     Date: Thu, 16 Oct 2014 22:49:21 GMT
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Visão geral do Azure Load Balancer interno](load-balancer-internal-overview.md)
-* [Introdução à configuração de um balanceador de carga para a Internet](load-balancer-get-started-internet-arm-ps.md)
+* [Introdução à configuração de um balanceador de carga para a Internet](quickstart-create-standard-load-balancer-powershell.md)
 * [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)

@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 5205b12a5f9f6acad8755b69d6da2216ffd4d83e
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 408501232891a7971d03c89acc647d9ed19609b3
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760820"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026142"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Recursos são informações sobre ações e contexto
 
@@ -132,6 +132,8 @@ Estas seções a seguir são práticas comuns para melhorar os recursos enviados
 É possível melhorar os conjuntos de recursos editando-os, a fim de torná-los maiores e mais ou menos densos.
 
 Por exemplo, um carimbo de data/hora que inclui os segundos é um recurso muito esparso. Ele pode se tornar mais denso (efetivo) com a classificação das horas em "manhã", "meio-dia", "tarde" etc.
+
+As informações de localização normalmente também se beneficiam da criação de classificações mais amplas. Por exemplo, uma coordenada de latitude-longitude como Lat: 47,67402 ° N, Long: 122,12154 ° W é muito precisa e força o modelo a aprender latitude e longitude como dimensões distintas. Quando você está tentando personalizar com base nas informações de localização, ele ajuda a agrupar informações de local em setores maiores. Uma maneira fácil de fazer isso é escolher uma precisão de arredondamento apropriada para os números de lat-long e combinar latitude e longitude em "areas", tornando-os em uma cadeia de caracteres. Por exemplo, uma boa maneira de representar 47,67402 ° N, Long: 122,12154 ° W em regiões com aproximadamente alguns quilômetros de largura seria "Location": "34.3, 12,1".
 
 
 #### <a name="expand-feature-sets-with-extrapolated-information"></a>Expandir conjuntos de recursos com informações extrapoladas

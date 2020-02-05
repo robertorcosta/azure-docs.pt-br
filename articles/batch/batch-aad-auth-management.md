@@ -3,8 +3,8 @@ title: Usar Azure Active Directory para autenticar soluções de gerenciamento d
 description: Explore o uso de Azure Active Directory para autenticar de aplicativos que usam a biblioteca .NET de gerenciamento do lote.
 services: batch
 documentationcenter: .net
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
-ms.author: jushiman
-ms.openlocfilehash: 1dce5118040e6164a468b0d5470d28e5cd06d8c5
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.author: labrenne
+ms.openlocfilehash: f1f47df841b61599b6aed8cd4d6715decd27a288
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938273"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025972"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autenticar soluções de gerenciamento do lote com o Active Directory
 

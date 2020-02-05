@@ -8,21 +8,21 @@ ms.author: viviali
 ms.date: 07/09/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: c98574bc3447482429d7a028c6b47197e08e2e38
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b79020b4da08eeade0af885b4a6ca9f01c81c526
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954533"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023201"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Compilar a ponte de dispositivo do IoT Central para conectar outras nuvens de IoT ao IoT Central
 
 *Este tópico aplica-se aos administradores.*
 
-A ponte de dispositivo do IoT Central é uma solução de software livre que conecta o Sigfox, Particle, The Things Network e outras nuvens ao aplicativo IoT Central. Se você estiver usando dispositivos de rastreamento de ativos conectados à Rede de Longa Distância de baixo consumo de energia da Sigfox, usando dispositivos de monitoramento da qualidade do ar no Particle Device Cloud ou, usando dispositivos de monitoramento de umidade do solo no TTN, você poderá aproveitar diretamente a potência do IoT Central usando a ponte de dispositivo do IoT Central. A ponte de dispositivo conecta outras nuvens de IoT com o IoT Central, enviando os dados que os dispositivos enviam para outras nuvens até o aplicativo IoT Central. No aplicativo IoT Central, é possível compilar regras e executar análises nesses dados, criar fluxos de trabalho no Microsoft Flow e Aplicativos Lógicos do Azure, exportar esses dados, e muito mais. Obter a [ponte de dispositivo do IoT Central](https://aka.ms/iotcentralgithubdevicebridge) do GitHub
+A ponte de dispositivo do IoT Central é uma solução de software livre que conecta o Sigfox, Particle, The Things Network e outras nuvens ao aplicativo IoT Central. Se você estiver usando dispositivos de acompanhamento de ativos conectados à rede de área de baixo consumo de energia do Sigfox ou usando dispositivos de monitoramento de qualidade de ar na nuvem do dispositivo de partículas ou usando dispositivos de monitoramento de umidade de solo no TTN, você pode aproveitar diretamente o poder do IoT Central usando a ponte de dispositivo IoT Central. A ponte de dispositivo conecta outras nuvens de IoT com o IoT Central, enviando os dados que os dispositivos enviam para outras nuvens até o aplicativo IoT Central. No aplicativo IoT Central, é possível compilar regras e executar análises nesses dados, criar fluxos de trabalho no Microsoft Flow e Aplicativos Lógicos do Azure, exportar esses dados, e muito mais. Obter a [ponte de dispositivo do IoT Central](https://aka.ms/iotcentralgithubdevicebridge) do GitHub
 
 ## <a name="what-is-it-and-how-does-it-work"></a>O que é e como funciona?
-A ponte de dispositivo do IoT Central é uma solução de software livre no GitHub. Ela está pronta para ser usada com o botão "Implantar no Azure", que implanta um modelo personalizado do Azure Resource Manager com vários recursos do Azure na sua assinatura do Azure. Os recursos incluem:
+A ponte de dispositivo do IoT Central é uma solução de software livre no GitHub. Ele está pronto para começar com um botão "implantar no Azure" que implanta um modelo de Azure Resource Manager personalizado com vários recursos do Azure em sua assinatura do Azure. Os recursos incluem:
 -   Aplicativo Azure Functions
 -   Conta de Armazenamento do Azure
 -   Plano de consumo
@@ -33,7 +33,7 @@ O aplicativo de funções transforma os dados em um formato aceito pelo IoT Cent
 
 ![Captura de tela do Azure Functions](media/howto-build-iotc-device-bridge/azfunctions.png)
 
-Se o aplicativo IoT Central reconhecer o dispositivo por ID de dispositivo na mensagem encaminhada, uma nova medida será exibida para esse dispositivo. Se a ID do dispositivo nunca for verificada pelo aplicativo IoT Central, o aplicativo de funções tentará registrar um novo dispositivo com essa ID do dispositivo e ele aparecerá como um "Dispositivo não associado" no aplicativo IoT Central. 
+Se o aplicativo IoT Central reconhecer o dispositivo por ID de dispositivo na mensagem encaminhada, uma nova medida será exibida para esse dispositivo. Se a ID do dispositivo nunca foi vista pelo seu aplicativo IoT Central, seu aplicativo de funções tentará registrar um novo dispositivo com essa ID de dispositivo e ele será exibido como um "dispositivo não associado" em seu aplicativo IoT Central. 
 
 ## <a name="how-do-i-set-it-up"></a>Como fazer para configurar?
 As instruções estão listadas em detalhes no arquivo LEIAME no repositório do GitHub. 

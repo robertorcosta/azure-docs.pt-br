@@ -2,22 +2,22 @@
 title: Atualizar suas informações de grupos no portal meus aplicativos – Azure AD
 description: Saiba como exibir e atualizar suas informações relacionadas a grupos, incluindo a exibição dos grupos de sua propriedade, a criação de novos grupos, a exibição dos grupos aos quais você já é membro e a União de todos os grupos dos quais você já não faz parte.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/21/2019
-ms.author: lizross
+ms.date: 02/03/2020
+ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: de7fa1952b2e23276a9f088f5840e54675b44d01
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 00639462fce4e67561b8e50609264d4423872c82
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704945"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022289"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Atualizar suas informações de grupos no portal meus aplicativos
 
@@ -98,8 +98,6 @@ Se o administrador tiver concedido permissão para exibir o bloco **grupos** , v
 
 Depois de criar um grupo, você pode editar seus detalhes, incluindo a atualização de qualquer uma das informações existentes.
 
-### <a name="to-edit-your-details"></a>Para editar seus detalhes
-
 1. Selecione o grupo que você deseja editar na página **grupos** e, em seguida, selecione **Editar detalhes** na página *&lt;group_name&gt;* .
 
     A caixa **Editar detalhes** é exibida e você pode atualizar as informações que adicionou quando criou inicialmente o grupo.
@@ -108,9 +106,7 @@ Depois de criar um grupo, você pode editar seus detalhes, incluindo a atualiza�
 
 ## <a name="add-or-remove-a-member"></a>Adicionar ou remover um membro
 
-Você pode adicionar ou remover membros de qualquer um dos seus próprios grupos.
-
-### <a name="to-add-or-remove-a-member"></a>Para adicionar ou remover um membro
+Você pode adicionar ou remover membros de todos os grupos que você possui.
 
 1. Selecione o grupo ao qual você deseja adicionar membros e, em seguida, selecione **+** na página *&lt;group_name&gt;* .
 
@@ -130,8 +126,6 @@ Você pode adicionar ou remover membros de qualquer um dos seus próprios grupos
 
 Se sua organização permitir, você poderá renovar um grupo do Office 365, estendendo sua data de validade.
 
-### <a name="to-renew-a-group"></a>Para renovar um grupo
-
 1. Selecione o grupo do Office 365 que você deseja renovar e, em seguida, selecione **renovar grupo**.
 
     ![Renovar um grupo do Office 365, estendendo a data de validade](media/my-apps-portal/my-apps-portal-renew-group-link.png)
@@ -144,8 +138,6 @@ Se sua organização permitir, você poderá renovar um grupo do Office 365, est
 
 Você pode excluir qualquer um de seus próprios grupos a qualquer momento. No entanto, se você excluir um grupo por engano, precisará criá-lo e adicionar membros novamente.
 
-### <a name="to-delete-the-group"></a>Para excluir o grupo
-
 1. Selecione o grupo que você deseja excluir permanentemente e, em seguida, selecione **excluir grupo** na página *&lt;group_name&gt;* .
 
     ![< Group_name página > com o link excluir grupo realçado](media/my-apps-portal/my-apps-portal-delete-group-link.png)
@@ -156,9 +148,7 @@ Você pode excluir qualquer um de seus próprios grupos a qualquer momento. No e
 
 ## <a name="join-an-existing-group"></a>Ingressar em um grupo existente
 
-Você pode ingressar um grupo já existente na página **grupos** .
-
-### <a name="to-join-or-leave-a-group"></a>Para ingressar ou sair de um grupo
+Você pode ingressar ou deixar um grupo já existente na página **grupos** .
 
 1. Na página **grupos** , selecione **grupo de junção** nos **grupos que estou na** área.
 
@@ -172,7 +162,7 @@ Você pode ingressar um grupo já existente na página **grupos** .
 
 3. Se você tiver ingressado em um grupo por engano ou se não precisar mais fazer parte dele, poderá selecionar o nome do grupo na página **grupos de junção** e, em seguida, selecionar **sair do grupo**.
 
-    ![Página grupos de junção, com o botão sair do grupo realçado](media/my-apps-portal/my-apps-portal-leave-group-link.png)    
+    ![Página grupos de junção, com o botão sair do grupo realçado](media/my-apps-portal/my-apps-portal-leave-group-link.png)
 
 ## <a name="next-steps"></a>Próximos passos
 

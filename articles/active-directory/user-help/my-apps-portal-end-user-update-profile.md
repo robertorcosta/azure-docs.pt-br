@@ -2,31 +2,38 @@
 title: Atualizar o perfil & informações da conta do portal meus aplicativos-Azure AD
 description: Saiba como atualizar seu perfil e suas informações de conta corporativa ou de estudante, incluindo alterar sua senha, ativar a redefinição de senha, atualizar seus métodos de verificação de segurança, exibir a instrução de termos de uso da sua organização e sair do em qualquer lugar em que você tenha entrado usando sua conta corporativa ou de estudante.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/21/2019
-ms.author: lizross
+ms.date: 02/03/2020
+ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 787a0b38cecd76c58017e6dff3da1607ac283d23
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: a6bcfa7fc58d47e64bff0838ff698bc59eda4e70
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704860"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022272"
 ---
-# <a name="update-your-profile-and-work-or-school-account-information-on-the-my-apps-portal"></a>Atualizar o perfil e as informações de conta corporativa ou de estudante no portal meus aplicativos
+# <a name="update-your-profile-and-account-information-on-the-my-apps-portal"></a>Atualizar o perfil e as informações de conta no portal meus aplicativos
 
-É possível usar sua conta corporativa ou de estudante com o portal **Meus Aplicativos** baseado na Web para exibir e iniciar muitos aplicativos baseados em nuvem da sua organização, para atualizar algumas informações do perfil e da conta, para ver suas informações de **Grupos** e para realizar **revisões de acesso** para seus aplicativos e grupos. Se você não tiver acesso ao portal **Meus Aplicativos**, será necessário contatar a assistência técnica para obter permissão.
+Você pode usar sua conta corporativa ou de estudante com o portal **meus aplicativos** baseado na Web para 
+
+- Exibir e iniciar muitos dos aplicativos baseados em nuvem da sua organização
+- Atualizar algumas informações de perfil e conta
+- Ver as informações de seus **grupos**
+- Executar **revisões de acesso** para seus aplicativos e grupos. 
+
+Se você não tiver acesso ao portal **Meus Aplicativos**, será necessário contatar a assistência técnica para obter permissão.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
->[!Important]
->Este conteúdo destina-se aos usuários. Se você for administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na [Documentação de Gerenciamento do Aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps).
+> [!Important]
+> Este conteúdo destina-se aos usuários dos **meus aplicativos** . Se você for administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na [Documentação de Gerenciamento do Aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
 ## <a name="view-your-organization-related-profile-information"></a>Exibir informações de perfil relacionadas à organização
 

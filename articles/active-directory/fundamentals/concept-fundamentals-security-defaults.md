@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 589d8219681304242585c9fed33a4e3d364909ec
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: fbb6170aa54c286a5a2d8353c1dd951859fdf8a0
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978898"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024578"
 ---
 # <a name="what-are-security-defaults"></a>O que são os padrões de segurança?
 
@@ -94,6 +94,8 @@ O uso de Azure Resource Manager para gerenciar seus serviços é uma ação alta
 Depois de habilitar os padrões de segurança em seu locatário, qualquer usuário que estiver acessando o portal do Azure, Azure PowerShell ou o CLI do Azure precisará concluir a autenticação adicional. Essa política se aplica a todos os usuários que estão acessando Azure Resource Manager, seja um administrador ou um usuário. 
 
 Se o usuário não estiver registrado para autenticação multifator, o usuário será solicitado a se registrar usando o aplicativo Microsoft Authenticator para continuar. Nenhum período de registro de autenticação multifator de 14 dias será fornecido.
+
+Os locatários anteriores à 2017 do Exchange Online têm autenticação moderna desabilitada por padrão. Para evitar a possibilidade de um loop de logon durante a autenticação por meio desses locatários, você deve [habilitar a autenticação moderna](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
 > [!NOTE]
 > A conta de sincronização de Azure AD Connect é excluída dos padrões de segurança e não será solicitado a se registrar ou executar a autenticação multifator. As organizações não devem usar essa conta para outros fins.

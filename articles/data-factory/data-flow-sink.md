@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 1c65a456270cdca345504c07b927a7ef7e1f725b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3b631c068d1a444691345e054219208c4c8b0b8c
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440293"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020039"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformação do coletor no fluxo de dados de mapeamento
 
@@ -52,6 +52,12 @@ Depois de adicionar um coletor, configure por meio da guia **coletor** . Aqui, v
 Semelhante a uma transformação selecionar, na guia **mapeamento** do coletor, você pode decidir quais colunas de entrada serão gravadas. Por padrão, todas as colunas de entrada, incluindo colunas descompassos, são mapeadas. Isso é conhecido como **mapeamento automático**.
 
 Ao desativar o mapeamento automático, você terá a opção de adicionar mapeamentos fixos baseados em colunas ou mapeamentos baseados em regras. Os mapeamentos baseados em regras permitem escrever expressões com correspondência de padrões, enquanto o mapeamento fixo mapeará nomes de colunas lógicas e físicas. Para obter mais informações sobre mapeamento baseado em regras, consulte [padrões de coluna no fluxo de dados de mapeamento](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink).
+
+## <a name="custom-sink-ordering"></a>Ordenação de coletor personalizado
+
+Por padrão, os dados são gravados em vários coletores em uma ordem não determinística. O mecanismo de execução gravará dados em paralelo, pois a lógica de transformação é concluída e a ordenação do coletor pode variar cada execução. Para especificar a ordenação exata do coletor, habilite a **ordenação personalizada do coletor** na guia Geral do fluxo de dados. Quando habilitado, os coletores serão gravados em sequência em ordem crescente.
+
+![Ordenação de coletor personalizado](media/data-flow/custom-sink-ordering.png "Ordenação de coletor personalizado")
 
 ## <a name="data-preview-in-sink"></a>Visualização de dados no coletor
 

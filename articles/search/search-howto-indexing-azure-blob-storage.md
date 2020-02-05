@@ -9,12 +9,13 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: cd2e34be7ef55c4ee6d18c6db6010134a7d935d1
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 1c2bac06f2526260fb290b63e5aa559a1e2337b4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76895946"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020617"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Como indexar documentos no armazenamento de BLOBs do Azure com o Azure Pesquisa Cognitiva
 
@@ -136,7 +137,7 @@ Dependendo da [configuração do indexador](#PartsOfBlobToIndex), o indexador de
 > [!NOTE]
 > O Azure Pesquisa Cognitiva limita a quantidade de texto que ele extrai, dependendo do tipo de preço: 32.000 caracteres para a camada gratuita, 64.000 para Basic, 4 milhões para Standard, 8 milhões para Standard S2 e 16 milhões para o Standard S3. Um aviso é incluído na resposta de status do indexador para documentos truncados.  
 
-* As propriedades de metadados especificadas pelo usuário e presentes no blob, se houver alguma, são extraídas literalmente.
+* As propriedades de metadados especificadas pelo usuário e presentes no blob, se houver alguma, são extraídas literalmente. Observe que isso requer que um campo seja definido no índice com o mesmo nome da chave de metadados do blob. Por exemplo, se o blob tiver uma chave de metadados de `Sensitivity` com o valor `High`, você deverá definir um campo chamado `Sensitivity` no índice de pesquisa e ele será preenchido com o valor `High`.
 * As propriedades de metadados de blob padrão são extraídas para os seguintes campos:
 
   * **metadata\_storage\_name** (Edm.String): o nome do arquivo do blob. Por exemplo, se você tiver um blob /my-container/my-folder/subfolder/resume.pdf, o valor desse campo será `resume.pdf`.

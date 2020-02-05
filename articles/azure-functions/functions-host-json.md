@@ -3,12 +3,12 @@ title: Referência host.json para o Azure Functions 2.x
 description: Documentação de referência do arquivo host.json do Azure Functions com o runtime v2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 6c4cfbb40c0337a6141d3b1f9844a33227a4963f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 3ad3682e301eb98d48372c3955c6ff049422c517
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988695"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024663"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>referência de host. JSON para Azure Functions 2. x e posterior 
 
@@ -74,10 +74,10 @@ O seguinte arquivo *host. JSON* de exemplo para a versão 2. x + tem todas as op
               "samplingPercentageDecreaseTimeout" : "00:00:01",
               "minSamplingPercentage": 0.1,
               "maxSamplingPercentage": 0.1,
-              "movingAverageRatio": 1.0
+              "movingAverageRatio": 1.0,
+              "excludedTypes" : "Dependency;Event",
+              "includedTypes" : "PageView;Trace"
             },
-            "samplingExcludedTypes" : "Dependency;Event",
-            "samplingIncludedTypes" : "PageView;Trace",
             "enableLiveMetrics": true,
             "enableDependencyTracking": true,
             "enablePerformanceCountersCollection": true,            

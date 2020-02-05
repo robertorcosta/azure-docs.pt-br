@@ -17,16 +17,16 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 8e1cf2a1c5503f31a70bc654ae1a211d1ab64581
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: b3a2c47aa1bcb624294a95db4218b311db747760
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203865"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016061"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Conectar redes virtuais com o emparelhamento de rede virtual usando a CLI do Azure
 
-Você pode conectar redes virtuais entre si com o emparelhamento de rede virtual. Depois que as redes virtuais são emparelhadas, os recursos de ambas as redes virtuais podem se comunicar entre si, com a mesma latência e largura de banda como se os recursos estivessem na mesma rede virtual. Neste artigo, você aprenderá a:
+Você pode conectar redes virtuais entre si ao emparelhamento de rede virtual. Depois que as redes virtuais são emparelhadas, os recursos de ambas as redes virtuais podem se comunicar entre si, com a mesma latência e largura de banda como se os recursos estivessem na mesma rede virtual. Neste artigo, você aprenderá como:
 
 * Criar duas redes virtuais
 * Conectar duas redes virtuais a um emparelhamento de rede virtual
@@ -190,7 +190,7 @@ Você receberá quatro respostas.
 
 Feche a sessão SSH da VM *myVm2*. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, use [az group delete](/cli/azure/group) para remover o grupo de recursos e todos os recursos que ele contém.
 
@@ -198,8 +198,8 @@ Quando não for mais necessário, use [az group delete](/cli/azure/group) para r
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Neste artigo, você aprendeu a conectar duas redes, na mesma região do Azure, com o emparelhamento de rede virtual. Você também pode emparelhar redes virtuais em diferentes [regiões com suporte](virtual-network-manage-peering.md#cross-region), em [diferentes assinaturas do Azure](create-peering-different-subscriptions.md#cli) e também criar [designs de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) com emparelhamento. Para saber mais sobre o emparelhamento de rede virtual, consulte [Visão geral de emparelhamento de rede virtual](virtual-network-peering-overview.md) e [Gerenciamento de emparelhamentos de rede virtual](virtual-network-manage-peering.md).
+Neste artigo, você aprendeu a conectar duas redes, na mesma região do Azure, com o emparelhamento de rede virtual. Você também pode emparelhar redes virtuais em diferentes [regiões com suporte](virtual-network-manage-peering.md#cross-region), em [diferentes assinaturas do Azure](create-peering-different-subscriptions.md#cli) e também criar [designs de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering) com emparelhamento. Para saber mais sobre o emparelhamento de rede virtual, consulte [Visão geral de emparelhamento de rede virtual](virtual-network-peering-overview.md) e [Gerenciamento de emparelhamentos de rede virtual](virtual-network-manage-peering.md).
 
 Você pode [conectar seu próprio computador a uma rede virtual](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) por meio de uma VPN e interagir com os recursos de uma rede virtual ou de redes virtuais emparelhadas. Para obter amostras de scripts reutilizáveis para concluir muitas das tarefas abordadas nos artigos sobre redes virtuais, consulte [amostras de script](cli-samples.md).

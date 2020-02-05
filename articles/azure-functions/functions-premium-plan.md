@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 5f6825243b7e410b49b54d04a028b5d71610ea68
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: b373691a6b9649a43d68c9da93b49fd20536c42b
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561947"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024629"
 ---
 # <a name="azure-functions-premium-plan"></a>Plano Premium do Azure Functions
 
@@ -37,7 +37,7 @@ Os recursos a seguir estão disponíveis para aplicativos de funções implantad
 
 ### <a name="pre-warmed-instances"></a>Instâncias pré-passivas
 
-Se nenhum evento e execução ocorrer hoje no plano de consumo, seu aplicativo poderá reduzir verticalmente até zero instâncias. Quando novos eventos chegam, uma nova instância precisa ser especializada em seu aplicativo em execução.  A especialização de novas instâncias pode levar algum tempo, dependendo do aplicativo.  Essa latência adicional na primeira chamada geralmente é chamada de inicialização a frio do aplicativo.
+Se nenhum evento e execução ocorrer hoje no plano de consumo, seu aplicativo poderá ser dimensionado para uma instância zero. Quando novos eventos chegam, uma nova instância precisa ser especializada em seu aplicativo em execução.  A especialização de novas instâncias pode levar algum tempo, dependendo do aplicativo.  Essa latência adicional na primeira chamada geralmente é chamada de inicialização a frio do aplicativo.
 
 No plano Premium, você pode fazer com que seu aplicativo fique quente em um número especificado de instâncias, até o tamanho mínimo do plano.  As instâncias pré-configuradas também permitem que você dimensione previamente um aplicativo antes da alta carga. À medida que o aplicativo é dimensionado, ele é dimensionado primeiro para as instâncias pré-configuradas. As instâncias adicionais continuam a ficar em buffer e ficam quentes imediatamente em preparação para a próxima operação de escala. Tendo um buffer de instâncias pré-configuradas, você pode evitar latências de início frio.  As instâncias pré-configuradas são um recurso do plano Premium, e você precisa manter pelo menos uma instância em execução e disponível sempre que o plano estiver ativo.
 
@@ -107,7 +107,7 @@ Abaixo estão as regiões com suporte no momento para cada sistema operacional.
 |Sul do Brasil| ✔<sup>2</sup> |  |
 |Canadá Central| ✔ |  |
 |EUA Central| ✔ |  |
-|Leste da Ásia| ✔ |  |
+|Ásia Oriental| ✔ |  |
 |Leste dos EUA | ✔ | ✔<sup>1</sup> |
 |Leste dos EUA 2| ✔ |  |
 |França Central| ✔ |  |
@@ -123,7 +123,7 @@ Abaixo estão as regiões com suporte no momento para cada sistema operacional.
 |Sul do Reino Unido| ✔ | |
 |Oeste do Reino Unido| ✔ |  |
 |Oeste da Europa| ✔ | ✔<sup>1</sup> |
-|Oeste da Índia| ✔ |  |
+|Índia Ocidental| ✔ |  |
 |Oeste dos EUA| ✔ | ✔<sup>1</sup> |
 |Oeste dos EUA 2| ✔ |  |
 

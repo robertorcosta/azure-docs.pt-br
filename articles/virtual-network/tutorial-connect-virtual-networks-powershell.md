@@ -17,18 +17,18 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 63584eedb0e51ddbca0d644bc17db3facd9225b5
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 18a252e1e169aeb094e4aa6a507ff1e3d5ee931f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164028"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022062"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>Conectar redes virtuais com o emparelhamento de rede virtual usando PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Você pode conectar redes virtuais entre si ao emparelhamento de rede virtual. Depois que as redes virtuais são emparelhadas, os recursos de ambas as redes virtuais podem se comunicar entre si, com a mesma latência e largura de banda como se os recursos estivessem na mesma rede virtual. Neste artigo, você aprenderá a:
+Você pode conectar redes virtuais entre si ao emparelhamento de rede virtual. Depois que as redes virtuais são emparelhadas, os recursos de ambas as redes virtuais podem se comunicar entre si, com a mesma latência e largura de banda como se os recursos estivessem na mesma rede virtual. Neste artigo, você aprenderá como:
 
 * Criar duas redes virtuais
 * Conectar duas redes virtuais a um emparelhamento de rede virtual
@@ -127,11 +127,11 @@ Os recursos de uma rede virtual não podem se comunicar com os recursos da outra
 
 ## <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-Crie uma máquina virtual em cada rede virtual para que você possa comunicar entre eles em uma etapa posterior.
+Crie uma VM em cada rede virtual para que seja possível comunicar-se entre elas em uma etapa posterior.
 
 ### <a name="create-the-first-vm"></a>Criar a primeira VM
 
-Crie uma VM com [New-AzVM](/powershell/module/az.compute/new-azvm). O exemplo a seguir cria uma VM nomeada *myVm1* na rede virtual *myVirtualNetwork1*. A opção `-AsJob` cria a VM em segundo plano para que você possa prosseguir para a próxima etapa. Quando solicitado, digite o nome de usuário e senha com os quais você deseja fazer logon na VM.
+Crie uma VM com [New-AzVM](/powershell/module/az.compute/new-azvm). O exemplo a seguir cria uma VM nomeada *myVm1* na rede virtual *myVirtualNetwork1*. A opção `-AsJob` cria a VM em segundo plano, para que você possa prosseguir para a próxima etapa. Quando solicitado, digite o nome de usuário e senha com os quais você deseja fazer logon na VM.
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -198,7 +198,7 @@ ping 10.0.0.4
 
 Você receberá quatro respostas. Desconecte as sessões RDP para ambas *myVm1* e *myVm2*.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, use [Remove-AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que ele contém.
 
@@ -208,6 +208,6 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Próximos passos
 
-Neste artigo, você aprendeu a conectar duas redes, na mesma região do Azure, com o emparelhamento de rede virtual. Você também pode emparelhar redes virtuais em diferentes [regiões com suporte](virtual-network-manage-peering.md#cross-region), em [diferentes assinaturas do Azure](create-peering-different-subscriptions.md#powershell) e também criar [designs de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) com emparelhamento. Para saber mais sobre o emparelhamento de rede virtual, consulte [Visão geral de emparelhamento de rede virtual](virtual-network-peering-overview.md) e [Gerenciamento de emparelhamentos de rede virtual](virtual-network-manage-peering.md).
+Neste artigo, você aprendeu a conectar duas redes, na mesma região do Azure, com o emparelhamento de rede virtual. Você também pode emparelhar redes virtuais em diferentes [regiões com suporte](virtual-network-manage-peering.md#cross-region), em [diferentes assinaturas do Azure](create-peering-different-subscriptions.md#powershell) e também criar [designs de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering) com emparelhamento. Para saber mais sobre o emparelhamento de rede virtual, consulte [Visão geral de emparelhamento de rede virtual](virtual-network-peering-overview.md) e [Gerenciamento de emparelhamentos de rede virtual](virtual-network-manage-peering.md).
 
 Você pode [conectar seu próprio computador a uma rede virtual](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) por meio de uma VPN e interagir com os recursos de uma rede virtual ou de redes virtuais emparelhadas. Para obter amostras de scripts reutilizáveis para concluir muitas das tarefas abordadas nos artigos sobre redes virtuais, consulte [amostras de script](powershell-samples.md).

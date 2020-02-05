@@ -3,8 +3,8 @@ title: Alta disponibilidade e recuperação de desastre-lote do Azure
 description: Saiba como projetar seu aplicativo do lote para uma interrupção regional. As cargas de trabalho devem fazer failover para outra região ou ser divididas entre duas ou mais regiões.
 services: batch
 documentationcenter: ''
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -12,13 +12,13 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: jushiman
-ms.openlocfilehash: 11546a6a664e6fb185a32d8e6cd593a850803fe8
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.author: labrenne
+ms.openlocfilehash: 84b0cce9557b4ae05586579f175cd0f5db14fdfc
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76930116"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026074"
 ---
 # <a name="design-your-application-for-high-availability"></a>Projetar aplicativo para a alta disponibilidade
 
@@ -49,5 +49,5 @@ Considere os seguintes pontos ao projetar uma solução que pode fazer failover:
 
 ## <a name="next-steps"></a>Próximos passos
 
-- Saiba mais sobre como criar contas do Lote com o [portal do Azure](batch-account-create-portal.md), a [CLI do Azure](cli-samples.md), o [PowerShell](batch-powershell-cmdlets-get-started.md) ou a [API de gerenciamento do Lote](batch-management-dotnet.md).
+- Saiba mais sobre como criar contas do lote com o [portal do Azure](batch-account-create-portal.md), o [CLI do Azure](cli-samples.md), o [PowerShell](batch-powershell-cmdlets-get-started.md)ou a API de [Gerenciamento do lote](batch-management-dotnet.md).
 - Cotas padrão estão associadas a uma conta do Lote. [Este artigo](batch-quota-limit.md) detalha os valores de cota padrão e descreve como as cotas podem ser aumentadas.

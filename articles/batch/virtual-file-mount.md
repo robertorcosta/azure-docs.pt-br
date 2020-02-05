@@ -3,20 +3,20 @@ title: Montar um sistema de arquivos virtual em um pool – lote do Azure | Micr
 description: Saiba como montar um sistema de arquivos virtual em um pool do lote.
 services: batch
 documentationcenter: ''
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: jushiman
-ms.openlocfilehash: eab8e509e4978de50968bc1d960ee34d46bc73b0
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: a22117505dff35f9b92e3dd3c91dc8540557b218
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029147"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023031"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Montar um sistema de arquivos virtual em um pool do lote
 
@@ -114,7 +114,7 @@ new PoolAddParameter
 }
 ```
 
-### <a name="network-file-system"></a>NFS
+### <a name="network-file-system"></a>Sistema de arquivos de rede
 
 NFS (Network File Systems) também pode ser montado em nós de pool, permitindo que os sistemas de arquivos tradicionais sejam acessados facilmente por nós do lote do Azure. Isso pode ser um único servidor NFS implantado na nuvem ou um servidor NFS local acessado em uma rede virtual. Como alternativa, aproveite a solução de cache [avere vFXT](../avere-vfxt/avere-vfxt-overview.md) distribuída na memória, que fornece conectividade direta com o armazenamento local, lendo dados sob demanda em seu cache e fornece alto desempenho e escala para nós de computação baseados em nuvem.
 

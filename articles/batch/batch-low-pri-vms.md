@@ -3,7 +3,7 @@ title: Executar cargas de trabalho em VMs econômicas de baixa prioridade - Lote
 description: Saiba como provisionar VMs de baixa prioridade para reduzir o custo das cargas de trabalho do Lote do Azure.
 services: batch
 author: mscurrell
-manager: gwallace
+manager: evansma
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
 ms.service: batch
 ms.topic: article
@@ -11,12 +11,12 @@ ms.workload: na
 ms.date: 12/05/2019
 ms.author: markscu
 ms.custom: seodec18
-ms.openlocfilehash: 39d332a6d069a4e9fac8545f4d08a986c8984c9b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: dfd79bc9cfd8e897cdbb18127deaf8da4922ef3a
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926281"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023711"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Usar VMs de baixa prioridade com o Lote
 

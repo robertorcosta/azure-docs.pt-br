@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: ffb9480508366b223e49f173df3dc76cb711116d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 5aa75de694d05ce31becc6996aca419dff256a3f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76769183"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023541"
 ---
 # <a name="load-balancer-health-probes"></a>Investigações de integridade do Load Balancer
 
@@ -257,6 +257,6 @@ O Load Balancer público básico expõe o status de investigação de integridad
 ## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre o [Load Balancer Standard](load-balancer-standard-overview.md)
-- [Introdução à criação de um balanceador de carga público no Gerenciador de Recursos usando PowerShell](load-balancer-get-started-internet-arm-ps.md)
+- [Introdução à criação de um balanceador de carga público no Gerenciador de Recursos usando PowerShell](quickstart-create-standard-load-balancer-powershell.md)
 - [API REST para investigações de integridade](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
 - Solicitar novas habilidades de investigação de integridade com [Uservoice do Load Balancer](https://aka.ms/lbuservoice)

@@ -14,12 +14,12 @@ ms.date: 11/13/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a275b08beac842c7d435d77d6b4c1338e817fbc7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0d46036efa04b4e0225cad6e8a70cd31ad3c10bd
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430101"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024170"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Exibir histórico de auditoria para funções do Azure AD no PIM
 
@@ -33,6 +33,40 @@ A partir de novembro de 2019, a parte das funções do Azure AD da Privileged Id
 1. Abra o **Azure AD Privileged Identity Management**. Se você tiver uma faixa na parte superior da página Visão geral, siga as instruções na **nova guia versão** deste artigo. Caso contrário, siga as instruções na guia **versão anterior** .
 
     ![Nova versão das funções do Azure AD](./media/pim-how-to-add-role-to-user/pim-new-version.png)
+
+# <a name="new-versiontabnew"></a>[Nova versão](#tab/new)
+
+Siga estas etapas para exibir o histórico de auditoria para funções do Azure AD.
+
+## <a name="view-resource-audit-history"></a>Exibir o histórico de auditoria de recursos
+
+A auditoria de recursos fornece uma exibição de todas as atividades associadas às suas funções do Azure AD.
+
+1. Abra o **Azure AD Privileged Identity Management**.
+
+1. Selecione **funções do Azure ad**.
+
+1. Selecione **auditoria de recurso**.
+
+1. Filtre o histórico usando uma data predefinida ou um intervalo personalizado.
+
+    ![Lista de auditoria de recursos com filtros](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+
+## <a name="view-my-audit"></a>Exibir minha auditoria
+
+A opção Minha auditoria permite que você exiba sua atividade de função pessoal.
+
+1. Abra o **Azure AD Privileged Identity Management**.
+
+1. Selecione **funções do Azure ad**.
+
+1. Selecione o recurso para o qual você deseja exibir o histórico de auditoria.
+
+1. Selecione **minha auditoria**.
+
+1. Filtre o histórico usando uma data predefinida ou um intervalo personalizado.
+
+    ![Lista de auditoria para o usuário atual](media/azure-pim-resource-rbac/my-audit-time.png)
 
 # <a name="previous-versiontabprevious"></a>[Versão anterior](#tab/previous)
 
@@ -79,40 +113,6 @@ Siga estas etapas para exibir o histórico de auditoria para funções do Azure 
     ![Atualizar painel de parâmetros do gráfico](media/pim-how-to-use-audit-log/update-chart-parameters.png)
 
 1. Selecione **concluído** para exibir o histórico de auditoria filtrado.
-
-# <a name="new-versiontabnew"></a>[Nova versão](#tab/new)
-
-Siga estas etapas para exibir o histórico de auditoria para funções do Azure AD.
-
-## <a name="view-resource-audit-history"></a>Exibir o histórico de auditoria de recursos
-
-A auditoria de recursos fornece uma exibição de todas as atividades associadas às suas funções do Azure AD.
-
-1. Abra o **Azure AD Privileged Identity Management**.
-
-1. Selecione **funções do Azure ad**.
-
-1. Selecione **auditoria de recurso**.
-
-1. Filtre o histórico usando uma data predefinida ou um intervalo personalizado.
-
-    ![Lista de auditoria de recursos com filtros](media/azure-pim-resource-rbac/rbac-resource-audit.png)
-
-## <a name="view-my-audit"></a>Exibir minha auditoria
-
-A opção Minha auditoria permite que você exiba sua atividade de função pessoal.
-
-1. Abra o **Azure AD Privileged Identity Management**.
-
-1. Selecione **funções do Azure ad**.
-
-1. Selecione o recurso para o qual você deseja exibir o histórico de auditoria.
-
-1. Selecione **minha auditoria**.
-
-1. Filtre o histórico usando uma data predefinida ou um intervalo personalizado.
-
-    ![Lista de auditoria para o usuário atual](media/azure-pim-resource-rbac/my-audit-time.png)
 
 ---
 

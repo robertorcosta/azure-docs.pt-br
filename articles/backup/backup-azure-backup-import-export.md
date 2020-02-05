@@ -4,12 +4,12 @@ description: Saiba como o Backup do Azure permite que você envie dados fora da 
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 47d4c4fb63c2aa0e2944456048b06070e235f012
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 162d129eaea83ef6623daaa063e8a088c021e25d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997353"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022606"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de backup offline no Backup do Azure
 
@@ -75,6 +75,15 @@ Esta seção descreve o fluxo de trabalho de backup offline para que os dados po
 
     ![Tela de importação](./media/backup-azure-backup-import-export/offlinebackup_inputs.png)
 
+2. Selecione a opção **transferir usando meus próprios discos**.
+
+    >[!NOTE]
+    >É recomendável usar a opção Azure Data Box para transferir dados de backup iniciais offline. Essa opção economiza o esforço necessário para adquirir seus próprios discos compatíveis com o Azure, fornecendo dispositivos de Azure data Box, seguros e proprietários da Microsoft, aos quais os dados de backup podem ser gravados diretamente pelo agente MARS.
+
+3. Clique em **Avançar** e preencha as entradas com cuidado:
+
+    ![Insira os detalhes do disco](./media/backup-azure-backup-import-export/your-disk-details.png)
+
    A descrição das entradas é a seguinte:
 
     * **Local de preparo**: o local de armazenamento temporário no qual a cópia de backup inicial é gravada. O local de preparo pode estar em um compartilhamento de rede ou em um computador local. Se o computador de cópia e o computador de origem são diferentes, é recomendável especificar o caminho completo de rede do local de preparo.
@@ -85,15 +94,15 @@ Esta seção descreve o fluxo de trabalho de backup offline para que os dados po
   
    Forneça as entradas na tela e clique em **Avançar**. Salve o *Local de preparo* e o *Nome do Trabalho de Importação do Azure* fornecidos, pois essas informações são necessárias para preparar os discos.
 
-2. Quando solicitado, entre em sua assinatura do Azure. Você precisa entrar para que o Backup do Azure possa criar o aplicativo do Azure Active Directory e fornecer as permissões necessárias para acessar o serviço de Importação do Azure.
+4. Quando solicitado, entre em sua assinatura do Azure. Você precisa entrar para que o Backup do Azure possa criar o aplicativo do Azure Active Directory e fornecer as permissões necessárias para acessar o serviço de Importação do Azure.
 
-    ![Fazer backup agora](./media/backup-azure-backup-import-export/azurelogin.png)
+    ![Fazer backup agora](./media/backup-azure-backup-import-export/azure-login.png)
 
-3. Conclua o fluxo de trabalho e, em seguida, no console do agente de Backup do Azure, clique em **Fazer Backup Agora**.
+5. Conclua o fluxo de trabalho e, em seguida, no console do agente de Backup do Azure, clique em **Fazer Backup Agora**.
 
     ![Fazer backup agora](./media/backup-azure-backup-import-export/backupnow.png)
 
-4. Na página de confirmação do assistente, clique em **Fazer Backup**. O backup inicial é gravado na área de preparo como parte da instalação.
+6. Na página de confirmação do assistente, clique em **Fazer Backup**. O backup inicial é gravado na área de preparo como parte da instalação.
 
    ![Confirme que você está pronto para fazer backup agora](./media/backup-azure-backup-import-export/backupnow-confirmation.png)
 
@@ -122,7 +131,7 @@ O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são env
 
     ```.\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>```
 
-    | . | Descrição |
+    | Parâmetro | Description |
     | --- | --- |
     | s:&lt;*Caminho do Local de Preparo*&gt; |A entrada obrigatória usada para fornecer o caminho para o local de preparo inserido no fluxo de trabalho de **Iniciar backup offline**. |
     | p:&lt;*Caminho para PublishSettingsFile*&gt; |A entrada opcional usada para fornecer o caminho para o arquivo **Configurações de Publicação do Azure** inserido no fluxo de trabalho de **Iniciar o backup offline**. |
@@ -206,4 +215,3 @@ Depois que o backup inicial for concluído, você poderá excluir com segurança
 ## <a name="next-steps"></a>Próximos passos
 
 * Para qualquer dúvida sobre o fluxo de trabalho de Importação/Exportação do Azure, veja [Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o armazenamento de Blobs](../storage/common/storage-import-export-service.md).
-

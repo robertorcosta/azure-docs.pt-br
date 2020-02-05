@@ -1,6 +1,6 @@
 ---
-title: Visão geral da solução Azure VMware por CloudSimple nós
-description: Saiba mais sobre os nós e conceitos do CloudSimple.
+title: Soluções VMware do Azure (AVS)-visão geral dos nós
+description: Saiba mais sobre os nós e conceitos da AVS.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,22 +8,22 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 65afe26a98a53b00b72a1ea2b49799db2049b727
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 08d8fc3e6f1f2f83cf3c4fee3fdafb0bd07e336c
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899028"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024918"
 ---
-# <a name="cloudsimple-nodes-overview"></a>Visão geral dos nós do CloudSimple
+# <a name="avs-nodes-overview"></a>Visão geral de nós da AVS
 
-Os nós são os blocos de construção de uma nuvem privada. Um nó é:
+Os nós são os blocos de construção de uma nuvem privada de AVS. Um nó é:
 
 * Um host de computação bare-metal dedicado em que um hipervisor VMware ESXi está instalado  
-* Uma unidade de computação que você pode provisionar ou reservar para criar nuvens privadas
-* Disponível para provisionar ou reservar em uma região onde o serviço CloudSimple está disponível
+* Uma unidade de computação que você pode comprar ou reservar para criar nuvens privadas de AVS
+* Disponível para compra ou reserva em uma região em que o serviço AVS está disponível
 
-Você cria uma nuvem privada a partir dos nós provisionados. Para criar uma nuvem privada, você precisa de um mínimo de três nós do mesmo SKU. Para expandir uma nuvem privada, adicione outros nós.  Você pode adicionar nós a um cluster existente ou criar um novo cluster Provisionando nós no portal do Azure e associando-os ao serviço CloudSimple.  Todos os nós provisionados são visíveis no serviço CloudSimple.  
+Você cria uma nuvem privada de AVS a partir dos nós comprados. Para criar uma nuvem privada de AVS, você precisa de um mínimo de três nós da mesma SKU. Para expandir uma nuvem privada de AVS, adicione outros nós. Você pode adicionar nós a um cluster existente ou criar um novo cluster adquirindo nós na portal do Azure e associando-os ao serviço AVS. Todos os nós adquiridos são visíveis no serviço AVS. 
 
 ## <a name="provisioned-nodes"></a>Nós provisionados
 
@@ -32,7 +32,7 @@ Os nós provisionados fornecem capacidade de pagamento conforme o uso. O provisi
 * Se você pagar pela sua assinatura do Azure por cartão de crédito, o cartão será cobrado imediatamente.
 * Se você for cobrado por fatura, os encargos serão exibidos na próxima fatura.
 
-## <a name="vmware-solution-by-cloudsimple-nodes-sku"></a>Solução VMware por SKU de nós CloudSimple
+## <a name="vmware-solution-by-avs-nodes-sku"></a>Solução VMware por SKU de nós da AVS
 
 Os seguintes tipos de nós estão disponíveis para provisionamento ou reserva.
 
@@ -47,16 +47,18 @@ Os seguintes tipos de nós estão disponíveis para provisionamento ou reserva.
 
 ## <a name="limits"></a>Limites
 
-Os limites de nó a seguir se aplicam a nuvens privadas.
+Os limites de nó a seguir se aplicam a nuvens privadas de AVS.
 
 | Grupos | Limite |
 |----------|-------|
-| Número mínimo de nós para criar uma nuvem privada | 3 |
-| Número máximo de nós em um cluster em uma nuvem privada | 16 |
-| Número máximo de nós em uma nuvem privada | 64 |
+| Número mínimo de nós para criar uma nuvem privada de AVS | 3 |
+| Número máximo de nós em um cluster em uma nuvem privada de AVS | 16 |
+| Número máximo de nós em uma nuvem privada de AVS | 64 |
 | Número mínimo de nós em um novo cluster | 3 |
 
 ## <a name="next-steps"></a>Próximos passos
 
+* Saiba como [comprar nós](create-nodes.md)
+* Saiba mais sobre [nuvens privadas da AVS](cloudsimple-private-cloud.md)
 * Saiba como [provisionar nós](create-nodes.md)
 * Saiba mais sobre [nuvens privadas](cloudsimple-private-cloud.md)

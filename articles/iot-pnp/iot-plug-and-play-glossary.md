@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: b6516b07f24c40fcb95d47e05b22dd7672c10f2a
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: ef5ce9cc1cda7f1ff6b1985771e20cb20123e264
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531194"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025632"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glossário de termos para a visualização de IoT Plug and Play
 
@@ -117,7 +117,7 @@ Um [desenvolvedor de dispositivos](#device-developer) usa a [linguagem digital d
 
 ## <a name="device-provisioning-service"></a>Serviço de provisionamento de dispositivos
 
-O [Azure IOT central](#azure-iot-central) usa o serviço de provisionamento de dispositivos para gerenciar todo o registro e a conexão do dispositivo. Para obter mais informações, consulte [conectividade do dispositivo no Azure IOT central](../iot-central/preview/overview-iot-central-get-connected.md). Você também pode usar o serviço de provisionamento de dispositivos para gerenciar o registro e a conexão de dispositivos com sua solução IoT baseada no Hub IoT. Para obter mais informações, consulte [Provisionando dispositivos com o serviço de provisionamento de dispositivos no Hub IOT do Azure](../iot-dps/about-iot-dps.md).
+O [Azure IOT central](#azure-iot-central) usa o serviço de provisionamento de dispositivos para gerenciar todo o registro e a conexão do dispositivo. Para obter mais informações, consulte [conectividade do dispositivo no Azure IOT central](../iot-central/core/concepts-get-connected.md). Você também pode usar o serviço de provisionamento de dispositivos para gerenciar o registro e a conexão de dispositivos com sua solução IoT baseada no Hub IoT. Para obter mais informações, consulte [Provisionando dispositivos com o serviço de provisionamento de dispositivos no Hub IOT do Azure](../iot-dps/about-iot-dps.md).
 
 ## <a name="device-registration"></a>Registro do dispositivo
 
@@ -155,7 +155,7 @@ A linguagem de consulta do Hub IoT é usada para várias finalidades. Por exempl
 
 Um dispositivo de Plug and Play IoT normalmente é um dispositivo de computação independente de pequena escala que coleta dados ou controla outros dispositivos, e que executa software ou firmware que implementa um [modelo de capacidade de dispositivo](#device-capability-model).  Por exemplo, um dispositivo IoT Plug and Play pode ser um dispositivo de monitoramento ambiental ou um controlador para um sistema de irrigação inteligente do agricultura. Você pode escrever uma solução de IoT hospedada na nuvem para comando, controlar e receber dados de dispositivos de Plug and Play de IoT. O [Catálogo de dispositivos Azure Certified para IOT](#certified-for-iot-device-catalog) lista os dispositivos plug and Play IOT disponíveis. Cada dispositivo de Plug and Play IoT no catálogo foi validado e tem um [modelo de funcionalidade de dispositivo](#device-capability-model).
 
-## <a name="microsoft-partner-center"></a>Centro de Parceiros da Microsoft
+## <a name="microsoft-partner-center"></a>Centro de parceiros da Microsoft
 
 O [Microsoft Partner Center](https://docs.microsoft.com/partner-center/) é onde sua organização gerencia sua relação de ponta a ponta com a Microsoft. Você precisa de uma conta do Microsoft Partner Center para poder certificar seu [dispositivo de plug and Play de IOT](#iot-plug-and-play-device) no portal do [Azure Certified para IOT](#azure-certified-for-iot-portal).
 
@@ -183,7 +183,7 @@ Há um único repositório de modelo público que armazena [modelos de recursos 
 
 Uma ID de registro identifica exclusivamente um dispositivo no [serviço de provisionamento de dispositivos](#device-provisioning-service). Essa ID não é igual à ID do dispositivo que é um identificador exclusivo para um dispositivo em um [Hub IOT](#azure-iot-hub).
 
-## <a name="scope-id"></a>ID de escopo
+## <a name="scope-id"></a>ID do escopo
 
 O escopo da ID de escopo identifica exclusivamente uma instância do [serviço de provisionamento de dispositivos](#device-provisioning-service) .
 

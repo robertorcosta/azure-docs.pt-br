@@ -3,12 +3,12 @@ title: Criar uma regra do Azure Load Balancer para um cluster
 description: Configure um Azure Load Balancer para abrir portas para seu cluster do Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: 5cc392a74b8cf5ef92be8b5783b5b70289e602af
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f4599b2e0174381ab7df04aeeb33db7e3ee60f26
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351473"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025377"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Abrir portas para um cluster do Service Fabric
 
@@ -60,7 +60,7 @@ O comando da CLI do Azure tem alguns parâmetros que são descritos na seguinte 
 
 
 >[!NOTE]
->Para saber mais sobre como criar um balanceador de carga com a CLI do Azure, confira [Criar um balanceador de carga com a CLI do Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md).
+>Para saber mais sobre como criar um balanceador de carga com a CLI do Azure, confira [Criar um balanceador de carga com a CLI do Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -96,7 +96,7 @@ $lb | Set-AzLoadBalancer
 Em relação ao comando `New-AzLoadBalancerRuleConfig`, o `-FrontendPort` representa a porta que o balanceador de carga expõe para conexões externas e o `-BackendPort` representa a porta em que o aplicativo do Service Fabric está escutando.
 
 >[!NOTE]
->Para saber mais sobre como criar um balanceador de carga com o PowerShell, confira [Criar um balanceador de carga com o PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
+>Para saber mais sobre como criar um balanceador de carga com o PowerShell, confira [Criar um balanceador de carga com o PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md).
 
 ## <a name="next-steps"></a>Próximos passos
 

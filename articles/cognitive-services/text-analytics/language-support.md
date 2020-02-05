@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: fcf7051a631e74f2f6db918c7c861e32295ae9e8
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 3e7402be79f7b57a426543c35f08524e0da9d283
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732630"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024527"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Idiomas e regiões compatíveis com a API de Análise de Texto
 
@@ -33,7 +33,7 @@ Se você tiver um conteúdo expresso em um idioma usado com menos frequência, e
 
 Para análise de sentimento, extração de frases-chave e reconhecimento de entidade, a lista de idiomas compatíveis é mais seletiva, uma vez que os analisadores são refinados para acomodar as regras linguísticas de idiomas adicionais. No reconhecimento de entidade nomeada v2, o suporte para o conjunto completo de [tipos de entidade](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) está atualmente limitado aos seguintes idiomas: 
 * Inglês
-* Chinês simplificado
+* Chinês-simplificado
 * Francês
 * Alemão
 * Espanhol
@@ -51,8 +51,8 @@ O suporte a idiomas é implantado inicialmente em versão prévia, passando para
 |:----------------------|:-------------:|:---------:|:-----------:|:------------------------:|:--------------:|:------------------:|
 | Árabe                |     `ar`      |           |             |           ✔ \*           |                |                    |
 | Tcheco                 |     `cs`      |           |             |           ✔ \*           |                |                    |
-| Chinês simplificado    |   `zh-hans`   |  ✔ \*\*   |             |            ✔             |                |                    |
-| Chinês tradicional   |   `zh-hant`   |  ✔ \*\*   |             |                          |                |                    |
+| Chinês-simplificado    |   `zh-hans`   |  ✔ \*\*   |             |            ✔             |                |                    |
+| Chinês-tradicional   |   `zh-hant`   |  ✔ \*\*   |             |                          |                |                    |
 | Dinamarquês                |     `da`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Holandês                 |     `nl`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
 | Inglês               |     `en`      |   ✔ \**   |      ✔      |          ✔ \*\*          |     ✔ \**      |                    |
@@ -63,7 +63,7 @@ O suporte a idiomas é implantado inicialmente em versão prévia, passando para
 | Húngaro             |     `hu`      |           |             |           ✔ \*           |                |                    |
 | Italiano               |     `it`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
 | Japonês              |     `ja`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
-| Coreano                |     `ko`      |           |      ✔      |           ✔ \*           |                |                    |
+| Coreano                |     `ko`      |   ✔ \*\*  |      ✔      |           ✔ \*           |                |                    |
 | Norueguês (Bokmål)   |     `no`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Polonês                |     `pl`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Português (Portugal) |    `pt-PT`    |   ✔\**    |      ✔      |           ✔ \*           |                | `pt` também é aceito |

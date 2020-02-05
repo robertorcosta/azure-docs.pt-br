@@ -1,6 +1,6 @@
 ---
-title: Solução do Azure VMware por CloudSimple-fazer backup de máquinas virtuais de carga de trabalho na nuvem privada usando o Veeam
-description: Descreve como você pode fazer backup de suas máquinas virtuais que estão sendo executadas em uma nuvem privada do CloudSimple com base no Azure usando o Veeam B & R 9,5
+title: Soluções VMware do Azure (AVS)-fazer backup de máquinas virtuais de carga de trabalho na nuvem privada de AVS usando o Veeam
+description: Descreve como você pode fazer backup de suas máquinas virtuais que estão sendo executadas em uma nuvem privada da AVS baseada no Azure usando o Veeam B & R 9,5
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/16/2019
@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3262841efb9109b1de24fe501ea0a7bea0dd612d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d8dc822ec07bdf061121b97384d0e2f9f239d6e2
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232361"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025122"
 ---
-# <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Fazer backup de VMs de carga de trabalho na nuvem privada do CloudSimple usando o Veeam B & R
+# <a name="back-up-workload-vms-on-avs-private-cloud-using-veeam-br"></a>Fazer backup de VMs de carga de trabalho na nuvem privada da AVS usando o Veeam B & R
 
-Este guia descreve como você pode fazer backup de suas máquinas virtuais que estão sendo executadas em uma nuvem privada do CloudSimple com base no Azure usando o Veeam B & R 9,5.
+Este guia descreve como você pode fazer backup de suas máquinas virtuais em execução em uma nuvem privada da AVS baseada no Azure usando o Veeam B & R 9,5.
 
 ## <a name="about-the-veeam-back-up-and-recovery-solution"></a>Sobre a solução de backup e recuperação do Veeam
 
@@ -43,16 +43,16 @@ Os servidores proxy são instalados entre o servidor de backup e outros componen
 
 **Repositório de backup**
 
-O repositório de backup é o local de armazenamento em que o Veeam mantém arquivos de backup, cópias de VM e metadados para VMs replicadas.  O repositório pode ser um servidor Windows ou Linux com discos locais (ou NFS/SMB montado) ou um dispositivo de eliminação de duplicação de armazenamento de hardware.
+O repositório de backup é o local de armazenamento em que o Veeam mantém arquivos de backup, cópias de VM e metadados para VMs replicadas. O repositório pode ser um servidor Windows ou Linux com discos locais (ou NFS/SMB montado) ou um dispositivo de eliminação de duplicação de armazenamento de hardware.
 
 ### <a name="veeam-deployment-scenarios"></a>Cenários de implantação do Veeam
-Você pode aproveitar o Azure para fornecer um repositório de backup e um destino de armazenamento para backup e arquivamento de longo prazo. Todo o tráfego de rede de backup entre as VMs na nuvem privada e o repositório de backup no Azure passa por um link de alta largura de banda e baixa latência. O tráfego de replicação entre regiões passa pela rede interna do Azure backplane, o que reduz os custos de largura de banda para os usuários.
+Você pode aproveitar o Azure para fornecer um repositório de backup e um destino de armazenamento para backup e arquivamento de longo prazo. Todo o tráfego de rede de backup entre VMs na nuvem privada de AVS e o repositório de backup no Azure passa por um link de alta largura de banda e baixa latência. O tráfego de replicação entre regiões passa pela rede interna do Azure backplane, o que reduz os custos de largura de banda para os usuários.
 
 **Implantação básica**
 
-Para ambientes com menos de 30 TB para backup, o CloudSimple recomenda a seguinte configuração:
+Para ambientes com menos de 30 TB para backup, a AVS recomenda a seguinte configuração:
 
-* Servidor de backup do Veeam e servidor proxy instalados na mesma VM na nuvem privada.
+* Servidor de backup do Veeam e servidor proxy instalados na mesma VM na nuvem privada da AVS.
 * Um repositório de backup primário baseado em Linux no Azure configurado como um destino para trabalhos de backup.
 * `azcopy` usado para copiar os dados do repositório de backup primário para um contêiner de blob do Azure que é replicado para outra região.
 
@@ -60,10 +60,10 @@ Para ambientes com menos de 30 TB para backup, o CloudSimple recomenda a seguint
 
 **Implantação avançada**
 
-Para ambientes com mais de 30 TB para fazer backup, o CloudSimple recomenda a seguinte configuração:
+Para ambientes com mais de 30 TB para backup, a AVS recomenda a seguinte configuração:
 
 * Um servidor proxy por nó no cluster vSAN, conforme recomendado pelo Veeam.
-* Repositório de backup primário baseado no Windows na nuvem privada para armazenar em cache cinco dias de dados para restaurações rápidas.
+* O repositório de backup primário baseado no Windows na nuvem privada de AVS para armazenar em cache cinco dias de dados para restaurações rápidas.
 * Repositório de backup do Linux no Azure como um destino para trabalhos de cópia de backup para retenção de duração mais longa. Esse repositório deve ser configurado como um repositório de backup de expansão.
 * `azcopy` usado para copiar os dados do repositório de backup primário para um contêiner de blob do Azure que é replicado para outra região.
 
@@ -71,32 +71,32 @@ Para ambientes com mais de 30 TB para fazer backup, o CloudSimple recomenda a se
 
 Na figura anterior, observe que o proxy de backup é uma VM com acesso de adição quente a discos de VM de carga de trabalho no repositório de armazenamento vSAN. Veeam usa o modo de transporte proxy de backup de dispositivo virtual para vSAN.
 
-## <a name="requirements-for-veeam-solution-on-cloudsimple"></a>Requisitos para a solução Veeam no CloudSimple
+## <a name="requirements-for-veeam-solution-on-avs"></a>Requisitos para a solução Veeam na AVS
 
 A solução Veeam exige que você faça o seguinte:
 
 * Forneça suas próprias licenças do Veeam.
-* Implante e gerencie o Veeam para fazer backup das cargas de trabalho em execução na nuvem privada do CloudSimple.
+* Implante e gerencie o Veeam para fazer backup das cargas de trabalho em execução na nuvem privada da AVS.
 
 Essa solução fornece controle total sobre a ferramenta de backup Veeam e oferece a opção de usar a interface Veeam nativa ou o plug-in do vCenter do Veeam para gerenciar trabalhos de backup de VM.
 
 Se você for um usuário Veeam existente, poderá ignorar a seção nos componentes da solução Veeam e prosseguir diretamente para os [cenários de implantação do Veeam](#veeam-deployment-scenarios).
 
-## <a name="install-and-configure-veeam-backups-in-your-cloudsimple-private-cloud"></a>Instalar e configurar backups do Veeam em sua nuvem privada do CloudSimple
+## <a name="install-and-configure-veeam-backups-in-your-avs-private-cloud"></a>Instalar e configurar backups do Veeam em sua nuvem privada de AVS
 
-As seções a seguir descrevem como instalar e configurar uma solução de backup Veeam para sua nuvem privada do CloudSimple.
+As seções a seguir descrevem como instalar e configurar uma solução de backup Veeam para sua nuvem privada de AVS.
 
 O processo de implantação consiste nestas etapas:
 
-1. [interface do usuário do vCenter: configurar serviços de infraestrutura em sua nuvem privada](#vcenter-ui-set-up-infrastructure-services-in-your-private-cloud)
-2. [Portal do CloudSimple: configurar a rede de nuvem privada para Veeam](#cloudsimple-private-cloud-set-up-private-cloud-networking-for-veeam)
-3. [Portal do CloudSimple: escalonar privilégios](#cloudsimple-private-cloud-escalate-privileges-for-cloudowner)
-4. [Portal do Azure: conectar sua rede virtual à nuvem privada](#azure-portal-connect-your-virtual-network-to-the-private-cloud)
-5. [Portal do Azure: criar um repositório de backup no Azure](#azure-portal-connect-your-virtual-network-to-the-private-cloud)
+1. [interface do usuário do vCenter: configurar serviços de infraestrutura em sua nuvem privada da AVS](#vcenter-ui-set-up-infrastructure-services-in-your-avs-private-cloud)
+2. [Portal da AVS: configurar a rede de nuvem privada de AVS para Veeam](#avs-private-cloud-set-up-avs-private-cloud-networking-for-veeam)
+3. [Portal da AVS: escalonar privilégios](#avs-private-cloud-escalate-privileges-for-cloudowner)
+4. [Portal do Azure: conectar sua rede virtual à nuvem privada da AVS](#azure-portal-connect-your-virtual-network-to-the-avs-private-cloud)
+5. [Portal do Azure: criar um repositório de backup no Azure](#azure-portal-connect-your-virtual-network-to-the-avs-private-cloud)
 6. [Portal do Azure: configurar o armazenamento de BLOBs do Azure para retenção de dados de longo prazo](#configure-azure-blob-storage-for-long-term-data-retention)
-7. [interface do usuário do vCenter da nuvem privada: instalar o Veeam B & R](#vcenter-console-of-private-cloud-install-veeam-br)
+7. [interface do usuário do vCenter da nuvem privada da AVS: instalar o Veeam B & R](#vcenter-console-of-avs-private-cloud-install-veeam-br)
 8. [Console do Veeam: configurar o backup do Veeam & software de recuperação](#veeam-console-install-veeam-backup-and-recovery-software)
-9. [Portal do CloudSimple: configurar os privilégios de acesso e desescalonamento de Veeam](#cloudsimple-portal-set-up-veeam-access-and-de-escalate-privileges)
+9. [Portal da AVS: configurar o acesso de Veeam e desescalonamento de privilégios](#avs-portal-set-up-veeam-access-and-de-escalate-privileges)
 
 ### <a name="before-you-begin"></a>Antes de começar
 
@@ -106,29 +106,28 @@ Os itens a seguir são necessários antes de começar a implantação do Veeam:
 * Um grupo de recursos do Azure criado previamente
 * Uma rede virtual do Azure em sua assinatura
 * Uma conta de armazenamento do Azure
-* Uma [nuvem privada](create-private-cloud.md) criada usando o portal do CloudSimple.  
+* Uma [nuvem privada de AVS](create-private-cloud.md) criada usando o portal da AVS.  
 
 Os seguintes itens são necessários durante a fase de implementação:
 
 * Modelos do VMware para Windows para instalar o Veeam (como o Windows Server 2012 R2-imagem de 64 bits)
 * Uma VLAN disponível identificada para a rede de backup
 * CIDR da sub-rede a ser atribuída à rede de backup
-* ISO (mídia instalável) do Veeam 9,5 carregada no repositório de armazenamento do vSAN da nuvem privada
+* ISO (mídia instalável) do Veeam 9,5 carregada no repositório de armazenamento do vSAN da nuvem privada da AVS
 
-### <a name="vcenter-ui-set-up-infrastructure-services-in-your-private-cloud"></a>interface do usuário do vCenter: configurar serviços de infraestrutura em sua nuvem privada
+### <a name="vcenter-ui-set-up-infrastructure-services-in-your-avs-private-cloud"></a>interface do usuário do vCenter: configurar serviços de infraestrutura em sua nuvem privada da AVS
 
-Configure serviços de infraestrutura na nuvem privada para facilitar o gerenciamento de suas cargas de trabalho e ferramentas.
+Configure serviços de infraestrutura na nuvem privada da AVS para facilitar o gerenciamento de suas cargas de trabalho e ferramentas.
 
 * Você pode adicionar um provedor de identidade externo conforme descrito em [configurar fontes de identidade do vCenter para usar Active Directory](set-vcenter-identity.md) se qualquer uma das seguintes opções for aplicável:
-
-  * Você deseja identificar os usuários do seu Active Directory local (AD) em sua nuvem privada.
-  * Você deseja configurar um AD em sua nuvem privada para todos os usuários.
+  * Você deseja identificar os usuários do seu Active Directory local (AD) em sua nuvem privada de AVS.
+  * Você deseja configurar um AD em sua nuvem privada de AVS para todos os usuários.
   * Você deseja usar o Azure AD.
-* Para fornecer pesquisa de endereço IP, gerenciamento de endereços IP e serviços de resolução de nomes para suas cargas de trabalho na nuvem privada, configure um servidor DHCP e DNS, conforme descrito em [configurar aplicativos DNS e DHCP e cargas de trabalho em sua nuvem privada do CloudSimple](dns-dhcp-setup.md).
+* Para fornecer pesquisa de endereço IP, gerenciamento de endereços IP e serviços de resolução de nomes para suas cargas de trabalho na nuvem privada da AVS, configure um servidor DHCP e DNS, conforme descrito em [configurar aplicativos DNS e DHCP e cargas de trabalho em sua nuvem privada de AVS](dns-dhcp-setup.md).
 
-### <a name="cloudsimple-private-cloud-set-up-private-cloud-networking-for-veeam"></a>Nuvem privada do CloudSimple: configurar a rede de nuvem privada para Veeam
+### <a name="avs-private-cloud-set-up-avs-private-cloud-networking-for-veeam"></a>Nuvem privada de AVS: configurar a rede de nuvem privada de AVS para Veeam
 
-Acesse o portal do CloudSimple para configurar a rede de nuvem privada para a solução Veeam.
+Acesse o portal da AVS para configurar a rede de nuvem privada AVS para a solução Veeam.
 
 Crie uma VLAN para a rede de backup e atribua a ela um CIDR de sub-rede. Para obter instruções, consulte [criar e gerenciar VLANs/sub-redes](create-vlan-subnet.md).
 
@@ -136,7 +135,7 @@ Crie regras de firewall entre a sub-rede de gerenciamento e a rede de backup par
 
 A tabela a seguir fornece uma lista de portas.
 
-| ícone | DESCRIÇÃO | ícone | DESCRIÇÃO |
+| ícone | Description | ícone | Description |
 | ------------ | ------------- | ------------ | ------------- |
 | Servidor de Backup  | vCenter  | HTTPS/TCP  | 443 |
 | Servidor de Backup <br> *Necessário para implantar os componentes de replicação & backup do Veeam* | Proxy de backup  | TCP/UDP  | 135, 137 a 139 e 445 |
@@ -149,19 +148,19 @@ A tabela a seguir fornece uma lista de portas.
     | Repositório de backup  | Proxy de backup  | TCP  | 2500-5000  | 
     | Repositório de backup de origem<br> *Usado para trabalhos de cópia de backup*  | Repositório de destino de backup  | TCP  | 2500-5000  | 
 
-Crie regras de firewall entre a sub-rede de carga de trabalho e a rede de backup, conforme descrito em [configurar regras e tabelas de firewall](firewall.md).  Para backup e restauração com reconhecimento de aplicativo, [as portas adicionais](https://helpcenter.veeam.com/docs/backup/vsphere/used_ports.html?ver=95) devem ser abertas nas VMs de carga de trabalho que hospedam aplicativos específicos.
+Crie regras de firewall entre a sub-rede de carga de trabalho e a rede de backup, conforme descrito em [configurar regras e tabelas de firewall](firewall.md). Para backup e restauração com reconhecimento de aplicativo, [as portas adicionais](https://helpcenter.veeam.com/docs/backup/vsphere/used_ports.html?ver=95) devem ser abertas nas VMs de carga de trabalho que hospedam aplicativos específicos.
 
-Por padrão, o CloudSimple fornece um link do ExpressRoute 1 Gbps. Para tamanhos de ambiente maiores, um link de largura de banda maior pode ser necessário. Contate o suporte do Azure para obter mais informações sobre links de largura de banda maiores.
+Por padrão, o AVS fornece um link do ExpressRoute 1 Gbps. Para tamanhos de ambiente maiores, um link de largura de banda maior pode ser necessário. Contate o suporte do Azure para obter mais informações sobre links de largura de banda maiores.
 
-Para continuar a instalação, você precisa da chave de autorização e do URI do circuito par e do acesso à sua assinatura do Azure.  Essas informações estão disponíveis na página conexão de rede virtual no portal do CloudSimple. Para obter instruções, consulte [obter informações de emparelhamento para a rede virtual do Azure para a conexão CloudSimple](virtual-network-connection.md). Se você tiver problemas para obter as informações, [entre em contato com o suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Para continuar a instalação, você precisa da chave de autorização e do URI do circuito par e do acesso à sua assinatura do Azure. Essas informações estão disponíveis na página conexão de rede virtual no portal da AVS. Para obter instruções, consulte [obter informações de emparelhamento para a rede virtual do Azure para conexão AVS](virtual-network-connection.md). Se você tiver problemas para obter as informações, [entre em contato com o suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-### <a name="cloudsimple-private-cloud-escalate-privileges-for-cloudowner"></a>Nuvem privada CloudSimple: escalonar privilégios para cloudowner
+### <a name="avs-private-cloud-escalate-privileges-for-cloudowner"></a>Nuvem privada de AVS: escalonar privilégios para **cloudowner**
 
-O usuário ' cloudowner ' padrão não tem privilégios suficientes no vCenter da nuvem privada para instalar o VEEAM, portanto, os privilégios de vCenter do usuário devem ser escalados. Para obter mais informações, consulte [escalonar privilégios](escalate-private-cloud-privileges.md).
+O usuário ' cloudowner ' padrão não tem privilégios suficientes no vCenter Cloud privado da AVS para instalar o VEEAM, portanto, os privilégios de vCenter do usuário devem ser escalonados. Para obter mais informações, consulte [escalonar privilégios](escalate-private-cloud-privileges.md).
 
-### <a name="azure-portal-connect-your-virtual-network-to-the-private-cloud"></a>Portal do Azure: conectar sua rede virtual à nuvem privada
+### <a name="azure-portal-connect-your-virtual-network-to-the-avs-private-cloud"></a>Portal do Azure: conectar sua rede virtual à nuvem privada da AVS
 
-Conecte sua rede virtual à nuvem privada seguindo as instruções em conexão de [rede virtual do Azure usando o ExpressRoute](azure-expressroute-connection.md).
+Conecte sua rede virtual à nuvem privada da AVS seguindo as instruções em [conexão de rede virtual do Azure usando o ExpressRoute](azure-expressroute-connection.md).
 
 ### <a name="azure-portal-create-a-backup-repository-vm"></a>Portal do Azure: criar uma VM de repositório de backup
 
@@ -169,7 +168,7 @@ Conecte sua rede virtual à nuvem privada seguindo as instruções em conexão d
 2. Selecione a imagem baseada em CentOS 7,4.
 3. Configure um NSG (grupo de segurança de rede) para a VM. Verifique se a VM não tem um endereço IP público e não está acessível pela Internet pública.
 4. Crie uma conta de usuário com base em senha e nome de usuários para a nova VM. Para obter instruções, consulte [criar uma máquina virtual Linux no portal do Azure](../virtual-machines/linux/quick-create-portal.md).
-5. Crie HDD 1x GiB Standard e anexe-o à VM do repositório.  Para obter instruções, consulte [como anexar um disco de dados gerenciado a uma VM do Windows no portal do Azure](../virtual-machines/windows/attach-managed-disk-portal.md).
+5. Crie HDD 1x GiB Standard e anexe-o à VM do repositório. Para obter instruções, consulte [como anexar um disco de dados gerenciado a uma VM do Windows no portal do Azure](../virtual-machines/windows/attach-managed-disk-portal.md).
 6. [Crie um volume XFS no disco gerenciado](https://www.digitalocean.com/docs/volumes/how-to/). Faça logon na VM usando as credenciais mencionadas anteriormente. Execute o script a seguir para criar um volume lógico, adicione o disco a ele, crie uma [partição](https://www.digitalocean.com/docs/volumes/how-to/partition/) de sistema de arquivos XFS e [monte](https://www.digitalocean.com/docs/volumes/how-to/mount/) a partição no caminho/backup1.
 
     Script de exemplo:
@@ -185,7 +184,7 @@ Conecte sua rede virtual à nuvem privada seguindo as instruções em conexão d
     sudo mount -t xfs /dev/mapper/backup1-backup1 /backup1
     ```
 
-7. Expor o/backup1 como um ponto de montagem de NFS para o servidor de backup Veeam que está em execução na nuvem privada. Para obter instruções, consulte o artigo do oceano digital [como configurar uma montagem de NFS no CentOS 6](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-nfs-mount-on-centos-6). Use esse nome de compartilhamento NFS ao configurar o repositório de backup no servidor de backup Veeam.
+7. Expor o/backup1 como um ponto de montagem de NFS para o servidor de backup Veeam que está em execução na nuvem privada da AVS. Para obter instruções, consulte o artigo do oceano digital [como configurar uma montagem de NFS no CentOS 6](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-nfs-mount-on-centos-6). Use esse nome de compartilhamento NFS ao configurar o repositório de backup no servidor de backup Veeam.
 
 8. Configure regras de filtragem no NSG para a VM do repositório de backup para permitir explicitamente todo o tráfego de rede de e para a VM.
 
@@ -206,11 +205,11 @@ Conecte sua rede virtual à nuvem privada seguindo as instruções em conexão d
     sudo yum -y install icu
     ```
 
-3. Use o comando `azcopy` para copiar arquivos de backup de e para o contêiner de BLOB.  Consulte [transferir dados com AzCopy no Linux](../storage/common/storage-use-azcopy-linux.md) para obter comandos detalhados.
+3. Use o comando `azcopy` para copiar arquivos de backup de e para o contêiner de BLOB. Consulte [transferir dados com AzCopy no Linux](../storage/common/storage-use-azcopy-linux.md) para obter comandos detalhados.
 
-### <a name="vcenter-console-of-private-cloud-install-veeam-br"></a>console do vCenter da nuvem privada: instalar o Veeam B & R
+### <a name="vcenter-console-of-avs-private-cloud-install-veeam-br"></a>console do vCenter da nuvem privada da AVS: instalar o Veeam B & R
 
-Acesse o vCenter de sua nuvem privada para criar uma conta de serviço Veeam, instale o Veeam B & R 9,5 e configure o Veeam usando a conta de serviço.
+Acesse o vCenter de sua nuvem privada de AVS para criar uma conta de serviço Veeam, instale o Veeam B & R 9,5 e configure o Veeam usando a conta de serviço.
 
 1. Crie uma nova função chamada ' Veeam Backup role ' e atribua a ela permissões necessárias conforme recomendado pelo Veeam. Para obter detalhes, consulte o tópico Veeam [permissões necessárias](https://helpcenter.veeam.com/docs/backup/vsphere/required_permissions.html?ver=95).
 2. Crie um novo grupo ' grupo de usuários Veeam ' no vCenter e atribua a ele a ' função de backup Veeam '.
@@ -228,7 +227,7 @@ Acesse o vCenter de sua nuvem privada para criar uma conta de serviço Veeam, in
 
 Usando o console do Veeam, configure o software de backup e recuperação do Veeam. Para obter detalhes, consulte [Veeam Backup & Replication v9-Installation and Deployment](https://www.youtube.com/watch?v=b4BqC_WXARk).
 
-1. Adicione VMware vSphere como um ambiente de servidor gerenciado. Quando solicitado, forneça as credenciais da conta de serviço do Veeam que você criou no início do [console do vCenter da nuvem privada: Instale o Veeam B & R](#vcenter-console-of-private-cloud-install-veeam-br).
+1. Adicione VMware vSphere como um ambiente de servidor gerenciado. Quando solicitado, forneça as credenciais da conta de serviço do Veeam que você criou no início do [console do vCenter da nuvem privada da AVS: instalar o Veeam B & R](#vcenter-console-of-avs-private-cloud-install-veeam-br).
 
     * Use as configurações padrão para controle de carga e configurações avançadas padrão.
     * Defina o local do servidor de montagem como o servidor de backup.
@@ -253,7 +252,7 @@ Usando o console do Veeam, configure o software de backup e recuperação do Vee
     * Para configurar trabalhos de cópia de backup, siga as instruções no vídeo [criando um trabalho de cópia de backup](https://www.youtube.com/watch?v=LvEHV0_WDWI&t=2s).
     * Habilite a criptografia de arquivos de backup em **Configurações avançadas > armazenamento**.
 
-### <a name="cloudsimple-portal-set-up-veeam-access-and-de-escalate-privileges"></a>Portal do CloudSimple: configurar os privilégios de acesso e desescalonamento de Veeam
+### <a name="avs-portal-set-up-veeam-access-and-de-escalate-privileges"></a>Portal da AVS: configurar o acesso de Veeam e desescalonamento de privilégios
 Crie um endereço IP público para o servidor de backup e recuperação Veeam. Para obter instruções, consulte [alocar endereços IP públicos](public-ips.md).
 
 Crie uma regra de firewall usando para permitir que o servidor de backup do Veeam crie uma conexão de saída com o site do Veeam para baixar atualizações/patches na porta TCP 80. Para obter instruções, consulte [configurar regras e tabelas de firewall](firewall.md).
@@ -262,15 +261,15 @@ Para desescalonar privilégios, consulte [desescalonamento de privilégios](esca
 
 ## <a name="references"></a>Referências
 
-### <a name="cloudsimple-references"></a>Referências de CloudSimple
+### <a name="avs-references"></a>Referências de AVS
 
-* [Criar uma nuvem privada](create-private-cloud.md)
+* [Criar uma nuvem privada de AVS](create-private-cloud.md)
 * [Criar e gerenciar VLANs/sub-redes](create-vlan-subnet.md)
 * [Fontes de identidade do vCenter](set-vcenter-identity.md)
 * [Configuração de DNS e DHCP de carga de trabalho](dns-dhcp-setup.md)
 * [Escalonar privilégios](escalate-privileges.md)
 * [Configurar regras e tabelas de firewall](firewall.md)
-* [Permissões de nuvem privada](learn-private-cloud-permissions.md)
+* [Permissões de nuvem privada da AVS](learn-private-cloud-permissions.md)
 * [Alocar endereços IP públicos](public-ips.md)
 
 ### <a name="veeam-references"></a>Referências de Veeam

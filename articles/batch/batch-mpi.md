@@ -3,22 +3,22 @@ title: Usar tarefas de várias instâncias para executar aplicativos MPI - Azure
 description: Saiba como executar aplicativos de MPI (interface de transmissão de mensagens) usando o tipo de tarefa de várias instâncias no Lote do Azure.
 services: batch
 documentationcenter: ''
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
 ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.date: 03/13/2019
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fd58a18b4926d911df8493670ccd7da97708e075
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 1896fea3c401299b4f77235ab3c02d85708b7041
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029672"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023660"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Usar tarefas de várias instâncias para executar aplicativos de MPI (Interface de transmissão de mensagens) no Lote
 

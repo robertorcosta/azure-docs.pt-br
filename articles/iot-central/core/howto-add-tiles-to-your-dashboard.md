@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: b13349ae4293f6377429e9dc72b6c2cb43f92348
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 35965f238ed5b7768dd174788453838c917adb32
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435122"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023218"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurar o painel do aplicativo
 
@@ -48,7 +48,6 @@ Agora, quando um operador exibir o painel de aplicativo padrão, ele verá o nov
 > [!div class="mx-imgBorder"]
 > ![guia "painel" com as configurações e propriedades exibidas para o bloco](media/howto-add-tiles-to-your-dashboard/settings-and-properties.png)
 
-
 ## <a name="edit-tiles"></a>Editar blocos
 
 Para editar um bloco no painel, primeiro clique em **Editar** na parte superior esquerda da página, que abrirá o modo de edição para o painel e todos os seus blocos. 
@@ -80,11 +79,11 @@ A tabela a seguir resume o uso de blocos no Azure IoT Central:
 | Gráfico de Barras | Painéis de aplicativo e dispositivo |Os blocos de gráfico de barras exibem um gráfico de medidas agregadas para um dispositivo por um período de tempo. Por exemplo, você pode exibir um gráfico de barras que mostra a temperatura média e a pressão de um dispositivo na última hora.|
 | Gráfico de pizza | Painéis de conjunto de aplicativos e dispositivos |Os blocos de gráfico de pizza exibem um gráfico de medidas agregadas para um dispositivo por um período de tempo.|
 | Mapa de Calor | Painéis de conjunto de aplicativos e dispositivos |Os blocos de mapa de calor exibem informações sobre o conjunto de dispositivos, representadas como cores.|
-| Histórico de Eventos | Painéis de aplicativo e dispositivo |Os blocos de histórico de eventos exibem os eventos de um dispositivo durante um período de tempo. Por exemplo, você pode usá-lo para mostrar todas as alterações de temperatura de um dispositivo durante a última hora.|
+| Histórico de eventos | Painéis de aplicativo e dispositivo |Os blocos de histórico de eventos exibem os eventos de um dispositivo durante um período de tempo. Por exemplo, você pode usá-lo para mostrar todas as alterações de temperatura de um dispositivo durante a última hora.|
 | Histórico de Estado | Painéis de aplicativo e dispositivo |Blocos de histórico de estado exibem os valores de medida para um período de tempo. Por exemplo, você pode usá-lo para mostrar os valores de temperatura de um dispositivo durante a última hora.|
 | KPI | Painéis de aplicativo e dispositivo | Os blocos de KPI exibem uma telemetria agregada ou uma medida de evento para um período de tempo. Por exemplo, você pode usá-lo para mostrar a temperatura máxima atingida para um dispositivo durante a última hora.|
-| Último Valor Conhecido | Painéis de aplicativo e dispositivo |Os últimos blocos de valor conhecidos exibem o valor mais recente de uma medição de telemetria ou estado. Por exemplo, você pode usar esse bloco para exibir as medidas mais recentes de temperatura, pressão e umidade de um dispositivo.|
+| Último valor conhecido | Painéis de aplicativo e dispositivo |Os últimos blocos de valor conhecidos exibem o valor mais recente de uma medição de telemetria ou estado. Por exemplo, você pode usar esse bloco para exibir as medidas mais recentes de temperatura, pressão e umidade de um dispositivo.|
 
 ## <a name="next-steps"></a>Próximos passos
 
-Agora que você aprendeu como configurar seu painel de aplicativo padrão do Azure IoT Central, você pode [aprender a preparar e carregar imagens](howto-prepare-images.md).
+Agora que você aprendeu como configurar seu painel de aplicativo padrão do Azure IoT Central, você pode [aprender a criar um painel pessoal](howto-create-personal-dashboards.md).

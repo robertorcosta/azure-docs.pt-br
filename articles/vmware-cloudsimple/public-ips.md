@@ -1,6 +1,6 @@
 ---
-title: Solução do Azure VMware por CloudSimple-alocar endereços IP públicos
-description: Descreve como alocar endereços IP públicos para máquinas virtuais no ambiente de nuvem privada
+title: Soluções VMware do Azure (AVS) – alocar endereços IP públicos
+description: Descreve como alocar endereços IP públicos para máquinas virtuais no ambiente de nuvem privada da AVS
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 565c9ad0fbd37b026a1ba555d83b9032d2efcba4
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 87133f5efb9f096d3fdb0956aab1caac58b4bd94
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773797"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024289"
 ---
-# <a name="allocate-public-ip-addresses-for-private-cloud-environment"></a>Alocar endereços IP públicos para o ambiente de nuvem privada
+# <a name="allocate-public-ip-addresses-for-avs-private-cloud-environment"></a>Alocar endereços IP públicos para o ambiente de nuvem privada AVS
 
-Abra a guia IPs públicos na página rede para alocar endereços IP públicos para máquinas virtuais em seu ambiente de nuvem privada.
+Abra a guia IPs públicos na página rede para alocar endereços IP públicos para máquinas virtuais em seu ambiente de nuvem privada da AVS.
 
-1. [Acesse o portal do CloudSimple](access-cloudsimple-portal.md) e selecione **rede** no menu lateral.
+1. [Acesse o portal da AVS](access-cloudsimple-portal.md) e selecione **rede** no menu lateral.
 2. Selecione **IPS públicos**.
 3. Clique em **novo IP público**.
 

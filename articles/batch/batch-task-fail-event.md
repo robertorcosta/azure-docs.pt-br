@@ -2,21 +2,21 @@
 title: Evento de falha de tarefa do lote do Azure
 description: Referência de evento de falha de tarefa de lote. Esse evento será emitido além de um evento de conclusão de tarefa e poderá ser usado para detectar quando uma tarefa falhou.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.assetid: ''
 ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 08/15/2019
-ms.author: jushiman
-ms.openlocfilehash: a3786eed56c22dcd2c756e935265faa763ca7072
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: 2bc958d6dca2b3caae665e6f9b080c651ace9ea0
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026189"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022878"
 ---
 # <a name="task-fail-event"></a>Evento de falha da tarefa
 

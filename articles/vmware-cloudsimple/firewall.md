@@ -1,6 +1,6 @@
 ---
-title: Solução do Azure VMware por CloudSimple-configure as tabelas e regras de firewall
-description: Descreve como configurar tabelas e regras de firewall de nuvem privada para restringir o tráfego em sub-redes e VLANs.
+title: Soluções VMware do Azure (AVS)-configurar regras e tabelas de firewall
+description: Descreve como configurar as tabelas e regras de firewall de nuvem privada da AVS para restringir o tráfego em sub-redes e VLANs.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -8,14 +8,14 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 411b4bb74c21a445f4001c949e1c7811af212453
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: d133f4d0ac8cc8b70060563ad07da35e9fdf2d37
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606447"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025275"
 ---
-# <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Configurar tabelas e regras de firewall para nuvens privadas
+# <a name="set-up-firewall-tables-and-rules-for-avs-private-clouds"></a>Configurar tabelas e regras de firewall para nuvens privadas da AVS
 
 As tabelas de firewall e as regras associadas permitem que você especifique as restrições de tráfego a serem aplicadas a sub-redes e VLANs específicas.
 
@@ -24,7 +24,7 @@ As tabelas de firewall e as regras associadas permitem que você especifique as 
 
 ## <a name="add-a-new-firewall-table"></a>Adicionar uma nova tabela de firewall
 
-1. [Acesse o portal do CloudSimple](access-cloudsimple-portal.md) e selecione **rede** no menu lateral.
+1. [Acesse o portal da AVS](access-cloudsimple-portal.md) e selecione **rede** no menu lateral.
 2. Selecione **tabelas de firewall**.
 3. Selecione **criar tabela de firewall**.
 
@@ -75,5 +75,5 @@ Depois de definir uma tabela de firewall, você pode especificar as sub-redes qu
 1. Na página tabelas de **Firewall** de > de **rede** , selecione uma tabela de firewall.
 2. Abra a guia **VLANs/sub-rede anexadas** .
 3. Clique em **anexar a uma VLAN/sub-rede**.
-4. Selecione a nuvem privada e a VLAN. O nome de sub-rede e o bloco CIDR associados são mostrados.
+4. Selecione a nuvem privada e a VLAN de sincronização automática. O nome de sub-rede e o bloco CIDR associados são mostrados.
 5. Clique em **Enviar**.

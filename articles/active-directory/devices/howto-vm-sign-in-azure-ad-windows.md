@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42d1fde92e9315e8df3f65b2ab91ced74b377c0a
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 70fe718884796ac127be38c375003dd728089be8
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293446"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016027"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Entrar na máquina virtual do Windows no Azure usando a autenticação Azure Active Directory (versão prévia)
 
@@ -239,9 +239,9 @@ A extensão AADLoginForWindows deve ser instalada com êxito para que a VM concl
 
    | Comando a ser executado | Saída esperada |
    | --- | --- |
-   | Metadados de ondulação-H: verdadeiro "http://169.254.169.254/metadata/instance?api-version=2017-08-01" | Informações corretas sobre a VM do Azure |
-   | Metadados de ondulação-H: verdadeiro "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01" | ID de locatário válida associada à assinatura do Azure |
-   | Metadados de ondulação-H: verdadeiro "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01" | Token de acesso válido emitido por Azure Active Directory para a identidade gerenciada atribuída a esta VM |
+   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/instance?api-version=2017-08-01"` | Informações corretas sobre a VM do Azure |
+   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01"` | ID de locatário válida associada à assinatura do Azure |
+   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Token de acesso válido emitido por Azure Active Directory para a identidade gerenciada atribuída a esta VM |
 
    > [!NOTE]
    > O token de acesso pode ser decodificado usando uma ferramenta como [http://calebb.net/](http://calebb.net/). Verifique se "AppID" no token de acesso corresponde à identidade gerenciada atribuída à VM.

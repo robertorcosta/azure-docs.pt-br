@@ -1,6 +1,6 @@
 ---
 title: Cobertura de renderização | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá sobre regiões com Microsoft Azure mapas de renderização com cobertura junto com seus níveis de detalhes renderizados.
+description: Neste artigo, saiba mais sobre regiões com mapas de Microsoft Azure renderizam a cobertura junto com seus níveis de detalhes renderizados.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 03/22/2019
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 84d5d7fc6490420857032ead964f5bccea8f397a
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 04e7aeddaa4e3aba38f1bf08893b0b0487109653
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910666"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025445"
 ---
 # <a name="azure-maps-render-coverage"></a>Cobertura de renderização do Mapas do Azure
 
-O Mapas do Azure usa blocos de varredura e blocos de vetor para criar mapas. Em sua resolução mais baixa, o mundo inteiro se ajusta a um único bloco. Em sua resolução mais alta, um único bloco representa 38 metros quadrados. Ao ampliar um mapa, portanto, você pode ver cada vez mais detalhes de continentes, regiões, cidades e ruas individuais. Para obter mais informações, consulte [Níveis de Zoom e grade de blocos](zoom-levels-and-tile-grid.md).
+O Mapas do Azure usa blocos de varredura e blocos de vetor para criar mapas. Na resolução mais baixa, o mundo inteiro se encaixa em um único bloco. Na resolução mais alta, um único bloco representa 38 metros quadrados. Ao ampliar, você verá mais detalhes sobre continentes, regiões, cidades e ruas individuais. Para obter mais informações sobre blocos, consulte [níveis de zoom e grade de blocos](zoom-levels-and-tile-grid.md).
 
-No entanto, o Mapas não têm o mesmo nível de informações e precisão para todas as regiões. As tabelas a seguir fornecem informações sobre o nível de detalhe renderizado que você pode esperar de cada região.
+No entanto, o Mapas não têm o mesmo nível de informações e precisão para todas as regiões. As tabelas a seguir detalham o nível de informações que você pode renderizar para cada região.
 
 ## <a name="legend"></a>Legenda
 
@@ -75,7 +75,7 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Reunião                          | ✓ | ✓ |
 | Ruanda                           | ✓ | ✓ |
 | Santa Helena, Ascensão e Tristão da Cunha | ✓ | Ø |
-| São Tomé and Príncipe            | ✓ | Ø |
+| São Tomé e Príncipe            | ✓ | Ø |
 | Senegal                          | ✓ | ✓ |
 | Serra Leoa                     | ✓ | ✓ |
 | Somália                          | ✓ | ✓ |

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1ce564767fe9664604687d8cbaced58507e6b8b3
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 50e17fae88f16d7579997b3b356638777ec3163a
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76119645"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77014276"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -146,11 +146,11 @@ O atributo de ID do elemento **ContentDefinition** especifica o tipo de página 
 | **api.error** | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Página de erro** – exibe uma página de erro quando uma exceção ou um erro é encontrado. |
 | **api.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Página de seleção do provedor de identidade** – lista provedores de identidade entre os quais os usuários podem escolher durante a entrada. Normalmente, as opções são provedores de identidade corporativa, provedores de identidade social, como Facebook e Google+ ou contas locais. |
 | **api.idpselections.signup** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Seleção de provedor de identidade para inscrição** – lista provedores de identidade entre os quais os usuários podem escolher durante a inscrição. Normalmente, as opções são provedores de identidade corporativa, provedores de identidade social, como Facebook e Google+ ou contas locais. |
-| **api.localaccountpasswordreset** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Página Esqueci a senha** – exibe um formulário que os usuários precisam preencher para iniciar uma redefinição de senha. |
-| **api.localaccountsignin** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Página de entrada em conta local** – exibe um formulário para entrar com uma conta local com base em um endereço de email ou nome de usuário. O formulário pode conter uma caixa de entrada de texto e caixa de entrada de senha. |
-| **api.localaccountsignup** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Página de inscrição de conta local** – exibe um formulário para se inscrever para uma conta local com base em um endereço de email ou nome de usuário. O formulário pode conter diferentes controles de entrada, por exemplo: caixa de entrada de texto, caixa de entrada de senha, botão de opção, caixas de lista suspensa de seleção única e caixas de seleção múltipla. |
+| **api.localaccountpasswordreset** | [selfasserted. cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Página Esqueci a senha** – exibe um formulário que os usuários precisam preencher para iniciar uma redefinição de senha. |
+| **api.localaccountsignin** | [selfasserted. cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Página de entrada em conta local** – exibe um formulário para entrar com uma conta local com base em um endereço de email ou nome de usuário. O formulário pode conter uma caixa de entrada de texto e caixa de entrada de senha. |
+| **api.localaccountsignup** | [selfasserted. cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Página de inscrição de conta local** – exibe um formulário para se inscrever para uma conta local com base em um endereço de email ou nome de usuário. O formulário pode conter diferentes controles de entrada, por exemplo: caixa de entrada de texto, caixa de entrada de senha, botão de opção, caixas de lista suspensa de seleção única e caixas de seleção múltipla. |
 | **api.phonefactor** | [multifactor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Página de autenticação multifator** – verifica os números de telefone usando texto ou voz durante a inscrição ou a entrada. |
-| **api.selfasserted** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Página de inscrição com conta social** – exibe um formulário que os usuários devem preencher ao se inscreverem usando uma conta existente de um provedor de identidade social. Esta página é semelhante à página de inscrição de conta social anterior, exceto pelos campos de entrada de senha. |
-| **api.selfasserted.profileupdate** | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Página de atualização de perfil** – exibe um formulário que os usuários podem acessar para atualizar o perfil. Esta página é semelhante à página de inscrição de conta social, exceto pelos campos de entrada de senha. |
-| **api.signuporsignin** | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Página de inscrição ou entrada unificada** – trata do processo de inscrição e entrada do usuário. Os usuários podem usar provedores de identidade corporativa, provedores de identidade social, como Facebook e Google+ ou contas locais. |
+| **api.selfasserted** | [selfasserted. cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Página de inscrição com conta social** – exibe um formulário que os usuários devem preencher ao se inscreverem usando uma conta existente de um provedor de identidade social. Esta página é semelhante à página de inscrição de conta social anterior, exceto pelos campos de entrada de senha. |
+| **api.selfasserted.profileupdate** | [updateProfile. cshtml](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Página de atualização de perfil** – exibe um formulário que os usuários podem acessar para atualizar o perfil. Esta página é semelhante à página de inscrição de conta social, exceto pelos campos de entrada de senha. |
+| **api.signuporsignin** | [Unified. cshtml](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Página de inscrição ou entrada unificada** – trata do processo de inscrição e entrada do usuário. Os usuários podem usar provedores de identidade corporativa, provedores de identidade social, como Facebook e Google+ ou contas locais. |
 

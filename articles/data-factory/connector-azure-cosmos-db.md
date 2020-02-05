@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/11/2019
-ms.openlocfilehash: 52bec8bba7bb3ddf545e3bd1866775f0964c6ad3
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 6e9e1d54599ab88092638762ccd7974e44c82cbf
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893133"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025802"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copiar e transformar dados em Azure Cosmos DB (API do SQL) usando Azure Data Factory
 
@@ -24,7 +24,7 @@ ms.locfileid: "75893133"
 > * [Versão 1](v1/data-factory-azure-documentdb-connector.md)
 > * [Versão atual](connector-azure-cosmos-db.md)
 
-Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de e para Azure Cosmos DB (API do SQL) e usar o fluxo de dados para transformar dados em Azure Cosmos DB (API do SQL). Para saber mais sobre o Azure Data Factory, leia as [artigo introdutório](introduction.md).
+Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de e para o Azure Cosmos DB (API SQL) e usar o Fluxo de Dados para transformar dados no Azure Cosmos DB (API SQL). Para saber mais sobre o Azure Data Factory, leia as [artigo introdutório](introduction.md).
 
 >[!NOTE]
 >Este conector dá suporte apenas à API do SQL Cosmos DB. Para a API do MongoDB, confira o [conector para API do Azure Cosmos DB para MongoDB](connector-azure-cosmos-db-mongodb-api.md). Não há suporte para outros tipos de API.
@@ -268,6 +268,18 @@ As configurações específicas para Azure Cosmos DB estão disponíveis na guia
 **Taxa de transferência:** Defina um valor opcional para o número de RUs que você gostaria de aplicar à sua coleção CosmosDB para cada execução desse fluxo de dados durante a operação de leitura. O mínimo é 400.
 
 **Regiões preferenciais:** Escolha as regiões de leitura preferenciais para esse processo.
+
+#### <a name="json-settings"></a>Configurações de JSON
+
+**Documento único:** Selecione esta opção se o ADF for tratar o arquivo inteiro como um único documento JSON.
+
+**Nomes de colunas sem aspas:** Selecione esta opção se os nomes de coluna no JSON não estiverem entre aspas.
+
+**Tem comentários:** Use essa seleção se seus documentos JSON tiverem comentários nos dados.
+
+**Entre aspas simples:** Isso deve ser selecionado se as colunas e valores em seu documento estiverem entre aspas simples.
+
+**Escape de barra invertida:** Se estiver usando barras invertidas em caracteres de escape em seu JSON, escolha essa opção.
 
 ### <a name="sink-transformation"></a>Transformação do coletor
 

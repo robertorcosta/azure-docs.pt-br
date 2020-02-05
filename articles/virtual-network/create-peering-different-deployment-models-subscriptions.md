@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: kumud
 ms.reviewer: anavin
-ms.openlocfilehash: 6d45e3d911b8070529c43d9069a3d0d2fa5d3e69
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0429bf4968f457e201491db3df16f0004f216f30
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979008"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023269"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Criar um emparelhamento de rede virtual – modelos de implantação e assinaturas diferentes
 
@@ -325,4 +325,4 @@ Ao concluir este tutorial, talvez você deseje excluir os recursos criados no tu
 
 - Familiarize por completo com [comportamentos e restrições importantes do emparelhamento de rede virtual](virtual-network-manage-peering.md#requirements-and-constraints) antes de criar um emparelhamento de rede virtual para uso em produção.
 - Saiba mais sobre todas as [configurações de emparelhamento de rede virtual](virtual-network-manage-peering.md#create-a-peering).
-- Saiba como [criar uma topologia de rede hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) com o emparelhamento de rede virtual.
+- Saiba como [criar uma topologia de rede hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering) com o emparelhamento de rede virtual.

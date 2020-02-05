@@ -1,86 +1,95 @@
 ---
-title: Analisar dados do dispositivo em seu aplicativo do Azure IoT Central | Microsoft Docs
-description: Este artigo descreve como analisar os dados do dispositivo no aplicativo IoT Central do Azure usando consultas e visualizações.
-author: lmasieri
-ms.author: lmasieri
-ms.date: 06/09/2019
+title: Analisar dados do dispositivo em seu aplicativo de IoT Central do Azure | Microsoft Docs
+description: Analise os dados do dispositivo em seu aplicativo IoT Central do Azure.
+author: ankitgup
+ms.author: ankitgup
+ms.date: 11/27/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: peterpr
-ms.openlocfilehash: a467e0e6e8967cf963ad099f83de6718330aa43f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+manager: abjork
+ms.openlocfilehash: 7627421317458eb0ff9637b3497df11dacfddbff
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827971"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023847"
 ---
-# <a name="how-to-use-analytics-to-analyze-your-device-data"></a>Como usar análise para analisar os dados do dispositivo
+# <a name="how-to-use-analytics-to-analyze-device-data"></a>Como usar a análise para analisar dados do dispositivo
 
 *Este artigo aplica-se a operadores, construtores e administradores.*
 
-A Central de IoT do Azure fornece recursos avançados de análise para compreender grandes quantidades de dados de seus dispositivos. Para começar, visite **análise** no painel esquerdo.
+
+
+O Azure IoT Central fornece recursos de análise avançados para analisar tendências históricas e correlacionar vários telemetrias de seus dispositivos. Para começar, visite **análise** no painel esquerdo.
+
+## <a name="understanding-the-analytics-ui"></a>Noções básicas sobre a interface do usuário do Analytics
+A interface do usuário do Analytics é composta por três componentes principais:
+- **Painel de configuração de dados:** No painel de configuração, comece selecionando o grupo de dispositivos para o qual você deseja analisar os dados. Em seguida, selecione a telemetria que você deseja analisar e selecione o método de agregação para cada telemetria. A **divisão por** controle ajuda a agrupar os dados usando as propriedades do dispositivo como dimensões.
+
+- **Controle de tempo:** O controle de tempo é usado para selecionar a duração para a qual você deseja analisar os dados. Você pode arrastar uma das extremidades do controle deslizante de tempo para selecionar o período de tempo. O controle de tempo também tem um controle deslizante de **tamanho de intervalo** que controla o Bucket ou o tamanho do intervalo usado para agregar os dados. 
+
+- **Controle de gráfico:** O controle de gráfico visualiza os dados como um gráfico de linhas. Você pode alternar a visibilidade de linhas específicas interagindo com a legenda do gráfico. 
+
+
+  ![Visão geral da interface do usuário do Analytics](media/howto-create-analytics/analyticsui.png)
+
 
 ## <a name="querying-your-data"></a>Consultando seus dados
 
-Você precisará escolher um **conjunto de dispositivos**, adicionar um **filtro** (opcional) e selecionar um **período de tempo** para começar. Depois de terminar, selecione **Mostrar resultados** para começar a visualizar seus dados.
+Você precisará começar escolhendo um grupo de **dispositivos**e a telemetria que deseja analisar. Depois de terminar, selecione **analisar** para começar a visualizar seus dados.
 
-* **Conjuntos de dispositivos:** um [conjunto de dispositivo](howto-use-device-sets.md) é um grupo de dispositivos definido pelo usuário. Por exemplo, todos os refrigeradores em Oakland ou todas as turbinas eólicas rev 2.0.
+- **Grupo de dispositivos:** Um [grupo de dispositivos](tutorial-use-device-groups.md) é um grupo definido pelo usuário de seus dispositivos. Por exemplo, todos os refrigeradores em Oakland ou todas as versões de vento 2,0.
 
-* **Filtros:** opcionalmente, você pode adicionar filtros à pesquisa para apurar ainda mais os dados. Você pode adicionar até 10 filtros por vez. Por exemplo, em todos os refrigeradores em Oakland, encontre aqueles que apresentaram temperatura acima de 60 graus.
-* **Período de tempo:** por padrão, recuperaremos dados dos últimos 10 minutos. Você pode alterar esse valor para um dos intervalos de tempo predefinidos ou selecionar um período de tempo personalizado.
+- **Telemetria:** Selecione a telemetria que você deseja analisar e explorar. Você pode selecionar vários telemetrias para analisar juntos. O método de agregação padrão é definido como média para numérico e contagem para o tipo de dados de cadeia de caracteres, respectivamente. Os métodos de agregação com suporte para tipos de dados numéricos são média, máximo, mínimo, contagem e soma.  Os métodos de agregação com suporte para o tipo de dados String são Count.
 
-  ![Consulta de análise](media/howto-create-analytics/analytics-query.png)
+- **Dividir por:** O controle ' dividir por ' ajuda a agrupar os dados usando as propriedades do dispositivo como dimensões. Os valores das propriedades de dispositivo e de nuvem são Unidos junto com a telemetria como e quando ele é enviado pelo dispositivo. Se a propriedade de nuvem ou dispositivo tiver sido atualizada, você verá a telemetria agrupada por valores diferentes no gráfico.
 
-## <a name="visualizing-your-data"></a>Visualizando seus dados
-
-Depois de consultar seus dados, você poderá começar a visualizá-los. Você pode mostrar/ocultar medidas, alterar a maneira como os dados são agregados e dividir os dados ainda mais pelas diferentes propriedades do dispositivo.  
-
-* **Dividir por:** dividir os dados pelas propriedades do dispositivo permite que você faça uma busca mais detalhada nos dados. Por exemplo, você pode dividir os resultados por ID ou local do dispositivo.
-
-* **Medições:** você pode optar por mostrar/ocultar até 10 itens de telemetria diferentes que estão sendo relatados por seus dispositivos por vez. As medidas são itens como temperatura e umidade.
-
-* **Agregação:** por padrão, podemos agregar dados pela média, mas você pode alterar a agregação de dados para outra coisa para atender às suas necessidades.
-
-   ![Visualização de análise - dividir por](media/howto-create-analytics/analytics-splitby.png)
+    > [!TIP]
+    > Para exibir dados de cada dispositivo separadamente, selecione ID do dispositivo no controle ' dividir por '.
 
 ## <a name="interacting-with-your-data"></a>Interagindo com seus dados
 
-Você tem várias maneiras de alterar os resultados da consulta para atender às suas necessidades de visualização. Você pode alternar entre uma exibição de gráfico e uma exibição de grade, ampliar e reduzir, atualizar o conjunto de dados e alterar o modo como as linhas são mostradas.
+Depois de consultar seus dados, você pode começar a Visualizar no gráfico de linhas. Você pode mostrar/ocultar telemetria, alterar a duração da hora, exibir a telemetria em uma grade de dados.
 
-* **Mostrar grade:** Os resultados estão disponíveis em um formato de tabela, permitindo que você exiba o valor específico para cada ponto de dados. Essa exibição também atende aos padrões de acessibilidade.
-* **Mostrar gráfico:** Os resultados são exibidos em um formato de linha para ajudá-lo a identificar tendências e anomalias ascendentes ou descendentes.
+- **Painel do editor de tempo:** Por padrão, recuperaremos dados do passado um dia. Você pode arrastar uma das extremidades do controle deslizante de tempo para alterar a duração do tempo. Você também pode usar o controle Calendar para selecionar um dos buckets de tempo predefinidos ou selecionar um intervalo de tempo personalizado. O controle de tempo também tem um controle deslizante de **tamanho de intervalo** que controla o Bucket ou o tamanho do intervalo usado para agregar os dados.
 
-  ![Mostrando a exibição em grade da sua análise](media/howto-create-analytics/analytics-showgrid.png)
+    ![Editor de hora](media/howto-create-analytics/timeeditorpanel.png)
 
-O zoom permite que você se baseie em seus dados. Se você encontrar um período de tempo em que gostaria de se concentrar no conjunto de resultados, use o cursor para capturar a área que deseja ampliar e use os controles disponíveis para executar uma das seguintes ações:
+    - **Ferramenta de controle deslizante de intervalo de datas internas**: Use os dois controles de ponto de extremidade arrastando-os sobre o período de tempo desejado. Esse intervalo de datas interna é restrito pelo controle deslizante de intervalo de datas externa.
+    
+   
+    - **Controle deslizante de intervalo de datas externas**: Use os controles de ponto de extremidade para selecionar o intervalo de datas externas, que estará disponível para o controle de intervalo de datas interna.
 
-* **Ampliar:** Depois de selecionar um período de tempo, o zoom é habilitado e permite que você amplie seus dados.
-* **Reduzir:** esse controle permite que você reduza um nível em relação ao último zoom. Por exemplo, se você ampliar seus dados três vezes, reduzir o levará de volta uma etapa por vez.
-* **Redefinir zoom:** depois de experimentar vários níveis de zoom, você pode usar o controle de redefinição de zoom para retornar ao conjunto de resultados original.
+    - **Botões aumentar e diminuir intervalo de datas**: aumente ou diminua seu período selecionando um dos botões para o intervalo desejado.
 
-  ![Executando zoom em seus dados](media/howto-create-analytics/analytics-zoom.png)
+    - **Controle deslizante de tamanho do intervalo**: Use-o para ampliar e reduzir intervalos no mesmo período de tempo. Essa ação fornece controle mais preciso dos movimentos entre fatias de tempo grandes. Você pode usá-lo para ver exibições granulares e de alta resolução de seus dados, mesmo abaixo de milissegundos. O ponto de partida padrão do controle deslizante é definido como a exibição ideal dos dados de sua seleção, que equilibra a resolução, a velocidade da consulta e a granularidade.
+    
+    - **Seletor de intervalo de datas**: com esse controle da Web, você pode selecionar facilmente os intervalos de data e hora desejados. Você também pode usar o controle para alternar entre fusos horários diferentes. Depois de fazer as alterações a serem aplicadas ao seu espaço de trabalho atual, selecione salvar.
 
-Você pode alterar o estilo da linha para atender às suas necessidades. Você tem quatro opções:
+    > [!TIP]
+    > O tamanho do intervalo é determinado dinamicamente com base no período de tempo selecionado. Os intervalos de tempo menores habilitarão a agregação dos dados em um intervalo muito granular de até alguns segundos.
 
-* **Linha:** Uma linha simples entre cada um dos pontos de dados.
-* **Smooth:** Uma linha curva entre cada ponto.
-* **Etapa:** A linha entre cada ponto no gráfico é uma etapa.
-* **Dispersão:** Todos os pontos são plotados no gráfico sem linhas que os conectam.
 
-  ![Diferentes tipos de linha disponíveis na análise](media/howto-create-analytics/analytics-linetypes.png)
+- **Legenda do gráfico:** Legenda do gráfico mostra a telemetria selecionada no gráfico. Você pode focalizar cada item na legenda para colocá-lo em foco no gráfico. Ao usar ' dividir por ', a telemetria é agrupada pelos respectivos valores da dimensão selecionada. Você pode alternar a visibilidade de cada telemetria específica ou de todo o grupo clicando no nome do grupo.  
 
-Por fim, você pode organizar seus dados no eixo Y escolhendo um dos três modos:
 
-* **Empilhado:** um gráfico para cada medida é empilhado e cada um dos gráficos tem seu próprio eixo Y. Os gráficos empilhados são úteis quando você tem várias medidas selecionadas e deseja ter uma exibição distinta dessas medidas.
-* **Não empilhado:** um gráfico para cada medida é plotado em relação a um eixo Y, mas os valores para o eixo Y são alterados com base na medida realçada. Gráficos não empilhados são úteis quando você deseja sobrepor várias medidas e deseja ver padrões nessas medidas para o mesmo intervalo de tempo.
-* **Eixo Y compartilhado:** todos os gráficos compartilham o mesmo eixo Y e os valores do eixo não são alterados. Os gráficos compartilhados do eixo Y são úteis quando você deseja examinar uma única medida ao fatiar os dados com a opção dividir por.
+- **Controle de formato do eixo y:** o modo do eixo y percorre as opções de exibição do eixo y disponíveis. Esse controle está disponível somente quando diferentes telemetrias estão sendo visualizados. Você pode definir o eixo y escolhendo um dos três modos:
 
-  ![Organizar dados ao longo do eixo y com diferentes modos de visualização](media/howto-create-analytics/analytics-yaxis.png)
+    - **Empilhado:** Um grafo para cada telemetria é empilhado e cada um dos grafos tem seu próprio eixo y. Esse modo é definido como padrão.
+    - **Compartilhado:** Um grafo para cada telemetria é plotado em relação ao mesmo eixo y.
+    - **Sobreposição:** Use-o para empilhar várias linhas no mesmo eixo y, com os dados do eixo y mudando com base na linha selecionada.
 
-## <a name="next-steps"></a>Próximas etapas
+  ![Organizar dados ao longo do eixo y com diferentes modos de visualização](media/howto-create-analytics/yaxiscontrol.png)
 
-Agora que você aprendeu a criar análises personalizadas para o aplicativo Azure IoT Central, a próxima etapa sugerida é apresentada:
+- **Controle de zoom:** O zoom permite que você faça uma busca detalhada de seus dados. Se você encontrar um período de tempo em que deseja se concentrar em seu conjunto de resultados, use o ponteiro do mouse para pegar a área e arraste-a para o ponto de extremidade de sua escolha. Em seguida, clique com o botão direito do mouse na área selecionada e clique em zoom.
 
-> [!div class="nextstepaction"]
-> [Preparar e conectar um aplicativo Node.js](howto-connect-nodejs.md)
+  ![Ampliar os dados](media/howto-create-analytics/zoom.png)
+
+Sob as reticências, há mais controles de gráfico para interagir com os dados.
+
+- **Exibir grade:** Os resultados estão disponíveis em um formato de tabela, permitindo que você exiba o valor específico para cada ponto de dados.
+
+- **Descartar um marcador:** O controle "soltar marcador" fornece uma maneira de ancorar determinados pontos de dados no gráfico. É útil quando você está tentando comparar dados para várias linhas entre períodos de tempo diferentes.
+
+  ![Mostrando a exibição em grade da sua análise](media/howto-create-analytics/additionalchartcontrols.png)
