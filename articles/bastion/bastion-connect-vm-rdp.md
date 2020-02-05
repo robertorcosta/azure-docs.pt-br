@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: dc741007c7de8d8e24f9c0f9e4e0c03306d036a4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7dad6a517341f83f693e1e7e1f7d27e899e00f7e
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498381"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990480"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion"></a>Conectar-se a uma máquina virtual do Windows usando a bastiões do Azure
 
@@ -20,13 +20,22 @@ Este artigo mostra como usar o RDP de forma segura e direta para suas VMs do Win
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Verifique se você configurou um host de bastiões do Azure para a rede virtual na qual a VM reside. Para obter mais informações, consulte [criar um host de bastiões do Azure](bastion-create-host-portal.md). Depois que o serviço de bastiões for provisionado e implantado em sua rede virtual, você poderá usá-lo para se conectar a qualquer VM nessa rede virtual. A bastiões pressupõe que você esteja usando o RDP para se conectar a uma VM do Windows e o SSH para se conectar às suas VMs do Linux. Para obter informações sobre a conexão a uma VM do Linux, consulte [conectar-se a uma VM-Linux](bastion-connect-vm-ssh.md).
+Verifique se você configurou um host de bastiões do Azure para a rede virtual na qual a VM reside. Para obter mais informações, consulte [criar um host de bastiões do Azure](bastion-create-host-portal.md). Depois que o serviço de bastiões for provisionado e implantado em sua rede virtual, você poderá usá-lo para se conectar a qualquer VM nessa rede virtual.
 
+A bastiões pressupõe que você esteja usando o RDP para se conectar a uma VM do Windows e o SSH para se conectar às suas VMs do Linux. Para obter informações sobre a conexão a uma VM do Linux, consulte [conectar-se a uma VM-Linux](bastion-connect-vm-ssh.md).
+
+### <a name="required-roles"></a>Funções necessárias
 Para fazer uma conexão, são necessárias as seguintes funções:
 
 * Função de leitor na máquina virtual
 * Função de leitor na placa de interface de rede com endereço IP privado da máquina virtual
 * Função de leitor no recurso do Azure Bastion
+
+### <a name="ports"></a>Portas
+
+Para se conectar à VM do Windows via RDP, você deve ter as seguintes portas abertas na sua VM do Windows:
+
+* Portas de entrada: RDP (3389)
 
 ## <a name="rdp"></a>Conectar usando RDP
 
@@ -40,6 +49,6 @@ Para fazer uma conexão, são necessárias as seguintes funções:
 
    ![Conexão de VM](./media/bastion-connect-vm-rdp/443rdp.png)
  
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Leia as [perguntas frequentes de bastiões](bastion-faq.md)

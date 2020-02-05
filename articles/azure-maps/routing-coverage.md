@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: f6e16ed6646340a5c623ecd027e8b0fe323bf7f9
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: b19c23c7adb8dce84530b8f3f8d994f4e32869cc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910622"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988933"
 ---
 # <a name="azure-maps-routing-coverage"></a>Cobertura de rotas nos Mapas do Azure
 
-Este artigo fornece informações de cobertura para rota nos Mapas do Azure. Quando você pesquisa A rota ideal do local A para o B, o Azure Maps pode fornecer tempos de viagem altamente precisos, informações de viagem atualizadas ao vivo e instruções de rota. A rota levará em conta termos de pesquisa adicionais, como o tráfego atual, o tipo de veículo e as condições a serem evitadas. A capacidade de otimizar a rota depende da região, pois o mapas do Azure tem vários níveis de informações e precisão para regiões diferentes. A tabela a seguir lista as regiões e o tipo de informações que você pode solicitar para elas.
+Este artigo fornece informações de cobertura para rota nos Mapas do Azure. Após uma consulta de pesquisa, o Azure Maps retorna uma rota ideal do local A para o local B. Você é fornecido com tempos de viagem precisos, atualizações ao vivo de informações de viagem e instruções de rota. Você também pode adicionar parâmetros de pesquisa adicionais, como o tráfego atual, o tipo de veículo e as condições a serem evitadas. A otimização da rota depende da região. Isso porque, o mapas do Azure tem vários níveis de informações e precisão para diferentes regiões. A tabela a seguir lista as regiões e o tipo de informações que você pode solicitar para elas.
  
 Fazer check-out de cobertura para [**Geocodificação**](geocoding-coverage.md).       
 Fazer check-out de cobertura para [**Tráfego**](traffic-coverage.md).  

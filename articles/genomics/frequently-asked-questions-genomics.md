@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
-ms.openlocfilehash: 4a2b66f95467e7f6cb99f632548351f827e259c3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476426"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986029"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Perguntas frequentes
 
@@ -24,6 +24,8 @@ Este artigo lista as principais dúvidas que você pode ter relacionadas ao Micr
 ## <a name="how-do-i-run-gatk4-workflows-on-microsoft-genomics"></a>Como fazer executar fluxos de trabalho do GATK4 no Microsoft Genomics?
 No arquivo config. txt do serviço de Microsoft Genomics, especifique o process_name para `gatk4`. Observe que você será cobrado com tarifas de cobrança regulares.
 
+## <a name="how-do-i-enable-output-compression"></a>Como fazer habilitar a compactação de saída?
+Você pode compactar a saída vcf ou gvcf usando um argumento opcional para compactação de saída. Isso é equivalente a executar `-bgzip` seguido por `-tabix` na saída de vcf ou gvcf, para produzir os arquivos de `.gz` (saída de bgzip) e `.tbi` (saída de tabix). `bgzip` compacta o arquivo vcf ou gvcf e `tabix` cria um índice para o arquivo compactado. O argumento é um booliano, que é definido como `false` por padrão para saída de vcf e para `true` por padrão para saída de gcvf. Para usar na linha de comando, especifique `-bz` ou `--bgzip-output` como `true` (execute bgzip e tabix) ou `false`. Para usar esse argumento no arquivo config. txt, adicione `bgzip_output: true` ou `bgzip_output: false` ao arquivo.
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>O que é o SLA para Microsoft Genomics?
 Garantimos que em 99,9% do tempo o serviço Microsoft Genomics estará disponível para receber solicitações de API de fluxo de trabalho. Para saber mais, veja [SLA](https://azure.microsoft.com/support/legal/sla/genomics/v1_0/).
@@ -82,9 +84,9 @@ msgen compreende os arquivos de configuração no seguinte formato:
   |`-k/--access-key KEY`            | *access_key:KEY*              |      
   |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Use os seguintes recursos para começar com o Microsoft Genomics:
-- Comece executando o seu primeiro fluxo de trabalho pelo serviço do Microsoft Genomics. [Executar um fluxo de trabalho por meio do serviço de Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
+- Comece executando o seu primeiro fluxo de trabalho pelo serviço do Microsoft Genomics. [Executar um fluxo de trabalho por meio do serviço Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
 - Envie seus próprios dados para processamento pelo serviço do Microsoft Genomics: [FASTQ emparelhado](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [FASTQ múltiplos ou BAM](quickstart-input-multiple.md) 
 

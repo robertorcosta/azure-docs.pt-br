@@ -3,18 +3,18 @@ title: Referência host.json para o Azure Functions 2.x
 description: Documentação de referência do arquivo host.json do Azure Functions com o runtime v2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 782998e49b9af3bf4d2ae5a561faaca399c6809f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 6c4cfbb40c0337a6141d3b1f9844a33227a4963f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978811"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988695"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>referência de host. JSON para Azure Functions 2. x e posterior 
 
 > [!div class="op_single_selector" title1="Selecione a versão do Azure Functions tempo de execução que você está usando: "]
 > * [Versão 1](functions-host-json-v1.md)
-> * [Versão 2](functions-host-json.md)
+> * [Versão 2 +](functions-host-json.md)
 
 O arquivo de metadados *host.json* contém opções de configuração global que afetam todas as funções de um aplicativo de funções. Este artigo lista as configurações que estão disponíveis a partir da versão 2. x do tempo de execução de Azure Functions.  
 
@@ -27,7 +27,7 @@ Algumas configurações host.json são usadas apenas quando executadas localment
 
 ## <a name="sample-hostjson-file"></a>Arquivo host.json de exemplo
 
-O arquivo *host. JSON* de exemplo a seguir tem todas as opções possíveis especificadas (excluindo as que são apenas para uso interno).
+O seguinte arquivo *host. JSON* de exemplo para a versão 2. x + tem todas as opções possíveis especificadas (excluindo as que são apenas para uso interno).
 
 ```json
 {
@@ -377,7 +377,7 @@ Parâmetro de configuração para o comportamento de bloqueio de Singleton. Para
 
 ## <a name="version"></a>version
 
-A cadeia de caracteres de versão `"version": "2.0"` é necessária para um aplicativo de funções que segmente o runtime v2.
+Esse valor indica a versão do esquema de host. JSON. A cadeia de caracteres de versão `"version": "2.0"` é necessária para um aplicativo de funções que tenha como destino o tempo de execução v2 ou uma versão posterior. Não há nenhuma alteração de esquema host. JSON entre V2 e v3.
 
 ## <a name="watchdirectories"></a>watchDirectories
 

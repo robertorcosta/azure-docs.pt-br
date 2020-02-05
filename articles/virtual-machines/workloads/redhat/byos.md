@@ -14,14 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: alsin
-ms.openlocfilehash: 911d86dd7cb03479d9bde49d8fce0f7861e32e27
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: afda502bcd89423ecdd008c0297c85dd8a5b61fb
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980131"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989834"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux imagens Gold de sua própria assinatura no Azure
+
 As imagens Red Hat Enterprise Linux (RHEL) estão disponíveis no Azure por meio de um modelo pago pelo uso (PAYG) ou traga sua própria assinatura (imagem do Red Hat Gold). Este documento fornece uma visão geral das imagens do Red Hat Gold no Azure.
 
 ## <a name="important-points-to-consider"></a>Pontos importantes a considerar
@@ -170,25 +171,41 @@ Este é um script de exemplo. Você deve substituir o grupo de recursos, o local
     New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
+## <a name="encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images"></a>Criptografar imagens Gold de Red Hat Enterprise Linux traga sua própria assinatura
+
+Red Hat Enterprise Linux imagens Gold de sua própria assinatura podem ser protegidas por meio do uso de [Azure Disk Encryption](../../linux/disk-encryption-overview.md). No entanto, a assinatura **deve** ser registrada antes de habilitar a criptografia.  Detalhes sobre como registrar uma imagem do RHEL BYOS Gold estão disponíveis no site do Red Hat. Consulte [como registrar e assinar um sistema para o portal do cliente Red Hat usando o Red Hat Subscription-Manager](https://access.redhat.com/solutions/253273); Se você tiver uma assinatura ativa do Red Hat, também poderá ler a [criação de chaves de ativação do portal do cliente do Red Hat](https://access.redhat.com/articles/1378093).
+
+Não há suporte para Azure Disk Encryption em [imagens personalizadas do Red Hat](/linux/redhat-create-upload-vhd). Requisitos e pré-requisitos adicionais de ADE são documentados em [Azure Disk Encryption para VMs do Linux](../../linux/disk-encryption-overview.md#additional-vm-requirements).
+
+As etapas para aplicar Azure Disk Encryption estão disponíveis em [cenários de Azure Disk Encryption em VMs do Linux](../../linux/disk-encryption-linux.md) e artigos relacionados.  
+
 ## <a name="additional-information"></a>Informações adicionais
-- Se você tentar provisionar uma VM em uma assinatura que não está habilitada para esta oferta, você receberá o erro a seguir e deverá contatar a Microsoft ou a Red Hat para habilitar sua assinatura.
+
+- Se você tentar provisionar uma VM em uma assinatura que não está habilitada para esta oferta, você receberá o seguinte erro:
+
     ```
     "Offer with PublisherId: redhat, OfferId: rhel-byos, PlanId: rhel-lvm75 is private and can not be purchased by subscriptionId: GUID"
     ```
+    
+    Nesse caso, contate a Microsoft ou a Red Hat para habilitar sua assinatura.
 
-- Se você criar um instantâneo da imagem RHEL BYOS e publicar a imagem na [Galeria de imagens compartilhadas](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries), será necessário fornecer informações de plano que correspondam à origem original do instantâneo. Por exemplo, o comando pode ser semelhante a (Observe os parâmetros de plano na linha final):
+- Se você modificar um instantâneo de uma imagem RHEL BYOS e tentar publicar essa imagem personalizada na Galeria de [imagens compartilhadas](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries), deverá fornecer informações de plano que correspondam à origem original do instantâneo. Por exemplo, o comando pode ter a seguinte aparência:
+
     ```azurecli
     az vm create –image \
     "/subscriptions/GUID/resourceGroups/GroupName/providers/Microsoft.Compute/galleries/GalleryName/images/ImageName/versions/1.0.0" \
     -g AnotherGroupName --location EastUS2 -n VMName \
     --plan-publisher redhat --plan-product rhel-byos --plan-name rhel-lvm75
     ```
+    Observe os parâmetros do plano na linha final acima.
 
-- Se você estiver usando a automação para provisionar VMs das imagens RHEL BYOS, será necessário fornecer parâmetros de plano semelhantes ao que foi mostrado acima. Por exemplo, se você estiver usando Terraform, você forneceria as informações do plano em um [bloco de plano](https://www.terraform.io/docs/providers/azurerm/r/virtual_machine.html#plan).
+    Não há suporte para [Azure Disk Encryption](#encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images) em imagens personalizadas.
+
+- Se você estiver usando a automação para provisionar VMs das imagens RHEL BYOS, deverá fornecer parâmetros de plano semelhantes ao que foi mostrado acima. Por exemplo, se você estiver usando Terraform, você forneceria as informações do plano em um [bloco de plano](https://www.terraform.io/docs/providers/azurerm/r/virtual_machine.html#plan).
 
 ## <a name="next-steps"></a>Próximos passos
-* Os guias passo a passo e os detalhes do programa para acesso à nuvem estão disponíveis na [documentação do Red Hat Cloud Access.](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index)
-* Saiba mais sobre a [infraestrutura de atualização do Red Hat do Azure](./redhat-rhui.md).
-* Para saber mais sobre todas as imagens do Red Hat no Azure, vá para a [página de documentação](./redhat-images.md).
-* Informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL podem ser encontradas na página [Ciclo de vida do Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).
-* Documentação adicional sobre as imagens do RHEL Gold podem ser encontradas na [documentação do Red Hat](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/using_red_hat_gold_images#con-gold-image-azure).
+- Os guias passo a passo e os detalhes do programa para acesso à nuvem estão disponíveis na [documentação do Red Hat Cloud Access.](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index)
+- Saiba mais sobre a [infraestrutura de atualização do Red Hat do Azure](./redhat-rhui.md).
+- Para saber mais sobre todas as imagens do Red Hat no Azure, vá para a [página de documentação](./redhat-images.md).
+- Informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL podem ser encontradas na página [Ciclo de vida do Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).
+- Documentação adicional sobre as imagens do RHEL Gold podem ser encontradas na [documentação do Red Hat](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/using_red_hat_gold_images#con-gold-image-azure).

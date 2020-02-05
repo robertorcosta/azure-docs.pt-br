@@ -1,18 +1,18 @@
 ---
-title: 'Copiar e colar de e para uma máquina virtual: Azure bastião | Microsoft Docs'
+title: 'Copiar e colar de e para uma máquina virtual: bastiões do Azure'
 description: Neste artigo, saiba como copiar e colar de e para uma VM do Azure usando a bastiões.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: ed8d52a4932271020dfb2a010392b312fa38703b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0aaf816cdfe7d42fd345eb4f010cf47b1615f462
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73519363"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989528"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Copiar e colar em uma máquina virtual: bastiões do Azure
 
@@ -33,7 +33,7 @@ Depois de se conectar à máquina virtual usando o [portal do Azure ](https://po
 
    ![paleta de ferramentas](./media/bastion-vm-manage/left.png)
 
-   ![La](./media/bastion-vm-manage/clipboard.png)
+   ![la](./media/bastion-vm-manage/clipboard.png)
 1. Normalmente, o texto copiado é mostrado automaticamente na paleta de colagem de cópia de bastiões. Se o texto não estiver lá, Cole o texto na área de texto na paleta.
 1. Quando o texto estiver na área de texto, você poderá colá-lo na sessão remota.
 
@@ -48,12 +48,12 @@ Depois de se conectar à máquina virtual usando o [portal do Azure ](https://po
    ![paleta de ferramentas](./media/bastion-vm-manage/remote.png)
 1. Durante a sessão remota, inicie a paleta de ferramentas de acesso à área de transferência de bastiões selecionando as duas setas. As setas estão localizadas no centro esquerdo da sessão.
 
-   ![La](./media/bastion-vm-manage/clipboard2.png)
+   ![la](./media/bastion-vm-manage/clipboard2.png)
 1. Normalmente, o texto copiado é mostrado automaticamente na paleta de colagem de cópia de bastiões. Se o texto não estiver lá, Cole o texto na área de texto na paleta.
 1. Quando o texto estiver na área de texto, você poderá colá-lo no dispositivo local.
 
    ![Olar](./media/bastion-vm-manage/local2.png)
  
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Leia as [perguntas frequentes sobre bastiões](bastion-faq.md).

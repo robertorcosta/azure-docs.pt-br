@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 03/02/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1e72e100bcb3d06403af1514dea13de59c623310
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 3c3bb0cb6726326cda7ede46ba09fa6d17c2ba2c
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76713081"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983037"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -42,16 +42,16 @@ O elemento **ClaimsSchema** define os tipos de declaração que podem ser refere
 
 O elemento **ClaimType** contém o seguinte atributo:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Obrigatório | Description |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador que é usado para o tipo de declaração. Outros elementos podem usar esse identificador na política. |
+| ID | Sim | Um identificador que é usado para o tipo de declaração. Outros elementos podem usar esse identificador na política. |
 
 O elemento **ClaimType** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
-| DisplayName | 0:1 | O título que é exibido aos usuários em várias telas. O valor pode ser [localizado](localization.md). |
-| Datatype | 0:1 | O tipo da declaração. Os tipos de dados boolean, date, dateTime, int, long, string, stringCollection, alternativeSecurityIdCollection podem ser usados. |
+| DisplayName | 1:1 | O título que é exibido aos usuários em várias telas. O valor pode ser [localizado](localization.md). |
+| Tipo de dados | 1:1 | O tipo da declaração. Os tipos de dados de booliano, data, dateTime, int, Long, String e StringCollection podem ser usados. O tipo de dados Primitive representa o C# equivalente do tipo de dados Variable. StringCollection representa uma coleção de cadeias de caracteres. Para obter mais informações [ C# , consulte tipos e variáveis](https://docs.microsoft.com/dotnet/csharp/tour-of-csharp/types-and-variables). A data segue a Convenção ISO 8601. |
 | DefaultPartnerClaimTypes | 0:1 | Os tipos de declaração padrão do parceiro a serem usados para um protocolo especificado. O valor pode ser substituído no **PartnerClaimType** especificado nos elementos **InputClaim** ou **OutputClaim**. Use esse elemento para especificar o nome padrão de um protocolo.  |
 | Mask | 0:1 | Uma cadeia de caracteres opcional de caracteres de mascaramento que podem ser aplicados ao exibir a declaração. Por exemplo, o número de telefone 324-232-4343 pode ser mascarado como XXX-XXX-4343. |
 | UserHelpText | 0:1 | Uma descrição do tipo de declaração que pode ser útil para os usuários entenderem sua finalidade. O valor pode ser [localizado](localization.md). |
@@ -63,15 +63,15 @@ PredicateValidationReference| 0:1 | Uma referência a um elemento **PredicateVal
 
 O **DefaultPartnerClaimTypes** pode conter o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
-| Protocolo | 0:n | Lista de protocolos com seu nome de tipo de declaração de parceiro padrão. |
+| Protocolo | 1:n | Lista de protocolos com seu nome de tipo de declaração de parceiro padrão. |
 
 O elemento **Protocol** contém os seguintes atributos:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Obrigatório | Description |
 | --------- | -------- | ----------- |
-| {1&gt;Nome&lt;1} | Sim | O nome de um protocolo válido com suporte do Azure AD B2C. Os valores possíveis são: OAuth1, OAuth2, SAML2, OpenIdConnect. |
+| Nome | Sim | O nome de um protocolo válido com suporte do Azure AD B2C. Os valores possíveis são: OAuth1, OAuth2, SAML2, OpenIdConnect. |
 | PartnerClaimType | Sim | O nome do tipo de declaração a ser usado. |
 
 No exemplo a seguir, quando o Identity Experience Framework interage com um provedor de identidade SAML2 ou com o aplicativo de terceira parte confiável, a declaração **surname** é mapeada para `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`, com OpenIdConnect e OAuth2, a declaração é mapeada para `family_name`.
@@ -104,7 +104,7 @@ Como resultado, o token JWT emitido pelo B2C do Azure AD emite `family_name` ao 
 
 O elemento **Mask** contém os seguintes atributos:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Obrigatório | Description |
 | --------- | -------- | ----------- |
 | `Type` | Sim | O tipo da máscara de declaração. Valores possíveis: `Simple` ou `Regex`. O valor `Simple` indica que uma máscara de texto simples é aplicada à parte à esquerda de uma declaração de cadeia de caracteres. O valor `Regex` indica que uma expressão regular é aplicada à declaração de cadeia de caracteres como um todo.  Se o valor `Regex` for especificado, um atributo opcional também deverá ser definido com a expressão regular a ser usada. |
 | `Regex` | Não | Se **`Type`** for definido como `Regex`, especifique a expressão regular a ser usada.
@@ -144,13 +144,13 @@ O Identity Experience Framework renderiza apenas a primeira letra de endereço d
 
 O elemento **Restriction** pode conter o seguinte atributo:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Obrigatório | Description |
 | --------- | -------- | ----------- |
 | MergeBehavior | Não | O método usado para mesclar valores de enumeração com um ClaimType em uma política pai com o mesmo identificador. Use esse atributo quando substituir uma declaração especificada na política de base. Valores possíveis: `Append`, `Prepend` ou `ReplaceAll`. O valor `Append` é uma coleção de dados que deve ser acrescentada ao final da coleção especificada na política pai. O valor `Prepend` é uma coleção de dados que deve ser adicionada antes da coleção especificada na política pai. O valor `ReplaceAll` é uma coleção de dados especificados na política pai que deve ser ignorada. |
 
 O elemento **Restriction** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Enumeração | 1:n | As opções disponíveis na interface do usuário para o usuário selecionar para uma declaração, como um valor em uma lista suspensa. |
 | Padrão | 1:1 | A expressão regular a ser usada. |
@@ -159,7 +159,7 @@ O elemento **Restriction** contém os seguintes elementos:
 
 O elemento **Enumeration** contém os seguintes atributos:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Obrigatório | Description |
 | --------- | -------- | ----------- |
 | Texto | Sim | A cadeia de caracteres de exibição que é mostrada ao usuário na interface do usuário para essa opção. |
 |Valor | Sim | O valor da declaração associada à seleção dessa opção. |
@@ -188,7 +188,7 @@ Lista suspensa de cidades com um valor padrão definido como Nova York:
 
 O elemento **Pattern** pode conter os seguintes atributos:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Obrigatório | Description |
 | --------- | -------- | ----------- |
 | RegularExpression | Sim | A expressão regular a que declarações desse tipo devem corresponder para que sejam válidas. |
 | HelpText | Não | O padrão ou expressão regular para esta declaração. |

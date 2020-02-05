@@ -3,12 +3,12 @@ title: Provedores de recursos pelos serviços do Azure
 description: Lista todos os namespaces do provedor de recursos para Azure Resource Manager e mostra o serviço do Azure para esse namespace.
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: cdf56c5c84f8837538c2f59b34c3bcf4265d78cb
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d16c5fe148f8b6c907c897963e72cb84bc9ae2d5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644300"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984363"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provedores de recursos para serviços do Azure
 
@@ -20,7 +20,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | --------------------------- | ------------- |
 | Microsoft.AAD | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) |
 | Microsoft.Addons | núcleo |
-| Microsoft.ADHybridHealthService | [Azure Active Directory](/azure/active-directory/) |
+| Microsoft.ADHybridHealthService | [Azure Active Directory](/azure/active-directory/) |
 | Microsoft.Advisor | [Assistente do Azure](../../advisor/index.yml) |
 | Microsoft.AlertsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.AnalysisServices | [Azure Analysis Services](/azure/analysis-services/) |
@@ -32,7 +32,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
 | Microsoft.AzureStack | núcleo |
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
-| Microsoft.Billing | [Billing](/azure/billing/) |
+| Microsoft.Billing | [Gerenciamento de custos e cobrança](/azure/billing/) |
 | Microsoft.BingMaps | [Bing Mapas](https://docs.microsoft.com/BingMaps/#pivot=main&panel=BingMapsAPI) |
 | Microsoft.Blockchain | [Serviço Blockchain do Azure](/azure/blockchain/workbench/) |
 | Microsoft.Blueprint | [Plantas do Azure](/azure/governance/blueprints/) |
@@ -130,7 +130,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.Scheduler | [Agendador](/azure/scheduler/) |
 | Microsoft.Search | [Azure Search](../../search/index.yml) |
 | Microsoft.Security | [Central de segurança](../../security-center/index.yml) |
-| Microsoft. SecurityInsights | [Azure Sentinel](/azure/sentinel/) |
+| Microsoft. SecurityInsights | [Sentinela do Azure](/azure/sentinel/) |
 | Microsoft. SerialConsole | [Console serial do Azure](../../virtual-machines/troubleshooting/serial-console-windows.md) |
 | Microsoft.ServiceBus | [Barramento de Serviço](/azure/service-bus/) |
 | Microsoft.ServiceFabric | [Service Fabric](../../service-fabric/index.yml) |

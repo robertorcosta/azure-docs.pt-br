@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: d861a5d1da6ebc9cedbe2dff764cd5b6e7dd04e1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f858e0dd475361ff097f5a05ae01df2af00e4eca
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827397"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989987"
 ---
 # <a name="toggle-live-chat"></a>Alternar chat ao vivo
 
 Este artigo de instruções mostra como alternar o chat ao vivo em seu aplicativo IoT Central. Você pode usar o chat ao vivo para acessar o suporte técnico.
 
 > [!NOTE]
-> A opção de chat está disponível somente para assinaturas de avaliação.
+> A opção de chat só está disponível para aplicativos criados usando o plano de preços gratuito.
 
 ## <a name="chat-with-us"></a>Converse conosco no chat
 
@@ -44,7 +44,7 @@ Para mostrar o chat, escolha **Mostrar chat** no painel de **ajuda** :
 
  ![Mostrar chat](media/howto-show-hide-chat/show-chat.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você aprendeu a ativar o chat ao vivo no Azure IoT Central, aqui está a próxima etapa sugerida:
 

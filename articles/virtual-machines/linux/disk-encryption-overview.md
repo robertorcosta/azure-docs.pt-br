@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: f78ef583a58b8a51276823a2a4730540b6735bb0
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 96ac1becfed74141b3b1544646f5d82bd0985045
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896347"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988413"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption para VMs Linux 
 
-O Azure Disk Encryption ajuda a proteger seus dados e a atender aos compromissos de conformidade e segurança de sua organização. Ele usa o recurso [DM-cript](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer criptografia de volume para o sistema operacional e os discos de dados das VMs (máquinas virtuais) do Azure e é integrado com o [Azure Key Vault](../../key-vault/index.yml) para ajudá-lo a controlar e gerenciar as chaves e os segredos de criptografia de disco. 
+Azure Disk Encryption ajuda a proteger e proteger seus dados para atender aos compromissos de segurança e conformidade da organização. Ele usa o recurso [DM-cript](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer criptografia de volume para o sistema operacional e os discos de dados das VMs (máquinas virtuais) do Azure e é integrado com o [Azure Key Vault](../../key-vault/index.yml) para ajudá-lo a controlar e gerenciar as chaves e os segredos de criptografia de disco. 
 
 Se você usar a [central de segurança do Azure](../../security-center/index.yml), você será alertado se tiver VMs que não estão criptografadas. Esses alertas são mostrados como Alta Gravidade e a recomendação é criptografar essas VMs.
 
@@ -58,7 +58,7 @@ As distribuições do servidor Linux que não são endossadas pelo Azure não d�
 | Ubuntu | 18.04| SO e disco de dados |
 | Ubuntu | 16.04| SO e disco de dados |
 | Ubuntu | 14.04.5</br>[com kernel ajustado para Azure atualizado para 4.15 ou posterior](disk-encryption-troubleshooting.md) | SO e disco de dados |
-| RHEL | 7.7 | Sistema operacional e disco de dados (veja a observação abaixo) |
+| RHEL | 7,7 | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RHEL | 7.6 | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RHEL | 7.5 | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RHEL | 7.4 | Sistema operacional e disco de dados (veja a observação abaixo) |
@@ -66,7 +66,7 @@ As distribuições do servidor Linux que não são endossadas pelo Azure não d�
 | RHEL | 7.2 | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RHEL | 6,8 | Disco de dados (veja a observação abaixo) |
 | RHEL | 6.7 | Disco de dados (veja a observação abaixo) |
-| CentOS | 7.7 | SO e disco de dados |
+| CentOS | 7,7 | SO e disco de dados |
 | CentOS | 7.6 | SO e disco de dados |
 | CentOS | 7.5 | SO e disco de dados |
 | CentOS | 7.4 | SO e disco de dados |
@@ -78,7 +78,9 @@ As distribuições do servidor Linux que não são endossadas pelo Azure não d�
 | SLES | 12-SP3 | Disco de dados |
 
 > [!NOTE]
-> A nova implementação de ADE tem suporte para o sistema operacional RHEL e o disco de dados para imagens pré-pagas do RHEL7. Atualmente, o ADE não dá suporte para imagens RHEL BYOS (Traga sua própria assinatura). 
+> Há suporte para a nova implementação de Azure Disk Encryption para o sistema operacional RHEL e o disco de dados para imagens RHEL7 de pagamento conforme o uso.  
+>
+> O ADE também tem suporte para imagens Gold traga sua própria assinatura do RHEL, mas somente **depois** que a assinatura tiver sido registrada. Para obter mais informações, consulte [Red Hat Enterprise Linux imagens Gold de sua própria assinatura no Azure](../workloads/redhat/byos.md##encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images)
 
 ## <a name="additional-vm-requirements"></a>Requisitos adicionais de VM
 

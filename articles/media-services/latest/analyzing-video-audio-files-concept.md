@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/30/2020
 ms.author: juliako
-ms.openlocfilehash: 91a09df83c8ba474d3124c3322f4e3dd5eb7367c
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 1d28fc37b98493322b9e201ac899b7911dd1d705
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934683"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988338"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analisar arquivos de vídeo e áudio com os serviços de mídia do Azure
 
@@ -30,7 +30,7 @@ Para analisar seu conteúdo usando as predefinições dos serviços de mídia v3
 
 ## <a name="compliance-privacy-and-security"></a>Conformidade, privacidade e segurança
 
-Como um lembrete importante, você deve obedecer a todas as leis aplicáveis em seu uso de Video Indexer, e você não pode usar Video Indexer ou qualquer outro serviço do Azure de uma maneira que viole os direitos de outras pessoas ou possa ser prejudicial para outras pessoas. Antes de carregar qualquer vídeo, incluindo quaisquer dados biométricos, para o serviço de Video Indexer para processamento e armazenamento, você deve ter todos os direitos apropriados, incluindo todos os condados apropriados, do (s) indivíduo (es) no vídeo. Para saber mais sobre conformidade, privacidade e segurança em Video Indexer, os [termos de serviços cognitivas](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)da Microsoft. Para obrigações de privacidade e manipulação de seus dados da Microsoft, examine a [política de privacidade](https://privacy.microsoft.com/PrivacyStatement)da Microsoft, os [termos de serviços online ("OST")](https://www.microsoft.com/licensing/product-licensing/products) e o [adendo de processamento de dados](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Informações de privacidade adicionais, incluindo a retenção de dados, exclusão/destruição, estão disponíveis no OST e [aqui](../video-indexer/faq.md). Usando Video Indexer, você concorda em estar associado aos termos de serviços cognitivas, do OST, do DPA e da declaração de privacidade.
+Como um lembrete importante, você deve obedecer a todas as leis aplicáveis em seu uso de Video Indexer, e você não pode usar Video Indexer ou qualquer outro serviço do Azure de uma maneira que viole os direitos de outras pessoas ou possa ser prejudicial para outras pessoas. Antes de carregar qualquer vídeo, incluindo quaisquer dados biométricos, para o serviço de Video Indexer para processamento e armazenamento, você deve ter todos os direitos apropriados, incluindo todos os condados apropriados, do (s) indivíduo (es) no vídeo. Para saber mais sobre conformidade, privacidade e segurança em Video Indexer, os [termos de serviços cognitivas](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)da Microsoft. Para obrigações de privacidade e manipulação de seus dados da Microsoft, examine a [política de privacidade](https://privacy.microsoft.com/PrivacyStatement)da Microsoft, os [termos de serviços online](https://www.microsoft.com/licensing/product-licensing/products) ("OST") e o [adendo de processamento de dados](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Informações de privacidade adicionais, incluindo a retenção de dados, exclusão/destruição, estão disponíveis no OST e [aqui](../video-indexer/faq.md). Usando Video Indexer, você concorda em estar associado aos termos de serviços cognitivas, do OST, do DPA e da declaração de privacidade.
 
 ## <a name="built-in-presets"></a>Predefinições internas
 

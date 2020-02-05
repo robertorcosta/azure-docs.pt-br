@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/31/2019
-ms.openlocfilehash: 40660c0397f8b7fd7c370e2e0f697cae26b9bb48
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 01/28/2020
+ms.openlocfilehash: 194bc7983019a616d534a4146f86fff59f9719dc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927161"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990514"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime no Azure Data Factory
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer as seguintes funcionalidades de integração de dados entre diferentes ambientes de rede:
@@ -42,13 +42,13 @@ Tipo de IR | Rede pública | Rede privada
 ------- | -------------- | ---------------
 Azure | Fluxo de Dados<br/>Movimentação de dados<br/>Expedição de atividade | &nbsp;
 Auto-hospedado | Movimentação de dados<br/>Expedição de atividade | Movimentação de dados<br/>Expedição de atividade
-Azure-SSIS | Execução de pacote SSIS | Execução de pacote SSIS
+Azure-SSIS | Execução do pacote SSIS | Execução do pacote SSIS
 
 O diagrama a seguir mostra como os diferentes runtimes de integração podem ser usados em combinação para oferecer funcionalidades de integração de dados e suporte de rede avançados:
 
 ![Tipos diferentes de runtimes de integração](media/concepts-integration-runtime/different-integration-runtimes.png)
 
-## <a name="azure-integration-runtime"></a>Integration Runtime do Azure
+## <a name="azure-integration-runtime"></a>Azure Integration runtime
 Um Integration Runtime do Azure é capaz de:
 
 - Executando fluxos de dados no Azure 
@@ -70,7 +70,7 @@ Para obter informações sobre como criar e configurar um IR do Azure, consulte 
 > [!NOTE] 
 > O tempo de execução de integração do Azure tem propriedades relacionadas ao tempo de execução de fluxo de dados, que definem a infraestrutura de computação subjacente que seria usada para executar os fluxos de dados no. 
 
-## <a name="self-hosted-integration-runtime"></a>Integration Runtime auto-hospedado
+## <a name="self-hosted-integration-runtime"></a>runtime de integração auto-hospedada
 Um IR auto-hospedado é capaz de:
 
 - Executar a atividade de cópia entre um armazenamento de dados de nuvem e um armazenamento de dados na rede privada.
@@ -141,9 +141,9 @@ Quando usado para realizar a movimentação de dados, o IR auto-hospedado extrai
 ### <a name="azure-ssis-ir-location"></a>Local do Azure-SSIS IR
 Selecionar a localização certa para o IR do Azure-SSIS é essencial para alcançar alto desempenho em seus fluxos de trabalho de ETL (extrair, transformar e carregar).
 
-- A localização do seu Azure-SSIS IR não precisa ser a mesma do Data Factory, mas deve ser a mesma do seu próprio servidor de Banco de Dados SQL do Azure/Instância Gerenciada em que o SSISDB deve ser hospedado. Desse modo, o Integration Runtime do Azure-SSIS pode acessar o SSISDB facilmente sem incorrer em tráfegos excessivos entre localizações diferentes.
-- Se você não tiver um servidor de Banco de Dados SQL do Azure/Instância Gerenciada existente para hospedar o SSISDB, mas tem fontes/destinos de dados locais, deverá criar um novo servidor de Banco de Dados SQL do Azure/Instância Gerenciada na mesma localização de uma rede virtual conectada à rede local.  Desse modo, é possível criar o Azure-SSIS IR usando o novo servidor de Banco de Dados SQL do Azure/Instância Gerenciada e ingressando nessa rede virtual, tudo no mesmo local, minimizando efetivamente as movimentações de dados entre diferentes localizações.
-- Se a localização do seu servidor de Banco de Dados SQL do Azure/Instância Gerenciada existente em que o SSISDB está hospedado não for a mesma que a localização de uma rede virtual conectada à rede local, primeiro crie o Azure-SSIS IR usando um servidor de Banco de Dados SQL do Azure/Instância Gerenciada e ingressando em outra rede virtual na mesma localização e, em seguida, configure uma conexão de rede virtual a rede virtual entre localizações diferentes.
+- O local do seu Azure-SSIS IR não precisa ser o mesmo que o local do seu data factory, mas deve ser o mesmo que o local de seu próprio banco de dados SQL do Azure ou Instância Gerenciada servidor em que o SSISDB será hospedado. Desse modo, o Integration Runtime do Azure-SSIS pode acessar o SSISDB facilmente sem incorrer em tráfegos excessivos entre localizações diferentes.
+- Se você não tiver um banco de dados SQL do Azure ou um servidor de Instância Gerenciada para hospedar o SSISDB, mas tiver fontes/destinos locais, você deverá criar um novo banco de dado SQL do Azure ou um servidor de Instância Gerenciada no mesmo local de uma rede virtual conectada à sua rede local.  Dessa forma, você pode criar seu Azure-SSIS IR usando o novo banco de dados SQL do Azure ou o servidor de Instância Gerenciada e unindo essa rede virtual, tudo no mesmo local, minimizando efetivamente os movimentos em diferentes locais.
+- Se o local do banco de dados SQL do Azure existente ou Instância Gerenciada servidor em que o SSISDB está hospedado não for o mesmo que o local de uma rede virtual conectada à sua rede local, primeiro crie seu Azure-SSIS IR usando um banco de dados SQL do Azure existente ou Instância Gerenciada servidor e ingressar em outra rede virtual no mesmo local e, em seguida, configurar uma rede virtual para conexão de rede virtual entre locais diferentes.
 
 O diagrama a seguir mostra as configurações de localização de Data Factory e os respectivos tempos de execução de integração:
 
@@ -163,16 +163,16 @@ Para a atividade de cópia, ela requer que serviços vinculados de origem e de c
 
 A atividade de pesquisa e GetMetadata é executada no runtime de integração associado ao serviço vinculado de armazenamento de dados.
 
-### <a name="transformation-activity"></a>Atividade de transformação
+### <a name="external-transformation-activity"></a>Atividade de transformação externa
 
-Cada atividade de transformação tem um serviço vinculado de computação de destino, que aponta para um Integration Runtime. É dessa instância do Integration Runtime que a atividade de transformação é expedida.
+Cada atividade de transformação externa que utiliza um mecanismo de computação externo tem um serviço vinculado de computação de destino, que aponta para um tempo de execução de integração. Essa instância do Integration Runtime determina o local do qual a atividade de transformação codificada externa é expedida.
 
 ### <a name="data-flow-activity"></a>Atividade de fluxo de dados
 
-A atividade de fluxo de dados é executada no Integration Runtime associado a ela. 
+As atividades de fluxo de dados são executadas no tempo de execução de integração do Azure associado a ela. A computação do Spark utilizada por fluxos de dados é determinada pelas propriedades de fluxo de dados em seu Azure Integration Runtime e são totalmente gerenciadas pelo ADF.
 
 ## <a name="next-steps"></a>Próximos passos
-Confira os seguintes artigos:
+Veja os artigos a seguir:
 
 - [Criar tempo de execução de integração do Azure](create-azure-integration-runtime.md)
 - [Criar um Integration Runtime auto-hospedado](create-self-hosted-integration-runtime.md)

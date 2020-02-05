@@ -9,21 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 36914240caf3c1321dfa0102bd87cb29173f8b1d
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: f01e07ea2bbfd0f6b3b0cc19dd219d71984a0d45
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911064"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988559"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>Adicionar uma camada de extrusão de polígono ao mapa
 
-Este artigo mostra como usar a camada de extrusão de polígono para renderizar áreas de `Polygon` e `MultiPolygon` geometrias de recursos como formas extrudadas no mapa. O SDK da Web do Azure Maps também dá suporte à criação de geometrias de círculo, conforme definido no [esquema geojson estendido](extend-geojson.md#circle). Esses círculos são transformados em polígonos quando renderizados no mapa. Todas as geometrias de recursos também podem ser facilmente atualizadas se encapsuladas com o [Atlas. ](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest)Classe de forma.
-
+Este artigo mostra como usar a camada de extrusão de polígono para renderizar áreas de `Polygon` e `MultiPolygon` geometrias de recursos como formas extrudadas. O SDK da Web do Azure Maps dá suporte à renderização de geometrias de círculo conforme definido no [esquema geojson estendido](extend-geojson.md#circle). Esses círculos podem ser transformados em polígonos quando renderizados no mapa. Todas as geometrias de recursos podem ser atualizadas facilmente quando encapsuladas com o [Atlas. ](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest)Classe de forma.
 
 ## <a name="use-a-polygon-extrusion-layer"></a>Usar uma camada de extrusão de polígono
 
-Quando uma [camada de extrusão de polígono](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer?view=azure-maps-typescript-latest) é conectada à fonte de dados e carregada no mapa, ela renderiza as áreas de um `Polygon` e `MultiPolygon` recursos como formas extrudadas. As propriedades `height` e `base` da camada de extrusão do polígono definem a distância base do zero e a altura da forma extrudada em **metros**. O código a seguir mostra como criar um polígono, adicioná-lo a uma fonte de dados e renderizá-lo usando a classe da camada de extrusão do polígono.
+Conecte a [camada de extrusão do polígono](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer?view=azure-maps-typescript-latest) a uma fonte de dados. Em seguida, o carregou no mapa. A camada de extrusão do polígono renderiza as áreas de um `Polygon` e `MultiPolygon` recursos como formas extrudadas. As propriedades `height` e `base` da camada de extrusão do polígono definem a distância base do zero e a altura da forma extrudada em **metros**. O código a seguir mostra como criar um polígono, adicioná-lo a uma fonte de dados e renderizá-lo usando a classe da camada de extrusão do polígono.
 
 > [!Note]
 > O valor de `base` definido na camada de extrusão do polígono deve ser menor ou igual ao da `height`.
@@ -34,9 +33,9 @@ Quando uma [camada de extrusão de polígono](https://docs.microsoft.com/javascr
 Consulte o <a href='https://codepen.io/azuremaps/pen/wvvBpvE'>polígono extrudada</a> por caneta pelo mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.</iframe>
 
 
-## <a name="add-data-driven-multipolygons"></a>Adicionar multipolígonos controlados por dados
+## <a name="add-data-driven-polygons"></a>Adicionar polígonos controlados por dados
 
-Um mapa coropléticos pode ser renderizado usando a camada de extrusão do polígono, definindo seu `height` e `fillColor` Propriedades em proporção à medida da variável estatística nas geometrias do recurso `Polygon` e `MultiPolygon`. O exemplo de código a seguir mostra um mapa coropléticos extrudada dos U. S com base na medida da densidade da população por Estado.
+Um mapa coropléticos pode ser renderizado usando a camada de extrusão do polígono. Defina as propriedades `height` e `fillColor` da camada de extrusão com a medida da variável estatística nas geometrias do recurso `Polygon` e `MultiPolygon`. O exemplo de código a seguir mostra um mapa coropléticos extrudada dos U. S com base na medida da densidade da população por Estado.
 
 <br/>
 
@@ -62,7 +61,7 @@ O Azure Maps usa uma versão estendida do esquema geojson que fornece uma defini
 } 
 ```
 
-O SDK da Web do Azure Maps converte esses recursos de `Point` em `Polygon` recursos nos bastidores e pode ser renderizado no mapa usando a camada de extrusão de polígono, conforme mostrado no exemplo de código a seguir.
+O SDK da Web do Azure Maps converte esses recursos de `Point` em `Polygon` recursos nos bastidores. Esses recursos `Point` podem ser renderizados no mapa usando a camada de extrusão de polígono, conforme mostrado no exemplo de código a seguir.
 
 <br/>
 
@@ -72,7 +71,7 @@ Consulte o <a href='https://codepen.io/azuremaps/pen/zYYYrxo'>polígono do drone
 
 ## <a name="customize-a-polygon-extrusion-layer"></a>Personalizar uma camada de extrusão de polígono
 
-A camada de extrusão do polígono várias opções de estilo. Aqui está uma ferramenta para experimentá-las.
+A camada de extrusão do polígono tem várias opções de estilo. Aqui está uma ferramenta para experimentá-las.
 
 <br/>
 

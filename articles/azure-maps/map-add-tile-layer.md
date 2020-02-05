@@ -9,38 +9,38 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 83e8f6d684d6d39102fd682653cd19816a9f7b10
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 61d7a11df499e6b740adb45968721b6a9bb1af22
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911102"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988593"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Adicionar uma camada de bloco a um mapa
 
-Este artigo mostra como você pode sobrepor uma camada de peças do mapa. Camadas lado a lado permitem que você sobreponha imagens sobre peças de mapa base do Azure Mapas. Obtenha mais informações sobre o sistema de mosaico do Azure Mapas na documentação [Níveis de Zoom e grade lado a lado](zoom-levels-and-tile-grid.md).
+Este artigo mostra como sobrepor uma camada de bloco no mapa. Camadas lado a lado permitem que você sobreponha imagens sobre peças de mapa base do Azure Mapas. Para obter mais informações sobre o sistema de divisão de mapas do Azure, consulte [níveis de zoom e grade de blocos](zoom-levels-and-tile-grid.md).
 
-Uma camada de bloco é carregada em blocos de um servidor. Essas imagens podem ser renderizadas previamente e armazenadas como qualquer outra imagem em um servidor usando uma convenção de nomenclatura que compreende a camada de peça ou um serviço dinâmico que gera as imagens em tempo real. Há três convenções de nomenclatura de serviço de bloco diferentes com suporte pela classe [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) do Azure Maps: 
+Uma camada de bloco é carregada em blocos de um servidor. Essas imagens podem ser renderizadas previamente ou processadas dinamicamente. As imagens previamente renderizadas são armazenadas como qualquer outra imagem em um servidor usando uma Convenção de nomenclatura que a camada de bloco compreende. As imagens renderizadas dinamicamente usam um serviço para carregar as imagens perto do tempo real. Há três convenções de nomenclatura de serviço de bloco diferentes com suporte pela classe [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) do Azure Maps: 
 
-* X, Y, notação de Zoom - com base no nível de zoom, x é a coluna e y é a posição da linha do bloco na grade lado a lado.
-* Notação Quadkey - combinação x, y, informações de zoom em um valor de cadeia de caracteres única que é um identificador exclusivo para um bloco.
-* Caixa delimitadora - as coordenadas da caixa de delimitação podem ser usadas para especificar uma imagem no formato `{west},{south},{east},{north}` que é normalmente usada por [serviços de mapeamento de Web (WMS)](https://www.opengeospatial.org/standards/wms).
+* X, Y, notação de zoom-X é a coluna, Y é a posição de linha do bloco na grade de blocos e a notação de zoom um valor com base no nível de zoom.
+* Notação Quadkey – combina as informações x, y e zoom em um único valor de cadeia de caracteres. Esse valor de cadeia de caracteres torna-se um identificador exclusivo para um único bloco.
+* Caixa delimitadora-especifique uma imagem no formato de coordenadas da caixa delimitadora: `{west},{south},{east},{north}`. Esse formato é normalmente usado pelos [serviços de mapeamento da Web (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
-> Um [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) é uma ótima maneira para visualizar grandes conjuntos de dados no mapa. Não apenas uma camada de bloco pode ser gerada de uma imagem, mas os dados de vetor podem também ser renderizados como uma camada de peça. Por meio do processamento de dados de vetor, como uma camada lado a lado, o controle de mapa só precisa carregar os blocos que podem ser muito menores em tamanho de arquivo do que os dados vetoriais que representam. Essa técnica é usada por muitas pessoas que precisam renderizar milhões de linhas de dados no mapa.
+> Um [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) é uma ótima maneira para visualizar grandes conjuntos de dados no mapa. Uma camada de bloco não só pode ser gerada a partir de uma imagem, os dados vetoriais também podem ser renderizados como uma camada de bloco. Ao renderizar dados de vetor como uma camada de bloco, o controle de mapeamento precisa apenas carregar os blocos que são menores no tamanho do arquivo do que os dados de vetor que eles representam. Essa técnica costuma ser usada para renderizar milhões de linhas de dados no mapa.
 
-A URL do bloco passada para uma camada de peça deve ser uma URL http/https para um recurso de TileJSON ou um modelo de URL de bloco que usa os seguintes parâmetros: 
+A URL do bloco passada para uma camada de bloco deve ser uma URL http ou HTTPS para um recurso TileJSON ou um modelo de URL de bloco que usa os seguintes parâmetros: 
 
 * `{x}` - posição X do bloco. Também precisa `{y}` e `{z}`.
 * `{y}` - posição Y do bloco. Também precisa `{x}` e `{z}`.
 * `{z}` -Nível de zoom do bloco. Também precisa `{x}` e `{y}`.
 * `{quadkey}` - identificador quadkey de bloco baseado a convenção de nomenclatura do sistema de blocos Bing Maps.
 * `{bbox-epsg-3857}` -Uma cadeia de caracteres de caixa delimitadora com o formato `{west},{south},{east},{north}` no sistema de referência espacial do EPSG 3857.
-* `{subdomain}` -Um espaço reservado para onde os valores de subdomínio, se especificado serão adicionados.
+* `{subdomain}`-um espaço reservado para os valores de subdomínio, se especificado, o `subdomain` será adicionado.
 
 ## <a name="add-a-tile-layer"></a>Adicionar uma camada de bloco
 
- Este exemplo mostra como criar uma camada lado a lado que aponta para um conjunto de blocos que usam o sistema lado a lado do zoom, x,y. A origem dessa camada lado a lado é uma sobreposição de radar clima da [Iowa Environmental Mesonet of Iowa State University](https://mesonet.agron.iastate.edu/ogc/). Ao exibir dados de radar, o ideal é que os usuários possam ver claramente os rótulos das cidades à medida que navegam no mapa, o que pode ser feito inserindo-se a camada de peça abaixo da camada de `labels`.
+ Este exemplo mostra como criar uma camada de bloco que aponta para um conjunto de blocos. Este exemplo usa o sistema de divisão x, y e zoom. A origem dessa camada lado a lado é uma sobreposição de radar clima da [Iowa Environmental Mesonet of Iowa State University](https://mesonet.agron.iastate.edu/ogc/). Ao exibir dados de radar, o ideal é que os usuários vejam claramente os rótulos das cidades à medida que navegam no mapa. Esse comportamento pode ser implementado inserindo-se a camada de bloco abaixo da camada de `labels`.
 
 ```javascript
 //Create a tile layer and add it to the map below the label layer.

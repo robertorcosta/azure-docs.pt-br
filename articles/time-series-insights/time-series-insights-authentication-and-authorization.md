@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 02/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 960eb9b48a158358a076202db0d435feb918a6c8
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: ff5f7a80e2dcedb1795bae14ee9140c2842303a5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863471"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984500"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticação e autorização para API do Azure Time Series Insights
 
@@ -93,7 +93,7 @@ Por **etapa 3**, separar o seu aplicativo e suas credenciais de usuário permite
 
    1. O token, em seguida, pode ser passado ao `Authorization` cabeçalho quando o aplicativo chama a API de análises de séries temporais.
 
-* Como alternativa, os desenvolvedores podem optar por autenticar usando MSAL. Leia sobre a [migração para o MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) para saber mais. 
+* Como alternativa, os desenvolvedores podem optar por autenticar usando MSAL. Leia sobre como [migrar para o MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) e veja nossos [dados de referência do GA para C# um ambiente de Azure Time Series insights usando o](time-series-insights-manage-reference-data-csharp.md) artigo para saber mais. 
 
 ## <a name="common-headers-and-parameters"></a>Cabeçalhos e parâmetros comuns
 

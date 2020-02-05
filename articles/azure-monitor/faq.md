@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/23/2020
-ms.openlocfilehash: b0ec82807857be60f30aa777ff5871334383acf7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9f377f93ab8fef2c1ad713da6fcd6c6f14107c3f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715923"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986811"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor perguntas frequentes
 
@@ -90,7 +90,7 @@ O Azure Data Explorer é um serviço de exploração de dados rápido e altament
 ### <a name="how-do-i-retrieve-log-data"></a>Como fazer recuperar dados de log?
 Todos os dados são recuperados de um espaço de trabalho Log Analytics usando uma consulta de log escrita usando a linguagem de consulta Kusto (KQL). Você pode escrever suas próprias consultas ou usar soluções e ideias que incluem consultas de log para um determinado aplicativo ou serviço. Consulte [visão geral das consultas de log no Azure monitor](log-query/log-query-overview.md).
 
-### <a name="what-is-a-log-analytics-workspace"></a>O que é um espaço de trabalho Log Analytics?
+### <a name="what-is-a-log-analytics-workspace"></a>O que é um workspace do Log Analytics?
 Todos os dados de log coletados pelo Azure Monitor são armazenados em um espaço de trabalho do Log Analytics. Um espaço de trabalho é essencialmente um contêiner em que os dados de log são coletados de uma variedade de fontes. Você pode ter um único espaço de trabalho Log Analytics para todos os seus dados de monitoramento ou pode ter requisitos para vários espaços de trabalho. Consulte [projetando sua implantação de logs de Azure monitor](platform/design-logs-deployment.md).
 
 ### <a name="can-you-move-an-existing-log-analytics-workspace-to-another-azure-subscription"></a>Você pode mover um espaço de trabalho Log Analytics existente para outra assinatura do Azure?
@@ -169,7 +169,7 @@ WireData
 ```
 
 ### <a name="how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-azure-monitor"></a>Quanta largura de banda de rede é usada pelo MMA (agente de gerenciamento da Microsoft) ao enviar dados para Azure Monitor?
-Largura de banda é uma função sobre a quantidade de dados enviados. Dados são compactados conforme eles são enviados pela rede.
+A largura de banda é uma função na quantidade de dados enviados. Dados são compactados conforme eles são enviados pela rede.
 
 
 ### <a name="how-can-i-be-notified-when-data-collection-from-the-log-analytics-agent-stops"></a>Como posso ser notificado quando a coleta de dados do agente de Log Analytics é interrompida?
@@ -200,7 +200,7 @@ Consulte [requisitos de firewall de rede](platform/log-analytics-agent.md#networ
 O designer de exibição só está disponível para usuários atribuídos com permissões de colaborador ou superior no espaço de trabalho Log Analytics.
 
 
-## <a name="application-insights"></a>Application Insights
+## <a name="application-insights"></a>Percepções sobre o Aplicativo
 
 ### <a name="configuration-problems"></a>Problemas de configuração
 *Estou tendo problemas para configurar:*
@@ -327,6 +327,11 @@ Procuramos o endereço IP (IPv4 ou IPv6) do cliente Web usando [GeoLite2](https:
 ### <a name="data"></a>Por quanto tempo os dados são mantidos no portal? É seguro?
 Dê uma olhada na [retenção e na privacidade dos dados][data].
 
+### <a name="what-happens-to-application-insights-telemetry-when-a-server-or-device-loses-connection-with-azure"></a>O que acontece com a telemetria do Application Insight quando um servidor ou dispositivo perde a conexão com o Azure?
+
+Todos os nossos SDKs, incluindo o SDK da Web, incluem "transporte confiável" ou "transporte robusto". Quando o servidor ou dispositivo perde a conexão com o Azure, a telemetria é [armazenada localmente no sistema de arquivos](https://docs.microsoft.com/azure/azure-monitor/app/data-retention-privacy#does-the-sdk-create-temporary-local-storage) (SDKs de servidor) ou no armazenamento de sessão do HTML5 (SDK da Web). Periodicamente, o SDK tentará enviar novamente essa telemetria até que nosso serviço de ingestão o considere "obsoleto" (48 horas para logs, 30 minutos para métricas). A telemetria obsoleta será descartada. Em alguns casos, como quando o armazenamento local está cheio, a repetição não ocorrerá.
+
+
 ### <a name="could-personal-data-be-sent-in-the-telemetry"></a>É possível enviar dados pessoais na Telemetria?
 
 Isso é possível se o seu código envia tais dados. Isso também pode acontecer se as variáveis nos rastreamentos de pilha incluírem dados pessoais. Sua equipe de desenvolvimento deve realizar avaliações de risco para garantir que os dados pessoais sejam devidamente tratados. [Saiba mais sobre privacidade e retenção de dados ](app/data-retention-privacy.md).
@@ -375,7 +380,7 @@ Use um recurso único para todos os componentes ou funções em um único sistem
 | Telemetria de dependência |[Instalar o AI Status Monitor no servidor](app/monitor-performance-live-website-now.md) |Diagnosticar problemas com bancos de dados ou outros componentes externos |
 | Obter rastreamentos de pilha por meio de exceções |[Inserir chamadas TrackException em seu código](app/asp-net-exceptions.md) (mas alguns são informados automaticamente) |Detectar e diagnosticar exceções |
 | Pesquisar rastreamentos de log |[Adicionar um adaptador de registro em log](app/asp-net-trace-logs.md) |Diagnosticar exceções, problemas de desempenho |
-| Noções básicas de uso do cliente: modos de exibição de página, sessões,... |[Inicializador de JavaScript em páginas da Web](app/javascript.md) |Análise de uso |
+| Noções básicas de uso do cliente: modos de exibição de página, sessões,... |[Inicializador de JavaScript em páginas da Web](app/javascript.md) |Analíticas de uso |
 | Métricas de cliente personalizadas |[Rastreando chamadas em páginas da Web](app/api-custom-events-metrics.md) |Aprimorar a experiência do usuário |
 | Métricas de servidor personalizadas |[Rastreando chamadas no servidor](app/api-custom-events-metrics.md) |Business intelligence |
 
@@ -741,7 +746,7 @@ Se você configurou o Azure Monitor com um espaço de trabalho do Log Analytics 
 Nessa condição, uma opção **Experimentar Agora** será exibida quando você abrir a VM e selecionar **Insights (versão prévia)** no painel esquerdo, mesmo após já ter sido instalado na VM.  No entanto, não serão exibidas as opções como normalmente ocorreria se essa VM não estivesse incorporada ao Azure Monitor para VMs. 
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximos passos
 Se sua pergunta não for respondida aqui, você poderá consultar os fóruns a seguir para obter perguntas e respostas adicionais.
 
 - [Log Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)

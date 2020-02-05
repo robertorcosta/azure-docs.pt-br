@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a5885df67464095061d9a95aa59010a1629fb8f8
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: d5adc94061cd656b0654fba6609d36ecfd38c75d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76930343"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988032"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Solucionar problemas de trabalhadores de runbooks híbridos
 
@@ -22,7 +22,7 @@ Este artigo fornece informações sobre como solucionar problemas com os trabalh
 
 ## <a name="general"></a>Geral
 
-O operador de Runbook híbrido depende de um agente para se comunicar com sua conta de automação para registrar o trabalho, recebe trabalhos de runbook e status de relatórios. Para o Windows, esse agente é o agente Log Analytics para Windows (também conhecido como Microsoft Monitoring Agent (MMA)). Para o Linux, é o agente Log Analytics para Linux.
+O operador de Runbook híbrido depende de um agente para se comunicar com sua conta de automação para registrar o trabalho, recebe trabalhos de runbook e status de relatórios. Para o Windows, esse agente é o agente Log Analytics para Windows, também conhecido como Microsoft Monitoring Agent (MMA). Para o Linux, é o agente Log Analytics para Linux.
 
 ### <a name="runbook-execution-fails"></a>Cenário: a execução do Runbook falha
 
@@ -34,11 +34,11 @@ A execução do runbook falha e você recebe o seguinte erro:
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 
-Seu runbook foi suspenso logo depois de tentar executá-lo três vezes. Há condições que podem interromper a conclusão do runbook. A mensagem de erro relacionada pode não incluir nenhuma informação adicional.
+Seu runbook será suspenso logo depois de tentar executar três vezes. Há condições que podem interromper a conclusão do runbook. A mensagem de erro relacionada pode não incluir nenhuma informação adicional.
 
 #### <a name="cause"></a>Causa
 
-A seguir estão possíveis causas possíveis:
+Estas são as possíveis causas:
 
 * Os runbooks não podem autenticar com recursos locais
 
@@ -52,7 +52,7 @@ A seguir estão possíveis causas possíveis:
 
 Verifique se o computador tem acesso de saída para *.azure automation.net na porta 443.
 
-Os computadores que executam o Hybrid Runbook Worker devem atender aos requisitos mínimos de hardware antes de o trabalho ser configurado para hospedar esse recurso. Os Runbooks e os processos em segundo plano que eles usam podem fazer com que o sistema seja usado em excesso e causar atrasos ou tempos limite de trabalho do runbook.
+Os computadores que executam o Hybrid Runbook Worker devem atender aos requisitos mínimos de hardware antes de o trabalho ser configurado para hospedar esse recurso. Os Runbooks e o processo em segundo plano que eles usam podem fazer com que o sistema seja usado em excesso e causar atrasos ou tempos limite de trabalho do runbook.
 
 Confirme o computador que executará o recurso Hybrid Runbook Worker atende aos requisitos mínimos de hardware. Se isso acontecer, monitore o uso de CPU e memória para determinar qualquer correlação entre o desempenho de processos do Hybrid Runbook Worker e o Windows. Qualquer pressão de memória ou CPU pode indicar a necessidade de atualizar os recursos. Você também pode selecionar um recurso de computação diferente que consiga dar suporte aos requisitos mínimos e ajuste a escala quando a demanda da carga de trabalho indicar que um aumento é necessário.
 
@@ -72,7 +72,6 @@ At line:3 char:1
     + CategoryInfo          : CloseError: (:) [Connect-AzureRmAccount], ArgumentException
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzureRmAccountCommand
 ```
-
 #### <a name="cause"></a>Causa
 
 Esse erro ocorre quando você tenta usar um [Executar como Conta](../manage-runas-account.md) em um runbook que é executado em um Hybrid Runbook Worker em que o certificado de Executar como Conta não está presente. Hybrid Runbook Workers não tem o ativo de certificado localmente, por padrão, o que é necessário para o Executar como Conta funcione corretamente.
@@ -80,41 +79,6 @@ Esse erro ocorre quando você tenta usar um [Executar como Conta](../manage-runa
 #### <a name="resolution"></a>Resolução
 
 Se o seu Hybrid Runbook Worker for uma VM do Azure, você poderá usar [identidades gerenciadas para recursos do Azure](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) em vez disso. Esse cenário simplifica a autenticação, permitindo que você se autentique em recursos do Azure usando a identidade gerenciada da VM do Azure em vez da conta Executar como. Quando o Hybrid Runbook Worker é um computador local, você precisará instalar o certificado de Executar como Conta no computador. Para saber como instalar o certificado, consulte as etapas para executar o runbook Export-RunAsCertificateToHybridWorker do PowerShell em [executando runbooks em um Hybrid runbook Worker](../automation-hrw-run-runbooks.md).
-
-## <a name="linux"></a>Linux
-
-O Hybrid Runbook Worker do Linux depende do [agente de log Analytics para Linux](../../azure-monitor/platform/log-analytics-agent.md) para se comunicar com sua conta de automação para registrar o trabalho, receber trabalhos de runbook e relatar o status. Se o registro do trabalhador falhar, aqui estão algumas das possíveis causas do erro:
-
-### <a name="oms-agent-not-running"></a>Cenário: o agente do Log Analytics para Linux não está em execução
-
-#### <a name="issue"></a>Problema
-
-O agente do Log Analytics para Linux não está em execução
-
-#### <a name="cause"></a>Causa
-
-Se o agente não estiver em execução, ele impedirá que o Hybrid Runbook Worker Linux se comunique com a automação do Azure. O agente não pode ser executado por vários motivos.
-
-#### <a name="resolution"></a>Resolução
-
- Verifique se o agente está em execução digitando o seguinte comando: `ps -ef | grep python`. Você deverá ver uma saída semelhante à seguinte, os processos de python com conta de usuário **nxautomation**. Se as soluções de Gerenciamento de Atualizações ou de Automação do Azure não estiverem ativadas, nenhum dos processos a seguir estará em execução.
-
-```bash
-nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
-nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/state/automationworker/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
-nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
-```
-
-A lista a seguir mostra os processos que são iniciados para um Hybrid Runbook Worker do Linux. Eles estão todos localizados no diretório `/var/opt/microsoft/omsagent/state/automationworker/`.
-
-
-* **oms.conf** - esse valor é o processo do gerenciador do trabalhador. Ele é iniciado diretamente do DSC.
-
-* **worker.conf** -Este processo é o processo do Hybrid Worker Registrado Automaticamente, ele é iniciado pelo gerenciador de trabalho. Esse processo é usado pelo Gerenciamento de Atualizações e é transparente para o usuário. Este processo não está presente se a solução de Gerenciamento de Atualizações não estiver ativada na máquina.
-
-* **diy/worker.conf** - Este processo é o processo do Hybrid Worker DIY. O processo do Hybrid Worker DIY é usado para executar runbooks de usuário no Hybrid Runbook Worker. Ele difere apenas do processo de trabalho híbrido registrado automaticamente, no detalhe da chave, que ele usa uma configuração diferente. Esse processo não estará presente se a solução de automação do Azure estiver desabilitada e o Hybrid Worker DIY do Linux não estiver registrado.
-
-Se o agente não estiver em execução, execute o seguinte comando para iniciar o serviço: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
 ### <a name="error-403-on-registration"></a>Cenário: erro 403 durante o registro de Hybrid Runbook Worker
 
@@ -142,6 +106,41 @@ Para verificar se a ID do espaço de trabalho ou a chave do espaço de trabalho 
 Seu espaço de trabalho do Log Analytics e a conta de automação devem estar em uma região vinculada. Para obter uma lista de regiões com suporte, confira [automação do Azure e mapeamentos de espaço de trabalho do log Analytics](../how-to/region-mappings.md).
 
 Talvez você também precise atualizar a data e o fuso horário do seu computador. Se você selecionar um intervalo de tempo personalizado, verifique se o intervalo está em UTC, que pode ser diferente do seu fuso horário local.
+
+## <a name="linux"></a>Linux
+
+O Hybrid Runbook Worker do Linux depende do [agente de log Analytics para Linux](../../azure-monitor/platform/log-analytics-agent.md) para se comunicar com sua conta de automação para registrar o trabalho, receber trabalhos de runbook e relatar o status. Se o registro do trabalhador falhar, aqui estão algumas das possíveis causas do erro:
+
+### <a name="oms-agent-not-running"></a>Cenário: o agente do Log Analytics para Linux não está em execução
+
+#### <a name="issue"></a>Problema
+
+O agente do Log Analytics para Linux não está em execução
+
+#### <a name="cause"></a>Causa
+
+Se o agente não estiver em execução, ele impedirá que o Hybrid Runbook Worker Linux se comunique com a automação do Azure. O agente pode não estar em execução por vários motivos.
+
+#### <a name="resolution"></a>Resolução
+
+ Verifique se o agente está em execução digitando o seguinte comando: `ps -ef | grep python`. Você deverá ver uma saída semelhante à seguinte, os processos de python com conta de usuário **nxautomation**. Se as soluções de Gerenciamento de Atualizações ou de Automação do Azure não estiverem ativadas, nenhum dos processos a seguir estará em execução.
+
+```bash
+nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
+nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/state/automationworker/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
+nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
+```
+
+A lista a seguir mostra os processos que são iniciados para um Hybrid Runbook Worker do Linux. Eles estão todos localizados no diretório `/var/opt/microsoft/omsagent/state/automationworker/`.
+
+
+* **OMS. conf** -o processo do Gerenciador de trabalho. Ele é iniciado diretamente do DSC.
+
+* **Worker. conf** -o processo de trabalho híbrido registrado automaticamente, ele é iniciado pelo Gerenciador de trabalho. Esse processo é usado pelo Gerenciamento de Atualizações e é transparente para o usuário. Este processo não está presente se a solução de Gerenciamento de Atualizações não estiver ativada na máquina.
+
+* **DIY/Worker. conf** -o processo de trabalho híbrido do DIY. O processo do Hybrid Worker DIY é usado para executar runbooks de usuário no Hybrid Runbook Worker. Ele difere apenas do processo de trabalho híbrido registrado automaticamente, no detalhe da chave, que ele usa uma configuração diferente. Esse processo não estará presente se a solução de automação do Azure estiver desabilitada e o Hybrid Worker DIY do Linux não estiver registrado.
+
+Se o agente não estiver em execução, execute o seguinte comando para iniciar o serviço: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
 ### <a name="class-does-not-exist"></a>Cenário: a classe especificada não existe
 

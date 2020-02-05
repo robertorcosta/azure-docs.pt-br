@@ -3,17 +3,17 @@ title: Gerenciar autenticação | Mapas do Microsoft Azure
 description: Você pode usar o portal do Azure para gerenciar a autenticação no Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 01/16/2020
+ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 1f7f128898089292a8ccd92686af5d68fe328f3c
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: f856aebe5e3acaca142e460d18ec8c6498b18787
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766195"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989153"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gerenciar autenticação no Azure Mapas
 
@@ -21,40 +21,40 @@ Depois de criar uma conta do Azure Maps, uma ID do cliente e as chaves são cria
 
 ## <a name="view-authentication-details"></a>Exibir detalhes de autenticação
 
-Após a criação da conta do Azure Maps, as chaves primária e secundária são geradas. Use a chave primária como a chave de assinatura, às vezes, esses nomes são usados de maneira intercambiável. A chave secundária pode ser usada em cenários como alterações de chave sem interrupção. De qualquer forma, é necessária uma chave para chamar o Azure Maps. Esse processo é chamado de [autenticação de chave compartilhada](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). Consulte [autenticação com o Azure Maps](https://aka.ms/amauth) para saber mais sobre a autenticação de chave compartilhada e do Azure AD.
+Após a criação da conta do Azure Maps, as chaves primária e secundária são geradas. É recomendável usar a chave primária como chave de assinatura ao chamar o Azure Maps usando a [autenticação de chave compartilhada](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). A chave secundária pode ser usada em cenários como alterações de chave sem interrupção. Para saber mais, confira [autenticação com o Azure Maps](https://aka.ms/amauth).
 
 Você pode exibir os detalhes de autenticação no portal do Azure. Vá para sua conta e selecione **autenticação** no menu **configurações** .
 
 ![Detalhes de autenticação](./media/how-to-manage-authentication/how-to-view-auth.png)
 
 
-## <a name="set-up-azure-ad-app-registration"></a>Configurar o registro de aplicativo do Azure AD
+## <a name="configure-azure-ad-app-registration"></a>Configurar o registro do Aplicativo Azure AD
 
-Depois de criar uma conta do Azure Maps, você precisa estabelecer um vínculo entre o locatário do Azure AD e o recurso do Azure Maps.
-
-1. Selecione **Azure Active Directory** no menu do Portal. Forneça um nome para o registro. Clique em **registros de aplicativo** em seguida, clique em **novo registro**. Na caixa **URI de redirecionamento** , forneça o home page do aplicativo Web. Por exemplo, https://localhost/. Se você já tiver um aplicativo registrado, vá para a etapa 2.
+1. Selecione **Azure Active Directory** na lista de serviços do Azure no portal do Azure.  Selecione **registros de aplicativo** e clique em **novo registro**.  Avançar. Insira **nome**, escolha **tipo de conta de suporte**e clique em **registrar**.  Se você já tiver um aplicativo registrado, vá para a etapa 2. 
 
     ![Registro do aplicativo](./media/how-to-manage-authentication/app-registration.png)
 
     ![Detalhes de registro do aplicativo](./media/how-to-manage-authentication/app-create.png)
 
-2. Para atribuir permissões de API delegadas para mapas do Azure, vá para o aplicativo em **registros de aplicativo**e, em seguida, selecione **permissões de API**. Selecione **adicionar permissão**. Pesquise e selecione **mapas do Azure** em **selecionar uma API**.
+2. Para atribuir permissões de API delegadas ao Azure Maps, vá para o aplicativo em **registros de aplicativo**. Em seguida, selecione **permissões de API**e, em seguida, selecione **Adicionar uma permissão**. Pesquise e selecione **mapas do Azure** em **APIs que minha organização usa**.
 
     ![Permissões de API de aplicativo](./media/how-to-manage-authentication/app-permissions.png)
 
-3. Em **selecionar permissões**, marque a caixa para **representação do usuário**e clique no botão **selecionar** na parte inferior.
+3. Marque **acessar Azure Maps** e clique em **adicionar permissões**.
 
     ![Selecionar permissões de API de aplicativo](./media/how-to-manage-authentication/select-app-permissions.png)
 
-4. Conclua a etapa a ou b, dependendo do seu método de autenticação.
+4. Conclua a etapa a ou b, dependendo do seu método de autenticação. 
 
-    1. Se seu aplicativo usar a autenticação de token de usuário com o SDK da Web do Azure Maps, habilite `oauth2AllowImplicitFlow` definindo-o como true na seção de manifesto do registro do aplicativo.
+    1. Se seu aplicativo usar a autenticação de token de usuário com o SDK da Web do Azure Maps, habilite `oauth2AllowImplicitFlow`. Para habilitar `oauth2AllowImplicitFlow`, defina-a como true na seção de manifesto do registro do aplicativo. 
     
        ![Manifesto de aplicativo](./media/how-to-manage-authentication/app-manifest.png)
 
-    2. Se seu aplicativo usar a autenticação de servidor/aplicativo, vá para a folha **certificados & segredos** no registro do aplicativo e crie uma senha ou carregue um certificado de chave pública para o registro do aplicativo. Se você criar uma senha, armazene-a com segurança para uso posterior. Você usará essa senha para adquirir tokens do Azure AD.
+    2. Se seu aplicativo usar a autenticação de servidor/aplicativo, vá para a folha **certificados & segredos** na página de registro do aplicativo e crie uma senha clicando em **novo segredo do cliente** ou carregar um certificado de chave pública para o registro do aplicativo. Se você criar uma senha, depois de clicar em **Adicionar**, copie a senha para mais tarde e armazene-a com segurança. Você usará essa senha para adquirir tokens do Azure AD.
 
        ![Chaves do aplicativo](./media/how-to-manage-authentication/app-keys.png)
+
+       ![Adicionar chave](./media/how-to-manage-authentication/add-key.png)
 
 
 ## <a name="grant-role-based-access-control-rbac-to-azure-maps"></a>Conceder RBAC (controle de acesso baseado em função) para mapas do Azure

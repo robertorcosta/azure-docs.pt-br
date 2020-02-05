@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4bf13477bfee39b5be39715374592811e8f8cc89
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: bcf100236d4a2a707a007a24e9e51105cc9ca0ac
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911019"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76991094"
 ---
 # <a name="weather-services-in-azure-maps"></a>Serviços meteorológicos no Azure Maps
 
@@ -21,7 +21,7 @@ Este artigo apresenta conceitos que se aplicam aos [serviços meteorológicos do
 
 ## <a name="unit-types"></a>Tipos de unidade
 
-Algumas das APIs de serviço meteorológico permitem que o usuário especifique se os dados são retornados na métrica ou em unidades Imperials. A resposta retornada para essas APIs também incluirá UnitType, um valor numérico que pode ser usado para conversões de unidade. Consulte a tabela abaixo para interpretar esses valores.
+Algumas das APIs de serviço meteorológico permitem que o usuário especifique se os dados são retornados na métrica ou em unidades Imperials. As respostas retornadas para essas APIs incluem UnitType e um valor numérico que pode ser usado para conversões de unidade. Consulte a tabela abaixo para interpretar esses valores.
 
 |UnitType|Description         |
 |--------|--------------------|
@@ -45,14 +45,14 @@ Algumas das APIs de serviço meteorológico permitem que o usuário especifique 
 |17      |celsius             |
 |18      |fahrenheit          |
 |19      |kelvin              |
-|20      |{1&gt;percent&lt;1}             |
+|20      |%             |
 |21      |FLOAT               |
 |22      |inteiro             |
 
 
 ## <a name="weather-icons"></a>Ícones de clima
 
-Algumas das APIs de serviço meteorológicos retornam códigos de ícone (iconCode) na resposta, um valor numérico que pode ser usado para definir o ícone. Não vincule diretamente a essas imagens de seus aplicativos, as URLs podem e serão alteradas.
+Algumas das APIs de serviço meteorológico retornam o `iconCode` na resposta. O `iconCode` é um valor numérico usado para definir o ícone. Não vincule diretamente a essas imagens de seus aplicativos, as URLs podem e serão alteradas.
 
 | Número do ícone |ícone| Dia | Jogo | Texto |
 |-------------|:----:|-----|-------|------|
@@ -62,7 +62,7 @@ Algumas das APIs de serviço meteorológicos retornam códigos de ícone (iconCo
 | 4           |![](./media/weather-services-concepts/intermittent-clouds.png)         | Sim |  Não    | Nuvens intermitentes|
 | 5           |![](./media/weather-services-concepts/hazy-sunshine.png)               | Sim |  Não    | Hazy sol |
 | 6           |![](./media/weather-services-concepts/mostly-cloudy.png)               | Sim |  Não    | Principalmente em nuvem|
-| 7           |![](./media/weather-services-concepts/cloudy-i.png)                     | Sim |  Sim   | nublado |
+| 7           |![](./media/weather-services-concepts/cloudy-i.png)                     | Sim |  Sim   | Nublado |
 | 8           |![](./media/weather-services-concepts/dreary-overcast.png)             | Sim |  Sim   | Dreary (Overcast)|
 | 11           |![](./media/weather-services-concepts/fog-i.png)                       | Sim |  Sim   | Neblina|
 | 12           |![](./media/weather-services-concepts/showers-i.png)                   | Sim |  Sim   | Hadrônicos|
@@ -77,7 +77,7 @@ Algumas das APIs de serviço meteorológicos retornam códigos de ícone (iconCo
 | 21           |![](./media/weather-services-concepts/partly-sunny-flurries.png)       | Sim |  Não    | Parcialmente ensolarado com flurries|
 | 22           |![](./media/weather-services-concepts/snow-i.png)                      | Sim |  Sim   | Neve|
 | 23           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | Sim |  Não    | Principalmente em nuvem com neve|
-| 24           |![](./media/weather-services-concepts/ice-i.png)                       | Sim |  Sim   | Gelo |
+| 24           |![](./media/weather-services-concepts/ice-i.png)                       | Sim |  Sim   | Congela |
 | 25           |![](./media/weather-services-concepts/sleet-i.png)                     | Sim |  Sim   | Sleet|
 | 26           |![](./media/weather-services-concepts/freezing-rain.png)              | Sim |  Sim   | Chuva de congelamento|
 | 29           |![](./media/weather-services-concepts/rain-snow.png)                  | Sim |  Sim   | Chuva e neve|
@@ -220,7 +220,7 @@ A paleta de cores detalhada para blocos satélite de infravermelho é mostrada a
 |198     |#fe050505     |
 |198,43  |#fe120505     |
 |198,87  |#fc1f0505     |
-|199.3   |#fc2c0606     |
+|199,3   |#fc2c0606     |
 |199,74  |#fa390606     |
 |200,17  |#fa460606     |
 |200,61  |#f8530606     |

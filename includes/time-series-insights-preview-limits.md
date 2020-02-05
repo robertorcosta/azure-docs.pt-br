@@ -4,17 +4,17 @@ description: incluir arquivo
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 12/31/2019
+ms.date: 02/03/2020
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.custom: include file
-ms.openlocfilehash: 90e6e5c8d6d4f10e2d63f80b9c0840854424f5a7
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 8537db1e5703abd8df92a2950455bee556731d08
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75616214"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77013843"
 ---
 ### <a name="general-availability-and-preview-comparison"></a>Disponibilidade geral e comparação de visualização
 
@@ -28,7 +28,7 @@ A tabela a seguir resume várias diferenças importantes entre Azure Time Series
 | Armazenamento lógico de computação | Não | Armazenado na parte de variáveis de tipo do modelo |
 | Armazenamento e controle de acesso | Não | Habilitado por meio do modelo |
 | Agregações/amostragem | Não | Ponderado do evento e tempo demorado |
-| Reconstrução de sinal | Não | Interpolação |
+| Reconstrução de sinal | Não | Interpola |
 | Produção de série temporal derivada | Não | Sim, mesclagens e junções |
 | Flexibilidade da linguagem | Não combinável | Combinável |
 | Linguagem de expressão | Cadeia de predicado | Expressões de série temporal (cadeias de caracteres de predicado, valores, expressões e funções) |

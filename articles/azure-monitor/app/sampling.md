@@ -9,12 +9,12 @@ ms.author: mbullwin
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c851978ea1b5af3006f1835f022c30aa7e7128f7
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9fda3bb0188a2030572ee686ff5a942aca61ea36
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899086"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989970"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -347,12 +347,13 @@ Os tipos de telemetria que podem ser incluídos ou excluídos da amostragem são
 
 ### <a name="configuring-fixed-rate-sampling-for-opencensus-python-applications"></a>Configurando a amostragem de taxa fixa para aplicativos OpenCensus Python
 
-1. Instrumente seu aplicativo com os mais recentes [OpenCensus Azure monitor exportadores](../../azure-monitor/app/opencensus-python.md).
+Instrumente seu aplicativo com os mais recentes [OpenCensus Azure monitor exportadores](../../azure-monitor/app/opencensus-python.md).
 
 > [!NOTE]
-> A amostragem de taxa fixa só está disponível usando o exportador de rastreamento. Isso significa que as solicitações de entrada e saída são os únicos tipos de telemetria em que a amostragem pode ser configurada.
+> A amostragem de taxa fixa não está disponível para o exportador de métricas. Isso significa que as métricas personalizadas são os únicos tipos de telemetria em que a amostragem não pode ser configurada. O exportador de métricas enviará toda a telemetria que ele acompanha.
 
-2. Você pode especificar um `sampler` como parte da configuração do `Tracer`. Se nenhum amostra explícito for fornecido, o `ProbabilitySampler` será usado por padrão. O `ProbabilitySampler` usaria uma taxa de 1/10000 por padrão, o que significa que uma das solicitações de 10000 será enviada para Application Insights. Se você quiser especificar uma taxa de amostragem, veja abaixo.
+#### <a name="fixed-rate-sampling-for-tracing"></a>Amostragem de taxa fixa para rastreamento ####
+Você pode especificar um `sampler` como parte da configuração do `Tracer`. Se nenhum amostra explícito for fornecido, o `ProbabilitySampler` será usado por padrão. O `ProbabilitySampler` usaria uma taxa de 1/10000 por padrão, o que significa que uma das solicitações de 10000 será enviada para Application Insights. Se você quiser especificar uma taxa de amostragem, veja abaixo.
 
 Para especificar a taxa de amostragem, verifique se o `Tracer` especifica um amostra com uma taxa de amostragem entre 0,0 e 1,0, inclusive. Uma taxa de amostragem de 1,0 representa 100%, o que significa que todas as suas solicitações serão enviadas como telemetria para Application Insights.
 
@@ -362,6 +363,16 @@ tracer = Tracer(
         instrumentation_key='00000000-0000-0000-0000-000000000000',
     ),
     sampler=ProbabilitySampler(1.0),
+)
+```
+
+#### <a name="fixed-rate-sampling-for-logs"></a>Amostragem de taxa fixa para logs ####
+Você pode configurar a amostragem de taxa fixa para `AzureLogHandler` modificando o argumento opcional `logging_sampling_rate`. Se nenhum argumento for fornecido, uma taxa de amostragem de 1,0 será usada. Uma taxa de amostragem de 1,0 representa 100%, o que significa que todas as suas solicitações serão enviadas como telemetria para Application Insights.
+
+```python
+exporter = metrics_exporter.new_metrics_exporter(
+    instrumentation_key='00000000-0000-0000-0000-000000000000',
+    logging_sampling_rate=0.5,
 )
 ```
 

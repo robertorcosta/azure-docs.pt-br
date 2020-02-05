@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 30083b4f2f5f9b69368a47ecaf5505c04ccd6df9
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 3e400f62ed4afcb40d5d68aeb357d47083445802
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530690"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988168"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Parceiros de desenvolvimento de aplicativo e de migração do NoSQL do Azure Cosmos DB
 
@@ -21,7 +21,6 @@ Da migração do NoSQL ao desenvolvimento de aplicativo, é possível escolher e
 
 |**Parceiro**  |**Funcionalidades e experiência**  |**Países/regiões com suporte**  |**Contato**  |
 |---------|---------|---------|---------|
-|![ImanisData][1]   | Migração de dados do MongoDB para Azure Cosmos DB. <br/> O Imanis Data permite que empresas globais migrem de maneira rápida e fácil seus bancos de dados MongoDB locais ou em nuvem para o Azure Cosmos DB. O Imanis Data oferece uma abordagem de migração na nuvem sem agente e sempre incremental para armazenamentos de dados do MongoDB que simplifica a migração e reduz significativamente o tempo de inatividade.|  EUA  |   [Site](https://www.cohesity.com/products/imanis-data/)      |
 |![Striim][2]    |  [Mover dados em tempo real para o Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) de uma ampla variedade de fontes de dados. <br/> O Striim simplifica a coleta em tempo real e a movimentação de dados de uma ampla variedade de fontes locais, incluindo documentos corporativos e bancos de dados relacionais, sensores e arquivos de log em Azure Cosmos DB. |   EUA   |  [Site](https://www.striim.com/)       |
 
 ## <a name="systems-integrator-partners"></a>Parceiros de Integrador de Sistemas
@@ -59,7 +58,6 @@ Da migração do NoSQL ao desenvolvimento de aplicativo, é possível escolher e
 Para saber mais sobre outros parceiros da Microsoft, consulte o silte [Microsoft Partner](https://partner.microsoft.com/en-US/).
 
 <!--Image references-->
-[1]: ./media/partners-migration-cosmosdb/imanisdata_logo.png
 [2]: ./media/partners-migration-cosmosdb/striim_logo.png
 [3]: ./media/partners-migration-cosmosdb/altoros_logo.png
 [4]: ./media/partners-migration-cosmosdb/attunix_logo.png

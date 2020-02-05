@@ -4,12 +4,12 @@ description: Saiba mais sobre como usar identidades gerenciadas para o Azure com
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: f477acab332cf39de2504c675b04abb5b14a305f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 06ebcfdf3d6a3815908752153acb09437d745d15
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934976"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986743"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric-preview"></a>Usando identidades gerenciadas para o Azure com Service Fabric (versão prévia)
 
@@ -30,7 +30,7 @@ Identidades gerenciadas para o Azure baseiam-se em vários conceitos principais:
 
 - **Entidade de serviço** -um objeto Azure Active Directory, que representa a projeção de um aplicativo AAD em um determinado locatário (também consulte a [entidade de serviço](../active-directory/develop/developer-glossary.md#service-principal-object).)
 
-Os dois tipos de identidades gerenciadas são:
+Há dois tipos de identidades gerenciadas:
 
 - Uma **identidade gerenciada atribuída pelo sistema** é habilitada diretamente em uma instância de serviço do Azure.  O ciclo de vida de uma identidade atribuída pelo sistema é exclusivo para a instância de serviço do Azure em que está habilitada.
 - Uma **identidade gerenciada atribuída pelo usuário** é criada como um recurso autônomo do Azure. A identidade pode ser atribuída a uma ou mais instâncias de serviço do Azure e é gerenciada separadamente dos ciclos de vida dessas instâncias.
@@ -39,7 +39,7 @@ Para entender ainda mais a diferença entre os tipos de identidade gerenciada, c
 
 ## <a name="supported-scenarios-for-service-fabric-applications"></a>Cenários com suporte para aplicativos Service Fabric
 
-As identidades gerenciadas para Service Fabric só têm suporte em clusters de Service Fabric implantados pelo Azure e somente para aplicativos implantados como recursos do Azure; um aplicativo que não é implantado como um recurso do Azure não pode ser atribuído a uma identidade. Falando conceitualmente, o suporte para identidades gerenciadas no Cluster Service Fabric do Azure consiste em duas fases:
+As identidades gerenciadas para Service Fabric só têm suporte em clusters de Service Fabric implantados pelo Azure e somente para aplicativos implantados como recursos do Azure; um aplicativo que não é implantado como um recurso do Azure não pode ser atribuído a uma identidade. Falando conceitualmente, o suporte para identidades gerenciadas em um cluster de Service Fabric do Azure consiste em duas fases:
 
 1. Atribuir uma ou mais identidades gerenciadas ao recurso de aplicativo; um aplicativo pode receber uma única identidade atribuída pelo sistema e/ou até 32 identidades atribuídas pelo usuário, respectivamente.
 

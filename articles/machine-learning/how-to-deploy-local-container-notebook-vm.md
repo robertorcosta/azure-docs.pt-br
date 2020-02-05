@@ -10,19 +10,19 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 10/25/2019
-ms.openlocfilehash: 45f9f9d1c9c8414f7d3c97aab05b012a16079f40
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c07e880ea9b3c382d3c6ecde51dfe8f4ab5c24fc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843524"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988406"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Implantar um modelo para Azure Machine Learning instâncias de computação
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 > [!NOTE]
-> As instâncias de computação (versão prévia) estão disponíveis somente para espaços de trabalho com **EUA Central norte**, * * leste dos EUA 2 * *, **Europa setentrional** ou **sul do Reino Unido**.
+> As instâncias de computação (versão prévia) estão disponíveis somente para espaços de trabalho com uma região do **norte EUA Central**, **leste dos eua 2**, **Europa setentrional** ou **sul do Reino Unido**, com suporte para outras regiões em breve.
 >Se o seu espaço de trabalho estiver em qualquer outra região, você poderá continuar a criar e usar uma [VM do Notebook](concept-compute-instance.md#notebookvm) em vez disso.  Você pode implantar um modelo em uma instância de computação ou em uma VM do notebook usando as etapas neste artigo.
 
 Saiba como usar Azure Machine Learning para implantar um modelo como um serviço Web em sua instância de computação do Azure Machine Learning. Use instâncias de computação se uma das seguintes condições for verdadeira:

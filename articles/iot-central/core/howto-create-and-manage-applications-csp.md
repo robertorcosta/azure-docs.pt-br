@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 0e49a5c8edd074c71d5972ee8d9c2e81f9c512ea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 22ed36c3c55d55ab9a733c2a0552f0ac3dcce1f5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453961"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987641"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Criar e gerenciar um aplicativo de IoT Central do Azure no portal do CSP
 
@@ -39,9 +39,11 @@ Para criar um aplicativo de IoT Central do Azure, selecione **Compilar** no menu
 
 ![Página Criar Aplicativo para CSPs](media/howto-create-application-csp/image4-1.png)
 
-## <a name="payment-plan"></a>Plano de Pagamento
+![Página criar aplicativo para informações de cobrança de CSPs](media/howto-create-application-csp/image4-2.png)
 
-Você só pode criar aplicativos Pay-As-You-Go como CSP. Para demonstrar o Azure IoT Central para o seu cliente, você pode criar um aplicativo de avaliação separadamente. Saiba mais sobre os aplicativos Trial e Pay-As-You-Go na [página de preços da Microsoft IoT Central do Azure](https://azure.microsoft.com/pricing/details/iot-central/).
+## <a name="pricing-plan"></a>Plano de preços
+
+Você só pode criar aplicativos que usam um plano de preços padrão como CSP. Para demonstrar o Azure IoT Central ao seu cliente, você pode criar um aplicativo que usa o plano de preços gratuito separadamente. Saiba mais sobre os planos de preços gratuitos e padrão na [página de preços do Azure IOT central](https://azure.microsoft.com/pricing/details/iot-central/).
 
 ## <a name="application-name"></a>Nome do Aplicativo
 
