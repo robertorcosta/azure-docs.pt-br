@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/27/2019
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 639277177bf63e659e5b0ea804eca5e20f956831
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 98d9730168764f0ba683a246f9ac224c13d3bf31
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74948821"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982799"
 ---
 # <a name="general-claims-transformations"></a>Transformações de declarações gerais
 
@@ -24,14 +24,43 @@ ms.locfileid: "74948821"
 
 Este artigo fornece exemplos de como usar as transformações de declarações gerais do esquema de estrutura de experiência de identidade em Azure Active Directory B2C (Azure AD B2C). Para obter mais informações, confira [ClaimsTransformations](claimstransformations.md).
 
+## <a name="copyclaim"></a>CopyClaim
+
+Copiar o valor de uma declaração para outra. Ambas as declarações devem ser do mesmo tipo.
+
+| Item | TransformationClaimType | Tipo de Dados | Observações |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | InputClaim | Cadeia de caracteres, int | O tipo de declaração que deve ser copiada. |
+| OutputClaim | outputClaim | Cadeia de caracteres, int | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
+
+Use essa transformação de declarações para copiar um valor de uma declaração de cadeia de caracteres ou numérica para outra declaração. O exemplo a seguir copia o valor de declaração externalEmail para a declaração de email.
+
+```XML
+<ClaimsTransformation Id="CopyEmailAddress" TransformationMethod="CopyClaim"> 
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="externalEmail" TransformationClaimType="inputClaim"/>
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="email" TransformationClaimType="outputClaim"/>
+  </OutputClaims>         
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exemplo
+
+- Declarações de entrada:
+    - **inputClaim**: bob@contoso.com
+- Declarações de saída:
+    - **outputClaim**: bob@contoso.com 
+
 ## <a name="doesclaimexist"></a>DoesClaimExist
 
 Verifica se a **inputClaim** existe ou não e define **outputClaim** como true ou false adequadamente.
 
-| Item | TransformationClaimType | Tipo de Dados | Notas |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | InputClaim |Qualquer | A declaração de entrada cuja existência deve ser verificada. |
-| OutputClaim | outputClaim | Booliano | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
+| OutputClaim | outputClaim | booleano | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
 
 Use essa transformação de declarações para verificar se uma declaração existe ou se contém algum valor. O valor retornado é um valor booliano que indica se a declaração existe. O exemplo a seguir verifica se o endereço de email existe.
 
@@ -57,12 +86,12 @@ Use essa transformação de declarações para verificar se uma declaração exi
 
 Transforme o texto sem formatação fornecido em hash usando o sal e um segredo. O algoritmo de hash usado é SHA-256.
 
-| Item | TransformationClaimType | Tipo de Dados | Notas |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | texto não criptografado | string | A declaração de entrada a ser criptografada |
-| InputClaim | sal | string | O parâmetro sal. Você pode criar um valor aleatório, usando a transformação de declarações `CreateRandomString`. |
-| InputParameter | randomizerSecret | string | Aponta para uma chave de **política**de Azure ad B2C existente. Para criar uma nova chave de política: em seu locatário do Azure AD B2C, em **gerenciar**, selecione **estrutura de experiência de identidade**. Selecione **chaves de política** para exibir as chaves que estão disponíveis em seu locatário. Selecione **Adicionar**. Em **Opções** selecione **Manual**. Forneça um nome (o prefixo *B2C_1A_* pode ser adicionado automaticamente.). Na caixa de texto **segredo** , insira qualquer segredo que você queira usar, como 1234567890. Para **Uso de chave**, selecione **Assinatura**. Clique em **Criar**. |
-| OutputClaim | hash | string | O ClaimType que é produzido depois de invocar esta transformação de declarações. A declaração configurada na inputClaim `plaintext`. |
+| InputClaim | texto não criptografado | cadeia de caracteres | A declaração de entrada a ser criptografada |
+| InputClaim | sal | cadeia de caracteres | O parâmetro sal. Você pode criar um valor aleatório, usando a transformação de declarações `CreateRandomString`. |
+| InputParameter | randomizerSecret | cadeia de caracteres | Aponta para uma chave de **política**de Azure ad B2C existente. Para criar uma nova chave de política: em seu locatário do Azure AD B2C, em **gerenciar**, selecione **estrutura de experiência de identidade**. Selecione **chaves de política** para exibir as chaves que estão disponíveis em seu locatário. Selecione **Adicionar**. Em **Opções** selecione **Manual**. Forneça um nome (o prefixo *B2C_1A_* pode ser adicionado automaticamente.). Na caixa de texto **segredo** , insira qualquer segredo que você queira usar, como 1234567890. Para **Uso de chave**, selecione **Assinatura**. Selecione **Criar**. |
+| OutputClaim | hash | cadeia de caracteres | O ClaimType que é produzido depois de invocar esta transformação de declarações. A declaração configurada na inputClaim `plaintext`. |
 
 ```XML
 <ClaimsTransformation Id="HashPasswordWithEmail" TransformationMethod="Hash">

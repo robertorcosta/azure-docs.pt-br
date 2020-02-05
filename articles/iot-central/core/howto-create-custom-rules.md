@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 98b5cc707ca8b5ebd1ee88f02082fd3f10fa73dc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9042f3d34ee550af50e043167db6339f36b71bd0
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434996"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987587"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Estender IoT Central do Azure com regras personalizadas usando Stream Analytics, Azure Functions e SendGrid
 
@@ -40,7 +40,7 @@ Crie um aplicativo IoT Central no site do [Azure IOT central Application Manager
 
 | Configuração | Valor |
 | ------- | ----- |
-| Plano de Pagamento | Pós-pago |
+| Plano de preços | Padrão |
 | Modelo de aplicativo | Aplicativo herdado |
 | Nome do aplicativo | Aceite o padrão ou escolha seu próprio nome |
 | URL | Aceite o padrão ou escolha seu próprio prefixo de URL exclusivo |
@@ -67,7 +67,7 @@ Use o [portal do Azure para criar um namespace de hubs de eventos](https://porta
 | Local | Leste dos EUA |
 | Unidades de produtividade | 1 |
 
-### <a name="stream-analytics-job"></a>Trabalho do Stream Analytics
+### <a name="stream-analytics-job"></a>Stream Analytics trabalho
 
 Use o [portal do Azure para criar um trabalho de Stream Analytics](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) com as seguintes configurações:
 

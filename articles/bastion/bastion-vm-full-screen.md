@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 87a6c046d5f20b8f38381acbfefbfef43b09092c
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: ff19fd056aa81ca8a1f53c387a208d35fb9a3265
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014241"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989426"
 ---
 # <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Alterar para exibição de tela inteira de uma sessão de VM: bastiões do Azure
 
@@ -30,7 +30,7 @@ Selecione o botão **tela inteira** para alternar a sessão para uma experiênci
 
 ![tela inteira](./media/bastion-vm-manage/full-screen.png)
  
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Leia as [perguntas frequentes sobre bastiões](bastion-faq.md).
 Saiba como [copiar e colar](bastion-vm-copy-paste.md) de e para uma VM do Azure.

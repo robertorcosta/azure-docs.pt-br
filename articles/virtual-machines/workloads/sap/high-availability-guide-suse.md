@@ -3,8 +3,8 @@ title: Alta disponibilidade de Máquinas Virtuais do Azure para SAP NetWeaver no
 description: Guia de alta disponibilidade do SAP NetWeaver no SUSE Linux Enterprise Server para aplicativos SAP
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: mssedusch
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/07/2019
-ms.author: sedusch
-ms.openlocfilehash: d08f17bd22188f3d969261d8626d47a9e0faf08e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.date: 02/03/2020
+ms.author: radeltch
+ms.openlocfilehash: 77a26d229ddc4ce5f35fde3db010e3b7c146a563
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839601"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985510"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Alta disponibilidade do SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para aplicativos SAP
 
@@ -78,7 +78,7 @@ Primeiro, leia os seguintes documentos e Notas SAP
 * [Guias de práticas recomendadas do SUSE SAP ha][suse-ha-guide] Os guias contêm todas as informações necessárias para configurar o NetWeaver HA e a replicação de sistema SAP HANA no local. Use esses guias como uma linha de base geral. Eles fornecem informações muito mais detalhadas.
 * [Notas de versão da extensão de alta disponibilidade do SUSE 12 SP3][suse-ha-12sp3-relnotes]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Para obter alta disponibilidade, o SAP NetWeaver requer um servidor NFS. O servidor NFS está configurado em um cluster separado e pode ser usado por vários sistemas SAP.
 
@@ -159,7 +159,7 @@ Você pode usar um dos modelos de início rápido no GitHub para implantar todos
    9. Nome de Usuário de Administrador e Senha do Administrador  
       É criado um novo usuário que pode ser usado para fazer logon no computador.
    10. ID da Sub-rede  
-   Se você deseja implantar a VM em uma VNet existente em que há uma sub-rede definida, a VM deve ser atribuída à ID dessa sub-rede específica. A ID geralmente tem esta aparência: /subscriptions/ **&lt;ID da assinatura&gt;** /resourceGroups/ **&lt;nome do grupo de recursos&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;nome de rede virtual&gt;** /subnets/ **&lt;nome da sub-rede&gt;**
+   Se você deseja implantar a VM em uma rede virtual existente em que você tem uma sub-rede definida para a qual a VM deve ser designada, nomeie a identificação dessa sub-rede específica. A ID geralmente tem esta aparência: /subscriptions/ **&lt;ID da assinatura&gt;** /resourceGroups/ **&lt;nome do grupo de recursos&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;nome de rede virtual&gt;** /subnets/ **&lt;nome da sub-rede&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Implantar o Linux manualmente por meio do portal do Azure
 
@@ -277,7 +277,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    </code></pre>
 
    > [!NOTE]
-   > Não use traços nos nomes de host dos nós do cluster. Caso contrário, seu cluster não funcionará. Essa é uma limitação conhecida, e a SUSE está trabalhando em uma correção. A correção será lançada como um patch do pacote do conector sap-suse-cloud-connector.
+   > O problema conhecido com o uso de um Dash em nomes de host é corrigido com a versão **3.1.1** do pacote **SAP-SuSE-cluster-Connector**. Verifique se você está usando pelo menos a versão 3.1.1 do pacote SAP-SuSE-cluster-Connector, se estiver usando nós de cluster com Dash no nome do host. Caso contrário, seu cluster não funcionará. 
 
    Certifique-se de que ter instalado a nova versão do conector de cluster SAP SUSE. O antigo era nomeado sap_suse_cluster_connector e o novo é nomeado **sap-suse-cluster-conector**.
 
@@ -1243,7 +1243,7 @@ Os testes a seguir são uma cópia dos casos de teste nos guias de melhores prá
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
 * [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]

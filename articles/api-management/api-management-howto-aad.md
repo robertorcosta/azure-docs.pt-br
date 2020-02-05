@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 131621e05d7800e59ce3bbdec5c11c1da9facf11
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: df640f11e8a0e8af22c96a662a602e0de508715c
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442809"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985043"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizar contas de desenvolvedor usando o Active Directory do Azure no Gerenciamento de API do Azure
 
@@ -50,17 +50,17 @@ Este artigo mostra como habilitar o acesso ao portal do desenvolvedor para os us
    ![Etapas para adicionar um provedor de identidade no portal do Azure](./media/api-management-howto-aad/api-management-with-aad001.png)  
 10. No navegador, abra uma guia diferente. 
 11. Navegue até o [portal do Azure-registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) para registrar um aplicativo no Active Directory.
-12. Em **Gerenciar**, selecione **Registros de aplicativo**.
+12. Em **gerenciar**, selecione **registros de aplicativo**.
 13. Selecione **Novo registro**. Na página **registrar um aplicativo** , defina os valores da seguinte maneira:
     
-* Defina o **nome** como um nome significativo. por exemplo, *portal do desenvolvedor*
-* Defina os **tipos de conta com suporte** para **contas neste diretório organizacional somente**. 
-* Defina o **URI de redirecionamento** para o valor obtido na etapa 9. 
-* Escolha **registrar**. 
+    * Defina o **nome** como um nome significativo. por exemplo, *portal do desenvolvedor*
+    * Defina os **tipos de conta com suporte** para **contas neste diretório organizacional somente**. 
+    * Defina o **URI de redirecionamento** para o valor obtido na etapa 9. 
+    * Escolha **registrar**. 
 
 14.  Depois que o aplicativo for registrado, copie a **ID do aplicativo (cliente)** da página **visão geral** . 
 15. Volte para a instância de gerenciamento de API. Na janela **Adicionar provedor de identidade** , Cole o valor da **ID do aplicativo (cliente)** na caixa **ID do cliente** .
-16. Volte para a configuração do Azure AD, selecione **certificados & segredos** em **gerenciar**. Selecione o botão **Novo segredo do cliente**. Insira um valor em **Descrição**, escolha uma opção para **Expira** e escolha **Adicionar**. Copie o valor do segredo do cliente antes de sair da página. Isso será necessário na próxima etapa. 
+16. Volte para a configuração do Azure AD, selecione **certificados & segredos** em **gerenciar**. Selecione o botão **novo segredo do cliente** . Insira um valor em **Descrição**, selecione qualquer opção para **expirar** e escolha **Adicionar**. Copie o valor do segredo do cliente antes de sair da página. Isso será necessário na próxima etapa. 
 17. Em **gerenciar**, selecione **autenticação** e, em seguida, selecione **tokens de ID** em **concessão implícita**
 18. Volte para a instância de gerenciamento de API, Cole o segredo na caixa **segredo do cliente** .
 
@@ -71,10 +71,10 @@ Este artigo mostra como habilitar o acesso ao portal do desenvolvedor para os us
 
 19. A janela **Adicionar provedor de identidade** também contém a caixa de texto **Locatários Permitidos**. Lá, especifique os domínios das instâncias do Azure AD para os quais você deseja conceder acesso às APIs da instância de serviço Gerenciamento da API. Você pode separar múltiplos domínios com novas linhas, espaços ou vírgulas.
 
-> [!NOTE]
-> Você pode especificar vários domínios na seção **Locatários Permitidos**. Antes que qualquer usuário possa entrar por meio de um domínio diferente do domínio original em que o aplicativo foi registrado, um administrador global do domínio diferente deve conceder permissão para o aplicativo para acessar dados de diretório. Para conceder permissão, o administrador global deve: a. Vá para `https://<URL of your developer portal>/aadadminconsent` (por exemplo, https://contoso.portal.azure-api.net/aadadminconsent).
-> b. Digite o nome de domínio do locatário do Azure AD ao qual você deseja conceder acesso.
-> c. Selecione **Enviar**. 
+    > [!NOTE]
+    > Você pode especificar vários domínios na seção **Locatários Permitidos**. Antes que qualquer usuário possa entrar por meio de um domínio diferente do domínio original em que o aplicativo foi registrado, um administrador global do domínio diferente deve conceder permissão para o aplicativo para acessar dados de diretório. Para conceder permissão, o administrador global deve: a. Vá para `https://<URL of your developer portal>/aadadminconsent` (por exemplo, https://contoso.portal.azure-api.net/aadadminconsent).
+    > b. Digite o nome de domínio do locatário do Azure AD ao qual você deseja conceder acesso.
+    > c. Selecione **Enviar**. 
 
 20.  Depois de especificar a configuração desejada, selecione **Adicionar**.
 
@@ -95,7 +95,7 @@ Agora você pode adicionar grupos externos do Azure AD na guia **grupos** da sua
 
 1. Selecione a guia **Grupos** .
 2. Selecione o botão **Adicionar grupo do AAD**.
-   ![Botão “Adicionar grupo do AAD”](./media/api-management-howto-aad/api-management-with-aad008.png)
+    ![Botão “Adicionar grupo do AAD”](./media/api-management-howto-aad/api-management-with-aad008.png)
 3. Selecione o grupo que deseja adicionar.
 4. Pressione o botão **Selecionar**.
 
@@ -105,11 +105,11 @@ Os usuários da instância do Azure AD configurada já podem entrar no portal do
 
 ## <a name="a-idlog_in_to_dev_portal-developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"/> portal do desenvolvedor-adicionar autenticação de conta do Azure AD
 
-No portal do desenvolvedor, é possível entrar com o AAD com o widget **botões do OAuth** . O widget já está incluído na página de entrada do conteúdo do portal do desenvolvedor padrão.
-
-![Widget de botões do AAD](./media/api-management-howto-aad/portal-oauth-widget.png)
+No portal do desenvolvedor, é possível entrar com o AAD com o **botão de entrada: widget OAuth** . O widget já está incluído na página de entrada do conteúdo do portal do desenvolvedor padrão.
 
 Embora uma nova conta seja criada automaticamente sempre que um novo usuário entrar com o AAD, você pode considerar adicionar o mesmo widget à página de inscrição.
+
+O **formulário de inscrição:** o widget OAuth representa um formulário usado para se inscrever com o OAuth.
 
 > [!IMPORTANT]
 > Você precisa [republicar o portal](api-management-howto-developer-portal-customize.md#publish) para que as alterações do AAD entrem em vigor.

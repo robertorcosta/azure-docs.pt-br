@@ -1,22 +1,22 @@
 ---
-title: Habilitar e trabalhar com os logs de diagnóstico de bastiões do Azure | Microsoft Docs
+title: Habilitar e trabalhar com os logs de diagnóstico de bastiões do Azure
 description: Neste artigo, saiba como habilitar e trabalhar com os logs de diagnóstico de bastiões do Azure.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8ae421b48f3cfa8055f636052c990f99e0c775b4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2167a17d5d388c97ad357398c4ac2676e43be5a4
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512399"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989443"
 ---
 # <a name="enable-and-work-with-bastion-diagnostic-logs"></a>Habilitar e trabalhar com logs de diagnóstico de bastiões
 
-À medida que os usuários se conectam a cargas de trabalho usando a bastiões do Azure, a bastiões pode registrar em log o diagnóstico das sessões remotas. Você pode usar o diagnóstico para exibir quais usuários se conectaram a quais cargas de trabalho, em que horário, de onde e outras informações de registro em log relevantes. Para usar o diagnóstico, você deve habilitar os logs de diagnóstico na bastiões do Azure. Este artigo ajuda você a habilitar os logs de diagnóstico e a exibir os logs.
+À medida que os usuários se conectam a cargas de trabalho usando a bastiões do Azure, a bastiões pode registrar em log o diagnóstico das sessões remotas. Você pode usar o diagnóstico para exibir quais usuários se conectaram a quais cargas de trabalho, em que hora, de onde e outras informações de registro em log relevantes. Para usar o diagnóstico, você deve habilitar os logs de diagnóstico na bastiões do Azure. Este artigo ajuda você a habilitar os logs de diagnóstico e a exibir os logs.
 
 ## <a name="enable"></a>Habilitar o log de diagnóstico
 
@@ -77,6 +77,6 @@ Para acessar seus logs de diagnóstico, você pode usar diretamente a conta de a
    }
    ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Leia as [perguntas frequentes sobre bastiões](bastion-faq.md).

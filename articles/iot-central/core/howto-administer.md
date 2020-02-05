@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4c729d2502464df021df4d03e989d489b2d1ecea
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 89c4dd294cbbf0953545e1055e32adfc5f7cce28
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954585"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990786"
 ---
 # <a name="manage-your-iot-central-application"></a>Gerenciar seu aplicativo IoT Central
 
@@ -40,9 +40,9 @@ Para alterar a imagem do aplicativo, consulte [Preparar e carregar imagens no ap
 
 ## <a name="copy-an-application"></a>Copiar um aplicativo
 
-É possível criar uma cópia de qualquer aplicativo, menos quaisquer instâncias de dispositivos, histórico de dados do dispositivo e os dados de usuário. A cópia é um aplicativo pago conforme o uso para o qual você será cobrado. Você não pode criar um aplicativo de avaliação dessa maneira.
+É possível criar uma cópia de qualquer aplicativo, menos quaisquer instâncias de dispositivos, histórico de dados do dispositivo e os dados de usuário. A cópia usa um plano de preços padrão para o qual você será cobrado. Você não pode criar um aplicativo que usa o plano de preços gratuito dessa maneira.
 
-Selecione **copiar**. Na caixa de diálogo, insira os detalhes do novo aplicativo de pagamento Conforme o Uso. Em seguida, selecione **copiar** para confirmar que deseja continuar. Saiba mais sobre os campos deste formulário em [Criar um início rápido de aplicativo](quick-deploy-iot-central.md).
+Selecione **copiar**. Na caixa de diálogo, insira os detalhes do novo aplicativo. Em seguida, selecione **copiar** para confirmar que deseja continuar. Saiba mais sobre os campos deste formulário em [Criar um início rápido de aplicativo](quick-deploy-iot-central.md).
 
 ![Página de configurações do aplicativo](media/howto-administer/appcopy2.png)
 

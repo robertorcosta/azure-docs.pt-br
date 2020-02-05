@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 07ef3858cc6a514ed60a9d25046dc4ff9566fa31
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 963572e19be71bf572357aadeee443696210a262
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546343"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984958"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
@@ -110,7 +110,7 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
     + Foi iniciada a reprovação de data_script como uma entrada para AutoML.
 
 
-## <a name="2019-12-09"></a>2019-12-09
+## <a name="2019-12-09"></a>09/12/2019
 
 ### <a name="azure-machine-learning-sdk-for-python-v1079"></a>Azure Machine Learning SDK para Python v 1.0.79
 
@@ -363,7 +363,7 @@ Azure Machine Learning agora é um provedor de recursos para a grade de eventos,
 + A interface visual do Azure Machine Learning (versão prévia) foi revisada para ser executada em [pipelines Azure Machine Learning](concept-ml-pipelines.md). Os pipelines (anteriormente conhecidos como experimentos) criados na interface visual agora estão totalmente integrados com a experiência de Azure Machine Learning principal.
   + Experiência de gerenciamento unificada com ativos do SDK
   + Controle de versão e acompanhamento de modelos de interface visual, pipelines e pontos de extremidade
-  + Interface do usuário reprojetada
+  + IU reprojetada
   + Implantação de inferência de lote adicionada
   + Suporte ao Azure kubernetes Service (AKS) adicionado para os destinos de computação de inferência
   + Fluxo de trabalho de criação do pipeline de etapa do novo Python
@@ -936,7 +936,7 @@ No momento desta versão, há suporte para os seguintes navegadores: Chrome, Fir
 
 ## <a name="2019-07-09"></a>2019-07-09
 
-### <a name="visual-interface"></a>Interface Visual
+### <a name="visual-interface"></a>Interface visual
 + **Recursos de visualização**
   + Módulo "executar script R" adicionado na interface visual.
 
@@ -1236,7 +1236,7 @@ O [`PipelineEndpoint`](https://docs.microsoft.com/python/api/azureml-pipeline-co
 
 ### <a name="azure-machine-learning-data-prep-sdk-v112"></a>Azure Machine Learning o SDK da preparação de dados v 1.1.2
 
-Observação: o SDK do Python de preparação de dados não instalará mais pacotes `numpy` e `pandas`. Consulte [as instruções de instalação atualizadas](https://aka.ms/aml-data-prep-installation).
+Observação: o SDK do Python de preparação de dados não instalará mais pacotes `numpy` e `pandas`. Consulte [as instruções de instalação atualizadas](https://github.com/Microsoft/AMLDataPrepDocs).
 
 + **Novos recursos**
   + Agora você pode usar a transformação dinâmica.

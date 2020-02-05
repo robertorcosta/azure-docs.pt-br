@@ -4,18 +4,18 @@ description: Como gerenciar e atualizar o cache HPC do Azure usando o portal do 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 1/08/2020
+ms.date: 1/29/2020
 ms.author: rohogue
-ms.openlocfilehash: a166a904b2e63419efd5803fd54be1d1b59836fb
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 9ad6348e15c8a25f721a89be7eab3e17c58ae17c
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867076"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988819"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Gerenciar seu cache do portal do Azure
 
-A página Visão geral do cache na portal do Azure mostra detalhes do projeto, status do cache e estatísticas básicas para seu cache. Ele também tem controles para excluir o cache, liberar dados para o armazenamento de longo prazo ou atualizar o software.
+A página Visão geral do cache na portal do Azure mostra detalhes do projeto, status do cache e estatísticas básicas para seu cache. Ele também tem controles para parar ou iniciar o cache, excluir o cache, liberar dados para o armazenamento de longo prazo e atualizar o software.
 
 Para abrir a página Visão geral, selecione o recurso de cache na portal do Azure. Por exemplo, carregue a página **todos os recursos** e clique no nome do cache.
 
@@ -23,12 +23,29 @@ Para abrir a página Visão geral, selecione o recurso de cache na portal do Azu
 
 Os botões na parte superior da página podem ajudá-lo a gerenciar o cache:
 
+* **Iniciar** e [**parar**](#stop-the-cache) – suspende a operação de cache
 * [**Flush**](#flush-cached-data) -grava dados alterados para destinos de armazenamento
 * [**Atualização**](#upgrade-cache-software) – atualiza o software de cache
 * **Atualizar** – recarrega a página Visão geral
 * [**Excluir**](#delete-the-cache) – destrói permanentemente o cache
 
 Leia mais sobre essas opções abaixo.
+
+## <a name="stop-the-cache"></a>Parar o cache
+
+Você pode interromper o cache para reduzir os custos durante um período inativo. Você não é cobrado pelo tempo de atividade enquanto o cache é interrompido, mas você é cobrado pelo armazenamento em disco alocado do cache. (Consulte a página de [preços](https://aka.ms/hpc-cache-pricing) para obter detalhes.)
+
+Um cache interrompido não responde às solicitações do cliente. Você deve desmontar os clientes antes de parar o cache.
+
+O botão **parar** suspende um cache ativo. O botão **parar** está disponível quando o status de um cache está **íntegro** ou **degradado**.
+
+![captura de tela dos botões superior com parar realçado e uma mensagem pop-up que descreve a ação de parada e perguntando "deseja continuar?" com Sim (padrão) e nenhum botão](media/stop-cache.png)
+
+Depois de clicar em Sim para confirmar a interrupção do cache, o cache libera automaticamente seu conteúdo para os destinos de armazenamento. Esse processo pode levar algum tempo, mas garante a consistência dos dados. Por fim, o status do cache é alterado para **parado**.
+
+Para reativar um cache interrompido, clique no botão **Iniciar** . Nenhuma confirmação é necessária.
+
+![captura de tela dos botões superior com início realçado](media/start-cache.png)
 
 ## <a name="flush-cached-data"></a>Liberar dados armazenados em cache
 
@@ -68,13 +85,14 @@ Os volumes de armazenamento de back-end usados como destinos de armazenamento n�
 > [!NOTE]
 > O cache HPC do Azure não grava automaticamente os dados alterados do cache nos sistemas de armazenamento de back-end antes de excluir o cache.
 >
-> Para garantir que todos os dados no cache tenham sido gravados no armazenamento de longo prazo, siga este procedimento:
+> Para garantir que todos os dados no cache tenham sido gravados no armazenamento de longo prazo, [interrompa o cache antes de](#stop-the-cache) excluí-lo. Verifique se ele mostra o status **parado** antes de clicar no botão excluir.
+<!--... written to long-term storage, follow this procedure:
 >
-> 1. [Remova](hpc-cache-edit-storage.md#remove-a-storage-target) cada destino de armazenamento do cache HPC do Azure usando o botão excluir na página destinos de armazenamento. O sistema grava automaticamente todos os dados alterados do cache no sistema de armazenamento de back-end antes de remover o destino.
-> 1. Aguarde até que o destino de armazenamento seja completamente removido. O processo pode levar uma hora ou mais se houver muitos dados para gravar do cache. Quando isso é feito, uma notificação do portal diz que a operação de exclusão foi bem-sucedida e o destino de armazenamento desaparece da lista.
-> 1. Depois que todos os destinos de armazenamento afetados tiverem sido excluídos, será seguro excluir o cache.
+> 1. [Remove](hpc-cache-edit-storage.md#remove-a-storage-target) each storage target from the Azure HPC Cache by using the delete button on the Storage targets page. The system automatically writes any changed data from the cache to the back-end storage system before removing the target.
+> 1. Wait for the storage target to be completely removed. The process can take an hour or longer if there is a lot of data to write from the cache. When it is done, a portal notification says that the delete operation was successful, and the storage target disappears from the list.
+> 1. After all affected storage targets have been deleted, it is safe to delete the cache.
 >
-> Como alternativa, você pode usar a opção de [liberação](#flush-cached-data) para salvar dados armazenados em cache, mas há um pequeno risco de perder trabalho se um cliente gravar uma alteração no cache após a liberação ser concluída, mas antes de a instância do cache ser destruída.
+> Alternatively, you can use the [flush](#flush-cached-data) option to save cached data, but there is a small risk of losing work if a client writes a change to the cache after the flush completes but before the cache instance is destroyed.-->
 
 ## <a name="cache-metrics-and-monitoring"></a>Métricas e monitoramento de cache
 

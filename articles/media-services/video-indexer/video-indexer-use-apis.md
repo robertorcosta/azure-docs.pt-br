@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: 4da437fecf0529194d72b2d403302ff81055ec0f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 8b6d160f71bfe8b2e5c447296d511b54ce6542c8
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892678"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989766"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Usar a API do Video Indexer
 
@@ -86,7 +86,7 @@ O parâmetro de ID da conta é obrigatório em todas as chamadas da API operacio
 
 * Use o **Portal do Desenvolvedor do Video Indexer** para obter a ID da conta de maneira programática.
 
-    Use o [obter contas](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Accounts?) API.
+    Use a API [obter conta](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account?) .
 
     > [!TIP]
     > Você pode gerar tokens de acesso para as contas definindo `generateAccessTokens=true`.
@@ -207,11 +207,13 @@ Debug.WriteLine(playerWidgetLink);
 
 ```
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Consulte também
 
 - [Visão geral do indexador vídeo](video-indexer-overview.md)
 - [Regiões](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
 
 ## <a name="next-steps"></a>Próximos passos
 
-[Examinar os detalhes da saída JSON](video-indexer-output-json-v2.md).
+- [Examine os detalhes da saída JSON](video-indexer-output-json-v2.md)
+- Confira o [código de exemplo](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/API) que demonstra um aspecto importante do carregamento e da indexação de um vídeo. Após o código colocará, você terá uma boa ideia de como usar nossa API para funcionalidades básicas. Certifique-se de ler os comentários embutidos e observar nossos conselhos de práticas recomendadas.
+

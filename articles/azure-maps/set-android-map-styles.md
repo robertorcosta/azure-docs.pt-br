@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: fe0aa662234166249433634ccb45d1931d176319
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 4adb38148acc0c18ac73709efbe7628ca9497897
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910480"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988950"
 ---
 # <a name="set-map-style-using-azure-maps-android-sdk"></a>Definir o estilo de mapa usando o Azure Maps SDK do Android
 
@@ -59,7 +59,7 @@ O atributo `mapcontrol_style` acima define o estilo de mapa como **grayscale_dar
 
 ## <a name="set-map-style-in-the-activity-class"></a>Definir o estilo de mapa na classe de atividade
 
-O estilo de mapa pode ser definido na classe de atividade. Copie o trecho de código a seguir para o método **OnCreate ()** da sua classe `MainActivity.java`. Isso definirá o estilo do mapa como **satellite_road_labels**.
+O estilo de mapa pode ser definido na classe de atividade. Copie o trecho de código a seguir para o método **OnCreate ()** da sua classe `MainActivity.java`. Esse código definirá o estilo de mapa como **satellite_road_labels**.
 
 ```Java
 mapControl.onReady(map -> {

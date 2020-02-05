@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 65bc11282726d9e66dbed8fa1fbb75fc1b89c1d1
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 3dfb2c201138a65379aa509ce1bf10894ab6819b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615496"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984703"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Estruturas de aprendizado profundo e de ia para o Azure VM de Ciência de Dados
 Estruturas de aprendizado profundo no DSVM estão listadas abaixo.
@@ -47,7 +47,7 @@ Estruturas de aprendizado profundo no DSVM estão listadas abaixo.
 | Como é configurado/instalado no DSVM?  | O chainer é instalado no Python 3,5. |
 | Como executá-lo      | Terminal: Ative o ambiente Python 3,5, execute `python`e, em seguida, `import chainer`. <br/> * JupyterHub: [Conecte-se ao JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)e, em seguida, vá para o diretório do encadeamento para encontrar blocos de anotações de exemplo.| 
 
-## <a name="cuda-cudnn-nvidia-driverhttpsdevelopernvidiacomcuda-toolkit"></a>[CUDA, cuDNN, Driver NVIDIA](https://developer.nvidia.com/cuda-toolkit)
+## <a name="cuda-cudnn-nvidia-driverhttpsdevelopernvidiacomcuda-toolkit"></a>[CUDA, cuDNN, driver NVIDIA](https://developer.nvidia.com/cuda-toolkit)
 
 |    |           |
 | ------------- | ------------- |
@@ -75,7 +75,7 @@ Estruturas de aprendizado profundo no DSVM estão listadas abaixo.
 | Como é configurado/instalado no DSVM?  | O Keras é instalado no Python 3,6 no Windows e no Python 3,5 no Linux |
 | Como executá-lo      | Ative o ambiente correto no terminal e execute o Python. |
 
-## <a name="microsoft-cognitive-toolkit-cntkhttpsdocsmicrosoftcomcognitive-toolkit"></a>[Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/)
+## <a name="microsoft-cognitive-toolkit-cntkhttpsdocsmicrosoftcomcognitive-toolkit"></a>[CNTK (Microsoft Cognitive Toolkit)](https://docs.microsoft.com/cognitive-toolkit/)
 
 |    |           |
 | ------------- | ------------- |
@@ -92,7 +92,7 @@ Estruturas de aprendizado profundo no DSVM estão listadas abaixo.
 | Como é configurado/instalado no DSVM?  | O MXNet é instalado em `C:\dsvm\tools\mxnet` no Windows e `/dsvm/tools/mxnet` no Ubuntu. As associações do Python são instaladas no Python 3,6 no [Windows 2016](dsvm-tools-languages.md#python-windows-server-2016-edition) e no Python 3,5 no [Linux](./dsvm-tools-languages.md#python-linux-edition)) as associações do R também estão incluídas no Ubuntu DSVM. |
 | Como executá-lo      | Terminal: Ative o ambiente Conda correto e, em seguida, execute `import mxnet`. <br/>Jupyter: Conecte-se ao [Jupyter](provision-vm.md#access-the-dsvm) ou [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)e, em seguida, abra o diretório `mxnet` para obter exemplos. |
 
-## <a name="mxnet-model-serverhttpsgithubcomawslabsmxnet-model-serverquick-start"></a>[Servidor de modelo MXNet](https://github.com/awslabs/mxnet-model-server#quick-start)
+## <a name="mxnet-model-serverhttpsgithubcomawslabsmxnet-model-serverquick-start"></a>[MXNet Model Server](https://github.com/awslabs/mxnet-model-server#quick-start)
 
 |    |           |
 | ------------- | ------------- |
@@ -107,7 +107,7 @@ Estruturas de aprendizado profundo no DSVM estão listadas abaixo.
 | ------------- | ------------- |
 | Versão (ões) com suporte |  |
 | Edições DSVM com suporte      | Windows e Linux   |
-| Para que ele serve? | Ferramenta NVIDIA para consultar a atividade da GPU |
+| Para quê? | Ferramenta NVIDIA para consultar a atividade da GPU |
 | Como é configurado/instalado no DSVM?  | `nvidia-smi` está no caminho do sistema. |
 | Como executá-lo      | Em uma máquina virtual **com GPU**, abra um prompt de comando (no Windows) ou um terminal (no Linux) e execute `nvidia-smi`. |
 
@@ -115,7 +115,7 @@ Estruturas de aprendizado profundo no DSVM estão listadas abaixo.
 
 |    |           |
 | ------------- | ------------- |
-| Versão (ões) com suporte | 1.2.0 |
+| Versão (ões) com suporte | 1.2.0 (Ubuntu 16, 4, Windows 2016, Windows 2019), 1.4.0 (Ubuntu 18, 4) |
 | Edições DSVM com suporte      | Linux |
 | Como é configurado/instalado no DSVM?  | Instalado no [Python 3,5](dsvm-tools-languages.md#python-linux-edition). Os notebooks Jupyter de exemplo estão incluídos e os exemplos estão em/dsvm/Samples/pytorch. |
 | Como executá-lo      | Terminal: Ative o ambiente correto e execute Python.<br/>* [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine): Conecte e, em seguida, abra o diretório PyTorch para obter exemplos.  |
@@ -124,16 +124,16 @@ Estruturas de aprendizado profundo no DSVM estão listadas abaixo.
 
 |    |           |
 | ------------- | ------------- |
-| Versão (ões) com suporte | 1.13 |
+| Versão (ões) com suporte | 1,13 |
 | Edições DSVM com suporte      | Windows, Linux |
 | Como é configurado/instalado no DSVM?  | Instalado no Python 3,5 no [Linux](dsvm-tools-languages.md#python-linux-edition) e Python 3,6 no [Windows 2016](dsvm-tools-languages.md#python-windows-server-2016-edition) |
 | Como executá-lo      | Terminal: Ative o ambiente correto e execute Python. <br/> * Jupyter: Conecte-se ao [Jupyter](provision-vm.md) ou [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)e, em seguida, abra o diretório TensorFlow para obter exemplos.   |
 
-## <a name="tensorflow-servinghttpswwwtensorfloworgserving"></a>[Serviço de TensorFlow](https://www.tensorflow.org/serving/)
+## <a name="tensorflow-servinghttpswwwtensorfloworgserving"></a>[TensorFlow Serving](https://www.tensorflow.org/serving/)
 
 |    |           |
 | ------------- | ------------- |
-| Versão (ões) com suporte | 1.12 |
+| Versão (ões) com suporte | 1,12 |
 | Edições DSVM com suporte      | Linux |
 | Como é configurado/instalado no DSVM?  | tensorflow_model_server está disponível no terminal. |
 | Como executá-lo      |  Exemplos estão disponíveis [online](https://www.tensorflow.org/serving/).   |

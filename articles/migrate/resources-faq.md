@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: snehaa
-ms.openlocfilehash: d06e75ec900faa17ed4441c20a52d8da60ee4d97
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: a9d008406e59c66a8b742194e2e2d388c778ac9e
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289451"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989341"
 ---
 # <a name="azure-migrate-common-questions"></a>Migrações para Azure: perguntas comuns
 
@@ -62,14 +62,14 @@ Você identifica a ferramenta de que precisa e a adiciona a um projeto de Migra�
 - Em cada ferramenta, há uma opção para se conectar às Migrações para Azure. Siga as instruções e a documentação da ferramenta para conectar a ferramenta às Migrações para Azure.
 Você controla de forma centralizada seu percurso de migração de dentro do projeto de Migrações para Azure, em todo o Azure e em outras ferramentas.
 
-### <a name="how-do-i-delete-a-project"></a>Como fazer excluir um projeto?
+## <a name="how-do-i-delete-a-project"></a>Como fazer excluir um projeto?
 
 [Saiba como](how-to-delete-project.md) excluir um projeto. 
 
 
+## <a name="do-machines-retain-domain-identity-after-migration"></a>Os computadores retêm a identidade do domínio após a migração?
 
-
-
+Supondo que os serviços de domínio sejam [integrados ao Azure, a](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/)Associação de domínio e a identidade do computador no domínio são mantidos após a migração. 
 
 ## <a name="next-steps"></a>Próximos passos
 Leia a [visão geral de migrações para Azure](migrate-services-overview.md).

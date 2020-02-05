@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: 3360209e9de54d6011a2a430cd2c1fb54a315c43
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e82c325ad5ad91e6b4503949e6534b054023f1f2
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327596"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990956"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Migrar do repositório HDFS local para o armazenamento do Azure com Azure Data Box
 
@@ -27,7 +27,7 @@ Este artigo ajuda você a concluir estas tarefas:
 > * Envie o dispositivo de volta para a Microsoft.
 > * Mover os dados para Data Lake Storage Gen2.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você precisa dessas coisas para concluir a migração.
 
@@ -282,7 +282,7 @@ Antes de mover seus dados para um dispositivo Data Box, você precisará baixar 
    sudo apt-get install jq
    ```
 
-3. Instale o pacote Python de [solicitações](http://docs.python-requests.org/en/master/) .
+3. Instale o pacote Python de [solicitações](https://2.python-requests.org/en/master/) .
 
    ```bash
    
@@ -352,6 +352,6 @@ Aqui está um exemplo:
 .*/hbase/data/WALs.*
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como Data Lake Storage Gen2 funciona com clusters HDInsight. Consulte [Usar o Azure Data Lake Storage Gen2 com clusters de HDInsight do Azure](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md).

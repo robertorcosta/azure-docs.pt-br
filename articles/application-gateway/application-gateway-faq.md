@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: 14fe8780bb7919d942da186698275d5199f4586e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 9d47986df9b9cbc6b8519aa0466b3434d6216e72
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770077"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985995"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o gateway de aplicativo
 
@@ -68,7 +68,9 @@ Se você estiver usando um endereço IP público como um ponto de extremidade, e
 
 ### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Quais são as configurações de tempo limite de Keep-Alive e tempo limite de ociosidade de TCP?
 
- No SKU do gateway de aplicativo v1, o tempo limite de Keep-Alive é de 120 segundos. O tempo limite de Keep Alive para a SKU V2 é de 75 segundos. O tempo limite de ociosidade de TCP é um padrão de 4 minutos no VIP (IP virtual) de front-end do gateway de aplicativo.
+O *tempo limite Keep-Alive* controla por quanto tempo o gateway de aplicativo aguardará que um cliente envie outra solicitação HTTP em uma conexão persistente antes de reusá-lo ou fechá-lo. O *tempo limite de ociosidade de TCP* controla por quanto tempo uma conexão TCP é mantida aberta no caso de nenhuma atividade. 
+
+O *tempo limite de Keep Alive* no SKU do gateway de aplicativo v1 é de 120 segundos e na SKU V2 é de 75 segundos. O *tempo limite de ociosidade de TCP* é um padrão de 4 minutos no IP virtual de front-end (VIP) do SKU v1 e v2 do gateway de aplicativo. 
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>O nome do IP ou DNS é alterado durante o tempo de vida do gateway de aplicativo?
 

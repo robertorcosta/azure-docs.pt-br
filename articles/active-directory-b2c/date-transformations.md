@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bde2fcad6f84e4a2df5268d1135e88a263b65ee0
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: b831a3175e1dc8b19395d1c923b076ac9428690c
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949109"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982901"
 ---
 # <a name="date-claims-transformations"></a>Transformações de declarações de data
 
@@ -27,12 +27,12 @@ Este artigo fornece exemplos de como usar as transformações de declarações d
 
 Verifica se uma declaração de data e hora (tipo de dados de cadeia de caracteres) é posterior a uma segunda declaração de data e hora (tipo de dados de cadeia de caracteres) e gera uma exceção.
 
-| Item | TransformationClaimType | Tipo de Dados | Notas |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | leftOperand | string | O tipo da primeira declaração, que deve ser posterior à segunda declaração. |
-| InputClaim | rightOperand | string | O tipo da segunda declaração, que deve ser anterior à primeira declaração. |
-| InputParameter | AssertIfEqualTo | Booliano | Especifica se essa declaração deve passar se o operando esquerdo for igual ao operando direito. |
-| InputParameter | AssertIfRightOperandIsNotPresent | Booliano | Especifica se essa declaração deve passar se o operando à direita estiver ausente. |
+| InputClaim | leftOperand | cadeia de caracteres | O tipo da primeira declaração, que deve ser posterior à segunda declaração. |
+| InputClaim | rightOperand | cadeia de caracteres | O tipo da segunda declaração, que deve ser anterior à primeira declaração. |
+| InputParameter | AssertIfEqualTo | booleano | Especifica se essa declaração deve passar se o operando esquerdo for igual ao operando direito. |
+| InputParameter | AssertIfRightOperandIsNotPresent | booleano | Especifica se essa declaração deve passar se o operando à direita estiver ausente. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Especifica o número de milissegundos para permitir entre as duas datas e horas para considerar os tempos de igual (por exemplo, a conta para defasagem horária). |
 
 A transformação de declarações **AssertDateTimeIsGreaterThan** é sempre executada a partir um [perfil técnico de validação](validation-technical-profile.md) que é chamado por um [perfil técnico autodeclarado](self-asserted-technical-profile.md). Os metadados **DateTimeGreaterThan** do perfil técnico autodeclarado controla a mensagem de erro que o perfil técnico apresenta ao usuário.
@@ -89,7 +89,7 @@ O perfil técnico autodeclarado chama o perfil técnico **login-NonInteractive**
 
 Converte uma **Data** ClaimType para um **DateTime** ClaimType. A transformação de declarações converte o formato de hora e adiciona 12:00:00 AM à data.
 
-| Item | TransformationClaimType | Tipo de Dados | Notas |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | InputClaim | date | O ClaimType a ser convertido. |
 | OutputClaim | outputClaim | dateTime | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
@@ -114,11 +114,40 @@ O exemplo a seguir demonstra a conversão da declaração `dateOfBirth` (tipo de
 - Declarações de saída:
     - **outputClaim**: 1559347200 (1 de junho de 2019 12:00:00 AM)
 
+## <a name="convertdatetimetodateclaim"></a>ConvertDateTimeToDateClaim 
+
+Converte um ClaimType de **DateTime** em uma **Date** DeclareType. A transformação declarações remove o formato de hora da data.
+
+| Item | TransformationClaimType | Tipo de Dados | Observações |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | InputClaim | dateTime | O ClaimType a ser convertido. |
+| OutputClaim | outputClaim | date | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
+
+O exemplo a seguir demonstra a conversão do `systemDateTime` de declaração (tipo de dados dateTime) em outro `systemDate` de declaração (tipo de dados de data).
+
+```XML
+<ClaimsTransformation Id="ConvertToDate" TransformationMethod="ConvertDateTimeToDateClaim">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="systemDateTime" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="systemDate" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exemplo
+
+- Declarações de entrada:
+  - **inputClaim**: 1559347200 (1º de junho de 2019 12:00:00 AM)
+- Declarações de saída:
+  - **outputClaim**: 2019-06-01
+
 ## <a name="getcurrentdatetime"></a>GetCurrentDateTime
 
 Obtenha a data UTC atual e a hora e adicione o valor para um ClaimType.
 
-| Item | TransformationClaimType | Tipo de Dados | Notas |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | OutputClaim | currentDateTime | dateTime | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
 
@@ -139,13 +168,13 @@ Obtenha a data UTC atual e a hora e adicione o valor para um ClaimType.
 
 Determine se uma dateTime é posterior, anterior ou igual a outra. O resultado é um novo ClaimType booliano com um valor de `true` ou `false`.
 
-| Item | TransformationClaimType | Tipo de Dados | Notas |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | firstDateTime | dateTime | O primeiro dateTime a fim de comparar se é anterior ou posterior ao segundo dateTime. Valor nulo gerará uma exceção. |
 | InputClaim | secondDateTime | dateTime | O segundo dateTime a fim de comparar se é anterior ou posterior ao primeiro dateTime. Valor nulo é tratado como o dateTime atual. |
-| InputParameter | operator | string | Um dos seguintes valores: mesmo, posterior ou anterior. |
+| InputParameter | operador | cadeia de caracteres | Um dos seguintes valores: mesmo, posterior ou anterior. |
 | InputParameter | timeSpanInSeconds | int | Adicione o intervalo de tempo para a primeira data e hora. |
-| OutputClaim | result | Booliano | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
+| OutputClaim | result | booleano | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
 
 Use essa transformação de declarações para determinar se duas ClaimTypes são iguais, posteriores ou anteriores em comparação com as outras. Por exemplo, você pode armazenar a última vez em que um usuário aceitou os termos de serviço (TOS). Depois de três meses, você pode pedir ao usuário para acessar o TOS novamente.
 Para executar a transformação de declaração, primeiro você precisa obter a data e hora atuais e também o último usuário de tempo aceita os termos de serviço.

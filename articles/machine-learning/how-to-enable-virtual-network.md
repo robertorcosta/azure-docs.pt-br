@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: fafb40c8505b7178782ab15c14184c5bec052a1b
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 3dfdbc56456ea67c830d0e1e9785b9d0032bf2cc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76937853"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988203"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteger trabalhos de experimentação e de inferência do Azure ML em uma rede virtual do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -180,8 +180,8 @@ Se você não quiser usar as regras de saída padrão e quiser limitar o acesso 
 - Negue a conexão de Internet de saída usando as regras NSG.
 
 - Para uma __instância de computação__ ou um __cluster de computação__, limite o tráfego de saída para os seguintes itens:
-   - Armazenamento do Azure, usando a __marca de serviço__ do __armazenamento__
-   - Registro de contêiner do Azure, usando a __marca de serviço__ de __AzureContainerRegistry__
+   - Armazenamento do Azure, usando a __marca de serviço__ de __Storage. RegionName__. Em que `{RegionName}` é o nome de uma região do Azure.
+   - Registro de contêiner do Azure, usando a __marca de serviço__ de __AzureContainerRegistry. RegionName__. Em que `{RegionName}` é o nome de uma região do Azure.
    - Azure Machine Learning, usando a __marca de serviço__ de __AzureMachineLearning__
    
 - Para uma __instância de computação__, adicione também os seguintes itens:

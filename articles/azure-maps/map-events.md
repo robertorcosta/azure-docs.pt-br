@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 742cb76f491e76db6dc9ec415c6718066b46f137
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 06fdb9733ad9c173c88936e5502214b58f5d10ee
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911072"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985910"
 ---
 # <a name="interact-with-the-map"></a>Interagir com o mapa
 
-Este artigo mostra como usar a propriedade de [eventos da classe Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events) para realçar eventos no mapa e em camadas diferentes do mapa. Ele também mostra como usar a propriedade map class events para realçar eventos ao interagir com um marcador HTML.
+Este artigo mostra como usar a [classe de eventos de mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events). A propriedade realça os eventos no mapa e em camadas diferentes do mapa. Você também pode realçar eventos quando interage com um marcador HTML.
 
 ## <a name="interact-with-the-map"></a>Interagir com o mapa
 
-Jogue com o mapa abaixo e veja os eventos de mouse correspondentes realçados à direita. Você pode clicar na **guia JS** para visualizar e editar o código JavaScript. Você também pode clicar no botão **Edit on CodePen** e editar o código no CodePen.
+Jogue com o mapa abaixo e veja os eventos de mouse correspondentes realçados à direita. Você pode clicar na **guia JS** para visualizar e editar o código JavaScript. Você também pode clicar em **Editar em CodePen** para modificar o código em CodePen.
 
 <br/>
 
@@ -31,7 +31,7 @@ Jogue com o mapa abaixo e veja os eventos de mouse correspondentes realçados à
 
 ## <a name="interact-with-map-layers"></a>Interagir com as camadas do mapa
 
-O código a seguir realça o nome dos eventos que são acionados enquanto você interage com a camada de símbolo. O símbolo, a bolha, a linha e a camada de polígono oferecem suporte ao mesmo conjunto de eventos. As camadas mapa de calor e bloco não oferecem suporte a nenhum desses eventos.
+O código a seguir realça o evento acionado enquanto você interage com a camada de símbolo. O símbolo, a bolha, a linha e a camada de polígono oferecem suporte ao mesmo conjunto de eventos. As camadas mapa de calor e bloco não oferecem suporte a nenhum desses eventos.
 
 <br/>
 

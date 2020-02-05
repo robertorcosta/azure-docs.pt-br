@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 01/31/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5737a53d3eca0da440f178f9fd34adf5e968dd62
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: b49c873112358db4fec2992ef3d2d61161e8b373
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840172"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982408"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -45,7 +45,7 @@ O elemento **TrustFrameworkPolicy** contém os seguintes atributos:
 | TenantId | Sim | O identificador exclusivo do locatário ao qual essa política pertence. |
 | PolicyId | Sim | O identificador exclusivo da política. Esse identificador deve ter o *B2C_1A_* como prefixo |
 | PublicPolicyUri | Sim | O URI para a política, o que é uma combinação de ID do locatário e ID da política. |
-| DeploymentMode | Não | Valores possíveis: `Production`, `Debugging` ou `Development`. O padrão é `Production`. Use essa propriedade para depurar sua política. Para obter mais informações, veja [Coleta de Logs](troubleshoot-with-application-insights.md). |
+| DeploymentMode | Não | Valores possíveis: `Production`ou `Development`. O padrão é `Production`. Use essa propriedade para depurar sua política. Para obter mais informações, veja [Coleta de Logs](troubleshoot-with-application-insights.md). |
 | UserJourneyRecorderEndpoint | Não | O ponto de extremidade usado quando **DeploymentMode** é definido como `Development`. O valor deve ser `urn:journeyrecorder:applicationinsights`. Para obter mais informações, veja [Coleta de Logs](troubleshoot-with-application-insights.md). |
 
 

@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 446784155cf6f72cfaa80523ed3913eacc7e5cfc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4f513aaf113ef4bd6e75e5c4b31e0f0252d45f10
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513127"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988083"
 ---
 # <a name="connect-to-a-virtual-machine-scale-set-using-azure-bastion"></a>Conectar-se a um conjunto de dimensionamento de máquinas virtuais usando a bastiões do Azure
 
@@ -35,9 +35,9 @@ Verifique se você configurou um host de bastiões do Azure para a rede virtual 
    ![Guia de bastiões](./media/bastion-connect-vm-scale-set/3.png)
 4. Na guia bastião, insira o nome de usuário e a senha para o conjunto de dimensionamento de máquinas virtuais e, em seguida, selecione **conectar**.
 
-   ![Connect](./media/bastion-connect-vm-scale-set/4.png)
+   ![conectar](./media/bastion-connect-vm-scale-set/4.png)
 5. A conexão RDP com essa máquina virtual via bastiões será aberta diretamente no portal do Azure (sobre o HTML5) usando a porta 443 e o serviço de bastiões.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Leia as [perguntas frequentes sobre bastiões](bastion-faq.md).

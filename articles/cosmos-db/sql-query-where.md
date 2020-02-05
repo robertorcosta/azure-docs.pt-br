@@ -1,21 +1,21 @@
 ---
 title: Cláusula WHERE em Azure Cosmos DB
 description: Saiba mais sobre a cláusula WHERE do SQL para Azure Cosmos DB
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.author: mjbrown
-ms.openlocfilehash: cd5643d8be06afcd43c5bfe38d6f5e9caa6f906e
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 02/03/2020
+ms.author: tisande
+ms.openlocfilehash: 31653b598f0f3a79bf7f9c09231b1d111f167a16
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326635"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982222"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Cláusula WHERE em Azure Cosmos DB
 
-A cláusula WHERE opcional (`WHERE <filter_condition>`) especifica a (s) condição (ões) que os itens JSON de origem devem satisfazer para que a consulta as inclua nos resultados. Um item JSON deve avaliar as condições especificadas para `true` a serem consideradas para o resultado. A camada de índice usa a cláusula WHERE para determinar o menor subconjunto de itens de origem que podem fazer parte do resultado.
+A cláusula WHERE opcional (`WHERE <filter_condition>`) especifica a (s) condição (ões) que os itens JSON de origem devem satisfazer para que a consulta as inclua nos resultados. Um item JSON deve avaliar as condições especificadas para `true` ser considerado para o resultado. A camada de índice usa a cláusula WHERE para determinar o menor subconjunto de itens de origem que podem fazer parte do resultado.
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -74,7 +74,7 @@ Você pode usar os seguintes operadores binários com suporte:
 |Bit a bit    | \|, &, ^, <<, >>, >>> (deslocamento à direita com preenchimento com zero) |
 |Lógico    | AND, OR, NOT      |
 |Comparação | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
-|string     |  \|\| (concatenar) |
+|String     |  \|\| (concatenar) |
 
 As consultas a seguir usam operadores binários:
 
@@ -104,10 +104,10 @@ Você também pode usar os operadores unários +,-, ~, e não em consultas, conf
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-Você também pode usar referências de propriedade em consultas. Por exemplo, `SELECT * FROM Families f WHERE f.isRegistered` retorna o item JSON que contém a propriedade `isRegistered` com valor igual a `true`. Qualquer outro valor, como `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>` ou `<array>`, exclui o item do resultado. 
+Você também pode usar referências de propriedade em consultas. Por exemplo, `SELECT * FROM Families f WHERE f.isRegistered` retorna o item JSON que contém a propriedade `isRegistered` com valor igual a `true`. Qualquer outro valor, como `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>`ou `<array>`, exclui o item do resultado.
 
 ## <a name="next-steps"></a>Próximos passos
 
-- [Introdução](sql-query-getting-started.md)
-- [Amostras do .NET no Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [Guia de Introdução](sql-query-getting-started.md)
+- [Palavra-chave IN](sql-query-keywords.md#in)
 - [Cláusula FROM](sql-query-from.md)

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-baselines
-ms.openlocfilehash: 2d12fa85fbc134ba2578795619db89f4a5058b26
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: de6bbb81b04b93cce8ab7ddaf1d983cb7e4a700d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934755"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990582"
 ---
-# <a name="overview-of-azure-security-controls"></a>Visão geral dos controles de segurança do Azure
+# <a name="overview-of-azure-security-controls"></a>Visão geral dos Controles de Segurança do Azure
 
 O benchmark de segurança do Azure contém recomendações que ajudam a melhorar a segurança de seus aplicativos e dados no Azure.
 
@@ -26,10 +26,10 @@ Os seguintes controles são usados no benchmark de segurança do Azure:
 - [Segurança de rede](security-control-network-security.md)
 - [Registro em log e monitoramento](security-control-logging-monitoring.md)
 - [Controle de acesso e de identidade](security-control-identity-access-control.md)
-- [Proteção de Dados](security-control-data-protection.md)
+- [Proteção de dados](security-control-data-protection.md)
 - [Gerenciamento de vulnerabilidades](security-control-vulnerability-management.md)
 - [Inventário e gerenciamento de ativos](security-control-inventory-asset-management.md)
-- [Configuração Segura](security-control-secure-configuration.md)
+- [Configuração segura](security-control-secure-configuration.md)
 - [Defesa contra malware](security-control-malware-defense.md)
 - [Recuperação de dados](security-control-data-recovery.md)
 - [Resposta a incidentes](security-control-incident-response.md)
@@ -51,4 +51,5 @@ Agradecemos seus comentários detalhados e sua participação ativa no esforço 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Consulte o primeiro controle de segurança: [segurança de rede](security-control-network-security.md)
+- Leia a [introdução ao benchmark de segurança do Azure](introduction.md)
 - Baixar a [planilha do Excel do benchmark de segurança do Azure v1](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/spreadsheets)

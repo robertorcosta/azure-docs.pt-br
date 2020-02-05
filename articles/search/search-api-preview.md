@@ -7,38 +7,51 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/30/2020
-ms.openlocfilehash: 9985e7ac70c5851699839a95d1e23af4dcca35e7
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.date: 02/03/2020
+ms.openlocfilehash: fd21a4b821e1911e94d542a0922e5269786c365d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935111"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76991058"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Recursos de visualização no Azure Pesquisa Cognitiva
 
 Este artigo lista os recursos atualmente em visualização. Os recursos que fazem a transição da visualização para a disponibilidade geral são removidos dessa lista. Você pode verificar [as atualizações de serviço](https://azure.microsoft.com/updates/?product=search) ou [o que há de novo](whats-new.md) para anúncios em relação à disponibilidade geral.
 
-Embora alguns recursos de visualização possam estar disponíveis no portal e no SDK do .NET, a API REST sempre tem recursos de visualização. A versão da API de visualização atual é `2019-05-06-Preview`.
+Embora alguns recursos de visualização possam estar disponíveis no portal e no SDK do .NET, a API REST sempre tem recursos de visualização. 
+
++ Para operações de pesquisa, a versão da API de visualização atual é [`2019-05-06-Preview`](https://docs.microsoft.com/rest/api/searchservice/index-2019-05-06-preview)
++ Para operações de gerenciamento, a versão de visualização atual é [`2019-10-01-Preview`](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview)
 
 > [!IMPORTANT]
 > A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="features-in-public-preview"></a>Recursos na visualização pública
+## <a name="ai-enrichment-features"></a>Recursos de enriquecimento de ia
 
-+ [Pesquisa de entidade personalizada (versão prévia)](cognitive-search-skill-custom-entity-lookup.md ) procura texto de uma lista personalizada de palavras e frases definidas pelo usuário. Usando essa lista, ele rotula todos os documentos com qualquer entidade correspondente. A habilidade também dá suporte a um grau de correspondência difusa que pode ser aplicado para localizar correspondências que são semelhantes, mas não exatamente exatos. 
+Explore os aprimoramentos mais recentes para o aprimoramento do ia por meio da [API de pesquisa](https://docs.microsoft.com/rest/api/searchservice/index-2019-05-06-preview)de versão prévia.
 
-+ A [detecção de PII (versão prévia)](cognitive-search-skill-pii-detection.md) é uma habilidade cognitiva usada durante a indexação que extrai informações de identificação pessoal de um texto de entrada e oferece a opção de mascarar o texto de várias maneiras.
++ A [habilidade de pesquisa de entidade personalizada (versão prévia)](cognitive-search-skill-custom-entity-lookup.md ) é uma habilidade cognitiva que procura texto de uma lista personalizada de palavras e frases definidas pelo usuário. Usando essa lista, ele rotula todos os documentos com qualquer entidade correspondente. A habilidade também dá suporte a um grau de correspondência difusa que pode ser aplicado para localizar correspondências que são semelhantes, mas não exatamente exatos. 
+
++ A [habilidade de detecção de PII (versão prévia)](cognitive-search-skill-pii-detection.md) é uma habilidade cognitiva usada durante a indexação que extrai informações de identificação pessoal de um texto de entrada e oferece a opção de mascarar o texto de várias maneiras.
 
 + O [enriquecimento incremental (visualização)](cognitive-search-incremental-indexing-conceptual.md) adiciona o cache a um pipeline de enriquecimento, permitindo que você reutilize a saída existente se uma modificação direcionada, como uma atualização de um conjunto de qualificações ou outro objeto, não alterar o conteúdo. O Caching aplica-se somente a documentos aprimorados produzidos por um configurador de qualificações.
+
++ A [loja de conhecimento (versão prévia)](knowledge-store-concept-intro.md) é um novo destino de um pipeline de enriquecimento baseado em ia. A estrutura de dados física existe no armazenamento de BLOBs do Azure e no armazenamento de tabelas do Azure, e é criada e populada quando você executa um indexador que tem um associador cognitiva. A definição de uma loja de conhecimento é especificada em uma definição de contratação de habilidades. Na definição da loja de conhecimento, você controla as estruturas físicas de seus dados por meio de elementos de *projeção* que determinam como os dados são formatados, se os dados são armazenados no armazenamento de tabelas ou no armazenamento de BLOBs e se há várias exibições.
+
+## <a name="indexing-and-query-features"></a>Recursos de indexação e consulta
+
+Os recursos de visualização do indexador estão disponíveis na API de pesquisa de visualização. 
 
 + [Cosmos DB indexador](search-howto-index-cosmosdb.md) dá suporte à API do MongoDB (versão prévia), API Gremlin (versão prévia) e API do Cassandra (versão prévia).
 
 + [Azure data Lake Storage Gen2 indexador (versão prévia)](search-howto-index-azure-data-lake-storage.md) pode indexar conteúdo e metadados de data Lake Storage Gen2.
 
-+ A [loja de conhecimento (versão prévia)](knowledge-store-concept-intro.md) é um novo destino de um pipeline de enriquecimento baseado em ia. A estrutura de dados física existe no armazenamento de BLOBs do Azure e no armazenamento de tabelas do Azure, e é criada e populada quando você executa um indexador que tem um associador cognitiva. A definição de uma loja de conhecimento é especificada em uma definição de contratação de habilidades. Na definição da loja de conhecimento, você controla as estruturas físicas de seus dados por meio de elementos de *projeção* que determinam como os dados são formatados, se os dados são armazenados no armazenamento de tabelas ou no armazenamento de BLOBs e se há várias exibições.
-
 + o [parâmetro de consulta moreLikeThis (visualização)](search-more-like-this.md) localiza documentos que são relevantes para um documento específico. Esse recurso é encontrado em versões prévias anteriores. 
+
+## <a name="management-features"></a>Recursos de gerenciamento
+
++ [Suporte de ponto de extremidade privado](service-create-private-endpoint.md) por meio de [`api-version=2019-10-01-Preview`](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview) da API REST de gerenciamento. Você pode criar um serviço que tenha restrições sobre como seu ponto de extremidade é acessado.
 
 ## <a name="earlier-preview-features"></a>Recursos anteriores de visualização
 

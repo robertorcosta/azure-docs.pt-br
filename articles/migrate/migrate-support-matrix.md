@@ -4,12 +4,12 @@ description: Fornece um resumo das configurações de suporte e limitações par
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.author: raynew
-ms.openlocfilehash: 5c29b80f30b024d34ec4e8f65e51b59fc70e8f93
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 81939292885e33ec6397eb4a437bef63b4ad0787
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846555"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990718"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte para migrações para Azure
 
@@ -67,7 +67,7 @@ Para que as migrações para Azure funcionem com o Azure, você precisa dessas p
 --- | --- | ---
 Criar um projeto das Migrações para Azure | Sua conta do Azure precisa de permissões para criar um projeto. | Configurar para [VMware](tutorial-prepare-vmware.md#assign-permissions-to-create-project), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-create-project)ou [servidores físicos](tutorial-prepare-physical.md#assign-permissions-to-create-project).
 Registrar o dispositivo de migrações para Azure | As migrações para Azure usam um dispositivo leve de [migrações para Azure](migrate-appliance.md) para avaliar VMs VMware com a avaliação de servidor de migrações para Azure e para executar a [migração sem agente](server-migrate-overview.md) de VMs VMware com migração de servidor de migrações para Azure. Esse dispositivo executa a descoberta de VM e envia os metadados de VM e os dados de desempenho para as Migrações para Azure.<br/><br/> Durante o registro, as Migrações para Azure criam dois aplicativos Azure AD (Azure Active Directory) que identificam o dispositivo de forma exclusiva e precisa de permissões para criar esses aplicativos.<br/><br/> - O primeiro aplicativo comunica-se com os pontos de extremidade de serviço das Migrações para Azure.<br/><br/> - O segundo aplicativo acessa um Azure Key Vault criado durante o registro para armazenar informações de aplicativo do Azure AD e definições de configuração do dispositivo. | Configurar para [VMware](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-register-the-appliance)ou [servidores físicos](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance).
-Criar um cofre de chaves para migração sem agente do VMware | Para migrar VMs VMware com migração de servidor do Azure Migrations sem agente, as migrações para Azure criam um Key Vault para gerenciar chaves de acesso para a conta de armazenamento de replicação em sua assinatura. Para criar o cofre, você deve definir permissões (proprietário ou colaborador e administrador de acesso do usuário) no grupo de recursos no qual o projeto de migração do Azure reside. | [Configurar](tutorial-prepare-vmware.md#assign-role-assignment-permissions) permissões.
+Criar um cofre de chaves para migração sem agente do VMware | Para migrar VMs VMware com migração de servidor do Azure Migrations sem agente, as migrações para Azure criam um Key Vault para gerenciar chaves de acesso para a conta de armazenamento de replicação em sua assinatura. Para criar o cofre, você deve definir permissões (proprietário ou colaborador e administrador de acesso do usuário) no grupo de recursos no qual o projeto de migração do Azure reside. | [Configurar](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault) permissões.
 
 ## <a name="supported-geographies"></a>Geografia com suporte
 
@@ -80,7 +80,7 @@ Pacífico Asiático | Ásia Oriental ou sudeste asiático
 Austrália | Leste da Austrália ou sudeste da Austrália
 Brasil | Sul do Brasil
 Canadá | Canadá central ou leste do Canadá
-Europa | Europa Setentrional ou Europa Ocidental
+Europa | Norte da Europa ou Europa Ocidental
 França | França Central
 Índia | Índia central ou sul da Índia
 Japão |  Leste do Japão ou oeste do Japão

@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/15/2019
 ms.author: ikbarmen
-ms.openlocfilehash: a9b75c3454c67112b0e00c7ea4b4e8c676ebcc97
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18f2cf3daa281400151ba223e1735e7138d97e8e
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65949475"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990497"
 ---
 # <a name="manage-multiple-tenants"></a>Gerenciar vários locatários
 
@@ -45,7 +45,7 @@ Ao usar essa arquitetura, uma conta do Video Indexer é criada para cada locatá
 * Difícil de gerenciar devido a várias contas do Video Indexer (e Serviços de Mídia associados) por locatário.
 
 > [!TIP]
-> Crie um usuário administrador para o sistema no [Portal do Desenvolvedor do Video Indexer](https://api-portal.videoindexer.ai/) e use a API de Autorização para fornecer aos locatários o [token de acesso à conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token) relevante.
+> Crie um usuário administrador para o sistema no [Portal do Desenvolvedor do Video Indexer](https://api-portal.videoindexer.ai/) e use a API de Autorização para fornecer aos locatários o [token de acesso à conta](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token) relevante.
 
 ## <a name="single-video-indexer-account-for-all-users"></a>Conta única do Video Indexer para todos os usuários
 
@@ -77,6 +77,6 @@ Ao usar essa arquitetura, cada locatário terá sua própria assinatura do Azure
 * Essa é a única opção que permite a separação de cobrança.
 * Essa integração tem mais sobrecarga de gerenciamento do que a conta do Video Indexer por locatário. Se a cobrança não for um requisito, é recomendável usar uma das outras opções descritas neste artigo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Visão geral](video-indexer-overview.md)

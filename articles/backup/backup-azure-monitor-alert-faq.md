@@ -4,50 +4,49 @@ description: Neste artigo, descubra respostas para perguntas comuns sobre o aler
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 9cf7bf49d29b5faa9811a591b45179fe83c1d483
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f5be97458ba658f315c31ae34e540842b64e3ec4
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172922"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989562"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Alerta de monitoramento do backup do Azure-perguntas frequentes
 
-Este artigo responde a perguntas comuns sobre o alerta de monitoramento do Azure.
+Este artigo responde a perguntas comuns sobre o monitoramento e o relatório de backup do Azure.
 
 ## <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
 
-### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-storage-account"></a>Como verificar se os dados do relatório começaram a entrar em uma conta de armazenamento?
+### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-log-analytics-la-workspace"></a>Como fazer verificar se os dados de relatório começaram a fluir para um espaço de trabalho de Log Analytics (LA)?
 
-Vá para a conta de armazenamento que você configurou e selecione os contêineres. Se o contêiner tem uma entrada para insights-logs-azurebackupreport, ele indica que dados de relatórios começaram a fluir.
+Navegue até o espaço de trabalho de LA que você configurou, navegue até o item de menu **logs** e execute a consulta CoreAzureBackup | Leve um. Se você vir um registro que está sendo retornado, significa que os dados começaram a fluir para o espaço de trabalho. O push de dados inicial pode levar até 24 horas.
 
-### <a name="what-is-the-frequency-of-data-push-to-a-storage-account-and-the-azure-backup-content-pack-in-power-bi"></a>Qual é a frequência do push de dados para uma conta de armazenamento e o pacote do conteúdo de Backup do Azure no Power BI?
+### <a name="what-is-the-frequency-of-data-push-to-an-la-workspace"></a>Qual é a frequência de envio de dados por push para um espaço de trabalho da LA?
 
-  Para usuários do dia 0, leva cerca de 24 horas para enviar dados por push para uma conta de armazenamento. Após esse envio por push inicial ser concluído, os dados são atualizados com a frequência mostrada na figura abaixo.
+Os dados de diagnóstico do cofre são bombeados para o espaço de trabalho Log Analytics com algum retardo. Cada evento chega no espaço de trabalho de Log Analytics de 20 a 30 minutos após ser enviado por push do cofre dos serviços de recuperação. Aqui estão mais detalhes sobre o retardo:
 
-* Os dados relacionados a **Trabalhos**, **Alertas**, **Itens de backup**, **Cofres**, **Servidores protegidos** e **Políticas** são enviados por push para uma conta de armazenamento do cliente como e quando ela está conectada.
+* Em todas as soluções, os alertas internos do serviço de backup são enviados por push assim que são criados. Eles geralmente aparecem no espaço de trabalho Log Analytics após 20 a 30 minutos.
+* Em todas as soluções, trabalhos de backup sob demanda e trabalhos de restauração são enviados por push assim que forem concluídos.
+* Para todas as soluções, exceto backup do SQL, os trabalhos de backup agendados são enviados assim que forem concluídos.
+* Para o backup do SQL, como os backups de log podem ocorrer a cada 15 minutos, as informações para todos os trabalhos de backup agendados concluídos, incluindo logs, são colocadas em lote e enviadas a cada 6 horas.
+* Em todas as soluções, outras informações, como o item de backup, a política, os pontos de recuperação, o armazenamento e assim por diante, são enviadas pelo menos uma vez por dia.
+* Uma alteração na configuração de backup (como alteração de política ou política de edição) dispara um envio por push de todas as informações de backup relacionadas.
 
-* Os dados relacionados a **Armazenamento** são enviados por push para a conta de armazenamento do cliente a cada 24 horas.
+### <a name="how-long-can-i-retain-reporting-data"></a>Por quanto tempo posso manter os dados de relatórios?
 
-    ![Frequência de push de dados de relatórios de Backup do Azure](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
+Depois de criar um espaço de trabalho LA, você pode optar por manter os dados por um máximo de dois anos. Por padrão, um espaço de trabalho de LA retém dados por 31 dias.
 
-* O Power BI tem uma [atualização agendada uma vez por dia](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). Você pode executar uma atualização manual dos dados no Power BI para o pacote de conteúdo.
+### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-la-workspace"></a>Eu verá todos os meus dados em relatórios depois de configurar o espaço de trabalho LA?
 
-### <a name="how-long-can-i-retain-reports"></a>Por quanto tempo é possível reter os relatórios?
-
-Quando configura uma conta de armazenamento, você pode selecionar um período de retenção para dados de relatório na conta de armazenamento. Siga a etapa 6 na seção [Configurar conta de armazenamento para relatórios](backup-azure-configure-reports.md#configure-storage-account-for-reports). Além disso, você pode [analisar relatórios no excel](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/) e salvá-los por um período de retenção mais longo, de acordo com as suas necessidades.
-
-### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-storage-account"></a>Todos os meus dados em relatórios serão exibidos após a configuração da conta de armazenamento?
-
- Todos os dados gerados após você configurar uma conta de armazenamento são enviados por push para a conta de armazenamento e estão disponíveis em relatórios. Os trabalhos em andamento não são enviados por push para a geração de relatórios. Depois que o trabalho é concluído ou falha, ele é enviado para relatórios.
-
-### <a name="if-i-already-configured-the-storage-account-to-view-reports-can-i-change-the-configuration-to-use-another-storage-account"></a>Se eu já configurei a conta de armazenamento para exibir relatórios, posso alterar a configuração para usar outra conta de armazenamento?
-
-Sim, você pode alterar a configuração para apontar para uma conta de armazenamento diferente. Use a conta de armazenamento recém-configurada ao conectar-se ao pacote de conteúdo de Backup do Azure. Além disso, depois que uma conta de armazenamento diferente for configurada, novos dados fluirão nesta conta de armazenamento. Mas os dados mais antigos (anteriores à alteração da configuração) permanecerão na conta de armazenamento mais antiga.
+ Todos os dados gerados depois que você define as configurações de diagnóstico são enviados por push para o espaço de trabalho LA e estão disponíveis em relatórios. Os trabalhos em andamento não são enviados por push para a geração de relatórios. Depois que o trabalho for concluído ou falhar, ele será enviado aos relatórios.
 
 ### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>Posso exibir relatórios entre cofres e assinaturas?
 
-Sim, você pode configurar a mesma conta de armazenamento entre vários cofres para exibir relatórios de cofre cruzado. Além disso, você pode configurar a mesma conta de armazenamento para cofres entre assinaturas. Você pode usar essa conta de armazenamento enquanto se conecta ao pacote de conteúdo de Backup do Azure no Power BI para exibir os relatórios. A conta de armazenamento selecionada deve estar na mesma região do cofre dos Serviços de Recuperação.
+Sim, você pode exibir relatórios entre cofres e assinaturas, bem como regiões. Seus dados podem residir em um único espaço de trabalho de LA ou em um grupo de espaços de trabalho de LA.
+
+### <a name="can-i-view-reports-across-tenants"></a>Posso exibir relatórios entre locatários?
+
+Se você for um usuário [Lighthouse do Azure](https://azure.microsoft.com/services/azure-lighthouse/) com acesso delegado aos espaços de trabalho assinaturas ou la de seus clientes, poderá usar relatórios de backup para exibir dados em todos os seus locatários.
 
 ### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Quanto tempo leva para refletir no portal o status de trabalho do agente de backup do Azure?
 
@@ -83,7 +82,7 @@ Sim. Nas situações a seguir, as notificações não são enviadas:
 * Quando um trabalho é cancelado
 * Se um segundo trabalho de backup falhou porque o trabalho de backup original estava em andamento
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Leia as outras perguntas frequentes:
 
