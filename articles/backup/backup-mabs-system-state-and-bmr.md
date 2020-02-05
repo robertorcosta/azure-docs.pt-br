@@ -3,12 +3,12 @@ title: Proteção de recuperação bare-metal e estado do sistema
 description: Use o Servidor de Backup do Azure para fazer backup do estado do sistema e fornecer proteção de recuperação bare-metal (BMR).
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 2940ef5b8c0c2a7d751c46209253d4f4dbe6d13f
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 0e89b149fe8b06bdd70c72aa442f50125c5e3786
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172259"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025496"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Fazer backup de estado do sistema e restaurar bare-metal com o servidor de Backup do Azure
 
@@ -90,7 +90,7 @@ Quando o backup for concluído, o arquivo é transferido para o computador do Se
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-1. **Implantar o Servidor de Backup do Azure**. Verifique se o Servidor de Backup é implantado corretamente. Para obter mais informações, veja:
+1. **Implantar o Servidor de Backup do Azure**. Verifique se o Servidor de Backup é implantado corretamente. Para obter mais informações, consulte:
     * [Requisitos de sistema para o Servidor de Backup do Azure](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
     * [Matriz de proteção do Servidor de Backup](backup-mabs-protection-matrix.md)
 
@@ -140,7 +140,7 @@ Configurar um grupo de proteção, conforme descrito em [Implantar grupos de pro
 
 12. Na página **Especificar Política de Retenção Online**, selecione como os pontos de recuperação são criados a partir de backups diários, semanais, mensais e anuais são mantidos no Azure.
 
-13. Na página **Escolher Replicação Online**, selecione como ocorre a replicação inicial completa de dados. Você pode replicar pela rede ou fazer um backup offline (propagação offline). O backup offline usa a funcionalidade de importação do Azure. Para obter mais informações, consulte [Fluxo de trabalho de backup offline no Backup do Azure](backup-azure-backup-import-export.md).
+13. Na página **Escolher Replicação Online**, selecione como ocorre a replicação inicial completa de dados. Você pode replicar pela rede ou fazer um backup offline (propagação offline). O backup offline usa a funcionalidade de importação do Azure. Para obter mais informações, consulte [Fluxo de trabalho de backup offline no Backup do Azure](offline-backup-azure-data-box.md).
 
 14. Na página **Resumo**, examine as configurações. Depois de selecionar **Criar grupo**, ocorre a replicação inicial dos dados. Quando a replicação de dados termina, na página **Status**, o status do grupo de proteção é **OK**. Em seguida, ocorre o backup pelas configurações do grupo de proteção.
 

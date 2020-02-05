@@ -1,6 +1,6 @@
 ---
-title: Solução do Azure VMware por CloudSimple – modelo de permissão de nuvem privada
-description: Descreve o modelo, os grupos e as categorias de permissão da nuvem privada do CloudSimple
+title: Soluções VMware do Azure (AVS)-modelo de permissão de nuvem privada da AVS
+description: Descreve o modelo, grupos e categorias de permissão de nuvem privada da AVS
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/16/2019
@@ -8,39 +8,39 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 28c4dc7831f97d66eb4d47f08e640344d5cca0d1
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 9488c59ead23fb68633ccc56a0df905ebfeea079
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544303"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77014939"
 ---
-# <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>Modelo de permissão de nuvem privada do CloudSimple do VMware vCenter
+# <a name="avs-private-cloud-permission-model-of-vmware-vcenter"></a>Modelo de permissão de nuvem privada da AVS do VMware vCenter
 
-O CloudSimple mantém o acesso administrativo total ao ambiente de nuvem privada. Cada cliente do CloudSimple recebe privilégios administrativos suficientes para poder implantar e gerenciar as máquinas virtuais em seu ambiente.  Se necessário, você pode escalonar seus privilégios temporariamente para executar funções administrativas.
+A AVS mantém o acesso administrativo total ao ambiente de nuvem privada da AVS. Cada cliente AVS recebe privilégios administrativos suficientes para poder implantar e gerenciar as máquinas virtuais em seu ambiente. Se necessário, você pode escalonar seus privilégios temporariamente para executar funções administrativas.
 
 ## <a name="cloud-owner"></a>Proprietário da nuvem
 
-Quando você cria uma nuvem privada, um usuário **CloudOwner** é criado no domínio de logon único do vCenter, com acesso de **função de proprietário de nuvem** para gerenciar objetos na nuvem privada. Esse usuário também pode configurar fontes de [identidade](set-vcenter-identity.md)adicionais do vCenter e outros usuários para a nuvem privada do vCenter.
+Quando você cria uma nuvem privada de AVS, um usuário **CloudOwner** é criado no domínio de logon único do vCenter, com acesso de **função de proprietário de nuvem** para gerenciar objetos na nuvem privada da AVS. Esse usuário também pode configurar fontes de [identidade](set-vcenter-identity.md)adicionais do vCenter e outros usuários para o vCenter de nuvem privada da AVS.
 
 > [!NOTE]
-> O usuário padrão para seu vCenter de nuvem privada do CloudSimple é cloudowner@cloudsimple.local quando uma nuvem privada é criada.
+> O usuário padrão para seu vCenter de nuvem privada da AVS é cloudowner@AVS.local quando uma nuvem privada de AVS é criada.
 
 ## <a name="user-groups"></a>Grupos de Usuários
 
-Um grupo chamado **Cloud-Owner-Group** é criado durante a implantação de uma nuvem privada. Os usuários nesse grupo podem administrar várias partes do ambiente vSphere na nuvem privada. Esse grupo recebe automaticamente os privilégios de **função de proprietário da nuvem** e o usuário **CloudOwner** é adicionado como um membro desse grupo.  O CloudSimple cria grupos adicionais com privilégios limitados para facilitar o gerenciamento.  Você pode adicionar qualquer usuário a esses grupos criados previamente e os privilégios definidos abaixo são automaticamente atribuídos aos usuários nos grupos.
+Um grupo chamado **Cloud-Owner-Group** é criado durante a implantação de uma nuvem privada de AVS. Os usuários nesse grupo podem administrar várias partes do ambiente vSphere na nuvem privada da AVS. Esse grupo recebe automaticamente os privilégios de **função de proprietário da nuvem** e o usuário **CloudOwner** é adicionado como um membro desse grupo. A AVS cria grupos adicionais com privilégios limitados para facilitar o gerenciamento. Você pode adicionar qualquer usuário a esses grupos criados previamente e os privilégios definidos abaixo são automaticamente atribuídos aos usuários nos grupos.
 
 ### <a name="pre-created-groups"></a>Grupos pré-criados
 
-| Nome do Grupo | Finalidade | Função |
+| Nome do grupo | Finalidade | Função |
 | -------- | ------- | ------ |
-| Grupo de proprietário da nuvem | Os membros deste grupo têm privilégios administrativos para a nuvem privada vCenter | [Nuvem-proprietário-função](#cloud-owner-role) |
-| Cloud-global-cluster-admin-Group | Os membros deste grupo têm privilégios administrativos no cluster do vCenter de nuvem privada | [Cloud-cluster-admin-role](#cloud-cluster-admin-role) |
-| Cloud-Global-Storage-admin-Group | Os membros deste grupo podem gerenciar o armazenamento na nuvem privada vCenter | [Cloud-Storage-admin-role](#cloud-storage-admin-role) |
-| Cloud-Global-Network-admin-Group | Os membros deste grupo podem gerenciar a rede e os grupos de portas distribuídas na nuvem privada vCenter | [Cloud-Network-admin-role](#cloud-network-admin-role) |
-| Cloud-global-VM-admin-Group | Os membros deste grupo podem gerenciar máquinas virtuais na nuvem privada vCenter | [Cloud-VM-admin-role](#cloud-vm-admin-role) |
+| Grupo de proprietário da nuvem | Os membros deste grupo têm privilégios administrativos para o vCenter privado da AVS na nuvem | [Nuvem-proprietário-função](#cloud-owner-role) |
+| Cloud-global-cluster-admin-Group | Os membros deste grupo têm privilégios administrativos no cluster do vCenter privado de nuvem privada da AVS | [Cloud-cluster-admin-role](#cloud-cluster-admin-role) |
+| Cloud-Global-Storage-admin-Group | Os membros deste grupo podem gerenciar o armazenamento na nuvem privada de sincronização automática do vCenter | [Cloud-Storage-admin-role](#cloud-storage-admin-role) |
+| Cloud-Global-Network-admin-Group | Os membros deste grupo podem gerenciar a rede e os grupos de portas distribuídas no vCenter de nuvem privada da AVS | [Cloud-Network-admin-role](#cloud-network-admin-role) |
+| Cloud-global-VM-admin-Group | Os membros deste grupo podem gerenciar máquinas virtuais na nuvem privada de sincronização automática do vCenter | [Cloud-VM-admin-role](#cloud-vm-admin-role) |
 
-Para conceder permissões a usuários individuais para gerenciar a nuvem privada, crie contas de usuário adicionar aos grupos apropriados.
+Para conceder permissões a usuários individuais para gerenciar a nuvem privada da AVS, crie contas de usuário adicionar aos grupos apropriados.
 
 > [!CAUTION]
 > Novos usuários devem ser adicionados somente a *Cloud-Owner-Group*, *Cloud-global-cluster-admin-Group*, *Cloud-Global-Storage-admin-Group*, *Cloud-Global-Network-admin-Group* ou, *Cloud-global-VM-admin-Group*.  Os usuários adicionados ao grupo de *Administradores* serão removidos automaticamente.  Somente as contas de serviço devem ser adicionadas ao grupo de *Administradores* e as contas de serviço não devem ser usadas para entrar na interface do usuário da Web do amvSphere.
@@ -54,7 +54,7 @@ Para conceder permissões a usuários individuais para gerenciar a nuvem privada
 | **Alarmes** | Alarme de reconhecimento <br> Criar alarme <br> Desabilitar ação de alarme <br> Modificar alarme <br> Remover alarme <br> Definir status do alarme |
 | **Permissões** | Modificar permissão |
 | **Biblioteca de conteúdo** | Adicionar item de biblioteca <br> Criar biblioteca local <br> Criar biblioteca inscrita <br> Excluir item de biblioteca <br> Excluir biblioteca local <br> Excluir biblioteca assinada <br> Baixar arquivos <br> Remover item de biblioteca <br> Remover biblioteca assinada <br> Importar armazenamento <br> Informações de assinatura de investigação <br> Armazenamento de leitura <br> Sincronizar item de biblioteca <br> Sincronizar biblioteca assinada <br> Introspecção de tipo <br> Atualizar definições de configuração <br> Arquivos de atualização <br> Atualizar biblioteca <br> Atualizar item de biblioteca <br> Atualizar biblioteca local <br> Atualizar biblioteca assinada <br> Exibir definições de configuração |
-| **Operações criptográficas** | Adicionar disco <br> Clonar <br> Descriptografar <br> Direct Access <br> Encrypt <br> Criptografar novo <br> Gerenciar KMS <br> Gerenciar políticas de criptografia <br> Gerenciar chaves <br> Migre <br> Recriptografado <br> Registrar VM <br> Registrar host |
+| **Operações criptográficas** | Adicionar disco <br> Clonar <br> Descriptografar <br> Acesso direto <br> Encrypt <br> Criptografar novo <br> Gerenciar KMS <br> Gerenciar políticas de criptografia <br> Gerenciar chaves <br> Migre <br> Recriptografado <br> Registrar VM <br> Registrar host |
 | **grupo de dvPort** | Create <br> Excluir <br> Modificar <br> Operação de política <br> Operação de escopo |
 | **Datastore** | Alocar espaço <br> Procurar no Repositório de Dados <br> Configurar repositório de armazenamento <br> Operações de arquivo de nível baixo <br> Mover repositório de armazenamento <br> Remover repositório de armazenamento <br> Remover arquivo <br> Renomear repositório de armazenamento <br> Atualizar arquivos de máquina virtual <br> Atualizar metadados da máquina virtual |
 | **Gerenciador de Agentes ESX** | Configuração <br> Modificar <br> Exibir |
@@ -74,7 +74,7 @@ Para conceder permissões a usuários individuais para gerenciar a nuvem privada
 | **Sessões** | Representar usuário <br> Mensagem <br> Validar sessão <br> Exibir e parar sessões |
 | **Cluster de repositório de armazenamento** | Configurar um cluster de repositório de armazenamento |
 | **Armazenamento controlado por perfil** | Atualização de armazenamento controlada por perfil <br> Exibição de armazenamento controlada por perfil |
-| **Exibições de armazenamento** | Configurar serviços <br> Exibir |
+| **Exibições de armazenamento** | Configurar serviço <br> Exibir |
 | **Tarefas** | Criar tarefa <br> Atualizar tarefa |
 | **Serviço de transferência**| Gerenciamento <br> Monitorar |
 | **vApp** | Adicionar máquina virtual <br> Atribuir pool de recursos <br> Atribuir vApp <br> Clonar <br> Create <br> Excluir <br> Exportar <br> Importar <br> Mover <br> Desligar <br> Ligue <br> Renomear <br> Suspend <br> Cancelar o registro <br> Exibir ambiente OVF <br> configuração do aplicativo vApp <br> configuração da instância de vApp <br> configuração do vApp managedBy <br> configuração do recurso vApp |
@@ -119,7 +119,7 @@ Para conceder permissões a usuários individuais para gerenciar a nuvem privada
 | **Configuração de > de host** | Configuração da partição de armazenamento |
 | **Cluster de repositório de armazenamento** | Configurar um cluster de repositório de armazenamento |
 | **Armazenamento controlado por perfil** | Atualização de armazenamento controlada por perfil <br> Exibição de armazenamento controlada por perfil |
-| **Exibições de armazenamento** | Configurar serviços <br> Exibir |
+| **Exibições de armazenamento** | Configurar serviço <br> Exibir |
 
 ### <a name="cloud-network-admin-role"></a>Cloud-Network-admin-role
 

@@ -3,23 +3,23 @@ title: Personalizar a interface do usuário de IoT Central do Azure | Microsoft 
 description: Como personalizar o tema e os links de ajuda para seu aplicativo do Azure IoT central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/26/2019
+ms.date: 12/06/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 829ea1bcca36dfba2da3e3946b48b7249f69ee62
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3afa86aae3b51ea20610dcbff5211e59fb341650
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72953584"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018424"
 ---
 # <a name="customize-the-azure-iot-central-ui"></a>Personalizar a interface do usuário do IoT Central do Azure
 
-[!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
+Este artigo descreve como, como administrador, você pode personalizar a interface do usuário do seu aplicativo aplicando temas personalizados e modificando os links de ajuda para apontar para seus próprios recursos de ajuda personalizados. 
 
-Este artigo descreve como, como administrador, você pode personalizar a interface do usuário do seu aplicativo aplicando temas personalizados e modificando os links de ajuda para apontar para seus próprios recursos de ajuda personalizados.
+
 
 A captura de tela a seguir mostra uma página usando o tema padrão:
 
@@ -41,7 +41,7 @@ Nesta página, você pode personalizar os seguintes aspectos do seu aplicativo:
 
 Uma imagem PNG, não maior que 1 MB, com um plano de fundo transparente. Este logotipo é exibido à esquerda na barra de título do aplicativo IoT Central.
 
-Se a sua imagem de logotipo incluir o nome do seu aplicativo, você poderá ocultar o texto do nome do aplicativo. Para obter mais informações, consulte [gerenciar seu aplicativo](./howto-administer.md#change-application-name-and-url).
+Se a sua imagem de logotipo incluir o nome do seu aplicativo, você poderá ocultar o texto do nome do aplicativo. Para obter mais informações, consulte [gerenciar seu aplicativo](howto-administer.md#change-application-name-and-url).
 
 ### <a name="browser-icon-favicon"></a>Ícone do navegador (favicon)
 
@@ -78,4 +78,4 @@ Você também pode adicionar novas entradas ao menu ajuda e remover as entradas 
 Agora que você aprendeu como personalizar a interface do usuário em seu aplicativo IoT Central, aqui estão algumas próximas etapas sugeridas:
 
 - [Administrar o aplicativo](./howto-administer.md)
-- [Adicionar blocos ao seu painel](./howto-add-tiles-to-your-dashboard.md)
+- [Adicionar blocos ao seu painel](howto-add-tiles-to-your-dashboard.md)

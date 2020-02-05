@@ -1,6 +1,6 @@
 ---
-title: Casos de uso do Gateway de caixa de dados do Microsoft Azure | Microsoft Docs
-description: Descreve os casos de uso para o Gateway de caixa de dados do Azure, uma solução de armazenamento de solução de virtualização que permite transferir dados para o Azure
+title: Microsoft Azure Gateway do Data Box casos de uso | Microsoft Docs
+description: Descreve os casos de uso para Gateway do Azure Data Box, uma solução de armazenamento de dispositivo virtual que permite transferir dados para o Azure
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: alkohli
-ms.openlocfilehash: e9092fb91ad98e6147647717e11d1a64bcff580e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e72113313e27949819db567c550401b1f051473f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754184"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022674"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Casos de uso do Azure Data Box Gateway
 
@@ -44,14 +44,14 @@ A camada de Arquivo Morto é otimizada para armazenar dados raramente acessados 
 
 ### <a name="move-data-to-archive-tier"></a>Mover dados para a camada de Arquivo Morto
 
-Antes de começar, certifique-se de que o Data Box Gateway esteja em execução. Siga as etapas detalhadas no [Tutorial: Prepare-se para implantar o Azure Data Box Gateway](data-box-gateway-deploy-prep.md) e continue avançando para o próximo tutorial até que você tenha um dispositivo operacional.
+Antes de começar, certifique-se de que o Data Box Gateway esteja em execução. Siga as etapas detalhadas no [tutorial: preparar para implantar gateway do Azure data Box](data-box-gateway-deploy-prep.md) e continue avançando para o próximo tutorial até que você tenha um dispositivo operacional.
 
 - Use o Data Box Gateway para carregar os dados no Azure por meio do procedimento de transferência usual, conforme descrito no artigo [Transferir dados com o Data Box Gateway](data-box-gateway-deploy-add-shares.md).
-- Depois que os dados forem carregados, será necessário movê-los para a camada de Arquivo Morto. É possível definir a camada de blob de duas maneiras: Script do Azure PowerShell e ou uma política de Gerenciamento de ciclo de vida de armazenamento do Azure.  
+- Depois que os dados forem carregados, será necessário movê-los para a camada de Arquivo Morto. Você pode definir a camada de blob de duas maneiras: Azure PowerShell script ou uma política de gerenciamento do ciclo de vida do armazenamento do Azure.  
     - Se usar o Azure PowerShell, siga estas [etapas](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) para mover os dados para a camada de Arquivo Morto.
     - Se usar o Gerenciamento de Ciclo de Vida de Armazenamento do Azure, siga estas etapas para mover os dados para a camada de Arquivo Morto.
         - [Registre-se](/azure/storage/common/storage-lifecycle-management-concepts) na versão prévia do serviço de Gerenciamento do Ciclo de Vida de Blobs para usar a camada de Arquivo Morto.
-        - Use a seguinte política para [Arquivar dados em ingestão](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-at-ingest).
+        - Use a seguinte política para [Arquivar dados em ingestão](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-after-ingest).
 - Depois que os blobs são marcados como Arquivo Morto, eles não podem mais ser modificados pelo gateway, a menos que sejam movidos para a camada frequente ou para a camada esporádica. Se o arquivo estiver no armazenamento local, nenhuma alteração feita na cópia local (incluindo exclusões) será carregada na camada de Arquivo Morto.
 - Para ler os dados no Armazenamento de Arquivo Morto, eles devem ser reidratados alterando a camada de blob para frequente ou esporádica. [Atualizar o compartilhamento](data-box-gateway-manage-shares.md#refresh-shares) no gateway não reidrata o blob.
 
@@ -93,7 +93,7 @@ Siga estas etapas para a ingestão em andamento pelo Data Box Gateway.
 
     Quando o compartilhamento estiver sincronizado, o Data Box Gateway carregará as alterações incrementais se os arquivos foram modificados no cliente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Examine os [requisitos do sistema do Data Box Gateway](data-box-gateway-system-requirements.md).
 - Entenda os [limites do Data Box Gateway](data-box-gateway-limits.md).

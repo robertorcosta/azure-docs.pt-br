@@ -3,12 +3,12 @@ title: Suporte para migração do VMware nas migrações para Azure
 description: Saiba mais sobre o suporte para migração de VM do VMware nas migrações para Azure.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 6593d4de6823f15f570ab8922d76cbe84fb0e348
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e5a2f40611f6b358a8b5ff1dfb99cadebae4fab6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901549"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77013987"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração do VMware
 
@@ -123,7 +123,7 @@ Quando você configura o dispositivo de replicação usando o modelo OVA forneci
 
 - Saiba mais sobre [os requisitos do dispositivo de replicação](migrate-replication-appliance.md#appliance-requirements) para VMware.
 - O MySQL deve estar instalado no dispositivo. Saiba mais sobre [as opções de instalação](migrate-replication-appliance.md#mysql-installation).
-- Saiba mais sobre [URLs](migrate-replication-appliance.md#url-access) e [portas]() que o dispositivo de replicação precisa acessar.
+- Saiba mais sobre [URLs](migrate-replication-appliance.md#url-access) e [portas](migrate-replication-appliance.md#port-access) que o dispositivo de replicação precisa acessar.
 
 ## <a name="agent-based-ports"></a>Portas baseadas em agente
 

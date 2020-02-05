@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 02/04/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eef096322c8a8cfbf1618447529d46f6fbfd13b1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b8c77b3454026aa309d979bd938674e7c3ae7b6a
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021863"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025989"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implantar o Azure AD Privileged Identity Management (PIM)
 
@@ -58,11 +58,11 @@ Para obter mais informações, consulte [requisitos de licença para usar Privil
 
 ### <a name="key-terminology"></a>Terminologia principal
 
-| Termo ou conceito | DESCRIÇÃO |
+| Termo ou conceito | Description |
 | --- | --- |
 | qualificado | Uma atribuição de função que requer que um usuário execute uma ou mais ações para usá-la. Se um usuário se qualificou para uma função, isso significa que ele poderá ativá-la quando precisar executar tarefas privilegiadas. Não há nenhuma diferença no modo de acesso concedido a uma pessoa com uma atribuição de função permanente em comparação com uma qualificada. A única diferença é que algumas pessoas não precisam desse acesso o tempo todo. |
 | ativar | O processo de execução de uma ou mais ações a fim de usar uma função para a qual um usuário está qualificado. As ações podem incluir a execução de uma verificação de MDA (Autenticação Multifator), fornecimento de uma justificativa comercial ou solicitação de aprovação dos aprovadores designados. |
-| acesso JIT (just-in-time) | Um modelo no qual os usuários recebem permissões temporárias para executar tarefas privilegiadas, o que impede que usuários mal-intencionados ou não autorizados obtenham acesso após a expiração das permissões. O acesso é concedido somente quando os usuários precisam dele. |
+| Acesso JIT (Just-In-Time) | Um modelo no qual os usuários recebem permissões temporárias para executar tarefas privilegiadas, o que impede que usuários mal-intencionados ou não autorizados obtenham acesso após a expiração das permissões. O acesso é concedido somente quando os usuários precisam dele. |
 | princípio de acesso de privilégios mínimos | Uma prática de segurança recomendada na qual todos os usuários recebem apenas os privilégios mínimos necessários para realizar as tarefas que estão autorizados a executar. Essa prática minimiza o número de Administradores Globais usando funções de administrador específicas para determinados cenários. |
 
 Para saber mais, confira a [Terminologia](pim-configure.md#terminology).
@@ -99,7 +99,7 @@ A seção a seguir ajuda você a identificar todos os participantes envolvidos n
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>Participantes: Privileged Identity Management para funções do Azure AD
 
-| NOME | Função | Ação |
+| Nome | Função | Ação |
 | --- | --- | --- |
 | Nome e email | **Arquiteto de identidade ou de Administrador Global do Azure**<br/>Um representante da equipe de gerenciamento de identidade encarregado de definir como essa alteração está alinhada com a infraestrutura de gerenciamento de identidade principal em sua organização. | SO/R/I |
 | Nome e email | **Proprietário do serviço / gerente de linha**<br/>Um representante dos proprietários de TI de um serviço ou um grupo de serviços. Eles são fundamentais para tomar decisões e ajudar a distribuir Privileged Identity Management para sua equipe. | SO/R/I |
@@ -109,7 +109,7 @@ A seção a seguir ajuda você a identificar todos os participantes envolvidos n
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-resource-roles"></a>Participantes: Privileged Identity Management para funções de recurso do Azure
 
-| NOME | Função | Ação |
+| Nome | Função | Ação |
 | --- | --- | --- |
 | Nome e email | **Proprietário da assinatura / recurso**<br/>Um representante dos proprietários de ti de cada assinatura ou recurso que você deseja implantar Privileged Identity Management | SO/R/I |
 | Nome e email | **Proprietário de segurança**<br/>Um representante da equipe de segurança que pode confirmar que o plano atende aos requisitos de segurança da organização. | SO/R |
@@ -120,7 +120,7 @@ A seção a seguir ajuda você a identificar todos os participantes envolvidos n
 
 Como parte do processo de planejamento, primeiro você deve consentir e habilitar Privileged Identity Management seguindo nosso artigo [começar a usar Privileged Identity Management](pim-getting-started.md) . A habilitação de Privileged Identity Management fornece acesso a alguns recursos projetados especificamente para ajudar na implantação.
 
-Se seu objetivo for implantar Privileged Identity Management para recursos do Azure, siga nosso artigo [descobrir recursos do Azure para gerenciar no Privileged Identity Management](pim-resource-roles-discover-resources.md) . Somente os proprietários de cada recurso, grupo de recursos e assinatura poderão descobri-los dentro do Privileged Identity Management. Se você for um administrador global tentando implantar Privileged Identity Management para seus recursos do Azure, você pode [elevar o acesso para gerenciar todas as assinaturas do Azure](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) para conceder acesso a todos os recursos do Azure no diretório para descoberta. No entanto, aconselhamos que você obtenha aprovação de cada um dos seus proprietários de assinatura antes de gerenciar seus recursos com o Privileged Identity Management.
+Se seu objetivo for implantar Privileged Identity Management para recursos do Azure, siga nosso artigo [descobrir recursos do Azure para gerenciar no Privileged Identity Management](pim-resource-roles-discover-resources.md) . Somente os proprietários de assinaturas e grupos de gerenciamento podem descobrir e integrar esses recursos no Privileged Identity Management. Depois de ser integrado, a funcionalidade PIM está disponível para proprietários em todos os níveis, incluindo grupo de gerenciamento, assinatura, grupo de recursos e recurso. Se você for um administrador global tentando implantar Privileged Identity Management para seus recursos do Azure, você pode [elevar o acesso para gerenciar todas as assinaturas do Azure](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) para conceder acesso a todos os recursos do Azure no diretório para descoberta. No entanto, aconselhamos que você obtenha aprovação de cada um dos seus proprietários de assinatura antes de gerenciar seus recursos com o Privileged Identity Management.
 
 ### <a name="enforce-principle-of-least-privilege"></a>Aplicar o princípio de privilégios mínimos
 
@@ -198,7 +198,7 @@ Se houver funções com usuários convidados atribuídos, eles estarão particul
 > [!TIP]
 > : heavy_check_mark: a **Microsoft recomenda** que você gerencie todas as funções com usuários convidados usando Privileged Identity Management para reduzir o risco associado a contas de usuário convidado comprometidas.
 
-As funções de leitor, como o Leitor de diretório, o Leitor do centro de mensagens e o Leitor de segurança, são, às vezes, consideradas menos importantes em comparação com outras funções, pois não têm permissão de gravação. No entanto, observamos que alguns clientes também protegem essas funções porque os invasores que obtiveram acesso a essas contas podem ler dados confidenciais, como informações de identificação pessoal (PII). Você deve levar isso em consideração ao decidir se as funções de leitor em sua organização precisam ser gerenciadas usando Privileged Identity Management.
+As funções de leitor, como o Leitor de diretório, o Leitor do centro de mensagens e o Leitor de segurança, são, às vezes, consideradas menos importantes em comparação com outras funções, pois não têm permissão de gravação. No entanto, vimos que alguns clientes também protegem essas funções porque os invasores que obtiveram acesso a essas contas podem ser capazes de ler dados confidenciais, como dados pessoais. Você deve levar isso em consideração ao decidir se as funções de leitor em sua organização precisam ser gerenciadas usando Privileged Identity Management.
 
 #### <a name="azure-resource-roles"></a>Funções de recurso do Azure
 
@@ -242,21 +242,21 @@ Antes de implementar sua solução de Privileged Identity Management, é uma pr�
 
 | Função | Exigir MFA | Notificação | Tíquete de incidente | Exigir aprovação | Aprovador | Duração da ativação | Administrador permanente |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Administrador global | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Outros administradores globais | 1 hora | Contas de acesso de emergência |
-| Administrador do Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | nenhum | 2 horas | nenhum |
-| Administrador de assistência técnica | :x: | :x: | :heavy_check_mark: | :x: | nenhum | 8 horas | nenhum |
+| Administrador global | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Outros administradores globais | 1 Hora | Contas de acesso de emergência |
+| Administrador do Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | Nenhum | 2 horas | Nenhum |
+| Administrador de assistência técnica | :x: | :x: | :heavy_check_mark: | :x: | Nenhum | 8 horas | Nenhum |
 
 #### <a name="privileged-identity-management-settings-for-azure-resource-roles"></a>Configurações de Privileged Identity Management para funções de recurso do Azure
 
 | Função | Exigir MFA | Notificação | Exigir aprovação | Aprovador | Duração da ativação | Administradores ativos | Expiração ativa | Expiração qualificada |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Proprietário de assinaturas críticas | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Outros proprietários da assinatura | 1 hora | nenhum | n/d | 3 meses |
-| Administrador de Acesso do Usuário de assinaturas menos críticas | :heavy_check_mark: | :heavy_check_mark: | :x: | nenhum | 1 hora | nenhum | n/d | 3 meses |
-| Colaborador de Máquina Virtual | :x: | :heavy_check_mark: | :x: | nenhum | 3 horas | nenhum | n/d | 6 meses |
+| Proprietário de assinaturas críticas | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Outros proprietários da assinatura | 1 Hora | Nenhum | N/D | 3 meses |
+| Administrador de Acesso do Usuário de assinaturas menos críticas | :heavy_check_mark: | :heavy_check_mark: | :x: | Nenhum | 1 Hora | Nenhum | N/D | 3 meses |
+| Colaborador de Máquina Virtual | :x: | :heavy_check_mark: | :x: | Nenhum | 3 horas | Nenhum | N/D | 6 meses |
 
 A tabela a seguir descreve cada configuração.
 
-| Configuração | DESCRIÇÃO |
+| Configuração | Description |
 | --- | --- |
 | Função | Nome da função para a qual você está definindo as configurações. |
 | Exigir MFA | Se o usuário qualificado precisa executar a MFA antes de ativar a função.<br/><br/> : heavy_check_mark: a **Microsoft recomenda** que você aplique a MFA para todas as funções de administrador, especialmente se as funções tiverem usuários convidados. |
@@ -350,7 +350,7 @@ Se Privileged Identity Management não funcionar conforme desejado no ambiente d
 
 #### <a name="azure-ad-roles"></a>Funções do Azure AD
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 1. Abra o **Azure AD Privileged Identity Management**.
 1. Clique em **Funções do Azure AD** e, em seguida, clique em **Funções**.
 1. Para cada função configurada, clique nas reticências ( **...** ) para todos os usuários com uma atribuição qualificada.
@@ -358,7 +358,7 @@ Se Privileged Identity Management não funcionar conforme desejado no ambiente d
 
 #### <a name="azure-resource-roles"></a>Funções de recurso do Azure
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 1. Abra o **Azure AD Privileged Identity Management**.
 1. Clique em **Recursos do Azure** e, em seguida, clique em uma assinatura ou recurso que deseja reverter.
 1. Clique em **Funções**.
@@ -373,7 +373,7 @@ A implantação bem-sucedida de Privileged Identity Management em produção é 
 
 Você deve utilizar a funcionalidade interna de alerta do Privileged Identity Management para proteger melhor seu locatário. Para saber mais, confira [Alertas de segurança](pim-how-to-configure-security-alerts.md#security-alerts). Esses alertas incluem: os administradores não estão usando funções privilegiadas, as funções estão sendo atribuídas fora do Privileged Identity Management, as funções estão sendo ativadas com muita frequência e muito mais. Para proteger totalmente sua organização, confira regularmente sua lista de alertas e corrija os problemas. Você pode exibir e corrigir os alertas da seguinte maneira:
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 1. Abra o **Azure AD Privileged Identity Management**.
 1. Clique em **Funções do Azure AD** e, em seguida, clique em **Alertas**.
 

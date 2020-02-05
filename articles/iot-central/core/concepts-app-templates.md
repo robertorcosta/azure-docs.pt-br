@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 12c624c6798ca48cad9312cafaf3425091a82a71
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: fde46ddfe85ca2cd1aa4ba65c8bd93d4db328410
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867452"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019036"
 ---
 # <a name="what-are-application-templates"></a>O que são modelos de aplicativo?
 
@@ -26,33 +26,16 @@ Os modelos de aplicativo consistem em:
 - regras e trabalhos pré-configurados e
 - Documentação avançada, incluindo tutoriais e instruções
 
-## <a name="preview-templates"></a>Modelos de visualização
+Você escolhe o modelo de aplicativo ao criar seu aplicativo. Você não pode alterar o modelo depois que o aplicativo é criado.
 
-Sua escolha de modelo de aplicativo determina se seu aplicativo usa IoT Central recursos de visualização, como Plug and Play para dispositivos.
+## <a name="custom-templates"></a>Modelos personalizados
 
-Atualmente, o modelo de aplicativo que usa recursos _geralmente disponíveis_ é:
+Se você quiser criar seu aplicativo do zero, escolha um dos dois modelos de aplicativo personalizados:
 
-- Aplicativo personalizado > aplicação herdada
+- Aplicativo personalizado
+- Aplicativo personalizado (Herdado)
 
-
-Atualmente, os modelos de aplicativo que usam recursos de _Visualização pública_ são:
-
-- Aplicativo de visualização de > de aplicativo personalizado
-- Logística de varejo > conectada
-- Centro de distribuição digital de > de varejo
-- Retail > Analytics na loja – monitoramento de condição
-- Retail > Analytics na loja – check-out
-- Centro de microatendimento de > de varejo
-- Gerenciamento de inventário inteligente do > de varejo
-- Monitoramento de medidor inteligente de energia >
-- Monitoramento do painel solar de energia >
-- Gerenciamento de lixo conectado > governamental
-- Monitoramento de consumo de água do governo >
-- Monitoramento de qualidade de água do governo > aquático
-- Assistência médica > monitoramento contínuo de pacientes
-
-> [!NOTE]
-> Os modelos de **aplicativo herdados** estão disponíveis no momento no **Estados Unidos**, na **Austrália**, **Pacífico Asiático**ou nos locais da **Europa** , enquanto outros modelos estão disponíveis no momento apenas nas localizações da **Europa** e **dos EUA** .
+Escolha o modelo de **aplicativo personalizado** , a menos que você tenha um motivo específico para usar o modelo herdado.
 
 ## <a name="industry-focused-templates"></a>Modelos focados no setor
 
@@ -61,9 +44,9 @@ O Azure IoT Central é uma plataforma de aplicativo independente do setor. Os mo
 - [Varejo](../retail/overview-iot-central-retail-pnp.md)
   - Logística conectada
   - Centro de distribuição digital
-  - Análise na loja – monitoramento de condição
-  - Análise na loja-check-out
-  - Gerenciamento de inventário inteligente
+  - Análise na loja – Monitoramento de condição
+  - Análise na loja – finalizar compra
+  - Gerenciamento de Estoque Inteligente
 - [Energia](../energy/overview-iot-central-energy.md)
   - Monitoramento do medidor inteligente
   - Monitoramento de painel solar

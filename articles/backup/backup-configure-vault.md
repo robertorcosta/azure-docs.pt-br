@@ -3,12 +3,12 @@ title: Fazer backup de computadores Windows com o agente MARS
 description: Use o agente MARS (serviços de recuperação da Microsoft) de backup do Azure para fazer backup de computadores Windows.
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.openlocfilehash: c6e5ea1ed1ec9dd922793dfc6834238c431ddc38
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 990929cc95d1c25117873ca39415d33370456b91
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "76290862"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025530"
 ---
 # <a name="back-up-windows-machines-with-the-azure-backup-mars-agent"></a>Fazer backup de computadores Windows com o agente do MARS de Backup do Azure
 
@@ -215,10 +215,10 @@ Crie uma política da seguinte maneira:
         -   Os backups feitos no sábado na última semana do mês à meia-noite e 6:00 PM são mantidos por 12 meses.
         -   Os backups feitos em um sábado na última semana de março são mantidos por 10 anos.
 
-    ![Exemplo de retenção](./media/backup-configure-vault/retention-example.png)
+        ![Exemplo de retenção](./media/backup-configure-vault/retention-example.png)
 
 
-11. Em **escolher tipo de backup inicial** , decida se deseja fazer o backup inicial pela rede ou usar o backup offline (para obter mais informações sobre o backup offline, consulte este [artigo](backup-azure-backup-import-export.md)). Para fazer o backup inicial pela rede, selecione **automaticamente pela rede** e clique em **Avançar**.
+11. Em **escolher tipo de backup inicial** , decida se deseja fazer o backup inicial pela rede ou usar o backup offline (para obter mais informações sobre o backup offline, consulte este [artigo](offline-backup-azure-data-box.md)). Para fazer o backup inicial pela rede, selecione **automaticamente pela rede** e clique em **Avançar**.
 
     ![Tipo de backup inicial](./media/backup-azure-manage-mars/choose-initial-backup-type.png)
 
@@ -245,7 +245,7 @@ Você pode executar um backup inicial automaticamente pela rede ou offline. A pr
 5. No datacenter, os dados do disco são copiados para uma conta de armazenamento do Azure.
 6. O backup do Azure copia os dados da conta de armazenamento para o cofre e os backups incrementais são agendados.
 
-[Saiba mais](backup-azure-backup-import-export.md) sobre a propagação offline.
+[Saiba mais](offline-backup-azure-data-box.md) sobre a propagação offline.
 
 ### <a name="enable-network-throttling"></a>Habilitar a limitação de rede
 
