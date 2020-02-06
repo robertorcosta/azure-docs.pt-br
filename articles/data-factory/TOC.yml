@@ -164,8 +164,6 @@
               href: concepts-data-flow-overview.md
             - name: Modo de depuração
               href: concepts-data-flow-debug-mode.md
-            - name: Manuseio de JSON
-              href: concepts-data-flow-json.md
             - name: Descompasso de esquema
               href: concepts-data-flow-schema-drift.md
             - name: Padrões de coluna

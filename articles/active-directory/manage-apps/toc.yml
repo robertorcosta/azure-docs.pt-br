@@ -179,9 +179,9 @@
           items:
             - name: Solucionar problemas de adição de aplicativos
               items:
-                - name: Problemas comuns - aplicativos da galeria
+                - name: Problemas comuns – Aplicativos da galeria
                   href: adding-gallery-app-common-problems.md
-                - name: Problemas comuns - aplicativos inexistentes na galeria
+                - name: Problemas comuns – Aplicativos inexistentes na galeria
                   href: adding-non-gallery-app-common-problems.md
             - name: Solucionar problemas de entrada de usuário
               items:
@@ -195,27 +195,27 @@
                   href: application-sign-in-other-problem-access-panel.md
                 - name: Erro na página de entrada do aplicativo
                   href: application-sign-in-problem-application-error.md
-                - name: Problema de logon único com senha - aplicativo inexistente na galeria
+                - name: Problema de logon único com senha – Aplicativo inexistente na galeria
                   href: application-sign-in-problem-password-sso-non-gallery.md
-                - name: Problema de logon único com senha - aplicativo da galeria
+                - name: Problema de logon único com senha – Aplicativo da galeria
                   href: application-sign-in-problem-password-sso-gallery.md
                 - name: Problema ao entrar em um aplicativo da Microsoft
                   href: application-sign-in-problem-first-party-microsoft.md
-                - name: Problema com logon único federado - aplicativo inexistente na galeria
+                - name: Problema com logon único federado – Aplicativo inexistente na galeria
                   href: application-sign-in-problem-federated-sso-non-gallery.md
-                - name: Problema com logon único federado - aplicativo da galeria
+                - name: Problema com logon único federado – Aplicativo da galeria
                   href: application-sign-in-problem-federated-sso-gallery.md
                 - name: Problema com aplicativo desenvolvido de forma personalizada
                   href: application-sign-in-problem-custom-dev.md
             - name: Solucionar problemas de logon único
               items:
-                - name: Problemas comuns ao configurar federados - aplicativos da galeria
+                - name: Problemas comuns ao configurar federados – Aplicativos da galeria
                   href: configure-federated-single-sign-on-gallery-applications-problems.md
-                - name: Problemas comuns ao configurar federados - aplicativos inexistentes na galeria
+                - name: Problemas comuns ao configurar federados – Aplicativos inexistentes na galeria
                   href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-                - name: Problemas comuns ao configurar senha - aplicativos da galeria
+                - name: Problemas comuns ao configurar senha – Aplicativos da galeria
                   href: configure-password-single-sign-on-gallery-applications-problems.md
-                - name: Problemas comuns ao configurar senha - aplicativos inexistentes na galeria
+                - name: Problemas comuns ao configurar senha – Aplicativos inexistentes na galeria
                   href: configure-password-single-sign-on-non-gallery-applications-problems.md
             - name: Solucionar problemas de atribuição e de lista de aplicativos
               items:
@@ -275,7 +275,7 @@
               href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
             - name: Sincronizar um atributo para mapeamento – aplicativo de galeria
               href: user-provisioning-sync-attributes-for-mapping.md
-            - name: Demorando horas - aplicativo da galeria
+            - name: Demorando horas – Aplicativo da galeria
               href: application-provisioning-when-will-provisioning-finish.md
             - name: Problema de autorização (não é possível salvar as credenciais de administrador)
               href: application-provisioning-config-problem-storage-limit.md
@@ -331,6 +331,8 @@
                   href: application-proxy-configure-single-sign-on-on-premises-apps.md
             - name: Orientações de publicação
               items:
+                - name: Integrar com o proxy de aplicativo em um servidor NDES
+                  href: active-directory-app-proxy-protect-ndes.md
                 - name: Integrar ao Azure AD Domain Services
                   href: /azure/active-directory-domain-services/deploy-azure-app-proxy?context=azure/active-directory/manage-apps/context/manage-apps-context
                 - name: Integrar ao Power BI

@@ -4,7 +4,7 @@
   items:
     - name: O que é o Link Privado do Azure?
       href: private-link-overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   items:
     - name: Criar um ponto de extremidade privado
       items:
@@ -16,6 +16,8 @@
           href: create-private-endpoint-powershell.md
     - name: Criar um serviço de Link Privado
       items:
+        - name: Portal do Azure
+          href: create-private-link-service-portal.md
         - name: Azure PowerShell
           href: create-private-link-service-powershell.md
         - name: CLI do Azure
@@ -38,6 +40,12 @@
       href: disable-private-link-service-network-policy.md
     - name: Gerenciar pontos de extremidade privados
       href: manage-private-endpoint.md
+    - name: Solucionar problemas
+      items:
+        - name: Solucionar problemas de conectividade de ponto de extremidade privado
+          href: troubleshoot-private-endpoint-connectivity.md
+        - name: Solucionar problemas de conectividade do serviço Link Privado
+          href: troubleshoot-private-link-connectivity.md
 - name: Referência
   items:
     - name: CLI do Azure

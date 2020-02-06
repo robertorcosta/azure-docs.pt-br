@@ -4,12 +4,12 @@ description: Neste artigo, saiba como fazer backup de bancos de dados SQL Server
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 8125f6d98151f91faaccef512e4bcfd2946fcdd0
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 10f55bb4c5c488975f075aa0382296f808a9a5b1
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773124"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029564"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer backup de bancos de dados do SQL Server nas VMs do Azure
 
@@ -29,7 +29,7 @@ Neste artigo, você aprenderá a:
 >A **exclusão reversível para o SQL Server na VM do Azure e a exclusão reversível para SAP Hana em cargas de trabalho de VM do Azure** agora está disponível na versão prévia.<br>
 >Para se inscrever na versão prévia, escreva para nós em AskAzureBackupTeam@microsoft.com
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Antes de fazer backup de um banco de dados SQL Server, verifique os seguintes critérios:
 
@@ -109,6 +109,9 @@ Evite usar os seguintes elementos em nomes de banco de dados:
 * Barra '/'
 
 A alias está disponível para caracteres sem suporte, mas é recomendável evitá-los. Para obter informações, consulte [Noções básicas sobre o modelo de dados do serviço Tabela](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
+
+>[!NOTE]
+>Não há suporte para a operação **Configurar proteção** para bancos de dados com caracteres especiais como "+" ou "&" em seu nome. Você pode alterar o nome do banco de dados ou habilitar a **proteção automática**, o que pode proteger com êxito esses bancos.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -279,7 +282,7 @@ Se você precisar desabilitar a proteção automática, selecione o nome da inst
 
 ![Desabilitar a proteção automática nessa instância](./media/backup-azure-sql-database/disable-auto-protection.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba como:
 

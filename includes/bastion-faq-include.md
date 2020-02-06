@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 12/17/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c085ce4aba6760b09dcc3eaf2f6232c5cc904706
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 922e8a71a22db975685cb82bbd51a125c619ccf2
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75468947"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989478"
 ---
 ### <a name="regions"></a>Quais regiões estão disponíveis?
 
@@ -21,11 +21,11 @@ ms.locfileid: "75468947"
 
 ### <a name="publicip"></a>É necessário ter um IP público em minha máquina virtual?
 
-Você NÃO precisa de um IP público na máquina virtual do Azure a que está se conectando com o serviço do Azure Bastion. O serviço do Bastion abrirá o RDP/SSH/sessão/conexão para sua máquina virtual usando o IP privado da máquina virtual, dentro de sua rede virtual.
+Ao conectar-se a uma VM usando o Azure Bastion, NÃO é preciso um IP público na Máquina Virtual do Azure a que você está se conectando. O serviço do Bastion abrirá o RDP/SSH/sessão/conexão para sua máquina virtual usando o IP privado da máquina virtual, dentro de sua rede virtual.
 
-### <a name="is-ipv6-supported"></a>Há suporte para o IPv6?
+### <a name="is-ipv6-supported"></a>Há compatibilidade com o IPv6?
 
-No momento, não há suporte para o IPv6. O Azure Bastion só dá suporte ao IPv4.
+No momento, não há compatibilidade com o IPv6. O Azure Bastion só é compatível com o IPv4.
 
 ### <a name="rdpssh"></a>Eu preciso de um cliente de RDP ou SSH?
 
@@ -55,14 +55,14 @@ Para saber mais, confira a [página de preço](https://aka.ms/BastionHostPricing
 
 Uma sessão deve ser iniciada somente por meio do portal do Azure. Entre no portal do Azure e inicie sua sessão novamente. Se você acessar a URL diretamente em outra guia ou sessão do navegador, esse erro será esperado. Ele ajuda a garantir que sua sessão seja mais segura e que ela possa ser acessada somente por meio do portal do Azure.
 
-### <a name="keyboard"></a>Quais layouts de teclado têm suporte durante a sessão remota do Bastion?
+### <a name="keyboard"></a>Quais layouts de teclado são compatíveis durante a sessão remota do Bastion?
 
-Atualmente, o Azure Bastion dá suporte ao layout de teclado QWERTY em inglês dentro da VM.  Estamos trabalhando para dar suporte a layouts de teclado de outras localidades.
+Atualmente, o Azure Bastion é compatível com o layout de teclado QWERTY em inglês dentro da VM.  Estamos trabalhando para dar suporte a layouts de teclado de outras localidades.
 
-### <a name="udr"></a>As sub-redes do Azure Bastion tem suporte para UDR (roteamento definido pelo usuário)?
+### <a name="udr"></a>As sub-redes do Azure Bastion são compatíveis com UDR (roteamento definido pelo usuário)?
 
-Não. As sub-redes do Azure Bastion não tem suporte para UDR.
-Para cenários que incluem o Azure Bastion e o Firewall do Azure ou a NVA (solução de virtualização de rede) na mesma rede virtual, você não precisa forçar o tráfego de uma sub-rede do Azure Bastion para o Firewall do Azure, pois a comunicação entre o Azure Bastion e suas VMs é privada. Para obter mais detalhes, consulte [Acessar VMs por trás do Firewall do Azure com o Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
+Não. As sub-redes do Azure Bastion não são compatíveis com UDR.
+Para cenários que incluem o Azure Bastion e o Firewall do Azure ou a NVA (solução de virtualização de rede) na mesma rede virtual, você não precisa forçar o tráfego de uma sub-rede do Azure Bastion para o Firewall do Azure, pois a comunicação entre o Azure Bastion e suas VMs é privada. Para saber mais, confira [Acessar VMs por trás do Firewall do Azure com o Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
 
 ### <a name="filetransfer"></a>A sessão RDP do Azure Bastion é compatível com transferência de arquivos?
 

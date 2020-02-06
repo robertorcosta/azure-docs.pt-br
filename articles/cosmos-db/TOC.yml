@@ -51,13 +51,13 @@
               href: sql-api-nodejs-application.md
             - name: Xamarin
               href: mobile-apps-with-xamarin.md
-    - name: 2 - Migrar dados
+    - name: 2 – Migrar dados
       items:
         - name: Usar a ferramenta de Migração de dados
           href: import-data.md
         - name: Usar o suporte em massa do .NET
           href: tutorial-sql-api-dotnet-bulk-import.md
-    - name: 3 - Consultar dados
+    - name: 3 – Consultar dados
       href: tutorial-query-sql-api.md
     - name: 4 – Criar um notebook
       href: create-notebook-visualize-data.md
@@ -110,7 +110,7 @@
         - name: Tipos e políticas de resolução de conflitos
           displayName: 'last write wins, custom'
           href: conflict-resolution-policies.md
-        - name: Distribuição global - nos bastidores
+        - name: Distribuição global – nos bastidores
           href: global-dist-under-the-hood.md
         - name: Presença regional
           href: regional-presence.md
@@ -463,7 +463,7 @@
           href: unique-keys.md
         - name: Controle de transações e simultaneidade otimista
           href: database-transactions-optimistic-concurrency.md
-    - name: Feed de alteração
+    - name: Feed de alterações
       items:
         - name: Visão geral
           href: change-feed.md
@@ -526,7 +526,7 @@
           href: secure-access-to-data.md
         - name: Firewall de IP
           href: firewall-support.md
-        - name: Acessar a partir das redes virtuais
+        - name: Acessar por meio das redes virtuais
           href: vnet-service-endpoint.md
         - name: Controle de acesso baseado em função
           displayName: rbac
@@ -566,16 +566,16 @@
           items:
             - name: 1 – Criar e gerenciar dados
               href: create-cassandra-api-account-java.md
-            - name: 2 - Carregar Dados
+            - name: 2 – Carregar Dados
               href: cassandra-api-load-data.md
-            - name: 3 - Consultar dados
+            - name: 3 – Consultar dados
               href: cassandra-api-query-data.md
-            - name: 4 - Migrar dados
+            - name: 4 – Migrar dados
               displayName: import
               href: cassandra-import-data.md
         - name: Guias de instruções
           items:
-            - name: Feed de alteração
+            - name: Feed de alterações
               href: cassandra-change-feed.md
             - name: Armazenar e gerenciar dados do Spring
               href: /java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db
@@ -638,27 +638,27 @@
                   href: mongodb-samples.md
                 - name: Aplicativo Node. js e Angular
                   items:
-                    - name: Parte 1 - Introdução
+                    - name: Parte 1 – Introdução
                       href: tutorial-develop-mongodb-nodejs.md
-                    - name: Parte 2 - criar o aplicativo de nó
+                    - name: Parte 2 – criar o aplicativo de nó
                       href: tutorial-develop-mongodb-nodejs-part2.md
-                    - name: Parte 3 - Adicionar interface do usuário com Angular
+                    - name: Parte 3 – Adicionar interface do usuário com Angular
                       href: tutorial-develop-mongodb-nodejs-part3.md
-                    - name: Parte 4 - Criar uma conta
+                    - name: Parte 4 – Criar uma conta
                       href: tutorial-develop-mongodb-nodejs-part4.md
-                    - name: Parte 5 - conectar Cosmos DB
+                    - name: Parte 5 – Conectar-se ao Cosmos DB
                       href: tutorial-develop-mongodb-nodejs-part5.md
-                    - name: Parte 6 - Executar operações CRUD
+                    - name: Parte 6 – Executar operações CRUD
                       href: tutorial-develop-mongodb-nodejs-part6.md
                 - name: Aplicativo Node.js e React
                   href: tutorial-develop-mongodb-react.md
-            - name: 2 - Migrar dados
+            - name: 2 – Migrar dados
               displayName: import
               href: /azure/dms/tutorial-mongodb-cosmos-db
               maintainContext: true
-            - name: 3 - Consultar dados
+            - name: 3 – Consultar dados
               href: tutorial-query-mongodb.md
-            - name: 4- Distribuir dados globalmente
+            - name: 4 – Distribuir dados globalmente
               href: tutorial-global-distribution-mongodb.md
         - name: Guias de instruções
           items:
@@ -679,7 +679,7 @@
             - name: Distribuir leituras globalmente
               displayName: read preference
               href: mongodb-readpreference.md
-            - name: Vida útil - MongoDB
+            - name: Vida útil – MongoDB
               href: mongodb-time-to-live.md
             - name: Alterar os fluxos
               href: mongodb-change-streams.md
@@ -722,7 +722,7 @@
               href: create-graph-php.md
         - name: Tutoriais
           items:
-            - name: 1 - Consultar dados
+            - name: 1 – Consultar dados
               href: tutorial-query-graph.md
         - name: Referência
           items:
@@ -777,12 +777,12 @@
           items:
             - name: 1 – Criar e gerenciar dados
               href: tutorial-develop-table-dotnet.md
-            - name: 2 - Migrar dados
+            - name: 2 – Migrar dados
               displayName: import
               href: table-import.md
-            - name: 3 - Consultar dados
+            - name: 3 – Consultar dados
               href: tutorial-query-table.md
-            - name: 4- Distribuir dados globalmente
+            - name: 4 – Distribuir dados globalmente
               href: tutorial-global-distribution-table.md
         - name: Exemplos
           items:
@@ -914,7 +914,7 @@
               href: performance-tips-java.md
             - name: Dicas de desempenho para SDK do Async Java
               href: performance-tips-async-java.md
-            - name: Teste de desempenho - aplicativo de exemplo
+            - name: Teste de desempenho – Aplicativo de exemplo
               href: performance-testing.md
         - name: Gravações e leituras econômicas
           href: key-value-store-cost.md
@@ -967,7 +967,7 @@
       items:
         - name: Configurar firewall do IP
           href: how-to-configure-firewall.md
-        - name: Configurar acesso a partir das redes virtuais
+        - name: Configurar acesso por meio das redes virtuais
           href: how-to-configure-vnet-service-endpoint.md
         - name: Configurar o acesso de pontos de extremidade privados
           href: how-to-configure-private-endpoints.md
@@ -986,7 +986,7 @@
           href: how-to-setup-cmk.md
     - name: Preparação corporativa
       items:
-        - name: Restaurar dados a partir de backup
+        - name: Restaurar dados do backup
           href: how-to-backup-and-restore.md
     - name: Monitoramento
       items:
@@ -1048,6 +1048,9 @@
         - name: Usar iniciador do Spring Boot
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
           maintainContext: true
+        - name: Guia do desenvolvedor do Spring Data
+          href: /java/azure/spring-framework/how-to-guides-spring-data-cosmosdb
+          maintainContext: true
         - name: Driver ODBC
           href: odbc-driver.md
     - name: Migrar dados para o Cosmos DB
@@ -1070,9 +1073,9 @@
       items:
         - name: Sobre a biblioteca do executor em passa
           href: bulk-executor-overview.md
-        - name: Executor em massa - Biblioteca do .NET
+        - name: Executor em massa – Biblioteca do .NET
           href: bulk-executor-dot-net.md
-        - name: Executor em massa - Biblioteca Java
+        - name: Executor em massa – Biblioteca Java
           href: bulk-executor-java.md
 - name: Referência
   items:
