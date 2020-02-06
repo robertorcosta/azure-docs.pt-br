@@ -1,5 +1,5 @@
 ---
-title: 'Agente de provisionamento do Azure AD Connect: Histórico de lançamento de versão | Microsoft Docs'
+title: 'Agente de provisionamento do Azure AD Connect: histórico de lançamento de versão | Microsoft Docs'
 description: Este artigo lista todas as versões do agente de provisionamento do Azure AD Connect e descreve os novos recursos e problemas corrigidos
 services: active-directory
 documentationcenter: ''
@@ -12,27 +12,38 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/05/2019
+ms.date: 02/04/2020
 ms.subservice: app-mgmt
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ce9549765f6a912b3e95f99d11da20347b82ad8
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: cac9eac2d17fa0a4f1db487d4c7f8beb67de24a9
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326458"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030645"
 ---
-# <a name="azure-ad-connect-provisioning-agent-version-release-history"></a>Agente de provisionamento do Azure AD Connect: Histórico de lançamento de versões
+# <a name="azure-ad-connect-provisioning-agent-version-release-history"></a>Agente de provisionamento do Azure AD Connect: histórico de lançamento de versão
 Este artigo lista as versões e os recursos do agente de provisionamento do Azure Active Directory Connect que foram lançados. A equipe do Azure AD atualiza regularmente o agente de provisionamento com novos recursos e funcionalidades. O agente de provisionamento é atualizado automaticamente quando uma nova versão é liberada. 
 
 Recomendamos habilitar a atualização automática para seus agentes para garantir que você tenha os recursos e correções de bugs mais recentes. A Microsoft fornece suporte direto para a versão mais recente do agente e uma versão anterior.
 
+## <a name="11960"></a>1.1.96.0
+
+### <a name="release-status"></a>Previsão de lançamento
+
+4 de dezembro de 2019: liberado para download
+
+### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
+
+* Inclui suporte para [provisionamento Azure ad Connect nuvem](../cloud-provisioning/what-is-cloud-provisioning.md) para sincronizar usuários, contatar e agrupar dados do Active Directory local para o Azure AD
+
+
 ## <a name="11670"></a>1.1.67.0
 
-### <a name="release-status"></a>Status de liberação
+### <a name="release-status"></a>Previsão de lançamento
 
-9 de setembro de 2019: Liberado para atualização automática
+9 de setembro de 2019: liberado para atualização automática
 
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 
@@ -47,9 +58,9 @@ Recomendamos habilitar a atualização automática para seus agentes para garant
 
 ## <a name="11300"></a>1.1.30.0
 
-### <a name="release-status"></a>Status de liberação
+### <a name="release-status"></a>Previsão de lançamento
 
-23 de janeiro de 2019: Liberado para download
+23 de janeiro de 2019: liberado para download
 
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/23/2016
-ms.openlocfilehash: 550ac9ff3b425e682fdda16501613aa41a80d765
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: dcc71739d859fb9cf4e03e5d3540d3cdbc69ac49
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847242"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031536"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrando e pré-processando a telemetria no SDK do Application Insights
 
@@ -23,7 +23,7 @@ Você pode gravar e configurar plug-ins para o SDK do Application Insights para 
 * [Inicializadores de telemetria adicionam ou modificam Propriedades](#add-properties) para qualquer telemetria enviada de seu aplicativo, incluindo a telemetria dos módulos padrão. Por exemplo, você pode adicionar valores calculados ou números de versão pelos qual os dados serão filtrados no portal.
 * [A API do SDK](../../azure-monitor/app/api-custom-events-metrics.md) é usada para enviar eventos personalizados e métricas.
 
-Antes de começar:
+Antes de iniciar:
 
 * Instale o SDK apropriado para seu aplicativo: [ASP.net](asp-net.md), [ASP.NET Core](asp-net-core.md), [não http/Worker para .net/.NET Core](worker-service.md), [Java](../../azure-monitor/app/java-get-started.md) ou [JavaScript](javascript.md)
 
@@ -117,9 +117,9 @@ Os TelemetryClients criados depois desse ponto usarão seus processadores.
 **Aplicativos de serviço ASP.NET Core/Worker**
 
 > [!NOTE]
-> A adição de processador usando o `ApplicationInsights.config` ou o uso de `TelemetryConfiguration.Active` não é válida para aplicativos ASP.NET Core ou se você estiver usando o SDK Microsoft. ApplicationInsights. WorkerService.
+> Adicionar o processador usando `ApplicationInsights.config` ou usando `TelemetryConfiguration.Active` não é válido para aplicativos ASP.NET Core ou se você estiver usando o SDK Microsoft. ApplicationInsights. WorkerService.
 
-Para aplicativos escritos usando [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) ou [WorkerService](worker-service.md#adding-telemetry-processors), adicionar um novo `TelemetryProcessor` é feito usando `AddApplicationInsightsTelemetryProcessor` método de extensão em `IServiceCollection`, conforme mostrado abaixo. Esse método é chamado no método `ConfigureServices` da sua classe `Startup.cs`.
+Para aplicativos escritos usando [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) ou [WorkerService](worker-service.md#adding-telemetry-processors), adicionar um novo `TelemetryProcessor` é feito usando `AddApplicationInsightsTelemetryProcessor` método de extensão em `IServiceCollection`, conforme mostrado abaixo. Esse método é chamado no método `ConfigureServices` da classe `Startup.cs`.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -227,7 +227,7 @@ Use inicializadores de telemetria para enriquecer a telemetria com informações
 
 Por exemplo, a Application Insights para o pacote da Web coleta a telemetria sobre solicitações HTTP. Por padrão, ele sinaliza como qualquer solicitação com um código de resposta de falha > = 400. Mas se desejar tratar 400 como êxito, você pode fornecer um inicializador de telemetria que define a propriedade Sucess.
 
-Se você fornecer um inicializador de telemetria, ele é chamado sempre que qualquer um dos métodos Track*() for chamado. Isso inclui os métodos `Track()` chamados pelos módulos de telemetria padrão. Por convenção, esses módulos não definem qualquer propriedade que já foi definida por um inicializador. Inicializadores de telemetria são chamados antes de chamar processadores de telemetria. Portanto, todos os aprimoramentos feitos por inicializadores são visíveis para os processadores.
+Se você fornecer um inicializador de telemetria, ele é chamado sempre que qualquer um dos métodos Track*() for chamado. Isso inclui `Track()` métodos chamados pelos módulos de telemetria padrão. Por convenção, esses módulos não definem qualquer propriedade que já foi definida por um inicializador. Inicializadores de telemetria são chamados antes de chamar processadores de telemetria. Portanto, todos os aprimoramentos feitos por inicializadores são visíveis para os processadores.
 
 **Definir seu inicializador**
 
@@ -299,7 +299,7 @@ protected void Application_Start()
 **Aplicativos de serviço ASP.NET Core/Worker: carregar seu inicializador**
 
 > [!NOTE]
-> A adição de inicializador usando `ApplicationInsights.config` ou o uso de `TelemetryConfiguration.Active` não é válida para aplicativos ASP.NET Core ou se você estiver usando o SDK Microsoft. ApplicationInsights. WorkerService.
+> Adicionar inicializador usando `ApplicationInsights.config` ou usando `TelemetryConfiguration.Active` não é válido para aplicativos ASP.NET Core ou se você estiver usando o SDK Microsoft. ApplicationInsights. WorkerService.
 
 Para aplicativos escritos usando [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) ou [WorkerService](worker-service.md#adding-telemetryinitializers), adicionar um novo `TelemetryInitializer` é feito adicionando-o ao contêiner de injeção de dependência, como mostrado abaixo. Isso é feito no método `Startup.ConfigureServices`.
 
@@ -378,6 +378,107 @@ Insira um inicializador de telemetria logo após o código de inicialização qu
 Para obter um resumo das propriedades não personalizadas disponíveis em telemetryItem, veja o [Modelo de dados de exportação do Application Insights](../../azure-monitor/app/export-data-model.md).
 
 Você pode adicionar quantos inicializadores desejar e eles são chamados na ordem em que são adicionados.
+
+### <a name="opencensus-python-telemetry-processors"></a>Processadores de telemetria do OpenCensus Python
+
+Os processadores de telemetria no Python OpenCensus são simplesmente funções de retorno de chamada chamadas para processar a telemetria antes de serem exportadas. A função de retorno de chamada deve aceitar um tipo de dados de [envelope](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py#L86) como seu parâmetro. Para filtrar a telemetria de ser exportada, verifique se a função de retorno de chamada retorna `False`. Você pode ver o esquema para Azure Monitor tipos de dados nos envelopes [aqui](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py).
+
+```python
+# Example for log exporter
+import logging
+
+from opencensus.ext.azure.log_exporter import AzureLogHandler
+
+logger = logging.getLogger(__name__)
+
+# Callback function to append '_hello' to each log message telemetry
+def callback_function(envelope):
+    envelope.data.baseData.message += '_hello'
+    return True
+
+handler = AzureLogHandler(connection_string='InstrumentationKey=<your-instrumentation_key-here>')
+handler.add_telemetry_processor(callback_function)
+logger.addHandler(handler)
+logger.warning('Hello, World!')
+```
+```python
+# Example for trace exporter
+import requests
+
+from opencensus.ext.azure.trace_exporter import AzureExporter
+from opencensus.trace import config_integration
+from opencensus.trace.samplers import ProbabilitySampler
+from opencensus.trace.tracer import Tracer
+
+config_integration.trace_integrations(['requests'])
+
+# Callback function to add os_type: linux to span properties
+def callback_function(envelope):
+    envelope.data.baseData.properties['os_type'] = 'linux'
+    return True
+
+exporter = AzureExporter(
+    connection_string='InstrumentationKey=<your-instrumentation-key-here>'
+)
+exporter.add_telemetry_processor(callback_function)
+tracer = Tracer(exporter=exporter, sampler=ProbabilitySampler(1.0))
+with tracer.span(name='parent'):
+response = requests.get(url='https://www.wikipedia.org/wiki/Rabbit')
+```
+
+```python
+# Example for metrics exporter
+import time
+
+from opencensus.ext.azure import metrics_exporter
+from opencensus.stats import aggregation as aggregation_module
+from opencensus.stats import measure as measure_module
+from opencensus.stats import stats as stats_module
+from opencensus.stats import view as view_module
+from opencensus.tags import tag_map as tag_map_module
+
+stats = stats_module.stats
+view_manager = stats.view_manager
+stats_recorder = stats.stats_recorder
+
+CARROTS_MEASURE = measure_module.MeasureInt("carrots",
+                                            "number of carrots",
+                                            "carrots")
+CARROTS_VIEW = view_module.View("carrots_view",
+                                "number of carrots",
+                                [],
+                                CARROTS_MEASURE,
+                                aggregation_module.CountAggregation())
+
+# Callback function to only export the metric if value is greater than 0
+def callback_function(envelope):
+    return envelope.data.baseData.metrics[0].value > 0
+
+def main():
+    # Enable metrics
+    # Set the interval in seconds in which you want to send metrics
+    exporter = metrics_exporter.new_metrics_exporter(connection_string='InstrumentationKey=<your-instrumentation-key-here>')
+    exporter.add_telemetry_processor(callback_function)
+    view_manager.register_exporter(exporter)
+
+    view_manager.register_view(CARROTS_VIEW)
+    mmap = stats_recorder.new_measurement_map()
+    tmap = tag_map_module.TagMap()
+
+    mmap.measure_int_put(CARROTS_MEASURE, 1000)
+    mmap.record(tmap)
+    # Default export interval is every 15.0s
+    # Your application should run for at least this amount
+    # of time so the exporter will meet this interval
+    # Sleep can fulfill this
+    time.sleep(60)
+
+    print("Done recording metrics")
+
+if __name__ == "__main__":
+    main()
+```
+Você pode adicionar quantos processadores desejar e eles serão chamados na ordem em que são adicionados. Se um processador deve lançar uma exceção, ele não afeta os processadores a seguir.
 
 ### <a name="example-telemetryinitializers"></a>Exemplo de TelemetryInitializers
 

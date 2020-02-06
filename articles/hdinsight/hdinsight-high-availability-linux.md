@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 68f4eb4fbad2a571e078cb9aedcfd56c80ffe054
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 8c3e377faef4e18bff01fd7001751d1f1e347b8d
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747865"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030856"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilidade e confiabilidade dos clusters Apache Hadoop em HDInsight
 
@@ -64,7 +64,7 @@ O acesso ao cluster pela internet é fornecido por meio de um gateway público. 
 
 O acesso ao gateway público é limitado às portas 443 (HTTPS), 22 e 23.
 
-|Port |Description |
+|Porta |Descrição |
 |---|---|
 |443|Usado para acessar o Ambari e outra interface do usuário da Web ou APIs REST hospedadas nos nós de cabeçalho.|
 |22|Usado para acessar o nó principal ou o nó de borda primário com SSH.|
@@ -97,7 +97,7 @@ Para saber mais sobre como trabalhar com a API REST do Ambari, consulte [Monitor
 
 Você pode se conectar a nós que não são diretamente acessíveis pela Internet usando os seguintes métodos:
 
-|Método |Description |
+|Método |Descrição |
 |---|---|
 |SSH|Assim que estiver conectado a um nó de cabeçalho usando o SSH, você poderá usar o SSH por meio do nó de cabeçalho para se conectar aos outros nós no cluster. Para saber mais, consulte o documento [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
 |Túnel SSH|Se precisar acessar um serviço Web hospedado em um dos nós que não está exposto à Internet, você deverá usar um túnel SSH. Para saber mais, consulte o documento [Usar túnel SSH com HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).|
@@ -119,7 +119,7 @@ Há uma série de ícones que podem aparecer ao lado de um serviço para indicar
 
 Os alertas a seguir ajudam a monitorar a disponibilidade de um cluster:
 
-| Nome do alerta                               | Description                                                                                                                                                                                  |
+| Nome do alerta                               | Descrição                                                                                                                                                                                  |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Status do monitor de métrica                    | Esse alerta indica o status do processo de monitor de métricas conforme determinado pelo script de status do monitor.                                                                                   |
 | Pulsação do agente Ambari                   | Esse alerta será disparado se o servidor tiver perdido o contato com um agente.                                                                                                                        |
@@ -270,13 +270,13 @@ Ao criar um cluster, você pode especificar o tamanho dos nós. As informações
 
 * **Portal do Azure**: ao criar um cluster, você pode definir o tamanho dos nós usados pelo cluster:
 
-    ![Imagem do Assistente de criação de cluster com a seleção de tamanho do nó](./media/hdinsight-high-availability-linux/hdinsight-headnodesize.png)
+    ![Imagem do Assistente de criação de cluster com a seleção de tamanho do nó](./media/hdinsight-high-availability-linux/azure-portal-cluster-configuration-pricing-hadoop.png)
 
 * **CLI do Azure**: ao usar o comando [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) , você pode definir o tamanho dos nós de cabeçalho, trabalho e ZooKeeper usando os parâmetros `--headnode-size`, `--workernode-size`e `--zookeepernode-size`.
 
 * **Azure PowerShell**: ao usar o cmdlet [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) , você pode definir o tamanho dos nós de cabeçalho, trabalho e ZooKeeper usando os parâmetros `-HeadNodeSize`, `-WorkerNodeSize`e `-ZookeeperNodeSize`.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para saber mais sobre os itens discutidos neste artigo, consulte:
 

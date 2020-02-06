@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 6a9385a49e85806464e8f9ccf11d9232fae42435
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 933f0c52cf0d65c7dca480971589c0d0f2ebabf0
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461118"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906755"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD ou VHDX do Windows para carregar no Azure
 
@@ -33,6 +33,22 @@ Para obter informações sobre a política de suporte para VMs do Azure, consult
 > As instruções neste artigo se aplicam a:
 >1. A versão de 64 bits do Windows Server 2008 R2 e sistemas operacionais Windows Server posteriores. Para obter informações sobre como executar um sistema operacional de 32 bits no Azure, consulte [suporte para sistemas operacionais de 32 bits em VMs do Azure](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines).
 >2. Se qualquer ferramenta de recuperação de desastre for usada para migrar a carga de trabalho, como Azure Site Recovery ou migrações para Azure, esse processo ainda precisará ser feito e seguido no SO convidado para preparar a imagem antes da migração.
+
+## <a name="system-file-checker-sfc-command"></a>Comando do verificador de arquivos do sistema (SFC)
+
+### <a name="run-windows-system-file-checker-utility-run-sfc-scannow-on-os-prior-to-generalization-step-of-creating-customer-os-image"></a>Executar o utilitário do verificador de arquivos do sistema Windows (executar sfc/scannow) no sistema operacional antes da etapa de generalização da criação da imagem do so do cliente
+
+O comando SFC (verificador de arquivos do sistema) é usado para verificar e substituir os arquivos do sistema Windows.
+
+Para executar o comando SFC:
+
+1. Abra um prompt CMD elevado como administrador.
+1. Digite `sfc /scannow` e selecione **Enter**.
+
+    ![Verificador de arquivos do sistema](media/prepare-for-upload-vhd-image/system-file-checker.png)
+
+
+Após a conclusão da verificação do SFC, tente instalar as atualizações do Windows e reiniciar o computador.
 
 ## <a name="convert-the-virtual-disk-to-a-fixed-size-and-to-vhd"></a>Converter o disco virtual em um tamanho fixo e VHD
 
@@ -156,7 +172,7 @@ Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' }
 Verifique se as seguintes configurações estão definidas corretamente para acesso remoto:
 
 >[!NOTE] 
->Você pode receber uma mensagem de erro ao executar `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <object name> -Value <value>`. Ignore essa mensagem. Isso significa apenas que o domínio não está enviando essa configuração por Push por meio de um objeto Política de Grupo.
+>Você pode receber uma mensagem de erro ao executar `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <object name> -Value <value>`. Você pode ignorar essa mensagem com segurança. Isso significa apenas que o domínio não está enviando essa configuração por Push por meio de um objeto Política de Grupo.
 
 1. O protocolo RDP está habilitado:
    

@@ -7,18 +7,18 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: a64d03ebe7c8bbb4cfa9c7bd63a678892250373d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b53fc3af71ce872c9ca9f513139c8179fd4165ed
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75482862"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031367"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interagir com clusters Apache Kafka no Azure HDInsight usando um proxy REST
 
 O proxy REST do Kafka permite que você interaja com o cluster Kafka por meio de uma API REST sobre HTTP. Isso significa que os clientes do Kafka podem estar fora da rede virtual. Além disso, os clientes podem fazer chamadas HTTP simples para enviar e receber mensagens para o cluster Kafka, em vez de depender de bibliotecas Kafka.  
 
-## <a name="background"></a>Segundo plano
+## <a name="background"></a>Tela de fundo
 
 ### <a name="architecture"></a>Arquitetura
 
@@ -36,7 +36,7 @@ Antes de fazer solicitações para o ponto de extremidade do proxy REST, o aplic
 
 Depois que o aplicativo cliente tiver o token OAuth, ele deverá passar esse token na solicitação HTTP feita para o proxy REST.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 1. Registrar um aplicativo com o Azure AD. Os aplicativos cliente que você escreve para interagir com o proxy REST do Kafka usarão a ID e o segredo do aplicativo para autenticar no Azure.
 1. Crie um grupo de segurança do Azure AD e adicione o aplicativo que você registrou com o Azure AD ao grupo de segurança. Esse grupo de segurança será usado para controlar quais aplicativos têm permissão para interagir com o proxy REST. Para obter mais informações sobre como criar grupos do Azure AD, consulte [criar um grupo básico e adicionar membros usando Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
@@ -45,17 +45,17 @@ Depois que o aplicativo cliente tiver o token OAuth, ele deverá passar esse tok
 
 1. Durante o fluxo de trabalho de criação do cluster Kafka, na guia "segurança + rede", marque a opção "Habilitar proxy REST do Kafka".
 
-     ![Habilitar o proxy REST do Kafka e selecionar grupo de segurança](./media/apache-kafka-rest-proxy/apache-kafka-rest-proxy-enable.png)
+     ![Habilitar o proxy REST do Kafka e selecionar grupo de segurança](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
 
 1. Clique em **selecionar grupo de segurança**. Na lista de grupos de segurança, selecione o grupo de segurança que você deseja ter acesso ao proxy REST. Você pode usar a caixa de pesquisa para localizar o grupo de segurança apropriado. Clique no botão **selecionar** na parte inferior.
 
-     ![Habilitar o proxy REST do Kafka e selecionar grupo de segurança](./media/apache-kafka-rest-proxy/apache-kafka-rest-proxy-select-security-group.png)
+     ![Habilitar o proxy REST do Kafka e selecionar grupo de segurança](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png)
 
 1. Conclua as etapas restantes para criar o cluster, conforme descrito em [criar Apache Kafka cluster no Azure HDInsight usando portal do Azure](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started).
 
 1. Depois que o cluster for criado, vá para as propriedades do cluster para registrar a URL do proxy REST do Kafka.
 
-     ![exibir URL do proxy REST](./media/apache-kafka-rest-proxy/apache-kafka-rest-proxy-view-proxy-url.png)
+     ![exibir URL do proxy REST](./media/rest-proxy/apache-kafka-rest-proxy-view-proxy-url.png)
 
 ## <a name="client-application-sample"></a>Exemplo de aplicativo cliente
 
@@ -123,7 +123,7 @@ Para usar o exemplo de código, siga estas etapas:
     1.  *Kafkarest_endpoint* – obtenha esse valor na guia "Propriedades" na visão geral do cluster, conforme descrito na [seção implantação](#create-a-kafka-cluster-with-rest-proxy-enabled). Ele deve estar no seguinte formato – `https://<clustername>-kafkarest.azurehdinsight.net`
 3. Na linha de comando, execute o arquivo Python executando `python <filename.py>`
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Documentos de referência da API de proxy REST do Kafka](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/)
 * [Tutorial: usar as APIs de produtor e consumidor do Apache Kafka](apache-kafka-producer-consumer-api.md)

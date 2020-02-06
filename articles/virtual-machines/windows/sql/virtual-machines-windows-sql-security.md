@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6b2f9853c2699b69a0c9be13e6925a4b30f358f7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f5ea0ddff38532b119d8d984f2dabd6d898b44a5
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102020"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031349"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Considerações sobre Segurança para SQL Server em Máquinas Virtuais do Azure
 
@@ -56,6 +56,10 @@ Além das regras do NSG para restringir o tráfego de rede, você também pode u
 Se estiver usando pontos de extremidade com o modelo de implantação clássico, remova todos os pontos de extremidade da máquina virtual, caso não estejam sendo usados. Para obter instruções sobre como usar ACLs com pontos de extremidade, consulte [Gerenciar a ACL em um ponto de extremidade](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint). Isso não é necessário para VMs que usam o Resource Manager.
 
 Por fim, considere a possibilidade de habilitar as conexões criptografadas na instância do Mecanismo de Banco de Dados do SQL Server na máquina virtual do Azure. Configure a instância do SQL Server com um certificado assinado. Para saber mais, veja [Enable Encrypted Connections to the Database Engine](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) (Habilitar conexões criptografadas para o mecanismo de banco de dados) e [Sintaxe da cadeia de conexão](https://msdn.microsoft.com/library/ms254500.aspx).
+
+## <a name="encryption"></a>Criptografia
+
+O Managed disks oferece criptografia do lado do servidor e Azure Disk Encryption. A [criptografia do lado do servidor](/azure/virtual-machines/windows/disk-encryption) fornece criptografia em repouso e protege seus dados para atender aos compromissos de conformidade e segurança da organização. O [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) usa a tecnologia BITLOCKER ou DM-cript e integra-se com Azure Key Vault para criptografar o sistema operacional e os discos de dados. 
 
 ## <a name="use-a-non-default-port"></a>Usar uma porta não padrão
 
@@ -93,11 +97,16 @@ Você não deseja que os invasores adivinhem nomes de contas ou senhas facilment
 
   - Se precisar usar o logon **SA**, habilite o logon depois de provisionar e atribuir uma nova senha forte.
 
-## <a name="follow-on-premises-best-practices"></a>Seguir as melhores práticas localmente
+## <a name="additional-best-practices"></a>Melhores práticas adicionais
 
-Além das práticas descritas neste tópico, recomendamos examinar e implementar as práticas de segurança tradicionais locais, quando aplicável. Para obter mais informações, consulte [Considerações sobre segurança para uma instalação do SQL Server](https://docs.microsoft.com/sql/sql-server/install/security-considerations-for-a-sql-server-installation)
+Além das práticas descritas neste tópico, recomendamos que você examine e implemente as práticas recomendadas de segurança de práticas de segurança locais tradicionais, bem como as práticas recomendadas de segurança de máquina virtual. 
 
-## <a name="next-steps"></a>Próximas etapas
+Para obter mais informações sobre práticas de segurança locais, consulte [considerações de segurança para uma instalação de SQL Server](/sql/sql-server/install/security-considerations-for-a-sql-server-installation) e a [central de segurança](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database). 
+
+Para obter mais informações sobre a segurança da máquina virtual, consulte a [visão geral de segurança de máquinas virtuais](/azure/security/fundamentals/virtual-machines-overview).
+
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Se você também estiver interessado em práticas recomendadas sobre desempenho, veja [Práticas recomendadas relacionadas ao desempenho para o SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-performance.md).
 

@@ -3,12 +3,12 @@ title: Azure Monitor de instalação para contêineres de dados dinâmicos (visu
 description: Este artigo descreve como configurar a exibição em tempo real de logs de contêiner (stdout/stderr) e eventos sem usar o kubectl com Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 5a3d020132e3c93eab7fec46d1ffe45d00b5ed43
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1ca52384e5ce657e4fedeb42e3304449a2d6be11
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404709"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030646"
 ---
 # <a name="how-to-setup-the-live-data-preview-feature"></a>Como configurar o recurso de dados dinâmicos (versão prévia)
 
@@ -101,7 +101,7 @@ O registro de cliente do Azure AD deve ser reconfigurado para permitir que o por
 Para obter mais informações sobre a configuração de segurança avançada no kubernetes, consulte a [documentação do kubernetes](https://kubernetes.io/docs/reference/access-authn-authz/rbac/). 
 
 >[!NOTE]
->Se você estiver criando um novo cluster habilitado para RBAC, consulte [integrar Azure Active Directory com o serviço kubernetes do Azure](../../aks/azure-ad-integration.md) e siga as etapas para configurar a autenticação do Azure AD. Durante as etapas para criar o aplicativo cliente, uma observação nessa seção realça as duas URLs de redirecionamento que você precisa criar para Azure Monitor para contêineres. 
+>Se você estiver criando um novo cluster habilitado para RBAC, consulte [integrar Azure Active Directory com o serviço kubernetes do Azure](../../aks/azure-ad-integration.md) e siga as etapas para configurar a autenticação do Azure AD. Durante as etapas para criar o aplicativo cliente, uma observação nessa seção realça as duas URLs de redirecionamento que você precisa criar para Azure Monitor para contêineres correspondentes às especificadas na etapa 3 abaixo.
 
 ### <a name="client-registration-reconfiguration"></a>Reconfiguração de registro de cliente
 
@@ -131,6 +131,6 @@ Cada conta do Azure AD deve receber permissão para as APIs apropriadas no kuber
 
 Para obter ajuda adicional sobre como configurar o **ClusterRoleBinding**do cluster AKs, consulte [criar Associação RBAC](../../aks/azure-ad-integration-cli.md#create-rbac-binding).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Agora que você tem a autenticação de instalação, é possível exibir as [métricas](container-insights-livedata-metrics.md), as [implantações](container-insights-livedata-deployments.md)e [os eventos e os logs](container-insights-livedata-overview.md) em tempo real do cluster.

@@ -2,7 +2,7 @@
 title: 'Início Rápido: Criar um perfil para HA de aplicativos – portal do Azure – Gerenciador de Tráfego do Microsoft Azure'
 description: Este artigo de início rápido descreve como criar um perfil do Gerenciador de Tráfego para criar aplicativos Web altamente disponíveis.
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 manager: twooley
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
-ms.author: allensu
-ms.openlocfilehash: b2163b76dc3a301359cf3474789c5b473f9e4552
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.author: rohink
+ms.openlocfilehash: 559ed0a134bb6db78d1e89634138b4025e04152b
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483667"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934779"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Início Rápido: Criar um perfil do Gerenciador de Tráfego usando o portal do Azure
 
@@ -29,9 +29,9 @@ Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no [Portal do Azure](https://portal.azure.com).
+Entre no [portal do Azure](https://portal.azure.com).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para esse início rápido, você precisará implantar duas instâncias de um aplicativo Web em duas regiões diferentes do Azure (*Leste dos EUA* e *Europa Ocidental*). Cada uma servirá como os pontos de extremidade primário e de failover do Gerenciador de Tráfego.
 
@@ -54,7 +54,7 @@ Para esse início rápido, você precisará implantar duas instâncias de um apl
 
 5. Examine as configurações e, em seguida, clique em **Criar**.  Quando o aplicativo Web é implantado com êxito, ele cria um site da Web padrão.
 
-6. Execute as etapas para criar um segundo aplicativo Web chamado *myWebAppWestEurope*, com o nome de **Grupo de Recursos** *myResourceGroupTM2*, uma **Região** *Oeste da Europa*, um **Plano do Serviço de Aplicativo** de **myAppServicePlanWestEurope** e todas as outras configurações iguais às usadas em *myWebAppEastUS*.
+6. Execute as etapas para criar um segundo aplicativo Web chamado *myWebAppWestEurope*, com o nome de **Grupo de Recursos***myResourceGroupTM2*, uma **Região***Oeste da Europa*, um **Plano do Serviço de Aplicativo** de **myAppServicePlanWestEurope** e todas as outras configurações iguais às usadas em *myWebAppEastUS*.
 
 ## <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gerenciador de Tráfego
 
@@ -65,7 +65,7 @@ Crie um perfil do Gerenciador de Tráfego que direciona o tráfego de usuário c
 
     | Configuração | Valor |
     | --------| ----- |
-    | NOME | Insira um nome exclusivo para seu perfil do Gerenciador de Tráfego.|
+    | Nome | Insira um nome exclusivo para seu perfil do Gerenciador de Tráfego.|
     | Método de roteamento | Selecione **Prioridade**.|
     | Subscription | Selecione a assinatura à qual você deseja que o perfil do Gerenciador de Tráfego seja aplicado. |
     | Resource group | Selecione *myResourceGroupTM1*.|
@@ -85,7 +85,7 @@ Adicione o site no *Leste dos EUA* como ponto de extremidade primário para enca
     | Configuração | Valor |
     | ------- | ------|
     | Type | Selecione **ponto de extremidade do Azure**. |
-    | NOME | Insira *myPrimaryEndpoint*. |
+    | Nome | Insira *myPrimaryEndpoint*. |
     | Tipo de recurso de destino | Selecione **Serviço de Aplicativo**. |
     | Recurso de destino | Selecione **Escolher um serviço de aplicativo** > **Leste dos EUA**. |
     | Prioridade | Selecione **1**. Todo o tráfego vai para esse ponto de extremidade quando ele estiver íntegro. |
@@ -98,7 +98,7 @@ Adicione o site no *Leste dos EUA* como ponto de extremidade primário para enca
     | Configuração | Valor |
     | ------- | ------|
     | Type | Selecione **ponto de extremidade do Azure**. |
-    | NOME | Insira *myFailoverEndpoint*. |
+    | Nome | Insira *myFailoverEndpoint*. |
     | Tipo de recurso de destino | Selecione **Serviço de Aplicativo**. |
     | Recurso de destino | Selecione **Escolher um serviço de aplicativo** > **Europa Ocidental**. |
     | Prioridade | Selecione **2**. Todo o tráfego vai para esse ponto de extremidade de failover se o ponto de extremidade primário não estiver íntegro. |
@@ -137,7 +137,7 @@ Nesta seção, você verificará o nome de domínio do seu perfil do Gerenciador
 
 O ponto de extremidade primário não está disponível, portanto, você foi encaminhado para o ponto de extremidade de failover.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Ao terminar, exclua os grupos de recursos, os aplicativos Web e todos os recursos relacionados. Para fazer isso, selecione cada item individual no seu painel e selecione **Excluir** na parte superior de cada página.
 

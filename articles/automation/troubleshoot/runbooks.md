@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 71344f954990952856f031829f13273e062b62c5
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 65006b8357db44c3e1b8f8d9e819615b5dd9db6e
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933163"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031741"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solucionar problemas de erros com runbooks
 
@@ -98,7 +98,7 @@ Você recebe o seguinte erro ao trabalhar com os cmdlets `Select-AzureSubscripti
 The subscription named <subscription name> cannot be found.
 ```
 
-### <a name="error"></a>Erro
+### <a name="error"></a>Error
 
 Esse erro pode ocorrer se:
 
@@ -111,7 +111,7 @@ Esse erro pode ocorrer se:
 Siga estas etapas para determinar se você se autenticou no Azure e tem acesso à assinatura que está tentando selecionar:
 
 1. Para ter certeza de que o seu script funciona de maneira independente, teste-o fora da Automação do Azure.
-2. Antes de executar o cmdlet `Select-AzureSubscription`, verifique se você executou o cmdlet `Add-AzureAccount`.
+2. Antes de executar o cmdlet `Add-AzureAccount`, verifique se você executou o cmdlet `Select-AzureSubscription`.
 3. Adicione `Disable-AzureRmContextAutosave –Scope Process` ao início do seu runbook. Esse cmdlet garante que todas as credenciais sejam aplicadas apenas à execução do runbook atual.
 4. Se essa mensagem de erro ainda for exibida, modifique o código adicionando o parâmetro **-AzureRmContext** após o cmdlet `Add-AzureAccount` e execute o código.
 
@@ -363,7 +363,7 @@ Object reference not set to an instance of an object
 
 ### <a name="cause"></a>Causa
 
-Há um problema conhecido em que o Start-AzureRmAutomationRunbook não trata o fluxo de saída corretamente se ele contiver objetos.
+Há um problema conhecido em que Start-AzureRmAutomationRunbook não trata o fluxo de saída corretamente se ele contiver objetos.
 
 ### <a name="resolution"></a>Resolução
 
@@ -553,6 +553,22 @@ Há três maneiras de resolver esse erro:
 
 Para saber mais sobre esse comportamento e outros comportamentos dos Runbooks de automação do Azure, consulte [comportamento do runbook](../automation-runbook-execution.md#runbook-behavior).
 
+## <a name="scenario-linux-hybrid-runbook-worker-receives-a-prompt-for-a-password-when-signing-a-runbook"></a>Cenário: o Linux Hybrid Runbook Worker recebe um prompt para uma senha ao assinar um runbook
+
+### <a name="issue"></a>Problema
+
+A execução do comando **sudo** para um Hybrid runbook Worker Linux recupera uma solicitação inesperada para uma senha.
+
+### <a name="cause"></a>Causa
+
+A conta nxautomationuser para o agente de Log Analytics para Linux não está configurada corretamente no arquivo sudoers. O Hybrid Runbook Worker precisa da configuração apropriada de permissões de conta e outros dados para que ele possa assinar runbooks no runbook Worker do Linux.
+
+### <a name="resolution"></a>Resolução
+
+* Verifique se o Hybrid Runbook Worker tem o executável GnuPG (GPG) no computador.
+
+* Verifique a configuração da conta nxautomationuser no arquivo sudoers. Consulte [executando runbooks em um Hybrid runbook Worker](../automation-hrw-run-runbooks.md)
+
 ## <a name="other"></a>Meu problema não está listado acima
 
 As seções a seguir listam outros erros comuns, além da documentação de suporte para ajudá-lo a resolver o problema.
@@ -608,7 +624,7 @@ Para usar certificados autoassinados, consulte [criando um novo certificado](htt
 * [Como iniciar um Runbook na Automação do Azure](https://docs.microsoft.com/azure/automation/automation-starting-a-runbook)
 * [Execução de runbook na automação do Azure](https://docs.microsoft.com/azure/automation/automation-runbook-execution)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 

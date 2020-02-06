@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/13/2019
+ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 26a353251bd85a30ab26c86f3d6b363b0a84e074
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 59839df1e67c5ea7f18df373ad0530a2ea740209
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889538"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030890"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como usar o Gerenciamento de API do Azure com redes virtuais
 As redes virtuais do Azure (VNETs) permitem que você coloque qualquer um dos recursos do Azure em uma rede não roteável para a Internet com acesso controlado. Essas redes podem ser conectadas às redes locais usando várias tecnologias VPN. Para saber mais sobre redes virtuais do Azure, confira [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -31,7 +31,7 @@ O Gerenciamento de API do Azure pode ser implantado na VNET (rede virtual) para 
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Para executar as etapas descritas neste artigo, você precisa ter:
 
@@ -134,11 +134,11 @@ Veja a seguir uma lista de problemas comuns de erro de configuração que podem 
 
 + **Monitoramento de integridade e métricas**: conectividade de rede de saída para pontos de extremidade do Monitoramento do Azure, que são resolvidos sob os seguintes domínios:
 
-    | Azure Environment | Pontos de Extremidade                                                                                                                                                                                                                                                                                                                                                              |
+    | Azure Environment | Pontos de extremidade                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Público do Azure      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com onde `East US 2` é eastus2.warm.ingestion.msftcloudes.com</li></ul> |
-    | Azure Governamental  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
-    | Azure China       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
+    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
+    | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
 
 + **Retransmissão de SMTP**: conectividade de rede de saída para a retransmissão de SMTP, que resolve na `smtpi-co1.msn.com`do host, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` e `ies.global.microsoft.com`
 
@@ -150,13 +150,7 @@ Veja a seguir uma lista de problemas comuns de erro de configuração que podem 
 
   * Habilite os pontos de extremidade de serviço na sub-rede em que o serviço de gerenciamento de API está implantado. Os [pontos de extremidade de serviço][ServiceEndpoints] precisam ser habilitados para SQL do Azure, armazenamento do Azure, EventHub do Azure e ServiceBus do Azure. Habilitar pontos de extremidade diretamente da sub-rede delegada do gerenciamento de API para esses serviços permite que eles usem o Microsoft Azure rede de backbone fornecendo roteamento ideal para o tráfego de serviço. Se você usar pontos de extremidade de serviço com um gerenciamento de API em túnel forçado, o tráfego dos serviços do Azure acima não será forçado em túnel. O outro tráfego de dependência do serviço de gerenciamento de API é forçado e não pode ser perdido ou o serviço de gerenciamento de API não funcionaria corretamente.
     
-  * Todo o tráfego do plano de controle da Internet para o ponto de extremidade de gerenciamento do serviço de gerenciamento de API é roteado por meio de um conjunto específico de IPs de entrada hospedados pelo gerenciamento de API. Quando o tráfego é forçado por túnel, as respostas não são mapeadas de volta de forma simétrica para esses IPs de origem de entrada. Para superar a limitação, precisamos adicionar as seguintes[UDRs][UDRs](rotas definidas pelo usuário) para direcionar o tráfego de volta ao Azure definindo o destino dessas rotas de host como "Internet". O conjunto de IPs de entrada para o tráfego do plano de controle é o seguinte:
-    
-     | Azure Environment | Endereços IP de gerenciamento                                                                                                                                                                                                                                                                                                                                                              |
-    |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Público do Azure      | 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 52.159.16.255/32, 40.82.157.167/32, 51.137.136.0/32, 40.81.185.8/32, 40.81.47.216/32, 51.145.56.125/32, 40.81.89.24/32, 52.224.186.99/32, 51.145.179.78/32, 52.140.238.179/32, 40.66.60.111/32, 52.139.80.117/32, 20.46.144.85/32, 191.233.24.179/32, 40.90.185.46/32, 102.133.130.197/32, 52.139.20.34/32, 40.80.232.185/32, 13.71.49.1/32, 13.64.39.16/32, 20.40.160.107/32, 20.37.52.67/32, 20.44.33.246/32, 13.86.102.66/32, 20.40.125.155/32, 51.143.127.203/32, 52.253.225.124/32, 52.253.159.160/32, 20.188.77.119/32, 20.44.72.3/32, 52.142.95.35/32, 52.139.152.27/32, 20.39.80.2/32, 51.107.96.8/32, 20.39.99.81/32, 20.37.81.41/32, 51.107.0.91/32, 102.133.0.79/32, 51.116.96.0/32, 51.116.0.0/32 |
-    | Azure Governamental  | 52.127.42.160/32, 52.127.34.192/32 |
-    | Azure China       | 139.217.51.16/32, 139.217.171.176/32 |
+  * Todo o tráfego do plano de controle da Internet para o ponto de extremidade de gerenciamento do serviço de gerenciamento de API é roteado por meio de um conjunto específico de IPs de entrada hospedados pelo gerenciamento de API. Quando o tráfego é forçado por túnel, as respostas não são mapeadas de volta de forma simétrica para esses IPs de origem de entrada. Para superar a limitação, precisamos adicionar as seguintes[UDRs][UDRs](rotas definidas pelo usuário) para direcionar o tráfego de volta ao Azure definindo o destino dessas rotas de host como "Internet". O conjunto de IPs de entrada para o tráfego do plano de controle é documentado com os [endereços IP do plano de controle](#control-plane-ips)
 
   * Para outras dependências de serviço de gerenciamento de API que são disparadas em túnel, deve haver uma maneira de resolver o nome de host e entrar em contato com o ponto de extremidade. Isso inclui
       - Monitoramento de integridade e métricas
@@ -167,7 +161,7 @@ Veja a seguir uma lista de problemas comuns de erro de configuração que podem 
 ## <a name="troubleshooting"> </a>Solução de problemas
 * **Instalação Inicial**: quando a implantação inicial do serviço de Gerenciamento de API em uma sub-rede não for bem-sucedida, é recomendável primeiro implantar uma máquina virtual na mesma sub-rede. Em seguida, acesse a área de trabalho remota na máquina virtual e valide se há conectividade a um de cada recurso abaixo em sua assinatura do azure
     * Azure Storage Blob
-    * Banco de dados SQL do Azure
+    * Banco de Dados SQL do Azure
     * Tabela de armazenamento do Azure
 
   > [!IMPORTANT]
@@ -182,7 +176,7 @@ O Azure reserva alguns endereços IP em cada sub-rede, os quais não podem ser u
 
 Além dos endereços IP usados pela infraestrutura de rede virtual do Azure, cada instância do Gerenciamento de API da sub-rede usa dois endereços IP por unidade de SKU Premium ou um endereço IP para a SKU do desenvolvedor. Cada instância de reserva um endereço IP adicional para o balanceador externo de carga. Ao implantar em redes virtuais internas, é necessário um endereço IP adicional para o balanceador de carga interno.
 
-Dado o cálculo acima do tamanho mínimo da sub-rede, no qual o gerenciamento de API pode ser implantado é/29 que fornece três endereços IP.
+Dado o cálculo acima do tamanho mínimo da sub-rede, no qual o gerenciamento de API pode ser implantado é/29 que fornece três endereços IP utilizáveis.
 
 ## <a name="routing"></a> Roteamento do
 + Um endereço IP público com balanceamento de carga (VIP) será reservado para fornecer acesso a todos os pontos de extremidade de serviço.
@@ -196,12 +190,76 @@ Dado o cálculo acima do tamanho mínimo da sub-rede, no qual o gerenciamento de
 * Para implantações de Gerenciamento de API de várias regiões configuradas no modo de rede virtual interna, os usuários são responsáveis por gerenciar o balanceamento de carga em várias regiões, uma vez que eles detêm o roteamento.
 * Conectividade de um recurso em uma rede virtual emparelhada globalmente em outra região para o serviço de gerenciamento de API no modo interno não funcione devido à limitação de plataforma. Para obter mais informações, consulte [Recursos em uma rede virtual não podem se comunicar com o endereço IP de um balanceador de carga interno do Azure na rede virtual emparelhada](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)
 
+## <a name="control-plane-ips"></a> Endereços IP do plano de controle
+
+Os endereços IP são divididos pelo **ambiente do Azure**. Ao permitir que as solicitações de entrada, o endereço IP marcado com **global** deve estar na lista de Permissões junto com o endereço IP específico da **região** .
+
+| **Ambiente do Azure**|   **Região**|  **Endereço IP**|
+|-----------------|-------------------------|---------------|
+| Público do Azure| EUA Central do Sul (global)| 104.214.19.224|
+| Público do Azure| EUA Central Norte (global)| 52.162.110.80|
+| Público do Azure| Centro-Oeste dos EUA| 52.253.135.58|
+| Público do Azure| Coreia Central| 40.82.157.167|
+| Público do Azure| Oeste do Reino Unido| 51.137.136.0|
+| Público do Azure| Oeste do Japão| 40.81.185.8|
+| Público do Azure| Centro Norte dos EUA| 40.81.47.216|
+| Público do Azure| Sul do Reino Unido| 51.145.56.125|
+| Público do Azure| Oeste da Índia| 40.81.89.24|
+| Público do Azure| Leste dos EUA| 52.224.186.99|
+| Público do Azure| Europa Ocidental| 51.145.179.78|
+| Público do Azure| Leste do Japão| 52.140.238.179|
+| Público do Azure| França Central| 40.66.60.111|
+| Público do Azure| Leste do Canadá| 52.139.80.117|
+| Público do Azure| Norte dos EAU| 20.46.144.85|
+| Público do Azure| Sul do Brasil| 191.233.24.179|
+| Público do Azure| Sudeste Asiático| 40.90.185.46|
+| Público do Azure| Norte da África do Sul| 102.133.130.197|
+| Público do Azure| Canadá Central| 52.139.20.34|
+| Público do Azure| Sul da Coreia| 40.80.232.185|
+| Público do Azure| Índia Central| 13.71.49.1|
+| Público do Azure| Oeste dos EUA| 13.64.39.16|
+| Público do Azure| Sudeste da Austrália| 20.40.160.107|
+| Público do Azure| Austrália Central| 20.37.52.67|
+| Público do Azure| Sul da Índia| 20.44.33.246|
+| Público do Azure| Centro dos EUA| 13.86.102.66|
+| Público do Azure| Leste da Austrália| 20.40.125.155|
+| Público do Azure| Oeste dos EUA 2| 51.143.127.203|
+| Público do Azure| Leste dos EUA 2 EUAP| 52.253.229.253|
+| Público do Azure| EUA Central EUAP| 52.253.159.160|
+| Público do Azure| Centro-Sul dos Estados Unidos| 20.188.77.119|
+| Público do Azure| Leste dos EUA 2| 20.44.72.3|
+| Público do Azure| Norte da Europa| 52.142.95.35|
+| Público do Azure| Leste da Ásia| 52.139.152.27|
+| Público do Azure| Sul da França| 20.39.80.2|
+| Público do Azure| Oeste da Suíça| 51.107.96.8|
+| Público do Azure| Austrália Central 2| 20.39.99.81|
+| Público do Azure| EAU Central| 20.37.81.41|
+| Público do Azure| Norte da Suíça| 51.107.0.91|
+| Público do Azure| Oeste da África do Sul| 102.133.0.79|
+| Público do Azure| Centro-oeste da Alemanha| 51.116.96.0|
+| Público do Azure| Norte da Alemanha| 51.116.0.0|
+| Público do Azure| Leste da Noruega| 51.120.2.185|
+| Público do Azure| Oeste da Noruega| 51.120.130.134|
+| Azure China 21Vianet| Norte da China (global)| 139.217.51.16|
+| Azure China 21Vianet| Leste da China (global)| 139.217.171.176|
+| Azure China 21Vianet| Norte da China| 40.125.137.220|
+| Azure China 21Vianet| Leste da China| 40.126.120.30|
+| Azure China 21Vianet| Norte da China 2| 40.73.41.178|
+| Azure China 21Vianet| Leste da China 2| 40.73.104.4|
+| Azure Government| Virgínia USGov (global)| 52.127.42.160|
+| Azure Government| USGov Texas (global)| 52.127.34.192|
+| Azure Government| USGov Virginia| 52.227.222.92|
+| Azure Government| USGov Iowa| 13.73.72.21|
+| Azure Government| Gov. dos EUA – Arizona| 52.244.32.39|
+| Azure Government| Gov. dos EUA – Texas| 52.243.154.118|
+| Azure Government| USDoD central| 52.182.32.132|
+| Azure Government| Leste USDoD| 52.181.32.192|
 
 ## <a name="related-content"> </a>Conteúdo relacionado
 * [Conectando uma rede virtual ao back-end usando o Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
 * [Conectar uma rede virtual de diferentes modelos de implantação](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure](api-management-howto-api-inspector.md)
-* [Perguntas frequentes sobre rede virtual](../virtual-network/virtual-networks-faq.md)
+* [Perguntas frequentes sobre a rede virtual](../virtual-network/virtual-networks-faq.md)
 * [Marcas de serviço](../virtual-network/security-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png

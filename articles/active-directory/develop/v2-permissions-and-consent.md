@@ -17,12 +17,12 @@ ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 567df85fa634570b0ac04fe6da906776a74c0550
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e673c2dfd9b3bef6d443498fc96a8c71e0737851
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76833339"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030744"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft
 
@@ -59,7 +59,7 @@ No OAuth 2.0, esses tipos de permissão são chamados de *escopos*. Eles também
 * Escrever no calendário de um usuário usando o `Calendars.ReadWrite`
 * Enviar email como um usuário usando `Mail.Send`
 
-Um aplicativo geralmente solicita essas permissões especificando os escopos em solicitações para o ponto de extremidade de autorização da plataforma de identidade da Microsoft. No entanto, certas permissões de alto privilégio só podem ser concedidas por meio do consentimento do administrador e solicitadas/concedidas usando o [ponto de extremidade de consentimento](v2-permissions-and-consent.md#admin-restricted-permissions)do Leia para saber mais.
+Um aplicativo geralmente solicita essas permissões especificando os escopos em solicitações para o ponto de extremidade de autorização da plataforma de identidade da Microsoft. No entanto, certas permissões de alto privilégio só podem ser concedidas por meio do consentimento do administrador e solicitadas/concedidas usando o [ponto de extremidade de consentimento](v2-permissions-and-consent.md#admin-restricted-permissions)do Continue lendo para saber mais.
 
 ## <a name="permission-types"></a>Tipos de permissão
 
@@ -202,12 +202,12 @@ Quando estiver pronto para solicitar permissões do administrador da sua organiz
 ```
 
 
-| Parâmetro     | Condição     | Description                                                                               |
+| Parâmetro     | Condição     | Descrição                                                                               |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
-| `tenant` | Obrigatório | O locatário do diretório para o qual você deseja solicitar permissão. Pode ser fornecido no GUID ou formato de nome amigável, OU referenciado de maneira genérica com `common`, como visto no exemplo. |
+| `tenant` | Obrigatório | O locatário do diretório para o qual você deseja solicitar permissão. Pode ser fornecido em formato de nome amigável ou GUID ou referenciado genericamente com organizações, como visto no exemplo. Não use ' Common ', pois as contas pessoais não podem fornecer consentimento de administrador, exceto no contexto de um locatário. Para garantir a melhor compatibilidade com contas pessoais que gerenciam locatários, use a ID do locatário quando possível. |
 | `client_id` | Obrigatório | A **ID do aplicativo (cliente)** que a [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída ao seu aplicativo. |
 | `redirect_uri` | Obrigatório |O URI de redirecionamento onde você deseja que a resposta seja enviada para ser tratada pelo aplicativo. Ela deve corresponder exatamente a um redirecionamento de URIs que você registrou no portal de registro de aplicativo. |
-| `state` | Recomendado | Um valor incluído na solicitação também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Use o estado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
+| `state` | Recomendadas | Um valor incluído na solicitação também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Use o estado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
 |`scope`        | Obrigatório      | Define o conjunto de permissões que estão sendo solicitadas pelo aplicativo. Pode ser estático (usando [`/.default`](#the-default-scope)) ou escopos dinâmicos.  Isso pode incluir os escopos OIDC (`openid`, `profile`, `email`). Se você precisar de permissões de aplicativo, deverá usar `/.default` para solicitar a lista de permissões configuradas estaticamente.  | 
 
 
@@ -221,7 +221,7 @@ Se o administrador aprovar as permissões para o seu aplicativo, a resposta bem-
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| Parâmetro | Description |
+| Parâmetro | Descrição |
 | --- | --- |
 | `tenant` | O locatário do diretório que concedeu as permissões solicitadas, no formato de GUID. |
 | `state` | Um valor incluído na solicitação também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. O estado é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
@@ -235,7 +235,7 @@ Se o administrador não aprovar as permissões para o seu aplicativo, a resposta
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
-| Parâmetro | Description |
+| Parâmetro | Descrição |
 | --- | --- |
 | `error` | Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
 | `error_description` | Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro. |

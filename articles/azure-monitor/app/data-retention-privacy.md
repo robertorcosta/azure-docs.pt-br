@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/29/2019
-ms.openlocfilehash: b4550f55d160a77c2fb149dd509ca1cfad784f79
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: ba8a76cd4d3804bcb062ae0554e3fe7002804ed2
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513449"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031673"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Coleta de dados, retenção e armazenamento no Application Insights
 
@@ -28,7 +28,7 @@ Primeiro, a resposta curta:
 
 O restante deste artigo aborda mais detalhadamente essas respostas. Ele foi projetado para ser independente, para que possa mostrá-lo aos colegas que não fazem parte de sua equipe.
 
-## <a name="what-is-application-insights"></a>O que são Application Insights?
+## <a name="what-is-application-insights"></a>O que é o Application Insights?
 O [aplicativo Azure insights][start] é um serviço fornecido pela Microsoft que ajuda a melhorar o desempenho e a usabilidade do seu aplicativo em tempo real. Ele monitora seus aplicativos em todo o tempo de execução, tanto durante o teste quanto depois de publicado ou implantado. O Application Insights cria gráficos e tabelas que mostram, por exemplo, em que horas do dia você tem mais usuários, o nível de capacidade de resposta do aplicativo e quão bem ele é atendido por quaisquer serviços externos dos quais depende. Se houver travamentos, falhas ou problemas de desempenho, você pode pesquisar os dados de telemetria em detalhes para diagnosticar a causa. E o serviço lhe enviará emails se houver alterações na disponibilidade e no desempenho do seu aplicativo.
 
 Para obter essa funcionalidade, você instala um SDK do Application Insights em seu aplicativo, que passa a fazer parte do código. Quando o aplicativo é executado, o SDK monitora a operação e envia a telemetria para o serviço do Application Insights. Este é um serviço de nuvem hospedado pelo [Microsoft Azure](https://azure.com). (Mas Application Insights funciona para qualquer aplicativo, não apenas aplicativos hospedados no Azure.)
@@ -175,7 +175,18 @@ Por padrão, `%TEMP%/appInsights-node{INSTRUMENTATION KEY}` é usado para persis
 
 O prefixo de pasta `appInsights-node` pode ser substituído, alterando o valor de runtime da variável estática `Sender.TEMPDIR_PREFIX` localizada em [Sender.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
 
+### <a name="opencensus-python"></a>OpenCensus Python
 
+Por padrão, o SDK do Python OpenCensus usa a pasta do usuário atual `%username%/.opencensus/.azure/`. As permissões para acessar essa pasta são restritas ao usuário atual e aos Administradores. (Consulte a [implementação](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) aqui.) A pasta com os dados persistentes será nomeada após o arquivo Python que gerou a telemetria.
+
+Você pode alterar o local do arquivo de armazenamento passando o parâmetro `storage_path` no construtor do exportador que você está usando.
+
+```python
+AzureLogHandler(
+  connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000',
+  storage_path='<your-path-here>',
+)
+```
 
 ## <a name="how-do-i-send-data-to-application-insights-using-tls-12"></a>Como enviar dados ao Application Insights usando o TLS 1.2?
 
@@ -187,7 +198,7 @@ Não recomendamos definir explicitamente seu aplicativo para usar apenas o TLS 1
 
 ### <a name="platformlanguage-specific-guidance"></a>Diretrizes específicas da plataforma/linguagem
 
-|Plataforma/linguagem | Suporte | Mais Informações |
+|Plataforma/linguagem | Suporte | Mais informações |
 | --- | --- | --- |
 | Serviços de Aplicativo do Azure  | Configuração com suporte pode ser necessária. | O suporte foi anunciado em abril de 2018. Leia o comunicado para [detalhes de configuração](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
 | Aplicativos de Funções do Azure | Configuração com suporte pode ser necessária. | O suporte foi anunciado em abril de 2018. Leia o comunicado para [detalhes de configuração](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
@@ -200,7 +211,7 @@ Não recomendamos definir explicitamente seu aplicativo para usar apenas o TLS 1
 | Windows Server 2012 - 2016 | Suporte e habilitado por padrão. | Para confirmar que você ainda está usando o [as configurações padrão](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
 | Windows Server 7 SP1 e Windows Server 2008 R2 SP1 | Com suporte, mas não habilitado por padrão. | Consulte a página [configurações do registro de segurança de camada de transporte (TLS)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) para obter detalhes sobre como habilitar.  |
 | Windows Server 2008 SP2 | Suporte para TLS 1.2 requer uma atualização. | Ver [atualização para adicionar suporte para TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) no Windows Server 2008 SP2. |
-|Windows Vista | Sem suporte. | N/D
+|Windows Vista | Sem suporte. | {1&gt;N/A&lt;1}
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Verifique qual versão do OpenSSL sua distribuição do Linux está em execução
 
@@ -234,10 +245,10 @@ Os SDKs variam entre diferentes plataformas, e há vários componentes que você
 
 | Sua ação | Classes de dados coletados (consulte a tabela a seguir) |
 | --- | --- |
-| [Adicionar Application Insights SDK a um projeto Web .NET][greenbrown] |ServerContext<br/>Inferido<br/>Contadores de desempenho<br/>Solicitações<br/>**Exceções**<br/>Sessão<br/>usuários |
+| [Adicionar Application Insights SDK a um projeto Web .NET][greenbrown] |ServerContext<br/>Inferido<br/>Contadores de desempenho<br/>Solicitações<br/>**Exceções**<br/>Session<br/>usuários |
 | [Instalar o Status Monitor no IIS][redfield] |Dependências<br/>ServerContext<br/>Inferido<br/>Contadores de desempenho |
-| [Adicionar Application Insights SDK a um aplicativo Web Java][java] |ServerContext<br/>Inferido<br/>Solicitar<br/>Sessão<br/>usuários |
-| [Adicionar SDK do JavaScript à página da Web][client] |ClientContext <br/>Inferido<br/>Página<br/>ClientPerf<br/>Ajax |
+| [Adicionar Application Insights SDK a um aplicativo Web Java][java] |ServerContext<br/>Inferido<br/>Solicitação<br/>Session<br/>usuários |
+| [Adicionar SDK do JavaScript à página da Web][client] |ClientContext <br/>Inferido<br/>{1&gt;Página&lt;1}<br/>ClientPerf<br/>Ajax |
 | [Definir propriedades padrão][apiproperties] |**Propriedades** em todos os eventos padrão e personalizados |
 | [Chamar TrackMetric][api] |Valores numéricos<br/>**Propriedades** |
 | [Controle de chamada *][api] |Nome do evento<br/>**Propriedades** |
@@ -253,7 +264,7 @@ Para [SDKs para outras plataformas][platforms], consulte seus documentos.
 | **Propriedades** |**Quaisquer dados - determinados pelo seu código** |
 | DeviceContext |`Id`, IP, localidade, modelo de dispositivo, rede, tipo de rede, nome do OEM, resolução da tela, instância de função, nome da função, tipo de dispositivo |
 | ClientContext |Sistema operacional, localidade, linguagem, rede, resolução da janela |
-| Sessão |`session id` |
+| Session |`session id` |
 | ServerContext |Nome do computador, localidade, sistema operacional, dispositivo, sessão de usuário, contexto de usuário, operação |
 | Inferido |localização geográfica do endereço IP, carimbo de data/hora, sistema operacional, navegador |
 | Métricas |Valor e nome da métrica |
@@ -265,9 +276,9 @@ Para [SDKs para outras plataformas][platforms], consulte seus documentos.
 | Dependências |Tipo (SQL, HTTP,...), Cadeia de conexão, URI, sincronização/Async, duração, êxito, instrução SQL (com Status Monitor) |
 | **Exceções** |Tipo, **mensagem**, pilhas de chamadas, arquivo de origem, número de linha `thread id` |
 | Falhas |`Process id`, `parent process id`, `crash thread id`; patch do aplicativo, `id`, Build;  tipo de exceção, endereço, motivo; símbolos e registros ofuscados, endereços de início e término binários, nome e caminho binários, tipo de CPU |
-| Trace |**Mensagem** e nível de severidade |
+| Rastreamento |**Mensagem** e nível de severidade |
 | Contadores de desempenho |Tempo do processador, memória disponível, taxa de solicitação, taxa de exceções, bytes particulares do processo, taxa de E/S, duração da solicitação, comprimento da fila de solicitações |
-| Disponibilidade |Código de resposta de teste da Web, duração de cada etapa de teste, nome do teste, carimbo de data/hora, sucesso, tempo de resposta, local de teste |
+| Availability |Código de resposta de teste da Web, duração de cada etapa de teste, nome do teste, carimbo de data/hora, sucesso, tempo de resposta, local de teste |
 | Diagnóstico do SDK |Mensagem de rastreamento ou exceção |
 
 Você pode [desativar alguns dos dados editando ApplicationInsights. config][config]
@@ -275,7 +286,7 @@ Você pode [desativar alguns dos dados editando ApplicationInsights. config][con
 > [!NOTE]
 > O IP do cliente é usado para inferir a localização geográfica mas, por padrão, os dados do IP não são mais armazenados e todos os zeros são gravados no campo associado. Para compreender mais sobre tratamento de dados pessoais, recomendamos este [artigo](../../azure-monitor/platform/personal-data-mgmt.md#application-data). Se você precisar armazenar dados de endereço IP, nosso [artigo de coleção de endereços IP](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection) o guiará pelas suas opções.
 
-## <a name="credits"></a>Créditos
+## <a name="credits"></a>Credits
 Este produto inclui dados GeoLite2 criados pelo MaxMind, disponíveis em [https://www.maxmind.com](https://www.maxmind.com).
 
 

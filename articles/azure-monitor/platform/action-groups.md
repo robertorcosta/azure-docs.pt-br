@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 8/19/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: cc01145423d2961e32bf17313a2873633399d21a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 01d3edb3de9e57fa7fa8db2ede863c2aa3e100ed
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901480"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030737"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
 Um grupo de ações é uma coleção de preferências de notificação definidas pelo proprietário de uma assinatura do Azure. Alertas do Azure Monitor e da Integridade do Serviço usam grupos de ações para notificar usuários de que um alerta foi disparado. Vários alertas podem usar o mesmo grupo de ação ou grupos de ações diferentes dependendo dos requisitos do usuário. Você pode configurar até 2 mil grupos de ação em uma assinatura.
@@ -62,7 +62,7 @@ Para saber mais sobre como usar modelos do Azure Resource Manager para configura
 
 ## <a name="manage-your-action-groups"></a>Gerenciar seus grupos de ação
 
-Depois de criar um grupo de ações, ele fica visível na seção **grupos de ações** do painel **Monitor** . Selecione o grupo de ações que você deseja gerenciar:
+Depois de criar um grupo de ações, você pode exibir **grupos de ações** selecionando **Gerenciar ações** na página de aterrissagem **alertas** no painel **Monitor** . Selecione o grupo de ações que você deseja gerenciar:
 
 * Adicionar, editar ou remover ações.
 * Excluir o grupo de ação.
@@ -103,7 +103,7 @@ Ação de ITSM exige uma Conexão de ITSM. Saiba como criar uma [Conexão de ITS
 
 Você pode ter um número limitado de ações de ITSM em um grupo de ações. 
 
-### <a name="logic-app"></a>Aplicativo de lógica
+### <a name="logic-app"></a>Aplicativo Lógico
 Você pode ter um número limitado de ações de aplicativo lógico em um grupo de ação.
 
 ### <a name="secure-webhook"></a>Proteger webhook
@@ -111,7 +111,7 @@ Você pode ter um número limitado de ações de aplicativo lógico em um grupo 
 
 A ação de webhook de grupos de ações permite que você aproveite Azure Active Directory para proteger a conexão entre o grupo de ação e a API Web protegida (ponto de extremidade do webhook). O fluxo de trabalho geral para aproveitar essa funcionalidade é descrito abaixo. Para obter uma visão geral dos aplicativos do Azure AD e das entidades de serviço, consulte [visão geral da plataforma Microsoft Identity (v 2.0)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
 
-1. Crie um aplicativo do Azure AD para sua API Web protegida. Confira https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
+1. Crie um aplicativo do Azure AD para sua API Web protegida. Consulte https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
     - Configure sua API protegida para ser chamada por um aplicativo daemon.
     
 1. Habilite grupos de ação para usar seu aplicativo do Azure AD.
@@ -197,7 +197,7 @@ Write-Host "My Azure AD Application's Roles"
 Write-Host $myApp.AppRoles
 ```
 
-### <a name="sms"></a>SMS
+### <a name="sms"></a>sms
 Consulte as [informações de limitação de taxa](./../../azure-monitor/platform/alerts-rate-limiting.md) e o [comportamento de alerta do SMS](../../azure-monitor/platform/alerts-sms-behavior.md) para obter informações importantes adicionais.
 
 Você pode ter um número limitado de ações de SMS em um grupo de ações.  
@@ -233,7 +233,7 @@ Você pode ter um número limitado de ações de webhook em um grupo de ações.
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * Saiba mais sobre o [comportamento de alertas por SMS](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Tenha uma [compreensão do esquema de webhook de alerta do log de atividades](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
 * Saiba mais sobre o [Conector de ITSM](../../azure-monitor/platform/itsmc-overview.md)

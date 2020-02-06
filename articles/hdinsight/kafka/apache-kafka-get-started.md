@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/01/2019
-ms.openlocfilehash: e253d168fadd5aff46e70ba00a4021415c0ea6f7
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 76360ec8de645d926daec0db878906c73d0da948
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242046"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029989"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Início Rápido: Criar cluster do Apache Kafka no Azure HDInsight usando o portal do Azure
 
@@ -27,7 +27,7 @@ A API do Apache Kafka só pode ser acessada por recursos dentro da mesma rede vi
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Um cliente SSH. Para saber mais, confira [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -35,7 +35,7 @@ Um cliente SSH. Para saber mais, confira [Conectar-se ao HDInsight (Apache Hadoo
 
 Para criar um Apache Kafka no cluster do HDInsight, use as seguintes etapas:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. No menu esquerdo, navegue até **+ Criar um recurso** > **Análise** > **HDInsight**.
 
@@ -43,7 +43,7 @@ Para criar um Apache Kafka no cluster do HDInsight, use as seguintes etapas:
 
 1. Em **Conceitos Básicos**, insira ou selecione os seguintes valores:
 
-    |Propriedade  |DESCRIÇÃO  |
+    |Propriedade  |Descrição  |
     |---------|---------|
     |Subscription    |  Selecione sua assinatura do Azure. |
     |Resource group     | Crie um grupo de recursos ou selecione um grupo de recursos existente.  Um grupo de recursos é um contêiner de componentes do Azure.  Nesse caso, o grupo de recursos contém o cluster HDInsight e a conta de Armazenamento do Azure dependente. |
@@ -65,14 +65,14 @@ Para criar um Apache Kafka no cluster do HDInsight, use as seguintes etapas:
 
 1. Na guia **Armazenamento**, forneça os seguintes valores:
 
-    |Propriedade  |DESCRIÇÃO  |
+    |Propriedade  |Descrição  |
     |---------|---------|
     |Tipo de armazenamento primário|Use o valor padrão **Armazenamento do Azure**.|
     |Método de seleção|Use o valor padrão **Selecione na lista**.|
     |Conta de armazenamento primária|Use a lista suspensa para selecionar uma conta de armazenamento existente ou selecione **Criar**. Se você criar uma conta, o nome deverá ter entre 3 e 24 caracteres e poderá incluir apenas números e letras minúsculas|
     |Contêiner|Use o valor preenchido automaticamente.|
 
-    ![Introdução ao HDInsight Linux, fornecer valores de armazenamento de cluster](./media/apache-kafka-get-started/azure-portal-cluster-storage-blank.png "Fornecer valores de armazenamento para criar um cluster do HDInsight")
+    ![Introdução ao HDInsight Linux, fornecer valores de armazenamento de cluster](./media/apache-kafka-get-started/azure-portal-cluster-storage.png "Fornecer valores de armazenamento para criar um cluster do HDInsight")
 
     Selecione a guia **Segurança + rede**.
 
@@ -80,7 +80,7 @@ Para criar um Apache Kafka no cluster do HDInsight, use as seguintes etapas:
 
    Se você deseja conectar seu cluster a uma rede virtual, selecione uma rede virtual na lista suspensa **Rede virtual**.
 
-   ![Adicionar o cluster a uma rede virtual](./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vn.png)
+   ![Adicionar o cluster a uma rede virtual](./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vnet.png)
 
     Selecione a guia **Configuração + preços**.
 
@@ -150,7 +150,7 @@ Nesta seção, você obtém as informações do host da API REST do Apache Ambar
     export password='PASSWORD'
     ```
 
-1. Extraia o nome do cluster com grafia correta de maiúsculas e minúsculas. A grafia de maiúsculas e minúsculas real do nome do cluster pode ser diferente do esperado, dependendo de como o cluster foi criado. Esse comando obterá a grafia de maiúsculas e minúsculas real e a armazenará em uma variável. Digite o seguinte comando:
+1. Extraia o nome do cluster com grafia correta de maiúsculas e minúsculas. A grafia de maiúsculas e minúsculas real do nome do cluster pode ser diferente do esperado, dependendo de como o cluster foi criado. Esse comando obterá a grafia de maiúsculas e minúsculas real e a armazenará em uma variável. Insira o seguinte comando:
 
     ```bash
     export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
@@ -284,7 +284,7 @@ Para armazenar registros no tópico teste criado anteriormente e lê-los usando 
 
 Você também pode criar programaticamente produtores e consumidores. Para obter um exemplo de como usar essa API, confira o documento [API do Produtor e Consumidor do Apache Kafka com HDInsight](apache-kafka-producer-consumer-api.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar os recursos criados por este início rápido, você pode excluir o grupo de recursos. A exclusão do grupo de recursos também exclui o cluster HDInsight associado e todos os outros recursos associados ao grupo de recursos.
 

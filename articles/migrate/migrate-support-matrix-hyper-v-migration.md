@@ -3,23 +3,23 @@ title: Suporte para migração do Hyper-V em migrações para Azure
 description: Saiba mais sobre o suporte para migração do Hyper-V com migrações para Azure.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 96bf423f25911d0befbfd420ac2fb01ba6c8fb65
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 4ca946597417ccde0e00c8bf09c70207bc4f85b9
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030257"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031639"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matriz de suporte para migração do Hyper-V
 
 Este artigo resume as configurações de suporte e as limitações para migrar VMs do Hyper-V com [migrações para Azure: migração de servidor](migrate-services-overview.md#azure-migrate-server-migration-tool) . Se você estiver procurando informações sobre como avaliar as VMs do Hyper-V para migração para o Azure, examine a [matriz de suporte de avaliação](migrate-support-matrix-hyper-v.md).
 
-## <a name="migration-limitations"></a>Limitações da migração
+## <a name="migration-limitations"></a>Limitações de migração
 
 Você pode selecionar até 10 VMs de uma só vez para replicação. Se você quiser migrar mais máquinas, replique em grupos de 10.
 
 
-## <a name="hyper-v-hosts"></a>Hosts de Hyper-V
+## <a name="hyper-v-hosts"></a>Hosts do Hyper-V
 
 | **Suporte**                | **Detalhes**               
 | :-------------------       | :------------------- |
@@ -36,7 +36,7 @@ Você pode selecionar até 10 VMs de uma só vez para replicação. Se você qui
 | **Sistema operacional** | Todos os sistemas operacionais [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) com suporte no Azure. |
 | **Permissões**           | Você precisa de permissões de administrador em cada VM do Hyper-V que deseja avaliar. |
 | **Serviços de Integração**       | Os [Integration Services do Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) devem estar em execução em VMs que você avaliar, a fim de capturar informações do sistema operacional. |
-| **Alterações necessárias para o Azure** | Algumas VMs podem precisar de alterações para que possam ser executadas no Azure. As migrações para Azure fazem essas alterações automaticamente para os seguintes sistemas operacionais:<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 +<br/> -CentOS 6.5 +, 7.0 +</br> - SUSE Linux Enterprise Server 12 SP1+<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8<br/><br/> Para outros sistemas operacionais, você precisa fazer ajustes manualmente antes da migração. Os artigos relevantes contêm instruções sobre como fazer isso. |
+| **Alterações necessárias para o Azure** | Algumas VMs podem precisar de alterações para que possam ser executadas no Azure. Você precisa fazer ajustes manualmente antes da migração. Os artigos relevantes contêm instruções sobre como fazer isso. |
 | **Inicialização do Linux**                 | Se/boot estiver em uma partição dedicada, ele deverá residir no disco do sistema operacional e não poderá ser distribuído em vários discos.<br/> Se/boot fizer parte da partição raiz (/), a partição '/' deverá estar no disco do sistema operacional e não poderá abranger outros discos. |
 | **Inicialização UEFI**                  | A VM migrada no Azure será convertida automaticamente em uma VM de inicialização do BIOS. A VM deve estar executando apenas o Windows Server 2012 e posterior. O disco do sistema operacional deve ter até cinco partições ou menos e o tamanho do disco do sistema operacional deve ser inferior a 300 GB.
   |
@@ -48,8 +48,8 @@ Você pode selecionar até 10 VMs de uma só vez para replicação. Se você qui
 | **NFS**                        | Volumes NFS montados como volumes nas VMs não serão replicados. |
 | **ISCSI**                      | As VMs com destinos iSCSI não têm suporte para migração.
 | **Disco de destino**                | Você pode migrar para VMs do Azure somente com o Managed disks. |
-| **IPv6** | Sem suporte.
-| **Agrupamento NIC** | Sem suporte.
+| **Protocolo** | {1&gt;Sem suporte.&lt;1}
+| **Agrupamento NIC** | {1&gt;Sem suporte.&lt;1}
 | **Azure Site Recovery** | Não é possível replicar usando a migração de servidor de migrações para Azure se a VM estiver habilitada para replicação com Azure Site Recovery.
 | **Portas** | Conexões de saída na porta HTTPS 443 para enviar dados de replicação da VM.
 
@@ -66,13 +66,13 @@ Contagem do disco do sistema operacional | 1 | A verificação falha se não tiv
 Contagem de disco de dados | 64 ou menos. | A verificação falha se não tiver suporte.
 Tamanho do disco de dados | Até 4.095 GB | A verificação falha se não tiver suporte.
 Adaptadores de rede | Há suporte para vários adaptadores. |
-VHD compartilhado | Sem suporte. | A verificação falha se não tiver suporte.
-Disco FC | Sem suporte. | A verificação falha se não tiver suporte.
-BitLocker | Sem suporte. | O BitLocker precisa ser desabilitado antes de habilitar a replicação em um computador.
+VHD compartilhado | {1&gt;Sem suporte.&lt;1} | A verificação falha se não tiver suporte.
+Disco FC | {1&gt;Sem suporte.&lt;1} | A verificação falha se não tiver suporte.
+BitLocker | {1&gt;Sem suporte.&lt;1} | O BitLocker precisa ser desabilitado antes de habilitar a replicação em um computador.
 Nome da VM | De 1 a 63 caracteres.<br/> Restrito a letras, números e hifens.<br/><br/> O nome do computador precisa começar e terminar com uma letra ou um número. |  Atualize o valor nas propriedades do computador no Site Recovery.
 Conectar após a migração-Windows | Para se conectar às VMs do Azure que executam o Windows após a migração:<br/> -Antes de a migração habilitar o RDP na VM local. Certifique-se de que as regras TCP e UDP são adicionadas ao perfil **Público** e que o RDP é permitido no **Firewall do Windows** > **Aplicativos Permitidos** para todos os perfis.<br/> Para acesso VPN site a site, habilite o RDP e permita que o RDP no **Firewall do Windows** -> **aplicativos e recursos permitidos** para redes de **domínio e privadas** . Além disso, verifique se a política de SAN do sistema operacional está definida como **OnlineAll**. [Saiba mais](prepare-for-migration.md). |
 Conectar após a migração-Linux | Para se conectar às VMs do Azure após a migração usando SSH:<br/> Antes da migração, no computador local, verifique se o serviço Secure Shell está definido como iniciar e se as regras de firewall permitem uma conexão SSH.<br/> Após o failover, na VM do Azure, permita conexões de entrada para a porta SSH para as regras do grupo de segurança de rede na VM com failover e para a sub-rede do Azure à qual ela está conectada. Além disso, adicione um endereço IP público para a VM. |  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Migre VMs do Hyper-V](tutorial-migrate-hyper-v.md) para migração.

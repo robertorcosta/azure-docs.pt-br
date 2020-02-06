@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 575f3ed1a692087cc99881798f7f0ca74c5d3a66
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 0f9489cd702eab6038689f6ac710c32427665093
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024442"
+ms.locfileid: "77031111"
 ---
 # <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Usar o Java para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2 (versão prévia)
 
@@ -24,7 +24,7 @@ Este artigo mostra como usar o Java para criar e gerenciar diretórios, arquivos
 
 [Pacote (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) | [exemplos](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake) | [referência de API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html) | [mapeamento Gen1 para Gen2](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [fornecer comentários](https://github.com/Azure/azure-sdk-for-java/issues)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 > [!div class="checklist"]
 > * Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -258,8 +258,6 @@ static public void ManageFileACLs(DataLakeFileSystemClient fileSystemClient){
 ## <a name="download-from-a-directory"></a>Baixar de um diretório
 
 Primeiro, crie uma instância de **DataLakeFileClient** que representa o arquivo que você deseja baixar. Use o método **DataLakeFileClient. Read** para ler o arquivo. Use qualquer API de processamento de arquivo .NET para salvar bytes do fluxo em um arquivo. 
-
-Certifique-se de concluir o download chamando o método **DataLakeFileClient. Flush** .
 
 ```java
 static public void DownloadFile(DataLakeFileSystemClient fileSystemClient)

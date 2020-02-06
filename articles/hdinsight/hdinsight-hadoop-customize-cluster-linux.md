@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: 555596ba1040fcbd5c9131869fd275d749e0d734
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 0930bbcfff41a667f08f5dfc5744c16476ddd8a1
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934016"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031434"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalizar clusters do Azure HDInsight usando ações de script
 
@@ -144,7 +144,7 @@ Scripts de ação de script podem ser usados por meio dos utilitários a seguir:
 
 O HDInsight fornece scripts para instalar os seguintes componentes nos clusters do HDInsight:
 
-| Nome | Script |
+| {1&gt;Nome&lt;1} | Script |
 | --- | --- |
 | Adicionar uma conta de Armazenamento do Azure |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Confira [Adicionar outras contas de armazenamento ao HDInsight](hdinsight-hadoop-add-storage.md). |
 | Instalar o Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Confira [Instalar e usar o Hue em clusters Hadoop do HDInsight](hdinsight-hadoop-hue-linux.md). |
@@ -156,9 +156,9 @@ Esta seção explica as diferentes maneiras de usar ações de script ao criar u
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Usar uma ação de script durante a criação do cluster no portal do Azure
 
-1. Comece a criar um cluster conforme descrito em [Criar clusters baseados em Linux no HDInsight usando o portal do Azure](hdinsight-hadoop-create-linux-clusters-portal.md). Durante a criação do cluster, você chega à etapa 6, **ações de script**. Navegue até **opcional** >  **+ Enviar novo**.
+1. Comece a criar um cluster conforme descrito em [Criar clusters baseados em Linux no HDInsight usando o portal do Azure](hdinsight-hadoop-create-linux-clusters-portal.md). Na guia **configuração + preço** , selecione **+ Adicionar ação de script**.
 
-    ![Ação de script de cluster portal do Azure](./media/hdinsight-hadoop-customize-cluster-linux/azure-portal-cluster-classic-script-action.png)
+    ![Ação de script de cluster portal do Azure](./media/hdinsight-hadoop-customize-cluster-linux/azure-portal-cluster-configuration-scriptaction.png)
 
 1. Use a entrada __Selecionar um script__ para escolher um script criado previamente. Para usar um script personalizado, selecione __Personalizado__. Em seguida, forneça o __Nome__ e o __URI do script de bash__ para o seu script.
 
@@ -166,10 +166,10 @@ Esta seção explica as diferentes maneiras de usar ações de script ao criar u
 
     A tabela a seguir descreve os elementos no formulário:
 
-    | Propriedade | Valor |
+    | Propriedade | {1&gt;Valor&lt;1} |
     | --- | --- |
     | Selecionar um script | Para usar seu próprio script, selecione __Personalizado__. Caso contrário, selecione um dos scripts fornecidos. |
-    | Nome |Especifique um nome para a ação de script. |
+    | {1&gt;Nome&lt;1} |Especifique um nome para a ação de script. |
     | URI do script Bash |Especificar o URI do script. |
     | Cabeçalho/trabalhador/ZooKeeper |Especifique os nós em que o script é executado: **cabeçalho**, **trabalho**ou **ZooKeeper**. |
     | Parâmetros |Especifique os parâmetros, se exigido pelo script. |
@@ -180,9 +180,9 @@ Esta seção explica as diferentes maneiras de usar ações de script ao criar u
 
     ![Ações múltiplas de script do HDInsight](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png)
 
-    Quando você terminar de adicionar scripts, selecione o botão __selecionar__ e, em seguida, o botão __Avançar__ para continuar na seção __Resumo do cluster__ .
+    Quando você terminar de adicionar scripts, retorne à guia **configuração + preço** .
 
-1. Para criar o cluster, selecione __Criar__ na seleção __Resumo do cluster__.
+1. Conclua as etapas de criação de cluster restantes como de costume.
 
 ### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>Usar uma ação de script em modelos do Azure Resource Manager
 
@@ -246,10 +246,10 @@ Vá para o [Portal do Azure](https://portal.azure.com):
 
     A tabela a seguir descreve os elementos no formulário:
 
-    | Propriedade | Valor |
+    | Propriedade | {1&gt;Valor&lt;1} |
     | --- | --- |
     | Selecionar um script | Para usar seu próprio script, selecione __personalizado__. Caso contrário, selecione um script fornecido. |
-    | Nome |Especifique um nome para a ação de script. |
+    | {1&gt;Nome&lt;1} |Especifique um nome para a ação de script. |
     | URI do script Bash |Especificar o URI do script. |
     | Cabeçalho/Trabalho/Zookeeper |Especifique os nós em que o script é executado: **cabeçalho**, **trabalho**ou **ZooKeeper**. |
     | Parâmetros |Especifique os parâmetros, se exigido pelo script. |
@@ -503,7 +503,7 @@ Há duas exceções:
 
     Nenhuma nova ação de script pode ser executada neste cluster devido aos nomes de script conflitantes nos scripts existentes. Os nomes de script fornecidos na criação do cluster devem ser exclusivos. Os scripts existentes são executados após redimensionamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Desenvolver scripts de ação de script para o HDInsight](hdinsight-hadoop-script-actions-linux.md)
 * [Acrescentar armazenamento adicional a um cluster HDInsight](hdinsight-hadoop-add-storage.md)

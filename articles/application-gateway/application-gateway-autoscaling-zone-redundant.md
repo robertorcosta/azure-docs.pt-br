@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/09/2019
 ms.author: victorh
-ms.openlocfilehash: 66978f313f5cb3881f8befc61289d7de0f4214cb
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 8fe38870f593dd57d8e4dad5601ea404e99c3d10
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668144"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031553"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Dimensionamento automático e Gateway de Aplicativo com redundância de zona v2 
 
@@ -42,7 +42,7 @@ O Standard_v2 e o WAF_v2 SKU estão disponíveis nas seguintes regiões: Norte E
 Com a SKU v2, o modelo de preços é acionado pelo consumo e não é mais anexado a contagens ou tamanhos de instância. O preço da SKU V2 tem dois componentes:
 
 - **Preço fixo** – é o preço por hora (ou hora parcial) para provisionar um Standard_v2 ou WAF_v2 gateway. Observe que 0 instâncias mínimas adicionais ainda garantem a alta disponibilidade do serviço, que é sempre incluído com o preço fixo.
-- **Preço unitário de capacidade** -esse é um custo baseado em consumo que é cobrado além do custo fixo. A cobrança da unidade de capacidade também é calculada por hora ou hora parcial. Existem três dimensões de unidade de capacidade: a unidade de computação, as conexões persistentes e a taxa de transferência. A unidade de computação é a medida da capacidade consumida do processador. Fatores que afetam a unidade de computação são conexões TLS/s, computações de regravação de URL e processamento de regra WAF. Conexão persistente é uma medida de conexões TCP estabelecidas com o gateway de aplicativo em um determinado intervalo de cobrança. A taxa de transferência é média de megabits/s processadas pelo sistema em um determinado intervalo de cobrança.  A cobrança é feita em um nível de unidade de capacidade para qualquer coisa acima da contagem de instâncias reservadas.
+- **Preço unitário de capacidade** -esse é um custo baseado em consumo que é cobrado além do custo fixo. O encargo de unidade de capacidade também é calculado por hora ou parcial por hora. Há três dimensões na unidade de computação de unidade de capacidade, conexões persistentes e taxa de transferência. A unidade de computação é uma medida da capacidade do processador consumida. Fatores que afetam a unidade de computação são conexões TLS/s, computações de regravação de URL e processamento de regra WAF. Conexão persistente é uma medida de conexões TCP estabelecidas com o gateway de aplicativo em um determinado intervalo de cobrança. A taxa de transferência é média de megabits/s processadas pelo sistema em um determinado intervalo de cobrança.  A cobrança é feita em um nível de unidade de capacidade para qualquer coisa acima da contagem de instâncias reservadas.
 
 Cada unidade de capacidade é composta de no máximo: 1 unidade de computação ou 2500 conexões persistentes ou taxa de transferência de 2,22 Mbps.
 
@@ -59,12 +59,12 @@ A tabela a seguir mostra os preços de exemplo e são apenas para fins ilustrati
 
 **Preços no leste dos EUA**:
 
-|              Nome do SKU                             | Preço fixo ($/HR)  | Preço unitário de capacidade ($/CU-hr)   |
+|              Nome da SKU                             | Preço fixo ($/HR)  | Preço unitário de capacidade ($/CU-hr)   |
 | ------------------------------------------------- | ------------------- | ------------------------------- |
 | Standard_v2                                       |    0,20             | 0, 80                          |
 | WAF_v2                                            |    0,36             | 0, 144                          |
 
-Para obter mais informações sobre preços, consulte a [página de preços](https://azure.microsoft.com/pricing/details/application-gateway/). A cobrança está agendada para iniciar em 1º de julho de 2019.
+Para obter mais informações sobre preços, consulte a [página de preços](https://azure.microsoft.com/pricing/details/application-gateway/). 
 
 **Exemplo 1**
 
@@ -150,12 +150,12 @@ A tabela a seguir compara os recursos disponíveis com cada SKU.
 | Roteamento baseado em URL                                 | &#x2713; | &#x2713; |
 | Hospedagem de vários sites                             | &#x2713; | &#x2713; |
 | Redirecionamento de tráfego                               | &#x2713; | &#x2713; |
-| WAF (Firewall do Aplicativo Web)                    | &#x2713; | &#x2713; |
+| Firewall do aplicativo Web (WAF)                    | &#x2713; | &#x2713; |
 | Regras personalizadas de WAF                                  |          | &#x2713; |
 | Encerramento do protocolo SSL            | &#x2713; | &#x2713; |
 | Criptografia SSL de ponta a ponta                         | &#x2713; | &#x2713; |
 | Afinidade de sessão                                  | &#x2713; | &#x2713; |
-| Páginas de erros personalizados                                | &#x2713; | &#x2713; |
+| Páginas de erro personalizadas                                | &#x2713; | &#x2713; |
 | Suporte para WebSocket                                 | &#x2713; | &#x2713; |
 | Suporte do HTTP/2                                    | &#x2713; | &#x2713; |
 | Descarregamento de conexão                               | &#x2713; | &#x2713; |
@@ -165,24 +165,24 @@ A tabela a seguir compara os recursos disponíveis com cada SKU.
 
 ## <a name="differences-with-v1-sku"></a>Diferenças com o SKU v1
 
-|Entre|Detalhes|
+|Diferença|Detalhes|
 |--|--|
-|Certificado de autenticação|Sem suporte.<br>Para saber mais, confira [Visão geral de SSL de ponta a ponta com o Gateway de Aplicativo](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
+|Certificado de autenticação|{1&gt;Sem suporte.&lt;1}<br>Para saber mais, confira [Visão geral de SSL de ponta a ponta com o Gateway de Aplicativo](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
 |Combinando Standard_v2 e o Gateway de Aplicativo Standard na mesma sub-rede|Sem suporte|
 |Rota Definida pelo Usuário (UDR) na sub-rede de Gateway de Aplicativo|Sem suporte|
 |NSG para o intervalo de porta de entrada| -65200 a 65535 para Standard_v2 SKU<br>-65503 to 65534 para Standard SKU.<br>Consulte mais informações em [Perguntas Frequentes](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
-|Logs de desempenho no diagnóstico do Azure|Sem suporte.<br>As métricas do Azure devem ser usadas.|
+|Logs de desempenho no diagnóstico do Azure|{1&gt;Sem suporte.&lt;1}<br>As métricas do Azure devem ser usadas.|
 |Cobrança|Cobrança agendada para iniciar em 1º de julho de 2019.|
 |Modo FIPS|Essas não atualmente têm suporte.|
 |Modo somente de ILB|Não há suporte para esse recurso no momento. Público e o modo ILB juntos tem suporte.|
-|Integração do Netwatcher|Sem suporte.|
+|Integração do Netwatcher|{1&gt;Sem suporte.&lt;1}|
 |Integração da central de segurança do Azure|Ainda não está disponível.
 
 ## <a name="migrate-from-v1-to-v2"></a>Migrar de v1 para v2
 
 Um script de Azure PowerShell está disponível na galeria do PowerShell para ajudá-lo a migrar do seu Application Gateway/WAF v1 para o SKU de dimensionamento automático v2. Esse script ajuda a copiar a configuração do seu gateway v1. A migração de tráfego ainda é sua responsabilidade. Para obter mais informações, consulte [migrar aplicativo Azure gateway de v1 para v2](migrate-v1-v2.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Início rápido: tráfego direto da Web com Aplicativo Azure gateway-portal do Azure](quick-create-portal.md)
 - [Criar um gateway de aplicativo com redundância de zona e dimensionamento automático com um endereço IP virtual reservado usando o Azure PowerShell](tutorial-autoscale-ps.md)

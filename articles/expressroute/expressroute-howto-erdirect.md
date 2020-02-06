@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: jaredro
-ms.openlocfilehash: c5cb8366465d5983823184c87eb54fad6aaffbd0
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 2722a852b1119ef619bc414bce5cb3a8ff6f8f00
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705914"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031605"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Como configurar o ExpressRoute Direct
 
@@ -27,7 +27,13 @@ O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede gl
 
    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
    ```
-2. Liste todas as localizações onde há suporte para o ExpressRoute Direct.
+   
+2. Registre novamente sua assinatura para Microsoft. Network para acessar as APIs expressrouteportslocation e expressrouteport.
+
+   ```powershell
+   Register-AzResourceProvider -ProviderNameSpace "Microsoft.Network"
+   ```   
+3. Liste todas as localizações onde há suporte para o ExpressRoute Direct.
   
    ```powershell
    Get-AzExpressRoutePortsLocation
@@ -60,7 +66,7 @@ O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede gl
    Contact             : support@equinix.com
    AvailableBandwidths : []
    ```
-3. Determinar se uma localização listada acima tem largura de banda disponível
+4. Determinar se uma localização listada acima tem largura de banda disponível
 
    ```powershell
    Get-AzExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
@@ -82,7 +88,7 @@ O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede gl
                           }
                         ]
    ```
-4. Criar um recurso do ExpressRoute Direct com base na localização escolhida acima
+5. Criar um recurso do ExpressRoute Direct com base na localização escolhida acima
 
    O ExpressRoute Direct dá suporte a encapsulamento QinQ e Dot1Q. Se o QinQ for selecionado, cada circuito do ExpressRoute será atribuído dinamicamente a uma marca S e será exclusivo em todo o recurso ExpressRoute Direct. Cada marca C no circuito precisa ser exclusiva no circuito, mas não no ExpressRoute Direct.  
 
@@ -269,6 +275,6 @@ Crie um circuito no recurso ExpressRoute Direct.
   GatewayManagerEtag     
   ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter mais informações sobre o ExpressRoute Direct, confira [Visão geral](expressroute-erdirect-about.md).

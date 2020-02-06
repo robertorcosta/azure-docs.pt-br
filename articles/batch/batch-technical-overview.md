@@ -4,7 +4,7 @@ description: Saiba mais sobre o uso do serviço Lote do Azure para cargas de tra
 services: batch
 documentationcenter: ''
 author: mscurrell
-manager: gwallace
+manager: evansma
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: markscu
 ms.custom: mvc
-ms.openlocfilehash: ee61f0f550a09640469914d29bde175028b59142
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7ca2a5e91a0ec0d765e106baca20f135996bc26e
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094335"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022793"
 ---
 # <a name="what-is-azure-batch"></a>O que é o Lote do Azure?
 
@@ -71,7 +71,7 @@ O diagrama a seguir mostra etapas em um fluxo de trabalho do Lote comum, com um 
 ![Instruções passo a passo da solução do Lote](./media/batch-technical-overview/tech_overview_03.png)
 
 
-|Etapa  |DESCRIÇÃO  |
+|Etapa  |Descrição  |
 |---------|---------|
 |1.  Carregar os **arquivos de entrada** e o **aplicativo** para processar esses arquivos em sua conta do Armazenamento do Azure.     |Os arquivos de entrada podem ser quaisquer dados que o aplicativo processe, como dados de modelagem financeira ou arquivos de vídeo a serem transcodificados. Os arquivos do aplicativo podem incluir scripts ou aplicativos que processam os dados, como um transcodificador de mídia.|
 |2.  Criar um **pool** de nós de computação do Lote na sua conta do Lote, um **trabalho** para executar a carga de trabalho no pool e **tarefas** no trabalho.     | Os nós do pool são as VMs que executam suas tarefas. Especifique propriedades, como o número e o tamanho de nós de uma imagem de VM Windows ou Linux, e um aplicativo para instalar quando os nós ingressarem no pool. Gerencie o custo e o tamanho do pool usando [VMs de baixa prioridade](batch-low-pri-vms.md) ou [dimensionando automaticamente](batch-automatic-scaling.md) o número de nós de acordo com as alterações de carga de trabalho. <br/><br/>Quando você adiciona tarefas a um trabalho, o serviço de Lote agenda automaticamente as tarefas para execução em nós de computação no pool. Cada tarefa usa o aplicativo que você carregou para processar os arquivos de entrada. |

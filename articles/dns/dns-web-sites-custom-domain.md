@@ -2,17 +2,17 @@
 title: Tutorial - Criar registros DNS personalizados para um aplicativo Web
 description: Neste tutorial, você aprenderá como criar registros DNS de domínio personalizado para o aplicativo Web usando o DNS do Azure.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
-ms.author: allensu
-ms.openlocfilehash: e0a0129f45e5e7612b6ecd79475a49822b42ba19
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 8722a52a097f7f830287d125a4e56e9bbcb9f932
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211213"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939096"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Tutorial: Criar registros DNS em um domínio personalizado para um aplicativo Web 
 
@@ -43,7 +43,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -180,7 +180,7 @@ Você deve ver a mesma página para ambas as URLs. Por exemplo:
 ![Serviço de aplicativo da Contoso](media/dns-web-sites-custom-domain/contoso-app-svc.png)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não precisar mais dos recursos criados neste tutorial, você poderá excluir o grupo de recursos **myresourcegroup**.
 

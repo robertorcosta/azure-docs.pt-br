@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 2d26cbce3398b9a44530553fbff0413c631b7579
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 0649908e4767e48d23306c72b8db92dea9f26284
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75744774"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030908"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Dimensionar clusters do Azure HDInsight
 
@@ -29,7 +29,7 @@ Você pode dimensionar um cluster manualmente usando um dos métodos descritos a
 
 A Microsoft fornece os seguintes utilitários para dimensionar clusters:
 
-|Utilitário | Description|
+|Utilitário | Descrição|
 |---|---|
 |[AZ do PowerShell](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -clustername \<nome do cluster >-TargetInstanceCount \<newSize >|
 |[AzureRM do PowerShell](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -clustername \<nome do cluster >-TargetInstanceCount \<newSize >|
@@ -37,7 +37,7 @@ A Microsoft fornece os seguintes utilitários para dimensionar clusters:
 |[CLI do Azure](hdinsight-administer-use-command-line.md)|redimensionamento de cluster do Azure hdinsight \<ClusterName > \<contagem de instâncias de destino > |
 |[Azure portal](https://portal.azure.com)|Abra o painel do cluster HDInsight, selecione **tamanho do cluster** no menu à esquerda e, no painel tamanho do cluster, digite o número de nós de trabalho e selecione salvar.|  
 
-![Opção portal do Azure dimensionar cluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade1.png)
+![Opção portal do Azure dimensionar cluster](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
 
 Usando qualquer um desses métodos, você pode aumentar ou reduzir verticalmente seu cluster HDInsight em apenas alguns minutos.
 
@@ -59,7 +59,7 @@ O impacto da alteração do número de nós de dados varia em cada tipo de clust
 
     Quando um cluster Hadoop é reduzido verticalmente pela diminuição do número de nós de dados, alguns dos serviços no cluster são reiniciados. Esse comportamento faz com que todos os trabalhos em execução e pendentes falhem após a conclusão da operação de dimensionamento. Você pode, no entanto, reenviar os trabalhos quando a operação for concluída.
 
-* Apache HBase
+* HBase no Apache
 
     Você pode adicionar ou remover diretamente nós do cluster HBase enquanto ele é executado. Servidores Regionais são equilibrados automaticamente em alguns minutos após o término da operação de dimensionamento. No entanto, você pode equilibrar manualmente os servidores regionais fazendo logon no nó de cabeçalho do cluster e executando os seguintes comandos em uma janela de prompt de comando:
 
@@ -243,7 +243,7 @@ Os servidores de região são balanceados automaticamente em alguns minutos apó
     balancer
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Dimensionar automaticamente os clusters do Azure HDInsight](hdinsight-autoscale-clusters.md)
 * [Introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md)

@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/09/2019
-ms.openlocfilehash: fc38dce3deaa601c9ed36f60439a08bb89cc7630
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 1cc5932eca520b0bbc0c592b54d36ea8b5942b08
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646890"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031622"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controle do código-fonte no Azure Data Factory
 
@@ -70,7 +70,7 @@ Ambos os métodos abrem o painel de configuração configurações do repositór
 
 O painel de configuração mostra as seguintes configurações de Azure Repos repositório de código:
 
-| Configuração | Description | Valor |
+| Configuração | Descrição | {1&gt;Valor&lt;1} |
 |:--- |:--- |:--- |
 | **Tipo de repositório** | O tipo do repositório de código do Azure Repos.<br/> | Azure DevOps git ou GitHub |
 | **Azure Active Directory** | Seu nome de locatário do Microsoft Azure AD. | `<your tenant name>` |
@@ -157,7 +157,7 @@ O painel de configuração mostra as seguintes configurações do repositório d
 
 - A integração do GitHub com o Data Factory ferramentas de criação visual funciona apenas na versão disponível do Data Factory.
 
-- Um máximo de 1.000 entidades por tipo de recurso (como pipelines e conjuntos de valores) pode ser buscado em uma única ramificação do GitHub. Se esse limite for atingido, o será sugerido para dividir seus recursos em fábricas separadas.
+- Um máximo de 1.000 entidades por tipo de recurso (como pipelines e conjuntos de valores) pode ser buscado em uma única ramificação do GitHub. Se esse limite for atingido, o será sugerido para dividir seus recursos em fábricas separadas. O Git DevOps do Azure não tem essa limitação.
 
 ## <a name="switch-to-a-different-git-repo"></a>Alternar para um repositório Git diferente
 
@@ -249,15 +249,20 @@ Se a ramificação de publicação estiver fora de sincronia com a ramificação
 
 1. Remover seu repositório git atual
 1. Reconfigure o Git com as mesmas configurações, mas certifique-se de que **importar recursos existentes do data Factory para o repositório** esteja selecionado e escolha **novo Branch**
-1. Excluir todos os recursos de sua ramificação de colaboração
 1. Criar uma solicitação de pull para mesclar as alterações para a ramificação de colaboração 
+
+Abaixo estão alguns exemplos de situações que podem causar uma ramificação de publicação obsoleta:
+- Um usuário tem várias ramificações. Em um Branch de recurso, eles excluíram um serviço vinculado que não está associado a AKV (os serviços vinculados não AKV são publicados imediatamente, independentemente de estarem em git ou não) e nunca mesclaram a ramificação de recursos no brnach de colaboração.
+- Um usuário modificou o data factory usando o SDK ou o PowerShell
+- Um usuário moveu todos os recursos para uma nova ramificação e tentou publicar pela primeira vez. Os serviços vinculados devem ser criados manualmente ao importar recursos.
+- Um usuário carrega um serviço vinculado não AKV ou um Integration Runtime JSON manualmente. Eles fazem referência a esse recurso de outro recurso, como um conjunto de um DataSet, serviço vinculado ou pipeline. Um serviço vinculado não AKV criado por meio do UX é publicado imediatamente porque as credenciais precisam ser criptografadas. Se você carregar um conjunto de uma referência a esse serviço vinculado e tentar publicar, a UX permitirá que ele exista no ambiente git. Ele será rejeitado no momento da publicação, pois não existe no serviço de data factory.
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 Selecione **Feedback** para comentar sobre os recursos ou notificar a Microsoft sobre problemas com a ferramenta:
 
 ![Comentários](media/author-visually/provide-feedback.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para saber mais sobre o monitoramento e o gerenciamento de pipelines, c [Monitorar e gerenciar os pipelines programaticamente](monitor-programmatically.md).
 * Para implementar a integração e a implantação contínuas, consulte [integração e entrega contínuas (CI/CD) em Azure data Factory](continuous-integration-deployment.md).
