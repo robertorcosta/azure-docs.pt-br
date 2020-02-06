@@ -1,14 +1,14 @@
 ---
 title: Implantar a amostra de blueprint do PCI-DSS v3.2.1
 description: Etapas de implantação para a amostra de blueprint do Padrão de Segurança de Dados do Setor de Cartões de Pagamento v3.2.1, incluindo detalhes do parâmetro de artefato de blueprint.
-ms.date: 06/24/2019
+ms.date: 01/29/2020
 ms.topic: sample
-ms.openlocfilehash: aa641b35f1a7533a13803e7984c83df2f3268de6
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 9df9392430fd0496ffb5e635a6fc3e31ba708208
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546560"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905547"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Implantar amostra de blueprint do PCI-DSS v3.2.1
 
@@ -91,7 +91,7 @@ Quando a cópia do exemplo de blueprint for **Publicada** com êxito, ele poder�
 
 A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 
-|Nome do artefato|Tipo de artefato|Nome do parâmetro|DESCRIÇÃO|
+|Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 |-|-|-|-|
 |\[Versão prévia\] auditar os controles do PCI v3.2.1:2018 e implantar Extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de política|Lista de tipos de recursos | Auditar configuração de diagnóstico para tipos de recursos selecionado. O valor padrão é todos os recursos selecionados| 
 |Locais permitidos|Atribuição de política|Lista de locais permitidos|Lista de locais de data center permitidos para qualquer recurso a ser implantado. Essa lista é personalizável para os locais desejados do Azure globalmente. Selecione os locais que você deseja permitir.| 

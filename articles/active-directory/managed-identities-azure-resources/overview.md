@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6c4363d6124a7cec075003f7b54a2825c3f489a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 1f5446e836a65c6d40c2cc6703757670988593bd
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977981"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896590"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>O que são identidades gerenciadas para recursos do Azure?
 
@@ -135,7 +135,7 @@ Saiba como usar uma identidade gerenciada com outros serviços do Azure:
 * [Gerenciamento de API do Azure](../../api-management/api-management-howto-use-managed-service-identity.md)
 * [Instâncias de Contêiner do Azure](../../container-instances/container-instances-managed-identity.md)
 * [Tarefas do Registro de Contêiner do Azure](../../container-registry/container-registry-tasks-authentication-managed-identity.md)
-* [Hubs de eventos do Azure](../../event-hubs/event-hubs-managed-service-identity.md)
+* [Hubs de eventos do Azure](../../event-hubs/authenticate-managed-identity.md)
 * [Azure Functions](/azure/app-service/overview-managed-identity)
 * [Serviço de Kubernetes do Azure](/azure/aks/use-managed-identity)
 * [Aplicativos Lógicos do Azure](/azure/logic-apps/create-managed-service-identity)
