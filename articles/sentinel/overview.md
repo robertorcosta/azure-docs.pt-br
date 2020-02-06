@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: 964ba16fb7421c58f43d8b7d0d0d96f5cd377579
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 5f3a8fa7b9619958db1d7213236e27d00b417c54
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261876"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939123"
 ---
 # <a name="what-is-azure-sentinel"></a>O que é o Azure Sentinel?
 
@@ -31,23 +31,23 @@ O Azure Sentinel é sua exibição geral da empresa, amenizando o estresse de at
 
 - **Colete dados na escala de nuvem** de todos os usuários, dispositivos, aplicativos e infraestrutura, local e em múltiplas nuvens. 
 
-- **Detecte ameaças não detectadas antes** e minimize falsos positivos usando a análise a e inteligência contra ameaças inigualáveis da Microsoft. 
+- **Detecte ameaças não detectadas antes** e minimize falsos positivos usando a análise e a inteligência contra ameaças incomparáveis da Microsoft. 
 
 - **Investigue ameaças com inteligência artificial** e busque por atividades suspeitas em escala, acessando anos de trabalho sobre segurança cibernética na Microsoft. 
 
 - **Responda a incidentes de forma rápida** com orquestração interna e automação de tarefas comuns.
 
-
 ![Principais recursos do Azure Sentinel](./media/overview/core-capabilities.png)
 
-Aproveitando a gama completa de serviços existentes do Azure, o Azure Sentinel incorpora nativamente bases comprovadas, como Log Analytics e Aplicativos Lógicos. O Azure Sentinel enriquece a investigação e a detecção com IA, além de oferecer um fluxo de inteligência contra ameaças da Microsoft e permitir que você traga sua própria inteligência contra ameaças. 
+Aproveitando a gama completa de serviços existentes do Azure, o Azure Sentinel incorpora nativamente bases comprovadas, como Log Analytics e Aplicativos Lógicos. O Azure Sentinel enriquece a investigação e a detecção com IA, além de oferecer o fluxo de inteligência da Microsoft contra ameaças e permitir que você use sua própria inteligência contra ameaças. 
 
- 
 ## <a name="connect-to-all-your-data"></a>Conecte-se a todos os seus dados
 
-Para a integração do Azure Sentinel, você precisa primeiro [se conectar às suas fontes de segurança](connect-data-sources.md). O Azure Sentinel vem com uma série de conectores para soluções da Microsoft, disponíveis prontas para o uso e fornecendo integração em tempo real, incluindo soluções de Proteção contra Ameaças da Microsoft, bem como fontes do Microsoft 365, como Office 365, Azure AD, ATP do Azure, Microsoft Cloud App Security e muito mais. Além disso, existem conectores internos no ecossistema de segurança mais amplo para soluções que não são da Microsoft. Você também pode usar formato comum de eventos, Syslog ou API REST para conectar suas fontes de dados ao Azure Sentinel.  
+Para a integração do Azure Sentinel, você precisa primeiro [se conectar às suas fontes de segurança](connect-data-sources.md). O Azure Sentinel vem com uma série de conectores para soluções da Microsoft, disponíveis prontas para o uso e fornecendo integração em tempo real, incluindo soluções de Proteção contra Ameaças da Microsoft 365, e fontes do Microsoft 365, tais como Office 365, Azure AD, Azure ATP, Microsoft Cloud App Security e muito mais. Além disso, existem conectores internos no ecossistema de segurança mais amplo para soluções que não são da Microsoft. Você também pode usar formato comum de eventos, Syslog ou API REST para conectar suas fontes de dados ao Azure Sentinel.  
 
 ![Coletores de dados](./media/collect-data/collect-data-page.png)
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="workbooks"></a>Pastas de trabalho
 
@@ -93,4 +93,4 @@ A comunidade do Azure Sentinel é um recurso eficiente para automação e detec�
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para começar a usar o Azure Sentinel, você precisa ter uma assinatura do Microsoft Azure. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/free/).
-- Saiba como [integrar seus dados ao Azure Sentinel](quickstart-onboard.md) e [obtenha visibilidade de seus dados, além de possíveis ameaças](quickstart-get-visibility.md).
+- Saiba como [integrar seus dados ao Azure Sentinel](quickstart-onboard.md) e [obtenha visibilidade de seus dados e de possíveis ameaças](quickstart-get-visibility.md).

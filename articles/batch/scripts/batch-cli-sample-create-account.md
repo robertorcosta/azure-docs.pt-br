@@ -3,8 +3,8 @@ title: Exemplo de Script da CLI do Azure – Criar Conta do Lote – Serviço em
 description: Esse script cria uma conta do Lote do Azure em modo de Serviço em lotes e mostra como consultar ou atualizar várias propriedades da conta.
 services: batch
 documentationcenter: ''
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -13,13 +13,13 @@ ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
-ms.author: jushiman
-ms.openlocfilehash: 8d19ab24f792253e83656865a5143dc4d587e31d
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: 2a11e3d7b8ba2b9f4a0d0d373367575a779eebc4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029372"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77017081"
 ---
 # <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>Exemplo de CLI: Criar uma conta do Lote no modo de serviço do Lote
 

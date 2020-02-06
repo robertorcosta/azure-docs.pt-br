@@ -1,77 +1,77 @@
 ---
-title: 'Designer: prever exemplo de risco de crédito'
+title: 'Designer: exemplo de previsão do risco de crédito'
 titleSuffix: Azure Machine Learning
-description: Crie um classificador e use scripts Python personalizados para prever o risco de crédito usando o designer de Azure Machine Learning.
+description: Crie um classificador e use scripts personalizados do Python para prever o risco de crédito usando o designer do Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: 1430db34f9c31cbd9d9df921650c628d265bccc5
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
-ms.translationtype: MT
+ms.openlocfilehash: ed8ee9b1c711ee0056377154379b8df56e0785df
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311080"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964593"
 ---
-# <a name="build-a-classifier--use-python-scripts-to-predict-credit-risk-using-azure-machine-learning-designer"></a>Criar um classificador & usar scripts Python para prever o risco de crédito usando o designer de Azure Machine Learning
+# <a name="build-a-classifier--use-python-scripts-to-predict-credit-risk-using-azure-machine-learning-designer"></a>Crie um classificador e use scripts do Python para prever o risco de crédito usando o designer do Azure Machine Learning
 
-**Exemplo 4 do designer**
+**Amostra 4 do designer (versão prévia)**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Este artigo mostra como criar um pipeline de aprendizado de máquina complexo usando o designer. Você aprenderá a implementar a lógica personalizada usando scripts Python e a comparar vários modelos para escolher a melhor opção.
+Este artigo mostra como criar um pipeline complexo de aprendizado de máquina usando o designer (versão prévia). Você aprenderá a implementar uma lógica personalizada usando scripts do Python e comparar vários modelos para escolher a melhor opção.
 
-Este exemplo treina um classificador para prever o risco de crédito usando informações de aplicativo de crédito, como histórico de crédito, idade e número de cartões de crédito. No entanto, você pode aplicar os conceitos neste artigo para lidar com seus próprios problemas de Machine Learning.
+Esta amostra treina um classificador para prever o risco de crédito usando informações de pedido de crédito, como histórico de crédito, idade e número de cartões de crédito. No entanto, você pode aplicar os conceitos deste artigo para resolver os próprios problemas de aprendizado de máquina.
 
-Este é o grafo concluído para este pipeline:
+Este é o grafo concluído deste pipeline:
 
-[![grafo do pipeline](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/graph.png)](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Grafo do pipeline](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/graph.png)](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/graph.png#lightbox)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [aml-ui-prereq](../../includes/aml-ui-prereq.md)]
 
-4. Clique em exemplo 4 para abri-lo.
+4. Clique na amostra 4 para abri-la.
 
 ## <a name="data"></a>Dados
 
-Este exemplo usa o conjunto de teste de cartão de crédito alemão do repositório Irvine de UC. Ele contém 1.000 amostras com 20 recursos e um rótulo. Cada amostra representa uma pessoa. Os 20 recursos incluem recursos numéricos e categóricos. Para obter mais informações sobre o conjunto de dados, consulte o [site do UCI](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29). A última coluna é o rótulo, que denota o risco de crédito e tem apenas dois valores possíveis: alto risco de crédito = 2 e baixo risco de crédito = 1.
+Esta amostra usa o conjunto de dados Cartões de Crédito Alemães do repositório do UC Irvine. Ele contém 1.000 amostras com 20 recursos e um rótulo. Cada amostra representa uma pessoa. Os 20 recursos incluem recursos numéricos e categóricos. Para obter mais informações sobre o conjunto de dados, confira o [site do UCI](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29). A última coluna é o rótulo, que indica o risco de crédito e só tem dois valores possíveis: alto risco de crédito = 2 e baixo risco de crédito = 1.
 
 ## <a name="pipeline-summary"></a>Resumo do pipeline
 
-Nesse pipeline, você compara duas abordagens diferentes para a geração de modelos para resolver esse problema:
+Neste pipeline, você vai comparar duas abordagens diferentes de geração de modelos para resolver este problema:
 
-- Treinamento com o DataSet original.
-- Treinamento com um conjunto de uma réplica.
+- Treinamento com o conjunto de dados original.
+- Treinamento com um conjunto de dados replicado.
 
-Com ambas as abordagens, você avalia os modelos usando o conjunto de testes com replicação para garantir que os resultados sejam alinhados com a função de custo. Teste dois classificadores com ambas as abordagens: **máquina de vetor de suporte de duas classes** e **árvore de decisão aumentada de duas classes**.
+Com ambas as abordagens, você avaliará os modelos usando o conjunto de dados de teste com replicação para garantir que os resultados sejam alinhados com a função de custo. Teste dois classificadores com ambas as abordagens: **Computador de Vetor de Suporte de Duas Classes** e **Árvore de Decisão Aumentada de Duas Classes**.
 
-O custo de classificar incorretamente um exemplo de baixo risco como alto é 1, e o custo de classificar incorretamente um exemplo de alto risco como baixo é 5. Usamos um módulo **Executar script Python** para considerar esse custo de classificação ineficiente.
+O custo da classificação incorreta de um exemplo de baixo risco como alto é 1, e o custo da classificação incorreta de um exemplo de alto risco como baixo é 5. Usamos um módulo **Executar Script do Python** para considerar esse custo de classificação incorreta.
 
 Este é o grafo do pipeline:
 
-[![grafo do pipeline](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/graph.png)](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Grafo do pipeline](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/graph.png)](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="data-processing"></a>Processamento de dados
 
-Comece usando o módulo **Editor de metadados** para adicionar nomes de coluna para substituir os nomes de coluna padrão por nomes mais significativos, obtidos da descrição do conjunto de informações no site UCI. Forneça os novos nomes de coluna como valores separados por vírgula no campo nome da **nova coluna** do **Editor de metadados**.
+Comece usando o módulo **Editor de Metadados** para adicionar nomes de colunas e substituir os nomes de colunas padrão por nomes mais significativos, obtidos na descrição do conjunto de dados no site do UCI. Forneça os novos nomes de colunas como valores separados por vírgula no campo do nome da **Nova coluna** do **Editor de Metadados**.
 
-Em seguida, gere os conjuntos de treinamento e teste usados para desenvolver o modelo de previsão de risco. Divida o conjunto de dados original em conjuntos de treinamento e teste do mesmo tamanho usando o módulo **dividir data** . Para criar conjuntos de tamanho igual, defina a **fração de linhas na primeira** opção de conjunto de resultados de saída como 0,7.
+Em seguida, gere os conjuntos de treinamento e teste usados para desenvolver o modelo de previsão de risco. Divida o conjunto de dados original em conjuntos de treinamento e teste do mesmo tamanho usando o módulo **Dividir Dados**. Para criar conjuntos de tamanho igual, defina a opção **Fração de linhas no primeiro conjunto de dados de saída** como 0,7.
 
-### <a name="generate-the-new-dataset"></a>Gerar o novo conjunto de um
+### <a name="generate-the-new-dataset"></a>Gerar o novo conjunto de dados
 
-Como o custo de subestimar o risco é alto, defina o custo da classificação indevido como esta:
+Como o custo de subestimação do risco é alto, defina o custo de classificação incorreta da seguinte maneira:
 
-- Para casos de alto risco, classificado incorretamente como baixo risco: 5
-- Para casos de baixo risco, classificados incorretamente como alto risco: 1
+- Para casos de alto risco classificados incorretamente como de baixo risco: 5
+- Para casos de baixo risco classificados incorretamente como de alto risco: 1
 
-Para refletir essa função de custo, gere um novo conjunto de um. No novo conjunto de um, cada exemplo de alto risco é replicado cinco vezes, mas o número de exemplos de baixo risco não é alterado. Divida os dados em conjuntos de dados de treinamento e teste antes da replicação para impedir que a mesma linha seja em ambos os conjuntos.
+Para refletir essa função de custo, gere um novo conjunto de dados. No novo conjunto de dados, cada exemplo de alto risco é replicado cinco vezes, mas o número de exemplos de baixo risco não é alterado. Divida os dados em conjuntos de dados de treinamento e teste antes da replicação para impedir que a mesma linha apareça em ambos os conjuntos.
 
-Para replicar os dados de alto risco, coloque este código Python em um módulo **Executar script Python** :
+Para replicar os dados de alto risco, coloque este código do Python em um módulo **Executar Script do Python**:
 
 ```Python
 import pandas as pd
@@ -85,42 +85,42 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     return result,
 ```
 
-O módulo **Executar script Python** replica os conjuntos de testes de treinamento e de teste.
+O módulo **Executar Script do Python** replica os conjuntos de dados de treinamento e teste.
 
 ### <a name="feature-engineering"></a>Engenharia de recursos
 
-O algoritmo de **máquina de vetor de suporte de duas classes** requer dados normalizados. Portanto, use o módulo **normalizar dados** para normalizar os intervalos de todos os recursos numéricos com uma transformação `tanh`. Uma transformação `tanh` converte todos os recursos numéricos em valores dentro de um intervalo de 0 e 1, preservando a distribuição geral dos valores.
+O algoritmo **Computador de Vetor de Suporte de Duas Classes** exige dados normalizados. Portanto, use o módulo **Normalizar Dados** para normalizar os intervalos de todos os recursos numéricos com uma transformação `tanh`. Uma transformação `tanh` converte todos os recursos numéricos em valores dentro de um intervalo de 0 e 1, preservando a distribuição geral dos valores.
 
-O módulo de **máquina de vetor de suporte de duas classes** manipula recursos de cadeia de caracteres, convertendo-os para recursos categóricos e, em seguida, para recursos binários com um valor de zero ou um. Portanto, você não precisa normalizar esses recursos.
+O módulo **Computador de Vetor de Suporte de Duas Classes** processa os recursos de cadeia de caracteres, convertendo-os para recursos categóricos e, em seguida, em recursos binários com um valor igual a zero ou um. Portanto, não é necessário normalizar esses recursos.
 
 ## <a name="models"></a>Modelos
 
-Como você aplicou dois classificadores, o SVM ( **computador de vetor de suporte de duas classes** ) e **a árvore de decisão aumentada de duas classes**e dois conjuntos de valores, você gera um total de quatro modelos:
+Como você aplicou dois classificadores, **Computador de Vetor de Suporte de Duas Classes** (SVM) e **Árvore de Decisão Aumentada de Duas Classes**, e dois conjuntos de dados, você vai gerar um total de quatro modelos:
 
-- SVM treinado com dados originais.
-- SVM treinado com dados replicados.
-- Árvore de decisão aumentada treinada com dados originais.
-- Árvore de decisão aumentada treinada com dados replicados.
+- SVM treinado com os dados originais.
+- SVM treinado com os dados replicados.
+- Árvore de Decisão Aumentada treinada com os dados originais.
+- Árvore de Decisão Aumentada treinada com os dados replicados.
 
-Este exemplo usa o fluxo de trabalho de ciência de dados padrão para criar, treinar e testar os modelos:
+Esta amostra usa o fluxo de trabalho de ciência de dados padrão para criar, treinar e testar os modelos:
 
-1. Inicialize os algoritmos de aprendizado, usando o **computador de vetor de suporte de duas classes** e **a árvore de decisão aumentada de duas classes**.
-1. Use o **modelo de treinamento** para aplicar o algoritmo aos dados e criar o modelo real.
-1. Use o **modelo de Pontuação** para produzir pontuações usando os exemplos de teste.
+1. Inicialize os algoritmos de aprendizado usando **Computador de Vetor de Suporte de Duas Classes** e **Árvore de Decisão Aumentada de Duas Classes**.
+1. Use o módulo **Treinar Modelo** para aplicar o algoritmo aos dados e criar o modelo real.
+1. Use o módulo **Pontuar Modelo** para produzir pontuações usando os exemplos de teste.
 
-O diagrama a seguir mostra uma parte desse pipeline, na qual os conjuntos de treinamento originais e replicados são usados para treinar dois modelos de SVM diferentes. O **modelo Train** está conectado ao conjunto de treinamento e o **modelo de Pontuação** está conectado ao conjunto de teste.
+O diagrama a seguir mostra uma parte desse pipeline, na qual os conjuntos de treinamento original e replicado são usados para treinar dois modelos de SVM diferentes. O módulo **Treinar Modelo** está conectado ao conjunto de treinamento, e o módulo **Pontuar Modelo** está conectado ao conjunto de teste.
 
-![Grafo de pipeline](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/score-part.png)
+![Grafo do pipeline](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/score-part.png)
 
-No estágio de avaliação do pipeline, você computa a precisão de cada um dos quatro modelos. Para esse pipeline, use o **modelo Evaluate** para comparar exemplos que têm o mesmo custo de classificação inexistente.
+No estágio de avaliação do pipeline, você calculará a precisão de cada um dos quatro modelos. Para esse pipeline, use o módulo **Avaliar Modelo** para comparar exemplos que tenham o mesmo custo de classificação incorreta.
 
-O módulo **modelo de avaliação** pode calcular as métricas de desempenho para até dois modelos pontuados. Portanto, você pode usar uma instância do **modelo Evaluate** para avaliar os dois modelos SVM e outra instância do **modelo Evaluate** para avaliar os dois modelos de árvore de decisão impulsionados.
+O módulo **Avaliar Modelo** pode calcular as métricas de desempenho para até dois modelos pontuados. Portanto, você pode usar uma instância de **Avaliar Modelo** para avaliar os dois modelos de SVM e outra instância de **Avaliar Modelo** para avaliar os dois modelos de Árvore de Decisão Aumentada.
 
-Observe que o conjunto de dados de teste replicado é usado como a entrada para o **modelo de Pontuação**. Em outras palavras, as pontuações de precisão final incluem o custo para obter os rótulos incorretos.
+Observe que o conjunto de dados de teste replicado é usado como a entrada de **Pontuar Modelo**. Em outras palavras, as pontuações de precisão final incluem o custo da classificação incorreta dos rótulos.
 
 ## <a name="combine-multiple-results"></a>Combinar vários resultados
 
-O módulo **modelo de avaliação** produz uma tabela com uma única linha que contém várias métricas. Para criar um único conjunto de resultados de precisão, primeiro usamos **adicionar linhas** para combinar os resultados em uma única tabela. Em seguida, usamos o seguinte script Python no módulo **Executar script Python** para adicionar o nome do modelo e a abordagem de treinamento para cada linha na tabela de resultados:
+O módulo **Avaliar Modelo** produz uma tabela com uma só linha que contém várias métricas. Para criar um só conjunto de resultados de precisão, primeiro usamos **Adicionar Linhas** para combinar os resultados em uma só tabela. Em seguida, usamos o seguinte script do Python no módulo **Executar Script do Python** para adicionar o nome do modelo e a abordagem de treinamento a cada linha na tabela de resultados:
 
 ```Python
 import pandas as pd
@@ -142,7 +142,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 ## <a name="results"></a>Resultados
 
-Para exibir os resultados do pipeline, você pode clicar com o botão direito do mouse na saída de visualização do último módulo **selecionar colunas no conjunto de DataSet** .
+Para ver os resultados do pipeline, clique com o botão direito do mouse na saída Visualizar do último módulo **Selecionar Colunas no Conjunto de Dados**.
 
 ![Visualizar saída](media/how-to-designer-sample-classification-credit-risk-cost-sensitive/sample4-lastselect-1225.png)
 
@@ -152,19 +152,19 @@ A segunda coluna indica o tipo do conjunto de treinamento.
 
 A terceira coluna contém o valor de precisão sensível ao custo.
 
-A partir desses resultados, você pode ver que a melhor precisão é fornecida pelo modelo que foi criado com o **computador de vetor de suporte de duas classes** e treinado no conjunto de resultados de treinamento replicado.
+Com base nesses resultados, você poderá ver que a melhor precisão é fornecida pelo modelo que foi criado com o **Computador de Vetor de Suporte de Duas Classes** e treinado no conjunto de dados de treinamento replicado.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Explore os outros exemplos disponíveis para o designer:
+Explore as outras amostras disponíveis para o designer:
 
-- [Exemplo 1-regressão: prever o preço de um automóvel](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Exemplo 2-regressão: comparar algoritmos para previsão de preço de automóvel](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Exemplo 3-classificação com seleção de recursos: Previsão de renda](how-to-designer-sample-classification-predict-income.md)
-- [Exemplo 5-classificação: Previsão de rotatividade](how-to-designer-sample-classification-churn.md)
-- [Exemplo 6-classificação: prever atrasos de voo](how-to-designer-sample-classification-flight-delay.md)
-- [Exemplo de classificação de texto 7: conjunto de teste da Wikipédia SP 500](how-to-designer-sample-text-classification.md)
+- [Amostra 1: regressão: prever o preço de um automóvel](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Amostra 2: regressão: comparar algoritmos para a previsão de preços de automóveis](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [Amostra 3: classificação com seleção de recursos: previsão de receita](how-to-designer-sample-classification-predict-income.md)
+- [Amostra 5: classificação: prever a rotatividade](how-to-designer-sample-classification-churn.md)
+- [Amostra 6: classificação: prever atrasos nos voos](how-to-designer-sample-classification-flight-delay.md)
+- [Amostra 7: classificação de textos: conjunto de dados SP 500 da Wikipédia](how-to-designer-sample-text-classification.md)

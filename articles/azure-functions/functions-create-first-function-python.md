@@ -4,18 +4,18 @@ description: Crie e implante código Python sem servidor na nuvem usando o Azure
 ms.date: 01/15/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 452c5aeab5d2a1092cb7d338d37e26a82d92396e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c665f807d78c699423db457bf57dca2f16109913
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845498"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898572"
 ---
 # <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>Início Rápido: Criar uma função Python disparada por HTTP no Azure
 
 Neste artigo, você usa ferramentas de linha de comando para criar uma função em Python que responde a solicitações HTTP. Após testar o código localmente, implante-o no ambiente sem servidor do Azure Functions. A realização deste início rápido gera um pequeno custo de alguns centavos de dólar ou menos em sua conta do Azure.
 
-Há também uma [versão baseada no Visual Studio Code](/azure/python/tutorial-vs-code-serverless-python-01) deste artigo.
+Há também uma [versão baseada no Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-python) deste artigo.
 
 ## <a name="prerequisites"></a>Prerequisites
 

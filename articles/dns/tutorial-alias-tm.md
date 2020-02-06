@@ -3,17 +3,17 @@ title: 'Tutorial: Criar um registro de alias para dar suporte a nomes de domíni
 titleSuffix: Azure DNS
 description: Este tutorial mostra como configurar um registro de alias do DNS do Azure para dar suporte usando seu nome de domínio apex com o Gerenciador de Tráfego.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
-ms.author: allensu
-ms.openlocfilehash: 3834b782be054611de67b782b7fcd0c46cbf3a19
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.author: rohink
+ms.openlocfilehash: 749e5eae64aa0d33c90ef8694da9a093647b8a8b
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082264"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937932"
 ---
 # <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Tutorial: Configurar um registro de alias para dar suporte a nomes de domínio com o Gerenciador de Tráfego 
 
@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Você deve ter um nome de domínio disponível para hospedar no DNS do Azure para testar. Você deve ter controle total sobre esse domínio. Controle total inclui a capacidade de definir os registros NS (nomes de servidor) para o domínio.
 
 Para obter instruções sobre como hospedar seu domínio no DNS do Azure, consulte o Tutorial [: Hospede seu domínio no DNS do Azure](dns-delegate-domain-azure-dns.md).
@@ -50,7 +50,7 @@ Primeiro, crie uma rede virtual e uma sub-rede para abrigar seus servidores Web.
 2. Insira **Web-01** como o nome e coloque a VM no grupo de recursos **RG-DNS-Alias-TM**. Insira um nome de usuário e uma senha e selecione **OK**.
 3. Em **Tamanho**, selecione uma SKU com 8 GB de RAM.
 4. Em **Configurações**, marque a rede virtual **VNet-Servers** e a sub-rede **SN-Web**.
-5. Escolha **Endereço IP público**. Em **Atribuição**, escolha **Estático** e, em seguida, **OK**.
+5. Selecione **Endereço IP público**. Em **Atribuição**, escolha **Estático** e, em seguida, **OK**.
 6. Como portas de entrada públicas, escolha **HTTP** > **HTTPS** > **RDP (3389)** e, em seguida, **OK**.
 7. Sobre o **resumo** página, selecione **criar**. Esse procedimento leva alguns minutos para ser concluído.
 
@@ -113,7 +113,7 @@ Crie um registro de alias que aponta para o perfil do Gerenciador de Tráfego.
 3. Abra um novo navegador da web e navegue até seu nome de domínio apex novamente.
 4. Você verá a página da Web do IIS padrão novamente já que o Gerenciador de Tráfego tratou da situação e direcionou o tráfego para **Web-02**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando você não precisar mais dos recursos criados para este tutorial, exclua o grupo de recursos **RG-DNS-Alias-TM**.
 

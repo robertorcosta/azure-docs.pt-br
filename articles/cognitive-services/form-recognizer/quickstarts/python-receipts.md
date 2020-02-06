@@ -9,21 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 6b6fa03337e857c6dda43f8c6ae41713d8c3dbe0
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 2b800cbc2f836d415afbb53a8415e9e400f40d0e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774187"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901976"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Início Rápido: extrair dados de recibos usando a API REST do Reconhecimento de Formulários com o Python
 
 Neste início rápido, você usará a API REST de Reconhecimento de Formulários do Azure com o Python para extrair e identificar informações relevantes em recibos de vendas dos EUA.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-> [!IMPORTANT]
-> Este guia de início rápido usa a API do Reconhecimento de Formulários v2.0. Se sua assinatura não estiver na região `West US 2` ou `West Europe`, você precisará usar a API v1.0. Em vez disso, siga o [início rápido v1.0](./curl-train-extract-v1.md).
 
 ## <a name="prerequisites"></a>Prerequisites
 

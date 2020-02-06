@@ -7,12 +7,12 @@ keywords: automação do azure, DSC, powershell, configuração de estado deseja
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 3037f96464b0902ca3923bdaea2bddff39c47733
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3359d99d7e20bbced8950171fa34592fd2612500
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421942"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76930390"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Uma introdução à Automação do Azure
 
@@ -75,6 +75,8 @@ A Automação do Azure é gerenciada em todo o ciclo de vida da infraestrutura e
 * **Monitorar** – Identifique alterações nos computadores que estão causando problemas e corrija ou escalone para sistemas de gerenciamento.
 * **Proteger** – Coloque a VM em quarentena se forem gerados alertas de segurança. Defina requisitos no convidado.
 * **Reger** – Configure controle de acesso baseado em função para equipes. Recupere recursos não utilizados.
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="pricing-for-automation"></a>Preço da Automação
 

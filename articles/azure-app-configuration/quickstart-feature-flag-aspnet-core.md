@@ -1,17 +1,17 @@
 ---
 title: Início rápido para adição de sinalizadores de recurso ao ASP.NET Core
 description: Adicionar sinalizadores de recurso a aplicativos ASP.NET Core e gerencie-os usando a Configuração de Aplicativos do Azure
-author: jpconnock
+author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 01/14/2020
-ms.author: jeconnoc
-ms.openlocfilehash: 6858648bc07546f30d4ebb92150c52f8c7729acd
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.author: lcozzens
+ms.openlocfilehash: fda0e8072984a25b33731a775780231538e92e3d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260269"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898689"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Início Rápido: Adicionar sinalizadores de recurso a um aplicativo ASP.NET Core
 

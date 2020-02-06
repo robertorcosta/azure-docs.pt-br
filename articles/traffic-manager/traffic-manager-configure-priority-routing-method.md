@@ -3,7 +3,7 @@ title: 'Tutorial: Configurar o roteamento de tráfego prioritário com o Gerenci
 description: Este tutorial explica como configurar o método de roteamento de tráfego de prioridade no Gerenciador de Tráfego
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: allensu
-ms.openlocfilehash: d5d58ec39841274b78ababf9f73f00a262cc37be
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.author: rohink
+ms.openlocfilehash: ca223a19ff7ddeae95878f941f3cf295664e62b4
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420292"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938722"
 ---
 # <a name="tutorial-configure-priority-traffic-routing-method-in-traffic-manager"></a>Tutorial: Configurar o método de roteamento de tráfego de prioridade no Gerenciador de Tráfego
 
@@ -27,7 +27,7 @@ Independentemente do modo de site, os Sites do Azure já fornecem funcionalidade
 
 ## <a name="to-configure-the-priority-traffic-routing-method"></a>Para configurar o método de roteamento de tráfego de prioridade
 
-1. Em um navegador, entre no [Portal do Azure](https://portal.azure.com). Se você ainda não tiver uma conta, poderá se inscrever para obter uma [avaliação gratuita de um mês](https://azure.microsoft.com/free/). 
+1. Usando um navegador, entre no [portal do Azure](https://portal.azure.com). Se você ainda não tiver uma conta, poderá se inscrever para obter uma [avaliação gratuita de um mês](https://azure.microsoft.com/free/). 
 2. Na barra de pesquisa do portal, pesquise os **perfis do Gerenciador de Tráfego** e, em seguida, clique no nome de perfil do qual você deseja configurar o método de roteamento.
 3. Na folha **Perfil do Gerenciador de Tráfego**, verifique se os serviços de nuvem e os sites que você deseja incluir na configuração estão presentes.
 4. Na seção **Configurações**, clique em **Configuração** e, na folha **Configuração**, preencha da seguinte maneira:
@@ -44,7 +44,7 @@ Independentemente do modo de site, os Sites do Azure já fornecem funcionalidade
 10. Teste as alterações na configuração da seguinte maneira:
     1.  Na barra de pesquisa do portal, pesquise o nome do perfil do Gerenciador de Tráfego e clique no perfil do Gerenciador de Tráfego nos resultados exibidos.
     2.  Na folha do perfil do **Gerenciador de Tráfego**, clique em **Visão Geral**.
-    3.  A folha do **perfil do Gerenciador de Tráfego** exibe o nome DNS do perfil do Gerenciador de Tráfego recém-criado. Isso pode ser usado por todos os clientes (por exemplo, navegando até ele usando um navegador da Web) para ser roteado para o ponto de extremidade correto, conforme determinado pelo tipo de roteamento. Nesse caso, todas as solicitações são roteadas para o primeiro ponto de extremidade e, se o Gerenciador de Tráfego o detectar como não íntegro, o tráfego fará failover automaticamente para o próximo ponto de extremidade.
+    3.  A folha **Perfil do Gerenciador de Tráfego** exibe o nome DNS do perfil do Gerenciador de Tráfego recém-criado. Isso pode ser usado por todos os clientes (por exemplo, navegando até ele usando um navegador da Web) para ser roteado para o ponto de extremidade correto, conforme determinado pelo tipo de roteamento. Nesse caso, todas as solicitações são roteadas para o primeiro ponto de extremidade e, se o Gerenciador de Tráfego o detectar como não íntegro, o tráfego fará failover automaticamente para o próximo ponto de extremidade.
 11. Depois que o perfil do Gerenciador de Tráfego estiver funcionando, edite o registro DNS no servidor DNS autoritativo para que o nome de domínio de sua empresa aponte para o nome de domínio do Gerenciador de Tráfego.
 
 ![Configurando o método de roteamento de tráfego de prioridade usando o Gerenciador de Tráfego][1]

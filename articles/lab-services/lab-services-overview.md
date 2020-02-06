@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 11/26/2019
+ms.date: 02/03/2020
 ms.author: spelluru
-ms.openlocfilehash: 4258bec3ceacd52f9679f48d8357be558ee0e27f
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: ef296035ee8f0c80b4ee078303639d7aedf5a91d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561622"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986624"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Uma introdução ao Azure Lab Services
 Há dois serviços no Azure que permitem que você configure ambientes de laboratório na nuvem. 
@@ -32,12 +32,9 @@ Esses serviços (Azure DevTest Labs e Azure Lab Services) dão suporte aos segui
 
 - **Configuração rápida e flexível de um laboratório**. Usando o Azure Lab Services, os proprietários de laboratório podem rapidamente configurar um laboratório para suas necessidades. O serviço oferece a opção para cuidar de todo o trabalho de infraestrutura do Azure de tipos de laboratório gerenciado ou permitir que os proprietários do laboratório gerenciem e personalizem a infraestrutura na assinatura do proprietário do laboratório. O serviço fornece dimensionamento interno e a resiliência da infraestrutura para laboratórios que o serviço gerencia para você.
 - **Simplificado experiência para os usuários do laboratório**. Em um tipo de laboratório gerenciado, como um laboratório de sala de aula, os usuários do laboratório podem se registrar em um laboratório com um código de registro e acessar o laboratório a qualquer momento para usar os recursos dele. Em um laboratório criado no DevTest Labs, um proprietário de laboratório pode atribuir permissões para usuários do laboratório criarem e acessarem as máquinas virtuais, gerenciar e reutilizar os discos de dados e configurar segredos reutilizáveis.  
-- **Otimização e análise de custo**. Um proprietário de laboratório pode definir programações para desligar e inicializar máquinas virtuais automaticamente. O proprietário do laboratório pode definir uma programação para especificar os horários quando as máquinas virtuais do laboratório estarão acessíveis para os usuários, definir políticas de uso por usuário ou por laboratório para otimizar custos e analisar as tendências de uso e atividade em um laboratório. Para tipos de laboratório gerenciado, como laboratórios de sala de aula, atualmente, um subconjunto menor de opções de análise e otimização de custo está disponível.
+- **Otimização e a análise de custo**. Um proprietário de laboratório pode definir programações para desligar e inicializar máquinas virtuais automaticamente. O proprietário do laboratório pode definir uma programação para especificar os horários quando as máquinas virtuais do laboratório estarão acessíveis para os usuários, definir políticas de uso por usuário ou por laboratório para otimizar custos e analisar as tendências de uso e atividade em um laboratório. Para tipos de laboratório gerenciado, como laboratórios de sala de aula, atualmente, um subconjunto menor de opções de análise e otimização de custo está disponível.
 - **Segurança inserida**. O proprietário de um laboratório pode configurar uma rede virtual privada e uma sub-rede para um laboratório e habilitar um endereço IP público compartilhado. Os usuários do laboratório podem acessar recursos com segurança usando a rede virtual configurada com o ExpressRoute ou o VPN site a site. (atualmente disponível apenas no DevTest Labs)
 - **Integração com seus fluxos de trabalho e suas ferramentas**. O Azure Lab Services permite integrar os laboratórios no site e nos sistemas de gerenciamento da sua organização. Você pode provisionar automaticamente ambientes de dentro de suas ferramentas de integração contínua/implantação contínua (CI/CD). (atualmente disponível apenas no DevTest Labs)
-
-> [!NOTE]
-> Atualmente, o Azure Lab Services dá suporte apenas às VMs criadas de imagens do Azure Marketplace. Se você quiser usar imagens personalizadas ou criar outros recursos de PaaS em um ambiente de laboratório, use o DevTest Labs. Para saber mais, confira [Criar uma imagem personalizada no DevTest Labs](devtest-lab-create-custom-image-from-vm-using-portal.md) e [Criar ambientes de laboratório usando modelos do Resource Manager](devtest-lab-create-environment-from-arm.md).
 
 ## <a name="scenarios"></a>Cenários
 
@@ -46,7 +43,7 @@ Aqui estão alguns dos cenários aos quais o Azure DevTest Labs e o Azure Lab Se
 ### <a name="set-up-a-resizable-computer-lab-in-the-cloud-for-your-classroom"></a>Configure um laboratório de computação redimensionável na nuvem para sua sala de aula  
 
 - Crie um laboratório de sala de aula gerenciada. Diga ao serviço exatamente o que você precisa, e ele criará e gerenciará a infraestrutura do laboratório para você, para que você possa se concentrar em dar a aula e não nos detalhes técnicos não de um laboratório.
-- Forneça aos alunos um laboratório de máquinas virtuais configuradas exatamente com o necessário para uma aula. Dê a cada aluno um número limitado de horas para usar as VMs para trabalho em sala.  
+- Fornecer aos alunos um laboratório de máquinas virtuais configuradas exatamente com o necessário para uma aula. Dê a cada aluno um número limitado de horas para usar as VMs para trabalho em sala.  
 - Mova o laboratório de computadores físicos da escola para a nuvem. Dimensione automaticamente o número de VMs até o limite máximo de uso e de custo definido no laboratório.
 - Exclua o laboratório com um único clique quando terminar.
 
@@ -116,7 +113,7 @@ A tabela a seguir compara dois tipos de laboratórios que têm suporte dos Azure
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira os seguintes artigos: 
+Veja os artigos a seguir: 
 
 - [Sobre os laboratórios de sala de aula](./classroom-labs/classroom-labs-overview.md)
 - [Sobre o DevTest Labs](devtest-lab-overview.md)

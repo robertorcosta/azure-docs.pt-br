@@ -4,12 +4,12 @@ description: Saiba como executar uma migração sem agente de VMs VMware com as 
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.custom: mvc
-ms.openlocfilehash: fa77b9d730c28c21569064d05ca3a600dfb71071
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 79ba3f17b225357267cbd114659851614279bb7f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028702"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989358"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrar VMs VMware para o Azure (sem agente)
 
@@ -184,7 +184,7 @@ Se esta for a primeira VM que você estiver replicando no projeto das Migraçõe
 - **Barramento de serviço**: a Migração de Servidor das Migrações para Azure usa o barramento de serviço para enviar mensagens de orquestração de replicação para o dispositivo.
 - **Conta de armazenamento de gateway**: a Migração de Servidor usa a conta de armazenamento de gateway para armazenar informações de estado de armazenamento sobre as VMs que estão sendo replicadas.
 - **Conta de armazenamento de log**: o dispositivo das Migrações para Azure carrega os logs de replicação das VMs em uma conta de armazenamento de log. As Migrações para Azure aplicam as informações de replicação aos discos gerenciados de réplica.
-- **Cofre de chaves**: O dispositivo das Migrações para Azure usa o cofre de chaves para gerenciar as cadeias de conexão do barramento de serviço e as chaves de acesso das contas de armazenamento usadas na replicação. Você deve ter configurado as permissões de que o cofre de chaves precisa para acessar a conta de armazenamento que você preparou. [Examine essas permissões](tutorial-prepare-vmware.md#assign-role-assignment-permissions).   
+- **Cofre de chaves**: O dispositivo das Migrações para Azure usa o cofre de chaves para gerenciar as cadeias de conexão do barramento de serviço e as chaves de acesso das contas de armazenamento usadas na replicação. Você deve ter configurado as permissões de que o cofre de chaves precisa para acessar a conta de armazenamento que você preparou. [Examine essas permissões](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault).   
 
 
 ## <a name="track-and-monitor"></a>Acompanhar e monitorar

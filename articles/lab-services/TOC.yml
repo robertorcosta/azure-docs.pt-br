@@ -152,6 +152,8 @@
           href: deploy-nested-template-environments.md
         - name: Usar as identidades gerenciadas do Azure para implantar ambientes
           href: use-managed-identities-environments.md
+        - name: Alertas de segurança para ambientes
+          href: environment-security-alerts.md
     - name: Gerenciar modelos reutilizáveis
       items:
         - name: Imagens personalizadas versus fórmulas

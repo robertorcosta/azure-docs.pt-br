@@ -1,9 +1,9 @@
-- name: Documentação do Azure Cognitive Search
+- name: Documentação da pesquisa cognitiva do Azure
   href: index.yml
 - name: Visão geral
   expanded: true
   items:
-    - name: O que é o Azure Cognitive Search?
+    - name: O que é a Pesquisa Cognitiva do Azure?
       href: search-what-is-azure-search.md
     - name: Novidades
       href: whats-new.md
@@ -19,7 +19,7 @@
           href: search-create-app-portal.md
         - name: Criar um conjunto de habilidades cognitivas
           href: cognitive-search-quickstart-blob.md
-        - name: Criar um repositório de conhecimento
+        - name: Criar um repositório de dados de conhecimento
           href: knowledge-store-create-portal.md
     - name: 'C#'
       href: search-get-started-dotnet.md
@@ -53,7 +53,7 @@
       href: search-semi-structured-data.md
     - name: Indexar várias fontes de dados do Azure
       href: tutorial-multiple-data-sources.md
-    - name: Enriquecer com IA (Cognitive Search)
+    - name: Enriquecer com IA (pesquisa cognitiva)
       items:
         - name: 'C#'
           href: cognitive-search-tutorial-blob-dotnet.md
@@ -101,7 +101,7 @@
   items:
     - name: Planejamento
       items:
-        - name: Escolha um nível
+        - name: Escolha uma faixa
           href: search-sku-tier.md
         - name: Limites de serviço
           href: search-limits-quotas-capacity.md
@@ -113,7 +113,7 @@
           href: search-modeling-multitenant-saas-applications.md
     - name: Segurança
       items:
-        - name: Visão Geral de Segurança
+        - name: Visão geral da segurança
           href: search-security-overview.md
         - name: Criar um ponto de extremidade privado
           href: service-create-private-endpoint.md
@@ -239,7 +239,7 @@
           href: cognitive-search-attach-cognitive-services.md
         - name: Conjuntos de habilidades
           items:
-            - name: Definir um conjunto de habilidades
+            - name: Definir um conjunto de qualificações
               href: cognitive-search-defining-skillset.md
             - name: Fazer referência a uma anotação
               href: cognitive-search-concept-annotations-syntax.md
@@ -319,7 +319,7 @@
           href: search-manage-powershell.md
         - name: Monitorar a atividade e o registro em log
           href: search-monitor-usage.md
-        - name: Análise de tráfego de pesquisa
+        - name: Análise do tráfego de pesquisa
           href: search-traffic-analytics.md
     - name: Solucionar problemas
       items:
@@ -345,8 +345,8 @@
       items:
         - name: Pesquisar 2019-05-06
           href: /rest/api/searchservice
-        - name: Redefinir habilidades (api-version=2019-05-06-Preview)
-          href: preview-api-resetskills.md
+        - name: Pesquisa 2019-05-06-Versão Prévia
+          href: /rest/api/searchservice/index-2019-05-06-preview
         - name: Gerenciamento 2015-08-15
           href: /rest/api/searchmanagement
         - name: Gerenciamento 2019-10-01-Preview

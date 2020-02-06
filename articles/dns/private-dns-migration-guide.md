@@ -3,17 +3,17 @@ title: Como migrar as Zonas Privadas do DNS do Azure herdadas para um novo model
 titleSuffix: Azure DNS
 description: Este guia fornece instruções passo a passo sobre como migrar as zonas DNS privadas herdadas para o modelo de recurso mais recente
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.author: allensu
-ms.openlocfilehash: 3beac014ee69120df518e0358a5fdbef5818f7cf
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.author: rohink
+ms.openlocfilehash: d29885104d6f39a17b5bdeb786cda8f56f58d987
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076725"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939357"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Migrar zonas privadas do DNS do Azure herdadas para um novo modelo de recurso
 
@@ -25,7 +25,7 @@ az account set --subscription <SubscriptionId>
 az network dns zone list --query "[?zoneType=='Private']"
 ```
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Verifique se que você instalou a versão mais recente do Azure PowerShell. Para saber mais sobre o Azure PowerShell (Az) e como instalá-lo, visite https://docs.microsoft.com/powershell/azure/new-azureps-module-az
 
@@ -55,7 +55,7 @@ Você também pode obter a versão mais recente do script do PowerShell manualme
 >[!IMPORTANT]
 >O script de migração não deve ser executado no Azure cloud Shell e deve ser executado em uma VM ou computador local conectado à Internet.
 
-## <a name="running-the-script"></a>Executando o script
+## <a name="running-the-script"></a>Executar o script
 
 Execute o comando a seguir para executar o script
 
@@ -63,7 +63,7 @@ Execute o comando a seguir para executar o script
 PrivateDnsMigrationScript.ps1
 ```
 
-![Executando o script](./media/private-dns-migration-guide/running-migration-script.png)
+![Executar o script](./media/private-dns-migration-guide/running-migration-script.png)
 
 ### <a name="enter-the-subscription-id-and-sign-in-to-azure"></a>Inserir a ID da assinatura e entrar no Azure
 

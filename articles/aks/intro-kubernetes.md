@@ -8,22 +8,24 @@ ms.topic: overview
 ms.date: 05/06/2019
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 5515951a9bde596935f4c603ffd9e088f74dee45
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: c98e67d174c3c8b7fc426e1dd2c5ebafd6760969
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67615159"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932600"
 ---
 # <a name="azure-kubernetes-service-aks"></a>AKS (Serviço de Kubernetes do Azure)
 
-O AKS (Serviço de Kubernetes do Azure) simplifica a implantação de um cluster do Kubernetes gerenciado no Azure. O AKS reduz a complexidade e a sobrecarga operacional de gerenciar o Kubernetes passando grande parte dessa responsabilidade para o Azure. Como um serviço Kubernetes hospedado, o Azure lida com as tarefas críticas para você, como o monitoramento da integridade e a manutenção. Os mestres de Kubernetes são gerenciados pelo Azure. Você gerencia e mantém apenas os nós de agente. Como um serviço do Kubernetes gerenciado, o AKS é gratuito: você paga apenas pelos nós de agentes dentro dos clusters, não pelos mestres.
+O AKS (Serviço de Kubernetes do Azure) simplifica a implantação de um cluster do Kubernetes gerenciado no Azure. O AKS reduz a complexidade e a sobrecarga operacional de gerenciar o Kubernetes passando grande parte dessa responsabilidade para o Azure. Como um serviço Kubernetes hospedado, o Azure lida com as tarefas críticas para você, como o monitoramento da integridade e a manutenção. Os mestres de Kubernetes são gerenciados pelo Azure. Você só gerencia e mantém os nós de agente. Como um serviço do Kubernetes gerenciado, o AKS é gratuito: você paga apenas pelos nós de agentes dentro dos clusters, não pelos mestres.
 
 Você pode criar um cluster do AKS no portal do Azure, com a CLI do Azure, ou opções de implantação controladas pelo modelo, como modelos do Resource Manager e o Terraform. Ao implantar um cluster do AKS, o mestre do Kubernetes e todos os nós serão implantados e configurados para você. Recursos adicionais, como rede avançada, integração do Azure Active Directory e monitoramento, também podem ser configurados durante o processo de implantação. O suporte para contêineres do Windows Server no AKS está em versão prévia.
 
 Para obter mais informações sobre os conceitos básicos do Kubernetes, confira [Conceitos básicos do Kubernetes para o AKS][concepts-clusters-workloads].
 
 Para começar, conclua o início rápido do AKS [no portal do Azure][aks-portal] ou [com a CLI do Azure][aks-cli].
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="access-security-and-monitoring"></a>Acesso, segurança e monitoramento
 

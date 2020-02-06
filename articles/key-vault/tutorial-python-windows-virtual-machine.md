@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 52791719e518f6a6b1a4178d8b9a010f1db14fc4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 4078f2a005dcd324fa9c1d31cdca4b1f8337eecd
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003868"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988372"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-python"></a>Tutorial: Usar o Azure Key Vault com uma máquina virtual do Windows no Python
 
@@ -36,7 +36,7 @@ Antes de começar, leia [Conceitos básicos do Key Vault](basic-concepts.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para Windows, Mac e Linux:
   * [Git](https://git-scm.com/downloads)
@@ -79,7 +79,7 @@ Você usará o grupo de recursos recém criado neste tutorial.
 
 Para criar um cofre de chaves no grupo de recursos que você criou na etapa anterior, forneça as seguintes informações:
 
-* Nome do cofre de chaves: uma cadeia de caracteres de 3 a 24 caracteres contendo somente números (0 – 9), letras (a – z, A – Z) e hifens (-)
+* Nome do cofre de chaves: uma cadeia de caracteres de 3 a 24 caracteres contendo somente números (0 a 9), letras (a a z, A a Z) e hifens (-)
 * Nome do grupo de recursos
 * Localização: **Oeste dos EUA**
 
@@ -136,7 +136,7 @@ Para fazer logon na máquina virtual, siga as instruções em [Conectar e fazer 
 
 ## <a name="create-and-run-a-sample-python-app"></a>Criar e executar um aplicativo de exemplo em Python
 
-Na próxima seção há um arquivo de exemplo denominado *Sample.py*. Ele usa uma biblioteca [requests](http://docs.python-requests.org/en/master/) para fazer chamadas HTTP GET.
+Na próxima seção há um arquivo de exemplo denominado *Sample.py*. Ele usa uma biblioteca [requests](https://2.python-requests.org/en/master/) para fazer chamadas HTTP GET.
 
 ## <a name="edit-samplepy"></a>Editar Sample.py
 
@@ -175,7 +175,7 @@ python Sample.py
 
 O código anterior mostra como realizar operações com o Azure Key Vault em uma máquina virtual do Windows. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando eles não forem mais necessários, exclua a máquina virtual e o cofre de chaves.
 

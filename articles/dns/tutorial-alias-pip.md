@@ -2,17 +2,17 @@
 title: 'Tutorial: Criar um registro de alias do DNS do Azure para se referir a um endereço IP público do Azure'
 description: Este tutorial mostra como configurar um registro de alias do DNS do Azure para referenciar um endereço IP público do Azure.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
-ms.author: allensu
-ms.openlocfilehash: 81dfbe5f46116d263c4a04d6178437a2c8bc1185
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.author: rohink
+ms.openlocfilehash: d601d19a786613f674f7b941becc5e97d84e6fce
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072124"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939272"
 ---
 # <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Tutorial: Configurar um registro de alias para se referir a um endereço IP público do Azure 
 
@@ -27,7 +27,7 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Você deve ter um nome de domínio disponível para hospedar no DNS do Azure para testar. Você deve ter controle total sobre esse domínio. Controle total inclui a capacidade de definir os registros NS (nomes de servidor) para o domínio.
 
 Para obter instruções para hospedar seu domínio no DNS do Azure, confira o [Tutorial: Hospede seu domínio no DNS do Azure](dns-delegate-domain-azure-dns.md).
@@ -45,7 +45,7 @@ Primeiro, crie uma rede virtual e uma sub-rede para abrigar seus servidores Web.
 1. Escolha **Criar um recurso** > **VM do Windows Server 2016**.
 2. Insira **Web-01** como o nome e coloque a VM no grupo de recursos **RG-DNS-Alias-TM**. Insira um nome de usuário e uma senha e selecione **OK**.
 3. Em **Tamanho**, selecione uma SKU com 8 GB de RAM.
-4. Em **Configurações**, selecione a rede virtual **VNet-Servers** e a sub-rede **SN-Web**. Como portas de entrada públicas, escolha **HTTP** > **HTTPS** > **RDP (3389)** e, em seguida, **OK**.
+4. Em **Configurações**, marque a rede virtual **VNet-Servers** e a sub-rede **SN-Web**. Como portas de entrada públicas, escolha **HTTP** > **HTTPS** > **RDP (3389)** e, em seguida, **OK**.
 5. Sobre o **resumo** página, selecione **criar**.
 
 Esse procedimento leva alguns minutos para ser concluído.
@@ -67,7 +67,7 @@ Instale o IIS em **Web-01**.
 Crie um registro de alias que aponta para o endereço IP público.
 
 1. Escolha sua zona DNS do Azure para abri-la.
-2. Selecione **Conjunto de registros**.
+2. Escolha **Conjunto de registros**.
 3. Na caixa de texto **Nome**, selecione **web01**.
 4. Deixe o **Tipo** como um registro **A**.
 5. Marque a caixa de seleção **Conjunto de Registros do Alias**.
@@ -84,7 +84,7 @@ Crie um registro de alias que aponta para o endereço IP público.
 
 Esse procedimento funciona porque você usou um registro de alias para apontar para o recurso de endereço IP público e não um registro A padrão.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando você não precisar mais dos recursos criados para este tutorial, exclua o grupo de recursos **RG-DNS-Alias-pip**.
 

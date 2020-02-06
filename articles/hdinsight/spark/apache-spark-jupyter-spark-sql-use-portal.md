@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 09/27/2019
 ms.custom: mvc
-ms.openlocfilehash: 214a88ad8b0f5dd0352004edc125705ad2f04fc7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c2751f30bdea46a30aa12bd458a12d7640cba404
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494143"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029531"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-portal"></a>Início Rápido: Criar um cluster do Apache Spark no Azure HDInsight usando o portal do Azure
 
@@ -34,7 +34,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 1. Em **Noções básicas**, forneça os seguintes valores:
 
-    |Propriedade  |DESCRIÇÃO  |
+    |Propriedade  |Descrição  |
     |---------|---------|
     |Subscription  | No menu suspenso, selecione uma assinatura do Azure usada para este cluster. A assinatura usada para este início rápido é **Azure**. |
     |Resource group | Especifique se deseja criar um novo grupo de recursos ou usar um existente. Um grupo de recursos é um contêiner que mantém os recursos relacionados a uma solução do Azure. O nome do grupo de recursos usado para este início rápido é **myResourceGroup**. |
@@ -52,14 +52,14 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 1. Em **Armazenamento**, forneça os seguintes valores:
 
-    |Propriedade  |DESCRIÇÃO  |
+    |Propriedade  |Descrição  |
     |---------|---------|
     |Tipo de armazenamento primário|Use o valor padrão **Armazenamento do Azure**.|
     |Método de seleção|Use o valor padrão **Selecione na lista**.|
     |Conta de armazenamento primária|Use o valor preenchido automaticamente.|
     |Contêiner|Use o valor preenchido automaticamente.|
 
-    ![Criar configurações básicas do cluster Spark do HDInsight](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage-spark.png "Criar cluster Spark no HDInsight com as Configurações básicas")
+    ![Criar configurações básicas do cluster Spark do HDInsight](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage.png "Criar cluster Spark no HDInsight com as Configurações básicas")
 
     Selecione **Examinar + criar** para continuar.
 
@@ -119,17 +119,17 @@ O SQL (Structured Query Language) é a linguagem mais comum e amplamente usada p
 
     A tela deve ser atualizada para mostrar a saída da consulta.
 
-    ![Saída de consulta do Hive no HDInsight Spark](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query-output.png "Saída de consulta do Hive no HDInsight Spark")
+    ![Resultado de consulta do Hive no HDInsight Spark](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query-output.png "Resultado de consulta do Hive no HDInsight Spark")
 
 1. No menu **Arquivo** do notebook, selecione **Fechar e Interromper**. O desligamento do bloco de anotações libera os recursos do cluster.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 O HDInsight salva seus dados no Armazenamento do Azure ou no Azure Data Lake Storage, assim você poderá excluir um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso. Se você planeja trabalhar no tutorial listado em [Próximas etapas](#next-steps) imediatamente, convém manter o cluster.
 
 Retorne ao Portal do Azure e selecione **Excluir**.
 
-![Excluir um cluster HDInsight no portal do Azure](./media/apache-spark-jupyter-spark-sql/hdinsight-azure-portal-delete-cluster.png "Excluir cluster HDInsight")
+![Excluir um cluster do HDInsight no portal do Azure](./media/apache-spark-jupyter-spark-sql/hdinsight-azure-portal-delete-cluster.png "Excluir cluster HDInsight")
 
 Também é possível selecionar o nome do grupo de recursos para abrir a página do grupo de recursos, e depois selecionar **Excluir grupo de recursos**. Ao excluir o grupo de recursos, você exclui o cluster Spark do HDInsight e a conta de armazenamento padrão.
 

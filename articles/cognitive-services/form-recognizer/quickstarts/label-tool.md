@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: pafarley
-ms.openlocfilehash: f00702326cf6fe2efd8d4abbfce7174815ea0b1d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 158faaba1525e162c40c44179f30f7c3cea83b38
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770281"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025887"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treinar um modelo de Reconhecimento de Formulários com rótulos usando a ferramenta de rotulagem de exemplo
 
@@ -26,7 +26,6 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Para concluir este início rápido, é necessário ter:
 - Acesso à versão prévia de acesso limitado do Reconhecimento de Formulários. Para obter acesso à versão prévia, preencha e envie o formulário de [Solicitação de acesso ao Reconhecimento de Formulários](https://aka.ms/FormRecognizerRequestAccess). Você receberá um email com um link para criar um recurso de Reconhecimento de Formulários.
-- Acesso à ferramenta de rotulagem de exemplo do Reconhecimento de Formulários. Para obter acesso, preencha e envie o formulário de [Solicitação de ferramenta de rótulo de Reconhecimento de Formulários](https://aka.ms/LabelToolRequestAccess). Você receberá um email com instruções de como obter suas credenciais e acessar o registro de contêiner privado. 
 - Um conjunto com pelo menos seis formulários do mesmo tipo. Você usará esses dados para treinar o modelo e testar um formulário. Você pode usar um [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) para este início rápido. Faça upload dos arquivos de treinamento na raiz de um contêiner de Armazenamento de Blobs em uma conta do Armazenamento do Azure.
 
 ## <a name="set-up-the-sample-labeling-tool"></a>Configurar a ferramenta de rotulagem de exemplo
@@ -38,18 +37,13 @@ Você usará o mecanismo do Docker para executar a ferramenta de rotulagem de ex
     |:--|:--|:--|
     |Ferramenta de rotulagem de exemplo|2 núcleos, 4 GB de memória|4 núcleos, 8 GB de memória|
     
-1. Em seguida, você precisará da [CLI (interface de linha de comando) do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Se ainda não tiver feito isto, instale-a em seu computador.
-1. Depois, insira o comando a seguir em um prompt de comando. Os valores para `<username>` e `<password>` estão no seu email de boas-vindas ao Reconhecimento de Formulários.
-    ```
-    docker login containerpreview.azurecr.io -u <username> -p <password>
-    ```
 1. Obtenha o contêiner de ferramentas de rotulagem de exemplo com o comando `docker pull`.
     ```
-    docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool:latest
+    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
     ```
 1. Agora você está pronto para executar o contêiner com `docker run`.
     ```
-    docker run -it -p 3000:80 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool eula=accept
+    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
 
    Esse comando disponibilizará a ferramenta de rotulagem de exemplo por meio de um navegador da Web. Ir para [http://localhost:3000](http://localhost:3000).

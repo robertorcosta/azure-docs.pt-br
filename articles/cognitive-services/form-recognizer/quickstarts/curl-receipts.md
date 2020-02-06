@@ -9,21 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 8b0e7d717ed5c06600adf261f7ce5b44f572adf9
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 6e9eddbec3cdc46c04f9c9ae78f937e20bfa8270
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774252"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901985"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Início Rápido: Extrair dados de recibos usando a API REST de Reconhecimento de Formulários com cURL
 
 Neste início rápido, você usará a API REST de Reconhecimento de Formulários do Azure com cURL para identificar informações relevantes em recibos de vendas dos EUA e extraí-las.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-> [!IMPORTANT]
-> Este guia de início rápido usa a API do Reconhecimento de Formulários v2.0. Se sua assinatura não estiver na região `West US 2` ou `West Europe`, você precisará usar a API v1.0. Em vez disso, siga o [início rápido v1.0](./curl-train-extract-v1.md).
 
 ## <a name="prerequisites"></a>Prerequisites
 

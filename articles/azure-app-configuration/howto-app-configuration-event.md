@@ -5,21 +5,20 @@ description: Neste tutorial, você aprenderá a configurar assinaturas de evento
 services: azure-app-configuration
 documentationcenter: ''
 author: jimmyca
-manager: yegu
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 05/30/2019
-ms.author: yegu
+ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 4943a64f72191981fc1b655c431cab00f180e503
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2a80f931f2060d421483b9e26940985091c9bb5c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433698"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899688"
 ---
 # <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Início Rápido: Rotear eventos da Configuração de Aplicativos do Azure para um ponto de extremidade da Web com a CLI do Azure
 

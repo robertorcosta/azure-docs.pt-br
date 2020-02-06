@@ -258,6 +258,8 @@
           href: backup-azure-backup-server-import-export-.md
     - name: Monitoramento e Alertas
       items:
+        - name: Como usar o Explorador de Backup
+          href: monitor-azure-backup-with-backup-explorer.md
         - name: Usando o portal do Azure
           href: backup-azure-monitoring-built-in-monitor.md
         - name: Como usar o Azure Monitor

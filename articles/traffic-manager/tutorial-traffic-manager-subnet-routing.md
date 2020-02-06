@@ -3,24 +3,24 @@ title: Tutorial – configurar o roteamento de tráfego da sub-rede com o Gerenc
 description: Este tutorial explica como configurar o Gerenciador de Tráfego para rotear o tráfego de sub-redes de usuário para pontos de extremidade específicos.
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
-ms.author: allensu
-ms.openlocfilehash: 00bc453ebb0e467f48bd886fc7c6b6c422693864
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.author: rohink
+ms.openlocfilehash: b00bc1c95e2f593523c584c4abfe9381e5697f79
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420265"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939467"
 ---
 # <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Tutorial: Tráfego direto para pontos de extremidade específicos com base na sub-rede do usuário usando o Gerenciador de Tráfego
 
-Este artigo descreve como configurar o método de roteamento de tráfego de sub-rede. O método de roteamento de tráfego de **sub-rede** permite que você mapeie um conjunto de intervalos de endereços IP para pontos de extremidade específicos e quando o Gerenciador de Tráfego recebe uma solicitação, ele inspeciona o IP de origem da solicitação e retorna o ponto de extremidade associado a ele.
+Este artigo descreve como configurar o método de roteamento de tráfego de sub-rede. O método de roteamento de tráfego **Subnet** permite que você mapeie um conjunto de intervalos de endereços IP para nós de extremidade específicos e quando uma solicitação é recebida pelo Traffic Manager, ele inspeciona o IP de origem da solicitação e retorna o terminal associado a ele .
 
 Neste tutorial, usando o roteamento da sub-rede, dependendo do endereço IP de consulta do usuário, o tráfego é roteado para um site interno ou um site de produção.
 
@@ -36,7 +36,7 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para ver o Gerenciador de Tráfego em ação, este tutorial exige que você implante o seguinte:
 
@@ -74,7 +74,7 @@ Nesta seção, você criará duas VMs *myIISVMEastUS* e *myIISVMWestEurope* nas 
 3. Selecione a guia **Gerenciamento** ou selecione **Avançar: Discos**, em seguida, **Avançar: Rede** e, em seguida, **Avançar: Gerenciamento**. Em **Monitoramento**, defina **Diagnóstico de inicialização** como **Desativado**.
 4. Selecione **Examinar + criar**.
 5. Examine as configurações e, em seguida, clique em **Criar**.  
-6. Siga as etapas para criar uma segunda VM chamada *myIISVMWestEurope*, com o nome de **Grupo de recursos** *myResourceGroupTM2*, a **localização** *Oeste da Europa* e todas as outras configurações iguais a *myIISVMEastUS*.
+6. Siga as etapas para criar uma segunda VM chamada *myIISVMWestEurope*, com o nome de **Grupo de recursos***myResourceGroupTM2*, a **localização***Oeste da Europa* e todas as outras configurações iguais a *myIISVMEastUS*.
 7. As VMs podem levar alguns minutos para serem criadas. Não continue com as etapas restantes até que ambas as VMs sejam criadas.
 
 #### <a name="install-iis-and-customize-the-default-web-page"></a>Instalar o IIS e personalizar a página da Web padrão
@@ -142,19 +142,19 @@ Nesta seção, você criará uma VM (*myVMEastUS* e *myVMWestEurope*) em cada re
 3. Selecione a guia **Gerenciamento** ou selecione **Avançar: Discos**, em seguida, **Avançar: Rede** e, em seguida, **Avançar: Gerenciamento**. Em **Monitoramento**, defina **Diagnóstico de inicialização** como **Desativado**.
 4. Selecione **Examinar + criar**.
 5. Examine as configurações e, em seguida, clique em **Criar**.  
-6. Execute as etapas para criar uma segunda VM chamada *myVMWestEurope*, com o nome de **Grupo de recursos** *myResourceGroupTM2*, a **localização** *Oeste da Europa* e todas as outras configurações iguais a *myVMEastUS*.
+6. Execute as etapas para criar uma segunda VM chamada *myVMWestEurope*, com o nome de **Grupo de recursos***myResourceGroupTM2*, a **localização***Oeste da Europa* e todas as outras configurações iguais a *myVMEastUS*.
 7. As VMs podem levar alguns minutos para serem criadas. Não continue com as etapas restantes até que ambas as VMs sejam criadas.
 
 ## <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gerenciador de Tráfego
 
 Crie um perfil de Gerenciador de Tráfego que permite que você retorne pontos de extremidade específicos com base no IP de origem da solicitação.
 
-1. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Perfil do Gerenciador de Tráfego**  >  **Criar**.
+1. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Perfil do Gerenciador de Tráfego** > **Criar**.
 2. No **perfil Criar Gerenciador de Tráfego**, insira ou selecione as informações a seguir, aceite os padrões para as configurações restantes e selecione **Criar**:
 
     | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
-    | NOME                   | Esse nome deve ser exclusivo na zona trafficmanager.net e resulta no nome DNS, trafficmanager.net, que é usado para acessar o seu perfil do Gerenciador de Tráfego.                                   |
+    | Nome                   | Esse nome deve ser exclusivo na zona trafficmanager.net e resulta no nome DNS, trafficmanager.net, que é usado para acessar o seu perfil do Gerenciador de Tráfego.                                   |
     | Método de roteamento          | Selecione o método de roteamento **Sub-rede**.                                       |
     | Subscription            | Selecione sua assinatura.                          |
     | Resource group          | Selecione **Existing** e insira *myResourceGroupTM1*. |
@@ -174,7 +174,7 @@ Adicione as duas VMs executando os servidores IIS: *myIISVMEastUS* & *myIISVMWes
     | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
     | Type                    | Ponto de extremidade do Azure                                   |
-    | NOME           | myInternalWebSiteEndpoint                                        |
+    | Nome           | myInternalWebSiteEndpoint                                        |
     | Tipo de recurso de destino           | Endereço IP público                          |
     | Recurso de destino          | **Escolha um endereço IP Público** para mostrar a lista de recursos com endereços IP públicos na mesma assinatura. Em **Recursos**, selecione o endereço IP público denominado *myIISVMEastUS-ip*. Isso é o endereço IP público do servidor IIS VM no Leste dos EUA.|
     |  Configurações de roteamento da sub-rede    |   Adicione o endereço IP do *myVMEastUS* VM de teste. Toda consulta de usuário originada dessa VM será direcionada para o *myInternalWebSiteEndpoint*.    |
