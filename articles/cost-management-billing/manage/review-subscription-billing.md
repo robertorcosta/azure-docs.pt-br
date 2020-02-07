@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 4dc7771862bc922702c5cc321fb3c566212d799a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75990561"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Revise o faturamento de assinatura usando APIs REST
@@ -45,10 +45,10 @@ Os parâmetros `${startDate}` e `${endDate}` são obrigatórios para este exempl
 
 Os cabeçalhos a seguir são necessários:
 
-|Cabeçalho da solicitação|Description|
+|Cabeçalho da solicitação|Descrição|
 |--------------------|-----------------|
 |*Tipo de Conteúdo:*|Obrigatórios. Defina como `application/json`.|
-|*Autorização:*|Obrigatórios. Defina como um token de [acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)de `Bearer` válido. |
+|*Autorização:*|Obrigatórios. Defina como um [token de acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` válido. |
 
 ## <a name="response"></a>Resposta
 
@@ -81,7 +81,7 @@ O código de status 200 (OK) é retornado para uma resposta bem-sucedida, que co
 
 Cada item no **valor** representa detalhes sobre o uso de um serviço:
 
-|Propriedade de resposta|Description|
+|Propriedade de resposta|Descrição|
 |----------------|----------|
 |**subscriptionGuid** | ID exclusivo global da assinatura. |
 |**startDate** | Data em que o uso foi iniciado. |
@@ -107,7 +107,7 @@ Outros códigos de status indicam condições de erro. Nestes casos, o objeto de
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Revise a [visão geral de relatórios corporativos](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
 - Investigue [API REST do Enterprise Billing](https://docs.microsoft.com/rest/api/billing/)
 - [Iniciar com a API REST do Azure](https://docs.microsoft.com/rest/api/azure/)

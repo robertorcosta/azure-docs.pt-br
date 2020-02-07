@@ -11,10 +11,10 @@ ms.service: cost-management-billing
 manager: alavital
 ms.custom: ''
 ms.openlocfilehash: 4be484cdff2014f11c872da9a246ef8406447712
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75988494"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Usar alertas de custo para monitorar o uso e os gastos
@@ -37,9 +37,9 @@ Alertas de cota de gastos de departamento notificam quando o departamento de gas
 
 ## <a name="supported-alert-features-by-offer-categories"></a>Recursos de alerta compatíveis por categorias de oferta
 
-O suporte para tipos de alertas depende do tipo de conta do Azure que você tem (oferta da Microsoft). A tabela a seguir mostra os recursos de alerta compatíveis com várias ofertas da Microsoft. Você pode exibir a lista completa de ofertas da Microsoft em [entender os dados de gerenciamento de custos](understand-cost-mgt-data.md).
+O suporte para tipos de alertas depende do tipo de conta do Azure que você tem (oferta da Microsoft). A tabela a seguir mostra os recursos de alerta que são compatíveis com ofertas diversas da Microsoft. Você pode exibir a lista completa de ofertas da Microsoft em [Entender os dados de Gerenciamento de Custos](understand-cost-mgt-data.md).
 
-| Tipo de alerta | Enterprise Agreement | Contrato de Cliente Microsoft | Web Direct/pago conforme o uso |
+| Tipo de alerta | Contrato Enterprise | Contrato de Cliente da Microsoft | Web direct/pago conforme o uso |
 |---|---|---|---|
 | Orçamento | ✔ | ✔ | ✔ |
 | Crédito | ✔ |✘ | ✘ |
@@ -49,7 +49,7 @@ O suporte para tipos de alertas depende do tipo de conta do Azure que você tem 
 
 ## <a name="view-cost-alerts"></a>Exibir alertas de custo
 
-Para exibir alertas de custo, abra o escopo desejado no portal do Azure e selecione **Orçamentos** no menu. Use o item **Escopo** para alterar para outro escopo. Selecione **Alertas de custo** no menu. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
+Para exibir alertas de custo, abra o escopo desejado no portal do Azure e selecione **Orçamentos** no menu. Use o controle oval **Escopo** para alternar para outro escopo. Selecione **Alertas de custo** no menu. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
 
 ![Imagem de exemplo de alertas mostrados no Gerenciamento de Custos](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 
@@ -67,6 +67,6 @@ Quando você exibe os detalhes de um alerta ignorado, pode reativá-lo se a aç�
 
 ![Imagem de exemplo mostrando as opções de ignorar e reativar](./media/cost-mgt-alerts-monitor-usage-spending/Dismiss-reactivate-options.png)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - Se você não tiver criado um orçamento nem definido condições de alerta para um orçamento, conclua o tutorial [Criar e gerenciar orçamentos](tutorial-acm-create-budgets.md).

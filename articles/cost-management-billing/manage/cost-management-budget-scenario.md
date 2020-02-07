@@ -15,10 +15,10 @@ ms.workload: billing
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: e183a622910c7690b566537311661789253efbfb
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992719"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gerenciar os custos com os Orçamentos do Azure
@@ -135,7 +135,7 @@ Cada aplicativo lógico deve começar com um gatilho, que é disparado quando um
 3.  Selecione **Nova etapa** > **Adicionar uma ação**.
 
     ![Azure – Nova etapa – Adicionar uma ação](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-05.png)
-4.  Pesquise "analisar JSON" na caixa de pesquisa do **Designer de aplicativos lógicos** para localizar e selecionar a [ação](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts) **operações de dados – analisar JSON** .
+4.  Pesquise "analisar JSON" na caixa de pesquisa **Designer de Aplicativos Lógicos** para localizar e selecionar a **ação** [Operações de Dados – Analisar JSON](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts).
 
     ![Azure – Aplicativo lógico – Adicionar ação de analisar JSON](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-06.png)
 5.  Insira "Carga" como o nome do **Conteúdo** da carga de Analisar JSON ou use a marca "Body" do conteúdo dinâmico.
@@ -277,7 +277,7 @@ Ao criar o grupo de ações, você apontará para o Aplicativo Lógico criado an
     - Nome do grupo de ações
     - Nome curto
     - Subscription
-    - Grupo de recursos
+    - Resource group
 
     ![Azure – Aplicativo lógico – Adicionar um grupo de ações](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-26.png)
 
@@ -383,6 +383,6 @@ Seguindo este tutorial, você aprendeu:
 
 Agora você tem um orçamento totalmente funcional para a sua assinatura que desligará suas VMs quando você atingir seus limites de orçamento configurados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter mais informações sobre cenários de cobrança do Azure, veja [Cenários de automação de gerenciamento de custos e cobrança](cost-management-automation-scenarios.md).

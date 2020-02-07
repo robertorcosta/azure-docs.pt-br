@@ -1,6 +1,6 @@
 ---
-title: Examinar a fatura do seu contrato de parceiro da Microsoft-Azure
-description: Saiba como revisar a sua conta e o uso de recursos e para verificar cobranças de sua fatura do contrato de parceiro da Microsoft.
+title: Examine sua fatura do Contrato de Parceiro da Microsoft – Azure
+description: Saiba como examinar sua conta e o uso de recursos e como verificar cobranças em sua fatura do Contrato de Parceiro da Microsoft.
 author: jureid
 manager: jureid
 tags: billing
@@ -12,32 +12,32 @@ ms.workload: na
 ms.date: 11/22/2019
 ms.author: banders
 ms.openlocfilehash: e3823a9eb2e0713f7f42e4e02808ef957efc5944
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75990834"
 ---
-# <a name="tutorial-review-your-microsoft-partner-agreement-invoice"></a>Tutorial: examinar sua fatura do contrato de parceiro da Microsoft
+# <a name="tutorial-review-your-microsoft-partner-agreement-invoice"></a>Tutorial: Examinar sua fatura do Contrato de Parceiro da Microsoft
 
- Na conta de cobrança de um Contrato de Parceiro da Microsoft, uma fatura é gerada todos os meses para cada perfil de cobrança. A fatura inclui todos os encargos do cliente do mês anterior. Entenda os encargos em sua fatura analisando as transações individuais no portal do Azure. Você também pode exibir suas notas fiscais no portal do Azure e comparar os encargos com o arquivo de detalhes de uso.
+ Na conta de cobrança de um Contrato de Parceiro da Microsoft, uma fatura é gerada todos os meses para cada perfil de cobrança. A fatura inclui todos os encargos do cliente do mês anterior. Entenda os encargos em sua fatura analisando as transações individuais no portal do Azure. Você também pode exibir suas faturas no portal do Azure e comparar os encargos com o arquivo de detalhes de uso.
 
 Para obter mais informações, consulte [Como baixar faturas do portal do Azure](download-azure-invoice.md).
 
-Este tutorial se aplica somente aos parceiros do Azure com um contrato de parceiro da Microsoft.
+Este tutorial se aplica somente aos parceiros do Azure com um Contrato de Parceiro da Microsoft.
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Revisar transações faturadas no portal do Azure
+> * Examinar transações faturadas no portal do Azure
 > * Examinar os encargos pendentes para estimar sua próxima fatura
 > * Analisar os encargos de uso do Azure
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
-Você deve ter acesso a uma conta de cobrança para um contrato de parceiro da Microsoft.
+Você precisa ter acesso a uma conta de cobrança para um Contrato de Parceiro da Microsoft.
 
-Deve ser mais de 30 dias a partir do dia em que você se inscreveu no Azure. O Azure cobra você no final do período de faturamento.
+É necessário que você tenha assinado o Azure há mais de 30 dias. O Azure cobra você no final do período de faturamento.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -47,37 +47,37 @@ Deve ser mais de 30 dias a partir do dia em que você se inscreveu no Azure. O A
 
 Verifique o tipo de contrato para determinar se você tem acesso a uma conta de cobrança para um Contrato de Parceiro da Microsoft.
 
-Na portal do Azure, digite *Gerenciamento de custos + cobrança* na caixa de pesquisa e selecione **Gerenciamento de custos + cobrança**.
+Na portal do Azure, digite *gerenciamento de custos + cobrança* na caixa de pesquisa e, em seguida, selecione **Gerenciamento de Custos + Cobrança**.
 
 ![Captura de tela que mostra a pesquisa do portal do Azure](./media/review-partner-agreement-bill/billing-search-cost-management-billing.png)
 
 Caso você tenha acesso a apenas um escopo do orçamento, selecione **Propriedades** no lado esquerdo. Você tem acesso a uma conta de cobrança para um Contrato de Parceiro da Microsoft se o tipo de conta de cobrança é **Contrato de Parceiro da Microsoft**.
 
-![Captura de tela que mostra o contrato de parceiro da Microsoft na página de propriedades](./media/review-partner-agreement-bill/billing-account-properties-partner-agreement.png)
+![Captura de tela que mostra o Contrato de Parceiro da Microsoft na página de propriedades](./media/review-partner-agreement-bill/billing-account-properties-partner-agreement.png)
 
 Caso tenha acesso a vários escopos do orçamento, verifique o tipo na coluna da conta de cobrança. Você tem acesso a uma conta de cobrança para um Contrato de Parceiro da Microsoft se o tipo de conta de cobrança para um dos escopos é **Contrato de Parceiro da Microsoft**.
 
-![Captura de tela que mostra o contrato de parceiro da Microsoft na página de lista de contas de cobrança](./media/review-partner-agreement-bill/mpa-in-the-list.png)
+![Captura de tela que mostra o Contrato de Parceiro da Microsoft na página de lista de contas de cobrança](./media/review-partner-agreement-bill/mpa-in-the-list.png)
 
-## <a name="review-invoiced-transactions-in-the-azure-portal"></a>Revisar transações faturadas no portal do Azure
+## <a name="review-invoiced-transactions-in-the-azure-portal"></a>Examinar transações faturadas no portal do Azure
 
-Em gerenciamento de custos + cobrança, selecione **todas as transações** no lado esquerdo da página. Dependendo de seu acesso, talvez você precise selecionar uma conta de cobrança, um perfil de cobrança ou um cliente e, em seguida, selecionar **Todas as transações**.
+Em Gerenciamento de Custos + Cobrança, selecione **Todas as transações** no lado esquerdo da página. Dependendo de seu acesso, talvez você precise selecionar uma conta de cobrança, um perfil de cobrança ou um cliente e, em seguida, selecionar **Todas as transações**.
 
 A página Todas as transações exibe as seguintes informações:
 
 ![Captura de tela que mostra a lista de transações faturadas](./media/review-partner-agreement-bill/all-transactions.png)
 
-|Column  |Definição  |
+|Coluna  |Definição  |
 |---------|---------|
 |Data     | A data da transação  |
 |ID da fatura     | O identificador da fatura na qual a transação foi faturada. Se você enviar uma solicitação de suporte, compartilhe a ID com o Suporte do Azure para agilizá-la |
 |Tipo de transação     |  O tipo de transação, como encargos de uso, compra e cancelamento  |
 |Família de produtos     | A categoria do produto, como computação para máquinas virtuais ou banco de dados para o Banco de Dados SQL do Azure|
-|SDKU do produto     | Um código exclusivo que identifica a instância do produto |
-|Valor     |  A quantidade de transações      |
+|SKU do produto     | Um código exclusivo que identifica a instância do produto |
+|Amount     |  A quantidade de transações      |
 |Perfil de faturamento     | A transação é exibida nesta fatura do perfil de cobrança |
 
-Procure uma ID de fatura para filtrar as transações da fatura.
+Pesquise uma ID da fatura para filtrar as transações da fatura.
 
 ## <a name="review-pending-charges-to-estimate-your-next-invoice"></a>Examinar os encargos pendentes para estimar sua próxima fatura
 
@@ -87,7 +87,7 @@ Os encargos são estimados e considerados pendentes até que sejam faturados. Vo
 
 Ao identificar encargos pendentes, você pode entender os encargos analisando as transações individuais que contribuíram para eles. Neste ponto, os encargos de uso pendentes não são exibidos na página Todas as transações. Exiba os encargos de uso pendentes na página de assinaturas do Azure.
 
-Em gerenciamento de custos + cobrança, selecione um perfil de cobrança. Dependendo de seu acesso, talvez você precise selecionar uma conta de cobrança. Na conta de cobrança, selecione **Perfis de cobrança** e, em seguida, selecione um perfil de cobrança.
+Em Gerenciamento de Custos + Cobrança, selecione um perfil de cobrança. Dependendo de seu acesso, talvez você precise selecionar uma conta de cobrança. Na conta de cobrança, selecione **Perfis de cobrança** e, em seguida, selecione um perfil de cobrança.
 
 Selecione **Todas as transações** no lado esquerdo da página.
 
@@ -97,7 +97,7 @@ Pesquise *pendentes*. Use o filtro **Intervalo de tempo** para exibir os encargo
 
 ### <a name="view-pending-charges-by-customer"></a>Exibir encargos pendentes por cliente
 
-Em gerenciamento de custos + cobrança, selecione um perfil de cobrança. Dependendo de seu acesso, talvez você precise selecionar uma conta de cobrança. Na conta de cobrança, selecione **Perfis de cobrança** e, em seguida, selecione um perfil de cobrança.
+Em Gerenciamento de Custos + Cobrança, selecione um perfil de cobrança. Dependendo de seu acesso, talvez você precise selecionar uma conta de cobrança. Na conta de cobrança, selecione **Perfis de cobrança** e, em seguida, selecione um perfil de cobrança.
 
 Selecione **Clientes** no lado esquerdo da página.
 
@@ -107,7 +107,7 @@ A página Clientes exibe os encargos do mês atual e do mês passado para cada a
 
 ### <a name="view-pending-usage-charges"></a>Exibir encargos de uso pendentes
 
-Em gerenciamento de custos + cobrança, selecione um perfil de cobrança. Dependendo de seu acesso, talvez você precise selecionar uma conta de cobrança. Na conta de cobrança, selecione **Perfis de cobrança** e, em seguida, selecione um perfil de cobrança.
+Em Gerenciamento de Custos + Cobrança, selecione um perfil de cobrança. Dependendo de seu acesso, talvez você precise selecionar uma conta de cobrança. Na conta de cobrança, selecione **Perfis de cobrança** e, em seguida, selecione um perfil de cobrança.
 
 Selecione **Assinaturas do Azure** no lado esquerdo da página. A página de assinaturas do Azure exibe os encargos do mês atual e do mês passado para cada assinatura do perfil de cobrança. Os encargos do mês atual são os encargos pendentes do mês atual e são faturados quando a fatura é gerada para o mês. Se a fatura do mês passado ainda não foi gerada, os encargos do mês passado também ficam pendentes.
 
@@ -125,16 +125,16 @@ As instruções para pagamento de sua fatura são mostradas na parte inferior da
 
 Se você já pagou a fatura, verifique o status do pagamento na página Faturas no portal do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
-> * Revisar transações faturadas no portal do Azure
+> * Examinar transações faturadas no portal do Azure
 > * Examinar os encargos pendentes para estimar sua próxima fatura
 > * Analisar os encargos de uso do Azure
 
-Saiba mais sobre como usar o gerenciamento de custos do Azure para parceiros.
+Saiba como usar o Gerenciamento de Custos do Azure para parceiros.
 
 > [!div class="nextstepaction"]
-> [Introdução ao gerenciamento de custos do Azure para parceiros](../costs/get-started-partners.md)
+> [Introdução ao Gerenciamento de Custos do Azure para parceiros](../costs/get-started-partners.md)

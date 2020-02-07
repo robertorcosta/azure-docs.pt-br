@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: banders
-ms.openlocfilehash: 2fadd0b6eb0951031a9d577b2fd3a3d497076dd8
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: dfee9218f1e65189117c3d37808a303cf7568cd7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75990106"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76846236"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Tarefas de administrador da conta no portal do Azure
 
@@ -29,13 +29,18 @@ Você deve ser o administrador da conta para executar qualquer uma dessas tarefa
 
 ## <a name="navigate-to-your-subscriptions-payment-methods"></a>Navegar até os métodos de pagamento da sua assinatura
 
-1. Entre no [Portal do Azure](https://portal.azure.com) como Administrador da Conta.
+1. Entre no [Portal do Azure](https://portal.azure.com) como Administrador da Conta. 
+
 1. Pesquise **Gerenciamento de Custos + Cobrança**.
     
     ![Captura de tela que mostra a pesquisa de gerenciamento de custos + cobrança ](./media/account-admin-tasks/search-bar.png)
 
-1. Na lista **Minhas assinaturas**, selecione a assinatura à qual você deseja adicionar o cartão de crédito.
-    ![Captura de tela que mostra a grade de minhas assinaturas em visão geral](./media/account-admin-tasks/cost-management-billing-overview-x.png)
+1. Na lista **Minhas assinaturas**, selecione a assinatura à qual você deseja adicionar o cartão de crédito. 
+   
+   ![Captura de tela que mostra a grade de minhas assinaturas em visão geral](./media/account-admin-tasks/cost-management-billing-overview-x.png)
+   
+   > [!NOTE]
+   > Caso não veja algumas de suas assinaturas aqui, pode ser porque você alterou o diretório de assinatura em algum momento. Para essas assinaturas, você precisa alternar o diretório para o diretório original (o diretório no qual você se inscreveu inicialmente). Em seguida, repita a etapa 2. 
 
 1. Selecione **Formas de pagamento**.
 
@@ -119,10 +124,13 @@ O limite de gastos não está disponível para assinaturas com planos de comprom
 
     ![Captura de tela que mostra a pesquisa de gerenciamento de custos + cobrança ](./media/account-admin-tasks/search-bar.png)
 
-1. Na lista **Minhas assinaturas**, selecione sua assinatura do Visual Studio Enterprise.
-    
-    ![Captura de tela que mostra a grade de minhas assinaturas em visão geral](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
+1. Na lista **Minhas assinaturas**, selecione sua assinatura do Visual Studio Enterprise. 
 
+   ![Captura de tela que mostra a grade de minhas assinaturas em visão geral](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
+
+    > [!NOTE]
+    > Caso não veja algumas de suas assinaturas do Visual Studio aqui, pode ser porque você alterou um diretório de assinatura em algum momento. Para essas assinaturas, você precisa alternar o diretório para o diretório original (o diretório no qual você se inscreveu inicialmente). Em seguida, repita a etapa 2.
+    
 1. Na visão geral da Assinatura, clique na faixa laranja para remover o limite de gastos.
     
     ![Captura de tela que mostra a faixa remover o limite de gastos](./media/account-admin-tasks/msdn-remove-spending-limit-banner-x.png)
@@ -144,10 +152,13 @@ Se você tiver uma assinatura Azure no Licenciamento Open, poderá adicionar cr�
 
     ![Captura de tela que mostra a pesquisa de gerenciamento de custos + cobrança ](./media/account-admin-tasks/search-bar.png)
 
-1. Na lista **Minha assinaturas**, selecione sua assinatura Azure via Open.
-   
+1. Na lista **Minha assinaturas**, selecione sua assinatura Azure via Open. 
+
     ![Captura de tela que mostra a grade de minhas assinaturas em visão geral](./media/account-admin-tasks/cost-management-overview-aio-x.png)
 
+   > [!NOTE]
+   > Caso não veja sua assinatura aqui, pode ser porque você alterou o diretório em algum momento. É necessário alternar o diretório da assinatura para o diretório original (o diretório no qual você se inscreveu inicialmente). Em seguida, repita a etapa 2.
+    
 1. Selecione **Histórico de crédito**.
     
     ![Captura de tela que mostra o histórico de crédito](./media/account-admin-tasks/aio-credit-history-blade.png)
@@ -173,5 +184,5 @@ Se você tiver uma assinatura Azure no Licenciamento Open, poderá adicionar cr�
 ## <a name="troubleshooting"></a>Solução de problemas
 Não damos suporte a cartões virtuais ou pré-pagos. Se estiver recebendo erros ao adicionar ou atualizar um cartão de crédito válido, tente abrir o navegador no modo privado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre [analisar e impedir custos inesperados no portal do Azure](getting-started.md)

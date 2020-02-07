@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: banders
 ms.openlocfilehash: 5dbf885848d9866a184caee1da6b9000a26f83a9
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "76314108"
 ---
 # <a name="azure-spending-limit"></a>Limite de gastos do Azure
@@ -40,20 +40,20 @@ Se você se inscreveu em uma conta gratuita do Azure e atinge o limite de gastos
 
 Você poderá remover o limite de gastos a qualquer momento, contanto que haja uma forma de pagamento válida associada à sua assinatura do Azure. Para os tipos de assinatura que têm créditos durante vários meses, como o Visual Studio Enterprise e o Visual Studio Professional, você também pode habilitar o limite de gastos no início do próximo período de cobrança.
 
-Para remover seu limite de gastos, siga essas etapas:
+Para remover seu limite de gastos, execute estas etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Navegue até **assinaturas**.
+1. Navegue até **Assinaturas**.
 1. Selecione sua assinatura. Por exemplo, *Visual Studio Enterprise*.
-1. Na parte superior da página, selecione **gerenciar**. Você será redirecionado para https://account.azure.com/. No lado direito da página, selecione **remover limite de gastos**.  
-  ![exemplo mostrando remover limite de gastos](./media/spending-limit/account-azure-com-spending-limit.png)
-1. Você é Redirecionado de volta para a portal do Azure. Selecione uma opção apropriada para você e, em seguida, selecione um método de pagamento. Selecione **Concluir**.  
-  ![selecione uma opção para remover o limite de gastos](./media/spending-limit/remove-spending-limit.png)
+1. Na parte superior da página, selecione **Gerenciar**. Você será redirecionado para https://account.azure.com/. No lado direito da página, selecione **Remover limite de gastos**.  
+  ![Exemplo mostrando a opção Remover limite de gastos](./media/spending-limit/account-azure-com-spending-limit.png)
+1. Você será redirecionado de volta ao portal do Azure. Selecione uma opção apropriada para você e, em seguida, selecione uma forma de pagamento. Selecione **Concluir**.  
+  ![Selecionar uma opção para remover o limite de gastos](./media/spending-limit/remove-spending-limit.png)
 
 | Opção | Efeito |
 | --- | --- |
-| Remover o limite de gastos por tempo indefinido | Remove o limite de gastos sem ativá-lo automaticamente no começo do próximo período de cobrança. |
-| Remover o limite de gastos para o período de gastos atual | Remove o limite de gastos para que ele seja ativado novamente automaticamente no começo do próximo período de cobrança. |
+| Remover o limite de gastos indefinidamente | Remove o limite de gastos sem ativá-lo automaticamente no início do próximo período de cobrança. |
+| Remover limite de gastos para o período de cobrança atual | Remove o limite de gastos para que ele seja ativado automaticamente no início do próximo período de cobrança. |
 
 ## <a name="why-you-might-want-to-remove-the-spending-limit"></a>Por que remover o limite de gastos?
 
@@ -81,9 +81,9 @@ Limites de gastos personalizados não estão disponíveis.
 
 ![Aviso de compra no Marketplace](./media/spending-limit/marketplace-warning01.png)
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Caso tenha dúvidas ou precise de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Atualize para um plano com o preço [pago conforme o uso](upgrade-azure-subscription.md).

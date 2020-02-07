@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/21/2020
+ms.date: 01/24/2020
 ms.author: banders
-ms.openlocfilehash: ea545919436201524a1c77b27e9b187f3b1c3b64
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
-ms.translationtype: MT
+ms.openlocfilehash: 5f0c0c50ffd639109fdbb90c76e4ec036a8bc975
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314038"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76773891"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Trocas e reembolsos realizados via autoatendimento nas Reservas do Azure
 
@@ -29,14 +29,14 @@ Você precisa ter acesso de proprietário ao Pedido de Reserva para trocar ou re
 
 Você pode trocar sua reserva executando três etapas rápidas no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
-1. Selecione as reservas que você deseja reembolsar e clique em **Trocar**.  
+1. Selecione as reservas que deseja reembolsar e selecione **Trocar**.  
     ![Exemplo de imagem mostrando reservas a serem devolvidas](./media/exchange-and-refund-azure-reservations/exchange-refund-return.png)
 2. Selecione o produto de VM que você deseja comprar e digite uma quantidade. Verifique se o novo total de compra é maior que o total de devolução. [Determine o tamanho correto antes da compra](../../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
     ![Exemplo de imagem mostrando o produto da VM a ser comprado com uma troca](./media/exchange-and-refund-azure-reservations/exchange-refund-select-purchase.png)
 3. Examine e conclua a transação.  
     ![Exemplo de imagem mostrando o produto da VM a ser comprado com uma troca, concluindo a devolução](./media/exchange-and-refund-azure-reservations/exchange-refund-confirm-exchange.png)
 
-Para o reembolso de uma reserva, acesse **Detalhes da reserva** e clique em **Reembolsar**.
+Para reembolsar uma reserva, acesse **Detalhes da Reserva** e selecione **Reembolsar**.
 
 ## <a name="how-transactions-are-processed"></a>Como as transações são processadas
 
@@ -66,7 +66,7 @@ O Azure tem as políticas de cancelamento, troca e reembolso a seguir.
 - Somente os proprietários de reserva podem processar uma troca. [Saiba como adicionar ou alterar os usuários que podem gerenciar uma reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 - Uma troca é processada como um reembolso seguido de uma nova compra – diferentes transações são criadas para o cancelamento e a nova compra. O valor proporcional da reserva que você troca é reembolsado. O valor integral é cobrado pela nova compra. O valor proporcional da reserva é o valor residual diário proporcional da reserva que está sendo devolvida.
 - Você pode trocar ou reembolsar reservas mesmo que o Contrato Enterprise usado para comprar a reserva esteja expirado e tenha sido renovado como um novo contrato.
-- Você pode alterar qualquer propriedade de reserva, como tamanho, região, quantidade e prazo com uma troca.
+- Você pode alterar a propriedade de uma reserva, como família, série, versão, SKU, região, quantidade e prazo com uma troca.
 - O novo total de compra deve ser maior ou igual ao valor devolvido.
 - A nova reserva comprada como parte de uma troca tem um novo prazo, que começa a contar desde o momento da efetivação da troca.
 - Não há penalidades ou limites anuais para trocas.
@@ -81,13 +81,13 @@ O Azure tem as políticas de cancelamento, troca e reembolso a seguir.
 
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>Trocar armazenamento não Premium por armazenamento Premium
 
-Você pode trocar uma reserva comprada para um tamanho de VM que não é compatível com o armazenamento Premium por um tamanho de VM correspondente que é compatível. Por exemplo, uma _F1_ por uma _F1s_. Para fazer a troca, acesse os Detalhes da Reserva e clique em **Trocar**. A troca não redefine o prazo da instância reservada, nem cria uma nova transação.
+Você pode trocar uma reserva comprada para um tamanho de VM que não é compatível com o armazenamento Premium por um tamanho de VM correspondente que é compatível. Por exemplo, uma _F1_ por uma _F1s_. Para fazer a troca, acesse os Detalhes da Reserva e selecione **Trocar**. A troca não redefine o prazo da instância reservada, nem cria uma nova transação.
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para aprender a gerenciar uma reserva, confira [Gerenciar Reservas do Azure](manage-reserved-vm-instance.md).
 - Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:

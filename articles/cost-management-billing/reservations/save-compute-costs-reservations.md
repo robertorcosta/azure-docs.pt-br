@@ -7,16 +7,16 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: banders
-ms.openlocfilehash: 2e8c477aea7a11eefa606ab9cd084ca3ed9f400f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: 10cf5b5a0ec4edda3d3c868cda34352e827604b0
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75995644"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76841873"
 ---
 # <a name="what-are-azure-reservations"></a>O que são Reservas do Azure?
 
-As Reservas do Azure o ajudam a economizar ao se comprometer com um plano de um ano ou de três anos de máquinas virtuais, armazenamento de blobs do Azure ou Azure Data Lake Storage Gen2, capacidade de computação do Banco de Dados SQL, taxa de transferência do Azure Cosmos DB ou de outros recursos do Azure. O compromisso permite que você obtenha um desconto nos recursos que usar. As reservas podem reduzir significativamente os custos de recursos em até 72% nos preços pagos conforme o uso. As reservas fornecem um desconto de cobrança e não afetam o estado de runtime dos recursos.
+As Reservas do Azure ajudam você a economizar dinheiro ao se comprometer com um plano de um ano ou de três anos para uso de máquinas virtuais, do Armazenamento de Blobs do Azure ou do Azure Data Lake Storage Gen2, da capacidade de computação do Banco de Dados SQL, do Armazenamento em Disco do Azure, da taxa de transferência do Azure Cosmos DB ou de outros recursos do Azure. O compromisso permite que você obtenha um desconto nos recursos que usar. As reservas podem reduzir significativamente os custos de recursos em até 72% nos preços pagos conforme o uso. As reservas fornecem um desconto de cobrança e não afetam o estado de runtime dos recursos.
 
 Você pode pagar por uma reserva de forma antecipada ou mensal. O custo total das reservas antecipadas e mensais é o mesmo e você não paga nenhuma taxa adicional quando opta por pagar mensalmente. O pagamento mensal está disponível para reservas do Azure, e não para produtos de terceiros.
 
@@ -32,6 +32,7 @@ Planos de serviço:
 
 - **Instância de Máquina Virtual Reservada** – uma reserva apenas abrange os custos de computação de máquina virtual. Não cobre encargos adicionais de software, rede e armazenamento.
 - **Capacidade reservada de Armazenamento do Azure**: uma reserva abrange a capacidade de contas de armazenamento padrão para armazenamento de blobs ou do Azure Data Lake Storage Gen2. A reserva não abrange a largura de banda ou as taxas de transação.
+- **Reservas do Armazenamento em Disco do Azure** – uma reserva cobre apenas SSDs Premium de tamanho P30 ou superior. Ela não cobre nenhum outro tipo de disco ou tamanhos menores que P30.
 - **Capacidade reservada do Azure Cosmos DB** – cobre a taxa de transferência provisionada para seus recursos. Ela não cobre encargos de armazenamento e rede.
 - **vCore reservado do Banco de Dados SQL** – apenas os custos de computação são incluídos com uma reserva. A licença é cobrada separadamente.
 - **SQL Data Warehouse** – uma reserva cobre o uso de cDWU. Ela não cobre encargos de armazenamento ou rede associados ao uso do SQL Data Warehouse.
@@ -40,7 +41,6 @@ Planos de serviço:
 - Banco de Dados do Azure para PostgreSQL
 - Banco de Dados do Azure para MariaDB
 - Azure Data Explorer
-- Managed Disks SSD Premium
 
 
 Para as máquinas virtuais do Windows e banco de Dados SQL, você pode cobrir os custos de licenciamento com o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
@@ -105,9 +105,9 @@ O escopo de uma reserva não será atualizado automaticamente se você mover o g
 
 Os descontos na reserva aplicam-se às seguintes assinaturas e tipos de oferta elegíveis.
 
-- Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P)
+- Enterprise Agreement (números da oferta: MS-AZR-0017P ou MS-AZR-0148P)
 - Assinaturas do Contrato de Cliente da Microsoft.
-- Planos individuais com tarifas pagas conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P)
+- Planos individuais com tarifas de pagamento conforme o uso (números da oferta: MS-AZR-0003P ou MS-AZR-0023P)
 - Assinaturas de CSP
 
 Os recursos executados em uma assinatura com outros tipos de oferta não recebem o desconto de reserva.
@@ -140,16 +140,16 @@ Quando você compra uma reserva, o desconto pode ser aplicado a outras instânci
 
 Planos de serviço:
 
-- Instâncias de VM reservadas: quando você adquire a reserva e seleciona **otimizado para flexibilidade de tamanho de instância**, a cobertura de desconto depende do tamanho da VM que você selecionar. A reserva pode ser aplicada aos tamanhos de VMs (máquinas virtuais) no mesmo grupo de série de tamanho. Para obter mais informações, confira [Flexibilidade de tamanho de máquina virtual com Instâncias de VM Reservadas](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
-- Capacidade reservada do armazenamento do Azure: você pode comprar capacidade reservada para contas de armazenamento padrão do Azure em unidades de 100 TiB ou 1 PiB por mês. A capacidade reservada do armazenamento do Azure está disponível em todas as regiões para qualquer camada de acesso (quente, fria ou arquivo) e para qualquer opção de replicação (LRS, GRS ou ZRS).
-- Capacidade reservada do Banco de Dados SQL: a cobertura de desconto depende do nível de desempenho escolhido. Para obter mais informações, confira [Entender como um desconto de reserva do Azure é aplicado](understand-reservation-charges.md).
-- Capacidade reservada do Azure Cosmos DB: a cobertura de desconto depende da produtividade provisionada. Para obter mais informações, confira [Entender como um desconto de reserva do Azure Cosmos DB é aplicado](understand-cosmosdb-reservation-charges.md).
+- Instâncias de VM reservadas: Ao comprar a reserva, se você selecionar **Otimizado para flexibilidade de tamanho da instância**, a cobertura de desconto dependerá do tamanho da VM que você selecionar. A reserva pode ser aplicada aos tamanhos de VMs (máquinas virtuais) no mesmo grupo de série de tamanho. Para obter mais informações, confira [Flexibilidade de tamanho de máquina virtual com Instâncias de VM Reservadas](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+- Capacidade reservada do Armazenamento do Azure: você pode comprar capacidade reservada para contas de armazenamento padrão do Azure em unidades de 100 TiB ou 1 PiB por mês. A capacidade reservada do armazenamento do Azure está disponível em todas as regiões para qualquer camada de acesso (quente, fria ou arquivo) e para qualquer opção de replicação (LRS, GRS ou ZRS).
+- Capacidade reservada do Banco de Dados SQL: A cobertura de desconto depende do nível de desempenho escolhido. Para obter mais informações, confira [Entender como um desconto de reserva do Azure é aplicado](understand-reservation-charges.md).
+- Capacidade reservada do Azure Cosmos DB: A cobertura de desconto depende da taxa de transferência provisionada. Para obter mais informações, confira [Entender como um desconto de reserva do Azure Cosmos DB é aplicado](understand-cosmosdb-reservation-charges.md).
 
 ## <a name="reservation-notifications"></a>Notificações de reserva
 
 Dependendo de como você paga por sua assinatura do Azure, enviamos emails com notificações de reserva aos seguintes usuários de sua organização. São enviadas notificações referentes a vários eventos, incluindo:
 
-- Comprar
+- Purchase
 - Futura expiração da reserva
 - Expiry
 - Renovação
@@ -167,11 +167,11 @@ Para clientes com assinaturas individuais:
 - O proprietário da conta recebe todas as outras notificações.
 
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Caso tenha dúvidas ou precise de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre as Reservas do Azure com os seguintes artigos:
     - [Gerenciar Reservas do Azure](manage-reserved-vm-instance.md)

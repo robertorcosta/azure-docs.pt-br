@@ -67,7 +67,7 @@
               href: azure-ad-custom-roles-configure.md
         - name: Exibir histórico de auditoria
           href: pim-how-to-use-audit-log.md
-    - name: Gerenciar funções de recurso do Azure
+    - name: Gerenciar funções do Azure
       items:
         - name: Atribuir funções
           href: pim-resource-roles-assign-roles.md
@@ -97,7 +97,7 @@
               href: pim-how-to-perform-security-review.md
             - name: Concluir uma revisão de acesso
               href: pim-how-to-complete-review.md
-        - name: Funções de recurso do Azure
+        - name: Funções do Azure
           items:
             - name: Criar uma análise de acesso
               href: pim-resource-roles-start-access-review.md

@@ -252,9 +252,13 @@
           href: backup-azure-backup-cloud-as-tape.md
     - name: Backup offline
       items:
-        - name: Configurar o backup offline
+        - name: Visão geral
+          href: offline-backup-overview.md
+        - name: Backup offline com o Azure Data Box
+          href: offline-backup-azure-data-box.md
+        - name: Backup offline com a Importação/Exportação (MARS)
           href: backup-azure-backup-import-export.md
-        - name: Backup offline do DPM e do Servidor de Backup do Azure
+        - name: Backup offline com a Importação/Exportação (DPM/MABS)
           href: backup-azure-backup-server-import-export-.md
     - name: Monitoramento e Alertas
       items:

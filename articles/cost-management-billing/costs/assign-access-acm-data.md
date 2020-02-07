@@ -1,29 +1,29 @@
 ---
-title: Atribuir acesso aos dados de gerenciamento de custos do Azure
+title: Atribuir acesso a dados do Gerenciamento de Custos do Azure
 description: Este artigo orienta você pela atribuição de permissão para dados do Gerenciamento de Custos do Azure para diversos escopos de acesso.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2019
+ms.date: 01/27/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: e3140ee990127db6815828314103a09dff7cf26e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: 8cb803c78b8bb5acd7880f79a19b5e3f0a978bd8
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75989014"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76773963"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Atribuir acesso a dados do Gerenciamento de Custos
 
-Para usuários com contratos Azure Enterprise, uma combinação de permissões concedidas no portal do Azure e no portal do EA (Contrato Enterprise) define o nível de acesso de um usuário aos dados do Gerenciamento de Custos do Azure. Para usuários com outros tipos de conta do Azure, definir o nível de acesso de um usuário aos dados de gerenciamento de custos é mais simples usando o controle de acesso baseado em função do Azure. Este artigo orienta você pela atribuição de acesso aos dados do Gerenciamento de Custos. Depois que a combinação de permissões é atribuída, os dados das exibições do usuário no Gerenciamento de Custos com base no escopo ao qual eles têm acesso e no escopo que eles selecionam no portal do Azure.
+Para usuários com contratos Azure Enterprise, uma combinação de permissões concedidas no portal do Azure e no portal do EA (Contrato Enterprise) define o nível de acesso de um usuário aos dados do Gerenciamento de Custos do Azure. Para usuários com outros tipos de contas do Azure, definir o nível de acesso de um usuário aos dados do Gerenciamento de Custos é mais simples usando o controle de acesso baseado em função do Azure. Este artigo orienta você pela atribuição de acesso aos dados do Gerenciamento de Custos. Depois que a combinação de permissões é atribuída, os dados das exibições do usuário no Gerenciamento de Custos com base no escopo ao qual eles têm acesso e no escopo que eles selecionam no portal do Azure.
 
 O escopo que um usuário seleciona é usado em todo o Gerenciamento de Custos para fornecer a consolidação de dados e para controlar o acesso a informações de custo. Ao usar escopos, os usuários não selecionam vários deles. Em vez disso, eles selecionam um escopo mais amplo que em que os escopos filho se acumulam, para depois filtrarem o que desejam exibir. A consolidação de dados é importante para entender porque algumas pessoas não devem ter acesso a um escopo pai acumulado por escopos filho.
 
-Assista ao vídeo [como atribuir acesso com o gerenciamento de custos do Azure](https://www.youtube.com/watch?v=J997ckmwTa8) para saber mais sobre a atribuição de acesso para exibir custos e encargos com o controle de acesso baseado em função do Azure.
+Assista ao vídeo [Como atribuir acesso com o Gerenciamento de Custos do Azure](https://www.youtube.com/watch?v=J997ckmwTa8) para saber como atribuir acesso para exibir custos e encargos com o controle de acesso baseado em função do Azure.
 
 >[!VIDEO https://www.youtube.com/embed/J997ckmwTa8]
 
@@ -42,19 +42,12 @@ Para exibir dados de custo de assinaturas do Azure EA, um usuário precisará te
 | Conta de registro<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | Proprietário da conta | **Encargos de exibição do proprietário da conta** habilitados | Todas as assinaturas da conta de registro |
 | Grupo de gerenciamento | [https://portal.azure.com](https://portal.azure.com/) | Leitor do Gerenciamento de Custos (ou Leitor) | **Encargos de exibição do proprietário da conta** habilitados | Todas as assinaturas abaixo do grupo de gerenciamento |
 | Subscription | [https://portal.azure.com](https://portal.azure.com/) | Leitor do Gerenciamento de Custos (ou Leitor) | **Encargos de exibição do proprietário da conta** habilitados | Todos os recursos/grupos de recursos na assinatura |
-| Grupo de recursos | [https://portal.azure.com](https://portal.azure.com/) | Leitor do Gerenciamento de Custos (ou Leitor) | **Encargos de exibição do proprietário da conta** habilitados | Todos os recursos no grupo de recursos |
+| Resource group | [https://portal.azure.com](https://portal.azure.com/) | Leitor do Gerenciamento de Custos (ou Leitor) | **Encargos de exibição do proprietário da conta** habilitados | Todos os recursos no grupo de recursos |
 
 <sup>1</sup> A conta de cobrança é também chamada de Registro ou Contrato Enterprise.
 
 <sup>2</sup> A conta de registro é também chamada de proprietário da conta.
 
-O diagrama a seguir ilustra o relacionamento entre escopos de Gerenciamento de Custos com as funções e configurações do portal do EA.
-
-![Diagrama mostrando a relação entre escopos de Gerenciamento de Custos com as funções e configurações do portal do EA](./media/assign-access-acm-data/scope-access-relationship-diagram.png)
-
-Quando os **encargos de exibição de departamentos e contas** estiverem desabilitados no portal do EA, você verá uma mensagem dizendo que *os custos estão desabilitados para sua organização* ao tentar exibir os custos para departamentos e contas.
-
-Da mesma forma, quando os **encargos de exibição de AO** estiverem desabilitados no portal do EA, você verá uma mensagem dizendo que *os custos estão desabilitados para sua organização* ao tentar exibir os custos para contas de registro, grupos de gerenciamento, assinaturas e grupos de recursos.
 
 ## <a name="other-azure-account-scopes"></a>Outros escopos da conta do Azure
 
@@ -62,9 +55,9 @@ Para exibir dados de custo de outras assinaturas do Azure, um usuário precisar�
 
 - Conta do Azure
 - Grupo de gerenciamento
-- Grupo de recursos
+- Resource group
 
-Vários escopos estão disponíveis depois que os parceiros integram clientes a um contrato de cliente da Microsoft. Os clientes do CSP podem usar os recursos de gerenciamento de custos quando habilitados pelo parceiro CSP. Para obter mais informações, consulte Introdução [ao gerenciamento de custos do Azure para parceiros](get-started-partners.md).
+Vários escopos estão disponíveis após os parceiros integrarem clientes a um Contrato de Cliente da Microsoft. Clientes CSP podem, em seguida, usar os recursos de Gerenciamento de Custos quando eles são habilitados pelo parceiro CSP. Para obter mais informações, confira [Introdução ao Gerenciamento de Custos do Azure para parceiros](get-started-partners.md).
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Habilitar o acesso aos custos no portal do EA
 
@@ -131,7 +124,7 @@ Depois de concluir as etapas acima, a conta de usuário se torna uma conta de in
 
 ## <a name="assign-management-group-scope-access"></a>Atribuir acesso ao escopo do grupo de gerenciamento
 
-O acesso para exibir o escopo do grupo de gerenciamento requer pelo menos a permissão leitor de gerenciamento de custos (ou leitor). Você pode configurar permissões para um grupo de gerenciamento no portal do Azure. Você deve ter pelo menos a permissão Administrador de Acesso do Usuário (ou Proprietário) para o grupo de gerenciamento para permitir o acesso de outras pessoas. E, para contas do Azure EA, você também deve habilitar a configuração **Encargos de exibição de AO** no portal do EA.
+O acesso para exibir o escopo de grupo de gerenciamento requer pelo menos a permissão do Leitor de Gerenciamento de Custos (ou Leitor). Você pode configurar permissões para um grupo de gerenciamento no portal do Azure. Você deve ter pelo menos a permissão Administrador de Acesso do Usuário (ou Proprietário) para o grupo de gerenciamento para permitir o acesso de outras pessoas. E, para contas do Azure EA, você também deve habilitar a configuração **Encargos de exibição de AO** no portal do EA.
 
 1. Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Na barra lateral, selecione **Todos os serviços**, pesquise _Grupos de gerenciamento_ e, em seguida, selecione **Grupos de gerenciamento**.
@@ -175,11 +168,11 @@ O acesso a um grupo de recursos requer pelo menos a permissão do Leitor de Gere
 
 ## <a name="cross-tenant-authentication-issues"></a>Problemas de autenticação entre locatários
 
-Atualmente, o gerenciamento de custos do Azure tem suporte limitado para autenticação entre locatários. Em algumas circunstâncias, quando você tenta autenticar entre locatários, você pode receber um erro de **acesso negado** na análise de custo. Esse problema pode ocorrer se você configurar o controle de acesso baseado em função (RBAC) para a assinatura de outro locatário e, em seguida, tentar exibir dados de custo.
+Atualmente, o Gerenciamento de Custos do Azure tem suporte limitado para autenticação entre locatários. Em algumas circunstâncias, quando tenta autenticar entre locatários, você pode receber um erro de **Acesso negado** na análise de custo. Esse problema poderá ocorrer se você configurar o RBAC (controle de acesso baseado em função) para a assinatura de outro locatário e, em seguida, tentar exibir dados de custo.
 
-*Para solucionar o problema*: depois de configurar o RBAC entre locatários, aguarde uma hora. Em seguida, tente exibir os custos na análise de custos ou conceder acesso de gerenciamento de custos aos usuários em ambos os locatários.  
+*Para contornar o problema*: depois de configurar o RBAC entre locatários, aguarde uma hora. Em seguida, tente exibir os custos na análise de custos ou conceder acesso de Gerenciamento de Custos aos usuários em ambos os locatários.  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Se você ainda não concluiu o primeiro início rápido de Gerenciamento de Custos, leia-o em [Iniciar a análise dos custos](quick-acm-cost-analysis.md).

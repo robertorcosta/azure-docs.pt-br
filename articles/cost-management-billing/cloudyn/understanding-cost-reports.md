@@ -1,21 +1,20 @@
 ---
 title: Noções básicas dos relatórios de gerenciamento de custos do Cloudyn no Azure | Microsoft Docs
 description: Este artigo ajuda você a entender a estrutura básica e funções dos relatórios de gestão de custos do Cloudyn.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: benshy
+ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: fff08bc30e0d1bae77a2aee641f6e211cea40beb
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: 89bcbf75396a1eda9de4a715739adb3a3696e137
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75989105"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76773979"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Noções básicas dos relatórios de gerenciamento de custos do Cloudyn
 
@@ -38,8 +37,8 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
 
       - Análise de Custo
       - Alocação
-      - Gerenciamento de ativos
-      - Otimização
+      - Gerenciamento de Ativos
+      - Optimization
 
    Digite um nome de filtro e clique em **Salvar**.
 
@@ -111,9 +110,9 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
        - Todos os Pagamentos Antecipados
        - Sem Pagamentos Antecipados
        - Pagamentos Parciais Antecipados
-       - Sob Demanda
+       - Sob demanda
        - Reserva
-       - Spot
+       - À Vista
      - **Tipo de Encargo**
        - Selecione o tipo de encargo Negativo ou Positivo, ou ambos.
      - **Locação**
@@ -146,7 +145,7 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
     Use Resolução para selecionar a resolução de tempo dentro do intervalo de datas selecionado. Sua resolução de tempo determina como as unidades são exibidas no relatório, e pode ser:
     - Diário
     - Semanal
-    - Gasto mensal
+    - Mensal
     - Trimestral
     - Anual
 
@@ -191,7 +190,7 @@ Ao exibir qualquer relatório, clique em **Ações** e, em seguida, selecione **
 
 ### <a name="save-a-report-to-cloud-provider-storage"></a>Salvar um relatório no armazenamento do provedor de nuvem
 
-Para salvar um relatório no seu provedor de serviços de nuvem, você já deve ter configurado uma conta de armazenamento. Ao exibir qualquer relatório, clique em **Ações** e, em seguida, selecione **Agendar relatório**. Nomeie o relatório e, em seguida, adicione sua própria URL ou use a URL criada automaticamente. Selecione **Salvar no armazenamento** e, em seguida, selecione a conta de armazenamento ou adicione uma nova conta. Digite um prefixo que seja anexado ao nome do arquivo do relatório. Selecione um formato de arquivo CSV ou JSON e salve o relatório.
+Para salvar um relatório no seu provedor de serviços de nuvem, você já deve ter configurado uma conta de armazenamento. Ao exibir qualquer relatório, clique em **Ações** e, em seguida, selecione **Agendar relatório**. Nomeie o relatório e, em seguida, adicione sua própria URL ou use a URL criada automaticamente. Selecione **Salvar no armazenamento** e, em seguida, selecione a conta de armazenamento ou adicione uma nova conta. Digite um prefixo que seja anexado ao nome do arquivo do relatório. Selecione um formato de arquivo CSV ou JSON e, em seguida, salve o relatório.
 
 ### <a name="schedule-a-report"></a>Agendar um relatório
 
@@ -201,7 +200,7 @@ Você pode executar relatórios em intervalos agendados, e você pode enviá-los
 
 Ao exibir qualquer relatório, clique em **Ações** e, em seguida, selecione **Exportar todos os dados do relatório**. Uma janela pop-up será exibida e um arquivo CSV é baixado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre os relatórios incluídos no Cloudyn em [Usar relatórios do Cloudyn](../../cost-management/use-reports.md).
 - Saiba como usar relatórios para criar [painéis](../../cost-management/dashboards.md).

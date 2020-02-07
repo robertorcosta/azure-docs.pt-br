@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 222b0358f027e0a6687ca0710e3cf5b80f292c4e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75993460"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Revise o faturamento de inscrição empresarial usando APIs REST
@@ -41,10 +41,10 @@ O parâmetro `{billingAccountId}` é obrigatório e deve conter a ID de inscriç
 
 Os cabeçalhos a seguir são necessários: 
 
-|Cabeçalho da solicitação|Description|  
+|Cabeçalho da solicitação|Descrição|  
 |--------------------|-----------------|  
 |*Tipo de Conteúdo:*|Obrigatórios. Defina como `application/json`.|  
-|*Autorização:*|Obrigatórios. Defina como uma chave de [API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)de `Bearer` válida. |  
+|*Autorização:*|Obrigatórios. Defina para uma [chave de API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) `Bearer` válida. |  
 
 Este exemplo mostra uma chamada síncrona que retorna detalhes para o ciclo de faturamento atual. Por motivos de desempenho, as chamadas síncronas retornam informações do último mês.  Você também pode chamar a [API de forma assíncrona](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) para retornar dados por 36 meses.
 
@@ -94,10 +94,10 @@ O parâmetro `{departmentId}` é obrigatório e deve conter a ID do departamento
 
 Os cabeçalhos a seguir são necessários: 
 
-|Cabeçalho da solicitação|Description|  
+|Cabeçalho da solicitação|Descrição|  
 |--------------------|-----------------|  
 |*Tipo de Conteúdo:*|Obrigatórios. Defina como `application/json`.|  
-|*Autorização:*|Obrigatórios. Defina como uma chave de [API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)de `Bearer` válida. |  
+|*Autorização:*|Obrigatórios. Defina para uma [chave de API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) `Bearer` válida. |  
 
 Este exemplo mostra uma chamada síncrona que retorna detalhes para o ciclo de faturamento atual. Por motivos de desempenho, as chamadas síncronas retornam informações do último mês.  Você também pode chamar a [API de forma assíncrona](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) para retornar dados por 36 meses.
 
@@ -150,10 +150,10 @@ O parâmetro `{enrollmentAccountId}` é obrigatório e deve conter a ID da conta
 
 Os cabeçalhos a seguir são necessários: 
 
-|Cabeçalho da solicitação|Description|  
+|Cabeçalho da solicitação|Descrição|  
 |--------------------|-----------------|  
 |*Tipo de Conteúdo:*|Obrigatórios. Defina como `application/json`.|  
-|*Autorização:*|Obrigatórios. Defina como uma chave de [API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)de `Bearer` válida. |  
+|*Autorização:*|Obrigatórios. Defina para uma [chave de API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) `Bearer` válida. |  
 
 Este exemplo mostra uma chamada síncrona que retorna detalhes para o ciclo de faturamento atual. Por motivos de desempenho, as chamadas síncronas retornam informações do último mês.  Você também pode chamar a [API de forma assíncrona](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) para retornar dados por 36 meses.
 
@@ -189,7 +189,7 @@ O exemplo a seguir mostra a saída da API REST para a inscrição empresarial `1
 
 Este exemplo é abreviado; consulte [Obter detalhes de uso de uma conta de inscrição](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist-legacy) para obter uma descrição completa de cada campo de resposta e tratamento de erro.
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Próximas etapas 
 - Revise a [visão geral de relatórios corporativos](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
 - Investigue [API REST do Enterprise Billing](https://docs.microsoft.com/rest/api/billing/)   
 - [Iniciar com a API REST do Azure](https://docs.microsoft.com/rest/api/azure/)   

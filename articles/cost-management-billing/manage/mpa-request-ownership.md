@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 10/13/2019
 ms.author: banders
 ms.openlocfilehash: 65b56511a3b454b192b5adb2a98fb3bb3510bb7e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75988195"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obter a propriedade de cobrança das assinaturas do Azure para sua conta do MPA
@@ -29,7 +29,7 @@ Para solicitar a propriedade de cobrança, é necessário ter a função **Admin
 
 Este artigo se aplica às contas de cobrança para Contratos de Parceiro da Microsoft. Essas contas são criadas para CSPs (Provedores de Soluções na Nuvem) para gerenciar a cobrança dos clientes na nova experiência de comércio. A nova experiência só está disponível para parceiros que têm, pelo menos, um cliente que tenha aceitado um MCA (Contrato de Cliente da Microsoft) e tenha um plano do Azure. [Verifique se você tem acesso a um Contrato de Parceiro da Microsoft](#check-access-to-a-microsoft-partner-agreement).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 1. Estabelecer um [relacionamento de revendedor](https://docs.microsoft.com/partner-center/request-a-relationship-with-a-customer) com um cliente. Verificar a [Visão Geral da Autorização Regional do CSP](https://docs.microsoft.com/partner-center/regional-authorization-overview) para garantir que o cliente e o locatário do Parceiro estejam dentro das mesmas regiões autorizadas.  
 
@@ -83,7 +83,7 @@ Este artigo se aplica às contas de cobrança para Contratos de Parceiro da Micr
 
     ![Captura de tela que mostra uma lista de solicitações de transferência](./media/mpa-request-ownership/mpa-select-transfer-requests-for-status.png)
 
-   |Column|Definição|
+   |Coluna|Definição|
    |---------|---------|
    |Data da solicitação|A data em que a solicitação de transferência foi enviada|
    |Destinatário|O endereço de email do usuário para quem você enviou a solicitação de transferência da propriedade de cobrança|
@@ -99,12 +99,12 @@ Este artigo se aplica às contas de cobrança para Contratos de Parceiro da Micr
    |Concluído| A cobrança das assinaturas selecionadas pelo usuário é transferida para a sua conta|
    |Concluído com erros|A solicitação foi concluída, mas a cobrança de algumas assinaturas que o usuário selecionou não pôde ser transferida|
    |Expirado|O usuário não aceitou a solicitação a tempo e ela expirou|
-   |Cancelado|Alguém com acesso à solicitação de transferência cancelou a solicitação|
+   |Canceled|Alguém com acesso à solicitação de transferência cancelou a solicitação|
    |Recusado|O usuário recusou a solicitação de transferência|
 
-6. Selecione uma solicitação de transferência para exibir detalhes. A página detalhes da transferência exibe as seguintes informações: ![captura de tela que mostra a lista de assinaturas transferidas](./media/mpa-request-ownership/mpa-transfer-completed.png)
+6. Selecione uma solicitação de transferência para exibir detalhes. A página de detalhes da transferência exibe as seguintes informações: ![Captura de tela que mostra a lista de assinaturas transferidas](./media/mpa-request-ownership/mpa-transfer-completed.png)
 
-   |Column  |Definição|
+   |Coluna  |Definição|
    |---------|---------|
    |ID da solicitação de transferência|A ID exclusiva de sua solicitação de transferência. Se você enviar uma solicitação de suporte, compartilhe a ID com o Suporte do Azure para agilizá-la|
    |Transferência solicitada em|A data em que a solicitação de transferência foi enviada|
@@ -148,7 +148,7 @@ As Reservas do Azure não são movidas automaticamente com as assinaturas. [Entr
 
 ### <a name="access-to-azure-services"></a>Acesso aos serviços do Azure
 
-O acesso para usuários existentes, grupos ou entidades de serviço que foi atribuído usando o [RBAC do Azure (controle de acesso baseado em função)](../../role-based-access-control/overview.md) não é afetado durante a transição. O parceiro não obterá nenhum novo acesso RBAC às assinaturas.  
+O acesso de usuários, grupos ou entidades de serviço existentes que foi atribuído usando [Azure RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) não é afetado durante a transição. O parceiro não obterá nenhum novo acesso RBAC às assinaturas.  
 
 Os parceiros devem trabalhar com o cliente para obter acesso às assinaturas.  Os parceiros precisam obter tíquetes de suporte aberto de acesso [Administrador em Nome de – AOBO](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) ou [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/concepts/cloud-solution-provider).
 
@@ -181,11 +181,11 @@ Se esses dois diretórios não forem correspondentes, as assinaturas não poder�
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Verificar o acesso a um Contrato de Parceiro da Microsoft
 [!INCLUDE [billing-check-mpa](../../../includes/billing-check-mpa.md)]
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Entrar em contato com o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 
 Se precisar de ajuda, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - A propriedade de cobrança das assinaturas do Azure é transferida para você. Controle os encargos dessas assinaturas no [portal do Azure](https://portal.azure.com).
 

@@ -6,9 +6,9 @@
       href: overview.md
 - name: Inícios rápidos
   items:
-    - name: Criar modelos – Portal
+    - name: Criar modelos - portal
       href: quickstart-create-templates-use-the-portal.md
-    - name: Criar modelos – Visual Studio Code
+    - name: Criar modelos - Visual Studio Code
       href: quickstart-create-templates-use-visual-studio-code.md
 - name: Tutoriais
   items:
@@ -70,7 +70,7 @@
         - name: Usar a verificação de integridade no Gerenciador de Implantação
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
-        - name: Solucionar problemas de implantação de modelo
+        - name: Solucionar problemas de implantação de modelos
           href: template-tutorial-troubleshoot.md
 - name: Exemplos
   items:
@@ -161,6 +161,8 @@
         - name: Implantar – API REST
           displayName: deployment
           href: deploy-rest.md
+        - name: Implantar do GitHub
+          href: deploy-to-azure-button.md
         - name: Implantação de hipóteses
           href: template-deploy-what-if.md
         - name: Reimplantar após erro

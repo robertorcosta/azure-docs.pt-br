@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: banders
 ms.openlocfilehash: aff5e1e707980c9a63988c22653fa5fba0fc236b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75996034"
 ---
 # <a name="open-banking-psd2-and-strong-customer-authentication-sca-for-azure-customers"></a>Open Banking (PSD2) e SCA (Autenticação Forte do Cliente) para clientes do Azure
@@ -48,7 +48,7 @@ Caso seu banco rejeite os encargos, o status de sua conta do Azure será alterad
 
 1. Entre no [Portal do Azure](https://portal.azure.com/) como Administrador da Conta.
 2. Pesquise **Gerenciamento de Custos + Cobrança.**
-3. Na página **visão geral** de **Gerenciamento de custos + cobrança** , examine a coluna status na grade **minhas assinaturas** .
+3. Na página **Gerenciamento de Custos + Cobrança** **Visão Geral**, examine a coluna de status na grade **Minhas assinaturas**.
 4. Caso sua assinatura seja rotulada **Devida**, clique em **Liquidar saldo**. Você deverá concluir a autenticação multifator durante o processo.
 
 ### <a name="settle-outstanding-charges-for-marketplace-and-reservation-purchases"></a>Liquidar encargos pendentes para compras do Marketplace e de reserva
@@ -62,5 +62,5 @@ As compras do Marketplace e de reserva são faturadas separadamente dos serviço
 5. Selecione a assinatura correspondente.
 6. Na grade de faturas, examine a coluna de status. Se a fatura for **Vencida** ou **Devida**, clique em **Pagar agora.** Você deverá concluir a autenticação multifator durante o processo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Confira [Resolver o saldo devido de sua assinatura do Azure](resolve-past-due-balance.md) caso você precise pagar uma fatura do Azure.
