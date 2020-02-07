@@ -7,12 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: a46bca5c5c55338f8bea7e1ff370f92ce6a2d577
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: deef7bfdbc28d744cb81da59d3ffc13a1abee54d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841039"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048611"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurar a recuperação de desastre de VMs Hyper-V para um site secundário usando PowerShell (Resource Manager)
 
@@ -20,14 +20,14 @@ Este artigo mostra como automatizar as etapas para a replicação de VMs do Hype
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 - Examine os [componentes e a arquitetura do cenário](hyper-v-vmm-architecture.md).
 - Examine os [requisitos de suporte](site-recovery-support-matrix-to-sec-site.md) de todos os componentes.
 - Verifique se os servidores do Virtual Machine Manager e os hosts do Hyper-V estão em conformidade com [os requisitos de suporte](site-recovery-support-matrix-to-sec-site.md).
 - Verifique se as VMs que você deseja replicar estão em conformidade com o [suporte ao computador replicado](site-recovery-support-matrix-to-sec-site.md).
 
-## <a name="prepare-for-network-mapping"></a>Preparar para realizar mapeamento de rede
+## <a name="prepare-for-network-mapping"></a>Prepare-se para o mapeamento de rede
 
 O [mapeamento de rede](hyper-v-vmm-network-mapping.md) mapeia entre as redes de VM do Virtual Machine Manager locais de origem e as nuvens de destino. Mapeamento faz o seguinte:
 
@@ -219,9 +219,9 @@ Para verificar a conclusão da operação, siga as etapas em [Monitorar a ativid
 1. Execute este comando para recuperar as redes para o servidor de origem do Virtual Machine Manager e o servidor de destino do Virtual Machine Manager.
 
    ```azurepowershell
-   $PrimaryNetworks = Get-AzRecoveryServicesAsrNetwork -Name $Servers[0]
+   $PrimaryNetworks = Get-AzRecoveryServicesAsrNetwork -Fabric $Servers[0]
 
-   $RecoveryNetworks = Get-AzRecoveryServicesAsrNetwork -Name $Servers[1]
+   $RecoveryNetworks = Get-AzRecoveryServicesAsrNetwork -Fabric $Servers[1]
    ```
 
    > [!NOTE]
@@ -263,7 +263,7 @@ Depois que os servidores, nuvens e redes estiverem configurados corretamente, ha
 > 1. Crie um objeto Dictionary usando `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` cmdlet para conter o mapeamento da ID do disco para o conjunto de criptografia de disco. Esses conjuntos de criptografia de disco devem ser criados previamente por você na região de destino.
 > 1. Atualize as propriedades da VM usando o cmdlet `Set-AzRecoveryServicesAsrReplicationProtectedItem` passando o objeto Dictionary no parâmetro **DiskIdToDiskEncryptionSetMap** .
 
-## <a name="run-a-test-failover"></a>Execute um teste de failover
+## <a name="run-a-test-failover"></a>executar um failover de teste
 
 Para testar sua implantação, execute um failover de teste para uma única máquina virtual. Você também pode criar um plano de recuperação que contém várias VMs e executar um failover de teste para o plano. O failover de teste simula o mecanismo de failover e recuperação em uma rede isolada.
 
@@ -359,6 +359,6 @@ if($isJobLeftForProcessing)
 }While($isJobLeftForProcessing)
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Saiba mais](/powershell/module/az.recoveryservices) sobre o Site Recovery com cmdlets do PowerShell do Resource Manager.

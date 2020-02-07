@@ -9,20 +9,22 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 7f9bd55054fca6b45a25ef737a1a00872e536ca8
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 5782f07167f72be2ea7b148ad1b0a61d8cb710e2
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75908935"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048904"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Comunidade do Azure Maps – projetos de código aberto
 
-Essas são iniciativas de software livre, controladas pela Comunidade, criadas e mantidas pela equipe do Azure Maps, mas que não fazem parte das ofertas de produto ou serviço padrão. Veja a seguir uma lista de alguns dos mapas mais populares do Azure Maps criados projetos e amostras de software livre.
+Essas iniciativas de software livre, controladas pela Comunidade, são criadas e mantidas pela equipe do Azure Maps. Eles não fazem parte do produto ou das ofertas de serviço padrão.
 
-| Nome do projeto | Description |
+Veja a seguir uma lista de alguns dos projetos e exemplos mais populares de software livre do Azure Maps.
+
+| Nome do projeto | Descrição |
 |-|-|
-| [Exemplos de código do Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Uma coleção de exemplos de código para usar mapas do Azure em aplicativos baseados na Web. |
+| [Exemplos de código do Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Uma coleção de exemplos de código para usar o Azure Maps em aplicativos baseados na Web. |
 | [Exemplos de código de nuvem do Azure Maps gov](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Uma coleção de exemplos de código para usar o Azure Maps por meio da nuvem do Azure governamental. |
 | [Exemplos de Azure Active Directory de & do Azure Maps](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples) | Uma coleção de exemplos que mostram como usar Azure Active Directory com mapas do Azure. | 
 | [Implementar análise espacial de IoT usando mapas do Azure](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | Acompanhar e capturar eventos relevantes que ocorrem em espaço e no tempo é um cenário comum de IoT. |
@@ -40,9 +42,9 @@ As instruções a seguir se aplicam em todos os mapas do Azure criados e mantido
 - Os projetos e exemplos de software livre do Azure Maps usam técnicas recomendadas e com suporte.
 - Os projetos e exemplos de software livre do Azure Maps são uma iniciativa da Comunidade – pessoas que trabalham na iniciativa para o benefício de outras pessoas e também têm seu trabalho de dia normal.
 - Os projetos e exemplos de software livre do Azure Maps não são um produto e, portanto, não há suporte para Suporte Premier ou outros canais de suporte oficial.
-- Os projetos e exemplos de software livre do Azure Maps são suportados de maneiras semelhantes como outros projetos de software livre realizados pela Microsoft com suporte da Comunidade pela Comunidade.
+- Os projetos e exemplos de software livre do Azure Maps são suportados de maneiras semelhantes como outros projetos de código-fonte aberto da Microsoft com suporte da Comunidade pela Comunidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Encontre mais projetos de código aberto do Azure Maps.
 

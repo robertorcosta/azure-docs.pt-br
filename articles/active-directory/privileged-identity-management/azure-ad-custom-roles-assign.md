@@ -1,5 +1,5 @@
 ---
-title: Atribuir uma função personalizada do Azure AD no PIM (Privileged Identity Management) | Microsoft Docs
+title: Atribuir PIM (função personalizada do Azure AD Privileged Identity Management)
 description: Como atribuir uma função personalizada do Azure AD para atribuição do PIM (Privileged Identity Management)
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a1ec6ddf4f10aa2e03656eb6a3d92ead0d74922
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 410ee39a3984c4e6adde7dd2763808f776c71bd5
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896573"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046947"
 ---
 # <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>Atribuir uma função personalizada do Azure AD no PIM (Privileged Identity Management)
 
@@ -76,7 +76,7 @@ Para verificar a atribuição de função, em uma função aberta, selecione **A
 
  ![Marque para ver se a atribuição de função está visível como qualificada ou ativa](./media/azure-ad-custom-roles-assign/verify-assignments.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Ativar uma função personalizada do Azure AD](azure-ad-custom-roles-assign.md)
 - [Remover ou atualizar uma atribuição de função personalizada do Azure AD](azure-ad-custom-roles-update-remove.md)

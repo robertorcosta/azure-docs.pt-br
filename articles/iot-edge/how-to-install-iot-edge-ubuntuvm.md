@@ -8,13 +8,13 @@ ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: gregman
-ms.openlocfilehash: 84dd1b6d657dfe5061f53698114f3dc4e0197571
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.author: philmea
+ms.openlocfilehash: 49a783e1360aeddc8eeaadba442acf578d9d6f7f
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76510049"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046039"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Executar Azure IoT Edge em Máquinas Virtuais do Ubuntu
 
@@ -94,7 +94,7 @@ No portal do Azure, pesquise "Azure IoT Edge" e selecione **Ubuntu Server 16.04 
 
 Se você quiser SSH nessa VM após a instalação, use o publicIpAddress com o comando: `ssh azureuser@{publicIpAddress}`
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Agora que você tem um dispositivo IoT Edge provisionado com o runtime instalado, é possível [implantar os módulos do IoT Edge](how-to-deploy-modules-portal.md).
 

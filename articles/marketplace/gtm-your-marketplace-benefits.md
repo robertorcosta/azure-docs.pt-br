@@ -6,14 +6,14 @@ author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 02/08/2020
 ms.author: evansma
-ms.openlocfilehash: 21bbd34520283620626aff27439e89058a534f4e
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 1ecb48751715d32e1e67f09e0e3d4bf9577c8eab
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121804"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064899"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Seus benefícios do Marketplace comercial
 
@@ -99,13 +99,13 @@ A Microsoft se reserva o direito de revogar e encerrar os benefícios das recomp
 * Use sua oferta para mostrar marketing ou outro conteúdo que viole as leis de direitos autorais ou marcas comerciais.
 * viole as políticas do programa de [patrocínio do Azure](https://azure.microsoft.com/offers/ms-azr-0036p/), incluindo, mas não se limitando a, usando o financiamento de patrocínio do Azure para suas próprias operações internas ou mineração de Bitcoin. 
 
-### <a name="offer-availability"></a>Disponibilidade de oferta
+### <a name="offer-availability"></a>Disponibilidade da oferta
 
 Essa oferta é conduzida em inglês para todos os parceiros com uma oferta ao vivo no Azure Marketplace ou Microsoft AppSource.
 
 As transações comprovadas como fraudulentas não serão consideradas como uma [camada do programa de vendas cobrada](https://aka.ms/marketplacepublisherrewards)do Publicador, conforme observado na [lista, avaliação,](#list-trial-and-consulting-benefits) seção de consultoria, seção de [benefícios do parceiro do Transact](#marketplace-rewards-for-transact-partners) e o [baralho detalhado do programa](https://aka.ms/marketplacepublisherrewards). A Microsoft alocará parceiros a camadas de qualificação com base em suas vendas cobradas reais, depois que a fraude tiver sido removida. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se você criou sua oferta no [portal do Cloud Partner](https://cloudpartner.azure.com), entre para criar ou configurar sua oferta.
 

@@ -3,26 +3,28 @@ title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos do Azure em sua organização.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7502c1c9a2e125052abf71e50273fbd9bab15cd1
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: ba974228d63c542027ea5191d2c5877e7288b331
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989868"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77050030"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
-Definições de política de recurso são usadas pelo Azure Policy para estabelecer convenções para recursos. Cada definição descreve a conformidade do recurso e o efeito que ocorre quando um recurso não está em conformidade.
+Azure Policy estabelece convenções para recursos. As definições de política descrevem as [condições](#conditions) de conformidade do recurso e o efeito a ser tomada se uma condição for atendida. Uma condição compara um [campo](#fields) de propriedade de recurso com um valor obrigatório. Os campos de propriedade de recurso são acessados usando [aliases](#aliases). Um campo de propriedade de recurso é um campo de valor único ou uma [matriz](#understanding-the--alias) de vários valores. A avaliação de condição é diferente em matrizes.
+Saiba mais sobre [condições](#conditions).
+
 Definindo as convenções, você pode controlar os custos e muito mais fácil gerenciar seus recursos. Por exemplo, você pode especificar que somente determinados tipos de máquinas virtuais são permitidos. Ou você pode exigir que todos os recursos tenham uma marca específica. As políticas são herdadas por todos os recursos filho. Assim, se uma política for aplicada a um grupo de recursos, ela será aplicável a todos os recursos desse grupo de recursos.
 
 O esquema de definição de política é encontrado aqui: [https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json)
 
 Você usa JSON para criar uma definição de política. A definição de política contém elementos para:
 
-- mode
+- {1&gt;mode&lt;1}
 - parâmetros
 - nome de exibição
-- descrição
+- description
 - regra de política
   - avaliação de lógica
   - efeito
@@ -74,6 +76,8 @@ O **modo** determina quais tipos de recursos serão avaliados para uma política
 - `all`: avaliar grupos de recursos e todos os tipos de recursos
 - `indexed`: avaliar apenas os tipos de recursos que oferecem suporte a marcas e local
 
+Por exemplo, o recurso `Microsoft.Network/routeTables` dá suporte a marcas e local e é avaliado em ambos os modos. No entanto, o `Microsoft.Network/routeTables/routes` de recursos não pode ser marcado não é avaliado no modo de `Indexed`.
+
 É recomendável definir o **modo** como `all` na maioria dos casos. Todas as definições de políticas criadas através do portal usam o modo `all`. Se você usar a CLI do Azure ou PowerShell, será necessário especificar o modo **parâmetro** manualmente. Se a definição de política não incluir um valor **modo**, ela usará como padrão `all` no Azure PowerShell e `null` na CLI do Azure. Um modo `null` é o mesmo que usar `indexed` para dar suporte à compatibilidade com versões anteriores.
 
 `indexed` deve ser usado ao criar políticas que vão impor marcas ou locais. Embora não seja obrigatório, impedirá que recursos que não oferecem suporte a marcas nem locais apareçam como não compatíveis nos resultados de conformidade. A exceção são **grupos de recursos**. As políticas que impõem local ou marcas em um grupo de recursos devem definir **mode** como `all` e direcionar especificamente o tipo `Microsoft.Resources/subscriptions/resourceGroups`. Para obter um exemplo, consulte [Impor marcas do grupo de recursos](../samples/enforce-tag-rg.md). Para obter uma lista de recursos que dão suporte a marcas, consulte [suporte a marcas para recursos do Azure](../../../azure-resource-manager/management/tag-support.md).
@@ -98,7 +102,7 @@ Os parâmetros funcionam da mesma maneira que ao criar políticas. Ao incluir pa
 > [!NOTE]
 > Os parâmetros podem ser adicionados a uma definição existente e atribuída. O novo parâmetro deve incluir a propriedade **defaultValue**. Isso impede que atribuições existentes da política ou da iniciativa sejam tornadas inválidas indiretamente.
 
-### <a name="parameter-properties"></a>Propriedades do parâmetro
+### <a name="parameter-properties"></a>Propriedades de parâmetro
 
 Um parâmetro tem as seguintes propriedades que são usadas na definição de política:
 
@@ -253,6 +257,8 @@ O valor não deve ter mais de um curinga `*`.
 
 Ao usar as condições **Match** e não **match** , forneça `#` para corresponder a um dígito, `?` para uma letra, `.` para corresponder a qualquer caractere e qualquer outro caractere para corresponder a esse caractere real. Enquanto, **Match** e **cormatch** diferenciam maiúsculas de minúsculas, todas as outras condições que avaliam uma _cadeia de caracteres_ não diferenciam maiúsculas de minúsculas. Estão disponíveis alternativas que diferenciam maiúsculas de minúsculas em **matchInsensitively** e **notMatchInsensitively**. Para obter exemplos, veja [Permitir vários padrões de nome](../samples/allow-multiple-name-patterns.md).
 
+Em um **\[\*** valor do campo matriz de alias \], cada elemento na matriz é avaliado individualmente com os elementos lógicos **e** entre eles. Para obter mais informações, consulte [avaliando o alias de \] de \*de \[](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
+
 ### <a name="fields"></a>Campos
 
 As condições são formadas usando campos. Um campo combina às propriedades no conteúdo da solicitação de recurso e descreve o estado do recurso.
@@ -310,7 +316,7 @@ No exemplo a seguir, `concat` é usado para criar uma pesquisa de campo de marca
 }
 ```
 
-### <a name="value"></a>Valor
+### <a name="value"></a>{1&gt;Valor&lt;1}
 
 As condições também podem ser formadas usando o **valor**. O **valor** verifica as condições em relação aos [parâmetros](#parameters), [funções de modelo com suporte](#policy-functions) ou literais.
 O **valor** é emparelhado a uma [condição](#conditions) com suporte.
@@ -637,7 +643,7 @@ A lista de aliases sempre está aumentando. Para descobrir quais aliases atualme
   (Get-AzPolicyAlias -NamespaceMatch 'compute').Aliases
   ```
 
-- Azure CLI
+- CLI do Azure
 
   ```azurecli-interactive
   # Login first with az login if not using Cloud Shell
@@ -766,7 +772,7 @@ O exemplo a seguir ilustra como criar uma iniciativa para lidar com duas marcas:
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revisar [Compreendendo os efeitos da política](effects.md).

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d191abafbaad123ed47f8eaae6cdd4e48478da7a
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 563bda275b73f76b042b5e57a9909ca78c504bb3
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422617"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063519"
 ---
 # <a name="configure-password-single-sign-on"></a>Configurar o logon único com senha
 
@@ -38,7 +38,7 @@ O SSO baseado em senha é uma ótima maneira de começar a integrar aplicativos 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Se o aplicativo não tiver sido adicionado ao seu locatário do Azure AD, consulte [Adicionar um aplicativo da Galeria](add-gallery-app.md) ou [Adicionar um aplicativo](add-non-gallery-app.md)inexistente na galeria.
+Se o aplicativo não tiver sido adicionado ao seu locatário do Azure AD, confira [Adicionar um aplicativo da galeria](add-gallery-app.md) ou [Adicionar um aplicativo inexistente na galeria](add-non-gallery-app.md).
 
 ## <a name="open-the-app-and-select-password-single-sign-on"></a>Abra o aplicativo e selecione logon único com senha
 
@@ -58,7 +58,7 @@ Se o aplicativo não tiver sido adicionado ao seu locatário do Azure AD, consul
 
    ![Logon único baseado em senha](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
 
-8. Clique em **Salvar**. O Azure AD tenta analisar a página de entrada para obter uma entrada de nome de usuário e uma entrada de senha. Se a tentativa for bem-sucedida, você terminará. 
+8. Selecione **Salvar**. O Azure AD tenta analisar a página de entrada para obter uma entrada de nome de usuário e uma entrada de senha. Se a tentativa for bem-sucedida, você terminará. 
  
 > [!NOTE]
 > A próxima etapa é [atribuir usuários ou grupos ao aplicativo](methods-for-assigning-users-and-groups.md). Depois de atribuir usuários e grupos, você pode fornecer credenciais a serem usadas em nome de um usuário quando eles entrarem no aplicativo. Selecione **usuários e grupos**, marque a caixa de seleção da linha do usuário ou do grupo e clique em **Atualizar credenciais**. Em seguida, insira o nome de usuário e a senha a serem usados em nome do grupo de usuários ou grupos. Caso contrário, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
@@ -68,7 +68,7 @@ Se o aplicativo não tiver sido adicionado ao seu locatário do Azure AD, consul
 
 Se a tentativa de análise do Azure AD falhar, você poderá configurar o logon manualmente.
 
-1. **Em\<nome do aplicativo > configuração**, **selecione \<configurar nome do aplicativo > senha configurações de logon único** para exibir a página **Configurar logon** . 
+1. Em **\<nome do aplicativo > configuração**, selecione **Configurar \<nome do aplicativo > configurações de logon único de senha** para exibir a página **Configurar logon** . 
 
 2. Selecione **detectar manualmente os campos de entrada**. São exibidas instruções adicionais que descrevem a detecção manual de campos de entrada.
 
@@ -92,7 +92,7 @@ Após a captura da página de entrada, você pode atribuir usuários e grupos e 
 > [!NOTE]
 > Você pode carregar um logotipo de bloco para o aplicativo usando o botão **Carregar Logotipo** na guia **Configurar** do aplicativo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-- [Atribuir usuários ou grupos ao aplicativo](methods-for-assigning-users-and-groups.md)
-- [Configurar o provisionamento automático de conta de usuário](configure-automatic-user-provisioning-portal.md)
+- [Atribuir usuários e grupos ao aplicativo](methods-for-assigning-users-and-groups.md)
+- [Configurar o provisionamento automático de conta de usuário](../app-provisioning/configure-automatic-user-provisioning-portal.md)

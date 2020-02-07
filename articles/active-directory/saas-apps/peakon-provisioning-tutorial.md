@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o provisionamento automático de usuário de pico com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: configurar o provisionamento automático de usuário de pico com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o pico.
 services: active-directory
 documentationcenter: ''
@@ -15,22 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: cc572206e20a1f2ef1a77efb8120ad4d2f805174
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 0a67dc8069ee71305a47bd5d2a724a61cec234a0
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67847889"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063366"
 ---
-# <a name="tutorial-configure-peakon-for-automatic-user-provisioning"></a>Tutorial: Configurar o pico para o provisionamento automático de usuário
+# <a name="tutorial-configure-peakon-for-automatic-user-provisioning"></a>Tutorial: configurar o pico para o provisionamento automático de usuário
 
 O objetivo deste tutorial é demonstrar as etapas a serem executadas em pico e Azure Active Directory (AD do Azure) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos para picos.
 
 > [!NOTE]
->  Este tutorial descreve um conector compilado na parte superior do Serviço de Provisionamento de Usuário do Microsoft Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../manage-apps/user-provisioning.md).
+>  Este tutorial descreve um conector compilado na parte superior do Serviço de Provisionamento de Usuário do Microsoft Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> Este conector está atualmente em visualização. Para obter mais informações sobre os termos de uso geral de Microsoft Azure para recursos de visualização, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-## <a name="prerequisites"></a>Pré-requisitos
+> Atualmente, esse conector está em versão prévia. Para obter mais informações sobre os Termos de uso gerais do Microsoft Azure para a versão prévia de recursos, confira [Termos de uso adicionais para versões prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="prerequisites"></a>Prerequisites
 
 O cenário descrito neste tutorial pressupõe que você já tenha os seguintes pré-requisitos
 
@@ -54,7 +54,7 @@ Antes de configurar e habilitar o provisionamento automático de usuário, você
 
 ## <a name="set-up-peakon-for-provisioning"></a>Configurar o pico do provisionamento
 
-1.  Entre em seu [console do administrador de pico](https://app.Peakon.com/login). Clique em **configuração**. 
+1.  Entre em seu [console do administrador de pico](https://app.Peakon.com/login). Clique em **Configuração**. 
 
     ![Console de administração de pico](media/Peakon-provisioning-tutorial/Peakon-admin-configuration.png)
 
@@ -99,7 +99,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 ### <a name="to-configure-automatic-user-provisioning-for-peakon--in-azure-ad"></a>Para configurar o provisionamento automático de usuário para pico no Azure AD:
 
-1. Entre no [Portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Entre no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -123,7 +123,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-8. Clique em **Salvar**.
+8. Clique em **Save** (Salvar).
 
 9. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para o pico**.
 
@@ -133,26 +133,26 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Atributos de usuário de pico](media/Peakon-provisioning-tutorial/Peakon-user-attributes.png)
 
-12. Para configurar filtros de escopo, consulte as instruções a seguir fornecidas no [tutorial de filtro de escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Para configurar filtros de escopo, consulte as instruções a seguir fornecidas no [tutorial de filtro de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
     
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
 15. Quando estiver pronto para provisionar, clique em **Salvar**.
 
-    ![Salvando configuração de provisionamento](common/provisioning-configuration-save.png)
+    ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
 
 Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no pico.
 
-Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../manage-apps/check-status-user-account-provisioning.md).
+Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Limitações do conector
 
-* Todos os atributos de usuário personalizados em picos devem ser estendidos da extensão de usuário de SCIM personalizada `urn:ietf:params:scim:schemas:extension:peakon:2.0:User`de pico.
+* Todos os atributos de usuário personalizados em pico precisam ser estendidos da extensão de usuário SCIM personalizada de pico da `urn:ietf:params:scim:schemas:extension:peakon:2.0:User`.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
+* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)

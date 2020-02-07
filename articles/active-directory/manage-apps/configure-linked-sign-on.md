@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c4547bddeea8b67bd3377124b1c299662fea3e6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: dfe4aeb17f482cc9d4126efc6d65d3f7d173536b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274180"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063536"
 ---
 # <a name="configure-linked-sign-on"></a>Configurar o logon vinculado
 
@@ -45,9 +45,9 @@ Se o aplicativo não tiver sido adicionado ao seu locatário do Azure AD, confir
  
 1. Você pode atribuir usuários e grupos ao aplicativo, o que faz com que o aplicativo seja exibido no [iniciador de aplicativos do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou no [painel de acesso do Azure ad](end-user-experiences.md) para esses usuários.
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Atribuir usuários e grupos ao aplicativo](methods-for-assigning-users-and-groups.md)
-- [Configurar o provisionamento automático de conta de usuário](configure-automatic-user-provisioning-portal.md)
+- [Configurar o provisionamento automático de conta de usuário](../app-provisioning/configure-automatic-user-provisioning-portal.md)

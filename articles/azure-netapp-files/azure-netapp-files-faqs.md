@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/03/2020
+ms.date: 02/05/2020
 ms.author: b-juche
-ms.openlocfilehash: 9559f1d52f87314670162482e10714dad13be5bb
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: aaa7e5e65ced2a9899bef5a811ee74be42a8548f
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046163"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048822"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Perguntas frequentes sobre Azure NetApp Files
 
@@ -131,7 +131,9 @@ Sim, você deve criar uma conexão de Active Directory antes de implantar um vol
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>Há suporte para quantas conexões Active Directory?
 
-O Azure NetApp Files atualmente dá suporte apenas a uma conexão de Active Directory por conta do NetApp, por assinatura e em cada região; a conexão não é compartilhada entre as contas do NetApp.
+Azure NetApp Files não oferece suporte a várias conexões de Active Directory (AD) em uma única *região*, mesmo que as conexões do AD estejam em contas diferentes do NetApp. No entanto, você pode ter várias conexões do AD em uma única *assinatura*, desde que as conexões do AD estejam em regiões diferentes. Se você precisar de várias conexões do AD em uma única região, poderá usar assinaturas separadas para fazer isso. 
+
+Uma conexão do AD é configurada por conta da NetApp; a conexão do AD é visível somente por meio da conta do NetApp na qual ela é criada.
 
 ### <a name="does-azure-netapp-files-support-azure-active-directory"></a>Azure NetApp Files oferece suporte a Azure Active Directory? 
 
@@ -195,7 +197,7 @@ Não. Azure Data Box não oferece suporte a Azure NetApp Files no momento.
 
 Não. O serviço de importação/exportação do Azure não oferece suporte a Azure NetApp Files no momento.
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}  
 
 - [Perguntas frequentes Microsoft Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
 - [Perguntas frequentes Rede Virtual do Microsoft Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)

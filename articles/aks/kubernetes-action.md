@@ -7,20 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: atulmal
-ms.openlocfilehash: cc2d6df952b2e0aa9b9f4d4e1dcb4859a5bb3790
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 62fcdf01250728cf84726db7e9b39452a4d4e5ff
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74130538"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046356"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>Ações do GitHub para implantação no serviço kubernetes
 
 As [ações do GitHub](https://help.github.com/en/articles/about-github-actions) oferecem a flexibilidade para criar um fluxo de trabalho de desenvolvimento automatizado do software. A ação kubernetes [azure/aks-set-context@v1](https://github.com/Azure/aks-set-context) facilitar implantações em clusters do serviço kubernetes do Azure. A ação define o contexto de cluster AKS de destino, que pode ser usado por outras ações, como [Azure/K8S-Deploy](https://github.com/Azure/k8s-deploy/tree/master), [Azure/K8S-Create-Secret,](https://github.com/Azure/k8s-create-secret/tree/master) etc. ou executar qualquer comando kubectl.
-
-> [!IMPORTANT]
-> No momento, as ações do GitHub estão em beta. Primeiro, você deve [se inscrever para ingressar na versão prévia](https://github.com/features/actions) usando sua conta do github.
-> 
 
 Um fluxo de trabalho é definido por um arquivo YAML (. yml) no caminho `/.github/workflows/` em seu repositório. Essa definição contém as várias etapas e parâmetros que compõem o fluxo de trabalho.
 
@@ -63,7 +59,7 @@ Siga as etapas para configurar os segredos:
 
     ![segredos](media/kubernetes-action/secrets.png)
 
-2. Cole o conteúdo do comando `az cli` acima como o valor da variável secreta. Por exemplo: `AZURE_CREDENTIALS`.
+2. Cole o conteúdo do comando `az cli` acima como o valor da variável secreta. Por exemplo, `AZURE_CREDENTIALS`.
 
 3. Da mesma forma, defina os seguintes segredos adicionais para as credenciais de registro de contêiner e defina-as na ação de logon do Docker. 
 
@@ -134,7 +130,7 @@ jobs:
           demo-k8s-secret
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Você pode encontrar nosso conjunto de ações em repositórios diferentes no GitHub, cada um contendo documentação e exemplos para ajudá-lo a usar o GitHub para CI/CD e implantar seus aplicativos no Azure.
 

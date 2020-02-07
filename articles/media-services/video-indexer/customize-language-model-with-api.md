@@ -8,14 +8,14 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/14/2020
+ms.date: 02/04/2020
 ms.author: anzaman
-ms.openlocfilehash: e8df7ffd285b0d49f5d4a87585e769b5b0bbafe9
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 01ea4d9ef943183f09baa86b729ec69344d4309e
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513143"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049037"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Personalizar um modelo de Linguagem com as APIs do Video Indexer
 
@@ -105,9 +105,8 @@ A resposta fornece metadados sobre o modelo de Linguagem recém-treinado, junto 
 }
 ```
 
-Você deve usar o valor de **ID** retornado do modelo de linguagem para o parâmetro **linguisticModelId** ao [carregar um vídeo para indexar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) e para o parâmetro **languageModelId** ao [reindexar um vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
+A **ID** retornada é uma ID exclusiva usada para distinguir os modelos de linguagem, enquanto **languageModelId** é usado para [carregar um vídeo para indexar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) e [reindexar uma](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API de vídeo (também conhecida como **linguisticModelId** em video indexer carregar/reindexar APIs).
 
- 
 ## <a name="delete-a-language-model"></a>Excluir um modelo de Linguagem
 
 A API [excluir um modelo de linguagem](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete) exclui um modelo de idioma personalizado da conta especificada. Qualquer vídeo que estava usando o modelo de Linguagem excluído manterá o mesmo índice até que você reindexe o vídeo. Se você reindexar o vídeo, poderá atribuir um novo modelo de Linguagem a ele. Caso contrário, o Video Indexer usará seu modelo padrão para reindexar o vídeo.
@@ -298,6 +297,6 @@ O [download de uma](https://api-portal.videoindexer.ai/docs/services/operations/
 
 A resposta será o download de um arquivo de texto com o conteúdo do arquivo no formato JSON. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Personalizar o modelo de Linguagem usando o site](customize-language-model-with-website.md)

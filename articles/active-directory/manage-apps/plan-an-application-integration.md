@@ -15,12 +15,12 @@ ms.date: 07/16/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1291db8cd895a1104183ae2b5388eb6a23305874
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 89b16a8479f8975d101b8a4e26dcb1885d9730bd
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895929"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063373"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guia de introdução: integrando o Active Directory do Azure com aplicativos
 
@@ -85,12 +85,12 @@ Se desejar adicionar seu aplicativo personalizado à Galeria de Aplicativos do A
 Os artigos a seguir descrevem as maneiras pelas quais você pode gerenciar o acesso aos aplicativos depois de serem integrados ao AD do Azure usando os Conectores do AD do Azure e o AD do Azure.
 
 * [Gerenciando o acesso a aplicativos com o AD do Azure](what-is-access-management.md)
-* [Automatizando com os Conectores do AD do Azure](user-provisioning.md)
+* [Automatizando com os Conectores do AD do Azure](../app-provisioning/user-provisioning.md)
 * [Atribuindo usuários a um aplicativo](../active-directory-applications-guiding-developers-assigning-users.md)
 * [Atribuindo grupos a um aplicativo](../active-directory-applications-guiding-developers-assigning-groups.md)
 * [Compartilhando contas](../active-directory-sharing-accounts.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Para obter informações detalhadas, você pode baixar os planos de implantação do Azure Active Directory do [GitHub](https://aka.ms/deploymentplans). Para aplicativos da galeria, você pode baixar planos de implantação para logon único, acesso condicional e provisionamento de usuário por meio do [portal do Azure](https://portal.azure.com). 
 
 Para baixar um plano de implantação do portal do Azure:

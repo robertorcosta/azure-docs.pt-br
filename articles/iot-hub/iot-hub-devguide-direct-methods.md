@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: rezas
-ms.openlocfilehash: f4125aae954519beead99db45fc8a35264d5731e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dcbc03257b8bfeacda700f60f2724f2d02ec147d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429280"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048267"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Entender e chamar métodos diretos do Hub IoT
 
@@ -73,9 +73,12 @@ As invocações de método direto em um dispositivo são chamadas HTTPS, compost
     }
     ```
 
-Tempo limite em segundos. Se o tempo limite não tiver sido definido, o padrão será 30 segundos.
+O valor fornecido como `responseTimeoutInSeconds` na solicitação é a quantidade de tempo que o serviço do Hub IoT deve aguardar para a conclusão de uma execução de método direto em um dispositivo. Defina esse tempo limite como pelo menos, desde que o tempo de execução esperado de um método direto por um dispositivo. Se timeout não for fornecido, será usado o valor padrão de 30 segundos. Os valores mínimo e máximo para `responseTimeoutInSeconds` são 5 e 300 segundos, respectivamente.
 
-#### <a name="example"></a>Exemplo
+O valor fornecido como `connectTimeoutInSeconds` na solicitação é a quantidade de tempo na invocação de um método direto que o serviço do Hub IoT deve aguardar para que um dispositivo desconectado fique online. O valor padrão é 0, o que significa que os dispositivos já devem estar online na invocação de um método direto. O valor máximo para `connectTimeoutInSeconds` é de 300 segundos.
+
+
+#### <a name="example"></a>{1&gt;Exemplo&lt;1}
 
 Veja abaixo um exemplo de barebone usando `curl`. 
 
@@ -98,7 +101,10 @@ curl -X POST \
 
 O aplicativo de back-end recebe uma resposta que é composta pelos itens a seguir:
 
-* *Código de status HTTP*, que é usado para erros provenientes do Hub IoT, incluindo um erro 404 para dispositivos que não estão conectados.
+* *Código de status http*:
+  * 200 indica a execução bem-sucedida do método direto;
+  * 404 indica que a ID do dispositivo é inválida ou que o dispositivo não estava online após a invocação de um método direto e para `connectTimeoutInSeconds` daí em diante (use a mensagem de erro acompanhada para entender a causa raiz);
+  * 504 indica o tempo limite do gateway causado pelo dispositivo não responder a uma chamada de método direta dentro de `responseTimeoutInSeconds`.
 
 * *Cabeçalhos* que contêm a ETag, ID da solicitação, tipo de conteúdo e codificação de conteúdo.
 
@@ -160,7 +166,7 @@ A seção a seguir é para o protocolo AMQP.
 
 O dispositivo recebe solicitações de método direto criando um link de recebimento no endereço `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`.
 
-A mensagem do AMQP chega ao link de recebimento que representa a solicitação do método. Ele contém as seções a seguir:
+A mensagem do AMQP chega ao link de recebimento que representa a solicitação do método. Ele contém as seguintes seções:
 
 * A propriedade de ID de correlação, que contém uma ID de solicitação que deve ser passada de volta com a resposta do método correspondente.
 
@@ -194,7 +200,7 @@ Outros tópicos de referência no Guia do desenvolvedor do Hub IoT incluem:
 
 * O [suporte ao MQTT do Hub IoT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do Hub IoT ao protocolo MQTT.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Agora que você aprendeu a usar métodos diretos, pode ser interessante ler o seguinte artigo do Guia do Desenvolvedor do Hub IoT:
 

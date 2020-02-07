@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 9a2237c0cea5fcc67e093709a0b42193b7326d1d
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 498cbd982b565f498ddade2dbc9afafe17a2c4ab
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045996"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048714"
 ---
 # <a name="create-a-new-dynamics-365-for-customer-engagement--powerapps-offer"></a>Criar um novo Dynamics 365 for Customer Engagement & a oferta do PowerApps
 
@@ -57,7 +57,7 @@ Liste sua oferta aos clientes com um link para uma avaliação gratuita fornecen
 > [!NOTE]
 > Os tokens que seu aplicativo receberá por meio do link de avaliação só podem ser usados para obter informações do usuário por meio do Azure Active Directory (Azure AD) para automatizar a criação da conta em seu aplicativo. Não há suporte para contas da Microsoft para autenticação usando esse token.
 
-#### <a name="contact-me"></a>Contate-me
+#### <a name="contact-me"></a>Entrar em contato comigo
 
 Colete informações de contato do cliente conectando seu sistema de gerenciamento de relacionamento com o cliente (CRM). O cliente será solicitado a fornecer permissão para compartilhar suas informações. Esses detalhes do cliente, juntamente com o nome da oferta, a ID e a origem do Marketplace onde encontraram sua oferta, serão enviados para o sistema CRM que você configurou. Para obter mais informações sobre como configurar seu CRM, consulte [Connect Lead Management](#connect-lead-management). 
 
@@ -92,7 +92,7 @@ Para obter mais informações, consulte [visão geral do gerenciamento de Lead](
 
 Lembre-se de **salvar** antes de passar para a próxima seção.
 
-## <a name="properties"></a>Propriedades
+## <a name="properties"></a>{1&gt;Propriedades&lt;1}
 
 A página **Propriedades** permite que você defina as categorias e os setores usados para agrupar sua oferta no Marketplace, sua versão do aplicativo e os contratos legais que dão suporte à sua oferta. Selecione **salvar** depois de concluir esta página.
 
@@ -112,19 +112,9 @@ Selecione todos os produtos Dynamics 365 aos quais esta oferta se aplica.
 
 Insira o número de versão da sua oferta. Os clientes verão essa versão listada na página de detalhes da oferta. Se você estiver atualizando apenas o número de versão devido a alterações de marketing/descritivas, marque a caixa **alteração somente de marketing** . Essa opção permite que a oferta ignore os estágios de certificação e provisionamento.
 
-### <a name="standard-contract"></a>Contrato padrão
+### <a name="terms-and-conditions"></a>Termos e condições
 
-Para simplificar o processo de aquisição para clientes e reduzir a complexidade legal para fornecedores de software, a Microsoft oferece um modelo de contrato padrão para ajudar a facilitar uma transação no Marketplace.
-
-Em vez de criar termos e condições personalizados, você pode optar por oferecer seu software sob o contrato padrão, que os clientes precisam apenas examinaremos e aceitar uma vez.
-
-O contrato padrão pode ser encontrado aqui: https://go.microsoft.com/fwlink/?linkid=2041178
-
-Para usar o contrato padrão, marque a caixa **usar contrato padrão?** .
-
-#### <a name="terms-of-use"></a>Termos de uso
-
-Se você não marcar a caixa **usar contrato padrão?** , você precisará fornecer seus próprios termos legais de uso no campo **termos de uso** . Insira até 10.000 caracteres de texto ou, se os termos de uso exigirem uma descrição mais longa, forneça a URL em que os termos de licença adicionais podem ser encontrados. Os clientes serão solicitados a aceitar esses termos antes que possam experimentar seu aplicativo.
+Forneça seus próprios termos e condições legais no campo **termos e condições** . Você também pode fornecer a URL onde os termos e condições podem ser encontrados. Os clientes serão solicitados a aceitar esses termos antes que possam experimentar sua oferta.
 
 ## <a name="offer-listing"></a>Listagem de ofertas
 
@@ -153,7 +143,7 @@ Forneça uma breve descrição da sua oferta (até 100 caracteres). Essa descri�
 
 
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Forneça uma descrição mais longa da sua oferta (até 3.000 caracteres). Essa descrição será exibida aos clientes na visão geral de listagem do Marketplace. Inclua a proposta de valor da sua oferta, os principais benefícios, a categoria e/ou as associações do setor, as oportunidades de compra no aplicativo e as divulgações necessárias.
 
@@ -192,7 +182,7 @@ Use as instruções a seguir para usar o editor de Rich Text:
 
 
 
-### <a name="search-keywords"></a>Pesquisar palavras-chave
+### <a name="search-keywords"></a>Palavras-chave para pesquisa
 
 Opcionalmente, você pode inserir até três palavras-chave de pesquisa para ajudar os clientes a localizar sua oferta no Marketplace. Para obter melhores resultados, tente usar essas palavras-chave em sua descrição também.
 
@@ -226,7 +216,7 @@ Você deve fornecer pelo menos um (e até três) documentos de marketing relacio
 
 Nesta seção, você pode fornecer logotipos e imagens que serão usados ao mostrar sua oferta ao cliente. Todas as imagens devem estar no formato. png.
 
-#### <a name="store-logos"></a>Logotipos da Loja
+#### <a name="store-logos"></a>Armazenar logotipos
 
 Você pode fornecer o logotipo de sua oferta em três tamanhos: **pequeno (48 x 48)** , **grande (216 x 216)** e **largo (255 x 115)** . Os tamanhos pequenos e grandes são necessários.
 
@@ -238,7 +228,7 @@ A imagem do Hero é opcional. Se você fornecer um, ele deve medir 815 x 290 pix
 
 Adicione capturas de tela que mostram como sua oferta funciona. Pelo menos uma captura de tela é necessária e você pode adicionar até cinco. Todas as capturas de tela devem ser 1280 x 720 pixels.
 
-#### <a name="videos"></a>Vídeos
+#### <a name="videos"></a>vídeos
 
 Opcionalmente, você pode adicionar até quatro vídeos que demonstram sua oferta. Esses vídeos devem ser hospedados no YouTube e/ou no Vimeo. Para cada um, insira o nome do vídeo, sua URL e uma imagem em miniatura do vídeo (1280 x 720 pixels)
 
@@ -410,6 +400,6 @@ Se for a primeira vez que publicar essa oferta, você poderá:
 - Na seção **notas de certificação** , forneça instruções de teste à equipe de certificação para garantir que seu aplicativo seja testado corretamente, além de qualquer nota suplementar útil para entender seu aplicativo.
 - Envie a oferta para publicação selecionando **Enviar**. Enviaremos um email para que você saiba quando uma versão prévia da oferta está disponível para revisão e aprovação. Retorne ao Partner Center e selecione **Go-Live** para que a oferta seja publicada no público (ou se uma oferta privada, para o público privado).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Atualizar uma oferta existente no Marketplace comercial](./update-existing-offer.md)

@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/17/2019
+ms.date: 01/05/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7cbb8c07b75509825795da45d8352140afd0864
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 3bec73ee7286ea831920fc20bd46cf43c2874081
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024221"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047095"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Atribuir funções do Azure AD no Privileged Identity Management
 
@@ -61,19 +61,9 @@ Siga estas etapas para tornar um usuário qualificado para uma função de admin
 
 1. Selecione uma função que você deseja atribuir e clique em **Selecionar**.
 
-    A página **selecionar um membro ou grupo** é aberta.
+1. Selecione um membro a quem você deseja atribuir à função e, em seguida, selecione **selecionar**.
 
-1. Selecione um membro ou grupo que você deseja atribuir à função e, em seguida, selecione **selecionar**.
-
-    ![Selecione um painel de membro ou grupo](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
-
-    O painel de configurações de Associação é aberto.
-
-1. Na lista **Tipo de atribuição**, selecione **Qualificado** ou **Ativo**.
-
-    ![Painel de configurações das Associações](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
-
-    Privileged Identity Management para recursos do Azure fornece dois tipos distintos de atribuição:
+1. Na lista **tipo de atribuição** , no **painel configurações de associação** , selecione **qualificado** ou **ativo**.
 
     - Atribuições **qualificadas** exigem que o membro da função execute uma ação para usar a função. As ações podem incluir a execução de uma verificação de MDA (Autenticação Multifator), fornecimento de uma justificativa comercial ou solicitação de aprovação dos aprovadores designados.
 
@@ -83,13 +73,9 @@ Siga estas etapas para tornar um usuário qualificado para uma função de admin
 
     Dependendo das configurações de função, a caixa de seleção poderá não aparecer ou não ser modificável.
 
-1. Para especificar uma duração de atribuição específica, desmarque a caixa de seleção e modifique as caixas de data e hora de início e/ou término.
+1. Para especificar uma duração de atribuição específica, desmarque a caixa de seleção e modifique as caixas de data e hora de início e/ou término. Quando terminar, selecione **concluído**.
 
     ![Configurações de associação - data e hora](./media/pim-resource-roles-assign-roles/resources-membership-settings-date.png)
-
-1. Quando terminar, selecione **concluído**.
-
-    ![Nova atribuição - Adicionar](./media/pim-resource-roles-assign-roles/resources-new-assignment-add.png)
 
 1. Para criar a nova atribuição de função, selecione **Adicionar**. Uma notificação do status é exibida.
 
@@ -233,7 +219,7 @@ Siga estas etapas para atribuir a função de Administrador de Acesso do Usuári
 
  ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Definir as configurações de função de administrador do Azure AD no Privileged Identity Management](pim-how-to-change-default-settings.md)
 - [Atribuir funções de recurso do Azure no Privileged Identity Management](pim-resource-roles-assign-roles.md)

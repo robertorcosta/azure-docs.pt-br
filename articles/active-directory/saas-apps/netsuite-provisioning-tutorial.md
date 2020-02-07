@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o Netsuite OneWorld para o provisionamento automático de usuários com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configurar o OneWorld da Netsuite para o provisionamento automático de usuários com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Netsuite OneWorld.
 services: active-directory
 documentationCenter: na
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 928070ae7e5c9077c6f77e8cb7beb36815f47d6a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4c9a823e6515c2bfe09e1ab7bcef471eb8169e75
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515828"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063288"
 ---
-# <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Tutorial: Configuração do Netsuite para o provisionamento automático de usuários
+# <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Tutorial: configurando o Netsuite para o provisionamento automático de usuário
 
 O objetivo deste tutorial é mostrar as etapas que você precisa executar no Netsuite OneWorld e no Azure AD para provisionar e descontinuar automaticamente as contas de usuário do Azure AD para o Netsuite.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -91,7 +91,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 Isso inicia a sincronização inicial de todos os usuários e/ou grupos atribuídos ao Netsuite na seção Usuários e Grupos. Observe que a sincronização inicial leva mais tempo do que as sincronizações posteriores, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento em seu aplicativo Netsuite.
 
-Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../manage-apps/check-status-user-account-provisioning.md).
+Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

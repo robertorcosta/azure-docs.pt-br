@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b49b10acb7f2deaed217bb28478d2c98a033eab9
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 83133fed401dac51a8dd6a653ccfd86117e956ed
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768666"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046446"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurar a política de expiração de grupos do Office 365
 
@@ -28,12 +28,12 @@ Este artigo mostra como gerenciar o ciclo de vida dos grupos do Office 365 defin
 
 Depois de configurar a expiração de um grupo:
 
-- Grupos com atividades do usuário são renovados automaticamente à medida que a expiração se aproxima
-- Os proprietários do grupo são notificados para renovar o grupo, se o grupo não for renovado automaticamente
-- Todos os grupos não renovados serão excluídos
-- Os proprietários ou os administradores de grupos poderão restaurar, dentro de 30 dias, qualquer grupo do Office 365 excluído
+- Grupos com atividades de usuário são renovados automaticamente à medida que a expiração é próxima.
+- Os proprietários do grupo são notificados para renovar o grupo, caso o grupo não seja renovado automaticamente.
+- Qualquer grupo que não for renovado será excluído.
+- Qualquer grupo do Office 365 excluído pode ser restaurado dentro de 30 dias por proprietários do grupo ou pelo administrador.
 
-No momento, apenas uma política de expiração pode ser configurada para todos os grupos do Office 365 em uma organização do Azure AD.
+Atualmente, apenas uma política de expiração pode ser configurada para todos os grupos do Office 365 em uma organização do Azure AD.
 
 > [!NOTE]
 > Configurar e usar a política de expiração para grupos do Office 365 exige que você tenha, mas não necessariamente, atribuir Azure AD Premium licenças para os membros de todos os grupos aos quais a política de expiração é aplicada.
@@ -42,7 +42,7 @@ Para saber mais sobre como fazer o download e instalar os cmdlets do PowerShell 
 
 ## <a name="activity-based-automatic-renewal"></a>Renovação automática baseada em atividade
 
-Com o Azure AD Intelligence, os grupos agora são renovados automaticamente com base no uso recente. Esse recurso elimina a necessidade de ação manual por proprietários de grupo, pois ele baseia-se na atividade do usuário em grupos entre os serviços do Office 365, como Outlook, SharePoint, Teams ou Yammer. Por exemplo, se um proprietário ou um membro do grupo fizer algo como carregar um documento no SharePoint, visitar um canal de equipes ou enviar um email para o grupo no Outlook, o grupo será renovado automaticamente e o proprietário não receberá nenhuma notificação de renovação.
+Com a inteligência do Azure AD, os grupos agora são renovados automaticamente com base no uso recente. Esse recurso elimina a necessidade de ação manual por proprietários de grupo, pois ele é baseado na atividade do usuário em grupos entre os serviços do Office 365, como Outlook, SharePoint, Teams ou Yammer. Por exemplo, se um proprietário ou um membro do grupo fizer algo como carregar um documento no SharePoint, visitar um canal de equipes ou enviar um email para o grupo no Outlook, o grupo será renovado automaticamente e o proprietário não receberá nenhuma notificação de renovação.
 
 ### <a name="activities-that-automatically-renew-group-expiration"></a>Atividades que renovam automaticamente a expiração do grupo
 
@@ -56,11 +56,13 @@ As ações de usuário a seguir causam renovação automática de Grupo:
 
 Os administradores podem obter uma lista de grupos automaticamente renovados dos logs de auditoria de atividade no Azure AD.
 
+![Renovação automática de grupos com base na atividade](./media/groups-lifecycle/audit-logs-autorenew-group.png)
+
 ## <a name="roles-and-permissions"></a>Funções e permissões
 
 As funções a seguir podem configurar e usar a expiração para grupos do Office 365 no Azure AD.
 
-Função | Permissões
+Role | Permissões
 -------- | --------
 Administrador global, administrador de grupo ou administrador de usuário | Pode criar, ler, atualizar ou excluir as configurações de política de expiração de grupos do Office 365<br>Pode renovar qualquer grupo do Office 365
 Usuário | Pode renovar um grupo do Office 365 que ele possua<br>Pode restaurar um grupo do Office 365 que ele possua<br>Pode ler as configurações da política de expiração
@@ -182,7 +184,7 @@ Os seguintes cmdlets podem ser usados ​​para configurar a política com mais
 - Reset-AzureADMSLifeCycleGroup
 - Get-AzureADMSLifecyclePolicyGroup
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Esses artigos fornecem mais informações sobre os grupos do Azure AD.
 

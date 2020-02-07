@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/02/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c77b03c6e1f2240059d884b051e00b01836d714
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: d3c3eb715c3e371d7e2985f233df584fb83a9870
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67724018"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063448"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Mover aplicativos do AD FS para o Azure AD 
 
@@ -39,7 +39,7 @@ Muitas organizações têm aplicativos SaaS ou LOB (linha de negócios) personal
 
 ![Aplicativos conectados diretamente no local](media/migrate-adfs-apps-to-azure/migrate1.png)
 
-![Aplicativos federados por meio do AD do Azure](media/migrate-adfs-apps-to-azure/migrate2.png)
+![Aplicativos federados por meio do Azure AD](media/migrate-adfs-apps-to-azure/migrate2.png)
 
 ## <a name="reasons-for-moving-apps-to-azure-ad"></a>Motivos para mover aplicativos para o Azure AD
 
@@ -47,7 +47,7 @@ Para uma organização que já usa o AD FS, o Ping ou outro provedor de autentic
 
 - **Acesso mais seguro**
 
-  - Configurar controles de acesso por aplicativo granulares, incluindo a autenticação multifator, usando [acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md). As políticas podem ser aplicadas a aplicativos SaaS e personalizados da mesma forma que você deve estar fazendo atualmente para o Office 365.
+  - Configure controles de acesso por aplicativo granulares, incluindo a autenticação multifator do Azure, usando o [acesso condicional do Azure ad](../active-directory-conditional-access-azure-portal.md). As políticas podem ser aplicadas a aplicativos SaaS e personalizados da mesma forma que você deve estar fazendo atualmente para o Office 365.
   - Para detectar ameaças e ajudar a proteger o logon com base em aprendizado de máquina e heurística que identificam o tráfego arriscado, aproveite o [Azure AD Identity Protection](../active-directory-identityprotection.md).
 
 - **Colaboração B2B do AD do Azure**
@@ -59,7 +59,7 @@ Para uma organização que já usa o AD FS, o Ping ou outro provedor de autentic
   O Azure AD, como um provedor de identidade para aplicativos SaaS, dá suporte a recursos adicionais, como:
   - Certificados de autenticação de tokens por aplicativo.
   - [Datas de validade do certificado configuráveis](manage-certificates-for-federated-single-sign-on.md).
-  - [Provisionamento automatizado](user-provisioning.md) de contas de usuário (nos aplicativos principais do Azure Marketplace) baseadas em identidades do Azure AD.
+  - [Provisionamento automatizado](../app-provisioning/user-provisioning.md) de contas de usuário (nos aplicativos principais do Azure Marketplace) baseadas em identidades do Azure AD.
 
 - **Mantendo os benefícios de um provedor de identidade local**
   
@@ -105,8 +105,8 @@ As tabelas a seguir mapeiam ideias principais compartilhadas pelo AD FS, pelo Az
 
 A migração começa avaliando como o aplicativo é configurado no local e mapeando essa configuração para o Azure AD. A tabela a seguir é um mapeamento de elementos de configuração de terceira parte confiável do AD FS para os elementos correspondentes no Azure AD.
 
-- Termo do AD FS: Terceira parte confiável ou relação de confiança de terceira parte confiável.
-- Termo do Azure AD: Aplicativo empresarial ou registro de aplicativo (dependendo do tipo de aplicativo).
+- Termo do AD FS: terceira parte confiável ou relação de confiança de terceira parte confiável.
+- Termo do Azure AD: aplicativo empresarial ou registro de aplicativo (dependendo do tipo de aplicativo).
 
 |Elemento de configuração do aplicativo|DESCRIÇÃO|Local na configuração do AD FS|Local correspondente na configuração do Azure AD|Elemento do Token SAML|
 |-----|-----|-----|-----|-----|
@@ -136,9 +136,9 @@ A tabela a seguir descreve os principais elementos de configuração de IdP para
 |---|---|---|---|
 |IdP </br>sign-on </br>URL|URL de logon do IdP da perspectiva do aplicativo (para onde o usuário é redirecionado para o logon).|A URL de entrada do AD FS é o nome do serviço de Federação do AD FS seguido por "/adfs/ls/." Por exemplo: https&#58;//fs.contoso.com/adfs/ls/|O valor correspondente do Azure AD segue o padrão em que {tenant-id} é substituído por sua ID de locatário. Ele é encontrado no portal do Azure, em  **Azure Active Directory** > **Propriedades**, como **ID de Diretório**.</br></br>Para aplicativos que usam o protocolo SAML-P: https&#58;//login.microsoftonline.com/{tenant-id}/saml2 </br></br>Para aplicativos que usam o protocolo WS-Federation: https&#58;//login.microsoftonline.com/{tenant-id}/wsfed|
 |IdP </br>saída </br>URL|URL de logoff do IdP da perspectiva do aplicativo (para onde o usuário é redirecionado ao escolher "sair" do aplicativo).|Para o AD FS, a URL de saída é a mesma da URL de entrada, ou a mesma URL com "wa=wsignout1.0" acrescentado. Por exemplo: https&#58;//fs.contoso.com/adfs/ls/?wa=wsignout1.0|O valor correspondente para o Azure AD depende de o aplicativo ser capaz de dar suporte a logoff SAML 2.0.</br></br>Se o aplicativo dá suporte à saída SAML, o valor segue o padrão em que o valor {tenant-id} é substituído pela ID de locatário. Ele é encontrado no portal do Azure, em  **Azure Active Directory** > **Propriedades**, como **ID de diretório**: https&#58;//login.microsoftonline.com/{tenant-id}/saml2</br></br>Se o aplicativo não dá suporte a saída SAML: https&#58;//login.microsoftonline.com/common/wsfederation?wa=wsignout1.0|
-|A criptografia do token </br>assinando </br>certificado|Certificado cuja chave privada o IdP usa para assinar tokens emitidos. Ele verifica se o token veio do mesmo IdP em que o aplicativo está configurado para confiar.|Encontre o certificado de autenticação de token do AD FS no Gerenciamento do AD FS, em **Certificados**.|No Azure AD, você pode encontrar o certificado de autenticação de tokens no portal do Azure nas propriedades **Logon único** do aplicativo, no cabeçalho **Certificado de Autenticação SAML**. Lá, você pode baixar o certificado para carregar no aplicativo.</br></br> Se o aplicativo tiver mais de um certificado, você pode encontrá-los no arquivo XML de metadados de federação.|
+|Token </br>assinando </br>certificado|Certificado cuja chave privada o IdP usa para assinar tokens emitidos. Ele verifica se o token veio do mesmo IdP em que o aplicativo está configurado para confiar.|Encontre o certificado de autenticação de token do AD FS no Gerenciamento do AD FS, em **Certificados**.|No Azure AD, você pode encontrar o certificado de autenticação de tokens no portal do Azure nas propriedades **Logon único** do aplicativo, no cabeçalho **Certificado de Autenticação SAML**. Lá, você pode baixar o certificado para carregar no aplicativo.</br></br> Se o aplicativo tiver mais de um certificado, você pode encontrá-los no arquivo XML de metadados de federação.|
 |Identificador/</br>“emissor”|Identificador do IdP da perspectiva do aplicativo (às vezes chamado de "ID do Emissor").</br></br>No token SAML, o valor é exibido como o elemento **Emissor**.|O identificador para o AD FS normalmente é o identificador do serviço de federação no Gerenciamento do AD FS em **Serviço** > **Editar Propriedades do Serviço de Federação**. Por exemplo: http&#58;//fs.contoso.com/adfs/services/trust|O valor correspondente do Azure AD segue o padrão em que o valor {tenant-id} é substituído pela ID de locatário. Ela é encontrada no portal do Azure, em **Azure Active Directory** > **Propriedades** como **ID de diretório**: https&#58;//sts.windows.net/{tenant-id}/|
-|IdP </br>federação </br>metadados|Local dos metadados de federação disponíveis publicamente do IdP. (Alguns aplicativos usam metadados de federação como uma alternativa à configuração de URLs, identificadores e certificados de autenticação de token pelo administrador individualmente.)|Localize a URL de metadados de federação do AD FS no Gerenciamento do AD FS em **Serviço** > **Pontos de Extremidade** > **Metadados**  >  **Tipo: Metadados de Federação**. Por exemplo: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|O valor correspondente do Azure AD segue o padrão https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. O valor {TenantDomainName} é substituído pelo nome do locatário no formato "contoso.onmicrosoft.com". </br></br>Para saber mais, confira [Metadados de federação](../develop/azure-ad-federation-metadata.md).
+|IdP </br>federação </br>metadata|Local dos metadados de federação disponíveis publicamente do IdP. (Alguns aplicativos usam metadados de federação como uma alternativa à configuração de URLs, identificadores e certificados de autenticação de token pelo administrador individualmente.)|Localize a URL de metadados de federação do AD FS no Gerenciamento do AD FS em **Serviço** > **Pontos de Extremidade** > **Metadados** > **Tipo: Metadados de Federação**. Por exemplo: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|O valor correspondente do Azure AD segue o padrão https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. O valor {TenantDomainName} é substituído pelo nome do locatário no formato "contoso.onmicrosoft.com". </br></br>Para saber mais, confira [Metadados de federação](../develop/azure-ad-federation-metadata.md).
 
 ## <a name="moving-saas-apps"></a>Mover aplicativos SaaS
 
@@ -175,7 +175,7 @@ Entre os aplicativos que você pode movimentar facilmente no momento estão apli
 
 Além dos elementos de **NameID** e declarações personalizadas, outras configurações que exigem etapas de configuração adicional no Azure AD como parte da migração incluem:
 
-- Autorização personalizada ou regras de autenticação multifator no AD FS. Você pode configurá-los usando o [acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md) recurso.
+- Autorização personalizada ou regras de autenticação multifator no AD FS. Você os configura usando o recurso de [acesso condicional do Azure ad](../active-directory-conditional-access-azure-portal.md) .
 - Aplicativos com vários pontos de extremidade SAML. Você os configura no Azure AD usando o PowerShell. (Essa funcionalidade não está disponível no portal.)
 - Os aplicativos de WS-Federation, como aplicativos do SharePoint que requerem tokens SAML versão 1.1. Você deve configurá-los manualmente usando o PowerShell.
 
@@ -212,7 +212,7 @@ No Azure AD, configure o logon SAML (conforme exigido pelo seu aplicativo) nas p
 
 Clique em **Exibir e editar todos os outros atributos de usuário** para ver os atributos a serem enviados como declarações no token de segurança.
 
-![Mostra a lista de atributos que podem ser enviados como declarações](media/migrate-adfs-apps-to-azure/migrate4.png)
+![Mostra a lista de atributos que você pode enviar como declarações](media/migrate-adfs-apps-to-azure/migrate4.png)
 
 Clique em uma linha de atributo específica para editá-la ou clique em **Adicionar atributo** para um novo atributo.
 
@@ -236,21 +236,21 @@ Para verificar o acesso, os usuários poderão ver o aplicativo SaaS em seus [pa
 
 O processo de transferência da federação local para o Azure AD depende de o aplicativo SaaS que você está trabalhando dar suporte a vários provedores de identidade. Aqui estão algumas perguntas comuns sobre o suporte para vários IdPs:
 
-   **P: O que significa para um aplicativo dar suporte a vários IdPs?**
+   **P: o que significa para um aplicativo dar suporte a vários IdPs?**
 
-   R: Os aplicativos SaaS que dão suporte a vários IdPs permitem que você insira todas as informações sobre o novo IdP (no nosso caso, o Azure AD) antes de confirmar a alteração da experiência de logon. Quando a configuração estiver concluída, você poderá alternar a configuração de autenticação do aplicativo para apontar para o Azure AD.
+   R: aplicativos SaaS que dão suporte a vários IdPs permitem que você insira todas as informações sobre o novo IdP (no nosso caso, o Azure AD) antes de confirmar a alteração da experiência de logon. Quando a configuração estiver concluída, você poderá alternar a configuração de autenticação do aplicativo para apontar para o Azure AD.
 
-   **P: Por que é importante o aplicativo SaaS dar suporte a vários IdPs?**
+   **P: por que é importante o aplicativo SaaS dar suporte a vários IdPs?**
 
-   R: Se não houver suporte para vários IdPs, o administrador precisa reservar um curto período de tempo como interrupção de serviço ou manutenção para poder configurar o Azure AD como um novo IdP para o aplicativo. Durante essa interrupção, os usuários devem ser notificados de que não poderão entrar em suas contas.
+   R: se não há suporte para vários IdPs, o administrador precisa reservar um curto período de tempo como interrupção de serviço ou manutenção para poder configurar o Azure AD como um novo IdP para o aplicativo. Durante essa interrupção, os usuários devem ser notificados de que não poderão entrar em suas contas.
 
    Se um aplicativo der suporte a vários IdPs, o IdP adicional poderá ser configurado com antecedência. O administrador pode alternar o IdP na transferência do Azure.
 
    Se o aplicativo dá suporte a vários IdPs e você escolhe vários IdPs para processar a autenticação simultaneamente na entrada, o usuário recebe uma opção do IdP para autenticar na sua página de entrada.
 
-#### <a name="example-support-for-multiple-identity-providers"></a>Exemplo: Suporte a vários provedores de identidade
+#### <a name="example-support-for-multiple-identity-providers"></a>Exemplo: suporte para vários provedores de identidade
 
-Por exemplo, no Salesforce, você pode encontrar a configuração de IdP em **Configurações** > **Configurações da empresa** > **Meu domínio**  >  **Configuração de autenticação**.
+Por exemplo, no Salesforce, você pode encontrar a configuração de IdP em **Configurações** > **Configurações da empresa** > **Meu domínio** > **Configuração de autenticação**.
 
 ![Seção "Configuração de autenticação" no aplicativo Salesforce](media/migrate-adfs-apps-to-azure/migrate9.png)
 
@@ -258,9 +258,9 @@ Por causa da configuração criada anteriormente em **Identidade** > **Configura
 
 ![Selecionando o Azure AD como serviço de autenticação](media/migrate-adfs-apps-to-azure/migrate10.png)
 
-### <a name="optional-configure-user-provisioning-in-azure-ad"></a>Opcional: Configurar provisionamento de usuários no Azure AD
+### <a name="optional-configure-user-provisioning-in-azure-ad"></a>Opcional: configurar provisionamento de usuários no Azure AD
 
-Se você quiser que o Azure AD trate diretamente do provisionamento de usuários para um aplicativo SaaS, confira [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](user-provisioning.md).
+Se você quiser que o Azure AD trate diretamente do provisionamento de usuários para um aplicativo SaaS, confira [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -6,14 +6,14 @@ author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 12/28/2019
+ms.date: 02/07/2020
 ms.author: evansma
-ms.openlocfilehash: 191362f0e19cec71cd1c9114000e8a4e7c4e07e8
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f4c82a780a4cbe5de5c421c6a8b8dda09bfc74df
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980417"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048885"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>Termos e políticas do Marketplace comercial
 
@@ -34,7 +34,7 @@ As ofertas do Marketplace devem estar em conformidade com nossas políticas e te
 
 * [Termos do Azure Marketplace](https://docs.microsoft.com/legal/marketplace/terms)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Visite a página do [Guia de publicação do Azure Marketplace e do AppSource](./marketplace-publishers-guide.md) .
 

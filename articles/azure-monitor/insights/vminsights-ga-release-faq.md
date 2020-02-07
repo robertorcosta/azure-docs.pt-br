@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/24/2020
-ms.openlocfilehash: 3877632565c1ca2c9a16681e03f8931a94af0599
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 01/31/2020
+ms.openlocfilehash: ea7c695ddb92d441018503839b974c1f4bb33473
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765758"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047841"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Perguntas frequentes de Azure Monitor para VMs disponíveis (GA)
 
@@ -37,7 +37,9 @@ No passado, habilitamos a solução ServiceMap em seu espaço de trabalho e conf
 
 
 ## <a name="how-do-i-upgrade"></a>Como fazer atualizar?
-Cada VM que requer atualização será identificada na guia **introdução** em Azure Monitor para VMs no portal do Azure. Você pode atualizar uma única VM ou selecionar várias para atualizar juntas. Use o seguinte comando para atualizar usando o PowerShell:
+Quando um espaço de trabalho Log Analytics é atualizado para a versão mais recente do Azure Monitor para VMs, ele atualizará o agente de dependência em cada uma das VMs anexadas a esse espaço de trabalho. Cada VM que requer atualização será identificada na guia **introdução** em Azure Monitor para VMs no portal do Azure. Quando você optar por atualizar uma VM, ela atualizará o espaço de trabalho para essa VM junto com todas as outras VMs anexadas a esse espaço de trabalho. Você pode selecionar uma única VM ou várias VMs, grupos de recursos ou assinaturas. 
+
+Use o seguinte comando para atualizar um espaço de trabalho usando o PowerShell:
 
 ```PowerShell
 Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-group-name> -WorkspaceName <workspace-name> -IntelligencePackName "VMInsights" -Enabled $True
@@ -97,7 +99,7 @@ Esperamos lançar a atualização para Azure Monitor para VMs no início de jane
 
 ## <a name="health-feature-is-in-limited-public-preview"></a>O recurso de integridade está em visualização pública limitada
 
-Recebemos muitos comentários incríveis de clientes sobre nosso conjunto de recursos de integridade da VM. Há muito interesse nesse recurso e muita empolgação com seu potencial para dar suporte a fluxos de trabalho de monitoramento. Estamos planejando fazer uma série de mudanças para adicionar funcionalidade e tratar os comentários que recebemos. 
+Recebemos muitos comentários incríveis de clientes sobre nosso conjunto de recursos de integridade da VM. Há muito interesse em relação a esse recurso e empolga o seu potencial para dar suporte a fluxos de trabalho de monitoramento. Estamos planejando fazer uma série de alterações para adicionar funcionalidade e abordar os comentários que recebemos. 
 
 Para minimizar o impacto dessas alterações em novos clientes, movemos esse recurso para uma **Visualização pública limitada**. Essa atualização ocorreu em outubro de 2019.
 
@@ -117,6 +119,6 @@ Como um cliente existente, você pode continuar a usar o recurso de integridade 
 
 Se você for um cliente existente que está usando o recurso de integridade e deseja usá-lo para uma nova distribuição, entre em contato conosco em vminsights@microsoft.com para solicitar instruções.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para entender os requisitos e os métodos que ajudam você a monitorar suas máquinas virtuais, examine [Implantar o Azure Monitor para VMs](vminsights-enable-overview.md).

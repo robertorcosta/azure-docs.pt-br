@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e0a4eed020728bea5de196eebe438947ae509e4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 48df954f680c6774b0aa189453615156f4f0b4a8
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515654"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063264"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Tutorial: Configurar a Área Restrita Salesforce para o provisionamento automático de usuário
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser executadas na Área Restrita Salesforce e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para a Área Restrita do Salesforce.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -78,15 +78,15 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 1. Para obter o token de segurança da Área Restrita Salesforce, abra uma nova guia e entre na mesma conta do administrador da Área Restrita Salesforce. No canto superior direito da página, clique em seu nome e em **Configurações**.
 
-     ![Habilitar o provisionamento automático de usuário](./media/salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "Habilitar o provisionamento de usuário automático")
+     ![Habilitar o provisionamento automático de usuário](./media/salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "Habilitar o provisionamento automático de usuários.")
 
 1. No painel de navegação esquerdo, clique em **Minhas Informações Pessoais** para expandir a seção correspondente e clique em **Redefinir Meu Token de Segurança**.
   
-    ![Habilitar o provisionamento automático de usuário](./media/salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "Habilitar o provisionamento de usuário automático")
+    ![Habilitar o provisionamento automático de usuário](./media/salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "Habilitar o provisionamento automático de usuários.")
 
 1. Na página **Redefinir Token de Segurança**, clique no botão **Redefinir Token de Segurança**.
 
-    ![Habilitar o provisionamento automático de usuário](./media/salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "Habilitar o provisionamento de usuário automático")
+    ![Habilitar o provisionamento automático de usuário](./media/salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "Habilitar o provisionamento automático de usuários.")
 
 1. Marque a caixa de entrada de email associada a essa conta de administrador. Procure um email do Salesforce Sandbox.com que contenha o novo token de segurança.
 
@@ -94,7 +94,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 1. No portal do Azure, clique em **Testar Conexão** para garantir que o Azure AD possa se conectar ao seu aplicativo Área Restrita Salesforce.
 
-1. Insira o endereço de email de uma pessoa ou grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção.
+1. No campo **Email de Notificação**, insira o endereço de email de uma pessoa ou um grupo que deve receber notificações de erro de provisionamento e marque a caixa de seleção.
 
 1. Clique em **Salvar.**  
     
@@ -108,7 +108,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 Isso iniciará a sincronização inicial de todos os usuários e/ou grupos atribuídos à Área Restrita Salesforce na seção Usuários e Grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento em seu aplicativo Área Restrita Salesforce.
 
-Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../manage-apps/check-status-user-account-provisioning.md).
+Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

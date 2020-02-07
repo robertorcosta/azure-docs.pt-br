@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: b4396c82851969b39841ba77fb8aba9679363474
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 00ab3e9c7902e253d39a38eb0e98ee166244bca2
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986488"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048576"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentos de ML automatizados em Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -189,12 +189,18 @@ Saiba mais sobre as definições específicas dessas métricas em [entender os r
 
 ### <a name="data-featurization"></a>Personalização de dados
 
-Em todos os experimentos de aprendizado de máquina automatizados, seus dados são [dimensionados e normalizados automaticamente](concept-automated-ml.md#preprocess) para ajudar *determinados* algoritmos que são sensíveis a recursos que estão em escalas diferentes.  No entanto, você também pode habilitar personalização adicionais, como valores ausentes de imputação, codificação e transformações. [Saiba mais sobre o que o personalização está incluído](how-to-create-portal-experiments.md#preprocess).
+Em todos os experimentos de aprendizado de máquina automatizados, seus dados são [dimensionados e normalizados automaticamente](concept-automated-ml.md#preprocess) para ajudar *determinados* algoritmos que são sensíveis a recursos que estão em escalas diferentes.  No entanto, você também pode habilitar personalização adicionais, como valores ausentes de imputação, codificação e transformações. [Saiba mais sobre o que o personalização está incluído](how-to-create-portal-experiments.md#featurization).
 
-Para habilitar esse personalização, especifique `"featurization": 'auto'` para a [classe`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
+Ao configurar seus experimentos, você pode habilitar a configuração avançada `featurization`. A tabela a seguir mostra as configurações aceitas para personalização na [classe`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
+
+|Configuração do personalização | Descrição |
+| ------------- | ------------- |
+|`"featurization":`&nbsp;`'FeaturizationConfig'`| Indica que a etapa personalização personalizada deve ser usada. [Saiba como personalizar o personalização](how-to-configure-auto-train.md#customize-feature-engineering).|
+|`"featurization": 'off'`| Indica que a etapa personalização não deve ser feita automaticamente.|
+|`"featurization": 'auto'`| Indica que, como parte do pré-processamento, [as etapas de guardrails e personalização de dados](how-to-create-portal-experiments.md#advanced-featurization-options) são executadas automaticamente.|
 
 > [!NOTE]
-> As etapas de pré-processamento automatizado de machine learning (normalização de recursos, manipulação de dados ausentes, conversão de texto em números etc.) tornam-se parte do modelo subjacente. Ao usar o modelo para previsões, as mesmas etapas de pré-processamento aplicadas durante o treinamento são aplicadas aos dados de entrada automaticamente.
+> As etapas de personalização automatizadas do Machine Learning (normalização de recursos, manipulação de dados ausentes, conversão de texto em numeric, etc.) tornam-se parte do modelo subjacente. Ao usar o modelo para previsões, as mesmas etapas de personalização aplicadas durante o treinamento são aplicadas aos dados de entrada automaticamente.
 
 ### <a name="time-series-forecasting"></a>Previsão de série temporal
 A tarefa de `forecasting` de série temporal requer parâmetros adicionais no objeto de configuração:
@@ -397,18 +403,18 @@ Use essas duas APIs na primeira etapa do modelo ajustado para entender mais.  Co
     'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
   ```
 
-   Onde:
+   Em que:
 
    |Saída|Definição|
    |----|--------|
    |RawFeatureName|Nome de recurso/coluna de entrada do conjunto de dados fornecido.|
    |TypeDetected|Tipo de dados detectado do recurso de entrada.|
-   |Passou|Indica se o recurso de entrada foi descartado ou usado.|
+   |Descartada|Indica se o recurso de entrada foi descartado ou usado.|
    |EngineeringFeatureCount|Número de recursos gerados por meio de transformações automatizadas de engenharia de recursos.|
    |Transformações|Lista de transformações aplicadas aos recursos de entrada para gerar recursos de engenharia.|
    
 ### <a name="customize-feature-engineering"></a>Personalizar a engenharia de recursos
-Para personalizar a engenharia de recursos, especifique `"feauturization":FeaturizationConfig`.
+Para personalizar a engenharia de recursos, especifique `"featurization": FeaturizationConfig`.
 
 A personalização com suporte inclui:
 
@@ -513,7 +519,7 @@ Consulte o [instruções](how-to-machine-learning-interpretability-automl.md) pa
 
 Para obter informações gerais sobre como as explicações de modelo e a importância dos recursos podem ser habilitadas em outras áreas do SDK fora do aprendizado de máquina automatizado, consulte o artigo [conceito](how-to-machine-learning-interpretability.md) sobre interpretação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba mais sobre [como e onde implantar um modelo](how-to-deploy-and-where.md).
 

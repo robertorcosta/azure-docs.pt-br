@@ -1,5 +1,6 @@
 ---
-title: Compreendendo um mundo sem senhas com Azure Active Directory | Microsoft Docs
+title: Autenticação sem senha com o Azure AD
+titleSuffix: Active Directory
 description: Este guia ajuda CEOs, CIOs, CISOss, arquitetos de identidade, arquitetos empresariais e tomadores de decisões de ti responsáveis por escolher um método de autenticação com senha para sua implementação de Azure Active Directory.
 keywords: com senha, azuread
 author: martincoetzer
@@ -9,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 39078e298093c2c2ab4835925a2ba8a70269f5f5
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 5fc6a4a23573995cf791a21ec7cf3a7d68d048e8
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945578"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064471"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Um mundo sem senhas com Azure Active Directory
 
@@ -24,7 +25,7 @@ Três tipos de ataques normalmente usados para comprometer as contas de usuário
 
 Este artigo é o início de sua jornada para ajudá-lo a entender e implementar soluções com senha da Microsoft e ajudá-lo a escolher entre uma ou mais das seguintes opções:
 
-* **Windows Hello para empresas**. No Windows 10, o Windows Hello para Empresas substitui senhas por autenticação forte de dois fatores em computadores e dispositivos móveis. Essa autenticação consiste em um novo tipo de credencial de usuário que está vinculado a um dispositivo e usa um PIN ou um reconhecimento biométrico.
+* **Windows Hello para empresas**. No Windows 10, o Windows Hello para empresas substitui senhas com autenticação forte de dois fatores em PCs e dispositivos móveis. Essa autenticação consiste em um novo tipo de credencial de usuário que está vinculado a um dispositivo e usa um PIN ou um reconhecimento biométrico.
 
 * **Entrada sem senha com Microsoft Authenticator**. O aplicativo Microsoft Authenticator pode ser usado para entrar em uma conta do Azure AD sem usar uma senha. Semelhante à tecnologia do Windows Hello para empresas, o Microsoft Authenticator usa a autenticação baseada em chave para habilitar uma credencial de usuário vinculada a um dispositivo e usa uma biométrica ou um PIN.
 
@@ -50,7 +51,7 @@ O Windows Hello para empresas é ideal para os operadores de informações que t
 
 O Windows Hello for Business é um sistema distribuído que usa vários componentes para realizar o registro, o provisionamento e a autenticação de dispositivos. Portanto, a implantação requer um planejamento adequado em várias equipes na organização. O [Guia de planejamento](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) do Windows Hello para empresas pode ser usado para ajudá-lo a tomar decisões sobre o tipo de implantação do Windows Hello para empresas e as opções que você precisará considerar.
 
-Existem várias opções que você pode escolher ao implantar o Windows Hello para Empresas. Ao fornecer várias opções é possível garantir que praticamente todas as organizações podem implantar o Windows Hello para Empresas. Considere os seguintes tipos de implantações com suporte:
+Há muitas opções que você pode escolher ao implantar o Windows Hello para empresas. Fornecer várias opções garante que quase todas as organizações possam implantar o Windows Hello para empresas. Considere os seguintes tipos de implantações com suporte:
 
 * [Implantação de confiança de chave unida do Azure AD híbrido](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-key-trust)
 
@@ -70,7 +71,7 @@ Recomendamos que você leia [planejando uma implantação do Windows Hello para 
 
 #### <a name="user-sets-up-windows-hello-for-business"></a>O usuário configura o Windows Hello para empresas
 
-Após uma verificação inicial em duas etapas do usuário durante o registro, o Windows Hello é configurado no dispositivo do usuário e o Windows solicita que o usuário defina um gesto, que pode ser uma biométrica, como uma impressão digital ou um reconhecimento facial ou um PIN. Uma vez definido, o usuário fornece o gesto para verificar sua identidade. Em seguida, o Windows usa o Windows Hello para autenticar os usuários.
+Após uma verificação inicial em duas etapas do usuário durante o registro, o Windows Hello é configurado no dispositivo do usuário e o Windows solicita que o usuário defina um gesto, que pode ser uma biométrica, como uma impressão digital ou um reconhecimento facial ou um PIN. Uma vez definido, o usuário fornece o gesto para verificar sua identidade. Em seguida, o Windows usa o Windows Hello para autenticar usuários.
 
 Com base nos recursos do seu dispositivo Windows 10, você terá um enclave seguro interno, conhecido como um TPM (Trusted Platform Module) de hardware ou um TPM de software. O TPM armazena a chave privada, que requer sua face, impressão digital ou PIN para desbloqueá-la. Os dados biométricos não são transferidos por roaming e nunca são enviados a dispositivos ou servidores externos. Não há nenhum ponto de coleção único que um invasor possa comprometer para roubar dados biométricos, pois o Windows Hello armazena apenas dados de identificação biométricas no dispositivo.
 
@@ -109,7 +110,7 @@ Para obter uma análise mais profunda do processo de autenticação em outros ce
 
 Os [serviços de redefinição de PIN da Microsoft](/windows/security/identity-protection/hello-for-business/hello-feature-pin-reset) são um recurso do Azure AD que permite que os usuários redefinam seu PIN, se necessário. Usando a política de grupo, Microsoft Intune ou um MDM compatível, um administrador pode configurar dispositivos Windows 10 para usar com segurança o serviço de redefinição de PIN da Microsoft que permite que os usuários redefinam seu PIN esquecido por meio de configurações ou acima da tela de bloqueio sem exigir novo registro.
 
-Às vezes, os usuários precisam fazer fallback para usar senhas. A [redefinição de senha de autoatendimento](../../active-directory/authentication/howto-sspr-deployment.md) (SSPR) é outro recurso do Azure AD que permite que os usuários redefinam suas senhas sem precisar entrar em contato com a equipe de ti. Os usuários devem se registrar ou ser registrados para redefinição de senha de autoatendimento antes de usar o serviço. Durante o registro, o usuário escolhe um ou mais métodos de autenticação habilitados pela empresa. O SSPR permite que os usuários sejam desbloqueados rapidamente e continuem trabalhando independentemente de onde estiverem ou a hora do dia. Ao permitir que os usuários se desbloqueiem, sua organização pode reduzir o tempo não produtivo e os altos custos de suporte para os problemas mais comuns relacionados a senhas.
+Às vezes, os usuários precisam fazer fallback para usar senhas. A [redefinição de senha de autoatendimento](../../active-directory/authentication/howto-sspr-deployment.md) (SSPR) é outro recurso do Azure AD que permite que os usuários redefinam suas senhas sem precisar entrar em contato com a equipe de ti. Os usuários devem se registrar no ou ser registrados para redefinição de senha de autoatendimento antes de usar o serviço. Durante o registro, o usuário escolhe um ou mais métodos de autenticação habilitados pela organização. O SSPR permite que os usuários sejam desbloqueados rapidamente e continuem trabalhando independentemente de onde estiverem ou a hora do dia. Ao permitir que os usuários se desbloqueiem, sua organização pode reduzir o tempo não produtivo e os altos custos de suporte para os problemas mais comuns relacionados a senhas.
 
 ## <a name="passwordless-sign-in-with-microsoft-authenticator"></a>Entrada sem senha com o Microsoft Authenticator
 
@@ -340,7 +341,7 @@ Nos últimos anos, a Microsoft continuou seu compromisso com a habilitação de 
 
 A adoção de tecnologias de autenticação multifator modernas, como biometria e criptografia de chave pública em dispositivos amplamente acessíveis, é uma das etapas mais impactantes que podem reduzir de forma significativa o risco de identidade de uma empresa. A passagem de senha é uma abordagem de longo prazo para autenticação segura e ainda está em evolução. Dadas os requisitos emergentes, as organizações podem se preparar fazendo um plano para começar a migrar para tecnologias com senha.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Uma visão geral do [que é com senha?](../../active-directory/authentication/concept-authentication-passwordless.md)
 * [Como habilitar senhas no Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b77d6fe03a051c019519f195d55cdeb00fb9afb2
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 5a9e5e014740302c439036bd3889761f4750344f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906277"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062856"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 
@@ -22,7 +22,7 @@ O [Arquivos do Azure](storage-files-introduction.md) oferece compartilhamentos d
 
  O diagrama a seguir ilustra as construções do gerenciamento do Arquivos do Azure:
 
-![Estrutura do arquivo](./media/storage-files-introduction/files-concepts.png)
+![Estrutura do Arquivo](./media/storage-files-introduction/files-concepts.png)
 
 * **Conta de Armazenamento**: todo o acesso ao Armazenamento do Azure é feito através de uma conta de armazenamento. Consulte [escalabilidade e metas de desempenho para contas de armazenamento Standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter detalhes sobre a capacidade da conta de armazenamento.
 
@@ -47,13 +47,13 @@ O Arquivos do Azure oferece dois métodos de acesso a dados internos e práticos
 
 A tabela a seguir ilustra como os usuários e aplicativos podem acessar o compartilhamento de Arquivos do Azure:
 
-| | Acesso direto à nuvem | Sincronização de arquivos do Azure |
+| | Acesso direto à nuvem | Sincronização de Arquivos do Azure |
 |------------------------|------------|-----------------|
 | Quais protocolos você precisa usar? | O Arquivos do Azure dá suporte a SMB 2.1, a SMB 3.0 e à API REST de arquivo. | Acessar o compartilhamento de arquivos do Azure por meio de qualquer protocolo com suporte no Windows Server (SMB, NFS, FTPS, etc.) |  
 | Onde você está executando a carga de trabalho? | **No Azure**: o Arquivos do Azure oferece acesso direto aos seus dados. | **Localmente, com rede lenta**: clientes Windows, Linux e macOS podem montar um compartilhamento de arquivos do Windows local localmente como um cache rápido do seu compartilhamento de Arquivos do Azure. |
 | De que nível de ACLs você precisa? | Nível de compartilhamento e de arquivo. | Nível de compartilhamento, de arquivo e de usuário. |
 
-## <a name="data-security"></a>Segurança dos dados
+## <a name="data-security"></a>Segurança de dados
 
 O Arquivos do Azure tem várias opções integradas para garantir a segurança dos dados:
 
@@ -129,7 +129,7 @@ A tabela a seguir ilustra alguns exemplos dessas fórmulas para os tamanhos de c
 |10.240      | 10.240  | Até 30.720  | 675 | 450   |
 |33.792      | 33.792  | Até 100.000 | 2\.088 | 1\.392   |
 |51.200      | 51.200  | Até 100.000 | 3\.132 | 2\.088   |
-|102.400     | 100 mil | Até 100.000 | 6\.204 | 4\.136   |
+|102.400     | 100.000 | Até 100.000 | 6\.204 | 4\.136   |
 
 > [!NOTE]
 > O desempenho dos compartilhamentos de arquivos está sujeito aos limites de rede da máquina, largura de banda de rede disponível, tamanhos de e/s, paralelismo, entre muitos outros fatores. Por exemplo, com base no teste interno com 8 tamanhos de e/s de leitura/gravação de KiB, uma única máquina virtual do Windows, *F16s_v2 padrão*, conectada ao compartilhamento de arquivos Premium em SMB poderia alcançar IOPS de leitura de 20 mil e IOPS de gravação de 15.000. Com tamanhos de e/s de leitura/gravação de MiB 512, a mesma VM pode atingir a saída de 1,1 GiB/s e a taxa de transferência de entrada de 370 MiB/s. Para obter a escala de desempenho máxima, distribua a carga entre várias VMs. Consulte o [Guia de solução de problemas](storage-troubleshooting-files-performance.md) para alguns problemas comuns de desempenho e soluções alternativas.
@@ -204,8 +204,7 @@ Esta seção se aplica somente aos compartilhamentos de arquivos padrão. Todos 
 Compartilhamentos de arquivos padrão com limite de capacidade de 100 TiB estão disponíveis globalmente em todas as regiões do Azure-
 
 - LRS: todas as regiões, exceto para a África do Sul e oeste da África do Sul.
-   - As nuvens nacionais (governo, Alemanha, China) têm suporte por meio do PowerShell e da CLI (interface de linha de comando) do Azure. Nenhum suporte ao Portal. 
-   - Leste dos EUA, leste dos EUA 2, Europa Ocidental: todas as novas contas têm suporte. Um pequeno número de contas existentes não concluiu o processo de atualização. Você pode verificar se suas contas de armazenamento existentes concluíram o processo de atualização ao tentar [habilitar grandes compartilhamentos de arquivos](storage-files-how-to-create-large-file-share.md).
+   - Leste dos EUA e Europa Ocidental: todas as novas contas têm suporte. Um pequeno número de contas existentes não concluiu o processo de atualização. Você pode verificar se suas contas de armazenamento existentes concluíram o processo de atualização ao tentar [habilitar grandes compartilhamentos de arquivos](storage-files-how-to-create-large-file-share.md).
 
 - ZRS: todas as regiões, exceto para o leste do Japão, Europa Setentrional, norte da África do Sul.
 - GRS/GZRS: sem suporte.
@@ -229,7 +228,7 @@ Há muitas opções fáceis para transferência de dados em massa de um arquivo 
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : o Robocopy é uma ferramenta de cópia bem conhecida que é fornecida com o Windows e o Windows Server. Robocopy pode ser usado para transferir dados para arquivos do Azure montando o compartilhamento de arquivos localmente e, em seguida, usando a localização montada como o destino no comando Robocopy.
 * **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : o AzCopy é um utilitário de linha de comando projetado para copiar dados de e para os Arquivos do Azure e o Armazenamento de Blobs do Azure, usando comandos simples com o desempenho ideal.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
 * [Implantando Arquivos do Azure](storage-files-deployment-guide.md)
 * [Implantando a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md)

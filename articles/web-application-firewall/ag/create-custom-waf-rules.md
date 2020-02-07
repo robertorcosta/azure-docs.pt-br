@@ -8,12 +8,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 4efa60a48a540efdd835b106afa5872057ae3d53
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 14aa1018aec2a9dc22c3b059b4aa46bff2bb554a
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74046428"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77050057"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Criar e usar regras personalizadas do firewall do aplicativo Web no gateway de aplicativo
 
@@ -161,10 +161,10 @@ E o JSON correspondente:
         "action": "Allow",
         "matchConditions": [
           {
-            "matchVariable": "RequestHeaders",
-            "operator": "User-Agent",
+            "matchVariable": "RemoteAddr",
+            "operator": "GeoMatch",
             "matchValues": [
-              "evilbot"
+              "US"
             ]
           }
         ]
@@ -543,7 +543,7 @@ JSON correspondente:
   }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Depois de criar suas regras personalizadas, você pode aprender a exibir seus logs do WAF. Para obter mais informações, consulte [Diagnósticos do Gateway de Aplicativo](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
 
