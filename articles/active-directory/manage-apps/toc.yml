@@ -5,10 +5,10 @@
   items:
     - name: O que são o gerenciamento de aplicativos de nuvem e o logon único?
       href: what-is-application-management.md
-    - name: O que é o provisionamento de aplicativo?
-      href: user-provisioning.md
     - name: O que é o proxy de aplicativo para aplicativos locais?
       href: what-is-application-proxy.md
+    - name: O que é o provisionamento de aplicativo?
+      href: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
 - name: Inícios rápidos
   items:
     - name: Adicionar um aplicativo de nuvem da galeria
@@ -72,16 +72,6 @@
               href: howto-saml-token-encryption.md
             - name: Portais do usuário final
               href: end-user-experiences.md
-    - name: Provisionamento de aplicativo (SCIM)
-      items:
-        - name: Como funciona o provisionamento
-          href: how-provisioning-works.md
-        - name: Planejar uma implantação de provisionamento do usuário automática
-          href: plan-auto-user-provisioning.md
-    - name: Provisionamento de RH na nuvem
-      items:
-        - name: Planejar implantação de provisionamento do usuário de RH na nuvem
-          href: plan-cloud-hr-provision.md
     - name: Proxy de aplicativo para aplicativos locais
       items:
         - name: Proxy do Aplicativo
@@ -179,9 +169,9 @@
           items:
             - name: Solucionar problemas de adição de aplicativos
               items:
-                - name: Problemas comuns – Aplicativos da galeria
+                - name: Problemas comuns - aplicativos da galeria
                   href: adding-gallery-app-common-problems.md
-                - name: Problemas comuns – Aplicativos inexistentes na galeria
+                - name: Problemas comuns - aplicativos inexistentes na galeria
                   href: adding-non-gallery-app-common-problems.md
             - name: Solucionar problemas de entrada de usuário
               items:
@@ -195,27 +185,27 @@
                   href: application-sign-in-other-problem-access-panel.md
                 - name: Erro na página de entrada do aplicativo
                   href: application-sign-in-problem-application-error.md
-                - name: Problema de logon único com senha – Aplicativo inexistente na galeria
+                - name: Problema de logon único com senha - aplicativo inexistente na galeria
                   href: application-sign-in-problem-password-sso-non-gallery.md
-                - name: Problema de logon único com senha – Aplicativo da galeria
+                - name: Problema de logon único com senha - aplicativo da galeria
                   href: application-sign-in-problem-password-sso-gallery.md
                 - name: Problema ao entrar em um aplicativo da Microsoft
                   href: application-sign-in-problem-first-party-microsoft.md
-                - name: Problema com logon único federado – Aplicativo inexistente na galeria
+                - name: Problema com logon único federado - aplicativo inexistente na galeria
                   href: application-sign-in-problem-federated-sso-non-gallery.md
-                - name: Problema com logon único federado – Aplicativo da galeria
+                - name: Problema com logon único federado - aplicativo da galeria
                   href: application-sign-in-problem-federated-sso-gallery.md
                 - name: Problema com aplicativo desenvolvido de forma personalizada
                   href: application-sign-in-problem-custom-dev.md
             - name: Solucionar problemas de logon único
               items:
-                - name: Problemas comuns ao configurar federados – Aplicativos da galeria
+                - name: Problemas comuns ao configurar federados - aplicativos da galeria
                   href: configure-federated-single-sign-on-gallery-applications-problems.md
-                - name: Problemas comuns ao configurar federados – Aplicativos inexistentes na galeria
+                - name: Problemas comuns ao configurar federados - aplicativos inexistentes na galeria
                   href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-                - name: Problemas comuns ao configurar senha – Aplicativos da galeria
+                - name: Problemas comuns ao configurar senha - aplicativos da galeria
                   href: configure-password-single-sign-on-gallery-applications-problems.md
-                - name: Problemas comuns ao configurar senha – Aplicativos inexistentes na galeria
+                - name: Problemas comuns ao configurar senha - aplicativos inexistentes na galeria
                   href: configure-password-single-sign-on-non-gallery-applications-problems.md
             - name: Solucionar problemas de atribuição e de lista de aplicativos
               items:
@@ -237,60 +227,6 @@
                   href: access-panel-extension-problem-installing.md
                 - name: Erro ao usar o acesso ao aplicativo de autoatendimento
                   href: access-panel-troubleshoot-self-service-access.md
-    - name: Provisionamento de aplicativo (SCIM)
-      items:
-        - name: Configurar provisionamento para um aplicativo da galeria
-          href: configure-automatic-user-provisioning-portal.md
-        - name: Criar um ponto de extremidade SCIM e configurar o provisionamento
-          href: use-scim-to-provision-users-and-groups.md
-        - name: Editar os mapeamentos de atributos
-          items:
-            - name: Personalizar mapeamentos do atributo
-              href: Customize-application-attributes.md
-            - name: Escrever expressões para mapeamentos de atributo
-              href: functions-for-customizing-application-data.md
-        - name: Incluir ou excluir usuários e grupos do escopo
-          items:
-            - name: Definir o escopo de usuários ou grupos a serem provisionados
-              href: define-conditional-rules-for-provisioning-user-accounts.md
-            - name: Ignorar a exclusão de usuários fora do escopo
-              href: skip-out-of-scope-deletions.md
-        - name: Monitorar e reportar o provisionamento
-          items:
-            - name: Monitorar o desempenho e o status de provisionamento
-              href: application-provisioning-when-will-provisioning-finish-specific-user.md
-            - name: Criar relatórios sobre o provisionamento do aplicativo
-              href: check-status-user-account-provisioning.md
-            - name: Exportar e importar sua configuração
-              href: export-import-provisioning-configuration.md
-        - name: Automatizar configuração usando o MS Graph
-          href: application-provisioning-configure-api.md
-        - name: Solucionar problemas de provisionamento do usuário
-          items:
-            - name: Solucionar problemas de provisionamento do aplicativo
-              href: application-provisioning-config-problem.md
-            - name: Status de quarentena
-              href: application-provisioning-quarantine-status.md
-            - name: Provisionando logs
-              href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
-            - name: Sincronizar um atributo para mapeamento – aplicativo de galeria
-              href: user-provisioning-sync-attributes-for-mapping.md
-            - name: Demorando horas – Aplicativo da galeria
-              href: application-provisioning-when-will-provisioning-finish.md
-            - name: Problema de autorização (não é possível salvar as credenciais de administrador)
-              href: application-provisioning-config-problem-storage-limit.md
-            - name: Os usuários não estão provisionados
-              href: application-provisioning-config-problem-no-users-provisioned.md
-            - name: Os usuários errados foram provisionados
-              href: application-provisioning-config-problem-wrong-users-provisioned.md
-            - name: Trabalho de provisionamento em quarentena
-              href: application-provisioning-quarantine-status.md
-            - name: Atributo de origem ausente
-              href: user-provisioning-sync-attributes-for-mapping.md
-            - name: O trabalho de provisionamento está lento
-              href: application-provisioning-when-will-provisioning-finish.md
-            - name: Provisionando logs
-              href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
     - name: Proxy de aplicativo para aplicativos locais
       items:
         - name: Configurar conectores
@@ -391,28 +327,10 @@
           href: secure-hybrid-access.md
 - name: Referência
   items:
-    - name: Provisionamento de aplicativo (SCIM)
-      items:
-        - name: Escrever expressões para mapeamentos de atributo
-          href: functions-for-customizing-application-data.md
-        - name: Escolher um método de provisionamento
-          href: isv-automatic-provisioning-multi-tenant-apps.md
-    - name: Provisionamento de RH na nuvem
-      items:
-        - name: Referência de atributos do SuccessFactors
-          href: sap-successfactors-attribute-reference.md
-        - name: Referência de atributos do Workday
-          href: workday-attribute-reference.md
-    - name: Agente de provisionamento do Azure AD Connect
-      items:
-        - name: Histórico de versões do agente de provisionamento
-          href: provisioning-agent-release-version-history.md
-    - name: Proxy de aplicativo para aplicativos locais
-      items:
-        - name: Perguntas frequentes sobre o proxy de aplicativo
-          href: application-proxy-faq.md
-        - name: Histórico de versão do Proxy do aplicativo
-          href: application-proxy-release-version-history.md
+    - name: Perguntas frequentes sobre o proxy de aplicativo
+      href: application-proxy-faq.md
+    - name: Histórico de versão do Proxy do aplicativo
+      href: application-proxy-release-version-history.md
 - name: Recursos
   items:
     - name: Opções de suporte e ajuda para desenvolvedores
