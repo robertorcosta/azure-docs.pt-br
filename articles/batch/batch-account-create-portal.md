@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0c6fab0c9e26630bd54830044da56dba20564b3
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 3723631609a04f6d12abcaac1f9d7733bf3caa01
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025889"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048651"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Criar uma conta do Lote com o Portal do Azure
 
@@ -27,7 +27,7 @@ Saiba como criar uma conta do lote do Azure no [portal do Azure][azure_portal]e 
 
 Para saber mais sobre contas do Lote e cenários, confira a [visão geral do recurso](batch-api-basics.md).
 
-## <a name="create-a-batch-account"></a>Criar uma conta do Lote
+## <a name="create-a-batch-account"></a>Criar uma conta do Batch
 
 [!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
@@ -39,7 +39,7 @@ Para saber mais sobre contas do Lote e cenários, confira a [visão geral do rec
 
 1. Insira as configurações da **Nova conta do Lote**. Confira os seguintes detalhes.
 
-    ![Criar uma conta do Lote][account_portal]
+    ![Criar uma conta do Batch][account_portal]
 
     a. **Assinatura**: a assinatura na qual a conta do Lote será criada. Se você tiver somente uma assinatura, ela será selecionada por padrão.
 
@@ -51,9 +51,9 @@ Para saber mais sobre contas do Lote e cenários, confira a [visão geral do rec
 
     e. **Conta de armazenamento**: uma conta de armazenamento do Azure opcional que você associa à sua conta do lote. Uma conta de armazenamento de uso geral v2 é recomendada para o melhor desempenho. Para obter todas as opções de conta de armazenamento no Lote, confira a [Visão geral do recurso do Lote](batch-api-basics.md#azure-storage-account). No portal, selecione uma conta de armazenamento existente ou crie uma.
 
-      ![Crie uma conta de armazenamento][storage_account]
+      ![Criar uma conta de armazenamento][storage_account]
 
-    f. **Modo de alocação de pool**: na guia configurações **avançadas** , você pode especificar o modo de alocação de pool como **serviço de lote** ou assinatura de **usuário**. Para a maioria dos cenários, aceite o **serviço de lote**padrão.
+    f. **Modo de alocação de pool**: na guia configurações **avançadas** , você pode especificar o modo de alocação de pool como **serviço de lote** ou assinatura de **usuário**. para a maioria dos cenários, aceite o **Serviço de Lote** padrão.
 
       ![Modo de alocação de pool do Lote][pool_allocation]
 
@@ -118,6 +118,14 @@ Se você preferir conceder acesso ao key Vault manualmente, vá para a seção *
 
 ![Permissões secretas para o lote do Azure](./media/batch-account-create-portal/secret-permissions.png)
 
+
+> [!NOTE]
+> Verifique se as caixas de seleção **máquinas virtuais do Azure para implantação** e **Azure Resource Manager para implantação de modelo** estão selecionadas em **políticas de acesso** para o recurso de **Key Vault** vinculado.
+> 
+> ![política de acesso Key Vault obrigatória](./media/batch-account-create-portal/key-vault-access-policy.png) isso não é obrigatório ao criar uma conta do lote no portal do Azure. A opção é selecionada por padrão.
+
+
+
 ### <a name="configure-subscription-quotas"></a>Configurar cotas de assinatura
 
 As cotas de núcleo não são definidas por padrão em contas de Lote de assinatura de usuário. As cotas de núcleos precisam ser definidas manualmente, porque as cotas de núcleo padrão do Lote não se aplicam às contas no modo de assinatura de usuário.
@@ -136,7 +144,7 @@ Além de usar o portal do Azure, você pode criar e gerenciar contas do Lote com
 * [CLI do Azure](batch-cli-get-started.md)
 * [.NET de Gerenciamento do Lote](batch-management-dotnet.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Veja a [visão geral dos recursos do Lote](batch-api-basics.md) para saber mais sobre os conceitos e os recursos do serviço do Lote. O artigo aborda os recursos principais do Lote, como pools, nós de computação, trabalhos e tarefas, e fornece uma visão geral dos recursos do serviço para cargas de trabalho de computação em larga escala.
 * Obtenha as noções básicas sobre o desenvolvimento de um aplicativo habilitado para o Lote usando a [biblioteca de cliente .NET do Lote](quick-run-dotnet.md) ou do [Python](quick-run-python.md). O artigo de início rápido orienta você por meio de um aplicativo de exemplo que usa o serviço em Lotes para executar uma carga de trabalho em vários nós de computação e que inclui o uso do Armazenamento do Azure para preparação e recuperação de um arquivo de carga de trabalho.

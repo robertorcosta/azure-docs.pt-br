@@ -2,7 +2,7 @@
 title: Configurar uma chave de segurança como seu método de verificação – Azure AD
 description: Como configurar sua página de informações de segurança (versão prévia) para verificar sua identidade para usar uma chave de segurança do Fast Identity online (FIDO2) como seu método de verificação.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: librown
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.author: lizross
-ms.openlocfilehash: 3e16602128a70077d0a7962522ad3898421c8997
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.author: curtand
+ms.openlocfilehash: ee868ded0dc3a46f2ec20d0141aa2576cbf71f45
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704911"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062329"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>Configurar uma chave de segurança como seu método de verificação
 
@@ -27,9 +27,9 @@ Você pode usar as chaves de segurança como um método de entrada sem senha den
 >[!Note]
 > Se você não vir a opção chave de segurança, é possível que sua organização não permita que você use essa opção para verificação. Nesse caso, você precisará escolher outro método ou entrar em contato com o suporte técnico da sua organização para obter mais assistência.
 
-## <a name="security-verification-versus-password-reset-authentication"></a>Verificação de segurança versus autenticação de redefinição de senha
+## <a name="security-verification-versus-password-reset-authentication"></a>Autenticação por redefinição de senha versus verificação de segurança
 
-Os métodos de informações de segurança são usados para a verificação de segurança de dois fatores e para a redefinição de senha. No entanto, nem todos os métodos podem ser usados para ambos.
+Métodos de informações de segurança são usados para a verificação de segurança de dois fatores e a redefinição de senha. No entanto, nem todos os métodos podem ser usados para ambos.
 
 | Método | Usado para |
 | ------ | -------- |
@@ -160,7 +160,7 @@ Você pode criar um novo PIN de chave de segurança para sua chave de segurança
 
 Para registrar uma chave de segurança, você deve ter pelo menos um método de verificação de segurança adicional registrado. Consulte a [seção visão geral](security-info-add-update-methods-overview.md) para obter mais informações. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter mais informações sobre métodos de verificação com senha, leia o [Microsoft Azure ad começa a visualização pública de chaves de segurança FIDO2, habilitando](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) o blog de logons com senha ou leia o artigo o [que é o aplicativo Microsoft Authenticator?](user-help-auth-app-overview.md) e os artigos de [visão geral do Windows Hello](https://www.microsoft.com/windows/windows-hello) .
 

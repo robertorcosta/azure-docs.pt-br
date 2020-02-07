@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 02/06/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8a222aa63387f7c57f8896b013f71f0c1bf40b2e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2f7bf9fea1b1e15d1ca24686a84e272dd60ceaf5
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849611"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061583"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada para o Azure Active Directory multilocatário usando políticas personalizadas no Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76849611"
 
 Este artigo mostra como habilitar o logon de usuários usando o ponto de extremidade de multi locação do Microsoft Azure Active Directory (Azure AD) usando [políticas personalizadas](custom-policy-overview.md) no Azure AD B2C. Isso permite que os usuários de vários locatários do Azure AD entrem usando Azure AD B2C, sem a necessidade de configurar um provedor de identidade para cada locatário. No entanto, os membros em qualquer desses locatários **não** será capaz de entrar. Para fazer isso, você terá que [configurar individualmente cada locatário](identity-provider-azure-ad-single-tenant-custom.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Conclua as etapas em [Introdução às políticas personalizadas no Azure Active Directory B2C](custom-policy-get-started.md).
 
@@ -63,6 +63,19 @@ Você precisa armazenar a chave do aplicativo que criou em seu locatário do Azu
 1. Em **segredo**, insira o segredo do cliente que você registrou anteriormente.
 1. Para **Uso de chave**, selecione `Signature`.
 1. Selecione **Criar**.
+
+## <a name="configuring-optional-claims"></a>Como configurar as declarações opcionais
+
+Se você quiser obter as declarações de `family_name` e `given_name` do Azure AD, poderá configurar declarações opcionais para seu aplicativo na interface do usuário do portal do Azure ou no manifesto do aplicativo. Para obter mais informações, consulte [como fornecer declarações opcionais para seu aplicativo do Azure ad](../active-directory/develop/active-directory-optional-claims.md).
+
+1. Entre no [portal do Azure](https://portal.azure.com). Pesquise **Azure Active Directory** e selecione-o.
+1. Na seção **gerenciar** , selecione **registros de aplicativo**.
+1. Selecione o aplicativo para o qual você deseja configurar declarações opcionais na lista.
+1. Na seção **gerenciar** , selecione **configuração de token (versão prévia)** .
+1. Selecione **Adicionar declaração opcional**.
+1. Selecione o tipo de token que você deseja configurar.
+1. Selecione as declarações opcionais a serem adicionadas.
+1. Clique em **Adicionar**.
 
 ## <a name="add-a-claims-provider"></a>Adicionar um provedor de declarações
 
@@ -211,7 +224,7 @@ Se o processo de entrada for bem-sucedido, seu navegador será redirecionado par
 
 Para testar a funcionalidade de entrada multilocatário, execute as duas últimas etapas usando as credenciais para um usuário que existe outro locatário do Azure AD.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Ao trabalhar com políticas personalizadas, às vezes você pode precisar de informações adicionais ao solucionar problemas de uma política durante seu desenvolvimento.
 

@@ -2,7 +2,7 @@
 title: Entrar usando a autenticação com uma conta corporativa ou de estudante-Azure AD
 description: Saiba como entrar em sua conta corporativa ou de estudante usando os vários métodos de verificação de dois fatores.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
 ms.workload: identity
@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 04/02/2017
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
-ms.openlocfilehash: 648de7903a965d477343b974fdd615df45c3adc3
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 33cf9e284d2206ea497af7a5da7c3cf4a890cc87
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705234"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064080"
 ---
 # <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Entre em sua conta corporativa ou de estudante usando o método de verificação de dois fatores
 
@@ -82,7 +82,7 @@ Se você usar o aplicativo Microsoft Authenticator para obter códigos de verifi
 
    ![Usar método alternativo](./media/multi-factor-authentication-end-user-signin/alt.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Se você tiver problemas para entrar usando a verificação em duas etapas, consulte [Problemas com a Autenticação Multifator do Microsoft Azure](multi-factor-authentication-end-user-troubleshoot.md) para obter mais informações.
 
 - Aprenda a [Gerenciar suas configurações de verificação em duas etapas](multi-factor-authentication-end-user-manage-settings.md).

@@ -3,12 +3,12 @@ title: Perguntas comuns – descoberta, avaliação e análise de dependência e
 description: Obtenha respostas para perguntas comuns sobre descoberta, avaliação e análise de dependência em migrações para Azure.
 ms.topic: conceptual
 ms.date: 12/29/2019
-ms.openlocfilehash: 0132563072ed04a52e4937da7a8df69196f1a91f
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 201d67c38e9583de16cb6075cc1c4bf826c204fd
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513279"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77059480"
 ---
 # <a name="common-questions-about-discovery-assessment-and-dependency-analysis"></a>Perguntas comuns sobre descoberta, avaliação e análise de dependência
 
@@ -16,6 +16,8 @@ Este artigo responde a perguntas comuns sobre descoberta, avaliação e análise
 
 - [Perguntas gerais](resources-faq.md) sobre as migrações para Azure.
 - [Perguntas](common-questions-appliance.md) sobre o dispositivo migrações para Azure.
+- [Perguntas](common-questions-server-migration.md) sobre a migração do servidor.
+
 
 
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Quantas VMs posso descobrir com um dispositivo?
@@ -116,5 +118,5 @@ Você pode [Visualizar dependências](https://docs.microsoft.com/azure/migrate/h
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Leia a [visão geral de migrações para Azure](migrate-services-overview.md).

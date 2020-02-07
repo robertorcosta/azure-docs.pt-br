@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 11/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: aba613911328b1272ebb07eeae633932cb4a442f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 5257d9f94f6304c2a8dbea3f1648a71d0ba65e94
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935365"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064743"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerenciar o acesso a um espaço de trabalho do Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -112,7 +112,63 @@ Para obter mais informações sobre funções personalizadas, consulte [funçõe
 
 Para obter mais informações sobre as operações (ações) utilizáveis com funções personalizadas, consulte [operações do provedor de recursos](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
 
-## <a name="next-steps"></a>Próximos passos
+
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
+
+
+### <a name="q-what-are-the-permissions-needed-to-perform-various-actions-in-the-azure-machine-learning-service"></a>Q. Quais são as permissões necessárias para executar várias ações no serviço de Azure Machine Learning?
+
+A tabela a seguir é um resumo de Azure Machine Learning atividades e as permissões necessárias para realizá-las no menor escopo. Como exemplo, se uma atividade puder ser executada com um escopo de espaço de trabalho (coluna 4), todo o escopo mais alto com essa permissão também funcionará automaticamente. Todos os caminhos nesta tabela são **caminhos relativos** para `Microsoft.MachineLearningServices/`.
+
+| Atividade | Escopo de nível de assinatura | Escopo no nível do grupo de recursos | Escopo no nível do espaço de trabalho |
+|---|---|---|---|
+| Criar novo workspace | Não obrigatório | Proprietário ou colaborador | N/A (torna-se proprietário ou herda uma função de escopo maior após a criação) |
+| Criar novo cluster de computação | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `workspaces/computes/write` |
+| Criar nova VM de notebook | Não obrigatório | Proprietário ou colaborador | Não é possível |
+| Criar nova instância de computação | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `workspaces/computes/write` |
+| Atividade do plano de dados como envio de execução, acesso a dados, implantação de modelo ou pipeline de publicação | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `workspaces/*/write` <br/> Observe que você também precisa de um repositório de dados registrado para o espaço de trabalho para permitir que o MSI acesse o dado em sua conta de armazenamento. |
+
+
+### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>Q. Como fazer listar todas as funções personalizadas em minha assinatura?
+
+No CLI do Azure, execute o comando a seguir.
+
+```azurecli-interactive
+az role definition list --subscription <sub-id> --custom-role-only true
+```
+
+### <a name="q-how-do-i-find-the-role-definition-for-a-role-in-my-subscription"></a>Q. Como fazer encontrar a definição de função para uma função em minha assinatura?
+
+No CLI do Azure, execute o comando a seguir. Observe que `<role-name>` deve estar no mesmo formato retornado pelo comando acima.
+
+```azurecli-interactive
+az role definition list -n <role-name> --subscription <sub-id>
+```
+
+### <a name="q-how-do-i-update-a-role-definition"></a>Q. Como fazer atualizar uma definição de função?
+
+No CLI do Azure, execute o comando a seguir.
+
+```azurecli-interactive
+az role definition update --role-definition update_def.json --subscription <sub-id>
+```
+
+Observe que você precisa ter permissões em todo o escopo da nova definição de função. Por exemplo, se essa nova função tiver um escopo entre três assinaturas, você precisará ter permissões em todas as três assinaturas. 
+
+> [!NOTE]
+> As atualizações de função podem levar 15 minutos a uma hora para serem aplicadas em todas as atribuições de função nesse escopo.
+### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>Q. Posso definir uma função que impede a atualização da edição do espaço de trabalho? 
+
+Sim, você pode definir uma função que impede a atualização da edição do espaço de trabalho. Como a atualização do espaço de trabalho é uma chamada de PATCH no objeto de espaço de trabalho, você faz isso colocando a seguinte ação na matriz de `"NotActions"` em sua definição de JSON: 
+
+`"Microsoft.MachineLearningServices/workspaces/write"`
+
+### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>Q. Quais permissões são necessárias para executar operações de cota em um espaço de trabalho? 
+
+Você precisa de permissões de nível de assinatura para executar qualquer operação relacionada à cota no espaço de trabalho. Isso significa que a definição de cota de nível de assinatura ou cota de nível de espaço de trabalho para seus recursos de computação gerenciados só poderá ocorrer se você tiver permissões de gravação no escopo da assinatura. 
+
+
+## <a name="next-steps"></a>Próximas etapas
 
 - [Visão geral de segurança corporativa](concept-enterprise-security.md)
 - [Executar experimentos e inferência/Pontuação com segurança dentro de uma rede virtual](how-to-enable-virtual-network.md)

@@ -2,7 +2,7 @@
 title: Perguntas & respostas sobre o Microsoft Authenticator app-Azure AD
 description: Perguntas frequentes e respostas (FAQs) sobre o aplicativo de autenticação da Microsoft e a verificação de dois fatores.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 01/16/2020
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 70f4844a8c157ba7964ce1053c007db8e9301336
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 3df7e772ea88a7a58780f08ff20f44d50f01c336
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704690"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063876"
 ---
 # <a name="frequently-asked-questions-faqs-about-the-microsoft-authenticator-app"></a>Perguntas frequentes sobre o aplicativo Microsoft Authenticator
 
@@ -53,7 +53,7 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 | Ao entrar em minha conta corporativa ou de estudante usando o aplicativo de email padrão que vem com o iOS, recebo uma solicitação do aplicativo Microsoft Authenticator para minhas informações de verificação de segurança. Depois de inserir essas informações e retornar ao aplicativo de email, recebo um erro. O que posso fazer? | Isso provavelmente acontece porque sua entrada e seu aplicativo de email estão ocorrendo em dois aplicativos diferentes, fazendo com que o processo inicial de entrada em segundo plano pare de funcionar e falhe. Para tentar corrigir isso, recomendamos que você selecione o ícone do **Safari** no lado inferior direito da tela ao entrar no seu aplicativo de email. Ao mudar para o Safari, todo o processo de entrada ocorre em um único aplicativo, permitindo que você entre no aplicativo com êxito. |
 | Meus códigos de senha de uso único (OTP) não estão funcionando. O que devo fazer? | Verifique se a data e a hora em seu dispositivo estão corretas e estão sendo sincronizadas automaticamente. Se a data e a hora estiverem erradas ou fora de sincronia, o código não funcionará. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Se você estiver tendo problemas para obter seu código de verificação para seu conta Microsoft pessoal, consulte a seção **Solucionando** problemas de código de verificação do artigo [conta Microsoft informações de segurança & códigos de verificação](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) .
 

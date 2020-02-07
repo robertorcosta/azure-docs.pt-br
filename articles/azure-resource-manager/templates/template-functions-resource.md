@@ -3,12 +3,12 @@ title: Funções de modelo – recursos
 description: Descreve as funções a serem usadas em um modelo do Azure Resource Manager para recuperar valores sobre recursos.
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: b8d0a3e60654c9d3f951c6f288ea904bb4c0d50b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: cfcc9ff3af33fe9de813d8a31b7d102f00725ce4
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76900638"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048794"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos do Azure Resource Manager
 
@@ -36,12 +36,12 @@ Retorna a ID de recurso para um [recurso de extensão](../management/extension-r
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| resourceId |Sim |cadeia de caracteres |A ID de recurso para o recurso ao qual o recurso de extensão é aplicado. |
-| resourceType |Sim |cadeia de caracteres |Tipo de recurso, incluindo o namespace do provedor de recursos. |
-| resourceName1 |Sim |cadeia de caracteres |Nome do recurso. |
-| resourceName2 |Não |cadeia de caracteres |Próximo segmento de nome de recurso, se necessário. |
+| resourceId |Sim |string |A ID de recurso para o recurso ao qual o recurso de extensão é aplicado. |
+| resourceType |Sim |string |Tipo de recurso, incluindo o namespace do provedor de recursos. |
+| resourceName1 |Sim |string |Nome do recurso. |
+| resourceName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue adicionando nomes de recursos como parâmetros quando o tipo de recurso incluir mais segmentos.
 
@@ -112,15 +112,15 @@ O exemplo a seguir retorna a ID de recurso para um bloqueio de grupo de recursos
 list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)
 ```
 
-A sintaxe dessa função varia de acordo com o nome das operações de lista. Cada implementação retorna valores para o tipo de recurso compatível com uma operação de lista. O nome da operação deve começar com `list`. Alguns usos comuns são `listKeys` e `listSecrets`. 
+A sintaxe dessa função varia de acordo com o nome das operações de lista. Cada implementação retorna valores para o tipo de recurso compatível com uma operação de lista. O nome da operação deve começar com `list`. Alguns usos comuns são `listKeys` e `listSecrets`.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| resourceName ou resourceIdentifier |Sim |cadeia de caracteres |Identificador exclusivo para o recurso. |
-| apiVersion |Sim |cadeia de caracteres |Versão de API do estado de runtime do recurso. Normalmente, no formato **aaaa-mm-dd**. |
-| functionValues |Não |objeto | Um objeto que tem valores para a função. Fornecer apenas este objeto para funções que dão suporte ao recebimento de um objeto com valores de parâmetro, como **listAccountSas** em uma conta de armazenamento. Um exemplo de passar valores de função é mostrado neste artigo. | 
+| resourceName ou resourceIdentifier |Sim |string |Identificador exclusivo para o recurso. |
+| apiVersion |Sim |string |Versão de API do estado de runtime do recurso. Normalmente, no formato **aaaa-mm-dd**. |
+| functionValues |Não |objeto | Um objeto que tem valores para a função. Fornecer apenas este objeto para funções que dão suporte ao recebimento de um objeto com valores de parâmetro, como **listAccountSas** em uma conta de armazenamento. Um exemplo de passar valores de função é mostrado neste artigo. |
 
 ### <a name="valid-uses"></a>Usos válidos
 
@@ -154,7 +154,7 @@ Os possíveis usos de lista* são mostrados na tabela a seguir.
 | Microsoft.DataFactory/datafactories/gateways | listauthkeys |
 | Microsoft.DataFactory/factories/integrationruntimes | [listauthkeys](/rest/api/datafactory/integrationruntimes/listauthkeys) |
 | Microsoft.DataLakeAnalytics/accounts/storageAccounts/Containers | [listSasTokens](/rest/api/datalakeanalytics/storageaccounts/listsastokens) |
-| Microsoft. DataShare/accounts/compartilhamentos | [listSynchronizations](/rest/api/datashare/shares/listsynchronizations) | 
+| Microsoft. DataShare/accounts/compartilhamentos | [listSynchronizations](/rest/api/datashare/shares/listsynchronizations) |
 | Microsoft. DataShare/accounts/shareSubscriptions | [listSourceShareSynchronizationSettings](/rest/api/datashare/sharesubscriptions/listsourcesharesynchronizationsettings) |
 | Microsoft. DataShare/accounts/shareSubscriptions | [listSynchronizationDetails](/rest/api/datashare/sharesubscriptions/listsynchronizationdetails) |
 | Microsoft. DataShare/accounts/shareSubscriptions | [listSynchronizations](/rest/api/datashare/sharesubscriptions/listsynchronizations) |
@@ -287,7 +287,7 @@ Se você usar uma função de **lista** em um recurso que é implantado condicio
 
 ### <a name="list-example"></a>Exemplo de lista
 
-O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) a seguir mostra como retornar as chaves primárias e secundárias de uma conta de armazenamento na seção de saídas. Ele também retorna um token SAS para a conta de armazenamento. 
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) a seguir mostra como retornar as chaves primárias e secundárias de uma conta de armazenamento na seção de saídas. Ele também retorna um token SAS para a conta de armazenamento.
 
 Para obter o token SAS, passe um objeto para a hora de expiração. A data de validade deve ser futura. Este exemplo destina-se a mostrar como você pode usar as funções da lista. Normalmente, você deve usar o token SAS em um valor de recurso em vez de retorná-lo como um valor de saída. Os valores de saída são armazenados no histórico de implantação e não são seguros.
 
@@ -364,14 +364,14 @@ Retorna informações sobre um provedor de recursos e seus tipos de recursos com
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Sim |cadeia de caracteres |Namespace do provedor |
-| resourceType |Não |cadeia de caracteres |O tipo de recurso no namespace especificado. |
+| providerNamespace |Sim |string |Namespace do provedor |
+| resourceType |Não |string |O tipo de recurso no namespace especificado. |
 
 ### <a name="return-value"></a>Valor retornado
 
-Cada tipo com suporte é retornado no seguinte formato: 
+Cada tipo com suporte é retornado no seguinte formato:
 
 ```json
 {
@@ -441,11 +441,11 @@ Retorna um objeto que representa o estado de runtime de um recurso.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| resourceName ou resourceIdentifier |Sim |cadeia de caracteres |Nome ou identificador exclusivo de um recurso. Ao referenciar um recurso no modelo atual, forneça apenas o nome do recurso como parâmetro. Ao fazer referência a um recurso implantado anteriormente ou quando o nome do recurso for ambíguo, forneça a ID do recurso. |
-| apiVersion |Não |cadeia de caracteres |Versão da API do recurso especificado. Inclua esse parâmetro quando o recurso não estiver provisionado no mesmo modelo. Normalmente, no formato **aaaa-mm-dd**. Para obter as versões de API válidas para seu recurso, consulte [referência de modelo](/azure/templates/). |
-| 'Full' |Não |cadeia de caracteres |Valor que especifica se o objeto de recurso completo deve ser retornado. Se você não especificar `'Full'`, apenas o objeto de propriedades do recurso será retornado. O objeto completo inclui valores como a ID do recurso e o local. |
+| resourceName ou resourceIdentifier |Sim |string |Nome ou identificador exclusivo de um recurso. Ao referenciar um recurso no modelo atual, forneça apenas o nome do recurso como parâmetro. Ao fazer referência a um recurso implantado anteriormente ou quando o nome do recurso for ambíguo, forneça a ID do recurso. |
+| apiVersion |Não |string |Versão da API do recurso especificado. Inclua esse parâmetro quando o recurso não estiver provisionado no mesmo modelo. Normalmente, no formato **aaaa-mm-dd**. Para obter as versões de API válidas para seu recurso, consulte [referência de modelo](/azure/templates/). |
+| 'Full' |Não |string |Valor que especifica se o objeto de recurso completo deve ser retornado. Se você não especificar `'Full'`, apenas o objeto de propriedades do recurso será retornado. O objeto completo inclui valores como a ID do recurso e o local. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -460,11 +460,11 @@ Normalmente, você usa a função **reference** para retornar um valor específi
 ```json
 "outputs": {
     "BlobUri": {
-        "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')).primaryEndpoints.blob]",
+        "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))).primaryEndpoints.blob]",
         "type" : "string"
     },
     "FQDN": {
-        "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName')).dnsSettings.fqdn]",
+        "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName'))).dnsSettings.fqdn]",
         "type" : "string"
     }
 }
@@ -523,7 +523,7 @@ Ao fazer referência a um recurso que não está implantado no mesmo modelo, for
 Para evitar ambigüidade sobre qual recurso você está referenciando, você pode fornecer um identificador de recurso totalmente qualificado.
 
 ```json
-"value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName'))]"
+"value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName')))]"
 ```
 
 Ao construir uma referência totalmente qualificada a um recurso, a ordem para combinação dos segmentos do tipo e do nome não é simplesmente uma concatenação dos dois. Em vez disso, após o namespace, use uma sequência de pares *tipo/nome* do menos específico para o mais específico:
@@ -555,7 +555,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "storageAccountName": { 
+      "storageAccountName": {
           "type": "string"
       }
   },
@@ -585,7 +585,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
       }
     }
 }
-``` 
+```
 
 O exemplo anterior retorna os dois objetos. O objeto de propriedades tem o seguinte formato:
 
@@ -672,7 +672,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 resourceGroup()
 ```
 
-Retorna um objeto que representa o grupo de recursos atual. 
+Retorna um objeto que representa o grupo de recursos atual.
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -752,17 +752,17 @@ O exemplo anterior retorna um objeto no seguinte formato:
 resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)
 ```
 
-Retorna o identificador exclusivo de um recurso. Você pode usar essa função quando o nome do recurso é ambíguo ou não provisionado no mesmo modelo. 
+Retorna o identificador exclusivo de um recurso. Você pode usar essa função quando o nome do recurso é ambíguo ou não provisionado no mesmo modelo.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Não |string (no formato GUID) |O valor padrão é a assinatura atual. Especifique esse valor quando você precisar recuperar um recurso em outra assinatura. |
-| resourceGroupName |Não |cadeia de caracteres |O valor padrão é o grupo de recursos atual. Especifique esse valor quando você precisar recuperar um recurso em outro grupo de recursos. |
-| resourceType |Sim |cadeia de caracteres |Tipo de recurso, incluindo o namespace do provedor de recursos. |
-| resourceName1 |Sim |cadeia de caracteres |Nome do recurso. |
-| resourceName2 |Não |cadeia de caracteres |Próximo segmento de nome de recurso, se necessário. |
+| resourceGroupName |Não |string |O valor padrão é o grupo de recursos atual. Especifique esse valor quando você precisar recuperar um recurso em outro grupo de recursos. |
+| resourceType |Sim |string |Tipo de recurso, incluindo o namespace do provedor de recursos. |
+| resourceName1 |Sim |string |Nome do recurso. |
+| resourceName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue adicionando nomes de recursos como parâmetros quando o tipo de recurso incluir mais segmentos.
 
@@ -890,20 +890,20 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Tipo | {1&gt;Valor&lt;1} |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
-## <a name="subscription"></a>subscription
+## <a name="subscription"></a>assinatura.
 
 ```json
 subscription()
 ```
 
-Retorna detalhes sobre a assinatura da implantação atual. 
+Retorna detalhes sobre a assinatura da implantação atual.
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -924,7 +924,7 @@ Ao usar modelos aninhados para implantar em várias assinaturas, você pode espe
 
 ### <a name="subscription-example"></a>Exemplo de assinatura
 
-O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) a seguir mostra a função de assinatura chamada na seção de saídas. 
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) a seguir mostra a função de assinatura chamada na seção de saídas.
 
 ```json
 {
@@ -950,12 +950,12 @@ Retorna o identificador exclusivo de um recurso implantado no nível da assinatu
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Não |Cadeia de caracteres (no formato GUID) |O valor padrão é a assinatura atual. Especifique esse valor quando você precisar recuperar um recurso em outra assinatura. |
-| resourceType |Sim |cadeia de caracteres |Tipo de recurso, incluindo o namespace do provedor de recursos. |
-| resourceName1 |Sim |cadeia de caracteres |Nome do recurso. |
-| resourceName2 |Não |cadeia de caracteres |Próximo segmento de nome de recurso, se necessário. |
+| resourceType |Sim |string |Tipo de recurso, incluindo o namespace do provedor de recursos. |
+| resourceName1 |Sim |string |Nome do recurso. |
+| resourceName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue adicionando nomes de recursos como parâmetros quando o tipo de recurso incluir mais segmentos.
 
@@ -1034,11 +1034,11 @@ Retorna o identificador exclusivo de um recurso implantado no nível do locatár
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| resourceType |Sim |cadeia de caracteres |Tipo de recurso, incluindo o namespace do provedor de recursos. |
-| resourceName1 |Sim |cadeia de caracteres |Nome do recurso. |
-| resourceName2 |Não |cadeia de caracteres |Próximo segmento de nome de recurso, se necessário. |
+| resourceType |Sim |string |Tipo de recurso, incluindo o namespace do provedor de recursos. |
+| resourceName1 |Sim |string |Nome do recurso. |
+| resourceName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue adicionando nomes de recursos como parâmetros quando o tipo de recurso incluir mais segmentos.
 
@@ -1054,7 +1054,7 @@ O identificador é retornado no seguinte formato:
 
 Você usa essa função para obter a ID de recurso para um recurso que é implantado no locatário. A ID retornada difere dos valores retornados por outras funções de ID de recurso, não incluindo os valores de grupo de recursos ou de assinatura.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](template-syntax.md).
 * Para mesclar vários modelos, veja [Usando modelos vinculados com o Azure Resource Manager](linked-templates.md).

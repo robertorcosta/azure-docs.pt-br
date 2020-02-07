@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 1fec2778ce8c839c5bac0c1d74085db0f8b283ce
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 26906f2a7343dbaf09f3107d2598e81a42c65091
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76903013"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064641"
 ---
 # <a name="virtual-network-service-tags"></a>Marcas de serviço de rede virtual 
 <a name="network-service-tags"></a>
@@ -85,7 +85,7 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Alg
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Saída | Não | Não |
 | **MicrosoftContainerRegistry** | Registro de contêiner para imagens de contêiner da Microsoft. <br/><br/>*Observação:* Além disso, leia a lista de permissões a seguir IP (essa dependência será removida em breve): 204.79.197.219. | Saída | Sim | Sim |
 | **Barramento de Serviço** | O tráfego do barramento de serviço do Azure que usa a camada de serviço Premium. | Saída | Sim | Sim |
-| **ServiceFabric** | Service Fabric do Azure. | Saída | Não | Não |
+| **ServiceFabric** | Service Fabric do Azure.<br/><br/>*Observação:* Essa marca representa o ponto de extremidade de serviço Service Fabric para o plano de controle por região. Isso permite que os clientes executem operações de gerenciamento para seus clusters Service Fabric de sua VNET (ponto de extremidade por exemplo). https://westus.servicefabric.azure.com) | Ambos | Não | Não |
 | **Sql** | Banco de dados SQL do Azure, banco de dados do Azure para MySQL, banco de dados do Azure para PostgreSQL e Azure SQL Data Warehouse.<br/><br/>*Observação:* Essa marca representa o serviço, mas não instâncias específicas do serviço. Por exemplo, a marca representa o serviço Banco de Dados SQL do Azure, mas não um banco de dados ou servidor SQL específico. | Saída | Sim | Sim |
 | **SqlManagement** | Tráfego de gerenciamento para implantações dedicadas do SQL. | Ambos | Não | Sim |
 | **Storage** | Armazenamento do Microsoft Azure. <br/><br/>*Observação:* Essa marca representa o serviço, mas não instâncias específicas do serviço. Por exemplo, a marca representa o serviço Armazenamento do Azure, mas não uma conta do Armazenamento do Azure específica. | Saída | Sim | Sim |
@@ -135,5 +135,5 @@ Você pode baixar arquivos JSON que contêm a lista atual de marcas de serviço 
 - Você pode detectar atualizações de uma publicação para a próxima, observando valores de *changeNumber* maiores no arquivo JSON. Cada subseção (por exemplo, **Storage. westus**) tem seu próprio *changeNumber* que é incrementado conforme ocorrem alterações. O nível superior do *changeNumber* do arquivo é incrementado quando qualquer uma das subseções é alterada.
 - Para obter exemplos de como analisar as informações de marca de serviço (por exemplo, obter todos os intervalos de endereços para armazenamento na Westus), consulte a documentação do [PowerShell da API de descoberta de marca de serviço](https://aka.ms/discoveryapi_powershell) .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Saiba como [criar um grupo de segurança de rede](tutorial-filter-network-traffic.md).

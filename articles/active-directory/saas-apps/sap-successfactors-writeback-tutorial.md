@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: 84ab5da993541012fd2199a30d03f5c69e88bf2c
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 2de0cdd32428884170f549afacdbd52c3a10c93f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530027"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77060041"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-sap-successfactors-preview"></a>Tutorial: configurar o Write-back de atributo do Azure AD para o SAP SuccessFactors (versão prévia)
 O objetivo deste tutorial é mostrar as etapas que você precisa executar para os atributos de write-back do Azure AD para o SuccessFactors Employee central. O único atributo com suporte no momento para Write-back é o atributo de email. 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Depois de configurar a integração de provisionamento de entrada usando o [SuccessFactors para o aplicativo de provisionamento do AD local](sap-successfactors-inbound-provisioning-tutorial.md) ou o SuccessFactors para o aplicativo de provisionamento [do Azure ad](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) , você pode, opcionalmente, configurar o aplicativo SuccessFactors write-back para gravar o endereço de email de volta no SuccessFactors. 
 
@@ -181,10 +181,10 @@ Depois que as configurações do aplicativo de provisionamento do SuccessFactors
    > [!div class="mx-imgBorder"]
    > ![barra de progresso de provisionamento](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
+* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 * [Saiba como configurar o logon único entre o SuccessFactors e o Azure Active Directory](successfactors-tutorial.md)
 * [Saiba como integrar outros aplicativos SaaS com o Azure Active Directory](tutorial-list.md)
-* [Saiba como exportar e importar as configurações de provisionamento](../manage-apps/export-import-provisioning-configuration.md)
+* [Saiba como exportar e importar as configurações de provisionamento](../app-provisioning/export-import-provisioning-configuration.md)
 

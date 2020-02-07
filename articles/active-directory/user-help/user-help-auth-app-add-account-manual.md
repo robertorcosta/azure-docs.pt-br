@@ -2,21 +2,21 @@
 title: Adicionar uma conta manualmente ao aplicativo – Azure Active Directory | Microsoft Docs
 description: Como adicionar suas contas manualmente ao aplicativo Microsoft Authenticator para verificação de dois fatores.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 4dd38eee8ebc12ed01874611ec5e532a4d78ede2
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: b237f710866ad3960dd65902c0789228d8c391bc
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704792"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062312"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Adicionar uma conta manualmente ao aplicativo
 
@@ -100,7 +100,7 @@ Você pode adicionar sua conta da Amazon ativando a verificação de dois fatore
     >[!NOTE]
     >Para obter mais informações sobre a verificação de dois fatores e a conta da Amazon, confira [Sobre a verificação em duas etapas](https://www.amazon.com/gp/help/customer/display.html?nodeId=201596330) e [Entrando com a verificação em duas etapas](https://www.amazon.com/gp/help/customer/display.html?nodeId=201962440).    
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Depois de adicionar as contas ao aplicativo, você poderá entrar usando o aplicativo Microsoft Authenticator em seu dispositivo. Para obter mais informações, confira [Entrar usando o aplicativo](user-help-auth-app-sign-in.md).
 

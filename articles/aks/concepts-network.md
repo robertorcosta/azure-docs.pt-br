@@ -1,18 +1,17 @@
 ---
 title: Conceitos - Rede nos Serviços do Kubernetes do Azure (AKS)
 description: Aprenda sobre a rede no AKS (Serviço de Kubernetes do Azure), incluindo as redes da CNI do Azure e kubenet e seus controladores de entrada, balanceadores de carga e endereços IP estáticos.
-services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 7c1a25c4d2df83c9bcfb33b658e3d3100d850b6e
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 86fa59a3d1c07aae842404c465b908e550708071
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547958"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047450"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicativos no Serviço de Kubernetes do Azure (AKS)
 
@@ -97,7 +96,7 @@ O kubenet e o Azure CNI fornecem conectividade de rede para seus clusters AKS. N
 
 Existem as seguintes diferenças de comportamento entre kubenet e CNI do Azure:
 
-| Capacidade                                                                                   | Kubenet   | Azure CNI |
+| Capability                                                                                   | Kubenet   | Azure CNI |
 |----------------------------------------------------------------------------------------------|-----------|-----------|
 | Implantar cluster em uma rede virtual nova ou existente                                            | Com suporte-UDRs aplicado manualmente | Com suporte |
 | Conectividade de pod de Pod                                                                         | Com suporte | Com suporte |
@@ -118,7 +117,7 @@ Independentemente do modelo de rede que você usa, tanto o kubenet quanto o CNI 
 Embora haja suporte para recursos como pontos de extremidade de serviço ou UDRs com kubenet e CNI do Azure, as [políticas de suporte para AKs][support-policies] definem quais alterações você pode fazer. Por exemplo:
 
 * Se você criar manualmente os recursos de rede virtual para um cluster AKS, terá suporte ao configurar seus próprios pontos de extremidade de serviço ou UDRs.
-* Se a plataforma Azure cria automaticamente os recursos de rede virtual para o cluster AKS, não há suporte para alterar manualmente os recursos gerenciados por AKS para configurar seus próprios pontos de extremidade UDRs ou de serviço.
+* Se a plataforma Azure cria automaticamente os recursos de rede virtual para o cluster AKS, não há suporte para alterar manualmente esses recursos gerenciados por AKS para configurar seus próprios pontos de extremidade UDRs ou de serviço.
 
 ## <a name="ingress-controllers"></a>Controladores de entrada
 
@@ -132,7 +131,7 @@ No AKS, você pode criar um recurso do Ingress usando algo como o NGINX ou usar 
 
 Outro recurso comum do Ingress é o encerramento de SSL / TLS. Em grandes aplicativos da Web acessados via HTTPS, a terminação do TLS pode ser manipulada pelo recurso Ingress, em vez de pelo próprio aplicativo. Para fornecer geração e configuração automática de certificação TLS, você pode configurar o recurso Ingress para usar provedores como o Let's Encrypt. Para obter mais informações sobre como configurar um controlador de entrada NGINX com vamos criptografar, consulte [entrada e TLS][aks-ingress-tls].
 
-Você também pode configurar o controlador de entrada para preservar o IP de origem do cliente em solicitações para contêineres no cluster AKS. Quando a solicitação de um cliente é roteada para um contêiner em seu cluster do AKS por meio do controlador de entrada, o IP de origem dessa solicitação não estará disponível para o contêiner de destino. Quando você habilita a *preservação de IP de origem do cliente*, o IP de origem do cliente está disponível no cabeçalho da solicitação em *X-forwardd-for*. Se você estiver usando a preservação de IP de origem do cliente em seu controlador de entrada, não poderá usar passagem SSL. A preservação de IP de origem do cliente e a passagem SSL podem ser usadas com outros serviços, como o tipo de *balanceador de carga* .
+Você também pode configurar o controlador de entrada para preservar o IP de origem do cliente em solicitações para contêineres no cluster AKS. Quando a solicitação de um cliente é roteada para um contêiner no cluster AKS por meio do controlador de entrada, o IP de origem dessa solicitação não estará disponível para o contêiner de destino. Quando você habilita a *preservação de IP de origem do cliente*, o IP de origem do cliente está disponível no cabeçalho da solicitação em *X-forwardd-for*. Se você estiver usando a preservação de IP de origem do cliente em seu controlador de entrada, não poderá usar passagem SSL. A preservação de IP de origem do cliente e a passagem SSL podem ser usadas com outros serviços, como o tipo de *balanceador de carga* .
 
 ## <a name="network-security-groups"></a>Grupos de segurança de rede
 
@@ -146,7 +145,7 @@ A política de rede é um recurso kubernetes disponível no AKS que permite cont
 
 Para obter mais informações, consulte [proteger o tráfego entre pods usando as políticas de rede no serviço de kubernetes do Azure (AKs)][use-network-policies].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para começar a usar a rede AKS, crie e configure um cluster AKS com seus próprios intervalos de endereços IP usando [kubenet][aks-configure-kubenet-networking] ou [CNI do Azure][aks-configure-advanced-networking].
 

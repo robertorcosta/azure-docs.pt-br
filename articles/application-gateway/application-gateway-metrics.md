@@ -5,14 +5,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 8/29/2019
+ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: 695507b0d6997870dbea392e73e4f4470248d26c
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 1fa9c72f7ca305a03cdc90ea02cefe973932792b
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985876"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046311"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para o gateway de aplicativo
 
@@ -132,6 +132,9 @@ Para o Gateway de Aplicativo, as seguintes métricas estão disponíveis:
 - **Contagem de hosts não íntegros**
 
   O número de back-ends que são determinados não íntegros pela investigação de integridade. Você pode filtrar em uma base de pool por back-end para mostrar o número de hosts não íntegros em um pool de back-end específico.
+  
+- **Solicitações por minuto por host íntegro** O número médio de solicitações recebidas por cada membro íntegro em um pool de back-end em um minuto. Você deve especificar o pool de back-end usando a dimensão *HttpSettings do backendpool* .  
+  
 
 ## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Métricas com suporte do SKU do gateway de aplicativo v1
 
@@ -221,7 +224,7 @@ Para saber mais sobre notificações de alerta, consulte [Receber notificações
 
 Para entender mais sobre webhooks e como eles podem ser usados com alertas, consulte [Configurar um webhook em um alerta de métrica do Azure](../azure-monitor/platform/alerts-webhooks.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Visualize o contador e os logs de eventos com os [logs do Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md).
 * Postagem no blog [Visualize your Azure Activity Log with Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) (Visualizar o log de atividades do Azure com o Power BI).

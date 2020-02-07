@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 168f11e82305a0e08923289e71ae6ea0d36c1734
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0273a0a729d39de27b9e417c23624992d1d55b42
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458800"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064371"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introdução ao uso de Stream Analytics do Azure: detecção de fraudes em tempo real
 
@@ -31,7 +31,7 @@ Este tutorial usa o exemplo de detecção de fraudes em tempo real com base nos 
 
 Uma empresa de telecomunicações tem um grande volume de dados para as chamadas de entrada. A empresa deseja detectar chamadas fraudulentas em tempo real para que eles possam notificar clientes ou desligar o serviço para um número específico. Um tipo de fraude SIM envolve várias chamadas da mesma identidade ao mesmo tempo, mas em locais geograficamente diferentes. Para detectar esse tipo de fraude, a empresa precisa examinar os registros de telefone de entrada e procurar padrões específicos — nesse caso, para chamadas feitas ao mesmo tempo em diferentes países/regiões. Os registros de telefone que entram nesta categoria são gravados no armazenamento para análise posterior.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Neste tutorial, você vai simular dados de chamada telefônica usando um aplicativo cliente que gera os metadados de exemplo de chamada telefônica. Alguns dos registros que o aplicativo produz se parecem com chamadas fraudulentas. 
 
@@ -55,26 +55,33 @@ Para analisar um fluxo de dados, faça a *ingestão* no Azure. Uma forma comum d
 ### <a name="create-a-namespace-and-event-hub"></a>Criar um hub de evento e de namespace
 Neste procedimento, você primeiro cria um namespace de hub de eventos e, em seguida, adiciona um hub de eventos para esse namespace. Namespaces do hub de evento são usados para agrupar logicamente instâncias de barramento de evento relacionadas. 
 
-1. Entre no Portal do Azure e clique em **Criar um recurso** > **Internet das Coisas** > **Hub de Eventos**. 
+1. Faça logon no portal do Azure e clique em **criar um recurso** na parte superior esquerda da tela.
 
-2. No painel **Criar um namespace**, insira um nome de namespace como `<yourname>-eh-ns-demo`. Você pode usar qualquer nome para o namespace, mas o nome deve ser válido para uma URL e deve ser exclusivo no Azure. 
+2. Selecione **Todos os serviços** no menu à esquerda e selecione **estrela (`*`)** ao lado de **Hubs de Eventos** na categoria **Análise**. Confirme que **Hubs de Eventos** foi adicionado à **FAVORITOS** no menu de navegação à esquerda. 
+
+   ![Pesquisar Hubs de Eventos](./media/stream-analytics-real-time-fraud-detection/select-event-hubs-menu.png)
+
+3. Selecione **Hubs de Eventos** em **FAVORITOS** no menu de navegação à esquerda e selecione **Adicionar** na barra de ferramentas.
+
+   ![Botão Adicionar](./media/stream-analytics-real-time-fraud-detection/event-hubs-add-toolbar.png)
+
+4. No painel **Criar um namespace**, insira um nome de namespace como `<yourname>-eh-ns-demo`. Você pode usar qualquer nome para o namespace, mas o nome deve ser válido para uma URL e deve ser exclusivo no Azure. 
     
-3. Selecione uma assinatura e crie ou escolha um grupo de recursos e clique em **Criar**.
+5. Selecione uma assinatura e crie ou escolha um grupo de recursos e clique em **Criar**.
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png" alt="Create event hub namespace in Azure portal" width="300px"/>
 
-4. Quando o namespace acabar a implementação, localize o namespace de hub de eventos na lista de recursos do Azure. 
+6. Quando o namespace acabar a implementação, localize o namespace de hub de eventos na lista de recursos do Azure. 
 
-5. Clique em novo namespace e, no painel do namespace, clique em **Hub de eventos**.
+7. Clique em novo namespace e, no painel do namespace, clique em **Hub de eventos**.
 
    ![Botão Adicionar Hub de Eventos para criar um novo hub de eventos](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
  
-6. Nomeie o novo hub de evento `asa-eh-frauddetection-demo`. Você pode usar um nome diferente. Se você fizer isso, anote-o, pois você precisará desse nome mais tarde. Você não precisa definir outras opções para o hub de eventos no momento.
+8. Nomeie o novo hub de evento `asa-eh-frauddetection-demo`. Você pode usar um nome diferente. Se você fizer isso, anote-o, pois você precisará desse nome mais tarde. Você não precisa definir outras opções para o hub de eventos no momento.
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="Name event hub in Azure portal" width="400px"/>
     
- 
-7. Clique em **Criar**.
+9. Clique em **Criar**.
 
 ### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>Conceder acesso para o hub de eventos e obter uma cadeia de caracteres de conexão
 
@@ -403,11 +410,11 @@ No entanto, se estiver pronto e não precisar dos recursos que você criou, voc�
 5. Exclua o hub de evento.
 6. Exclua o namespace do hub de eventos.
 
-## <a name="get-support"></a>Obter suporte
+## <a name="get-support"></a>Obtenha suporte
 
 Para obter mais assistência, experimente o [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Você pode continuar este tutorial com o seguinte artigo:
 

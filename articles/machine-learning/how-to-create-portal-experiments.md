@@ -10,13 +10,13 @@ ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
-ms.openlocfilehash: 808d7ac7ded9b250e0835da51b6b547c05c622a9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 02/04/2020
+ms.openlocfilehash: 620aab2d2104c9e08de6e7ea47511ff45a482ec4
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720394"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046109"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Crie, explore e implante experimentos automatizados de aprendizado de máquina com o Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "76720394"
 
  Se você preferir uma experiência mais baseada em código, também poderá [configurar seus experimentos de aprendizado de máquina automatizados no Python](how-to-configure-auto-train.md) com o [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -47,7 +47,7 @@ Caso contrário, você verá uma lista de experiências de aprendizado de máqui
 
 ## <a name="create-and-run-experiment"></a>Criar e executar experimento
 
-1. Selecione **+ criar experimento** e preencha o formulário.
+1. Selecione **+ nova execução automática de ml** e preencha o formulário.
 
 1. Selecione um conjunto de uma do seu contêiner de armazenamento ou crie um novo conjunto de um. Os conjuntos de valores podem ser criados a partir de arquivos locais, URLs da Web, repositórios de armazenamento ou conjuntos de os Azure Open DataSets. 
 
@@ -67,7 +67,7 @@ Caso contrário, você verá uma lista de experiências de aprendizado de máqui
         Campo| Descrição
         ----|----
         Formato de arquivo| Define o layout e o tipo de dados armazenados em um arquivo.
-        Delimitador| Um ou mais caracteres para especificar o limite entre regiões separadas e independentes em texto sem formatação ou outros fluxos de dados.
+        parâmetro| Um ou mais caracteres para especificar o limite entre regiões separadas e independentes em texto sem formatação ou outros fluxos de dados.
         Codificação| Identifica qual tabela de esquema de bit para caractere usar para ler seu conjunto de dados.
         Cabeçalhos da coluna| Indica como os cabeçalhos do conjunto de dados, se houver, serão tratados.
         Ignorar linhas | Indica quantas linhas, se houver, serão ignoradas no conjunto de registros.
@@ -113,16 +113,19 @@ Caso contrário, você verá uma lista de experiências de aprendizado de máqui
 
         1. Selecione previsão Horizonte: indica quantas unidades de tempo (minutos/horas/dias/semanas/meses/anos) o modelo será capaz de prever para o futuro. Quanto mais o modelo for necessário para prever no futuro, menor será a sua precisão. [Saiba mais sobre previsão e previsão horizonte](how-to-auto-train-forecast.md).
 
-1. Adicional Configurações de adição: configurações adicionais que você pode usar para controlar melhor o trabalho de treinamento. Caso contrário, os padrões são aplicados com base na seleção e nos dados de experimento. 
+1. Adicional Exibir definições de configuração de adição: configurações adicionais que você pode usar para controlar melhor o trabalho de treinamento. Caso contrário, os padrões são aplicados com base na seleção e nos dados de experimento. 
 
     Configurações adicionais|Descrição
     ------|------
     Métrica principal| Métrica principal usada para pontuar seu modelo. [Saiba mais sobre métricas de modelo](how-to-configure-auto-train.md#explore-model-metrics).
-    Personalização automática| Selecione para habilitar ou desabilitar o pré-processamento feito pelo Machine Learning automatizado. O pré-processamento inclui a limpeza, preparação e transformação automáticas de dados para gerar recursos sintéticos. [Saiba mais sobre o pré-processamento](#preprocess).
+    Personalização automática| Selecione para habilitar ou desabilitar o pré-processamento feito pelo Machine Learning automatizado. O pré-processamento inclui a limpeza, preparação e transformação automáticas de dados para gerar recursos sintéticos. Sem suporte para o tipo de tarefa previsão de série temporal. [Saiba mais sobre o pré-processamento](#featurization). 
+    Explicar o melhor modelo | Selecione para habilitar ou desabilitar para mostrar a explicação do melhor modelo recomendado
     Algoritmo bloqueado| Selecione os algoritmos que você deseja excluir do trabalho de treinamento.
     Critério de saída| Quando qualquer um desses critérios for atendido, o trabalho de treinamento será interrompido. <br> *Tempo de trabalho de treinamento (horas)* : por quanto tempo permitir que o trabalho de treinamento seja executado. <br> *Limite de Pontuação de métrica*: Pontuação de métrica mínima para todos os pipelines. Isso garante que, se você tiver uma métrica de destino definida que deseja alcançar, não gaste mais tempo no trabalho de treinamento do que o necessário.
     Validação| Selecione uma das opções de validação cruzada para usar no trabalho de treinamento. [Saiba mais sobre a validação cruzada](how-to-configure-auto-train.md).
-    Simultaneidade| *Máximo de iterações simultâneas*: número máximo de pipelines (iterações) a serem testados no trabalho de treinamento. O trabalho não será executado mais do que o número especificado de iterações. <br> *Máximo de núcleos por iteração*: selecione os limites de vários núcleos que você gostaria de usar ao usar a computação de vários núcleos.
+    Simultaneidade| *Máximo de iterações simultâneas*: número máximo de pipelines (iterações) a serem testados no trabalho de treinamento. O trabalho não será executado mais do que o número especificado de iterações.
+
+1. Adicional Exibir configurações de personalização: se você optar por habilitar o **personalização automático** no formulário de **definições de configuração adicional** , esse formulário será onde você especifica em quais colunas executar essas featurizations e seleciona qual valor estatístico usar para o valor ausente imputations.
 
 <a name="profile"></a>
 
@@ -138,8 +141,8 @@ Estatística|Descrição
 Recurso| Nome da coluna que está sendo resumida.
 Perfil| Visualização embutida com base no tipo inferido. Por exemplo, cadeias de caracteres, Boolianos e datas terão contagens de valor, enquanto decimais (numéricos) têm histogramas aproximados. Isso permite que você tenha uma compreensão rápida da distribuição dos dados.
 Distribuição de tipo| Valor na linha contagem de tipos dentro de uma coluna. Os nulos são de seu próprio tipo, portanto, essa visualização é útil para detectar valores ímpares ou ausentes.
-Type|Tipo inferido da coluna. Os valores possíveis incluem: cadeias de caracteres, Boolianos, datas e decimais.
-Mín| Valor mínimo da coluna. Entradas em branco aparecem para recursos cujo tipo não tem uma ordenação inerente (por exemplo, Boolianos).
+Tipo|Tipo inferido da coluna. Os valores possíveis incluem: cadeias de caracteres, Boolianos, datas e decimais.
+Min| Valor mínimo da coluna. Entradas em branco aparecem para recursos cujo tipo não tem uma ordenação inerente (por exemplo, Boolianos).
 Max| Valor máximo da coluna. 
 Contagem| Número total de entradas ausentes e não ausentes na coluna.
 Sem contagem faltando| Número de entradas na coluna que não estão ausentes. Cadeias de caracteres e erros vazios são tratados como valores, portanto, eles não contribuirão para a "contagem não encontrada".
@@ -151,17 +154,13 @@ Distorção| Medida de quão diferentes os dados dessa coluna são de uma distri
 Curtose| A medida de quão cauda os dados desta coluna é comparada a uma distribuição normal.
 
 
-<a name="preprocess"></a>
+<a name="featurization"></a>
 
 ## <a name="advanced-featurization-options"></a>Opções de personalização avançadas
 
-Ao configurar seus experimentos, você pode habilitar a configuração avançada `feauturization`. 
+O Machine Learning automatizado oferece pré-processamento e guardrails de dados automaticamente, para ajudá-lo a identificar e gerenciar possíveis problemas com seus dados. 
 
-|Configuração do personalização | Descrição |
-| ------------- | ------------- |
-|"feauturization" = ' FeaturizationConfig '| Indica que a etapa personalização personalizada deve ser usada. [Saiba como personalizar o personalização](how-to-configure-auto-train.md#customize-feature-engineering).|
-|"feauturization" = ' off '| Indica que a etapa personalização não deve ser feita automaticamente.|
-|"feauturization" = ' auto '| Indica que, como parte do pré-processamento, as etapas de guardrails e personalização de dados a seguir são executadas automaticamente.|
+### <a name="preprocessing"></a>Pré-processamento
 
 |Pré-processando&nbsp;etapas| Descrição |
 | ------------- | ------------- |
@@ -177,7 +176,7 @@ Ao configurar seus experimentos, você pode habilitar a configuração avançada
 
 ### <a name="data-guardrails"></a>Guardrails de dados
 
-O aprendizado de máquina automatizado oferece guardrails de dados para ajudá-lo a identificar possíveis problemas com seus dados (por exemplo, valores ausentes, desequilíbrio de classe) e ajudar a executar ações corretivas para resultados aprimorados. Há muitas práticas recomendadas que estão disponíveis e podem ser aplicadas para obter resultados confiáveis. 
+Os dados guardrails são aplicados automaticamente para ajudá-lo a identificar possíveis problemas com seus dados (por exemplo, valores ausentes, desequilíbrio de classe) e ajudam a tomar ações corretivas para resultados aprimorados. Há muitas práticas recomendadas que estão disponíveis e podem ser aplicadas para obter resultados confiáveis. 
 
 A tabela a seguir descreve os dados atualmente com suporte guardrails e os status associados que os usuários podem chegar ao enviar o experimento.
 
@@ -191,14 +190,11 @@ Consistência de dados de série temporal|**Passagem** <br><br><br><br> **Fixado
 
 ## <a name="run-experiment-and-view-results"></a>Executar experimento e exibir resultados
 
-Selecione **Iniciar** para executar seu experimento. O processo de preparação do experimento pode levar até 10 minutos. Os trabalhos de treinamento podem levar mais 2-3 minutos para que cada pipeline termine a execução.
+Selecione **concluir** para executar seu experimento. O processo de preparação do experimento pode levar até 10 minutos. Os trabalhos de treinamento podem levar mais 2-3 minutos para que cada pipeline termine a execução.
 
 ### <a name="view-experiment-details"></a>Exibir detalhes do experimento
 
->[!NOTE]
-> Selecione **Atualizar** periodicamente para exibir o status da execução. 
-
-A tela de **detalhes da execução** é aberta na guia **detalhes** . Esta tela mostra um resumo da execução do experimento, incluindo o **status de execução**. 
+A tela de **detalhes da execução** é aberta na guia **detalhes** . Esta tela mostra um resumo da execução do experimento, incluindo uma barra de status na parte superior ao lado do número de execução. 
 
 A guia **modelos** contém uma lista dos modelos criados ordenados pela pontuação da métrica. Por padrão, o modelo que classifica o mais alto com base na métrica escolhida está no topo da lista. Como o trabalho de treinamento tenta mais modelos, eles são adicionados à lista. Use isso para obter uma comparação rápida das métricas para os modelos produzidos até agora.
 
@@ -218,18 +214,18 @@ O ML automatizado ajuda você a implantar o modelo sem escrever código:
 
 1. Você tem algumas opções de implantação. 
 
-    + Opção 1: para implantar o melhor modelo (de acordo com os critérios de métrica que você definiu), selecione implantar melhor modelo na guia detalhes.
+    + Opção 1: para implantar o melhor modelo (de acordo com os critérios de métrica que você definiu), selecione o botão **implantar melhor modelo** na guia **detalhes** .
 
-    + Opção 2: para implantar uma iteração de modelo específica deste experimento, faça uma busca detalhada no modelo para abrir a guia detalhes do modelo e selecione implantar modelo.
+    + Opção 2: para implantar uma iteração de modelo específica deste experimento, faça uma busca detalhada no modelo para abrir a guia **detalhes do modelo** e selecione **implantar modelo**.
 
 1. Preencha o painel **implantar modelo** .
 
-    Campo| Valor
+    Campo| {1&gt;Valor&lt;1}
     ----|----
-    {1&gt;Nome&lt;1}| Insira um nome exclusivo para sua implantação.
+    Nome| Insira um nome exclusivo para sua implantação.
     Descrição| Insira uma descrição para identificar melhor a finalidade dessa implantação.
     Tipo de computação| Selecione o tipo de ponto de extremidade que você deseja implantar: *AKs (serviço kubernetes do Azure)* ou *instância de contêiner do Azure (ACI)* .
-    {1&gt;Nome&lt;1}| *Aplica-se somente a AKs:* Selecione o nome do cluster AKS no qual você deseja implantar.
+    Nome da computação| *Aplica-se somente a AKs:* Selecione o nome do cluster AKS no qual você deseja implantar.
     Habilitar autenticação | Selecione para permitir a autenticação baseada em token ou baseada em chave.
     Usar ativos de implantação personalizados| Habilite esse recurso se você quiser carregar seu próprio script de Pontuação e arquivo de ambiente. [Saiba mais sobre scripts de Pontuação](how-to-deploy-and-where.md#script).
 
@@ -244,7 +240,7 @@ Agora você tem um serviço Web operacional para gerar previsões! Você pode te
 
 ## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-* Experimente o tutorial de ponta a ponta [para criar seu primeiro experimento de ml automatizado com o Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
+* Experimente o tutorial de ponta a ponta [para criar seu primeiro experimento de ml automatizado com o Azure Machine Learning Studio](tutorial-first-experiment-automated-ml.md). 
 * [Saiba mais sobre o aprendizado de máquina](concept-automated-ml.md) e a Azure Machine Learning automatizados.
 * [Entenda os resultados automatizados do Machine Learning](how-to-understand-automated-ml.md).
 * [Saiba como consumir um serviço Web](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service).

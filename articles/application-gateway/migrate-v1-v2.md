@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 719686cb123355359391c5cb1e517ff9cfd88371
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9909c46015fffb3bea3eef094599312e28b935c5
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231739"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046191"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrar Aplicativo Azure gateway e firewall do aplicativo Web da v1 para a v2
 
@@ -58,7 +58,7 @@ Para determinar se você tem os módulos AZ do Azure instalados, execute `Get-In
 
 Para usar essa opção, você não deve ter os módulos AZ do Azure instalados no seu computador. Se eles estiverem instalados, o comando a seguir exibirá um erro. Você pode desinstalar os módulos AZ do Azure ou usar a outra opção para baixar o script manualmente e executá-lo.
   
-Execute o script com o comando a seguir:
+Execute o script com o seguinte comando:
 
 `Install-Script -Name AzureAppGWMigration`
 
@@ -102,7 +102,7 @@ Para executar o script:
    * **appgwName: [String]: opcional**. Essa é uma cadeia de caracteres que você especifica para usar como o nome para o novo Standard_v2 ou WAF_v2 gateway. Se esse parâmetro não for fornecido, o nome do gateway v1 existente será usado com o sufixo *_v2* acrescentado.
    * **sslCertificates: [PSApplicationGatewaySslCertificate]: opcional**.  Uma lista separada por vírgulas de objetos PSApplicationGatewaySslCertificate que você cria para representar os certificados SSL do seu gateway v1 deve ser carregada para o novo gateway v2. Para cada um dos certificados SSL configurados para seu gateway Standard v1 ou WAF v1, você pode criar um novo objeto PSApplicationGatewaySslCertificate por meio do comando `New-AzApplicationGatewaySslCertificate` mostrado aqui. Você precisa do caminho para o arquivo de certificado SSL e a senha.
 
-       Esse parâmetro só será opcional se você não tiver ouvintes HTTPS configurados para seu gateway v1 ou WAF. Se você tiver pelo menos uma instalação de ouvinte HTTPS, deverá especificar esse parâmetro.
+     Esse parâmetro só será opcional se você não tiver ouvintes HTTPS configurados para seu gateway v1 ou WAF. Se você tiver pelo menos uma instalação de ouvinte HTTPS, deverá especificar esse parâmetro.
 
       ```azurepowershell  
       $password = ConvertTo-SecureString <cert-password> -AsPlainText -Force
@@ -114,12 +114,17 @@ Para executar o script:
         -Password $password
       ```
 
-      Você pode passar `$mySslCert1, $mySslCert2` (separadas por vírgula) no exemplo anterior como valores para esse parâmetro no script.
-   * **trustedRootCertificates: [PSApplicationGatewayTrustedRootCertificate]: opcional**. Uma lista separada por vírgulas de objetos PSApplicationGatewayTrustedRootCertificate que você cria para representar os [certificados raiz confiáveis](ssl-overview.md) para autenticação de suas instâncias de back-end do seu gateway v2.  
+     Você pode passar `$mySslCert1, $mySslCert2` (separadas por vírgula) no exemplo anterior como valores para esse parâmetro no script.
+   * **trustedRootCertificates: [PSApplicationGatewayTrustedRootCertificate]: opcional**. Uma lista separada por vírgulas de objetos PSApplicationGatewayTrustedRootCertificate que você cria para representar os [certificados raiz confiáveis](ssl-overview.md) para autenticação de suas instâncias de back-end do seu gateway v2.
+   
+      ```azurepowershell
+      $certFilePath = ".\rootCA.cer"
+      $trustedCert = New-AzApplicationGatewayTrustedRootCertificate -Name "trustedCert1" -CertificateFile $certFilePath
+      ```
 
       Para criar uma lista de objetos PSApplicationGatewayTrustedRootCertificate, consulte [New-AzApplicationGatewayTrustedRootCertificate](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0).
    * **privateIpAddress: [String]: opcional**. Um endereço IP privado específico que você deseja associar ao seu novo gateway v2.  Isso deve ser da mesma VNet que você aloca para o novo gateway v2. Se isso não for especificado, o script alocará um endereço IP privado para o seu gateway v2.
-    * **publicIpResourceId: [String]: opcional**. O ResourceId de um recurso de endereço IP público (SKU padrão) em sua assinatura que você deseja alocar para o novo gateway v2. Se isso não for especificado, o script alocará um novo IP público no mesmo grupo de recursos. O nome é o nome do gateway V2 com *-IP* acrescentado.
+   * **publicIpResourceId: [String]: opcional**. O ResourceId do recurso de endereço IP público (SKU padrão) existente na sua assinatura que você deseja alocar para o novo gateway v2. Se isso não for especificado, o script alocará um novo IP público no mesmo grupo de recursos. O nome é o nome do gateway V2 com *-IP* acrescentado.
    * **validateMigration: [opção]: opcional**. Use esse parâmetro se desejar que o script faça algumas validações de comparação de configuração básica após a criação do gateway V2 e a cópia de configuração. Por padrão, nenhuma validação é feita.
    * **enableAutoScale: [opção]: opcional**. Use esse parâmetro se desejar que o script habilite o dimensionamento automático no novo gateway v2 depois que ele for criado. Por padrão, o dimensionamento automático está desabilitado. Você sempre pode habilitá-lo manualmente mais tarde no gateway v2 recém-criado.
 
@@ -132,10 +137,10 @@ Para executar o script:
       -resourceId /subscriptions/8b1d0fea-8d57-4975-adfb-308f1f4d12aa/resourceGroups/MyResourceGroup/providers/Microsoft.Network/applicationGateways/myv1appgateway `
       -subnetAddressRange 10.0.0.0/24 `
       -appgwname "MynewV2gw" `
-      -sslCertificates $Certs `
+      -sslCertificates $mySslCert1,$mySslCert2 `
       -trustedRootCertificates $trustedCert `
       -privateIpAddress "10.0.0.1" `
-      -publicIpResourceId "MyPublicIP" `
+      -publicIpResourceId "/subscriptions/8b1d0fea-8d57-4975-adfb-308f1f4d12aa/resourceGroups/MyResourceGroup/providers/Microsoft.Network/publicIPAddresses/MyPublicIP" `
       -validateMigration -enableAutoScale
    ```
 
@@ -192,6 +197,6 @@ Não. Atualmente, o script não oferece suporte a certificados no keyvault. No e
   
 Você pode enviar um email para appgwmigrationsup@microsoft.com, abrir um caso de suporte com o suporte do Azure ou fazer ambos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Saiba mais sobre o gateway de aplicativo v2](application-gateway-autoscaling-zone-redundant.md)

@@ -2,7 +2,7 @@
 title: Gerenciar suas organizações no portal minha conta – Azure AD
 description: Como exibir e deixar as organizações conectadas à sua conta corporativa ou de estudante na página organizações do portal minha conta.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: jpettere
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.author: lizross
-ms.openlocfilehash: e8bea2c8eed210278b52b7ce6095a77c41fdd6ab
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.author: curtand
+ms.openlocfilehash: fbaca387dd8062f50bb7555c7be6e7f65ce346bf
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705132"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062465"
 ---
 # <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Gerenciar suas organizações conectadas na página organizações
 
@@ -57,7 +57,7 @@ Você pode sair de qualquer organização que não seja a organização inicial.
 
     ![Página Organizações, com link para sair da organização em destaque](media/my-account-portal/my-account-portal-organizations-leave.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Depois de exibir suas organizações, você pode:
 

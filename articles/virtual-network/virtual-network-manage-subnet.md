@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: kumud
-ms.openlocfilehash: e8717d10f61dfd50b9cdfa20a91203a5842d4c7d
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: de80094c3fd2df7d2f8b32d1e968e9bebea847a1
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185373"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064335"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Adicionar, alterar ou excluir uma sub-rede da rede virtual
 
@@ -33,7 +33,7 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
 - Caso ainda não tenha uma conta do Azure, inscreva-se para obter uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
 - Se estiver usando o Portal, abra https://portal.azure.com e faça logon com sua conta do Azure.
 - Se usar os comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell) ou então executando o PowerShell do computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Este tutorial exige o módulo do Azure PowerShell versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
-- Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este tutorial requer a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou fazer upgrade, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
+- Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este tutorial requer a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
 
 A conta em que você realizou o logon, ou se conectou ao Azure, deve estar atribuída à função do [contribuidor de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que é atribuída a ações adequadas listadas em [Permissões](#permissions).
 
@@ -49,11 +49,12 @@ A conta em que você realizou o logon, ou se conectou ao Azure, deve estar atrib
    - **Grupo de segurança de rede**: é possível associar zero ou um grupo de segurança de rede existente à sub-rede para filtrar o tráfego de rede de entrada e saída para a sub-rede. O grupo de segurança da rede deve existir na mesma assinatura e local da rede virtual. Saiba mais sobre [grupos de segurança de rede](security-overview.md) e [como criar um grupo de segurança de rede](tutorial-filter-network-traffic.md).
    - **Tabela de rotas:** você pode associar zero ou uma tabela de rotas existente à sub-rede a controlar o roteamento de tráfego de rede para outras redes. A tabela de rotas deve existir na mesma assinatura e localização da rede virtual. Saiba mais sobre o [Roteamento do Azure](virtual-networks-udr-overview.md) e [como criar uma tabela de rotas](tutorial-create-route-table-portal.md)
    - **Pontos de extremidade de serviço:** uma sub-rede pode ter zero ou vários pontos de extremidade do serviço habilitados. Para habilitar um ponto de extremidade de serviço para um serviço, selecione o serviço ou serviços para os quais deseja habilitar os pontos de extremidade de serviço na lista **Serviços**. O local é configurado automaticamente para um ponto de extremidade. Por padrão, os pontos de extremidade de serviço são configurados para a região da rede virtual. No caso do Armazenamento do Azure, para dar suporte a cenários de failover regionais, os pontos de extremidade são automaticamente configurados para [Regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
-   - **Delegação de sub-rede:** uma sub-rede pode ter nenhuma ou várias delegações habilitadas para ela. A delegação de sub-rede dá permissões explícitas ao serviço para criar recursos específicos do serviço na sub-rede, usando um identificador exclusivo ao implantar o serviço. Para delegar para um serviço, selecione o serviço que você deseja delegar na lista **Serviços**.
-
+   
        Para remover um ponto de extremidade de serviço, desmarque o serviço para o qual deseja remover o ponto de extremidade de serviço. Para saber mais sobre os pontos de extremidade do serviço e os serviços que podem ser habilitados, consulte [Visão geral dos pontos de extremidade de serviço de rede virtual](virtual-network-service-endpoints-overview.md). Depois de habilitar um ponto de extremidade de serviço para um serviço, você também precisa habilitar o acesso à rede para a sub-rede para um recurso criado com o serviço. Por exemplo, se habilitar o ponto de extremidade de serviço para *Microsoft.Storage*, você também deverá habilitar o acesso à rede para todas as contas de Armazenamento do Azure a que deseja conceder acesso à rede. Para obter detalhes sobre como habilitar o acesso à rede para sub-redes para as quais um ponto de extremidade de serviço está habilitado, consulte a documentação do serviço individual para o qual você habilitou o ponto de extremidade de serviço.
 
      Para validar que um ponto de extremidade de serviço está habilitado para uma sub-rede, visualize as [rotas efetivas](diagnose-network-routing-problem.md) para qualquer interface de rede na sub-rede. Quando um ponto de extremidade estiver configurado, você verá uma rota*padrão* com os prefixos de endereço do serviço, e um nextHopType de **VirtualNetworkServiceEndpoint**. Para saber mais sobre roteamento, consulte [Visão geral de roteamento](virtual-networks-udr-overview.md).
+   - **Delegação de sub-rede:** uma sub-rede pode ter nenhuma ou várias delegações habilitadas para ela. A delegação de sub-rede dá permissões explícitas ao serviço para criar recursos específicos do serviço na sub-rede, usando um identificador exclusivo ao implantar o serviço. Para delegar para um serviço, selecione o serviço que você deseja delegar na lista **Serviços**.
+
 6. Para adicionar a sub-rede à rede virtual que você selecionou, selecione **OK**.
 
 **Comandos**
@@ -73,7 +74,7 @@ A conta em que você realizou o logon, ou se conectou ao Azure, deve estar atrib
     - **Grupo de segurança de rede** e **Tabela de rotas**: Veja a etapa 5 de [Adicionar uma sub-rede](#add-a-subnet).
     - **Pontos de extremidade de serviço**: consulte pontos de extremidade de serviço na etapa 5 de [Adicionar uma sub-rede](#add-a-subnet). Ao habilitar um ponto de extremidade de serviço para uma sub-rede existente, certifique-se de que nenhuma tarefa crítica está executando qualquer recurso na sub-rede. Os pontos de extremidade de serviço alternam rotas em cada interface de rede na sub-rede do uso da rota padrão com o prefixo de endereço *0.0.0.0/0* e o tipo de próximo salto de *Internet*, usando uma nova rota com o endereço prefixos do serviço e um tipo de próximo salto de *VirtualNetworkServiceEndpoint*. Durante a troca, todas as conexões TCP abertas podem ser finalizadas. O ponto de extremidade de serviço não estará habilitado até que os fluxos de tráfego para o serviço para todas as interfaces de rede sejam atualizadas com a nova rota. Para saber mais sobre roteamento, consulte [Visão geral de roteamento](virtual-networks-udr-overview.md).
     - **Delegação de sub-rede**: consulte pontos de extremidade de serviço na etapa 5 de [Adicionar uma sub-rede](#add-a-subnet). A delegação de sub-rede pode ser modificada para ter nenhuma ou várias delegações habilitadas para ela. Se um recurso para um serviço já estiver implantado na sub-rede, a delegação de sub-rede não poderá ser adicionada ou removida até que todos os recursos do serviço sejam removidos. Para delegar para um serviço diferente, selecione o serviço que você deseja delegar na lista **Serviços**.
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 **Comandos**
 
@@ -95,11 +96,11 @@ Uma sub-rede somente pode ser excluída se não houver recursos na sub-rede. Se 
 - CLI do Azure: [AZ Network vnet subnet Delete](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-delete)
 - PowerShell: [Remove-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/remove-azvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
-## <a name="permissions"></a>permissões
+## <a name="permissions"></a>Permissões
 
 Para executar tarefas em sub-redes, sua conta deve ser atribuída à função de [colaborador da rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma função [personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) à qual são atribuídas as ações apropriadas listadas na tabela a seguir:
 
-|Ação                                                                   |   NOME                                       |
+|Ação                                                                   |   Nome                                       |
 |-----------------------------------------------------------------------  |   -----------------------------------------  |
 |Microsoft.Network/virtualNetworks/subnets/read                           |   Ler uma sub-rede de rede virtual              |
 |Microsoft.Network/virtualNetworks/subnets/write                          |   Criar ou atualizar uma sub-rede da rede virtual  |

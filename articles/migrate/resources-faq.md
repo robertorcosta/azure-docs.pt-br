@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: snehaa
-ms.openlocfilehash: a9d008406e59c66a8b742194e2e2d388c778ac9e
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: baf01c0a0d5c6154305f7137c24deb0365b5e812
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989341"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062091"
 ---
 # <a name="azure-migrate-common-questions"></a>Migrações para Azure: perguntas comuns
 
@@ -55,7 +55,7 @@ A avaliação do servidor é uma ferramenta de planejamento de migração. O Sit
 
 Examine as geografias com suporte para migrações do Azure para [VM VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) e para [VMs do Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v).
 
-## <a name="how-do-i-get-started"></a>Como posso começar?
+## <a name="how-do-i-get-started"></a>Como começar?
 
 Você identifica a ferramenta de que precisa e a adiciona a um projeto de Migrações para Azure. Se você estiver adicionando uma ferramenta de ISV ou Movere:
 - comece obtendo uma licença ou se inscrevendo para uma avaliação gratuita, de acordo com a política da ferramenta. O licenciamento de ferramentas está de acordo com o modelo de licenciamento de ferramentas ou de ISV.
@@ -67,9 +67,7 @@ Você controla de forma centralizada seu percurso de migração de dentro do pro
 [Saiba como](how-to-delete-project.md) excluir um projeto. 
 
 
-## <a name="do-machines-retain-domain-identity-after-migration"></a>Os computadores retêm a identidade do domínio após a migração?
 
-Supondo que os serviços de domínio sejam [integrados ao Azure, a](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/)Associação de domínio e a identidade do computador no domínio são mantidos após a migração. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Leia a [visão geral de migrações para Azure](migrate-services-overview.md).

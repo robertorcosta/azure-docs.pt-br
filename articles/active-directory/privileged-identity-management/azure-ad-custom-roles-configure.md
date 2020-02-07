@@ -1,5 +1,5 @@
 ---
-title: Ativar funções personalizadas do Azure AD no PIM (Privileged Identity Management) | Microsoft Docs
+title: Configurar o PIM (função personalizada Privileged Identity Management do Azure AD)
 description: Como configurar funções personalizadas do Azure AD no PIM (Privileged Identity Management)
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82d0c001ecea4c3afbcb800b68246b628c130ff2
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: d6251c1576d38b191ca1cba48075cc869c48d004
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896552"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048120"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Configurar funções personalizadas do Azure AD no Privileged Identity Management
 
@@ -93,7 +93,7 @@ Se você quiser exigir aprovação para ativar uma função, siga estas etapas.
 1. Selecione pelo menos um membro ou grupo e clique em **Selecionar**. É necessário selecionar pelo menos um aprovador. Não há nenhum aprovador padrão. Suas seleções serão exibidas na lista de aprovadores selecionados.
 1. Após especificar as configurações de função, selecione **Atualizar** para salvar suas alterações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Ativar uma função personalizada do Azure AD](azure-ad-custom-roles-assign.md)
 - [Atribuir uma função personalizada do Azure AD](azure-ad-custom-roles-assign.md)

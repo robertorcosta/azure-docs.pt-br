@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: 39535a895dd0ec4a851f0576acf8696ae99e3259
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e61e0477e6687dd54713deea03e2b42774edf0bc
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454209"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77059735"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Sobre os parceiros MSP de rede do Azure
 
@@ -20,7 +20,7 @@ O [programa de parceiro MSP (provedor de serviços gerenciados) de rede do Azure
 
 As MSPs de rede do Azure são um conjunto especializado de provedores de serviços gerenciados que abordam as necessidades e os desafios da rede em nuvem empresarial em todos os aspectos da nuvem e da rede híbrida. Os serviços de rede gerenciados incluem um ou mais dos seguintes serviços: arquitetura de rede, planejamento, implantação, operações, manutenção e otimização.
 
-![MSP][0]
+![CONSTANTES][0]
 
 Os clientes podem comprar ofertas de serviços gerenciados por MSP no Azure Marketplace ou diretamente do MSP. O MSPs pode implantar e gerenciar recursos de rede do Azure nas assinaturas e nos grupos de recursos dos clientes usando o [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/).
 
@@ -28,7 +28,7 @@ Os clientes podem comprar ofertas de serviços gerenciados por MSP no Azure Mark
 
 Use os links nesta seção para obter mais informações sobre os serviços de rede em nuvem gerenciados oferecidos pelos parceiros MSP de rede do Azure. Se o seu parceiro de serviços de rede de nuvem não estiver listado na seção abaixo, peça ao provedor entre em contato conosco. Ele pode entrar em contato conosco enviando um email para ManagedVirtualWAN@microsoft.com. 
 
-| **MSP** | **Serviços de transformação de rede em nuvem** | **ExpressRoute gerenciado** | **WAN virtual gerenciada** |
+| **CONSTANTES** | **Serviços de transformação de rede em nuvem** | **ExpressRoute gerenciado** | **WAN virtual gerenciada** |
 | ---| ---| ---| ---|
 |[Grupo ANS no Reino Unido](https://www.ans.co.uk/)|[Azure Managed svc + 10wk de vidro do ANS](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/ans_group.glassms)|||||
 |[Redes aryaka Networks](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)||[Aryaka Networks Azure Connect](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aryaka.cloudconnect_azure_19?tab=Overview)|[Aryaka Networks WAN virtual do Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aryaka.aryaka_azure_virtual_wan?tab=Overview) | | |
@@ -43,11 +43,13 @@ Use os links nesta seção para obter mais informações sobre os serviços de r
 |[Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)|[Consulte os serviços de nuvem do Macquarie: Workshop de 2 horas](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/macquariecloudservices.clear_for_takeoff_consulting_service)||[SD-instalação de borda virtual de WAN por Macquarie Cloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/macquariecloudservices.nanaged_network_services?tab=Overview)|||
 |[Serviços de nuvem Oncore]( https://www.oncore.cloud/services/ue-for-expressroute/)||[UniversalEdge para Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oncore_cloud_services-4944214.universaledge_for_expressroute?tab=Overview)||||
 |[Orixcom]( https://www.orixcom.com/cloud-solutions/)|||[Orixcom SD – WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/orixcom.orixcom_sd_wan?tab=Overview)|||
+|[SoftBank]( https://www.softbank.jp/biz/nw/nwp/cloud_access/direct_access_for_az/)|[Serviço de consultoria de rede do Azure: avaliação de 1-WK](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/sbmpn.softbank_nw_msp_service_azure); [Serviço de avaliação do Azure: 1Week](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/sbmpn.softbank_msp_service_azure_01?tab=Overview&pub_source=email&pub_status=success)|||||
 |[TCTS](https://www.tatacommunications-ts.com/index.php)|[Migração do Azure: avaliação de 3 semanas](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/tcs.azure_migration_assessment)|||||
-|[Vandis](https://www.vandis.com/microsoft-azure-practice/)||[ExpressRoute gerenciado Vandis](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_expressroute?tab=Overview)|[Vandis Managed VWAN da plataforma Fortinet](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_fortinet?tab=Overview); [Vandis Managed VWAN da plataforma Palo Alto Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_palo_alto_networks?tab=Overview)|||
+|[Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)||[Azure ExpressRoute gerenciado](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tata_communications.managed_expressroute?tab=Overview)|[WAN virtual gerenciada](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tata_communications.managed_azure_vwan_for_sdwan?tab=Overview)|||
 |[Vigilante](https://vigilant.it/manage-cloud-service/)|[Verificação de integridade do Azure: avaliação de 5 dias](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.ahc01)|[ExpressRoute: implementação de 5 dias](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.erd01)|||
+|[Vandis](https://www.vandis.com/microsoft-azure-practice/)||[ExpressRoute gerenciado Vandis](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_expressroute?tab=Overview)|[Vandis Managed VWAN da plataforma Fortinet](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_fortinet?tab=Overview); [Vandis Managed VWAN da plataforma Palo Alto Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_palo_alto_networks?tab=Overview)|
 
-As ofertas do Azure Marketplace, incluindo novos serviços de segurança gerenciados e serviços MECs gerenciados dos seguintes parceiros MSP de rede do Azure, estão em nosso roteiro: [Amdocs](https://www.amdocs.com/);  [Coevolução](https://www.coevolve.com/services/azure-networking-services/);  [IX REACH](https://www.ixreach.com/services/sdn-cloud-connect/);  Entre [Cloud](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [Megaport](https://www.megaport.com/services/microsoft-expressroute/);  [OmniClouds](https://omniclouds.com/services/);  [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms);  [Softbank](https://www.softbank.jp/biz/cloud/microsoft/azure/);  [Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/);  [Mahindra de tecnologia](https://networkservices.techmahindra.com/pages/default.aspx)
+As ofertas do Azure Marketplace, incluindo novos serviços de segurança gerenciados e serviços MECs gerenciados dos seguintes parceiros MSP de rede do Azure, estão em nosso roteiro: [Amdocs](https://www.amdocs.com/); [CenturyLink](https://www.centurylink.com/business/networking/cloud-connectivity.html);  [Coevolução](https://www.coevolve.com/services/azure-networking-services/);  [IX REACH](https://www.ixreach.com/services/sdn-cloud-connect/);  Entre [Cloud](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [Megaport](https://www.megaport.com/services/microsoft-expressroute/);  [OmniClouds](https://omniclouds.com/services/);  [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms);  [Mahindra de tecnologia](https://networkservices.techmahindra.com/pages/default.aspx)
 
 ## <a name="expressroute"></a>Parceiros do ExpressRoute
 

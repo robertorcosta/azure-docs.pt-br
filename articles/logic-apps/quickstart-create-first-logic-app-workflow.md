@@ -47,7 +47,7 @@ Entre no [portal do Azure](https://portal.azure.com) com suas credenciais da con
    | **Nome** | <*logic-app-name*> | O nome do aplicativo lógico, que pode conter apenas letras, números, hifens (`-`), sublinhados (`_`), parênteses(`(`, `)`) e pontos (`.`). Este exemplo usa "My-First-Logic-App". |
    | **Assinatura** | <*Azure-subscription-name*> | Seu nome da assinatura do Azure |
    | **Grupo de recursos** | <*Azure-resource-group-name*> | O nome do [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) usado para organizar os recursos relacionados. Este exemplo usa "My-First-LA-RG". |
-   | **Localidade** | <*Azure-region*> | A região em que as informações de seu aplicativo lógico serão armazenadas. Este exemplo usa "Oeste dos EUA". |
+   | **Localidade** | <*Azure-region*> | A região em que as informações de seu aplicativo lógico serão armazenadas. Este exemplo usa "Leste dos EUA". |
    | **Log Analytics** | Desativado | Mantenha a configuração **Desligado** para o log de diagnósticos. |
    ||||
 
@@ -67,7 +67,7 @@ Em seguida, adicione um [gatilho](../logic-apps/logic-apps-overview.md#logic-app
 
 ## <a name="add-the-rss-trigger"></a>Adicionar o gatilho do RSS
 
-1. No **Designer do Aplicativo Lógico**, na caixa de pesquisa, selecione **Tudo**.
+1. No **Designer de Aplicativos Lógicos**, embaixo da caixa de pesquisa, selecione **Todos**.
 
 1. Na caixa de pesquisa, digite `rss` para encontrar o conector RSS. Na lista de gatilhos, selecione o gatilho **Quando um item do feed é publicado**.
 
@@ -102,7 +102,7 @@ Agora, adicione uma [ação](../logic-apps/logic-apps-overview.md#logic-app-conc
 
    ![No gatilho, selecione "Nova etapa"](./media/quickstart-create-first-logic-app-workflow/add-new-step-under-trigger.png)
 
-1. Em **Escolha uma ação** e na caixa de pesquisa, selecione **Todas**.
+1. Em **Escolher uma ação** e embaixo da caixa de pesquisa, selecione **Todos**.
 
 1. Em cada caixa de pesquisa, insira `send an email` para encontrar conectores que ofereçam esta ação. Na lista de ações, selecione a ação "enviar um email" para o serviço de email que você deseja usar. Este exemplo usa o conector do Office 365 Outlook, que tem a ação **Enviar um email**.
 

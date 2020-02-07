@@ -2,7 +2,7 @@
 title: Redefinir sua senha usando informações de segurança - Active Directory do Azure | Microsoft Docs
 description: Como redefinir sua própria senha se você esquecer, usando suas informações de segurança e a verificação em duas etapas.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.author: lizross
-ms.openlocfilehash: ad4831cfb5b09083b4ee76b6badf3936b2256138
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.author: curtand
+ms.openlocfilehash: 3ed79be318319009aabb1b1ef0c42c4021bbbabe
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263482"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062652"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Redefinir sua senha corporativa ou de estudante usando informações de segurança
 
@@ -155,14 +155,14 @@ Se o administrador ativou a funcionalidade, você pode ver um link para **Redefi
 
 Aqui estão alguns casos de erro comuns e suas soluções:
 
-|Problema|Description|Solução|
+|Problema|DESCRIÇÃO|Solução|
 | --- | --- | --- |
 |Quando tento alterar minha senha, recebo um erro. |Sua senha tem uma palavra, frase ou padrão que torna sua senha facilmente adivinhada.| Tente novamente usando uma senha mais forte.|
 |Depois de inserir minha ID de usuário, vou para uma página que diz "Entre em contato com seu administrador".|A Microsoft determinou que a senha da sua conta de usuário é gerenciada pelo seu administrador em um ambiente local. Como resultado, você não pode redefinir sua senha no link "Não consigo acessar sua conta". |Entre em contato com seu administrador para mais ajuda.|
 |Depois de inserir minha ID de usuário, recebo um erro que diz "Sua conta não está habilitada para redefinição de senha".|Seu administrador não configurou sua conta para que você possa redefinir sua própria senha.|Seu administrador não ativou a redefinição de senha da sua organização no link "Não foi possível acessar sua conta" ou não o autorizou a usar o recurso.<br><br> Para redefinir sua senha, você deve selecionar o link "contatar um administrador" para enviar um e-mail ao administrador da sua empresa e informá-lo que deseja redefinir sua senha.|
 |Depois de inserir minha ID de usuário, recebo um erro que diz "Não foi possível confirmar sua conta".|O processo de login não conseguiu confirmar as informações da sua conta.|Existem duas razões pelas quais você pode estar vendo esta mensagem.<br><br>1. o administrador ativou a redefinição de senha para sua organização, mas você não se registrou para usar o serviço. Para se inscrever na redefinição de senha, consulte um dos artigos a seguir, com base no seu método de verificação: [Configure informações de segurança para usar um aplicativo do autenticador (visualização)](security-info-setup-auth-app.md), [Configure informações de segurança para usar uma ligação (versão prévia)](security-info-setup-phone-number.md), [Configure informações de segurança para usar mensagens de texto (versão prévia)](security-info-setup-text-msg.md), [Configure informações de segurança para usar e-mail (versão prévia)](security-info-setup-email.md) ou [Configurar informações de segurança para usar questões de segurança (versão prévia)](security-info-setup-questions.md).<br><br>2. o administrador não ativou a redefinição de senha para sua organização. Nessa situação, você deve selecionar o "contatar um link de administrador" para enviar um e-mail ao seu administrador, pedindo para redefinir sua senha.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre as informações de segurança no artigo [Visão geral da informação de segurança (visualização)](user-help-security-info-overview.md).
 

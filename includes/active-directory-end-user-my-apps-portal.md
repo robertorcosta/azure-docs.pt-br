@@ -5,17 +5,17 @@ services: active-directory
 author: eross-msft
 ms.service: active-directory
 ms.topic: include
-ms.date: 03/06/2019
+ms.date: 02/03/2020
 ms.author: lizross
 ms.custom: include file
-ms.openlocfilehash: c7f3fec478067a9b321d8c7bc5e371f5a6a330cb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: df529de23b5d964dd80dd9fa5dd17c460a2c4f28
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75467568"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77062363"
 ---
 | |
 |--|
-|Se o administrador ativar a nova experiência de versão prévia dos **Meus Aplicativos** para sua organização, agora você verá uma faixa na parte superior da página **Meus Aplicativos** com a mensagem **Uma experiência atualizada dos Meus Aplicativos está disponível**. Se você selecionar **Experimentar**, acessará imediatamente a nova URL (myapplications.microsoft.com) e a experiência atualizada. Depois disso, toda vez que retornar à página **Meus Aplicativos**, você acessará automaticamente a nova experiência.<br><br>Para deixar de usar a nova experiência, selecione **Sim** na faixa **Sair da nova experiência** na parte superior da nova página **Meus Aplicativos**. Você retornará imediatamente à URL (myapps.microsoft.com) e à experiência antigas. Depois disso, toda vez que retornar à página **Meus Aplicativos**, você acessará automaticamente a experiência antiga.|
+|Se o administrador tiver ativado a nova experiência de visualização **meus aplicativos** para sua organização, você verá um link quando selecionar o ícone de conta para exibir as informações da sua conta na parte superior da página **meus aplicativos** . Se você selecionar **experimentar a nova experiência meus aplicativos!** , acessará imediatamente a nova URL (https://myapplications.microsoft.com) e a experiência atualizada. Depois disso, ao retornar para a página **meus aplicativos** , você irá automaticamente para a nova experiência.<br><br>Para parar de usar a nova experiência, você pode selecionar **deixar experiência de visualização** ao selecionar o ícone de conta para exibir as informações da conta na parte superior da página **meus aplicativos** . Você retornará imediatamente à URL (myapps.microsoft.com) e à experiência antigas. Depois disso, toda vez que retornar à página **Meus Aplicativos**, você acessará automaticamente a experiência antiga.|
 |

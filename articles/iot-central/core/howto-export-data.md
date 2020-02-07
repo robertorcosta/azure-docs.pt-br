@@ -8,12 +8,12 @@ ms.date: 01/30/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 058fe9aea87879fe85dcbc6dcb864fd841fcb049
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a3d60bf38c4a9dad13dacf8ba9798c4078c1df1a
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026790"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049737"
 ---
 # <a name="export-your-azure-iot-central-data"></a>Exportar os dados de IoT Central do Azure
 
@@ -29,7 +29,7 @@ Este artigo descreve como usar o recurso de exportação de dados contínuos no 
 > [!Note]
 > Ao ativar a exportação contínua de dados, você obtém apenas os dados desse momento em diante. Atualmente, não é possível recuperar dados por um tempo quando a exportação contínua de dados for desativada. Para reter dados mais históricos, ative a exportação contínua de dados no início.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Você deve ser um administrador em seu aplicativo IoT Central ou ter permissões de exportação de dados.
 
@@ -47,7 +47,7 @@ Se você não tiver um namespace de hubs de eventos existente para exportar para
 
 3. Crie um hub de eventos em seu namespace dos Hubs de Eventos. Acesse o namespace e selecione **+ Hub de Eventos** na parte superior para criar uma instância de hub de eventos.
 
-### <a name="create-service-bus-namespace"></a>Criar um namespace do Barramento de Serviço
+### <a name="create-service-bus-namespace"></a>Criar um namespace do barramento de serviço
 
 Se você não tiver um namespace do barramento de serviço existente para exportar para o, siga estas etapas:
 
@@ -62,10 +62,14 @@ Quando você escolhe o barramento de serviço como um destino de exportação, a
 
 Se você não tiver uma conta de armazenamento do Azure existente para a qual exportar, siga estas etapas:
 
-1. Crie uma [conta de armazenamento no portal do Azure](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Você pode saber mais sobre como criar novas [contas de armazenamento de BLOBs do Azure](https://aka.ms/blobdocscreatestorageaccount) ou [contas de armazenamento Azure data Lake Storage v2](../../storage/blobs/data-lake-storage-quickstart-create-account.md).
+1. Crie uma [conta de armazenamento no portal do Azure](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Você pode saber mais sobre como criar novas [contas de armazenamento de BLOBs do Azure](https://aka.ms/blobdocscreatestorageaccount) ou [contas de armazenamento Azure data Lake Storage v2](../../storage/blobs/data-lake-storage-quickstart-create-account.md). A exportação de dados só pode gravar dados em contas de armazenamento que dão suporte a blobs de blocos. A seguir está uma lista de tipos compatíveis conhecidos de contas de armazenamento: 
 
-    - Se você optar por exportar dados para uma conta de armazenamento Azure Data Lake Storage v2, deverá escolher **BlobStorage** como o **tipo de conta**.
-    - Você pode exportar dados para contas de armazenamento em assinaturas diferentes daquela para seu aplicativo IoT Central. Você se conectará usando uma cadeia de conexão, nesse caso.
+    |Nível de desempenho|Tipo de Conta|
+    |-|-|
+    |Standard|Uso Geral v2|
+    |Standard|Uso Geral v1|
+    |Standard|Armazenamento de Blobs|
+    |Premium|Armazenamento de blobs de blocos|
 
 2. Crie um contêiner em sua conta de armazenamento. Vá até sua conta de armazenamento. Em **Serviço Blob**, selecione **Procurar Blobs**. Selecione **+ Contêiner** na parte superior para criar um contêiner.
 
@@ -104,7 +108,7 @@ Agora que você tem um destino para exportar dados para o, siga estas etapas par
 
 7. Em **dados a serem exportados**, escolha os tipos de dados a serem exportados definindo o tipo como **ativado**.
 
-8. Para ativar a exportação de dados contínuas, **Verifique se a**opção **habilitado** está ativada. Clique em **Salvar**.
+8. Para ativar a exportação de dados contínuas, **Verifique se a**opção **habilitado** está ativada. Selecione **Salvar**.
 
 9. Depois de alguns minutos, seus dados aparecerão no destino escolhido.
 
@@ -749,7 +753,7 @@ Para **modelos de dispositivo**, as diferenças notáveis entre o formato de dad
   }
 }
 ```
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Agora que você sabe como exportar seus dados para os hubs de eventos do Azure, o barramento de serviço do Azure e o armazenamento de BLOBs do Azure, vá para a próxima etapa:
 

@@ -1,5 +1,6 @@
 ---
-title: Escolher o método de autenticação certo para sua solução de identidade híbrida do Azure AD | Microsoft Docs
+title: Autenticação para soluções de identidade híbrida do Azure AD
+titleSuffix: Active Directory
 description: Este guia ajuda Presidentes de empresas, Diretores de Informática, Arquitetos de identidade, Arquitetos corporativos e os responsáveis pelas decisões de TI e de segurança, a escolher um método de autenticação para sua solução de identidade híbrida do Azure AD em organizações de médio a grande porte.
 keywords: ''
 author: martincoetzer
@@ -9,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 2865ce640389c0250f14a53088a94aff15ddf1c8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f32980b736232449d24de8721f354d9ca5dd03ab
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460675"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064420"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação certo para sua solução de identidade híbrida do Azure Active Directory
 
@@ -214,7 +215,7 @@ Este artigo descreve várias opções de autenticação que as organizações po
 
 Considere cada método de autenticação. O esforço para implantar a solução e a experiência do usuário do processo de entrada atende aos seus requisitos de negócios? Avalie se a organização precisa dos cenários avançados e dos recursos de continuidade dos negócios de cada método de autenticação. Por fim, avalie as considerações de cada método de autenticação. Algum deles impede a implementação de sua escolha?
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Atualmente, as ameaças estão presentes 24 horas por dia e vêm de qualquer lugar. Implemente o método de autenticação correto e isso atenuará os riscos de segurança e protegerá as identidades.
 

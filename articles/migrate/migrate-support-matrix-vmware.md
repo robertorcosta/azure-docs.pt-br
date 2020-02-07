@@ -3,18 +3,18 @@ title: Suporte de avaliação do VMware nas migrações para Azure
 description: Saiba mais sobre o suporte de avaliação do VMware nas migrações para Azure.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 8ed20ecd37eacdcb771db7c166ff8fc22b96cb89
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2fab94b66e09d3923e481326b3650f1beb621dc4
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846183"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048758"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação do VMware 
 
 Este artigo resume as configurações de suporte e as limitações para avaliar as VMs do VMware com as [migrações para Azure: avaliação do servidor](migrate-services-overview.md#azure-migrate-server-migration-tool). Se você estiver procurando informações sobre como migrar VMs VMware para o Azure, examine a [matriz de suporte de migração](migrate-support-matrix-vmware-migration.md).
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Para avaliar as máquinas locais para migração para o Azure com este artigo, você adiciona a ferramenta migrações do Azure: Server Assessment a um projeto de migrações para Azure. Você implanta o [dispositivo migrações para Azure](migrate-appliance.md). O dispositivo descobre continuamente computadores locais e envia dados de configuração e desempenho para o Azure. Após a descoberta de máquina, você coleta computadores descobertos em grupos e executa uma avaliação de um grupo.
 
@@ -96,7 +96,7 @@ Esta opção está atualmente em versão prévia. [Saiba mais](how-to-create-gro
 **Suporte de VM** | Atualmente com suporte somente para VMs VMware.
 **VMs do Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bits)
 **VMs do Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14, 4, 16, 4<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
-**Conta do Windows** |  A visualização precisa de uma conta de usuário com acesso de convidado.
+**Conta do Windows** |  A visualização precisa de uma conta de administrador local ou de domínio.
 **Conta do Linux** | A visualização precisa de uma conta de usuário com privilégio de raiz.<br/><br/> Como alternativa, a conta de usuário precisa dessas permissões em arquivos/bin/netstat e/bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.
 **Agentes de VM** | Nenhum agente é necessário nas VMs.
 **Ferramentas do VMware** | As ferramentas do VMware devem ser instaladas e executadas em VMs que você deseja analisar.
@@ -105,7 +105,7 @@ Esta opção está atualmente em versão prévia. [Saiba mais](how-to-create-gro
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Examine](best-practices-assessment.md) as práticas recomendadas para a criação de avaliações.
 - [Prepare-se para a avaliação do VMware](tutorial-prepare-vmware.md) .

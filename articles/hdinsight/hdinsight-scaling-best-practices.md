@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/22/2019
-ms.openlocfilehash: 0649908e4767e48d23306c72b8db92dea9f26284
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.date: 02/05/2020
+ms.openlocfilehash: 035f819cfaad82373f7cb55a7bb2d14fc53bb49b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030908"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064624"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Dimensionar clusters do Azure HDInsight
 
@@ -29,7 +29,7 @@ Você pode dimensionar um cluster manualmente usando um dos métodos descritos a
 
 A Microsoft fornece os seguintes utilitários para dimensionar clusters:
 
-|Utilitário | Descrição|
+|Utilitário | DESCRIÇÃO|
 |---|---|
 |[AZ do PowerShell](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -clustername \<nome do cluster >-TargetInstanceCount \<newSize >|
 |[AzureRM do PowerShell](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -clustername \<nome do cluster >-TargetInstanceCount \<newSize >|
@@ -217,6 +217,10 @@ Se os clusters ficarem presos no modo de segurança com frequência ao reduzir v
 
 Reter três nós de trabalho é mais dispendioso do que escalar verticalmente para apenas um nó de trabalho, mas impedirá que o cluster fique preso no modo de segurança.
 
+### <a name="scale-hdinsight-down-to-one-worker-node"></a>Dimensionar o HDInsight para um nó de trabalho
+
+Mesmo quando o cluster for reduzido para um nó, o nó de trabalho 0 ainda será sobrevivente. O nó de trabalho 0 nunca pode ser encerrado.
+
 #### <a name="run-the-command-to-leave-safe-mode"></a>Executar o comando para sair do modo de segurança
 
 A opção final é executar o comando sair do modo de segurança. Se você souber que o motivo para o HDFS entrar no modo de segurança é devido ao arquivo de Hive em replicação, você poderá executar o seguinte comando para sair do modo de segurança:
@@ -243,7 +247,7 @@ Os servidores de região são balanceados automaticamente em alguns minutos apó
     balancer
     ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Dimensionar automaticamente os clusters do Azure HDInsight](hdinsight-autoscale-clusters.md)
 * [Introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md)

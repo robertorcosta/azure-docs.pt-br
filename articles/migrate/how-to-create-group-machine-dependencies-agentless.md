@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: ff267aabe2f9e4cec38c307fe4382a84ba6d62df
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: c8ddd343cd00b24506382521361ebad33ad112a7
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76288941"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049768"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Configurar a visualização de dependência sem agente para avaliação
 
@@ -62,7 +62,7 @@ A visualização de dependência sem agente não exige a instalação de agentes
 
 Configure uma conta de usuário que tenha as permissões necessárias para que a avaliação do servidor possa acessar a VM para descoberta. Você pode especificar uma conta de usuário.
 
-- **Permissão necessária em VMs do Windows**: a conta de usuário requer acesso "convidado".
+- **Permissão necessária em VMs do Windows**: a conta de usuário precisa ser um administrador local ou de domínio.
 - **Permissão necessária em VMs do Linux**: o privilégio raiz é necessário na conta. Como alternativa, a conta de usuário requer esses dois recursos em arquivos/bin/netstat e/bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.
 
 ## <a name="add-the-user-account-to-the-appliance"></a>Adicionar a conta de usuário ao dispositivo
@@ -76,7 +76,7 @@ Adicione a conta da seguinte maneira:
 3. Escolha o **sistema operacional**.
 4. Forneça um nome amigável para a conta.
 5. Forneça o **nome de usuário** e a **senha**
-6. Clique em **Save** (Salvar).
+6. Clique em **Salvar**.
 7. Clique em **salvar e iniciar descoberta**.
 
     ![Adicionar conta de usuário da VM](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
@@ -129,6 +129,6 @@ Escolha os computadores nos quais você deseja parar a descoberta de dependênci
 5. Clique em **remover servidores**.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Agrupar os computadores](how-to-create-a-group.md)

@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 72fd23e4283925b91d749fef0afac4e87e93405c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: cba8a4fd64b948d7a3e443426ca1f779af68a3fe
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841621"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049017"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Traga sua própria chave para Apache Kafka no Azure HDInsight
 
@@ -89,15 +89,19 @@ O HDInsight é compatível apenas com o Azure Key Vault. Se você tiver seu pró
 
     ![Definir permissões de chave para policy2 acesso de Azure Key Vault](./media/apache-kafka-byok/add-key-vault-access-policy-secrets.png "Definir permissões de chave para policy2 acesso de Azure Key Vault")
 
-    e. Clique em **Salvar**.
+    e. Selecione **Salvar**.
 
     ![Salvar política de acesso de Azure Key Vault](./media/apache-kafka-byok/add-key-vault-access-policy-save.png)
 
 ## <a name="create-hdinsight-cluster"></a>Criar cluster HDInsight
 
-Agora você está pronto para criar um novo cluster do HDInsight. O BYOK pode ser aplicado apenas a novos clusters durante a criação do cluster. Não é possível remover a criptografia de clusters de BYOK e o BYOK não pode ser adicionado a clusters existentes.
+Agora você está pronto para criar um novo cluster do HDInsight. Na guia **noções básicas** , selecione **Kafka** para o **tipo de cluster**.
 
-![Criptografia de disco do Kafka no portal do Azure](./media/apache-kafka-byok/azure-portal-cluster-security-networking-kafka.png)
+![portal do Azure selecionar o tipo Kafka](./media/apache-kafka-byok/azure-portal-cluster-basics-type-kafka.png)
+
+O BYOK pode ser aplicado apenas a novos clusters durante a criação do cluster. Não é possível remover a criptografia de clusters de BYOK e o BYOK não pode ser adicionado a clusters existentes.
+
+![Criptografia de disco do Kafka no portal do Azure](./media/apache-kafka-byok/azure-portal-cluster-security-networking-kafka-byok.png)
 
 Durante a criação do cluster, forneça a URL completa, incluindo a versão da chave. Por exemplo, `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Você também precisa atribuir a identidade gerenciada ao cluster e fornecer o URI da chave. Para obter detalhes completos de criação de cluster, consulte [criar Apache Hadoop clusters usando o portal do Azure](./apache-kafka-get-started.md)
 
@@ -149,7 +153,7 @@ Sim. O cluster precisa acessar a chave no cofre de chaves durante ao escalar ver
 
 O BYOK do Kafka está disponível em todas as nuvens públicas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para obter mais informações sobre o Azure Key Vault, consulte [O que é o Azure Key Vault?](../../key-vault/key-vault-overview.md)
 * Para começar a usar o Azure Key Vault, consulte [Introdução ao Azure Key Vault](../../key-vault/key-vault-overview.md).

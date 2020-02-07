@@ -11,13 +11,13 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 12/23/2019
-ms.openlocfilehash: 48d4df5684c84e195810439912dd610f5af364d4
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.date: 02/06/2020
+ms.openlocfilehash: b20a615691d95c04574e2909f69b5a83a97f9d14
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964474"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048943"
 ---
 # <a name="configure-self-hosted-ir-as-a-proxy-for-azure-ssis-ir-in-adf"></a>Configurar o IR auto-hospedado como um proxy para Azure-SSIS IR no ADF
 
@@ -149,9 +149,9 @@ As segunda tarefas de preparo em execução no seu Azure-SSIS IR não serão cob
 
 ## <a name="current-limitations"></a>Limitações atuais
 
-- No momento, só há suporte para tarefas de fluxo de dados com gerenciadores de conexões ODBC/OLEDB/Flat File e fontes de arquivo de ODBC/OLEDB/Flat. 
+- Só há suporte para tarefas de fluxo de dados com gerenciadores de conexões de arquivo simples e ODBC/OLEDB/Flat Files e ODBC/OLEDB/fontes de arquivo simples ou destino OLEDB. 
 - Somente os serviços vinculados do armazenamento de BLOBs do Azure configurados com **chave de conta**/**URI de SAS**/autenticação de entidade de **serviço** atualmente têm suporte
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Depois de configurar o seu IR via hospedagem interna como proxy para seu Azure-SSIS IR, você pode implantar e executar seus pacotes para acessar dados localmente como atividades de execução de pacote SSIS em pipelines do ADF, consulte [executar pacotes SSIS como atividades executar pacote SSIS em pipelines do ADF](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).

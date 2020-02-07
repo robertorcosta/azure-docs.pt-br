@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 790a948611c6cfa336964397282a38d2b9c00e11
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 9e1cc9dde6bb2b6ae47affaed4c557f3746a681b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848775"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061447"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Perguntas frequentes sobre gerenciamento de senhas
 
@@ -36,7 +36,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 
 * **P: meus usuários podem registrar seus próprios dados de redefinição de senha?**
 
-  > **R:** Sim. Desde que a redefinição de senha esteja habilitada e eles sejam licenciados, os usuários podem ir para o portal de registro de redefinição de senha (https://aka.ms/ssprsetup) ) para registrar as informações de autenticação. Os usuários também podem registrar por meio do painel de acesso (https://myapps.microsoft.com) ). Para registrar-se por meio do Painel de Acesso, eles precisam selecionar a imagem do perfil, selecionar **Perfil** e, em seguida, selecionar a opção **Registrar-se para redefinição de senha**.
+  > **R:** Sim. Desde que a redefinição de senha esteja habilitada e eles sejam licenciados, os usuários podem ir para o portal de registro de redefinição de senha (https://aka.ms/ssprsetup)) para registrar as informações de autenticação. Os usuários também podem registrar por meio do painel de acesso (https://myapps.microsoft.com)). Para registrar-se por meio do Painel de Acesso, eles precisam selecionar a imagem do perfil, selecionar **Perfil** e, em seguida, selecionar a opção **Registrar-se para redefinição de senha**.
   >
   >
 * **P: se habilitar a redefinição de senha para um grupo e, em seguida, optar por habilitá-la para todos, meu usuários deverão se registrar novamente?**
@@ -114,7 +114,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P: como eu instruo os usuários sobre onde acessar para redefinir as suas senhas?**
 
-  > **R:** tente alguma das sugestões em nosso artigo [Implantação do SSPR](howto-sspr-deployment.md#communications-plan).
+  > **R:** tente alguma das sugestões em nosso artigo [Implantação do SSPR](howto-sspr-deployment.md#plan-communications).
   >
   >
 * **P: posso usar essa página em um dispositivo móvel?**
@@ -174,7 +174,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P: se um usuário tiver registrado mais do que o número máximo de perguntas obrigatórias para a redefinição, como as perguntas de segurança serão selecionadas durante a redefinição?**
 
-  > **R:** *X* perguntas de segurança são selecionadas aleatoriamente do número total de perguntas que um usuário registrou, em que *X* é a quantidade que é definida para a opção **Número de perguntas obrigatórias para a redefinição**. Por exemplo, se um usuário tiver registrado cinco perguntas de segurança, mas apenas três forem necessárias para redefinir uma senha, três das cinco perguntas serão selecionadas aleatoriamente e serão apresentadas na reinicialização. Se o usuário der respostas erradas, o processo de seleção ocorrerá novamente para evitar hammering de perguntas.
+  > **R:** *N* número de perguntas de segurança são selecionadas aleatoriamente do número total de perguntas que um usuário registrou, em que *N* é o valor definido para a opção **número de perguntas obrigatórias para redefinir** . Por exemplo, se um usuário tiver registrado cinco perguntas de segurança, mas apenas três forem necessárias para redefinir uma senha, três das cinco perguntas serão selecionadas aleatoriamente e serão apresentadas na reinicialização. Se o usuário der respostas erradas, o processo de seleção ocorrerá novamente para evitar hammering de perguntas.
   >
   >
 * **P: por quanto tempo vale a senha de uso único por email e SMS?**
@@ -277,7 +277,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
   >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Como concluir uma implementação do SSPR com êxito?](howto-sspr-deployment.md)
 * [Redefinir ou alterar sua senha](../user-help/active-directory-passwords-update-your-own-password.md)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 309af904f0dbfc0664c4341803cb6a4dc8a2c8a4
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 23c292a950deea262ee063b4141b07a4f64f9f84
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839277"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061302"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Usar Data Lake Storage Gen1 com clusters Azure HDInsight
 
@@ -210,7 +210,7 @@ LOCATION 'adl:///example/data/';
 LOCATION '/example/data/';
 ```
 
-## <a name="identify-storage-path-from-abmari"></a>Identificar o caminho de armazenamento do Abmari
+## <a name="identify-storage-path-from-ambari"></a>Identificar o caminho de armazenamento do Ambari
 
 Para identificar o caminho completo para o repositório padrão configurado, navegue até **HDFS** > **configurações** e insira `fs.defaultFS` na caixa de entrada de filtro.
 

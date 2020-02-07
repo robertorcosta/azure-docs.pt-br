@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o TheOrgWiki para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: configurar o TheOrgWiki para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o TheOrgWiki.
 services: active-directory
 documentationcenter: ''
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: f691b3e80bdde546074b9f243add82ace00c6301
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 2b0b11ae89e1f0d150b84f49b04a8badcb44e82c
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576375"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063128"
 ---
-# <a name="tutorial-configure-theorgwiki-for-automatic-user-provisioning"></a>Tutorial: Configurar o TheOrgWiki para provisionamento automático de usuário
+# <a name="tutorial-configure-theorgwiki-for-automatic-user-provisioning"></a>Tutorial: configurar o TheOrgWiki para o provisionamento automático de usuário
 
 O objetivo deste tutorial é demonstrar as etapas a serem executadas no TheOrgWiki e no Azure Active Directory (Azure AD) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos no TheOrgWiki.
 
 > [!NOTE]
-> Este tutorial descreve um conector compilado na parte superior do Serviço de Provisionamento de Usuário do Microsoft Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../manage-apps/user-provisioning.md).
+> Este tutorial descreve um conector compilado na parte superior do Serviço de Provisionamento de Usuário do Microsoft Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> Atualmente, esse conector está em versão prévia pública. Para obter mais informações sobre os termos de uso geral de Microsoft Azure para recursos de visualização, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Atualmente, esse conector está em versão prévia pública. Para obter mais informações sobre os Termos de uso gerais do Microsoft Azure para a versão prévia de recursos, confira [Termos de uso adicionais para versões prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
@@ -69,7 +69,7 @@ Antes de configurar o TheOrgWiki para o provisionamento automático de usuário 
 
     ![TheOrgWiki adicionar SCIM](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
 
-4. Clique em **+ conta de serviço**. Em **tipo de conta de serviço**, selecione **baseado em token**. Clique em **Salvar**.
+4. Clique em **+ conta de serviço**. Em **tipo de conta de serviço**, selecione **baseado em token**. Clique em **Save** (Salvar).
 
     ![TheOrgWiki adicionar SCIM](media/theorgwiki-provisioning-tutorial/auth.png)
 
@@ -120,7 +120,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 ### <a name="to-configure-automatic-user-provisioning-for-theorgwiki-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para TheOrgWiki no Azure AD:
 
-1. Entre no [Portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Entre no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -136,12 +136,12 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Guia provisionamento](common/provisioning-automatic.png)
 
-5. Na seção **credenciais de administrador** , insira `https://<TheOrgWiki Subdomain        value>.theorgwiki.com/api/v2/scim/v2/` a **URL de locatário**. 
+5. Na seção **credenciais de administrador** , insira `https://<TheOrgWiki Subdomain        value>.theorgwiki.com/api/v2/scim/v2/` na **URL do locatário**. 
 
     Exemplo: `https://test1.theorgwiki.com/api/v2/scim/v2/`
 
 > [!NOTE]
-> O **valor** de subdomínio só pode ser definido durante o processo de inscrição inicial para TheOrgWiki.
+> O **valor de subdomínio** só pode ser definido durante o processo de inscrição inicial para TheOrgWiki.
  
 6. Insira o valor do token no campo de **token secreto** que você recuperou anteriormente de TheOrgWiki. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao TheOrgWiki. Se a conexão falhar, verifique se sua conta do TheOrgWiki tem permissões de administrador e tente novamente.
 
@@ -149,9 +149,9 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 7. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
 
-    ![Email de Notificação](common/provisioning-notification-email.png)
+    ![Email de notificação](common/provisioning-notification-email.png)
 
-8. Clique em **Salvar**.
+8. Clique em **Save** (Salvar).
 
 9. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para TheOrgWiki**.
 
@@ -161,11 +161,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Atributos de usuário do TheOrgWiki](media/theorgwiki-provisioning-tutorial/userattribute.png).
 
-11. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+11. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 12. Para habilitar o serviço de provisionamento do Azure AD para o TheOrgWiki, altere o **status de provisionamento** para **ativado** na seção **configurações** .
 
-    ![Status de provisionamento alternado em](common/provisioning-toggle-on.png)
+    ![Status do provisionamento ativado](common/provisioning-toggle-on.png)
 
 13. Defina os usuários e/ou grupos que você deseja provisionar para o OrgWiki escolhendo os valores desejados no **escopo** na seção **configurações** .
 
@@ -173,17 +173,17 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 14. Quando estiver pronto para provisionar, clique em **Salvar**.
 
-    ![Salvando configuração de provisionamento](common/provisioning-configuration-save.png)
+    ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes. Para obter mais informações sobre quanto tempo levará para o provisionamento de usuários e/ou grupos, consulte [quanto tempo levará para provisionar usuários](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes. Para obter mais informações sobre quanto tempo levará para o provisionamento de usuários e/ou grupos, consulte [quanto tempo levará para provisionar usuários](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-Você pode usar a seção **status atual** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no TheOrgWiki. Para obter mais informações, consulte [verificar o status do provisionamento do usuário](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md). Para ler os logs de provisionamento do Azure AD, consulte [relatórios sobre o provisionamento automático de conta de usuário](../manage-apps/check-status-user-account-provisioning.md).
+Você pode usar a seção **status atual** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no TheOrgWiki. Para obter mais informações, consulte [verificar o status do provisionamento do usuário](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Para ler os logs de provisionamento do Azure AD, consulte [relatórios sobre o provisionamento automático de conta de usuário](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md).
+* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md).
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba como fazer revisão de logs e obter relatórios sobre a atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md).
+* [Saiba como fazer revisão de logs e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md).

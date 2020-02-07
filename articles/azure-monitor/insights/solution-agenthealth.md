@@ -6,18 +6,18 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/19/2017
-ms.openlocfilehash: cbeaa3e148d6fbe20d7ddb4d04cd00d6300f9818
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/06/2020
+ms.openlocfilehash: 9a7cb80b5510ff0ac4a2491d896aded866180c19
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402438"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062125"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Integridade do Agente solução no Azure Monitor
 A solução Integridade do Agente no Azure ajuda você a entender, para todos os agentes que se reportam diretamente ao espaço de trabalho Log Analytics no Azure Monitor ou um grupo de gerenciamento System Center Operations Manager conectado a Azure Monitor, que não respondem e enviando dados operacionais.  Você pode também manter controle de quantos agentes estão implantados, onde eles estão distribuídos geograficamente e executam outras consultas para saber a distribuição dos agentes implantados no Azure, em outros ambientes de nuvem ou no local.    
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Antes de implantar essa solução, confirme se você tem suporte no momento [agentes do Windows](../../log-analytics/log-analytics-windows-agent.md) relatórios no espaço de trabalho do Log Analytics ou em relatórios para um [grupo de gerenciamento do Operations Manager](../../azure-monitor/platform/om-agents.md) integrado com seu espaço de trabalho.
 
 ## <a name="solution-components"></a>Componentes da solução
@@ -39,7 +39,7 @@ Adicione a solução de integridade do agente ao seu espaço de trabalho do Log 
 ### <a name="supported-agents"></a>Agentes com suporte
 A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução.
 
-| Fonte Conectada | Com suporte | Description |
+| Fonte Conectada | Suportado | DESCRIÇÃO |
 | --- | --- | --- |
 | Agentes do Windows | Sim | Os eventos de pulsação são coletados dos agentes diretos do Windows.|
 | Grupo de gerenciamento do System Center Operations Manager | Sim | Os eventos de pulsação são coletados dos agentes subordinados ao grupo de gerenciamento a cada 60 segundos e, em seguida, encaminhados para o Azure Monitor. Uma conexão direta de agentes de Operations Manager para Azure Monitor não é necessária. Os dados do evento de pulsação são encaminhados do grupo de gerenciamento para o espaço de trabalho Log Analytics.|
@@ -49,7 +49,7 @@ Quando você adiciona a solução ao espaço de trabalho do Log Analytics, o **i
 
 Clique no bloco **Integridade do Agente** para abrir o painel **Integridade do Agente**.  O painel inclui as colunas na tabela a seguir. Cada coluna lista os dez principais eventos por contagem que correspondem aos critérios da coluna para o intervalo de tempo especificado. É possível executar uma pesquisa de logs que fornece a lista inteira selecionando **Ver todos** no canto inferior direito de cada coluna ou clicando no cabeçalho da coluna.
 
-| Column | Description |
+| Coluna | DESCRIÇÃO |
 |--------|-------------|
 | Contagem de agentes ao longo do tempo | Uma tendência de sua contagem de agentes durante um período de sete dias para agentes do Linux e do Windows.|
 | Contagem de agentes sem resposta | Uma lista de agentes que ainda não enviou uma pulsação nas últimas 24 horas.|
@@ -68,7 +68,7 @@ A solução cria um tipo de registro no espaço de trabalho do Log Analytics.
 ### <a name="heartbeat-records"></a>Registros de pulsação
 Um registro com o tipo **pulsação** é criado.  Esses registros têm as propriedades descritas na tabela a seguir.  
 
-| Propriedade | Description |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | `Type` | *Pulsação*|
 | `Category` | O valor é *Agente Direto*, *Agente SCOM* ou *o Servidor de Gerenciamento do SCOM*.|
@@ -79,7 +79,7 @@ Um registro com o tipo **pulsação** é criado.  Esses registros têm as propri
 | `Version` | Versão do agente do log Analytics ou o agente do Operations Manager.|
 | `SCAgentChannel` | O valor é *Direct* e/ou *SCManagementServer*.|
 | `IsGatewayInstalled` | Se o Log de análise de Gateway estiver instalado, o valor é *verdadeira*, caso contrário, o valor é *falso*.|
-| `ComputerIP` | Endereço IP do computador.|
+| `ComputerIP` | O endereço IP público do computador. Em VMs do Azure, isso mostrará o IP público, se houver um disponível. Para VMs que usam IPs privados, isso exibirá o endereço SNAT do Azure (não o endereço IP privado). |
 | `RemoteIPCountry` | Localização geográfica onde o computador está implantado.|
 | `ManagementGroupName` | Nome do grupo de gerenciamento do Operations Manager.|
 | `SourceComputerId` | ID exclusiva do computador.|
@@ -91,7 +91,7 @@ Cada agente que se reporta a um servidor de gerenciamento de Operations Manager 
 ## <a name="sample-log-searches"></a>Pesquisas de log de exemplo
 A tabela a seguir fornece pesquisas de log de exemplo para os registros coletados por essa solução.
 
-| Consulta | Description |
+| Consulta | DESCRIÇÃO |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |Número total de agentes |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Contagem de agentes sem resposta nas últimas 24 horas |
@@ -109,6 +109,6 @@ A tabela a seguir fornece pesquisas de log de exemplo para os registros coletado
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [alertas no Azure monitor](../platform/alerts-overview.md) para obter detalhes sobre como gerar alertas de consultas de log. 

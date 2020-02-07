@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/18/2019
+ms.date: 02/05/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3d9316f42c8d0ac5b44cda2e484ca4c92110813d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2bda00924015bf5abc616b7c346eacfeda53c2ed
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479144"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77045949"
 ---
 # <a name="custom-email-verification-in-azure-active-directory-b2c"></a>Verificação de email personalizada no Azure Active Directory B2C
 
@@ -391,7 +391,37 @@ Para obter mais informações, consulte [perfil técnico autodeclarado](restful-
 </ClaimsProvider>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="optional-localize-your-email"></a>Adicional Localize seu email
+
+Para localizar o email, você deve enviar cadeias de caracteres localizadas para SendGrid ou seu provedor de email. Por exemplo, para localizar o assunto do email, o corpo, a mensagem de código ou a assinatura do email. Para fazer isso, você pode usar a transformação declarações [GetLocalizedStringsTransformation](string-transformations.md) para copiar cadeias de caracteres localizadas em tipos de declaração. Na transformação declarações de `GenerateSendGridRequestBody`, que gera a carga JSON, o usa declarações de entrada que contêm as cadeias de caracteres localizadas.
+
+1. Em sua política, defina as seguintes declarações de cadeia de caracteres: assunto, mensagem, codeIntro e assinatura.
+1. Defina uma transformação de declarações [GetLocalizedStringsTransformation](string-transformations.md) para substituir os valores de cadeia de caracteres localizados nas declarações da etapa 1.
+1. Altere a transformação declarações de `GenerateSendGridRequestBody` para usar declarações de entrada com o trecho de código XML a seguir.
+1. Atualize seu modelo SendGrind para usar parâmetros dinâmicos no lugar de todas as cadeias de caracteres que serão localizadas por Azure AD B2C.
+
+```XML
+<ClaimsTransformation Id="GenerateSendGridRequestBody" TransformationMethod="GenerateJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
+    <InputClaim ClaimTypeReferenceId="subject" TransformationClaimType="personalizations.0.dynamic_template_data.subject" />
+    <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="personalizations.0.dynamic_template_data.otp" />
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.dynamic_template_data.email" />
+    <InputClaim ClaimTypeReferenceId="message" TransformationClaimType="personalizations.0.dynamic_template_data.message" />
+    <InputClaim ClaimTypeReferenceId="codeIntro" TransformationClaimType="personalizations.0.dynamic_template_data.codeIntro" />
+    <InputClaim ClaimTypeReferenceId="signature" TransformationClaimType="personalizations.0.dynamic_template_data.signature" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="template_id" DataType="string" Value="d-1234567890" />
+    <InputParameter Id="from.email" DataType="string" Value="my_email@mydomain.com" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="sendGridReqBody" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Você pode encontrar um exemplo de uma política de verificação de email personalizada no GitHub:
 

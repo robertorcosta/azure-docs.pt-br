@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9519aaf7b57f5f4fbafa7248d3d524aea5d22c46
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 8dcbfe7a47dba5a1783d6010d41e33073bc0bb20
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922414"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048913"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Cobertura de mobilidade do Azure Maps
 
-O [serviço de mobilidade](https://aka.ms/AzureMapsMobilityService) do Azure Maps permite a funcionalidade de trânsito público, compartilhamento de bicicletas e roteamento de compartilhamento de motocicleta com opções de planejamento de viagem multimodal. Para o trânsito público, o serviço oferece pesquisa por estações, interrupções e linhas próximas e fornece informações como as entradas de trânsito públicas agendadas e em tempo real, lista de interrupções e guias de rota, bem como itinerários passo a passo detalhados e multimodals e alertas de serviço. O serviço de mobilidade também retorna informações de disponibilidade estáticas e em tempo real para veículos de compartilhamento de carros e bicicletas compartilhadas e scooters.
+O Azure Maps oferece um [serviço de mobilidade](https://aka.ms/AzureMapsMobilityService). O serviço de mobilidade melhora o tempo de desenvolvimento de aplicativos com recursos de trânsito públicos, de bicicletas e de compartilhamento de motocicleta. Ele oferece uma opção para rotear com opções de planejamento de viagem de multimodal. Os recursos para trânsito público incluem pesquisa de estações próximas, pesquisa por interrupções, pesquisa de linhas de trânsito, recuperação de informações de agenda, recuperação de entradas de trânsito em tempo real e guias de lista e paradas. O serviço retorna informações de disponibilidade estáticas e em tempo real para veículos compartilhados, como carros, bicicletas e scooters. A API retorna roteiros detalhados e multimodals passo a passo e alertas de serviço.
 
-O mapas do Azure não tem o mesmo nível de informações e precisão para todas as cidades e países/regiões. A capacidade de chamar dados de trânsito depende da cidade e os dados podem não incluir todas as opções de trânsito público e as agências que servem a cidade.
+O mapas do Azure não tem o mesmo nível de informações e precisão para todas as cidades e países/regiões. A capacidade de chamar dados de trânsito depende da cidade. Os dados podem não incluir todas as opções de trânsito público e as agências que servem a cidade.
 
 A tabela a seguir fornece informações de cobertura para o serviço de mobilidade do Azure Maps.
 
@@ -30,7 +30,7 @@ A tabela a seguir fornece informações de cobertura para o serviço de mobilida
 
 ## <a name="americas"></a>Américas
 
-| País/região |  Cidade (área de metrô) |
+| País/Região |  Cidade (área de metrô) |
 |----------------|---------|
 | Argentina       | <p>Bahía Blanca, Buenos Aires, Caleta Olivia, Chivilcoy, comcheiroe Rivadavia, nicaraguense, Corrientes, General RsFilter, La Rioja, Mar del Plata, Mendoza, Miramar, Neuquén, Oberá, Olavarría, Paraná, Posadas, Rio Tercero, Rosario, salta, San Carlos de Bariloche, San Luis, San Pedro, Santa Fe, Tandil, Ushuaia, Victoria, Villa María</p>|
 | Barbados       |  Barbados |
@@ -52,7 +52,7 @@ A tabela a seguir fornece informações de cobertura para o serviço de mobilida
 
 ## <a name="asia-pacific"></a>Pacífico Asiático
 
-| País/região |  Cidade (área de metrô) |
+| País/Região |  Cidade (área de metrô) |
 |--------|---------|
 | Austrália      | <p>Adelaide, Alice molas, Bowen, Brisbane, Bundaberg QLD, Burne, Cairns, Camberra, Darwin, Gladstone, Hobart, Innisfail, Launceston, Mackay nesta, ilha magnética, Maryborough-Hervey Bay, Melbourne, novo Sul Gales, Perth, RockHampton, sudeste do Sul Queensland, Sydney, Toowoomba, Townsville, Victoria, Warwick, Yeppoon</p> |
 | China | <p> Changchun, Changsha, Chengdu, Chonquim, Dalian, Datong, Dongguan, Hangzhou, Jiangyin, Jinan, Nanquim, Nantong, Ningbo, Pingdingshan, Qingdao, Shenyang, Suzhou, Tangshan, Tianjin, Weifang, Wuhan, Wuxi, Yantai, Yixing, Zhuhai, Xangai, Pequim, Guangzhou, Shenzhen, Zhengzhou</P>| 
@@ -64,7 +64,7 @@ A tabela a seguir fornece informações de cobertura para o serviço de mobilida
 | Malásia | Ipoh, Johar Bahru, Kuala Lumpur, Penang |
 | Nova Zelândia | Auckland, Christchurch, Dunedin, Queenstown, Timaru, Wellington|
 | Filipinas | Manila |
-| Cingapura | Cingapura |
+| Singapura | Cingapura |
 | Coreia do Sul | Busan, Seul |
 | Taiwan | Condado de Changhua, Taipé | 
 | Tailândia | Bancoc, Chiang Mai | 
@@ -73,7 +73,7 @@ A tabela a seguir fornece informações de cobertura para o serviço de mobilida
 
 ## <a name="europe"></a>Europa
 
-| País/região |  Cidade (área de metrô) |
+| País/Região |  Cidade (área de metrô) |
 |----------------|---------|
 | Andorra        | Andorra la Vella |
 | Atenas         | Chios | 
@@ -89,11 +89,11 @@ A tabela a seguir fornece informações de cobertura para o serviço de mobilida
 | Dinamarca   | Dinamarca |
 | Estônia   | Estônia |   
 | Finlândia   | Hämeenlinna, Helsinque, Joensuu, Jyväskylä, Kajaani, Kouvola-Kotka, Kuopio, Lappeenranta, Mikkeli, Oulu, Seinäjoki, Tampere, Turku, Vaasa|
-| França    | <p>Amberieu-en-Bugey, Amiens, Angers, Annecy, Annonay, Arras, Aubenas, Bayonne, Besançon, Blois, Bordeaux, Boulogne sur Mer, Brest, Briançon, Cannes, Châlons-en-champanhe, Chartres, Clermont-Ferrand, Colmar, Dax, Dijon, Grenoble, Haguenau, La Rochelle, Le Mans, Lens, Lille, Lorient, Lyon, MACS, Marselha & Provence, Metz, Millau, Mont-de-Marsan, Montpellier, Mulhouse, Nancy, Nantes, belo, Nimes, Normandia, Nyons, Paris, Poitiers, Privas, Quimper, Rennes, Saint Malo, Saint-Étienne, Saint-Nazaire, Saintes, Sarrebourg, sete, Strasbourg, Tarbes, Toulouse, Tours</P> | 
+| France    | <p>Amberieu-en-Bugey, Amiens, Angers, Annecy, Annonay, Arras, Aubenas, Bayonne, Besançon, Blois, Bordeaux, Boulogne sur Mer, Brest, Briançon, Cannes, Châlons-en-champanhe, Chartres, Clermont-Ferrand, Colmar, Dax, Dijon, Grenoble, Haguenau, La Rochelle, Le Mans, Lens, Lille, Lorient, Lyon, MACS, Marselha & Provence, Metz, Millau, Mont-de-Marsan, Montpellier, Mulhouse, Nancy, Nantes, belo, Nimes, Normandia, Nyons, Paris, Poitiers, Privas, Quimper, Rennes, Saint Malo, Saint-Étienne, Saint-Nazaire, Saintes, Sarrebourg, sete, Strasbourg, Tarbes, Toulouse, Tours</P> | 
 | \+ Guiana francesa | Caiena |
 | \+ Nova Caledônia | Nouméa  |
 | Geórgia | Tbilisi | 
-| Alemanha | <p>Berlim, Brandenburg, Bremen & Niedersachsen, Cologne, Eisenach, Frankfurt, Hamburgo, Karlsruhe, Mainz, München-Munique, Rhein-Neckar região, Rhein-Ruhr região, Stuttgart, Titisee-Neustadt, Ulm</P> | 
+| Germany | <p>Berlim, Brandenburg, Bremen & Niedersachsen, Cologne, Eisenach, Frankfurt, Hamburgo, Karlsruhe, Mainz, München-Munique, Rhein-Neckar região, Rhein-Ruhr região, Stuttgart, Titisee-Neustadt, Ulm</P> | 
 | Grécia | <p>Atenas, Arta, Amorgos, Chania, Corfu, Chios Kos, Heraklion, Ioannina, Kavala, Kalamata, Komotini, Kos, Larissa, Meganisi, Milos, Mykonos, Patra, Rethimno, Rhodes, Santorini, Serres, Syros, Tinos, Thessaloniki, versãoa, Volos, Xanthi </P> |
 | Hungria | Budapeste, região do Condado, Szeged, Székesfehérvár |
 | Islândia | Ísland-Islândia * | 
@@ -104,7 +104,7 @@ A tabela a seguir fornece informações de cobertura para o serviço de mobilida
 | Luxemburgo | Luxemburgo |
 | Moldova | Chisinau |
 | Montenegro | Podgorica |
-| Holanda | Países Baixos |
+| Países Baixos | Países Baixos |
 | Noruega | Noruega | 
 | Polônia | <p>Wrocław, Białystok, Bydgoszcz, Elbląg, Gorzow, Kętrzyna, Krakow, Leszno, Lodz, Lublin, Mrągowo, Olsztyn, Poznań, Rzeszów, Sanok, Starachowice, Świonujście, Szczecin, Tricity, Varsóvia, Wodzisław Śląski, Wrocław, Zakopane</p> |
 | Portugal | Bragança, Coimbra, Funchal, Leiria, Lisboa, Portimao, Porto|
@@ -124,7 +124,7 @@ A tabela a seguir fornece informações de cobertura para o serviço de mobilida
 
 ## <a name="middle-east-and-africa"></a>Oriente Médio e África
 
-| País/região |  Cidade (área de metrô) |
+| País/Região |  Cidade (área de metrô) |
 |---------|---------|
 | Bahrein | Bahrein |
 | Egito | Cairo    |
@@ -134,12 +134,12 @@ A tabela a seguir fornece informações de cobertura para o serviço de mobilida
 | Marrocos | Casablanca, Khouribga, Tétouan|
 | Catar| Doha|
 | Arábia Saudita | Thuwal |
-| África do Sul | Cidade do Cabo |
+| África do Sul | Cidade do cabo |
 | Tunísia | Kairouan |
 | Emirados Árabes Unidos  | Abu Dhabi, Dubai |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba como solicitar dados de trânsito usando o serviço de mobilidade:
 

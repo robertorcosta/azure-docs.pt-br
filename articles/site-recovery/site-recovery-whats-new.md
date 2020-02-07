@@ -3,20 +3,18 @@ title: O que há de novo no Azure Site Recovery
 description: Fornece um resumo dos novos recursos e das atualizações mais recentes no serviço de Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 01/31/2020
-ms.openlocfilehash: d6aa04586c9c087a736c7e1b10b8c21328a63cab
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: cae653c9e51e2a497d6fa3781415a1f836053593
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934932"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064522"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades do Site Recovery
 
 O serviço [Azure Site Recovery](site-recovery-overview.md) é atualizado e aprimorado continuamente. Para ajudar você a se manter atualizado, este artigo fornece informações sobre as últimas versões, novos recursos e novo conteúdo. Esta página é atualizada regularmente.
 
 Você pode seguir e assinar Site Recovery notificações de atualização no canal de [atualizações do Azure](https://azure.microsoft.com/updates/?product=site-recovery) .
-
-
 
 ## <a name="supported-updates"></a>Atualizações com suporte
 
@@ -30,18 +28,18 @@ Para componentes de Site Recovery, damos suporte a versões N-4, em que N é a v
 [ROLLUP 40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 [ROLLUP 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
 
-
-
 [Saiba mais](service-updates-how-to.md) sobre a instalação e o suporte da atualização.
 
 ## <a name="updates-january-2020"></a>Atualizações (janeiro de 2020)
 
 ### <a name="update-rollup-44"></a>Pacote cumulativo de atualizações 44
+
 O [pacote cumulativo](https://support.microsoft.com/help/4538187/update-rollup-44-for-azure-site-recovery) de atualizações 44 fornece as seguintes atualizações.
 
 **Atualização** | **Detalhes**
 --- | ---
-**Correções de problemas/aprimoramentos** | Várias atualizações para Site Recovery agentes e provedores (conforme detalhado no acúmulo).
+**Provedores e agentes** | Não havia atualizações para os provedores e agentes de Site Recovery.
+**Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos, conforme detalhado no acúmulo.
 
 ### <a name="azure-vmware-disaster-recovery"></a>Recuperação de desastre do Azure VMware
 
@@ -516,6 +514,6 @@ Os recursos adicionados neste mês são resumidos na tabela.
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Mantenha-se atualizado com nossas atualizações na página [Atualizações do Azure](https://azure.microsoft.com/updates/?product=site-recovery).

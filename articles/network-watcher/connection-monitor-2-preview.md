@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: c993a08a4163d50a9632055da355e39b5bdde004
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 5dc705fbd17a12ee001e1e8de15b49e841f08b81
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026881"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049622"
 ---
-# <a name="overview"></a>Visão Geral
+# <a name="unified-connectivity-monitoring-with-connection-monitor-preview"></a>Monitoramento de conectividade unificada com o monitor de conexão (versão prévia)
 
 O monitor de conexão (versão prévia) fornece recursos unificados de monitoramento de conexão de ponta a ponta no observador de rede do Azure para implantações de nuvem híbridas e do Azure. O observador de rede do Azure fornece ferramentas para monitorar, diagnosticar e exibir métricas relacionadas à conectividade para suas implantações do Azure.
 
@@ -78,8 +78,8 @@ O _Monitor de conexão_ monitora a comunicação em intervalos regulares e infor
 
 ### <a name="accessing-connection-monitor-preview"></a>Acessando o monitor de conexão (versão prévia)
 
-1. Acesse o observador de rede usando o seguinte link:[https://ms.portal.azure.com/?Microsoft\_Azure\_Network\_connectionmonitorpreview=true#blade/Microsoft\_Azure\_Network/NetworkWatcherMenuBlade/connectionMonitorPreview](https://ms.portal.azure.com/?Microsoft_Azure_Network_connectionmonitorpreview=true#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/connectionMonitorPreview)
-2. Clique na guia "Monitor de conexão (visualização)" na seção monitoramento no painel esquerdo do observador de rede. Essa guia só estará visível se o observador de rede for acessado usando o link especificado na etapa 1.
+1. Na home page de portal do Azure, visite observador de rede
+2. Clique na guia "Monitor de conexão (visualização)" na seção monitoramento no painel esquerdo do observador de rede.
 3. Você pode ver todos os monitores de conexão que são criados usando a experiência do monitor de conexão (versão prévia). Todos os monitores de conexão criados com a experiência clássica da guia Monitor de conexão ficarão visíveis na guia Monitor de conexão.
 
     ![Criar um monitor de conexão](./media/connection-monitor-2-preview/cm-resource-view.png)
@@ -433,10 +433,10 @@ Todas as origens e destinos adicionados a um grupo de teste com a configuração
 
 | **Número do teste** | **Origem** | **Destino** | **Nome da configuração de teste** |
 | --- | --- | --- | --- |
-| 1 | A | D | Configuração 1 |
-| 2 | A | D | Configuração 2 |
-| 3 | A | E | Configuração 1 |
-| 4 | A | E | Configuração 2 |
+| 1 | Um | D | Configuração 1 |
+| 2 | Um | D | Configuração 2 |
+| 3 | Um | E | Configuração 1 |
+| 4 | Um | E | Configuração 2 |
 | 5 | B | D | Configuração 1 |
 | 6 | B | D | Configuração 2 |
 | 7 | B | E | Configuração 1 |
@@ -550,11 +550,11 @@ Para exibir as tendências das verificações com falha% e RTT para:
    5. Alterar o intervalo de tempo para exibir mais dados
    6. Você pode alterar o modo de exibição na etapa b e escolher exibir por fontes, destinos ou configurações de teste. Em seguida, escolha uma entidade para investigar os 5 principais testes com falha.  Por exemplo: escolha Exibir por: origens e destinos para investigar todos os testes que são executados entre essa combinação no monitor de conexão selecionado.
 
-3. Teste
+3. {1&gt;Testar&lt;1}
    1. Clique na configuração de origem + destino + teste que você deseja investigar em detalhes
    2. Para o intervalo de tempo selecionado, para verificações com falha, você verá os valores de limite e reais. Para o RTT msec, você verá os valores de threshold, AVG, min e Max. Você também verá alertas acionados específicos para o teste selecionado.
 
-      ![Test1](./media/connection-monitor-2-preview/test-drill.png)
+      ![Teste1](./media/connection-monitor-2-preview/test-drill.png)
 
    3. Você também pode clicar em "topologia" para ver a topologia de rede em qualquer ponto no tempo.
 
@@ -574,12 +574,12 @@ Para o monitor de conexão que foi criado antes da experiência do monitor de co
 
 Tipo de recurso-Microsoft. Network/networkWatchers/connectionMonitors
 
-| Métrica | Nome de exibição da métrica | Unidade | Tipo de agregação | Description | Dimensões |
+| Métrica | Nome de exibição da métrica | Unidade | Tipo de agregação | Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent | Porcentagem de investigações com falha | Porcentagem | Média | Porcentagem de investigações de monitoramento de conectividade com falha | Sem dimensões |
-| AverageRoundtripMs | Média de tempo de ida e volta (MS) | MilliSeconds | Média | Tempo ida e volta de rede médio (ms) para investigações de monitoramento de conectividade enviadas entre a origem e o destino |             Sem dimensões |
-| ChecksFailedPercent (visualização) | % De verificações com falha (versão prévia) | Porcentagem | Média | % das verificações com falha para um teste |Lista:-ConnectionMonitorResourceId-SourceAddress-SourceName-SourceResourceId-SourceType-Protocol-DestinationAddress-Destinationname-DestinationResourceId-DestinationType-DestinationPort-TestGroupName-TestConfigurationName- Regionais |
-| RoundTripTimeMs (visualização) | Tempo de ida e volta (MS) (visualização) | Milissegundos | Média | Tempo de ida e volta (MS) para cheques enviados entre a origem e o destino. Este valor não é de média | Lista:-ConnectionMonitorResourceId-SourceAddress-SourceName-SourceResourceId-SourceType-Protocol-DestinationAddress-Destinationname-DestinationResourceId-DestinationType-DestinationPort-TestGroupName-TestConfigurationName- Regionais |
+| ProbesFailedPercent | Porcentagem de investigações com falha | Porcentagem | Average | Porcentagem de investigações de monitoramento de conectividade com falha | Sem dimensões |
+| AverageRoundtripMs | Média de tempo de ida e volta (MS) | MilliSeconds | Average | Tempo ida e volta de rede médio (ms) para investigações de monitoramento de conectividade enviadas entre a origem e o destino |             Sem dimensões |
+| ChecksFailedPercent (visualização) | % De verificações com falha (versão prévia) | Porcentagem | Average | % das verificações com falha para um teste | * ConnectionMonitorResourceId <br> * SourceAddress <br> * SourceName <br> * SourceResourceId <br> * SourceType <br> * Protocolo <br> * DestinationAddress <br> * Destinationname <br> * DestinationResourceId <br> * DestinationType <br> * DestinationPort <br> * TestGroupName <br> * TestConfigurationName <br> * Região |
+| RoundTripTimeMs (visualização) | Tempo de ida e volta (MS) (visualização) | Milissegundos | Average | Tempo de ida e volta (MS) para cheques enviados entre a origem e o destino. Este valor não é de média | * ConnectionMonitorResourceId <br> * SourceAddress <br> * SourceName <br> * SourceResourceId <br> * SourceType <br> * Protocolo <br> * DestinationAddress <br> * Destinationname <br> * DestinationResourceId <br> * DestinationType <br> * DestinationPort <br> * TestGroupName <br> * TestConfigurationName <br> * Região |
 
  ![Monitorar métricas](./media/connection-monitor-2-preview/monitor-metrics.png)
 

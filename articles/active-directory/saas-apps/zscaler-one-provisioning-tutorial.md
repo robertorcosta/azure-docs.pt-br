@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o Zscaler One para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: configurar o Zscaler One para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o Zscaler One.
 services: active-directory
 documentationcenter: ''
@@ -15,22 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: de9dce04b6f27b6ae6f5c5caeed5728370359558
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 87413932acee576934ee50b59546371b03ceaf7e
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515380"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064165"
 ---
-# <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Tutorial: Configurar o Zscaler One para provisionamento automático de usuário
+# <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Tutorial: configurar o Zscaler One para o provisionamento automático de usuário
 
 Este tutorial demonstra as etapas a serem executadas no Zscaler One e Azure Active Directory (Azure AD) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e grupos para o Zscaler One.
 
 > [!NOTE]
-> Este tutorial descreve um conector que é criado sobre o serviço de provisionamento de usuário do Azure AD. Para obter informações sobre o que esse serviço faz, como ele funciona e perguntas frequentes, consulte automatizar o [provisionamento e desprovisionamento de usuários para aplicativos SaaS (software como serviço) com Azure Active Directory](../active-directory-saas-app-provisioning.md).
+> Este tutorial descreve um conector que é criado sobre o serviço de provisionamento de usuário do Azure AD. Para obter informações sobre o que esse serviço faz, como ele funciona e perguntas frequentes, consulte [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS (software como serviço) com Azure Active Directory](../active-directory-saas-app-provisioning.md).
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 O cenário descrito neste tutorial pressupõe que você tenha:
 
@@ -84,7 +84,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 ### <a name="configure-automatic-user-provisioning-for-zscaler-one-in-azure-ad"></a>Configurar o provisionamento automático de usuário para o Zscaler One no Azure AD
 
-1. Entre no [Portal do Azure](https://portal.azure.com). Selecione **aplicativos** > empresariais**todos os aplicativos** > **Zscaler um**.
+1. Entre no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais** > **todos os aplicativos** > **Zscaler um**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -102,7 +102,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 5. Na seção **credenciais de administrador** , preencha as caixas **URL do locatário** e **token secreto** com as configurações para sua conta do Zscaler uma, conforme descrito na etapa 6.
 
-6. Para obter a URL do locatário e o token secreto, acesse **Administração** > **configurações de autenticação** na interface do usuário do portal do Zscaler One. Em **Tipo de Autenticação**, selecione **SAML**.
+6. Para obter a URL do locatário e o token secreto, acesse **administração** > **configurações de autenticação** na interface do usuário do portal do Zscaler One. Em **Tipo de Autenticação**, selecione **SAML**.
 
     ![Zscaler uma configuração de autenticação](./media/zscaler-one-provisioning-tutorial/secret-token-1.png)
 
@@ -110,7 +110,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Zscaler um configurar SAML](./media/zscaler-one-provisioning-tutorial/secret-token-2.png)
 
-    b. Selecione **habilitar provisionamento baseado em scim** para obter as configurações na URL de **base** e no **token**de portador. Em seguida, salve as configurações. Copie a configuração da **URL base** para a **URL do locatário** no portal do Azure. Copie a configuração de **token** de portador para o **token secreto** no portal do Azure.
+    b. Selecione **habilitar provisionamento baseado em scim** para obter as configurações na URL de **base** e no **token de portador**. Em seguida, salve as configurações. Copie a configuração da **URL base** para a **URL do locatário** no portal do Azure. Copie a configuração de **token de portador** para o **token secreto** no portal do Azure.
 
 7. Depois de preencher as caixas mostradas na etapa 5, selecione **testar conexão** para garantir que o Azure ad possa se conectar ao Zscaler One. Se a conexão falhar, verifique se o Zscaler uma conta tem permissões de administrador e tente novamente.
 
@@ -126,7 +126,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Zscaler uma sincronização de usuário](./media/zscaler-one-provisioning-tutorial/user-mappings.png)
 
-11. Examine os atributos de usuário que são sincronizados do Azure AD para Zscaler um na seção mapeamentos de **atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no Zscaler uma para operações de atualização. Para salvar as alterações, selecione **salvar**.
+11. Examine os atributos de usuário que são sincronizados do Azure AD para Zscaler um na seção **mapeamentos de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no Zscaler uma para operações de atualização. Para salvar as alterações, selecione **salvar**.
 
     ![Zscaler um dos atributos de usuário correspondentes](./media/zscaler-one-provisioning-tutorial/user-attribute-mappings.png)
 
@@ -134,7 +134,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Sincronização de um grupo do Zscaler](./media/zscaler-one-provisioning-tutorial/group-mappings.png)
 
-13. Examine os atributos de grupo que são sincronizados do Azure AD para Zscaler um na seção mapeamentos de **atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos em Zscaler um para operações de atualização. Para salvar as alterações, selecione **salvar**.
+13. Examine os atributos de grupo que são sincronizados do Azure AD para Zscaler um na seção **mapeamentos de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos em Zscaler um para operações de atualização. Para salvar as alterações, selecione **salvar**.
 
     ![Zscaler um atributo de grupo correspondente](./media/zscaler-one-provisioning-tutorial/group-attribute-mappings.png)
 
@@ -160,7 +160,7 @@ Para obter informações sobre como ler os logs de provisionamento do Azure AD, 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciar provisionamento de conta de usuário para aplicativos empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gerenciar provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas

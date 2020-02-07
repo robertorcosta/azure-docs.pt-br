@@ -17,12 +17,12 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ROBOTS: NOINDEX
-ms.openlocfilehash: 87818066a656aa4bcd6f45f1835ca1512a674a9e
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: ed2a1b1f4eaf665e893026c8b3bbc77ddad5c98e
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712314"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063570"
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Como configurar provisionamento do usuário para um aplicativo de galeria do Azure AD
 
@@ -40,9 +40,9 @@ Se você quiser solicitar suporte para provisionamento automático de um determi
 
 ## <a name="configuring-an-application-for-automatic-provisioning"></a>Configurar um aplicativo para o provisionamento automático
 
-*Automático* significa que o conector de provisionamento do Azure AD foi desenvolvido para este aplicativo. Para saber mais sobre o serviço de provisionamento do Azure AD e como ele funciona, confira [Automatizar o provisionamento e o desprovisionamento de usuário para aplicativos SaaS com o Azure Active Directory](user-provisioning.md).
+*Automático* significa que o conector de provisionamento do Azure AD foi desenvolvido para este aplicativo. Para saber mais sobre o serviço de provisionamento do Azure AD e como ele funciona, confira [Automatizar o provisionamento e o desprovisionamento de usuário para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md).
 
-Para obter mais informações sobre como provisionar usuários e grupos a um aplicativo específico, consulte [Gerenciamento de provisionamento de conta de usuário para aplicativos empresariais](configure-automatic-user-provisioning-portal.md).
+Para obter mais informações sobre como provisionar usuários e grupos a um aplicativo específico, consulte [Gerenciamento de provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md).
 
 As etapas reais necessárias para habilitar e configurar o provisionamento automático variam de acordo com o aplicativo.
 
@@ -53,6 +53,6 @@ Tutoriais de aplicativos podem ser encontrados em [lista de tutoriais sobre como
 
 Uma coisa importante a considerar ao configurar o provisionamento é examinar e configurar os mapeamentos de atributos e fluxos de trabalho que definem quais propriedades de usuário (ou grupo) fluem do Azure AD para o aplicativo. Isso inclui a definição da "propriedade correspondente" que é usada para identificar exclusivamente e corresponder usuários/grupos entre os dois sistemas. Consulte o link nas *próximas etapas* para obter mais informações sobre mapeamentos de atributo.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
-[Personalizar os mapeamentos de atributos de provisionamento de usuário para aplicativos SaaS no Azure Active Directory](customize-application-attributes.md)
+## <a name="next-steps"></a>Próximas etapas
+[Personalizar os mapeamentos de atributos de provisionamento de usuário para aplicativos SaaS no Azure Active Directory](../app-provisioning/customize-application-attributes.md)
 

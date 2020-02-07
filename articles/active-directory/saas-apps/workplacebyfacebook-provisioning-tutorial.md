@@ -15,19 +15,41 @@ ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81c9d8582eb41d4a13799c42383ff22010c60577
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 11a5e92ccf1104f36b3f2b045f9922158b1f7330
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985146"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064134"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: configurar o Workplace by Facebook para provisionamento automático de usuários
 
 Este tutorial descreve as etapas que você precisa executar no local de trabalho por Facebook e Azure Active Directory (Azure AD) para configurar o provisionamento automático de usuário. Quando configurado, o Azure AD provisiona e desprovisiona automaticamente usuários e grupos no [local de trabalho pelo Facebook](https://work.workplace.com/) usando o serviço de provisionamento do Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../manage-apps/user-provisioning.md).
 
-> [!NOTE]
-> O aplicativo de terceiros do Azure AD no workplace by Facebook foi aprovado. Os clientes não terão uma interrupção do serviço em 16 de dezembro. Você verá uma observação no console de administração do workplace by Facebook, indicando um prazo de 28 de fevereiro de 2020 por quando você precisará fazer a transição para o novo aplicativo. Estamos trabalhando para manter a transição o mais simples possível e fornecerei uma atualização aqui na transição por fim do mês.
+## <a name="migrating-to-the-new-workplace-by-facebook-application"></a>Migrando para o novo aplicativo Workplace by Facebook
+Se você tiver uma integração existente com o Workplace by Facebook, consulte a seção abaixo sobre as alterações recebidas. Se você estiver configurando o Workplace by Facebook pela primeira vez, poderá ignorar esta seção e mover para os recursos com suporte. 
+
+#### <a name="whats-changing"></a>O que está sendo alterado?
+* Alterações no lado do Azure AD: o método de autorização para provisionar usuários no local de trabalho tem sido historicamente um token secreto de vida longa. Em breve, você verá o método de autorização alterado para a concessão de autorização OAuth. 
+* Alterações no lado do local de trabalho: anteriormente, o aplicativo Azure AD era uma integração personalizada no workplace by Facebook. Agora você verá o Azure AD no diretório de integrações do local de trabalho como um aplicativo de terceiros. 
+
+ 
+
+#### <a name="what-do-i-need-to-do-to-migrate-my-existing-custom-integration-to-the-new-application"></a>O que preciso fazer para migrar minha integração personalizada existente para o novo aplicativo?
+Se você tiver uma integração de local de trabalho existente com um token válido, **nenhuma ação será necessária**. Estamos migrando clientes automaticamente a cada semana para o novo aplicativo. Isso é feito por completo nos bastidores. Se você não pode esperar e deseja mover para o novo aplicativo manualmente, você pode adicionar uma nova instância do workplace da galeria e configurar o provisionamento novamente. Todas as novas instâncias do workplace irão usar automaticamente a nova versão do aplicativo. 
+
+ 
+Se a integração do local de trabalho estiver em quarentena, você precisará fornecer um token válido novamente para que possamos migrá-lo. A seção de credenciais de administrador ficará esmaecida, mas você poderá acrescentar o seguinte ( **? Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride = true**) à sua URL para salvar as credenciais novamente. 
+
+https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true
+
+ 
+#### <a name="the-admin-credentials-section-is-greyed-out-on-my-application-and-i-cant-save-why"></a>A seção de credenciais de administrador está esmaecida no meu aplicativo e não consigo salvar. Por quê?
+Bloqueamos a seção de credenciais de administrador para clientes existentes do local de trabalho. Quando seu locatário tiver sido migrado para o novo aplicativo de local de trabalho, você poderá atualizar a seção de credenciais de administrador novamente. Se você não puder esperar, poderá usar a URL acima para editar seu aplicativo. 
+
+ 
+#### <a name="when-will-these-changes-happen"></a>Quando essas alterações ocorrerão?
+Todas as novas instâncias do workplace já estarão usando o novo método de integração/autorização. As integrações existentes serão migradas gradualmente em fevereiro. A migração será concluída para todos os locatários no final do mês. 
 
 ## <a name="capabilities-supported"></a>Funcionalidades com suporte
 > [!div class="checklist"]
@@ -36,7 +58,7 @@ Este tutorial descreve as etapas que você precisa executar no local de trabalho
 > * Manter os atributos de usuário sincronizados entre o Azure AD e o Workplace by Facebook
 > * [Logon único](https://docs.microsoft.com/azure/active-directory/saas-apps/workplacebyfacebook-tutorial) no workplace by Facebook (recomendado)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
@@ -109,7 +131,7 @@ O serviço de provisionamento do Azure AD permite o escopo que será provisionad
 
 9. Examine os atributos de usuário que são sincronizados do Azure AD para o Workplace by Facebook na seção **mapeamento de atributo** . Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder as contas de usuário do Workplace by Facebook em operações de atualização. Se você optar por alterar o [atributo de destino correspondente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), será necessário garantir que a API do workplace by Facebook dê suporte à filtragem de usuários com base nesse atributo. Selecione o botão **Salvar** para confirmar as alterações.
 
-   |Atributo|Tipo|
+   |Atributo|Type|
    |---|---|
    |userName|String|
    |displayName|String|
@@ -165,6 +187,6 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
 * [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)

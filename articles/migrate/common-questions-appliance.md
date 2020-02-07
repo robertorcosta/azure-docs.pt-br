@@ -3,12 +3,12 @@ title: Perguntas comuns sobre o dispositivo de migrações para Azure
 description: Obtenha respostas para perguntas comuns sobre o dispositivo de migrações para Azure
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: c9727287160f996059e9c1fb2d1fb5aec5900ab5
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: de9583b7983dda904e06ea258ecb0d202644586b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76292325"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064692"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Dispositivo de migrações para Azure: perguntas comuns
 
@@ -16,6 +16,7 @@ Este artigo responde a perguntas comuns sobre o dispositivo migrações para Azu
 
 - [Perguntas gerais](resources-faq.md) sobre as migrações para Azure.
 - [Perguntas](common-questions-discovery-assessment.md) sobre a descoberta, avaliação e visualização de dependência.
+- [Perguntas](common-questions-server-migration.md) sobre a migração do servidor.
 
 
 ## <a name="what-is-the-azure-migrate-appliance"></a>O que é o dispositivo de migrações para Azure?
@@ -113,5 +114,5 @@ Por padrão, o dispositivo e seus agentes instalados são atualizados automatica
 
 No portal, acesse a página de **integridade do agente** na ferramenta de avaliação do servidor ou de migração do servidor. Lá, você pode verificar o status da conexão entre os agentes de descoberta e avaliação no dispositivo e no Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Leia a [visão geral de migrações para Azure](migrate-services-overview.md).

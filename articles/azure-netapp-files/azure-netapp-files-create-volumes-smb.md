@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/05/2020
 ms.author: b-juche
-ms.openlocfilehash: 6b1946cdaebd01a0742f9ce2b2efb5054ac9d2a8
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: c65da771dd483b3a79785d4bec2b89cbeefca5c4
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867428"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049881"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
@@ -40,7 +40,7 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
 * As portas adequadas devem estar abertas no servidor Windows Active Directory (AD) aplicável.  
     As portas necessárias são as seguintes: 
 
-    |     Serviço           |     Port     |     Protocolo     |
+    |     Service           |     Porta     |     Protocolo     |
     |-----------------------|--------------|------------------|
     |    Serviços Web do AD    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
@@ -73,6 +73,8 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
     Se você tiver controladores de domínio inacessíveis por meio da sub-rede Azure NetApp Files delegada, poderá enviar uma solicitação de suporte do Azure para alterar o escopo de **global** (padrão) para o **site**.  Azure NetApp Files precisa se comunicar somente com controladores de domínio no site em que reside o espaço de endereço de sub-rede delegado Azure NetApp Files.
 
     Consulte [projetando a topologia do site](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) sobre serviços e sites do AD. 
+    
+Consulte Azure NetApp Files [FAQs do SMB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs) sobre informações adicionais do AD. 
 
 ## <a name="create-an-active-directory-connection"></a>Criar uma conexão Active Directory
 
@@ -166,7 +168,7 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
  
     Um volume herda a assinatura, grupo de recursos, atributos de localização de seu pool de capacidade. Para monitorar o status de implantação do volume, você pode usar a guia Notificações.
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}  
 
 * [Montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Limites de recursos do Azure NetApp Files](azure-netapp-files-resource-limits.md)

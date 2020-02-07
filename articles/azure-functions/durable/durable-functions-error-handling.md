@@ -4,12 +4,12 @@ description: Saiba como lidar com erros na extensão de Funções Duráveis do A
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 905b71ab1e9a054eaeb6087489d14565933c8a46
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 447b3dcf5040835f5a853beff68bde794ece51f5
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261629"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047253"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Lidando com erros nas Funções Duráveis (Azure Functions)
 
@@ -27,7 +27,7 @@ Por exemplo, considere a seguinte função de orquestrador, que transfere fundos
 [FunctionName("TransferFunds")]
 public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
-    var transferDetails = ctx.GetInput<TransferOperation>();
+    var transferDetails = context.GetInput<TransferOperation>();
 
     await context.CallActivityAsync("DebitAccount",
         new
@@ -116,7 +116,7 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
         firstRetryInterval: TimeSpan.FromSeconds(5),
         maxNumberOfAttempts: 3);
 
-    await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
+    await context.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
 
     // ...
 }
@@ -224,7 +224,7 @@ module.exports = df.orchestrator(function*(context) {
 
 Se uma função de orquestrador falhar com uma exceção sem tratamento, os detalhes da exceção serão registrados e a instância será concluída com um status `Failed`.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre orquestrações do eternas](durable-functions-eternal-orchestrations.md)

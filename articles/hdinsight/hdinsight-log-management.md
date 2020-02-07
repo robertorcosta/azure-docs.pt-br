@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: e5abc9e75e11424b5d0dc4c260b412d0e414ad83
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.custom: hdinsightactive
+ms.date: 02/05/2020
+ms.openlocfilehash: 8c3cbf4c18b32a94abfe95e77be768020b44fda6
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837919"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064675"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gerenciar logs para um cluster HDInsight
 
@@ -33,7 +33,7 @@ Etapas comuns de gerenciamento de log de HDInsight são:
 
 A primeira etapa na criação de uma estratégia de gerenciamento de log de cluster HDInsight é obter informações sobre cenários de negócios e requisitos de armazenamento do histórico de execução de trabalho.
 
-### <a name="cluster-details"></a>Detalhes do Cluster
+### <a name="cluster-details"></a>Detalhes do cluster
 
 Os seguintes detalhes de cluster são úteis para ajudar a coletar informações em sua estratégia de gerenciamento de log. Reúna essas informações de todos os clusters HDInsight que você criou em uma conta específica do Azure.
 
@@ -69,15 +69,15 @@ Você também pode usar o PowerShell para exibir essas informações.  Para obte
 
 * Considere se uma solução ou um serviço de monitoramento seria um benefício útil. O Microsoft System Center fornece um [pacote de gerenciamento de HDInsight](https://www.microsoft.com/download/details.aspx?id=42521). Use também ferramentas de terceiros, como o Apache Chukwa e o Ganglia, para coletar e centralizar os logs. Muitas empresas oferecem serviços para monitorar soluções de Big Data baseadas em Hadoop, por exemplo: Centerity, Compuware APM, Sematext SPM e Zettaset Orchestrator.
 
-## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>Etapa 2: Gerenciar versões de serviço de cluster e visualizar logs de Script Action
+## <a name="step-2-manage-cluster-service-versions-and-view-logs"></a>Etapa 2: gerenciar versões de serviço de cluster e exibir logs
 
 Um cluster HDInsight típico usa vários serviços e pacotes de software de código aberto (como o Apache HBase, Apache Spark e assim por diante). Para algumas cargas de trabalho, como bioinformática, você talvez precise manter o histórico de log de configuração de serviço além dos logs de execução do trabalho.
 
-### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Exibir definições de configuração de cluster com o Ambari UI
+### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Exibir definições de configuração do cluster com a interface de usuário do Ambari
 
-O Apache Ambari simplifica o gerenciamento, configuração e monitoramento de um cluster HDInsight, fornecendo uma interface do usuário da Web e uma API REST. Ambari está incluído nos clusters HDInsight baseados em Linux. Selecione o painel **painel do cluster** na página portal do Azure HDInsight para abrir a página de link painéis do **cluster** .  Em seguida, selecione o **painel do cluster HDInsight** para abrir a interface do usuário do Ambari.  Suas credenciais de logon do cluster serão solicitadas.
+O Apache Ambari simplifica o gerenciamento, configuração e monitoramento de um cluster HDInsight, fornecendo uma interface do usuário da Web e uma API REST. O Ambari está incluído nos clusters HDInsight com base em Linux. Selecione o painel **painel do cluster** na página portal do Azure HDInsight para abrir a página de link painéis do **cluster** .  Em seguida, selecione o **painel do cluster HDInsight** para abrir a interface do usuário do Ambari.  Suas credenciais de logon do cluster serão solicitadas.
 
-Para abrir uma lista de modos de exibição do serviço, selecione o painel de **exibições do Ambari** na página do portal do Azure para HDInsight.  Essa lista varia, dependendo das bibliotecas que você instalou.  Por exemplo, você poderá ver YARN Queue Manager, o Hive View e o Tez View.  Selecione qualquer link de serviço para ver as informações de serviço e configuração.  A página **Pilha e Versão** da interface do usuário do Ambari fornece informações sobre a configuração de serviços de cluster e o histórico de versão do serviço. Para navegar nessa seção da interface do usuário do Ambari, selecione o menu **Admin** e, em seguida, **Pilhas e Versões**.  Selecione a guia **Versões** para ver as informações de versão do serviço.
+Para abrir uma lista de modos de exibição do serviço, selecione o painel de **exibições do Ambari** na página do portal do Azure para HDInsight.  Essa lista varia, dependendo das bibliotecas que você instalou.  Por exemplo, você poderá ver o Gerenciador de Fila do YARN, o Modo de Exibição do Hive e o Modo de Exibição do Tez.  Selecione qualquer link de serviço para ver as informações de serviço e configuração.  A página **Pilha e Versão** da interface do usuário do Ambari fornece informações sobre a configuração de serviços de cluster e o histórico de versão do serviço. Para navegar nessa seção da interface do usuário do Ambari, selecione o menu **Admin** e, em seguida, **Pilhas e Versões**.  Selecione a guia **Versões** para ver as informações de versão do serviço.
 
 ![Pilha e versões do administrador do Apache Ambari](./media/hdinsight-log-management/ambari-stack-versions.png)
 
@@ -89,15 +89,27 @@ Usando a interface do usuário do Ambari, você pode fazer o download da configu
 
 As [ações de script](hdinsight-hadoop-customize-cluster-linux.md) do HDInsight executam scripts em um cluster, manualmente ou quando especificado. Por exemplo, as ações de script podem ser usadas para instalar um software adicional no cluster ou alterar definições de configuração dos valores padrão. Os logs de ação de script podem fornecer informações sobre erros ocorridos durante a instalação do cluster e também alterações de definições de configuração que poderiam afetar a disponibilidade e o desempenho do cluster.  Para ver o status de uma ação de script, selecione o botão **ops** na sua interface do usuário do Ambari ou acesse os logs de status na conta de armazenamento padrão. Os logs de armazenamento estão disponíveis em `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE`.
 
+### <a name="view-ambari-alerts-status-logs"></a>Exibir logs de status de alertas do Ambari
+
+O Apache Ambari grava as alterações de status de alerta em `ambari-alerts.log`. O caminho completo é `/var/log/ambari-server/ambari-alerts.log`. Para habilitar a depuração para o log, altere uma propriedade no `/etc/ambari-server/conf/log4j.properties.` alterar, em seguida, em `# Log alert state changes` de:
+
+```
+log4j.logger.alerts=INFO,alerts
+
+to
+
+log4j.logger.alerts=DEBUG,alerts
+```
+
 ## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>Etapa 3: Gerenciar os arquivos de log de execução de trabalho de cluster
 
-A próxima etapa é examinar os arquivos de log de execução do trabalho para os vários serviços.  Os serviços podem incluir Apache HBase, Apache Spark e muitos outros. Um cluster Hadoop produz um grande número de logs detalhados, portanto, determinar quais logs são úteis (e quais não são) pode ser demorado.  Compreender o sistema de log é importante para o gerenciamento de destino dos arquivos de log.  A seguir está um exemplo de arquivo de log.
+A próxima etapa é examinar os arquivos de log de execução do trabalho para os vários serviços.  Os serviços podem incluir Apache HBase, Apache Spark e muitos outros. Um cluster Hadoop produz um grande número de logs detalhados, portanto, determinar quais logs são úteis (e quais não são) pode ser demorado.  Compreender o sistema de log é importante para o gerenciamento de destino dos arquivos de log.  A imagem a seguir é um arquivo de log de exemplo.
 
 ![Exemplo de saída do arquivo de log do HDInsight](./media/hdinsight-log-management/hdi-log-file-example.png)
 
 ### <a name="access-the-hadoop-log-files"></a>Acessar os arquivos de log do Hadoop
 
-O HDInsight armazena seus arquivos de log no sistema de arquivos de cluster e no armazenamento do Azure. Você pode examinar os arquivos de log no cluster abrindo uma conexão [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) para o cluster e navegando no sistema de arquivos ou usando o portal de status do Hadoop yarn no servidor do nó de cabeçalho remoto. Você pode examinar os arquivos de log no armazenamento do Azure usando as ferramentas que podem acessar e fazer o download dos dados do armazenamento do Azure. Os exemplos são [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)e o Visual Studio Gerenciador de servidores. Você também pode usar o PowerShell e as bibliotecas de cliente de armazenamento do Azure ou os SDKs do .NET do Azure, para acessar dados no Armazenamento de Blobs do Azure.
+O HDInsight armazena seus arquivos de log no sistema de arquivos de cluster e no armazenamento do Azure. Você pode examinar os arquivos de log no cluster abrindo uma conexão [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) para o cluster e navegando no sistema de arquivos ou usando o portal de status do Hadoop yarn no servidor do nó de cabeçalho remoto. Você pode examinar os arquivos de log no armazenamento do Azure usando qualquer uma das ferramentas que podem acessar e baixar dados do armazenamento do Azure. Os exemplos são [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)e o Visual Studio Gerenciador de servidores. Você também pode usar o PowerShell e as bibliotecas de cliente de armazenamento do Azure ou os SDKs do .NET do Azure, para acessar dados no Armazenamento de Blobs do Azure.
 
 O Hadoop executa o trabalho das tarefas como *tentativas de tarefas* em vários nós no cluster. O HDInsight pode iniciar tentativas de tarefa especulativa, encerrando as outras tentativas de tarefa que não são concluídas primeiro. Isso gera atividade significativa que é registrada para o controlador, stderr e arquivos syslog log em interrupções. Além disso, várias tentativas de tarefa estão em execução simultaneamente, mas um arquivo de log só pode exibir os resultados linearmente.
 
@@ -140,7 +152,7 @@ Depois de concluir as etapas anteriores, você tem uma compreensão dos tipos e 
 
 Em seguida, analise o volume de dados de log nos locais de armazenamento de chave de registro em um período de tempo. Por exemplo, você pode analisar o volume e o crescimento em períodos de 30-60-90 dias.  Registre as informações em uma planilha ou use outras ferramentas como o Visual Studio, o Azure Storage Explorer ou o Power Query para Excel. Para saber mais, confira [Analisar logs do HDInsight](hdinsight-debug-jobs.md).  
 
-Agora você tem informações suficientes para criar uma estratégia de gerenciamento de log para os logs de chave.  Use sua planilha (ou ferramenta de sua escolha) para calcular o crescimento de tamanho dos logs e os custos de armazenamento de logs futuros do Azure.  Considere também quaisquer requisitos de retenção de log para o conjunto de logs que você está examinando.  Agora você pode recalcular os custos de armazenamento de logs futuros, depois de determinar quais arquivos de log podem ser excluídos (se houver) e os logs que devem ser retidos e arquivados no armazenamento do Azure mais barato.
+Agora você tem informações suficientes para criar uma estratégia de gerenciamento de log para os logs de chave.  Use sua planilha (ou ferramenta de sua escolha) para calcular o crescimento de tamanho dos logs e os custos de armazenamento de logs futuros do Azure.  Considere também quaisquer requisitos de retenção de log para o conjunto de logs que você está examinando.  Agora você pode reprever os custos de armazenamento de log futuros, depois de determinar quais arquivos de log podem ser excluídos (se houver) e quais logs devem ser retidos e arquivados em um armazenamento do Azure menos dispendioso.
 
 ## <a name="step-5-determine-log-archive-policies-and-processes"></a>Etapa 5: Determinar os processos e as políticas de arquivos de log
 
@@ -152,10 +164,10 @@ Para alguns arquivos de log, você pode usar um método de arquivamento de arqui
 
 Como alternativa, você pode gerar script de arquivamento de log com o PowerShell.  Para obter um exemplo de script do PowerShell, consulte [Arquivar logs de Automação do Azure para o Armazenamento de Blobs do Azure](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8).
 
-### <a name="accessing-azure-storage-metrics"></a>Acessando as métricas de armazenamento do Azure
+### <a name="accessing-azure-storage-metrics"></a>Acessando as métricas do armazenamento do Azure
 
-O armazenamento do Azure pode ser configurado para acesso e operações de armazenamento de log. Você pode usar esses logs muito detalhados para monitoramento e planejamento de capacidade e para solicitações de auditoria para o armazenamento. As informações registradas incluem detalhes de latência, permitindo que você monitorar e ajustar o desempenho de suas soluções.
-Você pode usar o SDK do .NET para Hadoop para examinar os arquivos de log gerados para o armazenamento do Azure que contenham os dados para um cluster HDInsight.
+O armazenamento do Azure pode ser configurado para registrar operações de armazenamento e acesso. Você pode usar esses logs muito detalhados para monitoramento e planejamento de capacidade e para solicitações de auditoria para o armazenamento. As informações registradas incluem detalhes de latência, permitindo que você monitorar e ajustar o desempenho de suas soluções.
+Você pode usar o SDK do .NET para Hadoop para examinar os arquivos de log gerados para o armazenamento do Azure que contém os dados de um cluster HDInsight.
 
 ### <a name="control-the-size-and-number-of-backup-indexes-for-old-log-files"></a>Controlar o tamanho e o número de índices de backup de arquivos de log antigos
 

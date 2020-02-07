@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
-ms.openlocfilehash: 75a9e3e8422c0c59e00c290f1f360d61fce1eceb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3eafb8aff5525f668e6fe0bddb261b1117b5e38b
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901570"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048176"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de roteamento da Rota Expressa
 Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, você precisará configurar e gerenciar o roteamento. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de roteamento como um serviço gerenciado. Verifique se o seu provedor de conectividade oferece esse serviço. Se não oferecer, você deverá atender aos requisitos a seguir:
@@ -160,17 +160,17 @@ Você pode adquirir mais de um circuito da Rota Expressa por região geopolític
 | Leste dos EUA 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 |
 | Oeste dos EUA | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 |
 | Oeste dos EUA 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 |
-| Centro-Oeste dos EUA | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 |
+| Centro-oeste dos EUA | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 |
 | Centro-Norte dos EUA | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 |
-| Centro-Sul dos EUA | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 |
+| Centro-Sul dos Estados Unidos | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 |
 | EUA Central | 12076:51009 | 12076:52009 | 12076:53009 | 12076:54009 |
 | Canadá Central | 12076:51020 | 12076:52020 | 12076:53020 | 12076:54020 |
 | Leste do Canadá | 12076:51021 | 12076:52021 | 12076:53021 | 12076:54021 |
 | **América do Sul** | |
 | Sul do Brasil | 12076:51014 | 12076:52014 | 12076:53014 | 12076:54014 |
 | **Europa** | |
-| Europa Setentrional | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 |
-| Oeste da Europa | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 |
+| Norte da Europa | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 |
+| Europa Ocidental | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 |
 | Sul do Reino Unido | 12076:51024 | 12076:52024 | 12076:53024 | 12076:54024 |
 | Oeste do Reino Unido | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 |
 | França Central | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
@@ -182,7 +182,7 @@ Você pode adquirir mais de um circuito da Rota Expressa por região geopolític
 | Leste da Noruega | 12076:51042 | 12076:52042 | 12076:53042 | 12076:54042 | 
 | Oeste da Noruega | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 
 | **Pacífico Asiático** | |
-| Ásia Oriental | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
+| Leste da Ásia | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
 | Sudeste Asiático | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
 | **Japão** | |
 | Leste do Japão | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 |
@@ -223,13 +223,14 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 | Exchange Online * * | 12076:5010 |
 | SharePoint Online * * | 12076:5020 |
 | Skype for Business Online * * | 12076:5030 |
-| CRM Online |12076:5040 |
+| CRM Online * * * |12076:5040 |
 | Serviços Globais do Azure* | 12076:5050 |
 | Azure Active Directory |12076:5060 |
 | Outros serviços online do Office 365 * * | 12076:5100 |
 
-*Os Serviços Globais do Azure incluem apenas o Azure DevOps neste momento.
-\* * Autorização necessária da Microsoft, consulte [Configurar filtros de rota para o emparelhamento da Microsoft](how-to-routefilter-portal.md) 
+\* Os serviços globais do Azure incluem apenas DevOps do Azure no momento. \
+\* * Autorização necessária da Microsoft, consulte [Configurar filtros de rota para o emparelhamento da Microsoft](how-to-routefilter-portal.md)\
+O CRM Online dá suporte ao Dynamics v 8.2 e inferior. Para versões superiores, selecione a comunidade regional para suas implantações do Dynamics.
 
 > [!NOTE]
 > A Microsoft não atende a valores de comunidade BGP definidos por você nas rotas anunciadas para a Microsoft.
@@ -241,12 +242,12 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 | **Região do Azure de Nuvens Nacionais**| **Valor de comunidade BGP** |
 | --- | --- |
 | **Governo dos EUA** |  |
-| US Gov - Arizona | 12076:51106 |
-| US Gov - Iowa | 12076:51109 |
-| US Gov - Virgínia | 12076:51105 |
-| US Gov - Texas | 12076:51108 |
-| US DoD Central | 12076:51209 |
-| US DoD Leste | 12076:51205 |
+| Governo dos EUA do Arizona | 12076:51106 |
+| US Gov Iowa | 12076:51109 |
+| Gov. dos EUA – Virgínia | 12076:51105 |
+| Governo dos EUA do Texas | 12076:51108 |
+| DoD Central dos EUA | 12076:51209 |
+| DoD do Leste dos EUA | 12076:51205 |
 
 
 | **Serviço nas Nuvens Nacionais** | **Valor de comunidade BGP** |
@@ -257,7 +258,7 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 | Skype for Business Online |12076:5130 |
 | Outros serviços Online do Office 365 |12076:5200 |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * Configurar sua conexão do ExpressRoute.
   
   * [Criar e modificar um circuito](expressroute-howto-circuit-arm.md)

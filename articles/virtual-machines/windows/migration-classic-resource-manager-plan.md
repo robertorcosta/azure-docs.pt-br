@@ -3,8 +3,8 @@ title: Planejando a migração do clássico para o Azure Resource Manager
 description: Planejamento da migração de recursos de IaaS do clássico para o Azure Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
-author: singhkays
-manager: gwallace
+author: tanmaygore
+manager: vashan
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
@@ -12,20 +12,17 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 04/01/2017
-ms.author: kasing
-ms.openlocfilehash: d5245f73520a77648fc590520185a2cf66bffd02
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 02/06/2020
+ms.author: tagore
+ms.openlocfilehash: 2d7eca56556c8a1097b625b8f4b0e2de2facbc60
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980880"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061600"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planejamento da migração de recursos de IaaS do clássico para o Azure Resource Manager
 Embora o Azure Resource Manager ofereça vários recursos incríveis, é fundamental planejar sua jornada de migração para garantir que tudo ocorra sem problemas. Gastar tempo no planejamento garantirá que não ocorram problemas durante a execução das atividades de migração.
-
-> [!NOTE]
-> As diretrizes a seguir foram uma contribuição intensiva da equipe de Consultoria para Clientes do Azure e dos arquitetos da Solução na Nuvem que trabalham com clientes para a migração de ambientes de grande porte. Assim, este documento continuará sendo atualizado à medida que surgirem novos padrões de sucesso. Portanto, verifique se há novas recomendações periodicamente.
 
 Há quatro fases gerais da jornada de migração:<br>
 
@@ -122,11 +119,11 @@ Veja a seguir os problemas descobertos em muitas das migrações de maior porte.
     >
 
   - Interfaces de Rede
-  - Load Balancers
+  - Balanceadores de Carga
   - IPs Públicos
   - IPs Públicos Estáticos
   - Núcleos
-  - Grupos de Segurança de Rede
+  - Grupos de segurança de rede
   - Tabelas de Rotas
 
     Você pode verificar suas cotas atuais do Azure Resource Manager usando os comandos a seguir com a última versão do Azure PowerShell.
@@ -213,7 +210,7 @@ Determine quais serviços você deseja habilitar no Azure Resource Manager agora
 Lembre-se do motivo que fez você iniciar esta jornada de migração do Clássico para o Azure Resource Manager.  Quais foram os motivos comerciais originais? Você concretizou o motivo comercial?
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Visão geral da migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Análise técnica aprofundada sobre a migração com suporte da plataforma do clássico para o Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

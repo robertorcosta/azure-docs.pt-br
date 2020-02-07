@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/15/2019
-ms.openlocfilehash: c2d4c9b089a6673a5cff716d2901cc2b9483ede1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 66396de52b3709c1d9357f32a375a29a8dcdbd1d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972244"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048748"
 ---
 # <a name="derived-column-transformation-in-mapping-data-flow"></a>Transformação coluna derivada no fluxo de dados de mapeamento
 
@@ -34,7 +34,7 @@ As colunas que você está modificando e adicionando ao seu esquema são listada
 
 ![Adicionar subcoluna](media/data-flow/addsubcolumn.png "Adicionar subcoluna")
 
-Para obter mais informações sobre como lidar com tipos complexos no fluxo de dados, consulte [manipulação de JSON no fluxo de dados de mapeamento](concepts-data-flow-json.md)
+Para obter mais informações sobre como lidar com tipos complexos no fluxo de dados, consulte [manipulação de JSON no fluxo de dados de mapeamento](format-json.md#mapping-data-flow-properties).
 
 ![Adicionar coluna complexa](media/data-flow/complexcolumn.png "Adicionar colunas")
 
@@ -55,7 +55,7 @@ Para obter mais informações sobre como lidar com tipos complexos no fluxo de d
           ) ~> <deriveTransformationName>
 ```
 
-### <a name="example"></a>Exemplo
+### <a name="example"></a>{1&gt;Exemplo&lt;1}
 
 O exemplo abaixo é uma coluna derivada chamada `CleanData` que usa um fluxo de entrada `MoviesYear` e cria duas colunas derivadas. A primeira coluna derivada substitui a coluna `Rating` com o valor da classificação como um tipo inteiro. A segunda coluna derivada é um padrão que corresponde a cada coluna cujo nome começa com ' filmes '. Para cada coluna correspondente, ele cria uma coluna `movie` que é igual ao valor da coluna correspondente prefixada com ' movie_ '. 
 
@@ -75,6 +75,6 @@ MoviesYear derive(
             ) ~> CleanData
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Saiba mais sobre a [linguagem de expressão de fluxo de dados de mapeamento](data-flow-expression-functions.md).

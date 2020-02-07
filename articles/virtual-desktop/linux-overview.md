@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
-ms.openlocfilehash: f7d62487605c26a68e7c71b6d95d7814da0a07c9
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 47e38d79e8aa4656b8164c94b4ef439bf431e01d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776385"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049662"
 ---
-# <a name="linux-support"></a>Suporte do Linux
+# <a name="linux-support"></a>Suporte para Linux
 
 Você pode usar o SDK do Linux para área de trabalho virtual do Windows para criar um cliente de área de trabalho virtual do Windows autônomo. Você também pode usá-lo para habilitar o suporte à área de trabalho virtual do Windows em seu aplicativo cliente. Este guia rápido explicará o que é o SDK do Linux e como começar a usá-lo.
 
@@ -53,9 +53,9 @@ Para poder desenvolver um cliente Linux para área de trabalho virtual do Window
 1. Crie e implante um ambiente de área de trabalho virtual do Windows para teste ou uso em produção.
 2. Teste os clientes primários disponíveis para se familiarizar com a experiência do usuário da área de trabalho virtual do Windows.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-Você pode solicitar acesso ao SDK do Linux em nosso [Fórum da comunidade de tecnologia](https://go.microsoft.com/fwlink/?linkid=2116541).
+O SDK está atualmente em desenvolvimento. Atualizaremos este documento com instruções para acessar o SDK quando ele estiver disponível.
 
 Confira nossa documentação para os seguintes clientes:
 

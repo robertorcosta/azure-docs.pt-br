@@ -2,7 +2,7 @@
 title: Ingresse seu dispositivo de trabalho na rede-AD da sua organização
 description: Saiba como associar seu dispositivo de trabalho à rede da sua organização.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: jairoc
-ms.openlocfilehash: 149c0298ee7883aa130756bfc4d0cbbb9e002065
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 0ff8b85a15d94ded2d702e0df247f9ebc4d3f923
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704639"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062261"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Junte seu dispositivo de trabalho à rede da sua organização
 Junte-se ao seu dispositivo Windows 10 de propriedade de trabalho à rede da sua organização para poder acessar recursos possivelmente restritos.
@@ -110,7 +110,7 @@ Você pode ter certeza de que você está associado, observando as configuraçõ
 
     ![Acessar tela de trabalho ou escola com conta contoso conectada](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Depois de associar seu dispositivo à rede da sua organização, você poderá acessar todos os seus recursos usando o seu trabalho ou de estudante de informações da conta.
 
 - Se sua organização quer que você registrar seu dispositivo pessoal, como seu telefone, consulte [registrar seu dispositivo pessoal na rede da sua organização](user-help-register-device-on-network.md).

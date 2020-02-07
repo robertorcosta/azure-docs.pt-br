@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2017
+ms.date: 02/06/2020
 ms.author: amsriva
-ms.openlocfilehash: 966df2a01d0178c19c2ae6e698a6610bf0e321c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c1a75630c6419816b048495ee87d24c81979af16
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425816"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064760"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>Gateway de VPN clássico para migração do Gerenciador de Recursos
 Gateways de VPN agora podem ser migrados do modelo de implantação clássico para o Gerenciador de Recursos. É possível ler mais sobre os [Recursos e benefícios](../azure-resource-manager/management/overview.md) do Azure Resource Manager. Neste artigo, detalhamos como migrar de implantações clássicas para o modelo com base no Gerenciador de Recursos mais recente. 
@@ -65,6 +65,6 @@ Como é possível transformar a conectividade VNet a VNet sem a necessidade de s
 * Com a habilitação do BGP em gateways de VPN conectados juntos e ao local. A habilitação do BGP restaura a conectividade sem qualquer outra alteração de configuração, pois as rotas são aprendidas e anunciadas entre os gateways de VNet. Observe que a opção de BGP só está disponível em SKUs standard ou superiores.
 * O estabelecimento de uma conexão explícita da VNet afetada ao gateway de rede local que representa a localização local. Isso também exigiria a alteração da configuração do roteador local para criar e configurar o túnel IPsec.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Depois de aprender sobre o suporte à migração de gateway de VPN, acesse [migração com suporte de plataforma de recursos de IaaS do clássico para o Gerenciador de Recursos](../virtual-machines/windows/migration-classic-resource-manager-ps.md) para começar.
 

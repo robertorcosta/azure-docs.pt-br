@@ -2,14 +2,14 @@
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: cynthn
-ms.openlocfilehash: e590c07c3969865d573838352a8a778caa1cc799
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 02/06/2020
+ms.author: tanmaygore
+ms.openlocfilehash: 3632e12f5e58f8cadefb1e666cf4014026e24358
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75901980"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77056971"
 ---
 Este artigo cataloga os erros e mitigações mais comuns durante a migração de recursos de IaaS do modelo de implantação clássico do Azure para a pilha do Azure Resource Manager.
 
@@ -169,7 +169,7 @@ $vm = Get-AzVM -ResourceGroupName "MyRG" -Name "MyVM"
 Remove-AzVMSecret -VM $vm
 Update-AzVM -ResourceGroupName "MyRG" -VM $vm
 ```
-#### <a name="azure-cli"></a>Azure CLI
+#### <a name="azure-cli"></a>CLI do Azure
 
 ```bash
 az vm update -g "myrg" -n "myvm" --set osProfile.Secrets=[]

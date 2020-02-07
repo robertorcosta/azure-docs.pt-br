@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 9fdbf3888b4302946fe20259a333842caa122836
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: f27d398af723a54443f531c05a503a5f2fbe13f6
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76717783"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064828"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>FAQ sobre como usar o serviço de migração de banco de dados do Azure
 
@@ -46,7 +46,7 @@ Você pode usar o serviço de migração de banco de dados do Azure para realiza
 > Usar o Serviço de Migração de Banco de Dados do Azure para executar uma migração online exige a criação de uma instância com base no tipo de preço Premium. Para saber mais, confira a página de [preços](https://azure.microsoft.com/pricing/details/database-migration/) do Serviço de Migração de Banco de Dados do Azure.
 
 **P. como o serviço de migração de banco de dados do Azure se compara a outras ferramentas de migração de banco de dados da Microsoft, como o banco de dados Assistente de Migração (DMA) ou o Assistente de Migração do SQL Server (SSMA)?**
-O serviço de migração de banco de dados do Azure é o método preferencial para a migração de banco de dados para Microsoft Azure em escala. Para obter mais detalhes sobre como o serviço de migração de banco de dados do Azure se compara a outras ferramentas de migração de banco de dados da Microsoft e recomendações sobre como usar o serviço para vários cenários, consulte a postagem de blog [diferenciando ferramentas e serviços de migração de banco de dados](https://blogs.msdn.microsoft.com/datamigration/2017/10/13/differentiating-microsofts-database-migration-tools-and-services/)
+O serviço de migração de banco de dados do Azure é o método preferencial para a migração de banco de dados para Microsoft Azure em escala. Para obter mais detalhes sobre como o serviço de migração de banco de dados do Azure se compara a outras ferramentas de migração de banco de dados da Microsoft e recomendações sobre como usar o serviço para vários cenários, consulte a postagem de blog [diferenciando ferramentas e serviços de migração de banco de dados](https://techcommunity.microsoft.com/t5/microsoft-data-migration/differentiating-microsoft-s-database-migration-tools-and/ba-p/368529)
 
 **P. como o serviço de migração de banco de dados do Azure se compara à oferta de migrações para Azure?**
 As migrações para Azure auxiliam na migração de máquinas virtuais locais para IaaS do Azure. O serviço avalia a adequação da migração e o dimensionamento com base no desempenho, e fornece estimativas de custo para a execução das máquinas virtuais locais no Azure. As Migrações para Azure são úteis para migrações de lift-and-shift de cargas de trabalho baseadas em VM local para VMs de IaaS do Azure. No entanto, ao contrário do serviço de migração de banco de dados do Azure, Instância Gerenciada do Banco de Dados SQL do Azure as migrações para Azure não são uma oferta de serviço de migração de banco de dados especializada para plataformas de banco de dados relacionais do Azure PaaS
@@ -117,6 +117,6 @@ Você pode fazer algumas coisas para acelerar a sua migração de banco de dados
 * Use os vários tipos de preços de uso geral da CPU ao criar sua instância de serviço para permitir que o serviço aproveite as várias vCPUs para paralelização e transferência de dados mais rápida.
 * Temporariamente, escale verticalmente a sua instância de destino de banco de dados SQL do Azure para o SKU da camada Premium durante a operação de migração de dados para minimizar a limitação do banco de dados SQL do Azure que pode afetar as atividades de transferência de dados ao usar SKUs de nível inferior.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter uma visão geral do Serviço de Migração de Banco de Dados do Azure e da disponibilidade regional, consulte o artigo [ O que é o Serviço de Migração de Banco de Dados do Azure ](dms-overview.md).

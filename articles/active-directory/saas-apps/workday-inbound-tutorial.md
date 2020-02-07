@@ -15,20 +15,20 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94fc50bf238a74b7d8b45625d88b2d23d7dd1a13
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: a7e5dc9c177dbddda8bf229ec7949f53b70e616c
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613748"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064299"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Workday para provisionamento automático de usuário
 
 O objetivo deste tutorial é mostrar as etapas que você precisa executar para importar perfis de trabalho do WORKDAY para Active Directory e Azure Active Directory, com write-back opcional de endereço de email e nome de usuário para workday.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
-O [serviço de provisionamento de usuário do Azure Active Directory](../manage-apps/user-provisioning.md) integra-se com a [API de Recursos Humanos do Workday](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) para provisionar contas de usuários. O Azure AD utiliza essa conexão para habilitar os seguintes fluxos de trabalho de provisionamento de usuário:
+O [serviço de provisionamento de usuário do Azure Active Directory](../app-provisioning/user-provisioning.md) integra-se com a [API de Recursos Humanos do Workday](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) para provisionar contas de usuários. O Azure AD utiliza essa conexão para habilitar os seguintes fluxos de trabalho de provisionamento de usuário:
 
 * **Provisionamento de usuários para o Active Directory** - provisionar conjuntos de usuários selecionados do Workday em um ou mais domínios do Active Directory.
 
@@ -40,13 +40,13 @@ O [serviço de provisionamento de usuário do Azure Active Directory](../manage-
 
 Os fluxos de trabalho de provisionamento de usuário do Workday com suporte do serviço de provisionamento de usuário do Azure AD habilitam a automação dos seguintes cenários de gerenciamento do ciclo de vida de identidade e recurso humanos:
 
-* **Contratação de novos funcionários** - quando um novo funcionário é adicionado ao Workday, uma conta de usuário é criada automaticamente no Active Directory, no Azure Active Directory e, opcionalmente, no Office 365 e [ outros aplicativos SaaS suportados pelo Azure AD](../manage-apps/user-provisioning.md), com write-back do endereço de e-mail para Workday.
+* **Contratação de novos funcionários** - quando um novo funcionário é adicionado ao Workday, uma conta de usuário é criada automaticamente no Active Directory, no Azure Active Directory e, opcionalmente, no Office 365 e [ outros aplicativos SaaS suportados pelo Azure AD](../app-provisioning/user-provisioning.md), com write-back do endereço de e-mail para Workday.
 
-* **Atualizações de perfil e atributo de funcionário** - Quando um registro de funcionário é atualizado no Workday (como seu nome, cargo ou gerente), sua conta de usuário será atualizada automaticamente no Active Directory, no Azure Active Directory e, opcionalmente, no Office 365 e [outros aplicativos SaaS com suporte do Azure AD](../manage-apps/user-provisioning.md).
+* **Atualizações de perfil e atributo de funcionário** - Quando um registro de funcionário é atualizado no Workday (como seu nome, cargo ou gerente), sua conta de usuário será atualizada automaticamente no Active Directory, no Azure Active Directory e, opcionalmente, no Office 365 e [outros aplicativos SaaS com suporte do Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Rescisão de funcionário** - Quando um funcionário é rescindido no Workday, sua conta de usuário será desabilitada automaticamente no Active Directory, no Azure Active Directory e, opcionalmente, no Office 365 e [outros aplicativos SaaS com suporte do Azure AD](../manage-apps/user-provisioning.md).
+* **Rescisão de funcionário** - Quando um funcionário é rescindido no Workday, sua conta de usuário será desabilitada automaticamente no Active Directory, no Azure Active Directory e, opcionalmente, no Office 365 e [outros aplicativos SaaS com suporte do Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Recontratação de funcionário** - quando um funcionário é recontratado no Workday, sua conta antiga poderá ser reativada ou reprovisionada automaticamente (dependendo da sua preferência) no Active Directory, Azure Active Directory e, opcionalmente, Office 365 e [outros aplicativos SaaS com suporte do Azure AD](../manage-apps/user-provisioning.md).
+* **Recontratação de funcionário** - quando um funcionário é recontratado no Workday, sua conta antiga poderá ser reativada ou reprovisionada automaticamente (dependendo da sua preferência) no Active Directory, Azure Active Directory e, opcionalmente, Office 365 e [outros aplicativos SaaS com suporte do Azure AD](../app-provisioning/user-provisioning.md).
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Para quem é mais recomendada essa solução de provisionamento de usuário?
 
@@ -62,14 +62,14 @@ Essa solução de provisionamento de usuário do workday é ideal para:
 
 * Organizações que usam o Office 365 para email
 
-## <a name="solution-architecture"></a>Arquitetura da Solução
+## <a name="solution-architecture"></a>Arquitetura da solução
 
 Esta seção descreve a arquitetura da solução de provisionamento do usuário de ponta a ponta para ambientes híbridos comuns. Há dois fluxos relacionados:
 
 * **Fluxo de dados de RH autoritativo – do Workday para o Active Directory local:** neste fluxo de trabalho, eventos de trabalho (como novas contratações, transferências, desligamentos) ocorrem primeiro no locatário de RH do Workday na nuvem e, em seguida, os dados do evento fluem para o Active Directory local por meio do Azure AD e do Agente de provisionamento. Dependendo do evento, pode levar a operações de criar/atualizar/habilitar/desabilitar no AD.
 * **Fluxo de write-back de email e nome de usuário – do local Active Directory para o workday:** Depois que a criação da conta for concluída em Active Directory, ela será sincronizada com o Azure AD por meio do Azure AD Connect, e o atributo de nome de usuário e de email poderá ser gravado novamente no workday.
 
-![Visão Geral](./media/workday-inbound-tutorial/wd_overview.png)
+![Visão geral](./media/workday-inbound-tutorial/wd_overview.png)
 
 ### <a name="end-to-end-user-data-flow"></a>Fluxo de dados do usuário de ponta a ponta
 
@@ -93,7 +93,7 @@ Esta seção cobre os seguintes aspectos de planejamento:
 * [Integração a vários domínios do Active Directory](#integrating-with-multiple-active-directory-domains)
 * [Planejar mapeamento e transformações de atributos do usuário do Workday para o Active Directory](#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -502,7 +502,7 @@ Nesta seção, você irá configurar o fluxo de dados de usuário do Workday par
    > Quando você estiver configurando o aplicativo de provisionamento de aplicativo pela primeira vez, você precisará testar e verificar seus mapeamentos de atributo e expressões para certificar-se de que ele está dando a você o resultado desejado. A Microsoft recomenda usar os filtros de escopo sob **Escopo do objeto de origem** para testar seus mapeamentos com alguns usuários de teste do Workday. Após ter verificado que os mapeamentos funcionam, você pode remover o filtro ou expandi-lo gradualmente para incluir mais usuários.
 
    > [!CAUTION] 
-   > O comportamento padrão do mecanismo de provisionamento é desabilitar/excluir usuários que saem do escopo. Isso pode não ser desejável em sua integração do seu workday com o AD. Para substituir esse comportamento padrão, consulte o artigo [ignorar a exclusão de contas de usuário que saem do escopo](../manage-apps/skip-out-of-scope-deletions.md)
+   > O comportamento padrão do mecanismo de provisionamento é desabilitar/excluir usuários que saem do escopo. Isso pode não ser desejável em sua integração do seu workday com o AD. Para substituir esse comportamento padrão, consulte o artigo [ignorar a exclusão de contas de usuário que saem do escopo](../app-provisioning/skip-out-of-scope-deletions.md)
   
 1. No campo **Ações do objeto de destino** é possível filtrar globalmente quais ações são executadas no Active Directory. **Criar** e **Atualizar** são as mais comuns.
 
@@ -516,7 +516,7 @@ Nesta seção, você irá configurar o fluxo de dados de usuário do Workday par
 
          * **Constante** - grava um valor de cadeia de caracteres constante estático para o atributo do AD
 
-         * **Expressão** – Permite gravar um valor personalizado para o atributo do AD baseado em um ou mais atributos do Workday. [Para obter mais informações, consulte este artigo sobre expressões](../manage-apps/functions-for-customizing-application-data.md).
+         * **Expressão** – Permite gravar um valor personalizado para o atributo do AD baseado em um ou mais atributos do Workday. [Para obter mais informações, consulte este artigo sobre expressões](../app-provisioning/functions-for-customizing-application-data.md).
 
       * **Atributo de origem** - O atributo de usuário do Workday. Se o atributo que você está procurando não estiver presente, consulte [Personalizar a lista de atributos de usuário do Workday](#customizing-the-list-of-workday-user-attributes).
 
@@ -543,9 +543,9 @@ Nesta seção, você irá configurar o fluxo de dados de usuário do Workday par
 
 * A expressão que mapeia para o atributo *parentDistinguishedName* é utilizada para provisionar um usuário para OUs diferentes baseado em um ou mais atributos de origem do Workday. Este exemplo coloca os usuários em OUs diferentes com base na cidade que eles estão.
 
-* O atributo *userPrincipalName* no Active Directory é gerado usando a função de eliminação de duplicação [SelectUniqueValue](../manage-apps/functions-for-customizing-application-data.md#selectuniquevalue) que verifica a existência de um valor gerado no domínio do AD de destino e apenas define se ele é exclusivo.  
+* O atributo *userPrincipalName* no Active Directory é gerado usando a função de eliminação de duplicação [SelectUniqueValue](../app-provisioning/functions-for-customizing-application-data.md#selectuniquevalue) que verifica a existência de um valor gerado no domínio do AD de destino e apenas define se ele é exclusivo.  
 
-* [Há documentação sobre expressões de gravação aqui](../manage-apps/functions-for-customizing-application-data.md). Esta seção inclui exemplos sobre como remover caracteres especiais.
+* [Há documentação sobre expressões de gravação aqui](../app-provisioning/functions-for-customizing-application-data.md). Esta seção inclui exemplos sobre como remover caracteres especiais.
 
 | ATRIBUTO WORKDAY | ATRIBUTO DO ACTIVE DIRECTORY |  ID DE CORRESPONDÊNCIA? | CRIAR / ATUALIZAR |
 | ---------- | ---------- | ---------- | ---------- |
@@ -653,7 +653,7 @@ Nesta seção, você irá configurar o fluxo dos dados do usuário do Workday pa
 
       * **Constante** - grava um valor de cadeia de caracteres constante estático para o atributo do AD
 
-      * **Expressão** – Permite gravar um valor personalizado para o atributo do AD baseado em um ou mais atributos do Workday. [Para obter mais informações, consulte este artigo sobre expressões](../manage-apps/functions-for-customizing-application-data.md).
+      * **Expressão** – Permite gravar um valor personalizado para o atributo do AD baseado em um ou mais atributos do Workday. [Para obter mais informações, consulte este artigo sobre expressões](../app-provisioning/functions-for-customizing-application-data.md).
 
    * **Atributo de origem** - O atributo de usuário do Workday. Se o atributo que você está procurando não estiver presente, consulte [Personalizar a lista de atributos de usuário do Workday](#customizing-the-list-of-workday-user-attributes).
 
@@ -747,7 +747,7 @@ Depois que as configurações do aplicativo de provisionamento do Workday tivere
 
    ![Portal do Azure](./media/workday-inbound-tutorial/wd_3.png)
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes
+## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
 
 * **Perguntas do recurso de solução**
   * [Ao processar uma nova contratação do Workday, como a solução define a senha para a nova conta de usuário no Active Directory?](#when-processing-a-new-hire-from-workday-how-does-the-solution-set-the-password-for-the-new-user-account-in-active-directory)
@@ -1023,9 +1023,9 @@ Veja como você pode lidar com esses requisitos para construir *CN* ou *DisplayN
     )
      ```
     Consulte também:
-  * [Sintaxe da função Switch](../manage-apps/functions-for-customizing-application-data.md#switch)
-  * [Sintaxe da função Join](../manage-apps/functions-for-customizing-application-data.md#join)
-  * [Sintaxe da função Append](../manage-apps/functions-for-customizing-application-data.md#append)
+  * [Sintaxe da função Switch](../app-provisioning/functions-for-customizing-application-data.md#switch)
+  * [Sintaxe da função Join](../app-provisioning/functions-for-customizing-application-data.md#join)
+  * [Sintaxe da função Append](../app-provisioning/functions-for-customizing-application-data.md#append)
 
 #### <a name="how-can-i-use-selectuniquevalue-to-generate-unique-values-for-samaccountname-attribute"></a>Como usar SelectUniqueValue para gerar valores exclusivos para o atributo samAccountName?
 
@@ -1043,17 +1043,17 @@ Como a expressão acima funciona: se o usuário for John Smith, ele primeiro ten
 
 Consulte também:
 
-* [Sintaxe da função Mid](../manage-apps/functions-for-customizing-application-data.md#mid)
-* [Sintaxe da função Replace](../manage-apps/functions-for-customizing-application-data.md#replace)
-* [Sintaxe da função SelectUniqueValue](../manage-apps/functions-for-customizing-application-data.md#selectuniquevalue)
+* [Sintaxe da função Mid](../app-provisioning/functions-for-customizing-application-data.md#mid)
+* [Sintaxe da função Replace](../app-provisioning/functions-for-customizing-application-data.md#replace)
+* [Sintaxe da função SelectUniqueValue](../app-provisioning/functions-for-customizing-application-data.md#selectuniquevalue)
 
 #### <a name="how-do-i-remove-characters-with-diacritics-and-convert-them-into-normal-english-alphabets"></a>Como remover caracteres com diacríticos e convertê-los em letras normais do alfabeto em português?
 
-Use a função [NormalizeDiacritics](../manage-apps/functions-for-customizing-application-data.md#normalizediacritics) para remover caracteres especiais no nome e sobrenome do usuário, ao construir o valor do endereço de email ou CN para o usuário.
+Use a função [NormalizeDiacritics](../app-provisioning/functions-for-customizing-application-data.md#normalizediacritics) para remover caracteres especiais no nome e sobrenome do usuário, ao construir o valor do endereço de email ou CN para o usuário.
 
 ## <a name="troubleshooting-tips"></a>Dicas de solução de problemas
 
-Esta seção fornece diretrizes específicas sobre como solucionar problemas de provisionamento com a integração do Workday usando os logs de auditoria do Azure AD e os logs do Visualizador de eventos do Windows Server. Ele se baseia nas etapas e conceitos de solução de problemas genéricos capturados no [tutorial: relatórios sobre o provisionamento automático de conta de usuário](../manage-apps/check-status-user-account-provisioning.md)
+Esta seção fornece diretrizes específicas sobre como solucionar problemas de provisionamento com a integração do Workday usando os logs de auditoria do Azure AD e os logs do Visualizador de eventos do Windows Server. Ele se baseia nas etapas e conceitos de solução de problemas genéricos capturados no [tutorial: relatórios sobre o provisionamento automático de conta de usuário](../app-provisioning/check-status-user-account-provisioning.md)
 
 Esta seção cobre os seguintes aspectos de solução de problemas:
 
@@ -1209,7 +1209,7 @@ Se o serviço de provisionamento não conseguir se conectar ao Workday ou ao Act
 |#|Cenário de erro |Causas prováveis|Resolução recomendada|
 |--|---|---|---|
 |1.| Falha na operação de exportação no log de auditoria com o erro de mensagem *: OperationsError-SvcErr: ocorreu um erro de operação. Nenhuma referência superior foi configurada para o serviço de diretório. Portanto, o serviço de diretório não pode emitir referências a objetos fora desta floresta.* | Esse erro geralmente mostra se o *contêiner do Active Directory* UO não está definido corretamente ou se há problemas com o Mapeamento da Expressão usado para *parentDistinguishedName*. | Verifique o parâmetro do *Contêiner do Active Directory* UO para erros de digitação. Se você estiver usando *parentDistinguishedName* no mapeamento de atributos certifique-se de que ele sempre é avaliado como um contêiner conhecido dentro do domínio do AD. Verifique o evento *Exportar* nos logs de auditoria para ver o valor gerado. |
-|2.| Falha na operação de exportação no log de auditoria com o código de erro: *SystemForCrossDomainIdentityManagementBadResponse* e erro de mensagem *: ConstraintViolation-AtrErr: um valor na solicitação é inválido. Um valor para o atributo não estava no intervalo de valores aceitável. Detalhes da \Nerro: CONSTRAINT_ATT_TYPE-Company*. | Embora esse erro seja específico para o atributo *empresa*, você poderá ver esse erro também para outros atributos como *CN*, por exemplo. Este erro aparece devido à restrição de esquema do AD imposta. Por padrão, os atributos *empresa* e *CN* no AD têm um limite máximo de 64 caracteres. Se o valor proveniente do Workday tiver mais que 64 caracteres, então você verá essa mensagem de erro. | Verifique o evento *Exportar* nos logs de auditoria para ver o valor do atributo relatado na mensagem de erro. Considere a possibilidade de truncar o valor proveniente do Workday usando a função [Mid](../manage-apps/functions-for-customizing-application-data.md#mid) ou alterar os mapeamentos para um atributo do AD que não tenha essas mesmas restrições de tamanho.  |
+|2.| Falha na operação de exportação no log de auditoria com o código de erro: *SystemForCrossDomainIdentityManagementBadResponse* e erro de mensagem *: ConstraintViolation-AtrErr: um valor na solicitação é inválido. Um valor para o atributo não estava no intervalo de valores aceitável. Detalhes da \Nerro: CONSTRAINT_ATT_TYPE-Company*. | Embora esse erro seja específico para o atributo *empresa*, você poderá ver esse erro também para outros atributos como *CN*, por exemplo. Este erro aparece devido à restrição de esquema do AD imposta. Por padrão, os atributos *empresa* e *CN* no AD têm um limite máximo de 64 caracteres. Se o valor proveniente do Workday tiver mais que 64 caracteres, então você verá essa mensagem de erro. | Verifique o evento *Exportar* nos logs de auditoria para ver o valor do atributo relatado na mensagem de erro. Considere a possibilidade de truncar o valor proveniente do Workday usando a função [Mid](../app-provisioning/functions-for-customizing-application-data.md#mid) ou alterar os mapeamentos para um atributo do AD que não tenha essas mesmas restrições de tamanho.  |
 
 #### <a name="ad-user-account-update-errors"></a>Erros de atualização de conta de usuário do AD
 
@@ -1348,7 +1348,7 @@ Para fazer essa alteração, você deve usar o [Workday Studio](https://communit
 
 ### <a name="exporting-and-importing-your-configuration"></a>Exportar e importar sua configuração
 
-Consulte o artigo [exportando e importando a configuração de provisionamento](../manage-apps/export-import-provisioning-configuration.md)
+Consulte o artigo [exportando e importando a configuração de provisionamento](../app-provisioning/export-import-provisioning-configuration.md)
 
 ## <a name="managing-personal-data"></a>Gerenciando dados pessoais
 
@@ -1360,9 +1360,9 @@ O serviço de provisionamento do Azure AD se encaixa na categoria **processador 
 
 Em relação à retenção de dados, o serviço de provisionamento do Azure AD não gera relatórios, executa análise ou fornece informações por mais de 30 dias. Portanto, o serviço de provisionamento do Azure AD não armazena, processa ou retém quaisquer dados por mais de 30 dias. Este design está em conformidade com os regulamentos do GDPR, com os regulamentos de conformidade de privacidade da Microsoft e com as políticas de retenção de dados do Azure Active Directory.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
+* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 * [Saiba como configurar o logon único entre o Workday e o Azure Active Directory](workday-tutorial.md)
 * [Saiba como integrar outros aplicativos SaaS com o Azure Active Directory](tutorial-list.md)
 * [Saiba como usar APIs do Microsoft Graph para gerenciar configurações de provisionamento](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)

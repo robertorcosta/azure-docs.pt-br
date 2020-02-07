@@ -3,12 +3,12 @@ title: Políticas de autor para propriedades de matriz em recursos
 description: Aprenda a trabalhar com parâmetros de matriz e expressões de linguagem de matriz, avaliar o alias [*] e acrescentar elementos com regras de definição de Azure Policy.
 ms.date: 11/26/2019
 ms.topic: how-to
-ms.openlocfilehash: 462d9acbda37bbbd007af6d6d1267e9b0e7d3e0a
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 991d159f6444133d902382bc9ca43bc2acd201e2
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023184"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77050074"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Políticas de autor para propriedades de matriz nos recursos do Azure
 
@@ -140,8 +140,7 @@ O **tipo** de condição esperado `equals` é _String_. Como **allowedLocations*
 
 ### <a name="evaluating-the--alias"></a>Avaliando o alias [*]
 
-Os aliases que têm **\[\*\]** anexados ao seu nome indicam que o **tipo** é uma _matriz_. Em vez de avaliar o valor de toda a matriz, **\[\*\]** torna possível avaliar cada elemento da matriz individualmente, com and lógico entre elas. Há três cenários padrão pelos quais a avaliação por item é útil em: _nenhum_, _qualquer_ou _todos os_ elementos correspondem.
-Para cenários complexos, use [Count](../concepts/definition-structure.md#count).
+Os aliases que têm **\[\*\]** anexados ao seu nome indicam que o **tipo** é uma _matriz_. Em vez de avaliar o valor de toda a matriz, **\[\*\]** torna possível avaliar cada elemento da matriz individualmente, com and lógico entre elas. Há três cenários padrão pelos quais a avaliação por item é útil em: _nenhum_, _qualquer_ou _todos os_ elementos correspondem. Para cenários complexos, use [Count](../concepts/definition-structure.md#count).
 
 O mecanismo de política aciona o **efeito** em **seguida** somente quando a regra **If** é avaliada como true.
 Esse fato é importante entender no contexto da maneira **\[\*\]** avalia cada elemento individual da matriz.
@@ -186,14 +185,14 @@ Os resultados a seguir são o resultado da combinação da condição e a regra 
 
 |Condição |Resultado | Cenário |Explicação |
 |-|-|-|-|
-|`{<field>,"notEquals":"127.0.0.1"}` |Nada |Nenhuma correspondência |Um elemento de matriz é avaliado como falso (127.0.0.1! = 127.0.0.1) e outro como verdadeiro (127.0.0.1! = 192.168.1.1), portanto, a condição não é **igual** a _false_ e o efeito não é disparado. |
+|`{<field>,"notEquals":"127.0.0.1"}` |nada |Nenhuma correspondência |Um elemento de matriz é avaliado como falso (127.0.0.1! = 127.0.0.1) e outro como verdadeiro (127.0.0.1! = 192.168.1.1), portanto, a condição não é **igual** a _false_ e o efeito não é disparado. |
 |`{<field>,"notEquals":"10.0.4.1"}` |Efeito de política |Nenhuma correspondência |Ambos os elementos da matriz são avaliados como verdadeiros (10.0.4.1! = 127.0.0.1 e 10.0.4.1! = 192.168.1.1), portanto, a condição não é **igual** a _true_ e o efeito é disparado. |
 |`"not":{<field>,"notEquals":"127.0.0.1" }` |Efeito de política |Uma ou mais correspondências |Um elemento de matriz é avaliado como falso (127.0.0.1! = 127.0.0.1) e outro como verdadeiro (127.0.0.1! = 192.168.1.1), portanto, a condição não é **igual** a _false_. O operador lógico é avaliado como verdadeiro (**não** _falso_), portanto, o efeito é disparado. |
-|`"not":{<field>,"notEquals":"10.0.4.1"}` |Nada |Uma ou mais correspondências |Ambos os elementos de matriz são avaliados como verdadeiros (10.0.4.1! = 127.0.0.1 e 10.0.4.1! = 192.168.1.1), portanto, a condição de não é **igual** a _true_. O operador lógico é avaliado como falso (**não** _verdadeiro_), portanto, o efeito não é disparado. |
+|`"not":{<field>,"notEquals":"10.0.4.1"}` |nada |Uma ou mais correspondências |Ambos os elementos de matriz são avaliados como verdadeiros (10.0.4.1! = 127.0.0.1 e 10.0.4.1! = 192.168.1.1), portanto, a condição de não é **igual** a _true_. O operador lógico é avaliado como falso (**não** _verdadeiro_), portanto, o efeito não é disparado. |
 |`"not":{<field>,"Equals":"127.0.0.1"}` |Efeito de política |Nem todas as correspondências |Um elemento de matriz é avaliado como verdadeiro (127.0.0.1 = = 127.0.0.1) e outro como falso (127.0.0.1 = = 192.168.1.1), portanto, a condição **Equals** é _false_. O operador lógico é avaliado como verdadeiro (**não** _falso_), portanto, o efeito é disparado. |
 |`"not":{<field>,"Equals":"10.0.4.1"}` |Efeito de política |Nem todas as correspondências |Ambos os elementos da matriz são avaliados como falso (10.0.4.1 = = 127.0.0.1 e 10.0.4.1 = = 192.168.1.1), portanto, a condição **Equals** é _false_. O operador lógico é avaliado como verdadeiro (**não** _falso_), portanto, o efeito é disparado. |
-|`{<field>,"Equals":"127.0.0.1"}` |Nada |Todas as correspondências |Um elemento de matriz é avaliado como verdadeiro (127.0.0.1 = = 127.0.0.1) e outro como falso (127.0.0.1 = = 192.168.1.1), portanto, a condição **Equals** é _false_ e o efeito não é disparado. |
-|`{<field>,"Equals":"10.0.4.1"}` |Nada |Todas as correspondências |Ambos os elementos da matriz são avaliados como falso (10.0.4.1 = = 127.0.0.1 e 10.0.4.1 = = 192.168.1.1), portanto, a condição **Equals** é _false_ e o efeito não é disparado. |
+|`{<field>,"Equals":"127.0.0.1"}` |nada |Todas as correspondências |Um elemento de matriz é avaliado como verdadeiro (127.0.0.1 = = 127.0.0.1) e outro como falso (127.0.0.1 = = 192.168.1.1), portanto, a condição **Equals** é _false_ e o efeito não é disparado. |
+|`{<field>,"Equals":"10.0.4.1"}` |nada |Todas as correspondências |Ambos os elementos da matriz são avaliados como falso (10.0.4.1 = = 127.0.0.1 e 10.0.4.1 = = 192.168.1.1), portanto, a condição **Equals** é _false_ e o efeito não é disparado. |
 
 ## <a name="the-append-effect-and-arrays"></a>As matrizes e o efeito de acréscimo
 
@@ -204,7 +203,7 @@ O [efeito de acréscimo](../concepts/effects.md#append) comporta-se de forma dif
 
 Para obter mais informações, consulte os [exemplos de acréscimo](../concepts/effects.md#append-examples).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).

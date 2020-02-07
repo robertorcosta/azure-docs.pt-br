@@ -2,7 +2,7 @@
 title: Criar senhas de aplicativo de informações de segurança (visualização) página-Azure AD
 description: Crie senhas geradas automaticamente (senhas de aplicativo) para usar com qualquer aplicativo sem navegador ou qualquer aplicativo que não dê suporte à verificação de dois fatores em sua organização. Essa senha de aplicativo é separada da senha normal e pode ser configurada na página de informações de segurança.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2018
-ms.author: lizross
-ms.openlocfilehash: d4076e379755518421ef79eca542ebdc99294a11
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.author: curtand
+ms.openlocfilehash: 787fa67ee77997fd1f9967db3abdbfc83d4ffad2
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704877"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064063"
 ---
 # <a name="create-app-passwords-from-the-security-info-preview-page"></a>Criar senhas de aplicativo da página informações de segurança (versão prévia)
 

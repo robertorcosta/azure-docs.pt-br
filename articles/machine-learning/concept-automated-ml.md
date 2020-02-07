@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: 778b369e08ff6b0c6e4075c5a8d3d2a234bde70e
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 012300c95fd1edd135b97f52ed3702ce3e7ef0bd
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894894"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048966"
 ---
 # <a name="what-is-automated-machine-learning"></a>O que é o aprendizado de máquina automatizado?
 
@@ -23,17 +23,17 @@ O Machine Learning automatizado, também conhecido como ML automatizado, é o pr
 
 O desenvolvimento de modelos de aprendizado de máquina tradicional tem uso intensivo de recursos, exigindo conhecimento e tempo de domínio significativos para produzir e comparar dezenas de modelos. Aplique ML automatizado quando desejar que Azure Machine Learning treine e ajuste um modelo para você usando a métrica de destino que você especificar. Em seguida, o serviço faz a iteração por meio de algoritmos de ML emparelhados com seleções de recursos, em que cada iteração produz um modelo com uma pontuação de treinamento. Quanto maior a pontuação, melhor o modelo é considerado para "ajustar" seus dados.
 
-Com o machine learning automatizado, você vai acelerar o tempo que se leva para colocar modelos de ML prontos em produção com grande facilidade e eficiência.
+Com o aprendizado de máquina automatizado, você acelerará o tempo necessário para obter modelos de ML prontos para produção com grande facilidade e eficiência.
 
 ## <a name="when-to-use-automated-ml"></a>Quando usar ML automatizado
 
-O ML automatizado democratiza o processo de desenvolvimento do modelo de machine learning e capacita seus usuários, não importando a qualificação em ciência de dados, a identificar um pipeline de aprendizado de máquina de ponta a ponta para qualquer problema.
+Democratiza automatizado o processo de desenvolvimento do modelo do Machine Learning e capacita seus usuários, não importa sua experiência em ciência de dados, para identificar um pipeline de aprendizado de máquina de ponta a ponta para qualquer problema.
 
 Cientistas de dados, analistas e desenvolvedores em setores podem usar o ML automatizado para:
 
-+ Implementar soluções de aprendizado de máquina sem amplo conhecimento de programação
-+ Economizar tempo e recursos
-+ Aproveitar melhores práticas da ciência de dados
++ Implementar soluções de Machine Learning sem amplo conhecimento de programação
++ Economize tempo e recursos
++ Aproveitar as práticas recomendadas de ciência de dados
 + Fornecer solução de problemas ágil
 
 A tabela a seguir lista casos comuns de uso de ML automatizados. 
@@ -83,7 +83,7 @@ Em todos os experimentos de aprendizado de máquina automatizados, seus dados s�
 
 Em todos os experimentos de aprendizado de máquina automatizados, seus dados são dimensionados e normalizados automaticamente para ajudar os algoritmos a executarem bem.  Durante o treinamento do modelo, uma das técnicas de dimensionamento ou normalização a seguir será aplicada a cada modelo.
 
-|Dimensionamento&nbsp;&&nbsp;normalização| Description |
+|Dimensionamento&nbsp;&&nbsp;normalização| Descrição |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Padronizar recursos removendo a média e dimensionamento para a variação de unidade  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Transforma recursos dimensionando cada recurso pelo mínimo e máximo da coluna  |
@@ -95,11 +95,11 @@ Em todos os experimentos de aprendizado de máquina automatizados, seus dados s�
 
 ### <a name="advanced-preprocessing-optional-featurization"></a>Pré-processamento avançado: personalização opcional
 
-O pré-processamento avançado adicional e os personalização também estão disponíveis, como data guardrails, codificação e transformações. [Saiba mais sobre o que o personalização está incluído](how-to-create-portal-experiments.md#preprocess). Habilite essa configuração com:
+O pré-processamento avançado adicional e os personalização também estão disponíveis, como data guardrails, codificação e transformações. [Saiba mais sobre o que o personalização está incluído](how-to-create-portal-experiments.md#featurization). Habilite essa configuração com:
 
-+ Azure Machine Learning Studio: selecionando as **configurações Exibir personalização** na seção **execução de configuração** [com estas etapas](how-to-create-portal-experiments.md).
++ Azure Machine Learning Studio: habilite o **personalização automático** na seção **Exibir configuração adicional** [com estas etapas](how-to-create-portal-experiments.md#create-and-run-experiment).
 
-+ SDK do Python: especificando `"feauturization": auto' / 'off' / FeaturizationConfig` para a [classe`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
++ SDK do Python: especificando `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` para a [classe`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
 ## <a name="prevent-over-fitting"></a>Evitar sobreajuste
 
@@ -141,9 +141,9 @@ Considere os seguintes modelos treinados e suas imprecisões de treinamento e te
 
 | Modelo | Precisão do treinamento | Precisão do teste |
 |-------|----------------|---------------|
-| A | 99,9 % | 95% |
+| Um | 99,9% | 95% |
 | B | 87% | 87% |
-| C | 99,9 % | 45% |
+| C | 99,9% | 45% |
 
 Considerando o modelo **A**, há um equívoco comum de que, se a precisão do teste nos dados não vistos for menor do que a precisão do treinamento, o modelo será superajustado. No entanto, a precisão do teste deve ser sempre menor do que a precisão do treinamento, e a distinção de sobreajuste vs. adequado se ajusta ao *quanto* menos preciso. 
 
@@ -193,7 +193,7 @@ Como os algoritmos de classificação geralmente são avaliados por exatidão, a
 
 Além disso, as execuções automáticas de ML geram automaticamente os gráficos a seguir, o que pode ajudá-lo a entender a exatidão das classificações do modelo e identificar os modelos potencialmente afetados por dados desequilibrados.
 
-Gráfico| Description
+Gráfico| Descrição
 ---|---
 [Matriz de confusão](how-to-understand-automated-ml.md#confusion-matrix)| Avalia os rótulos classificados corretamente em relação aos rótulos reais dos dados. 
 [Recall de precisão](how-to-understand-automated-ml.md#precision-recall-chart)| Avalia a proporção de rótulos corretos em relação à taxa de instâncias de rótulo encontradas dos dados 
@@ -207,7 +207,7 @@ As técnicas a seguir são opções adicionais para lidar com dados desequilibra
 
 - Use uma métrica de desempenho que lida melhor com dados desequilibrados. Por exemplo, a pontuação F1 é uma média ponderada de precisão e RECALL. A precisão mede a exatidão de um classificador – a precisão baixa indica um alto número de falsos positivos--,, enquanto a RECALL mede a integridade de um classificador, a RECALL baixa indica um grande número de falsos negativos. 
 
-## <a name="use-with-onnx-in-c-apps"></a>Usar com ONNX em aplicativos C#
+## <a name="use-with-onnx-in-c-apps"></a>Usar com ONNX em C# aplicativos
 
 Com Azure Machine Learning, você pode usar o ML automatizado para criar um modelo Python e fazer com que ele seja convertido no formato ONNX. O tempo de execução C#do ONNX dá suporte para que você possa usar o modelo C# criado automaticamente em seus aplicativos sem a necessidade de recodificar ou qualquer uma das latências de rede que os pontos de extremidade REST apresentam. Experimente um exemplo desse fluxo [neste Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
 
@@ -215,14 +215,14 @@ Com Azure Machine Learning, você pode usar o ML automatizado para criar um mode
 
 O ML automatizado também está disponível em outras soluções da Microsoft, como:
 
-|Integrações|Description|
+|Integrações|Descrição|
 |------------|-----------|
 |[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Seleção automática de modelos e treinamento em aplicativos .NET usando o Visual Studio e Visual Studio Code com o ML automatizado ML.NET (versão prévia).|
 |[HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Escale horizontalmente seus trabalhos de treinamento de ML automatizados no Spark em clusters HDInsight em paralelo.|
 |[Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Invocar modelos de aprendizado de máquina diretamente no Power BI (versão prévia).|
 |[SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)|Crie novos modelos de Machine Learning em seus dados em clusters SQL Server 2019 Big Data.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Veja exemplos e aprenda a criar modelos usando o aprendizado de máquina automatizado:
 

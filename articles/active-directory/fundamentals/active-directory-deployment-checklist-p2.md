@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc06931dd36c9ecd91ec1d748b9463f47f7afafc
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: f84226a631014b51338d47887fe3bafc969dc571
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72880579"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063638"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guia de implantação de recursos do Azure Active Directory
 
@@ -26,7 +26,7 @@ Uma infraestrutura de identidade bem planejada e executada abre o caminho para o
 
 Além disso, os clientes podem verificar a respectiva [classificação de segurança da identidade](identity-secure-score.md) para ver o quão alinhados eles estão com as práticas recomendadas da Microsoft. Verifique a sua classificação de segurança antes e depois de implementar essas recomendações para ver o seu desempenho em comparação com outros integrantes do setor e outras organizações do mesmo tamanho.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Muitas das recomendações neste guia podem ser implementadas com Azure AD Gratuito ou sem licença. Quando as licenças são necessárias, declaramos qual licença é necessária, no mínimo, para realizar a tarefa.
 
@@ -94,12 +94,12 @@ Na Fase 4 os administradores impõem princípios de privilégio mínimo para a a
 | [Concluir uma revisão de acesso para funções de diretório do Azure AD no PIM](../privileged-identity-management/pim-how-to-start-security-review.md) | Trabalhe com as equipes de segurança e liderança para criar uma política de revisão de acesso a fim de examinar o acesso administrativo com base nas políticas da sua organização. | Azure AD Premium P2 |
 | [Implementar políticas de associação de grupo dinâmica](../users-groups-roles/groups-dynamic-membership.md) | Use os grupos dinâmicos para atribuir automaticamente os usuários aos grupos com base em seus atributos de RH (ou outra fonte de atributos), como departamento, cargo, região e outros atributos. |  |
 | [Implementar o provisionamento de aplicativo baseado em grupo](../manage-apps/what-is-access-management.md) | Use o provisionamento de gerenciamento de acesso baseado em grupo para provisionar automaticamente os usuários para aplicativos SaaS. |  |
-| [Automatizar o provisionamento e desprovisionamento do usuário](../manage-apps/user-provisioning.md) | Remova etapas manuais do ciclo de vida da conta do funcionário para impedir acesso não autorizado. Sincronize identidades da sua fonte de verdade (HR System) para o Azure AD. |  |
+| [Automatizar o provisionamento e desprovisionamento do usuário](../app-provisioning/user-provisioning.md) | Remova etapas manuais do ciclo de vida da conta do funcionário para impedir acesso não autorizado. Sincronize identidades da sua fonte de verdade (HR System) para o Azure AD. |  |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Detalhes de preços e licenciamento do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
 
-[Configurações de acesso ao dispositivo e identidade](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+[Configurações de acesso à identidade e ao dispositivo](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
 [Políticas de acesso a dispositivos e identidades recomendadas comuns](https://docs.microsoft.com/microsoft-365/enterprise/identity-access-policies)

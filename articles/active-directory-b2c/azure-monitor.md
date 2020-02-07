@@ -10,17 +10,17 @@ ms.workload: identity
 ms.topic: conceptual
 ms.author: marsma
 ms.subservice: B2C
-ms.date: 02/03/2020
-ms.openlocfilehash: 108c9c1112327a3fcadeff4c4074f31f976a4e3d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.date: 02/05/2020
+ms.openlocfilehash: b701449e8cfb7a379522ee6ccb93f5569bd703d8
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026751"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046001"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitorar Azure AD B2C com Azure Monitor
 
-Use Azure Monitor para rotear eventos de atividade de uso de Azure Active Directory B2C (Azure AD B2C) para diferentes soluções de monitoramento. Você pode manter os logs para uso de longo prazo ou integrá-los a ferramentas de SIEM (gerenciamento de eventos e informações de segurança) de terceiros para obter informações sobre o seu ambiente.
+Use Azure Monitor para rotear logs de entrada e [auditoria](view-audit-logs.md) de Azure Active Directory B2C (Azure ad B2C) para diferentes soluções de monitoramento. Você pode manter os logs para uso de longo prazo ou integrá-los a ferramentas de SIEM (gerenciamento de eventos e informações de segurança) de terceiros para obter informações sobre o seu ambiente.
 
 Você pode rotear eventos de log para:
 
@@ -30,7 +30,7 @@ Você pode rotear eventos de log para:
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Para concluir as etapas neste artigo, você implanta um modelo de Azure Resource Manager usando o módulo Azure PowerShell.
 
@@ -221,7 +221,7 @@ Para definir configurações de monitoramento para Azure AD B2C logs de atividad
 
     ![Painel de configurações de diagnóstico no portal do Azure](./media/azure-monitor/azure-monitor-portal-05-diagnostic-settings-pane-enabled.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter mais informações sobre como adicionar e definir configurações de diagnóstico no Azure Monitor, consulte este tutorial na documentação do Azure Monitor:
 

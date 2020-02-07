@@ -2,7 +2,7 @@
 title: Exibir informações relacionadas à privacidade no portal minha conta – Azure AD
 description: Saiba como sua organização usa suas informações relacionadas à privacidade na página de privacidade do portal minha conta.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: jpettere
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.author: lizross
-ms.openlocfilehash: 232a17a21c7172bbf5056ae990679d87600ee6a0
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.author: curtand
+ms.openlocfilehash: 94187cc7c0c3500a86d47a5f244457ee020581a3
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705081"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062431"
 ---
 # <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Veja como sua organização usa seus dados relacionados à privacidade
 
@@ -36,7 +36,7 @@ Você pode exibir como sua organização usa seus dados na página **privacidade
 
     - **Termos de uso**. Os termos de uso de sua empresa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Depois de exibir como sua organização usa seus dados, você pode:
 

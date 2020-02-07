@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: obboms
-ms.openlocfilehash: 3ef584c48ab44fd3616b5c7897d589bddbe45dc0
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 9b9c4b326596887774d9dfc0dd792052ec672be2
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549250"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063808"
 ---
 # <a name="manually-create-and-use-an-nfs-network-file-system-linux-server-volume-with-azure-kubernetes-service-aks"></a>Criar e usar manualmente um volume de servidor NFS (Network File System) do Linux com o serviço de kubernetes do Azure (AKS)
 O compartilhamento de dados entre contêineres é geralmente um componente necessário de serviços e aplicativos baseados em contêiner. Normalmente, você tem vários pods que precisam acessar as mesmas informações em um volume persistente externo.    
@@ -74,7 +74,7 @@ echo "/export        localhost(rw,async,insecure,fsid=0,crossmnt,no_subtree_chec
 
 nohup service nfs-kernel-server restart
 ```
-O servidor será reiniciado (por causa do script) e você poderá montar o servidor NFS para AKS
+O servidor será reiniciado (por causa do script) e você poderá montar o servidor NFS para AKS.
 
 >[!IMPORTANT]  
 >Certifique-se de substituir o **AKS_SUBNET** com o correto do cluster ou, "*", abrirá o servidor NFS para todas as portas e conexões.
@@ -93,7 +93,8 @@ chmod +x ~/nfs-server-setup.sh
 ```
 
 ## <a name="connecting-aks-cluster-to-nfs-server"></a>Conectando o cluster AKS ao servidor NFS
-Podemos conectar o servidor NFS ao nosso cluster provisionando um volume persistente e uma declaração de volume persistente que especifica como acessar o volume.  
+Podemos conectar o servidor NFS ao nosso cluster provisionando um volume persistente e uma declaração de volume persistente que especifica como acessar o volume.
+
 É necessário conectar os dois serviços nas mesmas ou nas redes virtuais emparelhadas. As instruções para configurar o cluster na mesma VNET estão aqui: [criando um cluster AKs na VNET existente][aks-virtual-network]
 
 Quando estiverem na mesma rede virtual (ou emparelhada), você precisará provisionar um volume persistente e uma declaração de volume persistente em seu cluster AKS. Os contêineres podem montar a unidade NFS em seu diretório local.
@@ -140,7 +141,7 @@ spec:
       type: nfs
 ```
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 Se você não puder se conectar ao servidor de um cluster, um problema poderá ser o diretório exportado, ou seu pai, não terá permissões suficientes para acessar o servidor.
 
 Verifique se o diretório de exportação e seu diretório pai têm permissões de 777.
@@ -154,7 +155,7 @@ ls -l
 Para obter uma explicação completa ou para ajudá-lo a depurar a configuração do servidor NFS, aqui está um tutorial detalhado:
   - [Tutorial de NFS][nfs-tutorial]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter as práticas recomendadas associadas, consulte [práticas recomendadas para armazenamento e backups em AKs][operator-best-practices-storage].
 

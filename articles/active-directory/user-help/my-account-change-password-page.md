@@ -2,7 +2,7 @@
 title: Alterar sua senha de conta corporativa ou de estudante-Azure AD
 description: Saiba como alterar sua senha de conta corporativa ou de estudante na página Alterar senha do portal minha conta.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: jpettere
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.author: lizross
-ms.openlocfilehash: f92df704047e1d36e69e40ce5299b8d01e48e9eb
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.author: curtand
+ms.openlocfilehash: 06e5abe04ed1ec75dcbf1b216bfaab1a7458ce72
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705166"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064046"
 ---
 # <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Alterar a senha da conta corporativa ou de estudante da página Alterar senha
 
@@ -41,7 +41,7 @@ A página **alterar senha** do portal **minha conta** ajuda a atualizar uma senh
 
     Sua senha será alterada e você será solicitado a entrar em sua conta corporativa ou de estudante novamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Depois de alterar sua senha, você pode:
 

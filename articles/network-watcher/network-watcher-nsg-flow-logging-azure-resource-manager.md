@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
-ms.openlocfilehash: 2ae6314accf5ad9143e1e103239c2e7c884ec947
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 6980518da00e6849c327ca712bbeadaa816ae479
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776632"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77056658"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Configurar logs de fluxo de NSG de um modelo de Azure Resource Manager
 
@@ -38,7 +38,7 @@ Este artigo mostra como habilitar logs de [fluxo NSG](https://docs.microsoft.com
 
 ## <a name="nsg-flow-logs-object"></a>Objeto de logs de fluxo NSG
 
-O objeto de logs de fluxo NSG com todos os parâmetros with é mostrado abaixo.
+O objeto de logs de fluxo NSG com todos os parâmetros é mostrado abaixo.
 Para obter uma visão geral completa das propriedades, você pode ler a [referência de modelo de logs de fluxo NSG](https://docs.microsoft.com/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters).
 
 ```json
@@ -168,7 +168,7 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 Há duas maneiras de verificar se sua implantação foi bem-sucedida. O console do PowerShell deve mostrar "ProvisioningState" como "êxito". Além disso, você pode visitar a [página do portal de logs de fluxo do NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) para confirmar suas alterações. Se houver problemas com a implantação, dê uma olhada em [solucionar erros comuns de implantação do Azure com o Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como visualizar seus dados de fluxo do NSG usando:
 * [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)

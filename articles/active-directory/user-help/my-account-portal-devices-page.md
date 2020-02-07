@@ -2,7 +2,7 @@
 title: Gerenciar seus dispositivos conectados no portal minha conta – Azure AD
 description: Como exibir e desabilitar dispositivos conectados à sua conta corporativa ou de estudante na página dispositivos do portal minha conta.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: jpettere
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.author: lizross
-ms.openlocfilehash: 60eb0fb0f7129b148b4a30f9ed96b402d6b018fb
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.author: curtand
+ms.openlocfilehash: e273a44c1cbc5a6a6161f059038c7e87973a33d5
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705149"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062482"
 ---
 # <a name="manage-your-connected-devices-from-the-devices-page"></a>Gerenciar seus dispositivos conectados na página dispositivos
 
@@ -64,7 +64,7 @@ Se você estiver bloqueado em seu dispositivo ou tiver um erro fatal, poderá ir
 
 2. Selecione **Exibir chaves do BitLocker** para o dispositivo bloqueado e anote a chave do BitLocker para seu dispositivo bloqueado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Depois de exibir os dispositivos conectados, você pode:
 

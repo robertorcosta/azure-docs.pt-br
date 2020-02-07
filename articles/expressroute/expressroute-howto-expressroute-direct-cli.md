@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6a17570a62728d5b4f9c99e3c4c939b5c77cb3df
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 47ee05113d46f66efd02978fed09cf72edc5ac1c
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74080221"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049935"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configurar o ExpressRoute direto usando o CLI do Azure
 
@@ -38,13 +38,18 @@ Você pode usar o Azure ExpressRoute Direct para conectar-se diretamente à rede
    az account set --subscription "<subscription ID>"
    ```
 
-2. Liste todas os locais onde há suporte para o ExpressRoute Direct:
+2. Registre novamente sua assinatura para Microsoft. Network para acessar as APIs expressrouteportslocation e expressrouteport
+
+   ```azurecli
+   az provider register --namespace Microsoft.Network
+   ```
+3. Liste todas os locais onde há suporte para o ExpressRoute Direct:
     
    ```azurecli
    az network express-route port location list
    ```
 
-   **Exemplo de saída**
+   **Saída de exemplo**
   
    ```azurecli
    [
@@ -105,13 +110,13 @@ Você pode usar o Azure ExpressRoute Direct para conectar-se diretamente à rede
    }
    ]
    ```
-3. Determine se um dos locais listados na etapa anterior tem largura de banda disponível:
+4. Determine se um dos locais listados na etapa anterior tem largura de banda disponível:
 
    ```azurecli
    az network express-route port location show -l "Equinix-Ashburn-DC2"
    ```
 
-   **Exemplo de saída**
+   **Saída de exemplo**
 
    ```azurecli
    {
@@ -131,7 +136,7 @@ Você pode usar o Azure ExpressRoute Direct para conectar-se diretamente à rede
    "type": "Microsoft.Network/expressRoutePortsLocations"
    }
    ```
-4. Crie um recurso do ExpressRoute Direct com base no local que você escolheu nas etapas anteriores.
+5. Crie um recurso do ExpressRoute Direct com base no local que você escolheu nas etapas anteriores.
 
    O ExpressRoute Direct dá suporte a encapsulamento QinQ e Dot1Q. Se o QinQ for selecionado, cada circuito do ExpressRoute será atribuído dinamicamente a uma marca S e será exclusivo em todo o recurso ExpressRoute Direct. Cada marca C no circuito precisa ser exclusiva no circuito, mas não no recurso do ExpressRoute Direct.  
 
@@ -149,7 +154,7 @@ Você pode usar o Azure ExpressRoute Direct para conectar-se diretamente à rede
    > Você também pode definir o atributo **Encapsulamento** para **Dot1Q**. 
    >
 
-   **Exemplo de saída**
+   **Saída de exemplo**
 
    ```azurecli
    {
@@ -217,7 +222,7 @@ Use esse processo para conduzir um teste de camada 1. Certifique-se de que cada 
    ```azurecli
    az network express-route port update -n Contoso-Direct -g Contoso-Direct-rg --set links[1].adminState="Enabled"
    ```
-   **Exemplo de saída**
+   **Saída de exemplo**
 
    ```azurecli
    {
@@ -290,7 +295,7 @@ Crie um circuito no recurso ExpressRoute Direct:
 
   Outras larguras de banda incluem: 5 Gbps, 10 Gbps e 40 Gbps.
 
-  **Exemplo de saída**
+  **Saída de exemplo**
 
   ```azurecli
   {
@@ -326,6 +331,6 @@ Crie um circuito no recurso ExpressRoute Direct:
   }  
   ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter mais informações sobre o ExpressRoute Direct, confira [Visão geral](expressroute-erdirect-about.md).

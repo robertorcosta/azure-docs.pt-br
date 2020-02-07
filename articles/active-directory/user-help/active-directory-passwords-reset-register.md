@@ -2,7 +2,7 @@
 title: Registrar informações de autenticação para redefinir sua própria senha-Azure AD
 description: Registre suas informações de método de verificação para redefinição de senha de autoatendimento do Azure AD, para que você possa redefinir sua própria senha sem a ajuda do administrador.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 ms.assetid: ''
@@ -11,13 +11,13 @@ ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.author: lizross
-ms.openlocfilehash: d27b0b7aadf5cffc2a362843ab5373ee0dc5b170
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.author: curtand
+ms.openlocfilehash: 397e1fd7695fd7e74e1f22959d0f9f24af7d1ea3
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261833"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062635"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Registre suas informações do método de verificação para redefinir sua própria senha
 
@@ -61,7 +61,7 @@ O administrador deve ativar esse recurso para que você possa registrar suas inf
 | Sua conta não está habilitada para redefinição de senha.<br>A equipe de TI não configurou sua conta para usar esse serviço.<br>Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você. | Se você receber essa mensagem de erro depois de digitar sua ID de usuário, significa que a sua organização não ativou o recurso de redefinição de senha ou você não tem permissão para usá-la. Para redefinir sua senha nessa situação, você deve selecionar o link **entre em contato com um administrador** . Depois que você clicar no link, um email será enviado para o administrador ou assistência técnica de sua organização, informando-o que você deseja redefinir sua senha. |
 | Não foi possível verificar sua conta.<br>Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você. | Se você receber essa mensagem de erro depois de digitar sua ID de usuário, significa que sua organização ativou a redefinição de senha e que você pode usá-la, mas que você ainda não registrou para o serviço. Nessa situação, você deve contatar o administrador ou o suporte técnico da sua organização para redefinir sua senha. Para obter informações sobre como se registrar para a redefinição de senha depois de voltar ao seu dispositivo, consulte o processo acima neste artigo. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Alterar a senha usando a redefinição de senha de autoatendimento](active-directory-passwords-update-your-own-password.md)
 

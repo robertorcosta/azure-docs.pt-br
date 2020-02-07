@@ -2,7 +2,7 @@
 title: Correções para o erro "você não pode chegar lá daqui" – Azure AD
 description: Encontre possíveis correções por que você está recebendo a mensagem de erro "você não pode chegar lá daqui".
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
@@ -10,15 +10,15 @@ ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/10/2018
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 55a6e9976706cb12a53dd5d540a2b6f2edb9e41b
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d29168f154c80eb2c66d0316f773375325ded67f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704622"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062176"
 ---
 # <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>Possíveis correções para a mensagem de erro "você não pode chegar lá daqui"
 
@@ -67,7 +67,7 @@ Se o dispositivo não estiver adicionado à rede da sua organização, você ter
 
 - **Registrar seu dispositivo pessoal para trabalho.** Registre seu dispositivo pessoal, geralmente um telefone ou tablet, na rede da sua organização. Após o registro do dispositivo, ele poderá acessar os recursos restritos da sua organização. Para saber mais e obter instruções passo a passo, consulte [Registrar seu dispositivo pessoal à rede da sua organização](user-help-register-device-on-network.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - [O que é o portal MyApps?](active-directory-saas-access-panel-introduction.md)
 
 - [Entre com seu telefone, não com sua senha](user-help-auth-app-sign-in.md)

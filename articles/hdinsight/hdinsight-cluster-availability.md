@@ -1,20 +1,19 @@
 ---
 title: 'Monitoramento: Azure Monitor de logs do Apache Ambari &-Azure HDInsight'
 description: Saiba como usar os logs do Ambari e do Azure Monitor para monitorar a integridade e a disponibilidade do cluster.
-keywords: monitoramento, ambari, monitor, log Analytics, alerta, disponibilidade, integridade
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 11/25/2019
-ms.openlocfilehash: a21610fefcfe1632dffbfd8e055497476f7e59c1
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.date: 02/06/2020
+ms.openlocfilehash: 383366fa3e436c79bed28a7c47f1e9daa5f0d9de
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687815"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77060160"
 ---
 # <a name="how-to-monitor-cluster-availability-with-apache-ambari-and-azure-monitor-logs"></a>Como monitorar a disponibilidade do cluster com os logs do Apache Ambari e Azure Monitor
 
@@ -24,7 +23,7 @@ Este documento mostra como usar essas ferramentas para monitorar o cluster e per
 
 ## <a name="ambari"></a>Ambari
 
-### <a name="dashboard"></a>painel
+### <a name="dashboard"></a>Painel
 
 O painel do Ambari pode ser acessado selecionando o link do **Ambari Home** na seção **painéis do cluster** da visão geral do HDInsight em portal do Azure, conforme mostrado abaixo. Como alternativa, ele pode ser acessado navegando até `https://CLUSTERNAME.azurehdinsight.net` em um navegador em que CLUSTERname é o nome do cluster.
 
@@ -58,7 +57,7 @@ Para exibir uma lista de definições de alerta e seus status, selecione a guia 
 
 O Ambari oferece muitos alertas predefinidos relacionados à disponibilidade, incluindo:
 
-| Nome do alerta                        | Descrição   |
+| Nome do alerta                        | DESCRIÇÃO   |
 |---|---|
 | Resumo de integridade do datanode           | Esse alerta de nível de serviço é disparado se houver datanodes não íntegros|
 | Integridade de alta disponibilidade do NameNode | Esse alerta de nível de serviço será disparado se o NameNode ativo ou o NameNode em espera não estiver em execução.|
@@ -96,9 +95,9 @@ Como pré-requisito, você precisará de um espaço de trabalho Log Analytics pa
 
 ### <a name="enable-hdinsight-azure-monitor-logs-integration"></a>Habilitar a integração de logs de Azure Monitor do HDInsight
 
-Na página de recursos do cluster HDInsight no portal, selecione **Operations Management Suite**. Em seguida, selecione **habilitar** e selecione o espaço de trabalho log Analytics na lista suspensa.
+Na página de recursos do cluster HDInsight no portal, selecione **Azure monitor**. Em seguida, selecione **habilitar** e selecione o espaço de trabalho log Analytics na lista suspensa.
 
-![HDInsight Operations Management Suite](media/hdinsight-cluster-availability/hdi-portal-oms-enable.png)
+![HDInsight Operations Management Suite](media/hdinsight-cluster-availability/azure-portal-monitoring.png)
 
 ### <a name="query-metrics-and-logs-tables"></a>Consultar tabelas de métricas e logs
 
@@ -108,7 +107,7 @@ Quando Azure Monitor integração de log estiver habilitada (isso pode levar alg
 
 Os logs listam várias consultas de exemplo, como:
 
-| Nome da consulta                      | Descrição                                                               |
+| Nome da consulta                      | DESCRIÇÃO                                                               |
 |---------------------------------|---------------------------------------------------------------------------|
 | Disponibilidade de computadores hoje    | Gráfico o número de computadores que enviam logs, a cada hora                     |
 | Listar pulsações                 | Listar todas as pulsações de computador da última hora                           |
@@ -190,6 +189,6 @@ Selecionar em um agrupamento de severidade (ou seja **, Sev 1,** como realçado 
 
 ![Log Analytics espaço de trabalho Sev um alerta](media/hdinsight-cluster-availability/portal-oms-alerts-sev1.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Disponibilidade e confiabilidade de clusters de Apache Hadoop no HDInsight](hdinsight-high-availability-linux.md)

@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 56c2d96e6e4a5900770aaefcabb424eddb1cbde6
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 8f91ed926c733b211443805722b6817b1ce005b6
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531388"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048356"
 ---
 # <a name="what-are-wrangling-data-flows"></a>O que são fluxos de dados Wrangling?
 
@@ -24,7 +24,7 @@ O fluxo de dados Wrangling converte M gerado pelo editor de mashup do Power Quer
 
 Os fluxos de dados do Wrangling são especialmente úteis para engenheiros de dados ou "integradores de dados do cidadão".
 
-## <a name="use-cases"></a>Use casos
+## <a name="use-cases"></a>Casos de uso
 
 ### <a name="fast-interactive-data-exploration-and-preparation"></a>Exploração e preparação rápida de dados interativos
 
@@ -40,13 +40,13 @@ Examine visualmente seus dados de forma livre de código para remover exceções
 
 ## <a name="supported-sources"></a>Fontes com suporte
 
-| Conector | Formato de dados | Tipo de autenticação. |
+| Conector | Formato de dados | Tipo de autenticação |
 | -- | -- | --|
-| [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md) | CSV | Chave de conta |
+| [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md) | CSV, parquet | Chave de conta |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV | Entidade de Serviço |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV | Chave de conta, entidade de serviço |
-| [Banco de Dados SQL do Azure](connector-azure-sql-database.md) | - | Autenticação do SQL |
-| [Análise de Synapse do Azure](connector-azure-sql-data-warehouse.md) | - | Autenticação do SQL |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV, parquet | Chave de conta, entidade de serviço |
+| [Banco de Dados SQL do Azure](connector-azure-sql-database.md) | - | Autenticação SQL |
+| [Análise de Synapse do Azure](connector-azure-sql-data-warehouse.md) | - | Autenticação SQL |
 
 ## <a name="the-mashup-editor"></a>O editor de mashup
 
@@ -62,6 +62,6 @@ Para obter mais informações sobre as transformações com suporte, consulte [f
 
 Atualmente, o fluxo de dados Wrangling só dá suporte à gravação em um coletor.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba como [criar um fluxo de dados do Wrangling](wrangling-data-flow-tutorial.md).

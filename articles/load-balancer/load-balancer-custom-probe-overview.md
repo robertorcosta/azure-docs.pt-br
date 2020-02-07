@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 5aa75de694d05ce31becc6996aca419dff256a3f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 5517b6434d8d654e8aa7e28bec8f6d2a3d9ca73b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023541"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77056675"
 ---
 # <a name="load-balancer-health-probes"></a>Investigações de integridade do Load Balancer
 
@@ -128,7 +128,7 @@ Se você usar o Serviços de Nuvem e tiver funções web que usem w3wp.exe, tamb
 
 Uma investigação HTTP / HTTPS falha quando:
 * O ponto de extremidade da investigação retorna um código de resposta HTTP diferente de 200 (por exemplo, 403, 404 ou 500). Isso marcará imediatamente a investigação de integridade como inoperante. 
-* O ponto de extremidade de investigação não responde de modo algum durante um período de tempo limite de 31 segundos. Várias solicitações de investigação podem ficar sem resposta antes que a investigação seja marcada como não estando em execução e até que a soma de todos os intervalos de tempo limite seja atingido.
+* O ponto de extremidade de investigação não responde durante o mínimo do intervalo de investigação e do período de tempo limite de 30 segundos. Várias solicitações de investigação podem ficar sem resposta antes que a investigação seja marcada como não estando em execução e até que a soma de todos os intervalos de tempo limite seja atingido.
 * O ponto de extremidade de investigação fecha a conexão por meio de uma redefinição de TCP.
 
 O seguinte ilustra como você pode expressar esse tipo de configuração de investigação em um modelo do Resource Manager:
@@ -252,9 +252,9 @@ O Load Balancer público básico expõe o status de investigação de integridad
 ## <a name="limitations"></a>Limitações
 
 - Investigações HTTPS não dão suporte à autenticação mútua com um certificado de cliente.
-- Você deve assumehHealth investigações falharão quando os carimbos de data/hora TCP estiverem habilitados.
+- Você deve assumir que as investigações de integridade falharão quando os carimbos de data/hora TCP estiverem habilitados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [Load Balancer Standard](load-balancer-standard-overview.md)
 - [Introdução à criação de um balanceador de carga público no Gerenciador de Recursos usando PowerShell](quickstart-create-standard-load-balancer-powershell.md)

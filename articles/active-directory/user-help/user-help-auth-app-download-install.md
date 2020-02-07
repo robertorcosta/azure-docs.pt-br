@@ -2,7 +2,7 @@
 title: Baixar e instalar o aplicativo Microsoft Authenticator-Azure AD
 description: Baixe e instale o aplicativo Microsoft Authenticator para verificar sua identidade ao usar a verificação de dois fatores.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: ba6f4d8d7c8bae73d998ee09de3adba7601e25b8
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 9d8ea02c91dc6aec41a1b548eff148e85111fc32
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704707"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063893"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Baixar e instalar o aplicativo Microsoft Authenticator
 
@@ -53,7 +53,7 @@ Instale a última versão do aplicativo Microsoft Authenticator, com base no sis
 >[!Important]
 >Se você não estiver no seu dispositivo móvel no momento, ainda poderá obter o aplicativo Microsoft Authenticator enviando a você mesmo um link de download da [página Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Depois de baixar e instalar o aplicativo, você precisará adicionar suas várias contas. Para obter mais informações, consulte:
 

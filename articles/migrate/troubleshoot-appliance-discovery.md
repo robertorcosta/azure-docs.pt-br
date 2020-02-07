@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: e8d0f446442db6eeb0aec38efcc69bdf09c9b56f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 37da62a4eb0f934133d6486872ba319138299614
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990701"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048699"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solucionar problemas do dispositivo e da descoberta de migrações para Azure
 
@@ -139,7 +139,7 @@ Se você excluir VMs e elas ainda aparecerem no portal, aguarde 30 minutos. Se e
 
 As migrações para Azure dão suporte à descoberta de aplicativos, funções e recursos usando migrações para Azure: avaliação do servidor. Atualmente, o app Discovery tem suporte apenas para VMware. [Saiba mais](how-to-discover-applications.md) sobre os requisitos e as etapas para configurar a descoberta de aplicativos.
 
-Erros típicos de descoberta de aplicativo são resumidos na tabela.
+Erros típicos de descoberta de aplicativo são resumidos na tabela. 
 
 **Erro** | **Causa** | **Ação**
 --- | --- | --- | ---
@@ -164,5 +164,5 @@ Erros típicos de descoberta de aplicativo são resumidos na tabela.
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Configure um dispositivo para [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md)ou [servidores físicos](how-to-set-up-appliance-physical.md).

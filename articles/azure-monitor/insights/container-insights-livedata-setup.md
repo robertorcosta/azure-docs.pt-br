@@ -3,12 +3,12 @@ title: Azure Monitor de instalação para contêineres de dados dinâmicos (visu
 description: Este artigo descreve como configurar a exibição em tempo real de logs de contêiner (stdout/stderr) e eventos sem usar o kubectl com Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 1ca52384e5ce657e4fedeb42e3304449a2d6be11
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: cf42eea99e437a76bb437b23f6eaffae1f1f3bc6
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030646"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063757"
 ---
 # <a name="how-to-setup-the-live-data-preview-feature"></a>Como configurar o recurso de dados dinâmicos (versão prévia)
 
@@ -114,7 +114,7 @@ Para obter mais informações sobre a configuração de segurança avançada no 
     >[!NOTE]
     >Se você estiver usando esse recurso no Azure China, o primeiro valor da URL base deverá ser `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` e o segundo valor da URL base deverá ser `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`. 
     
-4. Depois de registrar as URLs de redirecionamento, em **Configurações avançadas**, selecione as opções **tokens de acesso** e **tokens de ID** e salve as alterações.
+4. Depois de registrar as URLs de redirecionamento, em **concessão implícita**, selecione as opções **tokens de acesso** e **tokens de ID** e salve as alterações.
 
 >[!NOTE]
 >A configuração da autenticação com o Azure Active Directory para logon único só pode ser realizada durante a implantação inicial de um novo cluster AKS. Não é possível configurar o logon único em um cluster do AKS já implantado.
@@ -131,6 +131,6 @@ Cada conta do Azure AD deve receber permissão para as APIs apropriadas no kuber
 
 Para obter ajuda adicional sobre como configurar o **ClusterRoleBinding**do cluster AKs, consulte [criar Associação RBAC](../../aks/azure-ad-integration-cli.md#create-rbac-binding).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você tem a autenticação de instalação, é possível exibir as [métricas](container-insights-livedata-metrics.md), as [implantações](container-insights-livedata-deployments.md)e [os eventos e os logs](container-insights-livedata-overview.md) em tempo real do cluster.
