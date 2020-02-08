@@ -9,12 +9,12 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 39b16c6cfd5b94d412827ed88197edbef2da1453
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 12655d2ceb4a1124376d9bddf82194472c98ebb9
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844625"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086662"
 ---
 # <a name="persist-state-in-linux"></a>Persistir o estado no Linux
 
@@ -49,17 +49,17 @@ Por exemplo, a configuração a seguir resultará na criação do volume **egmet
 ```json
  {
   "Env": [
-    "inbound:serverAuth:tlsPolicy=strict",
-    "inbound:serverAuth:serverCert:source=IoTEdge",
-    "inbound:clientAuth:sasKeys:enabled=false",
-    "inbound:clientAuth:clientCert:enabled=true",
-    "inbound:clientAuth:clientCert:source=IoTEdge",
-    "inbound:clientAuth:clientCert:allowUnknownCA=true",
-    "outbound:clientAuth:clientCert:enabled=true",
-    "outbound:clientAuth:clientCert:source=IoTEdge",
-    "outbound:webhook:httpsOnly=true",
-    "outbound:webhook:skipServerCertValidation=false",
-    "outbound:webhook:allowUnknownCA=true"
+    "inbound__serverAuth__tlsPolicy=strict",
+    "inbound__serverAuth__serverCert__source=IoTEdge",
+    "inbound__clientAuth__sasKeys__enabled=false",
+    "inbound__clientAuth__clientCert__enabled=true",
+    "inbound__clientAuth__clientCert__source=IoTEdge",
+    "inbound__clientAuth__clientCert__allowUnknownCA=true",
+    "outbound__clientAuth__clientCert__enabled=true",
+    "outbound__clientAuth__clientCert__source=IoTEdge",
+    "outbound__webhook__httpsOnly=true",
+    "outbound__webhook__skipServerCertValidation=false",
+    "outbound__webhook__allowUnknownCA=true"
   ],
   "HostConfig": {
     "Binds": [
@@ -116,7 +116,8 @@ Em vez de um volume do Docker, você também tem a opção de montar uma pasta d
     {
          "HostConfig": {
             "Binds": [
-                "<your-directory-name-here>:/app/metadataDb"
+                "<your-directory-name-here>:/app/metadataDb",
+                "<your-directory-name-here>:/app/eventsDb",
              ]
          }
     }
@@ -127,17 +128,17 @@ Em vez de um volume do Docker, você também tem a opção de montar uma pasta d
     ```json
     {
           "Env": [
-            "inbound:serverAuth:tlsPolicy=strict",
-            "inbound:serverAuth:serverCert:source=IoTEdge",
-            "inbound:clientAuth:sasKeys:enabled=false",
-            "inbound:clientAuth:clientCert:enabled=true",
-            "inbound:clientAuth:clientCert:source=IoTEdge",
-            "inbound:clientAuth:clientCert:allowUnknownCA=true",
-            "outbound:clientAuth:clientCert:enabled=true",
-            "outbound:clientAuth:clientCert:source=IoTEdge",
-            "outbound:webhook:httpsOnly=true",
-            "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true"
+            "inbound__serverAuth__tlsPolicy=strict",
+            "inbound__serverAuth__serverCert__source=IoTEdge",
+            "inbound__clientAuth__sasKeys__enabled=false",
+            "inbound__clientAuth__clientCert__enabled=true",
+            "inbound__clientAuth__clientCert__source=IoTEdge",
+            "inbound__clientAuth__clientCert__allowUnknownCA=true",
+            "outbound__clientAuth__clientCert__enabled=true",
+            "outbound__clientAuth__clientCert__source=IoTEdge",
+            "outbound__webhook__httpsOnly=true",
+            "outbound__webhook__skipServerCertValidation=false",
+            "outbound__webhook__allowUnknownCA=true"
           ],
           "HostConfig": {
                 "Binds": [
@@ -156,7 +157,7 @@ Em vez de um volume do Docker, você também tem a opção de montar uma pasta d
     ```
 
     >[!IMPORTANT]
-    >Não altere a segunda parte do valor de ligação. Ele aponta para um local específico dentro do módulo. Para o módulo de grade de eventos no Linux, ele deve ser **/app/Metadata**.
+    >Não altere a segunda parte do valor de ligação. Ele aponta para um local específico dentro do módulo. Para o módulo de grade de eventos no Linux, ele deve ser **/app/metadataDb** e **/app/eventsDb**
 
 
 ## <a name="persist-events"></a>Persistir eventos
@@ -167,7 +168,7 @@ Coisas importantes a serem observadas sobre eventos persistentes:
 
 * A persistência de eventos é habilitada por assinatura de evento e é opcional quando um volume ou diretório é montado.
 * A persistência de evento é configurada em uma assinatura de evento no momento da criação e não pode ser modificada depois que a assinatura do evento é criada. Para alternar a persistência de evento, você deve excluir e recriar a assinatura de evento.
-* A persistência de eventos é quase sempre mais lenta do que nas operações de memória, no entanto, a diferença de velocidade depende muito das características da unidade. A compensação entre velocidade e confiabilidade é inerente a todos os sistemas de mensagens, mas geralmente se torna apenas um noticible em grande escala.
+* A persistência de eventos é quase sempre mais lenta do que nas operações de memória, no entanto, a diferença de velocidade depende muito das características da unidade. A compensação entre velocidade e confiabilidade é inerente a todos os sistemas de mensagens, mas geralmente só se torna perceptível em grande escala.
 
 Para habilitar a persistência de evento em uma assinatura de evento, defina `persistencePolicy` como `true`:
 

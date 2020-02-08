@@ -8,20 +8,20 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/19/2019
+ms.date: 02/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: b70604c62ae21f9c433b3cd7d9e59f4ccebb61bd
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 1ec0d9c7ecf16c60c32abdf08b358268f460edb0
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861720"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087221"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Provisionar e gerenciar a Versão Prévia do Azure Time Series Insights
 
 Este artigo descreve como criar e gerenciar um ambiente de Versão Prévia do Azure Time Series Insights usando o [portal do Azure](https://portal.azure.com/).
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Azure Time Series Insights ambientes de visualização são ambientes PAYG (pré- *pago* ).
 
@@ -102,7 +102,7 @@ Para criar um ambiente de visualização de Azure Time Series Insights:
 
 [![Time Series Insights ambiente de visualização no portal do Azure](media/v2-update-manage/create-and-manage-overview-confirm.png)](media/v2-update-manage/create-and-manage-overview-confirm.png#lightbox)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre Time Series Insights ambientes geralmente disponíveis e ambientes de visualização lendo [planejar seu ambiente](./time-series-insights-update-plan.md).
 

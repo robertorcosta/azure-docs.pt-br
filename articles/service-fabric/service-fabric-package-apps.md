@@ -3,12 +3,12 @@ title: Empacotar um aplicativo de Service Fabric do Azure
 description: Saiba mais sobre como empacotar um aplicativo de Service Fabric do Azure e como se preparar para a implantação em um cluster.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 16bd48963040a8e30ff81f40c01134014eaccf48
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 7c99eec28ac06ecf666d6dda1015f889841a5dbf
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639676"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083625"
 ---
 # <a name="package-an-application"></a>Preparar um aplicativo
 
@@ -56,9 +56,9 @@ Para obter mais informações sobre como configurar o **SetupEntryPoint**, consu
 
 ### <a name="build-a-package-by-using-visual-studio"></a>Compilar um pacote usando o Visual Studio
 
-Se você usar o Visual Studio 2015 para criar o seu aplicativo, pode usar o comando Package para criar automaticamente um pacote que corresponda ao layout descrito acima.
+Se você usou o Visual Studio para criar seu aplicativo, poderá usar o comando *Package* para criar automaticamente um pacote que corresponda ao layout descrito acima.
 
-Para criar um pacote, clique com o botão direito do mouse no projeto de aplicativo no Gerenciador de Soluções e escolha o comando de Pacote, conforme mostrado abaixo:
+Para criar um pacote, clique com o botão direito do mouse no projeto de aplicativo em *Gerenciador de soluções* e escolha o comando **pacote** :
 
 ![Empacotando um aplicativo no Visual Studio][vs-package-command]
 
@@ -224,7 +224,7 @@ Para provisionar o pacote, use o provisionamento o externo, o que requer o URI d
 >[!NOTE]
 > O provisionamento com base no caminho relativo do repositório de imagens no momento não oferece suporte a arquivos `sfpkg`. Portanto, o `sfpkg` não deve ser copiado para o repositório de imagens.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Implantar e remover aplicativos][10] descreve como usar o PowerShell para gerenciar instâncias de aplicativo
 

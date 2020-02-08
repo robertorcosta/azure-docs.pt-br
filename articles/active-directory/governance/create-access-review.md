@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/21/2019
+ms.date: 02/06/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e65eb08873da71c7683fe3347484831dfff58793
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: fcb2198ea3f01e923022c205e478167240a01894
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932634"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084453"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Criar uma revisão de acesso de grupos e aplicativos nas revisões de acesso do Azure AD
 
@@ -28,7 +28,7 @@ Acesso a grupos e aplicativos para funcionários e visitantes muda ao longo do t
 
 Este artigo descreve como criar uma ou mais revisões de acesso para membros do grupo ou acesso ao aplicativo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Azure AD Premium P2
 - Administrador global ou administrador de usuário
@@ -93,7 +93,7 @@ Para obter mais informações, veja [Requisitos de licença](access-reviews-over
 
     ![Criar uma revisão de acesso-após as configurações de conclusão](./media/create-access-review/upon-completion-settings.png)
 
-1. Se você quiser remover automaticamente o acesso para usuários que foram negados, defina **Resultados de aplicação automática ao recurso** para **Habilitar**. Se você deseja aplicar manualmente os resultados quando a revisão for concluída, defina a opção para **Desabilitar**.
+1. Se você quiser remover automaticamente, acesse os usuários que foram negados, defina **aplicar resultados de aplicação automática para recurso** a ser **habilitado**. Se você deseja aplicar manualmente os resultados quando a revisão for concluída, defina a opção para **Desabilitar**.
 
 1. Use a lista **Se o revisor não responder** para especificar o que acontece para usuários que não foram examinados pelo revisor dentro do período de revisão. Essa configuração não afeta os usuários que foram revisados pelos revisores manualmente. Se a decisão do revisor final for negar o acesso do usuário será removido.
 
@@ -128,11 +128,25 @@ Por padrão, o Azure AD envia um email para os revisores logo após o início da
 
 Se você tiver atribuído convidados como revisores e eles não tiverem aceitado o convite, eles não receberão um email das revisões de acesso, pois eles devem primeiro aceitar o convite antes da revisão.
 
+## <a name="access-review-status-table"></a>Tabela de status de análise de acesso
+
+| Status | Definição |
+|--------|------------|
+|NotStarted | A revisão foi criada, a descoberta de usuário está aguardando para ser iniciada. |
+|Inicializando   | A descoberta de usuário está em andamento para identificar todos os usuários que fazem parte da revisão. |
+|Iniciando | A revisão está sendo iniciada. Se as notificações por email estiverem habilitadas, os emails serão enviados aos revisores. |
+|InProgress | A revisão foi iniciada. Se as notificações por email forem habilitadas, os emails serão enviados aos revisores. Os revisores podem enviar decisões até a data de vencimento. |
+|Finaliza | A revisão está sendo concluída e os emails estão sendo enviados para o proprietário da revisão. |
+|Revisão revisada | A revisão está em um estágio de revisão do sistema. O sistema está gravando decisões para usuários que não foram revisados com base em recomendações ou decisões pré-configuradas. |
+|Analisado com autorevisão | As decisões foram registradas pelo sistema para todos os usuários que não foram revisados. A revisão está pronta para continuar a **aplicação** se a aplicação automática estiver habilitada. |
+|Solicita | Não haverá nenhuma alteração no acesso para usuários que foram aprovados. |
+|Aplicação | Os usuários negados, se houver algum, foram removidos do recurso ou diretório. |
+
 ## <a name="create-reviews-via-apis"></a>Criar revisões via APIs
 
 Você também pode criar as revisões de acesso usando as APIs. O que você faz para gerenciar as revisões de acesso dos grupos e usuários do aplicativo no portal do Azure também pode ser feito usando as APIs do Microsoft Graph. Para obter mais informações, consulte a [referência da API de revisões de acesso do Azure ad](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta). Para obter um exemplo de código, consulte o [exemplo de recuperação de revisões de acesso do Azure ad via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Examinar o acesso a grupos ou aplicativos](perform-access-review.md)
 - [Examinar o acesso a grupos ou aplicativos](review-your-access.md)

@@ -3,22 +3,22 @@ title: Obter consentimento para vários recursos (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como um usuário pode obter o consentimento para vários recursos usando a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/30/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 3bd23a1f14d5e3cbf9fc41ade47571c6689f3468
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 94c9a2b6a46262ad293da9ca3ba493d6f898c870
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695017"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085848"
 ---
 # <a name="user-gets-consent-for-several-resources-using-msalnet"></a>O usuário obtém consentimento para vários recursos usando o MSAL.NET
 O ponto de extremidade da plataforma de identidade da Microsoft não permite que você obtenha um token para vários recursos de uma vez. Ao usar a MSAL.NET (biblioteca de autenticação da Microsoft para .NET), o parâmetro escopos no método de token de aquisição deve conter apenas escopos para um único recurso. No entanto, você pode me concordar com vários recursos antecipadamente especificando escopos adicionais usando o método `.WithExtraScopeToConsent` Builder.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c99f4491af8fe3e5f0f0ed7a264995ae3ec5911f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d706e9b3351b0693a1f352e15b6b9b0cc5c7a65d
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60749356"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086159"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure
 
@@ -53,7 +53,7 @@ O protocolo AMQP 1.0 foi projetado para ser extensível, permitindo que outras e
 
 Esta seção explica o uso básico do AMQP 1.0 com o Barramento de Serviço do Azure, que inclui a criação de conexões, sessões e links, bem como a transferência bidirecional de mensagens para entidades do Barramento de Serviço, como filas, tópicos e assinaturas.
 
-A fonte mais confiável para saber mais sobre o funcionamento do AMQP é a especificação AMQP 1.0, mas a especificação foi escrita para orientar precisamente a implementação e não para ensinar o protocolo. Esta seção se concentra na introdução da terminologia necessária para descrever como o Barramento de Serviço usa o AMQP 1.0. Para obter uma introdução mais abrangente do AMQP, bem como uma discussão mais ampla do AMQP 1.0, examine [este curso em vídeo][this video course].
+A fonte mais confiável para saber mais sobre o funcionamento do AMQP é a especificação AMQP 1.0, mas a especificação foi escrita para orientar precisamente a implementação e não para ensinar o protocolo. Esta seção se concentra na introdução da terminologia necessária para descrever como o Barramento de Serviço usa o AMQP 1.0. Para obter uma introdução mais abrangente do AMQP, bem como uma discussão mais ampla do AMQP 1.0, examine [this video course][this video course].
 
 ### <a name="connections-and-sessions"></a>Conexões e sessões
 
@@ -81,6 +81,15 @@ Esse modelo baseado em janela é quase análogo ao conceito TCP de controle de f
 Atualmente, o Barramento de Serviço do Azure usa exatamente uma sessão para cada conexão. O tamanho máximo de quadro do Barramento de Serviço é de 262.144 bytes (256 KB) para o Barramento de Serviço Standard e os Hubs de Eventos. Ele é de 1.048.576 (1 MB) para o Barramento de Serviço Premium. O Barramento de Serviço não impõe as janelas de limitação de nível de sessão específicas, mas redefine a janela regularmente como parte do controle de fluxo de nível de vinculação (veja [a próxima seção](#links)).
 
 As conexões, os canais e as sessões são efêmeros. Se a conexão subjacente for recolhida,as conexões, o túnel TLS, o contexto de autorização SASL e as sessões deverão ser restabelecidas.
+
+### <a name="amqp-outbound-port-requirements"></a>Requisitos de porta de saída do AMQP
+
+Os clientes que usam conexões AMQP sobre TCP exigem que as portas 5671 e 5672 sejam abertas no firewall local. Junto com essas portas, pode ser necessário abrir portas adicionais se o recurso [EnableLinkRedirect](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) estiver habilitado. `EnableLinkRedirect` é um novo recurso de mensagens que ajuda a ignorar um salto durante o recebimento de mensagens, ajudando a aumentar a taxa de transferência. O cliente começaria a se comunicar diretamente com o serviço de back-end por meio do intervalo de portas 104XX, conforme mostrado na imagem a seguir. 
+
+![Lista de portas de destino][4]
+
+Um cliente .NET falharia com uma SocketException ("foi feita uma tentativa de acessar um soquete de uma maneira proibida por suas permissões de acesso") se essas portas estiverem bloqueadas pelo firewall. O recurso pode ser desabilitado definindo `EnableAmqpLinkRedirect=false` na cadeia de caracteres se conectar, que força os clientes a se comunicarem com o serviço remoto pela porta 5671.
+
 
 ### <a name="links"></a>Links
 
@@ -213,12 +222,12 @@ Toda propriedade que o aplicativo precisa definir deve ser mapeada para o mapa d
 | Nome do campo | Uso | Nome da API |
 | --- | --- | --- |
 | durável |- |- |
-| prioridade |- |- |
+| priority |- |- |
 | ttl |Vida útil desta mensagem |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | primeiro comprador |- |- |
 | Contagem de entrega |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
-#### <a name="properties"></a>propriedades
+#### <a name="properties"></a>properties
 
 | Nome do campo | Uso | Nome da API |
 | --- | --- | --- |
@@ -289,7 +298,7 @@ O controlador conclui o trabalho transacional enviando uma mensagem `discharge` 
 
 #### <a name="sending-a-message-in-a-transaction"></a>Enviando uma mensagem em uma transação
 
-Todo trabalho transacional é feito com o estado de entrega transacional `transactional-state` que contém o txn-id. No caso do envio de mensagens, o transactional-state está contido no quadro de transferência da mensagem. 
+Todo o trabalho transacional é feito com o estado de entrega transacional `transactional-state` que carrega o TXN. No caso de envio de mensagens, o estado transacional é executado pelo quadro de transferência da mensagem. 
 
 | Cliente (controlador) | | Barramento de Serviço (coordenador) |
 | --- | --- | --- |
@@ -351,7 +360,7 @@ A integração do SASL do AMQP tem duas desvantagens:
 * Todas as credenciais e os tokens têm como escopo a conexão. Um infraestrutura de mensagens pode querer fornecer controle de acesso diferenciado por entidade; por exemplo, permitindo que o portador de um token faça um envio para a fila A, mas não para a fila B. Com o contexto de autorização ancorado na conexão, não é possível usar uma única conexão e ainda usar tokens de acesso diferentes para a fila A e a fila B.
 * Os tokens de acesso geralmente só são válidos por um período limitado. Essa validade exige que o usuário readquira tokens periodicamente, além de oferecer uma oportunidade para o emissor do token de se recusar a emitir um token novo, caso as permissões de acesso do usuário tenham sido alteradas. As conexões AMQP podem durar por longos períodos. O modelo SASL apenas fornece uma oportunidade para definir um token no momento da conexão, o que significa que a infraestrutura de mensagens precisa desconectar o cliente quando o token expira ou precisa aceitar o risco de permitir a comunicação contínua com um cliente cujos direitos de acesso possam ter sido revogados nesse ínterim.
 
-A especificação CBS do AMQP, implementada pelo Barramento de Serviço permite que uma solução elegante para ambos os problemas: Ele permite que um cliente associe tokens de acesso a cada nó e atualize esses tokens antes de expirarem, sem interromper o fluxo de mensagens.
+A especificação CBS do AMQP, implementada pelo Barramento de Serviço, proporciona uma solução alternativa para ambos os problemas: permite que um cliente associe tokens de acesso a cada nó e atualize esses tokens antes que eles expirem, sem interromper o fluxo de mensagens.
 
 O CBS define um nó de gerenciamento virtual, chamado *$cbs*, a ser fornecido pela infraestrutura de mensagens. O nó de gerenciamento aceita tokens em nome de qualquer outro nó na infraestrutura de mensagens.
 
@@ -361,9 +370,9 @@ A mensagem de solicitação tem as seguintes propriedades de aplicativo:
 
 | Chave | Opcional | Tipo de valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| operation |Não |cadeia de caracteres |**put-token** |
-| type |Não |cadeia de caracteres |O tipo do token colocado. |
-| name |Não |cadeia de caracteres |O "público" ao qual o token se aplica. |
+| operação |Não |string |**put-token** |
+| type |Não |string |O tipo do token colocado. |
+| name |Não |string |O "público" ao qual o token se aplica. |
 | expiração |Sim |timestamp |A hora de expiração do token. |
 
 A propriedade *name* identifica a entidade à qual o token deve ser associado. No Barramento de Serviço, é o caminho para a fila ou tópico/assinatura. A propriedade *type* identifica o tipo de token:
@@ -374,14 +383,14 @@ A propriedade *name* identifica a entidade à qual o token deve ser associado. N
 | amqp:swt |SWT (Token Web Simples) |Valor de AMQP (cadeia de caracteres) |Só tem suporte para tokens SWT emitidos pelo AAD/ACS |
 | servicebus.windows.net:sastoken |Token SAS do barramento de serviço |Valor de AMQP (cadeia de caracteres) |- |
 
-Os tokens conferem direitos. O Barramento de Serviço do Microsoft Azure conhece três direitos fundamentais: “Enviar", permite o envio, "Ouvir", permite o recebimento, e "Gerenciar", permite a manipulação de entidades. Os tokens SWT emitidos pelo ACS/AAD incluem explicitamente esses direitos como declarações. Os tokens SAS do Barramento de Serviço consultam regras configuradas no namespace ou na entidade, e essas regras são configuradas com direitos. Assinar o token com a chave associada a essa regra, portanto, faz com que o token expresse os respectivos direitos. O token associado a uma entidade que usa *put-token* permite que o cliente conectado interaja com a entidade de acordo com os direitos do token. Um link em que o cliente assume a função de *remetente* requer o direito "Envio", e assumir a função de *receptor* requer o direito "Ouvir".
+Os tokens conferem direitos. O Barramento de Serviço conhece três direitos fundamentais: "Enviar", permite o envio, "Ouvir", permite o recebimento, e "Gerenciar", permite a manipulação de entidades. Os tokens SWT emitidos pelo ACS/AAD incluem explicitamente esses direitos como declarações. Os tokens SAS do Barramento de Serviço consultam regras configuradas no namespace ou na entidade, e essas regras são configuradas com direitos. Assinar o token com a chave associada a essa regra, portanto, faz com que o token expresse os respectivos direitos. O token associado a uma entidade que usa *put-token* permite que o cliente conectado interaja com a entidade de acordo com os direitos do token. Um link em que o cliente assume a função de *remetente* requer o direito "Envio", e assumir a função de *receptor* requer o direito "Ouvir".
 
 A mensagem de resposta tem os seguintes valores de *application-properties*
 
 | Chave | Opcional | Tipo de valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| status-code |Não |int |Código de resposta HTTP **[RFC2616]** . |
-| status-description |Sim |cadeia de caracteres |A descrição do status. |
+| status-code |Não |INT |Código de resposta HTTP **[RFC2616]** . |
+| status-description |Sim |string |A descrição do status. |
 
 O cliente pode chamar *put-token* repetidamente e para qualquer entidade na infraestrutura de mensagens. Os tokens estão no escopo do cliente atual e ancorados na conexão atual, o que significa que o servidor cancela todos os tokens retidos quando a conexão cair.
 
@@ -399,7 +408,7 @@ O cliente é subsequentemente responsável por manter o controle de expiração 
 
 Com essa funcionalidade, você pode criar um remetente e estabelecer o link com a `via-entity`. Ao estabelecer o link, informações adicionais são passadas para estabelecer o destino real das mensagens/transferências nesse link. Com a conexão bem-sucedida, todas as mensagens enviadas nesse link são encaminhadas automaticamente para a *destination-entity* por meio da *via-entity*. 
 
-> Observação: A autenticação deve ser executada para *via-entity* e para *destination-entity* antes do estabelecimento desse link.
+> Observação: a autenticação deve ser executada para *via-entity* e para *destination-entity* antes do estabelecimento desse link.
 
 | Cliente | | Barramento de Serviço |
 | --- | --- | --- |

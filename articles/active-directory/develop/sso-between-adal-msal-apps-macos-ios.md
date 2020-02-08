@@ -3,7 +3,7 @@ title: SSO entre o ADAL & aplicativos MSAL (iOS/macOS) – plataforma de identid
 description: ''
 services: active-directory
 documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: be608019aa6a393891d9586005e5ef9c970a8bd1
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 2fbb6e837ae898daf4bc78d5cccc75660463e8a7
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712381"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085410"
 ---
 # <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>Como: SSO entre aplicativos ADAL e MSAL no macOS e iOS
 
@@ -52,8 +52,8 @@ A tabela a seguir resume as diferenças de identificador de conta entre ADAL e M
 | Identificador de conta                | MSAL                                                         | ADAL 2.7. x      | ADAL mais antiga (antes da ADAL 2.7. x) |
 | --------------------------------- | ------------------------------------------------------------ | --------------- | ------------------------------ |
 | identificador de exibição            | `username`                                                   | `userId`        | `userId`                       |
-| identificador exclusivo não-reproduzido | `identifier`                                                 | `homeAccountId` | {1&gt;N/A&lt;1}                            |
-| Nenhuma ID de conta conhecida               | Consultar todas as contas por meio da API `allAccounts:` no `MSALPublicClientApplication` | {1&gt;N/A&lt;1}             | {1&gt;N/A&lt;1}                            |
+| identificador exclusivo não-reproduzido | `identifier`                                                 | `homeAccountId` | N/D                            |
+| Nenhuma ID de conta conhecida               | Consultar todas as contas por meio da API `allAccounts:` no `MSALPublicClientApplication` | N/D             | N/D                            |
 
 Esta é a interface `MSALAccount` que fornece esses identificadores:
 
@@ -286,6 +286,6 @@ do {
 
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre os [Fluxos de autenticação e cenários de aplicativos](authentication-flows-app-scenarios.md)

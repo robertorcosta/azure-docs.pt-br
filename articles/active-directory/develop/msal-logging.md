@@ -3,22 +3,22 @@ title: Registrando em log em aplicativos MSAL | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como fazer registro em log em aplicativos da MSAL (Biblioteca de Autenticação da Microsoft).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/11/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: cba213824cba86b4ea54e852b7e2f1ede83abfea
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 58697cc535357710c6889f05060b5e04e129ae7d
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695799"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084884"
 ---
 # <a name="logging-in-msal-applications"></a>Registrando em log em aplicativos MSAL
 
@@ -210,7 +210,7 @@ MSALGlobalConfig.loggerConfig.piiEnabled = NO;
 
 Para definir o nível de log ao fazer logon usando o MSAL para iOS e macOS, use um dos seguintes valores:
 
-|Nível  |Description |
+|Nível  |DESCRIÇÃO |
 |---------|---------|
 | `MSALLogLevelNothing`| Desabilitar todo o log |
 | `MSALLogLevelError` | Nível padrão, imprime informações somente quando ocorrem erros |
@@ -287,7 +287,7 @@ MSALGlobalConfig.loggerConfig.piiEnabled = false
 
 Para definir o nível de log ao fazer logon usando o MSAL para iOS e macOS, use um dos seguintes valores:
 
-|Nível  |Description |
+|Nível  |DESCRIÇÃO |
 |---------|---------|
 | `MSALLogLevelNothing`| Desabilitar todo o log |
 | `MSALLogLevelError` | Nível padrão, imprime informações somente quando ocorrem erros |

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9824f5cfd7b42860079536232b8a5ad40ea608c9
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 3243aa4c68e1cd6030986dc44cca47a555dc5356
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638350"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087142"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemas conhecidos e solução de problemas Azure Machine Learning
 
@@ -78,7 +78,7 @@ Caso veja `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <
 
 Não será possível implantar modelos em FPGAs até que você tenha solicitado e recebido aprovação para cota de FPGA. Para solicitar acesso, preencha o formulário de solicitação de cota: https://aka.ms/aml-real-time-ai
 
-## <a name="automated-machine-learning"></a>Aprendizado de máquina automatizado
+## <a name="automated-machine-learning"></a>Machine Learning automatizado
 
 O aprendizado de máquina automatizado do tensor Flow atualmente não dá suporte à versão 1,13 do fluxo do tensor. A instalação desta versão fará com que as dependências do pacote parem de funcionar. Estamos trabalhando para corrigir esse problema em uma versão futura. 
 
@@ -306,3 +306,9 @@ Para carregar todas as imagens rotuladas, escolha o **primeiro** botão. O **pri
 ### <a name="pressing-esc-key-while-labeling-for-object-detection-creates-a-zero-size-label-on-the-top-left-corner-submitting-labels-in-this-state-fails"></a>Pressionar a tecla ESC enquanto rotular para detecção de objeto cria um rótulo de tamanho zero no canto superior esquerdo. O envio de rótulos nesse estado falha.
 
 Exclua o rótulo clicando na marca de cruz ao lado dele.
+
+## <a name="run-or-experiment-deletion"></a>Execução ou teste de exclusão
+
+Os experimentos podem ser arquivados usando o método [experimento. Archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#archive--) ou da exibição de guia do experimento no cliente do Azure Machine Learning Studio. Essa ação oculta o experimento de consultas de lista e exibições, mas não a exclui.
+
+Atualmente, não há suporte para a exclusão permanente de experimentos ou execuções individuais. Para obter mais informações sobre como excluir ativos de espaço de trabalho, consulte [exportar ou excluir seus dados de espaço de trabalho do serviço Machine Learning](how-to-export-delete-data.md).

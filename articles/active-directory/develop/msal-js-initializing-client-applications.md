@@ -3,27 +3,27 @@ title: Inicializar aplicativos cliente MSAL. js | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como inicializar aplicativos cliente usando a biblioteca de autenticação da Microsoft para JavaScript (MSAL. js).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/12/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: e350f4fc3d40b45a1308e1edd9331dc7f71399c5
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: a0a2c5fc971c3f1f3283d95c5617bdf1e88a6a58
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696122"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084031"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Inicializar aplicativos cliente usando o MSAL. js
 Este artigo descreve como inicializar a biblioteca de autenticação da Microsoft para JavaScript (MSAL. js) com uma instância de um aplicativo de agente do usuário. O aplicativo de agente de usuário é uma forma de aplicativo cliente público em que o código do cliente é executado em um agente de usuário, como um navegador da Web. Esses clientes não armazenam segredos, pois o contexto do navegador está aberto de acessível. Para saber mais sobre os tipos de aplicativo cliente e as opções de configuração de aplicativo, leia a [visão geral](msal-client-applications.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Antes de inicializar um aplicativo, primeiro você precisa [registrá-lo com o portal do Azure](scenario-spa-app-registration.md) para que seu aplicativo possa ser integrado à plataforma Microsoft Identity. Após o registro, talvez você precise das seguintes informações (que podem ser encontradas no portal do Azure):
 
 - A ID do cliente (uma cadeia de caracteres que representa um GUID para seu aplicativo)
@@ -141,4 +141,4 @@ Veja abaixo o conjunto total de opções configuráveis que têm suporte no mome
 Eles só se aplicam a serem passados da biblioteca de invólucro angular do MSAL:
 - **unprotectedResources**: opcional.  Matriz de URIs que são recursos desprotegidos. MSAL não anexará um token às solicitações de saída que têm esse URI. Usa `null` como padrão.
 
-- **protectedResourceMap**: opcional.  Esse é o mapeamento de recursos para escopos usados pelo MSAL para anexar automaticamente tokens de acesso em chamadas à API Web. Um único token de acesso é obtido para o recurso. Portanto, você pode mapear um caminho de recurso específico da seguinte "https://graph.microsoft.com/v1.0/me" maneira: {"", ["User. Read"]} ou a URL do aplicativo do recurso como "https://graph.microsoft.com/" : {"", ["User. Read", "mail. Send"]}. Isso é necessário para chamadas de CORS. Usa `null` como padrão.
+- **protectedResourceMap**: opcional.  Esse é o mapeamento de recursos para escopos usados pelo MSAL para anexar automaticamente tokens de acesso em chamadas à API Web. Um único token de acesso é obtido para o recurso. Portanto, você pode mapear um caminho de recurso específico da seguinte maneira: {"https://graph.microsoft.com/v1.0/me", ["User. Read"]} ou a URL do aplicativo do recurso como: {"https://graph.microsoft.com/", ["User. Read", "mail. Send"]}. Isso é necessário para chamadas de CORS. Usa `null` como padrão.

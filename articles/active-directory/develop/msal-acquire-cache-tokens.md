@@ -3,22 +3,22 @@ title: Adquirir tokens de cache & com MSAL | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre a aquisição e o armazenamento em cache de tokens usando a MSAL (Biblioteca de Autenticação da Microsoft).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/07/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 9a9dda1bba4d587881d32d937fa0e20b68a5b383
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: c1f1cbf85b96aade745cc4248aed4bc89e41b450
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696548"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085159"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Adquirir e armazenar tokens em cache usando a MSAL (biblioteca de autenticação da Microsoft)
 
@@ -47,7 +47,7 @@ Ou, por exemplo, escopos da API Web personalizada: `api://abscdefgh-1234-abcd-ef
 No caso da API do Microsoft Graph, um valor de escopo `user.read` é mapeado para o formato `https://graph.microsoft.com/User.Read` e pode ser usado de maneira intercambiável.
 
 > [!NOTE]
-> Determinadas APIs Web, como a API do Azure Resource Manager (https://management.core.windows.net/) ) exigem uma “/” na declaração do público-alvo (aud) do token de acesso. Nesse caso, é importante transmitir o escopo como https://management.core.windows.net//user_impersonation (observe as barras duplas) para que o token seja válido na API.
+> Determinadas APIs Web, como a API do Azure Resource Manager (https://management.core.windows.net/)) exigem uma “/” na declaração do público-alvo (aud) do token de acesso. Nesse caso, é importante transmitir o escopo como https://management.core.windows.net//user_impersonation (observe as barras duplas) para que o token seja válido na API.
 
 ### <a name="request-dynamic-scopes-for-incremental-consent"></a>Solicitar escopos dinâmicos de consentimento incremental
 
@@ -107,7 +107,7 @@ Quando seu cliente solicita um token de acesso, o Azure AD também retorna um re
 - Os escopos para os quais o token foi emitido.
 - A ID exclusiva para o usuário.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se você estiver usando o MSAL para Java, saiba mais sobre a [serialização de cache de token personalizada em MSAL para Java](msal-java-token-cache-serialization.md).
 

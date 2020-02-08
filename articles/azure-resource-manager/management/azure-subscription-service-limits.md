@@ -4,14 +4,14 @@ description: Fornece uma lista de assinaturas comuns do Azure e limites de servi
 tags: billing
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: c5714dd30be4d557086667a74fff2ff8117e2a2b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: b209bc3e60f50ac363d3426d6c87f206b016d711
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901404"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087436"
 ---
-# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura e limites de serviço, cotas e restrições do Azure
+# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
 
 Este documento lista alguns dos limites mais comuns do Microsoft Azure, que também são chamados de cotas. Esse documento não cobre atualmente todos os serviços do Azure. Ao longo do tempo, a lista será expandida e atualizada para abranger mais serviços.
 
@@ -71,6 +71,7 @@ Na lista de limites a seguir, uma nova tabela reflete as diferenças em limites 
 * [Fábrica de dados](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
+* [Compartilhamento de dados](#data-share-limits)
 * [Serviço de Migração do Banco de Dados](#database-migration-service-limits)
 * [Grade de Eventos](#event-grid-limits)
 * [Hubs de Evento](#event-hubs-limits)
@@ -363,7 +364,7 @@ Para saber mais sobre os limites em um nível mais granular, como tamanho do doc
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-workspaces.md)]
 
-#### <a name="application-insights"></a>Percepções sobre o Aplicativo
+#### <a name="application-insights"></a>Application Insights
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-app-insights.md)]
 
@@ -404,6 +405,10 @@ Para saber mais sobre os limites em um nível mais granular, como tamanho do doc
 ### <a name="data-lake-store-limits"></a>Limites do Data Lake Store
 
 [!INCLUDE [azure-data-lake-store-limits](../../../includes/azure-data-lake-store-limits.md)]
+
+### <a name="data-share-limits"></a>Limites de compartilhamento de dados
+
+[!INCLUDE [azure-data-share-limits](../../../includes/azure-data-share-limits.md)]
 
 ### <a name="database-migration-service-limits"></a>Limites do Serviço de Migração do Banco de Dados
 
@@ -481,7 +486,7 @@ Para os limites do banco de dados SQL, consulte [limites de recursos do banco de
 
 Para limites de SQL Data Warehouse, confira [SQL data warehouse limites de recursos](../../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Entender os limites e as aumentos do Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Tamanhos de máquina virtual e serviço de nuvem para o Azure](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

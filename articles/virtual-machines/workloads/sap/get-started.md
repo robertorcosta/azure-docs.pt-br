@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 42df2d24aad1465a200203e648feb97d4e96fd18
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 8e5ea4bba693a6785dae4075da7b13154593bb4c
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989817"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087376"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usar o Azure para hospedar e executar cenários de carga de trabalho do SAP
 
@@ -37,7 +37,7 @@ A hospedagem de cenários de carga de trabalho do SAP no Azure também pode cria
 Alterações em documentos na seção de carga de trabalho do SAP no Azure estão listadas no final deste artigo.
 
 
-## <a name="sap-hana-on-azure-large-instances"></a>SAP HANA no Azure (instâncias grandes)
+## <a name="sap-hana-on-azure-large-instances"></a>SAP HANA no Azure (Instâncias Grandes)
 
 Uma série de documentos o conduz por SAP HANA no Azure (instâncias grandes) ou para instâncias grandes e HANA. Para obter informações sobre as seguintes áreas do HANA em instâncias grandes, consulte:
 
@@ -121,6 +121,7 @@ Para obter informações sobre a integração dos serviços do Azure em componen
 
 ## <a name="change-log"></a>Log de alterações
 
+- 02/07/2020: alteração na [conectividade de ponto de extremidade pública para VMs usando o ILB padrão do Azure em cenários de ha do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) para atualizar a captura de tela de NSG de exemplo
 - 02/03/2020: alterar em [alta disponibilidade para o SAP NW em VMs do Azure no SLES para aplicativos SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse) e [alta disponibilidade para SAP NW em VMs do Azure no SLES com seja para aplicativos SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) para remover o aviso sobre o uso de Dash nos nomes de host de nós de cluster no SLES
 - 01/28/2020: alterar a [alta disponibilidade de SAP Hana em VMs do Azure no RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel) para alinhar os SAP Hana de recursos de cluster para as recomendações de tempo limite do Red Hat
 - 01/17/2020: alteração nos [grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) para alterar a seção da movimentação de VMs existentes para um grupo de posicionamento de proximidade

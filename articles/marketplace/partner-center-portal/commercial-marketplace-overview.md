@@ -7,13 +7,13 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: f6ba5c240a9ad74d9a2fab41496ce519f25fc4dc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 02/06/2020
+ms.openlocfilehash: 2e5ae90cf6ee8bccc9919c88bc695bf944f58a67
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812068"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069431"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Visão geral do portal do Marketplace comercial no Partner Center
 
@@ -23,17 +23,18 @@ Nesta documentação, abordaremos as noções básicas de criação e uso de sua
 
 ## <a name="about-microsofts-commercial-marketplace"></a>Sobre o Marketplace comercial da Microsoft
 
-Empresas, governos e organizações de todos os tamanhos encontram soluções de negócios, tecnologias inovadoras e serviços de habilitação por meio das lojas da Web do [Azure Marketplace](https://azuremarketplace.microsoft.com/) e do [AppSource](https://appsource.microsoft.com/) , a [experiência no produto portal do Azure](https://portal.azure.com), [Provedores de soluções de nuvem](https://partner.microsoft.com/cloud-solution-provider)e equipes de vendas da Microsoft. 
+Empresas, governos e organizações de todos os tamanhos encontram soluções de negócios, tecnologias inovadoras e serviços de habilitação por meio das lojas da Web do [Azure Marketplace](https://azuremarketplace.microsoft.com/) e do [AppSource](https://appsource.microsoft.com/) , a [experiência no produto portal do Azure](https://portal.azure.com), os [provedores de soluções de nuvem](https://partner.microsoft.com/cloud-solution-provider)e as equipes de vendas da Microsoft. 
 
 O Partner Center é o Hub da experiência de um parceiro da Microsoft. Para organizações que vão para o mercado com a Microsoft e tiram proveito do Marketplace, o Partner Center é o portal por meio do qual os editores criam e gerenciam ofertas, fornecem test drive demonstrações e exibem análises sobre o desempenho da oferta. 
 
 ## <a name="migration-from-cloud-partner-portal"></a>Migração de Portal do Cloud Partner
 
-O Partner Center está evoluindo para integrar melhor todos os aspectos da relação da Microsoft com os editores de software. Como parte dessa evolução, estamos migrando as funções do [portal do Cloud Partner](https://cloudpartner.azure.com/) para o Partner Center. 
+O Partner Center está evoluindo para integrar melhor todos os aspectos da relação da Microsoft com os editores de software. Como parte dessa evolução, estamos migrando as funções do [portal do Cloud Partner](https://cloudpartner.azure.com/) para o Partner Center.
 
-**Atualmente, o Partner Center só dá suporte à criação e ao gerenciamento de ofertas de software como serviço (SaaS).**
+>[!NOTE]
+>Atualmente, o Partner Center oferece suporte à criação e ao gerenciamento de ofertas de software como serviço (SaaS), ofertas de aplicativos do Azure, Dynamics 365 para ofertas de clientes, envolvimento & ofertas do PowerApps, Dynamics 365 para ofertas de operações e Dynamics 365 para Ofertas do Business central. Mais ofertas terão suporte em breve.
 
-Os Publicadores existentes do Marketplace encontrarão uma experiência do usuário familiar, mas aprimorada, com uma interface intuitiva. As notificações no portal e por email informarão aos editores da migração. Os usuários serão direcionados diretamente para o local apropriado. Os clientes não serão afetados por essa atualização de experiência de parceiro. 
+Os Publicadores existentes do Marketplace encontrarão uma experiência do usuário familiar, mas aprimorada, com uma interface intuitiva. As notificações no portal e por email informarão aos editores da migração. Os usuários serão direcionados diretamente para o local apropriado. Os clientes não serão afetados por essa atualização de experiência de parceiro.
 
 ### <a name="improvements-on-user-experience-and-billing"></a>Aprimoramentos na experiência do usuário e na cobrança
 

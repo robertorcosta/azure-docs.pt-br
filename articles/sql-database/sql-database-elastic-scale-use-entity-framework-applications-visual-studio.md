@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
-ms.openlocfilehash: 4198b3a9213ed535c6649c50a20f2ff957d60c94
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1653a904875964d86864c59c718603a6dacdcbda
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823496"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087179"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca cliente do Banco de Dados Elástico com Entity Framework
 
@@ -27,7 +27,7 @@ Este documento mostra as alterações em um aplicativo do Entity Framework neces
 Para baixar o código para este artigo:
 
 * É necessário o Visual Studio 2012 ou posterior. 
-* Baixe as [Ferramentas de Banco de Dados Elástico para Azure SQL – amostra de integração ao Entity Framework](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-bae904ba) do MSDN. Descompacte o exemplo em um local de sua escolha.
+* Baixe o [exemplo de integração de ferramentas de banco de BD elástico para SQL do Azure-Entity Framework](https://github.com/Azure/elastic-db-tools/). Descompacte o exemplo em um local de sua escolha.
 * Inicie o Visual Studio. 
 * No Visual Studio, selecione Arquivo -> Abrir Projeto/Solução. 
 * Na caixa de diálogo **Abrir Projeto**, navegue até o exemplo que você baixou e selecione **EntityFrameworkCodeFirst.sln** para abrir a amostra. 
@@ -133,7 +133,7 @@ public DbSet<Blog> Blogs { get; set; }
   * O mapa do fragmento cria a conexão aberta ao fragmento que mantém o shardlet para a chave de fragmentação determinada.
   * Essa conexão aberta é passada para o construtor da classe base do DbContext para indicar que essa conexão deve ser usada pelo EF em vez de deixar o EF criar uma nova conexão automaticamente. Dessa forma, a conexão será marcada pela API do cliente de banco de dados elástico para poder garantir a consistência em operações de gerenciamento de mapa de fragmentos.
 
-Use o novo construtor para sua subclasse DbContext em vez do construtor padrão em seu código. Aqui está um exemplo: 
+Use o novo construtor para sua subclasse DbContext em vez do construtor padrão em seu código. Veja um exemplo: 
 
 ```csharp
 // Create and save a new blog.

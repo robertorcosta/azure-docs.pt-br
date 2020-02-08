@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 975ffcd7142aac24363c2235db3742c155c1007b
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: d4e25074203ddcc016f54842f25f52017c6137f0
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77019818"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083217"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrar cargas de trabalho usando redes ampliadas da camada 2
 
@@ -48,7 +48,7 @@ Verifique se os itens a seguir estão em vigor antes de implantar e configurar a
 * A versão do dispositivo independente NSX-T Edge é compatível com a versão do Gerenciador de NSX-T (NSX-T 2.3.0) usada em seu ambiente de nuvem privada de AVS.
 * Um grupo de portas de tronco foi criado no vCenter local com transmissões forjadas habilitadas.
 * Um endereço IP público foi reservado para uso para o endereço IP de uplink do cliente autônomo do NSX-T e 1:1 NAT está em vigor para tradução entre os dois endereços.
-* O encaminhamento de DNS é definido nos servidores DNS locais para o AZ. AVS.io domínio para apontar para os servidores DNS da nuvem privada da AVS.
+* O encaminhamento de DNS é definido nos servidores DNS locais para o domínio az.cloudsimple.io para apontar para os servidores DNS da nuvem privada da AVS.
 * A latência de RTT é menor ou igual a 150 ms, conforme necessário para que o vMotion funcione nos dois sites.
 
 ## <a name="limitations-and-considerations"></a>Limitações e considerações
@@ -57,10 +57,10 @@ A tabela a seguir lista as versões vSphere e os tipos de adaptadores de rede co
 
 | versão do vSphere | Tipo de vSwitch de origem | Driver NIC virtual | Tipo de vSwitch de destino | Porta? |
 ------------ | ------------- | ------------ | ------------- | ------------- 
-| Tudo | DVS | Tudo | DVS | Sim |
+| Todos | DVS | Todos | DVS | Sim |
 | interface do usuário do vSphere 6.7 ou superior, 6.5 P03 ou superior | DVS | VMXNET3 | N-VDS | Sim |
 | interface do usuário do vSphere 6.7 ou superior, 6.5 P03 ou superior | DVS | E1000 | N-VDS | [Sem suporte por VWware](https://kb.vmware.com/s/article/56991) |
-| vSphere 6.7 UI ou 6.5 P03, NSX-V ou versões abaixo do NSX-T 2.2, 6.5 P03 ou superior | Tudo | Tudo | N-VDS | [Sem suporte por VWware](https://kb.vmware.com/s/article/56991) |
+| vSphere 6.7 UI ou 6.5 P03, NSX-V ou versões abaixo do NSX-T 2.2, 6.5 P03 ou superior | Todos | Todos | N-VDS | [Sem suporte por VWware](https://kb.vmware.com/s/article/56991) |
 
 A partir da versão do VMware NSX-T 2,3:
 

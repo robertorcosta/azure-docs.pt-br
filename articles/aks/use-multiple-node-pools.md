@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: mlearned
-ms.openlocfilehash: 62be78df28d65c2ed16a9f45295edec8c5c360c4
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e494a5141a96409fc6691df3a5f1194600ad0c32
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901530"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086496"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerenciar vários pools de nós para um cluster no serviço de kubernetes do Azure (AKS)
 
@@ -565,7 +565,7 @@ Pode levar alguns minutos para atualizar o cluster AKS dependendo das configura�
 ## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>Atribuir um IP público por nó em um pool de nós
 
 > [!WARNING]
-> Durante a versão prévia de atribuição de um IP público por nó, ele não pode ser usado com o *Standard Load BALANCER SKU em AKs* devido a possíveis regras do balanceador de carga em conflito com o provisionamento de VM. Enquanto estiver na versão prévia, você deverá usar o *SKU do Load Balancer básico* se precisar atribuir um IP público por nó.
+> Durante a versão prévia de atribuição de um IP público por nó, ele não pode ser usado com o *Standard Load BALANCER SKU em AKs* devido a possíveis regras do balanceador de carga em conflito com o provisionamento de VM. Como resultado dessa limitação, os pools do agente do Windows não têm suporte com esse recurso de visualização. Enquanto estiver na versão prévia, você deverá usar o *SKU do Load Balancer básico* se precisar atribuir um IP público por nó.
 
 Os nós AKS não exigem seus próprios endereços IP públicos para comunicação. No entanto, alguns cenários podem exigir que os nós em um pool de nós tenham seus próprios endereços IP públicos. Um exemplo é o jogo, onde um console do precisa fazer uma conexão direta com uma máquina virtual de nuvem para minimizar os saltos. Isso pode ser feito registrando-se para um recurso de visualização separado, o IP público do nó (versão prévia).
 
@@ -591,7 +591,7 @@ Para excluir o próprio cluster, use o comando [AZ Group Delete][az-group-delete
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu a criar e gerenciar vários pools de nós em um cluster AKS. Para obter mais informações sobre como controlar os pods nos pools de nós, consulte [práticas recomendadas para recursos avançados do Agendador no AKs][operator-best-practices-advanced-scheduler].
 

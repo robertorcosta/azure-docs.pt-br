@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: eadedcea7e6010cf93d118b3781630053609d29f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 12c4362ae1b075af132d5971f4fe0461c9d91733
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77019597"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083090"
 ---
 # <a name="configure-dns-for-name-resolution-for-avs-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configurar o DNS para a resolução de nomes para acesso ao vCenter de nuvem privada da AVS de estações de trabalho locais
 
@@ -32,10 +32,10 @@ Para acessar o vCenter Server em uma nuvem privada de AVS de estações de traba
 
 Use qualquer uma dessas opções para a configuração de DNS.
 
-* [Crie uma zona no servidor DNS para *. AVS.io](#create-a-zone-on-a-microsoft-windows-dns-server)
-* [Crie um encaminhador condicional no servidor DNS local para resolver *. AVS.io](#create-a-conditional-forwarder)
+* [Crie uma zona no servidor DNS para *. cloudsimple.io](#create-a-zone-on-a-microsoft-windows-dns-server)
+* [Crie um encaminhador condicional no servidor DNS local para resolver *. cloudsimple.io](#create-a-conditional-forwarder)
 
-## <a name="create-a-zone-on-the-dns-server-for-avsio"></a>Crie uma zona no servidor DNS para *. AVS.io
+## <a name="create-a-zone-on-the-dns-server-for-cloudsimpleio"></a>Crie uma zona no servidor DNS para *. cloudsimple.io
 
 Você pode configurar uma zona como uma zona de stub e apontar para os servidores DNS na nuvem privada para resolução de nomes. Esta seção fornece informações sobre como usar um servidor DNS BIND ou um servidor DNS do Microsoft Windows.
 
@@ -78,7 +78,7 @@ zone "az.cloudsimple.io"
 
 ## <a name="create-a-conditional-forwarder"></a>Criar um encaminhador condicional
 
-Um encaminhador condicional encaminha todas as solicitações de resolução de nomes DNS para o servidor designado. Com essa configuração, qualquer solicitação para *. AVS.io é encaminhado para os servidores DNS localizados na nuvem privada da AVS. Os exemplos a seguir mostram como configurar encaminhadores em diferentes tipos de servidores DNS.
+Um encaminhador condicional encaminha todas as solicitações de resolução de nomes DNS para o servidor designado. Com essa configuração, qualquer solicitação para *. cloudsimple.io é encaminhada para os servidores DNS localizados na nuvem privada da AVS. Os exemplos a seguir mostram como configurar encaminhadores em diferentes tipos de servidores DNS.
 
 ### <a name="create-a-conditional-forwarder-on-a-bind-dns-server"></a>Criar um encaminhador condicional em um servidor DNS de associação
 

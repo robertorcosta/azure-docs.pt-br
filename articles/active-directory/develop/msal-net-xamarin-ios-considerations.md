@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 599b8a3fdbad5747b0b303c71aeef084d04db6df
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 7706a7f06cedde783e53a24ff385fa2376edcb93
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76694913"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083540"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>Considerações específicas do Xamarin iOS com MSAL.NET
 No Xamarin iOS, há várias considerações que você deve levar em conta ao usar o MSAL.NET
@@ -103,7 +103,7 @@ Para obter detalhes sobre como habilitar o agente, consulte [usar o Microsoft Au
 
 Mais detalhes são fornecidos no parágrafo [Considerações específicas do IOS](https://github.com/azure-samples/active-directory-xamarin-native-v2#ios-specific-considerations) do seguinte arquivo readme.MD do exemplo:
 
-Amostra | Plataforma | Description
+Amostra | Plataforma | DESCRIÇÃO
 ------ | -------- | -----------
 [https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | Um aplicativo Xamarin Forms simples mostrando como usar o MSAL para autenticar o MSA e o Azure AD por meio do ponto de extremidade V 2.0 do Azure AD e acessar o Microsoft Graph com o token resultante.
 

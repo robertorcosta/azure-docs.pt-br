@@ -3,22 +3,22 @@ title: Considerações do navegador do sistema do Xamarin Android (MSAL.NET) | A
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre considerações específicas ao usar navegadores do sistema no Xamarin Android com a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/30/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 9346a4d5eaabb2af490afc13d5785a8f8233e53f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: c144c6dd090669ca16c03050cbb8b59ff0cc224f
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695035"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084581"
 ---
 #  <a name="xamarin-android-system-browser-considerations-with-msalnet"></a>Considerações do navegador do sistema do Xamarin Android com MSAL.NET
 
@@ -51,14 +51,14 @@ Além de navegadores com suporte a guias personalizados, com base em nossos test
 ## <a name="devices-and-browsers-tested"></a>Dispositivos e navegadores testados
 A tabela a seguir lista os dispositivos e navegadores que foram testados.
 
-| | &ast; de navegador     |  Result  | 
+| | Navegador&ast;     |  Result  | 
 | ------------- |:-------------:|:-----:|
 | Huawei/um + | &ast; Chrome | Aprovado|
 | Huawei/um + | &ast; de borda | Aprovado|
-| Huawei/um + | Firefox&ast; | Aprovado|
+| Huawei/um + | &ast; Firefox | Aprovado|
 | Huawei/um + | &ast; corajoso | Aprovado|
 | Um + | &ast; Ecosia | Aprovado|
-| Um + | Kiwi&ast; | Aprovado|
+| Um + | &ast; produtor kiwis | Aprovado|
 | Huawei/um + | Opera | Aprovado|
 | Huawei | OperaMini | Aprovado|
 | Huawei/um + | Navegador | Aprovado|
@@ -71,5 +71,5 @@ A tabela a seguir lista os dispositivos e navegadores que foram testados.
 
 &ast; dá suporte a guias personalizadas
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter trechos de código e informações adicionais sobre como usar o navegador do sistema com o Xamarin Android, leia este [guia](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/MSAL.NET-uses-web-browser#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid).  

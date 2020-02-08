@@ -5,13 +5,14 @@ author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
+ms.custom: fasttrack-edit
 ms.author: mlearned
-ms.openlocfilehash: 86fa59a3d1c07aae842404c465b908e550708071
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 06825f184365cfc439167be15580eb19bf5ecb38
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77047450"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084271"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicativos no Serviço de Kubernetes do Azure (AKS)
 
@@ -96,16 +97,18 @@ O kubenet e o Azure CNI fornecem conectividade de rede para seus clusters AKS. N
 
 Existem as seguintes diferenças de comportamento entre kubenet e CNI do Azure:
 
-| Capability                                                                                   | Kubenet   | Azure CNI |
+| Recurso                                                                                   | Kubenet   | Azure CNI |
 |----------------------------------------------------------------------------------------------|-----------|-----------|
-| Implantar cluster em uma rede virtual nova ou existente                                            | Com suporte-UDRs aplicado manualmente | Com suporte |
-| Conectividade de pod de Pod                                                                         | Com suporte | Com suporte |
+| Implantar cluster em uma rede virtual nova ou existente                                            | Com suporte-UDRs aplicado manualmente | Suportado |
+| Conectividade de pod de Pod                                                                         | Suportado | Suportado |
 | Pod-conectividade da VM; VM na mesma rede virtual                                          | Funciona quando iniciado pelo Pod | Funciona de ambas as maneiras |
 | Pod-conectividade da VM; VM na rede virtual emparelhada                                            | Funciona quando iniciado pelo Pod | Funciona de ambas as maneiras |
 | Acesso local usando VPN ou rota expressa                                                | Funciona quando iniciado pelo Pod | Funciona de ambas as maneiras |
-| Acesso a recursos protegidos por pontos de extremidade de serviço                                             | Com suporte | Com suporte |
-| Expor serviços Kubernetess usando um serviço de balanceador de carga, um gateway de aplicativo ou um controlador de entrada | Com suporte | Com suporte |
-| Zonas privadas e DNS do Azure padrão                                                          | Com suporte | Com suporte |
+| Acesso a recursos protegidos por pontos de extremidade de serviço                                             | Suportado | Suportado |
+| Expor serviços Kubernetess usando um serviço de balanceador de carga, um gateway de aplicativo ou um controlador de entrada | Suportado | Suportado |
+| Zonas privadas e DNS do Azure padrão                                                          | Suportado | Suportado |
+
+Em relação ao DNS, com o kubenet e o DNS CNI plug-ins do Azure são oferecidos pelo CoreDNS, um daemon definido em execução no AKS. Para obter mais informações sobre o CoreDNS no kubernetes, consulte [Personalizando o serviço DNS](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). O CoreDNS é configurado por padrão para encaminhar domínios desconhecidos para os servidores DNS do nó, em outras palavras, para a funcionalidade DNS da rede virtual do Azure em que o cluster AKS é implantado. Portanto, as zonas DNS e privadas do Azure funcionarão para o pods em execução no AKS.
 
 ### <a name="support-scope-between-network-models"></a>Escopo de suporte entre modelos de rede
 
@@ -145,7 +148,7 @@ A política de rede é um recurso kubernetes disponível no AKS que permite cont
 
 Para obter mais informações, consulte [proteger o tráfego entre pods usando as políticas de rede no serviço de kubernetes do Azure (AKs)][use-network-policies].
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para começar a usar a rede AKS, crie e configure um cluster AKS com seus próprios intervalos de endereços IP usando [kubenet][aks-configure-kubenet-networking] ou [CNI do Azure][aks-configure-advanced-networking].
 

@@ -3,12 +3,12 @@ title: Implantar recursos na assinatura
 description: Descreve como criar um grupo de recursos em um modelo do Azure Resource Manager. Ele também mostra como implantar recursos no escopo da assinatura do Azure.
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: aed22cab9281f272421a574efebcf346139348d5
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: b11668466fe3954dc5bc90435d5dfd016ca9791c
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121872"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086726"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos de recursos e recursos em nível de assinatura
 
@@ -358,7 +358,12 @@ New-AzDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="template-samples"></a>Amostras de modelo
+
+* Crie um grupo de recursos, bloqueie-o e conceda permissões a ele. Consulte [aqui](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment).
+* Crie um grupo de recursos, uma política e uma atribuição de política.  Consulte [aqui](https://github.com/Azure/azure-docs-json-samples/blob/master/subscription-level-deployment/azuredeploy.json).
+
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre como atribuir funções, consulte [gerenciar o acesso aos recursos do Azure usando os modelos RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * Para obter um exemplo de implantação de configurações de workspace para a Central de Segurança do Azure, consulte [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).

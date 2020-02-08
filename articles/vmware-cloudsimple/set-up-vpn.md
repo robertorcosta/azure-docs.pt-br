@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fbd2b227c9292593a7652044ef4c013bf0cfaf8e
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 8188fac270eadb6e09cc3561ddefb05aa59ba661
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016996"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087132"
 ---
 # <a name="configure-a-vpn-connection-to-your-avs-private-cloud"></a>Configurar uma conexão VPN para sua nuvem privada da AVS
 
@@ -97,7 +97,7 @@ Uma conexão VPN ponto a site resolve os nomes DNS da primeira nuvem privada AVS
 
     ![Editar conexão VPN](media/viscosity-edit-connection.png)
 
-7. Clique na guia **rede** e insira os endereços IP do servidor DNS da nuvem privada AVS separados por uma vírgula ou um espaço e o domínio como ```AVS.io```. Selecione **ignorar configurações de DNS enviadas pelo servidor VPN**.
+7. Clique na guia **rede** e insira os endereços IP do servidor DNS da nuvem privada AVS separados por uma vírgula ou um espaço e o domínio como ```az.cloudsimple.io```. Selecione **ignorar configurações de DNS enviadas pelo servidor VPN**.
 
     ![Rede VPN](media/viscosity-edit-connection-networking.png)
 
@@ -117,4 +117,4 @@ Para configurar o gateway de VPN local no modo de alta disponibilidade, consulte
 
 > [!IMPORTANT]
 >    1. Defina TCP MSS fixação MSS às 1200 em seu dispositivo VPN. Ou, se os dispositivos VPN não oferecerem suporte a MSS fixação MSS, você poderá definir, como alternativa, o MTU na interface de túnel como 1240 bytes.
-> 2. Depois que a VPN site a site for configurada, encaminhe as solicitações de DNS para *. AVS.io os servidores DNS da nuvem privada da AVS. Siga as instruções em [configuração de DNS local](on-premises-dns-setup.md).
+> 2. Depois que a VPN site a site for configurada, encaminhe as solicitações DNS para *. cloudsimple.io para os servidores DNS da nuvem privada da AVS. Siga as instruções em [configuração de DNS local](on-premises-dns-setup.md).

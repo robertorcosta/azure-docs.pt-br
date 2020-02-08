@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: b9060823c997391d02eae61911f8aa748f191657
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 99f4d8d854334b047caf36406f21890cde7eda16
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260847"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77082942"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de Azure Machine Learning de os
 
@@ -32,7 +32,7 @@ Com os conjuntos de Azure Machine Learning, você pode:
 
 * Compartilhe dados e colabore com outros usuários.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para criar e trabalhar com conjuntos de os, você precisa de:
 
@@ -55,7 +55,7 @@ Há dois tipos de conjuntos de conjunto de DataSet, com base em como os usuário
 
 Para saber mais sobre as próximas alterações de API, consulte [aviso de alteração da API do conjunto de notícias](https://aka.ms/tabular-dataset).
 
-## <a name="create-datasets"></a>Crie conjuntos de dados
+## <a name="create-datasets"></a>Criar conjuntos de dados
 
 Ao criar um conjunto de dados, você cria uma referência para o local da fonte de dado, juntamente com uma cópia de seus metadados. Como os dados permanecem em seu local existente, você não incorre em nenhum custo de armazenamento extra. Você pode criar `TabularDataset` e `FileDataset` conjuntos de dados usando o SDK do Python ou a página de aterrissagem do espaço de trabalho (versão prévia).
 
@@ -109,11 +109,11 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-| |Passageiroid|Survived|Pclass|Nome|Sexo|Idade|SibSp|Parch|Tíquete|Tarifa|Cabine|Embarcou
+| |Passageiroid|Sobreviveram|Pclass|Nome|Sexo|Idade|SibSp|Parch|Concessão|Tarifas|Cabine|Embarcou
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
-0|1|Falso|3|Braund, Sr. Owen Harris|masculino|22,0|1|0|A/5 21171|7,2500||P
-1|2|Verdadeiro|1|Cumings, Sra. John Bradley (Florence Briggs th...|feminino|38,0|1|0|PC 17599|71,2833|C85|C
-2|3|Verdadeiro|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||P
+0|1|Falso|3|Braund, Sr. Owen Harris|masculino|22,0|1|0|A/5 21171|7,2500||S
+1|2|True|1|Cumings, Sra. John Bradley (Florence Briggs th...|feminino|38,0|1|0|PC 17599|71,2833|C85|C
+2|3|True|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||S
 
 Use o método [`from_sql_query()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none-) na classe `TabularDatasetFactory` para ler do banco de dados SQL do Azure:
 
@@ -177,7 +177,7 @@ Para criar um conjunto de um DataSet no estúdio:
 
 ## <a name="register-datasets"></a>Registrar conjuntos de os
 
-Para concluir o processo de criação, registre seus conjuntos de registros com um espaço de trabalho. Use o método [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) para registrar conjuntos de registros com seu espaço de trabalho a fim de compartilhá-los com outras pessoas e reutilizá-los em vários experimentos:
+Para concluir o processo de criação, registre seus conjuntos de registros com um espaço de trabalho. Use o método [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--create-new-version-false-) para registrar conjuntos de registros com seu espaço de trabalho a fim de compartilhá-los com outras pessoas e reutilizá-los em vários experimentos:
 
 ```Python
 titanic_ds = titanic_ds.register(workspace=workspace,
@@ -266,7 +266,7 @@ titanic_ds = Dataset.get_by_name(workspace=workspace, name=dataset_name)
 df = titanic_ds.to_pandas_dataframe()
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba [como treinar com conjuntos de](how-to-train-with-datasets.md)informações.
 * Use o Machine Learning automatizado para [treinar com o TabularDatasets](https://aka.ms/automl-dataset).

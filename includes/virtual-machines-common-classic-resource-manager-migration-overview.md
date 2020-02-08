@@ -2,18 +2,18 @@
 title: incluir arquivo
 description: incluir arquivo
 services: virtual-machines
-author: singhkays
+author: tanmaygore
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/25/2019
-ms.author: kasing
+ms.date: 02/06/2020
+ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: 0ffbbe5505c9316f362ebbc41d311f97408f1b17
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: aa03560160795e33a5d26a88d421894c6e20c61f
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76887729"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77089052"
 ---
 Este artigo descreve como migrar recursos de infra-estrutura como serviço (IaaS) dos modelos de implantação do Classic para o Resource Manager e detalha como conectar recursos dos dois modelos de implantação que coexistem na sua assinatura usando gateways de site a site de rede virtual. Você pode ler mais sobre os [recursos e benefícios do Azure Resource Manager](../articles/azure-resource-manager/management/overview.md). 
 
@@ -25,14 +25,13 @@ Há suporte para quase todos os recursos do modelo de implantação clássica re
 ## <a name="supported-resources-for-migration"></a>Recursos com suporte para migração
 Esses recursos de IaaS clássicos têm suporte durante a migração
 
-* Máquinas virtuais
+* Máquinas Virtuais
 * Conjuntos de Disponibilidade
-* Serviços de Nuvem com Máquinas Virtuais
 * Contas de armazenamento
 * Redes Virtuais
 * Gateways VPN
 * Express Route Gateways _(na mesma assinatura como Rede Virtual somente)_
-* Grupos de Segurança de Rede
+* Grupos de segurança de rede
 * Tabelas de Rotas
 * IPs Reservados
 
@@ -114,7 +113,7 @@ Atualmente, não há suporte para as seguintes configurações.
 
 | Serviço | Configuração | Recomendação |
 | --- | --- | --- |
-| Resource Manager |RBAC (controle de acesso baseado em função) para recursos clássicos |Como o URI dos recursos é modificado após a migração, é recomendável planejar as atualizações da política de RBAC que precisam ocorrer após a migração. |
+| Gerenciador de Recursos |RBAC (controle de acesso baseado em função) para recursos clássicos |Como o URI dos recursos é modificado após a migração, é recomendável planejar as atualizações da política de RBAC que precisam ocorrer após a migração. |
 | Computação |Várias sub-redes associadas a uma VM |Atualize a configuração de sub-rede para referenciar apenas uma sub-rede. Isso poderá exigir que você remova um NIC secundário (que está referenciado a outra sub-rede) da máquina virtual e anexá-lo novamente depois que a migração for concluída. |
 | Computação |Máquinas virtuais que pertencem a uma rede virtual, mas que não têm uma sub-rede explícita atribuída |Opcionalmente, você pode excluir a VM. |
 | Computação |Máquinas virtuais que têm alertas e políticas de Escala Automática |A migração passa e essas configurações serão descartadas. É altamente recomendável que você avalie seu ambiente antes de fazer a migração. Se preferir, você pode redefinir as configurações de alerta após a conclusão da migração. |
@@ -127,8 +126,8 @@ Atualmente, não há suporte para as seguintes configurações.
 | Computação | VM com extensão Azure Site Recovery | Essas extensões são instaladas em uma máquina virtual configurada com o serviço de Azure Site Recovery. Enquanto a migração de armazenamento usada com Site Recovery funcionará, a replicação atual será afetada. Você precisa desabilitar e habilitar a replicação de VM após a migração de armazenamento. |
 | Rede |Redes virtuais que contêm máquinas virtuais e funções de trabalho/web |Não há suporte para esse recurso no momento. Mova as funções Web/Trabalho para as suas próprias redes virtuais antes de fazer a migração. Depois que a rede virtual clássica for migrada, a rede virtual do Azure Resource Manager pode ser emparelhada com a rede virtual clássica para obter uma configuração semelhante como antes.|
 | Rede | Circuitos do ExpressRoute clássico |Não há suporte para esse recurso no momento. Esses circuitos precisam ser migrados para o Azure Resource Manager antes da migração do IaaS ser iniciada. Para saber mais, consulte [Movimentação dos circuitos do ExpressRoute do modelo de implantação clássico para o Resource Manager](../articles/expressroute/expressroute-move.md).|
-| Serviço de Aplicativos do Azure |Redes virtuais que contêm ambientes do Serviço de Aplicativo |Não há suporte para esse recurso no momento. |
+| Serviço de aplicativo do Azure |Redes virtuais que contêm ambientes do Serviço de Aplicativo |Não há suporte para esse recurso no momento. |
 | Azure HDInsight |Redes virtuais que contêm serviços do HDInsight |Não há suporte para esse recurso no momento. |
 | Serviços de Ciclo de Vida do Microsoft Dynamics |Redes virtuais que contêm máquinas virtuais gerenciadas pelos Serviços de Ciclo de Vida do Microsoft Dynamics |Não há suporte para esse recurso no momento. |
-| Serviços de Domínio do AD do Azure |Redes virtuais que contêm serviços do Azure AD Domain Services |Não há suporte para esse recurso no momento. |
+| Azure AD Domain Services |Redes virtuais que contêm serviços do Azure AD Domain Services |Não há suporte para esse recurso no momento. |
 | Gerenciamento de API do Azure |Redes virtuais que contêm implantações do Gerenciamento de API do Azure |Não há suporte para esse recurso no momento. Para migrar a VNET IaaS, altere a VNET da implantação do Gerenciamento de API, que é uma operação sem tempo de inatividade. |

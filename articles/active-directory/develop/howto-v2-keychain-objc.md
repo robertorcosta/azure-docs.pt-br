@@ -3,22 +3,22 @@ title: Configurar conjunto de chaves
 titleSuffix: Microsoft identity platform
 description: Saiba como configurar o conjunto de chaves para que seu aplicativo possa armazenar em cache tokens no conjunto de chaves.
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/28/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 52eb4eb5958357a90c1db773f45c9928e4652755
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d94bf7ffe955c9ec9ee2a2e7f7c4dbaaa28df270
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696870"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085855"
 ---
 # <a name="configure-keychain"></a>Configurar conjunto de chaves
 
@@ -108,6 +108,6 @@ Erro-34018 normalmente significa que o conjunto de chaves não foi configurado c
 
 No macOS, os aplicativos podem ser executados sem serem assinados pelo desenvolvedor. Embora a maioria das funcionalidades do MSAL continue a funcionar, o SSO por meio do acesso ao conjunto de chaves exige que o aplicativo seja assinado. Se você estiver enfrentando vários prompts de conjunto de chaves, verifique se a assinatura do aplicativo é válida.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre os grupos de acesso do conjunto de chaves no artigo [compartilhamento de acesso do grupo de chaves entre conjuntos de aplicativos](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc) .

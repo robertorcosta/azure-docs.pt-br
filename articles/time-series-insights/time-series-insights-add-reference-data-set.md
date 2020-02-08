@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.custom: seodec18
-ms.openlocfilehash: 71041012bc77da6d7613deb178c3cec1413e57e2
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.date: 02/07/2020
+ms.custom: seodec18~~~~
+ms.openlocfilehash: 79628ed44753577023464ef6208027e1b7996d30
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314871"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087253"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Criar um conjunto de dados de referência para o seu ambiente Time Series Insights usando o Portal do Azure
 
@@ -114,7 +114,7 @@ Os dados de referência não estão unidos retroativamente. Assim, somente os da
    > [!NOTE]
    > As linhas adicionadas **não** precisam ser *retangulares* . elas podem ter menos colunas, maiores ou variáveis diferentes das outras entradas no conjunto de dados de referência.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Gerenciar dados de referência](time-series-insights-manage-reference-data-csharp.md) programaticamente.
 

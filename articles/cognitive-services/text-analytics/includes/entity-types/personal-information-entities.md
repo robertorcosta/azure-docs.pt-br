@@ -6,30 +6,110 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/21/2019
+ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: 3aa4da9a9cf3d1d4b664e81f1fd18f2b225d731d
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: d678a29de9dea8a5a2f6d0259a452ca4c69feb03
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799638"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086912"
 ---
 ## <a name="personal-information-entity-types"></a>Tipos de entidade de informações pessoais:
 
+### <a name="person"></a>Person
+Reconhece nomes de pessoas no texto.
+
+Linguagens:
+* Visualização pública: `English`
+
+| Nome do subtipo | DESCRIÇÃO                                               | Disponível a partir da versão do modelo |
+|--------------|-----------------------------------------------------------|----------------------------------------|
+| N/D          | Nomes reconhecidos, por exemplo `Bill Gates`, `Marie Curie` | `2020-02-01`                           |
+
+### <a name="organization"></a>Organização  
+
+Reconheça organizações, corporações, agências, empresas, clubes e outros grupos de pessoas.
+
+Linguagens: 
+
+* Visualização pública: `English`
+
+| Nome do subtipo | DESCRIÇÃO                                                                                       | Disponível a partir da versão do modelo|
+|--------------|---------------------------------------------------------------------------------------------------|--------------|
+| N/D          | organizações, por exemplo `Microsoft`, `NASA``National Oceanic and Atmospheric Administration` | `2020-02-01` |
+
 ### <a name="phone-number"></a>Número do telefone
 
-Números de telefone. 
+Números de telefone (somente números de telefone dos EUA). 
 
 Linguagens:
 
 * Visualização pública: `English`
 
-| Nome do subtipo           | DESCRIÇÃO                                           |
-|------------------------|-------------------------------------------------------|
-| N/D                    | Números de telefone, por exemplo `+1 123-123-123`.          |
-| Número de telefone da UE        | Números de telefone específicos da União Europeia.         |
-| Número de celular da UE | Números de telefone celular específicos à União Europeia. |
+| Nome do subtipo | DESCRIÇÃO                                    | Disponível a partir da versão do modelo |
+|--------------|------------------------------------------------|----------------------------------------|
+| N/D          | Números de telefone dos EUA, por exemplo `(312) 555-0176` | `2020-02-01`                           |
+
+### <a name="email"></a>Email
+
+Endereço de email. 
+
+Linguagens:
+
+* Visualização pública: `English`
+
+| Nome do subtipo | DESCRIÇÃO                                      | Disponível a partir da versão do modelo |
+|--------------|--------------------------------------------------|----------------------------------------|
+| N/D          | Endereço de email, por exemplo `support@contoso.com` | `2020-02-01`                           |
+
+### <a name="url"></a>URL
+
+URLs da Internet.
+
+Linguagens:
+
+* Visualização pública: `English`
+
+| Nome do subtipo | DESCRIÇÃO                                          | Disponível a partir da versão do modelo |
+|--------------|------------------------------------------------------|----------------------------------------|
+| N/D          | URLs para sites, por exemplo `https://www.bing.com` | `2020-02-01`                           |
+
+### <a name="ip-address"></a>Endereço IP
+
+Endereço de protocolo de Internet
+
+Linguagens:
+
+* Visualização pública: `English`
+
+| Nome do subtipo | DESCRIÇÃO                              | Disponível a partir da versão do modelo |
+|--------------|------------------------------------------|----------------------------------------|
+| N/D          | Endereço de rede, por exemplo `10.0.0.101` | `2020-02-01`                           |
+
+### <a name="quantity"></a>Quantidade 
+
+Quantidades numéricas
+
+Linguagens:
+
+* Visualização pública: `English`
+
+| Nome do subtipo | DESCRIÇÃO                   | Disponível a partir da versão do modelo |
+|--------------|-------------------------------|----------------------------------------|
+| Idade          | `90 days old`, `30 years old` | `2020-02-01`                           |
+
+### <a name="datetime"></a>Datetime
+
+Entidades de data e hora
+
+Linguagens:
+
+* Visualização pública: `English`
+
+| Nome do subtipo | DESCRIÇÃO                   | Disponível a partir da versão do modelo |
+|--------------|-------------------------------|----------------------------------------|
+| Data         | `May 2nd, 2017`, `05/02/2017` | `2020-02-01`                           |
 
 ### <a name="eu-gps-coordinates"></a>Coordenadas do GPS da UE
 
@@ -39,13 +119,15 @@ Linguagens:
 
 * Visualização pública: `English`
 
-| Nome do subtipo | DESCRIÇÃO                               |
-|--------------|-------------------------------------------|
-| N/D          | Coordenadas de GPS na União Europeia |
+| Nome do subtipo | DESCRIÇÃO                               | Disponível a partir da versão do modelo |
+|--------------|-------------------------------------------|----------------------------------------|
+| N/D          | Coordenadas de GPS na União Europeia | `2019-10-01`                           |
 
 ### <a name="azure-information"></a>Informações do Azure
 
 Informações identificáveis do Azure, incluindo informações de autenticação e cadeias de conexão. 
+
+* Disponível a partir da versão do modelo `2019-10-01`.
 
 Linguagens:
 
@@ -66,6 +148,8 @@ Linguagens:
 | SQL Server cadeia de conexão          | Cadeia de conexão para um SQL Server.                                         |
 
 ### <a name="identification"></a>Identificação
+
+* Disponível a partir da versão do modelo `2019-10-01`.
 
 Linguagens:
 
@@ -88,7 +172,7 @@ Argentina
 * Número de identidade nacional (DNI)
 
 Austrália
-* Número de contribuinte 
+* Número do arquivo de imposto 
 * ID da licença do driver
 * ID do passaporte
 * Número da conta médica
@@ -102,12 +186,12 @@ Brasil
 * Número do CPF
 * Cartão de ID nacional (RG)
 
-Canadá
+Canada
 * ID do passaporte
 * ID da licença do driver
 * Número de seguro de integridade
 * Número de ID de integridade pessoal (PHIN)
-* Número do seguro social
+* Cadastro de Pessoa Física
 * números de conta bancária (por exemplo, contas de verificação, poupança e débito)
 
 Chile
@@ -232,7 +316,7 @@ Taiwan
 Tailândia
 * Código de identificação da população
 
-Reino Unido
+United Kingdom
 * ID do passaporte
 * ID da licença do driver
 * Número de seguro nacional (NINO)

@@ -5,21 +5,18 @@ services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/19/2019
+ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: 3f7d213aed82d1cb94bb96b9e212d3b255851afd
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 3e8cd2f1e594cd6a60296b2df135f275641df313
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171214"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086972"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Criar políticas de firewall do aplicativo Web para o gateway de aplicativo
 
 A associação de uma política WAF com ouvintes permite que vários sites por trás de um único WAF sejam protegidos por políticas diferentes. Por exemplo, se houver cinco sites por trás de seu WAF, você poderá ter cinco políticas de WAF separadas (uma para cada ouvinte) para personalizar as exclusões, regras personalizadas e conjuntos de regras gerenciados para um site sem afetar os outros quatro. Se você quiser que uma única política se aplique a todos os sites, basta associar a política ao gateway de aplicativo, em vez de aos ouvintes individuais, para que ele se aplique globalmente. As políticas também podem ser aplicadas a uma regra de roteamento com base em caminho. 
-
-   > [!NOTE]
-   > A política de WAF por site está disponível no EUA Central do Sul e Europa Setentrional. Para acessá-los no portal, use [este link](https://aka.ms/AppgwwafWithAllFeatureFlags) até que ele fique ativo para todos.  
 
 Você pode fazer quantas políticas desejar. Depois de criar uma política, ela deve estar associada a um gateway de aplicativo para entrar em vigor, mas pode ser associada a qualquer combinação de gateways de aplicativo e ouvintes. 
 
@@ -40,9 +37,9 @@ Primeiro, crie uma política de WAF básica com um conjunto de regras padrão ge
    |Configuração  |Valor  |
    |---------|---------|
    |Política para     |WAF regionais (gateway de aplicativo)|
-   |Assinatura     |Selecione o nome da sua assinatura|
-   |Grupo de recursos     |Selecione o grupo de recursos|
-   |Nome da política     |Digite um nome exclusivo para sua política de WAF.|
+   |Subscription     |Selecione o nome da sua assinatura|
+   |Resource group     |Selecione o grupo de recursos|
+   |Nome de política     |Digite um nome exclusivo para sua política de WAF.|
 3. Na guia **Associação** , insira uma das seguintes configurações e, em seguida, selecione **Adicionar**:
 
    |Configuração  |Valor  |

@@ -9,12 +9,12 @@ ms.date: 12/13/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 2f52d72a1f2e3c3d1f3495c4b7f6f633db30778e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3360b92a1b71adcbf0364a16c197aecdab5700db
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437280"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086612"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Tutorial: reagir a eventos de armazenamento de BLOBs em IoT Edge (versão prévia)
 Este artigo mostra como implantar o armazenamento de BLOBs do Azure no módulo IoT, que atuaria como um editor de grade de eventos para enviar eventos sobre a criação de BLOB e exclusão de BLOB para a grade de eventos.  
@@ -62,9 +62,8 @@ Um manifesto de implantação é um documento JSON que descreve quais módulos i
     ```json
         {
           "Env": [
-           "inbound:serverAuth:tlsPolicy=enabled",
-           "inbound:clientAuth:clientCert:enabled=false",
-           "outbound:webhook:httpsOnly=false"
+           "inbound__serverAuth__tlsPolicy=enabled",
+           "inbound__clientAuth__clientCert__enabled=false"
           ],
           "HostConfig": {
             "PortBindings": {
@@ -79,18 +78,15 @@ Um manifesto de implantação é um documento JSON que descreve quais módulos i
     ```    
 
  1. Clique em **Salvar**
- 1. Continue na próxima seção para adicionar o módulo Azure Functions
+ 1. Continue na próxima seção para adicionar o módulo assinante da grade de eventos do Azure antes de implantá-los juntos.
 
     >[!IMPORTANT]
-    > Neste tutorial, você aprenderá a implantar o módulo de grade de eventos para permitir solicitações HTTP/HTTPs, autenticação de cliente desabilitada e permitir assinantes HTTP. Para cargas de trabalho de produção, recomendamos que você habilite somente solicitações HTTPs e assinantes com autenticação de cliente habilitada. Para obter mais informações sobre como configurar o módulo de grade de eventos com segurança, consulte [segurança e autenticação](security-authentication.md).
+    > Neste tutorial, você aprenderá a implantar o módulo de grade de eventos para permitir solicitações HTTP/HTTPs, autenticação de cliente desabilitada. Para cargas de trabalho de produção, recomendamos que você habilite somente solicitações HTTPs e assinantes com autenticação de cliente habilitada. Para obter mais informações sobre como configurar o módulo de grade de eventos com segurança, consulte [segurança e autenticação](security-authentication.md).
     
 
-## <a name="deploy-azure-function-iot-edge-module"></a>Implantar o módulo IoT Edge do Azure function
+## <a name="deploy-event-grid-subscriber-iot-edge-module"></a>Implantar o módulo IoT Edge do assinante de grade de eventos
 
-Esta seção mostra como implantar o módulo Azure Functions IoT, que atuaria como um assinante de grade de eventos no qual os eventos podem ser entregues.
-
->[!IMPORTANT]
->Nesta seção, você implantará um exemplo de módulo de assinatura baseado em função do Azure. Naturalmente, pode ser qualquer módulo IoT personalizado que possa escutar solicitações HTTP POST.
+Esta seção mostra como implantar outro módulo de IoT que atuaria como um manipulador de eventos para o qual os eventos podem ser entregues.
 
 ### <a name="add-modules"></a>Adicionar módulos
 
@@ -99,23 +95,8 @@ Esta seção mostra como implantar o módulo Azure Functions IoT, que atuaria co
 1. Forneça as opções nome, imagem e contêiner criar do contêiner:
 
    * **Nome**: assinante
-   * **URI da imagem**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber-azfunc:latest`
-   * **Opções de Criação de Contêiner**:
-
-       ```json
-            {
-              "HostConfig": {
-                "PortBindings": {
-                  "80/tcp": [
-                    {
-                      "HostPort": "8080"
-                    }
-                  ]
-                }
-              }
-            }
-       ```
-
+   * **URI da imagem**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
+   * **Opções de criação de contêiner**: nenhuma
 1. Clique em **Salvar**
 1. Continue na próxima seção para adicionar o módulo de armazenamento de BLOBs do Azure
 
@@ -133,7 +114,7 @@ Esta seção mostra como implantar o módulo de armazenamento de BLOBs do Azure,
    * **URI da imagem**: MCR.Microsoft.com/Azure-Blob-Storage:Latest
    * **Opções de Criação de Contêiner**:
 
-```json
+   ```json
        {
          "Env":[
            "LOCAL_STORAGE_ACCOUNT_NAME=<your storage account name>",
@@ -149,13 +130,12 @@ Esta seção mostra como implantar o módulo de armazenamento de BLOBs do Azure,
            }
          }
        }
-```
-> [!IMPORTANT]
-> - O módulo de armazenamento de BLOBs pode publicar eventos usando HTTPS e HTTP. 
-> - Se você tiver habilitado a autenticação baseada em cliente para EventGrid, atualize o valor de EVENTGRID_ENDPOINT para permitir https desta forma: `EVENTGRID_ENDPOINT=https://<event grid module name>:4438` 
-> - E adicione outra variável de ambiente `AllowUnknownCertificateAuthority=true` ao JSON acima. Ao se comunicar com EventGrid por HTTPS, o **AllowUnknownCertificateAuthority** permite que o módulo de armazenamento confie em certificados de servidor EventGrid autoassinados.
+   ```
 
-
+   > [!IMPORTANT]
+   > - O módulo de armazenamento de BLOBs pode publicar eventos usando HTTPS e HTTP. 
+   > - Se você habilitou a autenticação baseada em cliente para EventGrid, atualize o valor de EVENTGRID_ENDPOINT para permitir HTTPS, desta forma: `EVENTGRID_ENDPOINT=https://<event grid module name>:4438`.
+   > - Além disso, adicione outra variável de ambiente `AllowUnknownCertificateAuthority=true` ao JSON acima. Ao se comunicar com EventGrid por HTTPS, o **AllowUnknownCertificateAuthority** permite que o módulo de armazenamento confie em certificados de servidor EventGrid autoassinados.
 
 4. Atualize o JSON que você copiou com as seguintes informações:
 
@@ -221,42 +201,41 @@ Mantenha as rotas padrão e selecione **Avançar** para continuar na seção rev
 2. Os assinantes podem se registrar para eventos publicados em um tópico. Para receber qualquer evento, você precisará criar uma assinatura de grade de eventos para o tópico **MicrosoftStorage** .
     1. Crie blobsubscription. JSON com o conteúdo a seguir. Para obter detalhes sobre a carga, consulte nossa [documentação de API](api.md)
 
-    ```json
+       ```json
         {
           "properties": {
             "destination": {
               "endpointType": "WebHook",
               "properties": {
-                "endpointUrl": "http://subscriber:80/api/subscriber"
+                "endpointUrl": "https://subscriber:4430"
               }
             }
           }
         }
-    ```
+       ```
 
-    >[!NOTE]
-    > A propriedade **EndpointType** especifica que o assinante é um **webhook**.  O **endpointUrl** especifica a URL na qual o assinante está escutando eventos. Essa URL corresponde ao exemplo de Azure function que você implantou anteriormente.
+       >[!NOTE]
+       > A propriedade **EndpointType** especifica que o assinante é um **webhook**.  O **endpointUrl** especifica a URL na qual o assinante está escutando eventos. Essa URL corresponde ao exemplo de Azure function que você implantou anteriormente.
 
     2. Execute o comando a seguir para criar uma assinatura para o tópico. Confirme que você vê o código de status HTTP `200 OK`.
 
-    ```sh
-    curl -k -H "Content-Type: application/json" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview
-    ```
+       ```sh
+       curl -k -H "Content-Type: application/json" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview
+       ```
 
-    > [!IMPORTANT]
-    > - Para o fluxo HTTPS, se a autenticação do cliente estiver habilitada por meio da chave SAS, a chave SAS especificada anteriormente deverá ser adicionada como um cabeçalho. Portanto, a solicitação de ondulação será: `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview` 
-    > - Para o fluxo HTTPS, se a autenticação do cliente estiver habilitada por meio do certificado, a solicitação de rotação será:`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
-
+       > [!IMPORTANT]
+       > - Para o fluxo HTTPS, se a autenticação do cliente estiver habilitada por meio da chave SAS, a chave SAS especificada anteriormente deverá ser adicionada como um cabeçalho. Portanto, a solicitação de ondulação será: `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview` 
+       > - Para o fluxo HTTPS, se a autenticação do cliente estiver habilitada por meio do certificado, a solicitação de rotação será:`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
 
     3. Execute o comando a seguir para verificar se a assinatura foi criada com êxito. O código de status HTTP de 200 OK deve ser retornado.
 
-    ```sh
-    curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview
-    ```
+       ```sh
+       curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview
+       ```
 
-    Saída de exemplo:
+       Saída de exemplo:
 
-    ```json
+       ```json
         {
           "id": "/iotHubs/eg-iot-edge-hub/devices/eg-edge-device/modules/eventgridmodule/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5",
           "type": "Microsoft.EventGrid/eventSubscriptions",
@@ -266,18 +245,18 @@ Mantenha as rotas padrão e selecione **Avançar** para continuar na seção rev
             "destination": {
               "endpointType": "WebHook",
               "properties": {
-                "endpointUrl": "http://subscriber:80/api/subscriber"
+                "endpointUrl": "https://subscriber:4430"
               }
             }
           }
         }
-    ```
+       ```
 
-    > [!IMPORTANT]
-    > - Para o fluxo HTTPS, se a autenticação do cliente estiver habilitada por meio da chave SAS, a chave SAS especificada anteriormente deverá ser adicionada como um cabeçalho. Portanto, a solicitação de ondulação será: `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
-    > - Para o fluxo HTTPS, se a autenticação do cliente estiver habilitada por meio do certificado, a solicitação de rotação será: `curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
+       > [!IMPORTANT]
+       > - Para o fluxo HTTPS, se a autenticação do cliente estiver habilitada por meio da chave SAS, a chave SAS especificada anteriormente deverá ser adicionada como um cabeçalho. Portanto, a solicitação de ondulação será: `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
+       > - Para o fluxo HTTPS, se a autenticação do cliente estiver habilitada por meio do certificado, a solicitação de rotação será: `curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
 
-2. Baixar [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) e [conectá-lo ao armazenamento local](../../iot-edge/how-to-store-data-blob.md#connect-to-your-local-storage-with-azure-storage-explorer)
+3. Baixar [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) e [conectá-lo ao armazenamento local](../../iot-edge/how-to-store-data-blob.md#connect-to-your-local-storage-with-azure-storage-explorer)
 
 ## <a name="verify-event-delivery"></a>Verificar a entrega de eventos
 
@@ -289,7 +268,7 @@ Mantenha as rotas padrão e selecione **Avançar** para continuar na seção rev
     Saída de exemplo:
 
     ```json
-            Received event data [
+            Received Event:
             {
               "id": "d278f2aa-2558-41aa-816b-e6d8cc8fa140",
               "topic": "MicrosoftStorage",
@@ -309,7 +288,6 @@ Mantenha as rotas padrão e selecione **Avançar** para continuar na seção rev
                 "blobType": "BlockBlob"
               }
             }
-          ]
     ```
 
 ### <a name="verify-blobdeleted-event-delivery"></a>Verificar a entrega de eventos do BlobDeleted
@@ -320,7 +298,7 @@ Mantenha as rotas padrão e selecione **Avançar** para continuar na seção rev
     Saída de exemplo:
     
     ```json
-            Received event data [
+            Received Event:
             {
               "id": "ac669b6f-8b0a-41f3-a6be-812a3ce6ac6d",
               "topic": "MicrosoftStorage",
@@ -340,7 +318,6 @@ Mantenha as rotas padrão e selecione **Avançar** para continuar na seção rev
                 "blobType": "BlockBlob"
               }
             }
-          ]
     ```
 
 Parabéns! Você concluiu o tutorial. As seções a seguir fornecem detalhes sobre as propriedades do evento.
@@ -349,32 +326,32 @@ Parabéns! Você concluiu o tutorial. As seções a seguir fornecem detalhes sob
 
 Aqui está a lista de propriedades de eventos com suporte e seus tipos e descrições. 
 
-| Propriedade | Tipo | Description |
+| Propriedade | Type | DESCRIÇÃO |
 | -------- | ---- | ----------- |
-| topic | cadeia de caracteres | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
-| subject | cadeia de caracteres | Caminho definido pelo fornecedor para o assunto do evento. |
-| eventType | cadeia de caracteres | Um dos tipos de evento registrados para a origem do evento. |
-| eventTime | cadeia de caracteres | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| id | cadeia de caracteres | Identificador exclusivo do evento. |
+| topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
+| subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
+| eventType | string | Um dos tipos de evento registrados para a origem do evento. |
+| eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| id | string | Identificador exclusivo do evento. |
 | data | objeto | Dados de eventos do armazenamento de blob. |
-| dataVersion | cadeia de caracteres | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | cadeia de caracteres | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
+| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Type | DESCRIÇÃO |
 | -------- | ---- | ----------- |
-| api | cadeia de caracteres | A operação que disparou o evento. Pode ser um dos seguintes valores: <ul><li>BlobCreated-os valores permitidos são: `PutBlob` e `PutBlockList`</li><li>BlobDeleted-os valores permitidos são `DeleteBlob`, `DeleteAfterUpload` e `AutoDelete`. <p>O evento `DeleteAfterUpload` é gerado quando o blob é excluído automaticamente porque a propriedade desejada deleteAfterUpload está definida como true. </p><p>`AutoDelete` evento é gerado quando o blob é excluído automaticamente porque o valor da propriedade desejada deleteAfterMinutes expirou.</p></li></ul>|
-| clientRequestId | cadeia de caracteres | uma ID de solicitação fornecida pelo cliente para a operação da API de armazenamento. Essa ID pode ser usada para correlacionar os logs de diagnóstico do armazenamento do Azure usando o campo "Client-Request-ID" nos logs e pode ser fornecida em solicitações de cliente usando o cabeçalho "x-MS-Client-Request-ID". Para obter detalhes, consulte [formato de log](/rest/api/storageservices/storage-analytics-log-format). |
-| requestId | cadeia de caracteres | Id da solicitação gerada pelo serviço para a operação da API de armazenamento. Pode ser usada para correlacionar com os logs de diagnóstico do Armazenamento do Azure usando o campo "request-id-header" nos logs, e retornada pela inicialização da chamada á API no cabeçalho 'x-ms-request-id'. Consulte [Formato de Log](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
-| eTag | cadeia de caracteres | O valor que você pode usar para executar operações condicionalmente. |
-| contentType | cadeia de caracteres | O tipo de conteúdo especificado para o blob. |
+| api | string | A operação que disparou o evento. Pode ser um dos seguintes valores: <ul><li>BlobCreated-os valores permitidos são: `PutBlob` e `PutBlockList`</li><li>BlobDeleted-os valores permitidos são `DeleteBlob`, `DeleteAfterUpload` e `AutoDelete`. <p>O evento `DeleteAfterUpload` é gerado quando o blob é excluído automaticamente porque a propriedade desejada deleteAfterUpload está definida como true. </p><p>`AutoDelete` evento é gerado quando o blob é excluído automaticamente porque o valor da propriedade desejada deleteAfterMinutes expirou.</p></li></ul>|
+| clientRequestId | string | uma ID de solicitação fornecida pelo cliente para a operação da API de armazenamento. Essa ID pode ser usada para correlacionar os logs de diagnóstico do armazenamento do Azure usando o campo "Client-Request-ID" nos logs e pode ser fornecida em solicitações de cliente usando o cabeçalho "x-MS-Client-Request-ID". Para obter detalhes, consulte [formato de log](/rest/api/storageservices/storage-analytics-log-format). |
+| requestId | string | ID da solicitação gerada pelo serviço para a operação da API de armazenamento. Pode ser usada para correlacionar com os logs de diagnóstico do Armazenamento do Azure usando o campo "request-id-header" nos logs, e retornada pela inicialização da chamada á API no cabeçalho 'x-ms-request-id'. Consulte [Formato de Log](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
+| eTag | string | O valor que você pode usar para executar operações condicionalmente. |
+| contentType | string | O tipo de conteúdo especificado para o blob. |
 | contentLength | inteiro | O tamanho do blob em bytes. |
-| BlobType | cadeia de caracteres | O tipo de blob. Os valores válidos são "BlockBlob" ou "PageBlob". |
-| url | cadeia de caracteres | O caminho para o blob. <br>Se o cliente usar uma API REST de BLOB, a URL terá essa estrutura: *\<Storage-Account-name\>. blob.core.windows.net/\<nome-do-contêiner\>/\<nome-do-arquivo\>* . <br>Se o cliente usar uma API REST Data Lake Storage, a URL terá essa estrutura: *\<nome-da-conta de armazenamento\>. dfs.core.windows.net/\<arquivo-System-name\>/\<nome-* do-arquivo\>. |
+| BlobType | string | O tipo de blob. Os valores válidos são "BlockBlob" ou "PageBlob". |
+| url | string | O caminho para o blob. <br>Se o cliente usar uma API REST de BLOB, a URL terá essa estrutura: *\<Storage-Account-name\>. blob.core.windows.net/\<nome-do-contêiner\>/\<nome-do-arquivo\>* . <br>Se o cliente usar uma API REST Data Lake Storage, a URL terá essa estrutura: *\<nome-da-conta de armazenamento\>. dfs.core.windows.net/\<arquivo-System-name\>/\<nome-* do-arquivo\>. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte os seguintes artigos da documentação do armazenamento de BLOBs:
 

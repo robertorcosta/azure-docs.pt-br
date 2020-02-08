@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 0f836553c3c3bb324d76d022af189f154b5b1972
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 36a492f6a3e86cfb2fc9505550cc2d9f4746e070
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964457"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087165"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Funções e requisitos do Azure Data Share 
 
@@ -32,7 +32,7 @@ Veja abaixo um resumo das funções atribuídas à identidade gerenciada do recu
 | |  |  |
 |---|---|---|
 |**Tipo de repositório de dados**|**Armazenamento de dados de origem Provedor de Dados**|**Armazenamento de dados de destino de consumidor de dados**|
-|Armazenamento de Blobs do Azure| Leitor de dados de blob de armazenamento | Colaborador de dados do blob de armazenamento
+|Armazenamento do Blobs do Azure| Leitor de dados de blob de armazenamento | Colaborador de dados do blob de armazenamento
 |Azure Data Lake Gen1 | Proprietário | Sem suporte
 |Azure Data Lake Gen2 | Leitor de dados de blob de armazenamento | Colaborador de dados do blob de armazenamento
 |Azure SQL Server | Colaborador do banco de dados SQL | Colaborador do banco de dados SQL
@@ -44,7 +44,7 @@ Para o compartilhamento baseado em SQL, um usuário do SQL precisa ser criado a 
 | |  |  |
 |---|---|---|
 |**Tipo de banco de dados SQL**|**Permissão de usuário do Provedor de Dados SQL**|**Permissão de usuário SQL de consumidor de dados**|
-|Banco de dados SQL do Azure | db_datareader | db_datareader, db_datawriter, db_ddladmin
+|Banco de Dados SQL do Azure | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |Azure Synapse Analytics (antigo SQL DW) | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |
 
@@ -91,7 +91,7 @@ Para saber mais sobre como adicionar uma atribuição de função, consulte [est
 
 ## <a name="resource-provider-registration"></a>Registro do provedor de recursos 
 
-Para exibir o convite de compartilhamento de dados do Azure pela primeira vez em seu locatário do Azure, talvez seja necessário registrar manualmente o provedor de recursos Microsoft. DataShare em sua assinatura do Azure. Siga estas etapas para registrar o provedor de recursos Microsoft. DataShare em sua assinatura do Azure. 
+Para exibir o convite de compartilhamento de dados do Azure pela primeira vez em seu locatário do Azure, talvez seja necessário registrar manualmente o provedor de recursos Microsoft. DataShare em sua assinatura do Azure. Siga estas etapas para registrar o provedor de recursos Microsoft. DataShare em sua assinatura do Azure. Você precisa de acesso de *colaborador* à assinatura do Azure para registrar o provedor de recursos.
 
 1. No portal do Azure, navegue até **assinaturas**.
 1. Selecione a assinatura que você está usando para o compartilhamento de dados do Azure.
@@ -99,7 +99,7 @@ Para exibir o convite de compartilhamento de dados do Azure pela primeira vez em
 1. Procure Microsoft. DataShare.
 1. Clique em **Registrar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre as funções no Azure – [Entender as definições de função](../role-based-access-control/role-definitions.md)
 

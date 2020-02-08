@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/28/2019
+ms.date: 02/07/2020
 ms.author: radeltch
-ms.openlocfilehash: 179df26eb0cc75899c9b509ebe00410ffa916dc8
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 52179f15829981d59ff060784a49eccef89bb186
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935191"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083726"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividade de ponto de extremidade público para máquinas virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP
 
@@ -29,7 +29,7 @@ O escopo deste artigo é descrever as configurações, que permitirão a conecti
 Se você estiver usando o pacemaker com o agente de isolamento do Azure em sua solução de alta disponibilidade, as VMs deverão ter conectividade de saída com a API de gerenciamento do Azure.  
 O artigo apresenta várias opções para permitir que você selecione a opção mais adequada para seu cenário.  
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Ao implementar alta disponibilidade para soluções SAP por meio de clustering, um dos componentes necessários é [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). O Azure oferece dois SKUs do balanceador de carga: Standard e Basic.
 
@@ -45,8 +45,8 @@ Os sistemas SAP geralmente contêm dados comerciais confidenciais. Raramente é 
 
 Exemplos de cenários, que exigem acesso ao ponto de extremidade público do Azure são:  
 - Usando o agente de isolamento do Azure como um mecanismo de isolamento em clusters pacemaker
-- Backup do Azure
-- Recuperação de Site do Azure  
+- Serviço de Backup do Azure
+- Azure Site Recovery  
 - Usando o repositório público para aplicar patch no sistema operacional
 - O fluxo de dados do aplicativo SAP pode exigir conectividade de saída para o ponto de extremidade público
 
@@ -106,7 +106,7 @@ A configuração teria a seguinte aparência:
     az network lb outbound-rule create --address-pool MyBackendPoolOfPublicILB --frontend-ip-configs MyPublicILBFrondEndIP --idle-timeout 30 --lb-name MyPublicILB --name MyOutBoundRules  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group MyResourceGroup
    ```
 
-4. Crie regras de grupo de segurança de rede para restringir o acesso a pontos de extremidade públicos específicos. Se houver um grupo de segurança de rede existente, você poderá ajustá-lo. O exemplo a seguir mostra como permitir o acesso somente à API de gerenciamento do Azure: 
+4. Crie regras de grupo de segurança de rede para restringir o acesso a pontos de extremidade públicos específicos. Se houver um grupo de segurança de rede existente, você poderá ajustá-lo. O exemplo a seguir mostra como habilitar o acesso à API de gerenciamento do Azure: 
    1. Navegue até o grupo de segurança de rede
    1. Clique em regras de segurança de saída
    1. Adicione uma regra para **negar** todo o acesso de saída à **Internet**.
@@ -217,7 +217,7 @@ Para permitir que o pacemaker se comunique com a API de gerenciamento do Azure, 
      sudo pcs property set maintenance-mode=false
      ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba como configurar o pacemaker no SUSE no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)
 * [Saiba como configurar o pacemaker no Red Hat no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker)

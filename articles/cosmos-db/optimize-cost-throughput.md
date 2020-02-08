@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.openlocfilehash: 4bdf842ae24d90850280a5a19038dbd00168ff2c
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.date: 02/07/2020
+ms.openlocfilehash: c6c3e9462b26b44857eea6b53092baeeb5034364
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053357"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087075"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar a taxa de transferência provisionada no Azure Cosmos DB
 
@@ -55,10 +55,10 @@ Conforme mostrado na tabela a seguir, dependendo da opção de API, você pode p
 
 |API|Na taxa de transferência **compartilhada**, configure |Na taxa de transferência **dedicada**, configure |
 |----|----|----|
-|API SQL|Banco de dados|Contêiner|
+|API do SQL|Banco de dados|Contêiner|
 |API do Azure Cosmos DB para MongoDB|Banco de dados|Coleção|
-|API do Cassandra|Keyspace|Tabela|
-|API do Gremlin|Conta de banco de dados|Graph|
+|API Cassandra|Keyspace|Tabela|
+|API do Gremlin|Conta de banco de dados|Grafo|
 |API de Tabela|Conta de banco de dados|Tabela|
 
 Ao provisionar a produtividade em níveis diferentes, você pode otimizar seus custos com base nas características da carga de trabalho. Como mencionado anteriormente, você pode, programaticamente e a qualquer hora, aumentar ou diminuir a taxa de transferência fornecida para os contêineres individuais ou, coletivamente, em um conjunto de contêineres. Ao escalar a taxa de transferência com flexibilidade de acordo com as alterações da carga de trabalho, você paga apenas pela taxa de transferência configurada. Se o contêiner, ou um conjunto de contêineres, está distribuído entre várias regiões, a taxa de transferência que você configura no contêiner ou conjunto de contêineres tem a disponibilidade garantida em todas as regiões.
@@ -123,7 +123,7 @@ Você também pode definir alertas para verificar se o número de solicitações
 
 ## <a name="scale-your-throughput-elastically-and-on-demand"></a>Dimensionar a taxa de transferência com flexibilidade e sob demanda 
 
-Como você será cobrado pela taxa de transferência provisionada, igualar a taxa de transferência provisionada às suas necessidades pode ajudar a evitar encargos sobre taxa de transferência não utilizada. Você pode escalar ou reduzir verticalmente sua taxa de transferência a qualquer hora e conforme necessário.  
+Como você será cobrado pela taxa de transferência provisionada, igualar a taxa de transferência provisionada às suas necessidades pode ajudar a evitar encargos sobre taxa de transferência não utilizada. Você pode escalar ou reduzir verticalmente sua taxa de transferência a qualquer hora e conforme necessário. Se suas necessidades de taxa de transferência forem muito previsíveis, você poderá usar Azure Functions e usar um gatilho de temporizador para [aumentar ou diminuir a taxa de transferência em uma agenda](scale-on-schedule.md). 
 
 * O monitoramento do consumo das RUs e a velocidade das solicitações com taxa limitada pode revelar que não é necessário manter uma taxa de transferência provisionada constante ao longo do dia ou da semana. Você pode receber menos tráfego durante a noite ou no fim de semana. Usando o portal do Azure, ou SDKs nativos ou API REST do Azure Cosmos DB, você pode dimensionar a taxa de transferência provisionada a qualquer hora. A API REST do Azure Cosmos DB fornece pontos de extremidade para atualizar o nível de desempenho de seus contêineres programaticamente, simplificando o ajuste da taxa de transferência em seu código dependendo da hora do dia ou do dia da semana. A operação é realizada sem nenhum tempo de inatividade e normalmente entra em vigor em menos de um minuto. 
 
@@ -173,11 +173,11 @@ As etapas a seguir ajudam a tornar as suas soluções altamente escalonáveis e 
 
 10. Com a capacidade reservada do Azure Cosmos DB, você pode obter descontos consideráveis de até 65% por três anos. O modelo de capacidade reservada do Azure Cosmos DB é uma reserva antecipada em relação às unidades de solicitação necessárias ao longo do tempo. Os descontos são organizados em camadas, ou seja, quanto mais unidades de solicitação você usar em um período mais longo, maior será o desconto. Esses descontos são aplicados imediatamente. As RUs usadas acima dos valores provisionados serão cobradas com base no custo de capacidade não reservado. Consulte [Capacidade reservada do Cosmos DB](cosmos-db-reserved-capacity.md)) para obter mais detalhes. Considere adquirir capacidade reservada para reduzir ainda mais os custos com taxa de transferência provisionada.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 A seguir, você poderá saber mais sobre a otimização de custos no Azure Cosmos DB nos seguintes artigos:
 
-* Saiba mais em [Otimizar para desenvolvimento e teste](optimize-dev-test.md)
+* Saiba mais sobre [Otimizando para desenvolvimento e teste](optimize-dev-test.md)
 * Saiba mais sobre [Entender sua cobrança do Azure Cosmos DB](understand-your-bill.md)
 * Saiba mais sobre [Otimizando o custo de armazenamento](optimize-cost-storage.md)
 * Saiba mais sobre [Otimizando o custo de leituras e gravações](optimize-cost-reads-writes.md)

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 06d15d66df0b2ec0049d4b2fffae6a9909b05dca
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 35cded14977988c80455a9c28a0e01e7913d58f4
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549131"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069499"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para autenticação e autorização no Azure Kubernetes Service (AKS)
 
@@ -113,7 +113,7 @@ No exemplo a seguir, um desenvolvedor cria um pod que usa uma identidade gerenci
 
 Para usar identidades de Pod, consulte [identidades de Azure Active Directory para aplicativos kubernetes][aad-pod-identity].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Este artigo de práticas recomendadas enfocou a autenticação e a autorização de seu cluster e recursos. Para implementar algumas dessas práticas recomendadas, consulte os seguintes artigos:
 
@@ -122,7 +122,7 @@ Este artigo de práticas recomendadas enfocou a autenticação e a autorização
 
 Para obter mais informações sobre operações de cluster no AKS, consulte as seguintes práticas recomendadas:
 
-* [Multilocação e isolamento de cluster][aks-best-practices-scheduler]
+* [Multilocação e isolamento de cluster][aks-best-practices-cluster-isolation]
 * [Recursos básicos do Agendador do kubernetes][aks-best-practices-scheduler]
 * [Recursos do Agendador do kubernetes avançado][aks-best-practices-advanced-scheduler]
 

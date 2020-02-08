@@ -1,20 +1,20 @@
 ---
-title: Crie uma conta de armazenamento
+title: Criar uma conta de armazenamento
 titleSuffix: Azure Storage
 description: Saiba como criar uma conta de armazenamento usando a portal do Azure, Azure PowerShell ou a CLI do Azure. Uma conta de armazenamento do Azure fornece um namespace exclusivo no Microsoft Azure para armazenar e acessar seus dados.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/17/2020
+ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2ef90e1cb883a2d22b355ff4105ae0ce3c73ad6d
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 86aaebe652968a2ea33fd8e15f9de9c1dff31a30
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759835"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086954"
 ---
 # <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
 
@@ -24,7 +24,7 @@ Neste artigo de instruções, você aprende a criar uma conta de armazenamento u
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -34,7 +34,15 @@ Nenhum.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Este artigo de instruções requer o módulo Azure PowerShell AZ versão 0,7 ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão atual. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps).
+Para criar uma conta de armazenamento do Azure com o PowerShell, verifique se você instalou o módulo Azure PowerShell AZ versão 0,7 ou posterior. Para obter mais informações, consulte [introdução ao módulo Azure PowerShell AZ](/powershell/azure/new-azureps-module-az).
+
+Para localizar a versão atual, execute o seguinte comando:
+
+```powershell
+Get-InstalledModule -Name "Az"
+```
+
+Para instalar ou atualizar Azure PowerShell, consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-Az-ps).
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -83,7 +91,7 @@ Para iniciar o Azure Cloud Shell, entre no [portal do Azure](https://portal.azur
 
 Para fazer logon em sua instalação local da CLI, execute o comando [AZ login](/cli/azure/reference-index#az-login) :
 
-```cli
+```azurecli-interactive
 az login
 ```
 
@@ -93,7 +101,7 @@ N/D
 
 ---
 
-## <a name="create-a-storage-account"></a>Crie uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Agora você está pronto para criar uma conta de armazenamento.
 
@@ -113,6 +121,7 @@ Primeiro, crie um grupo de recursos com o PowerShell usando o comando [New-AzRes
 # put resource group in a variable so you can use the same group name going forward,
 # without hard-coding it repeatedly
 $resourceGroup = "storage-resource-group"
+$location = "westus"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
@@ -120,7 +129,6 @@ Caso não tenha certeza de qual região especificar para o parâmetro `-Location
 
 ```powershell
 Get-AzLocation | select Location
-$location = "westus"
 ```
 
 Em seguida, crie uma conta de armazenamento de uso geral V2 com armazenamento com redundância geográfica com acesso de leitura (RA-GRS) usando o comando [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) . Lembre-se de que o nome da sua conta de armazenamento deve ser exclusivo no Azure, portanto, substitua o valor do espaço reservado entre colchetes com seu próprio valor exclusivo:
@@ -134,7 +142,7 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
 ```
 
 > [!IMPORTANT]
-> Se você planeja usar [Azure data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), inclua `-EnableHierarchicalNamespace $True` nesta lista de parâmetros. 
+> Se você planeja usar [Azure data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), inclua `-EnableHierarchicalNamespace $True` nesta lista de parâmetros.
 
 Para criar uma conta de armazenamento de uso geral V2 com uma opção de replicação diferente, substitua o valor desejado na tabela abaixo para o parâmetro **SkuName** .
 
@@ -142,7 +150,7 @@ Para criar uma conta de armazenamento de uso geral V2 com uma opção de replica
 |---------|---------|
 |Armazenamento com redundância local (LRS)     |Standard_LRS         |
 |Armazenamento com redundância de zona (ZRS)     |Standard_ZRS         |
-|GRS (armazenamento com redundância geográfica)     |Standard_GRS         |
+|Armazenamento com redundância geográfica (GRS)     |Standard_GRS         |
 |Armazenamento com redundância geográfica com acesso de leitura (GRS)     |Standard_RAGRS         |
 |Armazenamento com redundância de zona geográfica (GZRS) (visualização)    |Standard_GZRS         |
 |Armazenamento com redundância de zona geográfica com acesso de leitura (RA-GZRS) (visualização)    |Standard_RAGZRS         |
@@ -185,7 +193,7 @@ Para criar uma conta de armazenamento de uso geral V2 com uma opção de replica
 |---------|---------|
 |Armazenamento com redundância local (LRS)     |Standard_LRS         |
 |Armazenamento com redundância de zona (ZRS)     |Standard_ZRS         |
-|GRS (armazenamento com redundância geográfica)     |Standard_GRS         |
+|Armazenamento com redundância geográfica (GRS)     |Standard_GRS         |
 |Armazenamento com redundância geográfica com acesso de leitura (GRS)     |Standard_RAGRS         |
 |Armazenamento com redundância de zona geográfica (GZRS) (visualização)    |Standard_GZRS         |
 |Armazenamento com redundância de zona geográfica com acesso de leitura (RA-GZRS) (visualização)    |Standard_RAGZRS         |
@@ -273,7 +281,7 @@ Como alternativa, você pode excluir o grupo de recursos, que exclui a conta de 
 >
 > Se você tentar excluir uma conta de armazenamento associada a uma máquina virtual do Azure, poderá receber um erro indicando que a conta de armazenamento ainda está em uso. Para obter ajuda para solucionar esse erro, consulte [solucionar erros ao excluir contas de armazenamento](../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo de instruções, você criou uma conta de armazenamento padrão v2 de uso geral. Para saber como carregar e baixar blobs de e para sua conta de armazenamento, continue em um dos guias de início rápido do armazenamento de BLOBs.
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: c0279c7301c18b87c653743f30efc4e955daba54
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 90bab7b49f82c3c9c8954c603e8d3bda6e2dcc89
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892766"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77082932"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copiar dados de ou para um sistema de arquivos usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -40,7 +40,7 @@ Especificamente, este conector do sistema de arquivos dá suporte à:
 - Cópia de arquivos usando a autenticação do **Windows**.
 - Cópia de arquivos no estado em que se encontram ou análise/geração de arquivos com os [formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -54,7 +54,7 @@ As seções que se seguem fornecem detalhes sobre as propriedades que são usada
 
 As propriedades a seguir têm suporte no serviço vinculado do sistema de arquivos:
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **FileServer**. | Sim |
 | host | Especifica o caminho raiz da pasta que você deseja copiar. Use o caractere de escape "\" para caracteres especiais na cadeia de caracteres. Confira [Definições de conjunto de dados e serviço vinculado de exemplo](#sample-linked-service-and-dataset-definitions) para obter exemplos. | Sim |
@@ -103,7 +103,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades a seguir têm suporte para o sistema de arquivos em configurações de `location` no conjunto de entrada baseado em formato:
 
-| Propriedade   | Description                                                  | Obrigatório |
+| Propriedade   | DESCRIÇÃO                                                  | Obrigatório |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | A propriedade Type em `location` no conjunto de texto deve ser definida como **FileServerLocation**. | Sim      |
 | folderPath | O caminho para a pasta. Se você quiser usar curinga para filtrar a pasta, ignore essa configuração e especifique nas configurações de origem da atividade. | Não       |
@@ -145,7 +145,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades a seguir têm suporte para o sistema de arquivos em configurações de `storeSettings` na fonte de cópia baseada em formato:
 
-| Propriedade                 | Description                                                  | Obrigatório                                      |
+| Propriedade                 | DESCRIÇÃO                                                  | Obrigatório                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | A propriedade Type em `storeSettings` deve ser definida como **FileServerReadSettings**. | Sim                                           |
 | recursiva                | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observe que quando recursiva é definida como true e o coletor é um armazenamento baseado em arquivo, uma pasta vazia ou subpasta não é copiada ou criada no coletor. Os valores permitidos são **true** (padrão) e **false**. | Não                                            |
@@ -202,7 +202,7 @@ As propriedades a seguir têm suporte para o sistema de arquivos em configuraç�
 
 As propriedades a seguir têm suporte para o sistema de arquivos em configurações de `storeSettings` no coletor de cópia com base em formato:
 
-| Propriedade                 | Description                                                  | Obrigatório |
+| Propriedade                 | DESCRIÇÃO                                                  | Obrigatório |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | A propriedade Type em `storeSettings` deve ser definida como **FileServerWriteSettings**. | Sim      |
 | copyBehavior             | Define o comportamento de cópia quando a fonte for de arquivos de um armazenamento de dados baseado em arquivo.<br/><br/>Valores permitidos são:<br/><b>- PreserveHierarchy (padrão)</b>: Preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><b>- FlattenHierarchy</b>: Todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm os nomes gerados automaticamente. <br/><b>- MergeFiles</b>: Mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo for especificado, o nome do arquivo mesclado será o nome especificado. Caso contrário, ele será um nome de arquivo gerado automaticamente. | Não       |
@@ -286,7 +286,7 @@ Para obter detalhes sobre as propriedades, marque a [atividade de exclusão](del
 
 ### <a name="legacy-dataset-model"></a>Modelo de conjunto de DataSet herdado
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type do conjunto de dados deve ser definida como: **FileShare** |Sim |
 | folderPath | Caminho para a pasta. O filtro curinga é permitido; os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome real da pasta tiver um curinga ou esse caractere interno de escape. <br/><br/>Exemplos: rootfolder/subfolder /, veja mais exemplos nas [definições de conjunto de dados e de serviço vinculado de exemplo](#sample-linked-service-and-dataset-definitions) e [exemplos de filtro de arquivo e pasta](#folder-and-file-filter-examples). |Não |
@@ -334,7 +334,7 @@ Para obter detalhes sobre as propriedades, marque a [atividade de exclusão](del
 
 ### <a name="legacy-copy-activity-source-model"></a>Modelo de origem da atividade de cópia herdada
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type da fonte da atividade de cópia deve ser definida como: **FileSystemSource** |Sim |
 | recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observe que quando o recursivo estiver definido como verdadeiro e o coletor for um armazenamento baseado em arquivo, subpasta/pasta vazia não será copiada/criada no coletor.<br/>Os valores permitidos são: **true** (padrão), **false** | Não |
@@ -374,10 +374,10 @@ Para obter detalhes sobre as propriedades, marque a [atividade de exclusão](del
 
 ### <a name="legacy-copy-activity-sink-model"></a>Modelo de coletor de atividade de cópia herdado
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type do coletor da atividade de cópia deve ser definida como: **FileSystemSink** |Sim |
-| copyBehavior | Define o comportamento de cópia quando a fonte for de arquivos de armazenamento de dados baseado em arquivo.<br/><br/>Valores permitidos são:<br/><b>- PreserveHierarchy (padrão)</b>: preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><b>- FlattenHierarchy</b>: todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm o nome gerado automaticamente. <br/><b>- MergeFiles</b>: mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo for especificado, o nome do arquivo mesclado será o nome especificado; caso contrário, seria um nome de arquivo gerado automaticamente. | Não |
+| copyBehavior | Define o comportamento de cópia quando a fonte for de arquivos de armazenamento de dados baseado em arquivo.<br/><br/>Valores permitidos são:<br/><b>- PreserveHierarchy (padrão)</b>: preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><b>- FlattenHierarchy</b>: todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm o nome gerado automaticamente. <br/><b>- MergeFiles</b>: mescla todos os arquivos da pasta de origem em um arquivo. Nenhuma eliminação de duplicação de registro é executada durante a mesclagem. Se o nome do arquivo for especificado, o nome do arquivo mesclado será o nome especificado; caso contrário, seria um nome de arquivo gerado automaticamente. | Não |
 | maxConcurrentConnections | O número de conexões a serem conectadas ao repositório de armazenamento simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não |
 
 **Exemplo:**
@@ -412,5 +412,5 @@ Para obter detalhes sobre as propriedades, marque a [atividade de exclusão](del
 ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

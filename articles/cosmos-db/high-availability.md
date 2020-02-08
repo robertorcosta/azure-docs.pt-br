@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: daa98d703a115e663032639d78f51b26ed1c7ba3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0f024bac535ed792d8480c991e470cf5d85932b8
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441864"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083024"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Alta disponibilidade com o Azure Cosmos DB
 
@@ -20,7 +20,7 @@ O Azure Cosmos DB replica de forma transparente seus dados em todas as regiões 
 
 ![Particionamento físico](./media/high-availability/cosmosdb-data-redundancy.png)
 
-- Os dados em contêineres Cosmos são [particionados horizontalmente](partitioning-overview.md).
+- Os dados em contêineres cosmos são [particionados horizontalmente](partitioning-overview.md).
 
 - Dentro de cada região, toda partição é protegida por um conjunto de réplicas com todas as gravações replicadas e confirmadas permanentemente pela maioria das réplicas. As réplicas são distribuídas em até 10 a 20 domínios de falha.
 
@@ -71,9 +71,9 @@ Além da resiliência entre regiões, agora você pode habilitar a **redundânci
 
 Com o suporte à zona de disponibilidade, Azure Cosmos DB garantirá que as réplicas sejam colocadas em várias zonas em uma determinada região para fornecer alta disponibilidade e resiliência durante falhas zonais. Não há nenhuma alteração na latência e outros SLAs nessa configuração. No caso de uma falha de zona única, a redundância de zona fornece durabilidade total de dados com RPO = 0 e disponibilidade com RTO = 0.
 
-A redundância de zona é uma *funcionalidade suplementar* para o recurso de [replicação de vários mestres](how-to-multi-master.md) . Somente a redundância de zona não basta para se obter a resiliência regional. Por exemplo, no caso de interrupções regionais ou acesso de baixa latência em todas as regiões, é aconselhável ter várias regiões de gravação além da redundância de zona.
+A redundância de zona é uma *funcionalidade suplementar* para o recurso de [replicação de vários mestres](how-to-multi-master.md) . A redundância de zona sozinha não pode ser confiável para atingir a resiliência regional. Por exemplo, no caso de interrupções regionais ou acesso de baixa latência em todas as regiões, é aconselhável ter várias regiões de gravação além da redundância de zona.
 
-Ao configurar gravações de várias regiões para sua conta do Azure Cosmos, você pode aceitar a redundância de zona sem custo adicional. Caso contrário, consulte a observação abaixo sobre os preços do suporte à redundância de zona. Você pode habilitar a redundância de zona em uma região existente da sua conta do Azure Cosmos removendo a região e adicionando-a novamente com a redundância da zona habilitada.
+Ao configurar gravações de várias regiões para sua conta do Azure Cosmos, você pode aceitar a redundância de zona sem custo adicional. Caso contrário, consulte a observação abaixo sobre os preços do suporte à redundância de zona. Você pode habilitar a redundância de zona em uma região existente da sua conta do Azure Cosmos removendo a região e adicionando-a novamente com a redundância de zona habilitada.
 
 Esse recurso está disponível nas seguintes regiões do Azure:
 
@@ -85,9 +85,9 @@ Esse recurso está disponível nas seguintes regiões do Azure:
 
 - Leste dos EUA 2
 
-- EUA Central
+- Centro dos EUA
 
-- Oeste da Europa
+- Europa Ocidental
 
 - Oeste dos EUA 2
 
@@ -100,12 +100,12 @@ A tabela a seguir resume a capacidade de alta disponibilidade de várias configu
 |---------|---------|---------|---------|
 |SLA de disponibilidade de gravação | 99,99% | 99,99% | 99,999% |
 |SLA de leitura de disponibilidade  | 99,99% | 99,99% | 99,999% |
-|Preço | Taxa de cobrança de região única | Taxa de cobrança da zona de disponibilidade de região única | Taxa de cobrança de várias regiões |
+|Price | Taxa de cobrança de região única | Taxa de cobrança da zona de disponibilidade de região única | Taxa de cobrança de várias regiões |
 |Falhas de zona – perda de dados | Perda de dados | Sem perda de dados | Sem perda de dados |
 |Falhas de zona – disponibilidade | Perda de disponibilidade | Sem perda de disponibilidade | Sem perda de disponibilidade |
 |Latência de leitura | Entre regiões | Entre regiões | Baixo |
 |Latência de gravação | Entre regiões | Entre regiões | Baixo |
-|Interrupção regional – perda de dados | Perda de dados |  Perda de dados | Perda de dados <br/><br/> Ao usar a consistência de desatualização limitada com vários mestres e mais de uma região, a perda de dados é limitada à desatualização limitada configurada em sua conta. <br/><br/> A perda de dados durante a interrupção regional pode ser evitada com a configuração de uma forte consistência com várias regiões. Essa opção é obtida com compensações que afetam a disponibilidade e o desempenho.      |
+|Interrupção regional – perda de dados | Perda de dados |  Perda de dados | Perda de dados <br/><br/> Ao usar a consistência de desatualização limitada com vários mestres e mais de uma região, a perda de dados é limitada à desatualização limitada configurada em sua conta <br /><br />Você pode evitar a perda de dados durante uma interrupção regional Configurando uma forte consistência com várias regiões. Essa opção vem com compensações que afetam a disponibilidade e o desempenho. Ele pode ser configurado somente em contas configuradas para gravações de região única. |
 |Interrupção regional – disponibilidade | Perda de disponibilidade | Perda de disponibilidade | Sem perda de disponibilidade |
 |Produtividade | Taxa de transferência provisionada X RU/s | Taxa de transferência provisionada X RU/s | taxa de transferência provisionada de 2 RU/s <br/><br/> Esse modo de configuração requer duas vezes a quantidade de taxa de transferência quando comparado a uma única região com Zonas de Disponibilidade porque há duas regiões. |
 
@@ -147,7 +147,7 @@ Você pode habilitar Zonas de Disponibilidade usando portal do Azure ao criar um
 
 - Em um ambiente de banco de dados distribuído globalmente, há uma relação direta entre o nível de consistência e a durabilidade dos dados na presença de uma interrupção em toda a região. À medida que você vai desenvolvendo o plano de continuidade dos negócios, precisará saber qual é o tempo máximo aceitável antes que o aplicativo se recupere completamente após um evento de interrupção. O tempo necessário para o aplicativo se recuperar totalmente é conhecido como RTO (objetivo de tempo de recuperação). Também é necessário saber o período máximo de atualizações de dados recentes que o aplicativo pode perder sem maiores problemas durante a recuperação após um evento de interrupção. O período de tempo de atualizações que você pode perder é conhecido como RPO (objetivo de ponto de recuperação). Para ver o RTO e o RPO do Azure Cosmos DB, confira [Níveis de consistência e durabilidade dos dados](consistency-levels-tradeoffs.md#rto)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Em seguida, você poderá ler os artigos a seguir:
 

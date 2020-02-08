@@ -1,20 +1,21 @@
 ---
-title: Usar Zonas de Disponibilidade no AKS (serviço kubernetes do Azure)
+title: Usar zonas de disponibilidade no serviço kubernetes do Azure (AKS)
 description: Saiba como criar um cluster que distribui nós entre zonas de disponibilidade no serviço de kubernetes do Azure (AKS)
 services: container-service
 author: mlearned
+ms.custom: fasttrack-edit
 ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 3790511bf3f71cdeb01853e4051a013719502d9f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: b73cb09f95fa2b23fb23fb719fe57143e1731ceb
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605082"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086512"
 ---
-# <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Criar um cluster AKS (serviço de kubernetes do Azure) que usa Zonas de Disponibilidade
+# <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Criar um cluster AKS (serviço de kubernetes do Azure) que usa zonas de disponibilidade
 
 Um cluster AKS (serviço de kubernetes do Azure) distribui recursos como os nós e o armazenamento entre seções lógicas da infraestrutura de computação do Azure subjacente. Esse modelo de implantação garante que os nós sejam executados em domínios de falha e de atualização separados em um único datacenter do Azure. Os clusters AKS implantados com esse comportamento padrão fornecem um alto nível de disponibilidade para proteger contra uma falha de hardware ou um evento de manutenção planejada.
 
@@ -35,7 +36,7 @@ Atualmente, os clusters AKS podem ser criados usando zonas de disponibilidade na
 * Leste dos EUA
 * França Central
 * Leste do Japão
-* Europa do Norte
+* Norte da Europa
 * Sudeste Asiático
 * Sul do Reino Unido
 * Europa Ocidental
@@ -58,9 +59,9 @@ Os volumes que usam o Azure Managed disks não são recursos zonais no momento. 
 
 Se você precisar executar cargas de trabalho com estado, use os e Tolerations em suas especificações pod para dizer ao agendador kubernetes para criar pods na mesma zona que os discos. Como alternativa, use o armazenamento baseado em rede, como arquivos do Azure, que podem ser anexados a pods à medida que são agendados entre as zonas.
 
-## <a name="overview-of-availability-zones-for-aks-clusters"></a>Visão geral de Zonas de Disponibilidade para clusters AKS
+## <a name="overview-of-availability-zones-for-aks-clusters"></a>Visão geral das zonas de disponibilidade para clusters AKS
 
-Zonas de Disponibilidade é uma oferta de alta disponibilidade que protege os aplicativos e dados contra falhas do datacenter. As zonas são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. A separação física das Zonas de Disponibilidade dentro de uma região protege os aplicativos e dados contra falhas do datacenter. Serviços com redundância de zona replicam os aplicativos e dados entre Zonas de Disponibilidade para proteger dos pontos únicos de falha.
+As zonas de disponibilidade são uma oferta de alta disponibilidade que protege seus aplicativos e dados de falhas do datacenter. As zonas são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. A separação física das zonas de disponibilidade dentro de uma região protege os aplicativos e os dados contra falhas do datacenter. Os serviços com redundância de zona replicam seus aplicativos e dados entre zonas de disponibilidade para proteger de pontos únicos de falha.
 
 Para obter mais informações, consulte [o que são zonas de disponibilidade no Azure?][az-overview].
 
@@ -122,6 +123,53 @@ Name:       aks-nodepool1-28993262-vmss000002
 
 À medida que você adiciona nós adicionais a um pool de agentes, a plataforma do Azure distribui automaticamente as VMs subjacentes entre as zonas de disponibilidade especificadas.
 
+Observe que nas versões mais recentes do kubernetes (1.17.0 e posterior), AKS está usando o rótulo mais recente `topology.kubernetes.io/zone` além do `failure-domain.beta.kubernetes.io/zone`preterido.
+
+## <a name="verify-pod-distribution-across-zones"></a>Verificar a distribuição de Pod entre as zonas
+
+Conforme documentado em [Rótulos, anotações e documentos bem conhecidos][kubectl-well_known_labels], o kubernetes usa o rótulo `failure-domain.beta.kubernetes.io/zone` para distribuir automaticamente os pods em um controlador de replicação ou serviço entre as diferentes zonas disponíveis. Para testar isso, você pode escalar verticalmente o cluster de três para cinco nós, para verificar a disseminação correta de Pod:
+
+```azurecli-interactive
+az aks scale \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --node-count 5
+```
+
+Quando a operação de dimensionamento for concluída após alguns minutos, o comando `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` deverá fornecer uma saída semelhante a este exemplo:
+
+```console
+Name:       aks-nodepool1-28993262-vmss000000
+            failure-domain.beta.kubernetes.io/zone=eastus2-1
+Name:       aks-nodepool1-28993262-vmss000001
+            failure-domain.beta.kubernetes.io/zone=eastus2-2
+Name:       aks-nodepool1-28993262-vmss000002
+            failure-domain.beta.kubernetes.io/zone=eastus2-3
+Name:       aks-nodepool1-28993262-vmss000003
+            failure-domain.beta.kubernetes.io/zone=eastus2-1
+Name:       aks-nodepool1-28993262-vmss000004
+            failure-domain.beta.kubernetes.io/zone=eastus2-2
+```
+
+Como você pode ver, agora temos dois nós adicionais nas zonas 1 e 2. Você pode implantar um aplicativo que consiste em três réplicas. Usaremos NGINX como exemplo:
+
+```console
+kubectl run nginx --image=nginx --replicas=3
+```
+
+Se você verificar se os nós em que os pods estão sendo executados, verá que os pods estão em execução no pods correspondente a três zonas de disponibilidade diferentes. Por exemplo, com o comando `kubectl describe pod | grep -e "^Name:" -e "^Node:"` você obteria uma saída semelhante a esta:
+
+```console
+Name:         nginx-6db489d4b7-ktdwg
+Node:         aks-nodepool1-28993262-vmss000000/10.240.0.4
+Name:         nginx-6db489d4b7-v7zvj
+Node:         aks-nodepool1-28993262-vmss000002/10.240.0.6
+Name:         nginx-6db489d4b7-xz6wj
+Node:         aks-nodepool1-28993262-vmss000004/10.240.0.8
+```
+
+Como você pode ver na saída anterior, o primeiro Pod está em execução no nó 0, que está localizado na zona de disponibilidade `eastus2-1`. O segundo Pod está em execução no nó 2, que corresponde a `eastus2-3`e o terceiro no nó 4, em `eastus2-2`. Sem nenhuma configuração adicional, o kubernetes está distribuindo o pods corretamente entre todas as três zonas de disponibilidade.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Este artigo detalha como criar um cluster AKS que usa zonas de disponibilidade. Para obter mais considerações sobre clusters altamente disponíveis, consulte [práticas recomendadas para continuidade dos negócios e recuperação de desastres no AKs][best-practices-bc-dr].
@@ -144,3 +192,4 @@ Este artigo detalha como criar um cluster AKS que usa zonas de disponibilidade. 
 
 <!-- LINKS - external -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+[kubectl-well_known_labels]: https://kubernetes.io/docs/reference/kubernetes-api/labels-annotations-taints/

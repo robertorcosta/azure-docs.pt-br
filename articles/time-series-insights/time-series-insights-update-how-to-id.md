@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/19/2019
+ms.date: 02/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6fd8d6187c86306840c33b3aaf334e71086b20a1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a62c2460698408f6a2bfa51c6638bdeaf88bb31f
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452752"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083536"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Práticas recomendadas para escolher uma ID do Time Series
 
@@ -78,7 +78,7 @@ Na portal do Azure, você pode inserir a chave composta da seguinte maneira:
 [{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Leia mais sobre [modelagem de dados](./time-series-insights-update-tsm.md).
 

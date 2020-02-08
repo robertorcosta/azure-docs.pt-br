@@ -2,22 +2,22 @@
 title: Agentes de autorização e como habilitá-los | Azure
 description: Saiba mais sobre os diferentes agentes de autorização que a MSAL (biblioteca de autenticação da Microsoft) permite que seu aplicativo Android use e como habilitá-los.
 services: active-directory
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/05/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: shoatman, brianmel, hahamil
 ms.custom: aaddev
-ms.openlocfilehash: c2d0c8a877ba856aa7a93bfc960c44b63cbe8f9c
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 4f1b3fc5b60069cfa47d437e4341ded141204418
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697992"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085324"
 ---
 # <a name="authorization-agents-android"></a>Agentes de autorização (Android)
 
@@ -78,12 +78,12 @@ Os seguintes navegadores foram testados para ver se eles são redirecionados cor
 
 | | Navegador interno | Chrome | Opera  | Microsoft Edge | Navegador de UC | Firefox |
 | -- |:-------------:| -----:|-----:|-----:|-----:|-----:|
-| Nexus 4 (API 17) | passagem | passagem |não aplicável |não aplicável |não aplicável |não aplicável |
+| Nexus 4 (API 17) | passagem | passagem |não se aplica |não se aplica |não se aplica |não se aplica |
 | Samsung S7 (API 25) | passá | passagem | passagem | passagem | falha |passagem |
 | Huawei (API 26) |Pass * * | passagem | falha | passagem | passagem |passagem |
 | Vivo (API 26) |passagem|passagem|passagem|passagem|passagem|falha|
 | Pixel 2 (API 26) |passagem | passagem | passagem | passagem | falha |passagem |
-| Oppo | passagem | Não aplicável * * * |não aplicável  |não aplicável |não aplicável | não aplicável|
+| Oppo | passagem | Não aplicável * * * |não se aplica  |não se aplica |não se aplica | não se aplica|
 | OnePlus (API 25) |passagem | passagem | passagem | passagem | falha |passagem |
 | Nexus (API 28) |passagem | passagem | passagem | passagem | falha |passagem |
 |MI | passagem | passagem | passagem | passagem | falha |passagem |

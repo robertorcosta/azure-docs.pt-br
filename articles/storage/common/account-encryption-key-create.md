@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/10/2020
+ms.date: 02/05/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8cf1f8ecb68e31f93c19d93d6ebc4f8ef37724e7
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 09558a8d1e4e2dc68cefd2c870f54e008d10b97b
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028442"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083561"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Criar uma conta que dê suporte a chaves gerenciadas pelo cliente para tabelas e filas
 
@@ -30,46 +30,98 @@ Para criar uma conta de armazenamento que dependa da chave de criptografia da co
 Você pode criar uma conta de armazenamento que dependa da chave de criptografia da conta para armazenamento de fila e de tabela nas seguintes regiões:
 
 - Leste dos EUA
-- Centro-Sul dos EUA
+- Centro-Sul dos Estados Unidos
 - Oeste dos EUA 2  
 
 ### <a name="register-to-use-the-account-encryption-key"></a>Registre-se para usar a chave de criptografia da conta
 
+Para se registrar para usar a chave de criptografia da conta com o armazenamento de fila ou de tabela, use o PowerShell ou o CLI do Azure.
+
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+
+Para se registrar no PowerShell, chame o comando [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) .
+
+```powershell
+Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowAccountEncryptionKeyForQueues
+Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowAccountEncryptionKeyForTables
+```
+
+# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
 Para se registrar com CLI do Azure, chame o comando [AZ Feature Register](/cli/azure/feature#az-feature-register) .
 
-Para se registrar para usar a chave de criptografia da conta com o armazenamento de filas:
-
 ```azurecli
-az feature register --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForQueues
+az feature register --namespace Microsoft.Storage \
+    --name AllowAccountEncryptionKeyForQueues
+az feature register --namespace Microsoft.Storage \
+    --name AllowAccountEncryptionKeyForTables
 ```
 
-Para se registrar para usar a chave de criptografia da conta com o armazenamento de tabela:
+# <a name="templatetabtemplate"></a>[Modelo](#tab/template)
 
-```azurecli
-az feature register --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForTables
-```
+N/D
+
+---
 
 ### <a name="check-the-status-of-your-registration"></a>Verificar o status do seu registro
 
-Para verificar o status do seu registro para armazenamento de filas:
+Para verificar o status do seu registro para armazenamento de fila ou de tabela, use o PowerShell ou CLI do Azure.
 
-```azurecli
-az feature show --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForQueues
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+
+Para verificar o status do seu registro com o PowerShell, chame o comando [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) .
+
+```powershell
+Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowAccountEncryptionKeyForQueues
+Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowAccountEncryptionKeyForTables
 ```
 
-Para verificar o status do seu registro para o armazenamento de tabelas:
+# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Para verificar o status do seu registro com CLI do Azure, chame o comando [AZ Feature](/cli/azure/feature#az-feature-show) .
 
 ```azurecli
-az feature show --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForTables
+az feature show --namespace Microsoft.Storage \
+    --name AllowAccountEncryptionKeyForQueues
+az feature show --namespace Microsoft.Storage \
+    --name AllowAccountEncryptionKeyForTables
 ```
+
+# <a name="templatetabtemplate"></a>[Modelo](#tab/template)
+
+N/D
+
+---
 
 ### <a name="re-register-the-azure-storage-resource-provider"></a>Registrar novamente o provedor de recursos de armazenamento do Azure
 
-Depois que o registro for aprovado, você deverá registrar novamente o provedor de recursos de armazenamento do Azure. Chame o comando [AZ Provider Register](/cli/azure/provider#az-provider-register) :
+Depois que o registro for aprovado, você deverá registrar novamente o provedor de recursos de armazenamento do Azure. Use o PowerShell ou CLI do Azure para registrar novamente o provedor de recursos.
+
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+
+Para registrar novamente o provedor de recursos com o PowerShell, chame o comando [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) .
+
+```powershell
+Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
+```
+
+# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Para registrar novamente o provedor de recursos com CLI do Azure, chame o comando [AZ Provider Register](/cli/azure/provider#az-provider-register) .
 
 ```azurecli
 az provider register --namespace 'Microsoft.Storage'
 ```
+
+# <a name="templatetabtemplate"></a>[Modelo](#tab/template)
+
+N/D
+
+---
 
 ## <a name="create-an-account-that-uses-the-account-encryption-key"></a>Criar uma conta que usa a chave de criptografia da conta
 
@@ -80,7 +132,28 @@ A conta de armazenamento deve ser do tipo de uso geral v2. Você pode criar a co
 > [!NOTE]
 > Somente o armazenamento de fila e de tabela pode ser configurado opcionalmente para criptografar dados com a chave de criptografia da conta quando a conta de armazenamento é criada. O armazenamento de BLOBs e os arquivos do Azure sempre usam a chave de criptografia da conta para criptografar dados.
 
-### <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+
+Para usar o PowerShell para criar uma conta de armazenamento que dependa da chave de criptografia da conta, verifique se você instalou o módulo Azure PowerShell, versão 3.4.0 ou posterior. Para obter mais informações, consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps).
+
+Em seguida, crie uma conta de armazenamento de uso geral v2 chamando o comando [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) , com os parâmetros apropriados:
+
+- Inclua a opção `-EncryptionKeyTypeForQueue` e defina seu valor como `Account` para usar a chave de criptografia da conta para criptografar dados no armazenamento de filas.
+- Inclua a opção `-EncryptionKeyTypeForTable` e defina seu valor como `Account` para usar a chave de criptografia da conta para criptografar dados no armazenamento de tabelas.
+
+O exemplo a seguir mostra como criar uma conta de armazenamento v2 de uso geral configurada para o armazenamento com redundância geográfica com acesso de leitura (RA-GRS) e que usa a chave de criptografia da conta para criptografar dados para o armazenamento de fila e de tabela. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores:
+
+```powershell
+New-AzStorageAccount -ResourceGroupName <resource_group> `
+    -AccountName <storage-account> `
+    -Location <location> `
+    -SkuName "Standard_RAGRS" `
+    -Kind StorageV2 `
+    -EncryptionKeyTypeForTable Account `
+    -EncryptionKeyTypeForQueue Account
+```
+
+# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para usar CLI do Azure para criar uma conta de armazenamento que dependa da chave de criptografia da conta, verifique se você instalou CLI do Azure versão 2.0.80 ou posterior. Para obter mais informações, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
@@ -89,22 +162,22 @@ Em seguida, crie uma conta de armazenamento de uso geral v2 chamando o comando [
 - Inclua a opção `--encryption-key-type-for-queue` e defina seu valor como `Account` para usar a chave de criptografia da conta para criptografar dados no armazenamento de filas.
 - Inclua a opção `--encryption-key-type-for-table` e defina seu valor como `Account` para usar a chave de criptografia da conta para criptografar dados no armazenamento de tabelas.
 
-O exemplo a seguir mostra como criar uma conta de armazenamento v2 de uso geral configurada para LRS e que usa a chave de criptografia da conta para criptografar dados para o armazenamento de fila e de tabela. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores:
+O exemplo a seguir mostra como criar uma conta de armazenamento v2 de uso geral configurada para o armazenamento com redundância geográfica com acesso de leitura (RA-GRS) e que usa a chave de criptografia da conta para criptografar dados para o armazenamento de fila e de tabela. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores:
 
 ```azurecli
 az storage account create \
     --name <storage-account> \
     --resource-group <resource-group> \
     --location <location> \
-    --sku Standard_LRS \
+    --sku Standard_RAGRS \
     --kind StorageV2 \
     --encryption-key-type-for-table Account \
     --encryption-key-type-for-queue Account
 ```
 
-### <a name="templatetabtemplate"></a>[Modelo](#tab/template)
+# <a name="templatetabtemplate"></a>[Modelo](#tab/template)
 
-O exemplo de JSON a seguir cria uma conta de armazenamento v2 de uso geral configurada para LRS e que usa a chave de criptografia da conta para criptografar dados para o armazenamento de fila e de tabela. Lembre-se de substituir os valores de espaço reservado entre colchetes angulares por seus próprios valores:
+O exemplo de JSON a seguir cria uma conta de armazenamento v2 de uso geral configurada para o armazenamento com redundância geográfica com acesso de leitura (RA-GRS) e que usa a chave de criptografia da conta para criptografar dados para o armazenamento de fila e de tabela. Lembre-se de substituir os valores de espaço reservado entre colchetes angulares por seus próprios valores:
 
 ```json
 "resources": [
@@ -116,7 +189,7 @@ O exemplo de JSON a seguir cria uma conta de armazenamento v2 de uso geral confi
         "dependsOn": [],
         "tags": {},
         "sku": {
-            "name": "[parameters('Standard_LRS')]"
+            "name": "[parameters('Standard_RAGRS')]"
         },
         "kind": "[parameters('StorageV2')]",
         "properties": {
@@ -151,13 +224,34 @@ Depois de criar uma conta que dependa da chave de criptografia da conta, consult
 
 Para verificar se um serviço em uma conta de armazenamento está usando a chave de criptografia da conta, chame o comando CLI do Azure [AZ Storage Account](/cli/azure/storage/account#az-storage-account-show) . Esse comando retorna um conjunto de propriedades de conta de armazenamento e seus valores. Procure o campo `keyType` para cada serviço na propriedade de criptografia e verifique se ele está definido como `Account`.
 
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+
+Para verificar se um serviço em uma conta de armazenamento está usando a chave de criptografia da conta, chame o comando [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) . Esse comando retorna um conjunto de propriedades de conta de armazenamento e seus valores. Procure o campo `KeyType` para cada serviço na propriedade `Encryption` e verifique se ele está definido como `Account`.
+
+```powershell
+$account = Get-AzStorageAccount -ResourceGroupName <resource-group> `
+    -StorageAccountName <storage-account>
+$account.Encryption.Services.Queue
+$account.Encryption.Services.Table
+```
+
+# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Para verificar se um serviço em uma conta de armazenamento está usando a chave de criptografia da conta, chame o comando [AZ Storage Account](/cli/azure/storage/account#az-storage-account-show) . Esse comando retorna um conjunto de propriedades de conta de armazenamento e seus valores. Procure o campo `keyType` para cada serviço na propriedade de criptografia e verifique se ele está definido como `Account`.
+
 ```azurecli
 az storage account show /
     --name <storage-account> /
     --resource-group <resource-group>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+# <a name="templatetabtemplate"></a>[Modelo](#tab/template)
+
+N/D
+
+---
+
+## <a name="next-steps"></a>Próximas etapas
 
 - [Criptografia de armazenamento do Azure para dados em repouso](storage-service-encryption.md) 
 - [O que é Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

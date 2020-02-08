@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/22/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7f903ca541582dfa0f3980bb65a3fef3c4b774a7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 75893a85f975d5d1454f1b93535a1df7a45e8731
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916767"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084027"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Manipular exceções e erros do MSAL
 
@@ -48,7 +48,7 @@ Se [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexcep
 
 Aqui estão as exceções comuns que podem ser geradas e algumas das possíveis reduções:  
 
-| Exceção | Código do erro | Redução|
+| Exceção | Código do erro | Atenuação|
 | --- | --- | --- |
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001: o usuário ou administrador não consentiu usar o aplicativo com a ID ' {appId} ' nomeada ' {appName} '. Envie uma solicitação de autorização interativa para esse usuário e recurso.| É necessário primeiro obter o consentimento do usuário. Se você não estiver usando o .NET Core (que não tem nenhuma interface do usuário da Web), chame (somente uma vez) `AcquireTokeninteractive`. Se você estiver usando o .NET Core ou não quiser fazer uma `AcquireTokenInteractive`, o usuário poderá navegar para uma URL para dar consentimento: https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read. para chamar `AcquireTokenInteractive`: `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079: o usuário precisa usar a autenticação multifator (MFA).| Não há mitigação. Se o MFA estiver configurado para seu locatário e Azure Active Directory (AAD) decidir imaplicá-lo, você precisará fazer fallback para um fluxo interativo, como `AcquireTokenInteractive` ou `AcquireTokenByDeviceCode`.|
@@ -69,7 +69,7 @@ A interação tem como objetivo fazer com que o usuário faça uma ação. Algum
 
 O MSAL expõe um campo `Classification`, que você pode ler para fornecer uma melhor experiência de usuário, por exemplo, para informar ao usuário que sua senha expirou ou que eles precisarão fornecer consentimento para usar alguns recursos. Os valores com suporte fazem parte da enumeração de `UiRequiredExceptionClassification`:
 
-| Classificação    | Significado           | Tratamento recomendado |
+| classificação    | Significado           | Tratamento recomendado |
 |-------------------|-------------------|----------------------|
 | Basicaction | A condição pode ser resolvida pela interação do usuário durante o fluxo de autenticação interativa. | Chame AcquireTokenInteractively (). |
 | Adicionalaction | A condição pode ser resolvida por uma interação corretiva adicional com o sistema, fora do fluxo de autenticação interativa. | Chame AcquireTokenInteractively () para mostrar uma mensagem que explica a ação corretiva. A chamada de aplicativo pode optar por ocultar fluxos que exigem additional_action se for improvável que o usuário conclua a ação corretiva. |
@@ -142,7 +142,7 @@ catch (MsalUiRequiredException ex) when (ex.ErrorCode == MsalError.InvalidGrantE
 
 O MSAL. js fornece objetos de erro que abstraim e classificam os diferentes tipos de erros comuns. Ele também fornece a interface para acessar detalhes específicos dos erros, como mensagens de erro para tratá-los adequadamente.
 
-### <a name="error-object"></a>Objeto Erro
+### <a name="error-object"></a>Objeto de erro
 
 ```javascript
 export class AuthError extends Error {
@@ -160,7 +160,7 @@ Ao estender a classe do erro, você terá acesso às seguintes propriedades:
 - `AuthError.message`: o mesmo que o `errorMessage`.
 - `AuthError.stack`: rastreamento de pilha para erros lançados.
 
-### <a name="error-types"></a>Tipos de erros
+### <a name="error-types"></a>Tipos de erro
 
 Os tipos de erro a seguir estão disponíveis:
 

@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 3b3b83719da4c1c19706845fa4cb1dc75712d145
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: bbb0992eaeef7892e5940130131ac139a339b47d
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76932388"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083243"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implantar modelos com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ O fluxo de trabalho é semelhante [, independentemente de onde você implanta](#
 
 Para obter mais informações sobre os conceitos envolvidos no fluxo de trabalho de implantação, consulte [gerenciar, implantar e monitorar modelos com Azure Machine Learning](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Um Workspace do Azure Machine Learning. Para obter mais informações, consulte [criar um Azure Machine Learning espaço de trabalho](how-to-manage-workspace.md).
 
@@ -172,24 +172,24 @@ Os pontos de extremidade de vários modelos usam um contêiner compartilhado par
 
 Para obter um exemplo de E2E que mostra como usar vários modelos atrás de um único ponto de extremidade em contêiner, consulte [Este exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-multi-model)
 
-## <a name="prepare-to-deploy"></a>Preparar-se para implantar
+## <a name="prepare-deployment-artifacts"></a>Preparar artefatos de implantação
 
-Para implantar o modelo, você precisa dos seguintes itens:
+Para implantar o modelo, você precisa do seguinte:
 
-* **Um script de entrada**. Esse script aceita solicitações, pontua as solicitações usando o modelo e retorna os resultados.
+* O **script de entrada & dependências do código-fonte**. Esse script aceita solicitações, pontua as solicitações usando o modelo e retorna os resultados.
 
     > [!IMPORTANT]
     > * O script de entrada é específico para seu modelo. Ele deve entender o formato dos dados de solicitação de entrada, o formato dos dados esperados pelo seu modelo e o formato dos dados retornados aos clientes.
     >
     >   Se os dados da solicitação estiverem em um formato que não pode ser usado pelo seu modelo, o script poderá transformá-lo em um formato aceitável. Ele também pode transformar a resposta antes de retorná-la ao cliente.
     >
-    > * O SDK do Azure Machine Learning não fornece uma maneira para serviços Web ou implantações de IoT Edge para acessar seu armazenamento de dados ou conjuntos de dados. Se o modelo implantado precisar acessar dados armazenados fora da implantação, como dados em uma conta de armazenamento do Azure, você deverá desenvolver uma solução de código personalizada usando o SDK relevante. Por exemplo, o [SDK do armazenamento do Azure para Python](https://github.com/Azure/azure-storage-python).
+    > * Os serviços Web e as implantações IoT Edge não podem acessar armazenamentos de espaços de trabalho ou conjuntos de os. Se o serviço implantado precisar acessar dados armazenados fora da implantação, como dados em uma conta de armazenamento do Azure, você deverá desenvolver uma solução de código personalizada usando o SDK relevante. Por exemplo, o [SDK do armazenamento do Azure para Python](https://github.com/Azure/azure-storage-python).
     >
     >   Uma alternativa que pode funcionar para seu cenário é a [previsão de lote](how-to-use-parallel-run-step.md), que fornece acesso a armazenamentos de dados durante a pontuação.
 
-* **Dependências**, como scripts auxiliares ou pacotes python/Conda necessários para executar o script ou modelo de entrada.
+* **Ambiente de inferência**. A imagem base com as dependências de pacote instaladas necessárias para executar o modelo.
 
-* **A configuração de implantação** para o destino de computação que hospeda o modelo implantado. Essa configuração descreve coisas como requisitos de memória e CPU necessários para executar o modelo.
+* **Configuração de implantação** para o destino de computação que hospeda o modelo implantado. Essa configuração descreve coisas como requisitos de memória e CPU necessários para executar o modelo.
 
 Esses itens são encapsulados em uma *configuração de inferência* e uma *configuração de implantação*. A configuração de inferência referencia o script de entrada e outras dependências. Você define essas configurações programaticamente ao usar o SDK para executar a implantação. Você os define em arquivos JSON ao usar a CLI.
 
@@ -485,7 +485,7 @@ def run(request):
 > pip install azureml-contrib-services
 > ```
 
-### <a name="2-define-your-inferenceconfig"></a>2. definir seu InferenceConfig
+### <a name="2-define-your-inference-environment"></a>2. definir seu ambiente de inferência
 
 A configuração de inferência descreve como configurar o modelo para fazer previsões. Essa configuração não faz parte do seu script de entrada. Ele faz referência ao seu script de entrada e é usado para localizar todos os recursos exigidos pela implantação. Ele é usado posteriormente, quando você implanta o modelo.
 
@@ -540,48 +540,13 @@ A tabela a seguir fornece um exemplo de criação de uma configuração de impla
 | ----- | ----- |
 | Local | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Instâncias de Contêiner do Azure | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
-| Serviço do Kubernetes do Azure | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
+| Serviço de Kubernetes do Azure | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
 As classes para local, instâncias de contêiner do Azure e serviços Web AKS podem ser importadas de `azureml.core.webservice`:
 
 ```python
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
-
-#### <a name="profiling"></a>Criação de perfil
-
-Antes de implantar seu modelo como um serviço, talvez você queira criar um perfil para determinar os requisitos de CPU e memória ideais. Você pode usar o SDK ou a CLI para criar um perfil para o modelo. Os exemplos a seguir mostram como criar um perfil de um modelo usando o SDK.
-
-> [!IMPORTANT]
-> Quando você usa a criação de perfil, a configuração de inferência que você fornece não pode fazer referência a um ambiente de Azure Machine Learning. Em vez disso, defina as dependências de software usando o parâmetro `conda_file` do objeto `InferenceConfig`.
-
-```python
-import json
-test_data = json.dumps({'data': [
-    [1,2,3,4,5,6,7,8,9,10]
-]})
-
-profile = Model.profile(ws, "profilemymodel", [model], inference_config, test_data)
-profile.wait_for_profiling(True)
-profiling_results = profile.get_results()
-print(profiling_results)
-```
-
-Esse código exibe um resultado semelhante à seguinte saída:
-
-```python
-{'cpu': 1.0, 'memoryInGB': 0.5}
-```
-
-Os resultados de criação de perfil de modelo são emitidos como um objeto `Run`.
-
-Para saber mais sobre como usar a criação de perfil da CLI, confira [perfil de modelo AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
-
-Para obter mais informações, consulte estes documentos:
-
-* [ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
-* [Perfil ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)
-* [Esquema do arquivo de configuração de inferência](reference-azure-machine-learning-cli.md#inference-configuration-schema)
 
 ## <a name="deploy-to-target"></a>Implantar no destino
 
@@ -1090,7 +1055,7 @@ Para excluir um modelo registrado, use `model.delete()`.
 
 Para obter mais informações, consulte a documentação de [WebService. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) e [Model. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Como implantar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Solução de problemas de implantação](how-to-troubleshoot-deployment.md)

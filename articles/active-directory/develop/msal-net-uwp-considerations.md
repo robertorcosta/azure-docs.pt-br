@@ -3,22 +3,22 @@ title: Considerações sobre UWP (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre considerações específicas ao usar Plataforma Universal do Windows com a biblioteca de autenticação da Microsoft para .NET (MSAL.NET).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 549e36099e06d665ecab879ceb3c38987d000852
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 4803b2bda63ef0e14137aaafe95a422089e7f671
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695085"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083667"
 ---
 # <a name="universal-windows-platform-specific-considerations-with-msalnet"></a>Considerações específicas de Plataforma Universal do Windows com MSAL.NET
 No UWP, há várias considerações que você deve levar em conta ao usar o MSAL.NET.
@@ -42,7 +42,7 @@ A implementação subjacente na plataforma UWP (WAB) não funciona corretamente 
 
 Uma solução alternativa é usar um método alternativo (nome de usuário/senha + autenticação por telefone), mas a experiência não é boa.
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Alguns clientes relataram que, em alguns ambientes corporativos específicos, houve o seguinte erro de entrada:
 
@@ -60,10 +60,10 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execu
 
 Para obter detalhes, consulte [agente de autenticação da Web-Fiddler](https://docs.microsoft.com/windows/uwp/security/web-authentication-broker#fiddler).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Mais detalhes são fornecidos nos seguintes exemplos:
 
-Amostra | Plataforma | Description 
+Amostra | Plataforma | DESCRIÇÃO 
 |------ | -------- | -----------|
-|[active-directory-dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | Um aplicativo cliente Plataforma Universal do Windows usando o msal.net, acessando o Microsoft Graph para uma autenticação de usuário com o ponto de extremidade v 2.0 do Azure AD. <br>![Topologia](media/msal-net-uwp-considerations/topology-native-uwp.png)|
+|[Active-Directory-dotnet-Native-UWP-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | Um aplicativo cliente Plataforma Universal do Windows usando o msal.net, acessando o Microsoft Graph para uma autenticação de usuário com o ponto de extremidade v 2.0 do Azure AD. <br>![Topologia](media/msal-net-uwp-considerations/topology-native-uwp.png)|
 |[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | Um aplicativo Xamarin Forms simples mostrando como usar o MSAL para autenticar o MSA e o Azure AD por meio do ponto de extremidade do AAD v 2.0 e acessar o Microsoft Graph com o token resultante. <br>![Topologia](media/msal-net-uwp-considerations/topology-xamarin-native.png)|

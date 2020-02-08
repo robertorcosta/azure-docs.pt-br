@@ -3,22 +3,22 @@ title: Configuração de aplicativo cliente (MSAL) | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre as opções de configuração para clientes públicos e aplicativos cliente confidenciais usando a MSAL (biblioteca de autenticação da Microsoft).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/27/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 5388dc101dbc4e06ce26f12bfd40645455e8dae8
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 0262d22ae00456ce06cb8efbf995f1a093b20043
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696475"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085015"
 ---
 # <a name="application-configuration-options"></a>Opções de configuração de aplicativo
 
@@ -122,7 +122,7 @@ Se você for um desenvolvedor de aplicativo cliente público que está usando o 
 
 Você pode substituir o URI de redirecionamento usando a propriedade `RedirectUri` (por exemplo, se você usar agentes). Aqui estão alguns exemplos de URIs de redirecionamento para esse cenário:
 
-- `RedirectUriOnAndroid` = "msauth-5a434691-ccb2-4fd1-b97b-b64bcfbc03fc://com.microsoft.identity.client.sample";
+- `RedirectUriOnAndroid` = "msauth-5a434691-CCB2-4fd1-b97b-b64bcfbc03fc://com.Microsoft.Identity.Client.Sample";
 - `RedirectUriOnIos` = $ "msauth. {Bundle. ID}://auth ";
 
 Para obter detalhes adicionais do iOS, consulte [migrar aplicativos Ios que usam Microsoft Authenticator de Adal.net para MSAL.net](msal-net-migration-ios-broker.md) e [aproveitando o agente no Ios](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).
@@ -142,7 +142,7 @@ Esta opção especifica o segredo do cliente para o aplicativo cliente confidenc
 
 As outras opções de configuração habilitam o registro em log e a solução de problemas. Consulte o artigo sobre [registro em log](msal-logging.md) para obter detalhes sobre como usá-los.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre como [criar uma instância de aplicativos cliente usando o MSAL.net](msal-net-initializing-client-applications.md).
 Saiba mais sobre como [criar uma instância de aplicativos cliente usando o MSAL. js](msal-js-initializing-client-applications.md).

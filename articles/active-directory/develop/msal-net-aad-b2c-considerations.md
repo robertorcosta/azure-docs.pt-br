@@ -3,7 +3,7 @@ title: Azure AD B2C (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre considerações específicas ao usar Azure AD B2C com a biblioteca de autenticação da Microsoft para .NET (MSAL.NET).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -13,12 +13,12 @@ ms.date: 10/29/2019
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: f28b7abc2b3a9ba753a2f7923c9cfed1897c8522
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 697b4bc8e3a25085ac6f7d600ea2227dd30a6624
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834188"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083989"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Usar o MSAL.NET para conectar usuários com identidades sociais
 
@@ -124,7 +124,7 @@ Para obter mais detalhes sobre o fluxo do ROPC, consulte esta [documentação](v
 Esse fluxo **não é recomendado** porque seu aplicativo solicita a senha de um usuário não é seguro. Para obter mais informações sobre esse problema, consulte [Este artigo](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). 
 
 Ao usar o nome de usuário/senha, você está dando várias coisas:
-- principais princípios da identidade moderna: a senha é inpeixe e reproduzida. Porque temos esse conceito de um segredo de compartilhamento que pode ser interceptado. Isso é incompatível com sem senha.
+- Principais princípios da identidade moderna: a senha é inpeixe e reproduzida. Porque temos esse conceito de um segredo de compartilhamento que pode ser interceptado. Isso é incompatível com sem senha.
 - Os usuários que precisam fazer a MFA não poderão entrar (como não há nenhuma interação).
 - Os usuários não poderão fazer logon único.
 
@@ -178,10 +178,10 @@ Como alternativa, você pode usar a declaração de `tid`, se estiver usando as 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Mitigação para "ausente da resposta do token"
 Uma opção é usar a declaração "Name" como o nome de usuário preferencial. O processo é mencionado neste > de [documentos B2C](../../active-directory-b2c/user-flow-overview.md) "na coluna declaração de retorno, escolha as declarações que você deseja que sejam retornadas nos tokens de autorização enviados de volta para o aplicativo após uma experiência de edição de perfil bem-sucedida. Por exemplo, selecione nome de exibição, CEP. "
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Próximas etapas 
 
 Mais detalhes sobre como adquirir tokens interativamente com o MSAL.NET para aplicativos Azure AD B2C são fornecidos no exemplo a seguir.
 
-| Amostra | Plataforma | Description|
+| Amostra | Plataforma | DESCRIÇÃO|
 |------ | -------- | -----------|
-|[active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | Um aplicativo Xamarin Forms simples mostrando como usar o MSAL.NET para autenticar usuários por meio de Azure AD B2C e acessar uma API Web com os tokens resultantes.|
+|[Active-Directory-B2C-xamarin-nativo](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | Um aplicativo Xamarin Forms simples mostrando como usar o MSAL.NET para autenticar usuários por meio de Azure AD B2C e acessar uma API Web com os tokens resultantes.|

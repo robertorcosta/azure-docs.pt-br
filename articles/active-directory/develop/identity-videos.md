@@ -2,24 +2,24 @@
 title: Vídeos da plataforma de identidade da Microsoft | Azure
 description: Uma lista de vídeos sobre a plataforma de identidade da Microsoft
 services: active-directory
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
-ms.author: twhitney
+ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
-ms.openlocfilehash: 5f3d1ee4156cff0e3e3c1d48f90400d387beef6f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 22149ccfa258852b36da61ffbabde5e1856df9de
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023014"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085201"
 ---
-# <a name="microsoft-identity-platform-videos"></a>Vídeos da plataforma Microsoft Identity
+# <a name="microsoft-identity-platform-videos"></a>Vídeos da plataforma de identidade da Microsoft
 
 Saiba mais sobre a plataforma de identidade da Microsoft e as MSAL (bibliotecas de autenticação da Microsoft). Normalmente, são 1-2 minutos de duração.
 

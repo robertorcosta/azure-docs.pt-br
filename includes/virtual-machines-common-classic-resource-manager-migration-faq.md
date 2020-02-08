@@ -2,18 +2,18 @@
 title: incluir arquivo
 description: incluir arquivo
 services: virtual-machines
-author: singhkays
+author: tanmaygore
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/18/2018
-ms.author: kasing
+ms.date: 02/06/2020
+ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: a7a3c6edbbeca96a90f8003fda1b92fc8bf99fec
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c923dfed24253ce2e3551c13a457f19d155a1e40
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76020993"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77068414"
 ---
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Este plano de migração afeta qualquer um de meus serviços existentes ou aplicativos executados em máquinas virtuais do Azure? 
 
@@ -37,7 +37,7 @@ Isso depende do número de recursos que estão sendo migrados. Para implantaçõ
 
 ## <a name="can-i-roll-back-my-migration-if-the-commit-operation-fails"></a>Poderei reverter minha migração se a operação de confirmação falhar? 
 
-Não será possível anular a migração se a operação de confirmação falhar. Todas as operações de migração, incluindo a operação de confirmação, são idempotentes. Portanto, recomendamos que você repita a operação após um curto período. Se a falha ainda persistir, crie um tíquete de suporte ou uma postagem no fórum com a marcação ClassicIaaSMigration em nosso [fórum sobre VMs](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows).
+Não será possível anular a migração se a operação de confirmação falhar. Todas as operações de migração, incluindo a operação de confirmação, são idempotentes. Portanto, recomendamos que você repita a operação após um curto período. Se você ainda encontrar um erro, crie um tíquete de suporte ou crie uma postagem no fórum no [Microsoft Q & a](https://docs.microsoft.com/answers/index.html).
 
 ## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>Será necessário comprar outro circuito de Rota Expressa se eu precisar aproveitar usar a IaaS no Gerenciador de Recursos? 
 
@@ -49,7 +49,7 @@ Durante a migração, os recursos se transformam do clássico para o Gerenciador
 
 ## <a name="i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Fiz backup de minhas VMs clássicas em um cofre. Posso migrar minhas VMs de modo clássico para modo do Resource Manager e protegê-los em um cofre dos Serviços de Recuperação?
 
-<a name="vault">Quando</a> você mover uma VM do modo clássico para o modo do Resource Manager, os backups feitos antes da migração não serão migrados para a VM recém-migrada do Resource Manager. No entanto, caso deseje manter os backups das VMs clássicas, siga estas etapas antes da migração. 
+Quando você move uma VM do modo clássico para o Gerenciador de recursos, os backups feitos antes da migração não serão migrados para a VM do Gerenciador de recursos recém migrado. No entanto, caso deseje manter os backups das VMs clássicas, siga estas etapas antes da migração. 
 
 1. No cofre dos Serviços de Recuperação, acesse a guia **Itens Protegidos** e selecione a VM. 
 2. Clique em Parar Proteção. Deixe a opção *Excluir dados de backup associados***desmarcada**.

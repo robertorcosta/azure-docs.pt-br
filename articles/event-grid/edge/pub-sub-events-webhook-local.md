@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: e403d690470f3c4f1d0c8e565e90641d9c114a80
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ba82b1bea4753cd51e275a78b248247032d79a01
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844523"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086646"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Tutorial: publicar, assinar eventos localmente
 
@@ -23,7 +23,7 @@ Este artigo orienta todas as etapas necessárias para publicar e assinar eventos
 > [!NOTE]
 > Para saber mais sobre os tópicos e as assinaturas da grade de eventos do Azure, consulte [conceitos da grade de eventos](concepts.md).
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Prerequisites 
 Para concluir este tutorial, você precisará de:
 
 * **Assinatura do Azure** – crie uma [conta gratuita](https://azure.microsoft.com/free) se você ainda não tiver uma. 
@@ -64,8 +64,7 @@ Um manifesto de implantação é um documento JSON que descreve quais módulos i
     ```json
         {
           "Env": [
-            "inbound__clientAuth__clientCert__enabled=false",
-            "outbound__webhook__httpsOnly=false"
+            "inbound__clientAuth__clientCert__enabled=false"
           ],
           "HostConfig": {
             "PortBindings": {
@@ -79,21 +78,17 @@ Um manifesto de implantação é um documento JSON que descreve quais módulos i
         }
     ```    
  1. Clique em **Salvar**
- 1. Continue na próxima seção para adicionar o módulo de Azure Functions antes de implantá-los juntos.
+ 1. Continue na próxima seção para adicionar o módulo assinante da grade de eventos do Azure antes de implantá-los juntos.
 
     >[!IMPORTANT]
-    > Neste tutorial, você implantará o módulo de grade de eventos com a autenticação de cliente desabilitada e permitirá assinantes HTTP. Para cargas de trabalho de produção, recomendamos que você habilite a autenticação do cliente e permita somente assinantes HTTPs. Para obter mais informações sobre como configurar o módulo de grade de eventos com segurança, consulte [segurança e autenticação](security-authentication.md).
+    > Neste tutorial, você implantará o módulo de grade de eventos com a autenticação de cliente desabilitada. Para cargas de trabalho de produção, recomendamos que você habilite a autenticação do cliente. Para obter mais informações sobre como configurar o módulo de grade de eventos com segurança, consulte [segurança e autenticação](security-authentication.md).
     > 
     > Se você estiver usando uma VM do Azure como um dispositivo de borda, adicione uma regra de porta de entrada para permitir o tráfego de entrada na porta 4438. Para obter instruções sobre como adicionar a regra, consulte [como abrir portas para uma VM](../../virtual-machines/windows/nsg-quickstart-portal.md).
     
 
-## <a name="deploy-azure-function-iot-edge-module"></a>Implantar o módulo IoT Edge do Azure function
+## <a name="deploy-event-grid-subscriber-iot-edge-module"></a>Implantar o módulo IoT Edge do assinante de grade de eventos
 
-Esta seção mostra como implantar o módulo Azure Functions IoT, que atuaria como um assinante de grade de eventos no qual os eventos podem ser entregues.
-
->[!IMPORTANT]
->Nesta seção, você implantará um exemplo de módulo de assinatura baseado em função do Azure. Naturalmente, pode ser qualquer módulo IoT personalizado que possa escutar solicitações HTTP POST.
-
+Esta seção mostra como implantar outro módulo de IoT que atuaria como um manipulador de eventos para o qual os eventos podem ser entregues.
 
 ### <a name="add-modules"></a>Adicionar módulos
 
@@ -102,23 +97,8 @@ Esta seção mostra como implantar o módulo Azure Functions IoT, que atuaria co
 1. Forneça as opções nome, imagem e contêiner criar do contêiner:
 
    * **Nome**: assinante
-   * **URI da imagem**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber-azfunc:latest`
-   * **Opções de Criação de Contêiner**:
-
-       ```json
-            {
-              "HostConfig": {
-                "PortBindings": {
-                  "80/tcp": [
-                    {
-                      "HostPort": "8080"
-                    }
-                  ]
-                }
-              }
-            }
-       ```
-
+   * **URI da imagem**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
+   * **Opções de criação de contêiner**: nenhuma
 1. Clique em **Salvar**
 1. Clique em **Avançar** para continuar na seção rotas
 
@@ -191,7 +171,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
             "destination": {
               "endpointType": "WebHook",
               "properties": {
-                "endpointUrl": "http://subscriber:80/api/subscriber"
+                "endpointUrl": "https://subscriber:4430"
               }
             }
           }
@@ -199,7 +179,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
     ```
 
     >[!NOTE]
-    > A propriedade **EndpointType** especifica que o assinante é um **webhook**.  O **endpointUrl** especifica a URL na qual o assinante está escutando eventos. Essa URL corresponde ao exemplo de Azure function que você implantou anteriormente.
+    > A propriedade **EndpointType** especifica que o assinante é um **webhook**.  O **endpointUrl** especifica a URL na qual o assinante está escutando eventos. Essa URL corresponde à amostra de assinante do Azure que você implantou anteriormente.
 2. Execute o comando a seguir para criar uma assinatura para o tópico. Confirme que você vê o código de status HTTP `200 OK`.
 
     ```sh
@@ -223,7 +203,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
             "destination": {
               "endpointType": "WebHook",
               "properties": {
-                "endpointUrl": "http://subscriber:80/api/subscriber"
+                "endpointUrl": "https://subscriber:4430"
               }
             }
           }
@@ -275,7 +255,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
     Saída de exemplo:
 
     ```sh
-        Received event data [
+        Received Event:
             {
               "id": "eventId-func-0",
               "topic": "sampleTopic1",
@@ -289,7 +269,6 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
                 "model": "Monster"
               }
             }
-          ]
     ```
 
 ## <a name="cleanup-resources"></a>Recursos de limpeza
@@ -302,7 +281,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
 * Exclua o módulo de assinante do seu dispositivo IoT Edge.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você criou um tópico de grade de eventos, uma assinatura e eventos publicados. Agora que você conhece as etapas básicas, consulte os seguintes artigos: 
 
 - Para solucionar problemas com o uso da grade de eventos do Azure no IoT Edge, consulte [Guia de solução de problemas](troubleshoot.md).

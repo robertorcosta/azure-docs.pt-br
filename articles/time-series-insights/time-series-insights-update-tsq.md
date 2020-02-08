@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/16/2019
+ms.date: 02/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: 53693c64ff03146619e17b276a1f817e69f5ed6e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 898515f49672a19ed8bf1c62439128b6727afc73
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75374571"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087396"
 ---
 # <a name="data-querying-in-azure-time-series-insights-preview"></a>Consulta de dados na visualização Azure Time Series Insights
 
@@ -71,7 +71,7 @@ As seguintes APIs de consulta de série temporal estão disponíveis. Essas APIs
 
   A API de agregação de série retorna um valor de série temporal para cada variável e intervalo. Os valores são com base na ID do Time Series e no conjunto de variáveis que foram fornecidos. A API de agregação de série consegue fazer uma redução usando as variáveis armazenadas no modelo do Time Series ou embutidas para agregar ou coletar exemplo dos dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [armazenamento e a entrada](./time-series-insights-update-storage-ingress.md) na versão prévia do Azure Time Series insights.
 - Leia o artigo Time Series Insights Preview [Data Modeling](./time-series-insights-update-tsm.md) .

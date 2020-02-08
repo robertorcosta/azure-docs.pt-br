@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0bbd8a12820432ce2f131dda29af6740a2f04e18
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: ccdf385d2581923e1fad4fa5c42f351c4f0947ca
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024714"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083162"
 ---
 # <a name="set-up-avs-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>Configurar a nuvem privada de AVS como um destino de recuperação de desastre com o VMware Site Recovery Manager
 
@@ -101,7 +101,7 @@ Você pode adicionar um provedor de identidade externo conforme descrito em [usa
 
 Para fornecer pesquisa de endereço IP, gerenciamento de endereços IP e serviços de resolução de nomes para suas cargas de trabalho na nuvem privada da AVS, configure um servidor DHCP e DNS, conforme descrito em [configurar aplicativos DNS e DHCP e cargas de trabalho em sua nuvem privada de AVS](dns-dhcp-setup.md).
 
-O domínio *. avs.io é usado por VMs de gerenciamento e hosts em sua nuvem privada de AVS. Para resolver solicitações para esse domínio, configure o encaminhamento de DNS no servidor DNS, conforme descrito em [criar um encaminhador condicional](on-premises-dns-setup.md#create-a-conditional-forwarder).
+O domínio *. cloudsimple.io é usado por VMs de gerenciamento e hosts em sua nuvem privada de AVS. Para resolver solicitações para esse domínio, configure o encaminhamento de DNS no servidor DNS, conforme descrito em [criar um encaminhador condicional](on-premises-dns-setup.md#create-a-conditional-forwarder).
 
 ### <a name="install-vsphere-replication-appliance-in-your-on-premises-environment"></a>Instalar o dispositivo de replicação vSphere no seu ambiente local
 
@@ -133,7 +133,7 @@ Antes de instalar o vRA e o SRM, você deve escalonar os privilégios do vCenter
 A instalação consiste nessas etapas de alto nível:
 
 1. [Escalonar privilégios](escalate-private-cloud-privileges.md).
-2. Crie um usuário em sua nuvem privada da AVS para a replicação do vSphere e a instalação do SRM. Explicado abaixo na [interface do usuário do vCenter: Crie um usuário na nuvem privada da AVS para a instalação do vRA & SRM](#vcenter-ui-create-a-user-in-the-avs-private-cloud-for-vra-and-srm-installation).
+2. Crie um usuário em sua nuvem privada da AVS para a replicação do vSphere e a instalação do SRM. Explicado abaixo na [interface do usuário do vCenter: Crie um usuário na nuvem privada da AVS para a instalação do vRA &AMP; SRM](#vcenter-ui-create-a-user-in-the-avs-private-cloud-for-vra-and-srm-installation).
 3. Prepare seu ambiente de nuvem privada de AVS para a instalação do vRA.
 4. Implante o vRA em sua nuvem privada de AVS usando o OVF no ISO VR do vmware.com. Para o vRA 6,5, [este blog do VMware](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices) tem informações relevantes.
 5. Configurar regras de firewall para vRA. Explicado abaixo no [portal da AVS: configurar regras de firewall para vRA](#avs-portal-configure-firewall-rules-for-vra).

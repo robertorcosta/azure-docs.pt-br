@@ -3,7 +3,7 @@ title: Modo de dispositivo compartilhado para dispositivos Android | Azure
 description: Saiba mais sobre o modo de dispositivo compartilhado, que permite que os trabalhadores de primeira a compartilhem um dispositivo Android
 services: active-directory
 documentationcenter: dev-center-name
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 1/15/2020
-ms.author: twhitney
+ms.author: marsma
 ms.reviwer: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 53fa82cf6eaaba09353ba21a12ae9677b9264b1a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 9928b64d286cc5072f28f7cc17e4af3e95662cd0
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701460"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085624"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Modo de dispositivo compartilhado para dispositivos Android
 
@@ -108,6 +108,6 @@ O diagrama a seguir mostra o ciclo de vida geral do aplicativo e eventos comuns 
 
 ![Ciclo de vida do aplicativo de dispositivo compartilhado](media/v2-shared-device-mode/lifecycle.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Experimente [usar o modo de dispositivo compartilhado no seu aplicativo Android,](tutorial-v2-shared-device-mode.md) que mostra como executar um aplicativo de trabalho de início em um dispositivo Android de modo compartilhado.

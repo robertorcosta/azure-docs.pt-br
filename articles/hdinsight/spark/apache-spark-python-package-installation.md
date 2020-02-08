@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 109ac20d8a3d3dc87b4a83165c0e6c24808c1340
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 6342e6a75c8397712e028874b4d727bf3d6f5ff4
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529636"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087113"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Gerenciar com segurança o ambiente do Python no Azure HDInsight usando a Ação de Script
 
@@ -22,7 +22,7 @@ ms.locfileid: "75529636"
 
 O HDInsight tem duas instalações internas do Python no cluster do Spark, Anaconda Python 2,7 e Python 3,5. Em alguns casos, os clientes precisam personalizar o ambiente do Python, como instalar pacotes python externos ou outra versão do Python. Neste artigo, mostramos a prática recomendada de gerenciar com segurança ambientes de Python para um cluster [Apache Spark](https://spark.apache.org/) no HDInsight.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -43,13 +43,13 @@ Há dois tipos de componentes de software livre disponíveis no serviço HDInsig
 > [!IMPORTANT]
 > Componentes fornecidos com o cluster HDInsight contam com suporte total. O Suporte da Microsoft ajuda a isolar e resolver problemas relacionados a esses componentes.
 >
-> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a solucionar o problema. O suporte da Microsoft pode estar apto a resolver o problema OU pode solicitar que você contate canais disponíveis para as tecnologias de software livre em que é encontrado conhecimento profundo sobre essa tecnologia. Por exemplo, há muitos sites de comunidades que podem ser usados, como o [Fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com). Além disso, os projetos do Apache têm sites de projeto em [https://apache.org](https://apache.org), por exemplo: [Hadoop](https://hadoop.apache.org/).
+> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a solucionar o problema. O suporte da Microsoft pode estar apto a resolver o problema OU pode solicitar que você contate canais disponíveis para as tecnologias de software livre em que é encontrado conhecimento profundo sobre essa tecnologia. Por exemplo, há muitos sites de comunidades que podem ser usados, como o [Fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com). Além disso, os projetos do Apache têm sites do projeto em [https://apache.org](https://apache.org), por exemplo: [Hadoop](https://hadoop.apache.org/).
 
 ## <a name="understand-default-python-installation"></a>Entender a instalação padrão do Python
 
 O cluster HDInsight Spark é criado com a instalação do Anaconda. Há duas instalações do Python no cluster, Anaconda Python 2,7 e Python 3,5. A tabela a seguir mostra as configurações padrão do Python para Spark, Livy e Jupyter.
 
-| |Python 2.7|Python 3.5|
+| |Python 2,7|Python 3.5|
 |----|----|----|
 |Caminho|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
 |Spark|Padrão definido como 2,7|N/D|
@@ -122,7 +122,7 @@ O cluster HDInsight depende do ambiente interno do Python, Python 2,7 e Python 3
 
 ## <a name="known-issue"></a>Problema conhecido
 
-Há um bug conhecido para Anaconda versão 4.7.11 e 4.7.12. Se você vir suas ações de script travando em `"Collecting package metadata (repodata.json): ...working..."` e falhando com `"Python script has been killed due to timeout after waiting 3600 secs"`. Você pode baixar [esse script](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) e executá-lo como ações de script em todos os nós para corrigir o problema.
+Há um bug conhecido para Anaconda versão 4.7.11, 4.7.12 e 4.8.0. Se você vir suas ações de script travando em `"Collecting package metadata (repodata.json): ...working..."` e falhando com `"Python script has been killed due to timeout after waiting 3600 secs"`. Você pode baixar [esse script](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) e executá-lo como ações de script em todos os nós para corrigir o problema.
 
 Para verificar sua versão do Anaconda, você pode executar SSH no nó de cabeçalho do cluster e executá `/usr/bin/anaconda/bin/conda --v`.
 

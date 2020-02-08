@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 70253e66903916bde05f9e6e55e3c0609cb4a146
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 1f609c33ea474508eb107c0df9993c2ba3483660
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841107"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087034"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutorial: treinar e implantar um modelo da CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,7 +35,7 @@ Saiba como executar as seguintes ações:
 > * Implantar o modelo como um serviço Web
 > * Pontuar dados usando o serviço Web
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -128,7 +128,7 @@ A resposta desse comando é semelhante ao JSON a seguir:
 
 Para obter mais informações sobre como trabalhar com grupos de recursos, consulte [AZ Group](https://docs.microsoft.com//cli/azure/group?view=azure-cli-latest).
 
-## <a name="create-a-workspace"></a>Crie um workspace
+## <a name="create-a-workspace"></a>Criar um workspace
 
 Para criar um novo espaço de trabalho, use o comando a seguir. Substitua `<workspace-name>` pelo nome que você deseja usar para este espaço de trabalho. Substitua `<resource-group-name>` pelo nome do grupo de recursos:
 
@@ -381,7 +381,7 @@ Este comando implanta um novo serviço chamado `myservice`, usando a versão 1 d
 
 O arquivo de `inferenceConfig.yml` fornece informações sobre como usar o modelo para inferência. Por exemplo, ele faz referência ao script de entrada (`score.py`) e às dependências de software. 
 
-Para obter mais informações sobre a estrutura desse arquivo, consulte o [esquema de configuração de inferência](reference-azure-machine-learning-cli.md#inference-configuration-schema). Para obter mais informações sobre scripts de entrada, consulte [implantar modelos com o Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
+Para obter mais informações sobre a estrutura desse arquivo, consulte o [esquema de configuração de inferência](reference-azure-machine-learning-cli.md#inference-configuration-schema). Para obter mais informações sobre scripts de entrada, consulte [implantar modelos com o Azure Machine Learning](how-to-deploy-and-where.md#prepare-deployment-artifacts).
 
 O `aciDeploymentConfig.yml` descreve o ambiente de implantação usado para hospedar o serviço. A configuração de implantação é específica para o tipo de computação que você usa para a implantação. Nesse caso, uma instância de contêiner do Azure é usada. Para obter mais informações, consulte o [esquema de configuração de implantação](reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 
@@ -469,7 +469,7 @@ Para excluir o grupo de recursos e todos os recursos do Azure criados neste docu
 az group delete -g <resource-group-name> -y
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste Azure Machine Learning tutorial, você usou a CLI do Machine Learning para as seguintes tarefas:
 

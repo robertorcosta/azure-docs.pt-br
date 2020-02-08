@@ -3,22 +3,22 @@ title: Aplicativos cliente públicos e confidenciais (MSAL) | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre o cliente público e os aplicativos cliente confidenciais na MSAL (biblioteca de autenticação da Microsoft).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/25/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 75ea183a9968c65957bcf2a4d39966d2553db84f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d59819c0ab614b0f6cc102c7ebe8c760fb851599
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696582"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084125"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>Cliente público e aplicativos cliente confidenciais
 A MSAL (biblioteca de autenticação da Microsoft) define dois tipos de clientes: clientes públicos e clientes confidenciais. Os dois tipos de cliente são diferenciados por sua capacidade de autenticar com segurança com o servidor de autorização e manter a confidencialidade de suas credenciais de cliente. Por outro lado, a ADAL (biblioteca de autenticação do Azure AD) usa o *contexto de autenticação* chamado (que é uma conexão com o Azure AD).
@@ -45,7 +45,7 @@ Aqui estão algumas semelhanças e diferenças entre o cliente público e os apl
 
 Se você já usou a ADAL, talvez perceba que, ao contrário do contexto de autenticação da ADAL, em MSAL, a ID do cliente (também chamada de *ID do aplicativo* ou *ID*do aplicativo) é passada uma vez na construção do aplicativo. Ele não precisa ser passado novamente quando o aplicativo adquire um token. Isso é verdadeiro para aplicativos cliente públicos e confidenciais. Os construtores de aplicativos cliente confidenciais também são aprovados nas credenciais do cliente: o segredo que eles compartilham com o provedor de identidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre:
 - [Opções de configuração de aplicativo cliente](msal-client-application-configuration.md)
 - [Criando uma instância de aplicativos cliente usando MSAL.NET](msal-net-initializing-client-applications.md)

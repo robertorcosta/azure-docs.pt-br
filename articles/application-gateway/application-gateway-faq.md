@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: 9d47986df9b9cbc6b8519aa0466b3434d6216e72
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: f2f2e02cdb5698d7569e5be177d54ca4dcb0ae02
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985995"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086542"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o gateway de aplicativo
 
@@ -108,7 +108,7 @@ A maioria das implantações que usam a SKU v2 leva cerca de 6 minutos para ser 
 
 Não. O gateway de aplicativo não dá suporte a protocolos de email como SMTP, IMAP e POP3. 
 
-## <a name="performance"></a>Performance
+## <a name="performance"></a>Desempenho
 
 ### <a name="how-does-application-gateway-support-high-availability-and-scalability"></a>Como o Application Gateway suporta alta disponibilidade e escalabilidade?
 
@@ -134,7 +134,7 @@ Sim. Você pode configurar o esgotamento de conexão para alterar os membros em 
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>Posso alterar o tamanho da instância de médio para grande sem interrupção?
 
-Sim. O Azure distribui instâncias entre domínios de atualização e de falha para garantir que as instâncias não falhem ao mesmo tempo. O Gateway de Aplicativo dá suporte à escalabilidade adicionando várias instâncias do mesmo gateway para compartilhar a carga.
+Sim.
 
 ## <a name="configuration"></a>Configuração
 
@@ -322,7 +322,7 @@ Para obter mais informações, consulte [OWASP Top-10 vulnerabilidades](https://
 
 ### <a name="does-waf-support-ddos-protection"></a>O WAF dá suporte à proteção contra DDoS?
 
-Sim. É possível habilitar a proteção contra DDoS na rede virtual em que o gateway de aplicativo está implantado. Essa configuração garante que o serviço de Proteção contra DDoS do Azure também proteja o VIP (IP virtual) do gateway de aplicativo.
+Sim. Você pode habilitar a proteção contra DDoS na rede virtual em que o gateway de aplicativo é implantado. Essa configuração garante que o serviço de proteção contra DDoS do Azure também proteja o VIP (IP virtual) do gateway de aplicativo.
 
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Há alguma orientação disponível para migrar da SKU v1 para a SKU v2?
 
@@ -410,6 +410,6 @@ Mas se você quiser usar o gateway de aplicativo v2 somente com o IP privado, vo
 Exemplo de configuração de NSG para acesso somente IP privado: ![a configuração de NSG do gateway de aplicativo v2 para acesso de IP privado somente](./media/application-gateway-faq/appgw-privip-nsg.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre o gateway de aplicativo, consulte [o que é aplicativo Azure gateway?](overview.md).

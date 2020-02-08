@@ -3,14 +3,14 @@ title: Marcar recursos para a organização lógica
 description: Mostra como aplicar marcas para organizar os recursos do Azure para cobrança e gerenciamento.
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: 0b2fff801b01afce0907bf86887fb110478377c1
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 5751f2d1bc123c5918ae0fabc5b908b5f4fec71d
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665145"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087319"
 ---
-# <a name="use-tags-to-organize-your-azure-resources"></a>Use marcações para organizar seus recursos do Azure
+# <a name="use-tags-to-organize-your-azure-resources"></a>Usar marcações para organizar seus recursos do Azure
 
 Você aplica marcas aos recursos do Azure para organizá-los logicamente em uma taxonomia. Cada marca consiste em um par de nome/valor. Por exemplo, você pode aplicar o nome "Ambiente" e o valor "Produção" a todos os recursos na produção.
 
@@ -171,7 +171,7 @@ Para remover todas as marcas, passe uma tabela de hash vazio:
 Set-AzResourceGroup -Tag @{} -Name examplegroup
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI do Azure
 
 Para conferir as marcas existentes para um *grupo de recursos*, use:
 
@@ -394,7 +394,7 @@ Para armazenar diversos valores em uma única marca, aplica uma cadeia de caract
 
 ### <a name="apply-tags-from-resource-group"></a>Aplicar marcas do grupo de recursos
 
-Para aplicar marcas de um grupo de recursos a um recurso, use a função [resourcegroup](../templates/template-functions-resource.md#resourcegroup) . Ao obter o valor da marca, use a sintaxe `tags.[tag-name]` em vez da sintaxe `tags.tag-name`, porque alguns caracteres não são analisados corretamente na notação de ponto.
+Para aplicar marcas de um grupo de recursos a um recurso, use a função [resourcegroup](../templates/template-functions-resource.md#resourcegroup) . Ao obter o valor da marca, use a sintaxe `tags[tag-name]` em vez da sintaxe `tags.tag-name`, porque alguns caracteres não são analisados corretamente na notação de ponto.
 
 ```json
 {
@@ -442,7 +442,7 @@ Você pode recuperar as informações sobre as marcações por meio das [APIs Ra
 
 Para operações de API REST, confira [Referência da API REST de cobrança do Azure](/rest/api/billing/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Nem todos os tipos de recursos suportam tags. Para determinar se você pode aplicar uma tag a um tipo de recurso, consulte [Suporte a tags para recursos do Azure](tag-support.md).
 * Para obter uma introdução ao uso do portal, confira [Usando o portal do Azure para gerenciar os recursos do Azure](manage-resource-groups-portal.md).  

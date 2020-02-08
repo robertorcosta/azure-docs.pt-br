@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 2/7/2019
+ms.date: 2/7/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55b31dec0531add8e8c3b40bd9cc3e031ef30000
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: b5a74e03a5b166af85c809725c2c8b9a13b7e4f4
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066376"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085454"
 ---
-# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Criar um ponto de extremidade SCIM e configurar o provisionamento de usuário com o Azure Active Directory (Azure AD)
+# <a name="develop-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Desenvolver um ponto de extremidade SCIM e configurar o provisionamento de usuário com o Azure Active Directory (Azure AD)
 
 Como desenvolvedor de aplicativos, você pode usar o sistema para a API de gerenciamento de usuário do SCIM (gerenciamento de identidade de domínio cruzado) para habilitar o provisionamento automático de usuários e grupos entre seu aplicativo e o Azure AD. Este artigo descreve como criar um ponto de extremidade do SCIM e integrá-lo ao serviço de provisionamento do Azure AD. A especificação SCIM fornece um esquema de usuário comum para provisionamento. Quando usado em conjunto com padrões de Federação como SAML ou OpenID Connect, o SCIM fornece aos administradores uma solução de ponta a ponta baseada em padrões para o gerenciamento de acesso.
 
@@ -106,7 +106,7 @@ Em seguida, você pode usar a tabela abaixo para entender como os atributos que 
 | Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
 | givenName |name.givenName |
 | jobTitle |título |
-| email |emails[type eq "work"].value |
+| mail |emails[type eq "work"].value |
 | mailNickname |externalId |
 | manager |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Manager |
 | Serviço Móvel |phoneNumbers[type eq "mobile"].value |
@@ -124,7 +124,7 @@ Em seguida, você pode usar a tabela abaixo para entender como os atributos que 
 | Grupo do Active Directory do Azure | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
 | displayName |displayName |
-| email |emails[type eq "work"].value |
+| mail |emails[type eq "work"].value |
 | mailNickname |displayName |
 | membros |membros |
 | objectId |externalId |
@@ -133,7 +133,7 @@ Em seguida, você pode usar a tabela abaixo para entender como os atributos que 
 Há vários pontos de extremidade definidos na RFC SCIM. Você pode começar a usar o ponto de extremidade/User e, em seguida, expandir a partir daí. O ponto de extremidade/schemas é útil ao usar atributos personalizados ou se o esquema for alterado com frequência. Ele permite que um cliente recupere o esquema mais atualizado automaticamente. O ponto de extremidade/Bulk é especialmente útil ao dar suporte a grupos. A tabela a seguir descreve os vários pontos de extremidade definidos no padrão SCIM. O ponto de extremidade/schemas é útil ao usar atributos personalizados ou se o esquema for alterado com frequência. Ele permite que um cliente recupere o esquema mais atualizado automaticamente. O ponto de extremidade/Bulk é especialmente útil ao dar suporte a grupos. A tabela a seguir descreve os vários pontos de extremidade definidos no padrão SCIM. 
  
 ### <a name="table-4-determine-the-endpoints-that-you-would-like-to-develop"></a>Tabela 4: determinar os pontos de extremidade que você deseja desenvolver
-|PONTO DE EXTREMIDADE|DESCRIÇÃO|
+|ENDPOINT|DESCRIPTION|
 |--|--|
 |/|Executar operações CRUD em um objeto de usuário.|
 |/Group|Executar operações CRUD em um objeto de grupo.|
@@ -560,7 +560,7 @@ Esta seção fornece exemplos de solicitações SCIM emitidas pelo cliente SCIM 
 * A atualização para a solicitação de PATCH de grupo deve gerar um *HTTP 204 sem conteúdo* na resposta. O retorno de um corpo com uma lista de todos os membros não é aconselhável.
 * Não é necessário dar suporte ao retorno de todos os membros do grupo.
 
-#### <a name="create-group"></a>{1&gt;Criar Grupo&lt;1}
+#### <a name="create-group"></a>Criar Grupo
 
 ##### <a name="request-7"></a>Quest
 
@@ -712,7 +712,7 @@ Esta seção fornece exemplos de solicitações SCIM emitidas pelo cliente SCIM 
 
 *HTTP/1.1 204 sem conteúdo*
 
-#### <a name="delete-group"></a>Excluir Grupo
+#### <a name="delete-group"></a>Excluir grupo
 
 ##### <a name="request-13"></a>Quest
 
@@ -721,6 +721,34 @@ Esta seção fornece exemplos de solicitações SCIM emitidas pelo cliente SCIM 
 ##### <a name="response-13"></a>Responde
 
 *HTTP/1.1 204 sem conteúdo*
+
+### <a name="security-requirements"></a>Requisitos de segurança
+**Versões do protocolo TLS**
+
+As únicas versões aceitáveis do protocolo TLS são TLS 1,2 e TLS 1,3. Nenhuma outra versão do TLS é permitida. Nenhuma versão do SSL é permitida. 
+- As chaves RSA devem ter pelo menos 2.048 bits.
+- Chaves ECC devem ter pelo menos 256 bits, geradas usando uma curva elíptica aprovada
+
+
+**Comprimentos de chave**
+
+Todos os serviços devem usar certificados X. 509 gerados usando chaves de criptografia de comprimento suficiente, o que significa:
+
+**Conjuntos de codificação**
+
+Todos os serviços devem ser configurados para usar os seguintes conjuntos de codificação, na ordem exata especificada abaixo. Observe que, se você tiver apenas um certificado RSA, os conjuntos de codificação ECDSA não terão nenhum efeito. </br>
+
+Barra mínima dos pacotes de criptografia TLS 1,2:
+
+- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Etapa 3: criar um ponto de extremidade SCIM
 
@@ -814,10 +842,6 @@ Os desenvolvedores que usam as bibliotecas da CLI podem hospedar seus serviços 
 ```csharp
  private static void Main(string[] arguments)
  {
- // Microsoft.SystemForCrossDomainIdentityManagement.IMonitor, 
- // Microsoft.SystemForCrossDomainIdentityManagement.IProvider and 
- // Microsoft.SystemForCrossDomainIdentityManagement.Service are all defined in 
- // Microsoft.SystemForCrossDomainIdentityManagement.Service.dll.  
 
  Microsoft.SystemForCrossDomainIdentityManagement.IMonitor monitor = 
    new DevelopersMonitor();
@@ -907,10 +931,6 @@ Para hospedar o serviço no Serviços de Informações da Internet, um desenvolv
 ```csharp
  public class Startup
  {
- // Microsoft.SystemForCrossDomainIdentityManagement.IWebApplicationStarter, 
- // Microsoft.SystemForCrossDomainIdentityManagement.IMonitor and  
- // Microsoft.SystemForCrossDomainIdentityManagement.Service are all defined in 
- // Microsoft.SystemForCrossDomainIdentityManagement.Service.dll.  
 
  Microsoft.SystemForCrossDomainIdentityManagement.IWebApplicationStarter starter;
 
@@ -1448,7 +1468,7 @@ Para métodos de autenticação e autorização adicionais, informe-nos no [User
 
 Determinados aplicativos permitem o tráfego de entrada para seu aplicativo. Para que o serviço de provisionamento do Azure AD funcione conforme o esperado, os endereços IP usados devem ser permitidos. Para obter uma lista de endereços IP para cada tag de serviço/região, confira o arquivo JSON – [Intervalos de IP do Azure e marcas de serviço – nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519). Você pode baixar e programar esses IPs em seu firewall, conforme necessário. Os intervalos de IP reservados para o provisionamento do Azure AD podem ser encontrados em "AzureActiveDirectoryDomainServices".
 
-## <a name="related-articles"></a>{1&gt;{2&gt;Artigos relacionados&lt;2}&lt;1}
+## <a name="related-articles"></a>Artigos relacionados
 
 * [Automatizar o provisionamento e o desprovisionamento de usuários para aplicativos SaaS](user-provisioning.md)
 * [Personalizar mapeamentos de atributos para provisionamento do usuário](customize-application-attributes.md)

@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/24/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 54df91d38541fbe17a28c9ae083ae0e7d0c9d88d
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
-ms.translationtype: HT
+ms.openlocfilehash: fd6dd6781b808bc454a402a55aac9d07a6fc23b0
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063655"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085823"
 ---
 # <a name="xamarin-android-specific-considerations-with-msalnet"></a>Considerações específicas do Xamarin Android com MSAL.NET
 Este artigo discute considerações específicas ao usar o Xamarin Android com a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
@@ -71,21 +71,16 @@ Essa linha garante que o controle volte para MSAL depois que a parte interativa 
 
 ## <a name="update-the-android-manifest"></a>Atualizar o manifesto do Android
 O `AndroidManifest.xml` deve conter os seguintes valores:
-```xml
-<activity android:name="microsoft.identity.client.BrowserTabActivity">
-    <intent-filter>
-        <action android:name="android.intent.action.VIEW" />
-        <category android:name="android.intent.category.DEFAULT" />
-        <category android:name="android.intent.category.BROWSABLE" />
-        <data android:scheme="msauth"
-              android:host="Enter_the_Package_Name"
-              android:path="/Enter_the_Signature_Hash"/>
-         </intent-filter>
-</activity>
-```
-Substitua o nome do pacote que você registrou no portal do Azure para o valor `android:host=`. Substitua o hash da chave que você registrou no portal do Azure para o valor `android:path=`. O hash de assinatura **não** deve ser codificado por URL. Verifique se há um `/` inicial no começo do seu hash de assinatura.
 
-Ou, você pode [criar a atividade em código](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) e não editar manualmente `AndroidManifest.xml`. Para isso, você deve criar uma classe que tenha o atributo `Activity` e `IntentFilter`. Uma classe que representa os mesmos valores do XML acima seria:
+<!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
+  <activity
+        android:name="com.microsoft.identity.client.BrowserTabActivity">< tentativa-filtro > <action android:name="android.intent.action.VIEW" /> <category android:name="android.intent.category.DEFAULT" /> <category android:name="android.intent.category.BROWSABLE" /> <data android:scheme="msauth"
+                android:host="Enter_the_Package_Name"
+                android:path="/Enter_the_Signature_Hash" /> </Intent-Filter ></activity>
+```
+Substitute the package name you registered in the Azure portal for the `android:host=` value. Substitute the key hash you registered in the Azure portal for the `android:path=` value. The Signature Hash should **not** be URL encoded. Ensure that there is a leading `/` at the beginning of your Signature Hash.
+
+Or, you can [create the activity in code](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) and not manually edit `AndroidManifest.xml`. For that, you must create a class that has the `Activity` and `IntentFilter` attribute. A class that represents the same values of the above xml would be:
 
 ```csharp
   [Activity]

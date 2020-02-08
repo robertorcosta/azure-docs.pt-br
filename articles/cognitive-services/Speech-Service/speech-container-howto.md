@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: dapine
-ms.openlocfilehash: d5ecc104c7845a1881cbcdecfbccb75148f6e070
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: ca7e7f7460db82a357ed8aa240467a6894254217
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "74815363"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087000"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalar e executar contêineres do serviço de fala (versão prévia)
 
@@ -35,7 +35,7 @@ Os contêineres de fala permitem que os clientes criem uma arquitetura de aplica
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Os seguintes pré-requisitos antes de usar os contêineres de fala:
 
@@ -75,25 +75,25 @@ A tabela a seguir descreve a alocação mínima e recomendada de recursos para c
 
 # <a name="speech-to-texttabstt"></a>[Conversão de fala em texto](#tab/stt)
 
-| Contêiner | Mínimo | Recomendado |
+| Contêiner | Mínimo | Recomendadas |
 |-----------|---------|-------------|
 | Conversão de fala em texto | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
 
 # <a name="custom-speech-to-texttabcstt"></a>[Fala Personalizada para texto](#tab/cstt)
 
-| Contêiner | Mínimo | Recomendado |
+| Contêiner | Mínimo | Recomendadas |
 |-----------|---------|-------------|
 | Fala Personalizada para texto | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
 
 # <a name="text-to-speechtabtts"></a>[Conversão de texto em fala](#tab/tts)
 
-| Contêiner | Mínimo | Recomendado |
+| Contêiner | Mínimo | Recomendadas |
 |-----------|---------|-------------|
 | Conversão de texto em fala | 1 núcleo, 2 GB de memória | 2 núcleos, 3 GB de memória |
 
 # <a name="custom-text-to-speechtabctts"></a>[Conversão de texto em fala personalizada](#tab/ctts)
 
-| Contêiner | Mínimo | Recomendado |
+| Contêiner | Mínimo | Recomendadas |
 |-----------|---------|-------------|
 | Conversão de texto em fala personalizada | 1 núcleo, 2 GB de memória | 2 núcleos, 3 GB de memória |
 
@@ -273,7 +273,7 @@ Obtenha a **ID do modelo** para usar como o argumento para o parâmetro `ModelId
 
 A tabela a seguir representa os vários parâmetros `docker run` e suas descrições correspondentes:
 
-| Parâmetro | Description |
+| Parâmetro | DESCRIÇÃO |
 |---------|---------|
 | `{VOLUME_MOUNT}` | A montagem de [volume](https://docs.docker.com/storage/volumes/)do computador host, que o Docker usa para manter o modelo personalizado. Por exemplo, *C:\CustomSpeech* onde a *unidade C* está localizada no computador host. |
 | `{MODEL_ID}` | A **ID do modelo** de fala personalizada da página de **treinamento** do portal de fala personalizado. |
@@ -335,7 +335,7 @@ Obtenha a **ID do modelo** para usar como o argumento para o `ModelId` parâmetr
 
 A tabela a seguir representa os vários parâmetros `docker run` e suas descrições correspondentes:
 
-| Parâmetro | Description |
+| Parâmetro | DESCRIÇÃO |
 |---------|---------|
 | `{VOLUME_MOUNT}` | A montagem de [volume](https://docs.docker.com/storage/volumes/)do computador host, que o Docker usa para manter o modelo personalizado. Por exemplo, *C:\CustomSpeech* onde a *unidade C* está localizada no computador host. |
 | `{MODEL_ID}` | A **ID do modelo** de fala personalizada da página de **treinamento** do portal de voz personalizado. |
@@ -396,7 +396,7 @@ Se você pretende executar vários contêineres com portas expostas, execute cad
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Ao iniciar ou executar o contêiner, você poderá ter problemas. Use uma [montagem](speech-container-configuration.md#mount-settings) de saída e habilite o registro em log. Isso permitirá que o contêiner gere arquivos de log que são úteis ao solucionar problemas.
 
@@ -425,13 +425,13 @@ Neste artigo, você aprendeu os conceitos e o fluxo de trabalho para baixar, ins
   * *Conversão de texto em fala personalizada*
 * As imagens de contêiner são baixadas do registro de contêiner no Azure.
 * Imagens de contêiner são executadas no Docker.
-* Você pode usar a API REST ou o SDK para chamar operações em contêineres de fala especificando o URI do host do contêiner.
+* Se estiver usando a API REST (somente conversão de texto em fala) ou o SDK (fala-para-texto ou conversão de texto em fala), especifique o URI do host do contêiner. 
 * Você precisa fornecer informações de cobrança ao criar uma instância de um contêiner.
 
 > [!IMPORTANT]
 >  Os contêineres dos Serviços Cognitivos não estão licenciados para execução sem estarem conectados ao Azure para medição. Os clientes precisam ativar os contêineres para comunicar informações de cobrança com o serviço de medição em todos os momentos. Os contêineres de Serviços Cognitivos não enviam dados do cliente (por exemplo, a imagem ou o texto que está sendo analisado) para a Microsoft.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Examinar [definir contêineres](speech-container-configuration.md) para definições de configuração
 * Saiba como [usar contêineres de serviço de fala com kubernetes e Helm](speech-container-howto-on-premises.md)

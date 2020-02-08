@@ -3,12 +3,12 @@ title: Suporte de avaliação do VMware nas migrações para Azure
 description: Saiba mais sobre o suporte de avaliação do VMware nas migrações para Azure.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 2fab94b66e09d3923e481326b3650f1beb621dc4
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 1b3e81653ba934b209755391f08e60ef603e645a
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048758"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086770"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação do VMware 
 
@@ -99,13 +99,13 @@ Esta opção está atualmente em versão prévia. [Saiba mais](how-to-create-gro
 **Conta do Windows** |  A visualização precisa de uma conta de administrador local ou de domínio.
 **Conta do Linux** | A visualização precisa de uma conta de usuário com privilégio de raiz.<br/><br/> Como alternativa, a conta de usuário precisa dessas permissões em arquivos/bin/netstat e/bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.
 **Agentes de VM** | Nenhum agente é necessário nas VMs.
-**Ferramentas do VMware** | As ferramentas do VMware devem ser instaladas e executadas em VMs que você deseja analisar.
+**Ferramentas do VMware** | As ferramentas do VMware devem ser instaladas e executadas em VMs que você deseja analisar. <br/> Se sua versão do VMware Tools estiver entre 9,10-10.2.0, atualize-a para além do 10.2.0.
 **credenciais do vCenter** | Uma conta vCenter Server com acesso somente leitura e privilégios habilitados para máquinas virtuais > operações de convidado.
 **Acesso à porta** | Em hosts ESXi que executam VMs que você deseja analisar, o dispositivo de migrações para Azure deve ser capaz de se conectar à porta TCP 443.
 
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Examine](best-practices-assessment.md) as práticas recomendadas para a criação de avaliações.
 - [Prepare-se para a avaliação do VMware](tutorial-prepare-vmware.md) .

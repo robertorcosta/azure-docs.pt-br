@@ -9,12 +9,12 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 42f7b5315cecd75e2aaf67145c57982872f43550
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c2bae3bd268dba8efdf23ae314671b17a2c89420
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844608"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086614"
 ---
 # <a name="persist-state-in-windows"></a>Persistir estado no Windows
 
@@ -212,13 +212,13 @@ Em vez de montar um volume, você pode criar um diretório no sistema host e mon
     ```
 ## <a name="persist-events"></a>Persistir eventos
 
-Para habilitar a persistência de evento, primeiro você deve habilitar a persistência de metadados por meio da montagem de volume ou da montagem de diretório de host usando as seções acima.
+Para habilitar a persistência de eventos, primeiro você deve habilitar a persistência de eventos por meio da montagem de volume ou da montagem de diretório de host usando as seções acima.
 
 Coisas importantes a serem observadas sobre eventos persistentes:
 
 * A persistência de eventos é habilitada por assinatura de evento e é opcional quando um volume ou diretório é montado.
 * A persistência de evento é configurada em uma assinatura de evento no momento da criação e não pode ser modificada depois que a assinatura do evento é criada. Para alternar a persistência de evento, você deve excluir e recriar a assinatura de evento.
-* A persistência de eventos é quase sempre mais lenta do que nas operações de memória, no entanto, a diferença de velocidade depende muito das características da unidade. A compensação entre velocidade e confiabilidade é inerente a todos os sistemas de mensagens, mas só se torna um noticible em grande escala.
+* A persistência de eventos é quase sempre mais lenta do que nas operações de memória, no entanto, a diferença de velocidade depende muito das características da unidade. A compensação entre velocidade e confiabilidade é inerente a todos os sistemas de mensagens, mas só se torna perceptível em grande escala.
 
 Para habilitar a persistência de evento em uma assinatura de evento, defina `persistencePolicy` como `true`:
 

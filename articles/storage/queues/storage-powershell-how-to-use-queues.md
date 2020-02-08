@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: 94e28c59c3281dc6c1d65ce782568233d0e23f03
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: bd2f372bdcb949b64f748d186a9b060bb9cbec4a
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76313817"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087062"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Executar operações de armazenamento de Fila do Azure com o Azure PowerShell
 
@@ -78,7 +78,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-queue"></a>Criar uma fila
 
-O exemplo a seguir primeiro estabelece uma conexão com o armazenamento do Azure usando o contexto de conta de armazenamento, que inclui o nome da conta de armazenamento e sua chave de acesso primária. Em seguida, ele chama o cmdlet [New-AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) para criar uma fila denominada 'queuename'.
+O exemplo a seguir primeiro estabelece uma conexão com o armazenamento do Azure usando o contexto de conta de armazenamento, que inclui o nome da conta de armazenamento e sua chave de acesso primária. Em seguida, ele chama o cmdlet [New-AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) para criar uma fila chamada ' howtoqueue '.
 
 ```powershell
 $queueName = "howtoqueue"
@@ -178,7 +178,7 @@ Para remover todos os ativos que você criou neste exercício, remova o grupo de
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo de instruções, você aprendeu sobre gerenciamento de armazenamento de Fila básico com o PowerShell, incluindo como:
 

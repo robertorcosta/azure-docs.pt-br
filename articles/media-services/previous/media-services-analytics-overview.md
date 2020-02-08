@@ -15,25 +15,21 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: juliako
 ms.reviewer: milanga; johndeu
-ms.openlocfilehash: 4b0d360c11313e086f6ec26e5ee46b8d6f49869a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ab1eba3de474d9ff985e62f491c24fa63be0fa63
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844336"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069618"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Análise de Mídia na plataforma de Serviços de Mídia 
 
 ## <a name="retirement-plans"></a>Planos de aposentadoria
 
 > [!IMPORTANT]
-> O processador de mídia herdado a seguir será desativado em 2020, consulte os detalhes na tabela a seguir. 
+> Alguns processadores de mídia estão sendo desativados. Para obter as datas de desativação e mais informações, consulte o tópico [componentes herdados](legacy-components.md) . 
 
-|Nome do processador de mídia|Data de baixa|Observações adicionais|
-|---|---|
-|[Indexador de Mídia do Azure](media-services-index-content.md)|1º de outubro de 2020|Esse processador de mídia será substituído pelos [serviços de mídia do Azure Video indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). Para obter mais informações, consulte [migrar do Azure Media indexer para os serviços de mídia do Azure Video indexer](migrate-indexer-v1-v2.md)
- 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Mais organizações estão usando vídeos como o meio preferido de treinar seus funcionários, contatar seus clientes e documentar suas funções comerciais. A computação em nuvem fornece uma maneira de armazenar, transmitir e acessar esses grandes arquivos de mídia. Contudo, à medida que a biblioteca de uma empresa de conteúdo de vídeo cresce, ela precisa de uma forma igualmente eficaz de extrair de informações do conteúdo. 
 
@@ -60,12 +56,12 @@ Usando o Face Detector, é possível detectar as faces das pessoas e suas emoç�
 
 ### <a name="video-summarization"></a>Resumo de vídeo
 O resumo de vídeo pode ajudá-lo a criar resumos de vídeos de longa duração com a seleção automática de snippets interessantes do vídeo de origem. Essa habilidade é útil quando você desejar fornecer uma visão geral rápida do que esperar de um vídeo de longa duração. Para obter informações detalhadas e exemplos, consulte [Usar Azure Media Video Thumbnails para criar um resumo de vídeo](media-services-video-summarization.md).
-### <a name="optical-character-recognition"></a>Reconhecimento de caracteres ótico
+### <a name="optical-character-recognition"></a>Reconhecimento de caractere óptico
 O OCR (reconhecimento óptico de caracteres) de Mídia do Azure permite que você converta o conteúdo de texto de arquivos de vídeo em texto digital editável e pesquisável. Você poderá então automatizar a extração de metadados significativos do sinal de vídeo de sua mídia.
 ### <a name="scalable-face-redaction"></a>Edição facial escalonável
 O Azure Media Redactor é um processador de mídia da Análise de Mídia do Azure que oferece edição facial escalonável na nuvem. Usar a edição facial permite modificar seu vídeo para desfocar rostos de pessoas selecionadas. Pode ser útil usar o serviço de edição facial em cenários jornalísticos ou de segurança pública. Alguns minutos de vídeo que contém vários rostos podem levar horas para serem editados manualmente, contudo, com esse serviço, o processo de edição facial exigirá apenas algumas etapas simples. Para obter mais informações, consulte o artigo [Edição facial com a Análise de Mídia do Azure](media-services-face-redaction.md).
 
-### <a name="content-moderation"></a>Moderação de Conteúdo
+### <a name="content-moderation"></a>Moderação de conteúdo
 O Content Moderator do Azure possibilita usar a moderação auxiliada por computador para seus vídeos. Por exemplo, você talvez queira detectar possível conteúdo adulto e erótico em vídeos e revisar o conteúdo sinalizado por suas equipes de moderação humanas. Moderar manualmente o conteúdo indesejável de vídeos é uma tarefa cara e demorada. Com esse serviço e as ferramentas de revisão associadas, você combina a moderação auxiliada por computador com recursos humanos para obter melhores resultados de forma eficiente e econômica. Para saber mais, confira o artigo [Processar seus vídeos com Content Moderator do Azure](media-services-content-moderation.md).
 
 ## <a name="common-scenarios"></a>Cenários comuns
@@ -149,7 +145,7 @@ Consulte o [Comunicado da análise dos Serviços de Mídia](https://azure.micros
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
