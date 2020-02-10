@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: b2f7c35e6ddb3c6ed0a3032d7ea6d4c53043c17b
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 70c67a99274eaedc5592c7b90b1ef80a3a17acf8
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122901"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109994"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Atividade de webhook no Azure Data Factory
 Você pode usar uma atividade de webhook para controlar a execução de pipelines por meio de seu código personalizado. Usando a atividade de webhook, os clientes podem chamar um ponto de extremidade e passar uma URL de retorno de chamada. A execução do pipeline aguarda a chamada do retorno de chamada antes de prosseguir para a próxima atividade.
@@ -53,17 +53,63 @@ Você pode usar uma atividade de webhook para controlar a execução de pipeline
 
 
 
-Propriedade | DESCRIÇÃO | Valores permitidos | obrigatórios
+Propriedade | Descrição | Allowed values | Obrigatório
 -------- | ----------- | -------------- | --------
-name | Nome da atividade de Web Hook | String | sim |
-type | Deve ser definido como **webhook**. | String | sim |
-estático | Método da API REST para o ponto de extremidade de destino. | Cadeia de caracteres. Tipos com suporte: ' POST ' | sim |
-url | Ponto de extremidade de destino e o caminho | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres). | sim |
-headers | Cabeçalhos que são enviados para a solicitação. Por exemplo, para definir o idioma e o tipo em uma solicitação: "headers": {"Accept-Language": "en-US", "Content-Type": "Application/JSON"}. | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Sim, o cabeçalho Content-Type é necessário. "headers":{ "Content-Type":"application/json"} |
-corpo | Representa o conteúdo enviado para o ponto de extremidade. | JSON válido (ou expressão com ResultType de JSON). Consulte o esquema da carga de solicitação na seção [Esquema de carga de solicitação](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23request-payload-schema&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=ljUZv5csQQux2TT3JtTU9ZU8e1uViRzuX5DSNYkL0uE%3D&amp;reserved=0). | sim |
+{1&gt;name&lt;1} | Nome da atividade de Web Hook | String | Sim |
+type | Deve ser definido como **webhook**. | String | Sim |
+{1&gt;método&lt;1} | Método da API REST para o ponto de extremidade de destino. | Cadeia de Caracteres. Tipos com suporte: ' POST ' | Sim |
+url | Ponto de extremidade de destino e o caminho | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres). | Sim |
+cabeçalhos | Cabeçalhos que são enviados para a solicitação. Por exemplo, para definir o idioma e o tipo em uma solicitação: "headers": {"Accept-Language": "en-US", "Content-Type": "Application/JSON"}. | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Sim, o cabeçalho Content-Type é necessário. "headers":{ "Content-Type":"application/json"} |
+body | Representa o conteúdo enviado para o ponto de extremidade. | JSON válido (ou expressão com ResultType de JSON). Consulte o esquema da carga de solicitação na seção [Esquema de carga de solicitação](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23request-payload-schema&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=ljUZv5csQQux2TT3JtTU9ZU8e1uViRzuX5DSNYkL0uE%3D&amp;reserved=0). | Sim |
 autenticação | Método de autenticação usado para chamar o ponto de extremidade. Os tipos com suporte são "básico" ou "ClientCertificate". Para obter mais informações, consulte a seção [Autenticação](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23authentication&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=GdA1%2Fh2pAD%2BSyWJHSW%2BSKucqoAXux%2F4L5Jgndd3YziM%3D&amp;reserved=0). Se a autenticação não for necessária, exclua essa propriedade. | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Não |
-Tempo limite | Quanto tempo a atividade aguardará até que &#39;o&#39; callBackUri seja invocado. Por quanto tempo a atividade aguardará o ' callBackUri ' ser invocado. O valor padrão é 10mins ("00:10:00"). O formato é TimeSpan, ou seja, d. hh: mm: SS | String | Não |
+timeout | Quanto tempo a atividade aguardará até que &#39;o&#39; callBackUri seja invocado. Por quanto tempo a atividade aguardará o ' callBackUri ' ser invocado. O valor padrão é 10mins ("00:10:00"). O formato é TimeSpan, ou seja, d. hh: mm: SS | String | Não |
 Relatar status no retorno de chamada | Permite que o usuário relate o status de falha da atividade de webhook que marcará a atividade como com falha | Boolean | Não |
+
+## <a name="authentication"></a>Autenticação
+
+Abaixo estão os tipos de autenticação com suporte na atividade de webhook.
+
+### <a name="none"></a>Nenhum
+
+Se a autenticação não for necessária, não inclua a propriedade "authentication".
+
+### <a name="basic"></a>Basic
+
+Especifique o nome de usuário e senha a serem usados com a autenticação básica.
+
+```json
+"authentication":{
+   "type":"Basic",
+   "username":"****",
+   "password":"****"
+}
+```
+
+### <a name="client-certificate"></a>Certificado do cliente
+
+Especifique o conteúdo codificado em base64 de um arquivo PFX e a senha.
+
+```json
+"authentication":{
+   "type":"ClientCertificate",
+   "pfx":"****",
+   "password":"****"
+}
+```
+
+### <a name="managed-identity"></a>Identidade Gerenciada
+
+Especifique o URI do recurso para o qual o token de acesso será solicitado usando a identidade gerenciada para o data factory. Para chamar a API de Gerenciamento de Recursos do Azure, use `https://management.azure.com/`. Para obter mais informações sobre como identidades gerenciadas funcionam, confira a [página de visão geral de identidades gerenciadas para recursos do Azure](/azure/active-directory/managed-identities-azure-resources/overview).
+
+```json
+"authentication": {
+    "type": "MSI",
+    "resource": "https://management.azure.com/"
+}
+```
+
+> [!NOTE]
+> Se sua data factory estiver configurada com um repositório git, você deverá armazenar suas credenciais no Azure Key Vault para usar a autenticação básica ou de certificado do cliente. Azure Data Factory não armazena senhas no git.
 
 ## <a name="additional-notes"></a>Observações adicionais
 
@@ -92,11 +138,11 @@ Ao usar a opção "status do relatório no retorno de chamada", você deve adici
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte outras atividades de fluxo de controle com suporte pelo Data Factory:
 
-- [Atividade de Condição If](control-flow-if-condition-activity.md)
+- [Atividade de Condição Se](control-flow-if-condition-activity.md)
 - [Atividade de execução de pipeline](control-flow-execute-pipeline-activity.md)
 - [Para cada atividade](control-flow-for-each-activity.md)
 - [Atividade de obtenção de metadados](control-flow-get-metadata-activity.md)

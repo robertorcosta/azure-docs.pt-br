@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 02/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7eeaadc80a97a96e6effdfc9e5cc76c201998f3f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1c83ca0abfd17db873bec62f0a0d052703862a45
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438053"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110414"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Criar e gerenciar atribuições de função nos Gêmeos Digitais do Azure
 
@@ -36,12 +36,12 @@ Cada atribuição de função está em conformidade com a seguinte definição:
 
 A tabela abaixo descreve cada atributo:
 
-| Atributo | Nome | Obrigatório | Tipo | Description |
+| Atributo | {1&gt;Nome&lt;1} | Obrigatório | Tipo | Descrição |
 | --- | --- | --- | --- | --- |
 | roleId | Identificador de definição de função | Sim | String | A ID exclusiva da atribuição de função desejada. Encontre definições de funções e seus identificadores consultando a API do Sistema ou examinando a tabela abaixo. |
 | objectId | Identificador de objeto | Sim | String | Uma ID do Azure Active Directory, ID de objeto de entidade de serviço ou nome de domínio. Para o que atribuições de função é atribuída. A atribuição de função precisa ser formatada de acordo com seu tipo associado. Para o ObjectIdType `DomainName`, ObjectId precisa começar com o caractere `“@”`. |
 | objectIdType | Tipo de identificador de objeto | Sim | String | O tipo de identificador de Objeto usado. Consulte **ObjectIdTypes com suporte** abaixo. |
-| caminho | Caminho de espaço | Sim | String | O caminho de acesso completo para o objeto `Space`. Um exemplo é `/{Guid}/{Guid}`. Se um identificador precisar da atribuição de função para todo o gráfico, especifique `"/"`. Esse caractere designa a raiz, mas seu uso é desencorajado. Sempre siga o princípio de privilégios mínimos. |
+| path | Caminho de espaço | Sim | String | O caminho de acesso completo para o objeto `Space`. Um exemplo é `/{Guid}/{Guid}`. Se um identificador precisar da atribuição de função para todo o gráfico, especifique `"/"`. Esse caractere designa a raiz, mas seu uso é desencorajado. Sempre siga o princípio de privilégios mínimos. |
 | tenantId | Identificador de locatário | Varia | String | Na maioria dos casos, uma ID de locatário do Azure Active Directory. Não permitido para ObjectIdTypes `DeviceId` e `TenantId`. Obrigatório para ObjectIdTypes `UserId` e `ServicePrincipalId`. Opcional para o ObjectIdType DomainName. |
 
 ### <a name="supported-role-definition-identifiers"></a>Identificadores de definição de função com suporte
@@ -94,7 +94,7 @@ Get-AzADServicePrincipal -ApplicationId <ApplicationId>
 
 Um usuário com a função **Admin** pode então atribuir a função Administrador de Espaço para um usuário, fazendo uma solicitação HTTP POST autenticada para a URL:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/roleassignments
 ```
 
@@ -116,7 +116,7 @@ Com o corpo JSON a seguir:
 
 Para listar todas as funções disponíveis (definições de função), faça uma solicitação HTTP GET autenticada para:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/system/roles
 ```
 
@@ -157,16 +157,16 @@ Uma solicitação com êxito retornará uma matriz JSON com as entradas para cad
 
 Para verificar uma atribuição de função específica, faça uma solicitação HTTP GET autenticada para:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH&accessType=YOUR_ACCESS_TYPE&resourceType=YOUR_RESOURCE_TYPE
 ```
 
 | **Valor de parâmetro** | **Necessário** |  **Tipo** |  **Descrição** |
 | --- | --- | --- | --- |
-| YOUR_USER_ID |  Verdadeiro | String |   A objectId para o UserId objectIdType. |
-| YOUR_PATH | Verdadeiro | String |   O caminho escolhido para verificar o acesso. |
-| YOUR_ACCESS_TYPE |  Verdadeiro | String |   *Ler*, *criar*, *Atualizar*ou *excluir* |
-| YOUR_RESOURCE_TYPE | Verdadeiro | String |  *Dispositivo*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *Extended*, *ponto de extremidade*, *keystore*, *correspondência*, *ontologia*, *relatório*, *RoleDefinition*, *sensor*, *SensorExtendedProperty*, *espaço*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *sistema*,  *UerDefinedFunction*, *User*, *UserBlobMetadata*ou *extendeproperty* |
+| YOUR_USER_ID |  True | String |   A objectId para o UserId objectIdType. |
+| YOUR_PATH | True | String |   O caminho escolhido para verificar o acesso. |
+| YOUR_ACCESS_TYPE |  True | String |   *Ler*, *criar*, *Atualizar*ou *excluir* |
+| YOUR_RESOURCE_TYPE | True | String |  *Dispositivo*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *Extended*, *ponto de extremidade*, *keystore*, *correspondência*, *ontologia*, *relatório*, *RoleDefinition*, *sensor*, *SensorExtendedProperty*, *espaço*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *sistema*,  *UerDefinedFunction*, *User*, *UserBlobMetadata*ou *extendeproperty* |
 
 Uma solicitação bem-sucedida retornará um booliano `true` ou `false` para indicar se o tipo de acesso foi atribuído ao usuário para o caminho especificado e o recurso determinado.
 
@@ -174,11 +174,11 @@ Uma solicitação bem-sucedida retornará um booliano `true` ou `false` para ind
 
 Para obter todas as atribuições de função para um caminho, faça uma solicitação HTTP GET autenticada para:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
-| Valor | Substitua por |
+| {1&gt;Valor&lt;1} | Substitua por |
 | --- | --- |
 | YOUR_PATH | O caminho completo para o espaço |
 
@@ -200,7 +200,7 @@ Uma solicitação com êxito retornará uma matriz JSON com cada atribuição de
 
 Para revogar uma permissão de um destinatário, exclua a atribuição de função fazendo uma solicitação HTTP DELETE autenticada:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
 ```
 
@@ -214,7 +214,7 @@ Uma solicitação DELETE com êxito retornará um status de resposta 204. Verifi
 
 Para criar uma atribuição de função, faça uma solicitação HTTP POST autenticada para a URL:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/roleassignments
 ```
 
@@ -275,7 +275,7 @@ Os exemplos a seguir demonstram como configurar o corpo JSON em vários cenário
    }
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Para examinar o controle de acesso baseado em função dos Gêmeos Digitais do Azure, leia [Controle de acesso baseado em função](./security-authenticating-apis.md).
 

@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
-ms.openlocfilehash: db020092c076680eddd575f8e7e85a2060603dd8
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: b379f158672a9df3056acb09c63c392869a53283
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147763"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108703"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>Carregar arquivos do seu dispositivo para a nuvem com o Hub IoT (.NET)
 
@@ -30,7 +30,7 @@ O tutorial [Enviar telemetria de um dispositivo para um início rápido do Hub I
 
 * Arquivos grandes que contêm imagens
 
-* Vídeos
+* vídeos
 
 * Dados de vibração amostrados a alta frequência
 
@@ -47,11 +47,13 @@ No final deste tutorial, você executará dois aplicativos do console .NET:
 > [!NOTE]
 > O Hub IoT dá suporte a várias plataformas de dispositivo e linguagens, incluindo C, Java, Python e JavaScript, por meio de SDKs do dispositivo IoT do Azure. Confira a [Central de Desenvolvedores do IoT do Azure](https://azure.microsoft.com/develop/iot) para obter instruções passo a passo sobre como conectar seu dispositivo ao Hub IoT do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
-* Visual Studio
+* {1&gt;Visual Studio&lt;1}
 
 * Uma conta ativa do Azure. Se você não tem uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
+
+* Verifique se a porta 8883 está aberta no firewall. O exemplo de dispositivo neste artigo usa o protocolo MQTT, que se comunica pela porta 8883. Essa porta pode ser bloqueada em alguns ambientes de rede corporativos e educacionais. Para obter mais informações e maneiras de contornar esse problema, consulte [conectando-se ao Hub IOT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
@@ -59,7 +61,7 @@ No final deste tutorial, você executará dois aplicativos do console .NET:
 
 Nesta seção, você modificará o aplicativo do dispositivo criado em [enviar mensagens da nuvem para o dispositivo com o Hub IOT](iot-hub-csharp-csharp-c2d.md) para receber mensagens da nuvem para o dispositivo do Hub IOT.
 
-1. No Visual Studio Gerenciador de soluções, clique com o botão direito do mouse no projeto **SimulatedDevice** e selecione **Adicionar** > **Item existente**. Localize um arquivo de imagem e inclua-o em seu projeto. Este tutorial pressupõe que a imagem é denominada `image.jpg`.
+1. No Visual Studio Gerenciador de Soluções, clique com o botão direito do mouse no projeto **SimulatedDevice** e selecione **Adicionar** > **Item existente**. Localize um arquivo de imagem e inclua-o em seu projeto. Este tutorial pressupõe que a imagem é denominada `image.jpg`.
 
 1. Clique com o botão direito do mouse na imagem e selecione **Propriedades**. Verifique se **Copiar para o Diretório de Saída** está definido como **Copiar sempre**.
 
@@ -71,7 +73,7 @@ Nesta seção, você modificará o aplicativo do dispositivo criado em [enviar m
     using System.IO;
     ```
 
-1. Adicione o seguinte método à classe **Programa** :
+1. Adicione o seguinte método à classe **Programa**:
 
     ```csharp
     private static async void SendToBlobAsync()
@@ -92,7 +94,7 @@ Nesta seção, você modificará o aplicativo do dispositivo criado em [enviar m
 
     O método `UploadToBlobAsync` usa o nome de arquivo e a fonte de transmissão do arquivo a ser carregado e manipula o upload para o armazenamento. O aplicativo de console exibe o tempo necessário para carregar o arquivo.
 
-1. Adicione a seguinte linha ao método **principal** , logo antes `Console.ReadLine()`de:
+1. Adicione a seguinte linha ao método **principal** , logo antes de `Console.ReadLine()`:
 
     ```csharp
     SendToBlobAsync();
@@ -111,7 +113,7 @@ Neste artigo, você cria um serviço de back-end para receber mensagens de notif
 
 Nesta seção, você escreverá um aplicativo de console do .NET que recebe mensagens de notificação de upload de arquivo do Hub IoT.
 
-1. Na solução atual do Visual Studio, selecione **arquivo** > **novo** > **projeto**. Em **criar um novo projeto**, selecione **aplicativo de console (.NET Framework)** e, em seguida, selecione **Avançar**.
+1. Na solução atual do Visual Studio, selecione **arquivo** > **novo** **projeto**de > . Em **criar um novo projeto**, selecione **aplicativo de console (.NET Framework)** e, em seguida, selecione **Avançar**.
 
 1. Nomeie o projeto *ReadFileUploadNotification*. Em **solução**, selecione **Adicionar à solução**. Selecione **Criar** para criar o cluster.
 
@@ -119,7 +121,7 @@ Nesta seção, você escreverá um aplicativo de console do .NET que recebe mens
 
 1. Em Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ReadFileUploadNotification** e selecione **gerenciar pacotes NuGet**.
 
-1. No **Gerenciador de pacotes NuGet**, selecione **procurar**. Pesquise e selecione **Microsoft. Azure.** Devices e, em seguida, selecione **instalar**.
+1. No **Gerenciador de pacotes NuGet**, selecione **procurar**. Pesquise e selecione **Microsoft. Azure. Devices**e, em seguida, selecione **instalar**.
 
     Esta etapa baixa, instala e adiciona uma referência ao [pacote NuGet do SDK do serviço IOT do Azure](https://www.nuget.org/packages/Microsoft.Azure.Devices/) no projeto **ReadFileUploadNotification** .
 
@@ -129,14 +131,14 @@ Nesta seção, você escreverá um aplicativo de console do .NET que recebe mens
     using Microsoft.Azure.Devices;
     ```
 
-1. Adicione os seguintes campos à classe **Program** . Substitua o `{iot hub connection string}` valor do espaço reservado pela cadeia de conexão do Hub IOT que você copiou anteriormente em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string):
+1. Adicione os seguintes campos à classe **Program** . Substitua o valor do espaço reservado `{iot hub connection string}` pela cadeia de conexão do Hub IoT que você copiou anteriormente em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string):
 
     ```csharp
     static ServiceClient serviceClient;
     static string connectionString = "{iot hub connection string}";
     ```
 
-1. Adicione o seguinte método à classe **Programa** :
+1. Adicione o seguinte método à classe **Programa**:
 
     ```csharp
     private async static void ReceiveFileUploadNotificationAsync()
@@ -177,13 +179,13 @@ Agora você está pronto para executar os aplicativos.
 
 1. No Gerenciador de soluções, clique com o botão direito do mouse em sua solução e selecione **definir projetos de inicialização**.
 
-1. Em **Propriedades** > comuns**projeto de inicialização**, selecione **vários projetos de inicialização**e, em seguida, selecione a ação **Iniciar** para **ReadFileUploadNotification** e **SimulatedDevice**. Selecione **OK** para salvar suas alterações.
+1. Em **Propriedades comuns** > **projeto de inicialização**, selecione **vários projetos de inicialização**e, em seguida, selecione a ação **Iniciar** para **ReadFileUploadNotification** e **SimulatedDevice**. Selecione **OK** para salvar suas alterações.
 
 1. Pressione **F5**. Ambos os aplicativos devem ser iniciados. Você deve ver o carregamento concluído em um aplicativo de console e a mensagem de notificação do carregamento sendo recebida pelo outro aplicativo de console. Você pode usar o [Portal do Azure](https://portal.azure.com/) ou o Gerenciador de Servidores do Visual Studio para verificar a presença do arquivo carregado em sua conta de Armazenamento do Azure.
 
     ![Captura de tela mostrando a tela de saída](./media/iot-hub-csharp-csharp-file-upload/run-apps1.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste tutorial, você aprendeu a usar os recursos de carregamento de arquivo do Hub IoT para simplificar os carregamentos de arquivos de dispositivos. Você pode continuar a explorar os recursos e cenários do Hub IoT com os seguintes artigos:
 

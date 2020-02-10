@@ -5,16 +5,16 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 02/07/2020
 ms.author: alzam
-ms.openlocfilehash: 59af4189b52c2ad7a1109ffb03accedbc69dc6c6
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 045d1cad130adad34d74009b34b193ce0d3d4dc9
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647910"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110565"
 ---
-# <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication-preview"></a>Configurar um cliente VPN para conexões de protocolo P2S OpenVPN: autenticação do Azure AD (versão prévia)
+# <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Configurar um cliente VPN para conexões de protocolo P2S OpenVPN: autenticação do Azure AD
 
 Este artigo ajuda você a configurar um cliente VPN para se conectar a uma rede virtual usando VPN ponto a site e autenticação Azure Active Directory. Antes de poder se conectar e autenticar usando o Azure AD, você deve primeiro configurar seu locatário do Azure AD. Para obter mais informações, consulte [configurar um locatário do Azure ad](openvpn-azure-ad-tenant.md).
 
@@ -24,11 +24,11 @@ Este artigo ajuda você a configurar um cliente VPN para se conectar a uma rede 
 
 ## <a name="profile"></a>Trabalhando com perfis de cliente
 
-Para se conectar, você precisa baixar o cliente VPN do Azure (versão prévia) e configurar um perfil de cliente VPN em cada computador que deseja se conectar à VNet. Você pode criar um perfil de cliente em um computador, exportá-lo e, em seguida, importá-lo para computadores adicionais.
+Para se conectar, você precisa baixar o cliente VPN do Azure e configurar um perfil de cliente VPN em todos os computadores que queiram se conectar à VNet. Você pode criar um perfil de cliente em um computador, exportá-lo e, em seguida, importá-lo para computadores adicionais.
 
 ### <a name="to-download-the-azure-vpn-client"></a>Para baixar o Cliente VPN do Azure
 
-Use este [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) para baixar o Cliente VPN do Azure (versão prévia).
+Use este [link](https://go.microsoft.com/fwlink/?linkid=2117554) para baixar o cliente VPN do Azure.
 
 ### <a name="cert"></a>Para criar um perfil de cliente baseado em certificado
 
@@ -50,11 +50,11 @@ Quando tiver um perfil de trabalho e precisar distribuí-lo para outros usuário
 
 1. Realce o perfil do cliente VPN que você deseja exportar, selecione **...** e, em seguida, selecione **Exportar**.
 
-    ![exportar](./media/openvpn-azure-ad-client/export/export1.jpg)
+    ![export](./media/openvpn-azure-ad-client/export/export1.jpg)
 
 2. Selecione o local no qual você deseja salvar esse perfil, deixe o nome do arquivo como está e, em seguida, selecione **salvar** para salvar o arquivo XML.
 
-    ![exportar](./media/openvpn-azure-ad-client/export/export2.jpg)
+    ![export](./media/openvpn-azure-ad-client/export/export2.jpg)
 
 ### <a name="import"></a>Para importar um perfil de cliente
 
@@ -82,11 +82,11 @@ Quando tiver um perfil de trabalho e precisar distribuí-lo para outros usuário
 
 1. Selecione as reticências ao lado do perfil do cliente que você deseja excluir. Em seguida, selecione **Remover**.
 
-    ![excluir](./media/openvpn-azure-ad-client/delete/delete1.jpg)
+    ![delete](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
 2. Selecione **Remover** para excluir.
 
-    ![excluir](./media/openvpn-azure-ad-client/delete/delete2.jpg)
+    ![delete](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
 ## <a name="connection"></a>Criar uma conexão
 
@@ -148,7 +148,7 @@ Essas etapas ajudam a configurar sua conexão para se conectar automaticamente c
 
     ![diagnosticar](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Perguntas frequentes
 
 ### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Como fazer adicionar sufixos DNS ao cliente VPN?
 
@@ -168,6 +168,6 @@ Você pode modificar o arquivo XML do perfil baixado e adicionar as marcas de **
 </azvpnprofile>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter mais informações, consulte [criar um locatário de Azure Active Directory para conexões VPN abertas do P2S que usam a autenticação do Azure ad](openvpn-azure-ad-tenant.md).

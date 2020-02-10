@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 98ec53d384186968d69c3f84cdfa12fbdbe92b71
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 5b2e4c03347020b5d5fc67927165403f06854e0b
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147441"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110923"
 ---
 # <a name="get-started-with-device-management-nodejs"></a>Introdução ao gerenciamento de dispositivos (Node. js)
 
@@ -33,11 +33,13 @@ Ao fim deste tutorial, você terá dois aplicativos de console do Node.js:
 
 * **dmpatterns_getstarted_service.js**, que chama um método direto no aplicativo do dispositivo simulado, exibe a resposta e exibe as propriedades relatadas atualizadas.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Node. js versão 10.0. x ou posterior. [Preparar seu ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) descreve como instalar o Node. js para este tutorial no Windows ou no Linux.
 
 * Uma conta ativa do Azure. (Se você não tiver uma conta, poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
+
+* Verifique se a porta 8883 está aberta no firewall. O exemplo de dispositivo neste artigo usa o protocolo MQTT, que se comunica pela porta 8883. Essa porta pode ser bloqueada em alguns ambientes de rede corporativos e educacionais. Para obter mais informações e maneiras de contornar esse problema, consulte [conectando-se ao Hub IOT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
@@ -80,7 +82,7 @@ Nesta seção, você:
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
 
-5. Adicione uma variável **connectionString** e use-a para criar um **Cliente** do dispositivo.  Substitua o `{yourdeviceconnectionstring}` valor do espaço reservado pela cadeia de conexão do dispositivo que você copiou anteriormente no [registro de um novo dispositivo no Hub IOT](#register-a-new-device-in-the-iot-hub).  
+5. Adicione uma variável **connectionString** e use-a para criar um **Cliente** do dispositivo.  Substitua o valor do espaço reservado `{yourdeviceconnectionstring}` pela cadeia de conexão do dispositivo que você copiou anteriormente no [registro de um novo dispositivo no Hub IOT](#register-a-new-device-in-the-iot-hub).  
 
     ```javascript
     var connectionString = '{yourdeviceconnectionstring}';
@@ -180,7 +182,7 @@ Nesta seção, você criará um aplicativo do console Node.js que inicia uma rei
     var Client = require('azure-iothub').Client;
     ```
 
-5. Adicione as seguintes declarações de variável e substitua `{iothubconnectionstring}` o valor de espaço reservado pela cadeia de conexão do Hub IOT que você copiou anteriormente em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string):
+5. Adicione as seguintes declarações de variável e substitua o valor de espaço reservado `{iothubconnectionstring}` pela cadeia de conexão do Hub IoT que você copiou anteriormente em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string):
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';

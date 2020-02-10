@@ -8,12 +8,12 @@ ms.date: 01/14/2020
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 5f4728c4b604c606d12edcc7a00879b31e54bc85
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: f016902f6cf7e0238dadb97d816f4590caec112e
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264264"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109336"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Solucionar problemas de consulta ao usar o Azure Cosmos DB
 
@@ -224,8 +224,8 @@ Política de indexação:
 Consulta atualizada (inclui ambas as propriedades na cláusula `ORDER BY`):
 
 ```sql
-SELECT * FROM c 
-WHERE c.foodGroup = “Soups, Sauces, and Gravies” 
+SELECT * FROM c
+WHERE c.foodGroup = “Soups, Sauces, and Gravies”
 ORDER BY c.foodGroup, c._ts ASC
 ```
 
@@ -315,7 +315,7 @@ Essas consultas também seriam otimizadas com a inclusão da chave de partição
 
 ```sql
 SELECT * FROM c
-WHERE c.foodGroup IN(“Soups, Sauces, and Gravies”, “"Vegetables and Vegetable Products”) and  c.description = "Mushroom, oyster, raw"
+WHERE c.foodGroup IN("Soups, Sauces, and Gravies", "Vegetables and Vegetable Products") and c.description = "Mushroom, oyster, raw"
 ```
 
 As consultas que têm filtros de intervalo na chave de partição ou não têm filtros na chave de partição precisarão de "Fan-out" e verificar o índice de cada partição física para obter resultados.
@@ -393,7 +393,7 @@ As consultas paralelas funcionam consultando várias partições em paralelo. No
 
 As consultas são projetadas para buscar antecipadamente resultados enquanto o lote atual de resultados está sendo processado pelo cliente. A busca prévia ajuda a melhorar a latência geral de uma consulta. Definir o MaxBufferedItemCount limita o número de resultados previamente buscados. Ao definir esse valor como o número esperado de resultados retornados (ou um número mais alto), a consulta pode receber o máximo benefício da busca prévia. Definir esse valor como-1 permite que o sistema decida automaticamente o número de itens para armazenar em buffer.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Consulte os documentos abaixo sobre como medir o RUs por consulta, obter estatísticas de execução para ajustar suas consultas e muito mais:
 
 * [Obter métricas de execução de consulta SQL usando o SDK do .NET](profile-sql-api-query.md)

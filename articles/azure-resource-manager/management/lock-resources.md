@@ -2,22 +2,20 @@
 title: Bloquear recursos para evitar alterações
 description: Impeça que os usuários atualizem ou excluam recursos críticos do Azure ao aplicar um bloqueio a todos os usuários e funções.
 ms.topic: conceptual
-ms.date: 05/14/2019
-ms.openlocfilehash: b7c6c7980f12e7f9015f4504f461733100b14ea8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 02/07/2020
+ms.openlocfilehash: 70fb189adb634b7ac24afe7cc8b94738117da5ef
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644334"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109549"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos para evitar alterações inesperadas
 
 Como administrador, talvez você precise bloquear uma assinatura, um recurso ou grupo de recursos para impedir que outros usuários em sua organização excluam ou modifiquem acidentalmente recursos críticos. É possível definir o nível de bloqueio como **CanNotDelete** ou **ReadOnly**. No portal, os bloqueios são chamados **Excluir** e **Somente leitura** respectivamente.
 
 * **CanNotDelete** significa que os usuários autorizados ainda poderão ler e modificar um recurso, mas não poderão excluir o recurso. 
-* **ReadOnly** significa que os usuários autorizados poderão ler um recurso, mas não poderão excluir ou atualizar o recurso. Aplicar esse bloqueio é semelhante ao restringir todos os usuários autorizados para as permissões concedidas pela função **Leitor**. 
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+* **ReadOnly** significa que os usuários autorizados poderão ler um recurso, mas não poderão excluir ou atualizar o recurso. Aplicar esse bloqueio é semelhante ao restringir todos os usuários autorizados para as permissões concedidas pela função **Leitor**.
 
 ## <a name="how-locks-are-applied"></a>Como os bloqueios são aplicados
 
@@ -36,6 +34,7 @@ A aplicação de **ReadOnly** pode levar a resultados inesperados porque algumas
 * Um bloqueio **ReadOnly** em um grupo de recursos que contém uma máquina virtual impede que todos os usuários iniciem ou reiniciem a máquina virtual. Essas operações exigem uma solicitação POST.
 
 ## <a name="who-can-create-or-delete-locks"></a>Quem pode criar ou excluir bloqueios
+
 Para criar ou excluir bloqueios de gerenciamento, você deve ter acesso às ações `Microsoft.Authorization/*` ou `Microsoft.Authorization/locks/*`. Das funções internas, somente **Proprietário** e **Administrador do Acesso de Usuário** recebem essas ações.
 
 ## <a name="managed-applications-and-locks"></a>Aplicativos e bloqueios gerenciados
@@ -58,7 +57,12 @@ Para excluir tudo para o serviço, incluindo o grupo de recursos de infraestrutu
 
 ![Excluir serviço](./media/lock-resources/delete-service.png)
 
+## <a name="azure-backups-and-locks"></a>Backups e bloqueios do Azure
+
+Se você bloquear o grupo de recursos criado pelo serviço de backup do Azure, os backups começarão a falhar. O serviço oferece suporte a um máximo de 18 pontos de restauração. Com um bloqueio **CanNotDelete** , o serviço de backup não consegue limpar os pontos de restauração. Para obter mais informações, consulte perguntas frequentes [– fazer backup de VMs do Azure](../../backup/backup-azure-vm-backup-faq.md).
+
 ## <a name="portal"></a>Portal
+
 [!INCLUDE [resource-manager-lock-resources](../../../includes/resource-manager-lock-resources.md)]
 
 ## <a name="template"></a>Modelo
@@ -174,7 +178,7 @@ $lockId = (Get-AzResourceLock -ResourceGroupName exampleresourcegroup -ResourceN
 Remove-AzResourceLock -LockId $lockId
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI do Azure
 
 Bloqueie recursos implantados com a CLI do Azure usando o comando [az lock create](/cli/azure/lock#az-lock-create).
 
@@ -233,7 +237,7 @@ Na solicitação, inclua um objeto JSON que especifica as propriedades do bloque
       }
     } 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * Para saber mais sobre a organização lógica de recursos, confira [Usando marcas para organizar os recursos](tag-resources.md)
 * É possível aplicar restrições e convenções em sua assinatura com políticas personalizadas. Para saber mais, veja [O que é o Azure Policy?](../../governance/policy/overview.md).
 * Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](/azure/architecture/cloud-adoption-guide/subscription-governance).

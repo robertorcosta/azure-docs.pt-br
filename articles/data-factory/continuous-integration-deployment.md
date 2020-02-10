@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 7c9f4a5a4993057ef49eecf3852afa0929c49da3
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: f1b15688004d23e8a568695b565b5b34d7b466d6
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77061566"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110194"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
@@ -80,7 +80,7 @@ A seguir, um guia para configurar uma versão Azure Pipelines, que automatiza a 
 
 ![Diagrama de integração contínua com os pipelines do Azure](media/continuous-integration-deployment/continuous-integration-image12.png)
 
-### <a name="requirements"></a>Requisitos
+### <a name="requirements"></a>{1&gt;{2&gt;Requisitos&lt;2}&lt;1}
 
 -   Uma assinatura do Azure vinculada ao Visual Studio Team Foundation Server ou Azure Repos que usa o [ponto de extremidade de serviço do Azure Resource Manager](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
 
@@ -294,7 +294,7 @@ function Get-SortedTriggers {
         [string] $DataFactoryName,
         [string] $ResourceGroupName
     )
-    $triggers = Get-AzDataFactoryV2Trigger -DataFactoryName miliutesteu04 -ResourceGroupName miliu
+    $triggers = Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName
     $triggerDict = @{}
     $visited = @{}
     $stack = new-object System.Collections.Stack
@@ -313,7 +313,7 @@ function Get-SortedLinkedServices {
         [string] $DataFactoryName,
         [string] $ResourceGroupName
     )
-    $linkedServices = Get-AzDataFactoryV2LinkedService -DataFactoryName miliutesteu04 -ResourceGroupName miliu
+    $linkedServices = Get-AzDataFactoryV2LinkedService -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName
     $LinkedServiceHasDependencies = @('HDInsightLinkedService', 'HDInsightOnDemandLinkedService', 'AzureBatchLinkedService')
     $Akv = 'AzureKeyVaultLinkedService'
     $HighOrderList = New-Object Collections.Generic.List[Microsoft.Azure.Commands.DataFactoryV2.Models.PSLinkedService]
@@ -564,7 +564,7 @@ Aqui está uma explicação de como o modelo anterior é construído, dividido p
 * A propriedade `connectionString` será parametrizada como um valor de `securestring`. Ele não terá um valor padrão. Ele terá um nome de parâmetro abreviado com um sufixo `connectionString`.
 * A propriedade `secretAccessKey` é uma `AzureKeyVaultSecret` (por exemplo, em um serviço vinculado do Amazon S3). Ele é parametrizado automaticamente como um Azure Key Vault segredo e buscado a partir do cofre de chaves configurado. Você também pode parametrizar o cofre de chaves em si.
 
-#### <a name="datasets"></a>Conjunto de dados
+#### <a name="datasets"></a>Conjuntos de dados
 
 * Embora a personalização específica de tipo esteja disponível para conjuntos de informações, você pode fornecer configuração sem ter explicitamente uma configuração de nível \*. No exemplo anterior, todas as propriedades de DataSet em `typeProperties` são parametrizadas.
 

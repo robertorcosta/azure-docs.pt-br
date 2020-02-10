@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 4dd026377d5824853dd713a59a86ed742990bade
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: a206ef6eb529fc396ec4ecb82d468c19f9e54b8a
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898839"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108249"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Visão geral do portal do desenvolvedor do gerenciamento de API do Azure
 
@@ -39,7 +39,7 @@ Este artigo descreve as diferenças entre as versões autohospedadas e gerenciad
 Você pode criar seu portal do desenvolvedor de duas maneiras:
 
 - **Versão gerenciada** – editando e personalizando o portal, que é incorporado à sua instância de gerenciamento de API e pode ser acessado por meio da URL `<your-api-management-instance-name>.developer.azure-api.net`. Consulte [Este artigo de documentação](api-management-howto-developer-portal-customize.md) para saber como acessar e personalizar o portal gerenciado.
-- **Versão hospedada internamente** – Implantando e hospedando internamente seu portal fora de uma instância de gerenciamento de API. Essa abordagem permite que você edite a base de código do portal e estenda a funcionalidade básica fornecida. Você também precisa atualizar o portal para a versão mais recente por conta própria. Para obter detalhes e instruções, consulte o [repositório do GitHub com o código-fonte do portal][1] e [o tutorial sobre como implementar um widget][4]. O [tutorial para a versão gerenciada](api-management-howto-developer-portal-customize.md) percorre o painel administrativo do portal, que também está em destaque na versão hospedada internamente.
+- **Versão hospedada internamente** – Implantando e hospedando internamente seu portal fora de uma instância de gerenciamento de API. Essa abordagem permite que você edite a base de código do portal e estenda a funcionalidade básica fornecida. Você também precisa atualizar o portal para a versão mais recente por conta própria. Para obter detalhes e instruções, consulte o [repositório do GitHub com o código-fonte do portal][1] e [o tutorial sobre como implementar um widget][3]. O [tutorial para a versão gerenciada](api-management-howto-developer-portal-customize.md) percorre o painel administrativo do portal, que também está em destaque na versão hospedada internamente.
 
 ## <a name="portal-architectural-concepts"></a>Conceitos de arquitetura do portal
 
@@ -98,13 +98,13 @@ Ainda não há suporte para a autenticação com OAuth no console interativo do 
 
 ### <a name="has-the-old-portal-been-deprecated"></a>O portal antigo foi preterido?
 
-Os portais antigos do desenvolvedor e do Publicador agora são recursos *herdados* . eles receberão apenas atualizações de segurança. Os novos recursos serão implementados somente no novo portal do desenvolvedor.
+Os portais antigos do desenvolvedor e do Publicador agora são recursos *herdados* . eles receberão apenas atualizações de segurança. Novos recursos serão implementados somente no novo portal do desenvolvedor.
 
 A substituição dos portais herdados será anunciada separadamente. Se você tiver dúvidas, preocupações ou comentários, gere-os [em um problema dedicado do GitHub](https://github.com/Azure/api-management-developer-portal/issues/121).
 
 ### <a name="functionality-i-need-isnt-supported-in-the-portal"></a>A funcionalidade necessária não tem suporte no portal
 
-Use a versão hospedada internamente e [implemente seu próprio widget][4].
+Use a versão hospedada internamente e [implemente seu próprio widget][3].
 
 ### <a name="how-can-i-automate-portal-deployments"></a>Como posso automatizar as implantações do portal?
 
@@ -216,7 +216,7 @@ A falha de chamada também pode ser causada por um certificado SSL, que é atrib
 
 ### <a name="whats-the-browser-support-for-the-portal"></a>Qual é o suporte do navegador para o portal?
 
-| Navegador                     | Com suporte       |
+| Navegador.                     | Com suporte       |
 |-----------------------------|-----------------|
 | Apple Safari                | Sim<sup>1</sup> |
 | Google Chrome               | Sim<sup>1</sup> |
@@ -226,20 +226,18 @@ A falha de chamada também pode ser causada por um certificado SSL, que é atrib
 
  <small><sup>1</sup> com suporte nas duas versões de produção mais recentes.</small>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba mais sobre o novo portal do desenvolvedor:
 
 - [Acessar e personalizar o portal do desenvolvedor gerenciado](api-management-howto-developer-portal-customize.md)
 - [Configurar a versão hospedada internamente do portal][2]
-- [Implementar seu próprio widget][4]
+- [Implementar seu próprio widget][3]
 
 Procurar outros recursos:
 
 - [Repositório GitHub com o código-fonte][1]
-- [Roteiro público do projeto][3]
 
 [1]: https://aka.ms/apimdevportal
 [2]: https://github.com/Azure/api-management-developer-portal/wiki
-[3]: https://github.com/Azure/api-management-developer-portal/projects
-[4]: https://aka.ms/apimdevportal/extend
+[3]: https://aka.ms/apimdevportal/extend

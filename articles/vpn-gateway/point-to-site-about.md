@@ -5,18 +5,18 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6084eca4f7d2d6040eb3f32a9b28cfc50922d200
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 3db5cf0ddfec231a313df58e551061cbd5f9bef5
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896091"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110436"
 ---
 # <a name="about-point-to-site-vpn"></a>Sobre VPN Ponto a Site
 
-Uma conexão de gateway de VPN Ponto a Site (P2S) permite que você crie uma conexão segura para sua rede virtual a partir de um computador cliente individual. Uma conexão P2S é estabelecida ao iniciá-la do computador cliente. Essa solução é útil para pessoas que trabalham remotamente que querem se conectar às VNets do Azure de um local remoto, como de casa ou de uma conferência. A VPN P2S também é uma solução útil para usar em vez de uma VPN S2S, quando você tiver apenas alguns clientes que precisam se conectar a uma rede virtual. Este artigo se aplica ao modelo de implantação do Gerenciador de Recursos.
+Uma conexão de gateway de VPN Ponto a Site (P2S) permite que você crie uma conexão segura para sua rede virtual a partir de um computador cliente individual. Uma conexão P2S é estabelecida iniciando-a do computador cliente. Essa solução é útil para pessoas que trabalham remotamente que querem se conectar às VNets do Azure de um local remoto, como de casa ou de uma conferência. A VPN P2S também é uma solução útil para usar em vez de uma VPN S2S, quando você tiver apenas alguns clientes que precisam se conectar a uma rede virtual. Este artigo se aplica ao modelo de implantação do Gerenciador de Recursos.
 
 ## <a name="protocol"></a>Qual protocolo o P2S usa?
 
@@ -45,7 +45,7 @@ A validação do certificado do cliente é realizada pelo gateway de VPN e acont
 
 ### <a name="authenticate-using-native-azure-active-directory-authentication"></a>Autenticar usando a autenticação de Azure Active Directory nativa
 
-A autenticação do Azure AD permite que os usuários se conectem ao Azure usando suas credenciais de Azure Active Directory. A autenticação nativa do Azure AD tem suporte apenas para o protocolo OpenVPN e para o Windows 10 e requer o uso do [cliente VPN do Azure (versão prévia)](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab).
+A autenticação do Azure AD permite que os usuários se conectem ao Azure usando suas credenciais de Azure Active Directory. A autenticação nativa do Azure AD tem suporte apenas para o protocolo OpenVPN e para o Windows 10 e requer o uso do [cliente VPN do Azure](https://go.microsoft.com/fwlink/?linkid=2117554).
 
 Com a autenticação nativa do Azure AD, você pode aproveitar o acesso condicional do Azure AD, bem como os recursos de MFA (autenticação multifator) para VPN.
 
@@ -55,7 +55,7 @@ Em um alto nível, você precisa executar as seguintes etapas para configurar a 
 
 2. [Habilitar a autenticação do Azure AD no gateway](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authentication)
 
-3. [Baixar e configurar o cliente de VPN do Azure (versão prévia)](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab)
+3. [Baixar e configurar o cliente VPN do Azure](https://go.microsoft.com/fwlink/?linkid=2117554)
 
 
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>Autenticar usando o servidor de domínio do Active Directory (AD)
@@ -68,7 +68,7 @@ O servidor RADIUS também pode ser integrado aos Serviços de Certificados do AD
 
 Um servidor RADIUS também pode integrar-se com outros sistemas de identidade externa. Isso possibilita várias opções de autenticação para VPNs P2S, incluindo opções de multifator.
 
-![ponto a site](./media/point-to-site-about/p2s.png "Ponto a site")
+![ponto a site](./media/point-to-site-about/p2s.png "Ponto a Site")
 
 ## <a name="what-are-the-client-configuration-requirements"></a>Quais são os requisitos de configuração do cliente?
 
@@ -183,7 +183,7 @@ Uma configuração do P2S pode ser removida usando AZ CLI e o seguinte comando:
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Configurar uma conexão P2S – autenticação RADIUS](point-to-site-how-to-radius-ps.md)
 

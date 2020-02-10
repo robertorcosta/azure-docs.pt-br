@@ -3,12 +3,12 @@ title: Provedores de recursos pelos serviços do Azure
 description: Lista todos os namespaces do provedor de recursos para Azure Resource Manager e mostra o serviço do Azure para esse namespace.
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: d16c5fe148f8b6c907c897963e72cb84bc9ae2d5
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 64c1d3c6f30a4f817abbea5001852df3eeeb9327
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984363"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109359"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provedores de recursos para serviços do Azure
 
@@ -19,18 +19,18 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Namespace do provedor de recursos | Serviço do Azure |
 | --------------------------- | ------------- |
 | Microsoft.AAD | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) |
-| Microsoft.Addons | núcleo |
+| Microsoft.Addons | core |
 | Microsoft.ADHybridHealthService | [Azure Active Directory](/azure/active-directory/) |
 | Microsoft.Advisor | [Assistente do Azure](../../advisor/index.yml) |
 | Microsoft.AlertsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.AnalysisServices | [Azure Analysis Services](/azure/analysis-services/) |
 | Microsoft.ApiManagement | [Gerenciamento de API](../../api-management/index.yml) |
-| Microsoft.AppConfiguration | núcleo |
+| Microsoft.AppConfiguration | core |
 | Microsoft.Attestation | Serviço de atestado do Azure |
 | Microsoft.Authorization | [Azure Resource Manager](../index.yml) |
 | Microsoft.Automation | [Automação](../../automation/index.yml) |
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
-| Microsoft.AzureStack | núcleo |
+| Microsoft.AzureStack | core |
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
 | Microsoft.Billing | [Gerenciamento de custos e cobrança](/azure/billing/) |
 | Microsoft.BingMaps | [Bing Mapas](https://docs.microsoft.com/BingMaps/#pivot=main&panel=BingMapsAPI) |
@@ -38,7 +38,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.Blueprint | [Plantas do Azure](/azure/governance/blueprints/) |
 | Microsoft.BotService | [Serviço de bot do Azure](/azure/bot-service/) |
 | Microsoft.Cache | [Cache Redis do Azure](/azure/azure-cache-for-redis/) |
-| Microsoft.Capacity | núcleo |
+| Microsoft.Capacity | core |
 | Microsoft.Cdn | [Rede de distribuição de conteúdo](../../cdn/index.yml) |
 | Microsoft.CertificateRegistration | [Certificados do serviço de aplicativo](../../app-service/configure-ssl-certificate.md#import-an-app-service-certificate) |
 | Microsoft. ChangeAnalysis | [Azure Monitor](../../azure-monitor/index.yml) |
@@ -48,7 +48,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.ClassicStorage | Armazenamento de modelo de implantação clássico |
 | Microsoft.ClassicSubscription | Modelo de implantação clássica |
 | Microsoft.CognitiveServices | [Serviços cognitivas](/azure/cognitive-services/) |
-| Microsoft.Commerce | núcleo |
+| Microsoft.Commerce | core |
 | Microsoft.Compute | [Máquinas virtuais](/azure/virtual-machines/)<br />[Conjuntos de Escala de Máquina Virtual](/azure/virtual-machine-scale-sets/) |
 | Microsoft.Consumption | [Gerenciamento de custos](/azure/cost-management/) |
 | Microsoft.ContainerInstance | [Instâncias de contêiner](/azure/container-instances/) |
@@ -104,14 +104,14 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft. Managedservices | [Azure Lighthouse](/azure/lighthouse/) |
 | Microsoft.Management | [Grupos de Gerenciamento](/azure/governance/management-groups/) |
 | Microsoft.Maps | [Mapas do Azure](../../azure-maps/index.yml) |
-| Microsoft.Marketplace | núcleo |
-| Microsoft.MarketplaceApps | núcleo |
-| Microsoft.MarketplaceOrdering | núcleo |
+| Microsoft.Marketplace | core |
+| Microsoft.MarketplaceApps | core |
+| Microsoft.MarketplaceOrdering | core |
 | Microsoft.Media | [Serviços de Mídia](../../media-services/index.yml) |
 | Microsoft.Migrate | [Migrações para Azure](../../migrate/migrate-overview.md) |
 | Microsoft.MixedReality | [Âncoras Espaciais do Azure](/azure/spatial-anchors/) |
 | Microsoft.NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Rede Virtual](../../virtual-network/index.yml)<br />[Balanceador de Carga](../../load-balancer/index.yml)<br />[Gateway de Aplicativo](../../application-gateway/index.yml)<br />[Azure DNS](../../dns/index.yml)<br />[ExpressRoute](../../expressroute/index.yml)<br />[Gateway de VPN](../../vpn-gateway/index.yml)<br />[Gerenciador de Tráfego](../../traffic-manager/index.yml)<br />[Observador de Rede](../../network-watcher/index.yml)<br />[Firewall do Azure](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Bastiões do Azure](/azure/bastion/) |
+| Microsoft.Network | [Rede Virtual](../../virtual-network/index.yml)<br />[Balanceador de Carga](../../load-balancer/index.yml)<br />[Gateway de Aplicativo](../../application-gateway/index.yml)<br />[DNS do Azure](../../dns/index.yml)<br />[ExpressRoute](../../expressroute/index.yml)<br />[Gateway de VPN](../../vpn-gateway/index.yml)<br />[Gerenciador de Tráfego](../../traffic-manager/index.yml)<br />[Observador de Rede](../../network-watcher/index.yml)<br />[Firewall do Azure](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Bastiões do Azure](/azure/bastion/) |
 | Microsoft.NotificationHubs | [Hubs de Notificação](../../notification-hubs/index.yml) |
 | Microsoft.OffAzure | [Migrações para Azure](../../migrate/migrate-overview.md) |
 | Microsoft.OperationalInsights | [Azure Monitor](../../azure-monitor/index.yml) |
@@ -124,9 +124,9 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.RecoveryServices | [Recuperação de Site](../../site-recovery/index.yml) |
 | Microsoft.Relay | [Retransmissão do Azure](../../service-bus-relay/relay-what-is-it.md) |
 | Microsoft.ResourceGraph | [Grafo de recursos do Azure](/azure/governance/resource-graph/) |
-| Microsoft.ResourceHealth | núcleo |
+| Microsoft.ResourceHealth | [Integridade do Serviço do Azure](../../service-health/index.yml)|
 | Microsoft.Resources | [Azure Resource Manager](../index.yml) |
-| Microsoft.SaaS | núcleo |
+| Microsoft.SaaS | core |
 | Microsoft.Scheduler | [Agendador](/azure/scheduler/) |
 | Microsoft.Search | [Azure Search](../../search/index.yml) |
 | Microsoft.Security | [Central de segurança](../../security-center/index.yml) |
@@ -145,8 +145,8 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.StorageSync | [Storage](../../storage/index.yml) |
 | Microsoft.StorSimple | [StorSimple](/azure/storsimple/) |
 | Microsoft.StreamAnalytics | [Stream Analytics](../../stream-analytics/index.yml) |
-| Microsoft.Subscription | núcleo |
-| microsoft.support | núcleo |
+| Microsoft.Subscription | core |
+| microsoft.support | core |
 | Microsoft.TimeSeriesInsights | [Time Series Insights](../../time-series-insights/index.yml) |
 | Microsoft.VirtualMachineImages | [Construtor de imagens do Azure](../../virtual-machines/linux/image-builder-overview.md) |
 | microsoft.visualstudio | [DevOps do Azure](/azure/devops/?view=azure-devops) |
@@ -155,6 +155,6 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.WindowsIoT | [Serviços do Windows 10 IoT Core](https://docs.microsoft.com/windows-hardware/manufacture/iot/iotcoreservicesoverview) |
 | Microsoft.WorkloadMonitor | [Azure Monitor](../../azure-monitor/index.yml) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter mais informações sobre provedores de recursos, consulte [tipos e provedores de recursos do Azure](resource-providers-and-types.md)

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 01/24/2019
+ms.date: 02/07/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 8f22e575b609b0dcd56bf9a1f49fffd41f14e898
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: b5f2b42728fd6f3d61695b4f88cc416015dd97cb
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77062193"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108265"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Entrar em suas contas usando o aplicativo Microsoft Authenticator
 
@@ -31,7 +31,7 @@ Você pode usar o aplicativo Microsoft Authenticator de várias maneiras, inclui
   >[!Important]
   >Esse método de entrada pelo telefone só funciona com contas de estudante, corporativas ou pessoais da Microsoft. Contas não Microsoft exigem que você use o processo de verificação padrão de dois fatores.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Antes de usar o aplicativo Microsoft Authenticator, é necessário:
 
@@ -116,10 +116,10 @@ Para obter as etapas necessárias para entrar em sua conta corporativa ou de est
 | Se eu mantiver a verificação em duas etapas ativada para minha conta, preciso aprovar duas notificações? | Não. Fazer login na sua conta da Microsoft usando seu telefone também é considerado uma verificação em duas etapas, portanto, não é necessária a segunda aprovação. |
 | E se eu perder meu telefone ou não tiver? Como fazer acessar minha conta? | Você sempre pode selecionar o link Usar uma senha em vez disso na página de login para voltar a usar sua senha. No entanto, se você usar a verificação em duas etapas, ainda precisará usar um segundo método para confirmar sua identidade.<br><br>**Importante**<br>Recomendamos que você verifique se que você tem mais de um método de verificação atualizado, associado à sua conta.<br><br>Você pode gerenciar seus métodos de verificação para contas pessoais na [página Configurações de segurança](https://account.live.com/proofs/manage). Para contas do trabalho ou da escola, você pode acessar a página [Verificação adicional de segurança](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) da sua organização ou a página **Manter sua conta segura**, se o administrador tiver ativado informações de segurança. Para obter mais informações sobre informações de segurança, consulte [visão geral de informações de segurança (versão prévia)](user-help-security-info-overview.md).<br><br>Se você não conseguir gerenciar seus métodos de verificação, deverá entrar em contato com seu administrador. |
 | Como fazer parar de usar esse recurso e voltar a usar minha senha? | Para contas pessoais, selecione o link **Usar uma senha em vez disso** durante a entrada. Sua escolha mais recente é lembrada e oferecida por padrão na próxima vez que você fizer login. Se você quiser voltar a usar a entrada pelo telefone, selecione o link **Usar um aplicativo em vez disso** durante a entrada.<br><br>Para contas corporativas ou de estudante, você deve cancelar o registro do dispositivo na página **configurações** do aplicativo Microsoft Authenticator ou desabilitar o dispositivo na área de **atividade dispositivos &** do seu perfil. Para obter mais informações sobre como desabilitar seu dispositivo do seu perfil, consulte [atualizar suas informações de perfil e conta no portal meus aplicativos](my-apps-portal-end-user-update-profile.md#view-your-organization-related-profile-information). |
-| Por que não posso usar mais de uma conta corporativa ou de estudante para entrar no telefone? | Um telefone deve estar registrado em uma única conta de trabalho ou escola. Se você quiser habilitar a entrada pelo telefone para uma conta corporativa ou de estudante, primeiro cancele o registro da conta antiga na página **Configurações**. |
+| Por que não posso usar mais de uma conta corporativa ou de estudante para entrar no telefone? | Um telefone deve estar registrado em uma única conta de trabalho ou escola. Se você quiser ativar a entrada pelo telefone para uma conta corporativa ou de estudante diferente, deverá cancelar o registro da sua conta a partir deste dispositivo por meio da página **configurações** . |
 | Posso entrar no meu computador usando meu telefone? | Para o seu computador, é recomendável entrar usando o Windows Hello no Windows 10. O Windows Hello permite que você use seu rosto, impressão digital ou PIN para fazer login. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Se você estiver tendo problemas para obter seu código de verificação para seu conta Microsoft pessoal, consulte a seção **Solucionando** problemas de código de verificação do artigo [conta Microsoft informações de segurança & códigos de verificação](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) .
 

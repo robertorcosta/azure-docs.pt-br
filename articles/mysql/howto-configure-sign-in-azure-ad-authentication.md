@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: 10dae81bf0ca8958f7c10aebef501fc604c4839c
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: bb3a8c94b377fb9c9150945ec4cf5980e006dd34
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706044"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110618"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Usar Azure Active Directory para autenticar com o MySQL
 
@@ -40,42 +40,7 @@ Somente um administrador do Azure AD pode ser criado por servidor MySQL e a sele
 
 Em uma versão futura, vamos dar suporte à especificação de um grupo do Azure AD em vez de um usuário individual para ter vários administradores. no entanto, atualmente, não há suporte para isso.
 
-## <a name="creating-azure-ad-users-in-azure-database-for-mysql"></a>Criando usuários do Azure AD no banco de dados do Azure para MySQL
-
-Para adicionar um usuário do Azure AD ao banco de dados do Azure para MySQL, execute as etapas a seguir após a conexão (consulte a seção mais adiante sobre como se conectar):
-
-1. Primeiro, verifique se o usuário do Azure AD `<user>@yourtenant.onmicrosoft.com` é um usuário válido no locatário do Azure AD.
-2. Entre em sua instância do banco de dados do Azure para MySQL como o usuário administrador do Azure AD.
-3. Criar `<user>@yourtenant.onmicrosoft.com` de usuário no banco de dados do Azure para MySQL.
-
-**Exemplo:**
-
-```sql
-CREATE AADUSER 'user1@yourtenant.onmicrosoft.com';
-```
-
-Para nomes de usuário que excedem 32 caracteres, é recomendável usar um alias em vez disso, para ser usado ao conectar: 
-
-Exemplo:
-
-```sql
-CREATE AADUSER 'userWithLongName@yourtenant.onmicrosoft.com' as 'userDefinedShortName'; 
-```
-
-> [!NOTE]
-> A autenticação de um usuário por meio do Azure AD não concede ao usuário nenhuma permissão para acessar objetos no banco de dados do Azure para MySQL. Você deve conceder ao usuário as permissões necessárias manualmente.
-
-## <a name="creating-azure-ad-groups-in-azure-database-for-mysql"></a>Criando grupos do Azure AD no banco de dados do Azure para MySQL
-
-Para habilitar um grupo do Azure AD para acesso ao seu banco de dados, use o mesmo mecanismo para os usuários, mas em vez disso, especifique o nome do Grupo:
-
-**Exemplo:**
-
-```sql
-CREATE AADUSER 'Prod_DB_Readonly';
-```
-
-Ao fazer logon, os membros do grupo usarão seus tokens de acesso pessoal, mas assinarão com o nome do grupo especificado como o nome de usuário.
+Depois de configurar o administrador, agora você pode entrar:
 
 ## <a name="connecting-to-azure-database-for-mysql-using-azure-ad"></a>Conectando-se ao banco de dados do Azure para MySQL usando o Azure AD
 
@@ -156,12 +121,53 @@ Ao se conectar, você precisa usar o token de acesso como a senha de usuário do
 Ao usar a CLI, você pode usar essa pequena mão para se conectar: 
 
 **Exemplo (Linux/macOS):**
-
-MySQL-h mydb.mysql.database.azure.com \--usuário user@tenant.onmicrosoft.com@mydb \--Enable-texto não criptografado-plugin \--senha =`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`  
+```
+mysql -h mydb.mysql.database.azure.com \ 
+  --user user@tenant.onmicrosoft.com@mydb \ 
+  --enable-cleartext-plugin \ 
+  --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`
+```
 
 Observe a configuração "Enable-untexto-plugin" – você precisa usar uma configuração semelhante com outros clientes para garantir que o token seja enviado ao servidor sem que haja hash.
 
 Agora você está autenticado no servidor MySQL usando a autenticação do Azure AD.
+
+## <a name="creating-azure-ad-users-in-azure-database-for-mysql"></a>Criando usuários do Azure AD no banco de dados do Azure para MySQL
+
+Para adicionar um usuário do Azure AD ao banco de dados do Azure para MySQL, execute as etapas a seguir após a conexão (consulte a seção mais adiante sobre como se conectar):
+
+1. Primeiro, verifique se o usuário do Azure AD `<user>@yourtenant.onmicrosoft.com` é um usuário válido no locatário do Azure AD.
+2. Entre em sua instância do banco de dados do Azure para MySQL como o usuário administrador do Azure AD.
+3. Criar `<user>@yourtenant.onmicrosoft.com` de usuário no banco de dados do Azure para MySQL.
+
+**Exemplo:**
+
+```sql
+CREATE AADUSER 'user1@yourtenant.onmicrosoft.com';
+```
+
+Para nomes de usuário que excedem 32 caracteres, é recomendável usar um alias em vez disso, para ser usado ao conectar: 
+
+Exemplo:
+
+```sql
+CREATE AADUSER 'userWithLongName@yourtenant.onmicrosoft.com' as 'userDefinedShortName'; 
+```
+
+> [!NOTE]
+> A autenticação de um usuário por meio do Azure AD não concede ao usuário nenhuma permissão para acessar objetos no banco de dados do Azure para MySQL. Você deve conceder ao usuário as permissões necessárias manualmente.
+
+## <a name="creating-azure-ad-groups-in-azure-database-for-mysql"></a>Criando grupos do Azure AD no banco de dados do Azure para MySQL
+
+Para habilitar um grupo do Azure AD para acesso ao seu banco de dados, use o mesmo mecanismo para os usuários, mas em vez disso, especifique o nome do Grupo:
+
+**Exemplo:**
+
+```sql
+CREATE AADUSER 'Prod_DB_Readonly';
+```
+
+Ao fazer logon, os membros do grupo usarão seus tokens de acesso pessoal, mas assinarão com o nome do grupo especificado como o nome de usuário.
 
 ## <a name="token-validation"></a>Validação de token
 
@@ -191,13 +197,13 @@ A maioria dos drivers tem suporte, no entanto, certifique-se de usar as configur
 * Node.js
   * mysqljs: sem suporte (não envia token em texto não criptografado sem patch)
   * nó-mysql2: com suporte
-* PERL
+* Perl
   * DBD:: MySQL: com suporte
   * NET:: MySQL: sem suporte
-* Go
+* Ir
   * Go-SQL-Driver: com suporte, adicione `?tls=true&allowCleartextPasswords=true` à cadeia de conexão
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Examine os conceitos gerais para [Azure Active Directory autenticação com o banco de dados do Azure para MySQL-servidor único](concepts-azure-ad-authentication.md)
 

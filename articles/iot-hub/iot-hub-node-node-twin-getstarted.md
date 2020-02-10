@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: elioda
-ms.openlocfilehash: 02ff65b27e03db9e9a48910e23d8ebf46de905a5
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 55dc7f73a3e5bbff2e6e331ba0bd7d4088a86536
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70060720"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110838"
 ---
 # <a name="get-started-with-device-twins-nodejs"></a>Introdução ao dispositivo gêmeos (Node. js)
 
@@ -29,13 +29,15 @@ No fim deste tutorial, você terá dois aplicativos de console do Node.js:
 > O artigo [SDKs de IoT do Azure](iot-hub-devguide-sdks.md) apresenta informações sobre os SDKs de IoT do Azure que você pode usar para criar dispositivos e aplicativos de back-end.
 >
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Para concluir este tutorial, você precisará:
 
 * Node. js versão 10.0. x ou posterior.
 
 * Uma conta ativa do Azure. (Se você não tiver uma conta, poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
+
+* Verifique se a porta 8883 está aberta no firewall. O exemplo de dispositivo neste artigo usa o protocolo MQTT, que se comunica pela porta 8883. Essa porta pode ser bloqueada em alguns ambientes de rede corporativos e educacionais. Para obter mais informações e maneiras de contornar esse problema, consulte [conectando-se ao Hub IOT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
@@ -55,7 +57,7 @@ Para concluir este tutorial, você precisará:
 
 Nesta seção, você cria um aplicativo de console do Node.js que adiciona metadados de local ao dispositivo gêmeo associado a **myDeviceId**. Em seguida, ele consulta os dispositivos gêmeos armazenados no hub IoT selecionando os dispositivos localizados nos EUA e, depois, aqueles que relatam uma conexão celular.
 
-1. Crie uma nova pasta vazia denominada **addtagsandqueryapp**. Na pasta **addtagsandqueryapp**, crie um novo arquivo package.json usando o comando a seguir no prompt de comando. O `--yes` parâmetro aceita todos os padrões.
+1. Crie uma nova pasta vazia denominada **addtagsandqueryapp**. Na pasta **addtagsandqueryapp**, crie um novo arquivo package.json usando o comando a seguir no prompt de comando. O parâmetro `--yes` aceita todos os padrões.
 
     ```cmd/sh
     npm init --yes
@@ -69,7 +71,7 @@ Nesta seção, você cria um aplicativo de console do Node.js que adiciona metad
 
 3. Usando um editor de texto, crie um novo arquivo **AddTagsAndQuery.js** na pasta **addtagsandqueryapp**.
 
-4. Adicione o código a seguir ao arquivo **AddTagsAndQuery. js** . Substitua `{iot hub connection string}` pela cadeia de conexão do Hub IOT que você copiou em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string).
+4. Adicione o código a seguir ao arquivo **AddTagsAndQuery. js** . Substitua `{iot hub connection string}` pela cadeia de conexão do Hub IoT que você copiou em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string).
 
    ``` javascript
         'use strict';
@@ -150,7 +152,7 @@ Na seção seguinte, você cria um aplicativo de dispositivo que reporta as info
 
 Nesta seção, você cria um aplicativo de console do Node.js que se conecta ao seu hub como **myDeviceId**, e depois atualiza seu as propriedades reportadas de seu dispositivo gêmeo a fim de conter as informações indicando que ele está conectado usando uma rede de celular.
 
-1. Crie uma nova pasta vazia denominada **reportconnectivity**. Na pasta **reportconnectivity**, crie um novo arquivo package.json usando o comando a seguir no prompt de comando. O `--yes` parâmetro aceita todos os padrões.
+1. Crie uma nova pasta vazia denominada **reportconnectivity**. Na pasta **reportconnectivity**, crie um novo arquivo package.json usando o comando a seguir no prompt de comando. O parâmetro `--yes` aceita todos os padrões.
 
     ```cmd/sh
     npm init --yes
@@ -164,7 +166,7 @@ Nesta seção, você cria um aplicativo de console do Node.js que se conecta ao 
 
 3. Usando um editor de texto, crie um novo arquivo **ReportConnectivity.js** na pasta **reportconnectivity**.
 
-4. Adicione o código a seguir ao arquivo **ReportConnectivity. js** . Substitua `{device connection string}` pela cadeia de conexão do dispositivo que você copiou quando criou a identidade do dispositivo mydeviceid em [registrar um novo dispositivo no Hub IOT](#register-a-new-device-in-the-iot-hub).
+4. Adicione o código a seguir ao arquivo **ReportConnectivity. js** . Substitua `{device connection string}` pela cadeia de conexão do dispositivo que você copiou quando criou a identidade do dispositivo **Mydeviceid** em [registrar um novo dispositivo no Hub IOT](#register-a-new-device-in-the-iot-hub).
 
     ```javascript
         'use strict';
@@ -224,7 +226,7 @@ Nesta seção, você cria um aplicativo de console do Node.js que se conecta ao 
 
     ![Mostrar DeviceID nos dois resultados da consulta](media/iot-hub-node-node-twin-getstarted/service2.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste tutorial, você configurou um novo hub IoT no portal do Azure e depois criou uma identidade do dispositivo no Registro de identidade do Hub IoT. Você adicionou os metadados do dispositivo como marcações de um aplicativo de back-end e criou um aplicativo de dispositivo simulado para relatar informações de conectividade no dispositivo gêmeo. Você também aprendeu a consultar essas informações usando a linguagem de consulta do Hub IoT semelhante ao SQL.
 

@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
-ms.openlocfilehash: 99acd43128bedcf3dba470f84c0a406861d77e2d
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 7805b9b3f000b2bc2e45272ab9ff469d5711e581
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147788"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110206"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Enviar mensagens de nuvem para seu dispositivo com o Hub IoT (.NET)
 
@@ -44,11 +44,13 @@ No final deste tutorial, você executará dois aplicativos de console .NET.
 > O Hub IoT tem suporte do SDK para muitas plataformas de dispositivo e linguagens, incluindo C, Java, Python e JavaScript, por meio de [SDKs do dispositivo IOT do Azure](iot-hub-devguide-sdks.md). Para obter instruções passo a passo sobre como conectar seu dispositivo ao código deste tutorial e, em geral, ao Hub IoT do Azure, veja o [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md).
 >
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
-* Visual Studio
+* {1&gt;Visual Studio&lt;1}
 
 * Uma conta ativa do Azure. Se você não tem uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
+
+* Verifique se a porta 8883 está aberta no firewall. O exemplo de dispositivo neste artigo usa o protocolo MQTT, que se comunica pela porta 8883. Essa porta pode ser bloqueada em alguns ambientes de rede corporativos e educacionais. Para obter mais informações e maneiras de contornar esse problema, consulte [conectando-se ao Hub IOT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="receive-messages-in-the-device-app"></a>Receber mensagens no aplicativo do dispositivo
 
@@ -101,7 +103,7 @@ Neste artigo, você cria um serviço de back-end para enviar mensagens da nuvem 
 
 Agora você escreve um aplicativo de console .NET que envia mensagens da nuvem para o dispositivo para o aplicativo do dispositivo.
 
-1. Na solução atual do Visual Studio, selecione **arquivo** > **novo** > **projeto**. Em **criar um novo projeto**, selecione **aplicativo de console (.NET Framework)** e, em seguida, selecione **Avançar**.
+1. Na solução atual do Visual Studio, selecione **arquivo** > **novo** **projeto**de > . Em **criar um novo projeto**, selecione **aplicativo de console (.NET Framework)** e, em seguida, selecione **Avançar**.
 
 1. Nomeie o projeto *SendCloudToDevice*. Em **solução**, selecione **Adicionar à solução** e aceite a versão mais recente do .NET Framework. Selecione **Criar** para criar o cluster.
 
@@ -109,11 +111,11 @@ Agora você escreve um aplicativo de console .NET que envia mensagens da nuvem p
 
 1. No Gerenciador de Soluções, clique com o botão direito do mouse na nova solução e selecione **gerenciar pacotes NuGet**.
 
-1. Em **gerenciar pacotes NuGet**, selecione **procurar**e, em seguida, procure e selecione **Microsoft. Azure.** Devices. Selecione **instalar**.
+1. Em **gerenciar pacotes NuGet**, selecione **procurar**e, em seguida, procure e selecione **Microsoft. Azure. Devices**. Selecione **instalar**.
 
    Esta etapa baixa, instala e adiciona uma referência ao [pacote NuGet do SDK do serviço IOT do Azure](https://www.nuget.org/packages/Microsoft.Azure.Devices/).
 
-1. Adicione a seguinte `using` instrução na parte superior do arquivo **Program.cs** .
+1. Adicione a seguinte instrução `using` na parte superior do arquivo **Program.cs** .
 
    ``` csharp
    using Microsoft.Azure.Devices;
@@ -153,7 +155,7 @@ Agora você escreve um aplicativo de console .NET que envia mensagens da nuvem p
 
 1. No Gerenciador de soluções, clique com o botão direito do mouse em sua solução e selecione **definir projetos de inicialização**.
 
-1. Em **Propriedades** > comuns**projeto de inicialização**, selecione **vários projetos de inicialização**e, em seguida, selecione a ação **Iniciar** para **ReadDeviceToCloudMessages**, **SimulatedDevice**e **SendCloudToDevice** . Selecione **OK** para salvar suas alterações.
+1. Em **Propriedades comuns** > **projeto de inicialização**, **Selecione vários projetos de inicialização**e, em seguida, selecione a ação **Iniciar** para **ReadDeviceToCloudMessages**, **SimulatedDevice**e **SendCloudToDevice**. Selecione **OK** para salvar suas alterações.
 
 1. Pressione **F5**. Todos os três aplicativos devem ser iniciados. Selecione as janelas **SendCloudToDevice** e pressione **Enter**. Você deve ver a mensagem que está sendo recebida pelo aplicativo do dispositivo.
 
@@ -190,13 +192,13 @@ Nesta seção, você modifica o aplicativo **SendCloudToDevice** para solicitar 
 
     É importante lembrar que o padrão de recebimento é o mesmo usado para receber mensagens da nuvem para o dispositivo do aplicativo do dispositivo.
 
-1. Adicione a seguinte linha ao método **Main** , logo após `serviceClient = ServiceClient.CreateFromConnectionString(connectionString)`.
+1. Adicione a linha a seguir no método **principal** , logo após `serviceClient = ServiceClient.CreateFromConnectionString(connectionString)`.
 
    ``` csharp
    ReceiveFeedbackAsync();
    ```
 
-1. Para solicitar comentários sobre a entrega da mensagem da nuvem para o dispositivo, você deve especificar uma propriedade no método **SendCloudToDeviceMessageAsync** . Adicione a linha a seguir, logo após `var commandMessage = new Message(...);` a linha.
+1. Para solicitar comentários sobre a entrega da mensagem da nuvem para o dispositivo, você deve especificar uma propriedade no método **SendCloudToDeviceMessageAsync** . Adicione a seguinte linha, logo após a linha de `var commandMessage = new Message(...);`.
 
    ``` csharp
    commandMessage.Ack = DeliveryAcknowledgement.Full;
@@ -210,7 +212,7 @@ Nesta seção, você modifica o aplicativo **SendCloudToDevice** para solicitar 
 > Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, você deve implementar políticas de repetição, como retirada exponencial, conforme sugerido em [tratamento de falhas transitórias](/azure/architecture/best-practices/transient-faults).
 >
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste guia, você aprendeu a enviar e receber mensagens de nuvem para dispositivo.
 

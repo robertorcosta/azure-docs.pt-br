@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 1875e3437c13a678532c05b4057126f785b9125c
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 544b1108a3c79da50969f7fdd33cfb9af373d854
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147526"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110873"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Enviar mensagens de nuvem para dispositivo com Hub IoT (iOS)
 
@@ -39,7 +39,7 @@ No final deste artigo, você executa dois projetos do iOS Swift:
 > [!NOTE]
 > O Hub IoT tem suporte do SDK para várias plataformas de dispositivo e linguagens (incluindo C, Java, Python e JavaScript) por meio de SDKs do dispositivo IoT do Azure. Para obter instruções passo a passo sobre como conectar seu dispositivo ao código deste tutorial e, em geral, ao Hub IoT do Azure, veja o [Centro de Desenvolvedores do IoT do Azure](https://www.azure.com/develop/iot).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Uma conta ativa do Azure. (Se você não tiver uma conta, poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
 
@@ -50,6 +50,8 @@ No final deste artigo, você executa dois projetos do iOS Swift:
 * A última versão do [XCode](https://developer.apple.com/xcode/) executando a última versão do SDK do iOS. Este início rápido foi testado com o XCode 9.3 e o iOS 11.3.
 
 * A última versão do [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
+
+* Verifique se a porta 8883 está aberta no firewall. O exemplo de dispositivo neste artigo usa o protocolo MQTT, que se comunica pela porta 8883. Essa porta pode ser bloqueada em alguns ambientes de rede corporativos e educacionais. Para obter mais informações e maneiras de contornar esse problema, consulte [conectando-se ao Hub IOT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="simulate-an-iot-device"></a>Simular um dispositivo IoT
 
@@ -91,7 +93,7 @@ Além de instalar os pods necessários para o projeto, o comando de instalação
 
 2. Expanda o projeto **Exemplo do Cliente MQTT** e, em seguida, a pasta com o mesmo nome.  
 
-3. Abra **ViewController.swift** para edição em XCode. 
+3. Abra **ViewController.swift** para edição no XCode. 
 
 4. Pesquise a variável **connectionString** e atualize o valor com a cadeia de conexão do dispositivo copiada na primeira etapa.
 
@@ -113,7 +115,7 @@ Nesta seção, você simula um segundo dispositivo iOS com um aplicativo Swift q
 
 ### <a name="install-cocoapods"></a>Instalar CocoaPods
 
-CocoaPods gerenciam dependências para projetos do iOS que usam bibliotecas de terceiros.
+Os CocoaPods gerenciam dependências para projetos do iOS que usam bibliotecas de terceiros.
 
 Navegue até a pasta Azure-IoT-Samples-iOS que você baixou nos pré-requisitos. Em seguida, navegue até o projeto de serviço de exemplo:
 
@@ -121,7 +123,7 @@ Navegue até a pasta Azure-IoT-Samples-iOS que você baixou nos pré-requisitos.
 cd quickstart/sample-service
 ```
 
-Certifique-se de que o XCode esteja fechado e, em seguida, execute o comando a seguir para instalar os CocoaPods declarados no arquivo **podfile**:
+Verifique se o XCode está fechado e execute o comando abaixo para instalar os CocoaPods declarados no arquivo **podfile**:
 
 ```sh
 pod install
@@ -171,7 +173,7 @@ Agora você está pronto para usar os dois aplicativos para enviar e receber men
 
    ![Exibir mensagens da nuvem para dispositivo](media/iot-hub-ios-swift-c2d/view-c2d.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste tutorial você aprendeu a enviar e receber mensagens da nuvem para o dispositivo.
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 5929d4edac53b2be87e168b527034c5a473f154f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c700c9786f3bec4c79cae904a95deb5fd1c670b4
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73678185"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110025"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade da Web no Azure Data Factory
 A atividade da Web pode ser usada para chamar um ponto de extremidade REST personalizado de um pipeline do Data Factory. Você pode passar conjuntos de dados e serviços vinculados a serem consumidos e acessados pela atividade.
@@ -63,15 +63,15 @@ A atividade da Web pode ser usada para chamar um ponto de extremidade REST perso
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
+Propriedade | Descrição | Allowed values | Obrigatório
 -------- | ----------- | -------------- | --------
-Nome | Nome da atividade da Web | Cadeia de caracteres | Sim
-Tipo | Deve ser definido como **WebActivity**. | Cadeia de caracteres | Sim
-estático | Método da API REST para o ponto de extremidade de destino. | Cadeia de caracteres. <br/><br/>Tipos com suporte: "GET", "POST", "PUT" | Sim
+{1&gt;name&lt;1} | Nome da atividade da Web | String | Sim
+type | Deve ser definido como **WebActivity**. | String | Sim
+{1&gt;método&lt;1} | Método da API REST para o ponto de extremidade de destino. | Cadeia de Caracteres. <br/><br/>Tipos com suporte: "GET", "POST", "PUT" | Sim
 url | Ponto de extremidade de destino e o caminho | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres). A atividade atingirá o tempo limite em 1 minuto com um erro se não receber uma resposta do ponto de extremidade. | Sim
-headers | Cabeçalhos que são enviados para a solicitação. Por exemplo, para definir o idioma e o tipo em uma solicitação: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Sim, o cabeçalho Content-Type é necessário. `"headers":{ "Content-Type":"application/json"}`
-corpo | Representa o conteúdo enviado para o ponto de extremidade.  | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres). <br/><br/>Consulte o esquema da carga de solicitação na seção [Esquema de carga de solicitação](#request-payload-schema). | Necessário para os métodos PUT/POST.
-Autenticação | Método de autenticação usado para chamar o ponto de extremidade. Os tipos com suporte são "Basic ou ClientCertificate." Para obter mais informações, consulte a seção [Autenticação](#authentication). Se a autenticação não for necessária, exclua essa propriedade. | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Não
+cabeçalhos | Cabeçalhos que são enviados para a solicitação. Por exemplo, para definir o idioma e o tipo em uma solicitação: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Sim, o cabeçalho Content-Type é necessário. `"headers":{ "Content-Type":"application/json"}`
+body | Representa o conteúdo enviado para o ponto de extremidade.  | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres). <br/><br/>Consulte o esquema da carga de solicitação na seção [Esquema de carga de solicitação](#request-payload-schema). | Necessário para os métodos PUT/POST.
+autenticação | Método de autenticação usado para chamar o ponto de extremidade. Os tipos com suporte são "Basic ou ClientCertificate." Para obter mais informações, consulte a seção [Autenticação](#authentication). Se a autenticação não for necessária, exclua essa propriedade. | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Não
 conjuntos de dados | Lista de conjuntos de dados passados para o ponto de extremidade. | Matriz de referências do conjunto de dados. Pode ser uma matriz vazia. | Sim
 linkedServices | Lista de serviços vinculados passado ao ponto de extremidade. | Matriz de referências de serviço vinculado. Pode ser uma matriz vazia. | Sim
 
@@ -82,18 +82,22 @@ A tabela a seguir mostra os requisitos para o conteúdo JSON:
 
 | Tipo de valor | Corpo da solicitação | Corpo da resposta |
 |---|---|---|
-|Objeto JSON | Suportado | Suportado |
-|Matriz JSON | Suportado <br/>(No momento, matrizes JSON não funcionam como resultado de um bug. A correção está em andamento.) | Sem suporte |
-| Valor JSON | Suportado | Sem suporte |
+|Objeto JSON | Com suporte | Com suporte |
+|Matriz JSON | Com suporte <br/>(No momento, matrizes JSON não funcionam como resultado de um bug. A correção está em andamento.) | Sem suporte |
+| Valor JSON | Com suporte | Sem suporte |
 | Tipo não-JSON | Sem suporte | Sem suporte |
 ||||
 
 ## <a name="authentication"></a>Autenticação
 
+Abaixo estão os tipos de autenticação com suporte na atividade da Web.
+
 ### <a name="none"></a>Nenhum
+
 Se a autenticação não for necessária, não inclua a propriedade "authentication".
 
 ### <a name="basic"></a>Basic
+
 Especifique o nome de usuário e senha a serem usados com a autenticação básica.
 
 ```json
@@ -105,6 +109,7 @@ Especifique o nome de usuário e senha a serem usados com a autenticação bási
 ```
 
 ### <a name="client-certificate"></a>Certificado do cliente
+
 Especifique o conteúdo codificado em base64 de um arquivo PFX e a senha.
 
 ```json
@@ -125,6 +130,9 @@ Especifique o URI do recurso para o qual o token de acesso será solicitado usan
     "resource": "https://management.azure.com/"
 }
 ```
+
+> [!NOTE]
+> Se sua data factory estiver configurada com um repositório git, você deverá armazenar suas credenciais no Azure Key Vault para usar a autenticação básica ou de certificado do cliente. Azure Data Factory não armazena senhas no git.
 
 ## <a name="request-payload-schema"></a>Solicitar esquema de carga
 Quando você usa o método PUT/POST, a propriedade body representa a carga que é enviada para o ponto de extremidade. Você pode passar serviços vinculados e conjuntos de dados como parte da carga. Aqui está o esquema para a carga:
@@ -149,7 +157,7 @@ Quando você usa o método PUT/POST, a propriedade body representa a carga que �
 }
 ```
 
-## <a name="example"></a>Exemplo
+## <a name="example"></a>{1&gt;Exemplo&lt;1}
 Neste exemplo, a atividade da Web no pipeline chama um ponto de extremidade REST. Ele passa um serviço vinculado do SQL do Azure e um conjunto de dados SQL do Azure para o ponto de extremidade. O ponto de extremidade REST usa a cadeia de conexão do SQL do Azure para se conectar ao SQL Server do Azure e retorna o nome da instância do SQL Server.
 
 ### <a name="pipeline-definition"></a>Definição de pipeline
@@ -243,7 +251,7 @@ public HttpResponseMessage Execute(JObject payload)
 
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Consulte outras atividades de fluxo de controle com suporte pelo Data Factory:
 
 - [Atividade de execução de pipeline](control-flow-execute-pipeline-activity.md)
