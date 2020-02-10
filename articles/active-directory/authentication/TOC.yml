@@ -4,16 +4,13 @@
   items:
     - name: O que é a autenticação?
       href: overview-authentication.md
-- name: Guia de Início Rápido
-  items:
-    - name: Configurar a redefinição de senha
-      href: quickstart-sspr.md
 - name: Tutoriais
+  expanded: true
   items:
-    - name: 1 - Habilitar a Autenticação Multifator para aplicativos
+    - name: Habilitar a redefinição de senha por autoatendimento
+      href: tutorial-enable-sspr.md
+    - name: Habilitar o MFA para aplicativos
       href: tutorial-mfa-applications.md
-    - name: 2 - Habilitar um piloto de SSPR
-      href: tutorial-sspr-pilot.md
     - name: Habilitar a integração local de SSPR
       href: tutorial-enable-writeback.md
     - name: Integrar o Azure Identity Protection

@@ -28,7 +28,7 @@
   items:
     - name: Azure PowerShell
       href: ./ag/powershell-samples.md
-    - name: Modelos do Resource Manager
+    - name: Modelos do Gerenciador de Recursos
       href: ./ag/resource-manager-template-samples.md
 - name: Conceitos
   items:
@@ -44,6 +44,8 @@
           href: ./ag/application-gateway-waf-configuration.md
         - name: Visão geral da política do WAF
           href: ./ag/policy-overview.md
+        - name: Visão geral da proteção contra bots
+          href: ./ag/bot-protection-overview.md
     - name: Front Door
       items:
         - name: Regras personalizadas
@@ -110,7 +112,7 @@
       items:
         - name: Solucionar problemas do WAF
           href: ./ag/web-application-firewall-troubleshoot.md
-        - name: Análise de logs
+        - name: Log Analytics
           href: ./ag/log-analytics.md
 - name: Referência
   items:

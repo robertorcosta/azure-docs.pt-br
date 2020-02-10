@@ -25,6 +25,9 @@
         - name: Criar um experimento de ML automatizado
           displayName: 'automl, automated, auto ml, portal, ui'
           href: tutorial-first-experiment-automated-ml.md
+        - name: Previsão de demanda com ML automatizado (dados de compartilhamento de bicicletas)
+          displayName: 'automl, automated, auto ml, portal, ui'
+          href: tutorial-automated-ml-forecast.md
     - name: SDK do Python
       items:
         - name: Criar primeiro experimento do ML
@@ -120,7 +123,7 @@
             - name: Usar redes virtuais
               displayName: 'vnet, blob'
               href: how-to-enable-virtual-network.md
-            - name: Proteger o serviços Web com SSL
+            - name: Proteger o servidor Web com SSL
               href: how-to-secure-web-service.md
             - name: Regenerar chaves de acesso de armazenamento
               href: how-to-change-storage-access-key.md
@@ -131,7 +134,7 @@
           href: monitor-azure-machine-learning.md
     - name: Integração da Grade de Eventos
       href: concept-event-grid-integration.md
-    - name: Aprendizado profundo
+    - name: Aprendizado
       displayName: 'deep learning vs machine learning, deep learning, vs, versus'
       href: concept-deep-learning-vs-machine-learning.md
 - name: Guias de instruções
@@ -167,7 +170,7 @@
         - name: Integração do Git
           displayName: github gitlab
           href: concept-train-model-git-integration.md
-    - name: Trabalhar com os dados
+    - name: Trabalhar com dados
       items:
         - name: Conectar-se aos dados no Armazenamento do Azure
           displayName: 'blob, get, fileshare, access storage, mount, download'
@@ -222,7 +225,7 @@
             - name: Prever atrasos nos voos
               displayName: 'classification, studio'
               href: how-to-designer-sample-classification-flight-delay.md
-            - name: Classificação de textos
+            - name: Classificação de texto
               displayName: 'classification, studio'
               href: how-to-designer-sample-text-classification.md
         - name: Estimadores de uso para o ML
@@ -246,7 +249,7 @@
           href: how-to-train-keras.md
         - name: PyTorch
           href: how-to-train-pytorch.md
-        - name: Chainer
+        - name: Encadeador
           href: how-to-train-chainer.md
     - name: Interpretar modelos
       displayName: interpretability
@@ -284,7 +287,7 @@
         - name: Métricas de logs para execuções de treinamento
           href: how-to-track-experiments.md
         - name: Acompanhar experimentos com o MLflow
-          displayName: 'log, monitor, metrics'
+          displayName: 'log, monitor, metrics, Databricks'
           href: how-to-use-mlflow.md
         - name: Visualizar execuções com o TensorBoard
           displayName: 'log, monitor, metrics'
@@ -395,7 +398,7 @@
       href: reference-pipeline-yaml.md
 - name: Recursos
   items:
-    - name: Notas sobre a versão
+    - name: Notas de versão
       displayName: 'what''s, new, issues, bugs'
       href: azure-machine-learning-release-notes.md
     - name: Roteiro do Azure

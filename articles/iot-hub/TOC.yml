@@ -93,7 +93,7 @@
       href: iot-hub-device-management-overview.md
     - name: Comparar Hub IoT e Hubs de Eventos
       href: iot-hub-compare-event-hubs.md
-    - name: Escolher o nível certo
+    - name: Escolher a camada certa
       href: iot-hub-scaling.md
     - name: Alta disponibilidade e recuperação de desastre
       href: iot-hub-ha-dr.md
@@ -114,27 +114,27 @@
     - name: Guia do desenvolvedor
       href: iot-hub-devguide.md
       items:
-        - name: Guia de recursos do dispositivo para nuvem
+        - name: Guia de recursos do dispositivo para a nuvem
           href: iot-hub-devguide-d2c-guidance.md
-        - name: Guia de recursos da nuvem para dispositivo
+        - name: Guia de recursos da nuvem para o dispositivo
           href: iot-hub-devguide-c2d-guidance.md
         - name: Enviar e receber mensagens
           href: iot-hub-devguide-messaging.md
           items:
-            - name: Use esta encaminhamento de mensagens para enviar mensagens do dispositivo para nuvem
+            - name: Use esta encaminhamento de mensagens para enviar mensagens do dispositivo para a nuvem
               href: iot-hub-devguide-messages-d2c.md
               items:
                 - name: Criar e ler mensagens do Hub IoT
                   href: iot-hub-devguide-messages-construct.md
-                - name: Ler mensagens de dispositivo para nuvem do ponto de extremidade interno
+                - name: Ler mensagens de dispositivo para a nuvem do ponto de extremidade interno
                   href: iot-hub-devguide-messages-read-builtin.md
-                - name: Usar regras de roteamentos e pontos de extremidade personalizados para mensagens de dispositivo para nuvem
+                - name: Usar regras de roteamentos e pontos de extremidade personalizados para mensagens de dispositivo para a nuvem
                   href: iot-hub-devguide-messages-read-custom.md
                 - name: Adicionar consultas a rotas de mensagens
                   href: iot-hub-devguide-routing-query-syntax.md
             - name: Reagir a eventos do Hub IoT
               href: iot-hub-event-grid.md
-            - name: Enviar mensagens de nuvem para dispositivo do Hub IoT
+            - name: Enviar mensagens de nuvem para o dispositivo do Hub IoT
               href: iot-hub-devguide-messages-c2d.md
             - name: Escolha um protocolo de comunicação
               href: iot-hub-devguide-protocols.md
@@ -216,7 +216,7 @@
           href: iot-hub-query-avro-data.md
         - name: Ordenar eventos de estado de conexão do dispositivo na Grade de Eventos
           href: iot-hub-how-to-order-connection-state-events.md
-        - name: Envie mensagens da nuvem para dispositivo
+        - name: Envie mensagens da nuvem para o dispositivo
           items:
             - name: .NET
               href: iot-hub-csharp-csharp-c2d.md
@@ -270,7 +270,7 @@
               href: iot-hub-java-java-device-management-getstarted.md
             - name: Python
               href: iot-hub-python-python-device-management-get-started.md
-        - name: Agendar e difundir trabalhos
+        - name: Agendar e transmitir trabalhos
           items:
             - name: Node.js
               href: iot-hub-node-node-schedule-jobs.md
@@ -286,9 +286,9 @@
           items:
             - name: Usar o portal do Azure
               href: iot-hub-create-through-portal.md
-            - name: Usar o Azure IoT Tools para VS Code
+            - name: Usar as ferramentas do Azure IoT para VS Code
               href: iot-hub-create-use-iot-toolkit.md
-            - name: Usar o Azure PowerShell
+            - name: Usar PowerShell do Azure
               href: iot-hub-create-using-powershell.md
             - name: Usar a CLI do Azure
               href: iot-hub-create-using-cli.md
@@ -303,7 +303,7 @@
           items:
             - name: Usar o portal do Azure
               href: iot-hub-configure-file-upload.md
-            - name: Usar o Azure PowerShell
+            - name: Usar PowerShell do Azure
               href: iot-hub-configure-file-upload-powershell.md
             - name: Usar a CLI do Azure
               href: iot-hub-configure-file-upload-cli.md
@@ -352,7 +352,7 @@
               href: iot-hub-arduino-iot-devkit-az3166-door-monitor.md
         - name: Cenários de IoT estendidos
           items:
-            - name: Gerenciar as mensagens para os dispositivos na nuvem com o Azure IoT Tools para VS Code
+            - name: Gerenciar as mensagens para os dispositivos na nuvem com as ferramentas do Azure IoT para VS Code
               href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
             - name: Gerenciar mensagens de dispositivos em nuvem com o Cloud Explorer para Visual Studio
               href: iot-hub-visual-studio-cloud-device-messaging.md
@@ -362,7 +362,7 @@
               href: iot-hub-live-data-visualization-in-web-apps.md
             - name: Previsão do tempo usando o Azure Machine Learning
               href: iot-hub-weather-forecast-machine-learning.md
-            - name: Gerenciamento de dispositivos com o Azure IoT Tools para VS Code
+            - name: Gerenciamento de dispositivos com as ferramentas do Azure IoT para VS Code
               href: iot-hub-device-management-iot-toolkit.md
             - name: Gerenciar dispositivos com o Cloud Explorer para Visual Studio
               href: iot-hub-device-management-visual-studio.md
@@ -388,7 +388,7 @@
               href: iot-hub-troubleshoot-error-403006-devicemaximumactivefileuploadlimitexceeded.md
             - name: 404001 DeviceNotFound
               href: iot-hub-troubleshoot-error-404001-devicenotfound.md
-            - name: 404003 DeviceNotOnline
+            - name: 404103 DeviceNotOnline
               href: iot-hub-troubleshoot-error-404103-devicenotonline.md
             - name: DeviceConnectionClosedRemotely 404104
               href: iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md
@@ -448,7 +448,7 @@
   items:
     - name: Soluções
       items:
-        - name: IoT Central
+        - name: Central da IoT
           href: 'https://docs.microsoft.com/microsoft-iot-central/'
         - name: Aceleradores de solução do IoT
           href: /azure/iot-accelerators
@@ -458,7 +458,7 @@
           href: /azure/iot-hub
         - name: IoT Plug and Play
           href: /azure/iot-pnp
-        - name: Serviço de Provisionamento de Dispositivos no Hub IoT
+        - name: Provisionamento de Dispositivos no Hub IoT
           href: /azure/iot-dps
         - name: SDKs do Serviço de IoT
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
@@ -488,13 +488,13 @@
       href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
     - name: Catálogo de dispositivos Azure Certified para IoT
       href: 'https://catalog.azureiotsolutions.com/'
-    - name: Centro de Desenvolvedores do Azure IoT
+    - name: Centro de Desenvolvedores do IoT do Azure
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Solicitações de dados do cliente
       href: iot-hub-customer-data-requests.md
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=iot'
-    - name: Azure IoT Tools
+    - name: Ferramentas do Azure IoT
       href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools'
     - name: ferramenta DeviceExplorer
       href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'

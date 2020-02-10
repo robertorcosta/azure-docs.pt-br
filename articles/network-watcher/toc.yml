@@ -7,6 +7,8 @@
 - name: Inícios rápidos
   expanded: true
   items:
+    - name: Monitor de Conexão (Versão Prévia)
+      href: connection-monitor-2-preview.md
     - name: Diagnosticar o problema de filtro de tráfego da VM - Portal
       href: diagnose-vm-network-traffic-filtering-problem.md
     - name: Diagnosticar o problema de filtro de tráfego da VM - PowerShell

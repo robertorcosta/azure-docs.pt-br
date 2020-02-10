@@ -1,0 +1,67 @@
+### YamlMime:Landing
+title: Documentação de provisionamento de RH e aplicativo
+summary: O provisionamento de aplicativo do Azure Active Directory permite criar e gerenciar identidades de usuário automaticamente em seus aplicativos de nuvem (SaaS). O Azure AD também oferece provisionamento com aplicativos de RH (recursos humanos) baseados em nuvem. Saiba como gerenciar e implantar o provisionamento de RH e aplicativo de nuvem com nossos guias de início rápido, tutoriais e orientações.
+metadata:
+  title: Documentação de provisionamento de aplicativo
+  description: O provisionamento de aplicativo do Azure Active Directory permite criar e gerenciar identidades de usuário automaticamente em seus aplicativos de nuvem (SaaS). O Azure AD também oferece provisionamento com aplicativos de RH (recursos humanos) baseados em nuvem. Saiba como gerenciar e implantar o provisionamento de RH e aplicativo de nuvem com nossos guias de início rápido, tutoriais e orientações.
+  ms.service: active-directory
+  ms.subservice: app-mgmt
+  ms.workload: identity
+  ms.topic: landing-page
+  ms.date: 02/06/2020
+  author: msmimart
+  ms.author: mimart
+  manager: celested
+  ms.openlocfilehash: 02d9ee235de798e0c6095e0cbf60c08eabec53cd
+  ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 02/07/2020
+  ms.locfileid: "77065494"
+landingContent:
+- title: Provisionar usuários e grupos a um aplicativo de nuvem
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o provisionamento de aplicativo?
+      url: user-provisioning.md
+    - text: Como funciona o provisionamento
+      url: how-provisioning-works.md
+  - linkListType: tutorial
+    links:
+    - text: Provisionamento de Autenticação de Identidade do SAP Cloud Platform
+      url: /azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - text: Provisionamento de ERP do Oracle Fusion
+      url: /azure/active-directory/saas-apps/oracle-fusion-erp-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - text: Provisionamento de Nuvem da Atlassian
+      url: /azure/active-directory/saas-apps/atlassian-cloud-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+  - linkListType: how-to-guide
+    links:
+    - text: Adicionando um aplicativo da galeria? Configurar provisionamento para o aplicativo
+      url: configure-automatic-user-provisioning-portal.md
+    - text: Personalizar mapeamentos do atributo
+      url: customize-application-attributes.md
+    - text: Usar filtros de escopo
+      url: define-conditional-rules-for-provisioning-user-accounts.md
+- title: Desenvolver um aplicativo usando o SCIM para provisionamento
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Provisionamento com SCIM (blog de Padrões de Identidade)
+      url: https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010
+  - linkListType: how-to-guide
+    links:
+    - text: Está desenvolvendo um aplicativo? Usar o SCIM para provisionamento automático
+      url: use-scim-to-provision-users-and-groups.md
+- title: Gerenciar o provisionamento de RH na nuvem de entrada
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Planejar uma implantação de provisionamento do usuário de RH na nuvem
+      url: plan-cloud-hr-provision.md
+  - linkListType: tutorial
+    links:
+    - text: Provisionamento do Workday
+      url: /azure/active-directory/saas-apps/workday-inbound-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - text: Provisionamento do SAP SuccessFactors
+      url: /azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context

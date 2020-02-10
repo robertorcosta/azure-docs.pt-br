@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: eb0b5ea960aa7bc9158791d1fc9fa0986e7d99e6
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 20b667ae345e468bcd3db25d85b7c9de561af4bc
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281335"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111486"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Usar o banco de dados de acompanhamento para anexar bancos de dados no Azure Data Explorer
 
@@ -26,7 +26,7 @@ A anexação de um banco de dados a um cluster diferente usando a funcionalidade
 * Um único cluster pode seguir os bancos de dados de vários clusters de líder. 
 * Um cluster pode conter bancos de dados de acompanhamento e bancos de dados de preenchimento
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 1. Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 1. [Crie cluster e BD](/azure/data-explorer/create-cluster-database-portal) para o líder e o acompanhamento.
@@ -61,7 +61,7 @@ var followerResourceGroupName = "followerResouceGroup";
 var leaderResourceGroup = "leaderResouceGroup";
 var leaderClusterName = "leader";
 var followerClusterName = "follower";
-var attachedDatabaseConfigurationName = "adc";
+var attachedDatabaseConfigurationName = "uniqueNameForAttachedDatabaseConfiguration";
 var databaseName = "db"; // Can be specific database name or * for all databases
 var defaultPrincipalsModificationKind = "Union"; 
 var location = "North Central US";
@@ -113,7 +113,7 @@ follower_resource_group_name = "followerResouceGroup"
 leader_resouce_group_name = "leaderResouceGroup"
 follower_cluster_name = "follower"
 leader_cluster_name = "leader"
-attached_database_Configuration_name = "adc"
+attached_database_Configuration_name = "uniqueNameForAttachedDatabaseConfiguration"
 database_name  = "db" # Can be specific database name or * for all databases
 default_principals_modification_kind  = "Union"
 location = "North Central US"
@@ -180,7 +180,7 @@ Nesta seção, você aprenderá a anexar um banco de dados a um cluster existent
     "variables": {},
     "resources": [
         {
-            "name": "[concat(parameters('followerClusterName'), '/', parameters('attachedDatabaseConfigurationsName'))]",
+            "name": "[parameters('attachedDatabaseConfigurationsName')]",
             "type": "Microsoft.Kusto/clusters/attachedDatabaseConfigurations",
             "apiVersion": "2019-09-07",
             "location": "[parameters('location')]",
@@ -206,8 +206,8 @@ Você pode implantar o modelo de Azure Resource Manager [usando o portal do Azur
 
 |**Configuração**  |**Descrição**  |
 |---------|---------|
-|Nome do cluster de acompanhamento     |  O nome do cluster de acompanhamento.  |
-|Nome das configurações do banco de dados anexado    |    O nome do objeto de configurações de banco de dados anexado. O nome deve ser exclusivo no nível do cluster.     |
+|Nome do cluster de acompanhamento     |  O nome do cluster de acompanhamento. Esse é o cluster no qual este modelo será implantado.  |
+|Nome das configurações do banco de dados anexado    |    O nome do objeto de configurações de banco de dados anexado. O nome pode ser qualquer cadeia de caracteres, desde que seja exclusivo no nível do cluster.     |
 |Nome do Banco de Dados     |      O nome do banco de dados a ser seguido. Se você quiser seguir todos os bancos de dados do líder, use ' * '.   |
 |ID de recurso de cluster de líder    |   A ID de recurso do cluster de líder.      |
 |Tipo de modificação de entidades de segurança padrão    |   O tipo de modificação principal padrão. Pode ser `Union`, `Replace` ou `None`. Para obter mais informações sobre o tipo de modificação principal padrão, consulte o [comando de controle do tipo de modificação principal](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind).      |
@@ -250,7 +250,7 @@ var resourceManagementClient = new KustoManagementClient(serviceCreds){
 var followerResourceGroupName = "testrg";
 //The cluster and database that are created as part of the prerequisites
 var followerClusterName = "follower";
-var attachedDatabaseConfigurationsName = "adc";
+var attachedDatabaseConfigurationsName = "uniqueName";
 
 resourceManagementClient.AttachedDatabaseConfigurations.Delete(followerResourceGroupName, followerClusterName, attachedDatabaseConfigurationsName);
 ```
@@ -278,7 +278,7 @@ var followerClusterName = "follower";
 //The cluster and database that are created as part of the Prerequisites
 var followerDatabaseDefinition = new FollowerDatabaseDefinition()
     {
-        AttachedDatabaseConfigurationName = "adc",
+        AttachedDatabaseConfigurationName = "uniqueName",
         ClusterResourceId = $"/subscriptions/{followerSubscriptionId}/resourceGroups/{followerResourceGroupName}/providers/Microsoft.Kusto/Clusters/{followerClusterName}"
     };
 
@@ -312,7 +312,7 @@ kusto_management_client = KustoManagementClient(credentials, follower_subscripti
 
 follower_resource_group_name = "followerResouceGroup"
 follower_cluster_name = "follower"
-attached_database_configurationName = "adc"
+attached_database_configurationName = "uniqueName"
 
 #Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kusto_management_client.attached_database_configurations.delete(follower_resource_group_name, follower_cluster_name, attached_database_configurationName)
@@ -348,7 +348,7 @@ follower_resource_group_name = "followerResourceGroup"
 leader_resource_group_name = "leaderResourceGroup"
 follower_cluster_name = "follower"
 leader_cluster_name = "leader"
-attached_database_configuration_name = "adc"
+attached_database_configuration_name = "uniqueName"
 location = "North Central US"
 cluster_resource_id = "/subscriptions/" + follower_subscription_id + "/resourceGroups/" + follower_resource_group_name + "/providers/Microsoft.Kusto/Clusters/" + follower_cluster_name
 
@@ -388,6 +388,6 @@ O administrador de banco de dados de acompanhamento pode modificar a [política 
 * Não é possível excluir um cluster que tenha um banco de dados anexado a um cluster diferente antes de desanexá-lo.
 * Não é possível parar um cluster que tenha bancos de dados de acompanhamento ou de líder anexados. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para obter informações sobre a configuração do cluster de acompanhamento, consulte [comandos de controle para gerenciar um cluster de acompanhamento](/azure/kusto/management/cluster-follower).

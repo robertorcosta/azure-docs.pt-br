@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: danlep
-ms.openlocfilehash: b2f5a9bacf96eb098e307a6a8df3e13cb9d04bd0
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: f3294698f6973437a23fab798e8daf5642cc9b49
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513409"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111773"
 ---
 # <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Usar uma identidade gerenciada pelo Azure em tarefas ACR 
 
@@ -84,19 +84,19 @@ Você pode obter a ID de recurso da identidade executando o comando [AZ Identity
 
 ### <a name="3-grant-the-identity-permissions-to-access-other-azure-resources"></a>3. conceder as permissões de identidade para acessar outros recursos do Azure
 
-Dependendo dos requisitos da sua tarefa, conceda permissões de identidade para acessar outros recursos do Azure. Por exemplo:
+Dependendo dos requisitos da sua tarefa, conceda permissões de identidade para acessar outros recursos do Azure. Os exemplos incluem:
 
 * Atribua a identidade gerenciada uma função com pull, push e pull ou outras permissões a um registro de contêiner de destino no Azure. Para obter uma lista completa de funções de registro, consulte [funções e permissões do registro de contêiner do Azure](container-registry-roles.md). 
 * Atribua à identidade gerenciada uma função para ler segredos em um cofre de chaves do Azure.
 
 Use o [CLI do Azure](../role-based-access-control/role-assignments-cli.md) ou outras ferramentas do Azure para gerenciar o acesso baseado em função aos recursos. Por exemplo, execute o comando [AZ role Assignment Create][az-role-assignment-create] para atribuir a identidade uma função ao recurso. 
 
-O exemplo a seguir atribui uma identidade gerenciada às permissões para efetuar pull de um registro de contêiner. O comando especifica a *ID da entidade de serviço* da identidade e a *ID de recurso* do registro de destino.
+O exemplo a seguir atribui uma identidade gerenciada às permissões para efetuar pull de um registro de contêiner. O comando especifica a *ID da entidade de segurança* da tarefa e a *ID de recurso* do registro de destino.
 
 
 ```azurecli
 az role assignment create \
-  --assignee <servicePrincipalID> \
+  --assignee <principalID> \
   --scope <registryID> \
   --role acrpull
 ```
@@ -131,7 +131,7 @@ Você pode obter a ID do cliente da identidade executando o comando [AZ Identity
 
 Depois de configurar uma tarefa com uma identidade gerenciada, execute a tarefa. Por exemplo, para testar uma das tarefas criadas neste artigo, acione-a manualmente usando o comando [AZ ACR Task execute][az-acr-task-run] . Se você tiver configurado gatilhos de tarefa automatizados adicionais, a tarefa será executada quando disparado automaticamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste artigo, você aprendeu como habilitar e usar uma identidade gerenciada atribuída pelo usuário ou pelo sistema em uma tarefa ACR. Para cenários para acessar recursos protegidos de uma tarefa ACR usando uma identidade gerenciada, consulte:
 

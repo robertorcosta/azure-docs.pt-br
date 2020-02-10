@@ -2,7 +2,7 @@
   href: index.yml
 - name: Visão geral
   items:
-    - name: O que é o Azure Data Explorer?
+    - name: O que é o Gerenciador de dados do Azure?
       href: data-explorer-overview.md
 - name: Inícios rápidos
   expanded: true
@@ -34,7 +34,7 @@
           href: ingest-data-overview.md
     - name: Visão geral da visualização de dados
       href: viz-overview.md
-    - name: Visão Geral de Segurança
+    - name: Visão geral da segurança
       href: security.md
 - name: Guias de instruções
   items:
@@ -98,7 +98,7 @@
           href: ingest-data-kafka.md
         - name: Logstash
           href: ingest-data-logstash.md
-        - name: dados formatados em json
+        - name: Dados formatados em JSON
           href: ingest-json-formats.md
     - name: Consultar dados
       items:
@@ -110,7 +110,7 @@
           href: query-monitor-data.md
         - name: Depurar Python embutido em KQL
           href: debug-inline-python.md
-        - name: Uso de SDKs
+        - name: usando SDKs
           items:
             - name: Python
               href: python-query-data.md
@@ -120,7 +120,7 @@
               href: time-series-analysis.md
             - name: Detecção de anomalias e previsão
               href: anomaly-detection.md
-            - name: Machine Learning
+            - name: Aprendizado de máquina
               href: machine-learning-clustering.md
     - name: Visualizar dados
       items:
@@ -206,7 +206,7 @@
           items:
             - name: Excluir dados
               href: delete-data.md
-            - name: Lidar com os dados duplicados
+            - name: Lidar com dados duplicados
               href: dealing-with-duplicates.md
     - name: Implantar
       items:
@@ -220,7 +220,7 @@
           href: using-metrics.md
     - name: Integrar com outras ferramentas
       items:
-        - name: Azure Data Factory
+        - name: Fábrica de dados do Azure
           items:
             - name: Integração com o Data Factory
               href: data-factory-integration.md

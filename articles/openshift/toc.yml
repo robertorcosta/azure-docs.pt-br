@@ -47,6 +47,8 @@
             - name: Desabilitar o Azure Monitor para contêineres
               href: ../azure-monitor/insights/container-insights-optout-openshift.md
               maintainContext: true
+    - name: Executar contêineres privilegiados em um cluster do Red Hat OpenShift no Azure
+      href: howto-run-privileged-containers.md
 - name: Referência
   items:
     - name: CLI do Red Hat OpenShift no Azure
@@ -57,7 +59,7 @@
   items:
     - name: Perguntas comuns
       href: openshift-faq.md
-    - name: solução de problemas
+    - name: Solução de problemas
       href: troubleshoot.md
     - name: Recursos compatíveis
       href: supported-resources.md

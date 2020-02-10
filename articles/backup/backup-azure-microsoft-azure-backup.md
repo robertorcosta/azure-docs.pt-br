@@ -3,12 +3,12 @@ title: Usar Servidor de Backup do Azure para fazer backup de cargas de trabalho
 description: Neste artigo, saiba como preparar seu ambiente para proteger e fazer backup de cargas de trabalho usando o Backup do Microsoft Azure Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: db2bac3464939edc5dec2ee2947faf7a05ad6812
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ff5df19d3e2d42af9a45fbc1b71980cee1cdb8a0
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979883"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111605"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar o Servidor de Backup do Azure
 
@@ -51,7 +51,7 @@ Proteger as cargas de trabalho com o Servidor de Backup do Azure tem muitas nuan
 
 Se você não deseja executar o servidor de base no Azure, poderá executar o servidor em uma VM do Hyper-V, uma VM do VMware ou um host físico. Os requisitos mínimos recomendados para o hardware do servidor são dois núcleos e 8 GB de RAM. Os sistemas operacionais com suporte são listados na seguinte tabela:
 
-| Sistema Operacional | Plataforma | SKU |
+| Sistema Operacional | Platform | SKU |
 |:--- | --- |:--- |
 | Windows Server 2019 |64 bits |Standard, Datacenter, Essentials |
 | Windows Server 2016 e SPs mais recentes |64 bits |Standard, Datacenter, Essentials  |
@@ -62,10 +62,12 @@ Você pode eliminar duplicadas do armazenamento DPM usando a Eliminação de Dup
 > O Servidor de Backup do Azure foi projetado para ser executado em um servidor dedicado de finalidade única. Você não pode instalar o Servidor de Backup do Azure em:
 >
 > * Um computador que esteja sendo executado como um controlador de domínio
-> * Um computador no qual a função de Servidor de Aplicativos está instalada
+> * Um computador no qual a função Servidor de Aplicativos está instalada
 > * Um computador que seja um servidor de gerenciamento do System Center Operations Manager
-> * Um computador que o Exchange Server está executando
-> * Um computador que seja um nó de um cluster
+> * Um computador que está executando o Exchange Server
+> * Um computador que é um nó de um cluster
+>
+> Não há suporte para a instalação do Servidor de Backup do Azure no Windows Server Core ou Microsoft Hyper-V Server.
 
 Sempre ingresse o Servidor de Backup do Azure em um domínio. Se você planeja mover o servidor para um domínio diferente, primeiro instale o Servidor de Backup do Azure e, em seguida, associe o servidor ao novo domínio. Mover uma máquina do Servidor de Backup do Azure existente para um novo domínio após a implantação *não tem suporte*.
 
@@ -286,11 +288,11 @@ Quando você souber o estado da conectividade do Azure e da assinatura do Azure,
 | Estado de conectividade | Assinatura do Azure | Fazer backup no Azure | Fazer backup em disco | Restaurar do Azure | Restaurar do disco |
 | --- | --- | --- | --- | --- | --- |
 | Conectado |Ativo |Permitido |Permitido |Permitido |Permitido |
-| Conectado |Expirado |Parada |Parada |Permitido |Permitido |
-| Conectado |Provisionamento Cancelado |Parada |Parada |Parado e pontos de recuperação do Azure excluídos |Parada |
-| Perda de conectividade > 15 dias |Ativo |Parada |Parada |Permitido |Permitido |
-| Perda de conectividade > 15 dias |Expirado |Parada |Parada |Permitido |Permitido |
-| Perda de conectividade > 15 dias |Provisionamento Cancelado |Parada |Parada |Parado e pontos de recuperação do Azure excluídos |Parada |
+| Conectado |Expirado |Parado |Parado |Permitido |Permitido |
+| Conectado |Provisionamento Cancelado |Parado |Parado |Parado e pontos de recuperação do Azure excluídos |Parado |
+| Perda de conectividade > 15 dias |Ativo |Parado |Parado |Permitido |Permitido |
+| Perda de conectividade > 15 dias |Expirado |Parado |Parado |Permitido |Permitido |
+| Perda de conectividade > 15 dias |Provisionamento Cancelado |Parado |Parado |Parado e pontos de recuperação do Azure excluídos |Parado |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperação de perda de conectividade
 
@@ -346,7 +348,7 @@ Use as etapas a seguir para fazer upgrade do MABS:
 Se o servidor de Backup do Microsoft Azure falha com erros durante a fase de instalação (ou no backup ou na restauração), consulte o [documento de códigos de erro](https://support.microsoft.com/kb/3041338) para saber mais.
 Você também pode consultar as [Perguntas frequentes relacionadas ao Backup do Azure](backup-azure-backup-faq.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 É possível obter informações detalhadas sobre como [preparar seu ambiente para o DPM](https://technet.microsoft.com/library/hh758176.aspx) no site do Microsoft TechNet. Ele também contém informações sobre as configurações com suporte, nas quais o Servidor de Backup do Azure pode ser implantado e usado. É possível usar uma série de [cmdlet do PowerShell](https://docs.microsoft.com/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016) para executar várias operações.
 

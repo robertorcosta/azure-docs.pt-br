@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: notification-hubs
 author: sethmanheim
 ms.service: notification-hubs
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/21/2019
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: ef2b98821b28d8a49e5f16bf1c6ac176eb8b5793
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: b9f434f2d3c06d3db0bfda7c5853cc835ff64035
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74407262"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047756"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Gerar o arquivo de solicitação de assinatura de certificado
 
@@ -26,6 +26,10 @@ Gere o arquivo CSR (Solicitação de Assinatura de Certificado), usado pela Appl
 1. Selecione **Acesso do Conjunto de Chaves**, expanda **Assistente de Certificado** e selecione **Solicitar um Certificado de uma Autoridade de Certificação**.
 
     ![Usar o Acesso de conjunto de chaves para solicitar um novo certificado](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-request-cert-from-ca.png)
+    
+> [!NOTE]
+> Por padrão, o OS X seleciona o primeiro item na categoria que você selecionou na Ferramenta de Acesso do Conjunto de Chaves. Isso pode ser problemático se você está na seção **Certificados** e a **Autoridade de Certificação de Relacionamentos do Desenvolvedor Mundial da Apple** *não* for o primeiro item da lista. Antes de solicitar um certificado, verifique se você está na seção **Certificados** e, em seguida, selecione **Autoridade de Certificação de Relacionamento do Desenvolvedor Mundial da Apple**.
+
 
 1. Selecione seu **Endereço de Email do Usuário**, insira o valor do seu **Nome Comum**, verifique se você especificou **Salvo em disco** e, em seguida, selecione **Continuar**. Deixe **Endereço de Email de AC** em branco, pois isso não é necessário.
 

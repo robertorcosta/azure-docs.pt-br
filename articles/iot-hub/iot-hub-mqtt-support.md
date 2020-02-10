@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: e1559dbab2503ded957b17c0cc6a61a06c53fffc
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 694697be85b61ad2d59a0a4be1ced3581873cb77
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110733"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111746"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicar com o hub IoT usando o protocolo MQTT
 
@@ -44,7 +44,7 @@ Quando um dispositivo está conectado a um Hub IoT, os SDKs do dispositivo forne
 
 A tabela a seguir contém links para exemplos de código para cada idioma com suporte e especifica o parâmetro a ser usado para estabelecer uma conexão com o Hub IoT usando o protocolo MQTT ou MQTT over Web Sockets.
 
-| Idioma | Parâmetro de protocolo MQTT | Parâmetro do protocolo MQTT over Web Sockets
+| Linguagem | Parâmetro de protocolo MQTT | Parâmetro do protocolo MQTT over Web Sockets
 | --- | --- | --- |
 | [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | Azure-IOT-Device-MQTT. MQTT | Azure-IOT-Device-MQTT. MqttWs |
 | [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable). MQTT | IotHubClientProtocol. MQTT_WS |
@@ -71,7 +71,7 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
 Para garantir que uma conexão de cliente/Hub IoT permaneça ativa, tanto o serviço quanto o cliente enviam regularmente um ping de *Keep-Alive* entre si. O cliente que usa o SDK do IoT envia uma Keep-Alive no intervalo definido nesta tabela abaixo:
 
-|Idioma  |Intervalo de Keep-Alive padrão  |Configurável  |
+|Linguagem  |Intervalo de Keep-Alive padrão  |Configurável  |
 |---------|---------|---------|
 |Node.js     |   180 segundos      |     Não    |
 |Java     |    230 segundos     |     Não    |
@@ -175,7 +175,7 @@ Este repositório contém:
 
 • LinuxConsoleVS2019: contém o mesmo código, mas em um projeto VS2019 direcionado a WSL (subsistema Linux do Windows). Este projeto permite que você depure o código em execução no Linux passo a passo do Visual Studio.
 
-**Por mosquito_pub:**
+**Por mosquitto_pub:**
 
 • Essa pasta contém dois comandos de exemplos usados com a ferramenta de utilitário mosquitto_pub fornecida pelo Mosquitto.org.
 
