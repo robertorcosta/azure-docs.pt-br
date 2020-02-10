@@ -8,7 +8,7 @@
     - name: Comparar as APIs de Pesquisa do Bing
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: Guia de início rápido
+- name: Inícios rápidos
   items:
     - name: API REST
       items:
@@ -16,7 +16,7 @@
           href: csharp.md
         - name: Usando Java
           href: java.md
-        - name: Usando o Node.js
+        - name: Usando Node.js
           href: nodejs.md
         - name: Usando o PHP
           href: php.md
@@ -30,7 +30,7 @@
       items:
         - name: 'Usando C#'
           href: news-search-sdk-quickstart.md
-        - name: Usando o Node.js
+        - name: Usando Node.js
           href: news-search-sdk-node-quickstart.md
         - name: Usando Python
           href: news-sdk-python-quickstart.md
@@ -56,10 +56,6 @@
       href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Fazer upgrade da v5 para v7 da API
       href: bing-news-upgrade-guide-v5-to-v7.md
-    - name: Trabalhar com o Visual Studio
-      items:
-        - name: Use o serviço conectado da Pesquisa de Notícias do Bing
-          href: vs-bing-news-search-connected-service.md
 - name: Conceitos
   items:
     - name: Enviar consultas de pesquisa

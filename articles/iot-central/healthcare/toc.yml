@@ -13,7 +13,7 @@
     - name: Arquitetura do monitoramento contínuo do paciente
       href: concept-continuous-patient-monitoring-architecture.md
     - name: Conectividade
-      href: ../preview/overview-iot-central-get-connected.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+      href: ../core/concepts-get-connected.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
     - name: O que são modelos de aplicativo?
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
 - name: Guias de instruções
@@ -23,45 +23,45 @@
     - name: Conectar dispositivos
       items:
         - name: Preparar e conectar um MXChip IoT DevKit
-          href: ../preview/howto-connect-devkit.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-connect-devkit.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Preparar e conectar um Rigado Cascade 500
-          href: ../preview/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Monitorar a conectividade do dispositivo usando a CLI do Azure
-          href: ../preview/howto-monitor-devices-azure-cli.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-monitor-devices-azure-cli.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
     - name: Gerenciar dispositivos
       items:
         - name: Gerenciar seus dispositivos
-          href: ../preview/howto-manage-devices.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-manage-devices.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Executar um trabalho
           href: ../core/howto-run-a-job.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Modelo do dispositivo de versão
-          href: ../preview/howto-version-device-template.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-version-device-template.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
     - name: Monitoramento e análise
       items:
         - name: Analisar dados do dispositivo
-          href: ../preview/howto-create-analytics.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-create-analytics.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Criar webhooks em regras
-          href: ../preview/howto-create-webhooks.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-create-webhooks.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
     - name: Ações e extensibilidade
       items:
         - name: Configure a exportação contínua de dados
-          href: ../preview/howto-export-data.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-export-data.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Criar regras personalizadas
-          href: ../preview/howto-create-custom-rules.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-create-custom-rules.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Criar análises personalizadas com o Databricks
-          href: ../preview/howto-create-custom-analytics.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
     - name: Administração
       items:
         - name: Alterar as configurações de aplicativo
-          href: ../preview/howto-administer.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-administer.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Exportar seu aplicativo
-          href: ../preview/howto-use-app-templates.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-use-app-templates.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Gerenciar usuários e funções
-          href: ../preview/howto-manage-users-roles.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-manage-users-roles.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Gerenciar sua fatura
-          href: ../preview/howto-view-bill.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-view-bill.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Personalizar a interface do usuário do aplicativo
-          href: ../preview/howto-customize-ui.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-customize-ui.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Adicionar blocos ao dashboard
           href: ../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Gerenciar usando o portal do Azure

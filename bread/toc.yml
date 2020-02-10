@@ -194,19 +194,16 @@
             - name: Central da IoT
               tocHref: /azure/iot-central/core/
               topicHref: /azure/iot-central/core/
-            - name: IoT Central (versão prévia dos recursos)
-              tocHref: /azure/iot-central/preview/
-              topicHref: /azure/iot-central/preview/
-            - name: IoT Central para Energia (versão prévia dos recursos)
+            - name: IoT Central para Energia
               tocHref: /azure/iot-central/energy/
               topicHref: /azure/iot-central/energy/
-            - name: IoT Central para Governo (versão prévia dos recursos)
+            - name: IoT Central para Governo
               tocHref: /azure/iot-central/government/
               topicHref: /azure/iot-central/government/
-            - name: IoT Central para Serviços de saúde (versão prévia dos recursos)
+            - name: IoT Central nos Serviços de saúde
               tocHref: /azure/iot-central/healthcare/
               topicHref: /azure/iot-central/healthcare/
-            - name: IoT Central para Varejo (versão prévia dos recursos)
+            - name: IoT Central para Varejo
               tocHref: /azure/iot-central/retail/
               topicHref: /azure/iot-central/retail/
         - name: IoT Edge

@@ -64,8 +64,6 @@
           href: how-tos/text-analytics-how-to-use-container-instances.md
         - name: Usar AKS (serviço de Kubernetes do Azure)
           href: how-tos/text-analytics-how-to-use-kubernetes-service.md
-    - name: Usar o serviço conectado da análise de texto
-      href: vs-text-connected-service.md
 - name: Referência
   items:
     - name: Referência da CLI

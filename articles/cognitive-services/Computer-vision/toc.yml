@@ -5,7 +5,7 @@
   items:
     - name: O que é a Pesquisa Visual Computacional?
       href: Home.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   items:
     - name: Usando o SDK do cliente
       items:
@@ -135,8 +135,6 @@
         - name: Usar instâncias de contêiner
           href: deploy-computer-vision-on-container-instances.md
           displayName: 'container instances, container, containers, images'
-    - name: Use serviço conectado da Pesquisa Visual Computacional
-      href: vs-computer-vision-connected-service.md
     - name: Analisar vídeos em tempo real
       href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Referência
