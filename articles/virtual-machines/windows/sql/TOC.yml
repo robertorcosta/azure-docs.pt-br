@@ -6,7 +6,7 @@
       href: ../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2ftoc.json&bc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2fbreadcrumb%2ftoc.json
     - name: Alterações do documento
       href: virtual-machines-windows-sql-server-iaas-release-notes.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   items:
     - name: Criar VM do SQL – Portal
       href: quickstart-sql-vm-create-portal.md
@@ -22,7 +22,7 @@
           href: virtual-machines-windows-sql-security.md
         - name: Padrões de aplicativo
           href: virtual-machines-windows-sql-server-app-patterns-dev-strategies.md
-    - name: Continuidade dos negócios
+    - name: Continuidade de negócios
       items:
         - name: Opções de alta disponibilidade
           href: virtual-machines-windows-sql-high-availability-dr.md
@@ -74,7 +74,7 @@
         - name: Modelo de licenciamento
           displayName: 'ahb, ahub, payg, change, modify, update'
           href: virtual-machines-windows-sql-ahb.md
-        - name: Edição
+        - name: Edition
           displayName: 'change, modify, update'
           href: virtual-machines-windows-sql-change-edition.md
         - name: Armazenamento do Azure para backup e restauração
@@ -97,9 +97,11 @@
               href: virtual-machines-windows-sql-availability-group-quickstart-template.md
             - name: Várias regiões
               href: virtual-machines-windows-portal-sql-availability-group-dr.md
+            - name: Independente de domínio (grupo de trabalho)
+              href: virtual-machines-windows-sql-workgroup-availability-group.md
             - name: Configurar manualmente
               items:
-                - name: Pré-requisitos
+                - name: Prerequisites
                   href: virtual-machines-windows-portal-sql-availability-group-prereq.md
                 - name: Tutorial
                   href: virtual-machines-windows-portal-sql-availability-group-tutorial.md
@@ -107,7 +109,7 @@
                   href: virtual-machines-windows-portal-sql-alwayson-int-listener.md
                 - name: Load Balancer – Azure PowerShell
                   href: virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md
-        - name: Instância do Cluster de Failover
+        - name: Instância de Cluster de Failover
           items:
             - name: Com Espaços de Armazenamento Diretos
               href: virtual-machines-windows-portal-sql-create-failover-cluster.md
@@ -131,7 +133,7 @@
       href: virtual-machines-windows-sql-server-iaas-faq.md
     - name: Preços
       href: virtual-machines-windows-sql-server-pricing-guidance.md
-    - name: SSDT (Ferramentas de Dados do SQL Server)
+    - name: SQL Server Data Tools (SSDT)
       href: 'https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt'
     - name: SQL Server Management Studio (SSMS)
       href: 'https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms'

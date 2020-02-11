@@ -1,31 +1,29 @@
 ---
-title: 'Início Rápido: Listar vozes de texto em fala, Python – Serviço de Fala'
+title: Listar vozes de texto em fala, Python – Serviço de Fala
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, você aprenderá como obter a lista completa de vozes neurais e padrão para um região/ponto de extremidade usando o Python. A lista é retornada como JSON e disponibilidade de voz varia por região.
+description: Neste artigo, você aprenderá a obter a lista completa de vozes neurais e padrão para uma região ou um ponto de extremidade usando o Python. A lista é retornada como JSON, e a disponibilidade de voz varia por região.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 12/09/2019
-ms.author: erhopf
-ms.openlocfilehash: c645d01dd37fd370911019446c99c76c9da6221c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
-ms.translationtype: HT
+ms.topic: how-to
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: 51fe6cea80e097f34432ab8dc7293c758bd8d720
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975968"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119800"
 ---
-# <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>Início Rápido: Obter a lista de vozes da conversão de texto em fala usando Python
+# <a name="get-the-list-of-text-to-speech-voices-using-python"></a>Obter a lista de vozes da conversão de texto em fala usando Python
 
-Neste início rápido, você aprenderá como obter a lista completa de vozes neurais e padrão para um região/ponto de extremidade usando o Python. A lista é retornada como JSON e disponibilidade de voz varia por região. Para obter uma lista das regiões com suporte, confira [regiões](regions.md).
+Neste artigo, você aprenderá a obter a lista completa de vozes neurais e padrão para uma região ou um ponto de extremidade usando o Python. A lista é retornada como JSON, e a disponibilidade de voz varia por região. Para obter uma lista das regiões com suporte, confira [regiões](regions.md).
 
-Este início rápido requer uma [Conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso do serviço de Fala. Se não tiver uma conta, você poderá usar a [avaliação gratuita](get-started.md) para obter uma chave de assinatura.
+Este artigo exige uma conta dos [Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com o recurso do serviço de Fala. Se não tiver uma conta, você poderá usar a [avaliação gratuita](get-started.md) para obter uma chave de assinatura.
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-Este início rápido requer:
+## <a name="prerequisites"></a>Prerequisites
 
 * Python 2.7.x ou 3.x
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) ou seu editor de texto favorito
@@ -80,9 +78,9 @@ def get_token(self):
 
 ## <a name="make-a-request-and-save-the-response"></a>Faça uma solicitação e salve a resposta
 
-Aqui você vai criar a solicitação e salvar a lista de vozes retornadas. Primeiro, você precisa definir `base_url` e `path`. Este exemplo supõe que você esteja usando o endpoint do West US. Se o seu recurso estiver registrado em uma região diferente, atualize o `base_url`. Para obter mais informações, confira [Regiões do serviço de Fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Aqui você criará a solicitação e salvará a lista de vozes retornadas. Primeiro, você precisa definir `base_url` e `path`. Este exemplo supõe que você esteja usando o endpoint do West US. Se o seu recurso estiver registrado em uma região diferente, atualize o `base_url`. Para obter mais informações, confira [Regiões do serviço de Fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-Em seguida, adicione cabeçalhos obrigatórios para a solicitação. Finalmente, você fará uma solicitação ao serviço. Se a solicitação for obtida com êxito e um código de status 200 for retornado, a resposta de será gravada no arquivo.
+Em seguida, adicione cabeçalhos obrigatórios para a solicitação. Finalmente, você fará uma solicitação ao serviço. Se a solicitação for bem-sucedida e um código de status 200 for retornado, a resposta será gravada no arquivo.
 
 Copie este código para a classe `GetVoices`:
 
@@ -125,7 +123,7 @@ E, pronto, você já pode executar o exemplo. Na linha de comando (ou sessão de
 python get-voices.py
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Remova todas as informações confidenciais do código-fonte do seu aplicativo de exemplo, como as chaves de assinatura.
 
@@ -134,7 +132,7 @@ Remova todas as informações confidenciais do código-fonte do seu aplicativo d
 > [!div class="nextstepaction"]
 > [Explorar exemplos do Python no GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Referência de API de texto em fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Criar fontes de voz personalizada](how-to-customize-voice-font.md)

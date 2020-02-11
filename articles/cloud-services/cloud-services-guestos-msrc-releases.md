@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 01/24/2020
+ms.date: 02/07/2020
 ms.author: raiye
-ms.openlocfilehash: a38685ba4cca4df2c2ae1a52e46626072135408d
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: cca79946c0537b75335eb2e64ae1fa429f2c8d18
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049871"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087238"
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. As atualizações sempre são postergadas para a [família][family-explain] específica em que foram introduzidas.
@@ -42,9 +42,9 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 |  Rel 20-01  |  [4494174]  |  V4 de microcódigo  | [6,15] | 29 de agosto de 2019 |
 |  Rel 20-01  |  [4532947]  |  Segurança do Windows  | [6,15] | 14 de janeiro de 2020 |
 |  Rel 20-01  |  [4534273]  |  LCU  | [6,15] | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4530734]  |  Não segurança  | [2,94] | 10 de dezembro de 2019 |
+|  Rel 20-01  |  [4530734]  |  ROLLUP mensal  | [2,94] | 10 de dezembro de 2019 |
 |  Rel 20-01  |  [4530691]  |  ROLLUP mensal   | [3,81] | 10 de dezembro de 2019 |
-|  Rel 20-01  |  [4530702]  |  Não segurança  | [4,74] | 10 de dezembro de 2019 |
+|  Rel 20-01  |  [4530702]  |  ROLLUP mensal  | [4,74] | 10 de dezembro de 2019 |
 
 [4532960]: https://support.microsoft.com/kb/4532960
 [4534251]: https://support.microsoft.com/kb/4534251
