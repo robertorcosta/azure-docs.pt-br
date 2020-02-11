@@ -74,7 +74,7 @@ Nesta seção, você criará duas VMs *myIISVMEastUS* e *myIISVMWestEurope* nas 
 3. Selecione a guia **Gerenciamento** ou selecione **Avançar: Discos**, em seguida, **Avançar: Rede** e, em seguida, **Avançar: Gerenciamento**. Em **Monitoramento**, defina **Diagnóstico de inicialização** como **Desativado**.
 4. Selecione **Examinar + criar**.
 5. Examine as configurações e, em seguida, clique em **Criar**.  
-6. Siga as etapas para criar uma segunda VM chamada *myIISVMWestEurope*, com o nome de **Grupo de recursos***myResourceGroupTM2*, a **localização***Oeste da Europa* e todas as outras configurações iguais a *myIISVMEastUS*.
+6. Siga as etapas para criar uma segunda VM chamada *myIISVMWestEurope*, com o nome de **Grupo de recursos** *myResourceGroupTM2*, a **localização** *Oeste da Europa* e todas as outras configurações iguais a *myIISVMEastUS*.
 7. As VMs podem levar alguns minutos para serem criadas. Não continue com as etapas restantes até que ambas as VMs sejam criadas.
 
 #### <a name="install-iis-and-customize-the-default-web-page"></a>Instalar o IIS e personalizar a página da Web padrão
@@ -142,7 +142,7 @@ Nesta seção, você criará uma VM (*myVMEastUS* e *myVMWestEurope*) em cada re
 3. Selecione a guia **Gerenciamento** ou selecione **Avançar: Discos**, em seguida, **Avançar: Rede** e, em seguida, **Avançar: Gerenciamento**. Em **Monitoramento**, defina **Diagnóstico de inicialização** como **Desativado**.
 4. Selecione **Examinar + criar**.
 5. Examine as configurações e, em seguida, clique em **Criar**.  
-6. Execute as etapas para criar uma segunda VM chamada *myVMWestEurope*, com o nome de **Grupo de recursos***myResourceGroupTM2*, a **localização***Oeste da Europa* e todas as outras configurações iguais a *myVMEastUS*.
+6. Execute as etapas para criar uma segunda VM chamada *myVMWestEurope*, com o nome de **Grupo de recursos** *myResourceGroupTM2*, a **localização** *Oeste da Europa* e todas as outras configurações iguais a *myVMEastUS*.
 7. As VMs podem levar alguns minutos para serem criadas. Não continue com as etapas restantes até que ambas as VMs sejam criadas.
 
 ## <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gerenciador de Tráfego
