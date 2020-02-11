@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
+ms.date: 02/10/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dab35fbcd221af9f4eb587b8c98a8ff85aeef59f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 9becb91cfffd4553b2b8aa1a2d616963eae92ab0
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982782"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114062"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definir um perfil técnico de senha de uso único em uma política personalizada de Azure AD B2C
 
@@ -51,7 +51,7 @@ O primeiro modo deste perfil técnico é gerar um código. Abaixo estão as opç
 
 O elemento **InputClaims** contém uma lista de declarações necessárias para enviar para o provedor de protocolo de senha de uso único. Você também pode mapear o nome da sua declaração para o nome definido abaixo.
 
-| ClaimReferenceId | Obrigatório | Description |
+| ClaimReferenceId | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | identificador | Sim | O identificador para identificar o usuário que precisa verificar o código posteriormente. Normalmente, ele é usado como o identificador do destino para o qual o código é entregue, por exemplo, endereço de email ou número de telefone. |
 
@@ -61,7 +61,7 @@ O elemento **InputClaimsTransformations** pode conter uma coleção de elementos
 
 O elemento **OutputClaims** contém uma lista de declarações geradas pelo provedor de protocolo de senha de uso único. Você também pode mapear o nome da sua declaração para o nome definido abaixo.
 
-| ClaimReferenceId | Obrigatório | Description |
+| ClaimReferenceId | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | otpGenerated | Sim | O código gerado cuja sessão é gerenciada pelo Azure AD B2C. |
 
@@ -71,7 +71,7 @@ O elemento **OutputClaimsTransformations** pode conter uma coleção de elemento
 
 As configurações a seguir podem ser usadas para configurar a geração e a manutenção de código:
 
-| Atributo | Obrigatório | Description |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | CodeExpirationInSeconds | Não | Tempo em segundos até a expiração do código. Mínimo: `60`; Máximo: `1200`; Padrão: `600`. |
 | CodeLength | Não | Comprimento do código. O valor padrão é `6`. |
@@ -117,7 +117,7 @@ O segundo modo desse perfil técnico é verificar um código. Abaixo estão as o
 
 O elemento **InputClaims** contém uma lista de declarações necessárias para enviar para o provedor de protocolo de senha de uso único. Você também pode mapear o nome da sua declaração para o nome definido abaixo.
 
-| ClaimReferenceId | Obrigatório | Description |
+| ClaimReferenceId | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | identificador | Sim | O identificador para identificar o usuário que gerou um código anteriormente. Normalmente, ele é usado como o identificador do destino para o qual o código é entregue, por exemplo, endereço de email ou número de telefone. |
 | otpToVerify | Sim | O código de verificação fornecido pelo usuário. |
@@ -134,7 +134,7 @@ O elemento **OutputClaimsTransformations** pode conter uma coleção de elemento
 
 As configurações a seguir podem ser usadas para configurar a mensagem de erro exibida após a falha de verificação de código:
 
-| Atributo | Obrigatório | Description |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | UserMessageIfSessionDoesNotExist | Não | A mensagem a ser exibida para o usuário se a sessão de verificação de código tiver expirado. O código expirou ou o código nunca foi gerado para um determinado identificador. |
 | UserMessageIfMaxRetryAttempted | Não | A mensagem a ser exibida para o usuário se ele tiver excedido o máximo de tentativas de verificação permitidas. |
@@ -168,3 +168,10 @@ O `TechnicalProfile` de exemplo a seguir é usado para verificar um código:
     </InputClaims>
 </TechnicalProfile>
 ```
+
+## <a name="next-steps"></a>Próximas etapas
+
+Consulte o seguinte artigo para obter um exemplo de como usar o perfil de técnicos de senha de uso único com a verificação de email personalizada:
+
+- [Verificação de email personalizada no Azure Active Directory B2C](custom-email.md)
+

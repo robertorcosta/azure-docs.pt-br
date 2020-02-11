@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11a5e92ccf1104f36b3f2b045f9922158b1f7330
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: d7d8a7881c00427023e5f174461b3d8b24d83444
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064134"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121455"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: configurar o Workplace by Facebook para provisionamento automático de usuários
 
@@ -43,7 +43,9 @@ Se a integração do local de trabalho estiver em quarentena, você precisará f
 
 https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true
 
- 
+#### <a name="how-can-i-tell-if-my-application-has-been-migrated"></a>Como saber se meu aplicativo foi migrado? 
+Quando seu aplicativo for migrado, a faixa na seção de autorização sobre alterações de upcomm será removida e o campo de token secreto será substituído por um botão de autorização azul. 
+
 #### <a name="the-admin-credentials-section-is-greyed-out-on-my-application-and-i-cant-save-why"></a>A seção de credenciais de administrador está esmaecida no meu aplicativo e não consigo salvar. Por quê?
 Bloqueamos a seção de credenciais de administrador para clientes existentes do local de trabalho. Quando seu locatário tiver sido migrado para o novo aplicativo de local de trabalho, você poderá atualizar a seção de credenciais de administrador novamente. Se você não puder esperar, poderá usar a URL acima para editar seu aplicativo. 
 

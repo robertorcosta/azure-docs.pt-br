@@ -1,5 +1,5 @@
 ---
-title: Gerenciar suas credenciais de conta do Armazenamento do StorSimple para dispositivos Microsoft Azure StorSimple da série 8000 | Microsoft Docs
+title: Gerenciar credenciais de conta de armazenamento, dispositivo StorSimple da série 8000
 description: Explica como você pode usar a página Configurar o Gerenciador de Dispositivos do StorSimple para adicionar, editar, excluir ou girar as chaves de segurança para uma conta de armazenamento.
 services: storsimple
 documentationcenter: NA
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 53aa442b86f5c82ded2f212a64f43852e6b3d2c5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 11bc97be7ff8d924f7ccd0b4672a8f4cb0a178ff
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60632528"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116324"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para gerenciar as credenciais da sua conta de armazenamento
 
@@ -54,7 +54,7 @@ As tarefas mais comuns relacionadas a contas de armazenamento que podem ser exec
 
 Há três tipos de contas de armazenamento que podem ser usadas com o dispositivo StorSimple.
 
-* **Contas de armazenamento geradas automaticamente** – Como o nome sugere, esse tipo de conta de armazenamento é gerada automaticamente quando o serviço é criado pela primeira vez. Para saber mais sobre como essa conta de armazenamento é criada, confira [Etapa 1: Criar um novo serviço](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) em [Implantar seu dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md). 
+* **Contas de armazenamento geradas automaticamente** – Como o nome sugere, esse tipo de conta de armazenamento é gerada automaticamente quando o serviço é criado pela primeira vez. Para saber mais sobre como essa conta de armazenamento é criada, consulte a [Etapa 1: criar um novo serviço](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) em [Implantar seu dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md). 
 * **Contas de armazenamento na assinatura do serviço** – Essas são as contas de armazenamento do Azure que estão associadas com a mesma assinatura que o serviço. Para saber mais sobre como essas contas de armazenamento são criadas, consulte [Sobre Contas de Armazenamento do Azure](../storage/common/storage-create-storage-account.md). 
 * **Contas de armazenamento fora do serviço de assinatura** – Essas são as contas de armazenamento do Azure que não estão associadas ao seu serviço e que provavelmente existiam antes da criação do serviço.
 

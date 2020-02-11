@@ -10,13 +10,13 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
-ms.openlocfilehash: 99f4d8d854334b047caf36406f21890cde7eda16
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.date: 02/10/2020
+ms.openlocfilehash: 0bfaef72be23f148c01e02e910b11128cec1659e
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77082942"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116729"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de Azure Machine Learning de os
 
@@ -172,7 +172,9 @@ Para criar um conjunto de um DataSet no estúdio:
 1. Selecione **conjuntos** de itens na seção **ativos** do painel esquerdo. 
 1. Selecione **criar conjunto** de um para escolher a origem do conjunto de seus conjuntos de um. Essa fonte pode ser arquivos locais, um repositório de armazenamento ou URLs públicas.
 1. Selecione **tabela** ou **arquivo** para o tipo de conjunto de texto.
-1. Selecione **Avançar** para revisar as **configurações e Visualizar**, **esquema** e confirmar formulários de **detalhes** ; Eles são preenchidos de forma inteligente com base no tipo de arquivo. Use esses formulários para verificar suas seleções e configurar ainda mais seu conjunto de informações antes da criação.  
+1. Selecione **Avançar** para abrir o formulário **repositório de armazenamento e seleção de arquivo** . Neste formulário, você seleciona onde deseja manter o conjunto de dados após a criação, bem como selecionar quais arquivos que deseja usar para o conjunto. 
+1. Selecione **Avançar** para popular as **configurações e** os formulários de visualização e **esquema** ; Eles são populados de forma inteligente com base no tipo de arquivo e você pode configurar ainda mais seu conjunto de informações antes da criação nesses formulários. 
+1. Selecione **Avançar** para examinar o formulário **confirmar detalhes** . Verifique suas seleções e crie um perfil de dados opcional para seu conjunto de dados. Saiba mais sobre a [criação de perfil de dados](how-to-create-portal-experiments.md#profile). 
 1. Selecione **criar** para concluir a criação do conjunto de seus conjuntos de os.
 
 ## <a name="register-datasets"></a>Registrar conjuntos de os

@@ -10,13 +10,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.author: marsma
 ms.subservice: B2C
-ms.date: 02/05/2020
-ms.openlocfilehash: b701449e8cfb7a379522ee6ccb93f5569bd703d8
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.date: 02/10/2020
+ms.openlocfilehash: 6f7f0252a6377397ccaccdc44c9c8561da7c9d29
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77046001"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121386"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitorar Azure AD B2C com Azure Monitor
 
@@ -24,13 +24,13 @@ Use Azure Monitor para rotear logs de entrada e [auditoria](view-audit-logs.md) 
 
 Você pode rotear eventos de log para:
 
-* Uma conta de armazenamento do Azure.
-* Um hub de eventos do Azure (e integre com suas instâncias de lógica Splunk e do resumo).
-* Um espaço de trabalho do Azure Log Analytics (para analisar dados, criar painéis e alertar sobre eventos específicos).
+* Uma [conta de armazenamento](../storage/blobs/storage-blobs-introduction.md)do Azure.
+* Um [Hub de eventos](../event-hubs/event-hubs-about.md) do Azure (e integre com suas instâncias de lógica Splunk e do resumo).
+* Um [espaço de trabalho log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) (para analisar dados, criar painéis e alertar sobre eventos específicos).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir as etapas neste artigo, você implanta um modelo de Azure Resource Manager usando o módulo Azure PowerShell.
 
@@ -42,15 +42,15 @@ Você também pode usar o [Azure cloud Shell](https://shell.azure.com), que incl
 
 Azure AD B2C aproveita [Azure Active Directory monitoramento](../active-directory/reports-monitoring/overview-monitoring.md). Para habilitar *as configurações de diagnóstico* no Azure Active Directory em seu locatário do Azure ad B2C, use o [Gerenciamento de recursos delegado](../lighthouse/concepts/azure-delegated-resource-management.md).
 
-Você autoriza um usuário em seu diretório de Azure AD B2C (o **provedor de serviços**) a configurar a instância de Azure monitor dentro do locatário que contém sua assinatura do Azure (o **cliente**). Para criar a autorização, você implanta um modelo de [Azure Resource Manager](../azure-resource-manager/index.yml) no seu locatário do Azure AD que contém a assinatura. As seções a seguir orientam você pelo processo.
+Você autoriza um usuário ou grupo em seu diretório de Azure AD B2C (o **provedor de serviços**) a configurar a instância de Azure monitor dentro do locatário que contém sua assinatura do Azure (o **cliente**). Para criar a autorização, você implanta um modelo de [Azure Resource Manager](../azure-resource-manager/index.yml) no seu locatário do Azure AD que contém a assinatura. As seções a seguir orientam você pelo processo.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-or-choose-resource-group"></a>Criar ou escolher grupo de recursos
 
-No locatário do Azure Active Directory (AD do Azure) que contém sua assinatura do Azure (*não* o diretório que contém o locatário Azure ad B2C), [crie um grupo de recursos](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). Use os seguintes valores:
+Esse é o grupo de recursos que contém a conta de armazenamento do Azure de destino, o Hub de eventos ou o espaço de trabalho Log Analytics para receber dados de Azure Monitor. Especifique o nome do grupo de recursos ao implantar o modelo de Azure Resource Manager.
 
-* **Assinatura**: selecione sua assinatura do Azure.
-* **Grupo de recursos**: Insira o nome do grupo de recursos. Por exemplo, *Azure-ad-B2C-monitor*.
-* **Região**: selecione um local do Azure. Por exemplo, *Centro dos EUA*.
+[Crie um grupo de recursos](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) ou escolha um existente no locatário Azure Active Directory (Azure AD) que contém sua assinatura do Azure, *não* o diretório que contém o locatário Azure ad B2C.
+
+Este exemplo usa um grupo de recursos chamado *Azure-ad-B2C-monitor* na região de *EUA Central* .
 
 ## <a name="delegate-resource-management"></a>Delegar gerenciamento de recursos
 
@@ -209,7 +209,17 @@ Depois de implantar o modelo e ter aguardado alguns minutos para que a projeçã
 
 ## <a name="configure-diagnostic-settings"></a>Definir as configurações de diagnóstico
 
-Depois de delegar o gerenciamento de recursos e selecionar sua assinatura, você estará pronto para [criar configurações de diagnóstico](../active-directory/reports-monitoring/overview-monitoring.md) no portal do Azure.
+As configurações de diagnóstico definem onde os logs e as métricas de um recurso devem ser enviados. Os possíveis destinos são:
+
+- [Conta de armazenamento do Azure](../azure-monitor/platform/resource-logs-collect-storage.md)
+- Soluções de [hubs de eventos](../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
+- [Espaço de Trabalho do Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md)
+
+Se você ainda não fez isso, crie uma instância do tipo de destino escolhido no grupo de recursos especificado no [modelo de Azure Resource Manager](#create-an-azure-resource-manager-template).
+
+### <a name="create-diagnostic-settings"></a>Criar configurações de diagnóstico
+
+Você está pronto para [criar configurações de diagnóstico](../active-directory/reports-monitoring/overview-monitoring.md) no portal do Azure.
 
 Para definir configurações de monitoramento para Azure AD B2C logs de atividades:
 
@@ -217,12 +227,24 @@ Para definir configurações de monitoramento para Azure AD B2C logs de atividad
 1. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e selecione o diretório que contém seu locatário Azure ad B2C.
 1. Selecionar **Azure Active Directory**
 1. Em **Monitoramento**, selecione **Configurações de diagnóstico**.
-1. Selecione **+ Adicionar configuração de diagnóstico**.
+1. Se houver configurações existentes no recurso, você verá uma lista de configurações já configuradas. Selecione **Adicionar configuração de diagnóstico** para adicionar uma nova configuração ou **Editar** configuração para editar uma existente. Cada configuração não pode ter mais de um de cada um dos tipos de destino.
 
     ![Painel de configurações de diagnóstico no portal do Azure](./media/azure-monitor/azure-monitor-portal-05-diagnostic-settings-pane-enabled.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+1. Dê um nome à sua configuração se ela ainda não tiver uma.
+1. Marque a caixa para cada destino para enviar os logs. Selecione **Configurar** para especificar suas configurações, conforme descrito na tabela a seguir.
 
-Para obter mais informações sobre como adicionar e definir configurações de diagnóstico no Azure Monitor, consulte este tutorial na documentação do Azure Monitor:
+    | Configuração | DESCRIÇÃO |
+    |:---|:---|
+    | Arquivar em uma conta de armazenamento | Nome da conta de armazenamento. |
+    | Transmitir para um hub de eventos | O namespace em que o Hub de eventos é criado (se esta for a primeira vez que os logs de streaming) ou transmitido (se já houver recursos que estão transmitindo essa categoria de log para esse namespace).
+    | Enviar para o Log Analytics | Nome do espaço de trabalho. |
 
-[Tutorial: coletar e analisar logs de recursos de um recurso do Azure](/azure-monitor/learn/tutorial-resource-logs.md)
+1. Selecione **AuditLogs** e **SignInLogs**.
+1. Clique em **Salvar**.
+
+## <a name="next-steps"></a>Próximas etapas
+
+Para obter mais informações sobre como adicionar e definir configurações de diagnóstico no Azure Monitor, consulte [tutorial: coletar e analisar logs de recursos de um recurso do Azure](../azure-monitor/insights/monitor-azure-resource.md).
+
+Para obter informações sobre streaming de logs do Azure AD para um hub de eventos, consulte [tutorial: transmitir Azure Active Directory logs para um hub de eventos do Azure](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).

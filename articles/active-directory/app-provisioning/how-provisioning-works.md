@@ -15,12 +15,12 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b24ad492f622fa9a3e494c7ead724fb3980f6668
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 1c3c0aea6ecaccc972702a8c87e4d127c71c75d6
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066844"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121357"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o provisionamento
 
@@ -62,7 +62,7 @@ Você pode personalizar mapeamentos de atributo padrão de acordo com suas neces
 
 Quando você configura o provisionamento de um aplicativo SaaS, um dos tipos de mapeamentos de atributos que você pode especificar é o mapeamento de expressão. Para esses mapeamentos, você deve escrever uma expressão do tipo script que permite transformar os dados dos usuários em formatos que são mais aceitáveis para o aplicativo SaaS. Para obter detalhes, consulte [escrevendo expressões para mapeamentos de atributo](functions-for-customizing-application-data.md).
 
-## <a name="scoping"></a>Escopo 
+## <a name="scoping"></a>Scoping 
 ### <a name="assignment-based-scoping"></a>Escopo baseado em atribuição
 
 Para o provisionamento de saída do Azure AD para um aplicativo SaaS, depender de [atribuições de usuário ou de grupo](../manage-apps/assign-user-or-group-access-portal.md) é a maneira mais comum de determinar quais usuários estão no escopo do provisionamento. Como as atribuições de usuário também são usadas para habilitar o logon único, o mesmo método pode ser usado para gerenciar o acesso e o provisionamento. O escopo baseado em atribuição não se aplica a cenários de provisionamento de entrada como workday e Successfactors.
@@ -86,6 +86,8 @@ Você pode usar filtros de escopo para definir regras baseadas em atributo que d
 ### <a name="b2b-guest-users"></a>Usuários B2B (convidados)
 
 É possível usar o serviço de provisionamento de usuário do Azure AD para provisionar usuários B2B (ou convidados) no Azure AD para aplicativos SaaS. No entanto, para que os usuários B2B entrem no aplicativo SaaS usando o Azure AD, o aplicativo SaaS deve ter seu recurso de logon único baseado em SAML configurado de forma específica. Para obter mais informações sobre como configurar aplicativos SaaS para dar suporte a entradas de usuários de B2B, consulte [Configurar aplicativos SaaS para colaboração B2B](../b2b/configure-saas-apps.md).
+
+Observe que o userPrincipalName de um usuário convidado geralmente é armazenado como "alias # EXT #@domain.com". Quando o userPrincipalName é incluído nos mapeamentos de atributo como um atributo de origem, o #EXT # é removido do userPrincipalName. Se você precisar que o #EXT # esteja presente, substitua userPrincipalName por originalUserPrincipalName como o atributo de origem. 
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>Ciclos de provisionamento: inicial e incremental
 
@@ -188,7 +190,7 @@ Se um dos quatro eventos acima ocorrer e o aplicativo de destino não oferecer s
 
 Se você vir um atributo IsSoftDeleted em seus mapeamentos de atributo, ele será usado para determinar o estado do usuário e se deseja enviar uma solicitação de atualização com Active = false para excluir a exclusão reversível do usuário. 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 [Planejar uma implantação de provisionamento de usuário automático](../app-provisioning/plan-auto-user-provisioning.md)
 

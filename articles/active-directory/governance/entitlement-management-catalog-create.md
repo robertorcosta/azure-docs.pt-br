@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24e82abd2c95bcbfdde843a6636a809bb3aeb70c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5895ed256fa5f0337b74d9dbe14c4074dad4b522
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422637"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120248"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Criar e gerenciar um catálogo de recursos no gerenciamento de direitos do Azure AD
 
@@ -51,6 +51,10 @@ Um catálogo é um contêiner de recursos e pacotes de acesso. Você cria um cat
 
 1. Clique em **criar** para criar o catálogo.
 
+### <a name="creating-a-catalog-programmatically"></a>Criando um catálogo programaticamente
+
+Você também pode criar um catálogo usando Microsoft Graph.  Um usuário em uma função apropriada com um aplicativo que tem a permissão `EntitlementManagement.ReadWrite.All` delegada pode chamar a API para [criar um accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-post?view=graph-rest-beta).
+
 ## <a name="add-resources-to-a-catalog"></a>Adicionar recursos a um catálogo
 
 Para incluir recursos em um pacote do Access, os recursos devem existir em um catálogo. Os tipos de recursos que você pode adicionar são grupos, aplicativos e sites do SharePoint Online. Os grupos podem ser grupos do Office 365 criados na nuvem ou grupos de segurança do Azure AD criados na nuvem. Os aplicativos podem ser aplicativos corporativos do Azure AD, incluindo aplicativos SaaS e seus próprios aplicativos federados para o Azure AD. Os sites podem ser sites do SharePoint Online ou coleções de sites do SharePoint Online.
@@ -76,6 +80,10 @@ Para incluir recursos em um pacote do Access, os recursos devem existir em um ca
 1. Quando terminar, clique em **Adicionar**.
 
     Esses recursos agora podem ser incluídos em pacotes do Access no catálogo.
+
+### <a name="adding-a-resource-to-a-catalog-programmatically"></a>Adicionando um recurso a um catálogo programaticamente
+
+Você também pode adicionar um recurso a um catálogo usando Microsoft Graph.  Um usuário em uma função apropriada, ou um proprietário de catálogo e recurso, com um aplicativo que tenha a permissão de `EntitlementManagement.ReadWrite.All` delegada pode chamar a API para [criar um accessPackageResourceRequest](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta).
 
 ## <a name="remove-resources-from-a-catalog"></a>Remover recursos de um catálogo
 
@@ -145,6 +153,10 @@ Você pode excluir um catálogo, mas somente se ele não tiver nenhum pacote de 
 
 1. Na caixa de mensagem que é exibida, clique em **Sim**.
 
-## <a name="next-steps"></a>Próximos passos
+### <a name="deleting-a-catalog-programmatically"></a>Excluindo um catálogo de forma programática
+
+Você também pode excluir um catálogo usando Microsoft Graph.  Um usuário em uma função apropriada com um aplicativo que tem a permissão `EntitlementManagement.ReadWrite.All` delegada pode chamar a API para [excluir um accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-delete?view=graph-rest-beta).
+
+## <a name="next-steps"></a>Próximas etapas
 
 - [Delegar governança de acesso para acessar gerenciadores de pacotes](entitlement-management-delegate-managers.md)

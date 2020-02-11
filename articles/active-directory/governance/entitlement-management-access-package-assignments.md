@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0501da153567f3b95804d8a8a6576d8cf199762c
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: d5a2107974cd63c0d02aaeb555430453c39990bd
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74553981"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120438"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Exibir, adicionar e remover atribuições para um pacote de acesso no gerenciamento de direitos do Azure AD
 
@@ -48,6 +48,10 @@ No gerenciamento de direitos do Azure AD, você pode ver quem foi atribuído a p
 1. Para ver as atribuições expiradas, clique no status do filtro e selecione **expirado**.
 
 1. Para baixar um arquivo CSV da lista filtrada, clique em **baixar**.
+
+### <a name="viewing-assignments-programmatically"></a>Exibindo atribuições programaticamente
+
+Você também pode recuperar atribuições em um pacote do Access usando Microsoft Graph.  Um usuário em uma função apropriada com um aplicativo que tem a permissão `EntitlementManagement.ReadWrite.All` delegada pode chamar a API para [listar accessPackageAssignments](https://docs.microsoft.com/graph/api/accesspackageassignment-list?view=graph-rest-beta).
 
 ## <a name="directly-assign-a-user"></a>Atribuir um usuário diretamente
 
@@ -77,6 +81,10 @@ Em alguns casos, talvez você queira atribuir diretamente usuários específicos
 
     Depois de alguns instantes, clique em **Atualizar** para ver os usuários na lista atribuições.
 
+### <a name="directly-assigning-users-programmatically"></a>Atribuição direta de usuários programaticamente
+
+Você também pode atribuir diretamente um usuário a um pacote do Access usando Microsoft Graph.  Um usuário em uma função apropriada com um aplicativo que tem a permissão `EntitlementManagement.ReadWrite.All` delegada pode chamar a API para [criar um accessPackageAssignmentRequest](https://docs.microsoft.com/graph/api/accesspackageassignmentrequest-post?view=graph-rest-beta).
+
 ## <a name="remove-an-assignment"></a>Remover uma atribuição
 
 **Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
@@ -95,7 +103,7 @@ Em alguns casos, talvez você queira atribuir diretamente usuários específicos
 
     Uma notificação será exibida informando que a atribuição foi removida. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Solicitações de alteração e configurações de um pacote de acesso](entitlement-management-access-package-request-policy.md)
 - [Exibir relatórios e logs](entitlement-management-reports.md)

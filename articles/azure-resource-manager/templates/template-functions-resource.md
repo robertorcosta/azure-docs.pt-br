@@ -2,13 +2,13 @@
 title: Funções de modelo – recursos
 description: Descreve as funções a serem usadas em um modelo do Azure Resource Manager para recuperar valores sobre recursos.
 ms.topic: conceptual
-ms.date: 01/20/2020
-ms.openlocfilehash: cfcc9ff3af33fe9de813d8a31b7d102f00725ce4
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.date: 02/10/2020
+ms.openlocfilehash: cc8976b714549f7442e22b341b34e81d717c8742
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048794"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120532"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos do Azure Resource Manager
 
@@ -34,9 +34,9 @@ extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ..
 
 Retorna a ID de recurso para um [recurso de extensão](../management/extension-resource-types.md), que é um tipo de recurso que é aplicado a outro recurso a ser adicionado aos seus recursos.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | resourceId |Sim |string |A ID de recurso para o recurso ao qual o recurso de extensão é aplicado. |
 | resourceType |Sim |string |Tipo de recurso, incluindo o namespace do provedor de recursos. |
@@ -114,9 +114,9 @@ list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)
 
 A sintaxe dessa função varia de acordo com o nome das operações de lista. Cada implementação retorna valores para o tipo de recurso compatível com uma operação de lista. O nome da operação deve começar com `list`. Alguns usos comuns são `listKeys` e `listSecrets`.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | resourceName ou resourceIdentifier |Sim |string |Identificador exclusivo para o recurso. |
 | apiVersion |Sim |string |Versão de API do estado de runtime do recurso. Normalmente, no formato **aaaa-mm-dd**. |
@@ -362,9 +362,9 @@ providers(providerNamespace, [resourceType])
 
 Retorna informações sobre um provedor de recursos e seus tipos de recursos com suporte. Se você não fornecer um tipo de recurso, a função retornará todos os tipos com suporte para o provedor de recursos.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | providerNamespace |Sim |string |Namespace do provedor |
 | resourceType |Não |string |O tipo de recurso no namespace especificado. |
@@ -439,9 +439,9 @@ reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
 
 Retorna um objeto que representa o estado de runtime de um recurso.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | resourceName ou resourceIdentifier |Sim |string |Nome ou identificador exclusivo de um recurso. Ao referenciar um recurso no modelo atual, forneça apenas o nome do recurso como parâmetro. Ao fazer referência a um recurso implantado anteriormente ou quando o nome do recurso for ambíguo, forneça a ID do recurso. |
 | apiVersion |Não |string |Versão da API do recurso especificado. Inclua esse parâmetro quando o recurso não estiver provisionado no mesmo modelo. Normalmente, no formato **aaaa-mm-dd**. Para obter as versões de API válidas para seu recurso, consulte [referência de modelo](/azure/templates/). |
@@ -752,14 +752,14 @@ O exemplo anterior retorna um objeto no seguinte formato:
 resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)
 ```
 
-Retorna o identificador exclusivo de um recurso. Você pode usar essa função quando o nome do recurso é ambíguo ou não provisionado no mesmo modelo.
+Retorna o identificador exclusivo de um recurso. Você pode usar essa função quando o nome do recurso é ambíguo ou não provisionado no mesmo modelo. O formato do identificador retornado varia de acordo com o fato de a implantação ocorrer no escopo de um grupo de recursos, assinatura, grupo de gerenciamento ou locatário.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Não |string (no formato GUID) |O valor padrão é a assinatura atual. Especifique esse valor quando você precisar recuperar um recurso em outra assinatura. |
-| resourceGroupName |Não |string |O valor padrão é o grupo de recursos atual. Especifique esse valor quando você precisar recuperar um recurso em outro grupo de recursos. |
+| resourceGroupName |Não |string |O valor padrão é o grupo de recursos atual. Especifique esse valor quando você precisar recuperar um recurso em outro grupo de recursos. Forneça esse valor apenas ao implantar no escopo de um grupo de recursos. |
 | resourceType |Sim |string |Tipo de recurso, incluindo o namespace do provedor de recursos. |
 | resourceName1 |Sim |string |Nome do recurso. |
 | resourceName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
@@ -768,7 +768,7 @@ Continue adicionando nomes de recursos como parâmetros quando o tipo de recurso
 
 ### <a name="return-value"></a>Valor retornado
 
-A ID do recurso é retornada no seguinte formato:
+Quando o modelo é implantado no escopo de um grupo de recursos, a ID do recurso é retornada no seguinte formato:
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -778,6 +778,12 @@ Quando usado em uma [implantação em nível de assinatura](deploy-to-subscripti
 
 ```json
 /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+```
+
+Quando usado em uma implantação em nível de [grupo de gerenciamento](deploy-to-management-group.md) ou implantação em nível de locatário, a ID de recurso é retornada no seguinte formato:
+
+```json
+/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
 Para obter a ID em outros formatos, consulte:
@@ -890,14 +896,14 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | {1&gt;Valor&lt;1} |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
-## <a name="subscription"></a>assinatura.
+## <a name="subscription"></a>subscription
 
 ```json
 subscription()
@@ -948,9 +954,9 @@ subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceN
 
 Retorna o identificador exclusivo de um recurso implantado no nível da assinatura.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Não |Cadeia de caracteres (no formato GUID) |O valor padrão é a assinatura atual. Especifique esse valor quando você precisar recuperar um recurso em outra assinatura. |
 | resourceType |Sim |string |Tipo de recurso, incluindo o namespace do provedor de recursos. |
@@ -1032,9 +1038,9 @@ tenantResourceId(resourceType, resourceName1, [resourceName2], ...)
 
 Retorna o identificador exclusivo de um recurso implantado no nível do locatário.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | resourceType |Sim |string |Tipo de recurso, incluindo o namespace do provedor de recursos. |
 | resourceName1 |Sim |string |Nome do recurso. |
@@ -1054,7 +1060,7 @@ O identificador é retornado no seguinte formato:
 
 Você usa essa função para obter a ID de recurso para um recurso que é implantado no locatário. A ID retornada difere dos valores retornados por outras funções de ID de recurso, não incluindo os valores de grupo de recursos ou de assinatura.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](template-syntax.md).
 * Para mesclar vários modelos, veja [Usando modelos vinculados com o Azure Resource Manager](linked-templates.md).

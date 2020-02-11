@@ -3,12 +3,12 @@ title: Fazer backup de arquivos do Azure com o PowerShell
 description: Neste artigo, saiba como fazer backup de arquivos do Azure usando o serviço de backup do Azure e o PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: a80589fb45937949b3612e12139ab1615bc1620d
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: f85451e0da6458de34aea936836b46781f4c4a21
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086951"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120511"
 ---
 # <a name="back-up-azure-files-with-powershell"></a>Fazer backup de arquivos do Azure com o PowerShell
 
@@ -250,9 +250,9 @@ testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 P
 
 ## <a name="important-notice---backup-item-identification-for-afs-backups"></a>Aviso importante-identificação de item de backup para backups AFS
 
-Esta seção descreve as alterações na recuperação do item de backup para backups AFS de visualização para GA.
+Esta seção descreve uma alteração importante no backup AFS em preparação para GA.
 
-Ao habilitar o backup para AFS, o usuário fornece o nome de compartilhamento de arquivos amigável do cliente como o nome da entidade e um item de backup é criado. O ' nome ' do item de backup é um identificador exclusivo criado pelo serviço de backup do Azure. Geralmente, o identificador envolve o nome amigável do usuário. Mas houve uma alteração na maneira como os serviços do Azure identificam internamente um compartilhamento de arquivos do Azure exclusivamente. Isso significa que o nome exclusivo do item de backup para o backup AFS será um GUID e não terá nenhuma relação com o nome amigável do cliente. Para saber o nome exclusivo de cada item, basta executar o comando ```Get-AzRecoveryServicesBackupItem``` com os filtros relevantes para backupManagementType e Workloadtype para obter todos os itens relevantes e, em seguida, observar o campo Name no objeto/resposta do PS retornado. É sempre recomendável Listar itens e, em seguida, recuperar seu nome exclusivo do campo ' nome ' em resposta. Use esse valor para filtrar os itens com o parâmetro ' name '. Caso contrário, use o parâmetro FriendlyName para recuperar o item com o nome/identificador amigável do cliente.
+Ao habilitar o backup para AFS, o usuário fornece o nome de compartilhamento de arquivos amigável do cliente como o nome da entidade e um item de backup é criado. O ' nome ' do item de backup é um identificador exclusivo criado pelo serviço de backup do Azure. Geralmente, o identificador envolve o nome amigável do usuário. Mas, para lidar com o cenário importante de exclusão reversível, em que um compartilhamento de arquivos pode ser excluído e outro compartilhamento de arquivos pode ser criado com o mesmo nome, a identidade exclusiva do compartilhamento de arquivos do Azure agora será uma ID em vez do nome amigável do cliente. Para saber a identidade/nome exclusivo de cada item, basta executar o comando ```Get-AzRecoveryServicesBackupItem``` com os filtros relevantes para backupManagementType e Workloadtype para obter todos os itens relevantes e, em seguida, observar o campo Name no objeto/resposta do PS retornado. É sempre recomendável Listar itens e, em seguida, recuperar seu nome exclusivo do campo ' nome ' em resposta. Use esse valor para filtrar os itens com o parâmetro ' name '. Caso contrário, use o parâmetro FriendlyName para recuperar o item com o nome/identificador amigável do cliente.
 
 > [!WARNING]
 > Certifique-se de que a versão do PS seja atualizada para a versão mínima para ' AZ. Recoveryservices 2.6.0 ' para backups AFS. Com essa versão, o filtro ' FriendlyName ' está disponível para o comando ```Get-AzRecoveryServicesBackupItem```. Passe o nome do compartilhamento de arquivos do Azure para o parâmetro FriendlyName. Se você passar o nome do compartilhamento de arquivos do Azure para o parâmetro ' name ', essa versão lançará um aviso para passar esse nome amigável para o parâmetro de nome amigável. Não instalar essa versão mínima pode resultar em falha de scripts existentes. Instale a versão mínima do PS com o comando a seguir.

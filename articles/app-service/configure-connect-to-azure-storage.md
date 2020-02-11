@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
-ms.openlocfilehash: c5543470f790d00158297cb7c3f0c06c5fc05e14
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 64ef4dfe81e6415f1285a74962e2123507715119
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75866989"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120676"
 ---
 # <a name="configure-azure-files-in-a-windows-container-on-app-service"></a>Configurar arquivos do Azure em um contêiner do Windows no serviço de aplicativo
 
@@ -20,7 +20,7 @@ ms.locfileid: "75866989"
 
 Este guia mostra como acessar o armazenamento do Azure em contêineres do Windows. Somente [compartilhamentos de arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-cli) e [compartilhamentos de arquivos Premium](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-premium-fileshare) têm suporte. Você usa compartilhamentos de arquivos do Azure nestas instruções. Os benefícios incluem conteúdo seguro, portabilidade de conteúdo, acesso a vários aplicativos e vários métodos de transferência.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - [CLI do Azure](/cli/azure/install-azure-cli) (2.0.46 ou posterior).
 - [Um aplicativo de contêiner do Windows existente no serviço Azure App](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-windows-container)
@@ -38,6 +38,7 @@ Este guia mostra como acessar o armazenamento do Azure em contêineres do Window
 - No momento, o armazenamento do Azure em contêineres do Windows **não tem suporte** para trazer seus próprios cenários de código nos planos do serviço de aplicativo do Windows.
 - O armazenamento do Azure em contêineres do Windows **não dá suporte ao** uso da configuração de **Firewall de armazenamento** devido a limitações de infraestrutura.
 - O armazenamento do Azure em contêineres do Windows permite especificar **até cinco** pontos de montagem por aplicativo.
+- O armazenamento do Azure montado em um aplicativo não pode ser acessado por pontos de extremidade de FTP/FTPs do serviço de aplicativo. Use o [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
 - O armazenamento do Azure é cobrado de forma independente e **não é incluído** em seu aplicativo Web. Saiba mais sobre os [preços do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage).
 
 ## <a name="link-storage-to-your-web-app-preview"></a>Armazenamento de link para seu aplicativo Web (versão prévia)
@@ -58,6 +59,6 @@ Depois que um compartilhamento de arquivos do Azure estiver vinculado a um aplic
 az webapp config storage-account list --resource-group <resource_group> --name <app_name>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Migre um aplicativo ASP.net para Azure app serviço usando um contêiner do Windows (versão prévia)](app-service-web-tutorial-windows-containers-custom-fonts.md).

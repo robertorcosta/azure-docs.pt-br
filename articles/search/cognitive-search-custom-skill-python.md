@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: 06a247c9e65ce386034a50650e46994bbbe9074a
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: e4f27e582e6b920e9de068fe2c3270af19ad8a17
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152163"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122414"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Exemplo: criar uma habilidade personalizada usando Python
 
@@ -21,7 +21,7 @@ Neste exemplo do Azure pesquisa cognitiva Qualifications, você aprenderá a cri
 
 A habilidade personalizada é simples por design (ela concatena duas cadeias de caracteres) para que você possa se concentrar nas ferramentas e tecnologias usadas para o desenvolvimento de habilidades personalizadas no Python. Depois de ter uma habilidade simples, você pode ramificar com cenários mais complexos.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 + Examine a [interface de habilidade personalizada](cognitive-search-custom-skill-interface.md) para obter uma introdução à interface de entrada/saída que deve ser implementada por uma habilidade personalizada.
 
@@ -57,7 +57,7 @@ O modelo de projeto do Azure Functions no Visual Studio Code cria um projeto que
 
 O Visual Studio Code cria o projeto de aplicativo de função em um novo workspace. Este projeto contém os arquivos de configuração [host.json](../azure-functions/functions-host-json.md) e [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file), além de quaisquer arquivos de projeto específicos a uma linguagem. 
 
-Uma nova função disparada por HTTP também é criada na pasta **concatenador** do projeto de aplicativo de funções. Dentro dele, haverá um arquivo chamado "\__init__. py", com este conteúdo:
+Uma nova função disparada por HTTP também é criada na pasta **concatenador** do projeto de aplicativo de funções. Dentro dele, haverá um arquivo chamado "\_\_init__. py", com este conteúdo:
 
 ```py
 import logging
@@ -263,7 +263,7 @@ Agora que você tem uma nova habilidade personalizada, você pode adicioná-la a
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Parabéns! Você criou sua primeira habilidade personalizada. Agora você pode seguir o mesmo padrão para adicionar sua própria funcionalidade personalizada. Clique nos links a seguir para saber mais.
 
 + [Habilidades de energia: um repositório de habilidades personalizadas](https://github.com/Azure-Samples/azure-search-power-skills)

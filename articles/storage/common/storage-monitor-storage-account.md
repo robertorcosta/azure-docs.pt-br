@@ -8,12 +8,12 @@ ms.date: 01/09/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: e9ef700e45acc55f476d72883107b0c5c958fa7f
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 43955950b2fc0544b149c67e3f8df7ca905fafed
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75862825"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116261"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorar uma conta de armazenamento no portal do Azure
 
@@ -25,6 +25,8 @@ Recomendamos que você examine [Azure monitor para armazenamento](../../azure-mo
 > Há custos associados ao exame de dados de monitoramento no portal do Azure. Para obter mais informações, consulte [Análise de Armazenamento](storage-analytics.md).
 >
 > O Arquivos do Azure atualmente dá suporte às métricas de Análise de Armazenamento, mas ainda não dá suporte ao registro em log.
+>
+> As contas de armazenamento de blobs de blocos de desempenho Premium não dão suporte a métricas analíticas de armazenamento, mas oferecem suporte ao log Você pode habilitar o log programaticamente por meio da API REST ou da biblioteca de cliente. Se você quiser exibir métricas com contas de armazenamento de blob de blob de desempenho premium, considere o uso [de métricas de armazenamento do Azure no Azure monitor](storage-metrics-in-azure-monitor.md).
 >
 > Para um guia aprofundado sobre como usar a Análise de Armazenamento e outras ferramentas para identificar, diagnosticar e solucionar problemas relacionados ao Armazenamento do Azure, consulte [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 >
@@ -142,6 +144,6 @@ Os logs de diagnóstico são salvos em um contêiner de blob denominado *$logs* 
 
 Para obter informações sobre como acessar o contêiner de $logs, consulte [log de análise de armazenamento](storage-analytics-logging.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Encontre mais detalhes sobre [métricas, logs e cobrança](storage-analytics.md) para Análise de Armazenamento.

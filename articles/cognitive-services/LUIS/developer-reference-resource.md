@@ -1,25 +1,18 @@
 ---
 title: Recursos para desenvolvedores-Reconhecimento vocal
-titleSuffix: Azure Cognitive Services
-description: Os desenvolvedores têm APIs REST e SDKs para Reconhecimento vocal.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 01/22/2020
-ms.author: diberry
-ms.openlocfilehash: 2f351ac570080c83e78697bbca94340bb96cbcf7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+description: SDKs, APIs REST, CLI, ajudam você a desenvolver aplicativos Reconhecimento vocal (LUIS) em sua linguagem de programação. Gerencie seus recursos do Azure e previsões do LUIS.
+ms.topic: reference
+ms.date: 02/09/2020
+ms.openlocfilehash: ed869b7022e43b8ecf8c1f05bb3c6f0919076818
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716141"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119970"
 ---
-# <a name="developer-resources-for-language-understanding"></a>Recursos para desenvolvedores para Reconhecimento vocal
+# <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Recursos de desenvolvedor de SDK, REST e CLI para Reconhecimento vocal (LUIS)
 
-Os desenvolvedores podem usar APIs REST e SDKs para Reconhecimento vocal.
+SDKs, APIs REST, CLI, ajudam você a desenvolver aplicativos Reconhecimento vocal (LUIS) em sua linguagem de programação. Gerencie seus recursos do Azure e previsões do LUIS. 
 
 ## <a name="azure-resource-management"></a>Gerenciamento de recursos do Azure
 
@@ -31,11 +24,17 @@ Encontre a documentação de referência com base na ferramenta:
 
 * [PowerShell do Azure RM](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services)
 
+
 ## <a name="language-understanding-authoring-and-prediction-requests"></a>Solicitações de criação e previsão de Reconhecimento vocal
 
-O serviço de Reconhecimento vocal é acessado de um recurso do Azure que você precisa criar. Há dois recursos: recursos de ponto de extremidade de criação e previsão. Esses dois recursos permitem que você controle seus recursos do LUIS.
+O serviço de Reconhecimento vocal é acessado de um recurso do Azure que você precisa criar. Há dois recursos:
+
+* Use o recurso de **criação** para treinamento para criar, editar, treinar e publicar.
+* Use a **previsão** de tempo de execução para enviar o texto do usuário e receber uma previsão.
 
 Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+
+Use o [código de exemplo de serviços cognitivas](https://github.com/Azure-Samples/cognitive-services-quickstart-code) para aprender e usar as tarefas mais comuns.
 
 ### <a name="rest-apis"></a>APIs REST
 
@@ -77,10 +76,10 @@ O bot Framework fornece [várias ferramentas](https://github.com/microsoft/botbu
 * [CLI do Luis](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUIS) – criar e gerenciar seus aplicativos do Luis.ai
 * [Expedição](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Dispatch)-gerenciar aplicativos pai e filho
 * [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) – gere C#/typescript classes de backup automaticamente para suas intenções e entidades de Luis.
-* [Emulador de bot](https://github.com/Microsoft/BotFramework-Emulator/releases) -um aplicativo de área de trabalho que permite que os desenvolvedores de bot testem e depurem bots criados usando o SDK do bot Framework
+* [Emulador do bot Framework](https://github.com/Microsoft/BotFramework-Emulator/releases) -um aplicativo de área de trabalho que permite que os desenvolvedores de bot testem e depurem bots criados usando o SDK do bot Framework
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre os [códigos de erro http](luis-reference-response-codes.md) comuns
 * [Documentação de referência](https://docs.microsoft.com/azure/index#pivot=sdkstools) para todas as APIs e SDKs

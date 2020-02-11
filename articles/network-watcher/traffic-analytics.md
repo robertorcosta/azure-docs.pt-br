@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 6cec7c813b0723ac770da6ebd04f4d2cf26a1409
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: eaa95906e20072e2914d1486568d7a6ebeb64f2c
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840580"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114402"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -64,26 +64,26 @@ Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes r
 * Leste dos EUA
 * Leste dos EUA 2
 * Centro-Norte dos EUA
-* Centro-Sul dos EUA
-* EUA Central
+* Centro-Sul dos Estados Unidos
+* Centro dos EUA
 * Oeste dos EUA
 * Oeste dos EUA 2
 * França Central
-* Oeste da Europa
-* Europa Setentrional
+* Europa Ocidental
+* Norte da Europa
 * Sul do Brasil
 * Oeste do Reino Unido
 * Sul do Reino Unido
 * Leste da Austrália
 * Sudeste da Austrália
-* Ásia Oriental
+* Leste da Ásia
 * Sudeste Asiático
 * Coreia Central
 * Índia Central
 * Sul da Índia
 * Leste do Japão 
 * Oeste do Japão
-* US Gov - Virgínia
+* Gov. dos EUA – Virgínia
 * Leste da China 2
 
 ## <a name="supported-regions-log-analytics-workspaces"></a>Regiões com suporte: espaços de trabalho do Log Analytics
@@ -94,28 +94,28 @@ O espaço de trabalho do Log Analytics deve existir nas seguintes regiões:
 * Leste dos EUA
 * Leste dos EUA 2
 * Centro-Norte dos EUA
-* Centro-Sul dos EUA
-* EUA Central
+* Centro-Sul dos Estados Unidos
+* Centro dos EUA
 * Oeste dos EUA
 * Oeste dos EUA 2
-* EUA Central
+* Centro dos EUA
 * França Central
-* Oeste da Europa
-* Europa Setentrional
+* Europa Ocidental
+* Norte da Europa
 * Sul do Brasil
 * Oeste do Reino Unido
 * Sul do Reino Unido
 * Leste da Austrália
 * Sudeste da Austrália
-* Ásia Oriental
+* Leste da Ásia
 * Sudeste Asiático
 * Coreia Central
 * Índia Central
 * Leste do Japão
-* US Gov - Virgínia
+* Gov. dos EUA – Virgínia
 * Leste da China 2
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="user-access-requirements"></a>Requisitos de acesso do usuário
 
@@ -123,7 +123,7 @@ A conta deve ser um membro de uma das [funções internas](../role-based-access-
 
 |Modelo de implantação   | Função                   |
 |---------          |---------               |
-|Resource Manager   | Proprietário                  |
+|Gerenciador de Recursos   | Proprietário                  |
 |                   | Colaborador            |
 |                   | Leitor                 |
 |                   | Colaborador de rede    |
@@ -151,7 +151,7 @@ Para analisar o tráfego, você precisa ter um observador de rede existente, ou 
 
 Antes de habilitar o log de fluxo do NSG, você deve ter um grupo de segurança de rede para registrar os fluxos. Se você não tiver um grupo de segurança de rede, consulte [Criar grupos de segurança de rede](../virtual-network/manage-network-security-group.md#create-a-network-security-group) para criar um.
 
-No lado esquerdo do portal do Azure, selecione **Monitor**, em seguida, **Observador de Rede**e, em seguida, selecione **logs de fluxos do NSG**. Selecione o grupo de segurança de rede que você deseja habilitar um log de fluxo do NSG, conforme mostrado na figura a seguir:
+Em portal do Azure, vá para **observador de rede**e, em seguida, selecione **logs de fluxo do NSG**. Selecione o grupo de segurança de rede que você deseja habilitar um log de fluxo do NSG, conforme mostrado na figura a seguir:
 
 ![Seleção de NSGs que exigem a habilitação do log de fluxo do NSG](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 
@@ -384,7 +384,7 @@ Você tem o tráfego mal-intencionado no seu ambiente? Onde ele é originado? Pa
 
 Para obter respostas para perguntas frequentes, confira [Perguntas Frequentes sobre Análise de Tráfego](traffic-analytics-faq.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber como habilitar os logs de fluxo, consulte [Habilitar o log de fluxo NSG](network-watcher-nsg-flow-logging-portal.md).
 - Para entender o esquema e os detalhes de processamento de Análise de Tráfego, consulte [esquema de análise de tráfego](traffic-analytics-schema.md).

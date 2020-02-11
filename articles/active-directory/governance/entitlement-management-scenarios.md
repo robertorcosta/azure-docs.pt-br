@@ -16,18 +16,18 @@ ms.date: 10/28/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d780e6e11d2c067261f6862e1678ef5de0aaa9bb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f40ed05391c36f820940d5351373ecd8f9492b17
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422498"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120145"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Cenários comuns no gerenciamento de direitos do Azure AD
 
 Há várias maneiras de configurar o gerenciamento de direitos para sua organização. No entanto, se você estiver apenas começando, é útil entender os cenários comuns para administradores, proprietários de catálogo, gerenciadores de pacotes de acesso, Aprovadores e solicitantes.
 
-## <a name="delegate"></a>Representante
+## <a name="delegate"></a>Delegado
 
 ### <a name="administrator-delegate-management-of-resources"></a>Administrador: delegar o gerenciamento de recursos
 
@@ -151,7 +151,11 @@ Há várias maneiras de configurar o gerenciamento de direitos para sua organiza
 1. [Exibir pacotes de acesso para um usuário](entitlement-management-reports.md#view-access-packages-for-a-user)
 1. [Exibir atribuições de recursos para um usuário](entitlement-management-reports.md#view-resource-assignments-for-a-user)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="programmatic-administration"></a>Administração programática
+
+Você também pode gerenciar pacotes de acesso, catálogos, políticas, solicitações e atribuições usando Microsoft Graph.  Um usuário em uma função apropriada com um aplicativo que tem a permissão `EntitlementManagement.ReadWrite.All` delegada pode chamar a [API de gerenciamento de direitos](https://docs.microsoft.com/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta).
+
+## <a name="next-steps"></a>Próximas etapas
 
 - [Delegação e funções](entitlement-management-delegate.md)
 - [Solicitar notificações de processo e email](entitlement-management-process.md)

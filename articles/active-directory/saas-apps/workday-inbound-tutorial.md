@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7e5dc9c177dbddda8bf229ec7949f53b70e616c
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: acc458c59858196ea110d0ff2030ccd7f7b6fc58
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064299"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121733"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Workday para provisionamento automático de usuário
 
@@ -572,7 +572,7 @@ Nesta seção, você irá configurar o fluxo de dados de usuário do Workday par
 | **Fax**      | facsimileTelephoneNumber     |     |    Criar + atualizar |
 | **Móvel**  |    Serviço Móvel       |     |       Criar + atualizar |
 | **LocalReference** |  preferredLanguage  |     |  Criar + atualizar |                                               
-| **Switch(\[Municipality\], "OU=Standard Users,OU=Users,OU=Default,OU=Locations,DC=contoso,DC=com", "Dallas", "OU=Standard Users,OU=Users,OU=Dallas,OU=Locations,DC=contoso,DC=com", "Austin", "OU=Standard Users,OU=Users,OU=Austin,OU=Locations,DC=contoso,DC=com", "Seattle", "OU=Standard Users,OU=Users,OU=Seattle,OU=Locations,DC=contoso,DC=com", “London", "OU=Standard Users,OU=Users,OU=London,OU=Locations,DC=contoso,DC=com")**  | parentDistinguishedName     |     |  Criar + atualizar |
+| **Switch (\[\]Municipal, "OU = Standard Users, OU = Users, OU = Default, OU = Locations, DC = contoso, DC = com", "Dallas", "OU = Standard Users, OU = Users, OU = Dallas, OU = Locations, DC = contoso, DC = com", "Austin", "OU = Standard Users, OU = Users, OU OU = Locations, DC = contoso, DC = com", "Seattle", "OU = Users Standard, OU = Users, OU = Seattle, OU = Locations, DC = contoso, DC = com", "Londres", "OU = Users Standard, OU = Users, OU = London, OU = Locations = contoso, DC = com"**  | parentDistinguishedName     |     |  Criar + atualizar |
 
 Uma vez concluída a configuração do mapeamento de atributo, você pode agora [habilitar e iniciar o serviço de provisionamento de usuário](#enable-and-launch-user-provisioning).
 

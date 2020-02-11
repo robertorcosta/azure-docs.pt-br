@@ -4,12 +4,12 @@ description: Saiba como usar ações de dimensionamento automático para chamar 
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
-ms.openlocfilehash: fd5aeadd72123b58801ce038b0cc99d17dcfd200
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c82b170bb3801bdc701ed84230db57f5691523ea
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364196"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120697"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Use ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Monitor
 Este artigo mostra como configurar gatilhos para que você possa chamar URLs da web específicas ou enviar emails com base em ações de escala automática no Azure.  
@@ -20,8 +20,8 @@ Webhooks permitem rotear as notificações de alerta do Azure para outros sistem
 ## <a name="email"></a>Email
 O email pode ser enviado para qualquer endereço de email válido. Os administradores e administradores da assinatura em que a regra está em execução também serão notificados.
 
-## <a name="cloud-services-and-web-apps"></a>Serviços de nuvem e aplicativos Web
-Você pode aderir no portal do Azure para Serviços de Nuvem e Farms de Servidores (aplicativos Web).
+## <a name="cloud-services-and-app-services"></a>Serviços de nuvem e serviços de aplicativos
+Você pode optar pelo portal do Azure para serviços de nuvem e farms de servidores (serviços de aplicativos).
 
 * Escolha a métrica **escalar por** .
 
@@ -56,7 +56,7 @@ Ao usar a API REST ou o modelo do Resource Manager, inclua o elemento notificaç
     ]
 ```
 
-| Campo | Obrigatório? | Description |
+| Campo | Obrigatório? | DESCRIÇÃO |
 | --- | --- | --- |
 | operação |sim |o valor deve ser "Scale" |
 | sendToSubscriptionAdministrator |sim |o valor deve ser "true" ou "false" |
@@ -99,7 +99,7 @@ Quando a notificação de escala automática é gerada, os metadados a seguir s�
 ```
 
 
-| Campo | Obrigatório? | Description |
+| Campo | Obrigatório? | DESCRIÇÃO |
 | --- | --- | --- |
 | status |sim |O status que indica que uma ação de escala automática foi gerada |
 | operação |sim |Para um aumento de instâncias, será "Escalar Horizontalmente" e para uma diminuição de instâncias, será "Reduzir Horizontalmente" |

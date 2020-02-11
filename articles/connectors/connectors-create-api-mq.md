@@ -3,18 +3,18 @@ title: Conectar-se ao servidor do IBM MQ
 description: Enviar e recuperar mensagens com um servidor e aplicativos lógicos do Azure no Azure ou no local
 services: logic-apps
 ms.suite: integration
-author: valrobb
-ms.author: valthom
-ms.reviewer: chrishou, logicappspm
+author: ChristopherHouser
+ms.author: chrishou
+ms.reviewer: valthom, logicappspm
 ms.topic: article
 ms.date: 06/19/2019
 tags: connectors
-ms.openlocfilehash: ef9e91b526055ece58ce283572deb98cff951653
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 489f53a4f4c1c0d5bd782f42a9daf73217234793
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789581"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118058"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Conectar-se a um servidor do IBM MQ de aplicativos lógicos do Azure
 
@@ -28,7 +28,7 @@ O conector IBM MQ inclui essas ações, mas não fornece gatilhos:
 - Receber um lote de mensagens e excluir as mensagens do servidor do IBM MQ
 - Enviar uma única mensagem para o servidor do IBM MQ
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Se você estiver usando um servidor MQ local, [Instale o gateway de dados local](../logic-apps/logic-apps-gateway-install.md) em um servidor dentro de sua rede. O servidor no qual o gateway de dados local está instalado também deve ter o .NET Framework 4,6 instalado para que o conector do MQ funcione. Você também deve criar um recurso no Azure para o gateway de dados local. Para obter mais informações, consulte [Configurar a conexão do gateway de dados](../logic-apps/logic-apps-gateway-connection.md).
 
@@ -136,6 +136,6 @@ Quando você adiciona a ação **enviar mensagens** , a primeira conexão config
 
 Para obter detalhes técnicos sobre ações e limites, que são descritos pela descrição do OpenAPI (anteriormente Swagger) do conector, examine a [página de referência](/connectors/mq/)do conector.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

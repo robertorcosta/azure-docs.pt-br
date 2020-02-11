@@ -3,19 +3,19 @@ title: Como reconhecer tentativas de fala usando o SDK de falaC#
 titleSuffix: Azure Cognitive Services
 description: Neste guia, você aprenderá a reconhecer as intenções da fala usando o SDK de fala para C#o.
 services: cognitive-services
-author: wolfma61
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/28/2019
-ms.author: wolfma
-ms.openlocfilehash: 554a7cbd79dbb6e1306686600474f727c99defed
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: 5d3c77c307739f9014010a592aa496a1cc83b333
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805885"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120048"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Como reconhecer tentativas de fala usando o SDK de fala paraC#
 
@@ -35,7 +35,7 @@ Neste guia, você usa o SDK de fala para desenvolver um C# aplicativo de console
 > - Reconhecer a fala de um arquivo
 > - Usar reconhecimento contínuo, assíncrono e orientado a eventos
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Verifique se você tem os seguintes itens antes de iniciar este guia:
 
@@ -91,12 +91,15 @@ Em seguida, adicione o código ao projeto.
 
    [!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#toplevel)]
 
-1. Adicione o código a seguir ao interior do método `Main()` fornecido:
+1. Substitua o método `Main()` fornecido, com o seguinte equivalente assíncrono:
 
    ```csharp
-   RecognizeIntentAsync().Wait();
-   Console.WriteLine("Please press Enter to continue.");
-   Console.ReadLine();
+   public static async Task Main()
+   {
+       await RecognizeIntentAsync();
+       Console.WriteLine("Please press Enter to continue.");
+       Console.ReadLine();
+   }
    ```
 
 1. Crie um método `RecognizeIntentAsync()` assíncrono vazio, conforme mostrado aqui:
@@ -113,7 +116,7 @@ Em seguida, adicione o código ao projeto.
 
 1. Substitua os espaços reservados nesse método pela sua chave de assinatura do LUIS, região e ID do aplicativo, conforme mostrado a seguir.
 
-   | Placeholder | Substitua por |
+   | Espaço reservado | Substitua por |
    | ----------- | ------------ |
    | `YourLanguageUnderstandingSubscriptionKey` | Sua chave de ponto de extremidade do LUIS. Novamente, você deve obter esse item do seu painel do Azure, não uma “chave de início”. Você pode encontrá-lo na página **Chaves e Pontos de Extremidade** do seu aplicativo (em **Gerenciar**) no [portal do LUIS](https://www.luis.ai/home). |
    | `YourLanguageUnderstandingServiceRegion` | O identificador curto para a região na qual sua assinatura do LUIS se encontra, como `westus` para Oeste dos EUA. Consulte [Regiões](regions.md). |
@@ -173,7 +176,7 @@ O aplicativo não analisa o resultado JSON. Ele exibe apenas o texto JSON na jan
 
 ## <a name="specify-recognition-language"></a>Especificar idioma de reconhecimento
 
-Por padrão, o LUIS reconhece as intenções em inglês dos EUA (`en-us`). É possível reconhecer intenções em outros idiomas atribuindo um código de localidade à propriedade `SpeechRecognitionLanguage` da configuração de fala. Por exemplo, adicione `config.SpeechRecognitionLanguage = "de-de";` em nosso aplicativo antes de criar o reconhecedor para reconhecer as intenções em alemão. Para obter mais informações, confira [Linguagens com suporte](language-support.md#speech-to-text).
+Por padrão, o LUIS reconhece as intenções em inglês dos EUA (`en-us`). É possível reconhecer intenções em outros idiomas atribuindo um código de localidade à propriedade `SpeechRecognitionLanguage` da configuração de fala. Por exemplo, adicione `config.SpeechRecognitionLanguage = "de-de";` em nosso aplicativo antes de criar o reconhecedor para reconhecer as intenções em alemão. Para obter mais informações, consulte [suporte ao idioma Luis](../LUIS/luis-language-support.md#languages-supported).
 
 ## <a name="continuous-recognition-from-a-file"></a>Reconhecimento contínuo de um arquivo
 
@@ -194,7 +197,7 @@ Por exemplo, se você disser “Apague as luzes”, pausar e depois disser “Ac
 [!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Procure o código neste artigo na pasta **samples/csharp/sharedcontent/console**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Início rápido: reconhecer a fala de um microfone](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)

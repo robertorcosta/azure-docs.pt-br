@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f16cb95a42bf201aa7d75a3393917c58f51fbb07
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 148ded0eba61221a2bdf0b8a50392da47a4c5f20
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122433"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122480"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrar uma máquina virtual SQL Server no Azure com o provedor de recursos de VM do SQL
 
@@ -27,7 +27,7 @@ Este artigo descreve como registrar seu SQL Server VM (máquina virtual) no Azur
 
 A implantação de uma imagem SQL Server VM do Azure Marketplace por meio do portal do Azure registra automaticamente a VM SQL Server com o provedor de recursos. No entanto, se você optar por instalar automaticamente o SQL Server em uma máquina virtual do Azure ou provisionar uma máquina virtual do Azure de um VHD personalizado, deverá registrar sua VM SQL Server com o provedor de recursos para:
 
-- **Benefícios do recurso**: registrar seu SQL Server VM com o provedor de recursos desbloqueia a [aplicação de patch automatizada](virtual-machines-windows-sql-automated-patching.md), o [backup automatizado](virtual-machines-windows-sql-automated-backup-v2.md), bem como recursos de monitoramento e gerenciamento. Ele também desbloqueia a flexibilidade de [licenciamento](virtual-machines-windows-sql-ahb.md) e de [edição](virtual-machines-windows-sql-change-edition.md) . Anteriormente, esses recursos estavam disponíveis apenas para SQL Server imagens de VM implantadas do Azure Marketplace. 
+- **Benefícios do recurso**: registrar seu SQL Server VM com o provedor de recursos desbloqueia a [aplicação de patch automatizada](virtual-machines-windows-sql-automated-patching.md), o [backup automatizado](virtual-machines-windows-sql-automated-backup-v2.md), bem como recursos de monitoramento e gerenciamento. Ele também desbloqueia a flexibilidade de [Licenciamento](virtual-machines-windows-sql-ahb.md) e de [edição](virtual-machines-windows-sql-change-edition.md) . Anteriormente, esses recursos estavam disponíveis apenas para SQL Server imagens de VM implantadas do Azure Marketplace. 
 
 - **Conformidade**: o registro com o provedor de recursos de VM do SQL oferece um método simplificado para atender à necessidade de notificar a Microsoft de que o benefício híbrido do Azure foi habilitado conforme especificado nos termos do produto. Esse processo nega a necessidade de gerenciar os formulários de registro de licenciamento para cada recurso.  
 
@@ -57,7 +57,7 @@ Para obter mais informações sobre os benefícios de usar o provedor de recurso
 <iframe src="https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="Beneficie-se do provedor de recursos da VM do SQL ao instalar automaticamente SQL Server no Azure – vídeo do Microsoft Channel 9"></iframe>
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para registrar sua VM SQL Server com o provedor de recursos, você precisará de: 
 
@@ -161,20 +161,20 @@ Registrar SQL Server VM no modo leve com o PowerShell:
 
 Se a extensão de IaaS do SQL já tiver sido instalada na VM manualmente, você poderá registrar a VM SQL Server em modo completo sem reiniciar o serviço SQL Server. **No entanto, se a extensão de IaaS do SQL não tiver sido instalada, o registro no modo completo instalará a extensão IaaS do SQL no modo completo e reiniciará o serviço de SQL Server. Continue com cuidado.**
 
-Abaixo está o trecho de código para registrar com o provedor de recursos de VM do SQL em modo completo. Para se registrar no modo de gerenciamento completo, use o seguinte comando do PowerShell:
+
+Para registrar sua VM SQL Server diretamente no modo completo (e possivelmente reiniciar o serviço de SQL Server), use o seguinte comando do PowerShell: 
 
   ```powershell-interactive
   # Get the existing  Compute VM
   $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
         
   # Register with SQL VM resource provider in full mode
-  Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
+  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
   ```
-
 
 ### <a name="noagent-management-mode"></a>Modo de gerenciamento noagent 
 
-SQL Server 2008 e 2008 R2 instalados no Windows Server 2008 podem ser registrados com o provedor de recursos de VM do SQL no [modo noagent](#management-modes). Essa opção garante a conformidade e permite que a VM SQL Server seja monitorada no portal do Azure com funcionalidade limitada.
+SQL Server 2008 e 2008 R2 instalados no Windows Server 2008 (_não R2_) podem ser registrados com o provedor de recursos de VM do SQL no [modo noagent](#management-modes). Essa opção garante a conformidade e permite que a VM SQL Server seja monitorada no portal do Azure com funcionalidade limitada.
 
 Especifique `AHUB` ou `PAYG` como **Sqllicenciadotype**e `SQL2008-WS2008` ou `SQL2008R2-WS2008` como **sqlImageOffer**. 
 
@@ -183,17 +183,37 @@ Para registrar sua instância do SQL Server 2008 ou 2008 R2 na instância do Win
 
 # <a name="az-clitabbash"></a>[CLI do Azure](#tab/bash)
 
-Registre SQL Server VM no modo noagent com a CLI AZ: 
+Registre sua VM SQL Server 2008 no modo noagent com a CLI AZ: 
 
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
    --license-type PAYG --sql-mgmt-type NoAgent 
    --image-sku Enterprise --image-offer SQL2008-WS2008R2
  ```
+ 
+ 
+Registre sua VM do SQL Server 2008 R2 no modo noagent com a CLI AZ: 
+
+  ```azurecli-interactive
+   az sql vm create -n sqlvm -g myresourcegroup -l eastus |
+   --license-type PAYG --sql-mgmt-type NoAgent 
+   --image-sku Enterprise --image-offer SQL2008R2-WS2008R2
+ ```
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-Registrar SQL Server VM no modo noagent com o PowerShell: 
+Registrar SQL Server VM 2008 no modo noagent com o PowerShell: 
+
+
+  ```powershell-interactive
+  # Get the existing compute VM
+  $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+          
+  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+    -LicenseType PAYG -SqlManagementType NoAgent -Sku Standard -Offer SQL2008-WS2008
+  ```
+  
+  Registrar SQL Server VM 2008 R2 no modo noagent com o PowerShell: 
 
 
   ```powershell-interactive
@@ -252,10 +272,9 @@ Execute o seguinte trecho de código do PowerShell:
   ```powershell-interactive
   # Get the existing  Compute VM
   $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-
-  # Update to full mode
-  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-     -LicenseType PAYG -SqlManagementType Full
+        
+  # Register with SQL VM resource provider in full mode
+  Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
   ```
 
 ---
@@ -444,7 +463,7 @@ Os dois nomes de serviço são:
 - `SQLIaaSExtension` (nome de exibição-`Microsoft SQL Server IaaS Agent`)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações, consulte os seguintes artigos: 
 

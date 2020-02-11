@@ -9,12 +9,12 @@ ms.date: 01/30/2017
 ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 88f713c5695e2453edc58d072899aa417f0514af
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6554385a879b054153dcb808c3dff4b60c136458
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65147035"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120850"
 ---
 # <a name="using-the-azure-classic-cli-with-azure-storage"></a>Usar a CLI clássica do Azure com o Armazenamento do Microsoft Azure
 
@@ -27,7 +27,7 @@ Neste guia, exploraremos como usar a [CLI clássica do Azure](../../cli-install-
 Este guia pressupõe que você conhece os conceitos básicos do Armazenamento do Azure. O guia fornece vários scripts para demonstrar o uso da CLI clássica com o Armazenamento do Microsoft Azure. Não se esqueça de atualizar as variáveis de script com base na sua configuração antes de executar cada script.
 
 > [!NOTE]
-> O guia fornece o comando de CLI clássica do Azure e exemplos de script para contas de armazenamento clássicas. Consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recurso do Azure](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) para comandos de CLI clássica do Azure para contas de armazenamento do Gerenciador de Recursos.
+> O guia fornece o comando de CLI clássica do Azure e exemplos de script para contas de armazenamento clássicas. Consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recurso do Azure](../../virtual-machines/azure-cli-arm-commands.md#storage-objects) para comandos de CLI clássica do Azure para contas de armazenamento do Gerenciador de Recursos.
 >
 >
 
@@ -36,7 +36,7 @@ Este guia pressupõe que você conhece os conceitos básicos do Armazenamento do
 ## <a name="get-started-with-azure-storage-and-the-azure-classic-cli-in-5-minutes"></a>Introdução ao Armazenamento do Microsoft Azure e à CLI clássica do Azure em 5 minutos
 Nos exemplos deste guia, usamos o Ubuntu, mas outras plataformas de sistema operacional devem funcionar de forma semelhante.
 
-**Você é novo no Azure?** Obtenha uma assinatura do Microsoft Azure e uma conta Microsoft associada a essa assinatura. Para saber mais sobre as opções de compra do Azure, confira [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/), [Opções de compra](https://azure.microsoft.com/pricing/purchase-options/) e [Ofertas para membros](https://azure.microsoft.com/pricing/member-offers/) (para membros do MSDN, Microsoft Partner Network e BizSpark, entre outros programas da Microsoft).
+**Novo no Azure:** obtenha uma assinatura do Microsoft Azure e uma conta da Microsoft associada a essa assinatura. Para saber mais sobre as opções de compra do Azure, confira [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/), [Opções de compra](https://azure.microsoft.com/pricing/purchase-options/) e [Ofertas para membros](https://azure.microsoft.com/pricing/member-offers/) (para membros do MSDN, Microsoft Partner Network e BizSpark, entre outros programas da Microsoft).
 
 Consulte [Atribuindo funções de administrador no Azure AD (Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) para obter mais informações sobre as assinaturas do Azure.
 
@@ -79,7 +79,7 @@ Consulte [Atribuindo funções de administrador no Azure AD (Azure Active Direct
 5. No computador local, abra o editor de texto de sua preferência (vim, por exemplo). Digite o script acima no editor de texto.
 6. Agora, você precisa atualizar as variáveis de script com base nas suas configurações.
 
-   * **<nome_da_conta_de_armazenamento>** Use o nome fornecido no script ou insira um novo nome para a conta de armazenamento. **Importante:** O nome da conta de armazenamento deve ser exclusivo no Azure. Ele também deve ter somente letras minúsculas!
+   * **<nome_da_conta_de_armazenamento>** Use o nome fornecido no script ou insira um novo nome para a conta de armazenamento. **Importante:** o nome da conta de armazenamento deve ser exclusivo no Azure. Ele também deve ter somente letras minúsculas!
    * **<chave_da_conta_de_armazenamento>** A chave de acesso da conta de armazenamento.
    * **<nome_do_contêiner>** Use o nome fornecido no script ou insira um novo nome para o contêiner.
    * **<imagem_a_ser_carregada>** Insira um caminho para uma imagem em seu computador local, como: "~/images/HelloWorld.png".
@@ -133,7 +133,7 @@ azure storage container create mycontainer
 ```
 
 > [!NOTE]
-> Há três níveis de acesso de leitura anônimo: **Desativar**, **Blob** e **Contêiner**. Para evitar o acesso anônimo a blobs, defina o parâmetro de permissão como **Desativado**. Por padrão, o novo contêiner é privado e pode ser acessado apenas pelo proprietário da conta. Para permitir acesso de leitura público anônimo a recursos de blob, mas não aos metadados do contêiner ou à lista de blobs no contêiner, defina o parâmetro de permissão como **Blob**. Para permitir acesso de leitura público completo a recursos, metadados do contêiner e à lista de blobs no contêiner, defina o parâmetro de permissão como **Contêiner**. Para obter mais informações, consulte [Gerenciar acesso anônimo de leitura aos contêineres e blobs](../blobs/storage-manage-access-to-resources.md).
+> Há três níveis de acesso de leitura anônimo: **Desativado**, **Blob** e **Contêiner**. Para evitar o acesso anônimo a blobs, defina o parâmetro de permissão como **Desativado**. Por padrão, o novo contêiner é privado e pode ser acessado apenas pelo proprietário da conta. Para permitir acesso de leitura público anônimo a recursos de blob, mas não aos metadados do contêiner ou à lista de blobs no contêiner, defina o parâmetro de permissão como **Blob**. Para permitir acesso de leitura público completo a recursos, metadados do contêiner e à lista de blobs no contêiner, defina o parâmetro de permissão como **Contêiner**. Para obter mais informações, confira [Gerenciar acesso anônimo de leitura aos contêineres e blobs](../blobs/storage-manage-access-to-resources.md).
 >
 >
 
@@ -233,7 +233,7 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
 
 Você pode encontrar referência de comando da CLI clássica do Azure para trabalhar com recursos de Armazenamento aqui:
 
-* [Comandos da CLI clássica do Azure no modo do Gerenciador de Recursos](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
+* [Comandos da CLI clássica do Azure no modo do Gerenciador de Recursos](../../virtual-machines/azure-cli-arm-commands.md#storage-objects)
 * [Comandos da CLI clássica do Azure no modo do Gerenciamento de Serviços do Azure](../../cli-install-nodejs.md)
 
 Você também pode experimentar a versão mais recente da [CLI do Azure](../storage-azure-cli.md), para uso com o modelo de implantação do Resource Manager.

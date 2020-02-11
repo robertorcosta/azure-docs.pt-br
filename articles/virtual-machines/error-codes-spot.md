@@ -1,20 +1,19 @@
 ---
 title: Códigos de erro para VMs de ponto do Azure e instâncias de conjuntos de dimensionamento
 description: Saiba mais sobre os códigos de erro que você poderia ver ao usar VMs Spot e instâncias do conjunto de dimensionamento.
-services: virtual-machines-windows
 author: cynthn
 manager: gwallace
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/20/2019
 ms.author: cynthn
-ms.openlocfilehash: 97e68f4d0d671ffa0f697c484c502b9070a3f20f
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 1863c510967dcf80044d768aee1a37643a068ce4
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781937"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77115860"
 ---
 # <a name="preview-error-messages-for-spot-vms-and-scale-sets"></a>Visualização: mensagens de erro para VMs Spot e conjuntos de dimensionamento
 
@@ -27,7 +26,7 @@ ms.locfileid: "74781937"
 Aqui estão alguns códigos de erro possíveis que você pode receber ao usar VMs Spot e conjuntos de dimensionamento.
 
 
-| Chave | Mensagem | Descrição |
+| Chave | Mensagem | DESCRIÇÃO |
 |-----|---------|-------------|
 | SkuNotAvailable | A camada solicitada para o recurso '\<recurso\>' atualmente não está disponível no local '\<\>' para a assinatura '\<SubscriptionId\>'. Tente outra camada ou implante em um local diferente. | Não há capacidade do Azure Spot suficiente neste local para criar sua instância de conjunto de dimensionamento ou VM. |
 | EvictionPolicyCanBeSetOnlyOnAzureSpotVirtualMachines  |  A política de remoção pode ser definida somente em máquinas virtuais de ponto do Azure. | Essa VM não é uma VM Spot, portanto, você não pode definir a política de remoção. |

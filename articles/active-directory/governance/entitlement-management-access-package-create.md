@@ -16,18 +16,18 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68d34046a16787ca1c6790880592fb30667ff2dc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7c858a17d4574e6e45283df7c1276cd303f25297
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422688"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120475"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Criar um novo pacote de acesso no gerenciamento de direitos do Azure AD
 
 Um pacote do Access permite que você faça uma configuração única de recursos e políticas que administram automaticamente o acesso para a vida útil do pacote de acesso. Este artigo descreve como criar um novo pacote de acesso.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Todos os pacotes de acesso devem ser colocados em um contêiner chamado catálogo. Um catálogo define quais recursos você pode adicionar ao seu pacote de acesso. Se você não especificar um catálogo, seu pacote de acesso será colocado no catálogo geral. No momento, não é possível mover um pacote do Access existente para um catálogo diferente.
 
@@ -107,7 +107,7 @@ Na guia **funções de recurso** , selecione os recursos a serem incluídos no p
 
 1. Clique em **Próximo**.
 
-## <a name="requests"></a>Solicitações
+## <a name="requests"></a>Requests
 
 Na guia **solicitações** , você cria a primeira política para especificar quem pode solicitar o pacote de acesso e também as configurações de aprovação. Posteriormente, você pode criar mais políticas de solicitação para permitir que grupos de usuários adicionais solicitem o pacote de acesso com suas próprias configurações de aprovação.
 
@@ -131,7 +131,18 @@ Na guia **revisar + criar** , você pode examinar as configurações e verificar
 
     O novo pacote de acesso aparece na lista de pacotes de acesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="creating-an-access-package-programmatically"></a>Criando um pacote de acesso programaticamente
+
+Você também pode criar um pacote de acesso usando Microsoft Graph.  Um usuário em uma função apropriada com um aplicativo que tem a permissão `EntitlementManagement.ReadWrite.All` delegada pode chamar a API para
+
+1. [Liste o accessPackageResources no catálogo](https://docs.microsoft.com/graph/api/accesspackagecatalog-list-accesspackageresources?view=graph-rest-beta) e [crie um accessPackageResourceRequest](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta) para todos os recursos que ainda não estão no catálogo.
+1. [Liste o accessPackageResourceRoles](https://docs.microsoft.com/graph/api/accesspackagecatalog-list-accesspackageresourceroles?view=graph-rest-beta) de cada accessPackageResource em um accessPackageCatalog. Essa lista de funções será usada para selecionar uma função, ao criar subsequentemente um accessPackageResourceRoleScope.
+1. [Crie um accessPackage](https://docs.microsoft.com/graph/api/accesspackage-post?view=graph-rest-beta).
+1. [Crie um accessPackageAssignmentPolicy](https://docs.microsoft.com/graph/api/accesspackageassignmentpolicy-post?view=graph-rest-beta).
+1. [Crie um accessPackageResourceRoleScope](https://docs.microsoft.com/graph/api/accesspackage-post-accesspackageresourcerolescopes?view=graph-rest-beta) para cada função de recurso necessária no pacote de acesso.
+
+## <a name="next-steps"></a>Próximas etapas
 
 - [Compartilhar link para solicitar um pacote de acesso](entitlement-management-access-package-settings.md)
 - [Alterar funções de recurso para um pacote de acesso](entitlement-management-access-package-resources.md)
+- [Atribuir diretamente um usuário ao pacote do Access](entitlement-management-access-package-assignments.md)

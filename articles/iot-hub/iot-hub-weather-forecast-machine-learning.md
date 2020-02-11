@@ -8,14 +8,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 04/11/2018
+ms.date: 02/10/2020
 ms.author: robinsh
-ms.openlocfilehash: d26ccd47ada4f1f1fd87f315e05f822bb2463114
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b71b86c14c55c312ef420a4d8517140fdded4072
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976172"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122265"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Previsão do tempo usando os dados do sensor do Hub IoT no Azure Machine Learning
 
@@ -43,30 +43,83 @@ Saiba como usar o Azure Machine Learning para fazer uma previsão do tempo (poss
 
 - Conclua o tutorial do [simulador online do Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou um dos tutoriais do dispositivo; por exemplo, [Raspberry Pi com node. js](iot-hub-raspberry-pi-kit-node-get-started.md). Eles abrangem os seguintes requisitos:
   - Uma assinatura ativa do Azure.
-  - Um Hub IoT do Azure em sua assinatura.
+  - Um hub IoT do Azure em sua assinatura.
   - O aplicativo cliente que envia mensagens para o hub IoT do Azure.
 - Uma conta [Azure Machine Learning Studio (clássica)](https://studio.azureml.net/) .
 
 ## <a name="deploy-the-weather-prediction-model-as-a-web-service"></a>Implantar o modelo de previsão do tempo como um serviço Web
 
+Nesta seção, você obtém o modelo previsão do tempo da biblioteca de ia do Azure. Em seguida, você adiciona um módulo R-script ao modelo para limpar os dados de temperatura e umidade. Por fim, você implanta o modelo como um serviço Web de previsão.
+
+### <a name="get-the-weather-prediction-model"></a>Obter o modelo de previsão do clima
+
+Nesta seção, você obtém o modelo previsão do tempo do Galeria de IA do Azure e o abre em Azure Machine Learning Studio (clássico).
+
 1. Acesse a [página do modelo de previsão do tempo](https://gallery.cortanaintelligence.com/Experiment/Weather-prediction-model-1).
-1. Clique em **abrir no estúdio** no Microsoft Azure Machine Learning Studio (clássico).
-   ![Abrir a página do modelo de previsão do tempo na Galeria do Cortana Intelligence](media/iot-hub-weather-forecast-machine-learning/2_weather-prediction-model-in-cortana-intelligence-gallery.png)
-1. Clique em **Executar** para validar as etapas no modelo. Esta etapa pode levar 2 minutos para ser concluída.
-   ![abrir o modelo previsão do tempo no Azure Machine Learning Studio (clássico)](media/iot-hub-weather-forecast-machine-learning/3_open-weather-prediction-model-in-azure-machine-learning-studio.png)
-1. Clique em **CONFIGURAR SERVIÇO WEB** > **Serviço Web Preditivo**.
-   ![implantar o modelo de previsão do clima em Azure Machine Learning Studio (clássico)](media/iot-hub-weather-forecast-machine-learning/4-deploy-weather-prediction-model-in-azure-machine-learning-studio.png)
-1. No diagrama, arraste o módulo **entrada do serviço Web** em algum lugar próximo ao módulo **Modelo de Pontuação**.
-1. Conecte o módulo **entrada do serviço Web** ao módulo **Modelo de Pontuação**.
-   ![conectar dois módulos no Azure Machine Learning Studio (clássico)](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)
+
+   ![Abra a página modelo de previsão do tempo no Galeria de IA do Azure](media/iot-hub-weather-forecast-machine-learning/weather-prediction-model-in-azure-ai-gallery.png)
+
+1. Clique em **abrir no Studio (clássico)** para abrir o modelo no Microsoft Azure Machine Learning Studio (clássico).
+
+   ![Abrir o modelo previsão do tempo no Azure Machine Learning Studio (clássico)](media/iot-hub-weather-forecast-machine-learning/open-ml-studio.png)
+
+### <a name="add-an-r-script-module-to-clean-temperature-and-humidity-data"></a>Adicionar um módulo R-script para limpar dados de temperatura e umidade
+
+Para que o modelo se comporte corretamente, os dados de temperatura e umidade devem ser conversíveis em dados numéricos. Nesta seção, você adiciona um módulo R-script ao modelo previsão do tempo que remove as linhas que têm valores de dados para temperatura ou umidade que não podem ser convertidas em valores numéricos.
+
+1. No lado esquerdo da janela Azure Machine Learning Studio, clique na seta para expandir o painel Ferramentas. Digite "executar" na caixa de pesquisa. Selecione o módulo **Executar script R** .
+
+   ![Selecione executar módulo de script R](media/iot-hub-weather-forecast-machine-learning/select-r-script-module.png)
+
+1. Arraste o módulo **Executar script r** próximo ao módulo **limpar dados ausentes** e o módulo **Executar script r** existente no diagrama. Exclua a conexão entre os **dados ausentes de limpeza** e os módulos **Executar script R** e conecte as entradas e saídas do novo módulo, conforme mostrado.
+
+   ![Adicionar módulo executar script R](media/iot-hub-weather-forecast-machine-learning/add-r-script-module.png)
+
+1. Selecione o novo módulo **Executar script R** para abrir sua janela Propriedades. Copie e cole o código a seguir na caixa **script R** .
+
+   ```r
+   # Map 1-based optional input ports to variables
+   data <- maml.mapInputPort(1) # class: data.frame
+
+   data$temperature <- as.numeric(as.character(data$temperature))
+   data$humidity <- as.numeric(as.character(data$humidity))
+
+   completedata <- data[complete.cases(data), ]
+
+   maml.mapOutputPort('completedata')
+
+   ```
+
+   Quando tiver terminado, a janela Propriedades deverá ser semelhante ao seguinte:
+
+   ![Adicionar código para executar o módulo de script R](media/iot-hub-weather-forecast-machine-learning/add-code-to-module.png)
+
+### <a name="deploy-predictive-web-service"></a>Implantar serviço Web de previsão
+
+Nesta seção, você valida o modelo, configura um serviço Web de previsão com base no modelo e, em seguida, implanta o serviço Web.
+
+1. Clique em **Executar** para validar as etapas no modelo. Esta etapa pode levar alguns minutos para ser concluída.
+
+   ![Execute o experimento para validar as etapas](media/iot-hub-weather-forecast-machine-learning/run-experiment.png)
+
+1. Clique em **CONFIGURAR SERVIÇO WEB** > **Serviço Web Preditivo**. O diagrama de experimento preditiva é aberto.
+
+   ![Implantar o modelo previsão do tempo no Azure Machine Learning Studio (clássico)](media/iot-hub-weather-forecast-machine-learning/predictive-experiment.png)
+
+1. No diagrama de experimento preditiva, exclua a conexão entre o módulo **entrada do serviço Web** e o conjunto de dados **meteorológico** na parte superior. Em seguida, arraste o módulo **entrada do serviço Web** em algum lugar próximo do módulo **modelo de Pontuação** e conecte-o conforme mostrado:
+
+   ![Conectar dois módulos no Azure Machine Learning Studio (clássico)](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)
+
 1. Clique em **EXECUTAR** para validar as etapas no modelo.
+
 1. Clique em **IMPLANTAR SERVIÇO WEB** para implantar o modelo como um serviço Web.
+
 1. No painel do modelo, baixe o **Excel 2010 ou a pasta de trabalho anterior** de **SOLICITAÇÃO/RESPOSTA**.
 
    > [!Note]
-   > Lembre-se de baixar o **Excel 2010 ou a pasta de trabalho anterior** mesmo se estiver executando uma versão posterior do Excel no computador.
+   > Certifique-se de baixar a **pasta de trabalho do excel 2010 ou anterior** , mesmo que você esteja executando uma versão posterior do Excel em seu computador.
 
-   ![Baixar o Excel para obter o ponto de extremidade SOLICITAÇÃO/RESPOSTA](media/iot-hub-weather-forecast-machine-learning/5_download-endpoint-app-excel-for-request-response.png)
+   ![Baixar o Excel para obter o ponto de extremidade SOLICITAÇÃO/RESPOSTA](media/iot-hub-weather-forecast-machine-learning/download-workbook.png)
 
 1. Abra a pasta de trabalho do Excel, anote a **URL DO SERVIÇO WEB** e a **TECLA DE ACESSO**.
 
@@ -177,12 +230,12 @@ Execute o aplicativo cliente para iniciar a coleta e o envio de dados de tempera
 
 1. [Baixe e instale o Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com/).
 1. Abra o Gerenciador de Armazenamento do Azure.
-1. Entre na sua conta do Azure.
+1. Entre em sua conta do Azure.
 1. Selecione sua assinatura.
 1. Clique em sua assinatura > **Contas de Armazenamento** > sua conta de armazenamento > **Contêineres de Blobs** > seu contêiner.
-1. Abra um arquivo .csv para ver o resultado. A última coluna registra a possibilidade de chuva.
+1. Baixe um arquivo. csv para ver o resultado. A última coluna registra a possibilidade de chuva.
 
-   ![Obter resultados da previsão do tempo com o Azure Machine Learning](media/iot-hub-weather-forecast-machine-learning/12_get-weather-forecast-result-azure-machine-learning.png)
+   ![Obter resultados da previsão do tempo com o Azure Machine Learning](media/iot-hub-weather-forecast-machine-learning/weather-forecast-result.png)
 
 ## <a name="summary"></a>Resumo
 

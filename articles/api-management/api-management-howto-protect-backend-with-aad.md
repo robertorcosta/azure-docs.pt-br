@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 771257df12ee29c2bc8d32672c8e8b7d039a96ba
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: cbcd3d27da3aff66e1dc6758af8a573666c0bbbe
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76120802"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121401"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Proteger uma API usando OAuth 2.0 com o Azure Active Directory e o Gerenciamento de API
 
@@ -27,13 +27,13 @@ Este guia mostra como configurar sua instância do Gerenciamento de API do Azure
 > [!NOTE]
 > Esse recurso está disponível nas camadas **Developer**, **Standard** e **Premium** do gerenciamento de API.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Para seguir as etapas deste artigo, você precisa ter:
 * Uma instância de Gerenciamento de API
 * Uma API sendo publicada que use a instância de Gerenciamento de API
 * Um locatário do Azure AD
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 A seguir é apresentada uma visão geral das etapas:
 
@@ -47,7 +47,7 @@ A seguir é apresentada uma visão geral das etapas:
 
 Para proteger uma API com o Azure AD, a primeira etapa é registrar no Azure AD um aplicativo que represente a API. 
 
-1. Acesse o [portal do Azure](https://portal.azure.com) para registrar seu aplicativo. Procure e selecione **registros de API**.
+1. Acesse o [portal do Azure](https://portal.azure.com) para registrar seu aplicativo. Procure e selecione **registros do aplicativo**.
 
 1. Selecione **Novo registro**. 
 
@@ -214,7 +214,7 @@ Você pode usar a política [Validar JWT](api-management-access-restriction-poli
 
 Neste guia, você usou o Console do Desenvolvedor no Gerenciamento de API como o aplicativo cliente de exemplo para chamar a `Echo API` protegida pelo OAuth 2.0. Para saber mais sobre como criar um aplicativo e implementar o OAuth 2.0, confira [Exemplos de código do Microsoft Azure Active Directory](../active-directory/develop/sample-v1-code.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre o [Azure Active Directory e o OAuth2.0](../active-directory/develop/authentication-scenarios.md).
 * Confira mais [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre o Gerenciamento de API.
 * Para outras maneiras de proteger seu serviço de back-end, confira [Autenticação de certificado mútuo](api-management-howto-mutual-certificates.md).

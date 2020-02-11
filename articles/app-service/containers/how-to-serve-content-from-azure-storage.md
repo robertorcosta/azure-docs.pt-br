@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: msangapu
-ms.openlocfilehash: 752c9dfd1ae67397713cdffce9ba530ad6a2c159
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: b2be84625035bb368784f3f423d63121c29255ad
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930004"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121422"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Servir conteúdo do Armazenamento do Microsoft Azure no Serviço de Aplicativo no Linux
 
@@ -20,7 +20,7 @@ ms.locfileid: "75930004"
 
 Este guia mostra como anexar o armazenamento do Azure ao serviço de aplicativo no Linux. Os benefícios incluem conteúdo protegido, portabilidade de conteúdo, armazenamento persistente, acesso a vários aplicativos e vários métodos de transferência.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - [CLI do Azure](/cli/azure/install-azure-cli) (2.0.46 ou posterior).
 - Um [serviço de aplicativo existente no aplicativo Linux](https://docs.microsoft.com/azure/app-service/containers/).
@@ -34,6 +34,7 @@ Este guia mostra como anexar o armazenamento do Azure ao serviço de aplicativo 
 - O armazenamento do Azure com o serviço de aplicativo dá suporte à montagem de **contêineres de arquivos do Azure** (leitura/gravação) e **contêineres de blob do Azure**
 - O armazenamento do Azure com o serviço de aplicativo **não dá suporte** ao uso da configuração de **Firewall de armazenamento** devido a limitações de infraestrutura.
 - O armazenamento do Azure com o serviço de aplicativo permite especificar **até cinco** pontos de montagem por aplicativo.
+- O armazenamento do Azure montado em um aplicativo não pode ser acessado por pontos de extremidade de FTP/FTPs do serviço de aplicativo. Use o [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
 - O armazenamento do Azure **não está incluído** no seu aplicativo Web e é cobrado separadamente. Saiba mais sobre os [preços do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage).
 
 > [!WARNING]
@@ -78,7 +79,7 @@ wordpress:
   - <custom-id>:<path_in_container>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Configurar aplicativos web no Serviço de Aplicativo do Azure](../configure-common.md).
 

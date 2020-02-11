@@ -3,12 +3,12 @@ title: Suporte de avaliação do VMware nas migrações para Azure
 description: Saiba mais sobre o suporte de avaliação do VMware nas migrações para Azure.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 1b3e81653ba934b209755391f08e60ef603e645a
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 19ed506228bac425ad05edee1586740e6c33f69e
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086770"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121329"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação do VMware 
 
@@ -42,7 +42,7 @@ Além de descobrir computadores, migrações para Azure: a avaliação do servid
 **Sistema operacional do computador** | Todas as versões do Windows e Linux.
 **credenciais do vCenter** | Uma conta vCenter Server com acesso somente leitura e privilégios habilitados para máquinas virtuais > operações de convidado.
 **Credenciais da VM** | Atualmente, o dá suporte ao uso de uma credencial para todos os servidores Windows e uma credencial para todos os servidores Linux.<br/><br/> Você cria uma conta de usuário convidado para VMs do Windows e uma conta de usuário regular/normal (acesso não sudo) para todas as VMs do Linux.
-**Ferramentas do VMware** | As ferramentas do VMware devem ser instaladas e executadas em VMs que você deseja descobrir.
+**Ferramentas do VMware** | As ferramentas do VMware devem ser instaladas e executadas em VMs que você deseja descobrir. <br/> Se sua versão do VMware Tools estiver entre 9,10-10.2.0, atualize-a para além do 10.2.0.
 **Acesso à porta** | Em hosts ESXi que executam VMs que você deseja descobrir, o dispositivo de migrações para Azure deve ser capaz de se conectar à porta TCP 443.
 **Limites** | Para descoberta de aplicativos, você pode descobrir até 10000 por dispositivo. 
 

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/15/2019
 ms.author: rohink
-ms.openlocfilehash: 990adf73211e96370fd06f5e322301128321e81f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 76b19cfb3c00a26d81eab81f67d8e156a520f377
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76937304"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121728"
 ---
 # <a name="azure-dns-faq"></a>Perguntas frequentes do DNS do Azure
 
@@ -32,7 +32,7 @@ O modelo de faturamento do DNS do Azure é baseado no número de zonas DNS hospe
 
 Para saber mais, veja a [página de preços do DNS do Azure](https://azure.microsoft.com/pricing/details/dns/).
 
-### <a name="what-is-the-sla-for-azure-dns"></a>Qual é o SLA para o DNS do Azure?
+### <a name="what-is-the-sla-for-azure-dns"></a>O que é o SLA para DNS do Azure?
 
 O Azure garante que as solicitações válidas de DNS recebam uma resposta de pelo menos um servidor de nomes DNS do Azure 100% do tempo.
 
@@ -110,7 +110,7 @@ Consulte a seção de cenários na [visão geral dos registros de alias do DNS d
 
 Os conjuntos de registros de alias são suportados para os seguintes tipos de registro em uma zona DNS do Azure:
  
-- A 
+- Um 
 - AAAA
 - CNAME 
 
@@ -149,7 +149,7 @@ Sim. O DNS do Azure oferece suporte a domínios de co-hospedagem com outros serv
 
 Para configurar a hospedagem cooperativa, modifique os registros NS para o domínio para apontar para os servidores de nome de ambos os provedores. Os registros do servidor de nomes (NS) controlam quais provedores recebem consultas DNS para o domínio. Você pode modificar esses registros do NS no DNS do Azure, no outro provedor e na zona pai. A zona pai geralmente é configurada por meio do registrador de nomes de domínio. Para saber mais sobre delegação de DNS, veja [Delegação de domínio de DNS](dns-domain-delegation.md).
 
-Além disso, verifique se os registros DNS do domínio estão sincronizados entre os dois provedores de DNS. O DNS do Azure atualmente não oferece suporte a transferências de zona DNS. Os registros DNS devem ser sincronizados usando o [portal de gerenciamento do DNS do Azure](dns-operations-recordsets-portal.md), [API REST](https://docs.microsoft.com/powershell/module/az.dns), [SDK](dns-sdk.md), [cmdlets do PowerShell](dns-operations-recordsets.md) ou [Ferramenta CLI](dns-operations-recordsets-cli.md).
+Além disso, verifique se os registros DNS do domínio estão sincronizados entre os dois provedores de DNS. O DNS do Azure atualmente não oferece suporte a transferências de zona DNS. Os registros DNS devem ser sincronizados usando o [portal de gerenciamento do DNS do Azure](dns-operations-recordsets-portal.md), [API REST](https://docs.microsoft.com/rest/api/dns/), [SDK](dns-sdk.md), [cmdlets do PowerShell](dns-operations-recordsets.md) ou [Ferramenta CLI](dns-operations-recordsets-cli.md).
 
 ### <a name="do-i-have-to-delegate-my-domain-to-all-four-azure-dns-name-servers"></a>Preciso delegar meu domínio para todos os quatro servidores de nome de DNS do Azure?
 
@@ -195,7 +195,7 @@ Os nomes de domínio internacionalizados (IDNs) codificam cada nome DNS usando [
 
 Para configurar IDNs no DNS do Azure, converta o nome da zona ou o nome do conjunto de registros em punycode. No momento, o DNS do Azure não oferece suporte à conversão interna de ou para o punycode.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Saiba mais sobre o DNS do Azure](dns-overview.md).
 

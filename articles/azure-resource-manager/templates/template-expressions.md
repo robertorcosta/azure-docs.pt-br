@@ -2,19 +2,21 @@
 title: Sintaxe e expressões de modelo
 description: Descreve a sintaxe JSON declarativa para modelos de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/03/2019
-ms.openlocfilehash: b7682ba10c30290e5935bc2dd17e2a83852d92f4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/10/2020
+ms.openlocfilehash: 42649d4b04b03de32b82335fce68401192de75a3
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484188"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120607"
 ---
 # <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Sintaxe e expressões em modelos de Azure Resource Manager
 
 A sintaxe básica do modelo é JSON. No entanto, você pode usar expressões para estender os valores JSON disponíveis no modelo.  As expressões começam e terminam com colchetes: `[` e `]`, respectivamente. O valor da expressão é avaliado quando o modelo é implantado. Uma expressão pode retornar uma cadeia de caracteres, um inteiro, um booliano, uma matriz ou um objeto.
 
 Uma expressão de modelo não pode exceder 24.576 caracteres.
+
+As expressões dão suporte a JSON (' NULL ') e as propriedades dão suporte a um valor literal de NULL. Em ambos os casos, os modelos do Resource Manager o tratam como se a propriedade não estiver presente.
 
 ## <a name="use-functions"></a>Usar funções
 
@@ -65,7 +67,7 @@ Para escapar aspas duplas em uma expressão, como adicionar um objeto JSON no mo
 },
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter a lista completa das funções de modelo, veja [Funções de modelo do Gerenciador de Recursos do Azure](template-functions.md).
 * Para obter mais informações sobre arquivos de modelo, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](template-syntax.md).

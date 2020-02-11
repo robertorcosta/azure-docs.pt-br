@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c83aa6e476bbd898999fb6efe490c7847a809ff
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 0d770336099611d69fa9e44d04fff4dd37696707
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382164"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120120"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notificações do Azure Active Directory Identity Protection
 
@@ -26,6 +26,9 @@ Azure AD Identity Protection envia dois tipos de emails de notificação automat
 - Email de resumo semanal
 
 Este artigo fornece uma visão geral de ambos os emails de notificação.
+
+>[!NOTE]
+>As notificações de email estão disponíveis apenas na nuvem pública e não estão disponíveis atualmente na nuvem do governo dos EUA.
 
 ## <a name="users-at-risk-detected-email"></a>Email de usuários em risco detectado
 
@@ -65,6 +68,6 @@ Como administrador, você pode alternar o envio de um email de resumo semanal ou
 
 Configure o email de resumo semanal no **portal do Azure** em **Azure Active Directory** > **segurança** > **identidade Protection** > **resumo semanal**.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)

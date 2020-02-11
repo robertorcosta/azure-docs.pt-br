@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: spelluru
-ms.openlocfilehash: e615170952ea2987639a0bfc269ad5a1692e1e59
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 68a27a325a0ef02c6eeea9867a21ba0e24ab5321
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480795"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117139"
 ---
 # <a name="enable-automatic-shutdown-of-vms-on-disconnect"></a>Habilitar o desligamento automático de VMs ao desconectar
 Este artigo mostra como você pode habilitar ou desabilitar o desligamento automático de VMs do **Windows 10** Lab (modelo ou aluno) depois que uma conexão de área de trabalho remota é desconectada. Você também pode especificar quanto tempo as VMs devem aguardar até que o usuário se reconecte antes de desligar automaticamente.
@@ -35,7 +35,10 @@ Você pode definir essa configuração na página **configurações** , conforme
 
 ![Configurar após a criação do laboratório](../media/how-to-enable-shutdown-disconnect/configure-lab-automatic-shutdown.png)
 
-## <a name="next-steps"></a>Próximos passos
+> [!WARNING]
+> Se você desligar o sistema operacional Windows (SO) em uma VM antes de desconectar uma sessão RDP para a VM, o recurso de desligamento automático não funcionará corretamente.  
+
+## <a name="next-steps"></a>Próximas etapas
 Veja os artigos a seguir:
 
 - [Painel para laboratórios de sala de aula](use-dashboard.md)

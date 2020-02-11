@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 12/13/2019
+ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: b3d5e1f814a8eb083ab01623051f1b5b3723a9f1
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: e5bf99e2ea84f41054ff57d08882bfa8ab4d6be5
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049637"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114233"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure v3
 
@@ -35,14 +35,33 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 > Atualmente, você não pode usar o portal do Azure para gerenciar recursos da v3. Use a [API REST](https://aka.ms/ams-v3-rest-sdk), CLI ou um dos SDKs suportados.
 
 Para obter mais informações, consulte [Guia de migração para migrar do Serviços de Mídia v2 para v3](migrate-from-v2-to-v3.md#known-issues).
-
+ 
 ## <a name="january-2020"></a>Janeiro de 2020
 
 ### <a name="improvements-in-media-processors"></a>Melhorias nos processadores de mídia
 
 - Suporte aprimorado para fontes entrelaçadas na análise de vídeo – esse conteúdo agora é desentrelaçado corretamente antes de ser enviado aos mecanismos de inferência.
 - Ao gerar miniaturas com o modo "melhor", o codificador agora pesquisa além de 30 segundos para selecionar um quadro que não seja monodesvio.
- 
+
+### <a name="azure-government-cloud-updates"></a>Atualizações de nuvem do Azure governamental
+
+Os serviços de mídia GA'ed nas seguintes regiões do Azure governamental: *USGov Arizona* e *USGov Texas*.
+
+## <a name="december-2019"></a>Dezembro de 2019
+
+Adicionado suporte à CDN para cabeçalhos de *pré-busca de assistência de origem* para streaming ao vivo e de vídeo sob demanda; disponível para clientes que têm contrato direto com o Akamai CDN. O recurso de origem-auxiliar CDN-prefetch envolve as seguintes trocas de cabeçalho HTTP entre a CDN da Akamai e a origem dos serviços de mídia do Azure:
+
+|Cabeçalho HTTP|Valores|Remetente|Receptor|Finalidade|
+| ---- | ---- | ---- | ---- | ----- |
+|CDN-origem-auxiliar-pré-busca habilitada | 1 (padrão) ou 0 |CDN|Origem|Para indicar que a CDN está habilitada para pré-busca|
+|CDN-origem-assistência-pré-busca-caminho| Exemplo: <br/>Fragmentos (Video = 1400000000, Format = MPD-time-CMAF)|Origem|CDN|Para fornecer o caminho de pré-busca para a CDN|
+|CDN-origem-auxiliar-prefetch-solicitação|1 (solicitação de pré-busca) ou 0 (solicitação regular)|CDN|Origem|Para indicar que a solicitação da CDN é uma pré-busca|
+
+Para ver parte da troca de cabeçalho em ação, você pode tentar as seguintes etapas:
+
+1. Use o postmaster ou a ondulação para emitir uma solicitação para a origem dos serviços de mídia para um segmento ou fragmento de áudio ou vídeo. Certifique-se de adicionar o cabeçalho CDN-Origin-Assist-prefetch habilitado: 1 na solicitação.
+2. Na resposta, você deve ver o cabeçalho CDN-Origin-Assist-pré-busca-Path com um caminho relativo como seu valor.
+
 ## <a name="november-2019"></a>Novembro de 2019
 
 ### <a name="live-transcription-preview"></a>Visualização de transcrição ao vivo
@@ -339,7 +358,7 @@ Os seguintes recursos estão presentes no SDK do .NET:
 
 Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Visão geral](media-services-overview.md)
 - [Notas de versão do Media Services v2](../previous/media-services-release-notes.md)

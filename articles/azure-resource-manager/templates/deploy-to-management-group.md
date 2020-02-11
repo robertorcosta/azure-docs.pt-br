@@ -2,13 +2,13 @@
 title: Implantar recursos no grupo de gerenciamento
 description: Descreve como implantar recursos no escopo do grupo de gerenciamento em um modelo de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: 4ba4f4d2e95c0b878e9f402fa84139ac5b351e3c
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.date: 02/10/2020
+ms.openlocfilehash: 0419f3daca6845c6809c9f66e870fdf884a7193f
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121906"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117047"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Criar recursos no nível do grupo de gerenciamento
 
@@ -63,8 +63,20 @@ Para implantações de grupo de gerenciamento, há algumas considerações impor
 
 * A função [resourceGroup()](template-functions-resource.md#resourcegroup)**não** é suportada.
 * **Não** há suporte para a função [Subscription ()](template-functions-resource.md#subscription) .
-* A função [resourceId()](template-functions-resource.md#resourceid) é suportada. Use-o para obter a ID de recurso para recursos que são usados em implantações no nível do grupo de gerenciamento. Por exemplo, obtenha a ID de recurso para uma definição de política com `resourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))`. Ele retorna a ID do recurso no formato `/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`.
 * A funções [reference()](template-functions-resource.md#reference) e [list()](template-functions-resource.md#list) são suportadas.
+* A função [resourceId()](template-functions-resource.md#resourceid) é suportada. Use-o para obter a ID de recurso para recursos que são usados em implantações no nível do grupo de gerenciamento. Não forneça um valor para o parâmetro do grupo de recursos.
+
+  Por exemplo, para obter a ID de recurso para uma definição de política, use:
+  
+  ```json
+  resourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
+  ```
+  
+  A ID de recurso retornada tem o seguinte formato:
+  
+  ```json
+  /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+  ```
 
 ## <a name="create-policies"></a>Criar políticas
 
@@ -136,9 +148,13 @@ O exemplo a seguir atribui uma definição de política existente ao grupo de ge
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="template-sample"></a>Exemplo de modelo
+
+* Crie um grupo de recursos, uma política e uma atribuição de política.  Consulte [aqui](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
+
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre como atribuir funções, consulte [gerenciar o acesso aos recursos do Azure usando os modelos RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * Para obter um exemplo de implantação de configurações de workspace para a Central de Segurança do Azure, consulte [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
-* Para saber mais sobre a criação de modelos do Gerenciador de Recursos do Azure, consulte [Criando modelos](template-syntax.md). 
+* Para saber mais sobre a criação de modelos do Gerenciador de Recursos do Azure, consulte [Criando modelos](template-syntax.md).
 * Para obter uma lista das funções disponíveis em um modelo, consulte [Funções de modelo](template-functions.md).

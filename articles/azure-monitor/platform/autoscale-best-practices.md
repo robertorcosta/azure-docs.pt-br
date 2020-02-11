@@ -4,14 +4,14 @@ description: Padrões de dimensionamento automático no Azure para Aplicativos W
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: d9f04e0af4349f6b149619f13dac8ca2f59b560e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a05cf87e660cc6c388ea2055bb174c47b99da4a3
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75396991"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117119"
 ---
-# <a name="best-practices-for-autoscale"></a>Práticas recomendadas para o dimensionamento automático
+# <a name="best-practices-for-autoscale"></a>Práticas recomendadas para Dimensionamento Automático
 O dimensionamento automático do Azure Monitor aplica-se somente aos [Conjuntos de Dimensionamento de Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machine-scale-sets/), aos [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/), ao [Serviço de Aplicativo – Aplicativos Web](https://azure.microsoft.com/services/app-service/web/) e aos [Serviços de Gerenciamento de API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 ## <a name="autoscale-concepts"></a>Conceitos de dimensionamento automático
@@ -113,7 +113,7 @@ Da mesma forma, quando o dimensionamento automático alternar de volta para o pe
 
 ### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>Considerações sobre dimensionamento quando várias regras são configuradas em um perfil
 
-Há casos em que talvez você precise definir várias regras em um perfil. As seguintes regras de dimensionamento automático são usadas pelos serviços quando várias regras são definidas.
+Há casos em que talvez você precise definir várias regras em um perfil. As seguintes regras de dimensionamento automático são usadas pelo mecanismo de dimensionamento automático quando várias regras são definidas.
 
 Em *expansão*, o dimensionamento automático é executado se alguma regra for atendida.
 Em *reduzir horizontalmente*, o dimensionamento automático exige que todas as regras sejam atendidas.
@@ -133,13 +133,13 @@ Em seguida, ocorrerá o seguinte:
 Por outro lado, se a CPU é 25% e a memória é 51%, dimensionamento automático **não** será reduzido horizontalmente. Para reduzir horizontalmente, a CPU deve ser 29% e memória 49%.
 
 ### <a name="always-select-a-safe-default-instance-count"></a>Sempre selecione uma contagem de instância de segurança padrão
-A contagem de instâncias padrão é importante porque o dimensionamento automático dimensiona o serviço para essa contagem quando métricas não estão disponíveis. Portanto, selecione uma contagem de instância padrão que seja segura para suas cargas de trabalho.
+A contagem de instâncias padrão é importante porque o dimensionamento automático dimensiona seu serviço para essa contagem quando as métricas não estão disponíveis. Portanto, selecione uma contagem de instância padrão que seja segura para suas cargas de trabalho.
 
 ### <a name="configure-autoscale-notifications"></a>Configurar notificações de dimensionamento automático
 O dimensionamento automático registrará no Log de atividades se qualquer das seguintes condições ocorrer:
 
-* O dimensionamento automático emite uma operação de dimensionamento
-* O serviço de dimensionamento automático conclui com sucesso uma ação de dimensionamento
+* O dimensionamento automático emite uma operação de dimensionamento.
+* O serviço de dimensionamento automático conclui com êxito uma ação de dimensionamento.
 * O serviço de dimensionamento automático não pode executar uma ação de dimensionamento.
 * As métricas não estão disponíveis para o serviço de dimensionamento automático tomar uma decisão de escala.
 * As métricas estão disponíveis (recuperação) novamente para tomar uma decisão de escala.

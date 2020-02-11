@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: db1e2d09c1a75401a8ca24859e9b2d5da9f54b72
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 1d244d7b62fcfefeec6f628f473274ae982bf4d8
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024272"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120219"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Solução de problemas e limitações do Azure Cloud Shell
 
@@ -28,6 +28,11 @@ As resoluções conhecidas para solucionar problemas no Azure Cloud Shell inclue
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-troubleshooting"></a>Solução de problemas gerais
+
+### <a name="error-running-azuread-cmdlets-in-powershell"></a>Erro ao executar cmdlets AzureAD no PowerShell
+
+- **Detalhes**: quando você executa cmdlets AzureAD como `Get-AzureADUser` em Cloud Shell, você pode ver um erro: `You must call the Connect-AzureAD cmdlet before calling any other cmdlets`. 
+- **Resolução**: execute o cmdlet `Connect-AzureAD`. Anteriormente, Cloud Shell executou esse cmdlet automaticamente durante a inicialização do PowerShell. Para acelerar a hora de início, o cmdlet não é mais executado automaticamente. Você pode optar por restaurar o comportamento anterior adicionando `Connect-AzureAD` ao arquivo $PROFILE no PowerShell.
 
 ### <a name="early-timeouts-in-firefox"></a>Tempos limites iniciais no FireFox
 
@@ -163,7 +168,7 @@ O Azure Cloud Shell leva seus dados pessoais a sério, os dados capturados e arm
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-### <a name="export"></a>Exportar
+### <a name="export"></a>Exportação
 Para **exportar** as configurações de usuário Cloud Shell salvas para você, como o shell preferencial, o tamanho da fonte e o tipo de fonte, execute os seguintes comandos.
 
 1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)

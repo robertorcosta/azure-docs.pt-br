@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/28/2020
+ms.date: 02/10/2020
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1ed80ad87d81c2ec1bdfe50e9cd4556f141507b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c91b9ffc9e3487e492c91cb0f5825d0b725f9410
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76907468"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120088"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Criar coleções no portal meus aplicativos
 
@@ -30,7 +30,7 @@ Os usuários podem usar o portal meus aplicativos para exibir e iniciar os aplic
 > [!NOTE]
 > Este artigo aborda como um administrador pode habilitar e criar coleções. Para obter informações para o usuário final sobre como usar o portal e as coleções de meus aplicativos, consulte [acessar e usar coleções](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-workspaces).
 
-## <a name="enable-my-apps-preview-features"></a>Habilitar recursos de visualização de meus aplicativos
+## <a name="enable-the-latest-my-apps-features"></a>Habilitar os recursos mais recentes dos meus aplicativos
 
 1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como administrador de usuário ou administrador global.
 
@@ -39,8 +39,8 @@ Os usuários podem usar o portal meus aplicativos para exibir e iniciar os aplic
 3. Em **visualizações de recurso de usuário**, selecione **gerenciar configurações de visualização de recurso do usuário**.
 
 4. Em **os usuários podem usar os recursos de visualização para meus aplicativos**, escolha uma das seguintes opções:
-   * **Selecionado** – habilita os recursos de visualização para um grupo específico. Use a opção **selecionar um grupo** para selecionar o grupo para o qual você deseja habilitar os recursos de visualização.  
-   * **All** – habilita recursos de visualização para todos os usuários.
+   * **Selecionado** – habilita os recursos para um grupo específico. Use a opção **selecionar um grupo** para selecionar o grupo para o qual você deseja habilitar os recursos.  
+   * **Todos** – habilita os recursos para todos os usuários.
 
 > [!NOTE]
 > Para abrir o portal meus aplicativos, os usuários podem usar o link `https://myapps.microsoft.com` ou o link personalizado para sua organização, como `https://myapps.microsoft.com/contoso.com`. Depois de habilitar a nova experiência meus aplicativos, a faixa **uma experiência atualizada meus aplicativos está disponível** será exibida na parte superior da página meus aplicativos, e os usuários poderão selecionar **experimentar** para exibir a nova experiência. Para parar de usar a nova experiência, os usuários podem selecionar **Sim** na faixa **deixar nova experiência** na parte superior da página.
@@ -97,5 +97,5 @@ Caso você precise enviar uma solicitação de suporte para um problema com a p�
 
 * Para problemas com a página **"minha conta" do Office** , abra uma solicitação de suporte no centro de administração do Microsoft 365. Vá para **Microsoft 365 centro de administração** > **suporte**. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Experiências do usuário final para aplicativos no Azure Active Directory](end-user-experiences.md)

@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.openlocfilehash: a6a8b766efdc781df1fea29da81dc48090875ad7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 4612d15dd5d3ab6e814f09210d5ff3991fef0328
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036581"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121881"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Criar uma cópia da sua VM Linux usando a CLI do Azure e Managed Disks
 
@@ -27,7 +27,7 @@ Este artigo mostra como criar uma cópia da sua máquina virtual (VM) do Azure e
 
 Você também pode [carregar e criar uma VM com base em um VHD](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 -   Instale a [CLI do Azure](/cli/azure/install-az-cli2).
 
@@ -50,7 +50,7 @@ az vm deallocate \
 
 Para copiar uma máquina virtual, você deve criar uma cópia do disco rígido virtual subjacente. Esse processo cria um disco rígido virtual (VHD) especializado como disco gerenciado que contém a mesma configuração e configurações da VM de origem.
 
-Para obter mais informações sobre o Azure Managed Disks, consulte [Visão geral dos Azure Managed Disks](../windows/managed-disks-overview.md). 
+Para saber mais sobre Azure Managed Disks, veja [Visão geral dos Azure Managed Disks](../windows/managed-disks-overview.md). 
 
 1.  Lista cada VM e o nome do disco do sistema operacional com [az vm list](/cli/azure/vm#az-vm-list). O exemplo a seguir lista todas as VMs no grupo de recursos denominado *myResourceGroup*:
     
@@ -133,4 +133,4 @@ az vm create --resource-group myResourceGroup \
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber como usar a CLI do Azure para gerenciar sua nova VM, confira [Comandos da CLI do Azure para o Azure Resource Manager](../azure-cli-arm-commands.md).
+Para saber como usar uma [Galeria de imagens compartilhadas](shared-images.md) para gerenciar imagens de VM.

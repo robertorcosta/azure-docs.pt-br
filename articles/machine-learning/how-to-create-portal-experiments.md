@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/04/2020
-ms.openlocfilehash: 620aab2d2104c9e08de6e7ea47511ff45a482ec4
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: a2bf15c8778a6ff549284b1053cf0978d182b802
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77046109"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116891"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Crie, explore e implante experimentos automatizados de aprendizado de máquina com o Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "77046109"
 
  Se você preferir uma experiência mais baseada em código, também poderá [configurar seus experimentos de aprendizado de máquina automatizados no Python](how-to-configure-auto-train.md) com o [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -60,14 +60,14 @@ Caso contrário, você verá uma lista de experiências de aprendizado de máqui
 
     1. Dê um nome exclusivo ao conjunto de dados e forneça uma descrição opcional. 
 
-    1. Selecione **Avançar**para carregá-lo no contêiner de armazenamento padrão criado automaticamente com seu espaço de trabalho ou escolha um contêiner de armazenamento que você deseja usar para o experimento. 
+    1. Selecione **Avançar** para abrir o **formulário repositório de armazenamento e seleção de arquivo**. Neste formulário, você seleciona onde carregar seu conjunto de seus conjuntos de seus. o contêiner de armazenamento padrão criado automaticamente com seu espaço de trabalho ou escolha um contêiner de armazenamento que você deseja usar para o experimento. 
 
     1. Examine as **configurações e** o formulário de visualização para obter precisão. O formulário é populado de forma inteligente com base no tipo de arquivo. 
 
-        Campo| Descrição
+        Campo| DESCRIÇÃO
         ----|----
         Formato de arquivo| Define o layout e o tipo de dados armazenados em um arquivo.
-        parâmetro| Um ou mais caracteres para especificar o limite entre regiões separadas e independentes em texto sem formatação ou outros fluxos de dados.
+        Delimitador| Um ou mais caracteres para especificar o limite entre regiões separadas e independentes em texto sem formatação ou outros fluxos de dados.
         Codificação| Identifica qual tabela de esquema de bit para caractere usar para ler seu conjunto de dados.
         Cabeçalhos da coluna| Indica como os cabeçalhos do conjunto de dados, se houver, serão tratados.
         Ignorar linhas | Indica quantas linhas, se houver, serão ignoradas no conjunto de registros.
@@ -78,7 +78,7 @@ Caso contrário, você verá uma lista de experiências de aprendizado de máqui
             
         Selecione **Avançar.**
 
-    1. O formulário **confirmar detalhes** é um resumo das informações previamente populadas nas **informações básicas** e **nas configurações e na visualização** de formulários. Você também tem a opção de criar o perfil de seu conjunto de um usando uma computação de criação de perfil habilitada. Saiba mais sobre a [criação de perfil de dados](#profile).
+    1. O formulário **confirmar detalhes** é um resumo das informações previamente populadas nas **informações básicas** e **nas configurações e na visualização** de formulários. Você também tem a opção de criar um perfil de dados para o seu DataSet usando uma computação de criação de perfil habilitada. Saiba mais sobre a [criação de perfil de dados](#profile).
 
         Selecione **Avançar**.
 1. Selecione o conjunto de seus conjuntos de seu recém-criado quando ele for exibido. Você também pode exibir uma visualização do conjunto de exemplos e estatísticas de exemplo. 
@@ -91,7 +91,7 @@ Caso contrário, você verá uma lista de experiências de aprendizado de máqui
 
 1. Selecione **criar uma nova computação** para configurar o contexto de computação para este experimento.
 
-    Campo|Descrição
+    Campo|DESCRIÇÃO
     ---|---
     Nome da computação| Insira um nome exclusivo que identifique o contexto da computação.
     Tamanho da máquina virtual| Selecione o tamanho da máquina virtual da computação.
@@ -115,7 +115,7 @@ Caso contrário, você verá uma lista de experiências de aprendizado de máqui
 
 1. Adicional Exibir definições de configuração de adição: configurações adicionais que você pode usar para controlar melhor o trabalho de treinamento. Caso contrário, os padrões são aplicados com base na seleção e nos dados de experimento. 
 
-    Configurações adicionais|Descrição
+    Configurações adicionais|DESCRIÇÃO
     ------|------
     Métrica principal| Métrica principal usada para pontuar seu modelo. [Saiba mais sobre métricas de modelo](how-to-configure-auto-train.md#explore-model-metrics).
     Personalização automática| Selecione para habilitar ou desabilitar o pré-processamento feito pelo Machine Learning automatizado. O pré-processamento inclui a limpeza, preparação e transformação automáticas de dados para gerar recursos sintéticos. Sem suporte para o tipo de tarefa previsão de série temporal. [Saiba mais sobre o pré-processamento](#featurization). 
@@ -136,13 +136,13 @@ Você pode obter uma grande variedade de estatísticas de resumo em seu conjunto
 >[!NOTE]
 > Entradas em branco aparecem para recursos com tipos irrelevantes.
 
-Estatística|Descrição
+Estatística|DESCRIÇÃO
 ------|------
 Recurso| Nome da coluna que está sendo resumida.
 Perfil| Visualização embutida com base no tipo inferido. Por exemplo, cadeias de caracteres, Boolianos e datas terão contagens de valor, enquanto decimais (numéricos) têm histogramas aproximados. Isso permite que você tenha uma compreensão rápida da distribuição dos dados.
 Distribuição de tipo| Valor na linha contagem de tipos dentro de uma coluna. Os nulos são de seu próprio tipo, portanto, essa visualização é útil para detectar valores ímpares ou ausentes.
-Tipo|Tipo inferido da coluna. Os valores possíveis incluem: cadeias de caracteres, Boolianos, datas e decimais.
-Min| Valor mínimo da coluna. Entradas em branco aparecem para recursos cujo tipo não tem uma ordenação inerente (por exemplo, Boolianos).
+Type|Tipo inferido da coluna. Os valores possíveis incluem: cadeias de caracteres, Boolianos, datas e decimais.
+Mín| Valor mínimo da coluna. Entradas em branco aparecem para recursos cujo tipo não tem uma ordenação inerente (por exemplo, Boolianos).
 Max| Valor máximo da coluna. 
 Contagem| Número total de entradas ausentes e não ausentes na coluna.
 Sem contagem faltando| Número de entradas na coluna que não estão ausentes. Cadeias de caracteres e erros vazios são tratados como valores, portanto, eles não contribuirão para a "contagem não encontrada".
@@ -162,7 +162,7 @@ O Machine Learning automatizado oferece pré-processamento e guardrails de dados
 
 ### <a name="preprocessing"></a>Pré-processamento
 
-|Pré-processando&nbsp;etapas| Descrição |
+|Pré-processando&nbsp;etapas| DESCRIÇÃO |
 | ------------- | ------------- |
 |Remover alta cardinalidade ou nenhum recurso de variação|Descarte-os dos conjuntos de treinamento e validação, incluindo recursos com todos os valores ausentes, o mesmo valor em todas as linhas ou com cardinalidade extremamente alta (por exemplo, hashes, IDs ou GUIDs).|
 |Acrescentar valores ausentes|Para recursos numéricos, imputar com a média de valores na coluna.<br/><br/>Para recursos categóricos, imputar com o valor mais frequente.|
@@ -220,10 +220,10 @@ O ML automatizado ajuda você a implantar o modelo sem escrever código:
 
 1. Preencha o painel **implantar modelo** .
 
-    Campo| {1&gt;Valor&lt;1}
+    Campo| Valor
     ----|----
     Nome| Insira um nome exclusivo para sua implantação.
-    Descrição| Insira uma descrição para identificar melhor a finalidade dessa implantação.
+    DESCRIÇÃO| Insira uma descrição para identificar melhor a finalidade dessa implantação.
     Tipo de computação| Selecione o tipo de ponto de extremidade que você deseja implantar: *AKs (serviço kubernetes do Azure)* ou *instância de contêiner do Azure (ACI)* .
     Nome da computação| *Aplica-se somente a AKs:* Selecione o nome do cluster AKS no qual você deseja implantar.
     Habilitar autenticação | Selecione para permitir a autenticação baseada em token ou baseada em chave.
@@ -238,7 +238,7 @@ O ML automatizado ajuda você a implantar o modelo sem escrever código:
 
 Agora você tem um serviço Web operacional para gerar previsões! Você pode testar as previsões consultando o serviço do [suporte Azure Machine Learning interno Power bi](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Experimente o tutorial de ponta a ponta [para criar seu primeiro experimento de ml automatizado com o Azure Machine Learning Studio](tutorial-first-experiment-automated-ml.md). 
 * [Saiba mais sobre o aprendizado de máquina](concept-automated-ml.md) e a Azure Machine Learning automatizados.
