@@ -1,33 +1,30 @@
 ---
-title: 'Início Rápido: Enviar e receber eventos usando o Node.js – Hubs de Eventos do Azure'
-description: 'Início Rápido: Este artigo apresenta instruções passo a passo para a criação de um aplicativo Node.js que envia eventos de Hubs de Eventos do Azure.'
+title: Enviar ou receber eventos de Hubs de Eventos do Azure usando o Node.js (herdado)
+description: Este artigo fornece um passo a passo para criar um aplicativo Node.js que envia/recebe eventos para/de Hubs de Eventos do Azure usando o pacote azure/event-hubs versão 2 antigo.
 services: event-hubs
 author: spelluru
-manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 01/08/2020
+ms.date: 01/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 39087b189c424866fffcc3ea8723c712883f288c
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 9aa2418657c2d3bcab9ef8883e5bd57422ce5e29
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940720"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899901"
 ---
-# <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-nodejs"></a>Início Rápido: Enviar ou receber eventos de Hubs de Eventos do Azure usando o Node.js
+# <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-nodejs-azureevent-hubs-version-2"></a>Início Rápido: Enviar ou receber eventos de Hubs de Eventos do Azure usando o Node.js (@azure/event-hubs versão 2)
 
 O Hubs de Eventos do Azure é uma plataforma de streaming de Big Data e um serviço de ingestão de eventos que pode receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos pelos dispositivos e software distribuídos. Os dados enviados para um Hub de Eventos podem ser transformados e armazenados usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Para obter uma visão detalhada dos Hubs de Eventos, confira [Visão geral de Hubs de Eventos](event-hubs-about.md) e [Recursos de Hubs de Eventos](event-hubs-features.md).
 
 Este tutorial descreve como criar aplicativos Node.js para enviar ou receber eventos de um hub de eventos.
 
-> [!IMPORTANT]
-> Este guia de início rápido usa a versão 2 do SDK do JavaScript dos Hubs de Eventos do Azure. Se você é novo nos Hubs de Eventos do Azure, use a versão 5 do SDK do JavaScript. Para obter um início rápido que usa a versão 5 do SDK do JavaScript, confira [este artigo](get-started-node-send-v2.md). Se precisar migrar o código existente da versão 2 para a versão 5, confira o [guia de migração](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md).
+> [!WARNING]
+> Este guia de início rápido se destina à versão 2 do SDK do Java Script dos Hubs de Eventos do Azure. É recomendável que você [migre](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md) seu código para a [versão 5 do SDK do Java Script](get-started-node-send-v2.md). 
 
-> [!NOTE]
-> Você pode baixar do [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client) este início rápido como um exemplo, substituir as cadeias de caracteres `EventHubConnectionString` e `EventHubName` pelos valores do hub de eventos e executá-lo. Como alternativa, é possível seguir as etapas deste tutorial para criar sua própria solução.
+
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -55,6 +52,9 @@ npm install @azure/event-processor-host
 ## <a name="send-events"></a>Enviar eventos
 
 Esta seção mostra como criar um aplicativo Node.js que envia eventos a um hub de eventos. 
+
+> [!NOTE]
+> Você pode baixar do [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client) este início rápido como um exemplo, substituir as cadeias de caracteres `EventHubConnectionString` e `EventHubName` pelos valores do hub de eventos e executá-lo. Como alternativa, é possível seguir as etapas deste tutorial para criar sua própria solução.
 
 1. Abra seu editor favorito, como o [Visual Studio Code](https://code.visualstudio.com). 
 2. Crie um arquivo chamado `send.js` e cole nele o código abaixo. Obtenha a cadeia de conexão para o namespace do hub de eventos seguindo as instruções do artigo: [Obter a cadeia de conexão](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). 

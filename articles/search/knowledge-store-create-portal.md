@@ -7,13 +7,13 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 12/30/2019
-ms.openlocfilehash: cffd94459e3a18567f2ff2f6b8fca35598cb5eed
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.date: 01/29/2020
+ms.openlocfilehash: b75b760704511627c74301ae3fff82c24a262e17
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563438"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904892"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Início Rápido: Criar um repositório de conhecimento da Pesquisa Cognitiva do Azure no portal do Azure
 
@@ -81,7 +81,7 @@ Na página de Visão geral do serviço de pesquisa, clique em **Importar dados**
 Nesta etapa do assistente, você criará um conjunto de habilidades com aprimoramentos de habilidades cognitivas. Os dados de origem consistem em análises de clientes em vários idiomas. As habilidades relevantes para esse conjunto de dados incluem extração de frases-chave, detecção de opiniões e tradução de texto. Em uma etapa posterior, esses aprimoramentos serão “projetados” em um repositório de conhecimento como tabelas do Azure.
 
 1. Expanda **Anexar Serviços Cognitivos**. **Gratuito (Aprimoramentos limitados)** é selecionado por padrão. É possível usar esse recurso porque o número de registros em HotelReviews-Free.csv é 19 e esse recurso gratuito permite até 20 transações por dia.
-1. Expanda **Adicionar habilidades cognitivas**.
+1. Expanda **Adicionar aprimoramentos**.
 1. Em **Nome do conjunto de habilidades**, insira `hotel-reviews-ss`.
 1. Em **Campo de dados de origem**, selecione **reviews_text**.
 1. Para **Nível de granularidade do aprimoramento**, selecione **Páginas (5 mil partes de caracteres)**
@@ -93,11 +93,11 @@ Nesta etapa do assistente, você criará um conjunto de habilidades com aprimora
       ![Criar um conjunto de habilidades](media/knowledge-store-create-portal/hotel-reviews-ss.png "Criar um conjunto de habilidades")
 
 1. Expanda **Salvar aprimoramentos no repositório de conhecimento**.
-1. Insira a **Cadeia de Conexão da conta de armazenamento** salva em uma etapa anterior.
 1. Selecione estas **projeções de tabela do Azure**:
     + **Documentos**
     + **Páginas**
     + **Frases-chave**
+1. Insira a **Cadeia de Conexão da conta de armazenamento** salva em uma etapa anterior.
 
     ![Configurar um repositório de conhecimento](media/knowledge-store-create-portal/hotel-reviews-ks.png "Configurar um repositório de conhecimento")
 

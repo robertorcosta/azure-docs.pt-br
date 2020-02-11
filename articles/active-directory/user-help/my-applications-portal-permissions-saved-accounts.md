@@ -1,27 +1,27 @@
 ---
-title: Gerenciar permissões de aplicativo do portal Meus Aplicativos (versão prévia) – Azure Active Directory | Microsoft Docs
-description: Saiba como gerenciar permissões de aplicativo para aplicativos baseados em nuvem da sua organização no portal Meus Aplicativos (versão prévia).
+title: Gerenciar permissões de aplicativo no portal Meus Aplicativos – Azure Active Directory | Microsoft Docs
+description: Saiba como gerenciar permissões de aplicativo para os aplicativos baseados em nuvem da sua organização no portal Meus Aplicativos.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: kasimpso
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 10/30/2019
-ms.author: lizross
+ms.date: 02/03/2020
+ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 36abbee0bf25550425f4e476e6a4e7b75df815a6
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: bac33386371b13950163727497cabd0f262df135
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705047"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022402"
 ---
-# <a name="edit-or-revoke-application-permissions-in-the-my-apps-preview-portal"></a>Editar ou revogar permissões de aplicativos no portal Meus Aplicativos (versão prévia)
+# <a name="edit-or-revoke-application-permissions-in-the-my-apps-portal"></a>Editar ou revogar permissões de aplicativo no portal Meus Aplicativos
 
-Ao usar aplicativos organizacionais no portal **Meus Aplicativos** (versão prévia), você geralmente concede permissões e salva as informações da conta. Para manter seus dados seguros, talvez você queira examinar e revogar permissões ou limpar as credenciais da conta salva. A remoção de permissões ou contas pode interromper algumas funcionalidades do aplicativo. Se você tiver problemas depois de remover permissões ou contas, entre em contato com o suporte técnico da sua organização para obter assistência adicional.
+Ao usar aplicativos organizacionais no portal **Meus Aplicativos**, você geralmente concede permissões e salva os dados da conta. Para manter seus dados seguros, talvez você queira examinar e revogar permissões ou limpar as credenciais da conta salva. A remoção de permissões ou contas pode interromper algumas funcionalidades do aplicativo. Se você tiver problemas depois de remover permissões ou contas, entre em contato com o suporte técnico da sua organização para obter assistência adicional.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
@@ -46,11 +46,11 @@ A parte inferior da janela de permissões mostra o que o administrador consentiu
 
 Depois de gerenciar as permissões do aplicativo e as contas salvas no portal **Meus Aplicativos**, você pode:
 
-- Organize seus aplicativos em várias categorias criadas e fornecidas pela sua organização. Para saber mais, confira [Acessar e usar espaços de trabalho no portal Meus Aplicativos (versão prévia)](my-applications-portal-workspaces.md).
+- Organize seus aplicativos em várias categorias criadas e fornecidas pela sua organização. Para obter mais informações, confira [Acessar e usar coleções no portal Meus Aplicativos](my-applications-portal-workspaces.md).
 
 ## <a name="related-articles"></a>Artigos relacionados
 
-- [Atualizar suas informações de perfil e conta](my-account-portal-overview.md). Instruções sobre como atualizar suas informações pessoais exibidas no portal **Meus Perfil** (versão prévia).
+- [Atualizar suas informações de perfil e conta](my-account-portal-overview.md). Instruções sobre como atualizar suas informações pessoais exibidas no portal **Meu Perfil**.
 
 - [Gerenciar suas organizações](my-account-portal-organizations-page.md). Instruções sobre como exibir e gerenciar suas informações relacionadas à organização na página **Organizações** do portal **Meu Perfil**.
 

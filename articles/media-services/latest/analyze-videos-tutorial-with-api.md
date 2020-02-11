@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 06/19/2019
+ms.date: 02/02/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: f803bcafb1966e32e894b4caeaa8fafb5f73e8e7
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: abd4a3a3a3e8494ea325e65a78eea7fb56b78f94
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186278"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988355"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Tutorial: Analisar vídeos com os Serviços de Mídia v3
 
@@ -38,7 +38,11 @@ Este tutorial mostra como:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="compliance-privacy-and-security"></a>Conformidade, privacidade e segurança
+ 
+Como um lembrete importante, você precisará respeitar todas as leis aplicáveis em seu uso do Video Indexer e não poderá usar o Video Indexer ou qualquer outro serviço do Azure de uma maneira que viole os direitos de outras pessoas ou que possa ser prejudicial a outras pessoas. Antes de carregar qualquer vídeo, incluindo dados biométricos, no serviço do Video Indexer para processamento e armazenamento, você precisará ter todos os direitos apropriados, incluindo todos os consentimentos apropriados, dos indivíduos mostrados no vídeo. Para saber mais sobre a conformidade, a privacidade e a segurança do Video Indexer, leia os [Termos dos Serviços Cognitivos](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/) da Microsoft. Para saber mais sobre as obrigações de privacidade e o tratamento de seus dados pela Microsoft, examine a [política de privacidade](https://privacy.microsoft.com/PrivacyStatement), o “OST” [(Termos do Online Services)](https://www.microsoft.com/licensing/product-licensing/products) e o “DPA” [(Adendo de Processamento de Dados)](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) da Microsoft. Informações de privacidade adicionais, incluindo retenção de dados, exclusão/destruição, estão disponíveis no OST e [aqui](../video-indexer/faq.md). Ao usar o Video Indexer, você concorda em vincular-se aos Termos dos Serviços Cognitivos, ao OST, ao DPA e à política de privacidade.
+
+## <a name="prerequisites"></a>Prerequisites
 
 - Se o Visual Studio não estiver instalado, obtenha o [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 - [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md).<br/>Lembre-se dos valores que você usou para o nome do grupo de recursos e o nome da conta de Serviços de Mídia.
@@ -156,7 +160,7 @@ Quando executamos o programa, o trabalho produz miniaturas de cada face que enco
 
 O arquivo de saída de análise de vídeos é chamado insights.json. Esse arquivo contém informações sobre o vídeo. Você pode encontrar uma descrição dos elementos encontrados no arquivo json no artigo [Inteligência de mídia](intelligence-concept.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não precisar mais de qualquer um dos recursos em seu grupo de recursos, incluindo as contas dos Serviços de Mídia e de armazenamento que você criou neste tutorial, exclua o grupo de recursos criados anteriormente.
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f71a27ea4da6bce5832287e948e0731672280196
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: e3154b9635da889ed7f0484fc04c565c27e9241b
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699497"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031502"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutorial: Estender servidores de arquivos do Windows com a Sincronização de Arquivos do Azure
 
@@ -32,7 +32,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no [Portal do Azure](https://portal.azure.com).
+Entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="prepare-your-environment"></a>Prepare o seu ambiente
 
@@ -136,7 +136,7 @@ Nesta altura, você já criou uma nova máquina virtual e anexou um disco de dad
 
 Para o servidor Windows Server 2016 Datacenter, desabilite a opção Configuração de Segurança Aprimorada do Internet Explorer. Essa etapa é necessária apenas para o registro inicial do servidor. Você pode habilitá-la novamente depois que o servidor foi registrado.
 
-Na VM do Windows Server 2016 Datacenter, o Gerenciador do Servidor será aberto automaticamente.  Se o Gerenciador do Servidor não for aberto por padrão, pesquise-o no Explorador de Arquivos.
+Na VM do Windows Server 2016 Datacenter, o Gerenciador do Servidor será aberto automaticamente.  Se o Gerenciador do Servidor não abrir por padrão, pesquise-o no menu Iniciar.
 
 1. Em **Gerenciador do Servidor**, selecione **Servidor Local**.
 
@@ -217,7 +217,7 @@ Para implantar a Sincronização de Arquivos do Azure, primeiro coloque um recur
 
    No novo painel que será aberta, insira as seguintes informações:
 
-   | Valor | DESCRIÇÃO |
+   | Valor | Descrição |
    | ----- | ----- |
    | **Nome** | Um nome exclusivo (por assinatura) para o Serviço de Sincronização de Armazenamento.<br><br>Use _afssyncservice02_ para este tutorial. |
    | **Assinatura** | A assinatura do Azure usada para este tutorial. |
@@ -263,7 +263,7 @@ A interface do usuário do Registro do Servidor deverá ser aberta automaticamen
 
    | | |
    | ----- | ----- |
-   | Valor | DESCRIÇÃO |
+   | Valor | Descrição |
    | **Assinatura do Azure** | A assinatura que contém o Serviço de Sincronização de Armazenamento para este tutorial. |
    | **Grupo de recursos** | O grupo de recursos que contém o Serviço de Sincronização de Armazenamento. Use _afsresgroup101918_ para este tutorial. |
    | **Serviço de Sincronização de Armazenamento** | O nome do Serviço de Sincronização de Armazenamento. Use _afssyncservice02_ para este tutorial. |
@@ -282,7 +282,7 @@ Um grupo de sincronização define a topologia de sincronização para um conjun
 
 1. Insira as seguintes informações para criar um grupo de sincronização com um ponto de extremidade da nuvem:
 
-   | Valor | DESCRIÇÃO |
+   | Valor | Descrição |
    | ----- | ----- |
    | **Nome do grupo de sincronização** | Esse nome deve ser exclusivo dentro do Serviço de Sincronização de Armazenamento, mas pode ser qualquer nome lógico para você. Use *afssyncgroup* para este tutorial.|
    | **Assinatura** | A assinatura onde você implantou o Serviço de Sincronização de Armazenamento para este tutorial. |
@@ -305,7 +305,7 @@ Um ponto de extremidade de servidor representa uma localização específica em 
 
    | | |
    | ----- | ----- |
-   | Valor | DESCRIÇÃO |
+   | Valor | Descrição |
    | **Servidor registrado** | O nome do servidor criado. Use *afsvm101918* para este tutorial. |
    | **Caminho** | O caminho do Windows Server para a unidade criada. Use *f:\filestosync* neste tutorial. |
    | **Disposição em camadas de nuvem** | Deixe desabilitada para este tutorial. |
@@ -317,7 +317,7 @@ Os arquivos agora estão sincronizados entre o compartilhamento de arquivos do A
 
 ![Armazenamento do Azure sincronizado com êxito](media/storage-sync-files-extend-servers/files-synced-in-azurestorage.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 

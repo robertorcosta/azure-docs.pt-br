@@ -1,54 +1,54 @@
 ---
-title: Organizar aplicativos usando espaços de trabalho do portal Meus Aplicativos (versão prévia) – Azure Active Directory | Microsoft Docs
-description: Saiba como acessar e usar espaços de trabalho para aplicativos baseados em nuvem da sua organização no portal Meus Aplicativos (versão prévia).
+title: Organizar aplicativos usando coleções no portal Meus Aplicativos – Azure Active Directory | Microsoft Docs
+description: Saiba como acessar e usar coleções para os aplicativos baseados em nuvem da sua organização no portal Meus Aplicativos.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: kasimpso
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 10/30/2019
-ms.author: lizross
+ms.date: 02/03/2020
+ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 818e9a36f54e67ba1ea872394d470f2386485e2f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 49c5566454a93307dedd150a3508b33dbd7506e6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705030"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022351"
 ---
-# <a name="access-and-use-workspaces-on-the-my-apps-preview-portal"></a>Acesse e use espaços de trabalho no portal Meus Aplicativos (versão prévia)
+# <a name="use-collections-in-the-my-apps-portal"></a>Usar coleções no portal Meus Aplicativos
 
-Os espaços de trabalho são exibições de aplicativo diferentes que você vê no portal **Meus Aplicativos** (versão prévia). Os aplicativos podem ser agrupados em espaços de trabalho por função de departamento ou função de usuário, por exemplo. Se você não vê nenhum espaço de trabalho ou categoria disponível, significa que seu administrador não configurou ou compartilhou nenhum com você. Entre em contato com o suporte técnico da sua organização para obter assistência ou permissões adicionais para ver espaços de trabalho compartilhados.
+Os workspaces são diferentes exibições de aplicativo que você vê no portal **Meus Aplicativos**. Os aplicativos podem ser agrupados em coleções por função de departamento ou função de usuário, por exemplo. Se você não vê nenhuma coleção ou categoria disponível, isso significa que o administrador não configurou nem compartilhou nenhuma delas com você. Contate a assistência técnica da sua organização para obter assistência ou permissões adicionais para ver as coleções compartilhadas.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 >[!Important]
->Este conteúdo destina-se aos usuários. Se você for administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na [Documentação de Gerenciamento do Aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
+>Este conteúdo destina-se aos usuários do portal **Meus Aplicativos**. Se você for administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na [Documentação de Gerenciamento do Aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
 
-## <a name="access-apps-using-workspaces"></a>Acessar aplicativos usando espaços de trabalho
+## <a name="access-apps-using-collections"></a>Acessar aplicativos usando coleções
 
-Por padrão, a lista de espaços de trabalho no portal **Meus Aplicativos** exibe o espaço de trabalho **Todos os aplicativos**, que contém todos os aplicativos aos quais você tem acesso:
+A lista de coleções do portal **Meus Aplicativos** mostra como padrão uma chamada **Todos os Aplicativos**, que contém todos os aplicativos aos quais você tem acesso:
 
 ![Página Todos os aplicativos no portal Meus Aplicativos](media/my-applications-portal-workspaces/my-apps-all.png)
 
-Qualquer outro espaço de trabalho que você vê nessa lista foi criado por seu administrador e compartilhado com você. Você pode escolher um desses espaços de trabalho para ver um conjunto de aplicativos com mais escopo, como *Suporte* no exemplo a seguir:
+Qualquer outra coleção exibida nessa lista foi criada pelo administrador e compartilhada com você. Você pode escolher uma dessas coleções para ver um conjunto de aplicativos com mais escopo, como *Suporte* no seguinte exemplo:
 
-![Espaço de trabalho individual e conjunto de aplicativos com escopo no portal Meus Aplicativos](media/my-applications-portal-workspaces/my-apps-workspace.png)
+![Coleção individual e conjunto de aplicativos com escopo no portal Meus Aplicativos](media/my-applications-portal-workspaces/my-apps-workspace.png)
 
-Ao selecionar e exibir um espaço de trabalho, você verá apenas os aplicativos padrão aos quais você tem acesso.
+Ao selecionar e exibir uma coleção, você só verá os aplicativos padrão aos quais tem acesso.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Depois de organizar seus aplicativos em várias categorias no portal do **Meus Aplicativos**, você pode:
 
-- Revisar, atualizar ou revogar permissões concedidas a aplicativos. Para saber mais, confira [Editar ou revogar permissões de aplicativos no portal Meus aplicativos (versão prévia)](my-applications-portal-permissions-saved-accounts.md).
+- Revisar, atualizar ou revogar permissões concedidas a aplicativos. Para obter mais informações, confira [Editar ou revogar permissões de aplicativo no portal Meus Aplicativos](my-applications-portal-permissions-saved-accounts.md).
 
 ## <a name="related-articles"></a>Artigos relacionados
 
-- [Atualizar suas informações de perfil e conta](my-account-portal-overview.md). Instruções sobre como atualizar suas informações pessoais exibidas no portal **Meus Perfil** (versão prévia).
+- [Atualizar suas informações de perfil e conta](my-account-portal-overview.md). Instruções sobre como atualizar suas informações pessoais exibidas no portal **Meu Perfil**.
 
 - [Gerenciar suas organizações](my-account-portal-organizations-page.md). Instruções sobre como exibir e gerenciar suas informações relacionadas à organização na página **Organizações** do portal **Meu Perfil**.
 

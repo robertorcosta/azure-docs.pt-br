@@ -11,26 +11,26 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: b85dd8d899a7e5d7d9f9d41ad7e2872249ee29c5
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 9dcb185ab8375d46c75a12e6adaeeae2358c13ac
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702012"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022079"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutorial: Exportar dados do Azure IoT Central e visualizar informações no Power BI
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Nos dois tutoriais anteriores, você criou e personalizou um aplicativo IoT Central usando o modelo de aplicativo **análise no repositório - check-out**. Neste tutorial, você configura seu aplicativo IoT Central para exportar a telemetria coletada dos dispositivos. Em seguida, você usa Power BI para criar um painel personalizado para o gerenciador de loja para visualizar as informações derivadas da telemetria.
 
-Neste tutorial, você aprenderá como:
+Neste tutorial, você aprenderá a:
 > [!div class="checklist"]
 > * Configure um aplicativo IoT Central para exportar telemetria para um hub de eventos.
 > * Use os Aplicativos Lógicos do Azure para enviar dados de um hub de eventos para um conjunto de dados do Power BI.
 > * Crie um painel de Power BI para visualizar os dados no conjunto de dados de streaming.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará:
 
@@ -42,7 +42,7 @@ Para concluir este tutorial, você precisará:
 
 Antes de criar o hub de eventos e o aplicativo lógico, você precisa criar um grupo de recursos para gerenciá-los. O grupo de recursos deve estar no mesmo local que seu aplicativo **Análise do repositório - Fazer check-out** do IoT Central. Para criar um grupo de recursos:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. No painel de navegação esquerdo, selecione **Grupos de recursos**. Em seguida, selecione**Adicionar**.
 1. Para **Assinatura**, selecione o nome da assinatura do Azure na qual você deseja criar o aplicativo do IOT Central.
 1. Para o nome do **Grupo de recursos**, insira _de análise do repositório_*.
@@ -57,7 +57,7 @@ Agora você tem um grupo de recursos chamado **retail-store-analysis** em sua as
 Antes de configurar o aplicativo de monitoramento de varejo para exportar a telemetria, você precisa criar um hub de eventos para receber os dados exportados. As etapas a seguir mostram como criar o hub de eventos:
 
 1. No portal do Azure selecione **Criar um recurso** na parte superior esquerda da tela.
-1. Em **Pesquisar no marketplace**, insira _Hubs de Eventos_ e, em seguida, pressione **Enter**.
+1. Em **Pesquisar no Marketplace**, insira _Hubs de Eventos_ e, em seguida, pressione **Enter**.
 1. Na página **Hubs de Eventos**, selecione **Criar**.
 1. Na página **Criar Namespace**, execute as seguintes etapas:
     * Insira um nome exclusivo para o namespace, como _yourname-retail-store-analysis_. O sistema verifica se o nome está disponível.
@@ -161,7 +161,7 @@ Antes de criar o aplicativo lógico, você precisará das IDs de dispositivo dos
 As etapas a seguir mostram como criar o aplicativo lógico no portal do Azure:
 
 1. Entre no [portal do Azure](https://portal.azure.com) e selecione **Criar um recurso** na parte superior esquerda da tela.
-1. Em **Pesquisar no marketplace**, digite _Aplicativo lógico_ e pressione **Enter**.
+1. Em **Pesquisar no Marketplace**, insira _Aplicativo Lógico_ e, em seguida, pressione **Enter**.
 1. Na página **Aplicativo lógico**, selecione **Criar**.
 1. Na página de criação de **Aplicativo lógico**:
     * Insira um nome único para seu aplicativo lógico, como _yourname-retail-store-analysis_.
@@ -440,7 +440,7 @@ Adicione quatro blocos de gráfico de linhas para mostrar a temperatura e a umid
 
 | Configuração | Gráfico nº 1 | Gráfico nº 2 | Gráfico nº 3 | Gráfico nº 4 |
 | ------- | -------- | -------- | -------- | -------- |
-| Conjunto de dados | Sensor de Zona 1 | Sensor de Zona 1 | Sensor de Zona 2 | Sensor de Zona 2 |
+| Dataset | Sensor de Zona 1 | Sensor de Zona 1 | Sensor de Zona 2 | Sensor de Zona 2 |
 | Tipo de visualização | Gráfico de Linhas | Gráfico de Linhas | Gráfico de Linhas | Gráfico de Linhas |
 | Axis | Timestamp | Timestamp | Timestamp | Timestamp |
 | Valores | Temperatura | Umidade | Temperatura | Umidade |
@@ -458,7 +458,7 @@ Adicione quatro blocos de cartão para mostrar a temperatura e a umidade mais re
 
 | Configuração | Cartão nº 1 | Cartão nº 2 | Cartão nº 3 | Cartão nº 4 |
 | ------- | ------- | ------- | ------- | ------- |
-| Conjunto de dados | Sensor de Zona 1 | Sensor de Zona 1 | Sensor de Zona 2 | Sensor de Zona 2 |
+| Dataset | Sensor de Zona 1 | Sensor de Zona 1 | Sensor de Zona 2 | Sensor de Zona 2 |
 | Tipo de visualização | Card | Card | Card | Card |
 | Campos | Temperatura | Umidade | Temperatura | Umidade |
 | Title | Temperatura (F) | Umidade (%) | Temperatura (F) | Umidade (%) |
@@ -474,7 +474,7 @@ Adicione quatro blocos de cartão para mostrar o comprimento da fila e o tempo d
 
 | Configuração | Cartão nº 1 | Cartão nº 2 | Cartão nº 3 | Cartão nº 4 |
 | ------- | ------- | ------- | ------- | ------- |
-| Conjunto de dados | Sensor de ocupação | Sensor de ocupação | Sensor de ocupação | Sensor de ocupação |
+| Dataset | Sensor de ocupação | Sensor de ocupação | Sensor de ocupação | Sensor de ocupação |
 | Tipo de visualização | Gráfico de colunas clusterizado | Gráfico de colunas clusterizado | Medidor | Medidor |
 | Axis    | Timestamp | Timestamp | N/D | N/D |
 | Valor | Tempo de espera 1 | Tempo de espera 2 | Comprimento da fila 1 | Comprimento da fila 2 |
@@ -490,7 +490,7 @@ Você pode adicionar alguns recursos gráficos adicionais para personalizar aind
 
 ![Painel do Power BI](./media/tutorial-in-store-analytics-visualize-insights-pnp/pbi-dashboard-graphics.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se tiver concluído o aplicativo IoT Central, você poderá excluí-lo entrando no aplicativo e navegando até a página **Configurações do aplicativo** na seção **Administração**.
 

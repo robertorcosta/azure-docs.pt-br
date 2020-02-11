@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 12/11/2019
+ms.date: 01/28/2020
 ms.author: diberry
-ms.openlocfilehash: 0ddce3e4112dfb14309878927493abb3cb6b451a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a9afef07af1332910cc9e25f9d66db5930df3bd4
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447354"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901668"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Tutorial: Criar um Bot do QnA com o Serviço de Bot do Azure v4
 
@@ -41,7 +41,7 @@ Crie um bot como um aplicativo cliente para a base de conhecimento.
 
 1. No portal do QnA Maker, vá para a página **Publicar** e publique sua base de dados de conhecimento. Selecione **Criar Bot**.
 
-    ![No portal do QnA Maker, vá para a página Publicar e publique sua base de dados de conhecimento. Selecione Criar Bot.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base-page.png)
+    [![No portal do QnA Maker, vá para a página Publicar e publique sua base de dados de conhecimento. Selecione Criar Bot.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base-page.png)](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base-page.png#lightbox)
 
     O portal do Azure é aberto com a configuração de criação do bot.
 
@@ -101,8 +101,6 @@ Se você não criou um novo grupo de recursos, precisará encontrar os recursos 
 
 ## <a name="related-to-qna-maker-bots"></a>Bots relacionados do QnA Maker
 
-* O bot de ajuda do QnA Maker, usado no portal QnA Maker, está disponível como uma [amostra de bot](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support).
-    ![O ícone de bot de ajuda do QnA Maker é um robô vermelho](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
 * Os [bots de assistência médica](https://docs.microsoft.com/HealthBot/qna_model_howto) usam o QnA Maker como um de seus [modelos de linguagem](https://docs.microsoft.com/HealthBot/qna_model_howto).
 
 

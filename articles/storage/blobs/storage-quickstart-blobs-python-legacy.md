@@ -3,33 +3,30 @@ title: 'Início Rápido: Biblioteca de clientes do Armazenamento de Blobs do Azu
 description: Neste início rápido, você criará uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Em seguida, você deve usar a biblioteca de clientes de armazenamento v2.1 para Python a fim de carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 09/11/2019
+ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 3e1adc9220dd9b49c49ff3fe5e798dfcc9d5c928
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 4b0248604b6e9189d5275177a4960e4c352e8215
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122671"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906443"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v21-for-python"></a>Início Rápido: Biblioteca de clientes do Armazenamento de Blobs do Azure v2.1 para Python
+# <a name="quickstart-manage-blobs-with-python-v21-sdk"></a>Início Rápido: Gerenciar blobs com o SDK do Python v2.1
 
-Neste artigo, você verá como usar o Python para fazer upload, baixar e listar blobs de blocos em um contêiner no Armazenamento de Blobs do Azure. Os blobs são apenas objetos que podem conter grandes quantidades de texto ou dados binários, incluindo imagens, documentos, mídia de streaming e dados de arquivos. Os blobs no Armazenamento do Azure são diferentes de compartilhamentos de arquivos, tabelas sem esquema e filas de mensagens.  Para obter mais informações, confira [Introdução ao Armazenamento do Azure](/azure/storage/common/storage-introduction).
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+Neste início rápido, você aprenderá a gerenciar blobs usando o Python. Os blobs são objetos que podem conter grandes quantidades de texto ou dados binários, incluindo imagens, documentos, mídia de streaming e dados de arquivos. Você carregará, baixará e listará os blobs e criará e excluirá contêineres.
 
 ## <a name="prerequisites"></a>Prerequisites
 
-[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
+- Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Uma conta de armazenamento do Azure. [Criar uma conta de armazenamento](../common/storage-account-create.md).
+- [Python](https://www.python.org/downloads/).
+- [SDK do Armazenamento do Azure para Python](https://github.com/Azure/azure-sdk-for-python).
 
-Verifique se você tem os pré-requisitos adicionais a seguir instalados:
-
-* [Python](https://www.python.org/downloads/)
-
-* [SDK do Armazenamento do Azure para Python](https://github.com/Azure/azure-sdk-for-python)
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="download-the-sample-application"></a>Baixar o aplicativo de exemplo
 

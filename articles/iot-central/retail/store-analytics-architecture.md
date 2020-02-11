@@ -9,18 +9,18 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 728c5dcbf94e030e860a222add6498824c66930d
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 6c2514bd078cc3feee4bd2802cf314079b824311
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615392"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022113"
 ---
 # <a name="in-store-analytics-architecture"></a>Arquitetura de análise na loja
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-As soluções de análise na loja permitem monitorar várias condições no ambiente da loja de varejo. Essas soluções podem ser construídas aproveitando um dos modelos de aplicativos no IoT Central e a arquitetura abaixo como orientação.
+
+As soluções de análise na loja permitem monitorar várias condições no ambiente da loja de varejo. Essas soluções podem ser criadas com o uso de um dos modelos de aplicativos no IoT Central e a arquitetura abaixo como diretriz.
 
 
 ![Análise do repositório do Azure IoT Central](./media/architecture/store-analytics-architecture-frame.png)
@@ -35,7 +35,7 @@ Vamos ver os principais componentes que geralmente desempenham um papel em uma s
 
 ## <a name="condition-monitoring-sensors"></a>Sensores de monitoramento de condição
 
-Uma solução de IoT começa com um conjunto de sensores que coletam sinais significativos de dentro de um ambiente de loja de varejo. Isso é refletido por uma variedade de sensores na extremidade esquerda do diagrama de arquitetura mostrada acima.
+Uma solução de IoT começa com um conjunto de sensores que coletam sinais significativos de dentro de um ambiente de loja de varejo. Isso é refletido por diferentes tipos de sensores na extremidade esquerda do diagrama da arquitetura acima.
 
 ## <a name="gateway-devices"></a>Dispositivos de gateway
 
@@ -43,7 +43,7 @@ Muitos sensores de IoT podem alimentar sinais brutos diretamente na nuvem ou em 
 
 ## <a name="iot-central-application"></a>Aplicativo IoT Central
 
-O aplicativo Azure IoT Central ingere dados de uma variedade de sensores de IoT, bem como de dispositivos de gateway, no ambiente da loja de varejo e gera um conjunto de informações significativas.
+O aplicativo do Azure IoT Central ingere dados de diferentes tipos de sensores de IoT e dispositivos de gateway no ambiente da loja de varejo e gera um conjunto de insights significativos.
 
 O Azure IoT Central também fornece uma experiência personalizada para os operadores da loja, permitindo que eles monitorem e gerenciem remotamente os dispositivos de infraestrutura.
 
@@ -51,8 +51,8 @@ O Azure IoT Central também fornece uma experiência personalizada para os opera
 O aplicativo Azure IoT Central dentro de uma solução pode ser configurado para exportar informações brutas ou agregadas para um conjunto de serviços PaaS do Azure (Plataforma como Serviço) que pode executar a manipulação de dados e enriquecer essas informações antes de destiná-las para um aplicativo comercial. 
 
 ## <a name="business-application"></a>Aplicativo de negócios
-Os dados da IoT podem ser usados para alimentar uma variedade de aplicativos de negócios implantados em um ambiente de varejo. Um gerente de loja de varejo ou membro da equipe pode utilizar esses aplicativos para visualizar informações de negócios e executar ações significativas em tempo real. Para aprender a criar um painel do Power BI em tempo real para sua equipe de varejo, siga este [tutorial](./tutorial-in-store-analytics-create-app-pnp.md).
+Os dados de IoT podem ser usados para ativar diferentes tipos de aplicativos de negócios implantados em um ambiente de varejo. Um gerente da loja de varejo ou um membro da equipe pode usar esses aplicativos para visualizar informações de negócios e executar ações significativas em tempo real. Para aprender a criar um dashboard do Power BI em tempo real para sua equipe de varejo, siga este [tutorial](./tutorial-in-store-analytics-create-app-pnp.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Comece com os modelos de aplicativo [Análise de finalização de compras na loja](https://aka.ms/checkouttemplate) e [Monitoramento de condições de análises na loja](https://aka.ms/conditiontemplate). 
-* Confira o [tutorial de ponta a ponta](https://aka.ms/storeanalytics-tutorial), que explica como criar uma solução usando um dos modelos de aplicativo de Análise na Loja.
+* Dê uma olhada no [tutorial de ponta a ponta](https://aka.ms/storeanalytics-tutorial) que explica como criar uma solução usando um dos modelos de aplicativo de Análise na Loja.

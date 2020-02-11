@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 97a215d8f111753c8fcc857fe4c48956c1236b3b
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 35ac39109bfcb4dc63b738c947d2ad8caf8ac0a6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027437"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77021280"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Tutorial: Implantar e explorar um modelo de aplicativo de monitoramento contínuo de pacientes
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-Este tutorial mostra como você, como criador de soluções, pode começar com a implantação de um modelo de aplicativo de monitoramento contínuo de pacientes IoT Central. Veja como implantar o modelo, o conteúdo incluído pronto para uso e o que você poderá fazer em seguida.
+
+Este tutorial mostra como você, como criador de soluções, pode começar com a implantação de um modelo de aplicativo de monitoramento contínuo de pacientes IoT Central. Você aprenderá a implantar o modelo, saberá o que está incluído como pronto para uso e o que você poderá fazer em seguida.
 
 Neste tutorial, você aprenderá como:
 
@@ -34,16 +34,17 @@ Navegue até o [site do Gerenciador de Aplicativos do Azure IoT Central](https:/
 >[!div class="mx-imgBorder"] 
 >![Gerenciador de aplicativos de assistência médica](media/app-manager-health.png)
 
-Clique no botão **Criar aplicativo** para começar a criar seu aplicativo e, em seguida, entre com uma conta pessoal, corporativa ou de estudante da Microsoft. Isso leva você para a página **Novo aplicativo**.
+Clique no botão **Criar aplicativo** para começar a criar seu aplicativo e, em seguida, entre com uma conta pessoal, corporativa ou de estudante da Microsoft. Você será levado à página **Novo aplicativo**.
 
->[!div class="mx-imgBorder"] 
->![Criar aplicativo de assistência médica](media/app-manager-health-create.png)
+![Criar aplicativo de serviços de saúde](media/app-manager-health-create.png)
+
+![Informações de cobrança de Criar aplicativo de serviços de saúde](media/app-manager-health-create-billinginfo.png)
 
 Para criar seu aplicativo:
 
 1. O Azure IoT Central sugere automaticamente um nome de aplicativo com base no modelo selecionado. Aceite esse nome ou insira seu próprio nome de aplicativo amigável, como **Monitoramento Contínuo de Pacientes**. O Azure IoT Central também gera um prefixo de URL exclusivo para você, com base no nome do aplicativo. Você terá a liberdade para alterar esse prefixo de URL para algo mais fácil de memorizar se desejar.
 
-2. Você pode selecionar se deseja criar um aplicativo de **Avaliação** ou um aplicativo com **Pagamento Conforme o Uso**. Os aplicativos de **Avaliação** são gratuitos por sete dias antes de expirarem e permitem o uso gratuito em até cinco dispositivos. Eles podem ser convertidos em Pagamento Conforme o Uso em qualquer momento antes de expirarem. Se você criar um aplicativo de Avaliação, precisará inserir suas informações de contato e escolher se deseja receber informações e dicas da Microsoft. Aplicativos com **Pagamento Conforme o Uso** dão suporte a até dois dispositivos gratuitos e exigem que você coloque suas informações de assinatura do Azure.
+2. Escolha se deseja criar o aplicativo usando o plano de preços *Gratuito* ou um dos planos de preços *Standard*. Os aplicativos criados com o plano Gratuito são gratuitos por sete dias antes de expirarem e permitem o uso gratuito de até cinco dispositivos. Você pode mover um aplicativo do plano Gratuito para um plano de preços Standard a qualquer momento antes que ele expire. Se você escolher o plano Gratuito, precisará inserir suas informações de contato e escolher se deseja receber informações e dicas da Microsoft. Os aplicativos criados com um plano Standard dão suporte a até dois dispositivos gratuitos e exigem que você insira suas informações de assinatura do Azure para cobrança.
 
 3. Selecione **Criar** no final da página para implantar o aplicativo.
 
@@ -51,7 +52,7 @@ Para criar seu aplicativo:
 
 ### <a name="dashboards"></a>Painéis
 
-Depois de implantar o modelo de aplicativo, você vai primeiro para o **Painel de monitoramento interno de pacientes da Lamna**. A Lamna Healthcare é um sistema hospitalar fictício que contém dois hospitais: o Woodgrove Hospital e o Burkville Hospital. Neste painel do operador do Woodgrove Hospital, você verá informações e telemetria sobre os dispositivos neste modelo, bem como um conjunto de comandos, trabalhos e ações que pode tomar. No painel, você pode:
+Depois de implantar o modelo de aplicativo, primeiro, você aterrissará no **painel de monitoramento interno de pacientes da Lamna**. A Lamna Healthcare é um sistema hospitalar fictício que contém dois hospitais: o Woodgrove Hospital e o Burkville Hospital. Neste painel do operador do Woodgrove Hospital, você verá informações e telemetria sobre os dispositivos neste modelo, junto com um conjunto de comandos, trabalhos e ações que você poderá executar. No painel, você pode:
 
 * Ver propriedades e dados de telemetria do dispositivo, como o **nível de bateria** ou o **status de conectividade**.
 
@@ -71,20 +72,20 @@ Você também pode clicar em **Ir para o painel do paciente remoto** para ver o 
 >[!div class="mx-imgBorder"] 
 >![Lamna remoto](media/lamna-remote.png)
 
-Nos dois painéis, você sempre pode voltar a esta documentação.
+Nos dois painéis, você sempre poderá voltar a esta documentação.
 
 ### <a name="device-templates"></a>Modelos de dispositivo
 
 Se clicar na guia **Modelos de dispositivo**, você verá que há dois tipos diferentes de dispositivos que fazem parte do modelo:
 
-* **Smart Vitals Patch**: este dispositivo representa um patch que mede diversos sinais vitais que podem ser usados para monitorar pacientes dentro e fora do hospital. Se clicar no modelo, você verá que, além de enviar dados do dispositivo, como o nível da bateria e a temperatura, o patch também envia dados sobre a saúde do paciente, como a taxa respiratória e a pressão arterial.
+* **Smart Vitals Patch**: Este dispositivo representa um adesivo que mede diferentes tipos de sinais vitais. Ele pode ser usado para monitorar pacientes dentro e fora do hospital. Se clicar no modelo, você verá que, além de enviar dados do dispositivo, como o nível da bateria e a temperatura, o patch também envia dados sobre a saúde do paciente, como a taxa respiratória e a pressão arterial.
 
 * **Smart Knee Brace**: este dispositivo representa uma cinta de joelho que os pacientes podem usar ao se recuperar de um cirurgia de substituição do joelho. Se clicar nesse modelo, você verá funcionalidades como amplitude de movimento e aceleração, além dos dados do dispositivo.
 
 >[!div class="mx-imgBorder"] 
 >![Modelo do dispositivo Smart Vitals Patch](media/smart-vitals-device-template.png)
 
-Se clicar na guia **Grupos de dispositivos**, você verá também que esses modelos de dispositivo têm grupos de dispositivos criados automaticamente para eles.
+Se você clicar na guia **Grupos de dispositivos**, verá também que esses modelos de dispositivos têm grupos de dispositivos criados automaticamente para eles.
 
 ### <a name="rules"></a>Regras
 
@@ -101,7 +102,7 @@ Acessando a guia de regras, você verá três regras que existem no modelo de ap
 
 ### <a name="devices"></a>Dispositivos
 
-Clique na guia **Dispositivos** e, em seguida, selecione uma instância do **Smart Knee Brace**. Você verá que há três exibições para explorar informações sobre o dispositivo específico que você selecionou. Essas exibições são criadas e publicadas ao criar o modelo de dispositivo para seu dispositivo. Isso significa que elas serão consistentes em todos os dispositivos que você conectar ou simular.
+Clique na guia **Dispositivos** e, em seguida, selecione uma instância do **Smart Knee Brace**. Você verá que há três exibições para explorar informações sobre o dispositivo específico que você selecionou. Essas exibições são criadas e publicadas ao criar o modelo de dispositivo para seu dispositivo, o que significa que elas serão consistentes em todos os dispositivos que você conectar ou simular.
 
 A exibição de **Painel** fornece uma visão geral da telemetria e das propriedades provenientes do dispositivo que são orientadas pelo operador.
 
@@ -112,7 +113,7 @@ A guia **Comandos** permite que você execute comandos que foram modelados como 
 >[!div class="mx-imgBorder"] 
 >![Exibições da cinta de joelho](media/knee-brace-dashboard.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Caso não pretenda continuar usando esse aplicativo, exclua-o acessando **Administração > Configurações do aplicativo** e clicando em **Excluir**.
 

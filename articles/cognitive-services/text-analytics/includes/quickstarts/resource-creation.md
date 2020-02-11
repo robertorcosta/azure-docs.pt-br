@@ -4,15 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 9623398e51260d88df3d8fd88e3affaf7f906a64
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 254fe3602bdb6a05f3a3225035460b88ebd3e23f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76159230"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987860"
 ---
-Comece a usar a API de Análise de Texto com uma das opções abaixo.
-
+Você precisará de uma chave e um ponto de extremidade de um recurso da Análise de Texto para conectar seu aplicativo. Obtenha-os criando um dos recursos abaixo:
 
 * <a href="https://azure.microsoft.com/try/cognitive-services/my-apis/?api=text-analytics" title="Criar um recurso de Análise de Texto de avaliação" target="_blank">Criar um recurso de avaliação <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     * Não é necessário ter uma assinatura do Azure. 

@@ -5,29 +5,29 @@ author: normesta
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 10/22/2019
+ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: cd3db902d713910de5a8199df85089d62569f9d7
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 97679ec48ee9120005118b6cacaf37e45657db08
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757562"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906618"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
 # <a name="tutorial-host-a-static-website-on-blob-storage"></a>Tutorial: Hospedar um site estático no Armazenamento de Blobs
 
-Este tutorial é a primeira parte de uma série. Nele, você aprenderá a criar e implantar um site estático no Armazenamento do Azure. Quando terminar, você terá um site estático que os usuários podem acessar publicamente. 
+Neste tutorial, você aprenderá a criar e implantar um site estático no Armazenamento do Azure. Quando terminar, você terá um site estático que os usuários podem acessar publicamente. 
 
-Na primeira parte da série, você aprenderá a:
+Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Configurar a hospedagem de sites estáticos
 > * Implantar um site Olá, Mundo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -99,9 +99,9 @@ Você concluiu o tutorial e implantou um site estático no Azure com êxito.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Na primeira parte deste tutorial, você aprendeu a configurar sua conta de Armazenamento do Azure para hospedagem de site estático e a criar e implantar um site estático em um Ponto de Extremidade do Azure.
+Neste tutorial, você aprendeu a configurar sua conta de Armazenamento do Azure para hospedagem de site estático e a criar e implantar um site estático em um Ponto de Extremidade do Azure.
 
-Agora, prossiga para a parte dois, em que você configura um domínio personalizado com SSL para seu site estático com a CDN do Azure.
+Em seguida, aprenda a configurar um domínio personalizado com seu site estático.
 
 > [!div class="nextstepaction"]
-> [Usar a CDN do Azure para habilitar um domínio personalizado com SSL para um site estático](storage-blob-static-website-custom-domain.md)
+> [Mapear um domínio personalizado para um ponto de extremidade do Armazenamento de Blobs do Azure](storage-custom-domain-name.md)

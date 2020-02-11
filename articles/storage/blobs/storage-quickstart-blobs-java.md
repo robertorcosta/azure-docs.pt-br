@@ -3,42 +3,34 @@ title: 'Início Rápido: Biblioteca do armazenamento de Blobs do Azure v12 – J
 description: Neste início rápido, você aprenderá a usar a biblioteca de clientes do Armazenamento de Blobs do Azure versão 12 para Java para criar um contêiner e um blob no Armazenamento de blobs (objeto). Em seguida, você aprenderá como baixar o blob para seu computador local e como listar todos os blobs em um contêiner.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/05/2019
+ms.date: 01/27/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: ffd91bbcc33ef313d496e793c8263126db81b685
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: a76b1c8688a6458dc55a106525c77c5979e2e011
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863937"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906532"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v12-for-java"></a>Início Rápido: Biblioteca de clientes do Armazenamento de Blobs do Azure v12 para Java
+# <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>Início Rápido: Gerenciar blobs com o SDK do Java v12
 
-Introdução à biblioteca de clientes do Armazenamento de Blobs do Azure v12 para Java. O Armazenamento de Blobs do Azure é uma solução de armazenamento de objetos da Microsoft para a nuvem. Siga as etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. O Armazenamento de Blobs é otimizado para armazenar grandes quantidades de dados não estruturados.
-
-> [!NOTE]
-> Para começar a usar a versão anterior do SDK, confira [Início Rápido: biblioteca de clientes do Armazenamento de Blobs do Azure para Java](storage-quickstart-blobs-java-legacy.md).
-
-Use a biblioteca de clientes do Armazenamento de Blobs do Azure v12 para Java para:
-
-* Criar um contêiner
-* Carregar um blob para o Armazenamento do Azure
-* Listar todos os blobs em um contêiner
-* Baixar um blob para o seu computador local
-* Excluir um contêiner
+Neste início rápido, você aprenderá a gerenciar blobs usando o Java. Os blobs são objetos que podem conter grandes quantidades de texto ou dados binários, incluindo imagens, documentos, mídia de streaming e dados de arquivos. Você carregará, baixará e listará os blobs e criará e excluirá contêineres.
 
 [Documentação de referência da API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob) | [Pacote (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob?repo=jcenter) | [Exemplos](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
-
 ## <a name="prerequisites"></a>Prerequisites
 
-* [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) versão 8 ou superior
-* [Apache Maven](https://maven.apache.org/download.cgi)
-* Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
-* Conta de armazenamento do Azure – [criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+- Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Uma conta de armazenamento do Azure. [Criar uma conta de armazenamento](../common/storage-account-create.md).
+- [JDK (Java Development Kit)](/java/azure/jdk/?view=azure-java-stable) versão 8 ou superior.
+- [Apache Maven](https://maven.apache.org/download.cgi).
+
+> [!NOTE]
+> Para começar a usar a versão anterior do SDK, confira [Início Rápido: Gerenciar blobs com o SDK do Java v8](storage-quickstart-blobs-java-legacy.md).
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="setting-up"></a>Configurando
 
@@ -48,7 +40,7 @@ Esta seção fornece instruções sobre como preparar um projeto para funcionar 
 
 Crie um aplicativo Java chamado *blob-quickstart-v12*.
 
-1. Em uma janela do console (como cmd, PowerShell ou Bash), use o Maven para criar um novo aplicativo do console com o nome *blob-quickstart-v12*. Digite o comando **mvn** a seguir para criar um simples "Olá, Mundo!" Projeto Java.
+1. Em uma janela do console (como cmd, PowerShell ou Bash), use o Maven para criar um novo aplicativo do console com o nome *blob-quickstart-v12*. Digite o comando **mvn** a seguir para criar um "Olá, Mundo!" Projeto Java.
 
    ```console
    mvn archetype:generate -DgroupId=com.blobs.quickstart \
@@ -287,7 +279,7 @@ blobClient.downloadToFile(localPath + downloadFileName);
 
 O código a seguir limpa os recursos que o aplicativo criou ao remover todo o contêiner usando o método [delete](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html#delete--). Ele também exclui os arquivos locais criados pelo aplicativo.
 
-O aplicativo pausa a entrada do usuário chamando `System.console().readLine()` antes de excluir o blob, o contêiner e os arquivos locais. Essa é uma boa chance de verificar se os recursos foram realmente criados corretamente antes de serem excluídos.
+O aplicativo pausa a entrada do usuário chamando `System.console().readLine()` antes de excluir o blob, o contêiner e os arquivos locais. Essa é uma boa oportunidade de verificar se os recursos foram criados corretamente antes de serem excluídos.
 
 Adicione este código ao final do método `Main`:
 
@@ -363,4 +355,4 @@ Para ver os aplicativos de exemplo de armazenamento de blobs, acesse:
 > [Exemplos do SDK do Armazenamento de Blobs do Azure v12 Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
 
 * Para saber mais, confira o [SDK do Azure para Java](https://github.com/Azure/azure-sdk-for-java/blob/master/README.md).
-* Para acessar tutoriais, exemplos, inícios rápidos e outras documentações, visite [Azure para Desenvolvedores de nuvem de Java](/azure/java/).
+* Para acessar tutoriais, exemplos, inícios rápidos e outras documentações, acesse o [Azure para Desenvolvedores de nuvem de Java](/azure/java/).

@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: bff6731e767fccb0800c30dfe3e75a800f54c59d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 171f06ad238f862adbd7071ee10d81133d7a6855
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773043"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022130"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Como criar soluções de varejo com o Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 O Azure IoT Central é uma plataforma de aplicativo IoT que reduz a carga e o custo associado ao desenvolvimento, ao gerenciamento e à manutenção de soluções de IoT de nível empresarial. Optar por criar com o Azure IoT Central oferece a oportunidade de concentrar seu tempo, dinheiro e energia na transformação de seus negócios com os dados de IoT, em vez de apenas manter e atualizar uma infraestrutura de IoT complexa e continuamente em evolução.
 
@@ -65,7 +65,7 @@ Os benefícios de um centro de distribuição digital incluem:
 * As câmeras monitoram as mercadorias à medida que elas chegam e passam pelo sistema transportador.
 * Identificação automática de bens com falha.
 * Acompanhamento eficiente de pedidos.
-* Custos reduzidos, produtividade aprimorada e utilização otimizada.
+* Custos reduzidos, produtividade aprimorada e uso otimizado.
 
 A captura de tela a seguir mostra o painel integrado no modelo de aplicativo. O painel é totalmente personalizável para atender aos seus requisitos de solução específicos: 
 
@@ -78,7 +78,7 @@ Para saber mais, confira o tutorial [Implantar e seguir passo a passo o modelo d
 
 Para muitos varejistas, as condições ambientais em suas lojas são um importante diferencial em relação aos seus concorrentes. Os varejistas querem manter condições agradáveis em suas lojas, para o benefício de seus clientes.  
 
-Como um criador de soluções, você pode usar o modelo de aplicativo de monitoramento da condição de análise na loja no IoT Central para criar uma solução de ponta a ponta. O modelo de aplicativo permite conectar e monitorar digitalmente um ambiente de loja de varejo usando uma variedade de dispositivos de sensor. Esses dispositivos de sensor geram telemetria que você pode converter em informações de negócios, que por sua vez ajudam os varejistas a reduzir os custos operacionais e a criar uma ótima experiência para os respectivos clientes.
+Como um criador de soluções, você pode usar o modelo de aplicativo de monitoramento da condição de análise na loja no IoT Central para criar uma solução de ponta a ponta. O modelo de aplicativo permite que você se conecte digitalmente a um ambiente de loja de varejo e o monitore usando diferentes tipos de dispositivos de sensor. Esses dispositivos de sensor geram telemetria que você pode converter em informações de negócios, que por sua vez ajudam os varejistas a reduzir os custos operacionais e a criar uma ótima experiência para os respectivos clientes.
 
 Use o modelo de aplicativo para:
 
@@ -149,8 +149,8 @@ O modelo de aplicativo da microcentral de atendimento do IoT Central permite que
 
 O modelo de aplicativo permite que você: 
 
-- Conecte diretamente uma variedade de sensores de IoT, como robôs ou sensores de monitoramento de condições, a uma instância de aplicativo do IoT Central.
-- Monitore e gerencie a integridade da rede do sensor, bem como quaisquer eventuais dispositivos de gateway no ambiente.
+- Conecte diretamente diferentes tipos de sensores de IoT, como robôs ou sensores de monitoramento de condições, a uma instância do aplicativo IoT Central.
+- Monitore e gerencie a integridade da rede do sensor e os dispositivos de gateway no ambiente.
 - Criar regras personalizadas em torno das condições ambientais em uma central de atendimento para disparar alertas apropriados.
 - Transforme as condições do ambiente em sua central de atendimento informações que podem ser aproveitadas pela equipe da loja de varejo.
 - Exporte os insights agregados para aplicativos de negócios novos ou existentes para o benefícios dos membros da equipe de varejo.

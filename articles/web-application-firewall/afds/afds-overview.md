@@ -5,20 +5,22 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: overview
-ms.date: 11/23/2019
+ms.date: 02/01/2020
 ms.author: victorh
-ms.openlocfilehash: b646035f6a952f679059abab86d94179f447f9ff
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 925b859de28b8878412ee99402ffd727edcc4e7c
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406222"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934715"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Firewall do Aplicativo Web do Azure no Azure Front Door
 
-O WAF (Firewall do Aplicativo Web) do Azure no Azure Front Door fornece proteção centralizada de seus aplicativos Web que são disponibilizados globalmente usando o Azure Front Door. Ele foi projetado e operado para proteger seus serviços Web contra vulnerabilidades e explorações comuns, além de manter o serviço altamente disponível para seus usuários e ajudar você a atender aos requisitos de conformidade.
+O WAF (Firewall do aplicativo Web) do Azure no Azure Front Door fornece proteção centralizada para seus aplicativos Web. O WAF defende seus serviços Web contra explorações e vulnerabilidades comuns. Ele mantém seu serviço altamente disponível para seus usuários e ajuda você a atender aos requisitos de conformidade.
 
-O WAF no Front Door é uma solução global e centralizada. Ele é implantado em locais de borda de rede do Azure no mundo inteiro e cada solicitação de entrada para um aplicativo Web habilitado para WAF entregue pelo Front Door é inspecionada na borda da rede. Isso permite que o WAF impeça ataques mal-intencionados próximos às fontes de ataque antes que eles entrem em sua rede virtual e oferece proteção global em escala sem prejudicar o desempenho. Uma política de WAF pode ser facilmente vinculada a qualquer perfil do Front Door em sua assinatura e novas regras podem ser implantadas em minutos, permitindo que você responda rapidamente aos padrões de ameaça em constante mudança.
+O WAF no Front Door é uma solução global e centralizada. Ele é implantado em localizações de borda da rede do Azure em todo o mundo. Os aplicativos Web habilitados para WAF inspecionam todas as solicitações de entrada entregues pelo Front Door na borda da rede. 
+
+O WAF impede ataques mal-intencionados próximos às fontes de ataque, antes que eles entrem em sua rede virtual. Você obtém proteção global em escala sem sacrificar o desempenho. Uma política WAF vincula-se facilmente a qualquer perfil do Front Door em sua assinatura. Novas regras podem ser implantadas em minutos. Portanto, você pode responder rapidamente a padrões de ameaça em constante mudança.
 
 ![Firewall do aplicativo Web do Azure](../media/overview/wafoverview.png)
 
@@ -32,17 +34,17 @@ Você pode configurar uma política de WAF e associá-la a um ou mais front-ends
 
 Quando ambas estiverem presentes, as regras personalizadas serão processadas antes das regras em um conjunto de regras gerenciado. Uma regra é composta por uma condição de correspondência, uma prioridade e uma ação. Os tipos de ação com suporte são: PERMITIR, BLOQUEAR, REGISTRAR e REDIRECIONAR. Você pode criar uma política totalmente personalizada que atenda aos seus requisitos de proteção de aplicativo específicos combinando regras gerenciadas e personalizadas.
 
-As regras em uma política são processadas em uma ordem priorizada em que a prioridade é um inteiro único que define a ordem das regras que estão sendo processadas. Um valor inteiro menor denota uma prioridade maior, e essas regras são avaliadas antes daquelas com um valor inteiro mais alto. Quando há correspondência de uma regra, a ação relevante definida na regra é aplicada à solicitação. Depois de essa correspondência ser processada, as regras com prioridades menores não são mais processadas.
+As regras em uma política são processadas em uma ordem de prioridade. A prioridade é um inteiro exclusivo que define a ordem de regras a serem processadas. Um valor inteiro menor denota uma prioridade maior. Essas regras são avaliadas antes daquelas com um valor inteiro mais alto. Quando há correspondência de uma regra, a ação relevante definida na regra é aplicada à solicitação. Depois de essa correspondência ser processada, as regras com prioridades menores não serão mais processadas.
 
-Um aplicativo Web entregue pelo Front Door pode ter apenas uma política WAF associada por vez. No entanto, você pode ter uma configuração de Front Door sem nenhuma política de WAF associada. Se uma política de WAF estiver presente, ela será replicada para todos os locais de borda para garantir a consistência em políticas de segurança em todo o mundo.
+Um aplicativo Web entregue pelo Front Door pode ter apenas uma política WAF associada por vez. No entanto, você pode ter uma configuração de Front Door sem nenhuma política de WAF associada. Se uma política WAF estiver presente, ela será replicada para todas as localizações de borda para garantir a consistência em políticas de segurança em todo o mundo.
 
 ## <a name="waf-modes"></a>Modos de WAF
 
 A política de WAF pode ser configurada para ser executada nos dois modos a seguir:
 
-- **Modo de detecção:** Quando executado no modo de detecção, o WAF não executa outras ações além de monitores e registra a solicitação e sua regra WAF correspondente nos logs do WAF. Você pode ativar o diagnóstico de log para o Front Door (ao usar o portal, isso pode ser feito acessando a seção **Diagnóstico** no portal do Azure).
+- **Modo de detecção:** Quando executado no modo de detecção, o WAF não executa outras ações além de monitores e registra a solicitação e sua regra WAF correspondente nos logs do WAF. Você pode ativar o diagnóstico de log para o Front Door. Ao usar o portal, vá para a seção **Diagnóstico**.
 
-- **Modo de prevenção:** Quando configurado para ser executado no modo de prevenção, o WAF executará a ação especificada se uma solicitação corresponder a uma regra e, se uma correspondência for encontrada, nenhuma regra adicional com prioridade mais baixa será avaliada. Qualquer solicitação correspondente também é registrada nos logs do WAF.
+- **Modo de prevenção:** No modo de prevenção, o WAF executará a ação especificada se uma solicitação corresponder a uma regra. Se uma correspondência for encontrada, nenhuma regra adicional com prioridade mais baixa será avaliada. Qualquer solicitação correspondente também é registrada nos logs do WAF.
 
 ## <a name="waf-actions"></a>Ações de WAF
 
@@ -61,17 +63,17 @@ Uma política do WAF pode consistir em dois tipos de regras de segurança: regra
 
 Você pode configurar regras personalizadas WAF da seguinte maneira:
 
-- **Lista de contatos bloqueados e lista de permissões de IP:** é possível configurar regras personalizadas para controlar o acesso a aplicativos Web com base em uma lista de endereços IP ou intervalos de endereço IP do cliente. Há suporte para os tipos de endereço IPv4 e IPv6. Essa lista pode ser configurada para bloquear ou permitir as solicitações em que o IP de origem corresponde a um IP na lista.
+- **Lista de contatos bloqueados e lista de permissões de IP:** você pode controlar o acesso a aplicativos Web com base em uma lista de endereços IP ou intervalos de endereço IP do cliente. Há suporte para os tipos de endereço IPv4 e IPv6. Essa lista pode ser configurada para bloquear ou permitir as solicitações em que o IP de origem corresponde a um IP na lista.
 
-- **Controle de acesso baseado em região geográfica:** você pode configurar regras personalizadas para controlar o acesso a seus aplicativos Web com base no código do país associado ao endereço IP de um cliente.
+- **Controle de acesso baseado em região geográfica:** você pode controlar o acesso a seus aplicativos Web com base no código do país associado ao endereço IP de um cliente.
 
-- **Controle de acesso baseado em parâmetros HTTP:** você pode configurar regras personalizadas com base em uma cadeia de caracteres que corresponde a parâmetros de solicitação HTTP/HTTPS, como cadeias de consulta, argumentos POST, URI de solicitação, cabeçalho de solicitação e corpo da solicitação.
+- **Controle de acesso baseado em parâmetros HTTP:** Você pode basear regras em correspondências de cadeia de caracteres em parâmetros de solicitação HTTP/HTTPS.  Por exemplo, cadeias de caracteres de consulta, argumentos POST, URI de Solicitação, Cabeçalho de Solicitação e Corpo da Solicitação.
 
-- **Solicitar controle de acesso baseado em método:** você pode configurar regras personalizadas com base no método de solicitação HTTP da solicitação, como GET, PUT ou HEAD.
+- **Solicitar controle de acesso baseado em método:** As regras baseadas no método de solicitação HTTP da solicitação. Por exemplo, GET, PUT ou HEAD.
 
-- **Restrição de tamanho:** Você pode configurar regras personalizadas com base nos comprimentos de partes específicas de uma solicitação, como cadeia de consulta, URI ou corpo da solicitação.
+- **Restrição de tamanho:** você pode basear regras nos comprimentos de partes específicas de uma solicitação, como cadeia de consulta, URI ou corpo da solicitação.
 
-- **Regras de limitação de taxa:** Uma regra de controle de taxa tem a finalidade de limitar tráfego anormalmente alto proveniente de qualquer IP de cliente. Você pode configurar um número limite de solicitações Web permitidas de um IP de cliente no intervalo de um minuto. Isso é diferente de uma regra personalizada de permitir/bloquear baseada em lista de IPs que permite ou bloqueia todas as solicitações de um IP do cliente. A limitação de taxa pode ser combinada a condições de correspondência adicionais, como parâmetros HTTP(S) correspondentes, para controle de taxa granular.
+- **Regras de limitação de taxa:** Uma regra de controle de taxa tem a finalidade de limitar tráfego anormalmente alto proveniente de qualquer IP de cliente. Você pode configurar um número limite de solicitações Web permitidas de um IP de cliente no intervalo de um minuto. Essa regra é diferente de uma regra personalizada de permitir/bloquear baseada em lista de IPs que permite ou bloqueia todas as solicitações de um IP do cliente. Os limites de taxa podem ser combinados com condições de correspondência adicionais, como correspondências de parâmetros HTTP(S) para controle de taxa granular.
 
 ### <a name="azure-managed-rule-sets"></a>Conjuntos de regras gerenciados pelo Azure
 
@@ -88,13 +90,23 @@ Os conjuntos de regras gerenciados pelo Azure oferecem uma maneira fácil de imp
 - Invasores de protocolo
 
 O número de versão do Conjunto de Regras Padrão será incrementado quando novas assinaturas de ataque forem adicionadas ao conjunto de regras.
-O Conjunto de Regras Padrão é habilitado por padrão no modo de detecção em suas políticas de WAF. Você pode desabilitar ou habilitar regras individuais dentro do Conjunto de Regras Padrão para atender aos requisitos do aplicativo. Você também pode definir ações específicas (PERMITIR/BLOQUEAR/REDIRECIONAR/REGISTRAR EM LOG) por regra. A ação padrão é BLOQUEAR. Além disso, as regras personalizadas poderão ser configuradas na mesma política de WAF se você desejar ignorar qualquer uma das regras pré-configuradas no conjunto de regras padrão.
-As regras personalizadas sempre são aplicadas antes de as regras no conjunto de regras padrão serem avaliadas. Se uma solicitação corresponder a uma regra personalizada, a ação de regra correspondente será aplicada e a solicitação será bloqueada ou passada para o back-end sem a invocação de mais nenhuma regra personalizada ou das regras no Conjunto de Regras Padrão. Além disso, você tem a opção de remover o Conjunto de Regras Padrão de suas políticas de WAF.
+O Conjunto de Regras Padrão é habilitado por padrão no modo de detecção em suas políticas de WAF. Você pode desabilitar ou habilitar regras individuais dentro do Conjunto de Regras Padrão para atender aos requisitos do aplicativo. Você também pode definir ações específicas (PERMITIR/BLOQUEAR/REDIRECIONAR/REGISTRAR EM LOG) por regra.
 
+A ação padrão é BLOQUEAR. Além disso, as regras personalizadas poderão ser configuradas na mesma política WAF se você desejar ignorar qualquer uma das regras pré-configuradas no Conjunto de Regras Padrão.
+
+As regras personalizadas sempre são aplicadas antes de as regras no conjunto de regras padrão serem avaliadas. Se uma solicitação corresponder a uma regra personalizada, a ação de regra correspondente será aplicada. A solicitação é bloqueada ou passada pelo back-end. Nenhuma outra regra personalizada ou as regras no Conjunto de Regras Padrão são processadas. Você também pode remover o Conjunto de Regras Padrão de suas políticas WAF.
 
 ### <a name="bot-protection-rule-set-preview"></a>Conjunto de regras de proteção contra bots (versão prévia)
 
-Um conjunto de regras de proteção contra bots gerenciado pode ser habilitado para que seu WAF execute ações personalizadas em solicitações de categorias de bots conhecidas. Há três categorias de bot compatíveis: Bots ruins, bots bons e bots desconhecidos. As assinaturas de bot são gerenciadas e atualizadas dinamicamente pela plataforma WAF. Os endereços IP e os domínios são originados do feed de Inteligência contra Ameaças da Microsoft. O [Grafo de Segurança Inteligente](https://www.microsoft.com/security/operations/intelligence) potencializa a Inteligência contra Ameaças da Microsoft e é usado por vários serviços, incluindo a Central de Segurança do Azure. Os bots bons incluem mecanismos de pesquisa validados. As categorias desconhecidas incluem grupos de bot adicionais. Você pode definir ações personalizadas para bloquear, permitir, registrar ou redirecionar para diferentes tipos de bots.
+Você pode habilitar um conjunto de regras de proteção contra bots gerenciado para execute ações personalizadas em solicitações de categorias de bots conhecidas. 
+
+Há três categorias de bot compatíveis: Bom, Ruim e Desconhecido. As assinaturas de bot são gerenciadas e atualizadas dinamicamente pela plataforma WAF.
+
+Bots ruins incluem bots de endereços IP mal-intencionados e bots que falsificaram as identidades deles. Os endereços IP mal-intencionados são originados do feed de Inteligência contra Ameaças da Microsoft e atualizados a cada hora. O [Grafo de Segurança Inteligente](https://www.microsoft.com/security/operations/intelligence) potencializa a Inteligência contra Ameaças da Microsoft e é usado por vários serviços, incluindo a Central de Segurança do Azure.
+
+Os bots bons incluem mecanismos de pesquisa validados. As categorias desconhecidas incluem grupos de bot adicionais que se identificaram como bots. Por exemplo, analisador de mercado, buscadores de feeds e agentes de coleta de dados. 
+
+Os bots desconhecidos são classificados por meio de agentes de usuário publicados sem validação adicional. Você pode definir ações personalizadas para bloquear, permitir, registrar em log ou redirecionar para diferentes tipos de bots.
 
 ![Conjunto de regras de proteção contra bots](../media/afds-overview/botprotect2.png)
 
@@ -105,7 +117,7 @@ Se a proteção contra bots estiver habilitada, as solicitações de entrada que
 
 ## <a name="configuration"></a>Configuração
 
-A configuração e a implantação de todos os tipos de regras WAF têm suporte total usando o portal do Azure, as APIs REST, os modelos do Azure Resource Manager e o Azure PowerShell.
+Você pode configurar e implantar todos os tipos de regras WAF que usam o portal do Azure, as APIs REST, os modelos do Azure Resource Manager e o Azure PowerShell.
 
 ## <a name="monitoring"></a>Monitoramento
 

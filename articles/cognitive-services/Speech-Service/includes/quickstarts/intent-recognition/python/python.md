@@ -1,28 +1,24 @@
 ---
-title: 'Início Rápido: Reconhecer uma fala, intenções e entidades, Python – Serviço de Fala'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 01/02/2020
+ms.date: 01/27/2020
 ms.topic: include
-ms.author: erhopf
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: f2a46b8a0868aaa1097dd7f1ae738a2a3e06e3b8
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 9bc514c32d97958d8ab154dc2c5533747f380e86
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772898"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900420"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar:
 
-* Se este for seu primeiro projeto do Python, use este guia para <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md" target="_blank">criar um projeto de exemplo vazio</a>.
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md" target="_blank">Instale o SDK de Fala para seu ambiente de desenvolvimento</a>.
+* Se este for seu primeiro projeto do Python, use este guia para <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md" target="_blank">criar um projeto de exemplo vazio <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md" target="_blank">Instale o SDK de Fala para seu ambiente de desenvolvimento <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Criar um aplicativo LUIS para reconhecimento de intenção
 
@@ -65,7 +61,7 @@ Agora, vamos criar um `IntentRecognizer`. Insira esse código logo abaixo da con
 
 ## <a name="add-a-languageunderstandingmodel-and-intents"></a>Adicione um LanguageUnderstandingModel e as Intenções
 
-Você precisa associar um `LanguageUnderstandingModel` ao reconhecedor de intenção e adicionar as intenções que deseja reconhecer. Vamos usar as intenções do domínio predefinido para a automação doméstica. 
+Você precisa associar um `LanguageUnderstandingModel` ao reconhecedor de intenção e adicionar as intenções que deseja reconhecer. Vamos usar as intenções do domínio predefinido para a automação doméstica.
 
 Insira este código abaixo de seu `IntentRecognizer`. Substitua `"YourLanguageUnderstandingAppId"` pela ID do aplicativo LUIS. 
 
@@ -90,7 +86,7 @@ Abaixo da chamada para `recognize_once()`, adicione este código: [!code-python[
 
 ## <a name="check-your-code"></a>Verificar o código
 
-Neste momento, seu código deverá ter a seguinte aparência:  
+Neste momento, seu código deverá ter a seguinte aparência:
 
 > [!NOTE]
 > Adicionamos alguns comentários a esta versão.

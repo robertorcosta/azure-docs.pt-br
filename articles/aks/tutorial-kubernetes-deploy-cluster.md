@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 8ad542a3614253e11331e9b49513a887aff65890
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 130cb973f2de1de0d4c4636a4752a06e22edf65b
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512922"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932554"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: Implantar um cluster do AKS (Serviço de Kubernetes do Azure)
 
@@ -32,7 +32,7 @@ Nos tutoriais anteriores, uma imagem de contêiner foi criada e carregada em uma
 
 Este tutorial requer que você esteja executando o CLI do Azure versão 2.0.75 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
-## <a name="create-a-kubernetes-cluster"></a>Criar um cluster Kubernetes
+## <a name="create-a-kubernetes-cluster"></a>Criar um cluster do Kubernetes
 
 Os cluster AKS podem usar os controles de acesso baseado em função (RBAC) do Kubernetes. Esses controles permitem que você defina o acesso a recursos com base em funções atribuídas aos usuários. As permissões são combinadas se um usuário recebe várias funções e podem ter o escopo definido para um único namespace ou todo o cluster. Por padrão, a CLI do Azure habilita o RBAC automaticamente quando você cria um cluster AKS.
 
@@ -70,7 +70,7 @@ Para configurar o `kubectl` para se conectar ao cluster do Kubernetes, use o com
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Para verificar a conexão com o cluster, execute o comando [kubectl get nodes][kubectl-get]:
+Para verificar a conexão com o cluster, execute o comando [kubectl get nodes][kubectl-get] para retornar uma lista dos nós de cluster:
 
 ```
 $ kubectl get nodes
@@ -81,7 +81,7 @@ aks-nodepool1-12345678-0   Ready    agent   32m   v1.13.10
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, um cluster Kubernetes foi implantado no AKS e você configurou o `kubectl` para conectar-se a ele. Você aprendeu como:
+Neste tutorial, um cluster Kubernetes foi implantado no AKS e você configurou o `kubectl` para conectar-se a ele. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Implantar um cluster Kubernetes do AKS que possa se autenticar em um Registro de Contêiner do Azure

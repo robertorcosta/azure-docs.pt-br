@@ -8,28 +8,28 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: a73f4d75811a384eb822d1f8594a22506509d560
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 9e954e9c1a7efa43a19849b1c5b40284ec84eeed
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112543"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77015993"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Tutorial: Criar e percorrer o modelo de aplicativo de monitoramento do medidor inteligente 
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Este tutorial orienta você pelo processo de criação do aplicativo de monitoramento de medidor inteligente, que inclui um modelo de dispositivo de exemplo cujos dados são simulados. Neste tutorial, você aprenderá:
 
 > [!div class="checklist"]
 > * Criar o aplicativo de medidor inteligente gratuitamente
 > * Passo a passo do aplicativo
-> * Limpar recursos
+> * Limpar os recursos
 
 
-Se não tiver uma assinatura, crie uma [conta de avaliação gratuita](https://azure.microsoft.com/free)
+Caso não tenha uma assinatura, [crie uma conta de avaliação gratuita](https://azure.microsoft.com/free)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 - Nenhum
 - A assinatura do Azure é recomendada, mas não é obrigatória para experimentar
 
@@ -48,11 +48,13 @@ Você pode criar esse aplicativo em três etapas simples:
 3. **Criar aplicativo** abrirá o formulário **Novo aplicativo**. Preencha os detalhes solicitados, conforme mostrado na figura abaixo:
     * **Nome do aplicativo**: escolha o nome para seu aplicativo do IoT Central. 
     * **URL**: escolha uma URL do IoT Central, a plataforma verificará sua exclusividade.
-    * **Avaliação gratuita de 7 dias**: se você já tiver uma assinatura do Azure, a configuração padrão será recomendada. Se não tiver uma assinatura do Azure, comece com uma avaliação gratuita.
-    * **Informações de cobrança**: o aplicativo é gratuito. é necessário informar os detalhes em Diretório, Assinatura do Azure e Região para provisionar os recursos para seu aplicativo.
-    * Clique no botão **Criar** na parte inferior da página e seu aplicativo será criado em cerca de um minuto.     
-        > [!div class="mx-imgBorder"]
-        > ![Formulário de novo aplicativo](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
+    * **Avaliação gratuita de 7 dias**: se você já tiver uma assinatura do Azure, a configuração padrão será recomendada. Caso não tenha uma assinatura do Azure, comece com uma avaliação gratuita.
+    * **Informações de Cobrança**: o aplicativo é gratuito. é necessário informar os detalhes em Diretório, Assinatura do Azure e Região para provisionar os recursos para seu aplicativo.
+    * Clique no botão **Criar** na parte inferior da página e seu aplicativo será criado em cerca de um minuto.
+
+        ![Formulário de novo aplicativo](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
+
+        ![Informações de cobrança do formulário de novo aplicativo](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app-billinginfo.png)
 
 
 ### <a name="verify-the-application-and-simulated-data"></a>Verifique o aplicativo e os dados simulados
@@ -93,7 +95,7 @@ Clique na guia **Modelos de dispositivo** para ver o modelo de dispositivo do me
 > ![Modelos de dispositivo de medidor inteligente](media/tutorial-iot-central-smart-meter/smart-meter-device-template.png)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se optar por não continuar usando este aplicativo, exclua-o seguindo estas etapas:
 
 1. No painel esquerdo, abra a guia Administração

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a88f03adab3beaea75ec2fa9a1c6f59b09739025
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 932dfb9624177c299997c4f9f184dc5c973d0fa0
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76153117"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899219"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: Configurar um limite geográfico usando o Azure Mapas
 
@@ -174,7 +174,7 @@ Depois que o aplicativo Postman for instalado, siga estas etapas para carregar o
 
 Nesta seção, criaremos um manipulador de eventos que recebe notificações. Esse manipulador de eventos deverá notificar o Operations Manager sobre eventos de entrada e saída de qualquer equipamento.
 
-Criaremos dois serviços de [Aplicativos Lógicos](https://docs.microsoft.com/azure/event-grid/event-handlers#logic-apps) para manipulação, entrada e saída de eventos. Quando os eventos nos Aplicativos Lógicos forem disparados, mais eventos serão disparados em sequência. A ideia é enviar alertas, nesse caso, emails para o Operations Manager. A figura a seguir ilustra a criação de um Aplicativo Lógico para o evento de entrada no limite geográfico. Da mesma forma, você pode criar outro para o evento de saída. Você pode ver todos os [manipuladores de eventos com suporte](https://docs.microsoft.com/azure/event-grid/event-handlers) para obter mais informações.
+Criamos dois serviços de [Aplicativos Lógicos](https://docs.microsoft.com/azure/event-grid/event-handlers#logic-apps) para manipular eventos de entrada e de saída. Quando os eventos nos Aplicativos Lógicos forem disparados, mais eventos serão disparados em sequência. A ideia é enviar alertas, nesse caso, emails para o Operations Manager. A figura a seguir ilustra a criação de um Aplicativo Lógico para o evento de entrada no limite geográfico. Da mesma forma, você pode criar outro para o evento de saída. Você pode ver todos os [manipuladores de eventos com suporte](https://docs.microsoft.com/azure/event-grid/event-handlers) para obter mais informações.
 
 1. Criar um aplicativo lógico no portal do Azure
 
@@ -194,7 +194,7 @@ Criaremos dois serviços de [Aplicativos Lógicos](https://docs.microsoft.com/az
 
 ## <a name="create-an-azure-maps-events-subscription"></a>Criar uma assinatura de Eventos do Azure Mapas
 
-O Azure Mapas dá suporte a três tipos de evento. Dê uma olhada nos tipos de evento compatíveis com os Azure Mapas [aqui](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps ). Precisamos de duas assinaturas de evento diferentes, uma para o evento de entrada e uma para os eventos de saída.
+O Azure Mapas dá suporte a três tipos de evento. Você pode dar uma olhada nos tipos de evento compatíveis do Azure Mapas [aqui](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps). Precisamos de duas assinaturas de evento diferentes, uma para o evento de entrada e uma para os eventos de saída.
 
 Siga as etapas abaixo para criar uma assinatura de evento para eventos de entrada no limite geográfico. Você pode assinar eventos de saída do limite geográfico de maneira semelhante.
 

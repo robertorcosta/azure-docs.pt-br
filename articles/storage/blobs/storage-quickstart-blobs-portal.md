@@ -9,18 +9,18 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 7336260d7565697b0559419ae502848bcff9424c
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1e5ccc9d427755ea4274e836e81e3e324fffa39d
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892848"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937801"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Início Rápido: Carregar, baixar e listar blobs com o portal do Azure
 
 Neste guia de início rápido, você aprenderá a usar o [portal do Azure](https://portal.azure.com/) para criar um contêiner no Armazenamento do Azure e a carregar e baixar blobs de blocos nesse contêiner.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -45,13 +45,14 @@ Para carregar um blob de blocos para seu novo contêiner no portal do Azure, sig
 
 1. No portal do Azure, navegue até o contêiner que você criou na seção anterior.
 2. Selecione o contêiner para mostrar uma lista de blobs que ele contém. Como esse contêiner é novo, ele ainda não contém blobs.
-3. Selecione o botão **Carregar** para carregar um blob no contêiner.
-4. Procure seu sistema de arquivos local para encontrar um arquivo a ser carregado como um blob de blocos e selecione **Carregar**.
+3. Selecione o botão **Carregar** para abrir a folha carregar
+4. Procure seu sistema de arquivos local para encontrar um arquivo a ser carregado como um blob de blocos
      
     ![Captura de tela mostrando como carregar um blob a partir da sua unidade local](media/storage-quickstart-blobs-portal/upload-blob.png)
 
-5. Selecione o **Tipo de autenticação**. O padrão é **SAS**.
-6. Carregue quantos blobs desejar usando essa maneira. Você verá que os novos blobs agora estão listados dentro do contêiner.
+5. Opcionalmente, expanda a seção avançada para definir outras configurações, como o tipo de autenticação, o nível de acesso ou o caminho da pasta virtual.
+6. Selecione o botão **Carregar** para confirmar o upload
+7. Carregue quantos blobs desejar usando essa maneira. Você verá que os novos blobs agora estão listados dentro do contêiner.
 
 ## <a name="download-a-block-blob"></a>Baixar um blob de blocos
 
@@ -60,7 +61,7 @@ Você pode baixar um blob de blocos para exibir no navegador ou salvar em seu si
 1. Navegue até a lista de blobs que você carregou na seção anterior. 
 2. Clique com botão direito do mouse no blob que você deseja baixar e selecione **Baixar**. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover os recursos criados neste guia de início rápido, você pode excluir o contêiner. Todos os blobs no contêiner também serão excluídos.
 

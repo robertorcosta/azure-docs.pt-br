@@ -1,24 +1,24 @@
 ---
 title: 'Tutorial: Unir dados de sensor com os dados de previsão do tempo usando o Azure Notebooks (Python) | Microsoft Azure Mapas'
-description: Este tutorial mostra como unir dados de sensor com os dados de previsão do tempo do Serviço de Clima do Microsoft Azure Mapas usando o Azure Notebooks (Python).
+description: Este tutorial mostra como unir dados de sensor aos dados de previsão do tempo do Serviço de Clima dos Microsoft Azure Mapas usando o Azure Notebooks (Python).
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/09/2019
+ms.date: 01/29/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 1a1493033717b18bef5d80b28d06004c901ffb29
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 6d49a305a9b2e02d9e9d743ff8f076f453a08fcb
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910788"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989613"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Tutorial: Unir dados de sensor com os dados de previsão do tempo usando o Azure Notebooks (Python)
 
-A energia eólica é uma fonte de energia alternativa aos combustíveis fósseis para combater a alteração climática. Como o vento não é consistente por natureza, os operadores de energia eólica precisam criar modelos ML (aprendizado de máquina) para prever a capacidade de energia eólica para atender à demanda de eletricidade e garantir a estabilidade da rede. Neste tutorial, mostraremos passo a passo como os dados de previsão do tempo do Azure Mapas podem ser combinados com o conjunto de dados de demonstração de locais de sensores com leituras do clima. Os dados de previsão do tempo são solicitados chamando o serviço meteorológico do Azure Mapas.
+A energia eólica é uma fonte de energia alternativa aos combustíveis fósseis para combater a alteração climática. Como o vento não é consistente por natureza, os operadores de energia eólica precisam criar modelos de ML (machine learning) para prever a capacidade de energia eólica. Essa previsão é necessária para atender à demanda de eletricidade e garantir a estabilidade da grade. Neste tutorial, explicaremos como os dados de previsão do tempo dos Azure Mapas são combinados com os dados de demonstração de leituras do clima. Os dados de previsão do tempo são solicitados chamando o serviço meteorológico do Azure Mapas.
 
 Neste tutorial, você irá:
 
@@ -39,7 +39,7 @@ Para concluir este tutorial, primeiro você precisará:
 2. Obter a chave de assinatura primária da sua conta seguindo as instruções em [Obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
 
-Para obter mais detalhes sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](./how-to-manage-authentication.md).
+Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](./how-to-manage-authentication.md).
 
 Para se familiarizar com o Azure Notebooks e saber como começar, siga as instruções [Criar um Azure Notebook](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing#create-an-azure-notebook).
 
@@ -51,15 +51,16 @@ Para se familiarizar com o Azure Notebooks e saber como começar, siga as instru
 Para carregar todas as estruturas e todos os módulos necessários, execute o seguinte script:
 
 ```python
-import aiohttp
 import pandas as pd
 import datetime
 from IPython.display import Image, display
+!pip install aiohttp
+import aiohttp
 ```
 
 ## <a name="import-weather-data"></a>Importar dados meteorológicos
 
-Para este tutorial, usaremos as leituras de dados meteorológicos de sensores instalados em quatro turbinas de vento diferentes. Os dados de exemplo consistem em 30 dias de leituras de clima coletados de data centers meteorológicos próximos a cada local de turbina. Os dados de demonstração contêm leituras de temperatura e velocidade e direção do vento. Você pode baixar os dados de demonstração [aqui](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data/data). O script abaixo importa dados de demonstração para o Azure Notebook.
+Para este tutorial, usaremos as leituras de dados meteorológicos de sensores instalados em quatro turbinas eólicas diferentes. Os dados de exemplo consistem em 30 dias de leituras do clima. Essas leituras são coletadas dos data centers meteorológicos próximos a cada localização da turbina. Os dados de demonstração contêm leituras de temperatura e velocidade e direção do vento. Você pode baixar os dados de demonstração [aqui](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data/data). O script abaixo importa dados de demonstração para o Azure Notebook.
 
 ```python
 df = pd.read_csv("./data/weather_dataset_demo.csv")
@@ -67,7 +68,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 ## <a name="request-daily-forecast-data"></a>Solicitar dados de previsão diária
 
-No cenário de exemplo, gostaríamos de solicitar uma previsão diária para cada local de sensor. O script a seguir chama a [API de previsão diária](https://aka.ms/AzureMapsWeatherDailyForecast) do serviço meteorológico do Azure Mapas para obter a previsão do tempo diária para cada turbina eólica para os próximos 15 dias, a partir da data atual.
+Em nosso cenário, desejamos solicitar uma previsão diária para cada localização de sensor. O script a seguir chama a [API de previsão diária](https://aka.ms/AzureMapsWeatherDailyForecast) do serviço meteorológico do Azure Mapas para obter a previsão do tempo diária para cada turbina eólica para os próximos 15 dias, a partir da data atual.
 
 
 ```python
@@ -128,7 +129,7 @@ display(Image(poi_range_map))
 ![Locais de turbina](./media/weather-service-tutorial/location-map.png)
 
 
-Para aumentar os dados de demonstração com os dados de previsão, agruparemos os dados de previsão com os dados de demonstração com base na ID da estação do data center meteorológico.
+Agruparemos os dados de previsão com os dados de demonstração de acordo com a ID da estação do data center meteorológico. Esse agrupamento aumenta os dados de demonstração com os dados de previsão. 
 
 ```python
 # Group forecasted data for all locations
@@ -156,7 +157,7 @@ grouped_weather_data.get_group(station_ids[0]).reset_index()
 
 ## <a name="plot-forecast-data"></a>Plotar dados de previsão
 
-Para ver como a velocidade e a direção do vento são alteradas no decorrer dos próximos 15 dias, plotaremos os valores previstos em relação aos dias em que eles foram previstos.
+Plotaremos os valores previstos em relação aos dias para os quais eles são previstos. Essa plotagem nos permite ver as alterações de velocidade e direção do vento nos próximos 15 dias.
 
 ```python
 # Plot wind speed
@@ -175,7 +176,7 @@ windsPlot.set_xlabel("Date")
 windsPlot.set_ylabel("Wind direction")
 ```
 
-Os grafos abaixo visualizam os dados de previsão da alteração da velocidade do vento (grafo à esquerda) e da direção (grafo à direita) nos próximos 15 dias, a partir do dia em que os dados são solicitados.
+Os grafos abaixo visualizam os dados de previsão. Para a alteração da velocidade do vento, confira o grafo à esquerda. Para a alteração da direção do vento, confira o gráfico à direita. Esses dados são a previsão para os próximos 15 dias, a partir do dia em que os dados são solicitados.
 
 <center>
 
@@ -184,7 +185,7 @@ Os grafos abaixo visualizam os dados de previsão da alteração da velocidade d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu, como chamar as APIs REST do Azure Mapas para obter dados de previsão do clima e visualizar os dados em gráficos.
+Neste tutorial, você aprendeu a chamar as APIs REST dos Azure Mapas para obter dados de previsão do tempo. Você também aprendeu a visualizar os dados em grafos.
 
 Para saber mais sobre como chamar as APIs REST do Azure Mapas dentro de Azure Notebooks, consulte [Roteamento de EV usando Azure Notebooks](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing).
 

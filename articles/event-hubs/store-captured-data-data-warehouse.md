@@ -6,15 +6,15 @@ author: ShubhaVijayasarathy
 manager: ''
 ms.author: shvija
 ms.custom: seodec18
-ms.date: 11/05/2019
+ms.date: 01/15/2020
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 92c414afbb8121eb03353c79dfe3a51e0cfa7ec0
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a83d65e497688fa97fbb2bdb5a4a72c6d29d81ae
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718879"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905699"
 ---
 # <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Tutorial: Migrar dados dos Hubs de Eventos capturados para um SQL Data Warehouse usando a Grade de Eventos e o Azure Functions
 
@@ -35,14 +35,16 @@ Neste tutorial, você executa as seguintes ações:
 > * Transmitir dados de exemplo ao Hub de Eventos. 
 > * Verificar dados capturados em um SQL Data Warehouse
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs/). Durante a instalação, instale as cargas de trabalho a seguir: desenvolvimento para desktop com .NET, desenvolvimento do Azure, ASP.NET e desenvolvimento Web, desenvolvimento em Node.js e desenvolvimento em Python
-- Baixe o [exemplo do Git](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo). A solução de exemplo contém os seguintes componentes:
+- Baixe o [exemplo do Git](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/EventHubsCaptureEventGridDemo) A solução de exemplo contém os seguintes componentes:
     - *WindTurbineDataGenerator*: um editor simples que envia dados de exemplo de turbina eólica para um hub de eventos habilitado para captura
     - *FunctionDWDumper*: uma função do Azure que recebe uma notificação da Grade de Eventos quando um arquivo Avro é capturado no blob do Armazenamento do Azure. Ela recebe o caminho do URI do blob, lê seu conteúdo e envia esses dados para um SQL Data Warehouse.
+
+    Este exemplo usa o pacote mais recente Azure.Messaging.EventHubs. Você pode encontrar o exemplo antigo que usa o pacote Microsoft.Azure.EventHubs [aqui](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo). 
 
 ### <a name="deploy-the-infrastructure"></a>Implantar a infraestrutura
 Use o Azure PowerShell ou a CLI do Azure para implantar a infraestrutura necessária para o tutorial usando esse [modelo do Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json). Este modelo cria os seguintes recursos:

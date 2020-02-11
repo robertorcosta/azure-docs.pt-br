@@ -7,16 +7,16 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 879e1911c715688c2fed4044e23f437b3bbef7b2
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 93a77d73b5cc249c39609f98f055a7b1927dd6ed
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890667"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025479"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Tutorial: Implantar e usar um modelo de aplicativo do centro de distribuição digital
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Este tutorial mostra como iniciar a implantação de um modelo de aplicativo do **centro de distribuição digital** para IoT Central. Veja como implantar o modelo, o conteúdo incluído pronto para uso e o que você poderá fazer em seguida.
 
@@ -24,7 +24,7 @@ Neste tutorial, você aprenderá a:
 * Criar um aplicativo do centro de distribuição digital 
 * Explorar o aplicativo 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 * Não há pré-requisitos específicos para implantar este aplicativo
 * É recomendável ter uma assinatura do Microsoft Azure, mas é possível também experimentá-lo sem ela
 
@@ -34,19 +34,22 @@ Para criar um aplicativo, faça o seguinte:
 
 1. Navegue até o site do Gerenciador de Aplicativos do Azure IoT Central. Selecione o **Build**, na barra de navegação à esquerda, e clique na guia **Varejo**.
 
-> [!div class="mx-imgBorder"]
-> ![Centro de distribuição digital](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
+    > [!div class="mx-imgBorder"]
+    > ![Centro de distribuição digital](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
 
-2. Selecione a guia **Varejo** e, em seguida, **Criar aplicativo**, em **Aplicativo do centro de distribuição digital **
+2. Selecione a guia **Varejo** e, em seguida, **Criar aplicativo** sob **aplicativo do centro de distribuição digital**
 
 3. A opção **Criar aplicativo** abrirá o formulário Novo aplicativo e preencherá os detalhes solicitados, conforme mostrado abaixo.
    **Nome do aplicativo**: use o nome sugerido padrão ou crie um nome de aplicativo amigável.
-   **URL**: use a URL sugerida padrão ou crie uma URL amigável exclusiva de fácil memorização. Em seguida, recomendamos usar a configuração padrão, caso você já tenha uma assinatura do Azure. No entanto, você pode começar com uma avaliação gratuita de sete dias e optar por converter a assinatura para Pagamento Conforme o Uso, antes do término da avaliação gratuita.
+   **URL**: use a URL sugerida padrão ou crie uma URL amigável exclusiva de fácil memorização. Em seguida, recomendamos usar a configuração padrão, caso você já tenha uma assinatura do Azure. Você pode começar com o plano de preço de avaliação gratuita de 7 dias e optar por converter em um plano de preço padrão a qualquer momento antes que a avaliação gratuita expire.
    **Informações de Cobrança**: para provisionar os recursos, é necessário informar os detalhes em Diretório, Assinatura do Azure e Região.
    **Criar**: selecione Criar, no final da página, para implantar o aplicativo.
 
-> [!div class="mx-imgBorder"]
-> ![centro de distribuição digital](./media/tutorial-iot-central-ddc/ddc-create.png)
+    > [!div class="mx-imgBorder"]
+    > ![Centro de distribuição digital](./media/tutorial-iot-central-ddc/ddc-create.png)
+
+    > [!div class="mx-imgBorder"]
+    > ![Informações de cobrança de distribuição digital](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
 
 ## <a name="walk-through-the-application-dashboard"></a>Explorar o painel de aplicativo 
 
@@ -59,31 +62,31 @@ O painel é organizado logicamente para mostrar as funcionalidades de gerenciame
    * Gerencie todas as câmeras que fazem parte da solução. 
 
 > [!div class="mx-imgBorder"]
-> ![centro de distribuição digital](./media/tutorial-iot-central-ddc/ddc-dashboard.png)
+> ![Centro de distribuição digital](./media/tutorial-iot-central-ddc/ddc-dashboard.png)
 
 ## <a name="device-template"></a>Modelo de dispositivo
 
 Clique na guia Modelos de dispositivo para ver o modelo de funcionalidade do gateway. O modelo de funcionalidade é estruturado em duas interfaces diferentes: **Câmera** e **Gateway de Distribuição Digital**.
 
 > [!div class="mx-imgBorder"]
-> ![Centro de Distribuição Digital](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
+> ![Centro de distribuição digital](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
 
 **Câmera** – essa interface organiza todas as funcionalidades de comando específicas de câmera. 
 
 > [!div class="mx-imgBorder"]
-> ![centro de distribuição digital](./media/tutorial-iot-central-ddc/ddc-camera.png)
+> ![Centro de distribuição digital](./media/tutorial-iot-central-ddc/ddc-camera.png)
 
 **centro de distribuição digital** – essa interface representa toda a telemetria proveniente de uma câmera, as propriedades do dispositivo gêmeo definidas na nuvem e as informações do gateway.
 
 > [!div class="mx-imgBorder"]
-> ![Centro de Distribuição Digital](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
+> ![Centro de distribuição digital](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
 
 
 ## <a name="gateway-commands"></a>Comandos de gateway
 Esta interface organiza todas as funcionalidades de comando do gateway.
 
 > [!div class="mx-imgBorder"]
-> ![Centro de Distribuição Digital](./media/tutorial-iot-central-ddc/ddc-camera.png)
+> ![Centro de distribuição digital](./media/tutorial-iot-central-ddc/ddc-camera.png)
 
 ## <a name="rules"></a>Regras
 Selecione a guia Regras para ver duas regras diferentes neste modelo de aplicativo. Essas regras são configuradas para enviar notificações por email aos operadores para fins de investigações posteriores.
@@ -93,7 +96,7 @@ Selecione a guia Regras para ver duas regras diferentes neste modelo de aplicati
 **Pacote grande** – essa regra é disparada quando a câmera detecta um grande pacote cuja qualidade não pode ser inspecionada. 
 
 > [!div class="mx-imgBorder"]
-> ![Centro de Distribuição Digital](./media/tutorial-iot-central-ddc/ddc-rules.png)
+> ![Centro de distribuição digital](./media/tutorial-iot-central-ddc/ddc-rules.png)
 
 ## <a name="jobs"></a>Trabalhos
 Selecione a guia Trabalhos para exibir cinco trabalhos existentes como parte deste modelo de aplicativo: Você pode aproveitar o recurso Trabalhos para executar operações em toda a solução. Nesse caso, os trabalhos do centro de distribuição digital estão usando a funcionalidade de gêmeos e os comandos do dispositivo para executar tarefas, como:
@@ -102,15 +105,15 @@ Selecione a guia Trabalhos para exibir cinco trabalhos existentes como parte des
    * Modificar o intervalo de telemetria para gerenciar o carregamento de dados.
 
 > [!div class="mx-imgBorder"]
-> ![Centro de Distribuição Digital](./media/tutorial-iot-central-ddc/ddc-jobs.png)
+> ![Centro de distribuição digital](./media/tutorial-iot-central-ddc/ddc-jobs.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Caso não pretenda usar esse aplicativo, acesse **Administração** > **Configurações do Aplicativo** e clique em **Excluir** para excluir o modelo de aplicativo.
 
 > [!div class="mx-imgBorder"]
-> ![Centro de Distribuição Digital](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
+> ![Centro de distribuição digital](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre o [conceito do centro de distribuição digital](./architecture-digital-distribution-center-pnp.md) na arquitetura da solução.
 * Saiba mais sobre outros [modelos comerciais do IoT Central](./overview-iot-central-retail-pnp.md)
-* Para saber mais sobre o IoT Central, confira [Visão geral do IoT Central](../preview/overview-iot-central.md)
+* Para saber mais sobre o IoT Central, confira [Visão geral do IoT Central](../core/overview-iot-central.md)

@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: e305a5634aa0c065342e1873c413039eb734b972
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: a9fb77ea30aa101653d50e7833876dbec6362093
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76165881"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76930139"
 ---
 # <a name="quickstart-face-client-library-for-net"></a>Início Rápido: Biblioteca de clientes de Detecção Facial para .NET
 
@@ -22,7 +22,6 @@ Introdução à biblioteca de clientes de Detecção Facial para .NET. Siga essa
 
 Use a biblioteca de clientes de Detecção Facial para .NET para:
 
-* [Autenticar o cliente](#authenticate-the-client)
 * [Detectar faces em uma imagem](#detect-faces-in-an-image)
 * [Encontrar rostos semelhantes](#find-similar-faces)
 * [Criar e treinar um grupo de pessoas](#create-and-train-a-person-group)
@@ -122,7 +121,7 @@ Os snippets de código abaixo mostram como realizar as seguintes tarefas com a b
 > [!NOTE]
 > Este início rápido pressupõe que você já [criou variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e o ponto de extremidade da Detecção Facial, denominados `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`.
 
-Em um novo método, instancie um cliente com o ponto de extremidade e a chave. Crie um objeto [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) com a sua chave e use-o com o ponto de extremidade para criar um objeto [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet).
+Em um novo método, instancie um cliente com o ponto de extremidade e a chave. Crie um objeto **[ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.apikeyserviceclientcredentials?view=azure-dotnet)** com sua chave e use-o com seu ponto de extremidade para criar um objeto **[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** .
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_auth)]
 
@@ -140,19 +139,19 @@ Opcionalmente, você pode escolher qual modelo de IA usar para extrair dados dos
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_models)]
 
-A operação de Detecção final usará um objeto [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet), uma URL de imagem e um modelo de reconhecimento.
+A operação de Detecção final usará um objeto **[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** , uma URL de imagem e um modelo de reconhecimento.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_call)]
 
 ### <a name="get-detected-face-objects"></a>Detectar objetos de rosto
 
-No próximo bloco de código, o método `DetectFaceExtract` detecta rostos em três das imagens na URL fornecida e cria uma lista de objetos [DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet) na memória do programa. A lista de valores [FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet) especifica quais recursos extrair. 
+No próximo bloco de código, o método `DetectFaceExtract` detecta rostos em três das imagens na URL fornecida e cria uma lista de objetos **[DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet)** na memória do programa. A lista de valores **[FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** especifica quais recursos extrair. 
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect)]
 
 ### <a name="display-detected-face-data"></a>Exibir dados do rosto detectado
 
-O restante do método `DetectFaceExtract` analisa e imprime os dados de atributos para cada rosto detectado. Cada atributo deve ser especificado separadamente na chamada à API de detecção facial (na lista [FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)). O código a seguir processa todos os atributos, mas provavelmente você só precisará usar um ou alguns deles.
+O restante do método `DetectFaceExtract` analisa e imprime os dados de atributos para cada rosto detectado. Cada atributo deve ser especificado separadamente na chamada à API de detecção facial (na lista **[FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** ). O código a seguir processa todos os atributos, mas provavelmente você só precisará usar um ou alguns deles.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_parse)]
 

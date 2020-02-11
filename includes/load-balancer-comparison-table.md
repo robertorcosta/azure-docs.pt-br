@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/08/2018
 ms.author: kumud
 ms.custom: include file
-ms.openlocfilehash: 4b419bd8c19cffaf84582cb4fa9e46592746da3f
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 4219df03f74f737c5f2435f9bc0842189dc1fd49
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751565"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76909104"
 ---
 | | SKU Standard | SKU Básico |
 | --- | --- | --- |
-| Tamanho do pool de back-end | Dá suporte a até 1.000 instâncias. | Dá suporte a até 100 instâncias. |
+| Tamanho do pool de back-end | Dá suporte a até 1.000 instâncias. | Dá suporte a até 300 instâncias. |
 | Pontos de extremidade de pool de back-end | Qualquer máquina virtual em uma rede virtual única, incluindo a combinação de máquinas virtuais, conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais. | Máquinas virtuais em um conjunto de disponibilidade ou conjunto de dimensionamento da máquina virtual. |
 | [Investigações de integridade](../articles/load-balancer/load-balancer-custom-probe-overview.md#types) | TCP, HTTP, HTTPS | TCP, HTTP |
 | [Comportamento de investigação de integridade inoperante](../articles/load-balancer/load-balancer-custom-probe-overview.md#probedown) | As conexões TCP permanecem ativas com uma instância de investigação inoperante __e__ todas as investigações inoperantes. | As conexões TCP permanecem ativas com uma instância de investigação inoperante. Todas as conexões TCP terminam com todas as investigações inoperantes. |

@@ -8,20 +8,20 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 0b100e0bebc7c5b26449e396650da5434334075d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 1bad4ab6320e757ac766776a95b8dbe6ebaa3259
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112627"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016418"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-in-iot-central"></a>Tutorial: Criar um aplicativo de monitoramento do consumo de água em IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Este tutorial orienta você a criar um aplicativo de monitoramento de consumo de água IoT Central do Azure usando o modelo de aplicativo de monitoramento de consumo de água IoT Central. 
 
-Com o tutorial, você aprenderá a: 
+Neste tutorial, você aprenderá a: 
 
 > [!div class="checklist"]
 > * Use o modelo de **Monitoramento de consumo de água do Azure IoT Central** para criar seu aplicativo de monitoramento de consumo de água
@@ -32,14 +32,14 @@ Com o tutorial, você aprenderá a:
 > * Configurar trabalhos
 > * Personalizar a identidade visual do aplicativo usando white labeling
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará:
 -  Uma assinatura do Azure é recomendada. Se você não tiver uma assinatura do Azure, poderá criar uma na [página de entrada do Azure](https://aka.ms/createazuresubscription).
 
 ## <a name="create-water-consumption-monitoring-app-in-iot-central"></a>Criar um aplicativo de monitoramento do consumo de água no IoT Central
 
-Nesta seção, usaremos o modelo de **Monitoramento de consumo de água** do Azure IoT Central para criar seu aplicativo de monitoramento de consumo de água no IoT Central.
+Nesta seção, você usará o **modelo de monitoramento de consumo de água** do Azure IoT Central para criar seu aplicativo de monitoramento de consumo de água no IoT Central.
 
 Para criar um novo aplicativo de monitoramento de consumo de água do Azure IoT Central:  
 
@@ -60,11 +60,13 @@ Para criar um novo aplicativo de monitoramento de consumo de água do Azure IoT 
     * **URL**: O IoT Central também gerará uma URL para você, com base no nome do aplicativo. Você pode optar por atualizar a URL de sua preferência. Você também pode alterar a URL mais tarde. 
     * Se você tiver uma assinatura do Azure, insira seu *Diretório, assinatura do Azure e Região*. Se você não tiver uma assinatura, poderá habilitar a **avaliação gratuita de sete dias** e preencher as informações de contato necessárias.  
 
-    Para obter mais informações sobre assinaturas e diretórios, consulte o [criar um início rápido de aplicativo](../preview/quick-deploy-iot-central.md).
+    Para obter mais informações sobre assinaturas e diretórios, consulte o [criar um início rápido de aplicativo](../core/quick-deploy-iot-central.md).
 
 5. Clique no botão **Criar** na parte inferior da página. 
 
     ![Página Criar aplicativo do Azure IoT Central](./media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring.png)
+
+    ![Informações de cobrança de Criar Aplicativo do Azure IoT Central](./media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring-billinginfo.png)
 
 6. Agora você criou um aplicativo de monitoramento de consumo de água usando o modelo de **monitoramento de consumo de água** do Azure IoT Central.
 
@@ -93,7 +95,7 @@ O painel é composto por diferentes tipos de blocos:
 
 * **Bloco KPI de fluxo de água médio**: o bloco de KPI está configurado para ser exibido como um exemplo *da média nos últimos 30 minutos*. É possível personalizar os blocos de KPI e configurar um deles com tipos e intervalos de tempo diferentes.
 
-* Em seguida, há no painel blocos de *Comando do Dispositivo* para **Fechar válvula**, **Abrir válvula** ou **Definir posição da válvula**. Ao clicar nos comandos, você será levado para a página de comando do dispositivo de dispositivo simulado. No IoT Central um *Comando* é um tipo de *recursos do dispositivo* que exploraremos mais tarde na **seção dispositivo modelo** deste tutorial.
+* Em seguida, há no painel blocos de *Comando do Dispositivo* para **Fechar válvula**, **Abrir válvula** ou **Definir posição da válvula**. Ao clicar nos comandos, você será levado para a página de comando do dispositivo simulado. No IoT Central, um *Comando* é um tipo de *funcionalidade do dispositivo*, que você vai explorar mais adiante na **seção sobre o modelo de dispositivo** deste tutorial.
 
 *  **Mapa da área de distribuição de água**: o mapa está usando o Azure Mapas, que pode ser configurado diretamente no Azure IoT Central. A peça de mapa está exibindo a localização do dispositivo. Tente focalizar o mapa e experimente os controles sobre ele, como *ampliar*, *reduzir* ou *expandir*. 
 
@@ -105,7 +107,7 @@ O painel é composto por diferentes tipos de blocos:
 
 * **Redefinir o bloco de conteúdo de limite de alerta**: você pode incluir blocos de conteúdo de chamada de ação inserindo o link para uma página de ação. Nesse caso, redefinir o limite de alerta levará você para o aplicativo **Trabalhos** em que você pode executar atualizações para as propriedades de dispositivos, que exploraremos posteriormente na seção **configurar trabalhos** deste tutorial.
 
-* **Blocos de propriedades**: o painel exibe **Informações operacionais de válvula**, **Limites de alerta de fluxo** e **Informações de manutenção**  que são propriedades do dispositivo.  
+* **Blocos de propriedades**: o painel exibe **Informações operacionais da válvula**, **Limites de alerta de fluxo** e **Informações de manutenção**. 
 
 
 ### <a name="customize-dashboard"></a>Personalizar painel 
@@ -126,7 +128,7 @@ O aplicativo de **Monitoramento de consumo de água** vem com dois modelos de di
 Para exibir do modelo de dispositivo:
 
 1. Clique em **Modelos de dispositivo** no painel de navegação esquerdo de seu aplicativo no IoT Central. 
-    Na lista de modelos de dispositivo, você verá dois modelos de dispositivo, o **Medidor de Fluxo** e a **Válvula Inteligente**
+    Na lista Modelos de dispositivo, você verá dois modelos de dispositivo, **Medidor de fluxo** e **Válvula Inteligente**
 
    ![Modelo de dispositivo](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate.png)
 
@@ -146,16 +148,16 @@ Tente personalizar o seguinte:
 ### <a name="add-a-cloud-property"></a>Adicionar uma propriedade de nuvem 
 1. Navegue até **Propriedade de nuvem** no menu do modelo de dispositivo
 2. Adicione uma nova propriedade de nuvem clicando em **+ Adicionar Propriedade de Nuvem**. 
-    No IoT Central, você pode adicionar uma propriedade que é relevante para o dispositivo. Por exemplo, uma propriedade de nuvem poderia ser um limite de alerta específico para a área de instalação, informações sobre ativos ou informações de manutenção etc. 
+    No IoT Central, você pode adicionar uma propriedade que é relevante para o dispositivo. Por exemplo, uma propriedade de nuvem pode ser um limite de alerta específico da área de instalação, informações de ativos ou outras informações de manutenção. 
 3. **Salve** quaisquer alterações 
  
-### <a name="views"></a>Modos de exibição 
+### <a name="views"></a>Exibições 
 O modelo de dispositivo do monitor de consumo de água é fornecido com exibições predefinidas. Explore as exibições e faça atualizações. As exibições definem como os operadores veem os dados do dispositivo e também definem as propriedades da nuvem. 
 
   ![Exibições do modelo de dispositivo](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate-views.png)
 
 ### <a name="publish"></a>Publicar 
-Se você fez alterações, não deixe de **Publicar** o modelo de dispositivo. 
+Caso tenha feito alguma alteração, lembre-se de **Publicar** o modelo de dispositivo. 
 
 ### <a name="create-a-new-device-template"></a>Criar um novo modelo de dispositivo 
 - Selecione **+ Novo** para criar um modelo de dispositivo e siga o processo de criação. Você poderá criar um modelo de dispositivo personalizado do zero ou escolher um no Catálogo de Dispositivos do Azure. 
@@ -192,11 +194,11 @@ O aplicativo de **Monitoramento de consumo de água**  que você criou o modelo 
 
    ![Regras](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-rules.png)
 
-2. Selecione e clique me **Alerta de pH alto**, que é uma das regras pré-configuradas no aplicativo.
+2. Selecione e clique em **Alerta de pH alto**, que é uma das regras pré-configuradas no aplicativo.
 
      ![Alerta de pH alto](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-highflowalert.png)
 
-    A regra `High flow alert` está configurada para verificar se a condição `Acidity (pH)` é `greater than` `Max flow threshold`. Limite máximo de fluxo é uma propriedade de nuvem definida no modelo de dispositivo da *Válvula Inteligente* do dispositivo. O valor de `Max flow threshold` é definido por instância de dispositivo. 
+    A regra `High flow alert` está configurada para verificar se a condição `Acidity (pH)` é `greater than``Max flow threshold`. Limite máximo de fluxo é uma propriedade de nuvem definida no modelo de dispositivo da *Válvula Inteligente* do dispositivo. O valor de `Max flow threshold` é definido por instância de dispositivo. 
 
 Agora, vamos criar uma ação de email.
 
@@ -239,7 +241,7 @@ Como um criador, você pode alterar várias configurações para personalizar a 
 2. Por fim, você também pode alterar o **Tema** clicando em **Configurações** na manchete do aplicativo. 
 
   
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não quiser continuar usando o aplicativo, exclua-o seguindo estas etapas:
 

@@ -1,18 +1,15 @@
 ---
 title: Preparar VMs VMware para avaliação/migração com as Migrações para Azure
 description: Saiba como se preparar para a avaliação/migração de VMs VMware com as Migrações para Azure.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
-ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4dec76140f61c433561ccfea07b833d9821acfc5
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: f00d5ba4841427098b0ab79ad1930e357008b6e0
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028898"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030788"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparar VMs do VMware para avaliação e migração para o Azure
 
@@ -41,8 +38,12 @@ Você precisa dessas permissões.
 **Tarefa** | **Permissões**
 --- | ---
 **Criar um projeto de Migrações para Azure** | Sua conta do Azure precisa de permissões para criar um projeto.
-**Registrar o dispositivo de Migrações para Azure** | As Migrações para Azure usam um dispositivo leve de migrações para Azure para avaliar VMs do VMware com a avaliação de servidor de migrações para Azure e executar a [migração sem agente](server-migrate-overview.md) de VMs do VMware com migração de servidor de migrações para Azure. Esse dispositivo executa a descoberta de VM e envia os metadados de VM e os dados de desempenho para as Migrações para Azure.<br/><br/>Durante o registro, as Migrações para Azure criam dois aplicativos Azure AD (Azure Active Directory) que identificam o dispositivo de forma exclusiva e precisa de permissões para criar esses aplicativos.<br/> - O primeiro aplicativo comunica-se com os pontos de extremidade de serviço das Migrações para Azure.<br/> - O segundo aplicativo acessa um Azure Key Vault criado durante o registro para armazenar informações de aplicativo do Azure AD e definições de configuração do dispositivo.
+**Registrar o dispositivo de Migrações para Azure** | As Migrações para Azure usam um dispositivo leve de migrações para Azure para avaliar VMs do VMware com a avaliação de servidor de migrações para Azure e executar a [migração sem agente](server-migrate-overview.md) de VMs do VMware com migração de servidor de migrações para Azure. Esse dispositivo executa a descoberta de VM e envia os metadados de VM e os dados de desempenho para as Migrações para Azure.<br/><br/>Durante o registro do dispositivo, os provedores de recursos a seguir são registrados com a assinatura escolhida no dispositivo: Microsoft.OffAzure, Microsoft.Migrate e Microsoft.KeyVault. O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. Para registrar os provedores de recursos, você precisa de uma função de Colaborador ou Proprietário na assinatura.<br/><br/> Como parte da integração, as Migrações para Azure criam dois aplicativos Microsoft Azure AD (Active Directory):<br/> – O primeiro aplicativo é usado para comunicação (autenticação e autorização) entre os agentes em execução no dispositivo com seus respectivos serviços em execução no Azure. Esse aplicativo não tem privilégios para fazer chamadas do ARM ou acesso RBAC em qualquer recurso.<br/> - O segundo aplicativo é usado exclusivamente para acessar o KeyVault criado na assinatura do usuário para a migração sem agente. Ele é fornecido com um acesso RBAC no Azure Key Vault (criado no locatário do cliente) quando a descoberta é iniciada no dispositivo.
 **Criar um cofre de chaves** | Para migrar VMs do VMware usando a Migração de Servidor de Migrações para Azure, as Migrações para Azure criam um cofre de chaves para gerenciar chaves de acesso para a conta de armazenamento de replicação em sua assinatura. Para criar o cofre, você precisa de permissões de atribuição de função no grupo de recursos no qual o projeto de Migrações para Azure reside.
+
+
+
+
 
 
 ### <a name="assign-permissions-to-create-project"></a>Atribuir permissões para criar o projeto
@@ -80,9 +81,9 @@ O locatário/administrador global pode conceder permissões da seguinte maneira
 
 O locatário/administrador global pode atribuir a função de Desenvolvedor de Aplicativos a uma conta. [Saiba mais](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
-### <a name="assign-role-assignment-permissions"></a>Atribuir permissões de atribuição de função
+### <a name="assign-permissions-to-create-a-key-vault"></a>Atribuir permissões para criar um Key Vault
 
-Para habilitar a Migrações para Azure para criar um cofre de chaves, atribua permissões de atribuição de função da seguinte maneira:
+Para permitir que as Migrações para Azure criem um Key Vault, atribua permissões da seguinte maneira:
 
 1. No grupo de recursos no portal do Azure, selecione **Controle de acesso (IAM).**
 2. Em **Verificar acesso**, localize a conta relevante e clique nela para exibir as permissões.

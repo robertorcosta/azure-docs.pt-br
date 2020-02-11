@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b07c6d6317d8ca284008d271f507b965414bfbc1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: d19a7cc8d81f9e6e913f147b24c5cce03ff82027
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257511"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986709"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-server"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Tableau Server
 
@@ -33,7 +32,7 @@ Neste tutorial, você aprenderá a integrar o Tableau Server ao Azure AD (Azure 
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para começar, você precisará dos seguintes itens:
 
@@ -45,6 +44,7 @@ Para começar, você precisará dos seguintes itens:
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O Tableau Server é compatível com SSO iniciado por **SP**
+* Depois de configurar o Tableau Server, você poderá impor controles de sessão, que fornecem proteção contra exportação e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-tableau-server-from-the-gallery"></a>Adição do Tableau Server a partir da galeria
 
@@ -184,3 +184,5 @@ Ao clicar no bloco do Tableau Server no Painel de Acesso, você deverá entrar a
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Experimentar o Tableau Server com o Azure AD](https://aad.portal.azure.com/)
+
+- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

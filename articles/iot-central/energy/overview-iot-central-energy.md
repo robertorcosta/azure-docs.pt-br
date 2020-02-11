@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 8c7d2481fe3ef361386bacc652d87744c1c790bb
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 13b626945743c17bad8df58fba77e1c960e90ef3
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581499"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016555"
 ---
 # <a name="build-energy-solutions-with-iot-central"></a>Criar soluções de energia com o IoT Central 
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 
 Os medidores inteligentes e os painéis solares estão desempenhando uma função importante na transformação do setor de energia. Os medidores inteligentes fornecem mais controles e informações em tempo real sobre os consumos de energia e o crescimento dos painéis solares está impulsionando a inovação na geração de energia renovável. Os aplicativos de monitoramento de medidores inteligentes e de painéis solares são modelos de exemplo para mostrar os vários recursos. Os parceiros podem aproveitar esses modelos para criar soluções de energia com IoT Central para suas necessidades específicas. Nenhuma nova codificação e nenhum custo adicional são necessários para implantar e usar esses aplicativos. Saiba mais sobre modelos de aplicativos de energia e seus recursos.

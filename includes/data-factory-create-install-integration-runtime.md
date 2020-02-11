@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 12c2f1bd2a3185d26eae02b5cd756392b5b87c16
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: e7717cdeec33a32f926cb5ef4c1f6d28c25f9d93
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533192"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989070"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Criar um Integration Runtime auto-hospedado
 
@@ -20,7 +20,7 @@ Nesta seção, você cria um Integration Runtime auto-hospedado e o associa a um
     ```powershell
    $integrationRuntimeName = "ADFTutorialIR"
     ```
-2. Criar um tempo de execução de integração auto-hospedado. 
+2. Criar um runtime de integração auto-hospedada. 
 
    ```powershell
    Set-AzDataFactoryV2IntegrationRuntime -Name $integrationRuntimeName -Type SelfHosted -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName
@@ -83,10 +83,11 @@ Nesta seção, você cria um Integration Runtime auto-hospedado e o associa a um
 
 5. Copie uma das chaves (excluindo as aspas) usadas para registrar o Integration Runtime auto-hospedado instalado em seu computador nas próximas etapas.  
 
-## <a name="install-the-integration-runtime"></a>Instalar o Integration Runtime
+## <a name="install-the-integration-runtime-tool"></a>Instalar a ferramenta Integration Runtime
+
 1. Se você já tiver o Integration Runtime em seu computador, desinstale-o usando **Adicionar ou Remover Programas**. 
 
-2. [Baixe](https://www.microsoft.com/download/details.aspx?id=39717) o tempo de execução de integração auto-hospedado em uma máquina local do Windows. Execute a instalação.
+2. [Baixe](https://www.microsoft.com/download/details.aspx?id=39717) o runtime de integração auto-hospedada em uma máquina local do Windows. Execute a instalação.
 
 3. Na página **Bem-vindo à instalação do Microsoft Integration Runtime**, selecione **Avançar**.
 
@@ -132,8 +133,7 @@ Nesta seção, você cria um Integration Runtime auto-hospedado e o associa a um
 
     g. Insira a senha associada ao nome de usuário.
 
-    h. Selecione **Testar** para confirmar que esse tempo de execução de integração pode se conectar ao SQL Server. Você verá uma marca de seleção verde se a conexão tiver êxito. Você verá uma mensagem de erro se a conexão não tiver êxito. Corrija todos os problemas e verifique se o tempo de execução de integração pode se conectar ao SQL Server.    
+    h. Selecione **Testar** para confirmar que esse runtime de integração pode se conectar ao SQL Server. Você verá uma marca de seleção verde se a conexão tiver êxito. Você verá uma mensagem de erro se a conexão não tiver êxito. Corrija todos os problemas e verifique se o runtime de integração pode se conectar ao SQL Server.    
 
     > [!NOTE]
-    > Anote os valores de tipo de autenticação, servidor, banco de dados, usuário e senha. Você os usará posteriormente neste tutorial. 
-    
+    > Anote os valores de tipo de autenticação, servidor, banco de dados, usuário e senha. Você os usará posteriormente neste tutorial.

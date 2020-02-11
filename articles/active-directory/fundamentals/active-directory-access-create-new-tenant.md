@@ -10,14 +10,14 @@ ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: ajburnle
-ms.custom: it-pro, seodec18
+ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ef577f5d086b22779392cd6d8b5d43a340f7329
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: de205beaf9800c2061cc41343b4153bd0e2b5dc7
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423092"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024595"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Início Rápido: Crie um novo locatário no Azure Active Directory
 É possível realizar todas as tarefas administrativas usando o portal do Azure AD (Azure Active Directory), incluindo a criação de um novo locatário para a organização. 
@@ -31,7 +31,7 @@ Após entrar no portal do Azure, é possível criar um novo locatário para a or
 
 ### <a name="to-create-a-new-tenant"></a>Criar um novo locatário
 
-1. Entre no [portal do Azure](https://portal.azure.com/) da organização usando uma conta de administrador global.
+1. Entre no [portal do Azure](https://portal.azure.com/) da sua organização.
 
 1. No menu do portal do Azure, selecione **Criar um recurso**.  
 
@@ -58,6 +58,7 @@ O novo locatário será criado com o domínio contoso.onmicrosoft.com.
 ## <a name="clean-up-resources"></a>Limpar os recursos
 Se você não quiser continuar usando este aplicativo, poderá excluir o locatário seguindo estas etapas:
 
+- Verifique se você está conectado ao diretório que deseja excluir por meio do filtro **Directory + assinatura** no portal do Azure e alterne para o diretório de destino, se necessário.
 - Selecione **Azure Active Directory** e na página **Contoso – Visão geral**, selecione **Excluir diretório**.
 
     O locatário e suas informações associadas serão excluídos.

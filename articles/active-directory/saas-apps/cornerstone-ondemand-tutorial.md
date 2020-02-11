@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1254c3d241befdd0842dd68c8f34291f148c7ee6
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 34a92a11880d61ff3e75e0b2a982b6375841b4b7
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291457"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983513"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone-ondemand"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Cornerstone OnDemand
 
@@ -45,7 +45,7 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 * O Cornerstone OnDemand dá suporte a SSO iniciado por **SP**
 * O Cornerstone OnDemand dá suporte ao [provisionamento automatizado de usuários](cornerstone-ondemand-provisioning-tutorial.md)
-* Após configurar o Cornerstone OnDemand, você poderá impor controles de sessão, que protegem o vazamento e a infiltração de dados confidenciais de sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Após configurar o Cornerstone OnDemand, você poderá impor controles de sessão, que protegem contra o vazamento e a infiltração de dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-cornerstone-ondemand-from-the-gallery"></a>Adicionando Cornerstone OnDemand da galeria
 
@@ -160,5 +160,3 @@ Quando clicar no bloco do Cornerstone OnDemand no Painel de Acesso, você dever�
 - [Experimente o Cornerstone OnDemand com o Azure AD](https://aad.portal.azure.com)
 
 - [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [Como proteger o Cornerstone OnDemand com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

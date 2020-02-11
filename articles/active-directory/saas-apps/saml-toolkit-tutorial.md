@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83e5790a036a93c947a79bc2848e7be6febf30b6
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 1aa2d58a40c623cc451ca30aaa9d75a4a6b3d4c0
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122041"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983853"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Azure AD SAML Toolkit
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o Kit de Ferramentas SAML do Azure A
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para começar, você precisará dos seguintes itens:
 
@@ -76,17 +76,17 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Azure AD SAML Toolkit**, localize a seção **Gerenciar** e selecione **Logon único**.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações. Você pode recuperar as configurações usando a página Configuração de SAML do Kit de Ferramentas do SAML. 
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
 1. Na página **Configuração Básica de SAML**, insira os valores nos seguintes campos:
 
-    a. Na caixa de texto **URL de logon**, digite uma URL: `https://samltoolkit.azurewebsites.net/`
+    a. Na caixa de texto **URL de logon**, digite uma URL: `https://samltoolkit.azurewebsites.net/SAML/Login/<3digitnumber>`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL: `https://samltoolkit.azurewebsites.net`
 
-    c. Na caixa de texto **URL de Resposta**, insira uma URL: `https://samltoolkit.azurewebsites.net/SAML/Consume`
+    c. Na caixa de texto **URL de Resposta**, insira uma URL: `https://samltoolkit.azurewebsites.net/SAML/Consume/<3digitnumber>`
 
 1. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Bruto)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: d8a5f4756f3a6799c7f1b08973e0a84603cb4571
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 73402420bdfee7fecbd7901deefe7f4314a76d51
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703642"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931593"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Criar uma VM de gerenciamento para configurar e administrar um domínio gerenciado do Azure Active Directory Domain Services
 
@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará dos seguintes recursos e privilégios:
 
@@ -40,9 +40,9 @@ Para concluir este tutorial, você precisará dos seguintes recursos e privilég
 * Um locatário do Azure Active Directory associado com a assinatura, sincronizado com um diretório local ou somente em nuvem.
     * Se necessário, [crie um locatário do Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
 * Um domínio gerenciado do Azure Active Directory Domain Services habilitado e configurado no locatário do Azure AD.
-    * Se necessário, o primeiro tutorial [cria e configura uma instância do Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Se necessário, veja o primeiro tutorial para [criar e configurar uma instância do Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Uma VM do Windows Server que está unida ao domínio gerenciado do Azure AD DS.
-    * Se necessário, o tutorial anterior [cria uma VM do Windows Server e a une a um domínio gerenciado][create-join-windows-vm].
+    * Se necessário, confira o tutorial anterior para [criar uma VM do Windows Server e ingressá-la em um domínio gerenciado][create-join-windows-vm].
 * Uma conta de usuário que é membro do grupo de *administradores do Azure AD DC* no locatário do Azure AD.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
@@ -143,7 +143,7 @@ Você também pode usar o *Módulo do Active Directory para Windows PowerShell*,
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Entender as tarefas administrativas disponíveis em um domínio gerenciado do Azure AD DS

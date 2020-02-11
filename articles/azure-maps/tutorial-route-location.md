@@ -3,18 +3,18 @@ title: 'Tutorial: Localizar a rota para uma localização | Microsoft Azure Mapa
 description: Este tutorial mostra como renderizar a rota para uma localização (ponto de interesse) em um mapa usando o Serviço de Roteiros do Microsoft Azure Mapas.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/12/2019
+ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7f13e5342e880a9ed5e2cb35ebaf558a1641618b
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 3fedb045773cb975d37e2d866862e7863a6232e3
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910845"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989630"
 ---
 # <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>Tutorial: Rotear para um ponto de interesse usando os Mapas do Azure
 
@@ -27,7 +27,7 @@ Este tutorial mostra como usar sua conta dos Mapas do Azure e o SDK do Serviço 
 
 ## <a name="prerequisites"></a>Prerequisites
 
-Antes de continuar, siga as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma assinatura da conta dos Azure Mapas com o tipo de preço S1 e siga as etapas em [Obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária da sua conta. Para obter mais detalhes sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](how-to-manage-authentication.md).
+Antes de continuar, siga as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps); você precisará ter uma assinatura com o tipo de preço S1. Siga as etapas em [Obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária da sua conta. Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](how-to-manage-authentication.md).
 
 <a id="getcoordinates"></a>
 
@@ -139,7 +139,7 @@ Neste tutorial, uma rota simples será renderizada usando um ícone de símbolo 
     });
     ```
     
-    No manipulador `ready` de eventos do mapa, uma fonte de dados é criada para armazenar a linha da rota e os pontos de partida e de chegada. Uma camada de linhas é criada e anexada à fonte de dados para definir como a linha de rota será renderizada. A linha da rota será renderizada em uma bela tonalidade de azul com uma largura de 5 pixels e limites e junções arredondadas. Quando você adiciona a camada ao mapa, um segundo parâmetro com o valor de `'labels'` é passado especificando que essa camada deve ser renderizada abaixo dos rótulos do mapa. Isso fará com que a linha de rota não cubra os rótulos de estrada. Uma camada de símbolo é criada e anexada à fonte de dados. Essa camada especifica como os pontos de partida e chegada serão renderizados; neste caso, expressões foram adicionadas para recuperar as informações de rótulo de texto e de imagem de ícone das propriedades em cada objeto de ponto. 
+    No manipulador de eventos `ready` dos mapas, uma fonte de dados é criada para armazenar a linha da rota e os pontos inicial e final. Uma camada de linhas é criada e anexada à fonte de dados para definir como a linha de rota será renderizada. A linha de rota será renderizada como uma bela tonalidade de azul. Ela terá uma largura de cinco pixels, junções de linhas arredondadas e tampas. Quando você adiciona a camada ao mapa, um segundo parâmetro com o valor de `'labels'` é passado especificando que essa camada deve ser renderizada abaixo dos rótulos do mapa. Isso fará com que a linha de rota não cubra os rótulos de estrada. Uma camada de símbolo é criada e anexada à fonte de dados. Essa camada especifica como os pontos inicial e final são renderizados. Nesse caso, as expressões foram adicionadas para recuperar a imagem de ícone e as informações de rótulo de texto das propriedades em cada objeto de ponto. 
     
 2. Neste tutorial, defina o ponto de partida como Microsoft e o ponto de chegada como um posto de gasolina em Seattle. No manipulador `ready` de eventos do mapa, adicione o código a seguir.
 
@@ -164,7 +164,7 @@ Neste tutorial, uma rota simples será renderizada usando um ícone de símbolo 
     });
     ```
 
-    Esse código cria dois [objetos de Ponto GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) para representar os pontos de partida e chegada da rota e adiciona os pontos à fonte de dados. As propriedades `title` e `icon` são adicionadas a cada ponto. O último bloco define a exibição da câmera usando as informações de latitude e longitude dos pontos de partida e de chegada, usando a propriedade [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) do mapa.
+    Esse código cria dois [objetos de Ponto GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) para representar os pontos de partida e chegada da rota e adiciona os pontos à fonte de dados. As propriedades `title` e `icon` são adicionadas a cada ponto. O último bloco define a exibição da câmera usando a latitude e a longitude dos pontos inicial e final com a propriedade [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) do mapa.
 
 3. Salve o arquivo **MapRoute.html** e atualize seu navegador. Agora o mapa está centralizado em Seattle e você pode ver o marcador azul indicando o ponto de partida e o marcador azul redondo indicando o ponto de chegada.
 
@@ -174,9 +174,9 @@ Neste tutorial, uma rota simples será renderizada usando um ícone de símbolo 
 
 ## <a name="get-directions"></a>Obter direções
 
-Esta seção mostra como usar a API do serviço de roteiros do Azure Mapas para encontrar várias rotas com base em um determinado ponto de partida até um ponto de chegada. O serviço de roteiros fornece APIs para planejar as rotas *mais rápida*, *mais curta*, *econômica* ou *emocionante* entre dois locais. Também permite planejar rotas futuras usando o amplo banco de dados de histórico de tráfego do Azure e prevendo durações de rotas para cada dia e hora. Para saber mais, confira [Obter direções de rota](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Todas as funcionalidades a seguir devem ser adicionadas **dentro do eventListener do carregamento de mapa** para assegurar que elas sejam carregadas depois que os recursos do mapa estejam prontos para serem acessados.
+Esta seção mostra como usar a API do serviço Roteiros dos Azure Mapas. A API do serviço Roteiros localiza a rota de determinado ponto inicial para um ponto final. Nesse serviço, existem APIs para planejar as rotas *mais rápida*, *mais curta*, *econômica* ou *emocionante* entre duas localizações. Esse serviço também permite que os usuários planejem rotas no futuro usando o amplo banco de dados de tráfego histórico do Azure. Os usuários podem ver a previsão das durações das rotas em qualquer dia e hora escolhidos. Para saber mais, confira [Obter direções de rota](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Todas as funcionalidades a seguir devem ser adicionadas **dentro do eventListener do carregamento de mapa** para assegurar que elas sejam carregadas depois que os recursos do mapa estejam prontos para serem acessados.
 
-1. Na função GetMap, adicione o código JavaScript a seguir.
+1. Na função GetMap, adicione as informações a seguir ao código JavaScript.
 
     ```JavaScript
     // Use SubscriptionKeyCredential with a subscription key

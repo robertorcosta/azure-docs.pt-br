@@ -3,22 +3,22 @@ title: 'Tutorial: Localizar várias rotas por modo de viagem | Microsoft Azure M
 description: Neste tutorial, você aprenderá a encontrar rotas para diferentes modos de viagem usando o Microsoft Azure Mapas.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/12/2019
+ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 258572d4451be6d9a1090c032467e85889148d14
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 73cc2ff49653c91d635d52b79a92d1974bfd895b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910859"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989647"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutorial: Encontre rotas para diferentes modos de viagem usando os Mapas do Azure
 
-Este tutorial mostra como usar sua conta dos Mapas do Azure e o serviço de roteiro para encontrar a rota para seu ponto de interesse, priorizado por seu modo de viagem. Você exibe duas rotas diferentes em seu mapa, uma para carros e outra para caminhões que podem ter restrições de rota devido a altura, peso ou carga perigosa. Neste tutorial, você aprenderá como:
+Este tutorial mostra como usar a sua conta dos Azure Mapas e o serviço Roteiros. O serviço Roteiros pode encontrar a rota para seu ponto de interesse, priorizada pelo seu meio de transporte. Você poderá exibir duas rotas diferentes no mapa, uma para carros e outra para caminhões. O serviço Roteiros leva em consideração as limitações devido à altura e ao peso do veículo ou se o veículo está transportando uma carga perigosa. Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar uma nova página da Web usando a API de controle de mapeamento
@@ -27,7 +27,7 @@ Este tutorial mostra como usar sua conta dos Mapas do Azure e o serviço de rote
 > * Exibir várias rotas em seu mapa
 
 ## <a name="prerequisites"></a>Prerequisites
-Antes de continuar, siga as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma assinatura da conta dos Azure Mapas com o tipo de preço S1 e siga as etapas em [Obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária da sua conta. Para obter mais detalhes sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](how-to-manage-authentication.md).
+Antes de continuar, siga as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) e selecione o tipo de preço S1. Siga as etapas em [Obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária da sua conta. Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](how-to-manage-authentication.md).
 
 ## <a name="create-a-new-map"></a>Criar um novo mapa
 
@@ -123,7 +123,7 @@ As etapas a seguir mostra como criar uma página HTML estática inserida com a A
 
 ## <a name="define-how-the-route-will-be-rendered"></a>Definir como a rota será renderizada
 
-Neste tutorial, duas rotas serão calculadas e renderizadas no mapa. Uma rota usando estradas acessíveis a carros e outra usando as acessíveis a caminhões. Quando renderizadas, exibiremos um ícone de símbolo para o início e o fim da rota e linhas de cores diferentes para cada caminho de rota.
+Neste tutorial, duas rotas serão calculadas e renderizadas no mapa. Uma rota usando estradas acessíveis a carros e outra usando as acessíveis a caminhões. Quando elas forem renderizadas, exibiremos um ícone de símbolo para o início e o fim da rota e linhas de cores diferentes para cada caminho de rota.
 
 1. Após inicializar o mapa, adicione o código JavaScript a seguir no evento de carregamento `ready` de mapa.
 
@@ -158,7 +158,7 @@ Neste tutorial, duas rotas serão calculadas e renderizadas no mapa. Uma rota us
     });
     ```
     
-    No manipulador `ready` de eventos do mapa, uma fonte de dados é criada para armazenar a linha da rota e os pontos de partida e de chegada. Uma camada de linhas é criada e anexada à fonte de dados para definir como a linha de rota será renderizada. Expressões são usadas para recuperar a largura da linha e a cor das propriedades no recurso de linha de rota. Quando você adiciona a camada ao mapa, um segundo parâmetro com o valor de `'labels'` é passado especificando que essa camada deve ser renderizada abaixo dos rótulos do mapa. Isso fará com que a linha de rota não cubra os rótulos de estrada. Uma camada de símbolo é criada e anexada à fonte de dados. Essa camada especifica como os pontos de partida e chegada serão renderizados; neste caso, expressões foram adicionadas para recuperar as informações de rótulo de texto e de imagem de ícone das propriedades em cada objeto de ponto. 
+    No manipulador de eventos `ready` dos mapas, uma fonte de dados é criada para armazenar as linhas da rota e os pontos inicial e final. Uma camada de linhas é criada e anexada à fonte de dados para definir como a linha de rota será renderizada. Expressões são usadas para recuperar a largura da linha e a cor das propriedades no recurso de linha de rota. Quando você adiciona a camada ao mapa, um segundo parâmetro com o valor de `'labels'` é passado especificando que essa camada deve ser renderizada abaixo dos rótulos do mapa. Isso fará com que a linha de rota não cubra os rótulos de estrada. Uma camada de símbolo é criada e anexada à fonte de dados. Essa camada especifica como os pontos inicial e final serão renderizados. Nesse caso, as expressões foram adicionadas para recuperar a imagem de ícone e as informações de rótulo de texto das propriedades em cada objeto de ponto. 
     
 2. Neste tutorial, defina o ponto inicial como uma empresa fictícia em Seattle chamada Fabrikam e o ponto de destino como um escritório da Microsoft. No manipulador `ready` de eventos do mapa, adicione o código a seguir.
 
@@ -192,7 +192,7 @@ Neste tutorial, duas rotas serão calculadas e renderizadas no mapa. Uma rota us
 
     Os pontos de partida e chegada são adicionados à fonte de dados. A caixa delimitadora dos pontos de partida e chegada é calculada com a função `atlas.data.BoundingBox.fromData`. Essa caixa delimitadora é usada para definir o modo de exibição das câmeras por toda a rota usando a função `map.setCamera`. Um preenchimento é adicionado para compensar as dimensões de pixel dos ícones de símbolo.
 
-4. Salve o arquivo e atualize seu navegador para ver os pinos exibidos em seu mapa. Agora o mapa está centralizado em Seattle e você pode ver o pin azul redondo marcando o ponto de início e o pin azul marcando o ponto final.
+4. Salve o arquivo e atualize seu navegador para ver os pinos exibidos em seu mapa. Agora o mapa está centralizado sobre Seattle. Você pode ver o marcador azul redondo indicando o ponto inicial e o marcador azul indicando o ponto final.
 
    ![Exibir o mapa com os pontos inicial e final](./media/tutorial-prioritized-routes/pins-map.png)
 
@@ -244,7 +244,7 @@ Esta seção mostra como usar a API do serviço de roteiros dos Mapas para encon
     });
     ```
 
-    O snippet de código acima consulta o serviço de roteamento do Azure Mapas por meio do método [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest). A linha de rota, em seguida, é extraída da coleção de recursos GeoJSON, mais precisamente da resposta que é extraída usando o método `geojson.getFeatures()`. A linha da rota é então adicionada à fonte de dados. Ela também adiciona um índice de 0 para garantir que ela seja renderizada antes de quaisquer outras linhas na fonte de dados. Isso é feito porque o cálculo da rota de caminhão geralmente será mais lento do que o cálculo de rota de carro e, se a linha da rota de caminhão for adicionada à fonte de dados após a rota de carro, ela será renderizada por cima. Duas propriedades são adicionadas à linha de rota de caminhão: uma cor de traço que é um belo tom de azul e uma largura de traço de 9 pixels.
+    O snippet de código acima consulta o serviço de roteamento do Azure Mapas por meio do método [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest). A linha de rota, em seguida, é extraída da coleção de recursos GeoJSON, mais precisamente da resposta que é extraída usando o método `geojson.getFeatures()`. A linha da rota é então adicionada à fonte de dados. Um índice igual a 0 garante que ela será processada antes de qualquer outra linha na fonte de dados. Isso é feito porque o cálculo da rota de caminhão geralmente será mais lento do que o cálculo de rota de carro e, se a linha da rota de caminhão for adicionada à fonte de dados após a rota de carro, ela será renderizada por cima. Duas propriedades são adicionadas à linha de rota de caminhão: uma cor de traço que é um belo tom de azul e uma largura de traço de 9 pixels.
 
 3. Adicione o código JavaScript a seguir para construir uma rota para um carro e exibir os resultados.
 

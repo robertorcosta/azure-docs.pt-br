@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 7014882e7da9eb7ab7df65cd20403982a46018a3
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d738868e0e4ca7599f4aaf8d6e09d22f26a8db92
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112611"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016367"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Tutorial: Criar um aplicativo de monitoramento da qualidade de água no Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Este tutorial orienta você pela criação de um aplicativo de monitoramento da qualidade da água no Azure IoT Central. Você cria o aplicativo com base no modelo de aplicativo **Monitoramento da Qualidade da Água** do Azure IoT Central.
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá a:
 > * Configurar trabalhos.
 > * Personalizar a identidade visual do aplicativo usando white labeling.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Recomendamos que você tenha uma assinatura do Azure para concluir este tutorial. Se você não tiver uma assinatura do Azure, poderá criar uma na [página de entrada do Azure](https://aka.ms/createazuresubscription).
 
@@ -63,6 +63,8 @@ Nesta seção, você usa o modelo **Monitoramento da Qualidade da Água** do Azu
 1. Selecione o botão **Criar** na parte inferior esquerda da página.
 
     ![A página de novo aplicativo do Azure IoT Central](./media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring1.png)
+
+    ![As informações de cobrança do novo aplicativo do Azure IoT Central](./media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring1-billinginfo.png)
 
 Agora, você criou um aplicativo de monitoramento da qualidade da água usando o modelo **Monitoramento da Qualidade da Água** do Azure IoT Central.
 
@@ -243,7 +245,7 @@ Como um criador, você pode alterar várias configurações para personalizar a 
 
 1. Use o botão **Selecionar imagem** para escolher uma imagem a ser carregada como a imagem do aplicativo.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não quiser continuar usando o aplicativo, exclua-o seguindo estas etapas:
 

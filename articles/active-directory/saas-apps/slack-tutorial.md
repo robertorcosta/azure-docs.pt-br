@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 12/23/2019
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f67a5b5513ad5d8a07551b2a9f5605fc32a9bf6
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 6c80963976783321d05fc6f32bb24daed36fa105
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561840"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985508"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o Slack
 
@@ -46,6 +46,7 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 * O Slack dá suporte ao SSO iniciado por **SP**
 * O Slack é compatível com o provisionamento de usuário **Just In Time**
 * O Slack dá suporte ao [provisionamento **automatizado** de usuários](https://docs.microsoft.com/azure/active-directory/saas-apps/slack-provisioning-tutorial)
+* Depois de configurar o Slack, você poderá impor controles de sessão, que fornecem proteção contra exportação e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > O identificador desse aplicativo é um valor de cadeia de caracteres fixo; portanto apenas uma instância pode ser configurada em um locatário.
@@ -193,3 +194,5 @@ Ao clicar no bloco do Slack no Painel de Acesso, você deverá ser conectado aut
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Experimente o Slack com o Azure AD](https://aad.portal.azure.com/)
+
+- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

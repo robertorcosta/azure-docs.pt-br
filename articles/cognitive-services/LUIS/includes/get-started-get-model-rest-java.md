@@ -6,18 +6,18 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/18/2019
+ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: a8129bf057b0e80a5f656f5ab3d578156b18a23c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5214395aa583bfa344f2c8e84066db84edb3939a
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505872"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76966963"
 ---
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
-* Chave inicial.
+* Reconhecimento vocal do Azure – Criar chave de 32 caracteres do recurso e a URL de ponto de extremidade. Crie com o [portal do Azure](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) ou com a [CLI do Azure](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
 * Importe o aplicativo [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) do repositório GitHub cognitive-services-language-understanding.
 * A ID do aplicativo LUIS para o aplicativo TravelAgent importado. A ID do aplicativo é mostrada no painel do aplicativo.
 * A ID da versão no aplicativo que recebe os enunciados. A ID padrão é “0.1”.
@@ -28,13 +28,9 @@ ms.locfileid: "73505872"
 
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
-## <a name="get-luis-key"></a>Obter chave LUIS
-
-[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
-
 ## <a name="change-model-programmatically"></a>Alterar o modelo de maneira programática
 
-Use Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entidade aprendida pelo computador ao aplicativo. 
+Use Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entidade aprendida pelo computador ao aplicativo.
 
 1. Crie um subdiretório chamado `lib` e copie as seguintes bibliotecas Java:
 
@@ -56,39 +52,39 @@ Use Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entida
     import org.apache.http.client.utils.URIBuilder;
     import org.apache.http.impl.client.HttpClients;
     import org.apache.http.util.EntityUtils;
-    
+
     //javac -cp ":lib/*" Model.java
     //java -cp ":lib/*" Model
-    
+
     public class Model {
-    
-        public static void main(String[] args) 
+
+        public static void main(String[] args)
         {
             try
             {
-    
+
                 // The ID of a public sample LUIS app that recognizes intents for turning on and off lights
                 String AppId = "YOUR-APP-ID";
-                
-                // Add your endpoint key 
+
+                // Add your endpoint key
                 String Key = "YOUR-KEY";
-    
-                // Add your endpoint, example is westus.api.cognitive.microsoft.com
+
+                // Add your endpoint, example is your-resource-name.api.cognitive.microsoft.com
                 String Endpoint = "YOUR-ENDPOINT";
-    
+
                 String Utterance = "[{'text': 'go to Seattle today','intentName': 'BookFlight','entityLabels': [{'entityName': 'Location::LocationTo',"
                     + "'startCharIndex': 6,'endCharIndex': 12}]},{'text': 'a barking dog is annoying','intentName': 'None','entityLabels': []}]";
-    
+
                 String Version = "1.0";
-    
+
                 // Begin endpoint URL string building
                 URIBuilder addUtteranceURL = new URIBuilder("https://" + Endpoint + "/luis/authoring/v3.0-preview/apps/" + AppId + "/versions/" + Version + "/examples");
                 URIBuilder trainURL = new URIBuilder("https://" + Endpoint + "/luis/authoring/v3.0-preview/apps/" + AppId + "/versions/" + Version + "/train");
-    
+
                 // create URL from string
                 URI addUtterancesURI = addUtteranceURL.build();
                 URI trainURI = trainURL.build();
-    
+
                 // add utterances POST
                 HttpClient addUtterancesClient = HttpClients.createDefault();
                 HttpPost addutterancesRequest = new HttpPost(addUtterancesURI);
@@ -96,11 +92,11 @@ Use Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entida
                 addutterancesRequest.setHeader("Content-type","application/json");
                 HttpResponse addutterancesResponse = addUtterancesClient.execute(addutterancesRequest);
                 HttpEntity addutterancesEntity = addutterancesResponse.getEntity();
-                if (addutterancesEntity != null) 
+                if (addutterancesEntity != null)
                 {
                     System.out.println(EntityUtils.toString(addutterancesEntity));
                 }
-    
+
                 // train POST
                 HttpClient trainClient = HttpClients.createDefault();
                 HttpPost trainRequest = new HttpPost(trainURI);
@@ -108,11 +104,11 @@ Use Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entida
                 trainRequest.setHeader("Content-type","application/json");
                 HttpResponse trainResponse = trainClient.execute(trainRequest);
                 HttpEntity trainEntity = trainResponse.getEntity();
-                if (trainEntity != null) 
+                if (trainEntity != null)
                 {
                     System.out.println(EntityUtils.toString(trainEntity));
                 }
-    
+
                 // training status GET
                 HttpClient trainStatusClient = HttpClients.createDefault();
                 HttpGet trainStatusRequest = new HttpGet(trainURI);
@@ -120,44 +116,45 @@ Use Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entida
                 trainStatusRequest.setHeader("Content-type","application/json");
                 HttpResponse trainStatusResponse = trainStatusClient.execute(trainStatusRequest);
                 HttpEntity trainStatusEntity = trainStatusResponse.getEntity();
-                if (trainStatusEntity != null) 
+                if (trainStatusEntity != null)
                 {
                     System.out.println(EntityUtils.toString(trainStatusEntity));
-                }            
+                }
             }
-    
+
             catch (Exception e)
             {
                 System.out.println(e.getMessage());
             }
-        }   
+        }
     }
     ```
-1. Substitua os valores a seguir:
 
-    * `YOUR-KEY` com sua chave inicial
-    * `YOUR-ENDPOINT` com seu ponto de extremidade, por exemplo, `westus2.api.cognitive.microsoft.com`
-    * `YOUR-APP-ID` com a ID do seu aplicativo
+1. Substitua os valores que começam com `YOUR-` por seus valores.
+
+    |Informações|Finalidade|
+    |--|--|
+    |`YOUR-KEY`|Sua chave de criação de 32 caracteres.|
+    |`YOUR-ENDPOINT`| Seu ponto de extremidade da URL de criação. Por exemplo, `replace-with-your-resource-name.api.cognitive.microsoft.com`. Você definiu o nome do recurso quando você criou o recurso.|
+    |`YOUR-APP-ID`| Sua ID do aplicativo LUIS. |
+
+    As chaves e os recursos atribuídos estão visíveis no portal do LUIS na seção Gerenciar, na página **recursos do Azure**. A ID do aplicativo está disponível na mesma seção Gerenciar, na página **Configurações do Aplicativo**.
 
 1. Com um prompt de comando no mesmo diretório em que você criou o arquivo, insira o seguinte comando para compilar o arquivo Java:
 
     ```console
     javac -cp ":lib/*" Model.java
-    ```  
+    ```
 
-1. Execute o aplicativo Java da linha de comando inserindo o seguinte texto no prompt de comando: 
+1. Execute o aplicativo Java da linha de comando inserindo o seguinte texto no prompt de comando:
 
     ```console
     java -cp ":lib/*" Model
     ```
 
-## <a name="luis-keys"></a>Chaves de LUIS
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
-
-## <a name="clean-up-resources"></a>Limpar recursos
-
-Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivos. 
+Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

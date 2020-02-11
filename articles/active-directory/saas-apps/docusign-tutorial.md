@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3022303f319ba7955f80ae0b52783fa9b5d411f2
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 01f969c3bc6f546025b3bbe5826181efdfa69be0
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290063"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983604"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o DocuSign
 
@@ -48,7 +48,7 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 * o DocuSign dá suporte ao provisionamento de usuário *Just-In-Time*.
 
 * o DocuSign dá suporte a [provisionamento automático de usuários](https://docs.microsoft.com/azure/active-directory/saas-apps/docusign-provisioning-tutorial).
-* Após configurar o DocuSign, você poderá impor controles de sessão, que protegem o vazamento e a infiltração de dados confidenciais de sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Após configurar o DocuSign, você poderá impor controles de sessão, que protegem o vazamento e a infiltração de dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-docusign-from-the-gallery"></a>Adicionando o DocuSign por meio da galeria
 
@@ -238,8 +238,6 @@ Ao selecionar o bloco do DocuSign no Painel de Acesso, você deverá ser conecta
 - [Experimentar o DocuSign com o Azure AD](https://aad.portal.azure.com/)
 
 - [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [Como proteger o DocuSign com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 <!--Image references-->
 

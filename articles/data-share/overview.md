@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
-ms.openlocfilehash: d1665ef3e845491f116174cf1914c38e7cf5c691
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: d1bfad64175ad5b29e4ec158ebe8d8e982b8b100
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660793"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964440"
 ---
 # <a name="what-is-azure-data-share"></a>O que é o Azure Data Share?
 
@@ -37,7 +37,7 @@ Outro caso de uso do Azure Data Share é estabelecer um consórcio de dados. Por
 
 ## <a name="how-it-works"></a>Como ele funciona
 
-No momento, o Azure Data Share oferece compartilhamento baseado em instantâneo e compartilhamento in-loco (em versão prévia limitada). 
+No momento, o Azure Data Share oferece compartilhamento baseado em instantâneo e compartilhamento in-loco. 
 
 No compartilhamento baseada em instantâneo, os dados passam da assinatura do Azure do provedor de dados e chegam à assinatura do Azure do consumidor de dados. Como um provedor de dados, você provisiona um compartilhamento de dados e convida destinatários para ele. Os consumidores de dados recebem um convite para o compartilhamento de dados por email. Depois de aceitar o convite, um consumidor de dados pode disparar um instantâneo completo dos dados compartilhados com ele. Esses dados são recebidos na conta de armazenamento dos consumidores de dados. Os consumidores de dados podem receber atualizações regulares incrementais dos dados compartilhados com eles para que sempre tenham a versão mais recente dos dados. 
 
@@ -47,7 +47,7 @@ Os provedores de dados podem oferecer a seus consumidores de dados atualizaçõe
 
 Quando um consumidor de dados aceita um compartilhamento de dados, ele é capaz de receber os dados em um armazenamento de dados de sua escolha. Por exemplo, se o provedor de dados compartilhar dados usando o Armazenamento de Blobs do Azure, o consumidor de dados poderá receber esses dados no Azure Data Lake Storage. Da mesma forma, se o provedor de dados compartilhar dados de um SQL Data Warehouse do Azure, o consumidor de dados poderá escolher se deseja receber os dados em um Azure Data Lake Storage, em um Banco de Dados SQL do Azure ou em um SQL Data Warehouse do Azure. No caso do compartilhamento de fontes baseadas em SQL, o consumidor de dados também pode escolher se deseja receber dados em parquet ou csv. 
 
-O compartilhamento in-loco está atualmente em versão prévia limitada para o Azure Data Explorer. Os provedores de dados são capazes de compartilhar dados no local em que eles residem, sem movimentação de dados, por meio de um link simbólico. Inscreva-se [aqui](https://aka.ms/azuredatasharepreviewsignup) para a versão prévia limitada do compartilhamento in-loco para o Azure Data Explorer. 
+Com o compartilhamento in-loco, os provedores de dados podem compartilhar dados onde eles residem sem copiar os dados. Depois que a relação de compartilhamento é estabelecida por meio do fluxo de convite, um link simbólico é criado entre o armazenamento de dados de origem do provedor de dados e o armazenamento de dados de destino do consumidor de dados. O consumidor de dados pode ler e consultar os dados em tempo real usando o próprio armazenamento de dados. As alterações no armazenamento de dados de origem estão disponíveis imediatamente para o consumidor de dados. O compartilhamento in-loco está atualmente em versão prévia para o Azure Data Explorer.
 
 ## <a name="key-capabilities"></a>Principais recursos
 
@@ -56,6 +56,8 @@ O Azure Data Share permite aos provedores de dados:
 * Compartilhar dados da lista de [armazenamentos de dados compatíveis](supported-data-stores.md) com clientes e parceiros fora da sua organização
 
 * Manter o controle de com quem você compartilhou seus dados
+
+* Opção de instantâneo ou compartilhamento in-loco
 
 * Com que frequência os consumidores de dados estão recebendo atualizações para seus dados
 
@@ -69,13 +71,13 @@ O Azure Data Share permite aos consumidores de dados:
 
 * Aceitar ou rejeitar um convite do Azure Data Share
 
-* Disparar um instantâneo completo ou incremental de um Data Share que uma organização compartilhou com você
-
-* Assinar um Data Share para receber a cópia mais recente dos dados por meio da cópia de instantâneo incremental
-
 * Aceite dados compartilhados com você em um [armazenamento de dados compatível](supported-data-stores.md).
 
-Todas as principais funcionalidades listadas acima têm suporte por meio do Azure ou por meio das APIs REST. Para obter mais detalhes sobre como usar o Azure Data Share por meio de APIs REST, confira nossa documentação de referência. 
+* Disparar um instantâneo completo ou incremental de um Data Share que uma organização compartilhou com você
+
+* Assinar um compartilhamento de dados para receber a cópia mais recente dos dados por meio do instantâneo incremental
+
+Todas as principais funcionalidades listadas acima têm suporte por meio do Azure ou das APIs REST. Para obter mais detalhes sobre como usar o Azure Data Share por meio de APIs REST, confira nossa documentação de referência. 
 
 ## <a name="security"></a>Segurança
 
@@ -88,9 +90,9 @@ O Azure Data Share aproveita as Identidades Gerenciadas para Recursos do Azure (
 
 ## <a name="supported-regions"></a>Regiões com suporte
 
-Para obter uma lista de regiões do Azure que disponibilizam o Azure Data Share, confira a página [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=data-share/) e pesquise pelo Azure Data Share. 
+Para obter uma lista de regiões do Azure que disponibilizam o Azure Data Share, confira a página [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=data-share) e pesquise pelo Azure Data Share. 
 
-O Azure Data Share não armazena, ele próprio, todos os dados. Os dados são armazenados no armazenamento de dados subjacente que está sendo compartilhado. Por exemplo, se um produtor de dados armazena seus dados em uma conta do Azure Data Lake Storage localizada no Oeste dos EUA, é lá que dados são armazenados. Se ele estiver compartilhando dados com uma conta de Armazenamento do Azure localizada no Oeste da Europa, os dados serão transferidos diretamente para a conta de Armazenamento do Azure no Oeste da Europa. 
+O Azure Data Share não armazena, ele próprio, uma cópia dos dados. Os dados são armazenados no armazenamento de dados subjacente que está sendo compartilhado. Por exemplo, se um produtor de dados armazena seus dados em uma conta do Azure Data Lake Storage localizada no Oeste dos EUA, é lá que dados são armazenados. Se ele estiver compartilhando dados com uma conta de Armazenamento do Azure localizada no Oeste da Europa por meio de instantâneo, normalmente os dados serão transferidos diretamente para a conta de Armazenamento do Azure no Oeste da Europa.
 
 O serviço do Azure Data Share não precisa estar disponível em sua região para aproveitar o serviço. Por exemplo, se você tiver dados armazenados em uma conta de Armazenamento do Azure localizada em uma região em que o Azure Data Share ainda não está disponível, ainda poderá aproveitar o serviço para compartilhar seus dados. 
 

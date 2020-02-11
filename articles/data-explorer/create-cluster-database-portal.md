@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.openlocfilehash: 10030cf69009c59fa607ad68c3b7ab19c7a22860
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 895b26fc7f35303cbef6c9df543c87ca435c2290
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326720"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984346"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Início Rápido: Criar um cluster e um banco de dados do Azure Data Explorer
 
@@ -31,7 +31,7 @@ Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-cluster"></a>Criar um cluster
 
@@ -112,7 +112,7 @@ Você pode parar e reiniciar um cluster, dependendo das necessidades de negócio
 
     Quando o cluster é reiniciado, ele leva cerca de dez minutos para ficar disponível (como quando foi provisionado originalmente). Leva tempo adicional para os dados serem carregados no cache do ativo.  
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Caso planeje seguir outros guias de início rápido e tutoriais, mantenha os recursos que você criou. Caso contrário, limpe o grupo de recursos para evitar incorrer em custos.
 

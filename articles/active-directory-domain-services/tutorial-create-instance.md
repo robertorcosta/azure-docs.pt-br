@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 01/15/2020
 ms.author: iainfou
-ms.openlocfilehash: ef203eec1398e9f23fb162845b9d570316083ecf
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 8905f2a0a306ec4c9c6e19479c6adb96a6ed39ca
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703689"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931289"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Tutorial: Criar e configurar uma instância do Azure Active Directory Domain Services
 
@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará dos seguintes recursos e privilégios:
 
@@ -55,7 +55,7 @@ Neste tutorial, você criará e configurará uma instância do Azure AD DS usand
 
 Para iniciar o assistente **Habilitar Azure AD Domain Services**, conclua as seguintes etapas:
 
-1. No portal do Azure ou na página **Início**, selecione **Criar um recurso**.
+1. No menu do portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
 1. Insira *Domain Services* na barra de pesquisa e, em seguida, escolha *Azure AD Domain Services* nas sugestões de pesquisa.
 1. Na página Azure AD Domain Services, selecione **Criar**. O assistente **Habilitar Azure AD Domain Services** é iniciado.
 1. Selecione a **Assinatura** do Azure na qual você deseja criar o domínio gerenciado.
@@ -93,6 +93,9 @@ Preencha os campos na janela *Básico* do portal do Azure para criar uma instân
 
     Não é preciso configurar nada para que o Azure AD DS seja distribuído entre as zonas. A plataforma do Azure lida automaticamente com a distribuição de recursos na zona. Para saber mais e ver a disponibilidade da região, consulte [O que são as Zonas de Disponibilidade no Azure?][availability-zones]
 
+1. O **SKU** determina o desempenho, a frequência de backup e o número máximo de relações de confiança de floresta que você pode criar. Você poderá alterar a SKU depois que o domínio gerenciado tiver sido criado se as demandas ou requisitos empresariais mudarem. Para obter mais informações, confira [Conceitos do SKU do Azure AD DS][concepts-sku].
+
+    Para este tutorial, selecione o SKU *Standard*.
 1. Uma *floresta* é um constructo lógico usado pelo Active Directory Domain Services para agrupar um ou mais domínios. Por padrão, um domínio gerenciado do Azure AD DS é criado como uma floresta de *Usuários*. Esse tipo de floresta sincroniza todos os objetos do Azure AD, incluindo qualquer conta de usuário criada em um ambiente do AD DS local. Uma floresta de *Recursos* sincroniza apenas usuários e grupos criados diretamente no Azure AD. Atualmente, as florestas de recursos estão em versão prévia. Para saber mais sobre florestas de *Recursos*, incluindo por que você usaria uma e como criar relações de confiança das floresta com domínios locais do AD DS, confira [Visão geral das florestas de recursos do Azure AD DS][resource-forests].
 
     Para este tutorial, escolha criar uma floresta de *Usuários*.
@@ -105,7 +108,7 @@ Para criar rapidamente um domínio gerenciado do Azure AD DS, você pode selecio
 * Cria uma sub-rede chamada *aadds-subnet* usando o intervalo de endereços IP *10.0.1.0/24*.
 * Sincroniza *Todos* os usuários do Azure AD no domínio gerenciado do Azure AD DS.
 
-1. Selecione **Revisar + criar** para aceitar essas opções de configuração padrão.
+Selecione **Revisar + criar** para aceitar essas opções de configuração padrão.
 
 ## <a name="deploy-the-managed-domain"></a>Implantar o domínio gerenciado
 
@@ -173,7 +176,7 @@ Leva alguns minutos após você ter alterado sua senha para que a nova senha pos
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Entender os requisitos de DNS para um domínio gerenciado
@@ -200,6 +203,7 @@ Antes de ingressar as VMs no domínio e implantar aplicativos que usam o domíni
 [skus]: overview.md
 [resource-forests]: concepts-resource-forest.md
 [availability-zones]: ../availability-zones/az-overview.md
+[concepts-sku]: administration-concepts.md#azure-ad-ds-skus
 
 <!-- EXTERNAL LINKS -->
 [naming-prefix]: /windows-server/identity/ad-ds/plan/selecting-the-forest-root-domain#selecting-a-prefix

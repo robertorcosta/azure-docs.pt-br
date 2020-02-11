@@ -1,28 +1,24 @@
 ---
-title: 'Início Rápido: Reconhecer uma fala, intenções e entidades, C# – Serviço de Fala'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 01/02/2020
+ms.date: 01/27/2020
 ms.topic: include
-ms.author: erhopf
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: e2cb4f81e3de5e22bae3029e42ec2f67dae55424
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 353e849332aa04d26774cda22508b6f1c269df7e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76761469"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900396"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar:
 
-* Se este for seu primeiro projeto do C#, use este guia para <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=dotnet" target="_blank">criar um projeto de exemplo vazio</a>.
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=dotnet" target="_blank">Instale o SDK de Fala para seu ambiente de desenvolvimento</a>.
+* Se este for seu primeiro projeto do C#, use este guia para <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=dotnet" target="_blank">criar um projeto de exemplo vazio <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=dotnet" target="_blank">Instale o SDK de Fala para seu ambiente de desenvolvimento <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Criar um aplicativo LUIS para reconhecimento de intenção
 
@@ -92,7 +88,7 @@ Dentro da instrução using, abaixo de `RecognizeOnceAsync()`, adicione este có
 
 ## <a name="check-your-code"></a>Verificar o código
 
-Neste momento, seu código deverá ter a seguinte aparência:  
+Neste momento, seu código deverá ter a seguinte aparência:
 
 > [!NOTE]
 > Adicionamos alguns comentários a esta versão.
@@ -104,7 +100,7 @@ Neste momento, seu código deverá ter a seguinte aparência:
 Agora está tudo pronto para você compilar o aplicativo e testar o reconhecimento de fala usando o serviço de fala.
 
 1. **Compilar o código**: na barra de menus do Visual Studio, escolha **Compilar** > **Compilar Solução**.
-2. **Iniciar o aplicativo**: na barra de menus, escolha **Depurar** > **Iniciar Depuração** ou pressione **F5**.
+2. **Iniciar o aplicativo**: na barra de menus, escolha **Depurar** > **Iniciar Depuração** ou pressione <kbd>F5</kbd>.
 3. **Iniciar o reconhecimento**: ele solicitará que você fale uma frase em inglês. Sua fala é enviada ao Serviço de Fala, transcrita como texto e renderizada no console.
 
 ## <a name="next-steps"></a>Próximas etapas

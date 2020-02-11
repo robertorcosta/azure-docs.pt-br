@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Promapp | Microsoft Docs'
-description: Neste tutorial, você aprenderá a configurar o logon único entre o Azure Active Directory e o Promapp.
+title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Nintex Promapp | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Nintex Promapp.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,103 +11,80 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 01/30/2020
 ms.author: jeedes
-ms.openlocfilehash: 2ddb8777a6470c0e739545e71867a694022d1723
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 581c850801c153996031378cbf470457264cad3d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67093595"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984380"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Tutorial: Integração do Active Directory do Azure com o Promapp
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nintex-promapp"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Nintex Promapp
 
-Neste tutorial, você aprenderá a integrar o Promapp ao Azure AD (Azure Active Directory).
-Essa integração oferece estes benefícios:
+Neste tutorial, você aprenderá a integrar o Nintex Promapp ao Azure AD (Azure Active Directory). Ao integrar o Nintex Promapp ao Azure AD, você poderá:
 
-* Você pode usar o Azure AD para controlar quem tem acesso ao Promapp.
-* Você pode permitir que os usuários sejam conectados automaticamente ao Promapp (logon único) com suas contas do Azure AD.
-* Gerencie suas contas em um único local: o portal do Azure.
+* Controlar quem tem acesso ao Nintex Promapp no Azure AD.
+* Permitir que os usuários sejam conectados automaticamente ao Nintex Promapp com as contas do Azure AD deles.
+* Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [Logon único em aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+## <a name="prerequisites"></a>Prerequisites
 
-## <a name="prerequisites"></a>Pré-requisitos
+Para começar, você precisará dos seguintes itens:
 
-Para configurar a integração do Azure AD ao Promapp, você precisará ter:
-
-* Uma assinatura do Azure AD. Se você não tiver um ambiente do Azure AD, inscreva-se em uma [avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
-* Uma assinatura do Promapp que tenha o logon único habilitado.
+* Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura habilitada para SSO (logon único) do Nintex Promapp.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* O Promapp é compatível com o SSO iniciado por SP e IdP.
+* O Nintex Promapp é compatível com o SSO iniciado por **SP e IDP**
+* O Nintex Promapp é compatível com o provisionamento de usuário **Just-In-Time**
 
-* O Promapp é compatível com o provisionamento de usuário just-in-time.
+## <a name="adding-nintex-promapp-from-the-gallery"></a>Adicionar o Nintex Promapp da galeria
 
-## <a name="add-promapp-from-the-gallery"></a>Adicionar o Promapp da galeria
+Para configurar a integração do Nintex Promapp ao Azure AD, você precisa adicionar o Nintex Promapp por meio da galeria à sua lista de aplicativos SaaS gerenciados.
 
-Para configurar a integração do Promapp ao Azure AD, você precisará adicionar o Promapp por meio da galeria à lista de aplicativos SaaS gerenciados.
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Na seção **Adicionar da galeria**, digite **Nintex Promapp** na caixa de pesquisa.
+1. Selecione **Nintex Promapp** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**:
+## <a name="configure-and-test-azure-ad-single-sign-on-for-nintex-promapp"></a>Configurar e testar o logon único do Azure AD para o Nintex Promapp
 
-    ![Selecione Azure Active Directory](common/select-azuread.png)
+Configure e teste o SSO do Azure AD com o Nintex Promapp usando uma usuária de teste chamada **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Nintex Promapp.
 
-2. Acesse **Aplicativos empresariais** > **Todos os aplicativos**:
+Para configurar e testar o SSO do Azure AD com o Nintex Promapp, conclua os seguintes blocos de construção:
 
-    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
+1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    * **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
+    * **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
+1. **[Configurar o SSO do Nintex Promapp](#configure-nintex-promapp-sso)** – para configurar o logon único no lado do aplicativo.
+    * **[Criar usuário de teste do Nintex Promapp](#create-nintex-promapp-test-user)** – para ter um equivalente de B.Fernandes no Nintex Promapp que esteja vinculado à representação de usuário do Azure AD.
+1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
-3. Para adicionar um aplicativo, selecione **Novo aplicativo** na parte superior da janela:
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-    ![Selecionar Novo aplicativo](common/add-new-app.png)
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-4. Na caixa de pesquisa, insira **Promapp**. Selecione **Promapp** nos resultados da pesquisa e, em seguida, selecione **Adicionar**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Nintex Promapp**, localize a seção **Gerenciar** e selecione **logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
-     ![Resultados da Pesquisa](common/search-new-app.png)
+   ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
-
-Nesta seção, você configurará e testará o logon único do Azure AD com o Promapp usando um usuário de teste chamado Brenda Fernandes.
-Para habilitar o logon único, você precisará estabelecer uma relação entre um usuário do Azure AD e o usuário correspondente no Promapp.
-
-Para configurar e testar o logon único do Azure AD com o Promapp, você precisará concluir estas etapas:
-
-1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** para habilitar o recurso para os usuários.
-2. **[Configurar o logon único do Promapp](#configure-promapp-single-sign-on)** no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** para habilitar o logon único do Azure AD para o usuário.
-5. **[Testar o logon único](#test-single-sign-on)** para verificar se a configuração funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
-
-Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
-
-Para configurar o logon único do Azure AD com o Promapp, siga estas etapas:
-
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do Promapp, selecione **Logon único**:
-
-    ![Selecionar logon único](common/select-sso.png)
-
-2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único:
-
-    ![Selecionar um método de logon único](common/select-saml-option.png)
-
-3. Na página **Configurar logon único com SAML**, selecione o ícone **Editar** para abrir a caixa de diálogo **Configuração Básica de SAML**:
-
-    ![Ícone Editar](common/edit-urls.png)
-
-4. Na caixa de diálogo **Configuração Básica de SAML**, caso deseje configurar o aplicativo no modo iniciado por IdP, realize as seguintes etapas.
-
-    ![Caixa de diálogo Configuração Básica de SAML](common/idp-intiated.png)
+1. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP**, digite os valores dos seguintes campos:
 
     1. Na caixa **Identificador**, digite uma URL neste padrão:
 
-       | |
+        | |
         |--|
         | `https://go.promapp.com/TENANTNAME/`|
         | `https://au.promapp.com/TENANTNAME/`|
@@ -117,55 +94,75 @@ Para configurar o logon único do Azure AD com o Promapp, siga estas etapas:
         |   |
 
        > [!NOTE]
-       > A integração do Azure AD ao Promapp está configurada atualmente somente para autenticação iniciada pelo serviço. (Ou seja, o acesso de uma URL do Promapp inicia o processo de autenticação). No entanto, o campo **URL de Resposta** é um campo obrigatório.
+       > A integração do Azure AD ao Nintex Promapp está configurada atualmente somente para autenticação iniciada pelo serviço. (Ou seja, o acesso de uma URL do Nintex Promapp inicia o processo de autenticação). No entanto, o campo **URL de Resposta** é um campo obrigatório.
 
     1. Na caixa **URL de Resposta**, digite uma URL neste padrão:
 
        `https://<DOMAINNAME>.promapp.com/TENANTNAME/saml/authenticate.aspx`
 
-5. Caso queira configurar o aplicativo no modo iniciado por SP, selecione **Definir URLs adicionais**. Na caixa **URL de Logon**, insira uma URL neste padrão:
+1. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-      `https://<DOMAINNAME>.promapp.com/TENANTNAME/saml/authenticate`
-
-    ![Informações de logon único de Domínio e URLs do Promapp](common/metadata-upload-additional-signon.png)
-
-   
+    Na caixa **URL de Logon**, insira uma URL neste padrão: `https://<DOMAINNAME>.promapp.com/TENANTNAME/saml/authenticate`
 
     > [!NOTE]
-    > Esses valores são espaços reservados. Você precisará usar o identificador, a URL de resposta, a URL de logon reais. Contate a [equipe de suporte do Promapp](https://www.promapp.com/about-us/contact-us/) para obter os valores. Você também pode ver os padrões exibidos na caixa de diálogo **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores são espaços reservados. Você precisará usar o identificador, a URL de resposta, a URL de logon reais. Entre em contato com a [equipe de suporte do Nintex Promapp](https://www.promapp.com/about-us/contact-us/) para obter os valores. Você também pode ver os padrões exibidos na caixa de diálogo **Configuração Básica de SAML** no portal do Azure.
 
-6. Na página **Configurar o Logon Único com o SAML**, na seção **Certificado de Autenticação SAML**, selecione o link **Baixar** ao lado do **Certificado (Base64)** , de acordo com suas necessidades e salve o certificado no computador:
+1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
-    ![Link de download do certificado](common/certificatebase64.png)
+    ![O link de download do Certificado](common/certificatebase64.png)
 
-7. Na seção **Configurar o Promapp**, copie as URLs apropriadas de acordo com suas necessidades:
+1. Na seção **Configurar o Nintex Promapp**, copie as URLs apropriadas de acordo com suas necessidades.
 
-    ![Copiar as URLs de configuração](common/copy-configuration-urls.png)
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    1. **URL de Logon**.
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
-    1. **Identificador do Azure AD**.
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-    1. **URL de Logoff**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. Selecione **Novo usuário** na parte superior da tela.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Clique em **Criar**.
 
-### <a name="configure-promapp-single-sign-on"></a>Configurar o logon único do Promapp
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-1. Entre em seu site de empresa do Promapp como administrador.
+Nesta seção, você permitirá que B.Fernandes use o logon único do Azure permitindo a ela acesso ao Nintex Promapp.
+
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **Nintex Promapp**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
+
+   ![O link “Usuários e grupos”](common/users-groups-blade.png)
+
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+
+    ![O link Adicionar Usuário](common/add-assign-user.png)
+
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+
+## <a name="configure-nintex-promapp-sso"></a>Configurar o SSO do Nintex Promapp
+
+1. Entre em seu site da empresa do Nintex Promapp como administrador.
 
 2. No menu na parte superior da janela, selecione **Administrador**:
-   
+
     ![Selecionar Administrador][12]
 
 3. Selecione **Configurar**:
-   
+
     ![Selecionar Configurar][13]
 
 4. Na caixa de diálogo **Segurança**, execute as etapas a seguir.
-   
+
     ![Caixa de diálogo Segurança][14]
-    
+
     1. Cole a **URL de logon** copiada do portal do Azure na caixa **URL de Logon SSO**.
-    
+
     1. Na lista **SSO – Modo de Logon Único**, selecione **Opcional**. Clique em **Salvar**.
 
        > [!NOTE]
@@ -173,73 +170,25 @@ Para configurar o logon único do Azure AD com o Promapp, siga estas etapas:
 
     1. No Bloco de notas, abra o certificado baixado na seção anterior. Copie o conteúdo do certificado sem a primeira linha ( **-----BEGIN CERTIFICATE-----** ) ou a última linha ( **-----END CERTIFICATE-----** ). Cole o conteúdo do certificado na caixa **Certificado x.509 de SSO** e, em seguida, selecione **Salvar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+### <a name="create-nintex-promapp-test-user"></a>Criar usuário de teste do Nintex Promapp
 
-Nesta seção, você criará um usuário de teste chamado Brenda Fernandes no portal do Azure.
+Nesta seção, uma usuária chamada B.Fernandes será criada no Nintex Promapp. O Nintex Promapp é compatível com provisionamento de usuário Just-In-Time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Se um usuário ainda não existir no Nintex Promapp, um será criado após a autenticação.
 
-1. No portal do Azure, selecione **Azure Active Directory** no painel esquerdo, **Usuários** e, em seguida, **Todos os usuários**:
+## <a name="test-sso"></a>Testar o SSO
 
-    ![Selecionar Todos os usuários](common/users.png)
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-2. Selecione **Novo usuário** na parte superior da tela:
-
-    ![Selecionar Novo usuário](common/new-user.png)
-
-3. Na caixa de diálogo **Usuário**, execute as etapas a seguir.
-
-    ![Caixa de diálogo Usuário](common/user-properties.png)
-
-    1. Na caixa **Nome**, insira **BrendaFernandes**.
-  
-    1. Na caixa **Nome de usuário**, insira **BrendaFernandes@\<domíniodaempresa>.\<extensão>** . (Por exemplo, BrittaSimon@contoso.com.)
-
-    1. Selecione **Mostrar Senha** e, em seguida, anote o valor mostrado na caixa **Senha**.
-
-    1. Selecione **Criar**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
-
-Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo a ela acesso ao Promapp.
-
-1. No portal do Azure, selecione **Aplicativos empresariais**, selecione **Todos os aplicativos** e, em seguida, **Promapp**.
-
-    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
-
-2. Na lista de aplicativos, selecione **Promapp**.
-
-    ![Lista de aplicativos](common/all-applications.png)
-
-3. No painel esquerdo, selecione **Usuários e grupos**:
-
-    ![Selecionar Usuários e grupos](common/users-groups-blade.png)
-
-4. Selecione **Adicionar usuário** e, em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
-
-    ![Selecione Adicionar usuário](common/add-assign-user.png)
-
-5. Na caixa de diálogo **Usuários e grupos**, selecione **Brenda Fernandes** na lista de usuários e, em seguida, clique no botão **Selecionar** na parte inferior da tela.
-
-6. Se você esperar um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, selecione a função apropriada para o usuário na lista. Clique no botão **Selecionar** na parte inferior da tela.
-
-7. Na caixa de diálogo **Adicionar Atribuição**, selecione **Atribuir**.
-
-### <a name="just-in-time-user-provisioning"></a>Provisionamento de usuário just-in-time
-
-O Promapp é compatível com o provisionamento de usuário just-in-time. Esse recurso está habilitado por padrão. Se um usuário ainda não existir no Promapp, um novo será criado após a autenticação.
-
-### <a name="test-single-sign-on"></a>Testar logon único
-
-Agora você precisará testar a configuração de logon único do Azure AD usando o Painel de Acesso.
-
-Ao selecionar o bloco do Promapp no Painel de Acesso, você deverá ser conectado automaticamente à instância do Promapp, para a qual você configurou o SSO. Para obter mais informações sobre o Painel de Acesso, confira [Acessar e usar aplicativos no portal Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Nintex Promapp no Painel de Acesso, você deverá ser conectado automaticamente ao Nintex Promapp para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Experimente o Nintex Promapp com o Azure AD](https://aad.portal.azure.com/)
 
 <!--Image references-->
 

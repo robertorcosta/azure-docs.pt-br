@@ -2,7 +2,7 @@
 title: Gerenciador de Tráfego do Azure| Microsoft Docs
 description: Este artigo fornece uma visão geral do Gerenciador de Tráfego do Azure. Descubra se ele é a escolha certa para balancear a carga do tráfego de usuário para seu aplicativo.
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.service: traffic-manager
 customer intent: As an IT admin, I want to learn about Traffic Manager and what I can use it for.
@@ -11,13 +11,13 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2019
-ms.author: allensu
-ms.openlocfilehash: 48ce72104c4cc08fc26777aa7111b705c57317f5
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.author: rohink
+ms.openlocfilehash: c8f604c042aee8b1af30af9da5a43ed2cd79f214
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420270"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77014378"
 ---
 # <a name="what-is-traffic-manager"></a>O que é o Gerenciador de Tráfego?
 O Gerenciador de tráfego do Azure é um balanceador de carga de tráfego baseado em DNS que permite que você distribua o tráfego de maneira ideal para serviços em todas as regiões globais do Azure, fornecendo alta disponibilidade e capacidade de resposta.
@@ -28,6 +28,7 @@ O Gerenciador de Tráfego usa o DNS para direcionar as solicitações do cliente
 > O Azure fornece um conjunto de soluções de balanceamento de carga totalmente gerenciadas para seus cenários. Se estiver em busca de informações sobre o encerramento de protocolo TLS ("descarregamento de SSL") ou sobre o processamento de camada de aplicativo por solicitação HTTP/HTTPS, consulte [Gateway de Aplicativo](../application-gateway/application-gateway-introduction.md). Caso esteja procurando por balanceamento de carga regional, examine [Load Balancer](../load-balancer/load-balancer-overview.md). Cenários de ponta a ponta podem se beneficiar da combinação dessas soluções conforme for necessário.
 >
 > Para obter uma comparação das opções de balanceamento de carga do Azure, confira [Visão geral das opções de balanceamento de carga no Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
+
 O Gerenciador de Tráfego oferece os seguintes recursos:
 
 ## <a name="increase-application-availability"></a>Aumentar a disponibilidade de aplicativo

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 493c60e8148b666ba1f514d303229b7a11c2e43e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c78d2a8b4ccc51bc7afaef82a6c0dd609acdcab9
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425037"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76908829"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Tutorial: Convidar usuários de Colaboração B2B do Azure AD em massa (versão prévia)
 
@@ -27,6 +27,7 @@ ms.locfileid: "75425037"
 
 > [!NOTE]
 > Desde 22/12/2019, o recurso de convidar usuários em massa (versão prévia) está temporariamente desabilitado.
+> No momento, não há uma data conhecida para quando esse recurso será habilitado novamente. 
 
 Se você usar a colaboração B2B do Azure AD (Azure Active Directory) para trabalhar com parceiros externos, poderá convidar vários usuários convidados para a sua organização ao mesmo tempo. Neste tutorial, você aprenderá a usar o portal do Azure para enviar convites em massa para usuários externos. Especificamente, faça o seguinte:
 

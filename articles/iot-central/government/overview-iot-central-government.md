@@ -7,22 +7,22 @@ ms.date: 10/23/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a862a221f9fe2db5448473bddcca2a9932716e0e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 159691ee101e586419d2fd8df314947af28219dd
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464089"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016503"
 ---
 # <a name="building-government-solutions-with-azure-iot-central"></a>Como criar soluções governamentais com o Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-Comece a criar soluções de cidade inteligente fazendo uso dos modelos de aplicativo do Azure IoT Central. Comece agora com **monitoramento da qualidade da água**, **monitoramento do consumo de água** e **gestão de resíduos conectada**.
+
+Comece a criar soluções de cidade inteligente usando modelos de aplicativo do Azure IoT Central. Comece agora com **monitoramento da qualidade da água**, **monitoramento do consumo de água** e **gestão de resíduos conectada**.
 
 ## <a name="what-is-water-quality-monitoring-application-template"></a>O que é o modelo de aplicativo de monitoramento da qualidade da água?   
 
-O monitoramento da qualidade da água tradicional se baseia em técnicas de amostragem manuais e análise de laboratório de campo, o que é demorado e dispendioso. Ao monitorar remotamente a qualidade da água em tempo real, os problemas de qualidade da água poderão ser gerenciados antes de os cidadãos serem afetados. Além disso, com a análise avançada, os utilitários de água e as agências ambientais podem agir com base em avisos antecipados sobre possíveis problemas de qualidade da água e planejar o tratamento da água com antecedência.  
+O monitoramento da qualidade da água tradicional se baseia em técnicas de amostragem manuais e análise de laboratório de campo, o que é demorado e dispendioso. Ao monitorar remotamente a qualidade da água em tempo real, os problemas de qualidade da água podem ser gerenciados antes que os cidadãos sejam afetados. Além disso, com a análise avançada, os utilitários de água e as agências ambientais podem agir com base em avisos antecipados sobre possíveis problemas de qualidade da água e planejar o tratamento da água com antecedência.  
 
 O aplicativo de monitoramento da qualidade da água é um modelo de aplicativo do IoT Central para ajudar você a começar rapidamente seu desenvolvimento de solução de IoT e a permitir que os utilitários de água monitorem digitalmente a qualidade da água em cidades inteligentes. 
 
@@ -47,7 +47,7 @@ O aplicativo de monitoramento do consumo de água é um modelo de aplicativo do 
 
   ![Modelo de aplicativo de monitoramento do consumo de água](./media/overview-iotcentral-government/waterconsumptionmonitoring-dashboardfull.png)
 
-O modelo de aplicativo de monitoramento do consumo de água consiste nos seguintes elementos pré-configurados:
+O modelo de aplicativo Monitoramento do Consumo de Água consiste nos seguintes itens pré-configurados:
 * painéis de operador de exemplo;
 * modelos de dispositivos de monitor da qualidade da água de exemplo;
 * dispositivos monitores da qualidade da água simulados;

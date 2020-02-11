@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 0e841b1f386d45ddb4af8598855d8e739750307e
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 1f6f282406c6813b2b126c300f21bda21e8f9464
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910732"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988967"
 ---
 # <a name="migrate-from-google-maps-to-azure-maps"></a>Migrar do Google Maps para o Azure Mapas
 
@@ -22,11 +22,11 @@ Este tutorial fornece informações sobre como migrar aplicativos Web, móveis e
 
 ## <a name="azure-maps-platform-overview"></a>Visão geral da plataforma do Azure Mapas
 
-Os Azure Mapas fornecem funcionalidades geoespaciais avançadas, contendo dados de mapeamento atualizados com frequência para fornecer um contexto geográfico a aplicativos Web e móveis. O Azure Mapas tem um conjunto de APIs REST em conformidade com a API Azure One para mapas, pesquisa, roteiros, tráfego, mobilidade, clima, fusos horários, geolocalização, delimitação geográfica, dados de mapa e Operações Espaciais, acompanhado de SDKs Web e do Android para tornar o desenvolvimento fácil, flexível e portátil entre várias plataformas.
+Os Azure Mapas fornecem funcionalidades geoespaciais avançadas, contendo dados de mapeamento atualizados com frequência para fornecer um contexto geográfico a aplicativos Web e móveis. Os Azure Mapas têm um conjunto de APIs REST em conformidade com o OneAPI do Azure. Essas APIs REST oferecem mapas, pesquisa, roteiros, tráfego, fusos horários, geolocalização, delimitação geográfica, dados de mapa, clima, mobilidade e Operações Espaciais. As operações são acompanhadas pelos SDKs da Web e do Android para tornar o desenvolvimento fácil, flexível e portátil em várias plataformas.
 
 ## <a name="high-level-platform-comparison"></a>Comparação de plataforma de alto nível
 
-A tabela a seguir fornece uma lista de alto nível dos recursos do Google Maps e o suporte relativo a esses recursos no Azure Mapas. Essa lista não inclui recursos adicionais do Azure Mapas, como acessibilidade, APIs de isolamento geográfico, isócronos, operações espaciais, acesso direto a peças de mapa, serviços de Lote e comparações de cobertura de dados (ou seja, cobertura de imagens).
+A tabela a seguir fornece uma lista de alto nível dos recursos dos Azure Mapas, que correspondem aos recursos do Google Maps. Essa lista não mostra todos os recursos dos Azure Mapas. Recursos adicionais dos Azure Mapas incluem acessibilidade, APIs de delimitação geográfica, isócronos, Operações Espaciais, acesso direto a peças de mapa, serviços em lotes e comparações de cobertura de dados (ou seja, cobertura de imagens).
 
 | Recurso do Google Maps         | Suporte no Azure Mapas                     |
 |-----------------------------|:--------------------------------------:|
@@ -49,14 +49,14 @@ A tabela a seguir fornece uma lista de alto nível dos recursos do Google Maps e
 | API inserida do Mapas           | N/D                                    |
 | URLs de mapa                    | N/D                                    |
 
-O Google Maps fornece autenticação básica baseada em chave. O Azure Mapas fornece a autenticação básica baseada em chave, bem como a autenticação altamente segura do Azure Active Directory.
+O Google Maps fornece a autenticação básica baseada em chave. Os Azure Mapas fornecem a autenticação básica baseada em chave e a autenticação altamente segura do Azure Active Directory.
 
 ## <a name="licensing-considerations"></a>Considerações sobre licenciamento
 
 Ao migrar do Google Maps para o Azure Mapas, os pontos a seguir devem ser considerados em relação ao licenciamento.
 
-- O Azure Mapas cobra pelo uso de mapas interativos com base no número de peças de mapa carregadas, enquanto o Google Maps cobra pelo carregamento do controle de mapeamento. Nos SDKs interativos do Azure Mapas, as peças de mapa são armazenadas em cache automaticamente para reduzir o custo do desenvolvedor. Para cada 15 peças de mapa que são carregadas, uma transação do Azure Mapas é gerada. Os SDKs interativos do Azure Mapas usam peças de 512 pixels e, em média, geram uma transação ou menos por exibição de página.
-- Geralmente, é muito mais econômico substituir as imagens de mapa estáticas dos serviços Web do Google Maps pelo SDK Web do Azure Mapas, pois ele usa peças de mapa e, a menos que os usuários apliquem panorâmica e zoom no mapa, muitas vezes eles gerarão apenas uma fração de uma transação por carregamento de mapa. O SDK Web do Azure Mapas tem opções para desabilitar a aplicação de panorâmica e de zoom. Além disso, o SDK Web do Azure Mapas fornece muito mais opções de visualização do que um serviço Web de mapa estático.
+- Os Azure Mapas cobram pelo uso de mapas interativos, que se baseiam no número de peças de mapa carregadas, mas o Google Maps cobra pelo carregamento do controle de mapeamento. Nos SDKs interativos do Azure Mapas, as peças de mapa são armazenadas em cache automaticamente para reduzir o custo do desenvolvedor. Para cada 15 peças de mapa que são carregadas, uma transação do Azure Mapas é gerada. Os SDKs interativos do Azure Mapas usam peças de 512 pixels e, em média, geram uma transação ou menos por exibição de página.
+- Geralmente, é muito mais econômico substituir imagens de mapa estáticas dos serviços Web do Google Maps pelo SDK da Web dos Azure Mapas. O SDK da Web dos Azure Mapas usa peças de mapa e, a menos que o usuário aplique panorâmica ao mapa e o amplie, muitas vezes, elas vão gerar apenas uma fração de uma transação por carga de mapa. O SDK Web do Azure Mapas tem opções para desabilitar a aplicação de panorâmica e de zoom. Além disso, o SDK Web do Azure Mapas fornece muito mais opções de visualização do que um serviço Web de mapa estático.
 - O Azure Mapas permite que os dados de sua plataforma sejam armazenados no Azure. Eles também podem ser armazenados em cache em outro lugar por até seis meses, de acordo com os [Termos de uso](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46).
 
 Aqui estão alguns recursos relacionados para o Azure Mapas:

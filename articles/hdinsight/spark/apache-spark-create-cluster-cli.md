@@ -2,17 +2,17 @@
 title: 'Início Rápido: Clusters do Apache Spark com a CLI do Azure – Azure HDInsight'
 description: Este início rápido mostra como usar a CLI do Azure para criar um cluster do Apache Spark no HDInsight do Azure.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 06/12/2019
-ms.author: hrasheed
-ms.openlocfilehash: 71b5e9f0ece79633673b183ca7288852f42ca3c0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 02/03/2020
+ms.openlocfilehash: ac937519ca3fa9381fe4970f2e4336fe4a0a9227
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494711"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989103"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-cli"></a>Início Rápido: Criar um cluster do Apache Spark no Azure HDInsight usando a CLI do Azure
 
@@ -20,7 +20,7 @@ Nesse início rápido, você aprenderá a criar um cluster do Apache Spark no Az
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 CLI do Azure. Se você ainda não tiver instalado a CLI do Azure, confira [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) para obter as etapas.
 
@@ -28,7 +28,7 @@ CLI do Azure. Se você ainda não tiver instalado a CLI do Azure, confira [Insta
 
 ## <a name="create-an-apache-spark-cluster"></a>Criar um cluster do Apache Spark
 
-1. Entre em sua assinatura do Azure. Se você planeja usar o Azure Cloud Shell, basta selecionar **Experimente** no canto superior direito do bloco de código. Caso contrário, insira o comando a seguir:
+1. Entre em sua assinatura do Azure. Se pretender usar o Azure Cloud Shell, selecione **Experimentar** no canto superior direito do bloco de código. Caso contrário, insira o comando a seguir:
 
     ```azurecli-interactive
     az login
@@ -103,16 +103,16 @@ CLI do Azure. Se você ainda não tiver instalado a CLI do Azure, confira [Insta
         --http-password $httpCredential \
         --http-user admin \
         --location $location \
-        --size $clusterSizeInNodes \
+        --workernode-count $clusterSizeInNodes \
         --ssh-password $sshCredentials \
         --ssh-user sshuser \
         --storage-account $AZURE_STORAGE_ACCOUNT \
         --storage-account-key $AZURE_STORAGE_KEY \
-        --storage-default-container $AZURE_STORAGE_CONTAINER \
+        --storage-container $AZURE_STORAGE_CONTAINER \
         --version $clusterVersion
     ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Após concluir o início rápido, poderá ser conveniente excluir o cluster. Com o HDInsight, seus dados são armazenados no Armazenamento do Azure, assim você poderá excluir, com segurança, um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso.
 

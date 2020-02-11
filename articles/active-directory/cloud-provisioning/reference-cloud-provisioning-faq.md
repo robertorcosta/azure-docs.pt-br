@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc3c4a943f24ba1f987aa1daf513b9e05ada65a7
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: e2067bea25dae05c496c81929ae65d00565bf4f1
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76309992"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020753"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Perguntas frequentes do Azure Active Directory Connect
 
@@ -31,6 +31,10 @@ O provisionamento de nuvem está agendado para ser executado a cada 2 minutos. A
 **P: Estou vendo falhas de sincronização de hash de senha na primeira execução. Por quê?**
 
 Isso é esperado. As falhas são devido ao objeto de usuário não estar presente no Azure AD. Depois que o usuário for provisionado no Azure AD, os hashes de senha deverão ser provisionados na execução subsequente. Aguarde algumas execuções e confirme se a sincronização de hash de senha já deixou de apresentar os erros.
+
+**P: O que acontecerá se a instância do Active Directory tiver atributos que não são compatíveis com o provisionamento em nuvem (por exemplo, extensões de diretório)?**
+
+O provisionamento em nuvem será executado e provisionará os atributos compatíveis. Os atributos não compatíveis não serão provisionados no Azure AD. Examine as extensões de diretório no Active Directory e verifique se você não precisa que esses atributos fluam para o Azure AD. Se um ou mais atributos forem necessários, considere o uso da sincronização do Azure AD Connect ou mover as informações necessárias para um dos atributos compatíveis (por exemplo, atributos de extensão 1 a 15).
 
 **P: Qual é a diferença entre a sincronização e o provisionamento de nuvem do Azure AD Connect?**
 

@@ -6,39 +6,29 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/15/2019
+ms.date: 01/28/2020
 ms.reviewer: jeking
-ms.openlocfilehash: 193fe96d3e98b2917d9228784b93a9335406283f
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 2a303070b7240bddfd4803ed3d4d796fa52fdef5
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771744"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906651"
 ---
-# <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Início Rápido: Analisar dados no Azure Data Lake Storage Gen2 usando o Azure Databricks
+# <a name="quickstart-analyze-data-with-databricks"></a>Início Rápido: Analisar dados com o Databricks
 
-Este início rápido mostra como executar um trabalho do Apache Spark usando o Azure Databricks para executar uma análise dos dados armazenados em uma conta de armazenamento com o Azure Data Lake Storage Gen2 habilitado.
-
-Como parte do trabalho do Spark, você analisará dados de uma assinatura de canal de rádio para obter insights sobre o uso gratuito/pago com base em dados demográficos.
-
-Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Neste início rápido, execute um trabalho do Apache Spark usando o Azure Databricks para realizar análise nos dados armazenados em uma conta de armazenamento. Como parte do trabalho do Spark, você analisará dados de uma assinatura de canal de rádio para obter insights sobre o uso gratuito/pago com base em dados demográficos.
 
 ## <a name="prerequisites"></a>Prerequisites
 
-* Crie uma conta de armazenamento do Data Lake Gen2. Confira [Início Rápido: Criar uma conta de armazenamento do Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md)
+* Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-  Cole o nome da conta de armazenamento em um arquivo de texto. Você precisará dele em breve.
+* O nome da sua conta de armazenamento do Azure Data Lake Gen2. [Crie uma conta de armazenamento do Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
 
-* Crie uma entidade de serviço. Veja [Como Usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-
-  Há algumas tarefas específicas que você precisará realizar conforme executar as etapas deste artigo.
-
-  :heavy_check_mark: Ao executar as etapas da seção [Atribuir o aplicativo a uma função](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) do artigo, atribua a função **Colaborador dos Dados do Storage Blob** à entidade de serviço.
+* A ID do locatário, a ID do aplicativo e a senha de uma entidade de serviço do Azure com uma função atribuída de **Colaborador de Dados do Blob de Armazenamento**. [Crie uma entidade de serviço](../../active-directory/develop/howto-create-service-principal-portal.md).
 
   > [!IMPORTANT]
   > Atribua a função no escopo da conta de armazenamento do Data Lake Storage Gen2. Você pode atribuir uma função ao grupo de recursos pai ou à assinatura, mas receberá erros relacionados a permissões até que essas atribuições de função sejam propagadas para a conta de armazenamento.
-
-  :heavy_check_mark: Ao executar as etapas da seção [Obter valores para conexão](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) do artigo, cole a ID do locatário, a ID do aplicativo e os valores de senha em um arquivo de texto. Você precisará deles em breve.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Criar um workspace do Azure Databricks
 

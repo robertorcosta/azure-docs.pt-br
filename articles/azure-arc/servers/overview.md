@@ -1,62 +1,78 @@
 ---
-title: Visão geral do Azure Arc para servidores
-description: Saiba como usar o Azure Arc para servidores para automatizar o ciclo de vida de infraestrutura e de aplicativos.
+title: Visão geral do Azure Arc para servidores (versão prévia)
+description: Saiba como usar o Azure Arc para servidores para gerenciar computadores que estão hospedados fora do Azure como se fosse um recurso do Azure.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 11/04/2019
+ms.date: 01/29/2020
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 06e3b490f4f9cef64ae8bca5aed4d0518f10ba0e
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: b0f1d235391c4c4e3804a6dccc8174e946035b6a
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659614"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899191"
 ---
-# <a name="what-is-azure-arc-for-servers"></a>O que é o Azure Arc para servidores?
+# <a name="what-is-azure-arc-for-servers-preview"></a>O que é Azure Arc para servidores (versão prévia)
 
-O Azure Arc para servidores permite que você gerencie computadores que estão fora do Azure.
-Quando um computador não Azure é conectado ao Azure, ele se torna um **computador conectado** e é tratado como um recurso no Azure. Cada **computador conectado** tem uma ID de recurso, é gerenciado como parte de um grupo de recursos dentro de uma assinatura e se beneficia de constructos padrão do Azure, tais como o Azure Policy e a marcação.
+O Azure Arc para servidores (versão prévia) permite que você gerencie computadores Windows e Linux hospedados fora do Azure em sua rede corporativa ou em outro provedor de nuvem, semelhante à maneira como você gerencia máquinas virtuais do Azure nativas. Quando um computador híbrido é conectado ao Azure, ele se torna um computador conectado e é tratado como um recurso no Azure. Cada computador conectado tem uma ID de Recurso, é gerenciado como parte de um grupo de recursos dentro de uma assinatura e se beneficia de constructos padrão do Azure, tais como o Azure Policy e a aplicação de marcas.
 
-Um pacote de agente precisa ser instalado em cada computador para conectá-lo ao Azure. O restante deste documento explica esse processo mais detalhadamente.
+Para oferecer essa experiência com seus computadores híbridos hospedados fora do Azure, o agente do Azure Connected Machine precisa ser instalado em cada computador que você planeja conectar ao Azure. Esse agente não oferece nenhuma outra funcionalidade e não substitui o [agente do Azure Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). O agente do Log Analytics para Windows e Linux é necessário quando você deseja monitorar proativamente o sistema operacional e as cargas de trabalho em execução no computador, o gerencia usando os runbooks de automação ou soluções como o Gerenciamento de Atualizações ou usa outros serviços do Azure como a [Central de Segurança do Azure](../../security-center/security-center-intro.md).
 
-Os computadores terão um status de **Conectado** ou **Desconectado** de acordo com o tempo decorrido desde o check-in do agente. Cada check-in é chamado de pulsação. Se um computador não tiver feito check-in nos últimos cinco minutos, ele será exibido como offline até que a conectividade seja restaurada.  <!-- For more information on troubleshooting agent connectivity, see [Troubleshooting Azure Arc for servers](troubleshoot/arc-for-servers.md). -->
+>[!NOTE]
+>Essa versão prévia destina-se a fins de avaliação. Recomendamos que você não gerencie computadores de produção críticos.
+>
 
-![Servidores conectados](./media/overview/arc-for-servers-onboarded-servers.png)
+## <a name="supported-scenarios"></a>Cenários com suporte
 
-## <a name="clients"></a>Clientes
+O Azure Arc para servidores (versão prévia) é compatível com os seguintes cenários com computadores conectados:
 
-### <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+- Atribua [configurações de convidado do Azure Policy](../../governance/policy/concepts/guest-configuration.md) usando a mesma experiência que a atribuição de política para máquinas virtuais do Azure.
+- Os dados de log coletados pelo agente do Log Analytics e armazenados no workspace do Log Analytics no qual o computador está registrado agora contêm propriedades específicas ao computador, como a ID de Recurso, que pode ser usada para dar suporte ao acesso do log do [contexto de recurso](../../azure-monitor/platform/design-logs-deployment.md#access-mode).
 
-Na versão prévia pública, oferecemos suporte a:
+## <a name="supported-regions"></a>Regiões com suporte
 
-- Windows Server 2012 R2 e mais recente
+Com o Azure Arc para servidores (versão prévia), só há suporte a determinadas regiões:
+
+- WestUS2
+- WestEurope
+- WestAsia
+
+## <a name="prerequisites"></a>Prerequisites
+
+### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
+
+Há suporte oficial para as seguintes versões do sistema operacional Windows e Linux para o agente do Azure Connected Machine: 
+
+- Windows Server 2012 R2 e versões posteriores
 - Ubuntu 16.04 e 18.04
 
-A versão prévia pública foi projetada para fins de avaliação e não deve ser usada para gerenciar recursos de produção críticos.
+>[!NOTE]
+>Essa versão prévia do agente do Connected Machine para Windows só é compatível com o Windows Server configurado para usar o idioma inglês.
+>
 
-## <a name="azure-subscription-and-service-limits"></a>Limites de serviço e assinatura do Azure
+### <a name="azure-subscription-and-service-limits"></a>Limites de serviço e assinatura do Azure
 
-Verifique se você leu os limites do Azure Resource Manager e planejou o número de computadores a serem conectados de acordo com a diretriz listada para a [assinatura](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager) e para os [grupos de recursos](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits). Em particular, por padrão, há um limite de 800 servidores por grupo de recursos.
+Antes de configurar seus computadores com o Azure Arc para servidores (versão prévia), você deve examinar os [limites de assinatura](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager) e os [limites do grupo de recursos](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) do Azure Resource Manager para planejar o número de computadores a ser conectado.
 
-## <a name="networking-configuration"></a>Configuração de rede
+### <a name="networking-configuration"></a>Configuração de rede
 
-Durante a instalação e o runtime, o agente requer conectividade com os **pontos de extremidade de serviço do Azure Arc**. Se a conectividade de saída estiver bloqueada por firewalls, verifique se as URLs a seguir não estão bloqueadas por padrão. Todas as conexões são de saída do agente para o Azure e são protegidas com **SSL**. Todo o tráfego pode ser roteado por meio de um proxy **HTTPS**. Se você permitir os intervalos de IP ou nomes de domínio aos quais os servidores têm permissão para se conectar, precisará permitir também o acesso à porta 443 para as marcas de serviço e os nomes DNS a seguir.
+O agente do Connected Machine para Linux e Windows comunica a saída com segurança ao Azure Arc pela porta TCP 443. Se o computador se conectar por meio de um firewall ou servidor proxy para se comunicar pela Internet, examine os requisitos abaixo para entender os requisitos da configuração de rede.
+
+Se a conectividade de saída estiver restrita por seu firewall ou servidor proxy, verifique se as URLs listadas abaixo não estão bloqueadas. Se você permitir apenas os intervalos de IP ou nomes de domínio necessários para o agente se comunicar com o serviço, deverá permitir também o acesso às Marcas de Serviço e URLs a seguir.
 
 Marcas de serviço:
 
-* AzureActiveDirectory
-* AzureTrafficManager
+- AzureActiveDirectory
+- AzureTrafficManager
 
-Para obter uma lista de endereços IP para cada tag de serviço/região, confira o arquivo JSON – [Intervalos de IP do Azure e marcas de serviço – nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519). A Microsoft publica atualizações semanais que contêm cada serviço do Azure e os intervalos de IP que ele usa. Confira [Marcas de conteúdo](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) para obter mais detalhes.
+URLs:
 
-Esses nomes DNS são fornecidos juntamente com as informações de intervalo de IP de tag de serviço, pois a maioria dos serviços atualmente não tem um registro de tag de serviço e, por isso, os IPs estão sujeitos a alterações. Se os intervalos de IP forem necessários para sua configuração de firewall, a tag de serviço **AzureCloud** deverá ser usada para permitir o acesso a todos os serviços do Azure. Permita o monitoramento de segurança ou a inspeção dessas URLs, como você faria com outro tráfego de Internet.
-
-| Ambiente de Domínio | Pontos de extremidade de serviço do Azure exigidos |
+| recurso de agente | Descrição |
 |---------|---------|
 |management.azure.com|Azure Resource Manager|
 |login.windows.net|Azure Active Directory|
@@ -65,116 +81,58 @@ Esses nomes DNS são fornecidos juntamente com as informações de intervalo de 
 |*-agentservice-prod-1.azure-automation.net|Configuração de convidado|
 |*.his.hybridcompute.azure-automation.net|Serviço de identidade híbrida|
 
-### <a name="installation-network-requirements"></a>Requisitos de rede para a instalação
+Para obter uma lista de endereços IP para cada tag de serviço/região, confira o arquivo JSON – [Intervalos de IP do Azure e marcas de serviço – nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519). A Microsoft publica atualizações semanais que contêm cada serviço do Azure e os intervalos de IP que ele usa. Para obter mais informações, confira [Marcas de serviço](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
-Baixe o [pacote do agente do computador conectado ao Azure](https://aka.ms/AzureConnectedMachineAgent) de nossos servidores de distribuição oficiais. Os sites abaixo precisam estar acessíveis do seu ambiente. Você pode optar por baixar o pacote em um compartilhamento de arquivo e fazer com que o agente seja instalado por meio dele. Nesse caso, o script de integração gerado no portal do Azure talvez precise ser modificado.
+As URLs na tabela anterior são necessárias, além das informações sobre o intervalo de endereços IP da Marca de Serviço, porque a maioria dos serviços não tem um registro de Marca de Serviço no momento. Como tal, os endereços IP estão sujeitos a alterações. Se os intervalos de endereço IP forem necessários para sua configuração de firewall, a Marca de Serviço **AzureCloud** deverá ser usada para permitir o acesso a todos os serviços do Azure. Não desabilite o monitoramento de segurança ou a inspeção dessas URLs. Permita-os como você faria com outro tráfego de Internet.
 
-Windows:
+### <a name="register-azure-resource-providers"></a>Registrar provedores de recursos do Azure
 
-* `aka.ms`
-* `download.microsoft.com`
+O Azure Arc para servidores (versão prévia) depende dos seguintes provedores de recursos do Azure em sua assinatura para usar esse serviço:
 
-Linux:
+- **Microsoft.HybridCompute**
+- **Microsoft.GuestConfiguration**
 
-* `aka.ms`
-* `packages.microsoft.com`
+Se não estiverem registrados, você poderá registrá-los usando os seguintes comandos:
 
-Consulte a seção [Configuração do servidor proxy](quickstart-onboard-powershell.md#proxy-server-configuration) para obter informações sobre como configurar o agente para usar o proxy.
-
-## <a name="register-the-required-resource-providers"></a>Registrar os provedores de recursos necessários
-
-Para usar o Azure Arc para Servidores, você deve registrar os Provedores de Recursos necessários.
-
-* **Microsoft.HybridCompute**
-* **Microsoft.GuestConfiguration**
-
-Você pode registrar os provedores de recursos com os seguintes comandos:
-
-Azure PowerShell:
+Azure PowerShell:
 
 ```azurepowershell-interactive
 Login-AzAccount
-Set-AzContext -SubscriptionId [subscription you want to onboard]
-Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
-Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
+Set-AzContext -SubscriptionId [subscription you want to onboard]
+Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
+Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
 ```
 
-CLI do Azure:
+CLI do Azure:
 
 ```azurecli-interactive
-az account set --subscription "{Your Subscription Name}"
-az provider register --namespace 'Microsoft.HybridCompute'
-az provider register --namespace 'Microsoft.GuestConfiguration'
+az account set --subscription "{Your Subscription Name}"
+az provider register --namespace 'Microsoft.HybridCompute'
+az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
-Você também pode registrar os provedores de recursos usando o portal, seguindo as etapas em [portal do Azure](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
+Você também pode registrar os provedores de recursos no portal do Azure seguindo as etapas no [portal do Azure](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
-## <a name="machine-changes-after-installing-the-agent"></a>O computador é alterado após a instalação do agente
+## <a name="connected-machine-agent"></a>Agente do Connected Machine
 
-Se você tiver uma solução de controle de alterações implantada em seu ambiente, poderá usar a lista abaixo para acompanhar, identificar e permitir as alterações feitas pelo pacote de instalação do **AzCMAgent (Agente do Computador Conectado do Azure)** .
+Você pode baixar o pacote do Agente do Azure Connected Machine para Windows e Linux dos locais listados abaixo.
 
-Depois de instalar o agente, você verá as seguintes alterações feitas nos servidores.
+- [Pacote do Windows Installer do agente do Windows](https://aka.ms/AzureConnectedMachineAgent) do Centro de Download da Microsoft.
+- O pacote do agente do Linux é distribuído do [repositório de pacotes](https://packages.microsoft.com/) da Microsoft usando o formato de pacote preferencial para a distribuição (.RPM ou .DEB).
 
-### <a name="windows"></a>Windows
+>[!NOTE]
+>Durante essa versão prévia, apenas um pacote foi lançado, adequado para Ubuntu 16.04 ou 18.04.
 
-Serviços instalados:
+## <a name="install-and-configure-agent"></a>Instalar e configurar o agente
 
-* `Himds` – o serviço do **Agente do Computador Conectado do Azure**.
-* `Dscservice` ou `gcd` – o serviço de **Configuração de convidado**.
+Conectar computadores em seu ambiente híbrido diretamente com o Azure pode ser feito usando métodos diferentes, dependendo das suas necessidades. A tabela a seguir realça cada método para determinar qual funciona melhor para sua organização.
 
-Arquivos adicionados ao servidor:
+| Método | Descrição |
+|--------|-------------|
+| Interativamente | Instalar manualmente o agente em um número único ou pequeno de computadores seguindo as etapas em [Conectar computadores do portal do Azure](quickstart-onboard-portal.md).<br> No portal do Azure, você pode gerar um script e executá-lo no computador para automatizar as etapas de instalação e configuração do agente.|
+| Em escala | Instalar e configurar o agente para vários computadores seguindo [Conectar computadores usando uma Entidade de Serviço](quickstart-onboard-powershell.md).<br> Esse método cria uma entidade de serviço para conectar computadores de maneira não interativa.|
 
-* `%ProgramFiles%\AzureConnectedMachineAgent\*.*` – localização dos arquivos do **Agente do Computador Conectado do Azure**.
-* Logs da `%ProgramData%\GuestConfig\*.*` - **Configuração de convidado**.
-
-Localizações da chave do Registro:
-
-* `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Connected Machine Agent` – chaves do Registro do **Agente do Computador Conectado do Azure**.
-
-### <a name="linux"></a>Linux
-
-Serviços instalados:
-
-* `Himdsd` – o serviço do **Agente do Computador Conectado do Azure**.
-* `dscd` ou `gcd` – o serviço de **Configuração de convidado**.
-
-Arquivos adicionados ao servidor:
-
-* `/var/opt/azcmagent/**` – localização dos arquivos do **Agente do Computador Conectado do Azure**.
-* Logs da `/var/lib/GuestConfig/**` - **Configuração de convidado**.
-
-## <a name="supported-scenarios"></a>Cenários com suporte
-
-Depois de registrar um nó, você pode começar a gerenciar seus nós usando outros serviços do Azure.
-
-Na versão prévia pública, os cenários a seguir são compatíveis com **computadores conectados**.
-
-## <a name="guest-configuration"></a>Configuração de convidado
-
-Depois de conectar o computador ao Azure, você pode atribuir políticas do Azure a **computadores conectados** usando a mesma experiência encontrada na atribuição de política para máquinas virtuais do Azure.
-
-Para obter mais informações, confira [Entender a configuração de convidado do Azure Policy](../../governance/policy/concepts/guest-configuration.md).
-
-Os logs do Agente de Configuração de Convidado para um **Computador Conectado** estão nos seguintes locais:
-
-* Windows - `%ProgramFiles%\AzureConnectedMachineAgent\logs\dsc.log`
-* Linux: - `/opt/logs/dsc.log`
-
-## <a name="log-analytics"></a>Log Analytics
-
-Os dados de log coletados pelo [MMA (Microsoft Monitoring Agent)](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) e armazenados no workspace do Log Analytics agora conterão propriedades específicas para o computador, tais como **ResourceId**, que pode ser usado para o acesso ao log centrado em recursos.
-
-- Os computadores que já têm o agente MMA instalado terão a funcionalidade do **Azure Arc** habilitada por meio de pacotes de gerenciamento atualizados.
-- [O agente MMA versão 10.20.18011 ou posterior](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows#agent-and-vm-extension-version) é necessário para a integração do Azure Arc para servidores.
-- Ao consultar dados de log no [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview), o esquema de dados retornado conterá o **ResourceId** híbrido no formulário `/subscriptions/<SubscriptionId/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridCompute/machines/<MachineName>`.
-
-Para obter mais informações, confira [Introdução ao Log Analytics no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
-
-<!-- MMA agent version 10.20.18011 and later -->
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Há dois métodos para conectar computadores usando o Azure Arc para servidores.
-
-* **Interativamente** – siga o [Guia de início rápido do portal](quickstart-onboard-portal.md) para gerar um script no portal e executá-lo no computador. Essa será a melhor opção se você estiver conectando um computador por vez.
-* **Em escala** – siga o [Guia de início rápido do PowerShell](quickstart-onboard-powershell.md) para criar uma entidade de serviço para conectar computadores de modo não interativo.
+- Para começar a avaliar o Azure Arc para servidores (versão prévia), siga o artigo [Conectar computadores híbridos ao Azure do portal do Azure](quickstart-onboard-portal.md). 

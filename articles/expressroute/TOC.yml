@@ -38,7 +38,7 @@
       href: expressroute-bfd.md
     - name: Requisitos de QoS
       href: expressroute-qos.md
-    - name: Sobre a movimentação de circuitos do clássico para o Gerenciador de Recursos
+    - name: Sobre a movimentação de circuitos do clássico para o Resource Manager
       href: expressroute-move.md
     - name: Sobre o ExpressRoute FastPath
       href: about-fastpath.md
@@ -52,9 +52,9 @@
       href: expressroute-connect-azure-to-public-cloud.md
     - name: Interoperabilidade da Conectividade de Back-end
       items:
-        - name: Prefácio e Configuração de Teste
+        - name: Prefácio e Configuração do Teste
           href: ../networking/connectivty-interoperability-preface.md?toc=%2fazure%2fexpressroute%2ftoc.json
-        - name: Definição da Configuração de Teste
+        - name: Definição da Configuração do Teste
           href: ../networking/connectivty-interoperability-configuration.md?toc=%2fazure%2fexpressroute%2ftoc.json
         - name: Análise do Plano de Controle
           href: ../networking/connectivty-interoperability-control-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
@@ -70,6 +70,8 @@
       items:
         - name: Emparelhamento privado
           href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
+        - name: Usar a VPN como backup
+          href: use-s2s-vpn-as-backup-for-expressroute-privatepeering.md
 - name: Guias de instruções
   items:
     - name: Criar e modificar um circuito
@@ -139,9 +141,9 @@
       href: expressroute-howto-reset-peering.md
     - name: Mover do emparelhamento público para o emparelhamento da Microsoft
       href: how-to-move-peering.md
-    - name: Mover um circuito do clássico para o Gerenciador de Recursos
+    - name: Mover um circuito do clássico para o Resource Manager
       href: expressroute-howto-move-arm.md
-    - name: Migrar redes virtuais associadas do clássico para o Gerenciador de Recursos
+    - name: Migrar redes virtuais associadas do clássico para o Resource Manager
       href: expressroute-migration-classic-resource-manager.md
     - name: Criar um gateway de VNet com redundância de zona nas Zonas de Disponibilidade do Azure
       href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=%2fazure%2fexpressroute%2ftoc.json

@@ -7,22 +7,23 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 38da444779a56f39d4119f3797ddb5bd2f31aeae
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 6b8458ce41a1bdacddc4102e8282bbc638d4c01c
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112648"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016486"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Tutorial: Criar um aplicativo de gestão de resíduos conectada no IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Este tutorial orienta você para a criação de um aplicativo de gestão de resíduos conectada com base no modelo de aplicativo **Gestão de Resíduos Conectada** do Azure IoT Central. 
 
-Com o tutorial, você aprenderá a: 
+Neste tutorial, você aprenderá a: 
 
 > [!div class="checklist"]
+
 > * Usar o modelo de **Gestão de Resíduos Conectada** do Azure IoT Central para criar seu aplicativo de gestão de resíduos conectada
 > * Explorar e personalizar o painel do operador 
 > * Explorar um modelo de dispositivo de lixeira conectada
@@ -31,14 +32,14 @@ Com o tutorial, você aprenderá a:
 > * Configurar trabalhos
 > * Personalizar a identidade visual do aplicativo usando white labeling
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará:
 -  Uma assinatura do Azure é recomendada. Opcionalmente, você pode usar uma avaliação gratuita de sete dias. Se você não tiver uma assinatura do Azure, poderá criar uma na [página de entrada do Azure](https://aka.ms/createazuresubscription).
 
 ## <a name="create-connected-waste-management-app-in-iot-central"></a>Criar aplicativo de Gestão de Resíduos Conectada no IoT Central
 
-Nesta seção, usaremos o modelo de **Gestão de Resíduos Conectada** do Azure IoT Central para criar seu aplicativo de gestão de resíduos conectada no IoT Central.
+Nesta seção, você usará o **modelo de gestão de resíduos conectada** do Azure IoT Central para criar seu aplicativo de gestão de resíduos conectada no IoT Central.
 
 Para criar um aplicativo de gestão de resíduos conectada no Azure IoT Central:  
 
@@ -48,23 +49,26 @@ Para criar um aplicativo de gestão de resíduos conectada no Azure IoT Central:
 
     ![Insira a conta da sua organização](./media/tutorial-connectedwastemanagement/sign-in.png)
 
-2. Clique em **Compilar** no painel esquerdo e selecione a guia **Governo**. A página governamental exibe vários modelos de aplicativos governamentais.
+2. Clique em **Compilar** no painel esquerdo e selecione a guia**Governamental**. A página governamental exibe vários modelos de aplicativos governamentais.
 
     ![Criar modelos de aplicativo governamental](./media/tutorial-connectedwastemanagement/iotcentral-government-tab-overview.png)
 
 1. Selecione o modelo de aplicativo **Gestão de Resíduos Conectada**. Este modelo inclui um exemplo de modelo de dispositivo de lixeira conectada, um dispositivo simulado, um painel do operador e regras de monitoramento pré-configuradas.    
 
 2. Clique em **Criar aplicativo**, que abrirá o formulário de criação de **Novo aplicativo** com os seguintes campos:
-    * **Nome do aplicativo**. Por padrão, o aplicativo usa *Gestão de resíduos conectada* seguido por uma cadeia de caracteres de ID exclusiva gerada pelo IoT Central. Opcionalmente, escolha um nome de aplicativo amigável. Você também pode alterar o nome do aplicativo mais tarde.
+    * **Nome do aplicativo**. Por padrão, o aplicativo usa *Gestão de resíduos conectada* seguido por uma cadeia de caracteres de ID exclusiva gerada pelo IoT Central. Opcionalmente, escolha um Nome de aplicativo amigável. Você também pode alterar o nome do aplicativo mais tarde.
     * **URL** – opcionalmente, você pode escolher a URL desejada. Você também pode alterar a URL mais tarde. 
     * Se você tiver uma assinatura do Azure, insira seu *Diretório, assinatura do Azure e Região*. Se você não tiver uma assinatura, poderá habilitar a **avaliação gratuita de sete dias** e preencher as informações de contato necessárias.  
 
-    Para obter mais informações sobre assinaturas e diretórios, consulte o [criar um início rápido de aplicativo](../preview/quick-deploy-iot-central.md).
+    Para obter mais informações sobre assinaturas e diretórios, consulte o [criar um início rápido de aplicativo](../core/quick-deploy-iot-central.md).
 
 5. Clique no botão **Criar** na parte inferior da página. 
 
     ![Página Criar Aplicativo de Resíduos Conectado do Azure IoT Central](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement.png)
+    
+    ![Informações de cobrança de Criar Conectado do Azure IoT Central](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement-billinginfo.png)
 
+ 
 6. Agora, você criou um aplicativo de gestão de resíduos conectada usando o **Modelo de gestão de resíduos conectada** do Azure IoT Central. 
 
 Parabéns! Seu aplicativo recém-criado tem os seguintes itens pré-configurados:
@@ -107,10 +111,10 @@ O painel é composto por diferentes tipos de blocos:
 * **Bloco de conteúdo do Field Services**: o painel inclui um link para integração com o Dynamics 365 Field Services de seu aplicativo do Azure IoT Central. Por exemplo, você pode usar o Field Services para criar tíquetes para expedição de serviços de coleta de lixo. 
 
 
-### <a name="customize-dashboard"></a>Personalizar o painel 
+### <a name="customize-dashboard"></a>Personalizar painel 
 
 Como construtor, você pode personalizar as exibições no painel para os operadores. Você pode tentar:
-1. Clicar em **Editar** para personalizar o **Painel de Gestão de resíduos conectada da Wide World**. Você pode personalizar o painel clicando no menu **Editar**. Quando o painel está no modo de **edição**, você pode adicionar novos blocos ou configurar os blocos existentes. 
+1. Clicar em **Editar** para personalizar o **Painel de Gestão de resíduos conectada da Wide World**. Você pode personalizar o painel clicando no menu **Editar**. Quando o painel está no modo de **edição**, você pode adicionar novos blocos ou configurar os blocos existentes 
 
     ![Editar o painel](./media/tutorial-connectedwastemanagement/edit-dashboard.png)
 
@@ -129,9 +133,9 @@ Para exibir do modelo de dispositivo:
 
     ![Modelo de dispositivo](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
 
-2. Na lista modelos de dispositivo, você verá **Lixeira Conectada**. Abra clicando no nome.
+2. Na lista Modelos de dispositivo, você verá a **Lixeira Conectada**. Abra clicando no nome.
 
-3. Familiarize-se com as funcionalidades do modelo de dispositivo. Você pode ver que ele define sensores como *Nível de preenchimento*, *Medidor de odor*, *peso*, *localização* etc.
+3. Familiarize-se com as funcionalidades do modelo de dispositivo. Você poderá ver que ele define sensores como *Nível de preenchimento*, *Medidor de odor*, *peso*, *localização*, entre outros.
 
    ![Modelo de dispositivo](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
 
@@ -140,19 +144,19 @@ Para exibir do modelo de dispositivo:
 ### <a name="customizing-the-device-template"></a>Personalizando o modelo de dispositivo
 
 Tente personalizar o seguinte:
-1. Navegue até **Personalizar** no menu do modelo de dispositivo.
-2. Encontre o tipo de telemetria `Odor meter`.
-3. Atualize o **Nome de exibição** de `Odor meter` para `Odor level`.
+1. Navegue até **Personalizar** no menu do modelo de dispositivo
+2. Encontre o tipo de telemetria `Odor meter`
+3. Atualize o **Nome de exibição** de `Odor meter` para `Odor level`
 4. Você também pode tentar atualizar a unidade de medida ou configurar o *Valor Mín.* e o *Valor Máx.* .
-5. **Salve** as alterações. 
+5. **Salve** quaisquer alterações 
 
 ### <a name="add-a-cloud-property"></a>Adicionar uma propriedade de nuvem 
 
 1. Navegue até **Propriedade de nuvem** no menu do modelo de dispositivo
-2. Adicione uma nova propriedade de nuvem clicando em **+ Adicionar Propriedade de Nuvem**. No IoT Central, você pode adicionar uma propriedade que é relevante para o dispositivo, mas que não se espera que seja enviada por ele. Por exemplo, uma propriedade de nuvem poderia ser um limite de alerta específico para a área de instalação, informações sobre ativos ou informações de manutenção etc. 
-3. **Salve** as alterações. 
+2. Adicione uma nova propriedade de nuvem clicando em **+ Adicionar Propriedade de Nuvem**. No IoT Central, você pode adicionar uma propriedade que é relevante para o dispositivo, mas que não se espera que seja enviada por ele. Por exemplo, uma propriedade de nuvem pode ser um limite de alerta específico da área de instalação, informações de ativos ou informações de manutenção, entre outras informações. 
+3. **Salve** quaisquer alterações 
  
-### <a name="views"></a>Modos de exibição 
+### <a name="views"></a>Exibições 
 * O modelo de dispositivo de lixeira conectada tem exibições predefinidas. Explore as exibições e faça atualizações. As exibições definem como os operadores veem os dados do dispositivo e também definem as propriedades da nuvem. 
 
   ![Exibições do modelo de dispositivo](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-views.png)
@@ -226,7 +230,7 @@ Você deverá receber um email quando a **condição** configurada for atendida.
 > [!NOTE]
 > O aplicativo enviará um email sempre que uma condição for atendida. **Desabilite** a regra para parar de receber emails da regra automatizada. 
   
-Para criar uma regra: 
+Para criar uma nova regra: 
 1. Selecione **+Novo** nas **Regras** do painel de navegação esquerdo.
 
 ## <a name="configure-jobs"></a>Configurar trabalhos
@@ -254,7 +258,7 @@ Como um criador, você pode alterar várias configurações para personalizar a 
 7. Por fim, você também pode alterar o **Tema** clicando em **Configurações** na manchete do aplicativo.
 
   
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não quiser continuar usando o aplicativo, exclua-o seguindo estas etapas:
 

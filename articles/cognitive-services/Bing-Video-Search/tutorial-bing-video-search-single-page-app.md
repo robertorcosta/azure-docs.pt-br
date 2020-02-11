@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 02/03/2020
 ms.author: aahi
-ms.openlocfilehash: 7c8485a5521709452217fb4ab1832b6a42cce9ce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fb989825ed27cc83c14c36e6394e37ae2db2c12a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75382456"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988253"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Tutorial: Aplicativo de Pesquisa de Vídeo de página única
 A API de Pesquisa de Vídeo do Bing permite que você faça pesquisas na Web e obtenha resultados de vídeo relevantes para uma consulta de pesquisa. Neste tutorial, criaremos um aplicativo Web de página única que usa a API de Pesquisa do Bing para exibir os resultados da pesquisa na página. O aplicativo inclui componentes HTML, CSS e JavaScript.
@@ -100,7 +100,7 @@ A figura a seguir mostra a caixa de texto de consulta e as opções que definem 
 
 O formulário HTML inclui elementos com os seguintes nomes:
 
-|Elemento|DESCRIÇÃO|
+|Elemento|Descrição|
 |-|-|
 | `where` | Um menu suspenso para selecionar o mercado (local e idioma) usado para a pesquisa. |
 | `query` | O campo de texto no qual inserir os termos de pesquisa. |
@@ -120,7 +120,7 @@ function bingSearchOptions(form) {
 
     var options = [];
     options.push("mkt=" + form.where.value);
-    options.push("SafeSearch=" + (form.safe.checked ? "strict" : "off"));
+    options.push("SafeSearch=" + (form.safe.checked ? "strict" : "moderate"));
 
     if (form.when.value.length) options.push("freshness=" + form.when.value);
     var what = [];
@@ -138,7 +138,7 @@ function bingSearchOptions(form) {
 }
 ```
 
-Por exemplo, o parâmetro `SafeSearch` em uma chamada à API real pode ser `strict`, `moderate` ou `off`, com `moderate` sendo o padrão. No entanto, nosso formulário usa uma caixa de seleção, que tem apenas dois estados. O código JavaScript converte essa configuração para `strict` ou `off` (`moderate` não é usado).
+Por exemplo, o parâmetro `SafeSearch` em uma chamada real à API pode ser `strict` ou `moderate`, com `moderate` sendo o padrão.
 
 ## <a name="performing-the-request"></a>Executando a solicitação
 Considerando a consulta, a cadeia de caracteres de opções e a chave de API, a função `BingWebSearch` usa um objeto `XMLHttpRequest` para fazer a solicitação ao ponto de extremidade da Pesquisa do Bing. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
@@ -308,7 +308,7 @@ Os resultados da pesquisa são retornados como o objeto `value` de nível superi
 
 A API de Pesquisa de Notícias do Bing retorna até quatro tipos diferentes de resultados relacionados, cada um em seu próprio objeto de nível superior. Eles são:
 
-|Relação|DESCRIÇÃO|
+|Relação|Descrição|
 |-|-|
 |`pivotSuggestions`|Consultas que substituem uma palavra original na pesquisa original por outra. Por exemplo, se você pesquisar "flores vermelhas", uma palavra original pode ser "vermelhas" e uma sugestão dinâmica poderá ser "flores amarelas".|
 |`queryExpansions`|Consultas que restringem a pesquisa original com a adição de mais termos. Por exemplo, se você pesquisar "Microsoft Surface", uma expansão da consulta poderá ser "Microsoft Surface Pro".|
@@ -332,7 +332,7 @@ searchItemRenderers = {
 ```
 Uma função de renderizador pode aceitar os seguintes parâmetros:
 
-|Parâmetro|DESCRIÇÃO|
+|Parâmetro|Descrição|
 |-|-|
 |`item`| O objeto do JavaScript que contém as propriedades do item, como a URL e a descrição.|
 |`index`| O índice do item de resultado na coleção.|

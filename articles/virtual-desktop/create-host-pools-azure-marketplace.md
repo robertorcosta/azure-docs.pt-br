@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: e5be2490ebf756c030e6a53b226f91c49c7bccaf
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 25dd4810cf8cccab8bcbf211da4f6abbcd147056
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605576"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020022"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: Criar um pool de host usando o Azure Marketplace
 
@@ -34,13 +34,13 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no [Portal do Azure](https://portal.azure.com).
+Entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="run-the-azure-marketplace-offering-to-provision-a-new-host-pool"></a>Execute a oferta do Azure Marketplace para provisionar um novo pool de hosts
 
 Para executar a oferta do Azure Marketplace para provisionar um novo pool de hosts:
 
-1. No portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
+1. No menu do portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
 2. Insira **Área de Trabalho Virtual do Windows** na janela de pesquisa do Marketplace.
 3. Selecione **Área de Trabalho Virtual do Windows – Provisionar um pool de hosts** e selecione **Criar**.
 
@@ -55,7 +55,7 @@ Veja o que você faz para a folha **Noções básicas**:
 3. Insira uma lista separada por vírgulas de usuários que podem entrar nos clientes da Área de Trabalho Virtual do Windows e acesse uma área de trabalho após a conclusão da oferta do Azure Marketplace. Por exemplo, se você quiser atribuir acesso a user1@contoso.com e user2@contoso.com, insira "user1@contoso.com,user2@contoso.com".
 4. Selecione **Criar** e forneça um nome para o novo grupo de recursos.
 5. Para **Local**, selecione o mesmo local da rede virtual que tenha conectividade com o servidor do Active Directory.
-6. Selecione **OK**.
+6. Selecione **Avançar: Configurar máquinas virtuais >** .
 
 >[!IMPORTANT]
 >Se você estiver usando o Azure Active Directory Domain Services e a solução do Azure Active Directory, não se esqueça de implantar o pool de hosts na mesma região que o Azure Active Directory Domain Services para evitar erros de associação de domínio e de credenciais.
@@ -66,7 +66,7 @@ Para a folha **Configurar máquinas virtuais**:
 
 1. Aceite os padrões ou personalize o número e tamanho das VMs.
 2. Digite um prefixo para os nomes das máquinas virtuais. Por exemplo, se você inserir o nome “prefixo”, as máquinas virtuais serão chamadas de "prefixo-0," "prefixo-1" e assim por diante.
-3. Selecione **OK**.
+3. Selecione **Avançar: Configurações da máquina virtual**.
 
 ### <a name="virtual-machine-settings"></a>Configurações da máquina virtual
 
@@ -80,7 +80,7 @@ Para a folha de **configurações da máquina virtual**:
 1. Para **Origem da imagem**, selecione a origem e insira as informações apropriadas para saber como encontrá-las e como armazená-las. Se você optar por não usar discos gerenciados, selecione a conta de armazenamento que contém o arquivo .vhd.
 2. Insira o nome UPN e a senha para a conta de domínio que ingressará as VMs ao domínio do Azure Directory. Esse mesmo nome de usuário e senha será criado nas máquinas virtuais como uma conta local. É possível redefinir essas contas locais mais tarde.
 3. Selecione a rede virtual que tem conectividade com o servidor do Active Directory e escolha uma sub-rede para hospedar as máquinas virtuais.
-4. Selecione **OK**.
+4. Selecione **Avançar: Informações da Área de Trabalho Virtual do Windows**.
 
 ### <a name="windows-virtual-desktop-tenant-information"></a>Informações de locatário da Área de Trabalho Virtual do Windows
 
@@ -90,15 +90,14 @@ Para a folha **Informações de locatário da Área de Trabalho Virtual do Windo
 2. Para **Nome de locatário da Área de Trabalho Virtual do Windows**, digite o nome do locatário no qual você criará esse pool de hosts.
 3. Especifique o tipo de credenciais que você deseja usar para autenticar como o proprietário RDS do locatário da Área de Trabalho Virtual do Windows. Se você concluiu o [Criar entidades de serviço e atribuições de função com o PowerShell](./create-service-principal-role-powershell.md), selecione **Entidade de Serviço**. Quando o **ID do locatário do Azure AD** for exibido, digite o ID da instância do Azure Active Directory que contém a entidade de serviço.
 4. Insira as credenciais para a conta do administrador do locatário. Há suporte apenas para entidades de serviço com uma credencial de senha.
-5. Selecione **OK**.
+5. Selecione **Avançar: Revisar + criar**.
 
 ## <a name="complete-setup-and-create-the-virtual-machine"></a>Conclua a instalação e crie a máquina virtual
 
 Para as últimas duas folhas:
 
-1. Na folha **Resumo**, examine as informações da instalação. Se for necessário alterar alguma coisa, volte para a folha apropriada e faça sua alteração antes de continuar. Se as informações parecerem certas, selecione **OK**.
-2. Na folha **Comprar**, examine outras informações sobre sua compra do Azure Marketplace.
-3. Selecione **Criar** para implantar seu pool de hosts.
+1. Na folha **Examinar e Criar**, examine as informações de instalação. Se for necessário alterar alguma coisa, volte para a folha apropriada e faça sua alteração antes de continuar. Se as informações parecerem certas, selecione **OK**.
+2. Selecione **Criar** para implantar seu pool de hosts.
 
 Dependendo de quantas VMs você estiver criando, esse processo poderá levar 30 minutos ou mais para ser concluído.
 

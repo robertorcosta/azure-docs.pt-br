@@ -1,20 +1,20 @@
 ---
 title: Início rápido do Azure - Executar trabalho do Lote - Portal
-description: Aprenda rapidamente a executar um trabalho do Lote com o portal do Azure.
+description: Saiba como usar o portal do Azure para criar uma conta do Lote, um pool de nós de computação e um trabalho que executa tarefas básicas no pool.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.service: batch
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 294d1658559dd426245cf66a47a8791f8b370533
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 8d725834cb2dd86163909b2ae598e61026ae4bb9
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029422"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024102"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Início Rápido: Executar o primeiro trabalho em Lote no portal do Azure
 

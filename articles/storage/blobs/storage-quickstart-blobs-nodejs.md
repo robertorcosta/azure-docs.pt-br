@@ -3,41 +3,33 @@ title: 'Início Rápido: biblioteca do armazenamento de blobs do Azure v12 – J
 description: Neste início rápido, você aprenderá a usar a biblioteca de clientes do Armazenamento de Blobs do Azure versão 12 para JavaScript para criar um contêiner e um blob no armazenamento de blobs (objeto). Em seguida, você aprenderá como baixar o blob para seu computador local e como listar todos os blobs em um contêiner.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/19/2019
+ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: c8473bff3b6e7d2079bb202befc23e1ada3791eb
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: eabfefbf28b54e4a0a025698f8da48518e7df9bf
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970268"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906449"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v12-for-javascript"></a>Início Rápido: Biblioteca de clientes do Armazenamento de Blobs do Azure v12 para JavaScript
+# <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>Início Rápido: Gerenciar blobs com o SDK do JavaScript v12 no Node.js
 
-Comece a usar a biblioteca de clientes do Armazenamento de Blobs do Azure v12 para JavaScript. O Armazenamento de Blobs do Azure é uma solução de armazenamento de objetos da Microsoft para a nuvem. Siga as etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. O Armazenamento de Blobs é otimizado para armazenar grandes quantidades de dados não estruturados.
-
-> [!NOTE]
-> Para começar a usar a versão anterior do SDK, confira [Início Rápido: biblioteca de clientes do Armazenamento de Blobs do Azure para JavaScript](storage-quickstart-blobs-nodejs-legacy.md).
-
-Use a biblioteca de clientes do Armazenamento de Blobs do Azure v12 para JavaScript para:
-
-* Criar um contêiner
-* Carregar um blob para o Armazenamento do Azure
-* Listar todos os blobs em um contêiner
-* Baixar o blob em seu computador local
-* Excluir um contêiner
+Neste início rápido, você aprenderá a gerenciar blobs usando o Node.js. Os blobs são objetos que podem conter grandes quantidades de texto ou dados binários, incluindo imagens, documentos, mídia de streaming e dados de arquivos. Você carregará, baixará e listará os blobs e criará e excluirá contêineres.
 
 [Documentação de referência da API](/javascript/api/@azure/storage-blob) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Pacote (Gerenciador de pacotes de nós)](https://www.npmjs.com/package/@azure/storage-blob) | [Exemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
-
 ## <a name="prerequisites"></a>Prerequisites
 
-* Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
-* Conta de armazenamento do Azure – [criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* [Node.js](https://nodejs.org/en/download/) atual para o seu sistema operacional.
+- Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Uma conta de armazenamento do Azure. [Criar uma conta de armazenamento](../common/storage-account-create.md).
+- [Node.js](https://nodejs.org/en/download/).
+
+> [!NOTE]
+> Para começar a usar a versão anterior do SDK, confira [Início Rápido: Gerenciar blobs com o SDK do JavaScript v10 no Node.js](storage-quickstart-blobs-nodejs-legacy.md).
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="setting-up"></a>Configurando
 
@@ -96,7 +88,7 @@ No diretório do projeto:
 
 1. Abra outro arquivo de texto novo no editor de código
 1. Adicione chamadas `require` para carregar os módulos do Azure e do Node.js
-1. Crie a estrutura para o programa, incluindo uma manipulação de exceção muito básica
+1. Crie a estrutura do programa, incluindo um tratamento de exceções básico
 
     O código é o seguinte:
 
@@ -232,7 +224,7 @@ for await (const blob of containerClient.listBlobsFlat()) {
 
 ### <a name="download-blobs"></a>Baixar blobs
 
-Baixe o blob criado anteriormente chamando o método [download](/javascript/api/@azure/storage-blob/blockblobclient#download-undefined---number--undefined---number--blobdownloadoptions-). O exemplo de código inclui uma função auxiliar chamada `streamToString`, que é usada para ler um fluxo legível do Node.js em uma cadeia de caracteres.
+Baixe o blob criado anteriormente chamando o método [download](/javascript/api/@azure/storage-blob/blockblobclient#download-undefined---number--undefined---number--blobdownloadoptions-). O exemplo de código inclui uma função auxiliar chamada `streamToString`, usada para ler um fluxo legível do Node.js em uma cadeia de caracteres.
 
 Adicione este código ao final da função `main`:
 
@@ -314,7 +306,7 @@ Percorra o código em seu depurador e verifique o [portal do Azure](https://port
 
 Neste início rápido você aprendeu a carregar, baixar e listar blobs usando JavaScript.
 
-Para obter tutoriais, amostras, inícios rápidos e outros tipos de documentação, visite:
+Para obter tutoriais, amostras, inícios rápidos e outros tipos de documentação, acesse:
 
 > [!div class="nextstepaction"]
 > [Documentação do Azure para JavaScript](/azure/javascript/)

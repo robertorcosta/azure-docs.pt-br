@@ -11,18 +11,17 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: f9624f516d5f38f1db02c6a103c40d01f8dc26ca
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: fea3440dd7c017b85d6fffa2ec0fe5d26cd98b97
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702699"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022164"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Tutorial:  Personalizar o painel do operador e gerenciar dispositivos no Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-Este tutorial mostra a você, como construtor, como personalizar o painel do operador no aplicativo de análise na loja do Azure IoT Central. Os operadores do aplicativo podem usar o painel personalizado para executar o aplicativo e gerenciar os dispositivos anexados.
+Neste tutorial, como construtor, saiba como personalizar o painel do operador no aplicativo de análise na loja do Azure IoT Central. Os operadores do aplicativo podem usar o painel personalizado para executar o aplicativo e gerenciar os dispositivos anexados.
 
 Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
@@ -33,14 +32,14 @@ Neste tutorial, você aprenderá como:
 > * Adicionar blocos de propriedade para exibir detalhes do dispositivo
 > * Adicionar blocos de comando para executar comandos
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
-Antes de começar esse tutorial, o construtor deve concluir o primeiro tutorial para criar o aplicativo de análise na loja do Azure IoT Central e adicionar dispositivos:
+O construtor deve concluir o tutorial para criar o aplicativo de análise na loja do Azure IoT Central e adicionar dispositivos:
 
 * [Criar um aplicativo de análise na loja no Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md) (Obrigatório)
 
 ## <a name="change-the-dashboard-name"></a>Alterar o nome do painel
-Para personalizar o painel do operador, edite o painel padrão em seu aplicativo. Opcionalmente, você pode criar novos painéis adicionais. A primeira etapa para personalizar o painel no aplicativo é por meio da alteração do nome.
+Para personalizar o painel do operador, é necessário editar o painel padrão no aplicativo. Além disso, você pode criar painéis adicionais. A primeira etapa para personalizar o painel no aplicativo é por meio da alteração do nome.
 
 1. Navegue até o site do [Gerenciador de aplicativos do Azure IoT Central](https://aka.ms/iotcentral).
 
@@ -54,7 +53,7 @@ Para personalizar o painel do operador, edite o painel padrão em seu aplicativo
 
 1. Insira um nome amigável para o painel em **Nome do painel**. Este tutorial usa uma empresa fictícia chamada Contoso e o nome do painel de exemplo é *Painel da Contoso*. 
 
-1. Clique em **Salvar**. Essa ação salva as alterações do painel e desabilita o modo de edição.
+1. Clique em **Salvar**. As alterações são salvas no painel e o modo de edição é desabilitado.
 
     ![Alterar nome do painel – Azure IoT Central](./media/tutorial-in-store-analytics-customize-dashboard-pnp/dashboard-change-name.png)
 
@@ -93,7 +92,7 @@ Para personalizar o bloco de imagem que exibe um mapa das zonas abrangidas pelo 
 
     ![Salvar mapa da loja – Azure IoT Central](./media/tutorial-in-store-analytics-customize-dashboard-pnp/store-map-save.png)
 
-    O mapa da loja Contoso de exemplo mostra quatro zonas: duas zonas de finalização de compras, uma zona de vestuário e cuidados pessoais e uma zona de mercearia e rotisseria. Neste tutorial, você associará sensores a essas zonas para fornecer telemetria.
+    O mapa da loja Contoso de exemplo mostra quatro zonas: duas zonas de finalização de compras, uma zona de vestuário e cuidados pessoais e uma zona de mercearia e rotisseria. Neste tutorial, você associará sensores a essas zonas para fornecer a telemetria.
 
     ![Zonas da loja – Azure IoT Central](./media/tutorial-in-store-analytics-customize-dashboard-pnp/store-zones.png)
 
@@ -185,7 +184,7 @@ Para editar o bloco **Tráfego de pessoas** para exibir a telemetria para apenas
 
 1. Em **Telemetria**, escolha **contagem 1**, **contagem 2** e **contagem 3**. 
 
-1. Escolha **Atualizar configuração**. Essa ação limpará a configuração que está no bloco. 
+1. Escolha **Atualizar configuração**. Isso limpará a configuração do bloco. 
 
 1. Escolha novamente **Configurar** no bloco **Tráfego de pessoas**.
 
@@ -248,7 +247,7 @@ Para adicionar um bloco de comando para reinicializar o gateway:
 1. Opcionalmente, escolha o bloco **Reinicializar** para executar o comando de reinicialização no gateway.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 * Alterar o nome do painel
 * Personalizar blocos de imagem no painel

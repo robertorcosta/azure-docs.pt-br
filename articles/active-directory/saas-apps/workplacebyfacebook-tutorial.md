@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: edb543a85779fb083b6990a58dc5ec0b8ef3eb9c
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: c58ff181ec144dcd0b1089b0e53f868f241be73f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291406"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985247"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Workplace by Facebook
 
@@ -50,7 +50,7 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 * O Workplace by Facebook dá suporte a **provisionamento Just-In-Time**
 * O Workplace by Facebook dá suporte a **[provisionamento de usuário automático](workplacebyfacebook-provisioning-tutorial.md)**
 * Agora, o aplicativo móvel do Workplace by Facebook pode ser configurado com o Azure AD para habilitar o SSO. Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
-* Após configurar o Workplace by Facebook, você poderá impor controles de sessão, que protegem o vazamento e a infiltração de dados confidenciais de sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Depois de configurar o Workplace by Facebook, você poderá impor controles de sessão, que fornecem proteção contra exportação e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-workplace-by-facebook-from-the-gallery"></a>Adicionar o Workplace by Facebook da Galeria
 
@@ -248,4 +248,3 @@ Quando você clica no bloco Workplace by Facebook no painel de acesso, você dev
 
 - [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Como proteger o Workplace by Facebook com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

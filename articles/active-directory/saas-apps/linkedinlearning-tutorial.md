@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cf5f8d79c2f416ea0c00064fecc8fd6008ae047
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 15509866980cdf85f54fc03cb77eed36f83c982f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71119838"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983360"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-linkedin-learning"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao LinkedIn Learning
 
@@ -33,7 +32,7 @@ Neste tutorial, você aprenderá a integrar o LinkedIn Learning ao Azure AD (Azu
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para começar, você precisará dos seguintes itens:
 
@@ -46,6 +45,7 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 * O LinkedIn Learning é compatível com SSO iniciado por **SP e IDP**
 * O LinkedIn Learning dá suporte ao provisionamento de usuário **Just-In-Time**
+* Após configurar o LinkedIn Learning, você poderá impor controles de sessão, que protegem contra o vazamento e a infiltração de dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-linkedin-learning-from-the-gallery"></a>Adicionando o LinkedIn Learning da galeria
 
@@ -181,3 +181,4 @@ Ao clicar no bloco do LinkedIn Learning no Painel de Acesso, você deverá ser c
 
 - [Experimentar o LinkedIn Learning com o Azure AD](https://aad.portal.azure.com/)
 
+- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

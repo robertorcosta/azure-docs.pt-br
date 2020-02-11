@@ -11,16 +11,16 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 145aa87841c6334f7fa12535103b5e97db9c6918
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 6b89b667855d827acfb7c181da014cd0d0b4bfc4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702035"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022096"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Tutorial: Criar um aplicativo de análise na loja no Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 O tutorial mostra aos criadores de solução como criar um aplicativo de análise na loja do Azure IoT Central. O aplicativo de exemplo é para uma loja de varejo. Trata-se de uma solução para a necessidade comercial comum de monitorar e adaptar-se às condições de ocupação e ambientais.
 
@@ -42,7 +42,7 @@ Neste tutorial, você aprenderá como:
 > * Conectar dispositivos a seu aplicativo
 > * Adicionar regras e ações para monitorar condições
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisa:
 * Uma assinatura do Azure é recomendada. Opcionalmente, você pode usar uma avaliação gratuita de sete dias. Se você não tiver uma assinatura do Azure, poderá criar uma na [página de entrada do Azure](https://aka.ms/createazuresubscription).
@@ -64,24 +64,27 @@ Para criar um novo aplicativo Azure IoT Central:
 
 1. Selecione **Varejo**.  A página de varejo exibe vários modelos de aplicativos de varejo.
 
-Para criar um aplicativo de finalização de compra de análise na loja que usa recursos de versão prévia:  
+Para criar um aplicativo de check-out de análise na loja:  
 
 1. Selecione o modelo de aplicativo **Análise na loja – finalização de compra**. Esse modelo inclui modelos de dispositivo para todos os dispositivos usados no tutorial, exceto sensores RuuviTag. O modelo também fornece um dashboard do operador para monitorar as condições de finalização de compra e do ambiente e o status do dispositivo. 
 
-1. Opcionalmente, escolha um **Nome de aplicativo** amigável. Esse aplicativo se baseia em um loja de varejo fictícia chamado Contoso. O tutorial usa o **Nome do aplicativo** *Finalização de compra da Contoso*. O modelo de aplicativo é baseado na empresa fictícia Northwind. Neste tutorial, você usa a Contoso para aprender a personalizar o aplicativo.
+1. Opcionalmente, escolha um **Nome de aplicativo** amigável. Esse aplicativo se baseia em um loja de varejo fictícia chamado Contoso. O tutorial usa o **Nome do aplicativo** *Check-out da Contoso*. O modelo de aplicativo é baseado na empresa fictícia Northwind. Neste tutorial, você usa a Contoso para aprender a personalizar o aplicativo.
 
     > [!NOTE]
     > Se você usar um **Nome de aplicativo** amigável, ainda deverá usar um valor exclusivo para a **URL** do aplicativo.
 
 1. Se você tiver uma assinatura do Azure, insira seu *Diretório, assinatura do Azure e Região*. Se você não tiver uma assinatura, poderá habilitar a **avaliação gratuita de sete dias** e preencher as informações de contato necessárias.  
 
-    Para obter mais informações sobre assinaturas e diretórios, consulte o [criar um início rápido de aplicativo](../preview/quick-deploy-iot-central.md).
+    Para obter mais informações sobre assinaturas e diretórios, consulte o [criar um início rápido de aplicativo](../core/quick-deploy-iot-central.md).
 
 1. Selecione **Criar**.
 
     ![Página Criar aplicativo do Azure IoT Central](./media/tutorial-in-store-analytics-create-app-pnp/preview-application-template.png)
 
+    ![Informações de cobrança de Criar Aplicativo do Azure IoT Central](./media/tutorial-in-store-analytics-create-app-pnp/preview-application-template-billinginfo.png)
+
 ## <a name="customize-application-settings"></a>Personalizar configurações de aplicativo
+
 Como um criador, você pode alterar várias configurações para personalizar a experiência do usuário em seu aplicativo. Nesta seção, você selecionará um tema de aplicativo predefinido. Opcionalmente, você aprenderá a criar um tema personalizado e a atualizar a imagem do aplicativo. Um tema personalizado permite definir as cores do navegador de aplicativos, o ícone do navegador e o logotipo do aplicativo que aparece no cabeçalho.
 
 Para selecionar um tema de aplicativo predefinido:
@@ -160,7 +163,7 @@ Em segundo lugar, personalize os modelos de dispositivo adicionando as proprieda
 
 Em terceiro lugar, personalize os modelos de dispositivo criando exibições personalizadas. As exibições oferecem uma maneira de os operadores visualizarem a telemetria e os metadados para os dispositivos, como métricas de dispositivo e integridade.
 
-Aqui, você usa os dois primeiros métodos para personalizar o modelo de dispositivo para os sensores RuuviTag. Para obter informações sobre como criar modos de exibição para seus sensores, confira o guia de início rápido [Adicionar um dispositivo simulado a seu aplicativo IoT Central](../preview/quick-create-pnp-device.md).
+Aqui, você usa os dois primeiros métodos para personalizar o modelo de dispositivo para os sensores RuuviTag. Para obter informações sobre como criar modos de exibição para seus sensores, confira o guia de início rápido [Adicionar um dispositivo simulado a seu aplicativo IoT Central](../core/quick-create-pnp-device.md).
 
 Para personalizar as interfaces internas do modelo de dispositivo RuuviTag:
 
@@ -200,7 +203,7 @@ Especifique os seguintes valores para criar uma propriedade personalizada para a
 
 1. Insira o valor *Local* para o **Nome de Exibição**. Esse valor é copiado automaticamente para o campo **Nome**, que é um nome amigável para a propriedade. Você pode usar o valor copiado ou alterá-lo.
 
-1. Selecione *Cadeia de Caracteres* na lista suspensa **Esquema**. Um tipo de cadeia de caracteres permite que você associe uma cadeia de caracteres de nome de local a qualquer dispositivo com base no modelo. Por exemplo, você pode associar uma área em uma loja a cada dispositivo. Opcionalmente, você pode definir o **Tipo Semântico** de sua propriedade como *Local* e isso define automaticamente o **Esquema** como *Ponto Geográfico*. Isso permite que você associe coordenadas de GPS a um dispositivo. 
+1. Selecione *Cadeia de Caracteres* na lista suspensa **Esquema**. Um tipo de cadeia de caracteres permite que você associe uma cadeia de caracteres de nome de local a qualquer dispositivo com base no modelo. Por exemplo, você pode associar uma área em uma loja a cada dispositivo. Opcionalmente, você pode definir o **Tipo Semântico** de sua propriedade como *Local* e isso define automaticamente o **Esquema** como *Ponto Geográfico*. Ele permite que você associe as coordenadas de GPS a um dispositivo. 
 
 1. Defina **Comprimento Mínimo** como *2*. 
 
@@ -225,10 +228,10 @@ Para este tutorial, você usa o seguinte conjunto de dispositivos reais e simula
 > [!NOTE]
 > Se você não tiver dispositivos reais, ainda poderá concluir este tutorial criando sensores RuuviTag simulados. As instruções a seguir incluem etapas para criar um RuuviTag simulado. Você não precisa criar um gateway simulado.
 
-Conclua as etapas nos dois artigos a seguir para conectar um gateway Rigado real e sensores RuuviTag. Depois de terminar, retorne a este tutorial. Como você já criou modelos de dispositivo neste tutorial, não é necessário criá-los novamente no conjunto de instruções a seguir.
+Conclua as etapas nos dois artigos a seguir para conectar um gateway Rigado real e sensores RuuviTag. Depois de terminar, retorne a este tutorial. Como você já criou modelos de dispositivo neste tutorial, não precisará criá-los novamente no conjunto de instruções a seguir.
 
-- Para conectar um gateway Rigado, confira [Conectar um Rigado Cascade 500 a seu aplicativo do Azure IoT Central](../preview/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json).
-- Para conectar sensores RuuviTag, confira [Conectar um sensor RuuviTag a seu aplicativo do Azure IoT Central](../preview/howto-connect-ruuvi.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json). Você também pode usar estas instruções para criar dois sensores simulados, se necessário.
+- Para conectar um gateway Rigado, confira [Conectar um Rigado Cascade 500 a seu aplicativo do Azure IoT Central](../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json).
+- Para conectar sensores RuuviTag, confira [Conectar um sensor RuuviTag a seu aplicativo do Azure IoT Central](../core/howto-connect-ruuvi.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json). Você também pode usar estas instruções para criar dois sensores simulados, se necessário.
 
 ## <a name="add-rules-and-actions"></a>Adicionar regras e ações
 Como parte do uso de sensores em seu aplicativo do Azure IoT Central para monitorar condições, você pode criar regras para executar ações quando determinadas condições forem atendidas. Uma regra é associada a um modelo de dispositivo e um ou mais dispositivos e contém condições que devem ser atendidas com base em eventos ou telemetria do dispositivo. Uma regra também tem uma ou mais ações associadas. As ações podem incluir o envio de notificações por email ou o disparo de uma ação de webhook para enviar dados a outros serviços. O modelo de aplicativo de **Análise na loja – finalização de compra** inclui algumas regras predefinidas para os dispositivos no aplicativo.
@@ -247,7 +250,7 @@ Para criar uma regra:
 
 1. Escolha o modelo de dispositivo RuuviTag em **Escopos**. A regra que você definir será aplicada a todos os sensores com base nesse modelo. Opcionalmente, você pode criar um filtro que aplicaria a regra somente a um subconjunto definido dos sensores. 
 
-1. Escolha `Relative humidity` como a **Telemetria**. Essa é a funcionalidade de dispositivo que você personalizou em uma etapa anterior.
+1. Escolha `Relative humidity` como a **Telemetria**. Essa é a funcionalidade do dispositivo que você personalizou em uma etapa anterior.
 
 1. Escolha `Is greater than` como o **Operador**. 
 
@@ -274,7 +277,7 @@ Para adicionar uma ação à regra:
     Em alguns minutos, a conta de email especificada deve começar a receber emails. O aplicativo envia email sempre que um sensor indica que o nível de umidade excedeu o valor em sua condição.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 * Use o modelo de **Análise na loja – finalização de compra** do Azure IoT Central modelo para criar um aplicativo de loja de varejo
 * Personalizar as configurações de aplicativo

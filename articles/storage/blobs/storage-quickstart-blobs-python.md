@@ -3,41 +3,33 @@ title: 'Início Rápido: biblioteca do armazenamento de Blobs do Azure v12 – P
 description: Neste início rápido, você aprenderá a usar a biblioteca de clientes do Armazenamento de Blobs do Azure versão 12 para Python para criar um contêiner e um blob no Armazenamento de blobs (objeto). Em seguida, você aprenderá como baixar o blob para seu computador local e como listar todos os blobs em um contêiner.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: faa73874d7e662eb23e85d46ecaf21a11d10ce73
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 03f298b49e6a1eba84e8adf5ca6039df0bfe1abd
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443746"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906423"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v12-for-python"></a>Início Rápido: biblioteca de clientes do Armazenamento de Blobs do Azure v12 para Python
+# <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>Início Rápido: Gerenciar blobs com o SDK do Python v12
 
-Introdução à biblioteca de clientes do Armazenamento de Blobs do Azure v12 para Python. O Armazenamento de Blobs do Azure é uma solução de armazenamento de objetos da Microsoft para a nuvem. Siga as etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. O Armazenamento de Blobs é otimizado para armazenar grandes quantidades de dados não estruturados.
-
-> [!NOTE]
-> Para começar a usar a versão anterior do SDK, confira [Início Rápido: biblioteca de clientes do Armazenamento de Blobs do Azure para Python](storage-quickstart-blobs-python-legacy.md).
-
-Use a biblioteca de clientes do Armazenamento de Blobs do Azure para:
-
-* Criar um contêiner
-* Carregar um blob para o Armazenamento do Azure
-* Listar todos os blobs em um contêiner
-* Baixar o blob em seu computador local
-* Excluir um contêiner
+Neste início rápido, você aprenderá a gerenciar blobs usando o Python. Os blobs são objetos que podem conter grandes quantidades de texto ou dados binários, incluindo imagens, documentos, mídia de streaming e dados de arquivos. Você carregará, baixará e listará os blobs e criará e excluirá contêineres.
 
 [Documentação de referência da API](/python/api/azure-storage-blob) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [Pacote (Índice de Pacote do Python)](https://pypi.org/project/azure-storage-blob/) | [Exemplos](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
-
 ## <a name="prerequisites"></a>Prerequisites
 
-* Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
-* Conta de armazenamento do Azure – [criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* [Python](https://www.python.org/downloads/) para seu sistema operacional – 2.7, 3.5 ou superior
+- Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Uma conta de armazenamento do Azure. [Criar uma conta de armazenamento](../common/storage-account-create.md).
+- [Python](https://www.python.org/downloads/) 2.7, 3.5 ou superior.
+
+> [!NOTE]
+> Para começar a usar a versão anterior do SDK, confira [Início Rápido: Gerenciar blobs com o SDK do Python v2.1](storage-quickstart-blobs-python-legacy.md).
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="setting-up"></a>Configurando
 
@@ -81,7 +73,7 @@ No diretório do projeto:
 
 1. Abra um arquivo de texto novo no editor de código
 1. Adicione instruções `import`
-1. Crie a estrutura para o programa, incluindo uma manipulação de exceção muito básica
+1. Crie a estrutura do programa, incluindo um tratamento de exceções básico
 
     O código é o seguinte:
 
@@ -234,7 +226,7 @@ with open(download_file_path, "wb") as download_file:
 
 O código a seguir limpa os recursos que o aplicativo criou ao remover todo o contêiner usando o método [delete_container](/python/api/azure-storage-blob/azure.storage.blob.containerclient#delete-container---kwargs-). Você também pode excluir arquivos locais se desejar.
 
-O aplicativo pausa a entrada do usuário chamando `input()` antes de excluir o blob, o contêiner e os arquivos locais. Essa é uma boa chance de verificar se os recursos foram realmente criados corretamente antes de serem excluídos.
+O aplicativo pausa a entrada do usuário chamando `input()` antes de excluir o blob, o contêiner e os arquivos locais. Essa é uma boa oportunidade de verificar se os recursos foram criados corretamente antes de serem excluídos.
 
 Adicione este código ao final do bloco `try`:
 
@@ -298,4 +290,4 @@ Para ver os aplicativos de exemplo de armazenamento de blobs, acesse:
 > [Exemplos do SDK do Armazenamento de Blobs do Azure v12 Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
 * Para saber mais, confira o [SDK do Azure para Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/README.md).
-* Para acessar tutoriais, exemplos, inícios rápidos e outras documentações, visite [Azure para Desenvolvedores de Python](/azure/python/).
+* Para acessar tutoriais, exemplos, inícios rápidos e outras documentações, acesse [Azure para Desenvolvedores de Python](/azure/python/).

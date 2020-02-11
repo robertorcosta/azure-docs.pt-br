@@ -6,22 +6,22 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/18/2019
+ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: a262db04e51015edb760a8b04952dfa24b2ad63a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 056b2d2b1951b6630b61bbd6fd8a8c38b272900a
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76748773"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76966815"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
-* Chave inicial.
+* Reconhecimento vocal do Azure – Criar chave de 32 caracteres do recurso e a URL de ponto de extremidade. Crie com o [portal do Azure](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) ou com a [CLI do Azure](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
 * Importe o aplicativo [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) do repositório GitHub cognitive-services-language-understanding.
 * A ID do aplicativo LUIS para o aplicativo TravelAgent importado. A ID do aplicativo é mostrada no painel do aplicativo.
 * A ID da versão no aplicativo que recebe os enunciados. A ID padrão é “0.1”.
-* Linguagem de programação [Node.js](https://nodejs.org/) 
+* Linguagem de programação [Node.js](https://nodejs.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
 
 ## <a name="example-utterances-json-file"></a>Exemplo de arquivo JSON de enunciados
@@ -29,27 +29,26 @@ ms.locfileid: "76748773"
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
 
-## <a name="get-luis-key"></a>Obter chave LUIS
-
-[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
-
 ## <a name="change-model-programmatically"></a>Alterar o modelo de maneira programática
 
-Use Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entidade aprendida pelo computador ao aplicativo. 
+Use Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entidade aprendida pelo computador ao aplicativo.
 
 1. Crie um arquivo chamado `model.js`. Adicione os códigos a seguir:
 
     ```javascript
     var request = require('request');
     var requestpromise = require('request-promise');
-    
+
+    // 32 character key value
     const LUIS_authoringKey = "YOUR-KEY";
+
+    // endpoint example: your-resource-name.api.cognitive.microsoft.com
     const LUIS_endpoint = "YOUR-ENDPOINT";
     const LUIS_appId = "YOUR-APP-ID";
     const LUIS_versionId = "0.1";
     const addUtterancesURI = `https://${LUIS_endpoint}/luis/authoring/v3.0-preview/apps/${LUIS_appId}/versions/${LUIS_versionId}/examples`;
     const addTrainURI = `https://${LUIS_endpoint}/luis/authoring/v3.0-preview/apps/${LUIS_appId}/versions/${LUIS_versionId}/train`;
-    
+
     const utterances = [
             {
               'text': 'go to Seattle today',
@@ -68,17 +67,17 @@ Use Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entida
                 'entityLabels': []
             }
           ];
-    
+
     const main = async() =>{
-    
-    
+
+
         await addUtterance();
         await train("POST");
         await trainStatus("GET");
-    
+
     }
     const addUtterance = async () => {
-    
+
         const options = {
             uri: addUtterancesURI,
             method: 'POST',
@@ -88,48 +87,49 @@ Use Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entida
             json: true,
             body: utterances
         };
-    
+
         const response = await requestpromise(options)
         console.log(response.body);
     }
     const train = async (verb) => {
-    
+
         const options = {
             uri: addTrainURI,
-            method: verb, 
+            method: verb,
             headers: {
                 'Ocp-Apim-Subscription-Key': LUIS_authoringKey
             },
             json: true,
             body: null // The body can be empty for a training request
         };
-    
+
         const response = await requestpromise(options)
         console.log(response.body);
     }
-    
+
     // MAIN
     main().then(() => console.log("done")).catch((err)=> console.log(err returned));
     ```
-1. Substitua os seguintes valores:
 
-    * `YOUR-KEY` com sua chave inicial
-    * `YOUR-ENDPOINT` com seu ponto de extremidade, por exemplo, `westus2.api.cognitive.microsoft.com`
-    * `YOUR-APP-ID` com a ID do seu aplicativo
+1. Substitua os valores que começam com `YOUR-` por seus valores.
+
+    |Informações|Finalidade|
+    |--|--|
+    |`YOUR-KEY`|Sua chave de criação de 32 caracteres.|
+    |`YOUR-ENDPOINT`| Seu ponto de extremidade da URL de criação. Por exemplo, `replace-with-your-resource-name.api.cognitive.microsoft.com`. Você definiu o nome do recurso quando você criou o recurso.|
+    |`YOUR-APP-ID`| Sua ID do aplicativo LUIS. |
+
+    As chaves e os recursos atribuídos estão visíveis no portal do LUIS na seção Gerenciar, na página **recursos do Azure**. A ID do aplicativo está disponível na mesma seção Gerenciar, na página **Configurações do Aplicativo**.
 
 1. Com um prompt de comando no mesmo diretório em que você criou o arquivo, insira o seguinte comando para executar o arquivo:
 
     ```console
     node model.js
-    ```  
-
-## <a name="luis-keys"></a>Chaves de LUIS
-
-[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
+    ```
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivos. 
+Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

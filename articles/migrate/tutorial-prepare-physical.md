@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f81f47349610cd72489df305ccf544c8346cb9b3
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 42eb603be0152b9e8cfb36d02e8f0602c40afe54
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028660"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031196"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Preparar para a avaliação e a migração de servidores físicos para o Azure
 
@@ -41,10 +41,10 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Você precisa configurar permissões para a implantação de Migrações para Azure.
 
-- Permissões para sua conta do Azure para criar um projeto de Migrações para Azure.
-- Permissões para sua para registrar o dispositivo de Migrações para Azure. O dispositivo é usado para descoberta e migração do Hyper-V. Durante o registro do dispositivo, as Migrações para Azure criam dois aplicativos Azure AD (Azure Active Directory) que identificam o dispositivo de forma exclusiva:
-    - O primeiro aplicativo comunica-se com os pontos de extremidade de serviço das Migrações para Azure.
-    - O segundo aplicativo acessa um Azure Key Vault criado durante o registro para armazenar informações de aplicativo do Azure AD e definições de configuração do dispositivo.
+**Tarefa** | **Permissões**
+--- | ---
+**Criar um projeto de Migrações para Azure** | Sua conta do Azure precisa de permissões para criar um projeto.
+**Registrar o dispositivo de Migrações para Azure** | As Migrações para Azure usam um dispositivo leve de Migrações para Azure para descobrir e avaliar servidores físicos com a avaliação de servidor das Migrações para Azure. Esse dispositivo executa a descoberta de servidores e envia os metadados e os dados de desempenho para as Migrações para Azure.<br/><br/>Durante o registro do dispositivo, os provedores de recursos a seguir são registrados com a assinatura escolhida no dispositivo: Microsoft.OffAzure, Microsoft.Migrate e Microsoft.KeyVault. O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. Para registrar os provedores de recursos, você precisa de uma função de Colaborador ou Proprietário na assinatura.<br/><br/> Como parte da integração, as Migrações para Azure criam um aplicativo Microsoft Azure AD (Active Directory):<br/> O aplicativo Azure Active Directory é usado para comunicação (autenticação e autorização) entre os agentes em execução no dispositivo com seus respectivos serviços em execução no Azure. Esse aplicativo não tem privilégios para fazer chamadas do ARM ou acesso RBAC em qualquer recurso.
 
 
 
@@ -61,15 +61,14 @@ Verifique se você tem permissões para criar um projeto de Migrações para Azu
 
 ### <a name="assign-permissions-to-register-the-appliance"></a>Atribuir permissões para registrar o dispositivo
 
-Você pode atribuir permissões para as Migrações para Azure para criar os aplicativos do Azure AD desenvolvidos durante o registro do dispositivo usando um dos seguintes métodos:
+Você pode atribuir permissões para as Migrações para Azure para criar o aplicativo do Azure AD durante o registro do dispositivo usando um dos seguintes métodos:
 
 - Um locatário/administrador global pode conceder permissões a usuários no locatário para criar e registrar aplicativos do Azure AD.
 - Um locatário/administrador global pode atribuir a função de Desenvolvedor de Aplicativos (que tem as permissões) à conta.
 
-Vale a pena observar que:
-
-- Os aplicativos não têm nenhuma outra permissão de acesso na assinatura diferente daquelas descritas acima.
-- Você só precisa dessas permissões ao registrar um novo dispositivo. Você pode remover as permissões depois que o dispositivo está configurado.
+> [!NOTE]
+> - O aplicativo não tem nenhuma outra permissão de acesso na assinatura diferente daquelas descritas acima.
+> - Você só precisa dessas permissões ao registrar um novo dispositivo. Você pode remover as permissões depois que o dispositivo está configurado.
 
 
 #### <a name="grant-account-permissions"></a>Conceder permissões da conta
