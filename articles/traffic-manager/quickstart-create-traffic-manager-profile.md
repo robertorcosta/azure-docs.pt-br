@@ -54,7 +54,7 @@ Para esse início rápido, você precisará implantar duas instâncias de um apl
 
 5. Examine as configurações e, em seguida, clique em **Criar**.  Quando o aplicativo Web é implantado com êxito, ele cria um site da Web padrão.
 
-6. Execute as etapas para criar um segundo aplicativo Web chamado *myWebAppWestEurope*, com o nome de **Grupo de Recursos***myResourceGroupTM2*, uma **Região** *Oeste da Europa*, um **Plano do Serviço de Aplicativo** de **myAppServicePlanWestEurope** e todas as outras configurações iguais às usadas em *myWebAppEastUS*.
+6. Execute as etapas para criar um segundo aplicativo Web chamado *myWebAppWestEurope*, com o nome de **Grupo de Recursos** *myResourceGroupTM2*, uma **Região** *Oeste da Europa*, um **Plano do Serviço de Aplicativo** de **myAppServicePlanWestEurope** e todas as outras configurações iguais às usadas em *myWebAppEastUS*.
 
 ## <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gerenciador de Tráfego
 
