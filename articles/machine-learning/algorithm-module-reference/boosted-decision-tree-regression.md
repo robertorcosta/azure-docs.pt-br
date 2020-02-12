@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: fb3ff990dcc207fd6dff6073c7464b6e410431af
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 5298655437e04736e56193c443b8a770ea929606
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546870"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152407"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Módulo de regressão da árvore de decisão aumentada
 
@@ -93,6 +93,6 @@ Após a conclusão do treinamento:
 
 + Para salvar um instantâneo do modelo treinado, selecione a guia **saídas** no painel direito do **modelo treinado** e clique no ícone **registrar conjunto de registros** . A cópia do modelo treinado será salva como um módulo na árvore de módulo e não será atualizada em execuções sucessivas do pipeline.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

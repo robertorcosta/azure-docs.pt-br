@@ -1,6 +1,6 @@
 ---
 title: Proteger um banco de dados
-description: Dicas para proteger um banco de dados no SQL Data Warehouse do Azure para desenvolvimento de soluções.
+description: Dicas para proteger um banco de dados e desenvolver soluções no recurso de pool de SQL do SQL Analytics.
 services: sql-data-warehouse
 author: julieMSFT
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5eeb1c25264c36909774ec689b7410765881c8e2
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 26cdbb1fc2899d1b03fea6199074467623706c63
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064726"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153274"
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Proteger um banco de dados no SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -27,21 +27,21 @@ ms.locfileid: "77064726"
 > 
 > 
 
-Este artigo apresenta os conceitos básicos da proteção do banco de dados do SQL Data Warehouse do Azure. Especificamente, este artigo apresenta a você recursos para limitar acesso, proteger dados e monitorar atividades em um banco de dados.
+Este artigo explicará as noções básicas de como proteger seu pool SQL na análise de SQL. Em particular, este artigo apresenta os recursos para limitar o acesso, proteger dados e monitorar atividades em um banco de dados provisionado usando o pool do SQL.
 
 ## <a name="connection-security"></a>Segurança da conexão
 A Segurança da Conexão refere-se a como você restringe e protege as conexões com o banco de dados usando regras de firewall e criptografia de conexão.
 
 As regras de firewall são usadas pelo servidor e pelo banco de dados para rejeitar tentativas de conexão de endereços IP que não foram explicitamente na lista de permissões. Para permitir conexões do endereço IP público do seu aplicativo ou computador cliente, você deve primeiro criar uma regra de firewall no nível de servidor usando o portal do Azure, a API REST ou o PowerShell. 
 
-Como prática recomendada, você deve restringir ao máximo os intervalos de endereços IP permitidos por meio do firewall de servidor.  Para acessar o SQL Data Warehouse do Azure de seu computador local, verifique se o firewall em sua rede e computador local permite a comunicação de saída na porta TCP 1433.  
+Como prática recomendada, você deve restringir ao máximo os intervalos de endereços IP permitidos por meio do firewall de servidor.  Para acessar o pool do SQL do seu computador local, verifique se o firewall na rede e no computador local permite a comunicação de saída na porta TCP 1433.  
 
-O Azure Synapse usa regras de firewall de IP no nível de servidor. Ele não dá suporte a regras de firewall de IP no nível de banco de dados. Para obter mais informações, consulte [regras de firewall do banco de dados SQL do Azure](../sql-database/sql-database-firewall-configure.md)
+O Azure Synapse Analytics usa regras de firewall de IP no nível de servidor. Ele não dá suporte a regras de firewall de IP no nível de banco de dados. Para obter mais informações, consulte [regras de firewall do banco de dados SQL do Azure](../sql-database/sql-database-firewall-configure.md)
 
-As conexões com o SQL Data Warehouse são criptografadas por padrão.  A modificação das configurações de conexão para desabilitar a criptografia é ignorada.
+As conexões com o pool SQL são criptografadas por padrão.  A modificação das configurações de conexão para desabilitar a criptografia é ignorada.
 
 ## <a name="authentication"></a>Autenticação
-A Autenticação refere-se a como você comprova sua identidade durante a conexão com o banco de dados. Atualmente, o SQL Data Warehouse dá suporte à Autenticação do SQL Server com um nome de usuário e senha, e com Azure Active Directory. 
+A Autenticação refere-se a como você comprova sua identidade durante a conexão com o banco de dados. Atualmente, o pool do SQL dá suporte à autenticação SQL Server com um nome de usuário e uma senha e com Azure Active Directory. 
 
 Quando você criou o servidor lógico do banco de dados, especificou um logon de "administrador de servidor" com um nome de usuário e uma senha. Usando essas credenciais, é possível se autenticar em qualquer banco de dados nesse servidor como o proprietário do banco de dados, ou "dbo", por meio da Autenticação do SQL Server.
 
@@ -55,7 +55,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'Str0ng_password';
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
-Em seguida, conecte o **banco de dados do SQL Data Warehouse** com seu logon de administrador do servidor e crie um usuário do banco de dados com base no logon do servidor que você criou.
+Em seguida, conecte-se ao **banco de dados do pool SQL** com o logon de administrador do servidor e crie um usuário de banco de dados com base no logon do servidor que você criou.
 
 ```sql
 -- Connect to SQL DW database and create a database user
@@ -98,4 +98,4 @@ No Banco de Dados SQL, a chave de criptografia do banco de dados é protegida po
 Você pode criptografar seu banco de dados usando o [portal do Azure](sql-data-warehouse-encryption-tde.md) ou o [T-SQL](sql-data-warehouse-encryption-tde-tsql.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter detalhes e exemplos sobre como se conectar ao seu warehouse com protocolos diferentes, consulte [conectar-se a SQL data warehouse](sql-data-warehouse-connect-overview.md).
+Para obter detalhes e exemplos sobre como se conectar ao seu warehouse com protocolos diferentes, consulte [conectar-se ao pool do SQL](sql-data-warehouse-connect-overview.md).

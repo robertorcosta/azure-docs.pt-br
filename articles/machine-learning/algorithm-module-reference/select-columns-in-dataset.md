@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 6e78cbdd9cd921db2340a92c46a9337ac0fc98eb
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 714148815fa4ff543ecbf86ab21e8d51fe775543
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311845"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153767"
 ---
 # <a name="select-columns-in-dataset-module"></a>Selecionar colunas no módulo DataSet
 
-Este artigo descreve um módulo no designer de Azure Machine Learning.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para escolher um subconjunto de colunas a ser usado em operações de downstream. O módulo não remove fisicamente as colunas do conjunto de fonte de origem; em vez disso, ele cria um subconjunto de colunas, assim como uma *exibição* ou *projeção*de banco de dados.
 
@@ -110,6 +110,6 @@ Por exemplo, em um conjunto de linhas com as colunas Col1, Col2, Col3 e COL4, vo
 + `4,3,1`
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

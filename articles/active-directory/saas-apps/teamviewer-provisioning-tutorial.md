@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: Zhchia
-ms.openlocfilehash: ba7afb506a21df7fc2fe4cc4b7194549b6efde83
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 0602757fad0eb4424e10fb0c1cf0272826ed0024
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77050558"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150690"
 ---
 # <a name="tutorial-configure-teamviewer-for-automatic-user-provisioning"></a>Tutorial: configurar o TeamViewer para provisionamento automático de usuário
 
@@ -34,13 +34,14 @@ Este tutorial descreve as etapas que você precisa executar tanto no TeamViewer 
 > * Manter os atributos de usuário sincronizados entre o Azure AD e o TeamViewer
 > * [Logon único](https://docs.microsoft.com/azure/active-directory/saas-apps/teamviewer-tutorial) no TeamViewer (recomendado)
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
 * [Um locatário do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
 * Uma conta de usuário no Azure AD com [permissão](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar o provisionamento (por exemplo, administrador de aplicativos, administrador de aplicativos de nuvem, proprietário do aplicativo ou administrador global). 
-* Uma conta do TeamViewer com permissões de administrador.
+* Uma licença válida do [tensor](https://www.teamviewer.com/de/teamviewer-tensor/) para o TeamViewer.
+* Um identificador personalizado válido da configuração de [logon único](https://community.teamviewer.com/t5/Knowledge-Base/Single-Sign-On-with-Azure-Active-Directory/ta-p/60209#toc-hId--473669723) disponível.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Etapa 1. Planejar sua implantação de provisionamento
 1. Saiba mais sobre [como o serviço de provisionamento funciona](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
@@ -49,7 +50,7 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 
 ## <a name="step-2-configure-teamviewer-to-support-provisioning-with-azure-ad"></a>Etapa 2. Configurar o TeamViewer para dar suporte ao provisionamento com o Azure AD
 
-1. Faça logon no console de administração do aplicativo do TeamViewer. Navegue até **Editar perfil**.
+1. Faça logon no [console de gerenciamento do TeamViewer](https://login.teamviewer.com). Navegue até **Editar perfil**.
 
     ![Console de administração do TeamViewer](./media/teamviewer-provisioning-tutorial/admin.png)
 
@@ -108,13 +109,13 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Selecione **Salvar**.
+7. Clique em **Salvar**.
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários com o TeamViewer**.
 
 9. Examine os atributos de usuário que são sincronizados do Azure AD para o TeamViewer na seção de **mapeamento de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no TeamViewer para operações de atualização. Se você optar por alterar o [atributo de destino correspondente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), será necessário garantir que a API do TeamViewer dê suporte à filtragem de usuários com base nesse atributo. Selecione o botão **Salvar** para confirmar as alterações.
 
-   |Atributo|Tipo|
+   |Atributo|Type|
    |---|---|
    |userName|String|
    |displayName|String|
@@ -148,6 +149,6 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
 * [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)

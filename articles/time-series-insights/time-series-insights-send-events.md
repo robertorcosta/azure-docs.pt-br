@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 02/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: b9d64c347881f78e832a39bca8404fdad98cbf17
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: c3c7f59ecb3a06d80012917e2da4425a899859d7
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76981099"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152509"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Enviar eventos para um ambiente do Time Series Insights usando um hub de eventos
 
@@ -73,12 +73,18 @@ A atualização do Time Series Insights usa instâncias para adicionar dados con
 
     [![copiar o valor da cadeia de conexão de chave primária](media/send-events/configure-sample-code-connection-string.png)](media/send-events/configure-sample-code-connection-string.png#lightbox)
 
-1. Ir para https://tsiclientsample.azurewebsites.net/windFarmGen.html. A URL executa dispositivos de moinho simulados.
+1. Ir para https://tsiclientsample.azurewebsites.net/windFarmGen.html. A URL cria e executa dispositivos simulados do Windmill.
 1. Na caixa **cadeia de conexão do hub de eventos** na página da Web, Cole a cadeia de conexão que você copiou no [campo de entrada Windmill](#push-events-to-windmills-sample).
   
     [![colar a cadeia de conexão de chave primária na caixa Cadeia de conexão do hub de eventos](media/send-events/configure-wind-mill-sim.png)](media/send-events/configure-wind-mill-sim.png#lightbox)
 
-1. Selecione **Clique para iniciar**. O simulador gera uma instância JSON que você pode usar diretamente.
+1. Selecione **Clique para iniciar**. 
+
+    > [!TIP]
+    > O simulador do Windmill também cria JSON que você pode usar como uma carga com as [APIs de consulta do time Series insights GA](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
+
+    > [!NOTE]
+    > O simulador continuará a enviar dados até que a guia navegador seja fechada.
 
 1. Volte ao seu hub de eventos no portal do Azure. Na página **visão geral** , os novos eventos recebidos pelo hub de eventos são exibidos.
 
@@ -195,7 +201,7 @@ A atualização do Time Series Insights usa instâncias para adicionar dados con
     |Oeste dos EUA|manufacturer1|Leste dos EUA|device1|2016-01-08T01:08:00Z|pressão|psi|108.09|
     |Oeste dos EUA|manufacturer1|Leste dos EUA|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Exiba seu ambiente](https://insights.timeseries.azure.com) no time Series insights Explorer.
 

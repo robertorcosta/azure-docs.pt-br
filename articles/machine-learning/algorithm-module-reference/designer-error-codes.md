@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 12/03/2019
-ms.openlocfilehash: a6aeb4022ee7cbce465f88a246303f80acfb883b
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: cf343773695275bc5600ab59e1cd719374d65700
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311658"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152356"
 ---
-# <a name="exceptions-and-error-codes-for-the-designer"></a>Exceções e códigos de erro para o designer
+# <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Exceções e códigos de erro para o designer (versão prévia)
 
-Este artigo descreve as mensagens de erro e os códigos de exceção no designer de Azure Machine Learning para ajudá-lo a solucionar problemas de pipelines do Machine Learning.
+Este artigo descreve as mensagens de erro e os códigos de exceção no designer de Azure Machine Learning (versão prévia) para ajudá-lo a solucionar problemas de pipelines do Machine Learning.
 
 Há duas maneiras de obter o texto completo de uma mensagem de erro no designer:  
 
@@ -1066,7 +1066,7 @@ A mensagem de erro do hive normalmente é relatada de volta no log de erros para
 + Verifique se a consulta funciona corretamente fora do Azure Machine Learning fazendo logon no console do hive do seu cluster Hadoop e executando a consulta.  
 + Tente inserir comentários no script do hive em uma linha separada, em vez de misturar instruções e comentários executáveis em uma única linha.  
 
-### <a name="resources"></a>Implante
+### <a name="resources"></a>Recursos
 
 Consulte os artigos a seguir para obter ajuda com consultas de Hive para aprendizado de máquina:
 

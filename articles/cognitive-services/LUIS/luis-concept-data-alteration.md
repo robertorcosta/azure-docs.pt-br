@@ -1,39 +1,30 @@
 ---
 title: Alteração de dados-LUIS
-titleSuffix: Azure Cognitive Services
 description: Saiba como os dados podem ser alterados antes das previsões no LUIS (Reconhecimento vocal)
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.author: diberry
-ms.openlocfilehash: 1bde70dadbe1e5b8ba9bf90bd9ca2f48a4c65491
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/11/2020
+ms.openlocfilehash: 5547724a6333d248a7ba4e9aeecaaa8f331feb7d
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381793"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148259"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Alterar os dados de declaração antes ou durante a previsão
-O LUIS fornece maneiras de manipular a declaração antes ou durante a previsão. Isso inclui a [correção ortográfica](luis-tutorial-bing-spellcheck.md)e a correção de problemas de fuso horário para [datetimeV2](luis-reference-prebuilt-datetimev2.md)predefinidos. 
+O LUIS fornece maneiras de manipular a declaração antes ou durante a previsão. Isso inclui a [correção ortográfica](luis-tutorial-bing-spellcheck.md)e a correção de problemas de fuso horário para [datetimeV2](luis-reference-prebuilt-datetimev2.md)predefinidos.
 
 ## <a name="correct-spelling-errors-in-utterance"></a>Corrigir erros de ortografia na declaração
 
-[!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
 
+### <a name="v3-runtime"></a>Tempo de execução v3
 
-O LUIS usa a [API de Verificação Ortográfica do Bing V7](../Bing-Spell-Check/overview.md) para corrigir erros de ortografia na declaração. O LUIS precisa da chave associada a esse serviço. Crie a chave e adicione-a como um parâmetro querystring no [ponto de extremidade](https://go.microsoft.com/fwlink/?linkid=2092356). 
+Pré-processar texto para correções ortográficas antes de enviar o expressão para LUIS. Use o exemplo declarações com a grafia correta para garantir que você obtenha as previsões corretas.
 
-<!--
-You can also correct spelling errors in the **Test** panel by [entering the key](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). The key is kept as a session variable in the browser for the Test panel. Add the key to the Test panel in each browser session you want spelling corrected. 
+Use [verificação ortográfica do Bing](../bing-spell-check/overview.md) para corrigir o texto antes de enviá-lo para Luis.
 
-Usage of the key in the test panel and at the endpoint count toward the [key usage](https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/) quota. LUIS implements Bing Spell Check limits for text length. 
+### <a name="prior-to-v3-runtime"></a>Tempo de execução anterior ao v3
 
--->
+O LUIS usa a [API de Verificação Ortográfica do Bing V7](../Bing-Spell-Check/overview.md) para corrigir erros de ortografia na declaração. O LUIS precisa da chave associada a esse serviço. Crie a chave e adicione-a como um parâmetro querystring no [ponto de extremidade](https://go.microsoft.com/fwlink/?linkid=2092356).
 
 O ponto de extremidade requer dois parâmetros para as correções ortográfica funcionarem:
 
@@ -59,7 +50,7 @@ Quando a [API de Verificação Ortográfica do Bing V7](https://azure.microsoft.
 ```
 
 #### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão V3](#tab/V3)
- 
+
 ```JSON
 {
     "query": "Book a flite to London?",
@@ -76,16 +67,16 @@ Quando a [API de Verificação Ortográfica do Bing V7](https://azure.microsoft.
 }
 ```
 
-* * * 
+* * *
 
 ### <a name="list-of-allowed-words"></a>Lista de palavras permitidas
 A API de verificação ortográfica do Bing usada em LUIS não dá suporte a uma lista de palavras a serem ignoradas durante as alterações de verificação ortográfica. Se você precisar permitir uma lista de palavras ou acrônimos, processe o expressão no aplicativo cliente antes de enviar o expressão para LUIS para previsão de intenção.
 
 ## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>Alterar o fuso horário da entidade datetimeV2 predefinida
-Quando um aplicativo LUIS usa a entidade [datetimeV2](luis-reference-prebuilt-datetimev2.md) predefinida, um valor DateTime pode ser retornado na resposta de previsão. O fuso horário da solicitação é usado para determinar o datetime correto a ser retornado. Se a solicitação for proveniente de um bot ou de outro aplicativo centralizado antes de chegar ao LUIS, corrija o fuso horário que o LUIS usa. 
+Quando um aplicativo LUIS usa a entidade [datetimeV2](luis-reference-prebuilt-datetimev2.md) predefinida, um valor DateTime pode ser retornado na resposta de previsão. O fuso horário da solicitação é usado para determinar o datetime correto a ser retornado. Se a solicitação for proveniente de um bot ou de outro aplicativo centralizado antes de chegar ao LUIS, corrija o fuso horário que o LUIS usa.
 
 ### <a name="endpoint-querystring-parameter"></a>Parâmetro querystring do ponto de extremidade
-O fuso horário é corrigido adicionando o fuso horário do usuário ao [ponto de extremidade](https://go.microsoft.com/fwlink/?linkid=2092356) usando o parâmetro `timezoneOffset`. O valor de `timezoneOffset` deve ser o número positivo ou negativo, em minutos, para alterar a hora.  
+O fuso horário é corrigido adicionando o fuso horário do usuário ao [ponto de extremidade](https://go.microsoft.com/fwlink/?linkid=2092356) usando o parâmetro `timezoneOffset`. O valor de `timezoneOffset` deve ser o número positivo ou negativo, em minutos, para alterar a hora.
 
 |Param|Valor|
 |--|--|
@@ -96,11 +87,11 @@ Se você precisar que o datetimeV2 predefinido ajuste o horário de verão, deve
 
 #### <a name="v2-prediction-endpoint-requesttabv2"></a>[Solicitação de ponto de extremidade de previsão V2](#tab/V2)
 
-Adicionar 60 minutos: 
+Adicionar 60 minutos:
 
 https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?**timezoneOffset=60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}
 
-Remover 60 minutos: 
+Remover 60 minutos:
 
 https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?**timezoneOffset=-60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}
 
@@ -110,16 +101,16 @@ Adicionar 60 minutos:
 
 https://{região}. API. cognitiva. Microsoft. com/Luis/v 3.0-Preview/apps/{appId}/Slots/produção/previsão? consulta = ativar as luzes? **timezoneOffset = 60**& verificação ortográfica = {booliano} & Bing-grafia-check-Subscription-Key = {string} & log = {Boolean}
 
-Remover 60 minutos: 
+Remover 60 minutos:
 
 https://{região}. API. cognitiva. Microsoft. com/Luis/v 3.0-Preview/apps/{appId}/Slots/produção/previsão? consulta = ativar as luzes? **timezoneOffset =-60**& verificação ortográfica = {booliano} & Bing-grafia-check-Subscription-Key = {string} & log = {Boolean}
 
 Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
 ## <a name="c-code-determines-correct-value-of-timezoneoffset"></a>O código em C# determina o valor correto de timezoneOffset
-O código em C# a seguir usa o método [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) da classe [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) para determinar o `timezoneOffset` correto com base na hora do sistema:
+O código em C# a seguir usa o método [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) da classe [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) para determinar o `timezoneOffset` correto com base na hora do sistema:
 
 ```csharp
 // Get CST zone id
@@ -135,7 +126,7 @@ DateTime cstDatetime = TimeZoneInfo.ConvertTimeFromUtc(utcDatetime, targetZone);
 int timezoneOffset = (int)((cstDatetime - utcDatetime).TotalMinutes);
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Corrigir erros de ortografia com este tutorial](luis-tutorial-bing-spellcheck.md)

@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 02/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 58e9b4204e2d563d8e4e1af8353870880f98b065
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
-ms.translationtype: HT
+ms.openlocfilehash: d8c6b68a38d4b60cf7a3194e6a5ded8804cc416f
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133616"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150163"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Criar um gateway de rede virtual com redundância de zona em Zonas de Disponibilidade do Azure
 
@@ -21,27 +21,11 @@ Você pode implantar gateways VPN e ExpressRoute nas zonas de disponibilidade do
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-Você pode usar o PowerShell instalado localmente em seu computador ou o Azure Cloud Shell. Se você optar por instalar e usar o PowerShell localmente, esse recurso exigirá a versão mais recente do módulo do PowerShell.
-
-[!INCLUDE [Cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
-
-### <a name="to-use-powershell-locally"></a>Para usar o PowerShell localmente
-
-Se você estiver usando o PowerShell localmente no seu computador em vez de usar o Cloud Shell, será necessário instalar o módulo do PowerShell 1.0.0 ou superior. Para verificar a versão do PowerShell que você instalou, use o comando a seguir:
-
-```azurepowershell
-Get-Module Az -ListAvailable | Select-Object -Property Name,Version,Path
-```
-
-Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps).
-
-[!INCLUDE [PowerShell login](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
+[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ## <a name="variables"></a>1. declare suas variáveis
 
-Os valores usados para as etapas de exemplo estão listados abaixo. Além disso, alguns dos exemplos usam variáveis declaradas nas etapas. Se você estiver usando estas etapas em seu próprio ambiente, certifique-se de substituir esses valores pelos seus. Ao especificar a localização, verifique se a região especificada é compatível. Consulte mais informações em [Perguntas Frequentes](#faq).
+Declare as variáveis que você quer usar. Use o exemplo a seguir, substituindo os valores existentes pelos seus quando necessário. Se você fechar sua sessão do PowerShell/Cloud Shell a qualquer momento durante o exercício, basta copiar e colar os valores novamente para redeclarar as variáveis. Ao especificar a localização, verifique se a região especificada é compatível. Consulte mais informações em [Perguntas Frequentes](#faq).
 
 ```azurepowershell-interactive
 $RG1         = "TestRG1"
@@ -61,7 +45,7 @@ $GwIPConf1   = "gwipconf1"
 
 ## <a name="configure"></a>2. criar a rede virtual
 
-Crie um grupo de recursos.
+Crie um grupos de recursos.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName $RG1 -Location $Location1

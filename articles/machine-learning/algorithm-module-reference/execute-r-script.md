@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: peterlu
+author: likebupt
+ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 0be7e1ac0f505f227c46e63a80a954a5dd176d66
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 4991fe9fb06d0a49da3e0404f0362c85f15571af
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312270"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152288"
 ---
 # <a name="execute-r-script"></a>Executar script R
 
-Este artigo descreve como usar o módulo **Executar script r** para executar o código r em seu pipeline de Azure Machine Learning designer.
+Este artigo descreve como usar o módulo **Executar script r** para executar o código r em seu pipeline do Azure Machine Learning designer (versão prévia).
 
 Com o R, você pode executar tarefas que atualmente não são suportadas por módulos existentes, como: 
 - Criar transformações de dados personalizadas
@@ -150,7 +150,7 @@ O módulo **Executar script r** dá suporte a arquivos de script r arbitrários 
 
     Se o arquivo de pacote de script contiver uma estrutura de diretório, a estrutura será preservada. No entanto, você deve alterar seu código para preceder o **pacote Directory./script** para o caminho.
 
-### <a name="process-data"></a>Processamento de dados
+### <a name="process-data"></a>Processar dados
 
 O exemplo a seguir mostra como dimensionar e normalizar dados de entrada:
 
@@ -219,7 +219,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ### <a name="pass-r-objects-between-execute-r-script-modules"></a>Passar objetos R entre executar módulos de script R
 
-Você pode passar objetos R entre instâncias do módulo **Executar script r** usando o mecanismo de serialização interna. Este exemplo pressupõe que você deseja mover o objeto do R chamado `A` entre dois módulos **Executar script r** .
+Você pode passar objetos R entre instâncias do módulo **Executar Script R** usando o mecanismo de serialização interna. Este exemplo pressupõe que você deseja mover o objeto do R chamado `A` entre dois módulos **Executar script r** .
 
 1. Adicione o primeiro módulo **Executar script r** ao seu pipeline e digite o seguinte código na caixa de texto **script r** para criar um objeto serializado `A` como uma coluna na tabela de dados de saída do módulo:  
   
@@ -261,27 +261,27 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | assertthat   | 0.2.1      | 
 | backports    | 1.1.4      | 
 | base         | 3.5.1      | 
-| base64enc    | 0.1-3      | 
+| base64enc    | 0,1-3      | 
 | BH           | 1.69.0-1   | 
-| bindr        | 0.1.1      | 
+| associador        | 0.1.1      | 
 | bindrcpp     | 0.2.2      | 
-| bitops       | 1.0-6      | 
+| bitops       | 1,0-6      | 
 | ciar         | 1.3-22     | 
 | broom        | 0.5.2      | 
-| callr        | 3.2.0      | 
-| caret        | 6.0-84     | 
+| chamador        | 3.2.0      | 
+| acento        | 6.0-84     | 
 | caTools      | 1.17.1.2   | 
 | cellranger   | 1.1.0      | 
 | class        | 7.3-15     | 
-| cli          | 1.1.0      | 
+| CLI          | 1.1.0      | 
 | clipe        | 0.6.0      | 
 | cluster      | 2.0.7-1    | 
 | codetools    | 0.2-16     | 
 | colorspace   | 1.4-1      | 
-| {1&gt;compiler&lt;1}     | 3.5.1      | 
-| crayon       | 1.3.4      | 
+| Compiler     | 3.5.1      | 
+| lápis       | 1.3.4      | 
 | curl         | 3.3        | 
-| data.table   | 1.12.2     | 
+| Data. tabela   | 1.12.2     | 
 | conjuntos de dados     | 3.5.1      | 
 | DBI          | 1.0.0      | 
 | dbplyr       | 1.4.1      | 
@@ -298,7 +298,7 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | Genéricos     | 0.0.2      | 
 | ggplot2      | 3.2.0      | 
 | glmnet       | 2.0-18     | 
-| glue         | 1.3.1      | 
+| cola         | 1.3.1      | 
 | gower        | 0.2.1      | 
 | gplots       | 3.0.1.1    | 
 | gráficos     | 3.5.1      | 
@@ -306,37 +306,37 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | grade         | 3.5.1      | 
 | gtable       | 0.3.0      | 
 | gtools       | 3.8.1      | 
-| haven        | 2.1.0      | 
-| highr        | 0.8        | 
+| foram        | 2.1.0      | 
+| mais alto        | 0.8        | 
 | hms          | 0.4.2      | 
 | htmltools    | 0.3.6      | 
 | httr         | 1.4.0      | 
 | ipred        | 0,9-9      | 
 | iteradores    | 1.0.10     | 
 | jsonlite     | 1.6        | 
-| KernSmooth   | 2.23-15    | 
+| KernSmooth   | -2, 23E-15    | 
 | knitr        | 1.23       | 
 | rotulando     | 0.3        | 
-| lattice      | 0,20-38    | 
+| malha      | 0,20-38    | 
 | lava         | 1.6.5      | 
 | lazyeval     | 0.2.2      | 
 | lubridate    | 1.7.4      | 
 | magrittr     | 1.5        | 
-| markdown     | 1          | 
-| MASS         | 7.3-51.4   | 
+| Markdown     | 1          | 
+| EM massa         | 7.3-51.4   | 
 | Matriz       | 1.2-17     | 
 | métodos      | 3.5.1      | 
 | mgcv         | 1.8-28     | 
-| mime         | 0,7        | 
+| MIME         | 0,7        | 
 | ModelMetrics | 1.2.2      | 
-| modelr       | 0.1.4      | 
+| modelador       | 0.1.4      | 
 | munsell      | 0.5.0      | 
 | nlme         | 3.1-140    | 
 | nnet         | 7.3-12     | 
 | numDeriv     | 2016.8-1.1 | 
 | openssl      | 1.4        | 
 | parallel     | 3.5.1      | 
-| pillar       | 1.4.1      | 
+| pilares       | 1.4.1      | 
 | pkgconfig    | 2.0.2      | 
 | plogr        | 0.2.0      | 
 | plyr         | 1.8.4      | 
@@ -346,44 +346,44 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | progresso     | 1.2.2      | 
 | ps           | 1.3.0      | 
 | purrr        | 0.3.2      | 
-| quadprog     | 1.5-7      | 
+| quadprog     | 1,5-7      | 
 | quantmod     | 0.4-15     | 
 | R6           | 2.4.0      | 
 | randomForest | 4.6-14     | 
 | RColorBrewer | 1.1-2      | 
 | Rcpp         | 1.0.1      | 
 | RcppRoll     | 0.3.0      | 
-| readr        | 1.3.1      | 
+| leitura        | 1.3.1      | 
 | readxl       | 1.3.1      | 
 | receitas      | 0.1.5      | 
-| rematch      | 1.0.1      | 
+| recorrespondência      | 1.0.1      | 
 | reprex       | 0.3.0      | 
 | reshape2     | 1.4.3      | 
-| reticulate   | 1.12       | 
+| reticulate   | 1,12       | 
 | rlang        | 0.4.0      | 
-| rmarkdown    | 1.13       | 
+| rmarkdown    | 1,13       | 
 | ROCR         | 1.0-7      | 
 | rpart        | 4.1-15     | 
 | rstudioapi   | 0,1        | 
 | rvest        | 0.3.4      | 
 | escalas       | 1.0.0      | 
-| selectr      | 0.4-1      | 
+| Selecione      | 0.4-1      | 
 | espacial      | 7.3-11     | 
 | splines      | 3.5.1      | 
-| SQUAREM      | 2017.10-1  | 
+| QUADRADO      | 2017.10-1  | 
 | stats        | 3.5.1      | 
 | stats4       | 3.5.1      | 
-| stringi      | 1.4.3      | 
-| stringr      | 1.3.1      | 
-| survival     | 2,44-1.1   | 
+| Cadeia de caracteres      | 1.4.3      | 
+| Cadeia de caracteres      | 1.3.1      | 
+| sobrevivência     | 2,44-1.1   | 
 | sys          | 3.2        | 
 | tcltk        | 3.5.1      | 
 | tibble       | 2.1.3      | 
-| tidyr        | 0.8.3      | 
+| limpar        | 0.8.3      | 
 | tidyselect   | 0.2.5      | 
 | tidyverse    | 1.2.1      | 
-| timeDate     | 3043.102   | 
-| tinytex      | 0.13       | 
+| Data de início     | 3043.102   | 
+| tinytex      | 0,13       | 
 | ferramentas        | 3.5.1      | 
 | tseries      | 0,10 a 47    | 
 | TTR          | 0.23-4     | 
@@ -391,15 +391,15 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | utils        | 3.5.1      | 
 | vctrs        | 0.1.0      | 
 | viridisLite  | 0.3.0      | 
-| whisker      | 0.3-2      | 
-| withr        | 2.1.2      | 
+| caixa estreita      | 0.3-2      | 
+| com        | 2.1.2      | 
 | xfun         | 0.8        | 
 | xml2         | 1.2.0      | 
-| xts          | 0.11-2     | 
-| yaml         | 2.2.0      | 
+| XTS          | 0.11-2     | 
+| YAML         | 2.2.0      | 
 | zeallot      | 0.1.0      | 
 | zoológico          | 1.8-6      | 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

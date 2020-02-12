@@ -3,12 +3,12 @@ title: Opções de autenticação do registro
 description: Opções de autenticação para um registro de contêiner do Azure privado, incluindo a entrada com uma identidade de Azure Active Directory, o uso de entidades de serviço e o uso de credenciais de administrador opcionais.
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 384f401a986c58dc6ce63384ce3e2a43b8db27fa
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 5459ac29c1264b18404cb2863b9d4209907ac029
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77029870"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152936"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Autenticar com um Registro de contêiner do Azure
 
@@ -23,7 +23,7 @@ A tabela a seguir lista os métodos de autenticação disponíveis e os cenário
 | Método                               | Como autenticar                                           | Cenários                                                            | RBAC                             | Limitações                                |
 |---------------------------------------|-------------------------------------------------------|---------------------------------------------------------------------|----------------------------------|--------------------------------------------|
 |   de [identidade individual do AD](#individual-login-with-azure-ad)               | `az acr login` em CLI do Azure                             | Push/pull interativo por desenvolvedores, testadores                                    | Sim                              | O token do AD deve ser renovado a cada 3 horas     |
-|   de [entidade de serviço do AD](#service-principal)                 | `docker login`<br/><br/>`az acr login` em CLI do Azure<br/><br/> Configurações de logon do registro em APIs ou ferramentas<br/><br/>      de segredo de pull do kubernetes                                       | Envio autônomo por push do pipeline de CI/CD<br/><br/> Pull autônoma para o Azure ou serviços externos  | Sim                              | A expiração padrão da senha do SP é de 1 ano       |                                                           
+|   de [entidade de serviço do AD](#service-principal)                 | `docker login`<br/><br/>`az acr login` em CLI do Azure<br/><br/> Configurações de logon do registro em APIs ou ferramentas<br/><br/>      de [segredo de pull do kubernetes](container-registry-auth-kubernetes.md)                                       | Envio autônomo por push do pipeline de CI/CD<br/><br/> Pull autônoma para o Azure ou serviços externos  | Sim                              | A expiração padrão da senha do SP é de 1 ano       |                                                           
 | [Integrar com o AKS](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)                    | Anexar registro quando o cluster AKS foi criado ou atualizado  | Pull autônomo para o cluster AKS                                                  | Não, somente acesso de pull             | Disponível somente com o cluster AKS            |
 | [Identidade gerenciada para recursos do Azure](container-registry-authentication-managed-identity.md)  | `docker login`<br/><br/> `az acr login` no CLI do Azure                                       | Push autônomo do pipeline do Azure CI/CD<br/><br/> Pull autônoma para os serviços do Azure<br/><br/>   | Sim                              | Use somente de serviços do Azure que [dão suporte a identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)              |
 |   de [usuário administrador](#admin-account)                           | `docker login`                                          | Push interativo/pull por desenvolvedor individual ou testador                           | Não, sempre acesso de pull e envio por push  | Conta única por registro, não recomendada para vários usuários         |
@@ -89,7 +89,7 @@ Você pode habilitar o usuário administrador no Portal do Azure navegando em se
 
 ![Habilitar a interface do usuário administrador no Portal do Azure][auth-portal-01]
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Enviar sua primeira imagem por push usando a CLI do Azure](container-registry-get-started-azure-cli.md)
 

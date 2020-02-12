@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 2ae8b71a7d48949cd82765112752192aba54521f
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: efe4c07a6231e0b2c95b049db056a4e5d055db98
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680946"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152985"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implantação do git local no serviço Azure App
 
 Este guia de instruções mostra como implantar seu aplicativo no [serviço Azure app](overview.md) de um repositório git em seu computador local.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir as etapas neste guia de instruções:
 
@@ -50,6 +50,9 @@ Para obter a URL para habilitar a implantação do git local para um aplicativo 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
 ```
+> [!NOTE]
+> Se você estiver usando um plano de serviço de aplicativo do Linux, precisará adicionar este parâmetro:--Python de tempo de execução | 3.7
+
 
 Ou, para criar um novo aplicativo habilitado para git, execute [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) no Cloud shell com o parâmetro `--deployment-local-git`. Substitua \<> de nome de aplicativo, \<> de nome de grupo e \<nome do plano > com os nomes de seu novo aplicativo git, seu grupo de recursos do Azure e seu plano de serviço do Azure App.
 
@@ -145,7 +148,7 @@ Você poderá ver as seguintes mensagens de erro comuns ao usar o Git para publi
 |Mensagem|Causa|Resolução
 ---|---|---|
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|O aplicativo não está em funcionamento.|inicie o aplicativo no portal do Azure. A implantação do git não está disponível quando o aplicativo Web é interrompido.|
-|`Couldn't resolve host 'hostname'`|As informações de endereço para o remoto ' Azure ' estão incorretas.|Use o comando `git remote -v` para listar todas as remotas, juntamente com a URL associada. Verifique se a URL do remote do 'azure' está correta. Se necessário, remova e recrie esse remoto usando a URL correta.|
+|`Couldn't resolve host 'hostname'`|As informações de endereço para o remoto ' Azure ' estão incorretas.|use o comando `git remote -v` para listar todos os remotes (remotos), juntamente com a URL associada. Verifique se a URL do remote do 'azure' está correta. Se necessário, remova e recrie esse remoto usando a URL correta.|
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|Você não especificou uma ramificação durante `git push`ou não definiu o valor de `push.default` no `.gitconfig`.|Execute `git push` novamente, especificando o Branch mestre: `git push azure master`.|
 |`src refspec [branchname] does not match any.`|Você tentou enviar por push para um Branch que não seja o mestre no remoto ' Azure '.|Execute `git push` novamente, especificando o Branch mestre: `git push azure master`.|
 |`RPC failed; result=22, HTTP code = 5xx.`|esse erro poderá ocorrer se você tentar efetuar push de um repositório Git de grande porte por HTTPS.|Altere a configuração do git no computador local para tornar o `postBuffer` maior. Por exemplo: `git config --global http.postBuffer 524288000`.|

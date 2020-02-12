@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 6e5c1a1bfc82460ad7e53cc8444a4bb42aa4ef19
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 429ddd62cccb8657aa18ec844968cc12df778f55
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548383"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153784"
 ---
 # <a name="remove-duplicate-rows-module"></a>Remover o módulo de linhas duplicadas
 
@@ -24,7 +24,7 @@ Use este módulo para remover duplicatas potenciais de um conjunto de uma.
 
 Por exemplo, suponha que seus dados sejam semelhantes ao seguinte e representem vários registros para pacientes. 
 
-| PatientID | Initials| Sexo|Idade|Verdade|
+| PatientID | Initials| Gênero|Idade|Verdade|
 |----|----|----|----|----|
 |1|F.M.| M| 53| Jan|
 |2| F.A.M.| M| 53| Jan|
@@ -76,6 +76,6 @@ Quando você executa o módulo, ele cria um conjunto de registros candidato e re
 > [!TIP]
 > Se os resultados forem difíceis de entender ou se você quiser excluir algumas colunas da consideração, poderá remover colunas usando o módulo [selecionar colunas no conjunto de conjuntos](./select-columns-in-dataset.md) de linhas de base.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

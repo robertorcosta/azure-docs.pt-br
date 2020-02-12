@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 0c145c84f9dea3b6212bb6c608eb1a4eb586ff60
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 802d97e2c9b64fd9d8caeaf479af3f4aec356607
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77056811"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153121"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>Migrar recursos de IaaS do clássico para o Azure Resource Manager usando o PowerShell
 Estas etapas mostram como usar os comandos do Azure PowerShell para migrar os recursos de IaaS (infraestrutura como serviço) do modelo de implantação clássico para o Modelo de implantação do Azure Resource Manager.
@@ -125,7 +125,7 @@ Defina sua assinatura do Azure para a sessão atual. Este exemplo define a assin
 <br>
 
 ## <a name="step-5-have-enough-resource-manager-vm-vcpus"></a>Etapa 5: ter vCPUs de VM do Resource Manager suficientes
-Verifique se você tem Azure Resource Manager de máquina virtual suficiente na região do Azure de sua implantação atual ou rede virtual. Você pode usar o seguinte comando do PowerShell para verificar a quantidade atual de vCPUs no Azure Resource Manager. Para saber mais sobre cotas de vCPUs, veja [Limites e o Azure Resource Manager](../../azure-resource-manager/management/azure-subscription-service-limits.md#limits-and-azure-resource-manager).
+Verifique se você tem Azure Resource Manager de máquina virtual suficiente na região do Azure de sua implantação atual ou rede virtual. Você pode usar o seguinte comando do PowerShell para verificar a quantidade atual de vCPUs no Azure Resource Manager. Para saber mais sobre cotas de vCPUs, veja [Limites e o Azure Resource Manager](../../azure-resource-manager/management/azure-subscription-service-limits.md#managing-limits).
 
 Este exemplo verifica a disponibilidade na região **Oeste dos EUA**. Substitua o nome da região de exemplo pelo nome da sua própria região.
 

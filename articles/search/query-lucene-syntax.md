@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,16 +19,19 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 0bb8474b30c05e21a62ded1fa2cb8a6df8e4e321
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d35c96657f48905f37c9ebe246d81ebb9545cf27
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112176"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149874"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintaxe de consulta Lucene no Azure Pesquisa Cognitiva
 
 Você pode escrever consultas no Azure Pesquisa Cognitiva com base na sintaxe do [analisador de consulta do Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) avançada para formulários de consulta especializados: curinga, pesquisa difusa, pesquisa por proximidade, expressões regulares são alguns exemplos. Grande parte da sintaxe do analisador de consulta Lucene é [implementada intacta no azure pesquisa cognitiva](search-lucene-query-architecture.md), com exceção das *pesquisas de intervalo* que são construídas no Azure pesquisa cognitiva por meio de expressões `$filter`. 
+
+> [!NOTE]
+> A sintaxe Lucene completa é usada para expressões de consulta passadas no parâmetro de **pesquisa** da API de [documentos de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) , não deve ser confundida com a [sintaxe OData](query-odata-filter-orderby-syntax.md) usada para o parâmetro [$Filter](search-filters.md) dessa API. Essas sintaxes diferentes têm suas próprias regras para construir consultas, cadeias de caracteres de escape e assim por diante.
 
 ## <a name="how-to-invoke-full-parsing"></a>Como invocar a análise completa
 
@@ -169,7 +172,7 @@ O exemplo a seguir ajuda a ilustrar as diferenças. Considere um perfil de pontu
 >  Não é possível usar um símbolo * ou ? como o primeiro caractere de uma pesquisa.  
 >  Nenhuma análise de texto é executada em consultas de pesquisa curinga. No momento da consulta, os termos da consulta curinga são comparados com os termos analisados no índice de pesquisa e expandidos.
 
-## <a name="see-also"></a>Consulte também  
+## <a name="see-also"></a>Confira também  
 
 + [Pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [Sintaxe de expressão OData para filtros e classificação](query-odata-filter-orderby-syntax.md)   

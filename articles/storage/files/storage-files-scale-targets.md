@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2e05f0cb46e1e54ced5911c0a78dd026dbb7f4fa
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: dcb0ffef0cf48a7bcbfbdb0107999f7e90333559
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905589"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77151982"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Metas de desempenho e escalabilidade do Arquivos do Azure
 
@@ -88,7 +88,7 @@ Para ajudá-lo a planejar a implantação para cada um dos estágios, abaixo sã
 | Número de objetos | 25 milhões de objetos |
 | Tamanho do conjunto de dados| ~ 4,7 TiB |
 | Tamanho médio de arquivo | ~ 200 KiB (maior arquivo: 100 GiB) |
-| Carregue a taxa de transferência | 20 objetos por segundo |
+| Carregue a taxa de transferência | 20 objetos por segundo por grupo de sincronização |
 | Fazer o download do Namespace * | 400 objetos por segundo |
 
 \* Quando um novo ponto de extremidade do servidor é criado, o agente do Azure File Sync não faz o download de nenhum conteúdo do arquivo. Sincronizar primeiro namespace completo e, em seguida, os gatilhos em segundo plano Lembre-se de fazer o download dos arquivos, em sua totalidade ou, se camadas na nuvem está habilitado para a política de camadas de nuvem definido no ponto de extremidade do servidor.
@@ -98,7 +98,7 @@ Para ajudá-lo a planejar a implantação para cada um dos estágios, abaixo sã
 | Número de objetos sincronizados| 125.000 objetos (aproximadamente 1% rotatividade) |
 | Tamanho do conjunto de dados| 50 GiB |
 | Tamanho médio de arquivo | ~500 KiB |
-| Carregue a taxa de transferência | 20 objetos por segundo |
+| Carregue a taxa de transferência | 20 objetos por segundo por grupo de sincronização |
 | Taxa de transferência do Download completo* | 60 objetos por segundo |
 
 *Se nuvem camadas estiver habilitada, provavelmente a observar um desempenho melhor com apenas o arquivo de dados são baixados. Sincronização de arquivos do Azure fazer o download somente os dados de arquivos armazenados em cache quando forem alteradas em qualquer um dos pontos de extremidade. Para todos os arquivos em camadas ou recentemente criados, o agente não baixar os dados de arquivo e em vez disso, apenas o namespace para todos os pontos de extremidade do servidor é sincronizado. O agente também oferece suporte parciais downloads de arquivos em camadas como eles são acessados pelo usuário. 
@@ -111,7 +111,7 @@ Como um guia geral para sua implantação, você deve manter alguns pontos em me
 - A taxa de transferência do objeto é dimensionado aproximadamente proporcionalmente ao número de grupos de sincronização no servidor. Dividir dados em vários grupos de sincronização em um servidor resulta em melhor taxa de transferência, que também é limitada pelo servidor e rede.
 - A taxa de transferência do objeto é inversamente proporcional à MiB por segundo taxa de transferência. Para os arquivos menores, você terá maior taxa de transferência em termos de número de objetos processados por segundo, mas inferior MiB por segundo taxa de transferência. Por outro lado, para arquivos maiores, você terá menos objetos processados por segundo, mas superior MiB por segundo taxa de transferência. A MiB por segundo taxa de transferência é limitada pelos destinos de escala de arquivos do Azure.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md)
 - [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)

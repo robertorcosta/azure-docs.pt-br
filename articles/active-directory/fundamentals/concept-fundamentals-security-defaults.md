@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbb6170aa54c286a5a2d8353c1dd951859fdf8a0
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 023a52f373844e026de0e588e9cd46323abdcf34
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024578"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149823"
 ---
 # <a name="what-are-security-defaults"></a>O que são os padrões de segurança?
 
@@ -74,7 +74,7 @@ Para dar aos usuários acesso fácil aos seus aplicativos de nuvem, o Azure AD d
 
 Hoje, a maior parte do comprometimento de tentativas de entrada é proveniente da autenticação herdada. A autenticação herdada não dá suporte à autenticação multifator. Mesmo que você tenha uma política de autenticação multifator habilitada em seu diretório, um invasor pode se autenticar usando um protocolo mais antigo e ignorar a autenticação multifator. 
 
-Depois que os padrões de segurança são habilitados em seu locatário, todas as solicitações de autenticação feitas por um protocolo mais antigo serão bloqueadas. Os padrões de segurança não bloqueiam o Exchange ActiveSync.
+Depois que os padrões de segurança são habilitados em seu locatário, todas as solicitações de autenticação feitas por um protocolo mais antigo serão bloqueadas. Os padrões de segurança bloqueia Exchange Active Sync autenticação básica.
 
 > [!WARNING]
 > Antes de habilitar os padrões de segurança, verifique se os administradores não estão usando protocolos de autenticação mais antigos. Para obter mais informações, consulte [como sair da autenticação herdada](concept-fundamentals-block-legacy-authentication.md).
@@ -85,7 +85,7 @@ As organizações usam uma variedade de serviços do Azure gerenciados por meio 
 
 - Portal do Azure 
 - Azure PowerShell 
-- Azure CLI
+- CLI do Azure
 
 O uso de Azure Resource Manager para gerenciar seus serviços é uma ação altamente privilegiada. Azure Resource Manager pode alterar configurações de todo o locatário, como configurações de serviço e cobrança de assinatura. A autenticação de fator único é vulnerável a uma variedade de ataques, como phishing e spray de senha. 
 
@@ -108,17 +108,17 @@ As considerações adicionais a seguir estão relacionadas à implantação de p
 
 Os padrões de segurança permitem o registro e o uso da autenticação multifator do Azure **usando apenas o aplicativo Microsoft Authenticator usando notificações**. O acesso condicional permite o uso de qualquer método de autenticação que o administrador escolha para habilitar.
 
-|   | Padrões de segurança | Acesso condicional |
+|   | Padrões de segurança | Acesso Condicional |
 | --- | --- | --- |
 | Notificação pelo aplicativo móvel | X | X |
 | O código de verificação do aplicativo móvel ou token de hardware |   | X |
 | Mensagem de texto para telefone |   | X |
 | Ligue para o telefone |   | X |
-| Senhas do aplicativo |   | X * * |
+| Senhas de aplicativo |   | X * * |
 
 \* * As senhas de aplicativo só estarão disponíveis no MFA por usuário com cenários de autenticação herdados somente se habilitadas pelos administradores.
 
-### <a name="conditional-access"></a>Acesso condicional
+### <a name="conditional-access"></a>Acesso Condicional
 
 Você pode usar o acesso condicional para configurar políticas semelhantes a padrões de segurança, mas com mais granularidade, incluindo exclusões de usuário, que não estão disponíveis em padrões de segurança. Se você estiver usando o acesso condicional e tiver políticas de acesso condicional habilitadas em seu ambiente, os padrões de segurança não estarão disponíveis para você. Se você tiver uma licença que forneça acesso condicional, mas não tiver políticas de acesso condicional habilitadas em seu ambiente, você poderá usar os padrões de segurança até habilitar as políticas de acesso condicional. Mais informações sobre o licenciamento do Azure AD podem ser encontradas na [página de preços do Azure ad](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -156,6 +156,6 @@ Para desabilitar os padrões de segurança em seu diretório:
 1. Defina a alternância **habilitar padrões de segurança** para **não**.
 1. Clique em **Salvar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Políticas de acesso condicional comum](../conditional-access/concept-conditional-access-policy-common.md)

@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 161c6816bbef31142c576f52fd122d9dd8af7883
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
-ms.translationtype: MT
+ms.openlocfilehash: 930ff1abf77c4e28d377daf12174ff3fbb60cf23
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546649"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152237"
 ---
 # <a name="import-data-module"></a>Importar módulo de dados
 
@@ -35,7 +35,7 @@ O módulo **importar dados** dá suporte à leitura de dados das seguintes fonte
     - Compartilhamento de arquivos do Azure
     - Azure Data Lake
     - Azure Data Lake Gen2
-    - Banco de dados SQL do Azure
+    - Banco de Dados SQL do Azure
     - PostgreSQL do Azure    
 
 Antes de usar o armazenamento em nuvem, você precisa registrar um repositório de armazenamento em seu espaço de trabalho Azure Machine Learning primeiro. Para obter mais informações, consulte [como acessar dados](../how-to-access-data.md). 
@@ -88,6 +88,6 @@ Depois de importar os dados, talvez sejam necessários alguns preparativos adici
 
 - Use [Partition e Sample](./partition-and-sample.md) para dividir o conjunto de registros, executar amostragem ou obter as n primeiras linhas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

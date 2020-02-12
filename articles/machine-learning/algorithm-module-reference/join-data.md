@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: peterlu
+author: likebupt
+ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 0d24a0d90671935cb7224f17ffad368d4305020c
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: a154874f4f1026b36da473ba18788fc804609ac9
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548502"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152220"
 ---
 # <a name="join-data"></a>Unir dados
 
@@ -66,6 +66,6 @@ Para executar uma junção em dois conjuntos de valores, eles devem estar relaci
 
 1. Para exibir os resultados, clique com o botão direito do mouse nos **dados de junção** e selecione **Visualizar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

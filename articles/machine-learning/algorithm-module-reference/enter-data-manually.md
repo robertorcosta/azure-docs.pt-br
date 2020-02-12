@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 8db1d782b6f92637ad929ba863a8d24c81280577
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 61c3dde49d4cd298fb3a0f19dc1d8c00e54977af
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548417"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152339"
 ---
 # <a name="enter-data-manually-module"></a>Inserir dados manualmente no módulo
 
@@ -100,6 +100,6 @@ Esse módulo pode ser útil em cenários como estes:
 5.  Conecte a porta de saída a outros módulos e execute o pipeline.  
   
      Para exibir o conjunto de um, clique com o botão direito do mouse no módulo e selecione **Visualizar**.  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

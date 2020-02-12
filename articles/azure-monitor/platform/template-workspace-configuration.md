@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: 9ba4fe318db86760e0dbc326730d03ad09203a88
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 936008a074944c79b8b0bab3beaf3a5aaa5ecc12
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834215"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77151748"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gerenciar Log Analytics espaço de trabalho usando modelos de Azure Resource Manager
 
@@ -38,10 +38,10 @@ Este artigo fornece exemplos de código que ilustram algumas das configurações
 
 A tabela a seguir lista a versão de API para os recursos usados neste exemplo.
 
-| Grupos | Tipo de recurso | Versão da API |
+| Recurso | Tipo de recurso | Versão da API |
 |:---|:---|:---|
 | Workspace   | workspaces    | 2017-03-15-preview |
-| Pesquisa      | savedSearches | 2015-03-20 |
+| Search      | savedSearches | 2015-03-20 |
 | Fonte de dados | datasources   | 2015-11-01-preview |
 | Solução    | solutions     | 2015-11-01-preview |
 
@@ -301,9 +301,7 @@ O exemplo de modelo a seguir ilustra como:
           "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
         },
         "sku": {
-          "name": "[parameters('pricingTier')]",
-          "name": "CapacityReservation",
-          "capacityReservationLevel": 100
+          "name": "[parameters('pricingTier')]"
         }
       },
       "resources": [
@@ -653,7 +651,7 @@ A Galeria de modelos de início rápido do Azure inclui vários modelos para Log
 * [Monitorar o Azure Web Apps usando um espaço de trabalho do Log Analytics](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
 * [Adicionar uma conta de armazenamento existente ao Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Implantar agente do Windows a VMs do Azure usando modelos do Gerenciador de Recursos](../../virtual-machines/extensions/oms-windows.md).
 

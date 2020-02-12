@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio (classic) | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: ad3ae99b04d5386172c9598f35cbe7d64fddcd36
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c1a7f44539d07761814f5cb3d7074c9428423154
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837700"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153529"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-classic-jobs"></a>Serviço do lote do Azure para trabalhos Azure Machine Learning Studio (clássico)
 
@@ -111,4 +111,4 @@ Caso você crie um Pool do Lote com 4 máquinas virtuais e o exclua após 12 hor
 
 | **Use o Processamento Pool do Lote quando**    | **Use o processamento em lotes clássico quando**  |
 |---|---|
-|Você precisar executar um grande número de trabalhos<br>ou o<br/>Você precisar saber que seus trabalho serão executados imediatamente<br/>ou o<br/>Você precisar de taxa de transferência garantida. Por exemplo, você precisa executar vários trabalhos em um determinado intervalo e deseja expandir os recursos de computação para atender às suas necessidades.    | Você estiver executando apenas alguns trabalhos<br/>e<br/> Você não precisar que os trabalhos sejam executados imediatamente |
+|Você precisar executar um grande número de trabalhos<br>Ou<br/>Você precisar saber que seus trabalho serão executados imediatamente<br/>Ou<br/>Você precisar de taxa de transferência garantida. Por exemplo, você precisa executar vários trabalhos em um determinado intervalo e deseja expandir os recursos de computação para atender às suas necessidades.    | Você estiver executando apenas alguns trabalhos<br/>And<br/> Você não precisar que os trabalhos sejam executados imediatamente |

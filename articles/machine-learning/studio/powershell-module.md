@@ -7,14 +7,14 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.date: 04/25/2019
-ms.openlocfilehash: bc4eea53c026eef9dc8f390976442426e2ba1067
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0d465c27621464d840555edb1a0f513fbc195e13
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427540"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148106"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>Módulos do PowerShell para Azure Machine Learning Studio (clássico)
 
@@ -63,7 +63,7 @@ O PowerShell clássico pode ser instalado juntamente com AZ ou AzureRM para cobr
 | Gerenciar módulos personalizados | | [New-AmlCustomModule](https://github.com/hning86/azuremlps#manage-custom-module) |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Consulte a documentação completa deste módulo do PowerShell:
 * [Implantação clássica do PowerShell](https://aka.ms/amlps)
 * [Az do Azure PowerShell](https://docs.microsoft.com/powershell/module/az.machinelearning/#machine_learning)

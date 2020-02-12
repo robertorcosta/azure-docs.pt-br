@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: a28b77a25971128b9474f18d860f6204c3433c73
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 1d82261d4b5c1a66498c33610670d7a38acbb197
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312287"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152322"
 ---
 # <a name="execute-python-script-module"></a>Executar módulo de script Python
 
-Este artigo descreve um módulo no designer de Azure Machine Learning.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para executar o código Python. Para obter mais informações sobre os princípios de arquitetura e design do Python, consulte [o artigo a seguir](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts).
 
@@ -122,6 +122,6 @@ O módulo retorna dois conjuntos de valores:
 + O **conjunto de resultados de resultado 2**, definido pelo segundo retornou o dataframe pandas no script Python
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

@@ -2,17 +2,17 @@
 title: O que é um modelo do Serviço de Nuvem e pacote | Microsoft Docs
 description: Descreve o modelo de serviço de nuvem (.csdef, .cscfg) e o pacote (.cspkg) no Azure
 services: cloud-services
-author: tgore03
+author: tanmaygore
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: 0d04236861287074087cc125d7b0d44dc65eccbf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 32603f4ab33e020245861e5dc66d2ade545fa627
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75360694"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148302"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Qual é o modelo de serviço de nuvem e como empacotá-lo?
 Um serviço de nuvem é criado a partir de três componentes, a definição do serviço *(.csdef)* , configuração do serviço *(.cscfg)* e pacote do serviço *(.cspkg)* . Os arquivos **ServiceDefinition.csdef** e **ServiceConfig.cscfg** são baseados no XML, descrevem a estrutura do serviço de nuvem e como ela é configurada; coletivamente são chamados de modelo. O **ServicePackage.cspkg** é um arquivo zip gerado do **ServiceDefinition.csdef** e entre outras coisas, contém todas as dependências necessárias com base no binário. O Azure cria um serviço de nuvem para o **ServicePackage.cspkg** e o **ServiceConfig.cscfg**.
@@ -216,6 +216,9 @@ A [Biblioteca de Tempo de Execução do Azure](/previous-versions/azure/referenc
 <a name="cspkg"></a>
 
 ## <a name="servicepackagecspkg"></a>ServicePackage.cspkg
+> [!NOTE]
+> O tamanho máximo do pacote que pode ser implantado é 600MB
+
 Para implantar um aplicativo como um serviço de nuvem no Azure, primeiro você deve empacotar o aplicativo no formato apropriado. Você pode usar a ferramenta de linha de comando **CSPack** (instalada com o [SDK do Azure](https://azure.microsoft.com/downloads/)) para criar o arquivo de pacote como uma alternativa para o Visual Studio.
 
 **CSPack** usa o conteúdo do arquivo de definição de serviço e arquivo de configuração de serviço para definir o conteúdo do pacote. **CSPack** gera um arquivo de pacote de aplicativos (.cspkg) que você pode carregar no Azure usando o [Portal do Azure](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Por padrão, o pacote é denominado `[ServiceDefinitionFileName].cspkg`, mas você pode especificar um nome diferente usando a opção `/out` de **CSPack**.
@@ -270,7 +273,7 @@ Onde as variáveis são definidas da seguinte maneira:
 | \[PhysicalPath\] |Os diretórios físicos do conteúdo de cada caminho virtual definido no nó de site da definição de serviço. |
 | \[RoleAssemblyName\] |O nome do arquivo binário para a função. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Estou criando um pacote de serviço de nuvem e desejo...
 
 * [Configurar a área de trabalho remota para uma instância de serviço de nuvem][remotedesktop]

@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 1b9a836491e989b676663d13b8eebb994c5145d8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 37968e968a0f9a1098dd5e90d463879bfa95ce1f
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454797"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153580"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Implantar um serviço Web Azure Machine Learning Studio (clássico)
 
@@ -211,7 +211,7 @@ Como você já implantou esse teste antes, será solicitado se deseja substituir
 
 Uma opção para atualizar seu serviço Web é treinar novamente o modelo de forma programática. Para obter mais informações, consulte [readaptação de modelos de Machine Learning Studio (clássico) programaticamente](/azure/machine-learning/studio/retrain-machine-learning-model).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter mais detalhes técnicos sobre como funciona a implantação, consulte [como um modelo de Machine Learning Studio (clássico) progride de um experimento para um serviço Web operacional](model-progression-experiment-to-web-service.md).
 

@@ -7,16 +7,16 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: c26c4c47cb17acf88bc545af3a1fc979138d56b1
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 5e64cb2db2bd16a881334779a1c6f1ef19296da2
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951727"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152016"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conectar redes virtuais de diferentes modelos de implantação usando o portal
 
-Este artigo explica como conectar redes virtuais clássicas a redes virtuais do Resource Manager para permitir que os recursos localizados nos modelos de implantação separados se comuniquem entre si. As etapas neste artigo usam o PowerShell, mas você também pode criar essa configuração usando o portal do Azure, selecionando o artigo desta lista.
+Este artigo mostra como conectar redes virtuais clássicas para VNets do Gerenciador de recursos para permitir que os recursos localizados nos modelos de implantação separado para se comunicar entre si. As etapas neste artigo usam o PowerShell, mas você também pode criar essa configuração usando o portal do Azure, selecionando o artigo desta lista.
 
 > [!div class="op_single_selector"]
 > * [Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -26,11 +26,11 @@ Este artigo explica como conectar redes virtuais clássicas a redes virtuais do 
 
 Conectar uma rede virtual clássica a outra rede virtual do Resource Manager é semelhante a conectar uma rede virtual a um site local. Os dois tipos de conectividade usam um gateway de VPN para fornecer um túnel seguro usando IPsec/IKE. Você pode criar uma conexão entre redes virtuais em assinaturas e regiões diferentes. Você também pode conectar redes virtuais que já têm conexões com redes locais, desde que o gateway com o qual foram configuradas seja dinâmico ou baseado em rota. Para saber mais sobre conexões de Rede Virtual a Rede Virtual, consulte as [Perguntas frequentes sobre Rede Virtual para Rede Virtual](#faq) no final deste artigo. 
 
-Se você ainda não possui um gateway de rede virtual e não quer criar um, considere, em vez disso, conectar suas VNets usando o Emparelhamento VNET. O emparelhamento Vnet não usa um gateway de VPN. Para obter mais informações, consulte [Emparelhamento da VNet](../virtual-network/virtual-network-peering-overview.md).
+Se você ainda não tem um gateway de rede virtual e não quer criar um, conecte, em vez disso, suas VNets usando o Emparelhamento VNET. O emparelhamento Vnet não usa um gateway de VPN. Para obter mais informações, consulte [Emparelhamento da VNet](../virtual-network/virtual-network-peering-overview.md).
 
 ### <a name="before"></a>Antes de começar
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 * Estas etapas pressupõem que ambas as redes virtuais já tenham sido criadas. Se estiver usando este artigo como um exercício e você não possui VNets, há links nas etapas que ajudam a criá-las.
 * Verifique se os intervalos de endereços das VNets não se sobrepõem, nem sobrepõem qualquer um dos intervalos para outras conexões às quais os gateways podem estar conectados.
@@ -75,7 +75,7 @@ Para essa configuração, você cria uma conexão de gateway de VPN por um túne
 
 A seguinte tabela mostra um exemplo de como as VNets e os sites locais de exemplo são definidos:
 
-| Rede virtual | Espaço de endereço | Região | Conecta ao site de rede local |
+| Rede Virtual | Espaço de endereço | Região | Conecta ao site de rede local |
 |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Oeste dos EUA | RMVNetLocal (192.168.0.0/16) |
 | RMVNet | (192.168.0.0/16) |Leste dos EUA |ClassicVNetLocal (10.0.0.0/24) |
@@ -100,7 +100,7 @@ Caso já tenha uma VNet com um gateway de VPN, verifique se o gateway é Dinâmi
 
 1. Navegue até **Todos os recursos** e localize **ClassicVNet** na lista.
 2. Clique em **Gateway** na seção **configurações** do menu e, em seguida, clique na faixa para criar um gateway.
-  ![Configurar um gateway de VPN](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "Configurar um gateway de VPN ")
+  ![Configurar um gateway de VPN](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "Configurar um gateway de VPN")
 3. Na página **Nova Conexão VPN**, para **Tipo de conexão**, selecione **Site para site**.
 4. Em **Site local**, clique em **Definir configurações obrigatórias**. Isso abre a página **Site local**.
 5. Na página **Site local**, crie um nome para se referir à VNet do Resource Manager. Por exemplo, "RMVNetLocal".
@@ -170,7 +170,7 @@ Nesta etapa, você cria o gateway de rede virtual para sua rede virtual. Criar u
 
 **Valores de exemplo:** Gateway de rede local = ClassicVNetLocal
 
-| Rede virtual | Espaço de endereço | Região | Conecta ao site de rede local |Endereço IP público do gateway|
+| Rede Virtual | Espaço de endereço | Região | Conecta ao site de rede local |Endereço IP público do gateway|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Oeste dos EUA | RMVNetLocal (192.168.0.0/16) |O endereço IP público que é atribuído ao gateway ClassicVNet|
 | RMVNet | (192.168.0.0/16) |Leste dos EUA |ClassicVNetLocal (10.0.0.0/24) |O endereço IP público que é atribuído ao gateway RMVNet.|
@@ -277,7 +277,7 @@ Defina a chave compartilhada e crie a conexão da VNet clássica com a VNet do R
 
 - Neste exemplo, **-VNetName** é o nome da VNet clássica como encontrado no arquivo de configuração de rede. 
 - O **-LocalNetworkSiteName** é o nome que você especificou para o site local, como encontrado no arquivo de configuração de rede.
-- O **-SharedKey** é um valor que você pode gerar e especificar. Neste exemplo, usamos *abc123*, mas você pode gerar algo mais complexo. O importante é que o valor que você especifica aqui deve ser o mesmo valor que especificou ao criar a conexão do Resource Manager com o clássico.
+- O **-SharedKey** é um valor que você gera e especifica. Neste exemplo, usamos *abc123*, mas você pode gerar algo mais complexo. O importante é que o valor que você especifica aqui deve ser o mesmo valor que especificou ao criar a conexão do Resource Manager com o clássico.
 
 ```powershell
 Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `
@@ -288,7 +288,7 @@ Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `
 
 Você pode verificar a conexão usando o portal do Azure ou o PowerShell. Ao verificar, talvez seja necessário aguardar um minuto ou dois como a conexão está sendo criado. Quando uma conexão é bem-sucedida, o estado da conectividade muda de "Conectando" para "Conectado".
 
-### <a name="to-verify-the-connection-from-your-classic-vnet-to-your-resource-manager-vnet"></a>Para verificar a conexão de sua rede virtual clássica para sua VNet do Resource Manager
+### <a name="to-verify-the-connection-from-your-classic-vnet-to-your-resource-manager-vnet"></a>Para verificar a conexão de sua VNET clássica para sua VNET do Resource Manager
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 

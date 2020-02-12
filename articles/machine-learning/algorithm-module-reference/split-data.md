@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: b707971f0b150bce63b4dd0ffa4e55dc3b3d6bac
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 3e831e58b47d53e2924956cab13568c69bc1432e
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76313940"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153733"
 ---
 # <a name="split-data-module"></a>Módulo dividir dados
 
-Este artigo descreve um módulo no designer de Azure Machine Learning.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para dividir um conjunto de módulos em dois conjuntos distintos.
 
@@ -113,6 +113,6 @@ Esse módulo é particularmente útil quando você precisa separar dados em conj
 
     A expressão divide o conjunto de um em dois conjuntos de linhas: linhas com valores que atendem à condição e todas as linhas restantes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

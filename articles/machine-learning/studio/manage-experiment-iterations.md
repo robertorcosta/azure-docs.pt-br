@@ -7,22 +7,22 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 9a69ebaa9b7f6ffffdfc80e09fb2eec9495e2ce2
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 71a20f0de9907b04b9dcfd63c0003f2540a2e370
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838834"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153376"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio-classic"></a>Gerenciar iterações de experimento no Azure Machine Learning Studio (clássico)
 Desenvolver um modelo de análise de previsão é um processo iterativo - como modificar as várias funções e parâmetros de seu teste, seus resultados convergem até você ficar satisfeito com um modelo treinado e eficiente. A chave para esse processo está em acompanhar várias iterações dos parâmetros e configurações do seu teste.
 
 
 
-Você pode examinar as execuções anteriores dos seus testes a qualquer momento para desafiar, revisitar e, por fim, confirmar ou refinar suposições anteriores. Quando você executa um experimento, Machine Learning Studio (clássico) mantém um histórico da execução, incluindo as conexões de conjunto de módulos (DataSet), módulo e porta e parâmetros. Esse histórico também captura resultados, informações de tempo de execução, como tempos de início e parada, mensagens de log e status de execução. Você pode observar qualquer uma dessas execuções a qualquer momento para examinar o cronograma de seu teste e os resultados intermediários. Você pode até usar uma execução anterior de seu teste para fazer a inicialização em uma nova fase de consulta e descoberta em seu caminho para criar soluções simples, complexas ou até mesmo de modelagem conjunta.
+Você pode examinar as execuções anteriores dos seus testes a qualquer momento para desafiar, revisitar e, por fim, confirmar ou refinar suposições anteriores. Quando você executa um experimento, Machine Learning Studio (clássico) mantém um histórico da execução, incluindo as conexões de conjunto de módulos (DataSet), módulo e porta e parâmetros. Esse histórico também captura resultados, informações de runtime, como tempos de início e parada, mensagens de log e status de execução. Você pode observar qualquer uma dessas execuções a qualquer momento para examinar o cronograma de seu teste e os resultados intermediários. Você pode até usar uma execução anterior de seu teste para fazer a inicialização em uma nova fase de consulta e descoberta em seu caminho para criar soluções simples, complexas ou até mesmo de modelagem conjunta.
 
 > [!NOTE]
 > Quando você exibe uma execução anterior de um teste, essa versão do teste está bloqueada e não pode ser editada. No entanto, você pode salvar uma cópia dele clicando em **SALVAR COMO** e fornecendo um novo nome para a cópia. Machine Learning Studio (clássico) abre a nova cópia, que você pode editar e executar. Esta cópia do seu teste está disponível na lista **TESTES** junto com todos os seus testes.
@@ -44,7 +44,7 @@ Por exemplo, suponha que você crie um experimento com o módulo [regressão lin
 | 0,1 |11/09/2014 16h18min58s |
 | 0,2 |11/09/2014 16h24min33s |
 | 0,4 |11/09/2014 16h28min36s |
-| 0,5 |11/09/2014 16h33min31s |
+| 0.5 |11/09/2014 16h33min31s |
 
 Se clicar em **EXIBIR O HISTÓRICO DE EXECUÇÃO**, você verá uma lista de todas essas execuções:
 

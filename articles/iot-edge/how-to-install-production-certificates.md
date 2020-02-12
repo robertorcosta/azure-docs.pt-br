@@ -4,16 +4,16 @@ description: Crie certificados de teste e saiba como instalá-los em um disposit
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/03/2019
+ms.date: 02/11/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cf073572cd5b371ec484c99f14cbefb4cba75ce7
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: fe46e968aa2dcebaa483cd38fd2e050ccfe43054
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509896"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149891"
 ---
 # <a name="install-production-certificates-on-an-iot-edge-device"></a>Instalar certificados de produção em um dispositivo IoT Edge
 
@@ -30,7 +30,7 @@ Para saber mais sobre os diferentes tipos de certificados e suas funções em um
 >[!NOTE]
 >O termo "autoridade de certificação raiz" usado em todo este artigo refere-se ao certificado público de autoridade superior da cadeia de certificados para sua solução de IoT. Você não precisa usar a raiz do certificado de uma autoridade de certificação agregada ou a raiz da autoridade de certificação de sua organização. Em muitos casos, é, na verdade, um certificado público de CA intermediário.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Um dispositivo IoT Edge, em execução no [Windows](how-to-install-iot-edge-windows.md) ou no [Linux](how-to-install-iot-edge-linux.md).
 * Ter um certificado de AC (autoridade de certificação) raiz, autoassinado ou comprado de uma autoridade de certificação comercial confiável, como Baltimore, Verisign, DigiCert ou GlobalSign.
@@ -41,7 +41,7 @@ Se você ainda não tiver uma autoridade de certificação raiz, mas quiser expe
 
 Você deve usar sua própria autoridade de certificação para criar os seguintes arquivos:
 
-* AC Raiz
+* AC raiz
 * Certificado de autoridade de certificação de dispositivo
 * Chave privada da AC do dispositivo
 
@@ -90,6 +90,12 @@ Por exemplo, se você usou os scripts de exemplo para [criar certificados de dem
 
 4. Em dispositivos Linux, verifique se o usuário **iotedge** tem permissões de leitura para o diretório que contém os certificados.
 
-## <a name="next-steps"></a>Próximos passos
+5. Se você tiver usado outros certificados para IoT Edge no dispositivo antes, exclua os arquivos nos dois diretórios a seguir antes de iniciar ou reiniciar IoT Edge:
+
+   * Windows: `C:\ProgramData\iotedge\hsm\certs` e `C:\ProgramData\iotedge\hsm\cert_keys`
+
+   * Linux: `/var/lib/iotedge/hsm/certs` e `/var/lib/iotedge/hsm/cert_keys`
+
+## <a name="next-steps"></a>Próximas etapas
 
 A instalação de certificados em um dispositivo IoT Edge é uma etapa necessária antes de implantar sua solução em produção. Saiba mais sobre como [se preparar para implantar sua solução de IOT Edge em produção](production-checklist.md).

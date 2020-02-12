@@ -6,21 +6,23 @@ keywords: codificação; codificadores; mídia
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 02/04/2020
+ms.date: 02/10/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: bccdb49c22bce983fe8cb2aba1387c4b1645b62c
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
-ms.translationtype: HT
+ms.openlocfilehash: c8cf8883c80dad7988793a898dcaf01dd8f860c3
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132718"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152628"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Codificadores de transmissão ao vivo recomendados
 
 Nos Serviços de Mídia do Azure, um [Evento ao vivo](https://docs.microsoft.com/rest/api/media/liveevents) (canal) representa um pipeline para processamento de conteúdo de streaming dinâmico. O Evento ao vivo recebe fluxos de entrada dinâmicos em uma de duas maneiras.
 
-* Um codificador dinâmico local envia um RTMP com múltiplas taxas de bits ou fluxo Smooth Streaming (MP4 fragmentado) para o evento ao vivo que não está habilitado para executar a codificação ativa com os Serviços de Mídia. Os fluxos ingeridos passam por eventos ao vivo sem nenhum processamento adicional. Esse método é chamado **passagem**. Recomendamos que o codificador ao vivo envie fluxos de múltiplas taxas de bits em vez de um fluxo de taxa de bits única para um evento de passagem ao vivo para permitir o streaming de taxa de bits adaptável para o cliente.
+* Um codificador dinâmico local envia um RTMP com múltiplas taxas de bits ou fluxo Smooth Streaming (MP4 fragmentado) para o evento ao vivo que não está habilitado para executar a codificação ativa com os Serviços de Mídia. Os fluxos ingeridos passam por eventos ao vivo sem nenhum processamento adicional. Esse método é chamado **passagem**. Recomendamos que o codificador ao vivo envie fluxos de múltiplas taxas de bits em vez de um fluxo de taxa de bits única para um evento de passagem ao vivo para permitir o streaming de taxa de bits adaptável para o cliente. 
+
+    Se você estiver usando fluxos de várias taxas de bits para o evento de passagem ao vivo, o tamanho do vídeo GOP e os fragmentos de vídeo em taxas de bits diferentes devem ser sincronizados para evitar um comportamento inesperado no lado da reprodução.
 
   > [!NOTE]
   > O uso de um método de passagem é a maneira mais econômica de realizar uma transmissão ao vivo.
@@ -144,6 +146,6 @@ Siga as mesmas etapas que as da [verificação de evento ao vivo de passagem](#p
 
 Por fim, envie por email as configurações registradas e os parâmetros dos arquivos ao vivo aos Serviços de Mídia do Azure em amshelp@microsoft.com como uma notificação de que todas as verificações de autoverificação foram aprovadas. Além disso, inclua suas informações de contato para quaisquer acompanhamentos. Contate a equipe dos Serviços de Mídia do Azure para tratar quaisquer questões sobre esse processo.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 [Transmissão ao vivo com os Serviços de Mídia v3](live-streaming-overview.md)

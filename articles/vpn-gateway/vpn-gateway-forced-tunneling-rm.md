@@ -8,18 +8,18 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7cc74ca19d2194a7319ab1b88ab7847b04b0d895
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
-ms.translationtype: HT
+ms.openlocfilehash: fc35654403bbe1375d4188476b11fd0453f74345
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134559"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153138"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Configurar o túnel forçado usando o modelo de implantação do Azure Resource Manager
 
 O túnel forçado permite redirecionar ou "forçar" todo o tráfego direcionado para a Internet de volta para seu local por meio de um túnel VPN de Site a Site para inspeção e auditoria. Esse é um requisito crítico de segurança para a maioria das políticas de TI empresariais. Sem o túnel forçado, o tráfego direcionado para Internet de suas VMs no Azure sempre percorrerão da infraestrutura de rede do Azure diretamente para a Internet, sem a opção para permitir que você inspecione ou audite o tráfego. O acesso não autorizado à Internet pode levar à divulgação de informações ou outros tipos de violações de segurança.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
@@ -35,7 +35,7 @@ Este artigo o guia pela configuração de túnel forçado para redes virtuais cr
 
 O diagrama a seguir ilustra o funcionamento do túnel forçado. 
 
-![Encapsulamento forçado](./media/vpn-gateway-forced-tunneling-rm/forced-tunnel.png)
+![Túnel forçado](./media/vpn-gateway-forced-tunneling-rm/forced-tunnel.png)
 
 No exemplo acima, a sub-rede Front-end não é um túnel forçado. As cargas de trabalho na sub-rede do front-end podem continuar a aceitar e a responder diretamente às solicitações de clientes da Internet. As sub-redes de Camada intermediária e Back-end são túneis forçados. As conexões de saída dessas duas sub-redes com a Internet serão forçadas ou redirecionadas de volta ao site local por meio de túneis de VPN S2S.
 
@@ -81,7 +81,7 @@ Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manag
 >
 
 
-1. Crie um grupo de recursos.
+1. Crie um grupos de recursos.
 
    ```powershell
    New-AzResourceGroup -Name 'ForcedTunneling' -Location 'North Europe'

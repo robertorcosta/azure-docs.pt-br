@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1c11539460f1ef65f8cea3d36f1a017661133355
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 1dc0eec6178420976181b05a059e9f8b4859ec2a
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75833958"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77151999"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Conectar redes virtuais de diferentes modelos de implantação usando o PowerShell
 
@@ -166,7 +166,7 @@ Você pode verificar o status do gateway, usando o cmdlet **Get-AzureVNetGateway
 
 ## <a name="creatermgw"></a>Seção 2 – configurar o gateway de VNet do RM
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 Os pré-requisitos pressupõem que você já tenha criado umaVNet RM. Nesta etapa, você pode criar um gateway VPN para a VNet RM. Não comece as etapas a seguir até recuperar o endereço IP público do gateway da rede virtual clássica. 
 

@@ -1,5 +1,5 @@
 ---
-title: Explore e exclua seus dados
+title: Exportar e excluir seus dados
 titleSuffix: ML Studio (classic) - Azure
 description: Os dados no produto armazenados por Azure Machine Learning Studio (clássico) estão disponíveis para exportação e exclusão por meio do portal do Azure e também por meio de APIs REST autenticadas. Os dados de telemetria podem ser acessados através do Portal de Privacidade do Azure. Este artigo mostra como fazer isso.
 services: machine-learning
@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 51aad01d5b03335bd1b57f6e5a9c775556187cca
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6b815057a6c79eb55303b8d8a349bc5a4a9bfb43
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427582"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153053"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio-classic"></a>Exportar e excluir dados de usuário no produto do Azure Machine Learning Studio (clássico)
 
@@ -72,6 +72,6 @@ Os usuários também podem excluir o workspace inteiro:
 ## <a name="export-studio-classic-data-with-powershell"></a>Exportar dados do estúdio (clássico) com o PowerShell
 Use o PowerShell para exportar todas as suas informações para um formato portátil do Azure Machine Learning Studio (clássico) usando comandos. Para obter informações, consulte o artigo [módulo do PowerShell para Azure Machine Learning Studio (clássico)](powershell-module.md) .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter a documentação que aborda os serviços Web e a cobrança do plano de compromisso, consulte [Azure Machine Learning Studio (clássico) referência da API REST](https://docs.microsoft.com/rest/api/machinelearning/). 

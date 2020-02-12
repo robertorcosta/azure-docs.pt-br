@@ -1,5 +1,5 @@
 ---
-title: Execute scripts em Python
+title: Executar scripts Python
 titleSuffix: ML Studio (classic) - Azure
 description: Saiba como usar o módulo executar script Python para usar o código Python em experimentos Machine Learning Studio (clássico) e serviços Web.
 services: machine-learning
@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: c43f3021009c0c8a5a414b18bb9f0ff7d7a4a4bd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a5512069ec609783d166b8417a7006ec4ab17fe1
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427662"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153427"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Executar scripts do Python Machine Learning no Azure Machine Learning Studio (clássico)
 
@@ -179,7 +179,7 @@ O ponto de entrada do Python para retornar somente uma estrutura de dados como s
 
 Atualmente, a única maneira de adicionar módulos personalizados do Python é por meio do mecanismo de compactação de arquivo zip descrito anteriormente. Embora isso seja viável para módulos pequenos, ele é trabalhoso para módulos grandes (especialmente módulos com DLLs nativas) ou um grande número de módulos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais, confira o [Centro de Desenvolvedores do Python](https://azure.microsoft.com/develop/python/).
 

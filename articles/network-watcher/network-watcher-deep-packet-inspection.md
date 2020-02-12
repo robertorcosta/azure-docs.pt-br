@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: c937a07133dc38d2d9e1e1ef2cc324b4c8bb360e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7d32043ca73e9cf810b3eab5e65cb4b42b599d18
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845072"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152917"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Inspeção de pacotes com o Observador de Rede do Azure
 
@@ -39,7 +39,7 @@ Nesse cenário, você irá:
 
 Nesse cenário, mostramos como exibir o Tempo Resposta inicial (RTT) de uma conversa TCP (Protocolo de Controle de Transmissão) que ocorre entre dois pontos de extremidade.
 
-Quando uma conexão TCP é estabelecida, os três primeiros pacotes enviados na conexão seguem um padrão conhecido como handshake de três vias. Examinando os dois primeiros pacotes enviados nesse handshake, uma solicitação inicial do cliente e uma resposta do servidor, podemos calcular a latência quando a conexão foi estabelecida. Essa latência é conhecida como Tempo Resposta (RTT). Para obter mais informações sobre o protocolo TCP e o handshake de três vias, consulte o recursos a seguir. https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip
+Quando uma conexão TCP é estabelecida, os três primeiros pacotes enviados na conexão seguem um padrão conhecido como handshake de três vias. Examinando os dois primeiros pacotes enviados nesse handshake, uma solicitação inicial do cliente e uma resposta do servidor, podemos calcular a latência quando a conexão foi estabelecida. Essa latência é conhecida como Tempo Resposta (RTT). Para obter mais informações sobre o protocolo TCP e o handshake de três vias, consulte o recursos a seguir. [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip](https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip)
 
 ### <a name="step-1"></a>Etapa 1
 
@@ -121,7 +121,7 @@ Inserimos o texto do filtro acima na caixa de texto do filtro e pressionamos Ent
 
 Nos resultados, podemos ver que todo o tráfego está vindo de uma máquina virtual local na mesma sub-rede. Se ainda não entendemos por que esse tráfego está ocorrendo, podemos examinar ainda mais os pacotes para determinar por que ele está fazendo essas chamadas na porta 111. Com essas informações, podemos tomar a devida ação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre os outros recursos de diagnóstico do Observador de Rede visitando [Visão geral do monitoramento de rede do Azure](network-watcher-monitoring-overview.md)
 

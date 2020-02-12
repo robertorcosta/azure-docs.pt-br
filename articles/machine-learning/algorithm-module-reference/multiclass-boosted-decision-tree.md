@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 73a832d98d0b17f59a98e2d57cf801818c7ed1da
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 0bcca16bd89781428773eda168e6ee3c2f5784ef
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311930"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152169"
 ---
 # <a name="multiclass-boosted-decision-tree"></a>Árvore de Decisão Aumentada Multiclasse
 
-Este artigo descreve um módulo no designer de Azure Machine Learning.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para criar um modelo de aprendizado de máquina baseado no algoritmo árvores de decisão aumentada.
 
@@ -58,6 +58,6 @@ Você pode treinar esse tipo de modelo usando o [modelo de treinamento](././trai
 > [!Note]
 > Se você definir **criar modo de instrutor** como um **único parâmetro**, conecte um conjunto de um DataSet marcado e o módulo [treinar modelo](./train-model.md) .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

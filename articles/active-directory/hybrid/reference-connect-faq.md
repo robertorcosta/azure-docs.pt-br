@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dbc7f8068ed84f42ec41ebd969e0aa91ffbb264
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e5aa30bc819531ee8cc9cd337648a6cbc661bb29
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473318"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149806"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Perguntas frequentes do Azure Active Directory Connect
 
@@ -101,7 +101,7 @@ Este é um documento informativo que apresenta algumas das práticas recomendada
     - Chaves de backup
     - Regras de sincronização de backup
     - Configuração do servidor de backup
-    - Fazer backup do banco de dados SQL
+    - Fazer Backup de Banco de Dados SQL
 - Verifique se não há agentes de backup de terceiros que estejam fazendo backup do SQL sem o gravador VSS do SQL (comum em servidores virtuais com instantâneos de terceiros)
 - Limitar a quantidade de regras de sincronização personalizadas que são usadas à medida que adicionam complexidade
 - Tratar servidores Azure AD Connect como servidores de camada 0
@@ -113,7 +113,7 @@ Este é um documento informativo que apresenta algumas das práticas recomendada
 - Os servidores de preparo não devem ser uma solução de alta disponibilidade, mas você pode ter vários servidores de preparo
 - A introdução de um servidor de preparo de "retardo" pode mitigar algum tempo de inatividade em potencial em caso de erro
 - Testar e validar todas as atualizações no servidor de preparo primeiro
-- Sempre valide as exportações antes de passar para o serverLeverage de preparo para o servidor de preparo para importações completas e Sincronizações completas para reduzir o impacto nos negócios
+- Sempre valide as exportações antes de passar para o servidor de preparo.  Aproveite o servidor de preparo para obter importações completas e Sincronizações completas para reduzir o impacto nos negócios
 - Mantenha a consistência da versão entre Azure AD Connect servidores o máximo possível 
 
 **P: posso permitir que Azure AD Connect crie a conta do conector do Azure AD no computador do grupo de trabalho?**
@@ -150,7 +150,7 @@ Use as diretrizes descritas no artigo [Renovar certificados](how-to-connect-fed-
 Não. Alterar o nome do servidor torna o mecanismo de sincronização incapaz de se conectar à instância do banco de dados SQL e o serviço não pode ser iniciado.
 
 **P: há suporte para regras de sincronização do NGC (criptografia de próxima geração) em uma máquina habilitada para FIPS?**  
-Não.  Eles não têm suporte.
+Não.  Eles não terão suporte.
 
 **P. se eu desabilitasse um dispositivo sincronizado (por exemplo: HAADJ) na portal do Azure, por que ele é habilitado novamente?**<br>
 Dispositivos sincronizados podem ser criados ou mastermente no local. Se um dispositivo sincronizado estiver habilitado localmente, ele poderá ser habilitado novamente no portal do Azure mesmo que tenha sido desabilitado anteriormente por um administrador. Para desabilitar um dispositivo sincronizado, use o Active Directory local para desabilitar a conta do computador.
@@ -258,7 +258,7 @@ Em casos raros, o serviço do Azure AD Connect não inicia após executar a atua
 **P: não tenho certeza de quais são os riscos quando atualizo para uma versão mais recente do Azure AD Connect. Você pode ligar para mim para me ajudar com a atualização?**  
 Se você precisar de ajuda a atualizar para uma versão mais recente do Azure AD Connect, abra um tíquete de suporte em [criar uma solicitação de serviço, entre em contato com o suporte do Office 365](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/).
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 **P: Como posso obter ajuda com o Azure AD Connect?**
 
 [Pesquise a Base de Dados de Conhecimento (KB) Microsoft](https://www.microsoft.com/en-us/search/result.aspx?q=azure+active+directory+connect)

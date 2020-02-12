@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,19 +19,21 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: fb98be9975de38ec9f65e723e078a1db8755b4ed
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: fc1eb1836badc3ced688750bbc7c7a164773d022
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792546"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152662"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Sintaxe de consulta simples no Azure Pesquisa Cognitiva
 
 O Azure Pesquisa Cognitiva implementa duas linguagens de consulta baseadas em Lucene: [analisador de consulta simples](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) e o [analisador de consulta Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). No Azure Pesquisa Cognitiva, a sintaxe de consulta simples exclui as opções difusas/inclinada.  
 
-> [!NOTE]  
->  O Azure Pesquisa Cognitiva fornece uma [sintaxe de consulta Lucene](query-lucene-syntax.md) alternativa para consultas mais complexas. Para saber mais sobre a arquitetura de análise de consulta e os benefícios de cada sintaxe, consulte [como a pesquisa de texto completo funciona no Azure pesquisa cognitiva](search-lucene-query-architecture.md).
+> [!NOTE]
+> A sintaxe de consulta simples é usada para expressões de consulta passadas no parâmetro de **pesquisa** da API de [documentos de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) , não deve ser confundida com a [sintaxe OData](query-odata-filter-orderby-syntax.md) usada para o parâmetro [$Filter](search-filters.md) dessa API. Essas sintaxes diferentes têm suas próprias regras para construir consultas, cadeias de caracteres de escape e assim por diante.
+>
+> O Azure Pesquisa Cognitiva fornece uma [sintaxe de consulta Lucene completa](query-lucene-syntax.md) alternativa para consultas mais complexas no parâmetro de **pesquisa** . Para saber mais sobre a arquitetura de análise de consulta e os benefícios de cada sintaxe, consulte [como a pesquisa de texto completo funciona no Azure pesquisa cognitiva](search-lucene-query-architecture.md).
 
 ## <a name="how-to-invoke-simple-parsing"></a>Como invocar a análise de consulta simples
 
@@ -88,7 +90,7 @@ O operador de precedência inclui a cadeia de caracteres entre parênteses `( )`
 > [!NOTE]  
 >  Embora o escape mantenha os tokens juntos, a análise de texto pode dividi-los, dependendo do modo de análise. Consulte [suporte ao &#40;idioma Azure pesquisa cognitiva API&#41; REST](index-add-language-analyzers.md) para obter detalhes.  
 
-## <a name="see-also"></a>Consulte  
+## <a name="see-also"></a>Confira também  
 
 + [Pesquisar documentos &#40;do Azure pesquisa cognitiva API REST&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
 + [Sintaxe de consulta Lucene](query-lucene-syntax.md)

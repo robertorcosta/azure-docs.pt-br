@@ -12,17 +12,17 @@ ms.date: 09/11/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ee4b452d087bfef0e9f5f7c820870da0df8dc3e
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: f83a48ad13fe4ae217319b2aa85adf976aa6a7ae
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74683929"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149840"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Adicionar ou remover proprietários do grupo no Azure Active Directory
 Os grupos do Active Directory do Azure (Azure AD) são de propriedade e gerenciados pelos proprietários do grupo. Os proprietários do grupo podem ser usuários ou entidades de serviço e podem gerenciar o grupo, incluindo a associação. Somente proprietários de grupo existentes ou administradores de gerenciamento de grupo podem atribuir proprietários de grupo. Os proprietários do grupo não precisam ser membros do grupo.
 
-Quando um grupo não tem proprietário, administradores de grupo de gerenciamento ainda podem gerenciar o grupo.
+Quando um grupo não tem proprietário, administradores de grupo de gerenciamento ainda podem gerenciar o grupo. É recomendável que cada grupo tenha pelo menos um proprietário. Depois que os proprietários são atribuídos a um grupo, o último proprietário do grupo não pode ser removido. Certifique-se de selecionar outro proprietário antes de remover o último proprietário do grupo.
 
 ## <a name="add-an-owner-to-a-group"></a>Adicionar um proprietário a um grupo
 Abaixo estão as instruções para adicionar um usuário como um proprietário a um grupo usando o portal do AD do Azure. Para adicionar uma entidade de serviço como um proprietário de um grupo, siga as instruções para fazer isso usando o [PowerShell](https://docs.microsoft.com/powershell/module/Azuread/Add-AzureADGroupOwner?view=azureadps-2.0).
@@ -60,12 +60,12 @@ Remova um proprietário de um grupo usando o Azure AD.
 
     Depois de remover o proprietário, você pode retornar para o **proprietários** página e ver o nome foi removido da lista de proprietários.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - [Gerenciamento de acesso a recursos com grupos do Active Directory do Azure](active-directory-manage-groups.md)
 
 - [Cmdlets do Azure Active Directory para definir configurações de grupo](../users-groups-roles/groups-settings-cmdlets.md)
 
-- [Usar grupos para atribuir acesso a um aplicativo SaaS integrado](../users-groups-roles/groups-saasapps.md)
+- [Usar grupos para atribuir acesso a um aplicativo de SaaS integrado](../users-groups-roles/groups-saasapps.md)
 
 - [Integração de suas identidades locais com o Active Directory do Azure](../hybrid/whatis-hybrid-identity.md)
 

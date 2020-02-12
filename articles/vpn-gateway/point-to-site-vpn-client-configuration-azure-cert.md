@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9342a70e539c4a2717fe45426c26595285172681
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 18a9578cc454ea5259b9564d64dcd4308ee5ef87
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045788"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148960"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Criar e instalar arquivos de configuração de cliente VPN para configurações P2S da autenticação de certificado nativa do Azure
 
@@ -46,7 +46,6 @@ Antes de começar, verifique se todos os usuários conectados têm um certificad
 
 ### <a name="zipps"></a>Gerar arquivos usando o PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 1. Ao gerar arquivos de configuração de cliente VPN, o valor de '-AuthenticationMethod' é 'EapTls'. Gere os arquivos de configuração de cliente de VPN usando o seguinte comando:
 
@@ -205,7 +204,7 @@ Se você ainda não gerou certificados, use as seguintes etapas:
    # ipsec up azure
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Retornar para o artigo [concluir a configuração de P2S](vpn-gateway-howto-point-to-site-rm-ps.md).
 

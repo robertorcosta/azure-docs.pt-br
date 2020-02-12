@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 2c1b61d43fde00c435b83071015246bf990e873e
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 3c412937e59927a9f3f3218b0da3382f0b67c230
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546666"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152373"
 ---
 # <a name="decision-forest-regression-module"></a>Módulo de regressão de floresta de decisão
 
@@ -24,7 +24,7 @@ Use este módulo para criar um modelo de regressão com base em uma Ensemble de 
 
 Depois de configurar o modelo, você deve treinar o modelo usando um DataSet rotulado e o módulo [treinar modelo](./train-model.md) . O modelo treinado pode então ser usado para fazer previsões. 
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 Árvores de decisão são modelos não paramétricos que executam uma sequência de testes simples para cada instância, percorrendo uma estrutura de dados de árvore binária até que um nó folha (decisão) seja atingido.
 
@@ -90,6 +90,6 @@ Após a conclusão do treinamento:
 
 + Para salvar um instantâneo do modelo treinado, selecione o módulo de treinamento e, em seguida, alterne para a guia **saídas** no painel direito. Clique no ícone **registrar modelo**.  Você pode encontrar o modelo salvo como um módulo na árvore de módulo. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

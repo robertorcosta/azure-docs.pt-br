@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 16689982156743f5dc4e2ed09a0f9bc097a51b9b
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 6e1b162d17e2369b579fc1210c57e0409b0546bc
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903029"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148463"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Criar e instalar arquivos de configuração de cliente VPN para autenticação RADIUS P2S
 
@@ -38,7 +38,6 @@ O fluxo de trabalho de configuração para a autenticação de RADIUS P2S é o s
 
 Para usar as seções neste artigo, primeiro decida qual tipo de autenticação você deseja usar: nome de usuário e senha, certificado ou outros tipos de autenticação. Cada seção tem etapas para Windows, Mac OS X e Linux (etapas limitadas disponíveis neste momento).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="adeap"></a>Autenticação de nome de usuário e senha
 
@@ -259,7 +258,7 @@ Use as etapas a seguir para configurar o cliente VPN nativo em um Mac para auten
 7. **Escolha uma identidade** exibe uma lista de certificados de sua escolha. Selecione o certificado apropriado e selecione **Continuar**.
 
    ![Lista "Escolher uma Identidade"](./media/point-to-site-vpn-client-configuration-radius/identity.png)
-8. Na caixa **ID local**, especifique o nome do certificado (da Etapa 6). Neste exemplo, é **ikev2Client.com**. Em seguida, selecione o botão **aplicar** para salvar as alterações.
+8. Na caixa **ID local**, especifique o nome do certificado (da Etapa 6). Neste exemplo, é **ikev2Client.com**. Em seguida, selecione o botão **Aplicar** para salvar as alterações.
 
    ![Caixa "ID Local"](./media/point-to-site-vpn-client-configuration-radius/applyconnect.png)
 9. Na caixa de diálogo **Rede**, selecione **Aplicar** para salvar as alterações. Em seguida, selecione **Conectar** para iniciar a conexão de P2S para a rede virtual do Azure.
@@ -280,7 +279,7 @@ Para usar um tipo de autenticação diferente (por exemplo, OTP) ou usar um prot
    
    A pasta **GenericDevice** também contém um arquivo .cer chamado **VpnServerRoot**. Este arquivo contém o certificado raiz necessário para validar o gateway de VPN do Azure durante a configuração da conexão P2S. Instale o certificado em todos os dispositivos que irão conectar-se à rede virtual do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Retornar para o artigo [concluir a configuração de P2S](point-to-site-how-to-radius-ps.md).
 

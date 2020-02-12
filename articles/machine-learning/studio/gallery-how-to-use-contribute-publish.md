@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 492f6ed2775004c6fb013c6a9ead602cb3d2cea0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5049bdfdc84df16c4b8070decf47fd2d726d7777
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427549"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153019"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Compartilhar e descobrir recursos na Galeria de IA do Azure
 
@@ -24,7 +24,7 @@ A Galeria tem vários recursos que você pode usar para desenvolver suas própri
 
 ## <a name="what-can-i-find-in-the-gallery"></a>O que posso encontrar na Galeria?
 
-A Galeria de IA do Azure contém uma série de diferentes recursos contribuídos pela Microsoft e por membros da comunidade de ciência de dados. Estão incluídas:
+A Galeria de IA do Azure contém uma série de diferentes recursos contribuídos pela Microsoft e por membros da comunidade de ciência de dados. Eles incluem:
 
 * **Experimentos** – a galeria contém uma ampla variedade de experimentos que foram desenvolvidos em Azure Machine Learning Studio (clássico). Eles variam de testes de verificação de conceito rápidos que demonstram uma técnica de aprendizado de máquina específica a soluções totalmente desenvolvidas para problemas de aprendizado de máquina complexos.
 * **Tutoriais** – uma série de tutoriais está disponível para orientá-lo por conceitos e tecnologias de aprendizado de máquina ou para descrever métodos avançados a fim de solucionar vários problemas de aprendizado de máquina.
@@ -195,7 +195,7 @@ No momento, não é possível publicar na Galeria um experimento que usa credenc
 
 Depois de inserir uma marcação, pressione a tecla Tab para inserir outra marca.
 
-## <a name="we-want-to-hear-from-you"></a>Queremos ouvir você.
+## <a name="we-want-to-hear-from-you"></a>Queremos ouvir você!
 
 Queremos que a Galeria seja orientada por nossos usuários e para nossos usuários. Use o smiley à direita para nos dizer o que você adora ou odeia na Galeria.  
 

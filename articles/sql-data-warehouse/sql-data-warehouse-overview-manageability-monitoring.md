@@ -1,6 +1,6 @@
 ---
 title: Gerenciabilidade e monitoramento-visão geral
-description: Visão geral de monitoramento e capacidade de gerenciamento para utilização de recursos, atividade de log e consulta, recomendações e proteção de dados (backup e restauração) no Azure SQL Data Warehouse.
+description: Visão geral de monitoramento e capacidade de gerenciamento para utilização de recursos, atividade de log e consulta, recomendações e proteção de dados (backup e restauração) com o pool do SQL.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 08/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 54dbf7bcac92f7536d4e4579045c474914264935
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 31a12a60fc6f02a935ff98278e69d1ed2dd68ce5
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760735"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153257"
 ---
-# <a name="manageability-and-monitoring-with-azure-sql-data-warehouse"></a>Gerenciabilidade e monitoramento com o SQL Data Warehouse do Azure
+# <a name="manageability-and-monitoring-with-sql-pool"></a>Gerenciabilidade e monitoramento com o pool do SQL
 
-Dê uma olhada no que está disponível para ajudá-lo a gerenciar e monitorar o SQL Data Warehouse. Os artigos a seguir destacam maneiras de otimizar o desempenho e o uso de seu data warehouse.
+A análise do SQL permite que você provisione um data warehouse por meio do pool do SQL. Os artigos a seguir ajudarão você a gerenciar e monitorar seu data warehouse. Você também aprenderá maneiras de otimizar o uso e o desempenho do data warehouse.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 * [Saiba mais sobre o gerenciamento de computação e a elasticidade](sql-data-warehouse-manage-compute-overview.md)
 * [Entenda quais métricas e logs estão disponíveis no portal do Azure](sql-data-warehouse-concept-resource-utilization-query-activity.md)
@@ -32,5 +32,5 @@ Dê uma olhada no que está disponível para ajudá-lo a gerenciar e monitorar o
 * [Encontre diretrizes comuns de solução de problemas](sql-data-warehouse-troubleshoot.md)
 
 
-## <a name="next-steps"></a>Próximos passos
-Para guias de instruções, consulte [monitorar e ajustar seu data warehouse](sql-data-warehouse-manage-monitor.md).
+## <a name="next-steps"></a>Próximas etapas
+Para obter os guias de instruções, consulte [monitorar e ajustar seu pool de SQL](sql-data-warehouse-manage-monitor.md).

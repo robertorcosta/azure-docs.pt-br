@@ -1,111 +1,186 @@
 ---
-title: Criar integrações corporativas B2B
-description: Receber dados de B2B nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
+title: Trocar mensagens para cenários de integração corporativa B2B
+description: Receber e enviar mensagens B2B entre parceiros comerciais em aplicativos lógicos do Azure usando o Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 07/08/2016
-ms.openlocfilehash: 39966b8171296a8608b9436485f7682d114c8410
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 02/10/2020
+ms.openlocfilehash: 01b2bd464db51e255930fe83a3f4321687322275
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793104"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77151052"
 ---
-# <a name="receive-b2b-data-with-azure-logic-apps-and-enterprise-integration-pack"></a>Receber dados de B2B com os Aplicativos Lógicos do Azure e o Enterprise Integration Pack
+# <a name="receive-and-send-b2b-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Receber e enviar mensagens B2B usando os aplicativos lógicos do Azure e Enterprise Integration Pack
 
-Depois de criar uma conta de integração com parceiros e contratos, você estará pronto para criar um fluxo de trabalho entre empresas (B2B) para seu aplicativo lógico com o [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
+Quando você tem uma conta de integração que define parceiros e contratos comerciais, você pode criar um fluxo de trabalho de B2B (Business to Business) automatizado que troca mensagens entre parceiros comerciais usando [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) com o [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md). Os aplicativos lógicos do Azure funcionam com conectores que dão suporte aos protocolos de padrão do setor AS2, X12, EDIFACT e RosettaNet. Você também pode combinar esses conectores com outros [conectores disponíveis nos aplicativos lógicos](../connectors/apis-list.md), por exemplo, Salesforce e Office 365 Outlook.
 
-## <a name="prerequisites"></a>Pré-requisitos
+Este artigo mostra como criar um aplicativo lógico que recebe uma solicitação HTTP usando um gatilho de solicitação, decodifica o conteúdo da mensagem usando as ações AS2 e X12 e, em seguida, retorna uma resposta usando a ação de resposta.
 
-Para usar as ações AS2 e X12, você precisará de uma conta do Enterprise Integration. Saiba [como criar uma conta do Enterprise Integration](../logic-apps/logic-apps-enterprise-integration-accounts.md).
+## <a name="prerequisites"></a>Prerequisites
 
-## <a name="create-a-logic-app-with-b2b-connectors"></a>Criar um aplicativo lógico com conectores B2B
+* Uma assinatura do Azure. Se você ainda não tiver uma assinatura, [Inscreva-se para obter uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
-Siga estas etapas para criar um aplicativo lógico B2B que usa as ações AS2 e X12 para receber dados de um parceiro comercial:
+* Um aplicativo lógico em branco para que você possa criar o fluxo de trabalho B2B usando o gatilho de [solicitação](../connectors/connectors-native-reqres.md) seguido por estas ações:
 
-1. Crie um aplicativo lógico e [vincule-o à sua conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md).
+  * [Decodificação AS2](../logic-apps/logic-apps-enterprise-integration-as2.md)
 
-2. Adicione um gatilho **Solicitação - quando uma solicitação HTTP é recebida** ao seu Aplicativo Lógico.
+  * [Condição](../logic-apps/logic-apps-control-flow-conditional-statement.md), que envia uma [resposta](../connectors/connectors-native-reqres.md) com base em se a ação de decodificação AS2 é bem-sucedida ou falha
 
-    ![](./media/logic-apps-enterprise-integration-b2b/flatfile-1.png)
+  * [Decodificar mensagem X12](../logic-apps/logic-apps-enterprise-integration-x12.md) 
 
-3. Adicione a ação **Decodificar AS2** selecionando **Adicionar uma ação**.
+  Se você não estiver familiarizado com os aplicativos lógicos, examine [o que é o aplicativo lógico do Azure?](../logic-apps/logic-apps-overview.md) e o [início rápido: Crie seu primeiro aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-    ![](./media/logic-apps-enterprise-integration-b2b/transform-2.png)
+* Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md) associada à sua assinatura do Azure e vinculada ao seu aplicativo lógico. O aplicativo lógico e a conta de integração devem existir no mesmo local ou na região do Azure.
 
-4. Insira a palavra **as2** na caixa de pesquisa para filtrar todas as ações para aquela que você deseja usar.
+* Pelo menos dois [parceiros comerciais](../logic-apps/logic-apps-enterprise-integration-partners.md) que você já definiu em sua conta de integração, juntamente com os [contratos AS2 e X12](logic-apps-enterprise-integration-agreements.md) para esses parceiros.
 
-    ![](./media/logic-apps-enterprise-integration-b2b/b2b-5.png)
+## <a name="add-request-trigger"></a>Adicionar gatilho de solicitação
 
-5. Selecione a ação **AS2 – Decodificar mensagem AS2**.
+Este exemplo usa o designer de aplicativo lógico no portal do Azure, mas você pode seguir etapas semelhantes para o designer de aplicativo lógico no Visual Studio.
 
-    ![](./media/logic-apps-enterprise-integration-b2b/b2b-6.png)
+1. No [portal do Azure](https://portal.azure.com), abra seu aplicativo lógico em branco no designer de aplicativo lógico.
 
-6. Adicione o **corpo** que você deseja usar como entrada. 
-   Neste exemplo, selecione o corpo da solicitação HTTP que disparou o Aplicativo Lógico. Ou insira uma expressão que insere os cabeçalhos no campo **CABEÇALHOS**:
+1. Na caixa de pesquisa, insira `when a http request`e selecione **quando uma solicitação HTTP é recebida** para usar como o gatilho.
 
-    @triggerOutputs()['headers']
+   ![Selecione o gatilho de solicitação para iniciar o fluxo de trabalho do aplicativo lógico](./media/logic-apps-enterprise-integration-b2b/select-http-request-trigger.png)
 
-7. Adicione os **cabeçalhos** necessários para AS2, que pode ser encontrado nos cabeçalhos de solicitação HTTP. 
-   Neste exemplo, selecione o cabeçalho da solicitação HTTP que disparou o Aplicativo Lógico.
+1. Deixe a caixa **esquema JSON do corpo da solicitação** vazia porque a mensagem X12 é um arquivo simples.
 
-8. Agora, adicione a ação de mensagem X12 de decodificação. Selecione **Adicionar uma ação**.
+   ![Deixe "esquema JSON do corpo da solicitação" vazio](./media/logic-apps-enterprise-integration-b2b/receive-trigger-message-body-json-schema.png)
 
-    ![](./media/logic-apps-enterprise-integration-b2b/b2b-9.png)
+1. Quando terminar, na barra de ferramentas do designer, selecione **salvar**.
 
-9. Insira a palavra **x12** na caixa de pesquisa para filtrar todas as ações para aquela que você deseja usar.
+   Esta etapa gera a **URL http post** a ser usada para enviar a solicitação que dispara o aplicativo lógico. Para copiar essa URL, selecione o ícone de cópia ao lado da URL.
 
-    ![](./media/logic-apps-enterprise-integration-b2b/b2b-10.png)
+   ![URL gerada para o gatilho de solicitação receber chamadas](./media/logic-apps-enterprise-integration-b2b/generated-url-request-trigger.png)
 
-10. Selecione a ação **X12 – Decodificar mensagem X12**.
+## <a name="add-as2-decode-action"></a>Adicionar ação de decodificação AS2
 
-    ![](./media/logic-apps-enterprise-integration-b2b/b2b-as2message.png)
+Agora, adicione as ações B2B que você deseja usar. Este exemplo usa ações AS2 e X12.
 
-11. Agora, você deve especificar a entrada para esta ação. 
-    Essa entrada é a saída da ação AS2 anterior.
+1. No gatilho, selecione **Nova etapa**. Para ocultar os detalhes do gatilho, clique na barra de título do gatilho.
 
-    O conteúdo real da mensagem está em um objeto JSON e é codificado em base64, então você deve especificar uma expressão como entrada. 
-    Insira a seguinte expressão no campo de entrada **X12 MENSAGEM DO ARQUIVO SIMPLES PARA DECODIFICAÇÃO**:
-    
-    @base64ToString(body('Decode_AS2_message')?['AS2Message']?['Content'])
+   ![Adicionar outra etapa ao fluxo de trabalho do aplicativo lógico](./media/logic-apps-enterprise-integration-b2b/add-new-action-under-trigger.png)
 
-    Adicione etapas para decodificar os dados X12 recebidos de um parceiro comercial e produza itens de saída em um objeto JSON. 
-    Para informar o parceiro que os dados foram recebidos, você pode enviar uma resposta que contém a Notificação de Disposição de Mensagem (MDN) do AS2 em uma Ação de Resposta HTTP.
+1. Em **escolher uma ação**, na caixa de pesquisa, digite `as2 decode`e selecione **decodificação AS2 (v2)** .
 
-12. Adicione a ação **Resposta** selecionando **Adicionar uma ação**.
+   ![Localize e selecione "decodificação AS2 (v2)"](./media/logic-apps-enterprise-integration-b2b/add-as2-decode-action.png)
 
-    ![](./media/logic-apps-enterprise-integration-b2b/b2b-14.png)
+1. Para a propriedade **mensagem a ser decodificada** , insira a entrada que você deseja que a ação AS2 decodifique, que é o conteúdo `body` recebido pelo gatilho de solicitação HTTP. Você tem várias maneiras de especificar esse conteúdo como entrada, seja na lista de conteúdo dinâmico ou como uma expressão:
 
-13. Para filtrar todas as ações para aquela que você deseja usar, insira a palavra **resposta** na caixa de pesquisa.
+   * Para selecionar em uma lista que mostra as saídas de gatilho disponíveis, clique dentro da caixa de **mensagem para decodificar** . Depois que a lista de conteúdo dinâmico aparecer, em **quando uma solicitação HTTP for recebida**, selecione o valor da propriedade **Body** , por exemplo:
 
-    ![](./media/logic-apps-enterprise-integration-b2b/b2b-15.png)
+     ![Selecionar o valor de "corpo" do gatilho](./media/logic-apps-enterprise-integration-b2b/select-body-content-from-trigger.png)
 
-14. Selecione a ação **resposta**.
+   * Para inserir uma expressão que faz referência à saída de `body` do gatilho, clique dentro da caixa de **mensagem a ser decodificada** . Depois que a lista de conteúdo dinâmico for exibida, selecione **expressão**. No editor de expressão, insira a expressão aqui e selecione **OK**:
 
-    ![](./media/logic-apps-enterprise-integration-b2b/b2b-16.png)
+     `triggerOutputs()['body']`
 
-15. Defina o campo **CORPO** usando a expressão a seguir para acessar a MDN da saída da ação **Decodificar mensagem X12**:
+     Ou, na caixa **mensagem a ser decodificada** , insira diretamente esta expressão:
 
-    @base64ToString(body('Decode_AS2_message')?['OutgoingMdn']?['Content'])
+     `@triggerBody()`
 
-    ![](./media/logic-apps-enterprise-integration-b2b/b2b-17.png)  
+     A expressão é resolvida para o token de **corpo** .
 
-16. Salve seu trabalho.
+     ![Saída de corpo resolvida do gatilho](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-body-expression.png)
 
-    ![](./media/logic-apps-enterprise-integration-b2b/transform-5.png)  
+1. Para a propriedade **cabeçalhos de mensagem** , insira os cabeçalhos necessários para a ação AS2, que são descritos pelo conteúdo de `headers` recebido pelo gatilho de solicitação HTTP.
 
-Você concluiu a configuração de seu aplicativo lógico de B2B. Em um aplicativo real, convém armazenar os dados X12 decodificados em um aplicativo LOB ou no armazenamento de dados. Você pode adicionar mais ações ou gravar APIs personalizadas para se conectar a seus próprios aplicativos LOB e usar essas APIs em seu Aplicativo Lógico.
+   Para inserir uma expressão que faz referência à saída do `headers` do gatilho, clique dentro da caixa **cabeçalhos da mensagem** . Depois que a lista de conteúdo dinâmico for exibida, selecione **expressão**. No editor de expressão, insira a expressão aqui e selecione **OK**:
 
-## <a name="features-and-use-cases"></a>Recursos e casos de uso
+   `triggerOutputs()['Headers']`
 
-* As ações de codificação e decodificação AS2 e X12 permitem que você compartilhe dados entre parceiros comerciais usando protocolos padrão da indústria em aplicativos lógicos.
-* Você pode usar as ações X12 e AS2 juntas ou separadamente para compartilhar dados com parceiros comerciais.
-* As ações de B2B facilitam a criação de parceiros e acordos na conta do Integration e seu consumo em um Aplicativo Lógico.
-* Estendendo o seu Aplicativo Lógico com outras ações, você pode enviar e receber dados de e para outros aplicativos e serviços, como o SalesForce.
+   Para obter essa expressão para resolver como esse token, alterne entre o designer e a exibição de código, por exemplo:
 
-## <a name="learn-more"></a>Saiba mais
-[Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
+   ![Saída de cabeçalhos resolvida do gatilho](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-headers-expression.png)
+
+## <a name="add-response-action-for-message-receipt-notification"></a>Adicionar ação de resposta para notificação de confirmação de mensagem
+
+Para notificar o parceiro comercial de que a mensagem foi recebida, você pode retornar uma resposta que contém uma MDN (notificação de disposição de mensagens AS2) usando a ação de **resposta** . Ao adicionar essa ação imediatamente após a ação de **decodificação AS2** , se essa ação falhar, o aplicativo lógico não continuará processando.
+
+1. Na ação de **decodificação AS2** , selecione **nova etapa**.
+
+1. Em **escolher uma ação**, na caixa de pesquisa, selecione **interno**. Na caixa de pesquisa, insira `condition`. Na lista **ações** , selecione **condição**.
+
+   ![Adicionar a ação "condição"](./media/logic-apps-enterprise-integration-b2b/add-condition-action.png)
+
+   Agora, a forma de condição é exibida, incluindo os caminhos para se a condição é atendida ou não.
+
+   ![Forma de condição com caminhos de decisão](./media/logic-apps-enterprise-integration-b2b/added-condition-action.png)
+
+1. Agora, especifique a condição a ser avaliada. Na caixa **escolher um valor** , insira esta expressão:
+
+   `@body('AS2_Decode')?['AS2Message']?['MdnExpected']`
+
+   Na caixa do meio, verifique se a operação de comparação está definida como `is equal to`. Na caixa do lado direito, digite o valor `Expected`. Para obter a expressão a ser resolvida como esse token, alterne entre o designer e o modo de exibição de código.
+
+   ![Forma de condição com caminhos de decisão](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
+
+1. Agora, especifique as respostas para retornar se a ação de **decodificação AS2** for bem sucedido ou não.
+
+   1. Para o caso em que a ação de **decodificação AS2** for realizada com sucesso, na forma **If true** , selecione **Adicionar uma ação**. Em **escolher uma ação**, na caixa de pesquisa, digite `response`e selecione **resposta**.
+
+      ![Localizar e selecionar a ação "resposta"](./media/logic-apps-enterprise-integration-b2b/select-http-response-action.png)
+
+   1. Para acessar o AS2 MDN da saída da ação de **decodificação AS2** , especifique estas expressões:
+
+      * Na propriedade **cabeçalhos** da ação de **resposta** , insira esta expressão:
+
+        `@body('AS2_Decode')?['OutgoingMdn']?['OutboundHeaders']`
+
+      * Na propriedade **corpo** da ação de **resposta** , insira esta expressão:
+
+        `@body('AS2_Decode')?['OutgoingMdn']?['Content']`
+
+   1. Para obter as expressões a serem resolvidas como tokens, alterne entre o designer e a exibição de código:
+
+      ![Expressão resolvida para acessar o AS2 MDN](./media/logic-apps-enterprise-integration-b2b/response-action-success-resolved-expression.png)
+
+   1. Para o caso em que a ação de **decodificação AS2** falhar, na forma **If false** , selecione **Adicionar uma ação**. Em **escolher uma ação**, na caixa de pesquisa, digite `response`e selecione **resposta**. Configure a ação de **resposta** para retornar o status e o erro que você deseja.
+
+1. Salve seu aplicativo lógico.
+
+## <a name="add-decode-x12-message-action"></a>Adicionar ação decodificar mensagem X12
+
+1. Agora, adicione a ação **decodificar mensagem X12** . Na ação **resposta** , selecione **Adicionar uma ação**.
+
+1. Em **escolher uma ação**, na caixa de pesquisa, digite `x12 decode`e selecione **decodificar mensagem X12**.
+
+   ![Localize e selecione a ação "decodificar mensagem de X12"](./media/logic-apps-enterprise-integration-b2b/add-x12-decode-action.png)
+
+1. Se a ação X12 solicitar informações de conexão, forneça o nome para a conexão, selecione a conta de integração que você deseja usar e, em seguida, selecione **criar**.
+
+   ![Criar conexão X12 para a conta de integração](./media/logic-apps-enterprise-integration-b2b/create-x12-integration-account-connection.png)
+
+1. Agora, especifique a entrada para a ação X12. Este exemplo usa a saída da ação AS2, que é o conteúdo da mensagem, mas observe que esse conteúdo está no formato de objeto JSON e é codificado em base64. Portanto, você precisa converter este conteúdo em uma cadeia de caracteres.
+
+   Na caixa **mensagem de arquivo simples X12 para decodificação** , insira esta expressão para converter a saída AS2:
+
+   `@base64ToString(body('AS2_Decode')?['AS2Message']?['Content'])`
+
+    Para obter a expressão a ser resolvida como esse token, alterne entre o designer e o modo de exibição de código.
+
+    ![Converter conteúdo codificado em base64 em uma cadeia de caracteres](./media/logic-apps-enterprise-integration-b2b/x12-decode-message-content.png)
+
+1. Salve seu aplicativo lógico.
+
+   Se você precisar de etapas adicionais para esse aplicativo lógico, por exemplo, para decodificar o conteúdo da mensagem e gerar esse conteúdo no formato de objeto JSON, continue criando seu aplicativo lógico.
+
+Agora você concluiu a configuração do seu aplicativo lógico B2B. Em um aplicativo do mundo real, talvez você queira armazenar os dados decodificados do X12 em um aplicativo de linha de negócios (LOB) ou armazenamento de dados. Por exemplo, consulte estes artigos:
+
+* [Conectar aos sistemas SAP a partir do Aplicativos Lógicos do Azure](../logic-apps/logic-apps-using-sap-connector.md)
+* [Monitorar, criar e gerenciar arquivos SFTP usando SSH e aplicativos lógicos do Azure](../connectors/connectors-sftp-ssh.md)
+
+Para conectar seus próprios aplicativos LOB e usar essas APIs em seu aplicativo lógico, você pode adicionar mais ações ou [gravar APIs personalizadas](../logic-apps/logic-apps-create-api-app.md).
+
+## <a name="next-steps"></a>Próximas etapas
+
+* [Receber e responder a chamadas HTTPS de entrada](../connectors/connectors-native-reqres.md)
+* [Trocar mensagens AS2 para a integração corporativa B2B](../logic-apps/logic-apps-enterprise-integration-as2.md)
+* [Trocar mensagens X12 para integração corporativa B2B](../logic-apps/logic-apps-enterprise-integration-x12.md)
+* Saiba mais sobre o [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)

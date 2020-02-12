@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: yushwang
 ms.reviewer: cherylmc
-ms.openlocfilehash: dce05c558423400d095c83800cdcaf85e174e081
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: ec3697208434eb971e47136416f2c2cc541b5cea
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75860394"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152067"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configurar conexões VPN S2S ativa-ativa com Gateways de VPN
 
 Este artigo explica as etapas para criar conexões VNet para VNet e entre instalações ativo-ativo usando o modelo de implantação do Resource Manager e o PowerShell.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ## <a name="about-highly-available-cross-premises-connections"></a>Sobre conexões altamente disponíveis entre instalações
 Para obter alta disponibilidade para conectividade entre instalações e VNet para VNet, você deve implantar vários gateways de VPN e estabelecer várias conexões paralelas entre suas redes e o Azure. Consulte [Conectividade Altamente Disponível entre os Locais e VNet para VNet](vpn-gateway-highlyavailable.md) para obter uma visão geral das opções de conectividade e topologia.
@@ -446,5 +446,5 @@ Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -DisableActiveActiveFeatu
 
 Esta atualização pode levar de 30 a 45 minutos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Veja [Criar uma máquina virtual](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para obter as etapas.

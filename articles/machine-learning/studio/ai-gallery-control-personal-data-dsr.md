@@ -7,20 +7,20 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: 248c4d38141f30016837f090ab04c64f82749f2b
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 8406da7a429fb5b9429845628a00cdb6cc715540
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838481"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148685"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Exibir e excluir dados de usuário do produto da Galeria de IA do Azure
 
-Você pode exibir e excluir seus dados de usuário do produto da Galeria de IA do Azure usando a interface ou a API de Catálogo da Galeria de IA. Este artigo mostra como fazer isso.
+Você pode exibir e excluir seus dados de usuário do produto da Galeria de IA do Azure usando a interface ou a API de Catálogo da Galeria de IA. Este artigo informa como fazer isso.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 

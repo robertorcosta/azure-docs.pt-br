@@ -2,13 +2,13 @@
 title: Restrições de nomenclatura de recursos
 description: Mostra as regras e restrições para nomear recursos do Azure.
 ms.topic: conceptual
-ms.date: 01/16/2020
-ms.openlocfilehash: 9d685e2852dee25e03bdd98ea5463fd40e795f23
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.date: 02/11/2020
+ms.openlocfilehash: 7b6a9e16ba28a2a0e5e4e181dc5650d2110eab88
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76157799"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153155"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
@@ -27,7 +27,7 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | servidores | grupo de recursos | 3-63 | Letras minúsculas e números.<br><br>Comece com uma letra minúscula. |
+> | servers | grupo de recursos | 3-63 | Letras minúsculas e números.<br><br>Comece com uma letra minúscula. |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 
@@ -37,8 +37,8 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | serviço | global | 1-50 | Alfanuméricos.<br><br>Comece com a letra. |
 > | serviço/APIs | serviço | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
 > | serviço/APIs/problemas | api | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/APIs/problemas/anexos | Lo | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
-> | serviço/APIs/problemas/comentários | Lo | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
+> | serviço/APIs/problemas/anexos | lo | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
+> | serviço/APIs/problemas/comentários | lo | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
 > | serviço/APIs/operações | api | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
 > | serviço/APIs/operações/marcas | operação | 1-256 | Não é possível usar:<br> `*#&+:<>?` |
 > | serviço/APIs/versões | api | 1-80 | Alfanuméricos, sublinhados e hifens.<br><br>Comece e termine com caracteres alfanuméricos ou sublinhados. |
@@ -166,9 +166,9 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | diskEncryptionSets | grupo de recursos | 1-80 | Caracteres alfanuméricos e sublinhados. |
 > | disks | grupo de recursos | 1-80 | Caracteres alfanuméricos e sublinhados. |
 > | galleries | grupo de recursos | 1-80 | Alfanuméricos e pontos.<br><br>Comece e termine com alfanumérico. |
-> | galerias/aplicativos | galeria | 1-80 | Alfanuméricos, hifens e pontos.<br><br>Comece e termine com alfanumérico. |
+> | galerias/aplicativos | clip | 1-80 | Alfanuméricos, hifens e pontos.<br><br>Comece e termine com alfanumérico. |
 > | galerias/aplicativos/versões | aplicativo | Inteiro de 32 bits | Números e pontos. |
-> | galerias/imagens | galeria | 1-80 | Alfanuméricos, hifens e pontos.<br><br>Comece e termine com alfanumérico. |
+> | galerias/imagens | clip | 1-80 | Alfanuméricos, hifens e pontos.<br><br>Comece e termine com alfanumérico. |
 > | galerias/imagens/versões | image | Inteiro de 32 bits | Números e pontos. |
 > | images | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Terminar com alfanumérico ou sublinhado. |
 > | snapshots | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com alfanumérico. Terminar com alfanumérico ou sublinhado. |
@@ -192,7 +192,7 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | --- | --- | --- | --- |
 > | registries | global | 5 a 50 | Alfanuméricos. |
 > | registros/buildTasks | Registro | 5 a 50 | Alfanuméricos. |
-> | registros/buildTasks/etapas | Compilar tarefa | 5 a 50 | Alfanuméricos. |
+> | registros/buildTasks/etapas | tarefa de build | 5 a 50 | Alfanuméricos. |
 > | registros/replicações | Registro | 5 a 50 | Alfanuméricos. |
 > | registros/scopeMaps | Registro | 5 a 50 | Alfanuméricos, hifens e sublinhados. |
 > | registros/tarefas | Registro | 5 a 50 | Alfanuméricos, hifens e sublinhados. |
@@ -213,18 +213,18 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
 > | hubs | grupo de recursos | 1-64 | Alfanuméricos.<br><br>Comece com a letra.  |
-> | hubs/authorizationPolicies | hub | 1-50 | Alfanuméricos, sublinhados e pontos.<br><br>Comece e termine com alfanumérico. |
-> | hubs/conectores | hub | 1-128 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
+> | hubs/authorizationPolicies | 82801ER | 1-50 | Alfanuméricos, sublinhados e pontos.<br><br>Comece e termine com alfanumérico. |
+> | hubs/conectores | 82801ER | 1-128 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
 > | hubs/conectores/mapeamentos | conector | 1-128 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
-> | hubs/interações | hub | 1-128 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
-> | hubs/KPI | hub | 1-512 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
-> | hubs/links | hub | 1-512 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
-> | hubs/previsões | hub | 1-512 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
-> | hubs/perfis | hub | 1-128 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
-> | hubs/relationshipLinks | hub | 1-512 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
-> | hubs/relações | hub | 1-512 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
-> | hubs/roleAssignments | hub | 1-128 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
-> | hubs/exibições | hub | 1-512 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
+> | hubs/interações | 82801ER | 1-128 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
+> | hubs/KPI | 82801ER | 1-512 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
+> | hubs/links | 82801ER | 1-512 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
+> | hubs/previsões | 82801ER | 1-512 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
+> | hubs/perfis | 82801ER | 1-128 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
+> | hubs/relationshipLinks | 82801ER | 1-512 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
+> | hubs/relações | 82801ER | 1-512 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
+> | hubs/roleAssignments | 82801ER | 1-128 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
+> | hubs/exibições | 82801ER | 1-512 | Caracteres alfanuméricos e sublinhados.<br><br>Comece com a letra. |
 
 ## <a name="microsoftcustomproviders"></a>Microsoft.CustomProviders
 
@@ -295,30 +295,30 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | servidores | global | 3-63 | Letras minúsculas, hifens e números.<br><br>Não é possível iniciar ou terminar com hífen. |
-> | servidores/bancos de dados | servidores | 1-63 | Alfanuméricos e hifens. |
-> | servidores/firewallRules | servidores | 1-128 | Alfanuméricos, hifens e sublinhados. |
-> | servidores/virtualNetworkRules | servidores | 1-128 | Alfanuméricos e hifens. |
+> | servers | global | 3-63 | Letras minúsculas, hifens e números.<br><br>Não é possível iniciar ou terminar com hífen. |
+> | servidores/bancos de dados | servers | 1-63 | Alfanuméricos e hifens. |
+> | servidores/firewallRules | servers | 1-128 | Alfanuméricos, hifens e sublinhados. |
+> | servidores/virtualNetworkRules | servers | 1-128 | Alfanuméricos e hifens. |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | servidores | global | 3-63 | Letras minúsculas, hifens e números.<br><br>Não é possível iniciar ou terminar com hífen. |
-> | servidores/bancos de dados | servidores | 1-63 | Alfanuméricos e hifens. |
-> | servidores/firewallRules | servidores | 1-128 | Alfanuméricos, hifens e sublinhados. |
-> | servidores/virtualNetworkRules | servidores | 1-128 | Alfanuméricos e hifens. |
+> | servers | global | 3-63 | Letras minúsculas, hifens e números.<br><br>Não é possível iniciar ou terminar com hífen. |
+> | servidores/bancos de dados | servers | 1-63 | Alfanuméricos e hifens. |
+> | servidores/firewallRules | servers | 1-128 | Alfanuméricos, hifens e sublinhados. |
+> | servidores/virtualNetworkRules | servers | 1-128 | Alfanuméricos e hifens. |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | servidores | global | 3-63 | Letras minúsculas, hifens e números.<br><br>Não é possível iniciar ou terminar com hífen. |
-> | servidores/bancos de dados | servidores | 1-63 | Alfanuméricos e hifens. |
-> | servidores/firewallRules | servidores | 1-128 | Alfanuméricos, hifens e sublinhados. |
-> | servidores/virtualNetworkRules | servidores | 1-128 | Alfanuméricos e hifens. |
+> | servers | global | 3-63 | Letras minúsculas, hifens e números.<br><br>Não é possível iniciar ou terminar com hífen. |
+> | servidores/bancos de dados | servers | 1-63 | Alfanuméricos e hifens. |
+> | servidores/firewallRules | servers | 1-128 | Alfanuméricos, hifens e sublinhados. |
+> | servidores/virtualNetworkRules | servers | 1-128 | Alfanuméricos e hifens. |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
@@ -407,8 +407,8 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | --- | --- | --- | --- |
 > | clusters | global | 4-22 | Letras minúsculas e números.<br><br>Comece com a letra. |
 > | /clusters/bancos de dados | cluster | 1-260 | Alfanuméricos, hifens, espaços e pontos. |
-> | /clusters/bancos de dados/conexões | banco de dados | 1-40 | Alfanuméricos, hifens, espaços e pontos. |
-> | /clusters/bancos de dados/eventhubconnections | banco de dados | 1-40 | Alfanuméricos, hifens, espaços e pontos. |
+> | /clusters/bancos de dados/conexões | Banco de Dados | 1-40 | Alfanuméricos, hifens, espaços e pontos. |
+> | /clusters/bancos de dados/eventhubconnections | Banco de Dados | 1-40 | Alfanuméricos, hifens, espaços e pontos. |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
@@ -528,6 +528,13 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | clusters | grupo de recursos | 4-63 | Alfanuméricos e hifens.<br><br>Comece e termine com alfanumérico. |
 > | workspaces | grupo de recursos | 4-63 | Alfanuméricos e hifens.<br><br>Comece e termine com alfanumérico. |
 
+## <a name="microsoftportal"></a>Microsoft.Portal
+
+> [!div class="mx-tableFixed"]
+> | Entidade | Escopo | Comprimento | Caracteres válidos |
+> | --- | --- | --- | --- |
+> | dashboards | grupo de recursos | 3-160 | Alfanuméricos e hifens.<br><br>Para usar caracteres restritos, adicione uma marca denominada **Hidden-título** com o nome do painel que você deseja usar. O portal exibe esse nome ao mostrar o painel. |
+
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
 > [!div class="mx-tableFixed"]
@@ -608,9 +615,9 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
 > | managedInstances | global | 1-63 | Letras minúsculas, números e hifens.<br><br>Não é possível iniciar ou terminar com hífen. |
-> | servidores | global | 1-63 | Letras minúsculas, números e hifens.<br><br>Não é possível iniciar ou terminar com hífen. |
+> | servers | global | 1-63 | Letras minúsculas, números e hifens.<br><br>Não é possível iniciar ou terminar com hífen. |
 > | servidores/bancos de dados | Servidor | 1-128 | Não é possível usar:<br>`<>*%&:\/?`<br><br>Não é possível terminar com período ou espaço. |
-> | servidores/bancos de dados/syncGroups | banco de dados | 1-150 | Alfanuméricos, hifens e sublinhados. |
+> | servidores/bancos de dados/syncGroups | Banco de Dados | 1-150 | Alfanuméricos, hifens e sublinhados. |
 > | servidores/elasticPools | Servidor | 1-128 | Não é possível usar:<br>`<>*%&:\/?`<br><br>Não é possível terminar com período ou espaço. |
 > | servidores/failoverGroups | global | 1-63 | Letras minúsculas, números e hifens.<br><br>Não é possível iniciar ou terminar com hífen. |
 > | servidores/firewallRules | Servidor | 1-128 | Não é possível usar:<br>`<>*%&:;\/?`<br><br>Não é possível terminar com período. |
@@ -675,6 +682,6 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | sites | global | 2-60 | Contém caracteres alfanuméricos e hifens.<br><br>Não é possível iniciar ou terminar com hífen. |
 > | sites/Slots | site | 2-59 | Alfanuméricos e hifens. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter recomendações sobre como nomear recursos, consulte [pronto: convenções de nomenclatura e marcação recomendadas](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).

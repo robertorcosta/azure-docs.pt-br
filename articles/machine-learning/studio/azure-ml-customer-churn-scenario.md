@@ -7,18 +7,18 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: cc7ce8a8725e3cbc5c4f0d4db8bfcc3f1b1d657b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 903e3f3dcbcc72289fc82ec59dec0305b6adbc17
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427697"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150911"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio-classic"></a>Analisar a rotatividade de clientes usando Azure Machine Learning Studio (clássico)
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Este artigo apresenta uma implementação de referência de um projeto de análise de rotatividade de clientes criado usando Azure Machine Learning Studio (clássico). Discutimos aqui modelos genéricos associados para resolver holisticamente o problema de variação do cliente industrial. Medimos também a precisão dos modelos criados usando o Machine Learning e avaliamos o trajeto para maior desenvolvimento.  
 
 ### <a name="acknowledgements"></a>Confirmações
@@ -178,7 +178,7 @@ A tabela a seguir resume o desempenho dos algoritmos:
 
 *Tabela 1. Desempenho geral (precisão) dos algoritmos*
 
-| LR | BT | Pacífico Asiático | SVM |
+| LR | BT | AP | SVM |
 | --- | --- | --- | --- |
 | Modelo médio |O melhor modelo |Subdesempenhando |Modelo médio |
 

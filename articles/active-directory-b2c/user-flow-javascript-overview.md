@@ -8,46 +8,46 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 02/10/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3f6d4849b02f320c7479469b4ee56be50e4f8dee
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 78fc3af10bde5e9dd25d02f7a21d77e958b15190
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840087"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149517"
 ---
 # <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>JavaScript e versões de layout de página no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Azure AD B2C fornece um conjunto de conteúdo empacotado que contém HTML, CSS e JavaScript para os elementos da interface do usuário em seus fluxos de usuário e políticas personalizadas. Para habilitar o JavaScript para seus aplicativos, você deve adicionar um elemento à [política personalizada](custom-policy-overview.md) ou habilitá-lo no portal para fluxos de usuário, selecionar um layout de página e usar [b2clogin.com](b2clogin.md) em suas solicitações.
+Azure AD B2C fornece um conjunto de conteúdo empacotado que contém HTML, CSS e JavaScript para os elementos da interface do usuário em seus fluxos de usuário e políticas personalizadas.
 
-Se você pretende habilitar o código do lado do cliente [JavaScript](javascript-samples.md) , certifique-se de que os elementos nos quais você está baseando seu JavaScript sejam imutáveis. Caso contrário, as alterações podem causar um comportamento inesperado nas páginas do usuário. Para evitar esses problemas, você pode impor o uso de um layout de página e especificar uma versão de layout de página. Isso garante que todas as definições de conteúdo com base no seu JavaScript sejam imutáveis. Mesmo que você não pretenda habilitar o JavaScript, você pode especificar uma versão de layout de página para suas páginas.
+Para habilitar o JavaScript para seus aplicativos:
 
-## <a name="user-flows"></a>Fluxos de usuário
+* Habilite-o no fluxo do usuário usando o portal do Azure
+* Selecionar um [layout de página](page-layout.md)
+* Usar [b2clogin.com](b2clogin.md) em suas solicitações
 
-Nas **Propriedades**de fluxo do usuário, você pode habilitar o JavaScript, que também impõe o uso de um layout de página. Em seguida, você pode definir a versão de layout da página para o fluxo do usuário, conforme descrito na próxima seção.
+Se você pretende habilitar o código [JavaScript](javascript-samples.md) do lado do cliente, os elementos dos quais você baseia seu JavaScript devem ser imutáveis. Se não forem imutáveis, as alterações poderão causar um comportamento inesperado nas páginas do usuário. Para evitar esses problemas, aplique o uso de um layout de página e especifique uma versão de layout de página para garantir que as definições de conteúdo com base em seu JavaScript sejam imutáveis. Mesmo que você não pretenda habilitar o JavaScript, você pode especificar uma versão de layout de página para suas páginas.
+
+## <a name="enable-javascript"></a>Habilitar o JavaScript
+
+Nas **Propriedades**de fluxo do usuário, você pode habilitar o JavaScript. Habilitar o JavaScript também impõe o uso de um layout de página. Em seguida, você pode definir a versão de layout da página para o fluxo do usuário, conforme descrito na próxima seção.
 
 ![Página Propriedades do fluxo de usuário com a configuração Habilitar JavaScript realçada](media/user-flow-javascript-overview/javascript-settings.png)
 
-### <a name="select-a-page-layout-version"></a>Selecionar uma versão de layout de página
+## <a name="select-a-page-layout-version"></a>Selecionar uma versão de layout de página
 
 Se você habilitar ou não o JavaScript nas propriedades do fluxo de usuário, poderá especificar uma versão de layout de página para suas páginas de fluxo de usuário. Abra o fluxo de usuário e selecione **layouts de página**. Em **nome do layout**, selecione uma página fluxo de usuário e escolha a **versão de layout da página**.
 
-Para obter informações sobre as diferentes versões de layout de página, consulte o [log de alterações de versão](page-layout.md#version-change-log).
+Para obter informações sobre as diferentes versões de layout de página, consulte o [log de página versão de layout de alteração](page-layout.md).
 
 ![Configurações de layout de página no portal mostrando o menu suspenso versão de layout de página](media/user-flow-javascript-overview/page-layout-version.png)
 
-## <a name="custom-policies"></a>Políticas personalizadas
+[!INCLUDE [active-directory-b2c-javascript-guidelines](../../includes/active-directory-b2c-javascript-guidelines.md)]
 
-Para habilitar o JavaScript em políticas personalizadas, adicione o elemento **ScriptExecution** ao elemento **RelyingParty** em seu arquivo de política personalizado. Para obter mais informações, consulte [exemplos de JavaScript para uso em Azure Active Directory B2C](javascript-samples.md).
-
-Se você habilitar ou não o JavaScript em suas políticas personalizadas, poderá especificar uma versão de layout de página para suas páginas. Para obter mais informações sobre como especificar um layout de página, consulte [selecionar um layout de página em Azure Active Directory B2C usando políticas personalizadas](page-layout.md).
-
-## <a name="next-steps"></a>Próximos passos
-
-Para obter informações sobre as diferentes versões de layout de página, consulte a seção **log de alterações de versão** de [selecionar um layout de página em Azure Active Directory B2C usando políticas personalizadas](page-layout.md#version-change-log).
+## <a name="next-steps"></a>Próximas etapas
 
 Você pode encontrar exemplos de uso de JavaScript em [exemplos de JavaScript para uso no Azure Active Directory B2C](javascript-samples.md).

@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 1c51ff1e653ac3fbbf6042cb6fb631b05ef94041
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 985417200737e00ddbda4194cf7596b11c74ac10
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548349"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153716"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Módulo de árvore de decisão aumentada de duas classes
 
@@ -72,6 +72,6 @@ Após a conclusão do treinamento:
 
 + Para usar o modelo de pontuação, adicione o módulo **modelo de Pontuação** a um pipeline.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
