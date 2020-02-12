@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: a48ce60dca9f4221e364d53567f5b53719deb18c
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: 443b021b266a202775e94e44acac3a91a2b70617
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314514"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137578"
 ---
 # <a name="apply-transformation-module"></a>Aplicar o módulo de transformação
 
-Este artigo descreve um módulo no designer de Azure Machine Learning.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para modificar um conjunto de dados de entrada com base em uma transformação computada anteriormente.  
   
@@ -32,9 +32,9 @@ Azure Machine Learning fornece suporte para criar e, em seguida, aplicar vários
 
 ## <a name="how-to-use-apply-transformation"></a>Como usar aplicar transformação  
   
-1. Adicione o módulo **aplicar transformação** ao seu pipeline. Você pode encontrar esse módulo em **Machine Learning**, na categoria **Pontuação** . 
+1. Adicione o módulo **aplicar transformação** ao seu pipeline. Você pode encontrar esse módulo na **classificação do modelo &** categoria de avaliação. 
   
-2. Localize uma transformação existente para usar como uma entrada.  As transformações salvas anteriormente podem ser encontradas no grupo **transformações** no painel de navegação esquerdo.  
+2. Localize uma transformação existente para usar como uma entrada. As transformações salvas anteriormente podem ser encontradas no grupo **meus conjuntos de valores** na categoria **conjuntos de valores** na árvore de módulos à esquerda.  
   
    
   
@@ -44,6 +44,6 @@ Azure Machine Learning fornece suporte para criar e, em seguida, aplicar vários
   
 5. Para aplicar uma transformação ao novo conjunto de um, execute o pipeline.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

@@ -15,19 +15,18 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: 0e793a5aa7d619b0bb7a1d3efcdf665ea400c555
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
-ms.translationtype: MT
+ms.openlocfilehash: 11ee8f52a8fd4db2d052eeaeef1387b011d23050
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69016731"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131563"
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador NewTek TriCaster para enviar uma transmissão ao vivo de taxa de bits única  
 > [!div class="op_single_selector"]
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [Elemental Live](media-services-configure-elemental-live-encoder.md)
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
-> * [FMLE](media-services-configure-fmle-live-encoder.md)
 >
 >
 
@@ -40,7 +39,7 @@ Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a f
 >
 >
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * [Criar uma conta dos Serviços de Mídia do Azure](media-services-portal-create-account.md)
 * Verifique se há um Ponto de Extremidade de Streaming em execução. Para obter mais informações, veja [Gerenciar Pontos de Extremidade de Transmissão em uma conta de Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md)
@@ -86,18 +85,18 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 **Vídeo**:
 
 * Codec: H.264
-* Perfil: Alto (Nível 4.0)
-* Taxa de bits: 5.000 Kbps
+* Perfil: Alto (nível 4.0)
+* Taxa de bits: 5.000 kbps
 * Quadro-chave: 2 segundos (60 segundos)
 * Taxa de quadros: 30
 
 **Áudio**:
 
 * Codec: AAC (LC)
-* Taxa de bits: 192 Kbps
+* Taxa de bits: 192 kbps
 * Taxa de amostragem: 44,1 kHz
 
-### <a name="configuration-steps"></a>Etapas da configuração
+### <a name="configuration-steps"></a>Etapas de configuração
 
 1. Crie um novo projeto do **NewTek TriCaster** dependendo de qual fonte de entrada de vídeo está sendo usada.
 2. Depois de entrar nesse projeto, encontre o botão **Transmissão** e clique no ícone de engrenagem ao lado dele para acessar o menu de configuração da transmissão.
@@ -169,7 +168,7 @@ Confira o artigo de [solução de problemas](media-services-troubleshooting-live
 
 ## <a name="next-step"></a>Próxima etapa
 
-Revise os roteiros de aprendizagem dos Serviços de Mídia.
+Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

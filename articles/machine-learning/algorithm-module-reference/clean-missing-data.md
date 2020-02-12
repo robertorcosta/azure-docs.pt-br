@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: 46034c8392dc1720fe5e03fc5e419dba6ed20e0b
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: 5851b294e52fdcc03dbf3b889ff32898a823f655
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314463"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137566"
 ---
 # <a name="clean-missing-data-module"></a>Limpar módulo de dados ausentes
 
-Este artigo descreve um módulo no designer de Azure Machine Learning.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para remover, substituir ou inferir valores ausentes. 
 
@@ -37,11 +37,11 @@ Esse módulo também gera uma definição da transformação usada para limpar o
 
 ## <a name="how-to-use-clean-missing-data"></a>Como usar dados ausentes limpos
 
-Esse módulo permite que você defina uma operação de limpeza. Você também pode salvar a operação de limpeza para que possa aplicá-la posteriormente aos novos dados. Consulte os links a seguir para obter uma descrição de como criar e salvar um processo de limpeza: 
+Esse módulo permite que você defina uma operação de limpeza. Você também pode salvar a operação de limpeza para que possa aplicá-la posteriormente aos novos dados. Consulte as seções a seguir de como criar e salvar um processo de limpeza: 
  
-+ Para substituir valores ausentes
++ [Para substituir valores ausentes](#replace-missing-values)
   
-+ Para aplicar uma transformação limpeza a novos dados
++ [Para aplicar uma transformação limpeza a novos dados](#apply-a-saved-cleaning-operation-to-new-data)
  
 > [!IMPORTANT]
 > O método de limpeza que você usa para lidar com valores ausentes pode afetar drasticamente os resultados. Recomendamos que você experimente métodos diferentes. Considere a justificativa para uso de um método específico e a qualidade dos resultados.
@@ -56,12 +56,9 @@ Cada vez que você aplicar o módulo [limpar dados ausentes](./clean-missing-dat
 
     Por exemplo, para verificar se há valores ausentes em todas as colunas numéricas:
 
-    1. Abra o seletor de coluna e selecione **com regras**.
-    2. Para **começar com**, selecione **nenhuma coluna**.
+    1. Selecione o módulo **limpar dados ausentes** e clique em **Editar coluna** no painel direito do módulo.
 
-        Você também pode iniciar com todas as colunas e, em seguida, excluir colunas. Inicialmente, as regras não são mostradas se você clicar primeiro em **todas as colunas**, mas você pode clicar em **nenhuma coluna** e, em seguida, clicar em **todas as colunas** novamente para iniciar com todas as colunas e, em seguida, filtrar (excluir) colunas com base no índice de nome, tipo de dados ou colunas.
-
-    3. Para **incluir**, selecione **tipo de coluna** na lista suspensa e, em seguida, selecione **numérico**ou um tipo numérico mais específico. 
+    3. Para **incluir**, selecione **tipos de coluna** na lista suspensa e, em seguida, selecione **numérico**. 
   
     Qualquer método de limpeza ou substituição que você escolher deve ser aplicável a **todas as** colunas na seleção. Se os dados em qualquer coluna forem incompatíveis com a operação especificada, o módulo retornará um erro e interromperá o pipeline.
   
@@ -74,7 +71,7 @@ Cada vez que você aplicar o módulo [limpar dados ausentes](./clean-missing-dat
     > [!WARNING]
     > Essa condição deve ser atendida por cada coluna para que a operação especificada seja aplicada. Por exemplo, suponha que você selecionou três colunas e, em seguida, defina a taxa mínima de valores ausentes como 0,2 (20%), mas apenas uma coluna tem, na verdade, 20% de valores ausentes. Nesse caso, a operação de limpeza se aplicaria somente à coluna com mais de 20% de valores ausentes. Portanto, as outras colunas ficarão inalteradas.
     > 
-    > Se você tiver alguma dúvida sobre se os valores ausentes foram alterados, selecione a opção **gerar coluna de indicador de valor ausente**. Uma coluna é anexada ao DataSet para indicar se cada coluna atende aos critérios especificados para os intervalos mínimo e máximo.  
+    > Se você tiver alguma dúvida sobre se os valores ausentes foram alterados, selecione a opção **Gerar coluna de indicador de valores ausentes**. Uma coluna é anexada ao DataSet para indicar se cada coluna atende aos critérios especificados para os intervalos mínimo e máximo.  
   
 4. Para obter a **taxa máxima de valores ausentes**, especifique o número máximo de valores ausentes que podem estar presentes para a operação ser executada.   
   
@@ -109,7 +106,7 @@ Cada vez que você aplicar o módulo [limpar dados ausentes](./clean-missing-dat
   
 6. O **valor de substituição** de opção estará disponível se você tiver selecionado a opção **valor personalizado de substituição**. Digite um novo valor a ser usado como o valor de substituição para todos os valores ausentes na coluna.  
   
-    Observe que você pode usar essa opção somente em colunas que têm os tipos de dados inteiro, duplo, booliano ou data. Para colunas de data, o valor de substituição também poderá ser inserido como o número de tiques de 100 nanossegundos desde 1/1/0001 12:00 AM.  
+    Observe que você pode usar essa opção somente em colunas que têm o número inteiro, duplo, booliano ou cadeia de caracteres.
   
 7. **Gerar coluna de indicador de valor ausente**: Selecione esta opção se desejar gerar uma indicação de que os valores na coluna atendem aos critérios de limpeza de valor ausente. Essa opção é particularmente útil quando você está configurando uma nova operação de limpeza e deseja certificar-se de que ela funciona como projetado.
   
@@ -143,6 +140,6 @@ Se você precisar repetir as operações de limpeza com frequência, recomendamo
 
 6.  Execute o pipeline.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

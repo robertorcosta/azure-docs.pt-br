@@ -9,14 +9,14 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.openlocfilehash: 5df00d68b7114cc489b0708f5c2e401c87d0be15
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: d41b0499df1a62440e8c1991e29f7963224a50d6
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314021"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138162"
 ---
-# <a name="import-your-data-into-azure-machine-learning-designer"></a>Importar seus dados para o designer de Azure Machine Learning
+# <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importar seus dados para o designer de Azure Machine Learning (versão prévia)
 
 Neste artigo, você aprenderá a importar seus próprios dados no designer para criar soluções personalizadas. Há duas maneiras de importar dados para o designer: 
 
@@ -45,7 +45,7 @@ Seus conjuntos de valores registrados podem ser encontrados na paleta de módulo
 
 ![Captura de tela mostrando o local dos conjuntos de itens salvos na paleta do designer](media/how-to-designer-import-data/use-datasets-designer.png)
 
-Qualquer [conjunto](how-to-create-register-datasets.md#dataset-types) de informações de arquivo registrado no seu espaço de trabalho do Machine Learning será exibido na paleta de módulos. Você não está limitado ao uso de conjuntos de valores criados no designer.
+
 
 > [!NOTE]
 > Atualmente, o designer dá suporte apenas ao processamento de [conjuntos de tabelas de tabela](how-to-create-register-datasets.md#dataset-types). Se você quiser usar [conjuntos de arquivos de arquivo](how-to-create-register-datasets.md#dataset-types), use o SDK do Azure Machine Learning disponível para Python e R.
@@ -70,17 +70,17 @@ O designer dá suporte a conjuntos de tabelas de tabela criados a partir das seg
  * Arquivos delimitados
  * Arquivos JSON
  * Arquivos Parquet
- * Consultas SQL
+ * consultas SQL
 
 ## <a name="data-types"></a>Tipos de dados
 
 O designer reconhece internamente os seguintes tipos de dados:
 
 * String
-* Integer
+* Inteiro
 * Decimal
 * Boolean
-* Data
+* Date
 
 O designer usa um tipo de dados interno para passar dados entre módulos. Você pode converter explicitamente seus dados em formato de tabela de dados usando o módulo [converter para conjunto de](algorithm-module-reference/convert-to-dataset.md) dados. Qualquer módulo que aceite formatos diferentes do formato interno converterá os dados silenciosamente antes de passá-los para o próximo módulo.
 
@@ -88,6 +88,6 @@ O designer usa um tipo de dados interno para passar dados entre módulos. Você 
 
 Os módulos no designer são limitados pelo tamanho do destino de computação. Para conjuntos de grandes maiores, você deve usar um recurso de computação Azure Machine Learning maior. Para obter mais informações sobre Azure Machine Learning computação, consulte [o que são destinos de computação no Azure Machine Learning?](concept-compute-target.md#azure-machine-learning-compute-managed)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Aprenda as noções básicas do designer com [o tutorial: prever o preço do automóvel com o designer](tutorial-designer-automobile-price-train-score.md).

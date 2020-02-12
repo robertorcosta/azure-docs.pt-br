@@ -1,5 +1,5 @@
 ---
-title: Adicionar ou remover atribuições de função para usuários convidados externos usando o Azure RBAC e o portal do Azure
+title: Adicionar ou remover atribuições de função para usuários externos com RBAC e o portal do Azure
 description: Saiba como conceder acesso aos recursos do Azure para usuários externos a uma organização usando o RBAC (controle de acesso baseado em função) do Azure.
 services: active-directory
 documentationcenter: ''
@@ -16,18 +16,18 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: db43a3cce27da5f40986968b6573bfd58a1d3cb7
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1c440b85f792ac5bb1336f4d20f930aafc38ad7d
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707876"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138371"
 ---
 # <a name="add-or-remove-role-assignments-for-external-guest-users-using-azure-rbac-and-the-azure-portal"></a>Adicionar ou remover atribuições de função para usuários convidados externos usando o Azure RBAC e o portal do Azure
 
 O [RBAC (controle de acesso baseado em função) do Azure](overview.md) permite melhor gerenciamento de segurança para grandes organizações e para empresas de pequeno e médio porte que trabalham com colaboradores externos, fornecedores ou freelanceres que precisam de acesso a recursos específicos em seu ambiente, mas não necessariamente a toda a infraestrutura ou a quaisquer escopos relacionados à cobrança. Você pode usar os recursos do [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) para colaborar com usuários convidados externos e pode usar o RBAC para conceder apenas as permissões que os usuários convidados precisam em seu ambiente.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Para adicionar ou remover atribuições de função, você deve ter:
 
@@ -171,7 +171,7 @@ Antes de remover um usuário convidado de um diretório, primeiro você deve rem
 
 1. Na mensagem de exclusão exibida, clique em **Sim**.
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 
 ### <a name="guest-user-cannot-browse-the-directory"></a>O usuário convidado não pode navegar no diretório
 
@@ -207,7 +207,7 @@ Se um usuário convidado tiver recebido acesso a um diretório, mas não vir os 
 
 ![Diretórios + painel de assinaturas no portal do Azure](./media/role-assignments-external-users/directory-subscription.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Adicionar usuários de colaboração B2B do Azure Active Directory no Portal do Azure](../active-directory/b2b/add-users-administrator.md)
 - [Propriedades de um usuário de colaboração B2B do Azure Active Directory](../active-directory/b2b/user-properties.md)

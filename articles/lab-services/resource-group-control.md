@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: spelluru
-ms.openlocfilehash: b6f51dee948d9e4d9e3f8594f9f7e60fb11b7057
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 29816d158cf1428727b7ff17bcc2c347f402dedf
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647332"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134523"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Especifique um grupo de recursos para máquinas virtuais do laboratório no Azure DevTest Labs
 
@@ -31,9 +31,9 @@ Como um proprietário de laboratório, você pode configurar suas máquinas virt
 Com esse recurso, você pode usar um script para especificar um grupo de recursos novo ou existente dentro de sua assinatura do Azure para todas as suas VMs de laboratório. Atualmente, Azure DevTest Labs dá suporte a esse recurso por meio de uma API.
 
 > [!NOTE]
-> Todos os limites de assinatura se aplicam ao criar laboratórios no DevTest Labs. Imagine um laboratório como qualquer outro recurso em sua assinatura. No caso de grupos de recursos, o limite é de [980 grupos de recursos por assinatura](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager). 
+> Todos os limites de assinatura se aplicam ao criar laboratórios no DevTest Labs. Imagine um laboratório como qualquer outro recurso em sua assinatura. No caso de grupos de recursos, o limite é de [980 grupos de recursos por assinatura](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits). 
 
-## <a name="use-azure-portal"></a>Use o Portal do Azure
+## <a name="use-azure-portal"></a>Usar o portal do Azure
 Siga estas etapas para especificar um grupo de recursos para todas as VMs criadas no laboratório. 
 
 1. Entre no [portal do Azure](https://portal.azure.com).
@@ -47,7 +47,7 @@ Siga estas etapas para especificar um grupo de recursos para todas as VMs criada
 
     ![Selecione o grupo de recursos para todas as VMs de laboratório](./media/resource-group-control/select-resource-group.png)
 
-## <a name="use-powershell"></a>Use o PowerShell 
+## <a name="use-powershell"></a>Usar o PowerShell 
 O exemplo a seguir mostra como usar um script do PowerShell para criar todas as máquinas virtuais do laboratório em um novo grupo de recursos.
 
 ```powershell
@@ -117,7 +117,7 @@ Como usar essa API:
 - Ao usar a API, passe a **ID completa do grupo de recursos**. Por exemplo: `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>`. Verifique se o grupo de recursos está na mesma assinatura que o laboratório. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Veja os artigos a seguir: 
 
 - [Definir políticas para um laboratório](devtest-lab-get-started-with-lab-policies.md)

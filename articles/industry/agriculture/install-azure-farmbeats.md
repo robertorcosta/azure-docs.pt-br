@@ -5,12 +5,12 @@ author: usha-rathnavel
 ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
-ms.openlocfilehash: 7d3c70695000ae62f374bc558d4b408733968b83
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.openlocfilehash: b7d99c3bf61de17f9cebba834234cc8ea52f30d6
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77069278"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131873"
 ---
 # <a name="install-azure-farmbeats"></a>Instalar o Azure FarmBeats
 
@@ -38,7 +38,7 @@ Quando você instala o Azure FarmBeats, os seguintes recursos são provisionados
 | Azure Cosmos DB   |  Datahub       |
 | Azure Data Factory V2       |     Acelerador de & Datahub      |
 | Conta do Lote do Azure    | Datahub   |
-| Cofre de Chave do Azure |  Acelerador de & Datahub        |
+| Azure Key Vault |  Acelerador de & Datahub        |
 | Conta do Azure Maps       |     Acelerador    |
 | Namespace do hub de eventos    |     Datahub      |
 | Aplicativo Lógico      |  Datahub       |
@@ -57,7 +57,7 @@ O custo da FarmBeats do Azure é uma agregação do custo dos serviços do Azure
 Atualmente, o Azure FarmBeats tem suporte em ambientes de nuvem pública nas seguintes regiões:
 
 - Leste da Austrália
-- Centro dos EUA
+- EUA Central
 - Leste dos EUA
 - Leste dos EUA 2
 - Oeste dos EUA
@@ -71,7 +71,7 @@ Atualmente, o Azure FarmBeats tem suporte em ambientes de nuvem pública nas seg
 
 Toda a configuração do Azure FarmBeats, incluindo a preparação e a instalação, levará menos de uma hora.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Você precisará concluir as etapas a seguir antes de iniciar a instalação real do Azure FarmBeats:
 
@@ -138,7 +138,7 @@ Seu processo de registro foi concluído. Anote seu **nome de usuário do Sentine
 
 Agora você está pronto para instalar o FarmBeats. Siga as etapas abaixo para iniciar a instalação:
 
-1. Entre no portal do Azure. Selecione sua conta no canto superior direito e alterne para o locatário do Azure AD no qual você deseja instalar o Azure FarmBeats.
+1. Entre no Portal do Azure. Selecione sua conta no canto superior direito e alterne para o locatário do Azure AD no qual você deseja instalar o Azure FarmBeats.
 
 2. Vá para o Azure Marketplace no portal e pesquise **FarmBeats do Azure** no Marketplace.
 
@@ -162,7 +162,7 @@ Depois que a instalação for concluída, você poderá verificar a instalação
 
 **Datahub** pode ser encontrado em https://\<FarmBeats-website-Name >-API. azurewebsites. net/Swagger. Aqui, você verá os diferentes objetos da API FarmBeats e executará operações REST nas APIs.
 
-## <a name="upgrade"></a>Atualizar
+## <a name="upgrade"></a>Atualização
 
 Para atualizar o FarmBeats para a versão mais recente, execute as etapas a seguir em uma instância de Cloud Shell usando o ambiente do PowerShell. O usuário precisará ser o proprietário da assinatura na qual o FarmBeats está instalado.
 
@@ -171,7 +171,7 @@ Os usuários de primeira hora receberão uma solicitação para selecionar uma a
 1. Baixar o [script de atualização](https://aka.ms/FarmBeatsUpgradeScript)
 
     ```azurepowershell-interactive
-        wget –q https://aka.ms/FarmBeatsUpgradeScript -O ./update-farmbeats.ps1
+        wget –q https://aka.ms/FarmBeatsUpgradeScript -O ./upgrade-farmbeats.ps1
     ```
 
 2. Por padrão, o arquivo é baixado em seu diretório base. Navegue até o diretório.
@@ -196,6 +196,6 @@ Para desinstalar o FarmBeats Datahub ou acelerador do Azure, conclua as seguinte
 
 2. Vá para Azure Active Directory & **excluir o aplicativo do Azure ad** vinculado à instalação do FarmBeats do Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Você aprendeu a instalar o Azure FarmBeats em sua assinatura do Azure. Agora, saiba como [Adicionar usuários](manage-users-in-azure-farmbeats.md#manage-users) à instância do FarmBeats do Azure.

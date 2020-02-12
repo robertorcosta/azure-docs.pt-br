@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 0f28d984cfc29e67c3b5c3a90137ee09868b471c
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: a2bc39a35299f56ba52a0143ce123560bd4d88fa
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806021"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137762"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Treinar um modelo para Fala Personalizada
 
-Treinar um modelo de fala a texto pode melhorar a precisão do reconhecimento do modelo de linha de base da Microsoft ou de um modelo personalizado que você planeja criar. Um modelo é treinado usando transcrições de rótulo humano e texto relacionado. Esses conjuntos de dados, juntamente com as informações de áudio carregadas anteriormente, são usados para refinar e treinar o modelo de fala a texto para reconhecer palavras, frases, acrônimos, nomes e outros termos específicos do produto. Quanto mais conjuntos de dados no domínio você fornecer (os que estão relacionados ao que os usuários irão dizer e o que você espera reconhecer), mais preciso será o modelo, o que resultará em um reconhecimento aprimorado. Tenha em mente que, ao alimentar dados não relacionados ao seu treinamento, você pode reduzir ou prejudicar a precisão de seu modelo.
+Treinar um modelo de fala a texto pode melhorar a precisão do reconhecimento para o modelo de linha de base da Microsoft. Um modelo é treinado usando transcrições de rótulo humano e texto relacionado. Esses conjuntos de dados, juntamente com as informações de áudio carregadas anteriormente, são usados para refinar e treinar o modelo de fala a texto para reconhecer palavras, frases, acrônimos, nomes e outros termos específicos do produto. Quanto mais conjuntos de dados no domínio você fornecer (os que estão relacionados ao que os usuários irão dizer e o que você espera reconhecer), mais preciso será o modelo, o que resultará em um reconhecimento aprimorado. Tenha em mente que, ao alimentar dados não relacionados ao seu treinamento, você pode reduzir ou prejudicar a precisão de seu modelo.
 
 ## <a name="use-training-to-resolve-accuracy-issues"></a>Use o treinamento para resolver problemas de precisão
 
@@ -58,7 +58,7 @@ Você pode inspecionar os dados e avaliar a precisão do modelo usando estes doc
 
 Se você optar por testar a precisão, é importante selecionar um conjunto de um banco de uma diferente do que você usou com seu modelo para obter uma noção realista do desempenho do modelo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Implantar seu modelo](how-to-custom-speech-deploy-model.md)
 

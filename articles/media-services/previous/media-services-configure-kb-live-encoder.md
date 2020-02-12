@@ -14,16 +14,15 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 7bb3db4861842e145689682035adc3c691538adf
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: afc0fcb6751a08b41010fa569c67a9827e0abec0
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297792"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131924"
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador Haivision KB para enviar uma transmissão ao vivo de taxa de bits única  
 > [!div class="op_single_selector"]
-> * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Haivision](media-services-configure-kb-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
@@ -32,7 +31,7 @@ Este tópico mostra como configurar o [codificador ativo Havision KB](https://ww
 
 Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a ferramenta AMSE (Gerenciador de Serviços de Mídia da Azure). Essa ferramenta é executada apenas em PCs com Windows. Se você estiver no Mac ou Linux, use o portal do Azure para criar [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 *   Acesso a um codificador Haivision KB, executando o SW v5.01 ou superior.
 * [Criar uma conta dos Serviços de Mídia do Azure](media-services-portal-create-account.md)
 * Verifique se há um Ponto de Extremidade de Streaming em execução. Para obter mais informações, veja [Gerenciar Pontos de Extremidade de Transmissão em uma conta de Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md)
@@ -59,17 +58,17 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 
 Vídeo:
 -   Codec: H.264
--   Perfil: Alto (Nível 4.0)
--   Taxa de bits: 5.000 Kbps
+-   Perfil: Alto (nível 4.0)
+-   Taxa de bits: 5.000 kbps
 -   Quadro-chave: 2 segundos (60 quadros)
 -   Taxa de quadros: 30
 
 Áudio:
 -   Codec: AAC (LC)
--   Taxa de bits: 192 Kbps
+-   Taxa de bits: 192 kbps
 -   Taxa de amostragem: 44,1 kHz
 
-## <a name="configuration-steps"></a>Etapas da configuração
+## <a name="configuration-steps"></a>Etapas de configuração
 1.  Faça logon na interface do usuário do Haivision KB.
 2.  Clique no **Botão de Menu** no centro de controle do canal e selecione **Adicionar canal**  
     ![Captura de tela 14-08-2017 às 09:15:09](./media/media-services-configure-kb-live-encoder/step2.png)

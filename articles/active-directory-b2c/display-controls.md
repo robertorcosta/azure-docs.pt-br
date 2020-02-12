@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5b039221f3a25bddf7953cbe8d517275f76d6f37
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7cbd088ed7b4f6ae242cce2067e52def2dad61c9
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479053"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136334"
 ---
 # <a name="display-controls"></a>Controles de exibição
 
@@ -30,7 +30,7 @@ A imagem a seguir ilustra uma página de inscrição autodeclarada com dois cont
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
  Na seção de [metadados](self-asserted-technical-profile.md#metadata) de um [perfil técnico autodeclarado](self-asserted-technical-profile.md), o [ContentDefinition](contentdefinitions.md) referenciado precisa ter `DataUri` definido como a versão do contrato de página 2.0.0 ou superior. Por exemplo:
 
@@ -46,14 +46,14 @@ A imagem a seguir ilustra uma página de inscrição autodeclarada com dois cont
 
 O elemento **DisplayControl** contém os seguintes atributos:
 
-| Atributo | Obrigatório | Description |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ID | Sim | Um identificador que é usado para o controle de exibição. Ele pode ser [referenciado](#referencing-display-controls). |
+| Id | Sim | Um identificador que é usado para o controle de exibição. Ele pode ser [referenciado](#referencing-display-controls). |
 | UserInterfaceControlType | Sim | O tipo do controle de exibição. Atualmente, há suporte para [VerificationControl](display-control-verification.md) |
 
 O elemento **DisplayControl** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | InputClaims | 0:1 | **InputClaims** são usados para preencher previamente o valor das declarações a serem coletadas do usuário. |
 | DisplayClaims | 0:1 | **DisplayClaims** são usados para representar as declarações a serem coletadas do usuário. |
@@ -90,7 +90,7 @@ Determinadas declarações de exibição são necessárias para determinados tip
 
 As **declarações de saída** de um controle de exibição não são enviadas para a próxima etapa de orquestração. Eles são salvos temporariamente apenas para a sessão de controle de exibição atual. Essas declarações temporárias podem ser compartilhadas entre as diferentes ações do mesmo controle de exibição.
 
-Para emergir a saída das declarações para a próxima etapa de orquestração, use o **OutputClaims** do perfil técnico autodeclarado real que faz referência a esse controle de exibição.
+Para emergir as declarações de saída para a próxima etapa de orquestração, use o **OutputClaims** do perfil técnico autodeclarado real que faz referência a esse controle de exibição.
 
 ### <a name="display-control-actions"></a>Exibir ações de controle
 

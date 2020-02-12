@@ -1,5 +1,5 @@
 ---
-title: Adicionar ou remover atribuições de função usando o RBAC do Azure e a API REST
+title: Adicionar ou remover atribuições de função com o RBAC e a API REST
 description: Saiba como conceder acesso aos recursos do Azure para usuários, grupos, entidades de serviço ou identidades gerenciadas usando o RBAC (controle de acesso baseado em função) do Azure e a API REST.
 services: active-directory
 documentationcenter: na
@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3c7b7dac649548b8b21cc13761009c11609c8904
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ae6fce5ab962637fe477ade75cf81b6ac237bdd2
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981046"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138306"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-rest-api"></a>Adicionar ou remover atribuições de função usando o RBAC do Azure e a API REST
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] este artigo descreve como atribuir funções usando a API REST.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Para adicionar ou remover atribuições de função, você deve ter:
 
@@ -57,23 +57,23 @@ No RBAC, para conceder acesso, você adiciona uma atribuição de função. Para
 
 1. Dentro do URI, substitua *{scope}* pelo escopo da atribuição de função.
 
-    | Escopo | Tipo |
+    | Scope | Tipo |
     | --- | --- |
     | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gerenciamento |
-    | `subscriptions/{subscriptionId1}` | Subscription |
+    | `subscriptions/{subscriptionId1}` | Assinatura |
     | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Grupos |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Recurso |
 
 1. Substitua *{roleAssignmentName}* pelo identificador GUID da atribuição de função.
 
 1. No corpo da solicitação, substitua *{Scope}* pelo escopo da atribuição de função.
 
-    | Escopo | Tipo |
+    | Scope | Tipo |
     | --- | --- |
     | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gerenciamento |
-    | `subscriptions/{subscriptionId1}` | Subscription |
+    | `subscriptions/{subscriptionId1}` | Assinatura |
     | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Grupos |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Recurso |
 
 1. Substitua *{roleDefinitionId}* pelo identificador de definição da função.
 
@@ -93,16 +93,16 @@ No RBAC, para remover o acesso, você deve remover uma atribuição de função.
 
 1. Dentro do URI, substitua *{scope}* pelo escopo para remoção da atribuição de função.
 
-    | Escopo | Tipo |
+    | Scope | Tipo |
     | --- | --- |
     | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gerenciamento |
-    | `subscriptions/{subscriptionId1}` | Subscription |
+    | `subscriptions/{subscriptionId1}` | Assinatura |
     | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Grupos |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Recurso |
 
 1. Substitua *{roleAssignmentName}* pelo identificador GUID da atribuição de função.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Listar atribuições de função usando o RBAC do Azure e a API REST](role-assignments-list-rest.md)
 - [Implantar recursos com modelos do Resource Manager e a API REST do Resource Manager](../azure-resource-manager/templates/deploy-rest.md)

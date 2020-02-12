@@ -9,22 +9,31 @@ ms.author: johndeu
 ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 4a0af9d040c801c125d04a5af72b2ea53322ccdb
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 89b01a3fb066f181f5ec54b481b71feaa7a6ae08
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74886564"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131398"
 ---
 # <a name="recommended-on-premises-encoders"></a>Codificadores locais recomendados
+
 Ao fazer uma transmissão ao vivo com os Serviços de Mídia do Azure, você pode especificar como deseja que o canal receba o fluxo de entrada. Se você optar por usar um codificador local com um canal de codificação ativa, o codificador deverá enviar por push um fluxo de taxa de bits única de alta qualidade como saída. Se você optar por usar um codificador local com um canal de passagem, o codificador deverá enviar por push um fluxo de múltiplas taxas de bits como saída com todas as qualidades de saída desejadas. Para obter mais informações, consulte [transmissão ao vivo com codificadores locais](media-services-live-streaming-with-onprem-encoders.md).
 
+## <a name="encoder-requirements"></a>Requisitos do codificador
+
+Os codificadores devem dar suporte a TLS 1,2 ao usar protocolos HTTPS ou RTMPS.
+
+## <a name="live-encoders-that-output-rtmp"></a>Codificadores dinâmicos com RTMP de saída 
+
 Os Serviços de Mídia do Azure recomendam o uso de um dos seguintes codificadores dinâmicos que têm RTMP como saída:
+
 - Adobe Flash Media Live Encoder 3.2
 - Haivision Makito X HEVC
 - Haivision KB
-- Telestream Wirecast 8.1+
-- Telestream Wirecast S
+- Telestream Wirecast (versão 13.0.2 ou superior devido ao requisito de TLS 1,2)
+
+  Os codificadores devem dar suporte a TLS 1,2 ao usar protocolos RTMPS.
 - Teradek Slice 756
 - TriCaster 8000
 - Tricaster Mini HD-4
@@ -33,11 +42,16 @@ Os Serviços de Mídia do Azure recomendam o uso de um dos seguintes codificador
 - xStream
 - Alternador Studio (iOS)
 
+## <a name="live-encoders-that-output-fragmented-mp4"></a>Codificadores dinâmicos que transmitem MP4 fragmentado 
+
 Os Serviços de Mídia do Azure recomendam o uso de um dos seguintes codificadores ao vivo que possuem MP4 com taxa de bits múltipla (Smooth Streaming) como saída:
+
 - Mídia Hero ao vivo e Hero 4K (UHD/HEVC) do Excel
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
-- Elemental Live
+- Elemento dinâmico (versão 2.14.15 e superior devido ao requisito de TLS 1,2)
+
+  Os codificadores devem dar suporte a TLS 1,2 ao usar protocolos HTTPS.
 - Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
 
@@ -45,6 +59,7 @@ Os Serviços de Mídia do Azure recomendam o uso de um dos seguintes codificador
 > Um codificador dinâmico pode enviar um fluxo de taxa de bits única para um canal de passagem, mas essa configuração não é recomendada porque não permite um streaming de taxa de bits adaptável para o cliente.
 
 ## <a name="how-to-become-an-on-premises-encoder-partner"></a>Como se tornar um parceiro de codificador local
+
 Como um parceiro de codificador local dos serviços de mídia do Azure, os serviços de mídia promovem seu produto, recomendando o codificador para clientes corporativos. Para se tornar um parceiro de codificador local, você deve verificar a compatibilidade do codificador local com os serviços de mídia. Para fazer isso, conclua as seguintes verificações:
 
 Verificação de canal de passagem

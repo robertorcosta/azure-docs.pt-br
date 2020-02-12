@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 32a4fde12287e06c12fac9ed13ad7a8889b49fc1
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ec34ed723e9b0743a9a5fbbe6413659dd63b0e8a
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895921"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134922"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits
 
 > [!NOTE]
 > A partir de 12 de maio de 2018, os canais ao vivo não darão mais suporte ao protocolo de ingestão de fluxo de transporte RTP/MPEG-2. Faça a migração de RTP/MPEG-2 para protocolos de ingestão RTMP ou MP4 fragmentado (Smooth Streaming).
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 No AMS (Serviços de Mídia do Azure), um **Canal** representa um pipeline para o processamento de conteúdo de transmissão ao vivo. Um **Canal** recebe transmissões de entrada ao vivo de uma das duas maneiras a seguir:
 
 * Um codificador ativo local envia uma transmissão de taxa de bits adaptável única para o Canal que está habilitado para executar a codificação ativa com os Serviços de Mídia em um dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado). O Canal então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
-* Um codificador ativo local envia múltiplas taxas de bits **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o Canal que não está habilitado para executar a codificação ativa com o AMS. Os fluxos ingeridos passam pelos **Canais**sem nenhum processamento adicional. Esse método é chamado **passagem**. Você pode usar os codificadores dinâmicos a seguir, que produzem Smooth Streaming com múltiplas taxas de bits: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores dinâmicos produzem RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek e Tricaster.  Um codificador ativo também pode enviar uma transmissão de taxa de bits única para um canal que não está habilitado para a codificação ativa, porém, isso não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
+* Um codificador ativo local envia múltiplas taxas de bits **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o Canal que não está habilitado para executar a codificação ativa com o AMS. Os fluxos ingeridos passam pelos **Canais**sem nenhum processamento adicional. Esse método é chamado **passagem**. Você pode usar os codificadores dinâmicos a seguir, que produzem Smooth Streaming com múltiplas taxas de bits: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores dinâmicos geram os codificadores RTMP: Telestream Wirecast, HaiVision, Teradek e TriCaster.  Um codificador ativo também pode enviar uma transmissão de taxa de bits única para um canal que não está habilitado para a codificação ativa, porém, isso não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
 
   > [!NOTE]
   > O uso de um método de passagem é a maneira mais econômica de realizar uma transmissão ao vivo.
@@ -58,21 +58,21 @@ Para parar a cobranças adicionais do Canal, você terá de Parar o Canal por me
 Você é responsável por parar seus canais quando terminar com o canal de codificação ativo.  A falha ao interromper um canal de codificação resultará em cobrança contínua.
 
 ### <a id="states"></a>Os estados de canal e como eles são mapeados para o modo de cobrança
-O estado atual de um Canal. Os valores possíveis incluem:
+O estado atual de um canal. Os valores possíveis incluem:
 
-* **Parado**. Esse é o estado inicial do canal após sua criação (a menos que AutoStart tenha sido selecionado no Portal). Nenhuma cobrança ocorre nesse estado. Neste estado, as propriedades do Canal podem ser atualizadas, mas o streaming não é permitido.
-* **Iniciando**. O Canal está sendo iniciado. Não há cobrança nesse estado. Nenhuma atualização ou streaming é permitido durante este estado. Se algum erro ocorrer, o Canal retorna ao estado Parado.
-* **Executando**. O Canal é capaz de processar transmissões ao vivo. Agora o uso está sendo cobrado. Você deve parar o canal para evitar a cobrança adicional. 
-* **Parando**. O Canal está sendo interrompido. Não haverá cobrança nesse estado transitório. Nenhuma atualização ou streaming é permitido durante este estado.
-* **Excluindo**. O Canal está sendo excluído. Não haverá cobrança nesse estado transitório. Nenhuma atualização ou streaming é permitido durante este estado.
+* **Parado**. Esse é o estado inicial do canal após sua criação (a menos que AutoStart tenha sido selecionado no Portal). Nenhuma cobrança ocorre nesse estado. Nesse estado, as propriedades do canal podem ser atualizadas, mas streaming não é permitido.
+* **Iniciando**. O canal está sendo iniciado. Não há cobrança nesse estado. Nenhuma atualização ou streaming é permitido durante esse estado. Se houver um erro, o Canal retorna ao estado Parado.
+* **Executando**. O canal é capaz de processar transmissões ao vivo. Agora o uso está sendo cobrado. Você deve parar o canal para evitar a cobrança adicional. 
+* **Parando**. O canal está sendo parado. Não haverá cobrança nesse estado transitório. Nenhuma atualização ou streaming é permitido durante esse estado.
+* **Excluindo**. O canal está sendo excluído. Não haverá cobrança nesse estado transitório. Nenhuma atualização ou streaming é permitido durante esse estado.
 
-A tabela a seguir mostra como é o mapeamento dos estados do Canal para o modo de cobrança. 
+A tabela a seguir mostra como os estados de canal são mapeados para o modo de cobrança. 
 
-| Estado do Canal | Indicadores de interface do usuário do portal | Trata-se de cobrança? |
+| Estado de canal | Indicadores da interface do usuário do portal | Trata-se de cobrança? |
 | --- | --- | --- |
-| Iniciando |Iniciando |Não (estado transitório) |
-| Executando |Pronto (sem programas em execução)<br/>ou<br/>Streaming (há pelo menos um programa em execução) |SIM |
-| Interrompendo |Interrompendo |Não (estado transitório) |
+| Iniciando |Iniciando |Nenhum (estado transitório) |
+| Em execução |Pronto (nenhum programa em execução)<br/>ou<br/>Streaming (há pelo menos um programa em execução) |YES |
+| Stopping |Stopping |Nenhum (estado transitório) |
 | Parado |Parado |Não |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Desligamento automático para canais não usados
@@ -204,7 +204,7 @@ Você pode especificar a origem para sinais de marcadores de anúncio. O valor p
 ### <a name="cea-708-closed-captions"></a>Legendas CEA 708
 Um sinalizador opcional que informa o codificador ao vivo para ignorar quaisquer dados de legendas CEA 708 incorporados no vídeo de entrada. Quando o sinalizador é definido como false (padrão), o codificador vai detectar e inserir novamente os dados CEA 708 nos fluxos de vídeo de saída.
 
-#### <a name="index"></a>Índice
+#### <a name="index"></a>Index
 É recomendável para enviar um fluxo de transporte de programa único (SPTS). Se o fluxo de entrada contém vários programas, o codificador ao vivo no canal analisa a PMT (tabela de mapa de programa) na entrada, identifica as entradas que têm um nome de tipo de fluxo de MPEG-2 AAC ADTS ou AC-3 System-A ou AC-3 System-B ou MPEG-2 Private PES ou áudio MPEG-1 ou áudio MPEG-2, e organiza-os na ordem especificada na PMT. O índice baseado em zero, em seguida, é usado para acompanhar a enésima entrada nesse arranjo.
 
 #### <a name="language"></a>Idioma
@@ -219,12 +219,12 @@ Especifica a predefinição a ser usada pelo codificador ao vivo dentro deste ca
 
 | Taxa de bits | Largura | Altura | MáxFPS | Perfil | Nome do fluxo de saída |
 | --- | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Alto |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Alto |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Alto |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Alto |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Alto |Video_384x216_550kbps |
-| 200 |340 |192 |30 |Alto |Video_340x192_200kbps |
+| 3500 |1280 |720 |30 |Alta |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |Alta |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Alta |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Alta |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Alta |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Alta |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Fluxo de áudio de saída
 
@@ -260,7 +260,7 @@ O codificador ao vivo pode ser configurado para alternar para uma imagem slate e
 A duração do slate em segundos. Isso deve ser um valor positivo diferente de zero para iniciar o slate. Se houver um slate em andamento e uma duração de zero for especificada, esse slate será encerrado.
 
 ### <a name="insert-slate-on-ad-marker"></a>Inserir o slate no marcador de anúncio
-Quando definida como true, essa configuração configura o codificador ao vivo para inserir uma imagem slate durante um intervalo comercial. O valor padrão é true. 
+Quando definida como true, essa configuração configura o codificador ao vivo para inserir uma imagem slate durante um intervalo comercial. O valor padrão é verdadeiro. 
 
 ### <a id="default_slate"></a>ID de ativo de slate padrão
 
@@ -300,21 +300,21 @@ Se desejar manter o conteúdo arquivado mas ele não está disponível para stre
 Quando a codificação ao vivo está habilitada, agora você pode obter uma visualização da transmissão ao vivo quando ela atinge o canal. Isso pode ser uma ferramenta valiosa para verificar se sua transmissão ao vivo está realmente chegando ao canal. 
 
 ## <a id="states"></a>Estados de canal e como os estados são mapeados para o modo de cobrança
-O estado atual de um Canal. Os valores possíveis incluem:
+O estado atual de um canal. Os valores possíveis incluem:
 
-* **Parado**. Este é o estado inicial de um Canal após sua criação. Neste estado, as propriedades do Canal podem ser atualizadas, mas o streaming não é permitido.
-* **Iniciando**. O Canal está sendo iniciado. Nenhuma atualização ou streaming é permitido durante este estado. Se algum erro ocorrer, o Canal retorna ao estado Parado.
-* **Executando**. O Canal é capaz de processar transmissões ao vivo.
-* **Parando**. O Canal está sendo interrompido. Nenhuma atualização ou streaming é permitido durante este estado.
-* **Excluindo**. O Canal está sendo excluído. Nenhuma atualização ou streaming é permitido durante este estado.
+* **Parado**. Este é o estado inicial do canal após sua criação. Nesse estado, as propriedades do canal podem ser atualizadas, mas streaming não é permitido.
+* **Iniciando**. O canal está sendo iniciado. Nenhuma atualização ou streaming é permitido durante esse estado. Se houver um erro, o Canal retorna ao estado Parado.
+* **Executando**. O canal é capaz de processar transmissões ao vivo.
+* **Parando**. O canal está sendo parado. Nenhuma atualização ou streaming é permitido durante esse estado.
+* **Excluindo**. O canal está sendo excluído. Nenhuma atualização ou streaming é permitido durante esse estado.
 
-A tabela a seguir mostra como é o mapeamento dos estados do Canal para o modo de cobrança. 
+A tabela a seguir mostra como os estados de canal são mapeados para o modo de cobrança. 
 
-| Estado do Canal | Indicadores de interface do usuário do portal | Cobrado? |
+| Estado de canal | Indicadores da interface do usuário do portal | Cobrado? |
 | --- | --- | --- |
-| Iniciando |Iniciando |Não (estado transitório) |
-| Executando |Pronto (sem programas em execução)<br/>ou<br/>Streaming (há pelo menos um programa em execução) |SIM |
-| Interrompendo |Interrompendo |Não (estado transitório) |
+| Iniciando |Iniciando |Nenhum (estado transitório) |
+| Em execução |Pronto (nenhum programa em execução)<br/>ou<br/>Streaming (há pelo menos um programa em execução) |Sim |
+| Stopping |Stopping |Nenhum (estado transitório) |
 | Parado |Parado |Não |
 
 > [!NOTE]
@@ -326,7 +326,7 @@ A tabela a seguir mostra como é o mapeamento dos estados do Canal para o modo d
 * Quando um Canal do tipo de codificação **Standard** perde um feed de fonte/contribuição de entrada, ele compensa isso substituindo o vídeo/áudio de origem por uma imagem fixa de erro e silêncio. O Canal continuará emitindo uma imagem fixa até que o feed de entrada/contribuição seja retomado. É recomendável que um canal ao vivo não seja deixado em tal estado por mais de 2 horas. Além desse ponto, o comportamento do canal na reconexão de entrada não será garantido, nem seu comportamento em resposta a um comando Reset. Será necessário parar o Canal, excluí-lo e criar um novo.
 * Você não pode alterar o protocolo de entrada enquanto o canal ou seus programas associados estão em execução. Se você precisar de protocolos diferentes, você deve criar canais separados para cada protocolo de entrada.
 * Sempre que você reconfigurar o codificador ao vivo, chame o método **Redefinir** no canal. Antes de redefinir o canal, você precisa interromper o programa. Antes de redefinir o canal, reinicie o programa.
-* Um canal pode ser interrompido somente quando estiver no estado Executando e todos os programas no canal tiverem sido interrompidos.
+* Um canal só pode ser parado quando está no estado Executando e todos os programas dele foram interrompidos.
 * Por padrão, você pode adicionar somente 5 canais à sua conta de Serviços de Mídia. Essa é uma cota flexível em todas as novas contas. Para obter mais informações, consulte [Cotas e limitações](media-services-quotas-and-limitations.md).
 * Você não pode alterar o protocolo de entrada enquanto o canal ou seus programas associados estão em execução. Se você precisar de protocolos diferentes, você deve criar canais separados para cada protocolo de entrada.
 * Você será cobrado apenas quando o canal estiver no estado **Executando** . Para obter mais informações, consulte [esta](media-services-manage-live-encoder-enabled-channels.md#states) seção.
@@ -346,7 +346,7 @@ Abra um tíquete de suporte navegando até [Nova solicitação de suporte](https
 
 ## <a name="next-step"></a>Próxima etapa
 
-Revise os roteiros de aprendizagem dos Serviços de Mídia.
+Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/16/2019
-ms.openlocfilehash: d15da0c0cb00f640d2ffc647475f66b76119f609
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.date: 02/11/2020
+ms.openlocfilehash: 112a7f7aa61984b2ce9bd8400c629fe62db55584
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548366"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137910"
 ---
 # <a name="tune-model-hyperparameters"></a>Ajustar os hiperparâmetros de modelo
 
@@ -43,17 +43,13 @@ Esta seção descreve como executar uma varredura de parâmetro básica, que tre
 
 2.  Conecte um modelo não treinado à entrada mais à esquerda. 
 
-3. Defina a opção **criar modo de instrutor** como **intervalo de parâmetros**. Use o **Range Builder** para especificar um intervalo de valores a serem usados na varredura de parâmetro.  
 
-    Quase todos os módulos de classificação e regressão dão suporte a uma varredura de parâmetro integrada. Para os aprendizes que não dão suporte à configuração de um intervalo de parâmetros, você pode testar apenas os valores de parâmetro disponíveis.
-
-    Você pode definir manualmente o valor para um ou mais parâmetros e, em seguida, varrer os parâmetros restantes. Isso pode economizar algum tempo.
 
 4.  Adicione o conjunto de dados que você deseja usar para treinamento e conecte-o à entrada intermediária de hiperparâmetros de modelo de ajuste.  
 
     Opcionalmente, se você tiver um conjunto de dados marcado, você poderá conectá-lo à porta de entrada mais à direita (conjunto de informações de**validação opcional**). Isso permite que você meça a precisão durante o treinamento e o ajuste.
 
-5.  No painel **Propriedades** de ajustar hiperparâmetros de modelo, escolha um valor para o **modo de limpeza de parâmetro**. Esta opção controla como os parâmetros são selecionados.
+5.  No painel direito de ajustar hiperparâmetros de modelo, escolha um valor para o **modo de limpeza de parâmetro**. Esta opção controla como os parâmetros são selecionados.
 
     - **Grade inteira**: quando você seleciona essa opção, o módulo executa um loop em uma grade predefinida pelo sistema, para tentar combinações diferentes e identificar o melhor aprendiz. Essa opção é útil quando você não sabe quais são as melhores configurações de parâmetro e deseja tentar todas as combinações de valores possíveis.
 
@@ -64,8 +60,6 @@ Esta seção descreve como executar uma varredura de parâmetro básica, que tre
 7.  Escolha o número de execuções:
 
     1. **Número máximo de execuções em varredura aleatória**: se você escolher uma varredura aleatória, poderá especificar quantas vezes o modelo deve ser treinado, usando uma combinação aleatória de valores de parâmetro.
-
-    2. **Número máximo de execuções em grade aleatória**: essa opção também controla o número de iterações em uma amostragem aleatória de valores de parâmetro, mas os valores não são gerados aleatoriamente do intervalo especificado. Em vez disso, o módulo cria uma matriz de todas as combinações possíveis de valores de parâmetro. Em seguida, ele pega uma amostragem aleatória na matriz. Esse método é mais eficiente e menos propenso a sobreamostragens regionais ou a subamostragem.
 
 8.  Para **classificação**, escolha uma única métrica a ser usada para classificar os modelos.
 
@@ -153,7 +147,7 @@ No entanto, durante o treinamento, você deve escolher uma *única* métrica a s
 Quase todos os aprendizes no Azure Machine Learning dão suporte à validação cruzada com uma varredura de parâmetro integrada, que permite escolher os parâmetros com os quais o pipeline será escolhido. Se o aprendiz não der suporte à definição de um intervalo de valores, você ainda poderá usá-lo em validação cruzada. Nesse caso, um intervalo de valores permitidos é selecionado para a varredura. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 

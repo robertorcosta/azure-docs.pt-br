@@ -6,21 +6,21 @@ keywords: codificação; codificadores; mídia
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 11/18/2019
+ms.date: 02/04/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 32ff975aa200e51e6a555f892a53b0ab9c73a84e
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
-ms.translationtype: MT
+ms.openlocfilehash: bccdb49c22bce983fe8cb2aba1387c4b1645b62c
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186031"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132718"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Codificadores de transmissão ao vivo recomendados
 
 Nos Serviços de Mídia do Azure, um [Evento ao vivo](https://docs.microsoft.com/rest/api/media/liveevents) (canal) representa um pipeline para processamento de conteúdo de streaming dinâmico. O Evento ao vivo recebe fluxos de entrada dinâmicos em uma de duas maneiras.
 
-* Um codificador dinâmico local envia um RTMP com múltiplas taxas de bits ou fluxo Smooth Streaming (MP4 fragmentado) para o evento ao vivo que não está habilitado para executar a codificação ativa com os Serviços de Mídia. Os fluxos ingeridos passam por eventos ao vivo sem nenhum processamento adicional. Esse método é chamado **passagem**. Um codificador dinâmico pode enviar um fluxo de taxa de bits único para um canal de passagem. Não recomendamos essa configuração, porque ela não possibilita o streaming de taxa de bits adaptável para o cliente.
+* Um codificador dinâmico local envia um RTMP com múltiplas taxas de bits ou fluxo Smooth Streaming (MP4 fragmentado) para o evento ao vivo que não está habilitado para executar a codificação ativa com os Serviços de Mídia. Os fluxos ingeridos passam por eventos ao vivo sem nenhum processamento adicional. Esse método é chamado **passagem**. Recomendamos que o codificador ao vivo envie fluxos de múltiplas taxas de bits em vez de um fluxo de taxa de bits única para um evento de passagem ao vivo para permitir o streaming de taxa de bits adaptável para o cliente.
 
   > [!NOTE]
   > O uso de um método de passagem é a maneira mais econômica de realizar uma transmissão ao vivo.
@@ -29,21 +29,28 @@ Nos Serviços de Mídia do Azure, um [Evento ao vivo](https://docs.microsoft.com
 
 Para obter informações detalhadas sobre a codificação ativa com os Serviços de Mídia, consulte [Transmissão ao vivo com Serviços de Mídia v3](live-streaming-overview.md).
 
+## <a name="encoder-requirements"></a>Requisitos do codificador
+
+Os codificadores devem dar suporte a TLS 1,2 ao usar protocolos HTTPS ou RTMPS.
+
 ## <a name="live-encoders-that-output-rtmp"></a>Codificadores dinâmicos com RTMP de saída
 
 Os Serviços de Mídias recomendam usar um dos seguintes codificadores dinâmicos que têm RTMP como saída. Os esquemas de URL com suporte são `rtmp://` ou `rtmps://`.
 
+Ao transmitir via RTMP, verifique as configurações de firewall e/ou proxy para confirmar se as portas TCP de saída 1935 e 1936 estão abertas.<br/><br/>
+Ao transmitir via RTMPS, verifique as configurações de firewall e/ou proxy para confirmar se as portas TCP de saída 2935 e 2936 estão abertas.
+
 > [!NOTE]
-> Ao transmitir via RTMP, verifique as configurações de firewall e/ou proxy para confirmar se as portas TCP de saída 1935 e 1936 estão abertas.
+> Os codificadores devem dar suporte a TLS 1,2 ao usar protocolos RTMPS.
 
 - Adobe Flash Media Live Encoder 3.2
 - [Cambria Live 4,3](https://www.capellasystems.net/products/cambria-live/)
+- Elemento dinâmico (versão 2.14.15 e superior)
 - Haivision KB
 - Haivision Makito X HEVC
 - OBS Studio
 - Alternador Studio (iOS)
-- Telestream Wirecast 8.1+
-- Telestream Wirecast S
+- Telestream Wirecast (versão 13.0.2 ou superior devido ao requisito de TLS 1,2)
 - Teradek Slice 756
 - TriCaster 8000
 - Tricaster Mini HD-4
@@ -57,17 +64,19 @@ Os Serviços de Mídias recomendam usar um dos seguintes codificadores dinâmico
 
 Os Serviços de Mídia recomendam usar um dos seguintes codificadores dinâmicos que têm Smooth Streaming com múltiplas taxas de bits (MP4 fragmentado) como saída. Os esquemas de URL com suporte são `http://` ou `https://`.
 
+> [!NOTE]
+> Os codificadores devem dar suporte a TLS 1,2 ao usar protocolos HTTPS.
+
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
-- Elemental Live
-- Envivio 4Caster C4 Gen III
+- Elemento dinâmico (versão 2.14.15 e superior devido ao requisito de TLS 1,2)
+- Envivio 4Caster C4 Gen III 
 - Imagine Communications Selenio MCP3
 - Mídia Hero ao vivo e Hero 4K (UHD/HEVC) do Excel
 - [Ffmpeg](https://www.ffmpeg.org)
 
 > [!TIP]
 >  Se você estiver transmitindo eventos ao vivo em vários idiomas (por exemplo, uma faixa de áudio em inglês e uma faixa de áudio em espanhol), poderá fazer isso com o Media Excel Live Encoder configurado para enviar o feed ao vivo para um evento ao vivo de passagem.
-
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>Definir as configurações do codificador dinâmico local
 
@@ -92,7 +101,7 @@ Como um parceiro de codificador local dos Serviços de Mídia do Azure, os Servi
 ### <a name="pass-through-live-event-verification"></a>Verificação de evento ao vivo de passagem
 
 1. Na conta dos Serviços de Mídia, verifique se o **Ponto de Extremidade de Streaming** está em execução. 
-2. Crie e inicie um evento ao vivo de **passagem**. <br/> Para obter mais informações, confira [Estados e cobrança do Evento ao Vivo](live-event-states-billing.md).
+2. Crie e inicie um evento ao vivo de **passagem**. <br/> Para saber mais, confira [Estados e cobrança do Evento ao vivo](live-event-states-billing.md).
 3. Obtenha as URLs de ingestão e configure seu codificador local para usar a URL para enviar o fluxo ao vivo com múltiplas taxas de bits para os Serviços de Mídia.
 4. Obtenha a URL de visualização e use-a para verificar se a entrada do codificador está sendo realmente recebida.
 5. Crie um novo objeto de **ativo**.
@@ -111,7 +120,7 @@ Como um parceiro de codificador local dos Serviços de Mídia do Azure, os Servi
 ### <a name="live-encoding-live-event-verification"></a>Verificação do evento ao vivo de codificação ativa
 
 1. Na conta dos Serviços de Mídia, verifique se o **Ponto de Extremidade de Streaming** está em execução. 
-2. Crie e inicie o evento ao vivo de **codificação ativa**. <br/> Para obter mais informações, confira [Estados e cobrança do Evento ao Vivo](live-event-states-billing.md).
+2. Crie e inicie o evento ao vivo de **codificação ativa**. <br/> Para saber mais, confira [Estados e cobrança do Evento ao vivo](live-event-states-billing.md).
 3. Obtenha as URLs de ingestão e configure seu codificador para enviar por push uma transmissão ao vivo de taxa de bits única para os Serviços de Mídia.
 4. Obtenha a URL de visualização e use-a para verificar se a entrada do codificador está sendo realmente recebida.
 5. Crie um novo objeto de **ativo**.
@@ -135,6 +144,6 @@ Siga as mesmas etapas que as da [verificação de evento ao vivo de passagem](#p
 
 Por fim, envie por email as configurações registradas e os parâmetros dos arquivos ao vivo aos Serviços de Mídia do Azure em amshelp@microsoft.com como uma notificação de que todas as verificações de autoverificação foram aprovadas. Além disso, inclua suas informações de contato para quaisquer acompanhamentos. Contate a equipe dos Serviços de Mídia do Azure para tratar quaisquer questões sobre esse processo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Transmissão ao vivo com os Serviços de Mídia v3](live-streaming-overview.md)

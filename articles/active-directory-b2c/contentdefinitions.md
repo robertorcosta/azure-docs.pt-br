@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 50e17fae88f16d7579997b3b356638777ec3163a
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
-ms.translationtype: MT
+ms.openlocfilehash: 3a940c7676a59ed85d5cf16c76f72a12ce0026d5
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77014276"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136263"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -61,13 +61,13 @@ Os metadados do perfil técnico autodeclarado **LocalAccountSignUpWithLogonEmail
 
 O elemento **ContentDefinition** contém o seguinte atributo:
 
-| Atributo | Obrigatório | Description |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ID | Sim | Um identificador para uma definição de conteúdo. O valor é especificado na seção **ID de definição de conteúdo** mais adiante nesta página. |
+| Id | Sim | Um identificador para uma definição de conteúdo. O valor é especificado na seção **ID de definição de conteúdo** mais adiante nesta página. |
 
 O elemento **ContentDefinition** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | Uma cadeia de caracteres que contém a URL da página HTML5 para a definição de conteúdo. |
 | RecoveryUri | 0:1 | Uma cadeia de caracteres que contém a URL da página HTML para exibir um erro relacionado à definição de conteúdo. |
@@ -77,9 +77,9 @@ O elemento **ContentDefinition** contém os seguintes elementos:
 
 ### <a name="datauri"></a>DataUri
 
-O elemento **DataUri** é usado para especificar o identificador de página. O Azure AD B2C usa o identificador de página para carregar e iniciar a elementos de interface do usuário e o JavaScript do lado do cliente. O formato do valor é `urn:com:microsoft:aad:b2c:elements:page-name:version`.  A tabela a seguir lista os identificadores de página que você pode usar.
+O elemento **DataUri** é usado para especificar o identificador de página. O Azure AD B2C usa o identificador de página para carregar e iniciar a elementos de interface do usuário e o JavaScript do lado do cliente. O formato do valor é `urn:com:microsoft:aad:b2c:elements:page-name:version`.  A tabela a seguir lista os valores e descrições dos identificadores de página que você pode usar.
 
-| Valor |   Description |
+| {1&gt;Valor&lt;1} |   Descrição |
 | ----- | ----------- |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | Exibe uma página de erro quando uma exceção ou um erro é encontrado. |
 | `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | Lista os provedores de identidade que os usuários podem escolher durante a entrada. |
@@ -93,13 +93,13 @@ O elemento **DataUri** é usado para especificar o identificador de página. O A
 
 O elemento **LocalizedResourcesReferences** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | LocalizedResourcesReference | 1:n | Uma lista de referências de recurso localizado para a definição de conteúdo. |
 
 O elemento **LocalizedResourcesReferences** contém os seguintes atributos:
 
-| Atributo | Obrigatório | Description |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | Idioma | Sim | Uma cadeia de caracteres que contém uma linguagem com suporte para a política de acordo com a RFC 5646 – Marcas para identificar idiomas. |
 | LocalizedResourcesReferenceId | Sim | O identificador do elemento **LocalizedResources**. |
@@ -141,7 +141,7 @@ Para saber como adicionar suporte de localização a definições de conteúdo, 
 
 O atributo de ID do elemento **ContentDefinition** especifica o tipo de página relacionada à definição de conteúdo. O elemento define o contexto que um modelo personalizado HTML5/CSS aplicará. A tabela a seguir descreve o conjunto de IDs de definição de conteúdo reconhecidas pelo Identity Experience Framework e os tipos de página relacionados a elas. Você pode criar suas próprias definições de conteúdo com uma ID arbitrária.
 
-| ID | Modelo padrão | Description |
+| ID | Modelo padrão | Descrição |
 | -- | ---------------- | ----------- |
 | **api.error** | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Página de erro** – exibe uma página de erro quando uma exceção ou um erro é encontrado. |
 | **api.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Página de seleção do provedor de identidade** – lista provedores de identidade entre os quais os usuários podem escolher durante a entrada. Normalmente, as opções são provedores de identidade corporativa, provedores de identidade social, como Facebook e Google+ ou contas locais. |

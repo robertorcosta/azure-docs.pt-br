@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: c0b32bfba61f1c6f3f00c5189f611d84069dd9da
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
-ms.translationtype: MT
+ms.openlocfilehash: 7cc74ca19d2194a7319ab1b88ab7847b04b0d895
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779664"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134559"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Configurar o túnel forçado usando o modelo de implantação do Azure Resource Manager
 
@@ -35,7 +35,7 @@ Este artigo o guia pela configuração de túnel forçado para redes virtuais cr
 
 O diagrama a seguir ilustra o funcionamento do túnel forçado. 
 
-![Túnel forçado](./media/vpn-gateway-forced-tunneling-rm/forced-tunnel.png)
+![Encapsulamento forçado](./media/vpn-gateway-forced-tunneling-rm/forced-tunnel.png)
 
 No exemplo acima, a sub-rede Front-end não é um túnel forçado. As cargas de trabalho na sub-rede do front-end podem continuar a aceitar e a responder diretamente às solicitações de clientes da Internet. As sub-redes de Camada intermediária e Back-end são túneis forçados. As conexões de saída dessas duas sub-redes com a Internet serão forçadas ou redirecionadas de volta ao site local por meio de túneis de VPN S2S.
 
@@ -71,9 +71,9 @@ Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manag
 
 ### <a name="to-log-in"></a>Para fazer logon
 
-[!INCLUDE [To log in](../../includes/vpn-gateway-ps-login-include.md)]
+[!INCLUDE [To log in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
-## <a name="configure-forced-tunneling"></a>Configurar túnel forçado
+## <a name="configure-forced-tunneling"></a>Configurar o túnel forçado
 
 > [!NOTE]
 > Você pode ver avisos dizendo que "O tipo de objeto de saída deste cmdlet será modificado em uma versão futura". Esse comportamento é esperado e você pode ignorar esses avisos com segurança.
@@ -81,7 +81,7 @@ Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manag
 >
 
 
-1. Crie um grupos de recursos.
+1. Crie um grupo de recursos.
 
    ```powershell
    New-AzResourceGroup -Name 'ForcedTunneling' -Location 'North Europe'

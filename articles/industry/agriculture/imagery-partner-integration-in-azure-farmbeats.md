@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 0c03394c48c936f9faef85e9f4933893aaa67090
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 62e5b363f8008380a61e24c0549573a30ecaeb73
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75482420"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131864"
 ---
 # <a name="imagery-partner-integration"></a>Integração com parceiros de imagens
 
@@ -32,8 +32,8 @@ Os parceiros drone precisam permitir que os clientes vinculem sua conta de clien
 Você deve usar as seguintes credenciais no software de parceiro do drone para vincular o FarmBeats:
 
 - Ponto de extremidade de API
-- ID do locatário
-- ID do Cliente
+- ID do inquilino
+- ID do cliente
 - Segredo do cliente
 
 ## <a name="api-development"></a>Desenvolvimento de API
@@ -48,9 +48,9 @@ Para obter mais informações sobre o Azure AD, consulte [Azure Active Directory
 
 FarmBeats Datahub usa a autenticação de portador, que precisa das seguintes credenciais:
 
-- ID do Cliente
+- ID do cliente
 - Segredo do cliente
-- ID do locatário
+- ID do inquilino
 
 Usando as credenciais anteriores, o chamador pode solicitar um token de acesso, que precisa ser enviado nas solicitações de API subsequentes, na seção de cabeçalho, da seguinte maneira:
 
@@ -83,7 +83,7 @@ Aqui estão os cabeçalhos de solicitação mais comuns que precisam ser especif
 
 **Cabeçalho** | **Descrição e exemplo**
 --- | ---
-Tipo de conteúdo  | O formato da solicitação (Content-Type: Application/<format>). Para APIs FarmBeats Datahub, o formato é JSON. Content-Type: application/json
+Content-Type  | O formato da solicitação (Content-Type: Application/<format>). Para APIs FarmBeats Datahub, o formato é JSON. Content-Type: application/json
 Autorização | Especifica o token de acesso necessário para fazer uma chamada à API. Autorização: portador de acesso < token >
 Aceitar  | O formato da resposta. Para APIs FarmBeats Datahub, o formato é JSON. Aceitar: aplicativo/JSON
 
@@ -490,6 +490,6 @@ Resposta da API:
 A chamada POST para a API/SceneFile retorna uma URL de upload SAS, que pode ser usada para carregar o arquivo. csv ou. TIFF usando o cliente ou a biblioteca de armazenamento de BLOBs do Azure.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-Para obter mais informações sobre os detalhes de integração baseada na API REST, consulte [REST API](references-for-azure-farmbeats.md#rest-api).
+Para obter mais informações sobre os detalhes de integração baseada na API REST, consulte [REST API](rest-api-in-azure-farmbeats.md).

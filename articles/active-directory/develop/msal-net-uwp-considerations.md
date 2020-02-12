@@ -1,7 +1,7 @@
 ---
 title: Considerações sobre UWP (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre considerações específicas ao usar Plataforma Universal do Windows com a biblioteca de autenticação da Microsoft para .NET (MSAL.NET).
+description: Saiba mais sobre as considerações para usar o Plataforma Universal do Windows (UWP) com a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,57 +13,56 @@ ms.date: 07/16/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 4803b2bda63ef0e14137aaafe95a422089e7f671
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2eeec28569cf31af4542d6cd7aca1fb27d77b1e0
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77083667"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132521"
 ---
-# <a name="universal-windows-platform-specific-considerations-with-msalnet"></a>Considerações específicas de Plataforma Universal do Windows com MSAL.NET
-No UWP, há várias considerações que você deve levar em conta ao usar o MSAL.NET.
+# <a name="considerations-for-using-universal-windows-platform-with-msalnet"></a>Considerações sobre o uso de Plataforma Universal do Windows com MSAL.NET
+Os desenvolvedores de aplicativos que usam o Plataforma Universal do Windows (UWP) com MSAL.NET devem considerar os conceitos apresentados neste artigo.
 
 ## <a name="the-usecorporatenetwork-property"></a>A propriedade UseCorporateNetwork
-Na plataforma WinRT, `PublicClientApplication` tem a seguinte Propriedade booliana ``UseCorporateNetwork``. Essa propriedade permite que os aplicativos win 8.1 e UWP se beneficiem da autenticação integrada do Windows (e, portanto, SSO com o usuário conectado com o sistema operacional) se o usuário estiver conectado com uma conta em um locatário federado do Azure AD. Quando você define essa propriedade, o MSAL.NET aproveita o WAB (agente de autenticação da Web).
+Na plataforma Windows Runtime (WinRT), `PublicClientApplication` tem a propriedade booliana `UseCorporateNetwork`. Essa propriedade permite que aplicativos Windows 8.1 e aplicativos UWP se beneficiem da autenticação integrada do Windows (IWA) se o usuário estiver conectado a uma conta que tenha um locatário do Azure Active Directory do Azure AD (federado). Os usuários que entraram no sistema operacional também podem usar o SSO (logon único). Quando você define a propriedade `UseCorporateNetwork`, MSAL.NET usa um WAB (agente de autenticação da Web).
 
 > [!IMPORTANT]
-> Definir essa propriedade como true pressupõe que o desenvolvedor do aplicativo habilitou a autenticação integrada do Windows (IWA) no aplicativo. Para isso:
-> - Na ``Package.appxmanifest`` para seu aplicativo UWP, na guia **recursos** , habilite os seguintes recursos:
->   - Autenticação de Empresa
->   - Redes Privadas (Cliente e Servidor)
->   - Certificado de usuário compartilhado
+> Definir a propriedade `UseCorporateNetwork` como true pressupõe que o desenvolvedor do aplicativo habilitou IWA no aplicativo. Para habilitar o IWA:
+> - Na `Package.appxmanifest`do seu aplicativo UWP, na guia **recursos** , habilite os seguintes recursos:
+>   - **Autenticação de Empresa**
+>   - **Redes Privadas (Cliente e Servidor)**
+>   - **Certificado de usuário compartilhado**
 
-O IWA não está habilitado por padrão porque os aplicativos que solicitam os recursos de autenticação corporativa ou certificados de usuário compartilhados exigem um nível mais alto de verificação para serem aceitos na Windows Store, e nem todos os desenvolvedores podem querer executar o mais alto nível de verificação.
+O IWA não está habilitado por padrão porque Microsoft Store requer um alto nível de verificação antes de aceitar aplicativos que solicitam os recursos de autenticação corporativa ou certificados de usuário compartilhados. Nem todos os desenvolvedores querem fazer esse nível de verificação.
 
-A implementação subjacente na plataforma UWP (WAB) não funciona corretamente em cenários empresariais em que o acesso condicional foi habilitado. O sintoma é que o usuário tenta entrar com o Windows Hello e é proposto para escolher um certificado, mas:
+Na plataforma UWP, a implementação do WAB subjacente não funciona corretamente em cenários empresariais em que o acesso condicional está habilitado. Os usuários veem os sintomas desse problema quando tentam entrar usando o Windows Hello. Quando o usuário for solicitado a escolher um certificado:
 
-- o certificado para o PIN não foi encontrado,
-- ou o usuário o escolhe, mas nunca receberá uma solicitação para o PIN.
+- O certificado para o PIN não foi encontrado.
+- Depois que o usuário escolher um certificado, ele não será solicitado a fornecer o PIN.
 
-Uma solução alternativa é usar um método alternativo (nome de usuário/senha + autenticação por telefone), mas a experiência não é boa.
+Você pode tentar evitar esse problema usando um método alternativo, como senha de nome de usuário e autenticação por telefone, mas a experiência não é boa.
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
-Alguns clientes relataram que, em alguns ambientes corporativos específicos, houve o seguinte erro de entrada:
+Alguns clientes relataram o seguinte erro de entrada em ambientes corporativos específicos nos quais sabem que eles têm uma conexão com a Internet e que a conexão funciona com uma rede pública.
 
 ```Text
-We can't connect to the service you need right now. Check your network connection or try this again later
+We can't connect to the service you need right now. Check your network connection or try this again later.
 ```
 
-enquanto eles sabem que têm uma conexão com a Internet, e isso funciona com uma rede pública.
-
-Uma solução alternativa é verificar se o WAB (o componente subjacente do Windows) permite a rede privada. Você pode fazer isso definindo uma chave do registro:
+Você pode evitar esse problema verificando se o WAB (o componente subjacente do Windows) permite uma rede privada. Você pode fazer isso definindo uma chave do registro:
 
 ```Text
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\authhost.exe\EnablePrivateNetwork = 00000001
 ```
 
-Para obter detalhes, consulte [agente de autenticação da Web-Fiddler](https://docs.microsoft.com/windows/uwp/security/web-authentication-broker#fiddler).
+Para obter mais informações, consulte [agente de autenticação da Web-Fiddler](https://docs.microsoft.com/windows/uwp/security/web-authentication-broker#fiddler).
 
-## <a name="next-steps"></a>Próximas etapas
-Mais detalhes são fornecidos nos seguintes exemplos:
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+Os exemplos a seguir fornecem mais informações.
 
-Amostra | Plataforma | DESCRIÇÃO 
+Amostra | Platform | Descrição 
 |------ | -------- | -----------|
-|[Active-Directory-dotnet-Native-UWP-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | Um aplicativo cliente Plataforma Universal do Windows usando o msal.net, acessando o Microsoft Graph para uma autenticação de usuário com o ponto de extremidade v 2.0 do Azure AD. <br>![Topologia](media/msal-net-uwp-considerations/topology-native-uwp.png)|
-|[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | Um aplicativo Xamarin Forms simples mostrando como usar o MSAL para autenticar o MSA e o Azure AD por meio do ponto de extremidade do AAD v 2.0 e acessar o Microsoft Graph com o token resultante. <br>![Topologia](media/msal-net-uwp-considerations/topology-xamarin-native.png)|
+|[Active-Directory-dotnet-Native-UWP-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | Um aplicativo cliente UWP que usa MSAL.NET. Ele acessa Microsoft Graph para um usuário que se autentica usando um ponto de extremidade 2,0 do Azure AD. <br>![Topologia](media/msal-net-uwp-considerations/topology-native-uwp.png)|
+|[Active-Directory-xamarin-Native-v2](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | Um aplicativo Xamarin Forms simples que mostra como usar o MSAL para autenticar contas pessoais da Microsoft e o Azure AD por meio do ponto de extremidade 2,0 do Azure AD. Ele também mostra como acessar Microsoft Graph e mostra o token resultante. <br>![Topologia](media/msal-net-uwp-considerations/topology-xamarin-native.png)|

@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
-ms.date: 8/30/2019
+ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 20bc22661f9faad1b289dbbe7200f4f83c097f0e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.openlocfilehash: 8eea568217dc5f47c45433e5fdd755682e322b2f
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451237"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134061"
 ---
-# <a name="azure-serial-console"></a>Console Serial do Azure
+# <a name="azure-serial-console"></a>Console serial do Azure
 
-O console serial no portal do Azure fornece acesso a um console baseado em texto para VMs (máquinas virtuais) e instâncias do conjunto de dimensionamento de máquinas virtuais que executam o Linux ou o Windows. Essa conexão serial se conecta à porta serial ttyS0 ou COM1 da instância da VM ou do conjunto de dimensionamento de máquinas virtuais, fornecendo acesso independente da rede ou do estado do sistema operacional. O console serial só pode ser acessado usando o portal do Azure e é permitido somente para os usuários que têm uma função de acesso de colaborador ou superior ao conjunto de dimensionamento de máquinas virtuais ou VM.
+O console serial no portal do Azure fornece acesso a um console baseado em texto para VMs (máquinas virtuais) e instâncias do conjunto de dimensionamento de máquinas virtuais que executam o Linux ou o Windows. Essa conexão serial conecta-se à porta serial ttyS0 ou COM1 da VM ou à instância do conjunto de dimensionamento de máquinas virtuais, fornecendo acesso independente do estado da rede ou do sistema operacional. O console serial só pode ser acessado usando o portal do Azure e é permitido somente para os usuários que têm uma função de acesso de colaborador ou superior ao conjunto de dimensionamento de máquinas virtuais ou VM.
 
 O console serial funciona da mesma maneira para VMs e instâncias do conjunto de dimensionamento de máquinas virtuais. Neste documento, todas as menção a VMs irão incluir implicitamente as instâncias do conjunto de dimensionamento de máquinas virtuais, salvo indicação em contrário.
 
@@ -38,7 +38,7 @@ Para acessar o console serial em sua VM ou instância do conjunto de dimensionam
 - A conta do Azure que acessa o console serial deve ter a [função de colaborador de máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para a VM e a conta de armazenamento de [diagnóstico de inicialização](boot-diagnostics.md)
 
 > [!NOTE]
-> - Implantações clássicas não são suportadas. A instância do conjunto de dimensionamento de máquinas virtuais ou VM deve usar o modelo de implantação Azure Resource Manager.
+> Implantações clássicas não são suportadas. A instância do conjunto de dimensionamento de máquinas virtuais ou VM deve usar o modelo de implantação Azure Resource Manager.
 
 ## <a name="get-started-with-the-serial-console"></a>Introdução ao console serial
 O console serial para VMs e conjunto de dimensionamento de máquinas virtuais é acessível somente por meio do portal do Azure:
@@ -67,6 +67,37 @@ O console serial está disponível para conjuntos de dimensionamento de máquina
 
      ![Console serial do conjunto de dimensionamento de máquinas virtuais do Linux](./media/virtual-machines-serial-console/vmss-start-console.gif)
 
+## <a name="serial-console-rbac-role"></a>Função RBAC do console serial
+Conforme mencionado acima, o console serial requer colaborador de VM ou maior acesso à sua VM ou ao conjunto de dimensionamento de máquinas virtuais. Se você não quiser conceder a um colaborador de VM a um usuário, mas ainda quiser permitir que um usuário acesse o console serial, você pode fazer isso com a seguinte função:
+
+```
+{
+  "Name": "Serial Console Role",
+  "IsCustom": true,
+  "Description": "Role for Serial Console Users that provides significantly reduced access than VM Contributor",
+  "Actions": [
+      "Microsoft.Compute/virtualMachines/*/write",
+      "Microsoft.Compute/virtualMachines/*/read",
+      "Microsoft.Storage/storageAccounts/*"
+  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/subscriptions/<subscriptionId>"
+  ]
+}
+```
+
+### <a name="to-create-and-use-the-role"></a>Para criar e usar a função:
+*   Salve o JSON em um local conhecido, por exemplo, `~/serialconsolerole.json`.
+*   Use o seguinte comando AZ CLI para criar a definição de função: `az role definition create --role-definition serialconsolerole.json -o=json`
+*   Se você precisar atualizar a função, use o seguinte comando: `az role definition update --role-definition serialconsolerole.json -o=json`
+*   A função aparecerá no controle de acesso (IAM) no portal (pode levar alguns minutos para ser propagada)
+*   Você pode adicionar usuários à VM e à conta de armazenamento de diagnóstico de inicialização com a função de função personalizada
+    *   Observe que o usuário deve receber a função personalizada na VM *e* a conta de armazenamento de diagnóstico de inicialização
+
+
 ## <a name="advanced-uses-for-serial-console"></a>Usos avançados para o console serial
 Além do acesso do console à sua VM, você também pode usar o console serial do Azure para o seguinte:
 * Enviando um [comando de solicitação do sistema para sua VM](./serial-console-nmi-sysrq.md)
@@ -74,7 +105,7 @@ Além do acesso do console à sua VM, você também pode usar o console serial d
 * [Reinicializando ou forçando forçosamente a energia de sua VM](./serial-console-power-options.md)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 A documentação adicional do console serial está disponível na barra lateral.
 - Mais informações estão disponíveis para o [console serial para VMs do Linux](./serial-console-linux.md).
 - Mais informações estão disponíveis para o [console serial para VMs do Windows](./serial-console-windows.md).

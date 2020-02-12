@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
-ms.openlocfilehash: f3c2b1aa8f41b382bea96b33108d23bf09850c78
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: ba3e677b98406a5f126649aafc2f89fb9d20c895
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984754"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137609"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>O que é um espaço de trabalho Azure Machine Learning?
 
@@ -72,7 +72,7 @@ Você também pode executar as seguintes tarefas de gerenciamento de espaço de 
 
 | Tarefa de gerenciamento de espaço de trabalho   | Portal              | Estúdio | SDK/R do SDK do Python       | CLI        |
 |---------------------------|---------|---------|------------|------------|
-| Crie um workspace        | **&check;**     | | **&check;** | **&check;** |
+| Criar um workspace        | **&check;**     | | **&check;** | **&check;** |
 | Gerenciar o acesso ao espaço de trabalho    | **&check;**   || |  **&check;**    |
 | Atualizar para o Enterprise Edition    | **&check;** | **&check;**  | |     |
 | Criar e gerenciar recursos de computação    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
@@ -81,6 +81,9 @@ Você também pode executar as seguintes tarefas de gerenciamento de espaço de 
 > [!NOTE]
 > As instâncias de computação estão disponíveis somente para espaços de trabalho com uma região do **norte EUA Central**, **leste dos eua 2**, **Europa setentrional** ou **sul do Reino Unido**, com suporte para outras regiões em breve.
 >Se o seu espaço de trabalho estiver em qualquer outra região, você poderá continuar a criar e usar uma [VM do Notebook](concept-compute-instance.md#notebookvm) em vez disso.
+
+> [!WARNING]
+> Não há suporte para mover o espaço de trabalho Azure Machine Learning para uma assinatura diferente ou mover a assinatura proprietária para um novo locatário. Isso pode causar erros.
 
 ## <a name='create-workspace'></a>Criar um espaço de trabalho
 
@@ -112,7 +115,7 @@ Quando você cria um novo workspace, ele automaticamente cria vários recursos d
 > [!NOTE]
 > Além de criar novas versões, você também pode usar os serviços existentes do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para começar a usar o Azure Machine Learning, consulte:
 

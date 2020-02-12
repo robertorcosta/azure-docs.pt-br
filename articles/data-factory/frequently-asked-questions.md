@@ -8,13 +8,13 @@ ms.author: daperlov
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/27/2018
-ms.openlocfilehash: 8238f2ea8395fc53044703db619d768918cb1834
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 02/10/2020
+ms.openlocfilehash: 2e50d226282536fa4e8c044d2ee3d91df4cfd1ee
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644691"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131463"
 ---
 # <a name="azure-data-factory-faq"></a>Perguntas frequentes sobre o Azure Data Factory
 Este artigo fornece respostas a perguntas frequentes sobre o Azure Data Factory.  
@@ -195,6 +195,9 @@ Use a atividade de cópia para preparar dados de qualquer um dos outros conector
 
 O IR auto-hospedado é uma construção de pipeline do ADF que você pode usar com a atividade de cópia para adquirir ou mover dados de e para fontes de dados locais ou baseadas em VM e coletores. Prepare os dados primeiro com uma cópia, depois o fluxo de dados para transformação e, em seguida, uma cópia subsequente se você precisar mover esses dados transformados de volta para o repositório local.
 
+### <a name="does-the-data-flow-compute-engine-serve-multiple-tenants"></a>O mecanismo de computação do fluxo de dados atende a vários locatários?
+Os clusters nunca são compartilhados. Garantimos o isolamento para cada execução de trabalho em execuções de produção. No caso de um cenário de depuração, uma pessoa recebe um cluster e todos os debugs vão para esse cluster que são iniciados por esse usuário.
+
 ## <a name="wrangling-data-flows"></a>Fluxos de dados Wrangling
 
 ### <a name="what-are-the-supported-regions-for-wrangling-data-flow"></a>Quais são as regiões com suporte para o fluxo de dados do Wrangling?
@@ -208,12 +211,12 @@ Atualmente, há suporte para o fluxo de dados Wrangling em data factories criada
 * Leste dos EUA
 * Leste dos EUA 2
 * Leste do Japão
-* Europa Setentrional
-* Sudeste Asiático
-* Centro-Sul dos EUA
+* Norte da Europa
+* Sudeste da Ásia
+* Centro-Sul dos Estados Unidos
 * Sul do Reino Unido
-* Centro-Oeste dos EUA
-* Oeste da Europa
+* Centro-oeste dos EUA
+* Europa Ocidental
 * Oeste dos EUA
 * Oeste dos EUA 2
 
@@ -247,31 +250,31 @@ O fluxo de dados Wrangling dá suporte aos seguintes tipos de dados no SQL. Voc�
 * short
 * double
 * real
-* FLOAT
+* float
 * char
-* NCHAR
+* nchar
 * varchar
-* NVARCHAR
-* inteiro
+* nvarchar
+* integer
 * int
 * bit
-* booleano
-* SMALLINT
-* TINYINT
-* BIGINT
+* boolean
+* smallint
+* tinyint
+* bigint
 * long
-* text
+* texto
 * date
-* DATETIME
+* datetime
 * datetime2
 * smalldatetime
 * timestamp
-* UNIQUEIDENTIFIER
-* Xml
+* uniqueidentifier
+* xml
 
 Outros tipos de dados terão suporte no futuro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Para obter instruções passo a passo para criar um data factory, consulte os tutoriais a seguir:
 
 - [Início rápido: criar um data factory](quickstart-create-data-factory-dot-net.md)

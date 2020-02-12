@@ -5,15 +5,15 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/02/2019
+ms.date: 02/11/2020
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 90bccf76b4c98c732cb926bb4252654d20478412
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 27517c375265b552d2e1dec4d8c167d1bc86549d
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77018968"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137682"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Gerenciar IoT Central do portal do Azure
 
@@ -23,19 +23,17 @@ Em vez de criar e gerenciar aplicativos IoT Central no site [do Azure IOT centra
 
 ## <a name="create-iot-central-applications"></a>Criar aplicativos do IoT Central
 
-Para criar um aplicativo, navegue até a [portal do Azure](https://ms.portal.azure.com) e selecione **criar um recurso** no painel principal à esquerda.
+Para criar um aplicativo, navegue até a [portal do Azure](https://ms.portal.azure.com) e selecione **criar um recurso**.
 
-![Portal de gerenciamento: menu de navegação](media/howto-manage-iot-central-from-portal/image0.png)
-
-Na barra de pesquisa, digite **IoT Central**.
+Em **Pesquisar na barra do Marketplace** , digite *IOT central*:
 
 ![Portal de gerenciamento: pesquisar](media/howto-manage-iot-central-from-portal/image0a1.png)
 
-Selecione a **IOT central** item de linha de aplicativo nos resultados da pesquisa.
+Selecione o bloco **IOT central aplicativo** nos resultados da pesquisa:
 
 ![Portal de gerenciamento: resultados da pesquisa](media/howto-manage-iot-central-from-portal/image0b1.png)
 
-Agora, selecione **Criar**.
+Agora, selecione **criar**:
 
 ![Portal de gerenciamento: recurso do IoT Central](media/howto-manage-iot-central-from-portal/image0c1.png)
 
@@ -55,23 +53,21 @@ Se você já tiver um aplicativo do Azure IoT Central, poderá excluí-lo ou mov
 > [!NOTE]
 > Você não pode ver os aplicativos criados no plano de preços gratuito no portal do Azure porque eles não estão associados à sua assinatura.
 
-Para começar, selecione **todos os recursos** no painel principal à esquerda. Use a caixa de pesquisa para digitar o nome do aplicativo para localizá-lo na lista de recursos. Em seguida, selecione o aplicativo IoT Central que você gostaria de gerenciar.
+Para começar, selecione **todos os recursos** no Portal. Selecione **Mostrar tipos ocultos** e comece a digitar o nome do seu aplicativo em **Filtrar por nome** para localizá-lo. Em seguida, selecione o aplicativo IoT Central que você gostaria de gerenciar.
 
-![Portal de gerenciamento: gerenciamento de recursos](media/howto-manage-iot-central-from-portal/image2a.png)
-
-Para navegar até o aplicativo, selecione a URL do aplicativo IoT Central.
+Para navegar até o aplicativo, selecione a **URL do aplicativo IOT central**:
 
 ![Portal de gerenciamento: gerenciamento de recursos](media/howto-manage-iot-central-from-portal/image3.png)
 
-Para mover o aplicativo para um grupo de recursos diferente, selecione **alterar** ao lado do grupo de recursos. Na página **Mover recursos**, escolha o grupo de recursos para o qual você deseja migrar esse aplicativo.
+Para mover o aplicativo para um grupo de recursos diferente, selecione **alterar** ao lado do grupo de recursos. Na página **mover recursos** , escolha o grupo de recursos para o qual você deseja mover este aplicativo:
 
 ![Portal de gerenciamento: gerenciamento de recursos](media/howto-manage-iot-central-from-portal/image4a.png)
 
-Para mover o aplicativo para uma assinatura diferente, selecione o link **alterar** ao lado da assinatura. Escolha a assinatura para a qual você deseja migrar esse aplicativo na caixa de diálogo exibida.
+Para mover o aplicativo para uma assinatura diferente, selecione **alterar** ao lado da assinatura. Na página **mover recursos** , escolha a assinatura para a qual você gostaria de mover este aplicativo:
 
 ![Portal de gerenciamento: gerenciamento de recursos](media/howto-manage-iot-central-from-portal/image5a.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Agora que você aprendeu a gerenciar os aplicativos do Azure IoT Central no portal do Azure, aqui está a próxima etapa sugerida:
 

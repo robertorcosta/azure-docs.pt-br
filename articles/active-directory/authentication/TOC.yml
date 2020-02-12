@@ -9,8 +9,8 @@
   items:
     - name: Habilitar a redefinição de senha por autoatendimento
       href: tutorial-enable-sspr.md
-    - name: Habilitar o MFA para aplicativos
-      href: tutorial-mfa-applications.md
+    - name: Habilitar a Autenticação Multifator do Microsoft Azure
+      href: tutorial-enable-azure-mfa.md
     - name: Habilitar a integração local de SSPR
       href: tutorial-enable-writeback.md
     - name: Integrar o Azure Identity Protection

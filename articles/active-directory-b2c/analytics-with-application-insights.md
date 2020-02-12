@@ -8,28 +8,28 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/12/2018
+ms.date: 02/11/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 646e3e0d68846013d656627a4ef6ef1fb1e11e09
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 002221bc69659a3be6fee950319909c9fc63ea9c
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846764"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136318"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Rastrear o comportamento do usuário no Azure Active Directory B2C usando o Application Insights
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Ao usar o Azure Active Directory B2C (Azure AD B2C) junto com o Aplicativo Azure insights, você pode obter logs de eventos detalhados e personalizados para os percursos do usuário. Neste artigo, você aprenderá como:
+Ao usar o Azure Active Directory B2C (Azure AD B2C) junto com o Aplicativo Azure insights, você pode obter logs de eventos detalhados e personalizados para os percursos do usuário. Neste artigo, você aprenderá a:
 
 * Obter insights sobre o comportamento do usuário.
 * Solucionar problemas de suas próprias políticas em desenvolvimento ou em produção.
 * Medir o desempenho.
 * Criar notificações do Application Insights.
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 A estrutura de experiência de identidade no Azure AD B2C inclui o provedor `Handler="Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0`. Ele envia dados de eventos diretamente para o Application Insights usando a chave de instrumentação fornecida para o Azure Active Directory B2C.
 
@@ -37,7 +37,7 @@ Um perfil técnico usa esse provedor para definir um evento do Azure AD B2C. O p
 
 O Application Insights pode unificar os eventos usando uma ID de correlação para registrar uma sessão do usuário. O Application Insights disponibiliza o evento e a sessão em segundos e apresenta muitas ferramentas analíticas, de exportação e visualização.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Conclua as etapas em [Introdução às políticas personalizadas](custom-policy-get-started.md). Este artigo pressupõe que você esteja usando o pacote de inicializador de política personalizada. Mas o pacote de inicializador não é necessário.
 
@@ -110,7 +110,7 @@ Abra o arquivo *TrustFrameworkExtensions.xml* do pacote inicial e adicione os se
 
 Perfis técnicos podem ser considerados funções na Estrutura de Experiência de Identidade do Azure Active Directory B2C. Esta tabela define os perfis técnicos que são usados para abrir uma sessão e postar eventos.
 
-| Perfil técnico | Tarefa |
+| Perfil técnico | {1&gt;Tarefa&lt;1} |
 | ----------------- | -----|
 | AzureInsights-Common | Cria um conjunto comum de parâmetros a serem incluídos em todos os perfis técnicos do AzureInsights. |
 | AzureInsights-SignInRequest | Cria um evento SignIn com um conjunto de declarações quando uma solicitação de entrada foi recebida. |
@@ -158,7 +158,7 @@ Adicione os perfis para o *trustframeworkextensions. XML* arquivo do starter pac
       <InputClaims>
         <!-- Properties of an event are added through the syntax {property:NAME}, where NAME is property being added to the event. DefaultValue can be either a static value or a value that's resolved by one of the supported DefaultClaimResolvers. -->
         <InputClaim ClaimTypeReferenceId="PolicyId" PartnerClaimType="{property:Policy}" DefaultValue="{Policy:PolicyId}" />
-        <InputClaim ClaimTypeReferenceId="CorrelationId" PartnerClaimType="{property:JourneyId}" />
+        <InputClaim ClaimTypeReferenceId="CorrelationId" PartnerClaimType="{property:JourneyId}" DefaultValue="{Context:CorrelationId}" />
         <InputClaim ClaimTypeReferenceId="Culture" PartnerClaimType="{property:Culture}" DefaultValue="{Culture:RFC5646}" />
       </InputClaims>
     </TechnicalProfile>
@@ -229,7 +229,7 @@ Faça upload do arquivo *TrustFrameworkExtensions.xml* no seu locatário. Em seg
 
 ![Application Insights USAGE-Events Blase](./media/analytics-with-application-insights/app-ins-graphic.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Adicione tipos de declarações e eventos ao percurso do usuário para ajustar às suas necessidades. Você pode usar [resolvedores de declaração](claim-resolver-overview.md) ou qualquer tipo de declaração de sequência, adicionar as declarações adicionando um elemento **Entrada de declaração** ao evento Application Insights ou ao perfil técnico Comum do AzureInsights.
 

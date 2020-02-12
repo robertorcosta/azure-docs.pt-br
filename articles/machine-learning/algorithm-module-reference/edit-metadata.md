@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: 173e483710c3fa96ae542f7941f0912ed07ea2ca
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: 57a211c6ffab9a960c013008410f4b52b909d360
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312177"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137520"
 ---
 # <a name="edit-metadata-module"></a>Editar módulo de metadados
 
-Este artigo descreve um módulo incluído no Azure Machine Learning designer.
+Este artigo descreve um módulo incluído no designer de Azure Machine Learning (versão prévia).
 
 Use o módulo editar dados para alterar os metadados que estão associados a colunas em um DataSet. O valor e o tipo de dados do DataSet serão alterados após o uso do módulo editar metadados.
 
@@ -40,9 +40,9 @@ As alterações de metadados típicas podem incluir:
   
 ## <a name="configure-edit-metadata"></a>Configurar editar metadados
   
-1. Em Azure Machine Learning, adicione o módulo editar metadados ao seu pipeline e conecte o conjunto de um que você deseja atualizar. Você pode encontrar o conjunto de **dados em Data Transformation** na categoria **manipular** .
+1. No Azure Machine Learning designer, adicione o módulo editar metadados ao seu pipeline e conecte o conjunto de um que você deseja atualizar. Você pode encontrar o módulo na categoria **transformação de dados** .
   
-1. Selecione **iniciar o seletor de coluna** e escolha a coluna ou conjunto de colunas com a qual trabalhar. Você pode escolher colunas individualmente por nome ou índice, ou pode escolher um grupo de colunas por tipo.  
+1. Clique em **Editar coluna** no painel direito do módulo e escolha a coluna ou conjunto de colunas com a qual trabalhar. Você pode escolher colunas individualmente por nome ou índice, ou pode escolher um grupo de colunas por tipo.  
   
 1. Selecione a opção **tipo de dados** se você precisar atribuir um tipo de dados diferente às colunas selecionadas. Talvez seja necessário alterar o tipo de dados para determinadas operações. Por exemplo, se o conjunto de dados de origem tiver números tratados como texto, você deverá alterá-los para um tipo de dado numérico antes de usar operações matemáticas.
 
@@ -96,6 +96,6 @@ As alterações de metadados típicas podem incluir:
   
 1. Execute o pipeline.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning.

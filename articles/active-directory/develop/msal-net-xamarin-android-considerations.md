@@ -1,7 +1,7 @@
 ---
 title: Considerações sobre o Xamarin Android (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre considerações específicas ao usar o Xamarin Android com a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
+description: Saiba mais sobre as considerações para usar o Xamarin Android com a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,48 +13,51 @@ ms.date: 04/24/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: fd6dd6781b808bc454a402a55aac9d07a6fc23b0
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 81b55253d757f641979c6f72001803d7d38d9af3
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77085823"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132510"
 ---
-# <a name="xamarin-android-specific-considerations-with-msalnet"></a>Considerações específicas do Xamarin Android com MSAL.NET
-Este artigo discute considerações específicas ao usar o Xamarin Android com a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
+# <a name="considerations-for-using-xamarin-android-with-msalnet"></a>Considerações sobre o uso do Xamarin Android com MSAL.NET
+Este artigo discute o que você deve considerar ao usar o Xamarin Android com a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
 
 ## <a name="set-the-parent-activity"></a>Definir a atividade pai
 
-No Xamarin. Android, você precisa definir a atividade pai para que o token seja retornado depois que a interação acontecer.
+No Xamarin Android, defina a atividade pai para que o token seja retornado após a interação. Veja um exemplo de código:
 
 ```csharp
 var authResult = AcquireTokenInteractive(scopes)
  .WithParentActivityOrWindow(parentActivity)
  .ExecuteAsync();
 ```
-Você também pode definir isso no nível de PublicClientApplication (no MSAL 4.2 +) por meio de um retorno de chamada.
+
+No MSAL 4,2 e posterior, você também pode definir essa funcionalidade no nível de `PublicClientApplication`. Para fazer isso, use um retorno de chamada:
 
 ```csharp
-// Requires MSAL.NET 4.2 or above
+// Requires MSAL.NET 4.2 or later
 var pca = PublicClientApplicationBuilder
   .Create("<your-client-id-here>")
   .WithParentActivityOrWindow(() => parentActivity)
   .Build();
 ```
 
-Uma recomendação é usar o CurrentActivityPlugin [aqui](https://github.com/jamesmontemagno/CurrentActivityPlugin).  Em seguida, o código do PublicClientApplication Builder ficaria assim:
+Se você usar [CurrentActivityPlugin](https://github.com/jamesmontemagno/CurrentActivityPlugin), o código do construtor de `PublicClientApplication` será parecido com o exemplo a seguir.
 
 ```csharp
-// Requires MSAL.NET 4.2 or above
+// Requires MSAL.NET 4.2 or later
 var pca = PublicClientApplicationBuilder
   .Create("<your-client-id-here>")
   .WithParentActivityOrWindow(() => CrossCurrentActivity.Current)
   .Build();
 ```
 
+## <a name="ensure-that-control-returns-to-msal"></a>Verifique se o controle retorna ao MSAL 
+Quando a parte interativa do fluxo de autenticação terminar, verifique se o controle volta para MSAL. No Android, substitua o método de `OnActivityResult` de `Activity`. Em seguida, chame o método `SetAuthenticationContinuationEventArgs` da classe `AuthenticationContinuationHelper` MSAL. 
 
-## <a name="ensuring-control-goes-back-to-msal-once-the-interactive-portion-of-the-authentication-flow-ends"></a>Garantindo que o controle volte para MSAL depois que a parte interativa do fluxo de autenticação for encerrada
-No Android, você precisa substituir o método `OnActivityResult` da `Activity` e chamar o método SetAuthenticationContinuationEventArgs da classe AuthenticationContinuationHelper MSAL.
+Veja um exemplo:
 
 ```csharp
 protected override void OnActivityResult(int requestCode, 
@@ -67,20 +70,32 @@ protected override void OnActivityResult(int requestCode,
 }
 
 ```
-Essa linha garante que o controle volte para MSAL depois que a parte interativa do fluxo de autenticação for encerrada.
+
+Essa linha garante que o controle retorne ao MSAL no final da parte interativa do fluxo de autenticação.
 
 ## <a name="update-the-android-manifest"></a>Atualizar o manifesto do Android
-O `AndroidManifest.xml` deve conter os seguintes valores:
+O arquivo *AndroidManifest. xml* deve conter os seguintes valores:
 
 <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
-  <activity
-        android:name="com.microsoft.identity.client.BrowserTabActivity">< tentativa-filtro > <action android:name="android.intent.action.VIEW" /> <category android:name="android.intent.category.DEFAULT" /> <category android:name="android.intent.category.BROWSABLE" /> <data android:scheme="msauth"
-                android:host="Enter_the_Package_Name"
-                android:path="/Enter_the_Signature_Hash" /> </Intent-Filter ></activity>
 ```
-Substitute the package name you registered in the Azure portal for the `android:host=` value. Substitute the key hash you registered in the Azure portal for the `android:path=` value. The Signature Hash should **not** be URL encoded. Ensure that there is a leading `/` at the beginning of your Signature Hash.
+  <activity
+        android:name="com.microsoft.identity.client.BrowserTabActivity">
+     <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="msauth"
+                android:host="Enter_the_Package_Name"
+                android:path="/Enter_the_Signature_Hash" />
+     </intent-filter>
+ </activity>
+```
 
-Or, you can [create the activity in code](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) and not manually edit `AndroidManifest.xml`. For that, you must create a class that has the `Activity` and `IntentFilter` attribute. A class that represents the same values of the above xml would be:
+Substitua o nome do pacote que você registrou no portal do Azure para o valor `android:host=`. Substitua o hash de chave que você registrou no portal do Azure para o valor de `android:path=`. O hash de assinatura *não* deve ser codificado em URL. Verifique se uma barra (`/`) à esquerda aparece no início do hash de assinatura.
+
+Como alternativa, [crie a atividade em código](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) em vez de editar manualmente *AndroidManifest. xml*. Para criar a atividade no código, primeiro crie uma classe que inclua o atributo `Activity` e o atributo `IntentFilter`. 
+
+Aqui está um exemplo de uma classe que representa os valores do arquivo XML:
 
 ```csharp
   [Activity]
@@ -93,13 +108,15 @@ Or, you can [create the activity in code](https://docs.microsoft.com/xamarin/and
   }
 ```
 
-### <a name="xamarinforms-43x-manifest"></a>Manifesto XamarinForms 4.3. X
+### <a name="xamarinforms-43x-manifest"></a>Manifesto do Xamarin. Forms 4.3. X
 
-O código gerado por XamarinForms 4.3. x define o atributo `package` como `com.companyname.{appName}` no `AndroidManifest.xml`. Talvez você queira alterar o valor para ser o mesmo que o namespace `MainActivity.cs`, se usar o `DataScheme` como `msal{client_id}`.
+O Xamarin. Forms 4.3. x gera código que define o atributo `package` como `com.companyname.{appName}` em *AndroidManifest. xml*. Se você usar `DataScheme` como `msal{client_id}`, talvez queira alterar o valor para corresponder ao valor do namespace `MainActivity.cs`.
 
 ## <a name="use-the-embedded-web-view-optional"></a>Usar a exibição da Web inserida (opcional)
 
-Por padrão, o MSAL.NET usa o navegador da Web do sistema, que permite que você obtenha o SSO com aplicativos Web e outros aplicativos. Em alguns casos raros, talvez você queira especificar que deseja usar a exibição da Web inserida. Para obter mais informações, consulte [MSAL.NET usa um navegador da Web e um](msal-net-web-browsers.md) [navegador do sistema Android](msal-net-system-browser-android-considerations.md).
+Por padrão, o MSAL.NET usa o navegador da Web do sistema. Este navegador permite que você obtenha SSO (logon único) usando aplicativos Web e outros aplicativos. Em alguns casos raros, talvez você queira que o seu sistema use uma exibição da Web inserida. 
+
+Este exemplo de código mostra como configurar uma exibição da Web inserida:
 
 ```csharp
 bool useEmbeddedWebView = !app.IsSystemWebViewAvailable;
@@ -110,23 +127,28 @@ var authResult = AcquireTokenInteractive(scopes)
  .ExecuteAsync();
 ```
 
-## <a name="troubleshooting"></a>solução de problemas
-Se você criar um novo aplicativo Xamarin. Forms e adicionar uma referência ao pacote NuGet do MSAL.Net, isso só funcionará.
-No entanto, se você quiser atualizar um aplicativo Xamarin. Forms existente para o MSAL.NET Preview 1.1.2 ou posterior, você poderá enfrentar problemas de compilação.
-
-Para solucionar esses problemas, você deve:
-- Atualizar o pacote NuGet do MSAL.NET existente para o MSAL.NET Preview 1.1.2 ou posterior
-- Verifique se o Xamarin. Forms foi atualizado automaticamente para a versão 2.5.0.122203 (caso contrário, atualize para esta versão)
-- Verifique se o Xamarin. Android. support. v4 foi atualizado automaticamente para a versão 25.4.0.2 (caso contrário, atualize para esta versão)
-- Todos os pacotes Xamarin. Android. support devem ter como destino a versão 25.4.0.2
-- Limpar/recompilar
-- Tente definir as compilações de projetos paralelos máximos como 1 no Visual Studio (opções-> projetos e soluções-> Build e Run-> número máximo de compilações de projetos paralelos)
-- Como alternativa, se você estiver criando a partir da linha de comando, tente remover/m do comando se estiver usando-a.
+Para obter mais informações, consulte [usar navegadores da Web para](msal-net-web-browsers.md) [Considerações sobre o navegador do sistema MSAL.net e Xamarin Android](msal-net-system-browser-android-considerations.md).
 
 
-### <a name="error-the-name-authenticationcontinuationhelper-does-not-exist-in-the-current-context"></a>Erro: o nome ' AuthenticationContinuationHelper ' não existe no contexto atual
+## <a name="troubleshoot"></a>Solução de problemas
+Você pode criar um novo aplicativo Xamarin. Forms e adicionar uma referência ao pacote NuGet MSAL.NET.
+Mas você poderá ter problemas de compilação se atualizar um aplicativo Xamarin. Forms existente para o MSAL.NET Preview 1.1.2 ou posterior.
 
-Isso é provável porque o Visual Studio não atualizou corretamente o arquivo Android. csproj *. Às vezes, o **\<HintPath >** FilePath contém incorretamente netstandard13 em vez de **monoandroid90**.
+Para solucionar problemas de compilação:
+
+- Atualize o pacote NuGet do MSAL.NET existente para o MSAL.NET Preview 1.1.2 ou posterior.
+- Verifique se o Xamarin. Forms foi atualizado automaticamente para a versão 2.5.0.122203. Se necessário, atualize Xamarin. Forms para esta versão.
+- Verifique se o Xamarin. Android. support. v4 foi atualizado automaticamente para a versão 25.4.0.2. Se necessário, atualize para a versão 25.4.0.2.
+- Verifique se todos os pacotes Xamarin. Android. support são de destino da versão 25.4.0.2.
+- Limpar ou recompilar o aplicativo.
+- No Visual Studio, tente definir o número máximo de compilações de projetos paralelas como 1. Para fazer isso, selecione **opções** > **projetos e soluções** > **Compilar e executar** > **número máximo de compilações de projetos paralelos**.
+- Se você estiver criando a partir da linha de comando e o comando usar `/m`, tente remover esse elemento do comando.
+
+### <a name="error-the-name-authenticationcontinuationhelper-doesnt-exist-in-the-current-context"></a>Erro: o nome AuthenticationContinuationHelper não existe no contexto atual
+
+Se um erro indicar que `AuthenticationContinuationHelper` não existe no contexto atual, o Visual Studio poderá ter atualizado incorretamente o arquivo Android. csproj *. Às vezes, o caminho do arquivo *\<HintPath >* contém incorretamente *netstandard13* em vez de *monoandroid90*.
+
+Este exemplo contém um caminho de arquivo correto:
 
 ```xml
 <Reference Include="Microsoft.Identity.Client, Version=3.0.4.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae,
@@ -135,10 +157,10 @@ Isso é provável porque o Visual Studio não atualizou corretamente o arquivo A
 </Reference>
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-Mais detalhes e exemplos são fornecidos no parágrafo de [Considerações específicas do Android](https://github.com/azure-samples/active-directory-xamarin-native-v2#android-specific-considerations) do seguinte arquivo readme.MD do exemplo:
+Para obter mais informações, consulte o exemplo de um [aplicativo do Xamarin Mobile que usa a plataforma de identidade da Microsoft](https://github.com/azure-samples/active-directory-xamarin-native-v2#android-specific-considerations). A tabela a seguir resume as informações relevantes no arquivo LEIAme.
 
-| Amostra | Plataforma | DESCRIÇÃO |
+| Amostra | Platform | Descrição |
 | ------ | -------- | ----------- |
-|[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | Um aplicativo Xamarin Forms simples mostrando como usar o MSAL para autenticar o MSA e o Azure AD por meio do ponto de extremidade do adicione v 2.0 e acessar o Microsoft Graph com o token resultante. <br>![Topologia](media/msal-net-xamarin-android-considerations/topology.png) |
+|[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin. iOS, Android, UWP | Um aplicativo Xamarin. Forms simples que mostra como usar o MSAL para autenticar contas pessoais da Microsoft e o Azure AD por meio do ponto de extremidade 2,0 do Azure AD. O aplicativo também mostra como acessar Microsoft Graph e mostra o token resultante. <br>![Topologia](media/msal-net-xamarin-android-considerations/topology.png) |

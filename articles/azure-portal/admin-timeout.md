@@ -5,24 +5,24 @@ services: azure-portal
 keywords: configurações, tempo limite
 author: mgblythe
 ms.author: mblythe
-ms.date: 12/19/2019
+ms.date: 02/10/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 87de67eec9171825a1ebff9ab60782fea8836039
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 950580048f0496fd8436901938a5b6768c61bab6
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310791"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132085"
 ---
 # <a name="set-directory-level-inactivity-timeout"></a>Definir tempo limite de inatividade no nível do diretório
 
-A configuração de tempo limite de inatividade ajuda a proteger seus recursos contra acesso não autorizado se os usuários esquecerem de proteger sua estação de trabalho. Quando um usuário esteve ocioso por um tempo, sua sessão de portal do Azure é desconectada automaticamente. Os administradores podem impor o tempo ocioso máximo antes que uma sessão seja desconectada. A configuração de tempo limite de inatividade se aplica ao nível do diretório. Para obter mais informações sobre diretórios, consulte [Active Directory Domain Services visão geral](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
+A configuração de tempo limite de inatividade ajuda a proteger seus recursos contra acesso não autorizado se os usuários esquecerem de proteger sua estação de trabalho. Quando um usuário esteve ocioso por um tempo, sua sessão de portal do Azure é desconectada automaticamente. Os administradores na [função de administrador global](../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) podem impor o tempo ocioso máximo antes que uma sessão seja desconectada. A configuração de tempo limite de inatividade se aplica ao nível do diretório. Para obter mais informações sobre diretórios, consulte [Active Directory Domain Services visão geral](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
 ## <a name="configure-the-inactive-timeout-setting"></a>Definir a configuração de tempo limite inativo
 
-Se você for um administrador e quiser impor uma configuração de tempo limite de ociosidade para todos os usuários da portal do Azure, siga estas etapas:
+Se você for um administrador global e quiser impor uma configuração de tempo limite de ociosidade para todos os usuários da portal do Azure, siga estas etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. Selecione **configurações** no cabeçalho da página global.
@@ -46,7 +46,7 @@ A configuração entra em vigor para novas sessões. Ele não será aplicado ime
 > Se um administrador tiver configurado uma configuração de tempo limite no nível de diretório, os usuários poderão substituir a política e definir sua própria duração de saída inativa. No entanto, o usuário deve escolher um intervalo de tempo menor que o definido no nível do diretório.
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Definir suas preferências de portal do Azure](set-preferences.md)
 * [Exportar ou excluir configurações do usuário](azure-portal-export-delete-settings.md)

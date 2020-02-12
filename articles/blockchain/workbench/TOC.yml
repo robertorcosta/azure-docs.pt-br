@@ -71,7 +71,5 @@
   items:
     - name: Prova de autoridade do consórcio Ethereum
       href: ../templates/ethereum-poa-deployment.md
-    - name: Consortium Hyperledger do Fabric
-      href: ../templates/hyperledger-fabric-consortium-blockchain.md
     - name: Serviço de Kubernetes do Azure do consórcio Hyperledger Fabric
       href: ../templates/hyperledger-fabric-consortium-azure-kubernetes-service.md

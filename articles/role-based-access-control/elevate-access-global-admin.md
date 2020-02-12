@@ -1,5 +1,5 @@
 ---
-title: Elevar o acesso para gerenciar todas as assinaturas e grupos de gerenciamento do Azure | Microsoft Docs
+title: Elevar o acesso para gerenciar todas as assinaturas e grupos de gerenciamento do Azure
 description: Descreve como elevar o acesso para um Administrador Global gerenciar todas as assinaturas e grupos de gerenciamento no Azure Active Directory usando a API REST ou o portal do Azure.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/03/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8b27a97d95f224513dd03293b9bd0082c5ed6d1b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 1731c630cb98ac542ebcdc7aedf07f7bb63eaec0
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772254"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137455"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevar o acesso para gerenciar todas as assinaturas e grupos de gerenciamento do Azure
 
@@ -140,7 +140,7 @@ Para remover a atribuição de função de administrador de acesso do usuário p
       -RoleDefinitionName "User Access Administrator" -Scope "/"
     ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI do Azure
 
 ### <a name="list-role-assignment-at-root-scope-"></a>Listar atribuição de função no escopo raiz (/)
 
@@ -321,7 +321,7 @@ Ao chamar `elevateAccess`, você cria uma atribuição de função para si mesmo
     DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/11111111-1111-1111-1111-111111111111?api-version=2015-07-01
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Entender as diferentes funções no Azure](rbac-and-directory-admin-roles.md)
 - [Gerenciar o acesso aos recursos do Azure usando o RBAC e a API REST](role-assignments-rest.md)

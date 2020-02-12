@@ -15,26 +15,28 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: cenkdin;anilmur
-ms.openlocfilehash: be3c75680599c07a3cebe3dcf0436884958e1706
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 1d9d63aa6b3da1b8d8389722bd5af0eeed585d03
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69016675"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134968"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador Wirecast para enviar uma transmissão ao vivo de taxa de bits única 
 > [!div class="op_single_selector"]
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
-> * [FMLE](media-services-configure-fmle-live-encoder.md)
 >
 >
 
-Este artigo mostra como configurar o codificador ativo [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) para enviar uma transmissão de taxa de bits única para os canais do AMS que estão habilitados para a codificação ativa.  Para obter mais informações, consulte [trabalhando com canais habilitados a executar codificação ativa com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
+Este artigo mostra como configurar o codificador ativo [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) para enviar uma transmissão de taxa de bits única para os canais do AMS que estão habilitados para a codificação ativa. Para obter mais informações, consulte [trabalhando com canais habilitados a executar codificação ativa com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a ferramenta AMSE (Gerenciador de Serviços de Mídia da Azure). Essa ferramenta é executada apenas em PCs com Windows. Se você estiver no Mac ou Linux, use o portal do Azure para criar [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+> [!NOTE]
+> Os codificadores devem dar suporte a TLS 1,2 ao usar protocolos RTMPS. Use o Wirecast versão 13.0.2 ou superior devido ao requisito de TLS 1,2.
+
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 * [Criar uma conta dos Serviços de Mídia do Azure](media-services-portal-create-account.md)
 * Verifique se há um Ponto de Extremidade de Streaming em execução. Para obter mais informações, veja [Gerenciar Pontos de Extremidade de Transmissão em uma conta de Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md)
 * Instale a versão mais recente da ferramenta [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .
@@ -76,18 +78,18 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 **Vídeo**:
 
 * Codec: H.264
-* Perfil: Alto (Nível 4.0)
-* Taxa de bits: 5.000 Kbps
+* Perfil: Alto (nível 4.0)
+* Taxa de bits: 5.000 kbps
 * Quadro-chave: 2 segundos (60 segundos)
 * Taxa de quadros: 30
 
 **Áudio**:
 
 * Codec: AAC (LC)
-* Taxa de bits: 192 Kbps
+* Taxa de bits: 192 kbps
 * Taxa de amostragem: 44,1 kHz
 
-### <a name="configuration-steps"></a>Etapas da configuração
+### <a name="configuration-steps"></a>Etapas de configuração
 1. Abra o aplicativo do Telestream Wirecast no computador que está sendo usado e configure a transmissão RTMP.
 2. Configure a saída navegando até a guia **Saída** e selecionando **Configurações de Saída...** .
 
@@ -106,9 +108,9 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 
    * Codificador: MainConcept H.264
    * Quadros por segundo: 30
-   * Taxa de bits média: 5.000 kbits/s (pode ser ajustada com base nas limitações de rede)
+   * Taxa de bits média: 5.000 kbits/s (Pode ser ajustada com base nas limitações de rede)
    * Perfil: Principal
-   * Quadro chave a cada: 60 quadros
+   * Quadro chave: a cada 60 quadros
 
      **Áudio**
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 489f4a527a5afaf1bab5e2065137a5011d45baa6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5d0035e7c87806012d13117ae5335b7de5f3c99d
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474442"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132292"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Casos de uso comuns e cenários para Azure Active Directory Domain Services
 
@@ -48,7 +48,7 @@ As seguintes considerações de implantação se aplicam a este exemplo de caso 
 
 Como um cenário de exemplo, a contoso tem um aplicativo local que foi adquirido de um ISV há muitos anos. O aplicativo está atualmente no modo de manutenção pelo ISV e solicitar alterações ao aplicativo é extremamente caro. Esse aplicativo tem um front-end baseado na Web que coleta as credenciais do usuário usando um formulário da Web e autentica os usuários executando uma associação LDAP ao ambiente de AD DS local.
 
-![Associação LDAP](./media/active-directory-domain-services-scenarios/ldap-bind.png)
+![LDAP bind](./media/active-directory-domain-services-scenarios/ldap-bind.png)
 
 A contoso gostaria de migrar esse aplicativo para o Azure. O aplicativo deve continuar funcionando no estado em que se encontra, sem necessidade de alterações. Além disso, os usuários devem ser capazes de autenticar usando suas credenciais corporativas existentes e sem treinamento adicional. Ele deve ser transparente para os usuários finais onde o aplicativo está em execução.
 
@@ -65,7 +65,7 @@ As seguintes considerações de implantação se aplicam a este exemplo de caso 
 
 Como o cenário de exemplo anterior, vamos supor que a contoso tenha um aplicativo de linha de negócios (LOB) local que foi desenvolvido há quase uma década. Este aplicativo tem reconhecimento de diretório e foi projetado para usar LDAP para ler informações/atributos sobre os usuários de AD DS. O aplicativo não modifica atributos ou, de outra forma, grava no diretório.
 
-A contoso deseja migrar esse aplicativo para o Azure e desativar o hardware local de envelhecimento que hospeda esse aplicativo no momento. O aplicativo não pode ser reescrito para usar APIs de diretório modernas, como o API do Graph do Azure AD baseado em REST. Uma opção de comparação de precisão e deslocamento é desejada onde o aplicativo pode ser migrado para ser executado na nuvem, sem modificar o código ou reescrever o aplicativo.
+A contoso deseja migrar esse aplicativo para o Azure e desativar o hardware local de envelhecimento que hospeda esse aplicativo no momento. O aplicativo não pode ser reescrito para usar APIs de diretório modernas, como a API de Microsoft Graph baseada em REST. Uma opção de comparação de precisão e deslocamento é desejada onde o aplicativo pode ser migrado para ser executado na nuvem, sem modificar o código ou reescrever o aplicativo.
 
 Para ajudar nesse cenário, o Azure AD DS permite que os aplicativos executem leituras LDAP no domínio gerenciado para obter as informações de atributo de que precisa. O aplicativo não precisa ser reescrito, portanto, um deslocamento e uma mudança no Azure permitem que os usuários continuem a usar o aplicativo sem perceber que há uma alteração no local em que é executado.
 
@@ -90,7 +90,7 @@ Para esse cenário, os servidores que hospedam o front-end da Web, o SQL Server 
 
 As seguintes considerações de implantação se aplicam a este exemplo de caso de uso:
 
-* Verifique se os aplicativos usam um nome de usuário + senha para autenticação. Não há suporte para autenticação com base em certificado ou cartão inteligente no Azure AD DS.
+* Certifique-se de que os aplicativos usem um nome de usuário e senha para autenticação. Não há suporte para autenticação com base em certificado ou cartão inteligente no Azure AD DS.
 * Você não pode alterar as senhas diretamente em um domínio gerenciado do Azure AD DS. Os usuários finais podem alterar suas senhas ou usando o mecanismo de alteração de senha de autoatendimento do Azure AD ou no diretório local. Essas alterações são sincronizadas automaticamente e disponíveis no domínio gerenciado AD DS do Azure.
 
 ## <a name="windows-server-remote-desktop-services-deployments-in-azure"></a>Implantações de serviços de área de trabalho remota do Windows Server no Azure
@@ -103,7 +103,7 @@ Você pode configurar um cluster do Azure HDInsight que tenha ingressado em um d
 
 Para obter mais informações sobre esse cenário de implantação, consulte [como configurar clusters HDInsight ingressados no domínio][hdinsight]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para começar, [criar e configurar uma instância de Azure Active Directory Domain Services][tutorial-create-instance]
 

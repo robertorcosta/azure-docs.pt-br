@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 5ac1f3e4bf629a2e12eb0461b932a5865228c79c
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.date: 02/11/2020
+ms.openlocfilehash: 6dd8246d5751609e2f20ee9d5e519529752940f7
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546700"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137522"
 ---
 # <a name="cross-validate-model"></a>Modelo de validação cruzada
 
@@ -62,21 +62,19 @@ Nesse cenário, você treina e testa o modelo usando o modelo de validação cru
 
 2. Conecte a saída de qualquer modelo de classificação ou regressão. 
 
-    Por exemplo, se você estiver usando **duas máquinas do ponto de Bayes de classe** para classificação, configure o modelo com os parâmetros desejados. Em seguida, arraste um conector da porta de **modelo não treinada** do classificador para a porta correspondente do modelo de validação cruzada. 
+    Por exemplo, se você estiver usando a **árvore de decisão aumentada de duas classes** para classificação, configure o modelo com os parâmetros desejados. Em seguida, arraste um conector da porta de **modelo não treinada** do classificador para a porta correspondente do modelo de validação cruzada. 
 
     > [!TIP] 
     > Você não precisa treinar o modelo, pois o modelo de validação cruzada treina automaticamente o modelo como parte da avaliação.  
 3.  Na porta do **conjunto** de um modelo de validação cruzada, conecte qualquer conjunto de DataSet de treinamento rotulado.  
 
-4.  No painel **Propriedades** do modelo de validação cruzada, selecione **Iniciar seletor de coluna**. Escolha a única coluna que contém o rótulo de classe ou o valor previsível. 
+4.  No painel direito do modelo de validação cruzada, clique em **Editar coluna**. Selecione a única coluna que contém o rótulo de classe ou o valor previsível. 
 
 5. Defina um valor para o parâmetro **semente aleatória** se desejar repetir os resultados da validação cruzada entre execuções sucessivas nos mesmos dados.  
 
 6. Execute o pipeline.
 
 7. Consulte a seção [resultados](#results) para obter uma descrição dos relatórios.
-
-    Para obter uma cópia do modelo para reutilização posterior, alterne para a guia **saídas** no painel direito do módulo que contém o algoritmo (por exemplo, a máquina do **ponto de Bayes de duas classes**). Em seguida, selecione o ícone **registrar conjunto de registros** para salvar uma cópia do modelo treinado na árvore de módulos.
 
 ## <a name="results"></a>Resultados
 
@@ -88,9 +86,9 @@ A primeira saída do módulo fornece os dados de origem para cada linha, junto c
 
 Para exibir os resultados, no pipeline, clique com o botão direito do mouse no módulo modelo de validação cruzada. Selecione **Visualizar resultados pontuados**.
 
-| Nome da nova coluna      | Description                              |
+| Nome da nova coluna      | Descrição                              |
 | -------------------- | ---------------------------------------- |
-| Rótulos classificados        | Essa coluna é adicionada ao final do conjunto de uma. Ele contém o valor previsto para cada linha. |
+| Rótulos pontuados        | Essa coluna é adicionada ao final do conjunto de uma. Ele contém o valor previsto para cada linha. |
 | Probabilidades pontuadas | Essa coluna é adicionada ao final do conjunto de uma. Indica a probabilidade estimada do valor em **Rótulos pontuados**. |
 | Número de dobra          | Indica o índice de base zero do dobramento ao qual cada linha de dados foi atribuída durante a validação cruzada. |
 
@@ -103,7 +101,7 @@ Neste relatório, as dobras são listadas por valor de índice, em ordem crescen
 Para exibir os resultados, no pipeline, clique com o botão direito do mouse no módulo modelo de validação cruzada. Selecione **Visualizar resultados da avaliação por dobra**.
 
 
-|Nome da coluna| Description|
+|Nome da coluna| Descrição|
 |----|----|
 |Número de dobra| Um identificador para cada dobra. Se você tiver criado cinco dobras, haveria cinco subconjuntos de dados, numerados de 0 a 4.
 |Número de exemplos em dobra|O número de linhas atribuídas a cada dobra. Eles devem ser aproximadamente iguais. |
@@ -125,7 +123,7 @@ O módulo também inclui as seguintes métricas para cada dobra, dependendo do t
 + Não há necessidade de dividir o conjunto de linhas em conjuntos de treinamento e teste quando você usa a validação cruzada para medir a precisão do modelo. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 

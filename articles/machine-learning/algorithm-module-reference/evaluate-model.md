@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 11/19/2019
-ms.openlocfilehash: a906e5f354f332cebb0656c6fc40b17c8a5016a2
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: 5951c6ec63478b4b266f22eaf8bf3162e0a45df0
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546683"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137541"
 ---
 # <a name="evaluate-model-module"></a>Módulo avaliar modelo
 
@@ -76,14 +76,14 @@ Por exemplo, a imagem a seguir representa uma comparação de resultados de dois
 
 Como esse é um modelo de clustering, os resultados da avaliação são diferentes de se você comparasse pontuações de dois modelos de regressão ou compararam dois modelos de classificação. No entanto, a apresentação geral é a mesma. 
 
-## <a name="metrics"></a>Métricas
+## <a name="metrics"></a>metrics
 
 Esta seção descreve as métricas retornadas para os tipos específicos de modelos com suporte para uso com o **modelo de avaliação**:
 
-+ [modelos de classificação](#bkmk_classification)
-+ [modelos de regressão](#bkmk_regression)
++ [modelos de classificação](#metrics-for-classification-models)
++ [modelos de regressão](#metrics-for-regression-models)
 
-###  <a name="bkmk_classification"></a>Métricas para modelos de classificação
+### <a name="metrics-for-classification-models"></a>Métricas para modelos de classificação
 
 As métricas a seguir são relatadas ao avaliar modelos de classificação. Se você comparar modelos, eles serão classificados pela métrica selecionada para avaliação.  
   
@@ -101,7 +101,7 @@ As métricas a seguir são relatadas ao avaliar modelos de classificação. Se v
   
 - A **perda do log de treinamento** é uma única pontuação que representa a vantagem do classificador em uma previsão aleatória. A perda de log mede a incerteza de seu modelo comparando as probabilidades que gera para os valores conhecidos (verdade) nos rótulos. Você deseja minimizar a perda de log para o modelo como um todo.
 
-##  <a name="bkmk_regression"></a>Métricas para modelos de regressão
+### <a name="metrics-for-regression-models"></a>Métricas para modelos de regressão
  
 As métricas retornadas para modelos de regressão são projetadas para estimar a quantidade de erros.  Um modelo é considerado adequado para os dados se a diferença entre os valores observados e previstos for pequena. No entanto, observar o padrão dos resíduos (a diferença entre qualquer ponto previsto e seu valor real correspondente) pode informá-lo muito sobre a possível diferença no modelo.  
   
@@ -115,11 +115,11 @@ As métricas retornadas para modelos de regressão são projetadas para estimar 
   
 - O **erro quadrado relativo (RSE)** normaliza, de forma semelhante, o erro quadrado total dos valores previstos dividindo pelo erro quadrado total dos valores reais.  
   
-- **Significa zero um erro (MZOE)** indica se a previsão foi correta ou não.  Em outras palavras: `ZeroOneLoss(x,y) = 1` quando `x!=y`; caso contrário `0`.
+
   
 - O **coeficiente de determinação**, geralmente referido como R<sup>2</sup>, representa a potência preditiva do modelo como um valor entre 0 e 1. Zero significa que o modelo é aleatório (explica nada); 1 significa que há um ajuste perfeito. No entanto, cuidado deve ser usado na interpretação de valores de R<sup>2</sup> , já que valores baixos podem ser totalmente normais e valores altos podem ser suspeitos.
   
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

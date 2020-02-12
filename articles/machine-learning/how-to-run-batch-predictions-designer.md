@@ -1,5 +1,5 @@
 ---
-title: Executar previsões em lote usando o designer do Azure Machine Learning
+title: Executar previsões em lote usando o designer do Azure Machine Learning (versão prévia)
 titleSuffix: Azure Machine Learning
 description: Saiba como treinar um modelo e configurar um pipeline de previsão em lote usando o designer. Implante o pipeline como um serviço Web com parâmetro, que pode ser disparado de qualquer biblioteca HTTP.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 01/13/2020
 ms.custom: Ignite2019
-ms.openlocfilehash: d2653699a69cb468e8490c2cba579b73e526d1ed
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 95a3c1b892cacd802f359fdc03de74fa60a1e118
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311879"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138101"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Executar previsões em lote usando o designer do Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ Neste "como", você aprenderá a executar as seguintes tarefas:
 
 Para saber como configurar os serviços de Pontuação de lote usando o SDK, consulte a [instruções](how-to-run-batch-predictions.md)que acompanham o.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Este "como" pressupõe que você já tenha um pipeline de treinamento. Para obter uma introdução guiada ao designer, conclua [a parte um do tutorial do designer](tutorial-designer-automobile-price-train-score.md). 
 
@@ -41,7 +41,7 @@ Seu pipeline de treinamento deve ser executado pelo menos uma vez para poder cri
 
 1. Vá para a guia **Designer** em seu espaço de trabalho.
 
-1. Selecione o pipeline de treinamento que treina o modelo que deseja usar para fazer a previsão.
+1. Selecione o pipeline de treinamento que treina o modelo que você deseja usar para fazer a previsão.
 
 1. **Execute** o pipeline.
 
@@ -142,6 +142,6 @@ Você também pode definir um novo pipeline padrão na guia **pipelines publicad
 
 ![Definir pipeline padrão](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Siga o [tutorial](tutorial-designer-automobile-price-train-score.md) do designer para treinar e implantar um modelo de regressão.

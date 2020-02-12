@@ -11,14 +11,14 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: 2b11bbc22714ab1905421812e3cb24ee660ee667
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 750d08f3667317e9e1e396cff50884101d7ff55d
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75372323"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131959"
 ---
-# <a name="azure-sql-database-serverless"></a>Recurso sem servidor do Banco de Dados SQL do Azure
+# <a name="azure-sql-database-serverless"></a>Banco de dados SQL sem servidor do Azure
 
 O banco de dados SQL do Azure sem servidor é uma camada de computação para bancos únicos de dados que dimensionam automaticamente a computação com base na demanda de carga de trabalho e cobra pela quantidade de computação usada por segundo. A camada de computação sem servidor também pausa automaticamente os bancos de dados durante períodos inativos quando apenas o armazenamento é cobrado e retoma automaticamente os bancos de dados quando a atividade retorna.
 
@@ -66,7 +66,7 @@ A tabela a seguir resume as diferenças entre a camada de computação sem servi
 | | **Computação sem servidor** | **Computação provisionada** |
 |:---|:---|:---|
 |**Padrão de uso do banco de dados**| Uso intermitente e imprevisível com menor utilização média de computação ao longo do tempo. |  Padrões de uso mais regulares com maior utilização média de computação ao longo do tempo ou a vários bancos de dados usando pools elásticos.|
-| **Esforço de gerenciamento de desempenho** |Inferior|Superior|
+| **Esforço de gerenciamento de desempenho** |Minúsculos|Superior|
 |**Dimensionamento de computação**|Automático|Manual|
 |**Capacidade de resposta de computação**|Inferior após períodos de inatividade|Imediata|
 |**Granularidade de cobrança**|Por segundo|Por hora|
@@ -126,12 +126,12 @@ A retomada será disparada se qualquer uma das seguintes condições for verdade
 
 |Recurso|Gatilho de retomada automática|
 |---|---|
-|Autenticação e autorização|Logon|
+|Autenticação e autorização|Login|
 |Detecção de ameaças|Habilitação/desabilitação das configurações de detecção de ameaças no nível do banco de dados ou do servidor.<br>Modificar as configurações de detecção de ameaças no nível do banco de dados ou do servidor.|
 |Descoberta e classificação de dados|Adicionar, modificar, excluir ou exibir os rótulos de confidencialidade|
 |Auditoria|Exibir os registros de auditoria.<br>Atualizando ou exibindo a política de auditoria.|
 |Mascaramento de dados|Adicionar, modificar, excluir ou exibir as regras de mascaramento de dados|
-|Criptografia de dados transparente|Exibir o estado ou status de Transparent Data Encryption|
+|Transparent Data Encryption|Exibir o estado ou status de Transparent Data Encryption|
 |Consultar o armazenamento de dados (desempenho)|Modificando ou exibindo configurações do repositório de consultas|
 |Ajuste automático|Aplicação e verificação de recomendações de ajuste automático, como indexação automática|
 |Cópia de banco de dados|Criar banco de dados como cópia.<br>Exportar para um arquivo BACPAC.|
@@ -157,15 +157,15 @@ A criação de um novo banco de dados ou a movimentação de um banco de dados e
 
    |Nome do objetivo de serviço|Camada de serviço|Geração de hardware|Máximo de vCores|
    |---|---|---|---|
-   |GP_S_Gen5_1|Propósito geral|Gen5|1|
-   |GP_S_Gen5_2|Propósito geral|Gen5|2|
-   |GP_S_Gen5_4|Propósito geral|Gen5|4|
-   |GP_S_Gen5_6|Propósito geral|Gen5|6|
-   |GP_S_Gen5_8|Propósito geral|Gen5|8|
-   |GP_S_Gen5_10|Propósito geral|Gen5|10|
-   |GP_S_Gen5_12|Propósito geral|Gen5|12|
-   |GP_S_Gen5_14|Propósito geral|Gen5|14|
-   |GP_S_Gen5_16|Propósito geral|Gen5|16|
+   |GP_S_Gen5_1|Uso Geral|Gen5|1|
+   |GP_S_Gen5_2|Uso Geral|Gen5|2|
+   |GP_S_Gen5_4|Uso Geral|Gen5|4|
+   |GP_S_Gen5_6|Uso Geral|Gen5|6|
+   |GP_S_Gen5_8|Uso Geral|Gen5|8|
+   |GP_S_Gen5_10|Uso Geral|Gen5|10|
+   |GP_S_Gen5_12|Uso Geral|Gen5|12|
+   |GP_S_Gen5_14|Uso Geral|Gen5|14|
+   |GP_S_Gen5_16|Uso Geral|Gen5|16|
 
 2. Opcionalmente, especifique o mínimo de vCores e o atraso de autopausa para alterar seus valores padrão. A tabela a seguir mostra os valores disponíveis para esses parâmetros.
 
@@ -179,12 +179,12 @@ A criação de um novo banco de dados ou a movimentação de um banco de dados e
 
 Os exemplos a seguir criam um novo banco de dados na camada de computação sem servidor. Os exemplos especificam explicitamente o mínimo de vCores, o máximo de vCores e o atraso de autopausa.
 
-#### <a name="use-azure-portal"></a>Use o Portal do Azure
+#### <a name="use-azure-portal"></a>Usar o portal do Azure
 
 Consulte [início rápido: criar um banco de dados individual no banco de dados SQL do Azure usando o portal do Azure](sql-database-single-database-get-started.md).
 
 
-#### <a name="use-powershell"></a>Use o PowerShell
+#### <a name="use-powershell"></a>Usar o PowerShell
 
 ```powershell
 New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
@@ -214,7 +214,7 @@ Para obter detalhes, consulte [criar banco de dados](/sql/t-sql/statements/creat
 
 Os exemplos a seguir movem um banco de dados da camada de computação provisionada para a camada de computação sem servidor. Os exemplos especificam explicitamente o mínimo de vCores, o máximo de vCores e o atraso de autopausa.
 
-#### <a name="use-powershell"></a>Use o PowerShell
+#### <a name="use-powershell"></a>Usar o PowerShell
 
 
 ```powershell
@@ -248,7 +248,7 @@ Um banco de dados sem servidor pode ser movido para uma camada de computação p
 
 ## <a name="modifying-serverless-configuration"></a>Modificando a configuração sem servidor
 
-### <a name="use-powershell"></a>Use o PowerShell
+### <a name="use-powershell"></a>Usar o PowerShell
 
 Modificar o máximo ou o mínimo de vCores e o atraso de autopausa é realizado usando o comando [set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) no PowerShell usando os argumentos `MaxVcore`, `MinVcore`e `AutoPauseDelayInMinutes`.
 
@@ -271,11 +271,11 @@ O pacote do aplicativo é o limite externo de gerenciamento de recursos de um ba
 
 O pool de recursos do usuário é o limite interno de gerenciamento de recursos de um banco de dados, independentemente de se o banco de dados está em uma camada de computação sem servidor ou provisionada. O pool de recursos do usuário tem como escopo a CPU e a e/s para a carga de trabalho do usuário gerada por consultas DDL, como criar e alterar e consultas DML, como selecionar, inserir, atualizar e excluir. Essas consultas geralmente representam a proporção mais substancial de utilização dentro do pacote do aplicativo.
 
-### <a name="metrics"></a>Métricas
+### <a name="metrics"></a>metrics
 
 As métricas para monitorar o uso de recursos do pacote do aplicativo e do pool de usuários de um banco de dados sem servidor são listadas na tabela a seguir:
 
-|Entidade|Métrica|Description|Unidades|
+|Entidade|Métrica|Descrição|Unidades|
 |---|---|---|---|
 |Pacote do Aplicativo|app_cpu_percent|Percentual de vCores usados pelo aplicativo em relação ao máximo de vCores permitido para o aplicativo.|Percentual|
 |Pacote do Aplicativo|app_cpu_billed|A quantidade de computação cobrada para o aplicativo durante o período do relatório. O valor pago durante esse período é o produto dessa métrica e o preço unitário de vCore. <br><br>Os valores dessa métrica são determinados pela agregação ao longo do tempo do máximo de CPU usado e a memória usada por segundo. Se o valor usado for menor que a quantidade mínima provisionada conforme definido pelo mínimo de vCores e de memória, a quantidade mínima provisionada será cobrada. Para comparar a CPU com a memória para fins de cobrança, a memória é normalizada em unidades de vCores, redimensionando a quantidade de memória em GB por 3 GB por vCore.|Segundos de vCore|
@@ -292,7 +292,7 @@ No portal do Azure, o status do banco de dados é exibido no painel de visão ge
 
 Usando os seguintes comandos para consultar o status de pausa e retomada de um banco de dados:
 
-#### <a name="use-powershell"></a>Use o PowerShell
+#### <a name="use-powershell"></a>Usar o PowerShell
 
 ```powershell
 Get-AzSqlDatabase -ResourceGroupName $resourcegroupname -ServerName $servername -DatabaseName $databasename `
@@ -342,7 +342,7 @@ Mais precisamente, a fatura de computação neste exemplo é calculada da seguin
 |8:00-24:00|0|0|Nenhuma computação cobrada durante a pausa|0 segundos vCore|
 |Total de segundos vCore cobrados em 24 horas||||50400 segundos de vCore|
 
-Suponha que o preço de unidade de computação seja US$ 0,000073/vCore/segundo.  Em seguida, a computação cobrada para esse período de 24 horas é o produto do preço unitário de computação e os segundos de vCore cobrados: $0.000073/vCore/segundo * 50400 vCore segundos = $3.68
+Suponha que o preço unitário de computação seja $0.000145/vCore/segundo.  Em seguida, a computação cobrada para esse período de 24 horas é o produto do preço unitário de computação e os segundos de vCore cobrados: $0.000145/vCore/segundo * 50400 vCore segundos ~ $7.31
 
 ### <a name="azure-hybrid-benefit-and-reserved-capacity"></a>Benefício Híbrido do Azure e capacidade reservada
 
@@ -352,7 +352,7 @@ Benefício Híbrido do Azure (AHB) e os descontos de capacidade reservada não s
 
 A camada de computação sem servidor está disponível em todo o mundo, exceto as seguintes regiões: Leste da China, Norte da China, Alemanha central, Alemanha nordeste, Norte do Reino Unido, Sul do Reino Unido 2, Oeste EUA Central e US Gov central (Iowa).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Para começar, consulte [início rápido: criar um banco de dados individual no banco de dados SQL do Azure usando o portal do Azure](sql-database-single-database-get-started.md).
 - Para limites de recursos, consulte [Limites de recursos de camada de computação sem servidor](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).

@@ -1,21 +1,19 @@
 ---
-title: Usar grupos de posicionamento de proximidade para VMs do Windows
-description: Saiba mais sobre como criar e usar grupos de posicionamento de proximidade para máquinas virtuais do Windows no Azure.
-services: virtual-machines-windows
-author: cynthn
-manager: gwallace
-ms.service: virtual-machines-windows
+title: 'PowerShell: usar grupos de posicionamento de proximidade'
+description: Saiba como criar e usar grupos de posicionamento de proximidade usando Azure PowerShell.
+services: virtual-machines
+ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/30/2019
+ms.date: 01/27/2020
 ms.author: cynthn
-ms.openlocfilehash: 6d0c35737151b060dcffba8944f4a1361d36dc14
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: c1c144ac9db040bfac45ecc7838401ae09c9e2c4
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73171211"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137983"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-powershell"></a>Implantar VMs em grupos de posicionamento de proximidade usando o PowerShell
 
@@ -49,7 +47,7 @@ Get-AzProximityPlacementGroup
 ```
 
 
-## <a name="create-a-vm"></a>Criar uma VM
+## <a name="create-a-vm"></a>Criar uma máquina virtual
 
 Crie uma VM no grupo de posicionamento de proximidade usando `-ProximityPlacementGroup $ppg.Id` para se referir à ID do grupo de posicionamento de proximidade ao usar [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) para criar a VM.
 
@@ -71,13 +69,108 @@ Get-AzProximityPlacementGroup -ResourceId $ppg.Id |
     Format-Table -Property VirtualMachines -Wrap
 ```
 
+### <a name="move-an-existing-vm-into-a-proximity-placement-group"></a>Mover uma VM existente para um grupo de posicionamento de proximidade
+
+Você também pode adicionar uma VM existente a um grupo de posicionamento de proximidade. Você precisa stop\deallocate a VM primeiro e, em seguida, atualizar a VM e reiniciar.
+
+```azurepowershell-interactive
+$ppg = Get-AzProximityPlacementGroup -ResourceGroupName myPPGResourceGroup -Name myPPG
+$vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
+Stop-AzVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName
+Update-AzVM -VM $vm -ResourceGroupName $vm.ResourceGroupName -ProximityPlacementGroupId $ppg.Id
+Restart-AzVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName
+```
+
+### <a name="move-an-existing-vm-out-of-a-proximity-placement-group"></a>Mover uma VM existente para fora de um grupo de posicionamento de proximidade
+
+Para remover uma VM de um grupo de posicionamento de proximidade, você precisa stop\deallocate a VM primeiro e, em seguida, atualizar a VM e reiniciar.
+
+```azurepowershell-interactive
+$ppg = Get-AzProximityPlacementGroup -ResourceGroupName myPPGResourceGroup -Name myPPG
+$vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
+Stop-AzVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName
+$vm.ProximityPlacementGroupId = ""
+Update-AzVM -VM $vm -ResourceGroupName $vm.ResourceGroupName 
+Restart-AzVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName
+```
+
+
 ## <a name="availability-sets"></a>Conjuntos de Disponibilidade
 Você também pode criar um conjunto de disponibilidade em seu grupo de posicionamento de proximidade. Use o mesmo parâmetro `-ProximityPlacementGroup` com o cmdlet [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) para criar um conjunto de disponibilidade e todas as VMs criadas no conjunto de disponibilidade também serão criadas no mesmo grupo de posicionamento de proximidade.
+
+Para adicionar ou remover um conjunto de disponibilidade existente em um grupo de posicionamento de proximidade, primeiro você precisa interromper todas as VMs no conjunto de disponibilidade. 
+
+### <a name="move-an-existing-availability-set-into-a-proximity-placement-group"></a>Mover um conjunto de disponibilidade existente para um grupo de posicionamento de proximidade
+
+```azurepowershell-interactive
+$resourceGroup = "myResourceGroup"
+$avSetName = "myAvailabilitySet"
+$avSet = Get-AzAvailabilitySet -ResourceGroupName $resourceGroup -Name $avSetName
+$vmIds = $avSet.VirtualMachinesReferences
+foreach ($vmId in $vmIDs){
+    $string = $vmID.Id.Split("/")
+    $vmName = $string[8]
+    Stop-AzVM -ResourceGroupName $resourceGroup -Name $vmName -Force
+    } 
+
+$ppg = Get-AzProximityPlacementGroup -ResourceGroupName myPPG -Name myPPG
+Update-AzAvailabilitySet -AvailabilitySet $avSet -ProximityPlacementGroupId $ppg.Id
+foreach ($vmId in $vmIDs){
+    $string = $vmID.Id.Split("/")
+    $vmName = $string[8]
+    Start-AzVM -ResourceGroupName $resourceGroup -Name $vmName 
+    } 
+```
+
+### <a name="move-an-existing-availability-set-out-of-a-proximity-placement-group"></a>Mover um conjunto de disponibilidade existente para fora de um grupo de posicionamento de proximidade
+
+```azurepowershell-interactive
+$resourceGroup = "myResourceGroup"
+$avSetName = "myAvailabilitySet"
+$avSet = Get-AzAvailabilitySet -ResourceGroupName $resourceGroup -Name $avSetName
+$vmIds = $avSet.VirtualMachinesReferences
+foreach ($vmId in $vmIDs){
+    $string = $vmID.Id.Split("/")
+    $vmName = $string[8]
+    Stop-AzVM -ResourceGroupName $resourceGroup -Name $vmName -Force
+    } 
+
+$avSet.ProximityPlacementGroup = ""
+Update-AzAvailabilitySet -AvailabilitySet $avSet 
+foreach ($vmId in $vmIDs){
+    $string = $vmID.Id.Split("/")
+    $vmName = $string[8]
+    Start-AzVM -ResourceGroupName $resourceGroup -Name $vmName 
+    } 
+```
 
 ## <a name="scale-sets"></a>Conjuntos de dimensionamento
 
 Você também pode criar um conjunto de dimensionamento em seu grupo de posicionamento de proximidade. Use o mesmo parâmetro `-ProximityPlacementGroup` com [New-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) para criar um conjunto de dimensionamento e todas as instâncias serão criadas no mesmo grupo de posicionamento de proximidade.
 
-## <a name="next-steps"></a>Próximos passos
+
+Para adicionar ou remover um conjunto de dimensionamento existente para um grupo de posicionamento de proximidade, primeiro você precisa interromper o conjunto de dimensionamento. 
+
+### <a name="move-an-existing-scale-set-into-a-proximity-placement-group"></a>Mover um conjunto de dimensionamento existente para um grupo de posicionamento de proximidade
+
+```azurepowershell-interactive
+$ppg = Get-AzProximityPlacementGroup -ResourceGroupName myPPG -Name myPPG
+$vmss = Get-AzVmss -ResourceGroupName myVMSSResourceGroup -VMScaleSetName myScaleSet
+Stop-AzVmss -VMScaleSetName $vmss.Name -ResourceGroupName $vmss.ResourceGroupName
+Update-AzVmss -VMScaleSetName $vmss.Name -ResourceGroupName $vmss.ResourceGroupName -ProximityPlacementGroupId $ppg.Id
+Restart-AzVmss -VMScaleSetName $vmss.Name -ResourceGroupName $vmss.ResourceGroupName
+```
+
+### <a name="move-an-existing-scale-set-out-of-a-proximity-placement-group"></a>Mover um conjunto de dimensionamento existente de um grupo de posicionamento de proximidade
+
+```azurepowershell-interactive
+$vmss = Get-AzVmss -ResourceGroupName myVMSSResourceGroup -VMScaleSetName myScaleSet
+Stop-AzVmss -VMScaleSetName $vmss.Name -ResourceGroupName $vmss.ResourceGroupName
+$vmss.ProximityPlacementGroup = ""
+Update-AzVmss -VirtualMachineScaleSet $vmss -VMScaleSetName $vmss.Name -ResourceGroupName $vmss.ResourceGroupName  
+Restart-AzVmss -VMScaleSetName $vmss.Name -ResourceGroupName $vmss.ResourceGroupName
+```
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Você também pode usar o [CLI do Azure](../linux/proximity-placement-groups.md) para criar grupos de posicionamento de proximidade.

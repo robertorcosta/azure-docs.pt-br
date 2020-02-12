@@ -1,34 +1,28 @@
 ---
 title: O que há de novo Reconhecimento vocal (LUIS)
-titleSuffix: Azure Cognitive Services
 description: Este artigo é atualizado regularmente com notícias sobre os API de Reconhecimento Vocal de serviços cognitivas do Azure.
-author: diberry
-manager: nitinme
-ms.custom: experiment-luis-0519
-services: cognitive-services
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.author: diberry
-ms.openlocfilehash: e03c7489268f3ad7076481de4498c5e202f654b6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.date: 02/11/2020
+ms.openlocfilehash: 716860b54e7d8e75984c0365cac61d14153c09ff
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280291"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137801"
 ---
 # <a name="whats-new-in-language-understanding"></a>O que há de novo no Reconhecimento vocal
 
-Conheça o que há de novo no serviço. Esses itens incluem notas de versão, vídeos, Postagens de blog e outros tipos de informações. Marque esta página para manter-se atualizado quanto ao serviço.  
+Conheça o que há de novo no serviço. Esses itens incluem notas de versão, vídeos, Postagens de blog e outros tipos de informações. Marque esta página para manter-se atualizado quanto ao serviço.
 
-## <a name="release-notes"></a>Notas de versão 
+## <a name="release-notes"></a>Notas de versão
 
 ### <a name="november-4-2019---ignite"></a>4 de novembro de 2019-Ignite
 
+* Vídeo- [modelos NLU (reconhecimento vocal naturais avançados) usando o Luis e os serviços cognitivas do Azure | BRK2188](https://www.youtube.com/watch?v=JdJEV2jV0_Y)
+
 * Produtividade do desenvolvedor aprimorada
-    * Disponibilidade geral do nosso [ponto de extremidade de previsão v3](luis-migration-api-v3.md). 
-    * Capacidade de importar e exportar aplicativos com o formato. Lu ([LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)). Isso abre o caminho para um processo de CI/CD eficaz. 
+    * Disponibilidade geral do nosso [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+    * Capacidade de importar e exportar aplicativos com o formato. Lu ([LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)). Isso abre o caminho para um processo de CI/CD eficaz.
 * Expansão de idioma
     * [Árabe e híndi](luis-language-support.md) em visualização pública.
 * Modelos predefinidos
@@ -37,8 +31,8 @@ Conheça o que há de novo no serviço. Esses itens incluem notas de versão, v�
     * [Entidades predefinidas](luis-reference-prebuilt-entities.md#italian-entity-support) em italiano-idade, moeda, dimensão, número e resolução de porcentagem alteradas da v2.
 * Experiência do usuário aprimorada no [portal do preview.Luis.ai](https://preview.luis.ai) – experiência de rotulação remodelada para habilitar a criação e a depuração de modelos complexos. Experimente os tutoriais do portal de visualização:
     * [Somente tentativas](tutorial-intents-only.md)
-    * [Entidade aprendida por máquina decomposta](tutorial-machine-learned-entity.md) 
-* Recursos de reconhecimento de idioma avançado- [criando modelos de linguagem sofisticados](luis-concept-entity-types.md) com menos esforço. 
+    * [Entidade aprendida por máquina decomposta](tutorial-machine-learned-entity.md)
+* Recursos de reconhecimento de idioma avançado- [criando modelos de linguagem sofisticados](luis-concept-entity-types.md) com menos esforço.
 * Defina os recursos de aprendizado de máquina no nível do modelo e habilite os modelos a serem usados como sinais para outros modelos, por exemplo, usando entidades como recursos para intenções e outras entidades.
 * Novos [limites](luis-boundaries.md) expandidos-máximo mais alto para listas de frases e expressões totais, novo modelo como limites de recursos
 * Extraia informações de texto no formato de estrutura de hierarquia profunda, tornando os aplicativos de conversa mais poderosos.
@@ -74,7 +68,7 @@ Os seguintes recursos foram lançados na conferência Build 2019:
 
 * [Visualização do guia de migração da API v3](luis-migration-api-v3.md)
 * [Painel analítico aprimorado](luis-how-to-use-dashboard.md)
-* [Domínios predefinidos aprimorados](luis-reference-prebuilt-domains.md) 
+* [Domínios predefinidos aprimorados](luis-reference-prebuilt-domains.md)
 * [Entidades de lista dinâmica](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
 * [Entidades externas](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 
@@ -82,7 +76,11 @@ Os seguintes recursos foram lançados na conferência Build 2019:
 
 [Bot Framework](https://blog.botframework.com/)
 
-## <a name="videos"></a>Vídeos
+## <a name="videos"></a>vídeos
+
+### <a name="2019-ignite-videos"></a>vídeos de 2019 Ignite
+
+[Modelos NLU (Advanced natural Reconhecimento vocal) usando LUIS e serviços cognitivas do Azure | BRK2188](https://www.youtube.com/watch?v=JdJEV2jV0_Y)
 
 ### <a name="2019-build-videos"></a>vídeos de Build 2019
 

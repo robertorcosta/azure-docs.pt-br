@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 32eb8e71cfb978fac5b4d6d05af4da4fdc9f67b5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 0d220d1d88d9d761d9f0eba6187abefb372681be
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715528"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131896"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingerir dados telemétricos históricos
 
@@ -28,8 +28,8 @@ Você também precisa habilitar o acesso do parceiro, conforme mencionado nas et
 Você precisa habilitar a integração de parceiros à instância do FarmBeats do Azure. Esta etapa cria um cliente que tem acesso à instância do Azure FarmBeats como seu parceiro de dispositivo e fornece os seguintes valores que são necessários nas etapas subsequentes:
 
 - Ponto de extremidade de API: essa é a URL Datahub, por exemplo, https://\<Datahub >. azurewebsites. net.
-- ID do locatário
-- ID do Cliente
+- ID do inquilino
+- ID do cliente
 - Segredo do cliente
 - Cadeia de conexão do EventHub
 
@@ -88,16 +88,16 @@ Siga estas etapas.
 |            Portas          |     Nome da porta e tipo, que é digital ou analógica.
 |     {1&gt;Nome&lt;1}                 |  Nome para identificar o recurso. Por exemplo, o nome do modelo ou o nome do produto.
       Descrição     | Forneça uma descrição significativa do modelo.
-|    Propriedades          |    Propriedades adicionais do fabricante.   |
+|    {1&gt;Propriedades&lt;1}          |    Propriedades adicionais do fabricante.   |
 |    **Dispositivo**             |                      |
 |   DeviceModelId     |     ID do modelo de dispositivo associado.  |
 |  HardwareID          | ID exclusiva para o dispositivo, como o endereço MAC.
 |  ReportingInterval        |   Intervalo de relatórios em segundos.
-|  Location            |  Dispositivo latitude (-90 a + 90), longitude (-180 a 180) e elevação (em metros).   
+|  Local            |  Dispositivo latitude (-90 a + 90), longitude (-180 a 180) e elevação (em metros).   
 |ParentDeviceId       |    ID do dispositivo pai ao qual este dispositivo está conectado. Por exemplo, um nó que está conectado a um gateway. Um nó tem parentDeviceId como o gateway.  |
 |    {1&gt;Nome&lt;1}            | Um nome para identificar o recurso. Os parceiros de dispositivo devem enviar um nome consistente com o nome do dispositivo no lado do parceiro. Se o nome do dispositivo do parceiro for definido pelo usuário, o mesmo nome definido pelo usuário deverá ser propagado para FarmBeats.|
 |     Descrição       |      Forneça uma descrição significativa. |
-|     Propriedades    |  Propriedades adicionais do fabricante.
+|     {1&gt;Propriedades&lt;1}    |  Propriedades adicionais do fabricante.
 |     **SensorModel**        |          |
 |       Tipo (analógico, digital)          |      O tipo de sensor, se ele é analógico ou digital.       |
 |          Fabricante            |       O fabricante do sensor.     |
@@ -109,16 +109,16 @@ Siga estas etapas.
 |    Agregatype de > SensorMeasures    |  Os valores podem ser nenhum, média, máximo, mínimo ou i.  |
 |          {1&gt;Nome&lt;1}            | Nome para identificar um recurso. Por exemplo, o nome do modelo ou o nome do produto.  |
 |    Descrição        | Forneça uma descrição significativa do modelo.  |
-|   Propriedades       |  Propriedades adicionais do fabricante.  |
+|   {1&gt;Propriedades&lt;1}       |  Propriedades adicionais do fabricante.  |
 |    **Sensores**      |          |
 | HardwareID          |   ID exclusiva do sensor definido pelo fabricante. |
 |  SensorModelId     |    ID do modelo de sensor associado.   |
-| Location          |  Sensor latitude (-90 a + 90), longitude (-180 a 180) e elevação (em metros).|
+| Local          |  Sensor latitude (-90 a + 90), longitude (-180 a 180) e elevação (em metros).|
 |   Nome da > de porta        |  Nome e tipo da porta à qual o sensor está conectado no dispositivo. Isso precisa ter o mesmo nome definido no modelo do dispositivo. |
 |    DeviceID  |    ID do dispositivo ao qual o sensor está conectado.     |
 | {1&gt;Nome&lt;1}            |   Nome para identificar o recurso. Por exemplo, nome do sensor ou nome do produto e número do modelo ou código do produto.|
 |    Descrição      | Forneça uma descrição significativa. |
-|    Propriedades        |Propriedades adicionais do fabricante. |
+|    {1&gt;Propriedades&lt;1}        |Propriedades adicionais do fabricante. |
 
 Para obter mais informações sobre objetos, consulte [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
@@ -130,9 +130,9 @@ Para fazer uma solicitação de API, você combina o método HTTP (POST), a URL 
 
 FarmBeats Datahub usa a autenticação de portador, que precisa das seguintes credenciais que foram geradas na seção anterior:
 
-- ID do Cliente
+- ID do cliente
 - Segredo do cliente
-- ID do locatário
+- ID do inquilino
 
 Usando essas credenciais, o chamador pode solicitar um token de acesso. O token deve ser enviado nas solicitações de API subsequentes, na seção de cabeçalho, da seguinte maneira:
 
@@ -422,4 +422,4 @@ Aqui está um exemplo de uma mensagem de telemetria:
 
 ## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-Para obter mais informações sobre detalhes de integração baseados na API REST, consulte [REST API](references-for-azure-farmbeats.md#rest-api).
+Para obter mais informações sobre detalhes de integração baseados na API REST, consulte [REST API](rest-api-in-azure-farmbeats.md).

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: a64627028ea4ecc732924d0c9fca196204f7951d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3e452cd548738e5f211899d3a6a676f883d800ce
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75482550"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132046"
 ---
 # <a name="get-drone-imagery-from-drone-partners"></a>Obter imagens do drone de parceiros do drone
 
@@ -31,14 +31,14 @@ A integração de dados de imagens de drone com o Azure FarmBeats ajuda a obter 
 
 Forneça as seguintes informações ao seu provedor de dispositivo para habilitar a integração com o FarmBeats:
  - Ponto de extremidade de API
- - ID do locatário
- - ID do Cliente
+ - ID do inquilino
+ - ID do cliente
  - Segredo do cliente
 
 Siga estas etapas.
 
 1. Baixe esse [script](https://aka.ms/farmbeatspartnerscript)e extraia-o para a unidade local. Dois arquivos estão dentro do arquivo zip.
-2. Entre no [portal do Azure](https://portal.azure.com/) e abra o Azure Cloud Shell. Essa opção está disponível na barra de ferramentas no canto superior direito do Portal.
+2. Entre no [portal do Azure](https://portal.azure.com/) e abra Azure cloud Shell. Essa opção está disponível na barra de ferramentas no canto superior direito do Portal.
 
     ![Abrir Azure Cloud Shell na barra superior direita do portal](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
@@ -89,6 +89,6 @@ Os arquivos e as imagens carregadas pelo provedor drone aparecem na seção **ma
 
   ![Seção de mapas](./media/get-drone-imagery-from-drone-partner/view-drone-maps-1.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-Saiba como usar as [APIs](references-for-azure-farmbeats.md#rest-api) do FarmBeats Datahub para obter suas imagens do drone.
+Saiba como usar as [APIs](rest-api-in-azure-farmbeats.md) do FarmBeats Datahub para obter suas imagens do drone.

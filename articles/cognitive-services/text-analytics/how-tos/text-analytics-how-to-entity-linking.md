@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/27/2019
+ms.date: 02/10/2020
 ms.author: aahi
-ms.openlocfilehash: 9aa00898c6a567d495ed0c66bcf7bd475067fa0d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 607b65d6a6893901ce23cd48c277c14209128866
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774131"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137965"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como usar o reconhecimento de entidade nomeada no Análise de Texto
 
 O API de Análise de Texto permite que você assuma o texto não estruturado e retorne uma lista de entidades desambiguadas, com links para mais informações na Web. A API dá suporte ao reconhecimento de entidade nomeada (NER) e à vinculação de entidade.
 
-### <a name="entity-linking"></a>Vinculação de Entidade
+### <a name="entity-linking"></a>Vinculação de Identidade
 
 A vinculação de entidades é a capacidade de identificar e desambiguar a identidade de uma entidade encontrada em texto (por exemplo, determinar se uma ocorrência da palavra `Mars` refere-se ao planeta ou ao Deus romano de guerra). Esse processo requer a presença de uma base de dados de conhecimento em um idioma apropriado para vincular entidades reconhecidas em texto. A vinculação de entidades usa a [Wikipédia](https://www.wikipedia.org/) como esta base de dados de conhecimento.
 
@@ -44,53 +44,15 @@ O API de Análise de Texto oferece duas versões do reconhecimento de entidade n
 
 Consulte [suporte a idiomas](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) para obter informações.
 
-#### <a name="version-2tabversion-2"></a>[Versão 2](#tab/version-2)
 
-### <a name="entity-types"></a>Tipos de entidade
-
-> [!NOTE]
-> O NER (reconhecimento de entidade nomeada) versão 2 só dá suporte às entidades a seguir. O NER v3 está em visualização pública e expande muito o número e a profundidade das entidades reconhecidas no texto.   
-
-| Tipo  | SubType | Exemplo |
-|:-----------   |:------------- |:---------|
-| Pessoa        | N/D\*         | "João", "Bill Gates"     |
-| Local      | N/D\*         | "Redmond, Washington", "Paris"  |
-| Organização  | N/D\*         | "Microsoft"   |
-| Quantidade      | Número        | "6", "seis"     |
-| Quantidade      | Percentual    | "50%", "cinquenta por cento"|
-| Quantidade      | Ordinal       | "2º", "segundo"     |
-| Quantidade      | Idade           | "90 dias", "30 anos"    |
-| Quantidade      | Moeda      | "US$ 10,99"     |
-| Quantidade      | Dimensão     | "10 milhas", "40 cm"     |
-| Quantidade      | Temperatura   | "32 graus"    |
-| DateTime      | N/D\*         | "18h30 em 4 de fevereiro de 2012"      |
-| DateTime      | Data          | "2 de maio de 2017", "02/05/2017"   |
-| DateTime      | Tempo          | "8h", "8:00"  |
-| DateTime      | DateRange     | "2 de maio a 5 de maio"    |
-| DateTime      | TimeRange     | "18h às 19h"     |
-| DateTime      | Duração      | "1 minuto e 45 segundos"   |
-| DateTime      | Definir           | "toda terça-feira"     |
-| URL           | N/D\*         | "https:\//www.bing.com"    |
-| Email         | N/D\*         | "support@contoso.com" |
-| Número de telefone dos EUA  | N/D\*         | (Somente números de telefone dos EUA) "(312) 555-0176" |
-| Endereço IP    | N/D\*         | "10.0.0.100" |
-
-\* Dependendo da entrada e das entidades extraídas, determinadas entidades podem omitir o `SubType`.  Todos os tipos de entidade com suporte listados estão disponíveis apenas para idiomas inglês, chinês simplificado, francês, alemão e espanhol.
-
-### <a name="request-endpoints"></a>Pontos de extremidade de solicitação
-
-O reconhecimento de entidade nomeada v2 usa um único ponto de extremidade para NER e solicitações de vinculação de entidade:
-
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
-
-#### <a name="version-3-public-previewtabversion-3"></a>[Versão 3 (versão prévia pública)](#tab/version-3)
+#### <a name="version-30-previewtabversion-3"></a>[Versão 3,0-visualização](#tab/version-3)
 
 ### <a name="entity-types"></a>Tipos de entidade
 
 O reconhecimento de entidade nomeada v3 fornece detecção expandida entre vários tipos. Atualmente, o NER v3 pode reconhecer as seguintes categorias de entidades:
 
 * Geral
-* Informações pessoais 
+* Informações Pessoais 
 
 Para obter uma lista detalhada de entidades e linguagens com suporte, consulte o artigo [tipos de entidade com suporte do Ner v3](../named-entity-types.md) .
 
@@ -110,6 +72,45 @@ Vinculação de entidade
 
 [!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
 
+#### <a name="version-21tabversion-2"></a>[Versão 2,1](#tab/version-2)
+
+### <a name="entity-types"></a>Tipos de entidade
+
+> [!NOTE]
+> O NER (reconhecimento de entidade nomeada) versão 2 só dá suporte às entidades a seguir. O NER v3 está em visualização pública e expande muito o número e a profundidade das entidades reconhecidas no texto.   
+
+| Tipo  | SubType | {1&gt;Exemplo&lt;1} |
+|:-----------   |:------------- |:---------|
+| Pessoa        | N/D\*         | "João", "Bill Gates"     |
+| Local      | N/D\*         | "Redmond, Washington", "Paris"  |
+| Organização  | N/D\*         | "Microsoft"   |
+| Quantidade      | Number        | "6", "seis"     |
+| Quantidade      | Percentual    | "50%", "cinquenta por cento"|
+| Quantidade      | Ordinal       | "2º", "segundo"     |
+| Quantidade      | Duração           | "90 dias", "30 anos"    |
+| Quantidade      | Moeda      | "US$ 10,99"     |
+| Quantidade      | Dimensão     | "10 milhas", "40 cm"     |
+| Quantidade      | Temperatura   | "32 graus"    |
+| DateTime      | N/D\*         | "18h30 em 4 de fevereiro de 2012"      |
+| DateTime      | Date          | "2 de maio de 2017", "02/05/2017"   |
+| DateTime      | Tempo          | "8h", "8:00"  |
+| DateTime      | DateRange     | "2 de maio a 5 de maio"    |
+| DateTime      | TimeRange     | "18h às 19h"     |
+| DateTime      | Duration      | "1 minuto e 45 segundos"   |
+| DateTime      | Definir           | "toda terça-feira"     |
+| {1&gt;URL&lt;1}           | N/D\*         | "https:\//www.bing.com"    |
+| Email         | N/D\*         | "support@contoso.com" |
+| Número de telefone dos EUA  | N/D\*         | (Somente números de telefone dos EUA) "(312) 555-0176" |
+| Endereço IP    | N/D\*         | "10.0.0.100" |
+
+\* Dependendo da entrada e das entidades extraídas, determinadas entidades podem omitir o `SubType`.  Todos os tipos de entidade com suporte listados estão disponíveis apenas para idiomas inglês, chinês simplificado, francês, alemão e espanhol.
+
+### <a name="request-endpoints"></a>Pontos de extremidade de solicitação
+
+O reconhecimento de entidade nomeada v2 usa um único ponto de extremidade para NER e solicitações de vinculação de entidade:
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
+
 ---
 
 ## <a name="sending-a-rest-api-request"></a>Como enviar uma solicitação da API REST
@@ -124,17 +125,10 @@ Cada documento deve ter menos de 5.120 caracteres, e você pode ter até 1.000 i
 
 Crie uma solicitação POST. Você pode [usar o postmaster](text-analytics-how-to-call-api.md) ou o **console de teste de API** nos links a seguir para estruturar e enviar rapidamente um. 
 
-[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
+> [!NOTE]
+> Você pode encontrar sua chave e ponto de extremidade para seu recurso de Análise de Texto no portal do Azure. Eles estarão localizados na página de **Início rápido** do recurso, em **Gerenciamento de recursos**. 
 
-#### <a name="version-2tabversion-2"></a>[Versão 2](#tab/version-2)
-
-[Referência v2 de reconhecimento de entidade nomeada (NER)](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
-
-A versão 2 usa o ponto de extremidade a seguir para solicitações de vinculação de entidade e NER: 
-
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
-
-#### <a name="version-3tabversion-3"></a>[Versão 3](#tab/version-3)
+#### <a name="version-30-previewtabversion-3"></a>[Versão 3,0-visualização](#tab/version-3)
 
 [Referência v3 de reconhecimento de entidade nomeada](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)
 
@@ -147,6 +141,14 @@ NER
 
 Vinculação de entidade
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
+
+#### <a name="version-21tabversion-2"></a>[Versão 2,1](#tab/version-2)
+
+[Referência v2 de reconhecimento de entidade nomeada (NER)](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
+
+A versão 2 usa o ponto de extremidade a seguir para solicitações de vinculação de entidade e NER: 
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
 
 ---
 
@@ -174,50 +176,14 @@ A análise é executada após o recebimento da solicitação. Consulte a seção
 
 A API de Análise de Texto é sem estado. Nenhum dado é armazenado em sua conta e os resultados são retornados imediatamente na resposta.
 
-## <a name="view-results"></a>Exibir os resultados
+## <a name="view-results"></a>Exibir resultados
 
 Todas as solicitações POST retornam uma resposta formatada em JSON com as IDs e as propriedades de entidade detectadas.
 
 A saída é retornada imediatamente. Você pode transmitir os resultados para um aplicativo que aceita JSON ou salvar a saída em um arquivo no sistema local e, em seguida, importá-lo para um aplicativo que permite que você classifique, pesquise e manipule os dados.
 
-#### <a name="version-2tabversion-2"></a>[Versão 2](#tab/version-2)
 
-### <a name="example-ner-v2-response"></a>Exemplo de resposta do NER v2
-```json
-{
-  "documents": [{
-    "id": "1",
-    "entities": [{
-      "name": "Seattle",
-      "matches": [{
-        "wikipediaScore": 0.15046201222847677,
-        "entityTypeScore": 0.80624294281005859,
-        "text": "Seattle",
-        "offset": 26,
-        "length": 7
-      }],
-      "wikipediaLanguage": "en",
-      "wikipediaId": "Seattle",
-      "wikipediaUrl": "https://en.wikipedia.org/wiki/Seattle",
-      "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
-      "type": "Location"
-    }, {
-      "name": "last week",
-      "matches": [{
-        "entityTypeScore": 0.8,
-        "text": "last week",
-        "offset": 34,
-        "length": 9
-      }],
-      "type": "DateTime",
-      "subType": "DateRange"
-    }]
-  }],
-  "errors": []
-}
-```
-
-#### <a name="version-3-public-previewtabversion-3"></a>[Versão 3 (versão prévia pública)](#tab/version-3)
+#### <a name="version-30-previewtabversion-3"></a>[Versão 3,0-Preview)](#tab/version-3)
 
 ### <a name="example-v3-responses"></a>Exemplo de respostas v3
 
@@ -274,6 +240,43 @@ A versão 3 fornece pontos de extremidade separados para NER e vinculação de e
 }
 ```
 
+#### <a name="version-21tabversion-2"></a>[Versão 2,1](#tab/version-2)
+
+### <a name="example-ner-v2-response"></a>Exemplo de resposta do NER v2
+```json
+{
+  "documents": [{
+    "id": "1",
+    "entities": [{
+      "name": "Seattle",
+      "matches": [{
+        "wikipediaScore": 0.15046201222847677,
+        "entityTypeScore": 0.80624294281005859,
+        "text": "Seattle",
+        "offset": 26,
+        "length": 7
+      }],
+      "wikipediaLanguage": "en",
+      "wikipediaId": "Seattle",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Seattle",
+      "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
+      "type": "Location"
+    }, {
+      "name": "last week",
+      "matches": [{
+        "entityTypeScore": 0.8,
+        "text": "last week",
+        "offset": 34,
+        "length": 9
+      }],
+      "type": "DateTime",
+      "subType": "DateRange"
+    }]
+  }],
+  "errors": []
+}
+```
+
 ---
 
 ## <a name="summary"></a>Resumo
@@ -285,7 +288,7 @@ Neste artigo, você aprendeu os conceitos e fluxo de trabalho para detecção de
 * As solicitações POST são enviadas para um ou mais pontos de extremidade, usando uma [chave de acesso personalizada e um ponto de extremidade](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para sua assinatura.
 * A saída da resposta, composta por entidades vinculadas (incluindo pontuações de confiança, deslocamentos e links da Web, para cada ID de documento) pode ser usada em qualquer aplicativo
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Visão geral da Análise de Texto](../overview.md)
 * [Como usar a biblioteca de clientes da Análise de Texto](../quickstarts/text-analytics-sdk.md)

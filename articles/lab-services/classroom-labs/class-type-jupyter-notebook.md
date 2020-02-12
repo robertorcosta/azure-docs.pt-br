@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
-ms.openlocfilehash: 5bf54b6975475810650aeaee4b477e60255757bf
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 695b87540178fb5c1012a095c2a86937a189ef24
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75530673"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133741"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Configurar um laboratório para ensinar ciência de dados com notebooks Python e Jupyter
 
@@ -30,9 +30,9 @@ Para configurar este laboratório, você precisa de uma assinatura do Azure e um
 
 ### <a name="lab-account-settings"></a>Configurações de conta do laboratório
 
-Habilite as configurações descritas na tabela a seguir para a conta do laboratório. Para obter mais informações sobre como habilitar imagens do Marketplace, consulte [especificar imagens do Marketplace disponíveis para criadores de laboratório](tutorial-setup-lab-account.md#specify-marketplace-images-available-to-lab-creators).
+Habilite as configurações descritas na tabela a seguir para a conta do laboratório. Para obter mais informações sobre como habilitar imagens do Marketplace, consulte [especificar imagens do Marketplace disponíveis para criadores de laboratório](how-to-configure-lab-accounts.md#specify-marketplace-images-available-to-lab-creators).
 
-| Configuração de conta do laboratório | Instruções |
+| Configuração de conta do laboratório | Instructions |
 | ------------------- | ------------ |
 | Imagem do Marketplace | Habilite a imagem [máquina virtual de ciência de dados-Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) para uso em sua conta de laboratório. |
 
@@ -46,7 +46,7 @@ Use as configurações na tabela abaixo ao configurar um laboratório de sala de
 | Configurações do laboratório | Valor/instruções |
 | ------------ | ------------------ |
 |Tamanho da Máquina Virtual| GPU pequena (computação). Esse tamanho é mais adequado para aplicativos com uso intensivo de computação e rede, como inteligência artificial e aprendizado profundo. |
-|Imagem da máquina virtual| Máquina Virtual de Ciência de Dados – Windows 2016|
+|Imagem da máquina virtual| Máquina Virtual de Ciência de Dados-Windows 2016|
 
 ## <a name="template-machine"></a>Computador de modelo
 
@@ -68,7 +68,7 @@ Mais detalhes sobre preços, consulte [preços de Azure Lab Services](https://az
 
 Neste artigo, percorremos as etapas para criar um laboratório para uma classe Jupyter notebooks. Você pode usar uma configuração semelhante para outras classes de aprendizado de máquina.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 As próximas etapas são comuns à configuração de qualquer laboratório.
 

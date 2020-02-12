@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: f079071a88d034dfd279da8656da517b934275a3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 77e6ab588f74c8b810f211e069c1c24043155111
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982112"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132845"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Arquitetura de referência de Azure DevTest Labs para empresas
 Este artigo fornece uma arquitetura de referência para ajudá-lo a implantar uma solução com base em Azure DevTest Labs em uma empresa. Ele inclui o seguinte:
@@ -41,7 +41,7 @@ Estes são os principais elementos da arquitetura de referência:
     - Você deseja forçar todo o tráfego de rede dentro e fora do ambiente de nuvem por meio de um firewall local para segurança/conformidade.
 - **Grupos de segurança de rede**: uma maneira comum de restringir o tráfego para o ambiente de nuvem (ou dentro do ambiente de nuvem) com base em endereços IP de origem e de destino é usar um [grupo de segurança de rede](../virtual-network/security-overview.md). Por exemplo, você deseja permitir apenas o tráfego originado da rede corporativa nas redes do laboratório.
 - **Gateway de área de trabalho remota**: as empresas normalmente bloqueiam conexões de área de trabalho remota de saída no firewall corporativo. Há várias opções para habilitar a conectividade com o ambiente baseado em nuvem no DevTest Labs, incluindo:
-  - Use um [Gateway de área de trabalho remota](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)e a lista branca do endereço IP estático do balanceador de carga do gateway.
+  - Use um [Gateway de área de trabalho remota](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)e permita o endereço IP estático do balanceador de carga do gateway.
   - [Direcione todo o tráfego RDP de entrada](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) na conexão VPN ExpressRoute/site a site. Essa funcionalidade é uma consideração comum quando as empresas planejam uma implantação do DevTest Labs.
 - **Serviços de rede (redes virtuais, sub-redes)** : a topologia de [rede do Azure](../networking/networking-overview.md) é outro elemento-chave na arquitetura do DevTest Labs. Ele controla se os recursos do laboratório podem se comunicar e ter acesso ao local e à Internet. Nosso diagrama de arquitetura inclui as maneiras mais comuns que os clientes usam o DevTest Labs: todos os laboratórios se conectam por meio de [emparelhamento de rede virtual](../virtual-network/virtual-network-peering-overview.md) usando um [modelo hub-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) para a conexão VPN ExpressRoute/site a site para o local. Mas o DevTest Labs usa a rede virtual do Azure diretamente, portanto, não há restrições sobre como você configura a infraestrutura de rede.
 - **DevTest Labs**: o DevTest Labs é uma parte fundamental da arquitetura geral. Para saber mais sobre o serviço, consulte [sobre o DevTest Labs](devtest-lab-overview.md).
@@ -50,7 +50,7 @@ Estes são os principais elementos da arquitetura de referência:
 ## <a name="scalability-considerations"></a>Considerações sobre escalabilidade
 Embora o DevTest Labs não tenha cotas ou limites internos, outros recursos do Azure que são usados na operação típica de um laboratório têm [cotas de nível de assinatura](../azure-resource-manager/management/azure-subscription-service-limits.md). Portanto, em uma implantação empresarial típica, você precisa de várias assinaturas do Azure para abranger uma grande implantação do DevTest Labs. As cotas que as empresas mais acessam mais normalmente são:
 
-- **Grupos de recursos**: na configuração padrão, o DevTest Labs cria um grupo de recursos para cada nova máquina virtual ou o usuário cria um ambiente usando o serviço. As assinaturas podem conter [até 980 grupos de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager). Portanto, esse é o limite de máquinas virtuais e ambientes em uma assinatura. Há duas outras configurações que você deve considerar:
+- **Grupos de recursos**: na configuração padrão, o DevTest Labs cria um grupo de recursos para cada nova máquina virtual ou o usuário cria um ambiente usando o serviço. As assinaturas podem conter [até 980 grupos de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits). Portanto, esse é o limite de máquinas virtuais e ambientes em uma assinatura. Há duas outras configurações que você deve considerar:
     - **[Todas as máquinas virtuais vão para o mesmo grupo de recursos](resource-group-control.md)** : embora essa configuração ajude a atender ao limite do grupo de recursos, ela afeta o limite do grupo de recursos por recurso.
     - **Usando IPS públicos compartilhados**: todas as VMs do mesmo tamanho e região entram no mesmo grupo de recursos. Essa configuração é uma "base intermediária" entre as cotas do grupo de recursos e as cotas de tipo de recurso por recurso-grupo, se as máquinas virtuais tiverem permissão para ter endereços IP públicos.
 - **Recursos por grupo de recursos por tipo de recurso**: o limite padrão para [recursos por grupo de recursos por tipo de recurso é 800](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).  Quando você usar *todas as VMs, vá para a mesma* configuração de grupo de recursos, os usuários atingirão esse limite de assinatura muito mais cedo, especialmente se as VMs tiverem muitos discos extras.
@@ -68,8 +68,8 @@ O DevTest Labs tem uma ótima interface de usuário administrativa para trabalha
 
 É importante observar que o DevTest Labs usa os recursos subjacentes do Azure que são gerenciados da mesma maneira: rede, discos, computação e assim por diante. Por exemplo, Azure Policy se aplica a máquinas virtuais que são criadas em um laboratório. A central de segurança do Azure pode relatar a conformidade da VM. E o serviço de backup do Azure pode fornecer backups regulares para as VMs no laboratório.
 
-## <a name="security-considerations"></a>Considerações de segurança
+## <a name="security-considerations"></a>Considerações sobre segurança
 Azure DevTest Labs usa recursos existentes no Azure (computação, rede e assim por diante). Portanto, ele se beneficia automaticamente com os recursos de segurança criados na plataforma. Por exemplo, para exigir que as conexões de área de trabalho remota de entrada sejam originadas somente da rede corporativa, basta adicionar um grupo de segurança de rede à rede virtual no gateway de área de trabalho remota. A única consideração de segurança adicional é o nível de permissões que você concede aos membros da equipe que usam os laboratórios diariamente. As permissões mais comuns são [ *proprietário* e *usuário*](devtest-lab-add-devtest-user.md). Para obter mais informações sobre essas funções, consulte [Adicionar proprietários e usuários no Azure DevTest Labs](devtest-lab-add-devtest-user.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Veja o próximo artigo desta série: [escalar verticalmente sua infraestrutura de Azure DevTest Labs](devtest-lab-guidance-scale.md).

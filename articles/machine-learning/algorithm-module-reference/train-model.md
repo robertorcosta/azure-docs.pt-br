@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: c9d02490a5627ead502429ead06608b4fb621058
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: 3141795ed9ccfdabc9fd462a1cd09a74690f9c5b
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548400"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137913"
 ---
 # <a name="train-model-module"></a>Módulo Treinar Modelo
 
@@ -39,7 +39,7 @@ Em Azure Machine Learning, criar e usar um modelo de aprendizado de máquina nor
 
 3. Após a conclusão do treinamento, use o modelo treinado com um dos [módulos de Pontuação](./score-model.md)para fazer previsões sobre novos dados.
 
-## <a name="how-to-use-train-model"></a>Como usar o **modelo de treinamento**  
+## <a name="how-to-use-train-model"></a>Como usar o modelo de treinamento 
   
 1.  Em Azure Machine Learning, configure um modelo de classificação ou um modelo de regressão.
     
@@ -49,7 +49,7 @@ Em Azure Machine Learning, criar e usar um modelo de aprendizado de máquina nor
 
     O conjunto de os de treinamento deve conter uma coluna de rótulo. Qualquer linha sem rótulos é ignorada.
   
-4.  Para **coluna de rótulo**, clique em **Iniciar seletor de coluna**e escolha uma única coluna que contenha resultados que o modelo pode usar para treinamento.
+4.  Para **coluna de rótulo**, clique em **Editar coluna** no painel direito do módulo e escolha uma única coluna que contenha resultados que o modelo pode usar para treinamento.
   
     - Para problemas de classificação, a coluna de rótulo deve conter valores **categóricos** ou valores **discretos** . Alguns exemplos podem ser uma classificação Sim/Não, um código ou nome de classificação de doença ou um grupo de renda.  Se você escolher uma coluna não categórica, o módulo retornará um erro durante o treinamento.
   
@@ -74,6 +74,6 @@ Depois que o modelo for treinado:
 + Para usar o modelo na previsão de novos valores, conecte-o ao módulo [modelo de Pontuação](./score-model.md) , junto com os novos dados de entrada.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

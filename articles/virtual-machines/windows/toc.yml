@@ -581,8 +581,6 @@
               href: disks-benchmarks.md
         - name: Localizar discos desconectados
           href: find-unattached-disks.md
-        - name: Como usar o armazenamento de arquivos
-          href: ../../storage/files/storage-files-quick-create-use-windows.md
         - name: Perguntas frequentes de discos
           href: faq-for-disks.md
     - name: Como gerenciar a rede
