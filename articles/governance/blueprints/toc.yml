@@ -1,4 +1,4 @@
-- name: Documentação do Azure Blueprint
+- name: Documentação do Azure Blueprints
   href: index.yml
 - name: Visão geral
   items:
@@ -52,6 +52,17 @@
         - name: Etapas de implantação
           displayName: 'standards, cis'
           href: ./samples/cis-azure-1.1.0/deploy.md
+    - name: Nível de Impacto 4 do DoD
+      items:
+        - name: Visão geral
+          displayName: 'standards, DoD, IL4'
+          href: ./samples/dod-impact-level-4/index.md
+        - name: Mapeamento de controle
+          displayName: 'standards, DoD, IL4'
+          href: ./samples/dod-impact-level-4/control-mapping.md
+        - name: Etapas de implantação
+          displayName: 'standards, DoD, IL4'
+          href: ./samples/dod-impact-level-4/deploy.md
     - name: FedRAMP Moderado
       items:
         - name: Visão geral
@@ -63,7 +74,7 @@
         - name: Etapas de implantação
           displayName: 'standards, fedramp, moderate'
           href: ./samples/fedramp-m/deploy.md
-    - name: FedRAMP Alto
+    - name: FedRAMP High
       items:
         - name: Visão geral
           displayName: 'standards, fedramp, high'
@@ -181,7 +192,7 @@
         - name: Etapas de implantação
           displayName: 'caf, foundation, deploy'
           href: ./samples/caf-foundation/deploy.md
-    - name: Zona de aterrissagem da Migração do CAF
+    - name: Zona de destino da Migração do CAF
       items:
         - name: Visão geral
           displayName: 'caf, migrate, landing zone'

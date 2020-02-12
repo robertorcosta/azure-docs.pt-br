@@ -1,5 +1,5 @@
 ---
-title: Solução de problemas
+title: solução de problemas
 description: Solução de problemas do Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -11,17 +11,17 @@ ms.date: 11/25/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ce57c48e568e840f3a651a5530f3fba6c0be60b7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 4eec340a04b9cdbc85a2c8712a11d31132766206
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721040"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153359"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Solução de problemas do Azure SQL Data Warehouse
 Este artigo lista perguntas de solução de problemas comuns.
 
-## <a name="connecting"></a>Conectando
+## <a name="connecting"></a>Connecting
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Falha de logon do usuário 'NT AUTHORITY\ANONYMOUS LOGON'. (Microsoft SQL Server, erro: 18456) | Esse erro ocorre quando um usuário do AAD tenta se conectar no banco de dados mestre, mas não tem um usuário no mestre.  Para corrigir esse problema, especifique o SQL Data Warehouse que deseja conectar no momento da conexão ou adicione o usuário ao banco de dados mestre.  Confira o artigo [Visão geral de segurança](sql-data-warehouse-overview-manage-security.md) para obter mais detalhes. |
@@ -53,7 +53,7 @@ Este artigo lista perguntas de solução de problemas comuns.
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Msg 40847: não foi possível executar a operação, pois o servidor excederia a cota de Unidade de Transação de Banco de Dados permitida de 45000. | Reduza o [DWU](what-is-a-data-warehouse-unit-dwu-cdwu.md) do banco de dados que você está tentando criar ou [solicite um aumento de cota](sql-data-warehouse-get-started-create-support-ticket.md). |
 | Investigação da utilização de espaço                              | Confira [Tamanhos da tabela]( ../sql-data-warehouse/sql-data-warehouse-tables-overview.md#table-size-queries) para entender a utilização do espaço de seu sistema. |
-| Ajuda com o gerenciamento de tabelas                                    | Consulte o artigo [Visão geral da tabela] [Visão geral] para obter ajuda com o gerenciamento de suas tabelas.  Este artigo também inclui links para tópicos mais detalhados, como [tipos de dados de tabela](sql-data-warehouse-tables-data-types.md), [distribuição de uma tabela](sql-data-warehouse-tables-distribute.md), [indexação de uma tabela](sql-data-warehouse-tables-index.md), [particionamento de uma tabela](sql-data-warehouse-tables-partition.md), [manutenção de estatísticas de tabela](sql-data-warehouse-tables-statistics.md) e [tabelas temporárias](sql-data-warehouse-tables-temporary.md). |
+| Ajuda com o gerenciamento de tabelas                                    | Consulte o artigo [visão geral da tabela](../sql-data-warehouse/sql-data-warehouse-tables-overview.md) para obter ajuda com o gerenciamento de suas tabelas.  Este artigo também inclui links para tópicos mais detalhados, como [tipos de dados de tabela](sql-data-warehouse-tables-data-types.md), [distribuição de uma tabela](sql-data-warehouse-tables-distribute.md), [indexação de uma tabela](sql-data-warehouse-tables-index.md), [particionamento de uma tabela](sql-data-warehouse-tables-partition.md), [manutenção de estatísticas de tabela](sql-data-warehouse-tables-statistics.md) e [tabelas temporárias](sql-data-warehouse-tables-temporary.md). |
 | A barra de progresso da TDE (Transparent Data Encryption) não está atualizando no portal do Azure | Você pode exibir o estado de TDE via [PowerShell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption). |
 
 
@@ -67,7 +67,7 @@ Este artigo lista perguntas de solução de problemas comuns.
 | Limitações de procedimento armazenado          | Confira [Limitações de procedimentos armazenados](../sql-data-warehouse/sql-data-warehouse-develop-stored-procedures.md#limitations) para entender algumas dessas limitações. |
 | UDFs não oferecem suporte a instruções SELECT | Esta é uma limitação atual de nossos UDFs.  Confira [CREATE FUNCTION](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse?view=aps-pdw-2016-au7) para ver a sintaxe para a qual damos suporte. |
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Para obter mais ajuda na busca de soluções para o problema, a seguir são apresentados alguns outros recursos que você pode experimentar.
 
 * [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)

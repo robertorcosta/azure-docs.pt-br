@@ -1,23 +1,23 @@
 ### YamlMime:Landing
-title: Documentação do LUIS (Reconhecimento vocal)
+title: Documentação do LUIS (Reconhecimento Vocal)
 summary: Saiba como o Reconhecimento vocal permite que os aplicativos entendam o que uma pessoa quer ao interpretar as palavras dela.
 metadata:
   ms.topic: landing-page
-  ms.date: 11/22/2019
+  ms.date: 02/11/2020
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
   ms.subservice: language-understanding
   services: cognitive-services
-  title: Documentação do reconhecimento Vocal (LUIS)
+  title: Documentação do LUIS (Reconhecimento Vocal)
   titleSuffix: Azure Cognitive Services
   description: O serviço LUIS (Serviço Inteligente de Reconhecimento Vocal) permite que o aplicativo entenda o que uma pessoa quer ao interpretar as palavras dela. O LUIS usa o aprendizado de máquina para permitir que desenvolvedores criem aplicativos que possam receber entradas do usuário em linguagem natural e extrair o significado disso.
-  ms.openlocfilehash: f45461b49b51d6d25464ffa7d2084b1bbb1f9e0e
-  ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+  ms.openlocfilehash: 1d9b17bcf6817d3c94d191d54be26ce0ff1f14c2
+  ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 01/17/2020
-  ms.locfileid: "76169651"
+  ms.lasthandoff: 02/11/2020
+  ms.locfileid: "77137343"
 landingContent:
 - title: Sobre o LUIS (Reconhecimento vocal)
   linkLists:
@@ -39,8 +39,8 @@ landingContent:
       url: whats-new.md
   - linkListType: video
     links:
-    - text: 'Roadshow de IA: LUIS'
-      url: https://azure.microsoft.com/resources/videos/whats-new-with-language-understanding-service-luis
+    - text: 'Ignite 2019: modelos de NLU (Reconhecimento Vocal Natural) avançados com o LUIS'
+      url: https://www.youtube.com/watch?v=JdJEV2jV0_Y
 - title: Criar intenções, entidades e recursos
   linkLists:
   - linkListType: concept

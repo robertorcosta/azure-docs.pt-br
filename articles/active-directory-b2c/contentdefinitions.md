@@ -1,5 +1,6 @@
 ---
-title: ContentDefinitions – Azure Active Directory B2C | Microsoft Docs
+title: ContentDefinitions
+titleSuffix: Azure AD B2C
 description: Especifica o elemento ContentDefinitions de uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/10/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3a940c7676a59ed85d5cf16c76f72a12ce0026d5
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 724736bedd81ea45d7472a615fa22cde6916f21c
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77136263"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148854"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -56,66 +57,89 @@ Os metadados do perfil técnico autodeclarado **LocalAccountSignUpWithLogonEmail
   ...
 ```
 
-
 ## <a name="contentdefinition"></a>ContentDefinition
 
 O elemento **ContentDefinition** contém o seguinte atributo:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador para uma definição de conteúdo. O valor é especificado na seção **ID de definição de conteúdo** mais adiante nesta página. |
+| ID | Sim | Um identificador para uma definição de conteúdo. O valor é especificado na seção **ID de definição de conteúdo** mais adiante nesta página. |
 
 O elemento **ContentDefinition** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | DESCRIÇÃO |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | Uma cadeia de caracteres que contém a URL da página HTML5 para a definição de conteúdo. |
 | RecoveryUri | 0:1 | Uma cadeia de caracteres que contém a URL da página HTML para exibir um erro relacionado à definição de conteúdo. |
 | DataUri | 1:1 | Uma cadeia de caracteres que contém a URL relativa de um arquivo HTML que fornece a experiência do usuário a ser invocada para a etapa. |
-| Metadados | 1:1 | Uma coleção de pares chave/valor que contém os metadados utilizados pela definição de conteúdo. |
+| Metadados | 0:1 | Uma coleção de pares chave/valor que contém os metadados utilizados pela definição de conteúdo. |
 | LocalizedResourcesReferences | 0:1 | Uma coleção de referências de recursos localizados. Use esse elemento para personalizar a localização de um atributo de declarações e a interface do usuário. |
 
 ### <a name="datauri"></a>DataUri
 
-O elemento **DataUri** é usado para especificar o identificador de página. O Azure AD B2C usa o identificador de página para carregar e iniciar a elementos de interface do usuário e o JavaScript do lado do cliente. O formato do valor é `urn:com:microsoft:aad:b2c:elements:page-name:version`.  A tabela a seguir lista os valores e descrições dos identificadores de página que você pode usar.
+O elemento **DataUri** é usado para especificar o identificador de página. O Azure AD B2C usa o identificador de página para carregar e iniciar a elementos de interface do usuário e o JavaScript do lado do cliente. O formato do valor é `urn:com:microsoft:aad:b2c:elements:page-name:version`. A tabela a seguir lista os identificadores de página que você pode usar.
 
-| {1&gt;Valor&lt;1} |   Descrição |
+| Identificador de página | DESCRIÇÃO |
 | ----- | ----------- |
-| `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | Exibe uma página de erro quando uma exceção ou um erro é encontrado. |
-| `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | Lista os provedores de identidade que os usuários podem escolher durante a entrada. |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | Exibe um formulário de entrada para entrar com uma conta local baseada em endereço de email ou nome de usuário. Esse valor também oferece as funcionalidades "Mantenha-me conectado" e "Esqueceu sua senha?" . |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | Exibe um formulário de entrada para entrar com uma conta local baseada em endereço de email ou nome de usuário. |
-| `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | Verifica os números de telefone usando o texto ou voz durante a inscrição ou entrada. |
-| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | Exibe um formulário que permite aos usuários criar ou atualizar o próprio perfil. |
+| `globalexception` | Exibe uma página de erro quando uma exceção ou um erro é encontrado. |
+| `providerselection` | Lista os provedores de identidade que os usuários podem escolher durante a entrada. |
+| `unifiedssp` | Exibe um formulário de entrada para entrar com uma conta local baseada em endereço de email ou nome de usuário. Esse valor também oferece as funcionalidades "Mantenha-me conectado" e "Esqueceu sua senha?" . |
+| `unifiedssp` | Exibe um formulário de entrada para entrar com uma conta local baseada em endereço de email ou nome de usuário. |
+| `multifactor` | Verifica os números de telefone usando o texto ou voz durante a inscrição ou entrada. |
+| `selfasserted` | Exibe um formulário que permite aos usuários criar ou atualizar o próprio perfil. |
 
+## <a name="select-a-page-layout"></a>Selecionar um layout de página
+
+Você pode habilitar o [código do lado do cliente JavaScript](javascript-samples.md) inserindo `contract` entre `elements` e o tipo de página. Por exemplo, `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
+
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
+
+A parte da [versão](page-layout.md) do `DataUri` especifica o pacote de conteúdo que contém HTML, CSS e JavaScript para os elementos da interface do usuário em sua política. Se você pretende habilitar o código JavaScript do lado do cliente, os elementos dos quais você baseia seu JavaScript devem ser imutáveis. Se não forem imutáveis, as alterações poderão causar um comportamento inesperado nas páginas do usuário. Para evitar esses problemas, aplique o uso de um layout de página e especifique uma versão de layout de página. Isso garante que todas as definições de conteúdo com base no seu JavaScript sejam imutáveis. Mesmo que você não pretenda habilitar o JavaScript, ainda precisará especificar a versão de layout da página para suas páginas.
+
+O exemplo a seguir mostra o **DataUri** da versão do `selfasserted` `1.2.0`:
+
+```xml
+<ContentDefinition Id="api.localaccountpasswordreset">
+<LoadUri>~/tenant/templates/AzureBlue/selfAsserted.cshtml</LoadUri>
+<RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+<DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+<Metadata>
+    <Item Key="DisplayName">Local account change password page</Item>
+</Metadata>
+</ContentDefinition>
+```
+
+#### <a name="migrating-to-page-layout"></a>Migrando para o layout da página
+
+O formato do valor deve conter a palavra `contract`: _urn: com: Microsoft: AAD: B2C: Elements:**Contract**:p age-Name: Version_. Para especificar um layout de página em suas políticas personalizadas que usam um valor antigo de **DataUri** , use a tabela a seguir para migrar para o novo formato.
+
+| Valor antigo de DataUri | Novo valor de DataUri |
+| ----------------- | ----------------- |
+| `urn:com:microsoft:aad:b2c:elements:globalexception:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:multifactor:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssd:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 
 ### <a name="localizedresourcesreferences"></a>LocalizedResourcesReferences
 
 O elemento **LocalizedResourcesReferences** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | DESCRIÇÃO |
 | ------- | ----------- | ----------- |
 | LocalizedResourcesReference | 1:n | Uma lista de referências de recurso localizado para a definição de conteúdo. |
 
 O elemento **LocalizedResourcesReferences** contém os seguintes atributos:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| Idioma | Sim | Uma cadeia de caracteres que contém uma linguagem com suporte para a política de acordo com a RFC 5646 – Marcas para identificar idiomas. |
+| Linguagem | Sim | Uma cadeia de caracteres que contém uma linguagem com suporte para a política de acordo com a RFC 5646 – Marcas para identificar idiomas. |
 | LocalizedResourcesReferenceId | Sim | O identificador do elemento **LocalizedResources**. |
-
-O exemplo a seguir mostra uma definição de conteúdo de inscrição ou entrada:
-
-```XML
-<ContentDefinition Id="api.signuporsignin">
-  <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
-  <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
-  <DataUri>urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0</DataUri>
-  <Metadata>
-    <Item Key="DisplayName">Signin and Signup</Item>
-  </Metadata>
-</ContentDefinition>
-```
 
 O exemplo a seguir mostra uma definição de conteúdo de entrada ou inscrição com uma referência à localização para inglês, francês e espanhol:
 
@@ -141,7 +165,7 @@ Para saber como adicionar suporte de localização a definições de conteúdo, 
 
 O atributo de ID do elemento **ContentDefinition** especifica o tipo de página relacionada à definição de conteúdo. O elemento define o contexto que um modelo personalizado HTML5/CSS aplicará. A tabela a seguir descreve o conjunto de IDs de definição de conteúdo reconhecidas pelo Identity Experience Framework e os tipos de página relacionados a elas. Você pode criar suas próprias definições de conteúdo com uma ID arbitrária.
 
-| ID | Modelo padrão | Descrição |
+| ID | Modelo padrão | DESCRIÇÃO |
 | -- | ---------------- | ----------- |
 | **api.error** | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Página de erro** – exibe uma página de erro quando uma exceção ou um erro é encontrado. |
 | **api.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Página de seleção do provedor de identidade** – lista provedores de identidade entre os quais os usuários podem escolher durante a entrada. Normalmente, as opções são provedores de identidade corporativa, provedores de identidade social, como Facebook e Google+ ou contas locais. |
@@ -154,3 +178,8 @@ O atributo de ID do elemento **ContentDefinition** especifica o tipo de página 
 | **api.selfasserted.profileupdate** | [updateProfile. cshtml](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Página de atualização de perfil** – exibe um formulário que os usuários podem acessar para atualizar o perfil. Esta página é semelhante à página de inscrição de conta social, exceto pelos campos de entrada de senha. |
 | **api.signuporsignin** | [Unified. cshtml](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Página de inscrição ou entrada unificada** – trata do processo de inscrição e entrada do usuário. Os usuários podem usar provedores de identidade corporativa, provedores de identidade social, como Facebook e Google+ ou contas locais. |
 
+## <a name="next-steps"></a>Próximas etapas
+
+Para obter um exemplo de personalização da interface do usuário usando definições de conteúdo, consulte:
+
+[Personalizar a interface do usuário do seu aplicativo usando uma política personalizada](custom-policy-ui-customization.md)

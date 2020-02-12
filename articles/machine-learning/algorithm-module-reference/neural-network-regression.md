@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 7ff4303a923e50a36ca36bd625581f11f7a9b491
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 97095e4802373a1dd3f7b795c2fe567b778d2d5e
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548485"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153818"
 ---
 # <a name="neural-network-regression-module"></a>Módulo de regressão de rede neural
 
@@ -93,6 +93,6 @@ Após a conclusão do treinamento:
 
 - Para salvar um instantâneo do modelo treinado, selecione a guia **saídas** no painel direito do módulo modelo de **treinamento** . Selecione o ícone **registrar conjunto de registros** para salvar o modelo como um módulo reutilizável.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

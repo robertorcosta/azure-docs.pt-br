@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: ff9c123c0fecd26aba6ecbbda4a915d928b99f2f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d7311dce938ea575a27cf006e7469670813b7f10
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454731"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153495"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Implantar Azure Machine Learning Studio espaço de trabalho (clássico) usando Azure Resource Manager
 
@@ -139,7 +139,7 @@ Get-AzResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |ForEa
 ```
 Depois que o espaço de trabalho for provisionado, você também poderá automatizar muitas tarefas Azure Machine Learning Studio (clássicas) usando o [módulo do PowerShell para Azure Machine Learning Studio (clássico)](https://aka.ms/amlps).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [como criar modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
 * Examine o [repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates).

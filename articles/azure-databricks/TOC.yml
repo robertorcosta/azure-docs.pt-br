@@ -7,9 +7,9 @@
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Criar workspace do Databricks - Portal
+    - name: Criar workspace do Databricks – Portal
       href: quickstart-create-databricks-workspace-portal.md
-    - name: Criar workspace do Databricks - modelo do Resource Manager
+    - name: Criar workspace do Databricks – Modelo do Resource Manager
       href: quickstart-create-databricks-workspace-resource-manager-template.md
     - name: Criar workspace do Databricks – Rede virtual
       href: quickstart-create-databricks-workspace-vnet-injection.md
@@ -63,7 +63,7 @@
             - name: Aprendizado de máquina
               href: /azure/databricks/getting-started/spark/machine-learning
               maintainContext: true
-            - name: Fluxo estruturado
+            - name: Streaming estruturado
               href: /azure/databricks/getting-started/spark/streaming
               maintainContext: true
             - name: O que vem a seguir
@@ -72,7 +72,7 @@
         - name: Treinamento e perguntas frequentes
           href: /azure/databricks/getting-started/training-faq
           maintainContext: true
-        - name: Navegadores com suporte
+        - name: Navegadores compatíveis
           href: /azure/databricks/getting-started/supported-browsers
           maintainContext: true
     - name: Tempos de execução do Databricks
@@ -89,7 +89,7 @@
         - name: Databricks Runtime para Machine Learning
           href: /azure/databricks/runtime/mlruntime
           maintainContext: true
-        - name: Databricks Runtime para Genoma
+        - name: Databricks Runtime para Genomics
           href: /azure/databricks/runtime/genomicsruntime
           maintainContext: true
         - name: Databricks Light
@@ -100,7 +100,7 @@
         - name: Explorar o workspace do Databricks
           href: /azure/databricks/workspace/index
           maintainContext: true
-        - name: Ativos de espaço de trabalho
+        - name: Ativos de workspace
           href: /azure/databricks/workspace/workspace-assets
           maintainContext: true
         - name: Trabalhar com objetos de workspace
@@ -212,7 +212,7 @@
         - name: Widgets
           href: /azure/databricks/notebooks/widgets
           maintainContext: true
-        - name: Fluxos de trabalho de blocos de anotações
+        - name: Fluxos de trabalho de notebook
           href: /azure/databricks/notebooks/notebook-workflows
           maintainContext: true
         - name: Células de pacote
@@ -248,7 +248,7 @@
             - name: Azure Data Lake Storage Gen2
               href: /azure/databricks/data/data-sources/azure/azure-datalake-gen2
               maintainContext: true
-            - name: Armazenamento do Azure Data Lake
+            - name: Azure Data Lake Storage
               href: /azure/databricks/data/data-sources/azure/azure-datalake
               maintainContext: true
             - name: Passagem de credencial do Azure Data Lake Storage
@@ -320,26 +320,45 @@
         - name: FileStore
           href: /azure/databricks/data/filestore
           maintainContext: true
-    - name: Ferramentas de Business Intelligence
+    - name: Integrações
       items:
-        - name: Ferramentas de conexão de BI
-          href: /azure/databricks/bi/jdbc-odbc-bi
+        - name: Visão geral das integrações
+          href: /azure/databricks/integrations/index
           maintainContext: true
-        - name: Tableau
-          href: /azure/databricks/bi/tableau
-          maintainContext: true
-        - name: Power BI
-          href: /azure/databricks/bi/power-bi
-          maintainContext: true
-        - name: Alteryx
-          href: /azure/databricks/bi/alteryx
-          maintainContext: true
-        - name: Looker
-          href: /azure/databricks/bi/looker
-          maintainContext: true
-        - name: SQL Workbench/J
-          href: /azure/databricks/bi/workbenchj
-          maintainContext: true
+        - name: Ferramentas de Business Intelligence
+          items:
+            - name: Ferramentas de conexão de BI
+              href: /azure/databricks/bi/jdbc-odbc-bi
+              maintainContext: true
+            - name: Tableau
+              href: /azure/databricks/bi/tableau
+              maintainContext: true
+            - name: Power BI
+              href: /azure/databricks/bi/power-bi
+              maintainContext: true
+            - name: Alteryx
+              href: /azure/databricks/bi/alteryx
+              maintainContext: true
+            - name: Looker
+              href: /azure/databricks/bi/looker
+              maintainContext: true
+            - name: SQL Workbench/J
+              href: /azure/databricks/bi/workbenchj
+              maintainContext: true
+        - name: Integrações de dados de parceiro
+          items:
+            - name: Visão geral das integrações de parceiro
+              href: /azure/databricks/integrations/ingestion/index
+            - name: Integração do Qlik
+              href: /azure/databricks/integrations/ingestion/qlik
+            - name: Integração do Fivetran
+              href: /azure/databricks/integrations/ingestion/fivetran
+            - name: Integração do InfoWorks
+              href: /azure/databricks/integrations/ingestion/infoworks
+            - name: Integração do StreamSets
+              href: /azure/databricks/integrations/ingestion/streamsets
+            - name: Integração do SyncSort
+              href: /azure/databricks/integrations/ingestion/syncsort
     - name: Delta Lake
       items:
         - name: Introdução ao Delta Lake
@@ -753,12 +772,12 @@
         - name: Integração de aprendizado de máquina de terceiros
           href: /azure/databricks/applications/machine-learning/third-party/index
           maintainContext: true
-    - name: Aprendizado
+    - name: Aprendizado profundo
       items:
         - name: Visão geral de aprendizado profundo
           href: /azure/databricks/applications/deep-learning/index
           maintainContext: true
-        - name: Preparação dos dados
+        - name: Preparação de dados
           items:
             - name: Visão geral de preparação de dados
               href: /azure/databricks/applications/deep-learning/data-prep/index
@@ -982,7 +1001,7 @@
           maintainContext: true
     - name: Segurança e privacidade
       items:
-        - name: Visão geral da segurança
+        - name: Visão Geral de Segurança
           href: /azure/databricks/security/index
           maintainContext: true
         - name: Segredos
@@ -1291,7 +1310,7 @@
             - name: Falha na consulta de ATUALIZAÇÃO com IllegalStateException
               href: /azure/databricks/kb/delta/update-query-fails
               maintainContext: true
-        - name: Ferramentas de desenvolvedor
+        - name: Ferramentas para desenvolvedores
           items:
             - name: Erros comuns de Azure Data Factory
               href: /azure/databricks/kb/dev-tools/common-errors-adf
@@ -1321,7 +1340,7 @@
             - name: Limites de CREATE do ADLS
               href: /azure/databricks/kb/jobs/azure-throttling
               maintainContext: true
-            - name: O driver está temporariamente indisponível
+            - name: O driver está temporariamente não disponível
               href: /azure/databricks/kb/jobs/driver-unavailable
               maintainContext: true
             - name: Excluir todos os trabalhos usando a API REST
@@ -1350,7 +1369,7 @@
               maintainContext: true
         - name: Bibliotecas
           items:
-            - name: Não é possível desinstalar a biblioteca da IU
+            - name: Não é possível desinstalar a biblioteca da interface do usuário
               href: /azure/databricks/kb/libraries/cant-uninstall-libraries
               maintainContext: true
             - name: Erro ao instalar o pyodbc em um cluster
@@ -1613,7 +1632,7 @@
       href: /azure/templates/microsoft.databricks/workspaces
 - name: Recursos
   items:
-    - name: Notas de versão
+    - name: Notas sobre a versão
       items:
         - name: Plataforma
           items:
@@ -1700,9 +1719,9 @@
               maintainContext: true
         - name: Databricks Runtime
           items:
-            - name: Com suporte
+            - name: Compatíveis
               items:
-                - name: Versões de runtime com suporte
+                - name: Versões de runtime compatíveis
                   href: /azure/databricks/release-notes/runtime/supported
                   maintainContext: true
                 - name: Databricks Runtime 6.3
@@ -1818,9 +1837,9 @@
         - name: Tipos de versão
           href: /azure/databricks/release-notes/release-types
           maintainContext: true
-        - name: Página de status do Azure Databricks
-          href: /azure/databricks/status
-          maintainContext: true
+    - name: Página de status do Azure Databricks
+      href: /azure/databricks/status
+      maintainContext: true
     - name: Guia do desenvolvedor R
       href: /azure/machine-learning/r-developers-guide
     - name: Roteiro do Azure
@@ -1829,7 +1848,7 @@
       href: 'https://azure.microsoft.com/pricing/details/databricks/'
     - name: Faça uma pergunta — Fórum do MSDN
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabricks'
-    - name: Faça uma pergunta — Stack Overflow
+    - name: Faça uma pergunta – Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-databricks'
     - name: Disponibilidade de região
       href: 'https://azure.microsoft.com/regions/services/'

@@ -3,15 +3,16 @@ title: Planejar e gerenciar custos para Azure Cosmos DB
 description: Saiba como planejar e gerenciar custos para Azure Cosmos DB usando a análise de custo no portal do Azure.
 author: SnehaGunda
 ms.author: sngun
+ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/02/2020
-ms.openlocfilehash: 96cb22a0153b3506835df93b50785ad7870929ce
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
-ms.translationtype: HT
+ms.openlocfilehash: cf259dfa0b00393cf0fee259b199527569ba1792
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77135753"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152577"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planejar e gerenciar custos para Azure Cosmos DB
 
@@ -19,7 +20,7 @@ Este artigo descreve como você pode planejar e gerenciar custos para Azure Cosm
 
 Entenda que os custos de Azure Cosmos DB são apenas uma parte dos custos mensais em sua fatura do Azure. Se estiver usando outros serviços do Azure, você será cobrado por todos os serviços e recursos do Azure usados na sua assinatura do Azure, incluindo os serviços de terceiros. Este artigo explica como planejar e gerenciar custos para Azure Cosmos DB. Depois de estar familiarizado com o gerenciamento de custos para Azure Cosmos DB, você pode aplicar métodos semelhantes para gerenciar os custos de todos os serviços do Azure usados em sua assinatura.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 A análise de custo dá suporte a diferentes tipos de conta do Azure. Para exibir a lista completa dos tipos de contas compatíveis, confira [Entender os dados do Gerenciamento de Custos](../cost-management-billing/costs/understand-cost-mgt-data.md). Para exibir os dados de custo, você precisará de, pelo menos, acesso de leitura em sua conta do Azure. Para obter informações sobre como atribuir o acesso aos dados do Gerenciamento de Custos do Azure, confira [Atribuir acesso aos dados](../cost-management-billing/costs/assign-access-acm-data.md).
 
@@ -66,7 +67,7 @@ Ao usar a análise de custo, você pode exibir os custos de Azure Cosmos DB em g
 
 No exemplo anterior, você verá o custo atual de Azure Cosmos DB para o mês de fev. Os gráficos também contêm Azure Cosmos DB custos por local e por grupo de recursos.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte os artigos a seguir para saber mais sobre como os preços funcionam no Azure Cosmos DB:
 

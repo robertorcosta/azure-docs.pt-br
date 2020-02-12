@@ -1,26 +1,18 @@
 ---
 title: Testar o aplicativo no portal do LUIS
-titleSuffix: Azure Cognitive Services
 description: Use o LUIS (Serviço Inteligente de Reconhecimento Vocal) para trabalhar continuamente em seu aplicativo para refiná-lo e melhorar seu reconhecimento vocal.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.author: diberry
-ms.openlocfilehash: 628547e8254bb0055cf1f09af50e79b68311a759
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ba7e23a72cd308dd4393bf9a581571e2bc9f5fa0
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74221768"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152900"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testar seu aplicativo LUIS no portal do LUIS
 
-[Testar](luis-concept-test.md) um aplicativo é um processo iterativo. Após treinar seu aplicativo LUIS, teste-o com declarações de exemplo para ver se as intenções e as entidades são reconhecidas corretamente. Caso não sejam, faça atualizações ao aplicativo de LUIS, treine e teste novamente. 
+[Testar](luis-concept-test.md) um aplicativo é um processo iterativo. Após treinar seu aplicativo LUIS, teste-o com declarações de exemplo para ver se as intenções e as entidades são reconhecidas corretamente. Caso não sejam, faça atualizações ao aplicativo de LUIS, treine e teste novamente.
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
@@ -32,13 +24,13 @@ ms.locfileid: "74221768"
 
 ## <a name="train-before-testing"></a>Treinar antes do teste
 
-Para testar a versão mais recente do aplicativo ativo, selecione **treinar** no menu superior, antes de testar. 
+Para testar a versão mais recente do aplicativo ativo, selecione **treinar** no menu superior, antes de testar.
 
 ## <a name="test-an-utterance"></a>Testar uma declaração
 
-O expressão de teste não deve ser exatamente o mesmo que qualquer declarações de exemplo no aplicativo. O expressão de teste deve incluir a opção de palavra, o comprimento da frase e o uso da entidade que você espera para um usuário. 
+O expressão de teste não deve ser exatamente o mesmo que qualquer declarações de exemplo no aplicativo. O expressão de teste deve incluir a opção de palavra, o comprimento da frase e o uso da entidade que você espera para um usuário.
 
-1. Acesse seu aplicativo selecionando seu nome na página **Meus Aplicativos**. 
+1. Acesse seu aplicativo selecionando seu nome na página **Meus Aplicativos**.
 
 1. Para acessar o painel extensível **Testar**, selecione **Testar** no painel superior do seu aplicativo.
 
@@ -53,9 +45,9 @@ O expressão de teste não deve ser exatamente o mesmo que qualquer declaraçõe
 
 ## <a name="inspect-score"></a>Inspecionar pontuação
 
-Inspecione detalhes do resultado do teste no painel **Inspecionar**. 
- 
-1. Com o painel extensível **Testar** aberto, selecione **Inspecionar** para uma declaração que você deseja comparar. 
+Inspecione detalhes do resultado do teste no painel **Inspecionar**.
+
+1. Com o painel extensível **Testar** aberto, selecione **Inspecionar** para uma declaração que você deseja comparar.
 
     ![Selecione o botão Inspecionar para ver mais detalhes sobre os resultados do teste](./media/luis-how-to-interactive-test/inspect.png)
 
@@ -73,7 +65,7 @@ Inspecione detalhes do resultado do teste no painel **Inspecionar**.
 
 ## <a name="view-sentiment-results"></a>Exibir resultados de sentimento
 
-Se a **Análise de sentimento** estiver configurada na página **[Publicar](luis-how-to-publish-app.md#enable-sentiment-analysis)** , os resultados de teste incluirão o sentimento encontrado na declaração. 
+Se a **Análise de sentimento** estiver configurada na página **[Publicar](luis-how-to-publish-app.md#enable-sentiment-analysis)** , os resultados de teste incluirão o sentimento encontrado na declaração.
 
 ![Imagem do painel de Teste com análise de sentimento](./media/luis-how-to-interactive-test/sentiment.png)
 
@@ -83,7 +75,7 @@ Se estiver usando [Padrões](luis-concept-patterns.md) e a declaração tiver co
 
 ## <a name="compare-with-published-version"></a>Comparar com a versão publicada
 
-É possível testar a versão ativa do seu aplicativo com a versão do [ponto de extremidade](luis-glossary.md#endpoint) publicada. No painel **Inspecionar**, selecione **Comparar com publicado**. Qualquer teste com relação ao modelo publicado é deduzido do saldo da sua cota de assinatura do Azure. 
+É possível testar a versão ativa do seu aplicativo com a versão do [ponto de extremidade](luis-glossary.md#endpoint) publicada. No painel **Inspecionar**, selecione **Comparar com publicado**. Qualquer teste com relação ao modelo publicado é deduzido do saldo da sua cota de assinatura do Azure.
 
 ![Comparar com o publicado](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
 
@@ -92,55 +84,22 @@ Se estiver usando [Padrões](luis-concept-patterns.md) e a declaração tiver co
 
 ![Resposta JSON publicada](./media/luis-how-to-interactive-test/inspect-panel-compare-json.png)
 
-<!--Service name is 'Bing Spell Check v7 API' in the portal-->
 ## <a name="additional-settings-in-test-panel"></a>Configurações adicionais no painel de teste
 
 ### <a name="luis-endpoint"></a>Ponto de extremidade LUIS
 
-Se tiver vários pontos de extremidade LUIS, use o link **Configurações Adicionais** no painel Publicado do Teste para alterar o ponto de extremidade usado para teste. Se não tiver certeza sobre qual ponto de extremidade usar, selecione o **Starter_Key** padrão. 
+Se tiver vários pontos de extremidade LUIS, use o link **Configurações Adicionais** no painel Publicado do Teste para alterar o ponto de extremidade usado para teste. Se não tiver certeza sobre qual ponto de extremidade usar, selecione o **Starter_Key** padrão.
 
 > [!div class="mx-imgBorder"]
 > ![painel de teste com configurações adicionais link realçado](media/luis-how-to-interactive-test/additional-settings-v3-settings.png)
 
-<!--
-###  View Bing Spell Check corrections in test panel
-
-Requirements to view the spelling corrections: 
-
-* Published app
-* Bing Spell Check [service key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api). The service key is not stored and needs to be reset for each browser session. 
-
-Use the following procedure to include the [Bing Spell Check v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) service  in the Test pane results. 
-
-1. In the **Test** pane, enter an utterance. When the utterance is predicted, select **[Inspect](#inspect-score)** underneath the utterance you entered. 
-
-1. When the **Inspect** panel opens, select **[Compare with Published](#compare-with-published-version)**. 
-
-1. When the **Published** panel opens, select **[Additional Settings](#additional-settings-in-test-panel)**.
-
-1. In the pop-up dialog, check **Enable Bing Spell Check** and enter the key, then select **Done**. 
-    ![Enter Bing Spell Check service key](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key-text.png)
-
-1. Enter a query with an incorrect spelling such as `book flite to seattle` and select enter. The incorrect spelling of the word `flite` is replaced in the query sent to LUIS and the resulting JSON shows both the original query, as `query`, and the corrected spelling in the query, as `alteredQuery`.
-
-<a name="json-file-with-no-duplicates"></a>
-<a name="import-a-dataset-file-for-batch-testing"></a>
-<a name="export-rename-delete-or-download-dataset"></a>
-<a name="run-a-batch-test-on-your-trained-app"></a>
-<a name="access-batch-test-result-details-in-a-visualized-view"></a>
-<a name="filter-chart-results-by-intent-or-entity"></a>
-<a name="investigate-false-sections"></a>
-<a name="view single-point utterance data"></a>
-<a name="relabel-utterances-and-retrain"></a>
-<a name="false-test-results"></a>
--->
 
 ## <a name="batch-testing"></a>Teste em lote
 Confira os [conceitos](luis-concept-batch-test.md) de teste do lote e saiba [como](luis-how-to-batch-test.md) testar um lote de declarações.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se o teste indica que seu aplicativo LUIS não reconhece as intenções e entidades corretas, é possível trabalhar para melhorar a precisão do seu aplicativo LUIS rotulando mais declarações ou adicionando recursos. 
+Se o teste indica que seu aplicativo LUIS não reconhece as intenções e entidades corretas, é possível trabalhar para melhorar a precisão do seu aplicativo LUIS rotulando mais declarações ou adicionando recursos.
 
-* [Rotular enunciados sugeridos com o LUIS](luis-how-to-review-endpoint-utterances.md) 
-* [Usar recursos para melhorar o desempenho do aplicativo LUIS](luis-how-to-add-features.md) 
+* [Rotular enunciados sugeridos com o LUIS](luis-how-to-review-endpoint-utterances.md)
+* [Usar recursos para melhorar o desempenho do aplicativo de LUIS](luis-how-to-add-features.md)

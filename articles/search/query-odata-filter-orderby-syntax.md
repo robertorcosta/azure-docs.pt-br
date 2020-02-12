@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: e0db41098287ff011416932a0d44a1cb9f76127d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f3a1be435e297ab4a9ba7f8bfbd5f3ce3451d8a8
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786154"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153869"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Visão geral da linguagem OData para `$filter`, `$orderby`e `$select` no Azure Pesquisa Cognitiva
 
@@ -70,7 +70,7 @@ Um identificador pode se referir ao nome de um campo ou a uma **variável de int
 
 Exemplos de caminhos de campo são mostrados na tabela a seguir:
 
-| Caminho do campo | Descrição |
+| Caminho do campo | DESCRIÇÃO |
 | --- | --- |
 | `HotelName` | Refere-se a um campo de nível superior do índice |
 | `Address/City` | Refere-se ao subcampo `City` de um campo complexo no índice; `Address` é do tipo `Edm.ComplexType` neste exemplo |
@@ -96,16 +96,16 @@ Os caminhos de campo são usados em muitos parâmetros das [APIs REST do Azure p
 | [Criar](https://docs.microsoft.com/rest/api/searchservice/create-index) ou [Atualizar](https://docs.microsoft.com/rest/api/searchservice/update-index) índice | `suggesters/sourceFields` | Nenhum |
 | [Criar](https://docs.microsoft.com/rest/api/searchservice/create-index) ou [Atualizar](https://docs.microsoft.com/rest/api/searchservice/update-index) índice | `scoringProfiles/text/weights` | Só pode fazer referência a campos **pesquisáveis** |
 | [Criar](https://docs.microsoft.com/rest/api/searchservice/create-index) ou [Atualizar](https://docs.microsoft.com/rest/api/searchservice/update-index) índice | `scoringProfiles/functions/fieldName` | Só pode fazer referência a campos **filtráveis** |
-| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search` quando `queryType` é `full` | Só pode fazer referência a campos **pesquisáveis** |
-| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | Só pode fazer referência aos campos de **facetable** |
-| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | Só pode fazer referência a campos **pesquisáveis** |
-| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | Só pode fazer referência a campos **pesquisáveis** |
+| [Pesquisar](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search` quando `queryType` é `full` | Só pode fazer referência a campos **pesquisáveis** |
+| [Pesquisar](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | Só pode fazer referência aos campos de **facetable** |
+| [Pesquisar](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | Só pode fazer referência a campos **pesquisáveis** |
+| [Pesquisar](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | Só pode fazer referência a campos **pesquisáveis** |
 | [Sugerir](https://docs.microsoft.com/rest/api/searchservice/suggestions) e [preenchimento automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `searchFields` | Só pode fazer referência a campos que fazem parte de um [Sugestor](index-add-suggesters.md) |
 | [Pesquisar](https://docs.microsoft.com/rest/api/searchservice/search-documents), [sugerir](https://docs.microsoft.com/rest/api/searchservice/suggestions)e [preenchimento automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `$filter` | Só pode fazer referência a campos **filtráveis** |
 | [Pesquisar](https://docs.microsoft.com/rest/api/searchservice/search-documents) e [sugerir](https://docs.microsoft.com/rest/api/searchservice/suggestions) | `$orderby` | Só pode fazer referência a campos **classificável** |
 | [Pesquisar](https://docs.microsoft.com/rest/api/searchservice/search-documents), [sugerir](https://docs.microsoft.com/rest/api/searchservice/suggestions)e [Pesquisar](https://docs.microsoft.com/rest/api/searchservice/lookup-document) | `$select` | Só pode fazer referência a campos **recuperáveis** |
 
-## <a name="constants"></a>:
+## <a name="constants"></a>Constantes
 
 As constantes no OData são valores literais de um determinado tipo de [modelo de dados de entidade](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDM). Consulte [tipos de dados com suporte](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) para obter uma lista de tipos com suporte no Azure pesquisa cognitiva. Não há suporte para constantes de tipos de coleção.
 
@@ -121,6 +121,17 @@ A tabela a seguir mostra exemplos de constantes para cada um dos tipos de dados 
 | `Edm.Int32` | `123`, `-456` |
 | `Edm.Int64` | `283032927235` |
 | `Edm.String` | `'hello'` |
+
+### <a name="escaping-special-characters-in-string-constants"></a>Caracteres especiais de escape em constantes de cadeia de caracteres
+
+As constantes de cadeia de caracteres no OData são delimitadas por aspas simples. Se você precisar construir uma consulta com uma constante de cadeia de caracteres que pode conter aspas simples, você pode escapar as aspas inseridas dobrando-as.
+
+Por exemplo, uma frase com um apóstrofo não formatado como "carro de Alice" seria representada no OData como a constante de cadeia de caracteres `'Alice''s car'`.
+
+> [!IMPORTANT]
+> Ao construir filtros programaticamente, é importante lembrar-se de escapar constantes de cadeia de caracteres provenientes da entrada do usuário. Isso é para reduzir a possibilidade de [ataques de injeção](https://wikipedia.org/wiki/SQL_injection), especialmente ao usar filtros para implementar a [remoção de segurança](search-security-trimming-for-azure-search.md).
+
+### <a name="constants-syntax"></a>Sintaxe de constantes
 
 O EBNF a seguir ([formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática para a maioria das constantes mostradas na tabela acima. A gramática para tipos geoespaciais pode ser encontrada em [funções geoespaciais OData no Azure pesquisa cognitiva](search-query-odata-geo-spatial-functions.md).
 
@@ -226,7 +237,7 @@ Os parâmetros **$Filter**, **$OrderBy**e **$Select** são explorados com mais d
 - [Sintaxe de $orderby OData no Azure Pesquisa Cognitiva](search-query-odata-orderby.md)
 - [Sintaxe de $select OData no Azure Pesquisa Cognitiva](search-query-odata-select.md)
 
-## <a name="see-also"></a>Consulte  
+## <a name="see-also"></a>Confira também  
 
 - [Navegação facetada no Azure Pesquisa Cognitiva](search-faceted-navigation.md)
 - [Filtros no Azure Pesquisa Cognitiva](search-filters.md)

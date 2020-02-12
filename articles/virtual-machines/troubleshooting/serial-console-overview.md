@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 8eea568217dc5f47c45433e5fdd755682e322b2f
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
-ms.translationtype: HT
+ms.openlocfilehash: 779bb88d15ea6c52f4399f17223b89916e22653d
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134061"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153852"
 ---
 # <a name="azure-serial-console"></a>Console serial do Azure
 
@@ -67,37 +67,6 @@ O console serial está disponível para conjuntos de dimensionamento de máquina
 
      ![Console serial do conjunto de dimensionamento de máquinas virtuais do Linux](./media/virtual-machines-serial-console/vmss-start-console.gif)
 
-## <a name="serial-console-rbac-role"></a>Função RBAC do console serial
-Conforme mencionado acima, o console serial requer colaborador de VM ou maior acesso à sua VM ou ao conjunto de dimensionamento de máquinas virtuais. Se você não quiser conceder a um colaborador de VM a um usuário, mas ainda quiser permitir que um usuário acesse o console serial, você pode fazer isso com a seguinte função:
-
-```
-{
-  "Name": "Serial Console Role",
-  "IsCustom": true,
-  "Description": "Role for Serial Console Users that provides significantly reduced access than VM Contributor",
-  "Actions": [
-      "Microsoft.Compute/virtualMachines/*/write",
-      "Microsoft.Compute/virtualMachines/*/read",
-      "Microsoft.Storage/storageAccounts/*"
-  ],
-  "NotActions": [],
-  "DataActions": [],
-  "NotDataActions": [],
-  "AssignableScopes": [
-    "/subscriptions/<subscriptionId>"
-  ]
-}
-```
-
-### <a name="to-create-and-use-the-role"></a>Para criar e usar a função:
-*   Salve o JSON em um local conhecido, por exemplo, `~/serialconsolerole.json`.
-*   Use o seguinte comando AZ CLI para criar a definição de função: `az role definition create --role-definition serialconsolerole.json -o=json`
-*   Se você precisar atualizar a função, use o seguinte comando: `az role definition update --role-definition serialconsolerole.json -o=json`
-*   A função aparecerá no controle de acesso (IAM) no portal (pode levar alguns minutos para ser propagada)
-*   Você pode adicionar usuários à VM e à conta de armazenamento de diagnóstico de inicialização com a função de função personalizada
-    *   Observe que o usuário deve receber a função personalizada na VM *e* a conta de armazenamento de diagnóstico de inicialização
-
-
 ## <a name="advanced-uses-for-serial-console"></a>Usos avançados para o console serial
 Além do acesso do console à sua VM, você também pode usar o console serial do Azure para o seguinte:
 * Enviando um [comando de solicitação do sistema para sua VM](./serial-console-nmi-sysrq.md)
@@ -105,7 +74,7 @@ Além do acesso do console à sua VM, você também pode usar o console serial d
 * [Reinicializando ou forçando forçosamente a energia de sua VM](./serial-console-power-options.md)
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 A documentação adicional do console serial está disponível na barra lateral.
 - Mais informações estão disponíveis para o [console serial para VMs do Linux](./serial-console-linux.md).
 - Mais informações estão disponíveis para o [console serial para VMs do Windows](./serial-console-windows.md).

@@ -10,19 +10,19 @@
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Configurar entrada - ASP.NET
+    - name: Configurar entrada – ASP.NET
       href: quickstart-web-app-dotnet.md
-    - name: Configurar entrada - Desktop
+    - name: Configurar entrada – Desktop
       href: quickstart-native-app-desktop.md
-    - name: Configurar entrada - Página única
+    - name: Configurar entrada – Página única
       href: quickstart-single-page-app.md
 - name: Tutoriais
   items:
-    - name: 1 - Criar o locatário B2C
+    - name: 1 – Criar o locatário B2C
       href: tutorial-create-tenant.md
     - name: 2 – Registrar um aplicativo
       href: tutorial-register-applications.md
-    - name: 3 - Criar fluxos de usuário
+    - name: 3 – Criar fluxos dos usuários
       href: tutorial-create-user-flows.md
     - name: Adicionar provedores de identidade
       href: tutorial-add-identity-providers.md
@@ -66,7 +66,7 @@
           href: access-tokens.md
     - name: Política e fluxo de usuário
       items:
-        - name: Fluxos de usuário
+        - name: Fluxos dos usuários
           href: user-flow-overview.md
         - name: Políticas personalizadas
           href: custom-policy-overview.md
@@ -120,7 +120,7 @@
               href: identity-provider-amazon.md
             - name: Azure AD (único locatário)
               href: identity-provider-azure-ad-single-tenant.md
-            - name: Conta da Microsoft
+            - name: Conta Microsoft
               href: identity-provider-microsoft-account.md
             - name: Facebook
               href: identity-provider-facebook.md
@@ -182,8 +182,6 @@
             - name: Email personalizado
               href: custom-email.md
               displayName: verification
-            - name: Layout da página
-              href: page-layout.md
             - name: Habilitar o JavaScript
               href: javascript-samples.md
             - name: Complexidade de senha
@@ -202,7 +200,7 @@
                   href: identity-provider-google-custom.md
                 - name: LinkedIn
                   href: identity-provider-linkedin-custom.md
-                - name: Conta da Microsoft
+                - name: Conta Microsoft
                   href: identity-provider-microsoft-account-custom.md
                 - name: Twitter
                   href: identity-provider-twitter-custom.md
@@ -264,13 +262,13 @@
                 - name: ClaimsTransformations
                   href: claimstransformations.md
                   items:
-                    - name: Boolean
+                    - name: Booliano
                       href: boolean-transformations.md
                     - name: Data
                       href: date-transformations.md
                     - name: Geral
                       href: general-transformations.md
-                    - name: Integer
+                    - name: Inteiro
                       href: integer-transformations.md
                     - name: JSON
                       href: json-transformations.md
@@ -383,6 +381,8 @@
       href: custom-policy-developer-notes.md
     - name: Exemplos de código
       href: 'https://azure.microsoft.com/resources/samples/?service=active-directory-b2c'
+    - name: Versões do layout da página
+      href: page-layout.md
     - name: Definições de cookie
       href: cookie-definitions.md
       displayName: 'cookies, SameSite'
@@ -420,5 +420,5 @@
     - name: Suporte
       href: support-options.md
       displayName: technical
-    - name: vídeos
+    - name: Vídeos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c'

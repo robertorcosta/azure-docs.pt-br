@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: e5ff88b9a677fa53a70a28dbefc5d84cae2d1041
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dfbca6514328897afe0c0eda5ce7d5a6d2ff92a7
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427504"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152832"
 ---
 # <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Crie Azure Machine Learning Studio (clássico) experimentos de exemplos de trabalho em Galeria de IA do Azure
 
@@ -56,7 +56,7 @@ Você também pode criar um novo experimento no Machine Learning Studio (clássi
 
 Um novo experimento é criado no seu espaço de trabalho Machine Learning Studio (clássico) usando o teste de exemplo como um modelo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Importar dados de várias fontes](import-data.md)
 * [Tutorial de início rápido para a linguagem R no Machine Learning](r-quickstart.md)
 * [Implantar um serviço Web do Machine Learning](deploy-a-machine-learning-web-service.md)

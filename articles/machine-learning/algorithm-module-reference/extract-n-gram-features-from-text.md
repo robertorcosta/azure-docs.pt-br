@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: 4f64ac9b276c71a037f96766b38a2574b89441c8
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: cae128505c61e7c640819041c6ffdae10a4947e7
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312219"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152271"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Extrair recursos de N-Gram de referência de módulo de texto
 
-Este artigo descreve um módulo no designer de Azure Machine Learning. Use o módulo extrair recursos N-Gram de texto para *Personalizar* dados de texto não estruturados. 
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia). Use o módulo extrair recursos N-Gram de texto para *Personalizar* dados de texto não estruturados. 
 
 ## <a name="configuration-of-the-extract-n-gram-features-from-text-module"></a>Configuração dos recursos de extrair N-Gram do módulo de texto
 
@@ -135,6 +135,6 @@ Você pode atualizar manualmente esse conjunto de um, mas pode introduzir erros.
 > [!Note]
 > Não conecte a saída de dados ao módulo treinar modelo diretamente. Você deve remover as colunas de texto livre antes que elas sejam inseridas no modelo de treinamento. Caso contrário, as colunas de texto livre serão tratadas como recursos categóricos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning.

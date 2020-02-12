@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: 11ee8f52a8fd4db2d052eeaeef1387b011d23050
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
-ms.translationtype: HT
+ms.openlocfilehash: 7909fbb958a66d00616d4ed1b844d02bb47d997e
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77131563"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152492"
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador NewTek TriCaster para enviar uma transmissão ao vivo de taxa de bits única  
 > [!div class="op_single_selector"]
@@ -34,12 +34,12 @@ Este artigo mostra como configurar o codificador ativo [NewTek TriCaster](https:
 
 Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a ferramenta AMSE (Gerenciador de Serviços de Mídia da Azure). Essa ferramenta é executada apenas em PCs com Windows. Se você estiver no Mac ou Linux, use o portal do Azure para criar [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-> [!NOTE]
-> Ao usar o Tricaster para o envio de um feed de contribuição aos canais AMS habilitados para codificação ativa, pode haver problemas de áudio/vídeo no evento ao vivo, caso você use determinados recursos do Tricaster, como corte rápido entre feeds ou alternância de/para imagens fixas. A equipe do AMS está trabalhando para corrigir esses problemas; até lá, não é recomendável usar esses recursos.
->
->
+Ao usar o Tricaster para o envio de um feed de contribuição aos canais AMS habilitados para codificação ativa, pode haver problemas de áudio/vídeo no evento ao vivo, caso você use determinados recursos do Tricaster, como corte rápido entre feeds ou alternância de/para imagens fixas. A equipe do AMS está trabalhando para corrigir esses problemas; até lá, não é recomendável usar esses recursos.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+> [!NOTE]
+>  Considere a possibilidade de migrar para o TLS 1,2, a versão do prefferred TLS.
+
+## <a name="prerequisites"></a>Prerequisites
 
 * [Criar uma conta dos Serviços de Mídia do Azure](media-services-portal-create-account.md)
 * Verifique se há um Ponto de Extremidade de Streaming em execução. Para obter mais informações, veja [Gerenciar Pontos de Extremidade de Transmissão em uma conta de Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md)
@@ -162,7 +162,7 @@ Se um erro for recebido, será necessário redefinir o canal e ajustar as config
 
 A transmissão agora está pronta para ser inserida em um player ou distribuída para um público para a exibição ao vivo.  
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Confira o artigo de [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter diretrizes.
 

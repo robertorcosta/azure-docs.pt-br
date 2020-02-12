@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 8b882e6fb697d272ddc06e8d263f4c2144ebd017
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 55fe3a2a4fd0f45b0873e47f29b7ea013558be40
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546921"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152475"
 ---
 # <a name="add-columns-module"></a>Adicionar módulo de colunas
 
@@ -44,6 +44,6 @@ O número de colunas no novo conjunto de dados é igual à soma das colunas de a
 
 Se houver duas colunas com o mesmo nome nos conjuntos de dados de entrada, um sufixo numérico será adicionado ao nome da coluna. Por exemplo, se houver duas instâncias de uma coluna denominadas TargetOutcome, a coluna da esquerda será renomeada TargetOutcome_1 e a coluna direita será renomeada TargetOutcome_2.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

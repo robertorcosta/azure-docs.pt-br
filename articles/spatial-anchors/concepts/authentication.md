@@ -8,12 +8,12 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 823ce8d523a231875705d7c4d3f46cfd8fd24994
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: MT
+ms.openlocfilehash: 6149fa631633d05399568bd1ec797c5ee47d29a4
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74270595"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152594"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticação e autorização para âncoras espaciais do Azure
 
@@ -96,6 +96,13 @@ Para aplicativos que visam Azure Active Directory usuários, a abordagem recomen
 
 1. Configuração no portal do Azure
     1.  Registre seu aplicativo no Azure AD como **aplicativo nativo**. Como parte do registro, você precisará determinar se seu aplicativo deve ser multilocatário ou não e fornecer as URLs de redirecionamento permitidas para seu aplicativo.
+        1.  Alternar para a guia **permissões de API**
+        2.  Selecione **Adicionar uma permissão**
+            1.  Selecione o **provedor de recursos de realidade misturada** na guia **APIs minha organização usa**
+            2.  Selecionar **permissões delegadas**
+            3.  Marque a caixa **mixedreality. Signe** em **mixedreality**
+            4.  Selecione **adicionar permissões**
+        3.  Selecione **conceder consentimento do administrador**
     2.  Conceda ao seu aplicativo ou usuários acesso ao seu recurso:
         1.  Navegue até o recurso âncoras espaciais em portal do Azure
         2.  Alternar para a guia **controle de acesso (iam)**

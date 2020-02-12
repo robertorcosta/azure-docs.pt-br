@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: b5d35fc14d69da2246c0ef5d4ef6d19a9e0c8462
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 74ede523c9747de4746fe1854bd1e352eba2f7e3
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750990"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148888"
 ---
 # <a name="azure-monitor-data-platform"></a>Plataforma de dados Azure Monitor
 
@@ -38,7 +38,7 @@ As [Métricas](data-platform-metrics.md) são valores numéricos que descrevem a
 
 As métricas em Azure Monitor são armazenadas em um banco de dados de série temporal que é otimizado para análise de dado com carimbo de data/hora. Isso torna as métricas especialmente adequadas para alertas e detecção rápida de problemas. Eles podem informar como o sistema está sendo executado, mas normalmente precisam ser combinados com logs para identificar a causa raiz dos problemas.
 
-As métricas estão disponíveis para análise interativa no portal do Azure com [Metrics Explorer](../app/metrics-explorer.md). Eles podem ser adicionados a um [painel do Azure](../learn/tutorial-app-dashboards.md) para visualização em combinação com outros dados e usados para [alertas](alerts-metric.md)quase em tempo real.
+As métricas estão disponíveis para análise interativa no portal do Azure com o [Metrics Explorer do Azure](../platform/metrics-getting-started.md). Eles podem ser adicionados a um [painel do Azure](../learn/tutorial-app-dashboards.md) para visualização em combinação com outros dados e usados para [alertas](alerts-metric.md)quase em tempo real.
 
 Leia mais sobre Azure Monitor métricas, incluindo suas fontes de dados em [métricas no Azure monitor](data-platform-metrics.md).
 
@@ -70,7 +70,7 @@ A tabela a seguir compara as métricas e os logs em Azure Monitor.
 | Atributo  | Métricas | Logs |
 |:---|:---|:---|
 | Benefícios | Leve e capaz de cenários quase em tempo real, como alertas. Ideal para detecção rápida de problemas. | Analisado com a linguagem de consulta avançada. Ideal para análise profunda e identificação da causa raiz. |
-| Dados | Somente valores numéricos | Texto ou dados numéricos |
+| data | Somente valores numéricos | Texto ou dados numéricos |
 | Estrutura | Conjunto padrão de propriedades, incluindo o tempo de exemplo, o recurso que está sendo monitorado, um valor numérico. Algumas métricas incluem várias dimensões para definição adicional. | Conjunto exclusivo de propriedades dependendo do tipo de log. |
 | Coleção | Coletados em intervalos regulares. | Pode ser coletado esporadicamente, pois os eventos disparam um registro a ser criado. |
 | Exibir no portal do Azure | Metrics Explorer | Log Analytics |
@@ -87,7 +87,7 @@ Além de usar as ferramentas no Azure para analisar os dados de monitoramento, p
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Leia mais sobre [métricas em Azure monitor](data-platform-metrics.md).
 - Leia mais sobre [logs em Azure monitor](data-platform-logs.md).

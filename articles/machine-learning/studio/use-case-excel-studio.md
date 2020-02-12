@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: e440d9d882d0459d04a15b8f39ea6877707ea096
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6976f0bb671b94f71b71287483c2ab88d0959899
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427460"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152764"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio-classic"></a>Migrar a análise do Excel para Azure Machine Learning Studio (clássico)
 
@@ -53,7 +53,7 @@ A princípio, o modelo do Excel desempenhou claramente o modelo de estúdio (cl�
 
 |  | Excel | Studio (clássico) |
 | --- |:---:|:---:|
-| Performance | | |
+| Desempenho | | |
 | <ul style="list-style-type: none;"><li>Quadrado R Ajustado</li></ul> |0,96 |N/D |
 | <ul style="list-style-type: none;"><li>Coeficiente de <br />Determinação</li></ul> |N/D |0,78<br />(baixa precisão) |
 | Erro de Média Absoluta |US$ 9,5 milhões |US$ 19,4 milhões |
@@ -129,7 +129,7 @@ Também descobrimos que é aconselhável usar a seleção de [recursos baseada e
 
 A capacidade de transferir a previsão analítica preditiva do estúdio (clássico) para o Excel sistematicamente permite um aumento significativo na capacidade de fornecer resultados com êxito a um grande público de usuários de negócios. 
 
-## <a name="resources"></a>Implante
+## <a name="resources"></a>Recursos
 Estes são alguns recursos que ajudam a trabalhar com a regressão: 
 
 * Regressão no Excel. Se você nunca tentou regressão no Excel, este tutorial torna mais fácil: [https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html)

@@ -5,16 +5,16 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 789af25cc37183e9eeae253e1e8529615abdd308
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4a117e7f69647af3ad82f9013bfa40556ccc0dbd
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849795"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152883"
 ---
 # <a name="durable-functions-versions-overview"></a>Visão geral das versões do Durable Functions
 
-As *Funções Duráveis* são uma extensão do [Azure Functions](../functions-overview.md) e do [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md) que permite que você escreva funções com estado em um ambiente sem servidor. A extensão gerencia estado, pontos de verificação e reinicializações para você. Se você ainda não estiver familiarizado com Durable Functions, consulte a [documentação de visão geral](durable-functions-overview.md).
+As *Funções Duráveis* são uma extensão do [Azure Functions](../functions-overview.md) e do [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md) que permitem que você escreva funções com estado em um ambiente sem servidor. A extensão gerencia estado, pontos de verificação e reinicializações para você. Se você ainda não estiver familiarizado com Durable Functions, consulte a [documentação de visão geral](durable-functions-overview.md).
 
 ## <a name="new-features-in-2x"></a>Novos recursos no 2. x
 
@@ -59,6 +59,10 @@ O Durable Functions 2. x usa um novo esquema host. JSON. As principais alteraç�
 * `"notifications"` (e a subseção `"eventGrid"`) para configuração de notificação da grade de eventos.
 
 Consulte a [documentação de referência do Durable Functions host. JSON](durable-functions-bindings.md#durable-functions-2-0-host-json) para obter detalhes.
+
+#### <a name="default-taskhub-name-changes"></a>Alterações de nome de taskhub padrão
+
+Na versão 1. x, se um nome de Hub de tarefas não foi especificado em host. JSON, o padrão é "DurableFunctionsHub". Na versão 2. x, o nome do hub de tarefas padrão agora é derivado do nome do aplicativo de funções. Por isso, se você não tiver especificado um nome de Hub de tarefas ao atualizar para 2. x, seu código estará operando com o novo hub de tarefas e todas as orquestrações em andamento não terão mais um aplicativo processando-os. Para contornar isso, você pode definir explicitamente o nome do hub de tarefas para o padrão v1. x de "DurableFunctionsHub", ou pode seguir nossas [diretrizes de implantação sem tempo de inatividade](durable-functions-zero-downtime-deployment.md) para obter detalhes sobre como lidar com alterações significativas para orquestrações em andamento.
 
 #### <a name="public-interface-changes-net-only"></a>Alterações de interface pública (somente .NET)
 

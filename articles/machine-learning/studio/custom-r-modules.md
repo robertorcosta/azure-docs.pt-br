@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: fdd91b62355b11ba99aafcda04f86282ce5a4f71
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 76b2f2ae9774fe5951779912e679fa84350878c5
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454734"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153563"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Definir módulos R personalizados para Azure Machine Learning Studio (clássico)
 
@@ -290,7 +290,7 @@ Um parâmetro de módulo é definido usando o elemento filho **Arg** da seção 
     * Rótulo
     * Recurso
     * Pontuação
-    * Tudo
+    * Todos
   * **padrão** – seleções padrão válidas para o seletor de coluna incluem: 
     
     * Nenhum
@@ -313,7 +313,7 @@ Um parâmetro de módulo é definido usando o elemento filho **Arg** da seção 
     * AllLabel
     * AllFeature
     * AllScore
-    * Tudo
+    * Todos
 
 **Suspensa**: uma lista (suspensa) enumerada especifica pelo usuário. Os itens de lista suspensa são especificados dentro do elemento **Propriedades** usando um elemento de **Item**. A **ID** de cada **Item** deve ser exclusiva e uma variável R válida. O valor do **nome** de um **Item** serve como o texto que você vê e o valor que é passado para a função R.
 

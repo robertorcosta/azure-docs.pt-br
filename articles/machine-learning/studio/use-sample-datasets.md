@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: c2700c8241905f6e219b566a10e3378dd6c7251d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 211a2a83d2668c3240daca11e9063b31d42655ae
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427436"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152747"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Usar os conjuntos de valores de exemplo no Azure Machine Learning Studio (clássico)
 [top]: #machine-learning-sample-datasets
@@ -27,7 +27,7 @@ Alguns desses conjuntos de dados estão disponíveis no armazenamento de Blobs d
 O restante desses conjuntos de dados de exemplo está disponível no workspace em **Conjuntos de dados salvos**. Você pode encontrar isso na paleta de módulo à esquerda da tela do experimento no Machine Learning Studio (clássico).
 Você pode usar qualquer um desses conjuntos de dados em seu próprio teste arrastando-o para a tela do teste.
 
-## <a name="datasets"></a>Conjuntos de dados
+## <a name="datasets"></a>Conjunto de dados
 
 <table>
 
@@ -405,7 +405,7 @@ O conjunto de dados foi baixado e armazenado no Armazenamento de Blobs do Azure 
 
 </table>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Início rápido seus experimentos com exemplos](sample-experiments.md)

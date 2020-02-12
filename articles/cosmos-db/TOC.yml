@@ -1,8 +1,8 @@
-- name: Documentação do Banco de Dados do Azure Cosmos
+- name: Documentação do Azure Cosmos DB
   href: index.yml
 - name: Visão geral
   items:
-    - name: Bem-vindo ao Azure Cosmos DB
+    - name: Bem-vindo(a) ao Azure Cosmos DB
       href: introduction.md
 - name: Inícios rápidos
   expanded: true
@@ -31,7 +31,7 @@
   items:
     - name: 1 – Criar e gerenciar dados
       items:
-        - name: Compilar o aplicativo de console
+        - name: Criar um aplicativo de console
           items:
             - name: .NET
               href: sql-api-get-started.md
@@ -41,7 +41,7 @@
               href: sql-api-async-java-get-started.md
             - name: Node.js
               href: sql-api-nodejs-get-started.md
-        - name: Compilar um aplicativo Web
+        - name: Criar um aplicativo Web
           items:
             - name: .NET
               href: sql-api-dotnet-application.md
@@ -110,7 +110,7 @@
         - name: Tipos e políticas de resolução de conflitos
           displayName: 'last write wins, custom'
           href: conflict-resolution-policies.md
-        - name: Distribuição global – nos bastidores
+        - name: Distribuição global – Nos bastidores
           href: global-dist-under-the-hood.md
         - name: Presença regional
           href: regional-presence.md
@@ -129,7 +129,7 @@
         - name: Unidades de solicitação
           displayName: 'RUs, RU'
           href: request-units.md
-        - name: Aprovisionar a taxa de transferência para contêineres e bancos de dados
+        - name: Provisionar a taxa de transferência para contêineres e bancos de dados
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
         - name: Provisionar a taxa de transferência – modo Autopilot
@@ -469,7 +469,7 @@
           href: change-feed.md
         - name: Lendo o feed de alterações
           href: read-change-feed.md
-        - name: Alterar o processador de feed
+        - name: Processador do feed de alterações
           href: change-feed-processor.md
         - name: Disparar Azure Functions
           displayName: change feed
@@ -494,6 +494,8 @@
           href: javascript-query-api.md
     - name: Otimizar o seu custo do Azure Cosmos DB
       items:
+        - name: Planejar e gerenciar custos
+          href: plan-manage-costs.md
         - name: Modelo de preços
           href: how-pricing-works.md
         - name: Custo Total de Propriedade (TCO)
@@ -513,7 +515,7 @@
           href: optimize-cost-regions.md
         - name: Otimizar o custo de desenvolvimento/teste
           href: optimize-dev-test.md
-        - name: Otimizar o custo com a capacidade reserva
+        - name: Otimizar o custo com a capacidade reservada
           href: cosmos-db-reserved-capacity.md
     - name: Segurança
       items:
@@ -526,7 +528,7 @@
           href: secure-access-to-data.md
         - name: Firewall de IP
           href: firewall-support.md
-        - name: Acessar por meio das redes virtuais
+        - name: Acessar nas redes virtuais
           href: vnet-service-endpoint.md
         - name: Controle de acesso baseado em função
           displayName: rbac
@@ -546,7 +548,7 @@
 - name: 'Cassandra, MongoDB e outras APIs'
   expanded: true
   items:
-    - name: API Cassandra
+    - name: API do Cassandra
       items:
         - name: Introdução
           href: cassandra-introduction.md
@@ -566,7 +568,7 @@
           items:
             - name: 1 – Criar e gerenciar dados
               href: create-cassandra-api-account-java.md
-            - name: 2 – Carregar Dados
+            - name: 2 – Carregar dados
               href: cassandra-api-load-data.md
             - name: 3 – Consultar dados
               href: cassandra-api-query-data.md
@@ -640,13 +642,13 @@
                   items:
                     - name: Parte 1 – Introdução
                       href: tutorial-develop-mongodb-nodejs.md
-                    - name: Parte 2 – criar o aplicativo de nó
+                    - name: Parte 2 – Criar o aplicativo de nó
                       href: tutorial-develop-mongodb-nodejs-part2.md
                     - name: Parte 3 – Adicionar interface do usuário com Angular
                       href: tutorial-develop-mongodb-nodejs-part3.md
                     - name: Parte 4 – Criar uma conta
                       href: tutorial-develop-mongodb-nodejs-part4.md
-                    - name: Parte 5 – Conectar-se ao Cosmos DB
+                    - name: Parte 5 – Conectar Cosmos DB
                       href: tutorial-develop-mongodb-nodejs-part5.md
                     - name: Parte 6 – Executar operações CRUD
                       href: tutorial-develop-mongodb-nodejs-part6.md
@@ -805,7 +807,7 @@
               maintainContext: true
         - name: Guias de instruções
           items:
-            - name: Compilar aplicativos com a API de tabela
+            - name: Criar aplicativos com a API de tabela
               href: table-support.md
             - name: Guia de criação de armazenamento de tabelas
               href: table-storage-design-guide.md
@@ -967,7 +969,7 @@
       items:
         - name: Configurar firewall do IP
           href: how-to-configure-firewall.md
-        - name: Configurar acesso por meio das redes virtuais
+        - name: Configurar acesso nas redes virtuais
           href: how-to-configure-vnet-service-endpoint.md
         - name: Configurar o acesso de pontos de extremidade privados
           href: how-to-configure-private-endpoints.md
@@ -986,7 +988,7 @@
           href: how-to-setup-cmk.md
     - name: Preparação corporativa
       items:
-        - name: Restaurar dados do backup
+        - name: Restaurar dados no backup
           href: how-to-backup-and-restore.md
     - name: Monitoramento
       items:
@@ -1037,10 +1039,10 @@
             - name: Associações de função do Azure
               href: /azure/azure-functions/functions-bindings-cosmosdb
               maintainContext: true
-        - name: Fábrica de dados do Azure
+        - name: Azure Data Factory
           href: /azure/data-factory/connector-azure-cosmos-db
           maintainContext: true
-        - name: Stream Analytics do Azure
+        - name: Azure Stream Analytics
           href: '/azure/stream-analytics/stream-analytics-define-outputs#azure-cosmos-db'
           maintainContext: true
         - name: Hubs de Eventos do Azure e Armazenamento do Azure
@@ -1113,7 +1115,7 @@
       href: /learn/browse/?products=azure-cosmos-db
     - name: Roteiro de consulta
       href: query-cheat-sheet.md
-    - name: Espaço de consulta
+    - name: Playground SQL
       href: 'https://aka.ms/cosmos-db-playground'
     - name: Perguntas frequentes
       href: faq.md
