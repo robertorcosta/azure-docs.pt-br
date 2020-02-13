@@ -2,16 +2,16 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/21/2019
+ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 942636a6ff6dcfe74a04a66d67a4490224b4538e
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2f9e02af0652108fe10e4b73e7bb43c48451ca77
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72391540"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77123188"
 ---
-Para criar um projeto do Visual Studio para desenvolvimento desktop em C++, você precisa configurar as opções de desenvolvimento do Visual Studio, criar o projeto, selecionar a arquitetura de destino e instalar o SDK de Fala. 
+Para criar um projeto do Visual Studio para desenvolvimento desktop em C++, você precisa configurar as opções de desenvolvimento do Visual Studio, criar o projeto, selecionar a arquitetura de destino e instalar o SDK de Fala.
 
 ### <a name="set-up-visual-studio-development-options"></a>Configurar as opções de desenvolvimento do Visual Studio
 
@@ -19,7 +19,7 @@ Para começar, verifique se o Visual Studio está configurado corretamente para 
 
 1. Abra o Visual Studio 2019 para exibir a janela **Iniciar**.
 
-   ![Janela inicial – Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png) 
+   ![Janela inicial – Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png)
 
 1. Selecione **Continuar sem código** para acessar o IDE do Visual Studio.
 
@@ -77,4 +77,4 @@ Por fim, instale o [pacote NuGet do SDK de Fala](https://aka.ms/csspeech/nuget) 
 
 1. Na caixa de diálogo **Visualizar Alterações**, selecione **OK**.
 
-1. Na caixa de diálogo **Aceitação da Licença**, exiba a licença e, em seguida, selecione **Aceito**. A instalação do pacote começa e, ao ser concluída, o painel **Saída** exibe uma mensagem semelhante ao seguinte texto: `Successfully installed 'Microsoft.CognitiveServices.Speech 1.7.0' to helloworld`. 
+1. Na caixa de diálogo **Aceitação da Licença**, exiba a licença e, em seguida, selecione **Aceito**. A instalação do pacote começa e, ao ser concluída, o painel **Saída** exibe uma mensagem semelhante ao seguinte texto: `Successfully installed 'Microsoft.CognitiveServices.Speech 1.9.0' to helloworld`.

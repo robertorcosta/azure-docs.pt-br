@@ -3,19 +3,19 @@ title: 'Início Rápido: Assistente de voz personalizado para Java (Windows, Lin
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você aprenderá a usar o SDK de Fala dos Serviços Cognitivos em um aplicativo de console Java. Você aprenderá a conectar seu aplicativo cliente a um bot Bot Framework criado anteriormente, configurado para usar o canal de Fala do Direct Line e proporcionar uma experiência de assistente de voz.
 services: cognitive-services
-author: bidishac
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/05/2019
-ms.author: bidishac
-ms.openlocfilehash: 29f6596408a825a571682d14aceca01fa8108515
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: 45719eebb9cd74b0a5c4278e87b90978dcc3790f
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815860"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119684"
 ---
 # <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-java-preview"></a>Início Rápido: Criar um assistente de voz com o SDK de Fala, Java (Versão prévia)
 
@@ -474,7 +474,7 @@ Amostras adicionais, por exemplo, como ler a fala de um arquivo de áudio, estã
 > [!div class="nextstepaction"]
 > [Criar e implantar um bot básico](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - [Sobre os assistentes de voz](voice-assistants.md)
 - [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](get-started.md)

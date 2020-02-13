@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 33e1037a0fe261f9fb0d06a9ebb0b3b323fe8d5f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 5657a2d2c348b371f81aed74c92e52b5199cdc61
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701256"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159873"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Conectar usuários e chamar a API do Microsoft Graph de um SPA (aplicativo de página única) JavaScript
 
@@ -50,8 +50,8 @@ Este guia usa a seguinte biblioteca:
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Versão prévia da Biblioteca de Autenticação da Microsoft para JavaScript|
 
 > [!NOTE]
-> *Msal.js* tem como destino o ponto de extremidade da plataforma de identidade da Microsoft, que permite que contas pessoais, corporativas e de estudante entrem e adquiram tokens. O ponto de extremidade da plataforma de identidade da Microsoft tem [algumas limitações](azure-ad-endpoint-comparison.md#limitations).
-> Para entender as diferenças entre os pontos de extremidade v1.0 e v2.0, confira o [guia de comparação de pontos de extremidade](azure-ad-endpoint-comparison.md).
+> *Msal.js* tem como destino o ponto de extremidade da plataforma de identidade da Microsoft, que permite que contas pessoais, corporativas e de estudante entrem e adquiram tokens. O ponto de extremidade da plataforma de identidade da Microsoft tem [algumas limitações](../azuread-dev/azure-ad-endpoint-comparison.md#limitations).
+> Para entender as diferenças entre os pontos de extremidade v1.0 e v2.0, confira o [guia de comparação de pontos de extremidade](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 <!--end-collapse-->
 
@@ -65,7 +65,7 @@ Este guia usa a seguinte biblioteca:
 >
 > Pule para a [etapa de configuração](#register-your-application) a fim de configurar o exemplo de código antes de executá-lo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Para executar este tutorial, é necessário um servidor Web local como [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core) ou a integração do IIS Express com o [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 

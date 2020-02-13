@@ -3,20 +3,20 @@ title: 'Início Rápido: Traduzir uma fala para vários idiomas – Serviço de 
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você usará o SDK de Fala para traduzir de maneira interativa uma fala em um idioma para uma fala em outro idioma.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.author: erhopf
+ms.date: 02/10/2020
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: b4ac6e7628559520dee9859c8da2f2985c0b7aa5
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 7f68e3a1a6dd1e3583b9cd1c44fdb311137584e3
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74817299"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119225"
 ---
 # <a name="quickstart-translate-speech-to-multiple-languages"></a>Início Rápido: Traduzir fala para vários idiomas
 

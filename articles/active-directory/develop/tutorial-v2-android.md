@@ -3,7 +3,7 @@ title: Entrar e sair com os usuários e chamar o Microsoft Graph (Android) – P
 description: Obtenha um token de acesso e chame o Microsoft Graph ou as APIs que exigem tokens de acesso por meio da plataforma de identidade da Microsoft (Android)
 services: active-directory
 documentationcenter: dev-center-name
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -15,12 +15,12 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: d851e23e8f6915c7d52565f18eff4a73bd96c9c0
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 4366f95a9c6d5c0e6b851583ac6001b3b413c08a
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76758828"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085399"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-from-an-android-application"></a>Tutorial: Entrar com os usuários e chamar o Microsoft Graph em um aplicativo Android 
 
@@ -58,7 +58,7 @@ Esta amostra usa a MSAL (Biblioteca de Autenticação da Microsoft) para Android
 
  A MSAL automaticamente renovará tokens, fornecerá o SSO (logon único) entre outros aplicativos no dispositivo e ajudará a gerenciar as contas.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Pré-requisitos
 
 * Este tutorial exige o Android Studio versão 3.5+
 

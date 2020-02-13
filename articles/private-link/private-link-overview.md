@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 01/09/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6e2c1af03d5d6ccfbcb15a2dd33bc2e987be4d48
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 810f2b376e9983743617dae77d74d596a7fbe663
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543113"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084190"
 ---
 # <a name="what-is-azure-private-link-preview"></a>O que é o Link Privado do Azure? (Visualização)
 O Link Privado do Azure te habilita a acessar os serviços de PaaS do Azure (por exemplo, Armazenamento do Azure e Banco de Dados SQL e Azure Cosmos DB) e serviços de parceiros/clientes hospedados no Azure em um [Ponto de Extremidade Privado](private-endpoint-overview.md) em sua rede virtual. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Também é possível criar seu próprio [Serviço de Link Privado](private-link-service-overview.md) em sua VNet (rede virtual) e fornecê-lo de forma privada aos seus clientes. A experiência de configuração e consumo usando o Link Privado do Azure é consistente entre os serviços de parceiro de PaaS do Azure, de propriedade do cliente e de parceiros compartilhados.
@@ -50,6 +50,7 @@ O Link Privado do Azure fornece os seguintes benefícios:
 |  |  Banco de Dados do Azure para PostgreSQL – Servidor único         | Todas as regiões públicas      |   Visualização      |
 |  |  Banco de Dados do Azure para MySQL         | Todas as regiões públicas      |   Visualização      |
 |  |  Banco de Dados do Azure para MariaDB         | Todas as regiões públicas      |   Visualização      |
+|  |  Cofre de Chave do Azure         | Todas as regiões públicas      |   Visualização      |
 
 Para obter as notificações mais recentes, confira a página [Atualizações de rede virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 

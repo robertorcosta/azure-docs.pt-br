@@ -3,20 +3,20 @@ title: O que é o ML Studio (clássico)?
 titleSuffix: Azure
 description: O Azure Machine Learning Studio (clássico) é uma ferramenta do tipo "arrastar e soltar" para criação rápida de modelos com base em uma biblioteca pronta para uso de algoritmos e módulos.
 services: machine-learning
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 10/17/2019
-ms.openlocfilehash: f3be29dc222e0e9b98ed51d8f921fb9926b018ca
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: be3a07eb2d4232d27a5b41ddc4258c89b79729bf
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314056"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169032"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>O que é Machine Learning Studio (clássico)?
 
@@ -38,13 +38,13 @@ Não há necessidade de programação, conecte visualmente os conjuntos de dados
 <a name="compare"></a>
 ## <a name="how-does-machine-learning-studio-classic-differ-from-azure-machine-learning"></a>Qual é a diferença entre o Machine Learning Studio (clássico) e o Azure Machine Learning?
 
-O [Azure Machine Learning](../overview-what-is-azure-ml.md) fornece SDKs **-e-** o designer do Azure Machine Learning para preparar dados rapidamente e treinar e implantar modelos de machine learning. O designer oferece uma experiência do tipo "arrastar e soltar" semelhante para o Studio (clássico). No entanto, ao contrário da plataforma de computação proprietária do Studio, o designer (clássico) usa seus próprios recursos de computação e é totalmente integrada ao Azure Machine Learning.
+O[ Azure Machine Learning](../overview-what-is-azure-ml.md) fornece SDKs **-e-** uma interface visual (versão prévia) para preparar dados rapidamente e treinar e implantar modelos de machine learning. O designer oferece uma experiência do tipo "arrastar e soltar" semelhante para o Studio (clássico). No entanto, ao contrário da plataforma de computação proprietária do Studio, o designer (clássico) usa seus próprios recursos de computação e é totalmente integrada ao Azure Machine Learning.
 
 Veja uma comparação rápida:
 
 || Machine Learning Studio (clássico) | Azure Machine Learning |
 |---| --- | --- |
-| Interface de "arrastar e soltar" | Sim | Sim – [Designer do Azure Machine Learning](../concept-designer.md) |
+| Interface de "arrastar e soltar" | Sim | Sim - [Azure Machine Learning Designer (versão prévia)](../concept-designer.md) |
 | Experimento | Escalável (limite de 10 GB para dados de treinamento) | Escala com destino de computação |
 | Módulos para interface do tipo "arrastar e soltar" | Muitos | Conjunto inicial de [módulos populares](../algorithm-module-reference/module-reference.md)|
 |Destinos de computação de treinamento| Destino de computação proprietário, apenas suporte à CPU| Dá suporte à computação do Azure Machine Learning, GPU ou CPU e VMs de notebook.<br/>([Outros serviços de computação](../concept-compute-target.md#train) com suporte no SDK)|

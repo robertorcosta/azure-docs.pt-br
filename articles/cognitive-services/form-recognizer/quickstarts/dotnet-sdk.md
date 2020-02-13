@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 8fd938e685c712cda60c171ccf9092ff42e6037e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b9db9daf06b59e1a26a9b03a93aff63984841862
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446488"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118356"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Início Rápido: Biblioteca de clientes do Reconhecimento de Formulários para .NET
 
@@ -30,10 +30,9 @@ Use a biblioteca de clientes do Reconhecimento de Formulários para .NET para:
 
 [Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/FormRecognizer) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/).
-* Acesso à versão prévia de acesso limitado do Reconhecimento de Formulários. Para obter acesso à versão prévia, preencha e envie o formulário de [Solicitação de acesso ao Reconhecimento de Formulários](https://aka.ms/FormRecognizerRequestAccess).
 * Um blob do Armazenamento do Azure contendo um conjunto de dados de treinamento. Veja [Criar um conjunto de dados de treinamento para um modelo personalizado](../build-training-data-set.md) para obter dicas e opções para compilar os dados de treinamento. Para este guia de início rápido, você pode usar os arquivos na pasta **Train** do [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451).
 * A versão atual do [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
@@ -91,7 +90,7 @@ Se você estiver usando o IDE do Visual Studio, a biblioteca de clientes estará
 
 As classes a seguir tratam da funcionalidade principal do SDK do Reconhecimento de Formulários.
 
-|Nome|DESCRIÇÃO|
+|Nome|Descrição|
 |---|---|
 |[FormRecognizerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.formrecognizerclient?view=azure-dotnet-preview)|Essa classe é necessária para toda a funcionalidade do Reconhecimento de Formulários. Você a instancia com suas informações de assinatura e a usa para produzir instâncias de outras classes.|
 |[TrainRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.trainrequest?view=azure-dotnet-preview)| Você usa essa classe para treinar um modelo de Reconhecimento de Formulários personalizado usando seus próprios dados de entrada de treinamento. |

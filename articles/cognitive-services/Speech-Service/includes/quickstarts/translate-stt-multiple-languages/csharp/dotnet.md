@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: b285492fd32e39a577c37a45c76ac08145ffda81
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bfb272f1d15003fd416efa8655e31034e5276ff3
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75468916"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156630"
 ---
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, é preciso:
 
@@ -43,7 +43,8 @@ Antes de começar, é preciso:
            public static async Task TranslateSpeechToText()
            {
                // Creates an instance of a speech translation config with specified subscription key and service region.
-               // Replace with your own subscription key and service region (e.g., "westus").
+               // Replace with your own subscription key and service region (e.g., "westus", use the one of SpeechSDKParameters
+               // from here: https://aka.ms/speech/sdkregion).   
                var config = SpeechTranslationConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
                // Sets source and target languages.

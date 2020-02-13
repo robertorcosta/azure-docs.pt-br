@@ -3,20 +3,20 @@ title: 'Início Rápido: Reconhecer uma fala armazenada no Armazenamento de Blob
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você usará a API REST de Transcrição em Lote para reconhecer de forma assíncrona a fala armazenada em um blob SAS.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.author: erhopf
+ms.date: 02/10/2020
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 944d6bf174e35934b2173af0a1967226707d82b7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: df06d41e72026295de4673fd272c07d510e639fd
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682030"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119369"
 ---
 # <a name="quickstart-recognize-speech-stored-in-blob-storage"></a>Início Rápido: Reconhecer uma fala armazenada no Armazenamento de Blobs
 

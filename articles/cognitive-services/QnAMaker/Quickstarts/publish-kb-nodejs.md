@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: 3ca664afc458f794e07782354d0bad5c46c66537
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3df0a486baa2184a58ac33c24a5d13973885890f
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451086"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109513"
 ---
 # <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Início Rápido: APIs REST do QnA Maker para Node.js
 
@@ -34,7 +34,7 @@ Use as APIs REST do QnA Maker para Node.js para:
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * A versão atual do [Node.js](https://nodejs.org).

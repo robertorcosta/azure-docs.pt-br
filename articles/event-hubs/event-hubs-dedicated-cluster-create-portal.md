@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 12/20/2019
 ms.author: femila
-ms.openlocfilehash: 7003cc90bdb456eba9cfaebc1e24332d2e4a6251
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 5b1574eaac8771043e09500225b65e4835c8e627
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77029921"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157475"
 ---
 # <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Início Rápido: Criar um cluster dos Hubs de Eventos dedicados usando o portal do Azure 
 Os clusters de Hubs de Eventos oferecem implantações de locatário único para clientes com exigências de streaming mais rígidas. Essa oferta tem um SLA de 99,99% garantido e está disponível apenas em nossa camada de preços Dedicada. Um [cluster de Hubs de Eventos](event-hubs-dedicated-overview.md) pode inserir milhões de eventos por segundo com latência de subsegundos e capacidade garantida. Os namespaces e hubs de eventos criados dentro de um cluster incluem todos os recursos da oferta padrão e muito mais, mas sem limites de entrada. A oferta Dedicada também inclui o famoso recurso [Captura de Hubs de Eventos](event-hubs-capture-overview.md) sem custo adicional permitindo que você automaticamente agrupe e registre os fluxos de dados no [Armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md) ou [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md).
@@ -26,7 +26,7 @@ Clusters dedicados são provisionados e cobrados por **Unidades de Capacidade (C
 > Atualmente, essa experiência de autoatendimento está disponível em versão prévia no [Portal do Azure](https://aka.ms/eventhubsclusterquickstart). Se você tiver alguma dúvida sobre a oferta Dedicada, entre em contato com o [equipe de Hubs de Eventos](mailto:askeventhubs@microsoft.com).
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este início rápido, verifique se você tem:
 
 - Uma conta do Azure. Se você não tiver, [compre uma conta](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) antes de começar. Esse recurso não tem suporte com uma conta gratuita do Azure. 
@@ -106,6 +106,10 @@ Se quiser alterar o tamanho do cluster após a criação ou se a região preferi
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você criou um cluster de Hubs de Eventos. Para obter instruções passo a passo para enviar e receber eventos de um hub de eventos e capturar os eventos para um Armazenamento do Azure ou Azure Data Lake Storage, veja os tutoriais a seguir:
 
-- [Enviar e receber eventos no .NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- Enviar e receber eventos 
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 - [Usar o portal do Azure para habilitar a Captura dos Hubs de Eventos](event-hubs-capture-enable-through-portal.md)
 - [Hubs de Eventos do Azure para Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)

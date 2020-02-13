@@ -3,18 +3,18 @@ title: Início Rápido – Monitorar seus dispositivos no Azure IoT Central
 description: Como um operador, aprenda a usar seu aplicativo Azure IoT Central para monitorar seus dispositivos.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/09/2019
+ms.date: 02/12/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: e5185d78b0ffc17e861f49d294af65ddcd200d07
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: e56b733a567c706c2a15f2c30ed93a47c244db11
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026159"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168706"
 ---
 # <a name="quickstart-use-azure-iot-central-to-monitor-your-devices"></a>Início Rápido: Use o Azure IoT Central para monitorar seus dispositivos
 
@@ -22,7 +22,7 @@ ms.locfileid: "77026159"
 
 Este início rápido mostra a você, como um operador, como usar o aplicativo do Microsoft Azure IoT Central para monitorar seus dispositivos e alterar as configurações.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, você deve concluir os três inícios rápidos anteriores [Criar um aplicativo do Azure IoT Central](./quick-deploy-iot-central.md), [Adicionar um dispositivo simulado ao seu aplicativo do IoT Central](./quick-create-pnp-device.md) e [Configurar regras e ações para seu dispositivo](quick-configure-rules.md).
 
@@ -41,8 +41,6 @@ A exibição **Visão geral** do dispositivo simulado que você criou nos iníci
 ## <a name="investigate-an-issue"></a>Investigar um problema
 
 Como um operador, você pode exibir informações sobre o dispositivo nas exibições **Visão geral**, **Sobre** e **Comandos**. O construtor criou uma exibição **Gerenciar dispositivos** para que você edite informações do dispositivo e defina as propriedades do dispositivo.
-
-Escolha a exibição **Visão geral** para ver informações sobre o dispositivo.
 
 O gráfico no painel mostra um gráfico de temperatura do dispositivo. Você decide se a temperatura do dispositivo está muito alta.
 

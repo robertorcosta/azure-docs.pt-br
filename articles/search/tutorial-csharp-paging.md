@@ -3,17 +3,17 @@ title: Tutorial de C# sobre a paginação de resultados da pesquisa
 titleSuffix: Azure Cognitive Search
 description: Este tutorial demostra a paginação dos resultados da pesquisa. Ele se baseia em um projeto de hotéis existente, com paginação usando os botões primeiro, próximo, anterior, último e de número. Um segundo sistema de paginação usa a rolagem infinita, acionada movendo uma barra de rolagem vertical até seu limite inferior.
 manager: nitinme
-author: PeterTurcan
-ms.author: v-pettur
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 04f8229a86fbd8fbd5404997926412e760e74973
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/10/2020
+ms.openlocfilehash: 9abfeb54be6e22885b8e973034a6d89df8272146
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113757"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121510"
 ---
 # <a name="c-tutorial-search-results-pagination---azure-cognitive-search"></a>Tutorial do C#: Paginação dos resultados da pesquisa – Pesquisa Cognitiva do Azure
 

@@ -10,18 +10,18 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: ca0c1174abb80452f78766c3c4f49af73c790d3e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d67075fad719b1780682c705f0e17f15c5801559
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448689"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136160"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-python-sdk"></a>Início Rápido: Chamar o ponto de extremidade da Pesquisa Personalizada do Bing usando o SDK do Python 
 
 Use este início rápido para começar a solicitar os resultados da pesquisa na instância da Pesquisa Personalizada do Bing, usando o SDK do Python. Embora a Pesquisa Personalizada do Bing tenha uma API REST compatível com a maioria das linguagens de programação, o SDK da Pesquisa Personalizada do Bing fornece uma maneira fácil de integrar o serviço aos seus aplicativos. O código-fonte desse exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/custom_search_samples.py) com anotações e tratamento de erro adicionais.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma instância da Pesquisa Personalizada do Bing. Confira [Início Rápido: Criar sua primeira instância da Pesquisa Personalizada do Bing](quick-start.md) para obter mais informações.
 - Python [2.x ou 3.x](https://www.python.org/) 
@@ -51,12 +51,13 @@ from msrest.authentication import CognitiveServicesCredentials
 
     ```python
     subscription_key = 'your-subscription-key'
+    endpoint = 'your-custom-endpoint'
     ```
 
 2. Crie uma instância de `CustomSearchClient` usando um objeto `CognitiveServicesCredentials` com a chave da assinatura. 
 
     ```python
-    client = CustomSearchClient(CognitiveServicesCredentials(subscription_key))
+    client = CustomSearchClient(endpoint, CognitiveServicesCredentials(subscription_key))
     ```
 
 3. Envie uma solicitação de pesquisa com `client.custom_instance.search()`. Acrescente o termo de pesquisa ao parâmetro `query` e defina `custom_config` para a sua ID de configuração personalizada para usar a instância de pesquisa. Você pode obter sua ID do [portal da Pesquisa Personalizada do Bing](https://www.customsearch.ai/), clicando na guia **Produção**.

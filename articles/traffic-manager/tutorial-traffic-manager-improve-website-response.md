@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: rohink
-ms.openlocfilehash: 9027b1574144e2addbc84fceb16deba9014826fe
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: f7778b60a5e84f5d8900b8e37bfa655a7915d403
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938406"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136396"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Tutorial: Melhorar a resposta de site usando o Gerenciador de Tráfego
 
@@ -34,7 +34,7 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para ver o Gerenciador de Tráfego em ação, este tutorial exige que você implante o seguinte:
 
@@ -43,7 +43,7 @@ Para ver o Gerenciador de Tráfego em ação, este tutorial exige que você impl
 
 ### <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no Portal do Azure em https://portal.azure.com.
+Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ### <a name="create-websites"></a>Criar sites
 

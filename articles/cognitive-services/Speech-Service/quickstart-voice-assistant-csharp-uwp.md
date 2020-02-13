@@ -3,19 +3,19 @@ title: 'Início Rápido: Assistente de voz personalizado, C# (UWP) – Serviço 
 titleSuffix: Azure Cognitive Services
 description: Neste artigo, você criará um aplicativo UWP (Plataforma Universal do Windows) em C# usando o SDK (Software Development Kit) de Fala dos Serviços Cognitivos. Você conectará seu aplicativo cliente a um bot do Bot Framework criado anteriormente, configurado para usar o canal de Fala do Direct Line. O aplicativo é criado com o Pacote NuGet do SDK de Fala e o Microsoft Visual Studio 2019.
 services: cognitive-services
-author: trrwilson
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/05/2019
-ms.author: travisw
-ms.openlocfilehash: 25d74b640f1bf567792c317626da0178ead7e34f
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: af9395b8f75a9097d4449571fd54be6259a7b9f3
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816233"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119790"
 ---
 # <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-uwp"></a>Início Rápido: Criar um assistente de voz com o SDK de Fala, UWP
 
@@ -419,7 +419,7 @@ Agora, você está pronto para criar e testar seu aplicativo.
 > [!div class="nextstepaction"]
 > [Criar e implantar um bot básico](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - [Sobre os assistentes de voz](voice-assistants.md)
 - [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](get-started.md)

@@ -3,17 +3,17 @@ title: 'Início Rápido: Criar um serviço de pesquisa no portal'
 titleSuffix: Azure Cognitive Search
 description: Neste guia de início rápido do portal, saiba como configurar um recurso do Azure Cognitive Search no portal do Azure. Escolha os grupos de recursos, as regiões, o SKU ou o tipo de preço.
 manager: nitinme
-author: HeidiSteen
-ms.author: heidist
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: ec794f66866f9773f8b7c0fc57b644d8a13d697a
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 02/10/2020
+ms.openlocfilehash: bd4798ba4faa1808ecafb6d09eee09ba734c293d
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534559"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121713"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Início Rápido: Criar um serviço da Pesquisa Cognitiva do Azure no portal
 
@@ -33,7 +33,7 @@ Alternativamente, você pode [ativar os benefícios de assinante MSDN](https://a
 
 ## <a name="find-azure-cognitive-search"></a>Localizar a Pesquisa Cognitiva do Azure
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Clique no sinal de adição ("+ Criar Recurso") no canto superior esquerdo.
 3. Use a barra de pesquisa para localizar a "Pesquisa Cognitiva do Azure" ou navegue para o recurso por meio de **Web** > **Pesquisa Cognitiva do Azure**.
 

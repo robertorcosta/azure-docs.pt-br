@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: a6ad8156b5ab6370bb089c97d620bae0ccff82eb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 33cc4caa8b5901177699368e2f31908951910a6f
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381453"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109581"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Início Rápido: Publicar uma base de dados de conhecimento no QnA Maker usando C#
 
@@ -25,7 +25,7 @@ Esse início rápido baseado em REST orienta você durante a publicação progra
 Este início rápido chama as APIs de QnA Maker:
 * [Publicar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) – esta API não requer nenhuma informação no corpo da solicitação.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [**Edição mais recente do Visual Studio Community**](https://www.visualstudio.com/downloads/).
 * Você precisa ter um [serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar a chave e o ponto de extremidade (que inclui o nome do recurso), selecione **Início Rápido** para o recurso no portal do Azure.
@@ -73,7 +73,7 @@ Após sua base de dados de conhecimento ser publicada, você poderá consultá-l
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Após a publicação da base de dados de conhecimento, você precisa da [URL do ponto de extremidade para gerar uma resposta](../Tutorials/create-publish-answer.md#generating-an-answer).
+Após a publicação da base de dados de conhecimento, você precisa da [URL do ponto de extremidade para gerar uma resposta](./get-answer-from-knowledge-base-csharp.md).
 
 > [!div class="nextstepaction"]
 > [Referência da API REST do QnA Maker (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)

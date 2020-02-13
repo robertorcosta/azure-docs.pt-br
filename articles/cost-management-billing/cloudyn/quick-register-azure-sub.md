@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: seodec18
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: 8d1b032ff1805b34359dfa4ca8269bbf82c9ef27
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 084cd852e0211ea494504a0d6e2350df567de0b1
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76774084"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117790"
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Registrar uma assinatura individual do Azure e exibir dados de custo
 
@@ -22,7 +22,7 @@ Você pode usar sua assinatura do Azure para registrar com Cloudyn. O registro f
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-- Entre no Portal do Azure em https://portal.azure.com.
+- Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="register-with-cloudyn"></a>Registrar com Cloudyn
 

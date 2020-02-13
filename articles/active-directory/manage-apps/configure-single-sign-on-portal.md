@@ -13,12 +13,12 @@ ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ROBOTS: NOINDEX
-ms.openlocfilehash: c5e8ed4a78fccce4f3a5c631a99a8729114e5722
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: a415ac749d0d322bc2f71f64d4bec6e32ad1f12e
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422609"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063485"
 ---
 # <a name="how-to-configure-saml-based-single-sign-on"></a>Como configurar o logon único baseado em SAML
 
@@ -34,7 +34,7 @@ Para configurar o logon único para um aplicativo que não seja de galeria *sem 
 - Se o aplicativo não tiver sido adicionado ao seu locatário do Azure AD, confira [Adicionar um aplicativo da galeria](add-gallery-app.md) ou [Adicionar um aplicativo inexistente na galeria](add-non-gallery-app.md).
 - Entre em contato com o fornecedor do aplicativo para obter as informações corretas para as seguintes configurações:
 
-    | Configuração Básica do SAML | Iniciado por SP | iniciado por idP | DESCRIÇÃO |
+    | Configuração Básica do SAML | Iniciado por SP | iniciado por idP | Descrição |
     |:--|:--|:--|:--|
     | Identificador (ID da Entidade) | Obrigatório para alguns aplicativos | Obrigatório para alguns aplicativos | Identifica exclusivamente o aplicativo para o qual o logon único está sendo configurado. O Azure AD envia o identificador para o aplicativo como o parâmetro Audience do token SAML. O aplicativo deve validá-lo. Esse valor também aparece como a ID da entidade em todos os metadados SAML fornecidos pelo aplicativo. *Encontre esse valor como o elemento **Emissor** na **AuthnRequest** (solicitação SAML) enviada pelo aplicativo.* |
     | URL de resposta | Opcional | Obrigatório | Especifica onde o aplicativo espera receber o token SAML. A URL de resposta também é chamada de URL do ACS (Serviço do Consumidor de Declaração). |
@@ -135,4 +135,4 @@ Se uma mensagem de erro for exibida, conclua as seguintes etapas:
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Atribuir usuários e grupos ao aplicativo](methods-for-assigning-users-and-groups.md)
-- [Configurar o provisionamento automático de conta de usuário](configure-automatic-user-provisioning-portal.md)
+- [Configurar o provisionamento automático de conta de usuário](../app-provisioning/configure-automatic-user-provisioning-portal.md)

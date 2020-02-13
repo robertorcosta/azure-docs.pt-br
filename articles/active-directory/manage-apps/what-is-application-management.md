@@ -12,16 +12,16 @@ ms.date: 06/05/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d1ebb4b094ab5c03343486e7af6624273288453
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 7ca73fac06649f801461e53130a67aa9ec0ad0d0
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68421211"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063315"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Gerenciamento de aplicativo com o Azure Active Directory
 
-O Azure AD (Azure Active Directory) simplifica a maneira de gerenciar seus aplicativos, fornecendo um sistema de identidade única para seus aplicativos de nuvem e locais. Você pode adicionar seus aplicativos SaaS (software como serviço), aplicativos locais e aplicativos LOB (linha de negócios) ao Azure AD. Os usuários entram uma vez para acessar com segurança esses aplicativos, juntamente com o Office 365 e outros aplicativos de negócios da Microsoft. Você pode reduzir os custos administrativos [automatizando o provisionamento de usuários](user-provisioning.md). Também é possível usar a autenticação multifator e as políticas de Acesso Condicional para oferecer acesso seguro aos aplicativos.
+O Azure AD (Azure Active Directory) simplifica a maneira de gerenciar seus aplicativos, fornecendo um sistema de identidade única para seus aplicativos de nuvem e locais. Você pode adicionar seus aplicativos SaaS (software como serviço), aplicativos locais e aplicativos LOB (linha de negócios) ao Azure AD. Os usuários entram uma vez para acessar com segurança esses aplicativos, juntamente com o Office 365 e outros aplicativos de negócios da Microsoft. Você pode reduzir os custos administrativos [automatizando o provisionamento de usuários](../app-provisioning/user-provisioning.md). Também é possível usar a autenticação multifator e as políticas de Acesso Condicional para oferecer acesso seguro aos aplicativos.
 
 ![Diagrama que mostra aplicativos federados por meio do Azure AD](media/what-is-application-management/app-management-overview.png)
 

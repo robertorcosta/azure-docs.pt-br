@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 171f06ad238f862adbd7071ee10d81133d7a6855
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 808a17fcf303c6eb72f11f5379fa172302dc782a
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022130"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77059838"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Como criar soluções de varejo com o Azure IoT Central
 
@@ -160,7 +160,7 @@ A captura de tela a seguir mostra o painel integrado no modelo de aplicativo. O 
 > [!div class="mx-imgBorder"]
 > ![Microcentral de atendimento](./media/overview-iot-central-retail/MFC-Dashboard.png)
 
-Para saber mais, confira o tutorial [Implantar e seguir passo a passo o modelo de aplicativo da microcentral de atendimento](./tutorial-iot-central-smart-inventory-management-pnp.md).
+Para saber mais, confira o tutorial [Implantar e seguir passo a passo o modelo de aplicativo da microcentral de atendimento](./tutorial-micro-fulfillment-center-pnp.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -170,5 +170,5 @@ Para começar a criar uma solução de varejo:
 * [Implantar e usar um modelo de aplicativo de logística conectada](./tutorial-iot-central-connected-logistics-pnp.md).
 * [Implantar e usar um modelo de aplicativo do centro de distribuição digital](./tutorial-iot-central-digital-distribution-center-pnp.md).
 * [Implantar e usar um modelo de aplicativo de gerenciamento de estoque inteligente](./tutorial-iot-central-smart-inventory-management-pnp.md).
-* [Implantar e seguir passo a passo o modelo de aplicativo da microcentral de atendimento](./tutorial-iot-central-smart-inventory-management-pnp.md).
+* [Implantar e seguir passo a passo o modelo de aplicativo da microcentral de atendimento](./tutorial-micro-fulfillment-center-pnp.md).
 * Saiba mais sobre o IoT Central na [Visão geral do IoT Central](../preview/overview-iot-central.md).

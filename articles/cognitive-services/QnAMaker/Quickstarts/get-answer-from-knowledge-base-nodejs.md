@@ -2,15 +2,15 @@
 title: 'Início Rápido: Obter respostas da base de dados de conhecimento – REST, Node.js – QnA Maker'
 description: Este início rápido de Node.js baseado em REST fornece uma orientação para obtenção de uma resposta de uma base de dados de conhecimento de forma programática.
 ms.topic: quickstart
-ms.date: 01/28/2020
+ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCHANGE-20200128
-ms.openlocfilehash: 89c7c71860accb322be522e1a655e4db6288634d
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e8077235852e8776c4e52403cbac3e4bccc6c4f1
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844238"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109787"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-nodejs"></a>Início Rápido: Obter respostas a uma pergunta de uma base de dados de conhecimento com Node.js
 
@@ -18,7 +18,7 @@ Este início rápido o orienta a obter programaticamente uma resposta de uma bas
 
 [Documentação de referência](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime) | [Amostra](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/get-answer/get-answer.js)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [Node.js](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/)

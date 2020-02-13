@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 01/27/2020
 ms.author: nitinme
-ms.openlocfilehash: 0de0c83b0c459d29c304dbf51eaa44a62e895760
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: d71d9c7e6570e562fe4c692ede1d07b70c923cb6
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773092"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118275"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Tutorial: Usar o Reconhecimento de Formulários com Aplicativos Lógicos do Azure para analisar faturas
 
@@ -31,13 +31,9 @@ Este tutorial abrange:
 > * Configurar o aplicativo lógico para usar um recurso do Reconhecimento de Formulários
 > * Testar o fluxo de trabalho executando o aplicativo lógico
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/).
-
-## <a name="request-access-for-form-recognizer"></a>Solicitar acesso ao Reconhecimento de Formulários
-
-O Reconhecimento de Formulários está disponível em uma versão prévia de acesso limitado. Para obter acesso à versão prévia, preencha e envie o formulário de [Solicitação de acesso ao Reconhecimento de Formulários](https://aka.ms/FormRecognizerRequestAccess). Depois que sua solicitação for aprovada pela equipe dos Serviços Cognitivos do Azure, você receberá um email com instruções para acessar o serviço.
 
 ## <a name="understand-the-invoice-to-be-analyzed"></a>Entender a fatura a ser analisada
 
@@ -86,7 +82,7 @@ Siga estas etapas para configurar seu fluxo de trabalho.
    | **Nome** | <*logic-app-name*> | O nome do aplicativo lógico, que pode conter apenas letras, números, hifens (`-`), sublinhados (`_`), parênteses(`(`, `)`) e pontos (`.`). Este exemplo usa "My-First-Logic-App". |
    | **Assinatura** | <*Azure-subscription-name*> | Seu nome da assinatura do Azure |
    | **Grupo de recursos** | <*Azure-resource-group-name*> | O nome do [grupo de recursos do Azure](./../../azure-resource-manager/management/overview.md) usado para organizar os recursos relacionados. Este exemplo usa "My-First-LA-RG". |
-   | **Localidade** | <*Azure-region*> | A região em que as informações de seu aplicativo lógico serão armazenadas. Este exemplo usa "Leste dos EUA". |
+   | **Localidade** | <*Azure-region*> | A região em que as informações de seu aplicativo lógico serão armazenadas. Este exemplo usa "Oeste dos EUA". |
    | **Log Analytics** | Desativado | Mantenha a configuração **Desligado** para o log de diagnósticos. |
    ||||
 

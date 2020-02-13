@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 25c51067f713b5d713684e5d267c133c21b17c93
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ecb42d200eb8808f6bfa4cfb91e98909e350038b
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978519"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118613"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutorial: Criar um aplicativo de tradução com o WPF
 
@@ -37,12 +37,12 @@ Neste tutorial, você aprenderá como:
 
 Essa lista inclui os Serviços Cognitivos usados neste tutorial. Siga o link para navegar até a referência de API de cada recurso.
 
-| Serviço | Recurso | DESCRIÇÃO |
+| Serviço | Recurso | Descrição |
 |---------|---------|-------------|
 | Conversor de Texto | [Obter Idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Recupera uma lista completa dos idiomas com suporte para tradução de texto. |
 | Conversor de Texto | [Translate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Traduz textos para mais de 60 idiomas. |
 | Conversor de Texto | [Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Detecta o idioma do texto de entrada. Inclui a pontuação de confiança para detecção. |
-| Verificação Ortográfica do Bing | [Verificação Ortográfica](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Corrige erros de ortografia para melhorar a precisão da tradução. |
+| Verificação Ortográfica do Bing | [Verificação ortográfica](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Corrige erros de ortografia para melhorar a precisão da tradução. |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -114,7 +114,7 @@ Vamos dar uma olhada no que estamos criando.
 
 A interface do usuário inclui estes componentes:
 
-| NOME | Type | DESCRIÇÃO |
+| Nome | Type | Descrição |
 |------|------|-------------|
 | `FromLanguageComboBox` | ComboBox | Exibe uma lista dos idiomas compatíveis com o Microsoft Translator para a tradução de texto. O usuário seleciona o idioma a partir do qual traduzir. |
 | `ToLanguageComboBox` | ComboBox | Exibe a mesma lista de idiomas de `FromComboBox`, mas é usada para selecionar o idioma para o qual usuário está traduzindo. |
@@ -250,7 +250,7 @@ Todo o nosso projeto é encapsulado na classe `MainWindow : Window`. Vamos come�
 
 Neste bloco de código, declaramos duas variáveis membro que contêm informações sobre os idiomas disponíveis para tradução:
 
-| Variável | Type | DESCRIÇÃO |
+| Variável | Type | Descrição |
 |----------|------|-------------|
 |`languageCodes` | Matriz de cadeias de caracteres |Armazena em cache os códigos do idioma. O serviço Translator usa códigos curtos, como `en` para português, para identificar os idiomas. |
 |`languageCodesAndTitles` | Dicionário classificado | Mapeia os nomes "amigáveis" na interface do usuário de volta para os códigos curtos usados na API. A classificação é em ordem alfabética, sem diferenciar as letras maiúsculas e minúsculas. |

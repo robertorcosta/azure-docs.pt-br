@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2019
 ms.author: banders
-ms.openlocfilehash: 1249758e5dd5b7e823c11890e57549195da22529
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 969fbc3fe0aa614d4284e1442f507f263d48b499
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75984121"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117143"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Tutorial: Examinar sua fatura individual do Azure
 
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá como:
 > * Comparar encargos faturados com o arquivo de uso
 > * Comparar encargos e uso na análise de custo
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você precisa ter uma conta de cobrança paga do *Programa Microsoft Online Services*. A conta é criada quando você se inscreve no Azure por meio do site do Azure. Por exemplo, se você tiver uma [conta com tarifas pagas conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/) ou se for um [assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
@@ -40,7 +40,7 @@ As faturas das [Contas Gratuitas do Azure](https://azure.microsoft.com/offers/ms
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-- Entre no Portal do Azure em https://portal.azure.com.
+- Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="compare-invoiced-charges-with-usage-file"></a>Comparar encargos faturados com o arquivo de uso
 

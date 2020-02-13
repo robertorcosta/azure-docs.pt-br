@@ -3,19 +3,19 @@ title: 'Início Rápido: Criar uma chave LUIS'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você aprenderá a criar um aplicativo LUIS e a obter uma chave.
 services: cognitive-services
-author: wolfma61
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.author: wolfma
-ms.openlocfilehash: 23f0b459b67088518375fbb4fd0b106da3aaf57c
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: 5b1a5ac4867379457d161d07f4f4f2fc2d8ee6c3
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815833"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119603"
 ---
 # <a name="quickstart-getting-a-luis-endpoint-key"></a>Início Rápido: Obter uma chave de ponto de extremidade LUIS
 

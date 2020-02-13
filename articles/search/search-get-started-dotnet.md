@@ -3,18 +3,18 @@ title: 'Início Rápido: Criar um índice de pesquisa em C# usando o .NET'
 titleSuffix: Azure Cognitive Search
 description: Neste início rápido do C#, saiba como criar um índice, carregar dados e executar consultas usando o SDK do .NET do Azure Cognitive Search.
 manager: nitinme
-author: HeidiSteen
-ms.author: heidist
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: 1d8eaea4a6eded769542921851fb0c74a3c9d58b
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 02/10/2020
+ms.openlocfilehash: e9f43f729fc9e08054cd160b82945ee4bcd5821c
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406768"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121655"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-c-using-the-net-sdk"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure em C# usando o SDK do .NET
 > [!div class="op_single_selector"]
@@ -548,7 +548,7 @@ A classe [`DocumentsSearchResult`](https://docs.microsoft.com/dotnet/api/microso
 
     A saída inclui as mesmas mensagens de antes, com a adição de informações de consulta e resultados.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando você está trabalhando em sua própria assinatura, é uma boa ideia identificar, no final de um projeto, se você ainda precisa dos recursos criados. Recursos deixados em execução podem custar dinheiro. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir todo o conjunto de recursos.
 

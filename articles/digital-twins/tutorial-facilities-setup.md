@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 01/10/2020
-ms.openlocfilehash: bf07a165b6ea933719eb06b6625a91033030a120
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 16e4a7e2f06d2630c970f8daa4428e7a184a79df
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895497"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77163034"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Tutorial: Implantar a Versão prévia dos Gêmeos Digitais do Azure e configurar um grafo espacial
 
@@ -36,7 +36,7 @@ No primeiro tutorial desta série, você aprenderá a:
 
 Estes tutoriais usam e modificam os mesmos exemplos que o [início rápido para encontrar salas disponíveis](quickstart-view-occupancy-dotnet.md) usa, para uma cobertura mais detalhada e aprofundada dos conceitos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura do Azure. Se você ainda não tem uma conta do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -52,7 +52,7 @@ Use as etapas nesta seção para criar uma nova instância do serviço Gêmeos D
 
 ## <a name="grant-permissions-to-your-app"></a>Conceder permissões ao aplicativo
 
-Os Gêmeos Digitais usam o [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) (Azure Active Directory) para controlar o [acesso de leitura/gravação](../active-directory/develop/v1-permissions-and-consent.md) ao serviço. Todo aplicativo que precise se conectar à instância dos Gêmeos Digitais deve estar registrado no Azure AD. As etapas nesta seção mostram como registrar seu aplicativo de exemplo.
+Os Gêmeos Digitais usam o [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) (Azure Active Directory) para controlar o [acesso de leitura/gravação](../active-directory/develop/v2-permissions-and-consent.md) ao serviço. Todo aplicativo que precise se conectar à instância dos Gêmeos Digitais deve estar registrado no Azure AD. As etapas nesta seção mostram como registrar seu aplicativo de exemplo.
 
 Se você já tiver um registro de aplicativo, poderá reutilizá-lo para o exemplo. No entanto, percorra esta seção para ter certeza de que o registro do aplicativo está configurado corretamente.
 

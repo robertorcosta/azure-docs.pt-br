@@ -3,19 +3,19 @@ title: 'Início Rápido: Assistente de voz personalizado, Java (Android) – Ser
 titleSuffix: Azure Cognitive Services
 description: Saiba como criar um aplicativo de assistente de voz no Java ou no Android com o SDK de Fala
 services: cognitive-services
-author: trrwilson
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/09/2019
-ms.author: travisw
-ms.openlocfilehash: 70031513d6f120e539e80d6befad4bf9320fb9c4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: d4f84bad6139210dcff3d3f3726d8b7a17d92a5b
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975951"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119739"
 ---
 # <a name="quickstart-create-a-voice-assistant-in-java-on-android-by-using-the-speech-sdk"></a>Início Rápido: Criar um assistente de voz no Java ou no Android com o SDK de Fala
 
@@ -283,7 +283,7 @@ Depois que o aplicativo e sua atividade forem iniciados, clique no botão para c
 > [!div class="nextstepaction"]
 > [Criar e implantar um bot básico](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 - [Sobre os assistentes de voz](voice-assistants.md)
 - [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](get-started.md)
 - [Palavras-chave personalizadas](speech-devices-sdk-create-kws.md)

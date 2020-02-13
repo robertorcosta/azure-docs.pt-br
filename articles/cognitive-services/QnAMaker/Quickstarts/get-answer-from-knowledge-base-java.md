@@ -2,15 +2,15 @@
 title: 'Início Rápido: Obter respostas da base de dados de conhecimento – REST, Java – QnA Maker'
 description: Este início rápido baseado em Java REST orienta você para obter uma resposta de uma base de dados de conhecimento programaticamente.
 ms.topic: quickstart
-ms.date: 01/28/2020
+ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCHANGE-20200128
-ms.openlocfilehash: b65677be32519a9dd2716a2e365abfb2ca1291d6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 96b8b870dc82bfb08aca2a1d1acb2958ff7eb2f3
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842964"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109885"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Início Rápido: Obter respostas a uma pergunta de uma base de dados de conhecimento com Java
 
@@ -18,7 +18,7 @@ Este início rápido o orienta a obter programaticamente uma resposta de uma bas
 
 [Documentação de referência](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime) | [Amostra](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/blob/master/documentation-samples/quickstarts/get-answer/GetAnswer.java)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [JDK SE](https://aka.ms/azure-jdks) (Java Development Kit, Standard Edition)
 * Esse exemplo usa o [cliente HTTP](https://hc.apache.org/httpcomponents-client-ga/) do Apache de componentes HTTP. Você precisa adicionar as bibliotecas de cliente Apache HTTP a seguir ao seu projeto:

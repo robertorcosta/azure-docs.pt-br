@@ -4,12 +4,12 @@ description: Saiba como restaurar um disco e criar uma VM de recuperação no Az
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: f0300930d4dbfb7745f0837eb5fa9605a2e766d7
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: 8a66cee7e844f0049f2d2ca2f6841943aa267f3e
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680539"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114196"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Restaurar um disco e criar uma VM recuperada no Azure
 
@@ -27,7 +27,7 @@ Para obter informações sobre como usar o PowerShell para restaurar um disco e 
 
 Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.18 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial requer uma VM do Linux que tenha sido protegida com o Backup do Azure. Para simular um processo de exclusão acidental e recuperação de VM, você pode criar uma VM de um disco em um ponto de recuperação. Se você precisar de uma VM do Linux que tenha sido protegida com o Backup do Azure, consulte [Back up a virtual machine in Azure with the CLI](quick-backup-vm-cli.md) (Fazer backup de uma máquina virtual no Azure com a CLI).
 
@@ -49,6 +49,7 @@ Para ver uma lista de pontos de recuperação disponíveis, use a [az backup rec
 az backup recoverypoint list \
     --resource-group myResourceGroup \
     --vault-name myRecoveryServicesVault \
+    --backup-management-type AzureIaasVM
     --container-name myVM \
     --item-name myVM \
     --query [0].name \

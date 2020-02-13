@@ -3,7 +3,7 @@ title: Tutorial do MSAL para iOS e macOS – plataforma de identidade da Microso
 description: Saiba como aplicativos iOS e macOS (Swift) podem chamar uma API que exige tokens de acesso usando a plataforma de identidade da Microsoft
 services: active-directory
 documentationcenter: dev-center-name
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -13,12 +13,12 @@ ms.date: 08/30/2019
 ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a3a1b424cdf3c1897efce36b4499de967f85bb1e
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 7704779ff605e28358f6f82c22ccda84d371dba9
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701205"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084378"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Conectar usuários e chamar o Microsoft Graph de um aplicativo iOS ou macOS
 
@@ -44,7 +44,7 @@ Esta amostra usa a MSAL (Biblioteca de Autenticação da Microsoft) para impleme
 
 Este tutorial é aplicável a aplicativos iOS e macOS. Observe que algumas etapas são diferentes entre essas duas plataformas. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - O Xcode versão 10.x ou superior é necessário para criar o aplicativo neste guia. Você pode fazer baixar o XCode no [site do iTunes](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "URL de download do XCode").
 - Biblioteca de Autenticação da Microsoft ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). Você pode usar um gerenciador de dependência ou adicionar a biblioteca manualmente. As instruções abaixo mostram como fazer isso.

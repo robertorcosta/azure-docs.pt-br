@@ -2,18 +2,18 @@
 title: Criar um índice de pesquisa no portal do Azure
 titleSuffix: Azure Cognitive Search
 description: Neste início rápido do portal, saiba como usar o assistente de Importação de Dados para criar, carregar e consultar seu primeiro índice de pesquisa no Azure Cognitive Search.
-author: HeidiSteen
+author: tchristiani
 manager: nitinme
-ms.author: heidist
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: 2ae0e5b53d735b95ce1c3d2f9275456e41319242
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.date: 02/10/2020
+ms.openlocfilehash: 6a3bbdae0d3fa898621c1c805388252beb891ecf
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900997"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121677"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure no portal do Azure
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ As seções no painel de serviço mostram quantos índices, indexadores e fontes
 
 ## <a name="create-index"></a> Criar um índice e carregar dados
 
-As consultas de pesquisa de iteram em um [ *índice* ](search-what-is-an-index.md) que contém dados e metadados pesquisáveis e construções adicionais que otimizam certos comportamentos de pesquisa.
+As consultas de pesquisa de iteram em um [*índice*](search-what-is-an-index.md) que contém dados e metadados pesquisáveis e construções adicionais que otimizam certos comportamentos de pesquisa.
 
 Para este tutorial, usamos um conjunto de dados interno de exemplo que pode ser rastreado com um [*indexador*](search-indexer-overview.md) via [assistente **Importar dados**](search-import-data-portal.md). Um indexador é um rastreador específico de fonte que pode ler metadados e conteúdo de fontes de dados do Azure que tenham suporte. Normalmente, os indexadores são usados de forma programática, mas no portal, você pode acessá-los por meio do assistente para **Importação de dados**. 
 
@@ -134,7 +134,7 @@ Para entender claramente o que é possível editar ou não durante o design de �
 
 ## <a name="query-index"></a> Consulta usando o Search Explorer
 
-Agora você terá um índice de pesquisa que está pronto para consulta na página de consulta interna [**Gerenciador de pesquisa** ](search-explorer.md). Ele fornece uma caixa de pesquisa para que você possa testar cadeias de caracteres de consulta arbitrárias.
+Agora você terá um índice de pesquisa que está pronto para consulta na página de consulta interna [**Gerenciador de pesquisa**](search-explorer.md). Ele fornece uma caixa de pesquisa para que você possa testar cadeias de caracteres de consulta arbitrárias.
 
 O **Gerenciador de pesquisa** só é capaz de lidar com [Solicitações da API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents), mas aceita a sintaxe de [consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) e [completa do analisador de consulta Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), além de todos os parâmetros de pesquisa disponíveis nas operações da [API REST de pesquisa de documento](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples).
 
@@ -258,7 +258,7 @@ Usando o **explorador do Search** no portal do Azure, você aprendeu algumas sin
 
 Você também aprendeu a encontrar índices, indexadores e fontes de dados no portal. Considerando novas fonte de dados no futuro, você poderá usar o portal para verificar rapidamente suas definições ou coleções de campos com um mínimo de esforço.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando você está trabalhando em sua própria assinatura, é uma boa ideia identificar, no final de um projeto, se você ainda precisa dos recursos criados. Recursos deixados em execução podem custar dinheiro. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir todo o conjunto de recursos.
 

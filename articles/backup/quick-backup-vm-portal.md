@@ -4,14 +4,14 @@ description: Neste guia de Início Rápido, saiba como criar um cofre dos Servi�
 ms.reviewer: saurse
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 07/17/2018
+ms.date: 02/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 430a560f3ae8e9abc6c5e7a34c24d9d2f262fd79
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4bff53516447408486a6e40f2f7059ebc811aaa4
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171997"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057168"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Fazer backup de uma máquina virtual no Azure
 
@@ -21,7 +21,7 @@ Este início rápido habilita o backup em uma VM do Azure existente. Se você pr
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no [Portal do Azure](https://portal.azure.com).
+Entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="select-a-vm-to-back-up"></a>Selecionar uma máquina virtual para fazer backup
 

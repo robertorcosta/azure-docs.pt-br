@@ -3,19 +3,19 @@ title: O que é Serviço de fala?
 titleSuffix: Azure Cognitive Services
 description: O serviço de Fala é a unificação da conversão de fala em texto, da conversão de texto em fala e da tradução de fala em uma única assinatura do Azure. Adicione serviços de fala a seus aplicativos, ferramentas e dispositivos usando o SDK de Fala, o SDK de Dispositivos de Fala ou APIs REST.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 11/05/2019
-ms.author: erhopf
-ms.openlocfilehash: df0ce5efefe86ed3b7e2e8ccf5a2bd9011e168e6
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: 7ddfae430e6aa4ec9549e40c937e5edcfd927f6d
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261425"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119914"
 ---
 # <a name="what-is-the-speech-service"></a>O que é Serviço de fala?
 
@@ -37,24 +37,6 @@ Esses recursos compõem o serviço de Fala. Use os links nesta tabela para saber
 | | [Criar Vozes Personalizadas](#customize-your-speech-experience) | Crie fontes de voz personalizadas exclusivas para sua marca ou produto. | Não | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Tradução de Fala](speech-translation.md) | Tradução de fala | A tradução de fala possibilita a tradução em tempo real e em vários idiomas de fala para seus aplicativos, suas ferramentas e seus dispositivos. Use esse serviço para tradução de fala em fala e fala em texto. | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Não |
 | [Assistentes de voz](voice-assistants.md) | Assistentes de voz | Assistentes de voz que usam o serviço de Fala capacitam os desenvolvedores a criarem interfaces de conversação natural, semelhante à humana, para seus aplicativos e suas experiências. O serviço de assistente de voz fornece interação rápida e confiável entre um dispositivo e uma implementação de assistente que usa o Canal de Fala de Linha Direta do Bot Framework ou o serviço integrado de Comandos Personalizados (versão prévia) para a conclusão da tarefa. | [Sim](voice-assistants.md) | Não |
-
-## <a name="news-and-updates"></a>Novidades e atualizações
-
-Saiba as novidades no serviço de Fala.
-
-- Novembro de 2019
-  - Foram adicionados dois novos estilos de fala, [`newscast`](speech-synthesis-markup.md#adjust-speaking-styles) e [`customerservice`](speech-synthesis-markup.md#adjust-speaking-styles), para a voz `en-US-JessaNeural`.
-- Setembro de 2019
-  - Lançamento do SDK de Fala 1.7.0. Para obter uma lista completa de atualizações, melhorias e problemas conhecidos, confira [Notas sobre a versão](releasenotes.md).
-- Agosto de 2019
-  - **Novo tutorial**: [Habilitar por voz o bot com o SDK de Fala, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-  - Adição de um novo estilo de fala, [`chat`](speech-synthesis-markup.md#adjust-speaking-styles), para a voz `en-US-JessaNeural`.
-- Junho de 2019
-  - Lançamento do SDK de Fala 1.6.0. Para obter uma lista completa de atualizações, melhorias e problemas conhecidos, confira [Notas sobre a versão](releasenotes.md).
-- Maio de 2019: a documentação já está disponível para [transcrição de conversas](conversation-transcription-service.md), [transcrição de Call Center](call-center-transcription.md) e [assistentes de voz](voice-assistants.md).
-- Maio de 2019
-  - Lançamento do SDK de Fala 1.5.1. Para obter uma lista completa de atualizações, melhorias e problemas conhecidos, confira [Notas sobre a versão](releasenotes.md).
-  - Lançamento do SDK de Fala 1.5.0. Para obter uma lista completa de atualizações, melhorias e problemas conhecidos, confira [Notas sobre a versão](releasenotes.md).
 
 ## <a name="try-the-speech-service"></a>Experimentar o serviço de Fala
 

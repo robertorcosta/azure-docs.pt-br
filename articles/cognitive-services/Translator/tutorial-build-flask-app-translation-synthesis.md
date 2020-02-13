@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 0075862e198ce67cc7367efe94d624ad18e6eb3b
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b41b68725b6747cbada13a9acc321724b3f89d67
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984160"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118584"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Tutorial: Criar um aplicativo Flask com os serviços Cognitivos do Azure
 
@@ -44,7 +44,7 @@ Para aqueles que desejam aprofundamento após este tutorial, aqui estão alguns 
 * [Documentação do Flask](http://flask.pocoo.org/)
 * [Flask for Dummies – Um guia para iniciantes no Flask](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Vamos analisar as chaves de software e assinatura que você precisará para este tutorial.
 
