@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67737aed3bd9961a37dc761fddf608d9bcfe3ffe
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f1fa447312ad6a1f92eaed1164020cb6ee95606e
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847245"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161589"
 ---
 # <a name="how-to-configure-password-writeback"></a>Instruções: Configurar write-back de senha
 
@@ -35,7 +35,7 @@ As etapas a seguir pressupõem que você já tenha configurado o Azure AD Connec
 Para tarefas comuns de solução de problemas relacionadas ao write-back de senha, consulte a seção [Solucionar problemas de write-back de senha](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) em nosso artigo de solução de problemas.
 
 > [!WARNING]
-> O write-back de senha deixará de funcionar para clientes que usam as versões 1.0.8641.0 e posteriores do Azure AD Connect quando o [serviço de ACS (Controle de Acesso do Microsoft Azure) for desativado em 7 de novembro de 2018](../develop/active-directory-acs-migration.md). As versões do Azure AD Connect 1.0.8641.0 e anteriores não permitirão mais o write-back de senha porque dependem do ACS para essa funcionalidade.
+> O write-back de senha deixará de funcionar para clientes que usam as versões 1.0.8641.0 e posteriores do Azure AD Connect quando o [serviço de ACS (Controle de Acesso do Microsoft Azure) for desativado em 7 de novembro de 2018](../azuread-dev/active-directory-acs-migration.md). As versões do Azure AD Connect 1.0.8641.0 e anteriores não permitirão mais o write-back de senha porque dependem do ACS para essa funcionalidade.
 >
 > Para evitar uma interrupção no serviço, atualize de uma versão anterior do Azure AD Connect para uma versão mais recente, consulte o artigo [Azure AD Connect: atualização de uma versão anterior para a mais recente](../hybrid/how-to-upgrade-previous-version.md)
 >
@@ -53,7 +53,7 @@ Para usar o write-back de senha, você deve ter uma das licenças a seguir atrib
 * Microsoft 365 E3 ou A3
 * Microsoft 365 E5 ou A5
 * Microsoft 365 F1
-* Microsoft 365 Empresarial
+* Microsoft 365 Business
 
 > [!WARNING]
 > Os planos de licenciamento do Office 365 autônomo *não oferecem suporte à/ao "Redefinição/alteração/desbloqueio de senha de autoatendimento com write-back local"* e exigem que você tenha um dos planos anteriores para que esse recurso funcione.
@@ -101,7 +101,7 @@ Para configurar as permissões apropriadas para que ocorra o write-back de senha
 
 Como a origem da autoridade está no local, as políticas de complexidade de senha se aplicam da mesma fonte de dados conectada. Verifique se você alterou as políticas de grupo existentes para "duração mínima da senha". A política de grupo não deve ser definida como 1, o que significa que a senha deve ter pelo menos um dia de idade antes de ser atualizada. Você precisa ter certeza de que ele está definido como 0. Essas configurações podem ser encontradas em `gpmc.msc` em **configuração do computador > políticas > configurações do Windows > configurações de segurança > políticas de conta**. Execute `gpupdate /force` para garantir que a alteração entra em vigor. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [O que é write-back de senha?](concept-sspr-writeback.md)
 

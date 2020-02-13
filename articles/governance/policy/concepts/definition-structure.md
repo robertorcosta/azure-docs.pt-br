@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos do Azure em sua organização.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: ba974228d63c542027ea5191d2c5877e7288b331
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: b98702161753a996cd8a6751670308a78dc36b7c
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77050030"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169761"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -21,10 +21,10 @@ O esquema de definição de política é encontrado aqui: [https://schema.manage
 
 Você usa JSON para criar uma definição de política. A definição de política contém elementos para:
 
-- {1&gt;mode&lt;1}
+- mode
 - parâmetros
 - nome de exibição
-- description
+- descrição
 - regra de política
   - avaliação de lógica
   - efeito
@@ -94,7 +94,7 @@ Atualmente, há suporte para os seguintes modos de provedor de recursos durante 
 > [!NOTE]
 > Os modos de provedor de recursos só dão suporte a definições de políticas internas e não oferecem suporte a iniciativas durante a visualização.
 
-## <a name="parameters"></a>Parâmetros
+## <a name="parameters"></a>parâmetros
 
 Parâmetros ajudam a simplificar o gerenciamento de política, reduzindo o número de definições de política. Pense em parâmetros como os campos em um formulário – `name`, `address`, `city`, `state`. Esses parâmetros sempre permanecem iguais, porém, seus valores mudam com base no preenchimento individual do formulário.
 Os parâmetros funcionam da mesma maneira que ao criar políticas. Ao incluir parâmetros em uma definição de política, você pode reutilizar essa política para diferentes cenários usando valores diferentes.
@@ -102,7 +102,7 @@ Os parâmetros funcionam da mesma maneira que ao criar políticas. Ao incluir pa
 > [!NOTE]
 > Os parâmetros podem ser adicionados a uma definição existente e atribuída. O novo parâmetro deve incluir a propriedade **defaultValue**. Isso impede que atribuições existentes da política ou da iniciativa sejam tornadas inválidas indiretamente.
 
-### <a name="parameter-properties"></a>Propriedades de parâmetro
+### <a name="parameter-properties"></a>Propriedades do parâmetro
 
 Um parâmetro tem as seguintes propriedades que são usadas na definição de política:
 
@@ -255,7 +255,7 @@ Uma condição avalia se um **campo** ou um acessador de **valor** atende a dete
 Ao usar as condições **like** e **notLike**, você fornece um curinga (`*`) no valor.
 O valor não deve ter mais de um curinga `*`.
 
-Ao usar as condições **Match** e não **match** , forneça `#` para corresponder a um dígito, `?` para uma letra, `.` para corresponder a qualquer caractere e qualquer outro caractere para corresponder a esse caractere real. Enquanto, **Match** e **cormatch** diferenciam maiúsculas de minúsculas, todas as outras condições que avaliam uma _cadeia de caracteres_ não diferenciam maiúsculas de minúsculas. Estão disponíveis alternativas que diferenciam maiúsculas de minúsculas em **matchInsensitively** e **notMatchInsensitively**. Para obter exemplos, veja [Permitir vários padrões de nome](../samples/allow-multiple-name-patterns.md).
+Ao usar as condições **Match** e não **match** , forneça `#` para corresponder a um dígito, `?` para uma letra, `.` para corresponder a qualquer caractere e qualquer outro caractere para corresponder a esse caractere real. Enquanto, **Match** e **cormatch** diferenciam maiúsculas de minúsculas, todas as outras condições que avaliam uma _cadeia de caracteres_ não diferenciam maiúsculas de minúsculas. Estão disponíveis alternativas que diferenciam maiúsculas de minúsculas em **matchInsensitively** e **notMatchInsensitively**.
 
 Em um **\[\*** valor do campo matriz de alias \], cada elemento na matriz é avaliado individualmente com os elementos lógicos **e** entre eles. Para obter mais informações, consulte [avaliando o alias de \] de \*de \[](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
@@ -271,7 +271,7 @@ Há suporte para os seguintes campos:
 - `kind`
 - `type`
 - `location`
-  - Use **global** para recursos independentes de local. Por exemplo, veja [Exemplos – locais permitidos](../samples/allowed-locations.md).
+  - Use **global** para recursos independentes de local.
 - `identity.type`
   - Retorna o tipo de [identidade gerenciada](../../../active-directory/managed-identities-azure-resources/overview.md) habilitada no recurso.
 - `tags`
@@ -316,7 +316,7 @@ No exemplo a seguir, `concat` é usado para criar uma pesquisa de campo de marca
 }
 ```
 
-### <a name="value"></a>{1&gt;Valor&lt;1}
+### <a name="value"></a>Valor
 
 As condições também podem ser formadas usando o **valor**. O **valor** verifica as condições em relação aos [parâmetros](#parameters), [funções de modelo com suporte](#policy-functions) ou literais.
 O **valor** é emparelhado a uma [condição](#conditions) com suporte.
@@ -772,7 +772,7 @@ O exemplo a seguir ilustra como criar uma iniciativa para lidar com duas marcas:
 }
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revisar [Compreendendo os efeitos da política](effects.md).

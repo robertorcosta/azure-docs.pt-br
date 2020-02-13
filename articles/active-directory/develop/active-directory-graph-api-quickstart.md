@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: ryanwi
 ms.reviewer: sureshja
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f32d9832f0bad81ca29ab7553d956b593531d1bd
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 9fd5fa943468924c289587285fe7986a73c21dba
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698927"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161334"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>Como usar a API do Graph Azure AD
 
@@ -81,7 +81,7 @@ Para os fins deste Guia de Início Rápido, você poderá usar o Depurador da We
 
 No exemplo a seguir, o Depurador da Web Fiddler é usado para criar um novo grupo de segurança 'MyTestGroup' no diretório do Azure AD.
 
-**Obter um token de acesso**: para acessar o Graph do AD do Azure, os clientes devem se autenticar no AD do Azure primeiro. Para obter mais informações, consulte [cenários de autenticação do Azure ad](v1-authentication-scenarios.md).
+**Obter um token de acesso**: para acessar o Graph do AD do Azure, os clientes devem se autenticar no AD do Azure primeiro. Para obter mais informações, consulte [cenários de autenticação do Azure ad](authentication-scenarios.md).
 
 **Compor e executar uma consulta**: execute as etapas a seguir:
 
@@ -118,7 +118,7 @@ No exemplo a seguir, o Depurador da Web Fiddler é usado para criar um novo grup
 
 Para obter mais informações sobre os tipos e entidades do Azure AD que são expostas pelo grafo e informações sobre as operações que podem ser executadas neles com o Graph, consulte [referência da API REST do Azure ad Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre a [API do Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 * Saiba mais sobre os [escopos de permissão do Azure AD API do Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)

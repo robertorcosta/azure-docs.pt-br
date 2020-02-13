@@ -7,17 +7,17 @@ manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/27/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 2c13956fa84b0bdb1ff694878ff2994bee4b64c9
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
-ms.translationtype: HT
+ms.openlocfilehash: bdcc93fe84d2fded914f21dfa2a29d9e2a2ab449
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698281"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161351"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Fluxos de autenticação e cenários de aplicativos
 
@@ -40,19 +40,19 @@ Eles também podem ser adquiridos de aplicativos em execução em dispositivos q
 
 Os aplicativos podem ser categorizados como na lista a seguir:
 
-- [Recursos protegidos versus aplicativos cliente](#protected-resources-vs-client-applications): Alguns cenários são sobre proteger recursos como aplicativos Web ou APIs Web. Outros cenários são sobre adquirir um token de segurança para chamar uma API Web protegida.
-- [Com usuários ou sem usuários](#with-users-or-without-users): Alguns cenários envolvem um usuário conectado; já outros, tais como os cenários de daemon, não envolvem um usuário.
-- [Aplicativos de página única, aplicativos cliente públicos e aplicativos cliente confidenciais](#single-page-public-client-and-confidential-client-applications): Essas três são grandes categorias de tipos de aplicativos. Cada uma é usada com diferentes bibliotecas e objetos.
-- [Público-alvo para entrada](v2-supported-account-types.md#certain-authentication-flows-dont-support-all-the-account-types): Os fluxos de autenticação disponíveis diferem de acordo com o público-alvo para entrada. Alguns fluxos estão disponíveis apenas para contas corporativas ou de estudante. Alguns estão disponíveis para contas corporativas ou de estudante e também para contas Microsoft pessoais. O público permitido depende dos fluxos de autenticação.
-- [Fluxos OAuth 2.0 compatíveis](#scenarios-and-supported-authentication-flows):  Os fluxos de autenticação são usados para implementar os cenários de aplicativos que estão solicitando tokens. Não há um mapeamento individualizado entre cenários de aplicativos e fluxos de autenticação.
-- [Plataformas compatíveis](#scenarios-and-supported-platforms-and-languages): Nem todos os cenários de aplicativos estão disponíveis para todas as plataformas.
+- [Recursos protegidos vs. aplicativos cliente](#protected-resources-vs-client-applications): alguns cenários são sobre a proteção de recursos, como aplicativos Web ou APIs Web. Outros cenários são sobre adquirir um token de segurança para chamar uma API Web protegida.
+- [Com usuários ou sem usuários](#with-users-or-without-users): alguns cenários envolvem um usuário conectado, mas outros, como cenários de daemon, não envolvem um usuário.
+- [Aplicativos cliente de página única, cliente público e confidencial](#single-page-public-client-and-confidential-client-applications): são três grandes categorias de tipos de aplicativos. Cada uma é usada com diferentes bibliotecas e objetos.
+- [Público-alvo](v2-supported-account-types.md#certain-authentication-flows-dont-support-all-the-account-types): os fluxos de autenticação disponíveis diferem de acordo com o público-alvo. Alguns fluxos estão disponíveis apenas para contas corporativas ou de estudante. Alguns estão disponíveis para contas corporativas ou de estudante e também para contas Microsoft pessoais. O público permitido depende dos fluxos de autenticação.
+- [Fluxos OAuth 2,0 com suporte](#scenarios-and-supported-authentication-flows): os fluxos de autenticação são usados para implementar os cenários de aplicativo que estão solicitando tokens. Não há um mapeamento individualizado entre cenários de aplicativos e fluxos de autenticação.
+- [Plataformas com suporte](#scenarios-and-supported-platforms-and-languages): nem todos os cenários de aplicativo estão disponíveis para cada plataforma.
 
 ### <a name="protected-resources-vs-client-applications"></a>Recursos protegidos versus aplicativos cliente
 
 Os cenários de autenticação envolvem duas atividades:
 
-- **Aquisição de tokens de segurança para uma API Web protegida**: A Microsoft recomenda que você use [bibliotecas de autenticação](reference-v2-libraries.md#microsoft-supported-client-libraries) para adquirir tokens, especialmente a família MSAL (Biblioteca de Autenticação da Microsoft).
-- **Proteger uma API Web ou um aplicativo Web**: Um desafio de proteger uma API Web ou recurso de aplicativo Web é validar o token de segurança. Em algumas plataformas, a Microsoft oferece [bibliotecas de middleware](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries).
+- **Adquirindo tokens de segurança para uma API Web protegida**: a Microsoft recomenda que você use [bibliotecas de autenticação](reference-v2-libraries.md#microsoft-supported-client-libraries) para adquirir tokens, especialmente a família de MSAL (biblioteca de autenticação da Microsoft).
+- **Proteger uma API da Web ou um aplicativo Web**: um desafio de proteger um recurso de aplicativo Web ou API da Web é validar o token de segurança. Em algumas plataformas, a Microsoft oferece [bibliotecas de middleware](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries).
 
 ### <a name="with-users-or-without-users"></a>Com usuários ou sem usuários
 
@@ -68,9 +68,9 @@ No entanto, também há cenários de aplicativos daemon, em que os aplicativos a
 
 Os tokens de segurança podem ser adquiridos de vários tipos de aplicativos. Esses aplicativos tendem a ser divididos em três categorias:
 
-- **Aplicativos de página única**: Também conhecido como SPAs, esses são aplicativos Web nos quais os tokens são adquiridos de um aplicativo JavaScript ou TypeScript em execução no navegador. Muitos aplicativos modernos têm um aplicativo de página única front-end que é escrito principalmente em JavaScript. O aplicativo geralmente usa uma estrutura como Angular, React ou Vue. MSAL.js é a única biblioteca de autenticação da Microsoft que dá suporte a aplicativos de página única.
+- **Aplicativos de página única**: também conhecidos como spas, são aplicativos Web nos quais os tokens são adquiridos de um aplicativo JavaScript ou TypeScript em execução no navegador. Muitos aplicativos modernos têm um aplicativo de página única front-end que é escrito principalmente em JavaScript. O aplicativo geralmente usa uma estrutura como Angular, React ou Vue. MSAL.js é a única biblioteca de autenticação da Microsoft que dá suporte a aplicativos de página única.
 
-- **Aplicativos cliente públicos**: Esses aplicativos sempre conectam usuários:
+- **Aplicativos cliente públicos**: estes aplicativos sempre entram em usuários:
   - Aplicativos da área de trabalho que chamam APIs Web em nome do usuário conectado
   - Aplicativos móveis
   - Aplicativos em execução em dispositivos que não têm um navegador, assim como aqueles em execução em IoT
@@ -154,7 +154,7 @@ Semelhante a um aplicativo da área de trabalho, um aplicativo móvel chama os m
 
 ![Um aplicativo móvel que chama uma API Web](media/scenarios/mobile-app.svg)
 
-A MSAL iOS e a MSAL Android usam, por padrão, o navegador da Web do sistema. No entanto, você pode instruí-lo a usar em vez disso a exibição da Web inserida. Existem especificidades que dependem da plataforma móvel: UWP (Plataforma Universal do Windows), iOS ou Android.
+A MSAL iOS e a MSAL Android usam, por padrão, o navegador da Web do sistema. No entanto, você pode instruí-lo a usar em vez disso a exibição da Web inserida. Há especificidades que dependem da plataforma móvel: Plataforma Universal do Windows (UWP), iOS ou Android.
 
 Alguns cenários, como os que envolvem o acesso condicional relacionado à ID do dispositivo ou um registro de dispositivo, exigem a instalação de um [agente](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/leveraging-brokers-on-Android-and-iOS) no dispositivo. Alguns exemplos de agentes incluem o Portal da Empresa Microsoft no Android e o Microsoft Authenticator no Android e no iOS. Além disso, a MSAL agora pode interagir com agentes.
 
@@ -173,7 +173,7 @@ Para obter mais informações, confira [API Web protegida](scenario-protected-we
 
 ### <a name="a-web-api-calling-another-web-api-on-behalf-of-a-user"></a>Uma API Web que chama outra API Web em nome de um usuário
 
-Para que a API Web ASP.NET ou ASP.NET Core protegida chame outra API Web em nome de um usuário, o aplicativo precisa adquirir um token para a API Web downstream. Ele faz isso chamando o método de [AcquireTokenOnBehalfOf](https://aka.ms/msal-net-on-behalf-of) da classe **ConfidentialClientApplication**. Essas também são conhecidas como chamadas de serviço para serviço. As APIs Web que chamam outras APIs Web também precisam fornecer serialização de cache personalizada.
+Para que a API Web ASP.NET ou ASP.NET Core protegida chame outra API Web em nome de um usuário, o aplicativo precisa adquirir um token para a API Web downstream. Ele faz isso chamando o método de **AcquireTokenOnBehalfOf** da classe [ConfidentialClientApplication](https://aka.ms/msal-net-on-behalf-of). Essas também são conhecidas como chamadas de serviço para serviço. As APIs Web que chamam outras APIs Web também precisam fornecer serialização de cache personalizada.
 
   ![Uma API Web que chama outra API Web](media/scenarios/web-api.svg)
 

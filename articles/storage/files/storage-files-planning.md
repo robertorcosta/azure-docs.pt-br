@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5a9e5e014740302c439036bd3889761f4750344f
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 203bf584711fbfcfd0baeee8f5e4c7f70d96823b
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77062856"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157203"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 
@@ -93,7 +93,7 @@ Se você quiser saber como criar um compartilhamento de arquivos premium, consul
 No momento, não é possível converter diretamente entre um compartilhamento de arquivos padrão e um compartilhamento de arquivos premium. Se desejar alternar para qualquer camada, você deverá criar um novo compartilhamento de arquivos nessa camada e copiar manualmente os dados do compartilhamento original para o novo compartilhamento que você criou. Você pode fazer isso usando qualquer uma das ferramentas de cópia com suporte do Azure files, como Robocopy ou AzCopy.
 
 > [!IMPORTANT]
-> Os compartilhamentos de arquivos premium estão disponíveis com o LRS na maioria das regiões que oferecem contas de armazenamento e com o ZRS em um subconjunto menor de regiões. Para descobrir se os compartilhamentos de arquivos premium estão disponíveis atualmente em sua região, confira a página [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para o Azure. Para descobrir quais regiões dão suporte a ZRS, consulte [cobertura de suporte e disponibilidade regional](../common/storage-redundancy-zrs.md#support-coverage-and-regional-availability).
+> Os compartilhamentos de arquivos premium estão disponíveis com o LRS na maioria das regiões que oferecem contas de armazenamento e com o ZRS em um subconjunto menor de regiões. Para descobrir se os compartilhamentos de arquivos premium estão disponíveis atualmente em sua região, confira a página [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para o Azure. Para obter informações sobre regiões que dão suporte a ZRS, consulte [redundância de armazenamento do Azure](../common/storage-redundancy.md).
 >
 > Para nos ajudar a priorizar novas regiões e recursos da camada Premium, preencha esta [pesquisa](https://aka.ms/pfsfeedback).
 
@@ -155,41 +155,14 @@ Novos compartilhamentos de arquivos começam com o número total de créditos em
 
 ## <a name="file-share-redundancy"></a>Redundância de compartilhamento de arquivo
 
-Compartilhamentos padrão do Azure files oferece suporte a quatro opções de redundância de dados: LRS (armazenamento com redundância local), ZRS (armazenamento com redundância de zona), GRS (armazenamento com redundância geográfica) e GZRS (armazenamento com redundância de zona geográfica) (versão prévia).
+[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
-Os compartilhamentos Premium dos arquivos do Azure dão suporte a LRS e ZRS, o ZRS está disponível atualmente em um subconjunto menor de regiões.
-
-As seções a seguir descrevem as diferenças entre as opções de redundância diferentes:
-
-### <a name="locally-redundant-storage"></a>Armazenamento com redundância local
-
-[!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
-
-### <a name="zone-redundant-storage"></a>Armazenamento com redundância de zona
-
-[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
-
-### <a name="geo-redundant-storage"></a>Armazenamento com redundância geográfica
+Se você optar pelo armazenamento com redundância geográfica com acesso de leitura (RA-GRS), deverá saber que o arquivo do Azure não oferece suporte ao armazenamento com redundância geográfica com acesso de leitura (RA-GRS) em qualquer região no momento. Os compartilhamentos de arquivos na conta de armazenamento RA-GRS funcionam como no GRS contas e são cobrados preços GRS.
 
 > [!Warning]  
 > Se estiver usando o compartilhamento de arquivos do Azure como um ponto de extremidade de nuvem em uma conta de armazenamento GRS, você não deve iniciar o failover da conta de armazenamento. Se isso for feito, a sincronização deixará de funcionar e poderá causar a perda inesperada de dados no caso de arquivos recentes em camadas. No caso de perda de uma região do Azure, a Microsoft disparará o failover da conta de armazenamento de modo que seja compatível com a Sincronização de Arquivos do Azure.
 
-O armazenamento com redundância geográfica (GRS) foi desenvolvido para fornecer pelo menos 99.99999999999999% (16 9’s) durabilidade dos objetos em um determinado ano, replicando dados para uma região secundária situada a centenas de milhas de distância da região primária. Se sua conta de armazenamento tem GRS habilitado, seus dados serão duráveis mesmo no caso de uma interrupção regional completa ou um desastre no qual a região principal não possa ser recuperada.
-
-Se você optar pelo armazenamento com redundância geográfica com acesso de leitura (RA-GRS), deverá saber que o arquivo do Azure não oferece suporte ao armazenamento com redundância geográfica com acesso de leitura (RA-GRS) em qualquer região no momento. Os compartilhamentos de arquivos na conta de armazenamento RA-GRS funcionam como no GRS contas e são cobrados preços GRS.
-
-O GRS replica seus dados para outro datacenter em uma região secundária, mas esses dados estão disponíveis para serem lidos somente se a Microsoft iniciar um failover da região primária para a secundária.
-
-Para uma conta de armazenamento com GRS habilitado, todos os dados são replicados primeiro com LRS (armazenamento com redundância local). Uma atualização primeiro é confirmada para o local primário e replicados usando o LRS. A atualização, em seguida, é replicada assincronamente para a região secundária usando GRS. Quando dados são gravados para o local secundário, ela também é replicada dentro desse local usando o LRS.
-
-Ambas as regiões primárias e secundárias gerenciam réplicas entre domínios de falha separados e atualizar domínios dentro de uma unidade de escala de armazenamento. A unidade de escala de armazenamento é a unidade de replicação básica dentro do datacenter. A replicação com esse nível é fornecida por LRS; Para obter mais informações, consulte [Armazenamento com redundância local (LRS): redundância de dados de baixo custo para Armazenamento do Microsoft Azure](../common/storage-redundancy-lrs.md).
-
-Lembre-se esses pontos ao decidir qual opção de replicação para usar:
-
-* O armazenamento com redundância de zona geográfica (GZRS) (visualização) fornece alta disponibilidade junto com a durabilidade máxima, replicando os dados de forma síncrona em três zonas de disponibilidade do Azure e, em seguida, replicando os dados de maneira assíncrona para a região secundária. Você também pode habilitar o acesso de leitura para a região secundária. O GZRS foi projetado para fornecer pelo menos a durabilidade de objetos de 99.99999999999999% (16 9) em um determinado ano. Para obter mais informações sobre o GZRS, consulte [armazenamento com redundância de zona geográfica para alta disponibilidade e durabilidade máxima (versão prévia)](../common/storage-redundancy-gzrs.md).
-* O ZRS (armazenamento com redundância de zona) fornece alta disponibilidade com replicação síncrona e pode ser uma opção melhor para alguns cenários do que GRS. Para obter mais informações sobre o ZRS, consulte [ZRS](../common/storage-redundancy-zrs.md).
-* A replicação assíncrona envolve um atraso entre a hora em que dados são gravados na região primária e quando são replicados na região secundária. Caso ocorra um desastre na região, as alterações que ainda não foram replicadas para a região secundária poderão ser pedidas se os dados não puderem ser recuperados na região primária.
-* Com o GRS, a réplica não está disponível para acesso de leitura ou gravação, a menos que a Microsoft inicie um failover na região secundária. Em caso de failover, você terá acesso de leitura e gravação aos dados após o failover ter sido concluído. Para obter mais informações, confira [Guia de recuperação de desastre](../common/storage-disaster-recovery-guidance.md).
+Os compartilhamentos Premium dos arquivos do Azure dão suporte a LRS e ZRS, o ZRS está disponível atualmente em um subconjunto menor de regiões.
 
 ## <a name="onboard-to-larger-file-shares-standard-tier"></a>Integração com compartilhamentos de arquivos maiores (camada Standard)
 

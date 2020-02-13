@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 5dc705fbd17a12ee001e1e8de15b49e841f08b81
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 43c49cce1dd53edd5c2b13b01a31f94752579dff
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049622"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169329"
 ---
 # <a name="unified-connectivity-monitoring-with-connection-monitor-preview"></a>Monitoramento de conectividade unificada com o monitor de conexão (versão prévia)
 
@@ -403,7 +403,7 @@ Para criar um grupo de teste em um monitor de conexão, especifique o valor para
 
       ![Adicionar destinos 2](./media/connection-monitor-2-preview/add-azure-dests2.png)
 
-   2. Clique na guia "pontos de extremidade" para selecionar VMs do Azure como destinos. A lista de pontos de extremidade será preenchida com URLs de teste do O365 e do D365, agrupadas por nome.  Você também pode escolher um ponto de extremidade criado em outros grupos de teste no mesmo monitor de conexão. Para adicionar um novo ponto de extremidade, clique em "+ ponto de extremidade" no canto superior direito da tela e forneça a URL/IP/FQDN e o nome do ponto de extremidade
+   2. Clique na guia "pontos de extremidade" para selecionar pontos de extremidade como destinos. A lista de pontos de extremidade será preenchida com URLs de teste do O365 e do D365, agrupadas por nome.  Você também pode escolher um ponto de extremidade criado em outros grupos de teste no mesmo monitor de conexão. Para adicionar um novo ponto de extremidade, clique em "+ ponto de extremidade" no canto superior direito da tela e forneça a URL/IP/FQDN e o nome do ponto de extremidade
 
       ![Adicionar pontos de extremidade](./media/connection-monitor-2-preview/add-endpoints.png)
 
@@ -550,11 +550,11 @@ Para exibir as tendências das verificações com falha% e RTT para:
    5. Alterar o intervalo de tempo para exibir mais dados
    6. Você pode alterar o modo de exibição na etapa b e escolher exibir por fontes, destinos ou configurações de teste. Em seguida, escolha uma entidade para investigar os 5 principais testes com falha.  Por exemplo: escolha Exibir por: origens e destinos para investigar todos os testes que são executados entre essa combinação no monitor de conexão selecionado.
 
-3. {1&gt;Testar&lt;1}
+3. Teste
    1. Clique na configuração de origem + destino + teste que você deseja investigar em detalhes
    2. Para o intervalo de tempo selecionado, para verificações com falha, você verá os valores de limite e reais. Para o RTT msec, você verá os valores de threshold, AVG, min e Max. Você também verá alertas acionados específicos para o teste selecionado.
 
-      ![Teste1](./media/connection-monitor-2-preview/test-drill.png)
+      ![Test1](./media/connection-monitor-2-preview/test-drill.png)
 
    3. Você também pode clicar em "topologia" para ver a topologia de rede em qualquer ponto no tempo.
 
@@ -574,12 +574,12 @@ Para o monitor de conexão que foi criado antes da experiência do monitor de co
 
 Tipo de recurso-Microsoft. Network/networkWatchers/connectionMonitors
 
-| Métrica | Nome de exibição da métrica | Unidade | Tipo de agregação | Descrição | Dimensões |
+| Métrica | Nome de exibição da métrica | Unidade | Tipo de agregação | DESCRIÇÃO | Dimensões |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent | Porcentagem de investigações com falha | Porcentagem | Average | Porcentagem de investigações de monitoramento de conectividade com falha | Sem dimensões |
-| AverageRoundtripMs | Média de tempo de ida e volta (MS) | MilliSeconds | Average | Tempo ida e volta de rede médio (ms) para investigações de monitoramento de conectividade enviadas entre a origem e o destino |             Sem dimensões |
-| ChecksFailedPercent (visualização) | % De verificações com falha (versão prévia) | Porcentagem | Average | % das verificações com falha para um teste | * ConnectionMonitorResourceId <br> * SourceAddress <br> * SourceName <br> * SourceResourceId <br> * SourceType <br> * Protocolo <br> * DestinationAddress <br> * Destinationname <br> * DestinationResourceId <br> * DestinationType <br> * DestinationPort <br> * TestGroupName <br> * TestConfigurationName <br> * Região |
-| RoundTripTimeMs (visualização) | Tempo de ida e volta (MS) (visualização) | Milissegundos | Average | Tempo de ida e volta (MS) para cheques enviados entre a origem e o destino. Este valor não é de média | * ConnectionMonitorResourceId <br> * SourceAddress <br> * SourceName <br> * SourceResourceId <br> * SourceType <br> * Protocolo <br> * DestinationAddress <br> * Destinationname <br> * DestinationResourceId <br> * DestinationType <br> * DestinationPort <br> * TestGroupName <br> * TestConfigurationName <br> * Região |
+| ProbesFailedPercent | Porcentagem de investigações com falha | Porcentagem | Média | Porcentagem de investigações de monitoramento de conectividade com falha | Sem dimensões |
+| AverageRoundtripMs | Média de tempo de ida e volta (MS) | MilliSeconds | Média | Tempo ida e volta de rede médio (ms) para investigações de monitoramento de conectividade enviadas entre a origem e o destino |             Sem dimensões |
+| ChecksFailedPercent (visualização) | % De verificações com falha (versão prévia) | Porcentagem | Média | % das verificações com falha para um teste | * ConnectionMonitorResourceId <br> * SourceAddress <br> * SourceName <br> * SourceResourceId <br> * SourceType <br> * Protocolo <br> * DestinationAddress <br> * Destinationname <br> * DestinationResourceId <br> * DestinationType <br> * DestinationPort <br> * TestGroupName <br> * TestConfigurationName <br> * Região |
+| RoundTripTimeMs (visualização) | Tempo de ida e volta (MS) (visualização) | Milissegundos | Média | Tempo de ida e volta (MS) para cheques enviados entre a origem e o destino. Este valor não é de média | * ConnectionMonitorResourceId <br> * SourceAddress <br> * SourceName <br> * SourceResourceId <br> * SourceType <br> * Protocolo <br> * DestinationAddress <br> * Destinationname <br> * DestinationResourceId <br> * DestinationType <br> * DestinationPort <br> * TestGroupName <br> * TestConfigurationName <br> * Região |
 
  ![Monitorar métricas](./media/connection-monitor-2-preview/monitor-metrics.png)
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5406d301f6487753bc13b291db6d22eaedbf67b7
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: cf1515bcf2223ae730a47f7105d51206ba638cd7
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066805"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161606"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizando mapeamentos de atributo de provisionamento de usuário para aplicativos SaaS no Azure Active Directory
 
@@ -54,7 +54,7 @@ Siga estas etapas para acessar o recurso **mapeamentos** do provisionamento de u
 ### <a name="understanding-attribute-mapping-types"></a>Noções básicas sobre tipos de mapeamento de atributo
 
 Com mapeamentos de atributo, você controla como os atributos são preenchidos em um aplicativo SaaS de terceiro.
-Existem quatro tipos diferentes de mapeamento de suporte:
+Há quatro tipos diferentes de mapeamento com suporte:
 
 - **Direto** – o atributo de destino é preenchido com o valor de um atributo do objeto vinculado no AD do Azure.
 - **Constante** – o atributo de destino é populado com uma cadeia de caracteres específica que você especificou.
@@ -111,7 +111,7 @@ Os aplicativos e sistemas que dão suporte à personalização da lista de atrib
 
 - Salesforce
 - ServiceNow
-- Jornada de trabalho
+- Workday
 - Active Directory do Azure ([atributos do Azure AD Graph API padrão](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) e há suporte para extensões de diretório personalizado)
 - Aplicativos que dão suporte ao [SCIM 2.0](https://tools.ietf.org/html/rfc7643), onde os atributos definidos no [esquema principal](https://tools.ietf.org/html/rfc7643) precisam ser adicionados
 
@@ -143,7 +143,7 @@ A RFC SCIM define um esquema de usuário e grupo principal, permitindo também q
    4. Selecione **Editar lista de atributos para AppName**.
    5. Na parte inferior da lista de atributos, insira informações sobre o atributo personalizado nos campos fornecidos. Em seguida, selecione **Adicionar atributo**.
 
-Para aplicativos SCIM, o nome do atributo deve seguir o padrão mostrado no exemplo abaixo. O "CustomExtensionName" e o "CustomAttribute" podem ser personalizados de acordo com os requisitos do seu aplicativo, por exemplo: urn: IETF: params: SCIM: schemas: Extension: 2.0: CustomExtensionName: CustomAttribute
+Para aplicativos SCIM, o nome do atributo deve seguir o padrão mostrado no exemplo abaixo. O "CustomExtensionName" e o "CustomAttribute" podem ser personalizados de acordo com os requisitos do seu aplicativo, por exemplo: urn: IETF: params: SCIM: schemas: Extension: 2.0: CustomExtensionName: CustomAttribute ou urn: IETF: params: SCIM: schemas: Extension: CustomExtensionName: 2.0: user. CustomAttributeName: valor
 
 Essas instruções só são aplicáveis a aplicativos habilitados para SCIM. Aplicativos como ServiceNow e Salesforce não são integrados ao Azure AD usando SCIM e, portanto, não exigem esse namespace específico ao adicionar um atributo personalizado.
 
@@ -316,7 +316,7 @@ A seleção dessa opção forçará efetivamente uma ressincronização de todos
 - O atributo IsSoftDeleted geralmente faz parte dos mapeamentos padrão para um aplicativo. IsSoftdeleted pode ser verdadeiro em um dos quatro cenários (o usuário está fora do escopo devido à falta de atribuição do aplicativo, o usuário está fora do escopo devido à não reunião de um filtro de escopo, o usuário foi excluído de maneira reversível no Azure AD ou a propriedade AccountEnabled está definida como false  no usuário). 
 - O serviço de provisionamento do Azure AD não dá suporte ao provisionamento de valores nulos
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Automatizar o provisionamento/desprovisionamento de usuários para aplicativos SaaS](user-provisioning.md)
 - [Escrevendo expressões para mapeamentos de atributo](../app-provisioning/functions-for-customizing-application-data.md)

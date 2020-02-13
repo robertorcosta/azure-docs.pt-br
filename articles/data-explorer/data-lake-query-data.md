@@ -7,27 +7,27 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: 1e5af0b45b8d2e2eceac1b653a5219a236c25467
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 8240b1a01aa39e53b9ae41f73543ccf9774290b2
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512905"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161742"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer"></a>Consultar dados em Azure Data Lake usando o Azure Data Explorer
 
-Azure Data Lake Storage é uma solução data Lake altamente escalonável e econômica para análise de Big Data. Ele combina o poder de um sistema de arquivos de alto desempenho com grande escala e economia para ajudá-lo a acelerar seu tempo de insights. O Data Lake Store Gen2 estende as funcionalidades do Armazenamento de Blobs do Azure e é otimizado para cargas de trabalho de análise.
+Azure Data Lake Storage é uma solução data Lake altamente escalonável e econômica para análise de Big Data. Ele combina o poder de um sistema de arquivos de alto desempenho com grande escala e economia para ajudá-lo a acelerar seu tempo de insights. Data Lake Storage Gen2 estende os recursos do armazenamento de BLOBs do Azure e é otimizado para cargas de trabalho de análise.
  
-O Azure Data Explorer integra-se com o armazenamento de BLOBs do Azure e Azure Data Lake Storage Gen2, fornecendo acesso rápido, armazenado em cache e indexado aos dados no Lake. Você pode analisar e consultar dados no Lake sem ingestão anterior no Azure Data Explorer. Você também pode consultar dados nativos do Lake ingeridos e indesejados simultaneamente.  
+O Azure Data Explorer integra-se ao armazenamento de BLOBs do Azure e Azure Data Lake Storage (Gen1 e Gen2), fornecendo acesso rápido, armazenado em cache e indexado aos dados no Lake. Você pode analisar e consultar dados no Lake sem ingestão anterior no Azure Data Explorer. Você também pode consultar dados nativos do Lake ingeridos e indesejados simultaneamente.  
 
 > [!TIP]
-> O melhor desempenho de consulta exige a ingestão de dados no Azure Data Explorer. A capacidade de consultar dados em Azure Data Lake Storage Gen2 sem ingestão anterior deve ser usada apenas para dados históricos ou dados que raramente são consultados. [Otimize seu desempenho de consulta no Lake](#optimize-your-query-performance) para obter melhores resultados.
+> O melhor desempenho de consulta exige a ingestão de dados no Azure Data Explorer. A capacidade de consultar dados externos sem ingestão anterior deve ser usada apenas para dados históricos ou dados que raramente são consultados. [Otimize seu desempenho de consulta no Lake](#optimize-your-query-performance) para obter melhores resultados.
  
 
 ## <a name="create-an-external-table"></a>Criar uma tabela externa
 
  > [!NOTE]
- > Atualmente, as contas de armazenamento com suporte são o armazenamento de BLOBs do Azure ou Azure Data Lake Storage Gen2. Atualmente, os formatos de dados com suporte são JSON, CSV, TSV e txt.
+ > Atualmente, as contas de armazenamento com suporte são armazenamento de BLOBs do Azure ou Azure Data Lake Storage (Gen1 e Gen2).
 
 1. Use o comando `.create external table` para criar uma tabela externa no Data Explorer do Azure. Comandos de tabela externa adicionais, como `.show`, `.drop`e `.alter`, são documentados em [comandos de tabela externa](/azure/kusto/management/externaltables).
 
@@ -46,6 +46,7 @@ O Azure Data Explorer integra-se com o armazenamento de BLOBs do Azure e Azure D
     > * Quando você define uma tabela externa com partições, espera-se que a estrutura de armazenamento seja idêntica.
 Por exemplo, se a tabela for definida com uma partição DateTime no formato AAAA/MM/DD (padrão), o caminho do arquivo de armazenamento URI deverá ser *Container1/aaaa/mm/dd/all_exported_blobs*. 
     > * Se a tabela externa for particionada por uma coluna DateTime, sempre inclua um filtro de tempo para um intervalo fechado em sua consulta (por exemplo, o `ArchivedProducts | where Timestamp between (ago(1h) .. 10m)` de consulta-deve ter um desempenho melhor do que esse (intervalo aberto) um-`ArchivedProducts | where Timestamp > ago(1h)`). 
+    > * Todos os [formatos de ingestão com suporte](ingest-data-overview.md#supported-data-formats) podem ser consultados usando tabelas externas.
 
 1. A tabela externa está visível no painel esquerdo da interface do usuário da Web
 
@@ -258,6 +259,6 @@ Organize seus dados usando partições de "pasta" que permitem que a consulta ig
  
 Selecione SKUs de VM com mais núcleos e maior taxa de transferência de rede (a memória é menos importante). Para obter mais informações, consulte [selecionar o SKU de VM correto para seu cluster de data Explorer do Azure](manage-cluster-choose-sku.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte os dados no Azure Data Lake usando o Data Explorer do Azure. Aprenda a [escrever consultas](write-queries.md) e a obter informações adicionais de seus dados.
