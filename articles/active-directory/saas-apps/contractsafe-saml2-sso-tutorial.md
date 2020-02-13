@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f4f625999ff9cbdad6aeefb662e39a6b30a1881
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 7ab2dc71f39164988e0d229fc994548a00447986
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291525"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185625"
 ---
 # <a name="tutorial-integrate-azure-active-directory-single-sign-on-sso-with-contractsafe-saml2-sso"></a>Tutorial: Integrar o SSO (logon único) do Azure Active Directory ao ContractSafe Saml2 SSO
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprende a integrar o ContractSafe Saml2 SSO ao Azure AD (A
 
 Para saber mais sobre a integração de aplicativos de SaaS (software como serviço) ao Azure AD, confira [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisa do seguinte:
 
@@ -85,7 +85,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure:
     b. Na caixa de texto **URL de Resposta**, insira uma URL usando o seguinte formato: `https://app.contractsafe.com/saml2_auth/<UNIQUEID>/acs/`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [Equipe de suporte ao cliente do ContractSafe Saml2 SSO](mailto:donne@contractsafe.com) para obter esses valores. Veja também os formatos mostrados na seção **Configuração Básica do SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [Equipe de suporte ao cliente do ContractSafe Saml2 SSO](mailto:support@contractsafe.com) para obter esses valores. Veja também os formatos mostrados na seção **Configuração Básica do SAML** no portal do Azure.
 
 1. O ContractSafe Saml2 SSO espera as declarações SAML em um formato específico, o que exige a adição de mapeamentos de atributo personalizados para a configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
@@ -138,11 +138,11 @@ Nesta seção, você permitirá que **B.Fernandes** use o SSO do Azure permitind
 
 ## <a name="configure-contractsafe-saml2-sso"></a>Configurar o ContractSafe Saml2 SSO
 
-Para configurar o SSO no lado do **ContractSafe Saml2 SSO**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do ContractSafe Saml2 SSO](mailto:donne@contractsafe.com). A equipe é responsável por configurar a conexão de SSO de SAML corretamente em ambos os lados.
+Para configurar o SSO no lado do **ContractSafe Saml2 SSO**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do ContractSafe Saml2 SSO](mailto:support@contractsafe.com). A equipe é responsável por configurar a conexão de SSO de SAML corretamente em ambos os lados.
 
 ## <a name="create-a-contractsafe-saml2-sso-test-user"></a>Criar um usuário de teste do ContractSafe Saml2 SSO
 
-Crie uma usuária chamada B. Fernandes no ContractSafe Saml2 SSO. Trabalhe com a [equipe de suporte do ContractSafe Saml2 SSO](mailto:donne@contractsafe.com) para adicionar os usuários à plataforma do ContractSafe Saml2 SSO. Os usuários devem ser criados e ativados antes de você usar o SSO.
+Crie uma usuária chamada B. Fernandes no ContractSafe Saml2 SSO. Trabalhe com a [equipe de suporte do ContractSafe Saml2 SSO](mailto:support@contractsafe.com) para adicionar os usuários à plataforma do ContractSafe Saml2 SSO. Os usuários devem ser criados e ativados antes de você usar o SSO.
 
 ## <a name="test-sso"></a>Testar o SSO
 

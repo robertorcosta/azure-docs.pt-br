@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9338c1a42737180ec5395f30060b4eed35ce5eda
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: be447b001b0b2e14999aac98ba2125f8cbfe9853
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381065"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186607"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Início Rápido: bloquear o acesso quando um risco de sessão é detectado com acesso condicional do Azure Active Directory  
 
-Para manter o ambiente protegido, convém bloquear a conexão de usuários suspeitos. [Proteção de Identidade do Azure Active Directory (Azure AD)](../active-directory-identityprotection.md) analiza cada login e calcula a probabilidade de uma tentativa de conexão não ter sido realizada pelo proprietário legítimo de uma conta de usuário. A probabilidade (baixa, média, alta) é indicada na forma de um valor calculado chamado [níveis de risco de entrada](conditions.md#sign-in-risk). Definindo a condição de risco de entrada, você pode configurar uma política de acesso condicional para responder aos níveis de risco de entrada específico.
+Para manter o ambiente protegido, convém bloquear a conexão de usuários suspeitos. [Proteção de Identidade do Azure Active Directory (Azure AD)](../active-directory-identityprotection.md) analiza cada login e calcula a probabilidade de uma tentativa de conexão não ter sido realizada pelo proprietário legítimo de uma conta de usuário. A probabilidade (baixa, média, alta) é indicada na forma de um valor calculado chamado [níveis de risco de entrada](concept-conditional-access-conditions.md#sign-in-risk). Definindo a condição de risco de entrada, você pode configurar uma política de acesso condicional para responder aos níveis de risco de entrada específico.
 
 Este início rápido mostra como configurar uma [política de Acesso Condicional](../active-directory-conditional-access-azure-portal.md) que bloqueia uma entrada quando um nível de risco de entrada configurado foi detectado.
 
@@ -56,8 +56,8 @@ Esta seção mostra como criar a política de acesso condicional necessária. Em
 | --- | --- |
 | Usuários e grupos | Alain Charon  |
 | Aplicativos na nuvem | Todos os aplicativos em nuvem |
-| Risco de entrada | Média |
-| Concessão | Acesso bloqueado |
+| Risco de entrada | Médio |
+| Conceder | Acesso bloqueado |
 
 ![Criar política](./media/app-sign-in-risk/130.png)
 
@@ -74,11 +74,11 @@ Esta seção mostra como criar a política de acesso condicional necessária. Em
 
 1. Na página **Acesso Condicional**, na barra de ferramentas na parte superior, clique em **Adicionar**.
 
-   ![NOME](./media/app-sign-in-risk/108.png)
+   ![Nome](./media/app-sign-in-risk/108.png)
 
 1. Na página **Novo**, na caixa de texto **nome**, digite **bloquear o acesso de nível de risco médio**.
 
-   ![NOME](./media/app-sign-in-risk/104.png)
+   ![Nome](./media/app-sign-in-risk/104.png)
 
 1. Na seção **Atribuição**, clique em **Usuários e Grupos**.
 
@@ -163,7 +163,7 @@ Para testar sua política, tente entrar em sua [portal do Azure](https://portal.
 
 ![Autenticação multifator](./media/app-sign-in-risk/118.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, exclua o usuário de teste, o Tor Browser e a política de acesso condicional:
 
