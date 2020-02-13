@@ -32,7 +32,7 @@
           href: get-started-java-send-v2.md
         - name: Python (azure-eventhub versão 5)
           href: get-started-python-send-v2.md
-        - name: Node.js (azure/event-hubs versão 5)
+        - name: JavaScript (azure/event-hubs versão 5)
           href: get-started-node-send-v2.md
         - name: Go
           href: event-hubs-go-get-started-send.md
@@ -40,14 +40,28 @@
           href: event-hubs-c-getstarted-send.md
         - name: Apache Storm (somente receber)
           href: event-hubs-storm-getstarted-receive.md
+    - name: Enviar e receber eventos (versões/pacotes antigos)
+      items:
+        - name: .NET Core (Microsoft.Azure.EventHubs)
+          href: event-hubs-dotnet-standard-getstarted-send.md
+        - name: Java (azure-eventhubs)
+          href: event-hubs-java-get-started-send.md
+        - name: Python (azure-eventhub versão 1)
+          href: event-hubs-python-get-started-send.md
+        - name: JavaScript (azure/event-hubs versão 2)
+          href: event-hubs-node-get-started-send.md
+        - name: .NET Framework (Microsoft.Azure.EventHubs)
+          href: event-hubs-dotnet-framework-getstarted-send.md
     - name: Capturar eventos
       items:
         - name: Usar o portal do Azure para habilitar a Captura dos Hubs de Eventos
           href: event-hubs-capture-enable-through-portal.md
         - name: Usar um modelo de Gerenciador de Recursos para habilitar uma Captura dos Hubs de Eventos
           href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
-        - name: Capturar dados dos Hubs de Eventos usando o Python (azure-eventhub versão 5)
+        - name: Ler dados capturados usando o Python (azure-eventhub versão 5)
           href: get-started-capture-python-v2.md
+        - name: Ler dados capturados usando o Python (azure-eventhub versão 1)
+          href: event-hubs-capture-python.md
     - name: Transmissão para Hubs de Eventos do Apache Kafka
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
     - name: Criar um cluster dedicado
@@ -97,7 +111,7 @@
               items:
                 - name: Autenticar com uma identidade gerenciada
                   href: authenticate-managed-identity.md
-                - name: Autenticar em um aplicativo
+                - name: Autenticar a partir de um aplicativo
                   href: authenticate-application.md
             - name: Autenticar com assinatura de acesso compartilhado
               href: authenticate-shared-access-signature.md
@@ -126,20 +140,6 @@
               href: 'https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/README.md'
             - name: .NET (Microsoft.Azure.EventHubs)
               href: event-hubs-programming-guide.md
-        - name: Ler dados capturados usando o Python (azure-eventhub versão 1)
-          href: event-hubs-capture-python.md
-        - name: Enviar e receber eventos (versões/pacotes antigos)
-          items:
-            - name: .NET Core (Microsoft.Azure.EventHubs)
-              href: event-hubs-dotnet-standard-getstarted-send.md
-            - name: Java (azure-eventhubs)
-              href: event-hubs-java-get-started-send.md
-            - name: Python (azure-eventhub versão 1)
-              href: event-hubs-python-get-started-send.md
-            - name: Node.js (azure/event-hubs versão 2)
-              href: event-hubs-node-get-started-send.md
-            - name: .NET Framework (Microsoft.Azure.EventHubs)
-              href: event-hubs-dotnet-framework-getstarted-send.md
     - name: Processar dados
       items:
         - name: Processar dados usando o Azure Stream Analytics
@@ -234,7 +234,7 @@
               href: /python/api/azure-eventhub/?view=azure-python
         - name: Biblioteca de gerenciamento
           href: /python/api/overview/azure/event-hub?view=azure-python
-    - name: Node.js
+    - name: JavaScript
       items:
         - name: Migrar do azure/eventhubs versão 2 para versão 5
           href: 'https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md'

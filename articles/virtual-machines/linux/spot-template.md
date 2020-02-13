@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2019
+ms.date: 02/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 2e94c48188d0eed22b338d0d7238c0d27a5d1862
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 457f1008b75fe0605c0d2934f2de09937fac8d21
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74782197"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162439"
 ---
 # <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Implantar VMs Spot usando um modelo do Resource Manager
 
@@ -33,10 +33,10 @@ Você tem a opção de definir um preço máximo que está disposto a pagar, por
 > Atualmente, as instâncias especiais estão em visualização pública.
 > Esta versão de visualização não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Para a parte inicial da visualização pública, as instâncias Spot terão um preço fixo, portanto, não haverá nenhuma remoção baseada em preço.
 
 
-## <a name="use-a-template"></a>Usar um modelo 
+
+## <a name="use-a-template"></a>Como usar um modelo 
 
 Para implantações de modelo Spot, use`"apiVersion": "2019-03-01"` ou posterior. Adicione as propriedades `priority`, `evictionPolicy` e `billingProfile` ao seu modelo: 
 
@@ -48,9 +48,6 @@ Para implantações de modelo Spot, use`"apiVersion": "2019-03-01"` ou posterior
                 }
 ```
 
-
-> [!IMPORTANT]
-> Para a parte inicial da visualização pública, você pode definir um preço máximo, mas ele será ignorado. As VMs pontuais terão um preço fixo, portanto, não haverá nenhuma remoção baseada em preço.
 
 
 Aqui está um modelo de exemplo com as propriedades adicionadas para uma VM Spot. Substitua os nomes de recursos pelos seus próprios e `<password>` com uma senha para a conta de administrador local na VM.
@@ -190,7 +187,7 @@ Aqui está um modelo de exemplo com as propriedades adicionadas para uma VM Spot
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Você também pode criar uma VM Spot usando [Azure PowerShell](../windows/spot-powershell.md) ou a [CLI do Azure](spot-cli.md).
 

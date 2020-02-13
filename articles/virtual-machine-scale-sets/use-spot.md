@@ -6,14 +6,14 @@ tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 02/11/2020
 ms.author: cynthn
-ms.openlocfilehash: a7afb80276147c1562a5963a3ae9a319a8b73264
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 37e914fe6bafe9587be525faf3e01c897cdd8230
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544775"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162677"
 ---
 # <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>Visualização: VMs de ponto do Azure para conjuntos de dimensionamento de máquinas virtuais 
 
@@ -25,7 +25,6 @@ A quantidade de capacidade disponível pode variar com base no tamanho, região,
 > Atualmente, as instâncias especiais estão em visualização pública.
 > Esta versão de visualização não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Para a parte inicial da visualização pública, as instâncias Spot terão um preço fixo, portanto, não haverá nenhuma remoção baseada em preço.
 
 ## <a name="pricing"></a>Preços
 
@@ -58,7 +57,7 @@ Para implantar VMs pontuais em conjuntos de dimensionamento, você pode definir 
 O processo para criar um conjunto de dimensionamento que usa VMs pontuais é o mesmo detalhado no [artigo de introdução](quick-create-portal.md). Ao implantar um conjunto de dimensionamento, você pode optar por definir o sinalizador de spot e a política de remoção: ![criar um conjunto de dimensionamento com VMs Spot](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
 
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI do Azure
 
 O processo para criar um conjunto de dimensionamento com VMs pontuais é o mesmo detalhado no [artigo de introdução](quick-create-cli.md). Basta adicionar o '--priority spot ' e adicionar `--max-price`. Neste exemplo, usamos `-1` para `--max-price` para que a instância não seja removida com base no preço.
 
@@ -105,7 +104,7 @@ Para implantações de modelo Spot, use`"apiVersion": "2019-03-01"` ou posterior
 
 Para excluir a instância depois que ela tiver sido removida, altere o parâmetro `evictionPolicy` para `Delete`.
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Perguntas frequentes
 
 **P:** Uma vez criada, é uma instância Spot igual à instância padrão?
 
@@ -160,19 +159,19 @@ Para excluir a instância depois que ela tiver sido removida, altere o parâmetr
 
 | Canais do Azure               | Disponibilidade de VMs de ponto do Azure       |
 |------------------------------|-----------------------------------|
-| Enterprise Agreement         | Sim                               |
-| Pagamento Conforme o Uso                | Sim                               |
+| Contrato Enterprise         | Sim                               |
+| Pré-pago                | Sim                               |
 | Provedor de Serviços de Nuvem (CSP) | [Entre em contato com seu parceiro](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Benefícios                     | Não disponível                     |
 | Patrocinado                    | Não disponível                     |
-| Avaliação Gratuita                   | Não disponível                     |
+| Avaliação gratuita                   | Não disponível                     |
 
 
 **P:** Onde posso postar perguntas?
 
 **R:** Você pode postar e marcar sua pergunta com `azure-spot` em [Q & A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Agora que você criou um conjunto de dimensionamento com VMs Spot, tente implantar nosso [modelo de dimensionamento automático usando o Spot](https://github.com/Azure/vm-scale-sets/tree/master/preview/lowpri).
 
 Confira a [página de preços de conjunto de dimensionamento de máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) para obter detalhes sobre preços.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
-ms.openlocfilehash: ba3e677b98406a5f126649aafc2f89fb9d20c895
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 82ae0cab2d3dd7c65371e7a5bfec506e484fcdd2
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137609"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169785"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>O que é um espaço de trabalho Azure Machine Learning?
 
@@ -78,13 +78,6 @@ Você também pode executar as seguintes tarefas de gerenciamento de espaço de 
 | Criar e gerenciar recursos de computação    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
 | Criar uma VM do notebook |   | **&check;** | |     |
 
-> [!NOTE]
-> As instâncias de computação estão disponíveis somente para espaços de trabalho com uma região do **norte EUA Central**, **leste dos eua 2**, **Europa setentrional** ou **sul do Reino Unido**, com suporte para outras regiões em breve.
->Se o seu espaço de trabalho estiver em qualquer outra região, você poderá continuar a criar e usar uma [VM do Notebook](concept-compute-instance.md#notebookvm) em vez disso.
-
-> [!WARNING]
-> Não há suporte para mover o espaço de trabalho Azure Machine Learning para uma assinatura diferente ou mover a assinatura proprietária para um novo locatário. Isso pode causar erros.
-
 ## <a name='create-workspace'></a>Criar um espaço de trabalho
 
 Ao criar um espaço de trabalho, você decide se deseja criá-lo com o [Basic ou Enterprise Edition](overview-what-is-azure-ml.md#sku). A edição determina os recursos disponíveis no espaço de trabalho. Entre outros recursos, a Enterprise Edition oferece acesso ao [Azure Machine Learning designer](concept-designer.md) e à versão de estúdio da criação de [experimentos de aprendizado de máquina automatizados](tutorial-first-experiment-automated-ml.md).  Para obter mais detalhes e informações sobre preços, consulte [preços de Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
@@ -115,7 +108,7 @@ Quando você cria um novo workspace, ele automaticamente cria vários recursos d
 > [!NOTE]
 > Além de criar novas versões, você também pode usar os serviços existentes do Azure.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para começar a usar o Azure Machine Learning, consulte:
 

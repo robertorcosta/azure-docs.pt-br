@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 3d6439424f2a39bf5b5477cebd5fadb23a6370b0
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: ec2d9152bf8d3d7c60f00e902f155212ee1b81cc
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984805"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169827"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>O que são destinos de computação no Azure Machine Learning? 
 
@@ -50,16 +50,12 @@ Um recurso de computação gerenciado é criado e gerenciado pelo Azure Machine 
 
 Você pode criar Azure Machine Learning instâncias de computação (versão prévia) ou clusters de computação no:
 
-| | Azure Machine Learning Studio | Portal do Azure | SDK | Modelo do Resource Manager | CLI |
+| | Azure Machine Learning Studio | Portal do Azure | . | Modelo do Resource Manager | CLI |
 |---| ----- | ----- | ----- | ----- | ----- |
 | Instância de computação | sim | sim | sim | sim |  |
 | Cluster de computação | sim | sim | sim | sim | sim |
 
 Quando criados, esses recursos de computação são automaticamente parte do seu espaço de trabalho, ao contrário de outros tipos de destinos de computação.
-
-> [!NOTE]
-> As instâncias de computação estão disponíveis somente para espaços de trabalho com uma região do **norte EUA Central**, **leste dos eua 2**, **Europa setentrional** ou **sul do Reino Unido**, com suporte para outras regiões em breve.
->Se o seu espaço de trabalho estiver em qualquer outra região, você poderá continuar a criar e usar uma [VM do Notebook](concept-compute-instance.md#notebookvm) em vez disso. 
 
 ### <a name="compute-clusters"></a>Clusters de cálculo
 
@@ -76,7 +72,7 @@ Você pode usar Azure Machine Learning clusters de computação para treinamento
 
 Um destino de computação *não gerenciado não* é gerenciado pelo Azure Machine Learning. Você cria esse tipo de destino de computação fora do Azure Machine Learning e, em seguida, anexa-o ao seu espaço de trabalho. Recursos de computação não gerenciados podem exigir etapas adicionais para você manter ou para melhorar o desempenho de cargas de trabalho de aprendizado de máquina.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como:
 * [Configurar um destino de computação para treinar seu modelo](how-to-set-up-training-targets.md)

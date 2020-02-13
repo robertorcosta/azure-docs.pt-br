@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.author: celested
+ms.date: 02/12/2020
+ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: b741f42bb215df59903fed7ed84094b7d037ce65
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: ecd5d8bae22d67f8d9f5b99d5c94eecf54a4a1f3
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063025"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77165999"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Acesso seguro a APIs locais com o Azure Proxy de Aplicativo do AD
 
@@ -24,7 +24,7 @@ Você pode ter APIs de lógica de negócios em execução localmente ou hospedad
 
 Este artigo orienta você pela configuração de uma solução de Proxy de Aplicativo do AD do Azure para hospedar um serviço de API Web que aplicativos nativos podem acessar. 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 O diagrama a seguir mostra uma maneira tradicional de publicar APIs locais. Essa abordagem requer a abertura de portas de entrada 80 e 443.
 
@@ -38,7 +38,7 @@ O Proxy de Aplicativo do AD do Azure forma o backbone da solução, trabalhando 
 
 Como a autenticação e a autorização do Azure Proxy de Aplicativo do AD são criadas com base no Azure AD, você pode usar o acesso condicional do Azure AD para garantir que somente dispositivos confiáveis possam acessar APIs publicadas por meio do proxy de aplicativo. Use o ingresso no Azure AD ou o Azure AD híbrido Unido para desktops e o Intune gerenciado para dispositivos. Você também pode aproveitar Azure Active Directory Premium recursos como a autenticação multifator do Azure e a segurança com suporte do Machine Learning da [proteção de identidade do Azure](/azure/active-directory/active-directory-identityprotection).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir este passo a passos, você precisa de:
 
@@ -53,19 +53,19 @@ Para publicar a API Web do SecretAPI por meio do proxy de aplicativo:
 
 1. Crie e publique o projeto SecretAPI de exemplo como um aplicativo Web ASP.NET no computador local ou na intranet. Verifique se você pode acessar o aplicativo Web localmente. 
    
-1. Na [portal do Azure](https://portal.azure.com), selecione **Azure Active Directory** no painel de navegação esquerdo. Em seguida, na página **visão geral** , selecione **aplicativos empresariais**.
+1. No [portal do Azure](https://portal.azure.com), selecione **Azure Active Directory**. Em seguida, selecione **aplicativos empresariais**.
    
 1. Na parte superior da página **aplicativos empresariais – todos os aplicativos** , selecione **novo aplicativo**.
    
-1. Na página **procurar na galeria do Azure ad** , em **aplicativos locais**, selecione **Adicionar um aplicativo local**. A página **Adicionar seu próprio aplicativo local** é exibida.
+1. Na página **Adicionar um aplicativo** , selecione **aplicativos locais**. A página **Adicionar seu próprio aplicativo local** é exibida.
    
 1. Se você não tiver um conector de proxy de aplicativo instalado, será solicitado a instalá-lo. Selecione **baixar conector de proxy de aplicativo** para baixar e instalar o conector. 
    
 1. Depois de instalar o conector de proxy de aplicativo, na página **Adicionar seu próprio aplicativo local** :
    
-   1. Digite *SecretAPI* ao lado de **nome**.
+   1. Ao lado de **nome**, insira *SecretAPI*.
       
-   1. Insira a URL que você usa para acessar a API de dentro de sua intranet ao lado da **URL interna**. 
+   1. Ao lado de **URL interna**, insira a URL que você usa para acessar a API de dentro de sua intranet.
       
    1. Verifique se a **pré-autenticação** está definida como **Azure Active Directory**. 
       
@@ -171,7 +171,7 @@ Depois de configurar os parâmetros, compile e execute o aplicativo nativo. Quan
 
 ![Sucesso](./media/application-proxy-secure-api-access/success.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Tutorial: adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo no Azure Active Directory](application-proxy-add-on-premises-application.md)
 - [Início rápido: configurar um aplicativo cliente para acessar APIs Web](../develop/quickstart-configure-app-access-web-apis.md)

@@ -10,14 +10,14 @@ metadata:
   ms.topic: landing-page
   author: iainfoulds
   ms.author: iainfou
-  ms.date: 08/20/2019
+  ms.date: 02/11/2020
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 01e1fe5ed73275078fc37dbec9a0857a8c4a8619
-  ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+  ms.openlocfilehash: 3c431b81c0da54045e9b9b020de5275912b394c6
+  ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 12/05/2019
-  ms.locfileid: "74847144"
+  ms.lasthandoff: 02/12/2020
+  ms.locfileid: "77166412"
 landingContent:
 - title: Sobre autenticação
   linkLists:
@@ -39,16 +39,16 @@ landingContent:
       url: concept-sspr-howitworks.md
     - text: write-back de senha
       url: concept-sspr-writeback.md
-  - linkListType: quickstart
+  - linkListType: tutorial
     links:
-    - text: Início rápido da redefinição de senha por autoatendimento
-      url: quickstart-sspr.md
+    - text: Habilitar a redefinição de senha por autoatendimento
+      url: tutorial-enable-sspr.md
+    - text: Habilitar o write-back de senha para local
+      url: tutorial-enable-writeback.md
   - linkListType: deploy
     links:
-    - text: Implantar a redefinição de senha por autoatendimento do Azure AD
+    - text: Guia de implantação de redefinição de senha self-service
       url: howto-sspr-deployment.md
-    - text: Habilitar o write-back de senha
-      url: howto-sspr-writeback.md
     - text: Habilitar redefinição de senha da tela de logon do Windows
       url: howto-sspr-windows.md
 - title: Habilitar a Autenticação Multifator do Microsoft Azure
@@ -59,13 +59,13 @@ landingContent:
       url: concept-mfa-howitworks.md
   - linkListType: tutorial
     links:
-    - text: Piloto do Azure MFA para aplicativos específicos
-      url: tutorial-mfa-applications.md
-    - text: Usar detecções de risco para disparar a Autenticação Multifator e as alterações de senha
+    - text: Habilitar a Autenticação Multifator do Microsoft Azure
+      url: tutorial-enable-azure-mfa.md
+    - text: Habilitar Autenticação Multifator do Azure baseada em risco
       url: tutorial-risk-based-sspr-mfa.md
   - linkListType: deploy
     links:
-    - text: Implantar Autenticação Multifator do Microsoft Azure
+    - text: Guia de implantação para da Autenticação Multifator do Azure
       url: howto-mfa-getstarted.md
     - text: Usar a extensão do NPS para integrar aplicativos locais
       url: howto-mfa-nps-extension.md

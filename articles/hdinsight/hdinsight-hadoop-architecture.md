@@ -5,15 +5,15 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/28/2019
-ms.openlocfilehash: 2da9e41323a308782dad509c628a3677ab0cd21f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.custom: hdinsightactive
+ms.date: 02/07/2020
+ms.openlocfilehash: 3feacd94558ba275c81469827993aef106ae633c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162888"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162201"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Arquitetura do Apache Hadoop no HDInsight
 
@@ -47,7 +47,28 @@ Todos os tipos de Cluster HDInsight implantam o YARN. O ResourceManager é impla
 
 ![Apache YARN no Azure HDInsight](./media/hdinsight-hadoop-architecture/apache-yarn-on-hdinsight.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="soft-delete"></a>Exclusão reversível
+
+Para restaurar um arquivo da sua conta de armazenamento, consulte:
+
+### <a name="azure-storage"></a>Armazenamento do Azure
+
+* [Exclusão reversível para blobs do Armazenamento do Azure ](../storage/blobs/storage-blob-soft-delete.md)
+* [Restaurar blob](https://docs.microsoft.com/rest/api/storageservices/undelete-blob)
+
+### <a name="azure-data-lake-storage-gen-1"></a>Azure Data Lake Storage Gen 1
+
+[Restore-AzDataLakeStoreDeletedItem](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem)
+
+### <a name="azure-data-lake-storage-gen-2"></a>Azure Data Lake Storage Gen 2
+
+[Problemas conhecidos com o Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-known-issues.md)
+
+## <a name="trash-purging"></a>Descarte de lixo
+
+A propriedade `fs.trash.interval` do **HDFS** > **Core-site avançado** deve permanecer no valor padrão `0` porque você não deve armazenar dados no sistema de arquivos local. Esse valor não afeta as contas de armazenamento remoto (WASB, ADLS GEN1, ABFS)
+
+## <a name="next-steps"></a>Próximas etapas
 
 * [Usar MapReduce no Apache Hadoop em HDInsight](hadoop/hdinsight-use-mapreduce.md)
 * [Introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md)

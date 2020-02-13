@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: 6fe7dfaccc3cf1c3fbe4a9ea42578c56f910ea36
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 71afbf09d563a43469689132dfce071b40d694b6
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435764"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162660"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Migrar clusters de Apache Hadoop locais para o Azure HDInsight
 
@@ -33,7 +33,7 @@ O armazenamento do Azure pode ser replicado geograficamente. Embora a replicaç�
 
 Um dos formatos a seguir pode ser usado para acessar dados armazenados no Armazenamento do Azure:
 
-|Formato de Acesso a Dados |Description |
+|Formato de Acesso a Dados |DESCRIÇÃO |
 |---|---|
 |`wasb:///`|Acessar o armazenamento padrão usando comunicação não criptografada.|
 |`wasbs:///`|Acessar o armazenamento padrão usando comunicação criptografada.|
@@ -74,7 +74,7 @@ Para obter mais informações, consulte os seguintes artigos:
 
 - [Usar o armazenamento do Azure com clusters do Azure HDInsight](../hdinsight-hadoop-use-blob-storage.md)
 - [Metas de escalabilidade para contas de armazenamento Standard](../../storage/common/scalability-targets-standard-account.md)
-- [Escalabilidade e metas de desempenho para o armazenamento de BLOBs](../../storage/blobs/scalability-targets.md)
+- [Metas de escalabilidade e desempenho do Armazenamento de Blobs](../../storage/blobs/scalability-targets.md)
 - [Lista de verificação de desempenho e escalabilidade do Armazenamento do Microsoft Azure](../../storage/common/storage-performance-checklist.md)
 - [Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
 - [Monitorar uma conta de armazenamento no portal do Azure](../../storage/common/storage-monitor-storage-account.md)
@@ -88,7 +88,7 @@ Para obter mais informações, consulte os seguintes artigos:
 - [Criar clusters HDInsight com o Data Lake Storage usando o portal do Azure](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Usar o Data Lake Storage com clusters Azure HDInsight](../hdinsight-hadoop-use-data-lake-store.md)
 
-### <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Store Gen2
+### <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
 
 Azure Data Lake Storage Gen2 é a oferta de armazenamento mais recente. Ele unifica os principais recursos do Azure Data Lake Storage de primeira geração com um ponto de extremidade do sistema de arquivos compatível com Hadoop integrado diretamente ao Armazenamento de Blobs do Azure. Essa melhoria combina os benefícios de escala e custo do armazenamento de objeto com a confiabilidade e o desempenho normalmente associados apenas a sistemas de arquivos locais.
 
@@ -155,7 +155,7 @@ Por padrão, o HDInsight tem acesso completo aos dados nas contas de Armazenamen
 
 1. Abra o arquivo [SASToken.py](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature/blob/master/Python/SASToken.py) e altere os valores a seguir:
 
-    |Propriedade Token|Description|
+    |Propriedade Token|DESCRIÇÃO|
     |---|---|
     |policy_name|O nome a ser usado para a política armazenada que será criada.|
     |storage_account_name|O nome da sua conta de armazenamento.|
@@ -198,7 +198,7 @@ Todos os dados gravados no Armazenamento do Azure são criptografados automatica
 - [Armazenamento com redundância local (LRS)](../../storage/common/storage-redundancy-lrs.md)
 - [Armazenamento com redundância de zona (ZRS)](../../storage/common/storage-redundancy-zrs.md)
 - [Armazenamento com redundância geográfica (GRS)](../../storage/common/storage-redundancy-grs.md)
-- [Armazenamento com redundância geográfica com acesso de leitura (RA-GRS)](../../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
+- [Armazenamento com redundância geográfica com acesso de leitura (RA-GRS)](../../storage/common/storage-redundancy.md)
 
 O Azure Data Lake Storage fornece LRS (armazenamento com redundância local), mas você também deve copiar dados críticos para outra conta do Data Lake Storage em outra região com uma frequência alinhada às necessidades do plano de recuperação de desastres. Há métodos diferentes para copiar dados, incluindo [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md)ou [Azure data Factory](../../data-factory/connector-azure-data-lake-store.md). Também é recomendável impor políticas de acesso para Data Lake Storage conta para evitar a exclusão acidental.
 
@@ -220,6 +220,6 @@ A conta de armazenamento extra pode ser adicionada das seguintes maneiras:
 
 Para saber mais, confira [Adicionar outras contas de armazenamento ao HDInsight](../hdinsight-hadoop-add-storage.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Leia o próximo artigo desta série: [práticas recomendadas de migração de dados para local para Azure HDInsight Hadoop migração](apache-hadoop-on-premises-migration-best-practices-data-migration.md).

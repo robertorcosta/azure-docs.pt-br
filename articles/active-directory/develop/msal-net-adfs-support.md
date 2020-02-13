@@ -13,12 +13,12 @@ ms.date: 07/16/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: a0dd9b339ca6372a34ff46222cad347eb1a673f9
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 15af18177cea217612a4d5276d130abe02d339f4
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77084984"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160752"
 ---
 # <a name="active-directory-federation-services-support-in-msalnet"></a>Suporte a Serviços de Federação do Active Directory (AD FS) no MSAL.NET
 O Serviços de Federação do Active Directory (AD FS) (AD FS) no Windows Server permite adicionar o OpenID Connect e a autenticação e autorização baseadas em OAuth 2,0 a aplicativos que você está desenvolvendo. Esses aplicativos podem, então, autenticar os usuários diretamente no AD FS. Para obter mais informações, leia [AD FS cenários para desenvolvedores](/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios).
@@ -54,7 +54,7 @@ No momento, não há planos para dar suporte a uma conexão direta com:
 - AD FS 16, pois ele não dá suporte a PKCE e ainda usa recursos, não escopo
 - AD FS v2, que não é compatível com OIDC.
 
- Se você precisar dar suporte a cenários que exigem uma conexão direta com o AD FS 2016, use a versão mais recente da [biblioteca de autenticação Azure Active Directory](active-directory-authentication-libraries.md#microsoft-supported-client-libraries). Quando você tiver atualizado seu sistema local para AD FS 2019, poderá usar o MSAL.NET.
+ Se você precisar dar suporte a cenários que exigem uma conexão direta com o AD FS 2016, use a versão mais recente da [biblioteca de autenticação Azure Active Directory](../azuread-dev/active-directory-authentication-libraries.md#microsoft-supported-client-libraries). Quando você tiver atualizado seu sistema local para AD FS 2019, poderá usar o MSAL.NET.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d2dbe29c5a348363172f57da86483ccf3fd787f0
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 483603b8ff2f4b51f85d21d6ff4f02ad6f8a8272
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046090"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162082"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -246,7 +246,7 @@ Em geral, a Sincronização de Arquivos do Azure deve dar suporte à interoperab
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Outras soluções de HSM (Gerenciamento de Armazenamento Hierárquico)
 Nenhuma outra solução de HSM deve ser usada com a Sincronização de Arquivos do Azure.
 
-## <a name="region-availability"></a>Disponibilidade na região
+## <a name="region-availability"></a>Disponibilidade de região
 A Sincronização de Arquivos do Azure está disponível apenas nas seguintes regiões:
 
 | Região | Localização do Datacenter |
@@ -257,7 +257,7 @@ A Sincronização de Arquivos do Azure está disponível apenas nas seguintes re
 | Canadá Central | Toronto |
 | Leste do Canadá | Cidade de Quebec |
 | Índia Central | Pune |
-| EUA Central | Iowa |
+| Centro dos EUA | Iowa |
 | Leste da Ásia | RAE de Hong Kong |
 | Leste dos EUA | Virgínia |
 | Leste dos EUA 2 | Virgínia |
@@ -265,23 +265,23 @@ A Sincronização de Arquivos do Azure está disponível apenas nas seguintes re
 | Sul da França * | Marselha |
 | Coreia Central | Seul |
 | Sul da Coreia | Busan |
-| Leste do Japão | Tóquio |
+| Leste do Japão | Tóquio, Saitama |
 | Oeste do Japão | Osaka |
 | Centro-Norte dos EUA | Illinois |
-| Europa Setentrional | Irlanda |
+| Norte da Europa | Irlanda |
 | Norte da África do Sul | Joanesburgo |
-| Oeste da África do Sul * | Cidade do Cabo |
-| Centro-Sul dos EUA | Texas |
+| Oeste da África do Sul * | Cidade do cabo |
+| Centro-Sul dos Estados Unidos | Texas |
 | Sul da Índia | Chennai |
-| Sudeste Asiático | Cingapura |
-| Sul do Reino Unido | Londres |
+| Sudeste Asiático | Singapura |
+| Sul do Reino Unido | London |
 | Oeste do Reino Unido | Cardiff |
-| US Gov - Arizona | Arizona |
-| US Gov - Texas | Texas |
-| US Gov - Virgínia | Virgínia |
+| Governo dos EUA do Arizona | Arizona |
+| Governo dos EUA do Texas | Texas |
+| Gov. dos EUA – Virgínia | Virgínia |
 | Norte dos EAU | Dubai |
 | EAU Central * | Abu Dhabi |
-| Oeste da Europa | Holanda |
+| Europa Ocidental | Países Baixos |
 | Centro-Oeste dos EUA | Wyoming |
 | Oeste dos EUA | Califórnia |
 | Oeste dos EUA 2 | Washington |
@@ -291,7 +291,7 @@ A Sincronização de Arquivos do Azure é compatível apenas com um compartilham
 Para as regiões marcadas com asteriscos, você deve contatar o suporte do Azure para solicitar acesso ao armazenamento do Azure nessas regiões. O processo é descrito neste [documento](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ### <a name="azure-disaster-recovery"></a>Recuperação de desastre do Azure
-Para proteger-se contra a perda de uma região do Azure, a Sincronização de Arquivos do Azure integra-se com a opção de GRS ([redundância de armazenamento com redundância geográfica](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)). O armazenamento GRS funciona usando a replicação de bloco assíncrono entre o armazenamento na região primária, com o qual você normalmente interage, e o armazenamento na região secundária emparelhada. No caso de um desastre que faz com que uma região do Azure fique temporariamente ou permanentemente offline, a Microsoft fará o failover do armazenamento para a região emparelhada. 
+Para proteger contra a perda de uma região do Azure, Sincronização de Arquivos do Azure integra-se ao [armazenamento com redundância geográfica](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). O armazenamento GRS funciona usando a replicação de bloco assíncrono entre o armazenamento na região primária, com o qual você normalmente interage, e o armazenamento na região secundária emparelhada. No caso de um desastre que faz com que uma região do Azure fique temporariamente ou permanentemente offline, a Microsoft fará o failover do armazenamento para a região emparelhada. 
 
 > [!Warning]  
 > Se estiver usando o compartilhamento de arquivos do Azure como um ponto de extremidade de nuvem em uma conta de armazenamento GRS, você não deve iniciar o failover da conta de armazenamento. Se isso for feito, a sincronização deixará de funcionar e poderá causar a perda inesperada de dados no caso de arquivos recentes em camadas. No caso de perda de uma região do Azure, a Microsoft disparará o failover da conta de armazenamento de modo que seja compatível com a Sincronização de Arquivos do Azure.
@@ -302,33 +302,33 @@ Para dar suporte à integração de failover entre o armazenamento com redundân
 |---------------------|--------------------|
 | Leste da Austrália      | Sudeste da Austrália|
 | Sudeste da Austrália | Leste da Austrália     |
-| Sul do Brasil        | Centro-Sul dos EUA   |
+| Sul do Brasil        | Centro-Sul dos Estados Unidos   |
 | Canadá Central      | Leste do Canadá        |
 | Leste do Canadá         | Canadá Central     |
 | Índia Central       | Sul da Índia        |
-| EUA Central          | Leste dos EUA 2          |
+| Centro dos EUA          | Leste dos EUA 2          |
 | Leste da Ásia           | Sudeste Asiático     |
 | Leste dos EUA             | Oeste dos EUA            |
-| Leste dos EUA 2           | EUA Central         |
+| Leste dos EUA 2           | Centro dos EUA         |
 | França Central      | Sul da França       |
 | Sul da França        | França Central     |
 | Leste do Japão          | Oeste do Japão         |
 | Oeste do Japão          | Leste do Japão         |
 | Coreia Central       | Sul da Coreia        |
 | Sul da Coreia         | Coreia Central      |
-| Europa Setentrional        | Oeste da Europa        |
-| Centro-Norte dos EUA    | Centro-Sul dos EUA   |
+| Norte da Europa        | Europa Ocidental        |
+| Centro-Norte dos EUA    | Centro-Sul dos Estados Unidos   |
 | Norte da África do Sul  | Oeste da África do Sul  |
 | Oeste da África do Sul   | Norte da África do Sul |
-| Centro-Sul dos EUA    | Centro-Norte dos EUA   |
+| Centro-Sul dos Estados Unidos    | Centro-Norte dos EUA   |
 | Sul da Índia         | Índia Central      |
 | Sudeste Asiático      | Leste da Ásia          |
 | Sul do Reino Unido            | Oeste do Reino Unido            |
 | Oeste do Reino Unido             | Sul do Reino Unido           |
-| US Gov - Arizona      | US Gov - Texas       |
-| US Gov - Iowa         | US Gov - Virgínia    |
-| US Gov - Virgínia      | US Gov - Texas       |
-| Oeste da Europa         | Europa Setentrional       |
+| Governo dos EUA do Arizona      | Governo dos EUA do Texas       |
+| US Gov Iowa         | Gov. dos EUA – Virgínia    |
+| Gov. dos EUA – Virgínia      | Governo dos EUA do Texas       |
+| Europa Ocidental         | Norte da Europa       |
 | Centro-Oeste dos EUA     | Oeste dos EUA 2          |
 | Oeste dos EUA             | Leste dos EUA            |
 | Oeste dos EUA 2           | Centro-Oeste dos EUA    |
@@ -360,7 +360,7 @@ Na tabela a seguir, fornecemos o tamanho do namespace, bem como uma conversão p
 > 
 > A rotatividade típica é de 0,5% da alteração do namespace por dia. Para níveis mais altos de variação, considere adicionar mais CPU. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Considere as configurações de firewall e proxy](storage-sync-files-firewall-and-proxy.md)
 * [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md)
 * [Implantar os Arquivos do Azure](storage-files-deployment-guide.md)

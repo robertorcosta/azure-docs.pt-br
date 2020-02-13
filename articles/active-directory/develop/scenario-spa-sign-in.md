@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/06/2019
+ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 8124aea96ab00e7f09782531702dcb5cfa4ccdf2
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: eb75aa53051e7e3c424ffe131cda61324fe86b1a
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701817"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159957"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>Aplicativo de página única: entrar e sair
 
@@ -47,7 +47,7 @@ Você não pode usar os métodos pop-up e Redirect em seu aplicativo. A escolha 
 
 ## <a name="sign-in-with-a-pop-up-window"></a>Entrar com uma janela pop-up
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const loginRequest = {
@@ -63,7 +63,7 @@ userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
 });
 ```
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 O wrapper angular MSAL permite que você proteja rotas específicas em seu aplicativo adicionando `MsalGuard` à definição de rota. Essa proteção invocará o método para entrar quando a rota for acessada.
 
@@ -89,10 +89,11 @@ Para uma experiência de janela pop-up, habilite a opção de configuração `po
             })]
          })
 ```
+---
 
 ## <a name="sign-in-with-redirect"></a>Entrar com redirecionamento
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 Os métodos de redirecionamento não retornam uma promessa devido à afastamento do aplicativo principal. Para processar e acessar os tokens retornados, você precisa registrar os retornos de chamada de êxito e erro antes de chamar os métodos de redirecionamento.
 
@@ -110,12 +111,14 @@ const loginRequest = {
 userAgentApplication.loginRedirect(loginRequest);
 ```
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 O código aqui é o mesmo descrito anteriormente na seção sobre como entrar com uma janela pop-up. O fluxo padrão é redirecionar.
 
 > [!NOTE]
 > O token de ID não contém os escopos consentido e representa apenas o usuário autenticado. Os escopos consentidod são retornados no token de acesso, que será adquirido na próxima etapa.
+
+---
 
 ## <a name="sign-out"></a>Sair
 
@@ -123,7 +126,7 @@ A biblioteca MSAL fornece um método `logout` que limpa o cache no armazenamento
 
 Você pode configurar o URI para o qual ele deve ser redirecionado após a saída, definindo `postLogoutRedirectUri`. Esse URI também deve ser registrado como o URI de logout no registro do aplicativo.
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const config = {
@@ -140,7 +143,7 @@ userAgentApplication.logout();
 
 ```
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 ```javascript
 //In app.module.ts
@@ -155,7 +158,9 @@ userAgentApplication.logout();
 this.authService.logout();
 ```
 
-## <a name="next-steps"></a>Próximos passos
+---
+
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Adquirindo um token para o aplicativo](scenario-spa-acquire-token.md)

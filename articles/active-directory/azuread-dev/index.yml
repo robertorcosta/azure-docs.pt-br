@@ -1,0 +1,54 @@
+### YamlMime:Landing
+title: Azure Active Directory para desenvolvedores
+summary: O Azure Active Directory (Azure AD) é um serviço de identidade de nuvem que permite aos desenvolvedores criar aplicativos que conectam com segurança qualquer usuário com uma conta corporativa ou de estudante da Microsoft. O Azure Active Directory oferece tanto suporte a desenvolvedores que criam aplicativos de linha de negócios (LOB) com locatário único quanto a desenvolvedores que buscam desenvolver aplicativos de multilocação. A plataforma de identidade da Microsoft é uma evolução da plataforma de desenvolvedor do Azure AD (Azure Active Directory). Para novos aplicativos, recomendamos que você use a plataforma de identidade da Microsoft (v2.0) e a MSAL para adquirir tokens e acessar APIs Web protegidas.
+metadata:
+  ms.topic: landing-page
+  ms.date: 01/27/2020
+  author: CelesteDG
+  ms.author: celested
+  ms.service: active-directory
+  ms.subservice: azuread-dev
+  ms.workload: identity
+  ms.openlocfilehash: 5af100e7e5a1456dae4bc4e68334299d1fd12794
+  ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 02/12/2020
+  ms.locfileid: "77163204"
+landingContent:
+- title: Azure Active Directory para desenvolvedores
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Active Directory para desenvolvedores (v1.0)
+      url: v1-overview.md
+    - text: Evolução da plataforma de identidade da Microsoft
+      url: ../develop/about-microsoft-identity-platform.md
+    - text: Plataforma de identidade da Microsoft (v2.0)
+      url: ../develop/v2-overview.md
+  - linkListType: concept
+    links:
+    - text: Por que atualizar para plataforma de identidade da Microsoft (v2.0)?
+      url: azure-ad-endpoint-comparison.md
+    - text: Tipos e cenários de aplicativos
+      url: app-types.md
+- title: Protocolos de autenticação
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Noções básicas de autenticação
+      url: v1-authentication-scenarios.md
+  - linkListType: concept
+    links:
+    - text: Fluxo de código de autorização OAuth 2.0
+      url: v1-protocols-oauth-code.md
+    - text: Fluxo de código do OpenID Connect
+      url: v1-protocols-openid-connect-code.md
+    - text: Fluxo de concessão de credenciais de cliente do OAuth 2.0
+      url: v1-oauth2-client-creds-grant-flow.md
+- title: Exemplos
+  linkLists:
+  - linkListType: download
+    links:
+    - text: Aplicativos de exemplo
+      url: sample-v1-code.md

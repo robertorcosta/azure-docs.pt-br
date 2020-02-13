@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
-ms.openlocfilehash: b0fec44a59bd70c6f1d0236861d93e81aaba033c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 68f42aa13288c2416257f3ba6c0b6072c1572977
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969421"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162983"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Criação de um sistema de proteção de conteúdo com controle de acesso usando os serviços de mídia do Azure 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 O design e a criação de um subsistema de DRM (gerenciamento de direitos digitais) para uma solução de streaming OTT (over-the-top) ou online é uma tarefa complexa. Os operadores ou provedores de vídeo online normalmente terceirizam essa tarefa para provedores de serviço de DRM especializados. A meta deste documento é apresentar um design e uma implementação de referência de um subsistema DRM de ponta a ponta em uma solução de streaming OTT ou online.
 
@@ -215,10 +215,10 @@ A implementação inclui as seguintes etapas:
 
     | **DRM** | **Navegador** | **Resultado para usuário autorizado** | **Resultado para usuário não autorizado** |
     | --- | --- | --- | --- |
-    | **PlayReady** |Microsoft Edge ou Internet Explorer 11 no Windows 10 |Êxito |Reprovado |
-    | **Widevine** |Chrome, Firefox, Opera |Êxito |Reprovado |
-    | **FairPlay** |Safari no macOS      |Êxito |Reprovado |
-    | **AES-128** |Navegadores mais modernos  |Êxito |Reprovado |
+    | **PlayReady** |Microsoft Edge ou Internet Explorer 11 no Windows 10 |Êxito |Falha |
+    | **Widevine** |Chrome, Firefox, Opera |Êxito |Falha |
+    | **FairPlay** |Safari no macOS      |Êxito |Falha |
+    | **AES-128** |Navegadores mais modernos  |Êxito |Falha |
 
 Para obter informações sobre como configurar o Azure AD para um aplicativo player do ASP.NET MVC, consulte [Integrar um aplicativo OWIN com base em MVC dos Serviços de Mídia do Azure com o Azure Active Directory e restringir o fornecimento da chave de conteúdo com base em declarações JWT](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
@@ -226,7 +226,7 @@ Para saber mais, confira [Autenticação de token JWT nos Serviços de Mídia do
 
 Para obter informações sobre o Azure AD:
 
-* Você pode encontrar informações de desenvolvedor no [Guia do desenvolvedor do Azure Active Directory](../../active-directory/develop/v1-overview.md).
+* Você pode encontrar informações de desenvolvedor no [Guia do desenvolvedor do Azure Active Directory](../../active-directory/azuread-dev/v1-overview.md).
 * Você pode encontrar informações de administrador em [Administrar seu diretório de locatário do Azure AD](../../active-directory/fundamentals/active-directory-administer.md).
 
 ### <a name="some-issues-in-implementation"></a>Alguns problemas na implementação
@@ -313,9 +313,9 @@ E se a substituição de chave acontecer depois que o Azure AD gerar um JWT, mas
 Como uma chave pode ser substituída a qualquer momento, mais de uma chave pública válida estará sempre disponível no documento de metadados de federação. A entrega de licenças dos Serviços de Mídia pode usar qualquer uma das chaves especificadas no documento. Como uma chave poderá ser substituída em breve, outra poderá ser sua substituição, e assim por diante.
 
 ### <a name="where-is-the-access-token"></a>Onde está o token de acesso?
-Se você der uma olhada em como um aplicativo Web chama um aplicativo de API em [Identidade do aplicativo com concessão de credenciais de cliente OAuth 2.0](../../active-directory/develop/web-api.md), verá que o fluxo de autenticação é o seguinte:
+Se você der uma olhada em como um aplicativo Web chama um aplicativo de API em [Identidade do aplicativo com concessão de credenciais de cliente OAuth 2.0](../../active-directory/azuread-dev/web-api.md), verá que o fluxo de autenticação é o seguinte:
 
-* Um usuário entra no Azure AD no aplicativo Web. Para obter mais informações, consulte [Navegador da Web para aplicativo Web](../../active-directory/develop/web-app.md).
+* Um usuário entra no Azure AD no aplicativo Web. Para obter mais informações, consulte [Navegador da Web para aplicativo Web](../../active-directory/azuread-dev/web-app.md).
 * O ponto de extremidade de autorização do AD do Azure redireciona o agente do usuário para o aplicativo cliente com um código de autorização. O agente do usuário retorna o código de autorização ao URI de redirecionamento do aplicativo cliente.
 * O aplicativo Web precisa adquirir um token de acesso para que ele possa autenticar a API da Web e recuperar o recurso desejado. Ele faz uma solicitação ao ponto de extremidade do token do Azure AD e fornece a credencial, a ID do cliente e o URI da ID do aplicativo da API da Web. Ele apresenta o código de autorização para comprovar que o usuário consentiu.
 * O Azure AD autentica o aplicativo e retorna um token de acesso JWT que é usado para chamar a API da Web.
@@ -472,7 +472,7 @@ Este documento abordou a CENC com DRM múltiplo nativo e o controle de acesso po
 
 ## <a name="additional-notes"></a>Observações adicionais
 
-* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+* O Widevine é um serviço fornecido pela Google Inc. e está sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

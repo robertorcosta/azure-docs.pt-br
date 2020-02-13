@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo de máquinas virtuais
 description: Saiba como Azure Policy usa o agente de configuração do convidado para auditar as configurações nas máquinas virtuais.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 205aa5a9292d0f70fed8247a8af1fe575ad3614e
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: 128baa0df1d3e555fe9629005529710202e1bbf6
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830489"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169537"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
@@ -74,7 +74,7 @@ A tabela a seguir mostra uma lista de sistemas operacionais com suporte em image
 
 |Publicador|Nome|Versões|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04, 16.04, 18.04|
+|Canônico|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
 |Microsoft|Windows Server|2012 datacenter, 2012 R2 Datacenter, 2016 Data Center, 2019 datacenter|
 |Microsoft|Windows Client|Windows 10|
@@ -183,12 +183,12 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 
 ## <a name="guest-configuration-samples"></a>Exemplos de configuração de convidado
 
-Exemplos de configuração de convidado de política estão disponíveis nos seguintes locais:
+A origem das iniciativas internas de configuração de convidado de política está disponível nos seguintes locais:
 
-- [Índice de exemplos – configuração de convidado](../samples/index.md#guest-configuration)
-- [Repositório GitHub de exemplos de Azure Policy](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration)
+- [Iniciativas internas-configuração de convidado](../samples/built-in-initiatives.md#guest-configuration)
+- [Repositório GitHub de exemplos de Azure Policy](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest Configuration)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](definition-structure.md).

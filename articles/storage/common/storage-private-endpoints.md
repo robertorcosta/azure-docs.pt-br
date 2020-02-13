@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: fff92057bc9812a5ef1488a46ed469382ad3ace3
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 85b59c6549a62f7d9945f5739d1d0fde8c0fa3b8
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806874"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158903"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>Usando pontos de extremidade privados para o armazenamento do Azure (visualização)
 
@@ -50,9 +50,9 @@ Ao criar o ponto de extremidade privado, você deve especificar a conta de armaz
 > [!TIP]
 > Crie um ponto de extremidade privado separado para a instância secundária do serviço de armazenamento para melhor desempenho de leitura em contas RA-GRS.
 
-Para obter disponibilidade de leitura em uma [conta de armazenamento com redundância geográfica com acesso de leitura](storage-redundancy-grs.md#read-access-geo-redundant-storage), você precisa de pontos de extremidade privados separados para as instâncias primária e secundária do serviço. Você não precisa criar um ponto de extremidade privado para a instância secundária para **failover**. O ponto de extremidade privado se conectará automaticamente à nova instância primária após o failover.
+Para acesso de leitura à região secundária com uma conta de armazenamento configurada para armazenamento com redundância geográfica, você precisa de pontos de extremidade privados separados para as instâncias primária e secundária do serviço. Você não precisa criar um ponto de extremidade privado para a instância secundária para **failover**. O ponto de extremidade privado se conectará automaticamente à nova instância primária após o failover. Para obter mais informações sobre opções de redundância de armazenamento, consulte [redundância de armazenamento do Azure](storage-redundancy.md).
 
-#### <a name="resources"></a>Implante
+#### <a name="resources"></a>Recursos
 
 Para obter informações mais detalhadas sobre como criar um ponto de extremidade privado para sua conta de armazenamento, consulte os seguintes artigos:
 
@@ -78,20 +78,20 @@ Quando você resolve a URL do ponto de extremidade de armazenamento de fora da V
 
 Para o exemplo ilustrado acima, os registros de recurso de DNS para a conta de armazenamento ' StorageAccountA ', quando resolvidos de fora da VNet que hospeda o ponto de extremidade privado, serão:
 
-| name                                                  | Type  | Value                                                 |
+| Nome                                                  | Type  | Valor                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | ponto de extremidade público do serviço de armazenamento \<\>                   |
-| ponto de extremidade público do serviço de armazenamento \<\>                   | A     | \<endereço IP público do serviço de armazenamento\>                 |
+| ponto de extremidade público do serviço de armazenamento \<\>                   | Um     | \<endereço IP público do serviço de armazenamento\>                 |
 
 Conforme mencionado anteriormente, você pode negar ou controlar o acesso para clientes fora da VNet por meio do ponto de extremidade público usando o firewall de armazenamento.
 
 Os registros de recurso DNS para StorageAccountA, quando resolvido por um cliente na VNet que hospeda o ponto de extremidade privado, serão:
 
-| name                                                  | Type  | Value                                                 |
+| Nome                                                  | Type  | Valor                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |
+| ``StorageAccountA.privatelink.blob.core.windows.net`` | Um     | 10.1.1.5                                              |
 
 Essa abordagem habilita o acesso à conta de armazenamento **usando a mesma cadeia de conexão** para clientes na vnet que hospeda os pontos de extremidade privados, bem como clientes fora da vnet.
 
@@ -104,14 +104,14 @@ Os nomes de zona DNS recomendados para pontos de extremidade privados para servi
 
 | Serviço de armazenamento        | Nome da zona                            |
 | :--------------------- | :----------------------------------- |
-| Serviço de Blob           | `privatelink.blob.core.windows.net`  |
-| Data Lake Store Gen2 | `privatelink.dfs.core.windows.net`   |
+| Serviço Blob           | `privatelink.blob.core.windows.net`  |
+| Armazenamento do Data Lake Gen2 | `privatelink.dfs.core.windows.net`   |
 | Serviço de arquivo           | `privatelink.file.core.windows.net`  |
-| Serviço Fila          | `privatelink.queue.core.windows.net` |
-| Serviço Tabela          | `privatelink.table.core.windows.net` |
+| serviço Fila          | `privatelink.queue.core.windows.net` |
+| Serviço tabela          | `privatelink.table.core.windows.net` |
 | Sites estáticos        | `privatelink.web.core.windows.net`   |
 
-#### <a name="resources"></a>Implante
+#### <a name="resources"></a>Recursos
 
 Para obter mais informações sobre como configurar seu próprio servidor DNS para dar suporte a pontos de extremidade privados, consulte os seguintes artigos:
 

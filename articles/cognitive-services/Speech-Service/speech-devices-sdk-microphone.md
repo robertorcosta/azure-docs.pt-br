@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: e39056d6ed1ced85e3f953bcbd7f04dd6311942c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: a87bdd7a55036e8b70f0bc5816d2b587c1569202
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111651"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168132"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Recomendações de matriz do microfone do SDK de dispositivos de fala
 
@@ -41,7 +41,7 @@ Os componentes do microfone devem ser selecionados para reproduzir com precisão
 
 As propriedades recomendadas ao selecionar microfones são:
 
-| . | Recomendadas |
+| Parâmetro | Recomendadas |
 | --------- | ----------- |
 | SNR | \>= 65 dB (sinal de 1 kHz 94 dBSPL, ruído de peso) |
 | Correspondência de amplitude | ± 1 dB @ 1 kHz |
@@ -60,7 +60,7 @@ Uma boa seleção de componente deve ser emparelhada com boa integração de Ele
 
 O desempenho da matriz de microfone quando integrada a um dispositivo será diferente da especificação do componente. É importante garantir que os microfones sejam bem combinados após a integração. Portanto, o desempenho do dispositivo medido após qualquer lucro ou EQ fixo deve atender às seguintes recomendações:
 
-| .          | Recomendadas                                        |
+| Parâmetro          | Recomendadas                                        |
 | ------------------ | -------------------------------------------------- |
 | SNR                | \> 63 dB (sinal de 1 kHz 94 dBSPL, ruído de peso) |
 | Sensibilidade de saída | -26 dBFS/PA @ 1 kHz (recomendado)                  |
@@ -76,7 +76,7 @@ O desempenho da matriz de microfone quando integrada a um dispositivo será dife
 
 Como o cancelamento de eco é necessário para dispositivos de reconhecimento de fala que contêm alto-falantes, são fornecidas recomendações adicionais para a integração e a seleção de palestrante.
 
-| . | Recomendadas |
+| Parâmetro | Recomendadas |
 | --------- | ----------- |
 | Considerações sobre linearidade | Nenhum processamento não linear após a referência do alto-falante, caso contrário, é necessário um fluxo de referência de auto-retorno baseado em hardware |
 | Loopback do orador | Fornecido via WASAPI, APIs privadas, plug-in ALSA personalizado (Linux) ou fornecido por meio do canal de firmware |
@@ -87,7 +87,7 @@ Como o cancelamento de eco é necessário para dispositivos de reconhecimento de
 
 As seguintes diretrizes para arquitetura são necessárias ao integrar microfones a um dispositivo:
 
-| . | Recomendações |
+| Parâmetro | Recomendação |
 | --------- | -------------- |
 | Similaridade de porta do MIC | Todas as portas de microfone têm o mesmo comprimento na matriz |
 | Dimensões da porta do MIC | Tamanho da porta a partir de 0,8-1,0 mm. Comprimento da porta/diâmetro da porta \< 2 |
@@ -98,7 +98,7 @@ As seguintes diretrizes para arquitetura são necessárias ao integrar microfone
 | Capacidade de registro   | O dispositivo deve ser capaz de registrar fluxos brutos individuais de canal simultaneamente |
 | USB                 | Todos os dispositivos de entrada de áudio USB devem definir descritores de acordo com a [especificação de Rev3 de dispositivos de áudio USB](https://www.usb.org/document-library/usb-audio-devices-rev-30-and-adopters-agreement) |
 | Geometria do microfone | Os drivers devem implementar os [descritores de geometria da matriz de microfone](https://docs.microsoft.com/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) corretamente |
-| Descoberta     | Os dispositivos não devem ter nenhum hardware, firmware ou algoritmos de processamento de áudio não linear baseados em software de terceiros, que sejam descobertos, de/para o dispositivo |
+| Detectabilidade     | Os dispositivos não devem ter nenhum hardware, firmware ou algoritmos de processamento de áudio não linear baseados em software de terceiros, que sejam descobertos, de/para o dispositivo |
 | Formato de captura      | Os formatos de captura devem usar uma taxa de amostragem mínima de 16 kHz e uma profundidade de 24 bits recomendada |
 
 ## <a name="electrical-architecture-considerations"></a>Considerações sobre arquitetura elétrica

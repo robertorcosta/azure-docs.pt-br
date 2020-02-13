@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: f6d2da49e2659cfa69d25e3fe71351547706fd42
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b65b7a9fd38b690729fafd86fe213ff56760a1bb
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984839"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169829"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é uma instância de computação Azure Machine Learning?
 
@@ -26,9 +26,6 @@ Use uma instância de computação como seu ambiente de desenvolvimento totalmen
 
 As instâncias de computação normalmente são usadas como ambientes de desenvolvimento.  Eles também podem ser usados como um destino de computação para treinamento e inferência para desenvolvimento e teste.  Para tarefas grandes, um [cluster de computação Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) com recursos de dimensionamento de vários nós é uma opção de destino de computação melhor.
 
-> [!NOTE]
-> Atualmente, as instâncias de computação estão disponíveis somente para espaços de trabalho com uma região do **norte EUA Central**, **leste dos eua 2**, **Europa setentrional** ou **sul do Reino Unido**, com suporte para outras regiões em breve.
->Se o seu espaço de trabalho estiver em qualquer outra região, você poderá continuar a criar e usar uma [VM do Notebook](concept-compute-instance.md#notebookvm) em vez disso. 
 
 ## <a name="why-use-a-compute-instance"></a>Por que usar uma instância de computação?
 
@@ -52,13 +49,13 @@ Essas ferramentas e ambientes são instalados na instância de computação:
 |----|:----:|
 |Drivers|`CUDA`</br>`cuDNN`</br>`NVIDIA`</br>`Blob FUSE` |
 |Biblioteca Intel MPI||
-|Azure CLI ||
+|CLI do Azure ||
 |Exemplos de Azure Machine Learning ||
 |Azure Machine Learning mecanismo de EDAT ||
 |Docker||
 |Nginx||
 |NCCL 2,0 ||
-|protobuf|| 
+|Protobuf|| 
 
 |Ferramentas do **R** & ambientes|Detalhes|
 |----|:----:|
@@ -71,7 +68,7 @@ Essas ferramentas e ambientes são instalados na instância de computação:
 |Anaconda Python||
 |Jupyter e extensões||
 |Jupyterlab e extensões||
-|Código do Visual Studio ||
+|Visual Studio Code ||
 [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>de PyPI|`azureml-sdk[notebooks,contrib,automl,explain]`</br>`azureml-contrib-datadrift`</br>`azureml-telemetry`</br>`azureml-tensorboard`</br>`azureml-contrib-opendatasets`</br>`azureml-opendatasets`</br>`azureml-contrib-reinforcementlearning`</br>`azureml-mlflow`</br>`azureml-contrib-interpret` |
 |Outros pacotes PyPI|`jupytext`</br>`jupyterlab-git`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Pacotes Conda|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
@@ -124,7 +121,7 @@ Você pode executar as seguintes ações:
 
 Para cada instância de computação em seu espaço de trabalho, você pode:
 
-* Acesse Jupyter, JupyterLab, RStudio VS Code URIs na instância de computação
+* Acesse Jupyter, JupyterLab, RStudio na instância de computação
 * SSH na instância de computação. O acesso SSH é desabilitado por padrão, mas pode ser habilitado no momento da criação da instância de computação. O acesso SSH é por meio do mecanismo de chave pública/privada. A guia fornecerá detalhes para a conexão SSH, como endereço IP, nome de usuário e número da porta.
 * Obtenha detalhes sobre uma instância de computação específica, como endereço IP e região.
 
@@ -151,6 +148,6 @@ Todos os arquivos de bloco de anotações armazenados no compartilhamento de arq
 Em regiões em que as instâncias de computação estão disponíveis, novas VMs de notebook não podem ser criadas. No entanto, você ainda pode acessar e usar VMs de notebook que você criou, com funcionalidade completa. As instâncias de computação podem ser criadas no mesmo espaço de trabalho que as VMs de notebook existentes. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
  * [Tutorial: treinar seu primeiro modelo de ml](tutorial-1st-experiment-sdk-train.md) mostra como usar uma instância de computação com um bloco de anotações integrado.

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
-ms.openlocfilehash: 290b0073ea6736141bca035f82f7aa37bdf364ef
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d5d48a2fc7aca184cf8b6e7761584a8800ca5151
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701919"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160059"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Aplicativo de página única: adquirir um token para chamar uma API
 
@@ -42,7 +42,7 @@ Você pode definir os escopos de API que deseja que o token de acesso inclua ao 
 
 ## <a name="acquire-a-token-with-a-pop-up-window"></a>Adquirir um token com uma janela pop-up
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 O código a seguir combina o padrão descrito anteriormente com os métodos para uma experiência de pop-up:
 
@@ -69,7 +69,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 });
 ```
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 O wrapper angular MSAL fornece o interceptador HTTP, que automaticamente adquirirá tokens de acesso silenciosamente e os anexará às solicitações HTTP para APIs.
 
@@ -111,9 +111,11 @@ ngOnDestroy() {
 
 Como alternativa, você pode adquirir tokens explicitamente usando os métodos de aquisição-token conforme descrito na biblioteca do core MSAL. js.
 
+---
+
 ## <a name="acquire-a-token-with-a-redirect"></a>Adquirir um token com um redirecionamento
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 O padrão a seguir é conforme descrito anteriormente, mas mostrado com um método de redirecionamento para adquirir tokens interativamente. Você precisará registrar o retorno de chamada de redirecionamento, conforme mencionado anteriormente.
 
@@ -142,6 +144,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 ```
 
 ## <a name="request-optional-claims"></a>Solicitar declarações opcionais
+
 Você pode usar declarações opcionais para as seguintes finalidades:
 
 - Inclua declarações adicionais em tokens para seu aplicativo.
@@ -150,7 +153,6 @@ Você pode usar declarações opcionais para as seguintes finalidades:
 
 Para solicitar declarações opcionais em `IdToken`, você pode enviar um objeto de declarações em cadeias para o campo `claimsRequest` da classe `AuthenticationParameters.ts`.
 
-### <a name="javascript"></a>JavaScript
 ```javascript
 "optionalClaims":  
    {
@@ -168,14 +170,16 @@ var request = {
 
 myMSALObj.acquireTokenPopup(request);
 ```
+
 Para saber mais, confira [declarações opcionais](active-directory-optional-claims.md).
 
-
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 Esse código é o mesmo descrito anteriormente.
 
-## <a name="next-steps"></a>Próximos passos
+---
+
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Chamando uma API Web](scenario-spa-call-api.md)

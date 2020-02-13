@@ -13,16 +13,16 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 912287200097906af7a8a9d6d12eb1421f3edadc
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 1efd027edb85cabcfdc2a170771ef19182b5c9f8
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696751"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160943"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokens de ID da plataforma Microsoft Identity
 
-`id_tokens` são enviados para o aplicativo cliente como parte de um fluxo do [OpenID Connect](v1-protocols-openid-connect-code.md). Eles podem ser enviados com um token de acesso ou em vez de um, e são usados pelo cliente para autenticar o usuário.
+`id_tokens` são enviados para o aplicativo cliente como parte de um fluxo do [OpenID Connect](v2-protocols-oidc.md). Eles podem ser enviados com um token de acesso ou em vez de um, e são usados pelo cliente para autenticar o usuário.
 
 ## <a name="using-the-id_token"></a>Usando o id_token
 
@@ -50,7 +50,7 @@ Exiba esse token de exemplo de v2.0 em [jwt.ms](https://jwt.ms/#id_token=eyJ0eXA
 
 ### <a name="header-claims"></a>Declarações de cabeçalho
 
-|Declaração | Formatar | Description |
+|Declaração | Formatar | DESCRIÇÃO |
 |-----|--------|-------------|
 |`typ` | Cadeia de caracteres – sempre "JWT" | Indica que o token é um JWT.|
 |`alg` | String | Indica o algoritmo que foi usado para assinar o token. Exemplo: "RS256" |
@@ -61,7 +61,7 @@ Exiba esse token de exemplo de v2.0 em [jwt.ms](https://jwt.ms/#id_token=eyJ0eXA
 
 Essa lista mostra as declarações que estão na maioria id_tokens por padrão (exceto quando indicado).  No entanto, seu aplicativo pode usar [declarações opcionais](active-directory-optional-claims.md) para solicitar declarações adicionais no id_token.  Elas podem variar da declaração de `groups` para obter informações sobre o nome do usuário.
 
-|Declaração | Formatar | Description |
+|Declaração | Formatar | DESCRIÇÃO |
 |-----|--------|-------------|
 |`aud` |  Cadeia de caracteres, um URI da ID do Aplicativo | Identifica o destinatário pretendido do token. Em `id_tokens`, o público-alvo é a ID de Aplicativo de seu aplicativo, atribuída a ele no portal do Azure. O aplicativo deve validar esse valor e rejeitar o token, caso o valor não seja correspondente. |
 |`iss` |  Cadeia de caracteres, um URI STS | Identifica o STS (Serviço de Token de Segurança) que constrói e retorna o token e o locatário do Azure AD no qual o usuário foi autenticado. Se o token tiver sido emitido pelo ponto de extremidade v2.0, o URI terminará com `/v2.0`.  O GUID que indica que o usuário é um consumidor da conta da Microsoft é `9188040d-6c67-4c5b-b112-36a304b66dad`. O aplicativo deve usar a parte do GUID da declaração para restringir o conjunto de locatários que podem entrar no aplicativo, se aplicável. |
@@ -101,7 +101,7 @@ Para validar o token manualmente, consulte os detalhes das etapas em [validar um
 * Público-alvo: a declaração `aud` deve corresponder à ID do aplicativo do seu aplicativo.
 * Nonce: a declaração `nonce` no conteúdo deve corresponder ao parâmetro nonce passado para o ponto de extremidade /authorize durante a solicitação inicial.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [tokens de acesso](access-tokens.md)
 * Personalize as declarações em seu id_token usando [declarações opcionais](active-directory-optional-claims.md).

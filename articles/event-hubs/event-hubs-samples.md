@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/15/2020
 ms.author: shvija
-ms.openlocfilehash: e70d2e07f74a48e1d99e04c5369a933cfd9cede1
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: da950c2219d3faf679953690d207372b64913ba8
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905356"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162051"
 ---
 # <a name="git-repositories-with-samples-for-azure-event-hubs"></a>Repositórios Git com exemplos para os Hubs de Eventos do Azure 
 Você pode encontrar as amostras dos Hubs de Eventos no [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Esses exemplos demonstram os principais recursos nos [Hubs de Eventos do Azure](/azure/event-hubs/). Este tópico categoriza e descreve os exemplos disponíveis, com links para cada um.
@@ -46,7 +46,7 @@ Você pode encontrar as amostras dos Hubs de Eventos no [GitHub](https://github.
 | Azure-eventhub versão 5 (mais recente) | [Local do GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples) | 
 | Azure-eventhub versão 1 (Herdado) | [Local do GitHub](https://github.com/Azure/azure-sdk-for-python/tree/release/eventhub-v1/sdk/eventhub/azure-eventhubs/examples) |
 
-## <a name="nodejs-samples"></a>Exemplos do Node.js
+## <a name="javascript-samples"></a>Exemplos de JavaScript
 
 | Versão | Local de exemplos |
 | ------- | ---------------- | 
@@ -66,7 +66,7 @@ Você pode encontrar exemplos do Azure PowerShell para Hubs de Eventos do Azure 
 ## <a name="apache-kafka-samples"></a>Exemplos do Apache Kafka
 Você pode encontrar exemplos para os Hubs de Eventos para o recurso Apache Kafka no repositório [azure-event-hubs-for-kafka](https://github.com/Azure/azure-event-hubs-for-kafka) do GitHub.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Você pode saber mais sobre os Hubs de Eventos nestes artigos:
 
 - [Visão geral de Hubs de Eventos](event-hubs-what-is-event-hubs.md)

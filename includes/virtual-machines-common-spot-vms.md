@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: a6c333da0e88af25e3907af23f792a210002477f
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 7cfa6e9810057493cc3007eec7fd1668a70c727e
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75901898"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77179142"
 ---
 O uso de VMs pontuais permite que você tire proveito de nossa capacidade não utilizada a uma economia de custo significativa. A qualquer momento, quando o Azure precisar da capacidade de volta, a infraestrutura do Azure removerá as VMs pontuais. Portanto, as VMs pontuais são ótimas para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento em lotes, ambientes de desenvolvimento/teste, grandes cargas de trabalho de computação e muito mais.
 
@@ -23,16 +23,12 @@ A quantidade de capacidade disponível pode variar com base no tamanho, região,
 > Atualmente, as instâncias especiais estão em visualização pública.
 > Esta versão de visualização não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Para a parte inicial da visualização pública, as instâncias Spot terão um preço fixo, portanto, não haverá nenhuma remoção baseada em preço.
 
 ## <a name="eviction-policy"></a>Política de remoção
 
 As VMs podem ser removidas com base na capacidade ou no preço máximo definido. Para máquinas virtuais, a política de remoção é definida como *desalocar* que move suas VMs removidas para o estado parado e desalocado, permitindo que você reimplante as VMs removidas posteriormente. No entanto, a realocação de VMs pontuais dependerá da capacidade Spot disponível. As VMs desalocadas serão contadas em relação à sua cota vCPU Spot e você será cobrado pelos discos subjacentes. 
 
 Os usuários podem optar por receber notificações na VM por meio [do Azure eventos agendados](../articles/virtual-machines/linux/scheduled-events.md). Isso notificará você se suas VMs estiverem sendo removidas e você terá 30 segundos para concluir todos os trabalhos e realizar tarefas de desligamento antes da remoção. 
-
-> [!IMPORTANT]
-> Para a parte inicial da visualização pública, você pode definir um preço máximo, mas ele será ignorado. As VMs pontuais terão um preço fixo, portanto, não haverá nenhuma remoção baseada em preço.
 
 
 | Opção | Resultado |
@@ -54,7 +50,7 @@ Os seguintes tamanhos de VM não têm suporte para VMs spot:
 
 As VMs pontuais não podem usar atualmente discos do sistema operacional efêmero.
 
-As VMs pontuais podem ser implantadas em qualquer região, exceto Microsoft Azure a 21Vianet da China e o departamento de defesa (DoD) na região do Azure governamental.
+As VMs pontuais podem ser implantadas em qualquer região, exceto Microsoft Azure a 21Vianet da China.
 
 ## <a name="pricing"></a>Preços
 
@@ -94,12 +90,12 @@ Com o preço variável, você tem a opção de definir um preço máximo, em dó
 
 | Canais do Azure               | Disponibilidade de VMs de ponto do Azure       |
 |------------------------------|-----------------------------------|
-| Enterprise Agreement         | Sim                               |
-| Pagamento Conforme o Uso                | Sim                               |
+| Contrato Enterprise         | Sim                               |
+| Pré-pago                | Sim                               |
 | Provedor de Serviços de Nuvem (CSP) | [Entre em contato com seu parceiro](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Benefícios                     | Não disponível                     |
 | Patrocinado                    | Não disponível                     |
-| Avaliação Gratuita                   | Não disponível                     |
+| Avaliação gratuita                   | Não disponível                     |
 
 
 **P:** Onde posso postar perguntas?

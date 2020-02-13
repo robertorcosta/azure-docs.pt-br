@@ -13,12 +13,12 @@ ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: e85a768d8e4f11ca3637bc8f0b394cfb1ea9744a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 89bf49fb44d8575b251a0b33698bc4ce8425cc2b
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697465"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160960"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opções de suporte e ajuda para desenvolvedores
 
@@ -31,7 +31,7 @@ Se começar a integração ao Azure AD (Azure Active Directory), identidades da 
 > * Se você encontrar um problema em uma de nossas bibliotecas de autenticação, será gerado um problema do *GitHub*
 > * Por fim, se precisar falar com alguém, talvez queira abrir uma solicitação de suporte
 
-## <a name="search"></a>Pesquisa
+## <a name="search"></a>Search
 
 Se tiver uma pergunta relacionada a desenvolvimento, poderá encontrar a resposta na documentação, nos [exemplos do GitHub](https://github.com/azure-samples) ou nas respostas às perguntas no [Stack Overflow](https://www.stackoverflow.com).
 
@@ -47,7 +47,7 @@ Em que *{Seus Termos de Pesquisa}* correspondem às palavras-chave de pesquisa.
 
 ## <a name="use-the-development-support-tools"></a>Use as ferramentas de suporte de desenvolvimento
 
-| Ferramenta  | Description  |
+| Ferramenta  | DESCRIÇÃO  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | Cole uma ID ou token de acesso para decodificar os nomes das declarações e valores. |
 | [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Ferramentas que permitem fazer solicitações e ver as respostas na API do Microsoft Graph. |
@@ -79,8 +79,8 @@ Se encontrar um bug ou problema relacionado às nossas bibliotecas, gere um prob
 
 Para obter uma lista de bibliotecas e seus repositórios GitHub, consulte o seguinte:
 
-* Bibliotecas [ADAL](active-directory-authentication-libraries.md) e seus repositórios do GitHub
-* [MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL. js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL. ](https://github.com/AzureAD/microsoft-authentication-library-for-android)Bibliotecas do Android e [MSAL. obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) e repositórios github
+* Bibliotecas [Adal (Azure Active Directory Authentication Library)](../azuread-dev/active-directory-authentication-libraries.md) e repositórios github
+* Bibliotecas [do MSAL (biblioteca de autenticação da Microsoft)](reference-v2-libraries.md) e repositórios do github
 
 ## <a name="open-a-support-request"></a>Abrir uma solicitação de suporte
 

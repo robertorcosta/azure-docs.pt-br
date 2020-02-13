@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 3d4fe7319e0af9c463bd64483f43a4e73ef8871d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f2d530792e1a6f598dbf2ed66889c01cc43467ed
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75395751"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162235"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Criando sua implantação de logs de Azure Monitor
 
@@ -42,7 +42,7 @@ Identificar o número de espaços de trabalho de que você precisa é influencia
 
 Hoje, as organizações de ti são modeladas seguindo um híbrido centralizado, descentralizado ou um entre as duas estruturas. Como resultado, os seguintes modelos de implantação de espaço de trabalho foram comumente usados para mapear para uma dessas estruturas organizacionais:
 
-* **Centralizado**: todos os logs são armazenados em um espaço de trabalho central e administrados por uma única equipe, com Azure monitor fornecendo acesso diferenciado por equipe. Nesse cenário, é fácil de gerenciar, Pesquisar entre recursos e correlacionar logs de forma cruzada. O espaço de trabalho pode crescer significativamente dependendo da quantidade de dados coletados de vários recursos em sua assinatura, com sobrecarga administrativa adicional para manter o controle de acesso a diferentes usuários.
+* **Centralizado**: todos os logs são armazenados em um espaço de trabalho central e administrados por uma única equipe, com Azure monitor fornecendo acesso diferenciado por equipe. Nesse cenário, é fácil de gerenciar, Pesquisar entre recursos e correlacionar logs de forma cruzada. O espaço de trabalho pode crescer significativamente dependendo da quantidade de dados coletados de vários recursos em sua assinatura, com sobrecarga administrativa adicional para manter o controle de acesso a diferentes usuários. Esse modelo é conhecido como "Hub e spoke".
 * **Descentralizado**: cada equipe tem seu próprio espaço de trabalho criado em um grupo de recursos que ele possui e gerencia, e os dados de log são separados por recurso. Nesse cenário, o espaço de trabalho pode ser mantido seguro e o controle de acesso é consistente com o acesso aos recursos, mas é difícil correlacionar os logs. Os usuários que precisam de uma visão ampla de muitos recursos não podem analisar os dados de uma maneira significativa.
 * **Híbrido**: os requisitos de conformidade de auditoria de segurança complicam ainda mais esse cenário porque muitas organizações implementam ambos os modelos de implantação em paralelo. Isso normalmente resulta em uma configuração complexa, cara e difícil de manter com lacunas na cobertura de logs.
 
@@ -63,7 +63,7 @@ Com o RBAC (controle de acesso baseado em função), você pode conceder aos usu
 
 Os dados aos quais um usuário tem acesso são determinados por uma combinação de fatores listados na tabela a seguir. Cada um é descrito nas seções a seguir.
 
-| Fator | Description |
+| Fator | DESCRIÇÃO |
 |:---|:---|
 | [Modo de acesso](#access-mode) | Método usado pelo usuário para acessar o espaço de trabalho.  Define o escopo dos dados disponíveis e o modo de controle de acesso que é aplicado. |
 | [Modo de controle de acesso](#access-control-mode) | Configuração no espaço de trabalho que define se as permissões são aplicadas no nível de espaço de trabalho ou de recurso. |
@@ -87,8 +87,8 @@ Os usuários têm duas opções para acessar os dados:
     > [!NOTE]
     > Os logs estarão disponíveis para consultas de contexto de recurso somente se estiverem corretamente associados ao recurso relevante. Atualmente, os seguintes recursos têm limitações:
     > - Computadores fora do Azure
-    > - Malha de Serviço
-    > - Percepções sobre o Aplicativo
+    > - Service Fabric
+    > - Application Insights
     >
     > Você pode testar se os logs estão corretamente associados ao recurso executando uma consulta e inspecionando os registros nos quais você está interessado. Se a ID de recurso correta estiver na propriedade [_ResourceId](log-standard-properties.md#_resourceid) , os dados estarão disponíveis para consultas centradas em recursos.
 
@@ -164,6 +164,6 @@ Ao planejar a migração para esse modelo, considere o seguinte:
 * Remova a permissão de equipes de aplicativo para ler e consultar o espaço de trabalho.
 * Habilite e configure qualquer solução de monitoramento, informações como Azure Monitor para contêineres e/ou Azure Monitor para VMs, suas contas de automação e soluções de gerenciamento, como Gerenciamento de Atualizações, iniciar/parar VMs, etc., que foram implantadas no espaço de trabalho original.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para implementar as permissões de segurança e os controles recomendados neste guia, examine [gerenciar o acesso aos logs](manage-access.md).

@@ -9,12 +9,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: yushwang
-ms.openlocfilehash: 4bce6a05938af9b8726b1b52ccb65d22d7492cfe
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: f905e27f48a0bf9181625bbba07549a13d9420cb
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778423"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162129"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Baixar scripts de configuração do dispositivo VPN para conexões VPN S2S
 
@@ -78,7 +78,7 @@ Depois de criar o recurso de conexão, siga as instruções abaixo para baixar o
 
 ## <a name="download-the-configuration-script-using-azure-powershell"></a>Baixe o script de configuração do usando o Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 Você também pode baixar o script de configuração usando o Azure PowerShell, conforme mostrado no exemplo a seguir:
 
@@ -98,6 +98,6 @@ Get-AzVirtualNetworkGatewayConnectionVpnDeviceConfigScript -Name $Connection -Re
 
 Depois que você tiver baixado e validado o script de configuração, a próxima etapa é aplicar o script ao seu dispositivo VPN. O procedimento real varia de acordo com suas formas e modelos de dispositivo VPN. Consulte os manuais de operação ou as páginas de instrução para seus dispositivos VPN.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Continue configurando a [Conexão site a site](vpn-gateway-howto-site-to-site-resource-manager-portal.md).

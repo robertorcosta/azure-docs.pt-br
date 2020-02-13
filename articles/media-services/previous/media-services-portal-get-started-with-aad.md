@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: b7962f42b4244121a67b88ef3bf789ce40f7b1e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4428187c985c1004c88f2ac20b0e5811803cce2a
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719627"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162762"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Introdução à autenticação do Azure AD utilizando o Portal do Azure
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [diretrizes de migração da v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Saiba como utilizar o portal do Azure para acessar a autenticação do Azure Active Directory (Azure AD) para acessar a API dos Serviços de Mídia do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma conta do Azure. Se você não tiver uma conta, comece com uma [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Uma conta dos Serviços de Mídia. Para obter mais informações, consulte [Criar uma conta dos Serviços de Mídia do Azure usando o portal do Azure](media-services-portal-create-account.md).
@@ -39,7 +39,7 @@ Quando você usar a autenticação do AD Azure com Serviços de Mídia do Azure 
 - **Autenticação de entidade de serviço**. Autentica um serviço. Os aplicativos que geralmente usam esse método de autenticação são aplicativos que executam serviços de daemon, serviços de camada intermediária ou trabalhos agendados: aplicativos Web, aplicativos de funções, aplicativos lógicos, APIs ou um microsserviço.
 
 > [!IMPORTANT]
-> Atualmente, os Serviços de Mídia oferecem suporte ao modelo de autenticação do serviço de Controle de Acesso do Azure. No entanto, a autorização de Controle de Acesso será preterida em 1º de junho de 2018. É recomendável que você migre para o modelo de autenticação do Azure AD assim que possível.
+> Atualmente, os Serviços de Mídia dão suporte ao modelo de autenticação do serviço de Controle de Acesso do Azure. No entanto, a autorização de Controle de Acesso será preterida em 1º de junho de 2018. Recomendamos que você migre para o modelo de autenticação do Azure AD assim que possível.
 
 ## <a name="select-the-authentication-method"></a>Selecione o método de autenticação
 
@@ -64,7 +64,7 @@ Para se conectar à API dos Serviços de Mídia utilizando a opção de autentic
 
 Ao se conectar à API dos Serviços de Mídia utilizando o SDK do Microsoft .NET, os valores necessários estarão disponíveis como parte do SDK. Para obter mais informações, consulte [Usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia do Azure com .NET](media-services-dotnet-get-started-with-aad.md).
 
-Se você não estiver utilizando o SDK do cliente .NET dos Serviços de Mídia será necessário criar manualmente uma solicitação de token do AD Azure usando os parâmetros discutidos anteriormente. Para obter mais informações, consulte [Como usar a Biblioteca de Autenticação do Azure AD para obter o token do Azure AD](../../active-directory/develop/active-directory-authentication-libraries.md).
+Se você não estiver utilizando o SDK do cliente .NET dos Serviços de Mídia será necessário criar manualmente uma solicitação de token do AD Azure usando os parâmetros discutidos anteriormente. Para obter mais informações, consulte [Como usar a Biblioteca de Autenticação do Azure AD para obter o token do Azure AD](../../active-directory/azuread-dev/active-directory-authentication-libraries.md).
 
 ## <a name="service-principal-authentication"></a>Autenticação de entidade de serviço
 
@@ -90,7 +90,7 @@ Se você não possui permissões para criar aplicativos Azure AD no seu domínio
 
 Se você se conectar à API dos Serviços de Mídia utilizando o SDK .NET dos Serviços de Mídia, consulte [Usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia do Azure com .NET](media-services-dotnet-get-started-with-aad.md).
 
-Se você não estiver utilizando o SDK do cliente .NET dos Serviços de Mídia será necessário criar manualmente uma solicitação de token do AD Azure usando os parâmetros discutidos anteriormente. Para obter mais informações, consulte [Como usar a Biblioteca de Autenticação do Azure AD para obter o token do Azure AD](../../active-directory/develop/active-directory-authentication-libraries.md).
+Se você não estiver utilizando o SDK do cliente .NET dos Serviços de Mídia será necessário criar manualmente uma solicitação de token do AD Azure usando os parâmetros discutidos anteriormente. Para obter mais informações, consulte [Como usar a Biblioteca de Autenticação do Azure AD para obter o token do Azure AD](../../active-directory/azuread-dev/active-directory-authentication-libraries.md).
 
 ### <a name="get-the-client-id-and-client-secret"></a>Obtenha o ID do cliente e o segredo do cliente
 

@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
-ms.openlocfilehash: 108294e3f125da9fb009eb0a85585dab026c8d01
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: c3ed780bc50b690b2f5c3285024695ec6426b9b3
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933329"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77167322"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions gatilho de aquecimento
 
@@ -171,25 +171,9 @@ def main(warmupContext: func.Context) -> None:
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-O exemplo a seguir mostra um gatilho aquecimento em um arquivo *Function. JSON* e em [funções Java](functions-reference-java.md) que serão executadas em cada nova instância quando ela for adicionada ao seu aplicativo.
+O exemplo a seguir mostra um gatilho aquecimento que é executado quando cada nova instância é adicionada ao seu aplicativo.
 
-Sua função deve ser nomeada ```warmup``` (não diferencia maiúsculas de minúsculas) e pode haver apenas uma função aquecimento por aplicativo.
-
-Aqui está o arquivo *function.json*:
-
-```json
-{
-    "bindings": [
-        {
-            "type": "warmupTrigger",
-            "direction": "in",
-            "name": "warmupContext"
-        }
-    ]
-}
-```
-
-Aqui está o código Java:
+Sua função deve ser nomeada `warmup` (não diferencia maiúsculas de minúsculas) e pode haver apenas uma função aquecimento por aplicativo.
 
 ```java
 @FunctionName("Warmup")
@@ -243,11 +227,11 @@ O gatilho aquecimento não tem suporte em Java como um atributo.
 
 A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `WarmupTrigger`.
 
-|Propriedade function.json | Propriedade de atributo |Description|
+|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
-| **tipo** | N/D| Obrigatório – deve ser definido como `warmupTrigger`. |
-| **direction** | N/D| Obrigatório – deve ser definido como `in`. |
-| **name** | N/D| Required – o nome da variável usada no código de função.|
+| **tipo** | n/d| Obrigatório – deve ser definido como `warmupTrigger`. |
+| **direction** | n/d| Obrigatório – deve ser definido como `in`. |
+| **name** | n/d| Required – o nome da variável usada no código de função.|
 
 ## <a name="trigger---usage"></a>Gatilho - uso
 
@@ -260,6 +244,6 @@ Nenhuma informação adicional é fornecida a uma função disparada por aquecim
 * O gatilho aquecimento não pode ser invocado depois que uma instância já está em execução.
 * Só pode haver uma função de gatilho aquecimento por aplicativo de função.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)

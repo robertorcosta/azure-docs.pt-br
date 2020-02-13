@@ -9,18 +9,18 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: 5c50e3c17fe09b735aa4f4104615c4833164d94d
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: bd20bb008c52b7d99416aed7a0599a6e78d2acf2
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544150"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161640"
 ---
-# <a name="preview---migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Visualização – migre Azure AD Domain Services do modelo de rede virtual clássica para o Gerenciador de recursos
+# <a name="migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrar Azure AD Domain Services do modelo de rede virtual clássica para o Gerenciador de recursos
 
 Azure Active Directory Domain Services (AD DS) dá suporte a uma única movimentação para clientes que atualmente usam o modelo de rede virtual clássica para o modelo de rede virtual do Resource Manager. Os domínios gerenciados do Azure AD DS que usam o modelo de implantação do Gerenciador de recursos fornecem recursos adicionais, como política de senha refinada, logs de auditoria e proteção de bloqueio de conta.
 
-Este artigo descreve os benefícios e as considerações de migração e as etapas necessárias para migrar com êxito uma instância existente do AD DS do Azure. Este recurso de migração está atualmente em versão prévia.
+Este artigo descreve os benefícios e as considerações de migração e as etapas necessárias para migrar com êxito uma instância existente do AD DS do Azure.
 
 ## <a name="overview-of-the-migration-process"></a>Visão geral do processo de migração
 
@@ -294,7 +294,7 @@ Se necessário, você pode atualizar a política de senha refinada para ser meno
 1. Use um rastreamento de rede na VM para localizar a origem dos ataques e impedir que esses endereços IP sejam capazes de tentar entrar.
 1. Quando houver problemas mínimos de bloqueio, atualize a política de senha refinada para ser tão restritiva quanto necessário.
 
-### <a name="creating-a-network-security-group"></a>Como criar um grupo de segurança de rede
+### <a name="creating-a-network-security-group"></a>Criando um grupo de segurança de rede
 
 O Azure AD DS precisa de um grupo de segurança de rede para proteger as portas necessárias para o domínio gerenciado e bloquear todo o tráfego de entrada. Esse grupo de segurança de rede atua como uma camada extra de proteção para bloquear o acesso ao domínio gerenciado e não é criado automaticamente. Para criar o grupo de segurança de rede e abrir as portas necessárias, examine as seguintes etapas:
 
@@ -325,7 +325,7 @@ Como último recurso, Azure AD Domain Services pode ser restaurado do último ba
 
 Para restaurar o domínio gerenciado do Azure AD DS do backup, [abra um tíquete de caso de suporte usando o portal do Azure][azure-support]. Forneça a ID do diretório, o nome de domínio e o motivo da restauração. O processo de suporte e restauração pode levar vários dias para ser concluído.
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Se você tiver problemas após a migração para o modelo de implantação do Gerenciador de recursos, examine algumas das seguintes áreas comuns de solução de problemas:
 
@@ -334,7 +334,7 @@ Se você tiver problemas após a migração para o modelo de implantação do Ge
 * [Solucionar problemas de conexão de conta][troubleshoot-sign-in]
 * [Solucionar problemas de conectividade LDAP segura][tshoot-ldaps]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Com o domínio gerenciado do Azure AD DS migrado para o modelo de implantação do Gerenciador de recursos, [crie e ingresse no domínio de uma VM do Windows][join-windows] e, em seguida, [Instale as ferramentas de gerenciamento][tutorial-create-management-vm].
 

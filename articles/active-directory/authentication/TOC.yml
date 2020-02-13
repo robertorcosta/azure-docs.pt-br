@@ -64,7 +64,7 @@
   items:
     - name: Redefinição de senha de autoatendimento
       items:
-        - name: Implantar redefinição de senha por autoatendimento
+        - name: Guia de implantação
           href: howto-sspr-deployment.md
         - name: Pré-registro dos dados de autenticação
           href: howto-sspr-authenticationdata.md
@@ -74,7 +74,7 @@
           href: howto-sspr-windows.md
     - name: MFA baseado em nuvem
       items:
-        - name: Implantar o MFA baseado em nuvem
+        - name: Guia de implantação
           href: howto-mfa-getstarted.md
         - name: Por MFA do usuário
           href: howto-mfa-userstates.md

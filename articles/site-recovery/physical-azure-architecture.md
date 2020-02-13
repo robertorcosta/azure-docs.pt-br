@@ -1,35 +1,29 @@
 ---
 title: Arquitetura de recuperação de desastres do servidor físico no Azure Site Recovery
 description: Este artigo fornece uma visão geral dos componentes e da arquitetura usados durante a recuperação de desastres de servidores físicos locais para o Azure com o serviço Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.author: raynew
-ms.openlocfilehash: 72f21babd4d12e69cd346d8693e5ed4fe9117134
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.date: 02/11/2020
+ms.openlocfilehash: 089d981284986a2b6eb0ee7f1dbd401fc7ce4fcd
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513942"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162830"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Servidor físico para a arquitetura de recuperação de desastre do Azure
 
 Este artigo descreve a arquitetura e os processos usados quando você faz a replicação, o failover e a recuperação de servidores Windows e Linux físicos entre um site local e o Azure usando o serviço [Azure Site Recovery](site-recovery-overview.md).
 
-
 ## <a name="architectural-components"></a>Componentes de arquitetura
 
-A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados para replicação do servidor físico para o Azure.  
+A tabela e o gráfico a seguir fornecem uma exibição de alto nível dos componentes usados para replicação de servidor físico para o Azure.
 
-**Componente** | **Requisito** | **Detalhes**
---- | --- | ---
-**Azure** | Uma assinatura do Azure e uma rede do Azure. | Os dados replicados de computadores físicos locais são armazenados em Azure Managed disks. As VMs do Azure são criadas com os dados replicados quando você faz um failover do local para o Azure. As VMs do Azure se conectam à rede virtual do Azure quando são criadas.
-**Servidor de configuração** | Um único computador físico local ou VM de VMware é implantada para executar todos os componentes do Site Recovery locais. A VM executa o servidor em processo, o servidor de configuração e o servidor de destino mestre. | O servidor de configuração coordena a comunicação entre o ambiente local e o Azure e gerencia a replicação de dados.
- **Servidor de processo**:  | Instalado por padrão juntamente com o servidor de configuração. | Atua como um gateway de replicação. Recebe dados de replicação, otimiza-os com caching, compactação e criptografia e os envia para o Armazenamento do Azure.<br/><br/> O servidor em processo também instala o serviço de Mobilidade nos servidores que você deseja replicar.<br/><br/> À medida que a implantação cresce, você pode adicionar outros servidores de processo separados para lidar com volumes maiores de tráfego de replicação.
- **Servidor de destino mestre** | Instalado por padrão juntamente com o servidor de configuração. | Lida com os dados de replicação durante o failback do Azure.<br/><br/> Para grandes implantações, você pode adicionar um servidor de destino mestre separado adicional para failback.
-**Servidores replicados** | O serviço de Mobilidade é instalado em cada servidor que você deseja replicar. | É recomendável que você permita a instalação automática do servidor em processo. Como alternativa, você pode instalar o serviço manualmente ou usar um método de implantação automatizado, como Configuration Manager.
+| **Componente** | **Requisito** | **Detalhes** |
+| --- | --- | --- |
+| **Azure** | Uma assinatura do Azure e uma rede do Azure. | Os dados replicados de computadores físicos locais são armazenados em Azure Managed disks. As VMs do Azure são criadas com os dados replicados quando você faz um failover do local para o Azure. As VMs do Azure se conectam à rede virtual do Azure quando são criadas. |
+| **Servidor de processo** | Instalado por padrão juntamente com o servidor de configuração. | Atua como um gateway de replicação. Recebe dados de replicação, otimiza-os com caching, compactação e criptografia e os envia para o Armazenamento do Azure.<br/><br/> O servidor em processo também instala o serviço de Mobilidade nos servidores que você deseja replicar.<br/><br/> À medida que a implantação cresce, você pode adicionar outros servidores de processo separados para lidar com volumes maiores de tráfego de replicação. |
+| **Servidor de destino mestre** | Instalado por padrão juntamente com o servidor de configuração. | Lida com os dados de replicação durante o failback do Azure.<br/><br/> Para grandes implantações, você pode adicionar um servidor de destino mestre separado adicional para failback. |
+| **Servidores replicados** | O serviço de Mobilidade é instalado em cada servidor que você deseja replicar. | É recomendável que você permita a instalação automática do servidor em processo. Ou, você pode instalar o serviço manualmente ou usar um método de implantação automatizado, como Configuration Manager. |
 
 **Arquitetura do físico para o Azure**
 
@@ -38,15 +32,17 @@ A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados 
 ## <a name="replication-process"></a>Processo de replicação
 
 1. Configure a implantação, incluindo os componentes locais e os componentes do Azure. No cofre dos Serviços de Recuperação, você especifica a origem e o destino da replicação, configura o servidor de configuração, cria uma política de replicação e habilita a replicação.
-2. As máquinas virtuais são replicadas de acordo com a política de replicação e uma cópia inicial dos dados do servidor é replicada para o armazenamento do Azure.
-3. Após a conclusão da replicação inicial, a replicação de alterações delta para o Azure é iniciada. As alterações acompanhadas para uma máquina são mantidas em um arquivo .hrl.
-    - As máquinas virtuais se comunicam com o servidor de configuração na porta HTTPS 443 de entrada para o gerenciamento de replicação.
-    - As máquinas virtuais enviam dados de replicação para o servidor em processo na porta HTTPS 9443 de entrada (pode ser modificada).
-    - O servidor de configuração coordena o gerenciamento de replicação com o Azure pela porta HTTPS 443 de saída.
-    - O servidor de processo recebe dados de máquinas de origem, otimiza-os e criptografa-os e os envia para o armazenamento do Azure pela porta 443 de saída.
-    - Se você habilitar a consistência de várias VMs, as máquinas virtuais no grupo de replicação se comunicarão entre si pela porta 20004. Várias VMS serão usadas se você agrupar vários computadores em grupos de replicação que compartilham pontos de recuperação consistentes com o aplicativo e com falhas ao realizar o failover. Isso é útil se os computadores estão executando a mesma carga de trabalho e precisam ser consistentes.
-4. O tráfego é replicado para pontos de extremidade públicos do armazenamento do Azure, pela Internet. Como alternativa, você pode usar o [emparelhamento público](../expressroute/about-public-peering.md) do Azure ExpressRoute. Não há suporte para a replicação do tráfego através de uma VPN de site a site de um site local para o Azure.
+1. Os computadores são replicados usando a política de replicação e uma cópia inicial dos dados do servidor é replicada para o armazenamento do Azure.
+1. Após a conclusão da replicação inicial, a replicação de alterações delta para o Azure é iniciada. As alterações controladas para um computador são mantidas em um arquivo com a extensão _. HRL_ .
+   - Os computadores se comunicam com o servidor de configuração na porta HTTPS 443 de entrada, para o gerenciamento de replicação.
+   - Os computadores enviam dados de replicação para o servidor de processo na porta HTTPS 9443 de entrada (pode ser modificado).
+   - O servidor de configuração orquestra o gerenciamento de replicação com o Azure pela porta HTTPS 443 de saída.
+   - O servidor de processo recebe dados de computadores de origem, otimiza-os e criptografa-os e envia-os para o armazenamento do Azure pela porta HTTPS 443 de saída.
+   - Se você habilitar a consistência de várias VMs, as máquinas virtuais no grupo de replicação se comunicarão entre si pela porta 20004. Várias VMS serão usadas se você agrupar vários computadores em grupos de replicação que compartilham pontos de recuperação consistentes com o aplicativo e com falhas ao realizar o failover. Esses grupos serão úteis se os computadores estiverem executando a mesma carga de trabalho e precisarem ser consistentes.
+1. O tráfego é replicado para pontos de extremidade públicos do armazenamento do Azure, pela Internet. Como alternativa, você pode usar o [emparelhamento público](../expressroute/about-public-peering.md) do Azure ExpressRoute.
 
+   > [!NOTE]
+   > A replicação não tem suporte em uma VPN site a site de um site local ou um [emparelhamento privado](concepts-expressroute-with-site-recovery.md#on-premises-to-azure-replication-with-expressroute)do Azure ExpressRoute.
 
 **Processo de replicação do físico para o Azure**
 
@@ -54,30 +50,29 @@ A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados 
 
 ## <a name="failover-and-failback-process"></a>Processo de failover e failback
 
-Depois que a replicação é configurada e você executou uma simulação de recuperação de desastre (failover de teste) para verificar se tudo está funcionando conforme o esperado, você pode executar failover e failback conforme necessário. Observe que:
+Depois que a replicação é configurada, você pode executar uma análise de recuperação de desastre (failover de teste) para verificar se tudo funciona conforme o esperado. Em seguida, você pode fazer failover e failback conforme necessário. Considere os itens a seguir:
 
 - Não há suporte para failover planejado.
-- Você deve fazer failback para uma VM do VMware local. Isso significa que você precisa de uma infraestrutura VMware local, mesmo ao replicar servidores físicos locais para o Azure.
+- O failback para uma VM VMware local é necessário. Você precisa de uma infraestrutura do VMware local, mesmo quando você Replica servidores físicos locais para o Azure.
 - Faça failover de uma única máquina ou crie planos de recuperação para fazer failover de várias máquinas virtuais juntas.
 - Ao executar um failover, as VMs do Azure são criadas com base nos dados replicados no Armazenamento do Azure.
-- Depois de disparar o failover inicial, você confirma-o para começar a acessar a carga de trabalho da VM do Azure.
+- Depois que o failover inicial é disparado, você o confirma para começar a acessar a carga de trabalho da VM do Azure.
 - Quando o site primário local estiver disponível novamente, você poderá executar o failback.
-- Você precisa configurar uma infraestrutura de failback, incluindo:
-    - **Servidor em processo temporário no Azure**: para fazer failback do Azure, você configura uma VM do Azure para atuar como um servidor em processo, a fim de manipular a replicação do Azure. Você pode excluir a VM após a conclusão do failback.
-    - **Conexão VPN**: para fazer failback, você precisa de uma conexão VPN (ou Azure ExpressRoute) da rede do Azure para o site local.
-    - **Servidor de destino mestre separado**: por padrão, o servidor de destino mestre que foi instalado com o servidor de configuração na VM do VMware local manipula o failback. No entanto, se você precisar fazer failback de grandes volumes de tráfego, deverá configurar um servidor de destino mestre local separado para essa finalidade.
-    - **Política de failback**: para replicar volta para seu site local, você precisa de uma política de failback. Isso foi criado automaticamente quando você cria sua política de replicação do local para o Azure.
-    - **Infraestrutura de VMware**: você precisa de uma infraestrutura de VMware para failback. Você não pode realizar o failback para um servidor físico.
-- Depois que os componentes estão em vigor, o failback ocorre em três estágios:
-    - Estágio 1: proteja novamente as VMs do Azure para que elas comecem a replicação para as VMs de VMware locais.
-    - Estágio 2: execute um failover para o site local.
-    - Estágio 3: depois que as cargas de trabalho tiverem feito failback, você reabilitará a replicação.
+- Configure uma infraestrutura de failback que inclua:
+  - **Servidor em processo temporário no Azure**: para fazer failback do Azure, você configura uma VM do Azure para atuar como um servidor em processo, a fim de manipular a replicação do Azure. Você pode excluir essa VM após a conclusão do failback.
+  - **Conexão VPN**: para fazer failback, você precisa de uma conexão VPN (ou Azure ExpressRoute) da rede do Azure para o site local.
+  - **Servidor de destino mestre separado**: por padrão, o failback é tratado pelo servidor de destino mestre que foi instalado com o servidor de configuração na VM do VMware local. Se você precisar realizar o failback de grandes volumes de tráfego, deverá configurar um servidor de destino mestre local separado.
+  - **Política de failback**: para replicar volta para seu site local, você precisa de uma política de failback. A política foi criada automaticamente quando você criou sua política de replicação do local para o Azure.
+  - **Infraestrutura do VMware**: para fazer failback, você precisa de uma infraestrutura do VMware. Você não pode realizar o failback para um servidor físico.
+- Depois que os componentes estiverem em vigor, o failback ocorrerá em três estágios:
+  - **Estágio 1**: proteger novamente as VMs do Azure para que elas sejam replicadas do Azure de volta para as VMs do VMware locais.
+  - **Estágio 2**: executar um failover para o site local.
+  - **Estágio 3**: após o failback das cargas de trabalho, você reabilitará a replicação.
 
 **Failback de VMware do Azure**
 
 ![Failback](./media/physical-azure-architecture/enhanced-failback.png)
 
+## <a name="next-steps"></a>Próximas etapas
 
-## <a name="next-steps"></a>Próximos passos
-
-Siga [este tutorial](physical-azure-disaster-recovery.md) para habilitar a replicação de servidor físico para o Azure.
+Para configurar a recuperação de desastre para servidores físicos no Azure, consulte o [Guia de instruções](physical-azure-disaster-recovery.md).

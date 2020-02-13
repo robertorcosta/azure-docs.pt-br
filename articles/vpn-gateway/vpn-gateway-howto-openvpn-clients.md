@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: f78f416aaeedb2905cd77e94589121050757a202
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a45a3412a1ceb8e8a9bd9fd1a34dfdbd10ba1c75
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425743"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162422"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Configurar clientes OpenVPN para o gateway de VPN do Azure
 
@@ -20,7 +20,7 @@ Este artigo ajuda você a configurar os clientes do **OpenVPN® Protocol** .
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 Verifique se você concluiu as etapas para configurar o OpenVPN para seu gateway de VPN. Para obter detalhes, confira [Configurar o OpenVPN para Gateway de VPN do Azure](vpn-gateway-howto-openvpn.md).
 
@@ -105,7 +105,7 @@ Verifique se você concluiu as etapas para configurar o OpenVPN para seu gateway
 
 13. Inicie o aplicativo OpenVPN e deslize a opção na página **perfil** diretamente para conectar
 
-    ![Conecte-se](./media/vpn-gateway-howto-openvpn-clients/ios8.png)
+    ![Conectar](./media/vpn-gateway-howto-openvpn-clients/ios8.png)
 
 
 ## <a name="linux"></a>Clientes Linux
@@ -165,7 +165,7 @@ Verifique se você concluiu as etapas para configurar o OpenVPN para seu gateway
     ![Importar do arquivo](./media/vpn-gateway-howto-openvpn-clients/importfromfile.png)
 17. Você pode se conectar **LIGANDO** a VPN na página **Configurações de Rede**, ou no ícone de rede na bandeja do sistema.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se você quiser que os clientes VPN possam acessar recursos em outra VNet, siga as instruções no artigo de [vnet para vnet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) para configurar uma conexão de vnet para vnet. Certifique-se de habilitar o BGP nos gateways e nas conexões, caso contrário, o tráfego não fluirá.
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 02/12/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: acd02f143fe35edd867ce26f26a4cba74bd6f10b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 6439393b72eb724ca017edc17ce7a7c36c275fca
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847336"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77166957"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas do desenvolvedor para políticas personalizadas no Azure Active Directory B2C
 
@@ -61,7 +61,7 @@ Recursos personalizados de estrutura de experiência de identidade/política est
 
 ### <a name="identity-providers-tokens-protocols"></a>Provedores de Identidade, Tokens, Protocolos
 
-| Recurso | Desenvolvimento | Versão prévia | GA | Observações |
+| Recurso | Desenvolvimento | Visualização | GA | Observações |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | IDP-OpenIDConnect |  |  | X | Por exemplo, Google +.  |
 | IDP-OAUTH2 |  |  | X | Por exemplo, Facebook.  |
@@ -72,24 +72,24 @@ Recursos personalizados de estrutura de experiência de identidade/política est
 | OAUTH1 de terceira parte confiável |  |  |  | Sem suporte. |
 | OAUTH2 de terceira parte confiável |  |  | X |  |
 | OIDC de terceira parte confiável |  |  | X |  |
-| SAML de terceira parte confiável | X |  |  |  |
+| SAML de terceira parte confiável |  |X  |  |  |
 | WSFED de terceira parte confiável | X |  |  |  |
 | API REST com autenticação básica e de certificado |  |  | X | Por exemplo, aplicativos lógicos do Azure. |
 
 ### <a name="component-support"></a>Suporte do componente
 
-| Recurso | Desenvolvimento | Versão prévia | GA | Observações |
+| Recurso | Desenvolvimento | Visualização | GA | Observações |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Multi-Factor Authentication do Azure |  |  | X |  |
+| Autenticação Multifator do Azure |  |  | X |  |
 | Azure Active Directory como diretório local |  |  | X |  |
 | Subsistema de email do Azure para verificação de email |  |  | X |  |
 | Suporte a vários idiomas|  |  | X |  |
 | Validações de predicado |  |  | X | Por exemplo, complexidade de senha. |
-| Usando provedores de serviço de email de terceiros | X |  |  |  |
+| Usando provedores de serviço de email de terceiros |  |X  |  |  |
 
 ### <a name="content-definition"></a>Definição de conteúdo
 
-| Recurso | Desenvolvimento | Versão prévia | GA | Observações |
+| Recurso | Desenvolvimento | Visualização | GA | Observações |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Página de erro, api.error |  |  | X |  |
 | Página de seleção de IDP, api.idpselections |  |  | X |  |
@@ -105,7 +105,7 @@ Recursos personalizados de estrutura de experiência de identidade/política est
 
 ### <a name="app-ief-integration"></a>Integração de aplicativo IEF
 
-| Recurso | Desenvolvimento | Versão prévia | GA | Observações |
+| Recurso | Desenvolvimento | Visualização | GA | Observações |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Parâmetro de cadeia de consulta domain_hint |  |  | X | Disponível como declaração, pode ser passado para IDP. |
 | Parâmetro de cadeia de consulta login_hint |  |  | X | Disponível como declaração, pode ser passado para IDP. |
@@ -115,7 +115,7 @@ Recursos personalizados de estrutura de experiência de identidade/política est
 
 ### <a name="session-management"></a>Gerenciamento da sessão
 
-| Recurso | Desenvolvimento | Versão prévia | GA | Observações |
+| Recurso | Desenvolvimento | Visualização | GA | Observações |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Provedor de sessão SSO |  |  | X |  |
 | Provedor de sessão de logon externo |  |  | X |  |
@@ -124,7 +124,7 @@ Recursos personalizados de estrutura de experiência de identidade/política est
 
 ### <a name="security"></a>Segurança
 
-| Recurso | Desenvolvimento | Versão prévia | GA | Observações |
+| Recurso | Desenvolvimento | Visualização | GA | Observações |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | Chaves de política – gerar, manual, upload |  |  | X |  |
 | Chaves de política – RSA/Cert, segredos |  |  | X |  |
@@ -132,12 +132,12 @@ Recursos personalizados de estrutura de experiência de identidade/política est
 
 ### <a name="developer-interface"></a>Interface do desenvolvedor
 
-| Recurso | Desenvolvimento | Versão prévia | GA | Observações |
+| Recurso | Desenvolvimento | Visualização | GA | Observações |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Portal do Azure – IEF UX |  |  | X |  |
 | Logs UserJourney do Application Insights |  | X |  | Usado para solução de problemas durante o desenvolvimento.  |
 | Application Insights logs de eventos (por meio de etapas de orquestração) |  | X |  | Usado para monitorar fluxos de usuário na produção. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre [políticas personalizadas e as diferenças com fluxos de usuário](custom-policy-overview.md).

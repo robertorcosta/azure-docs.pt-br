@@ -15,12 +15,12 @@ ms.date: 11/22/2019
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 75893a85f975d5d1454f1b93535a1df7a45e8731
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 018d0c3bc009f6063de75b9a479be650b2c06e7c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77084027"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160837"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Manipular exceções e erros do MSAL
 
@@ -506,7 +506,7 @@ O seguinte código de exemplo Objective-C demonstra as práticas recomendadas pa
 
 ## <a name="conditional-access-and-claims-challenges"></a>Acesso condicional e desafio de declarações
 
-Ao obter os tokens silenciosamente, seu aplicativo poderá receber erros quando um [desafio de declarações de acesso condicional](conditional-access-dev-guide.md) , como a política de MFA, for exigido por uma API que você está tentando acessar.
+Ao obter os tokens silenciosamente, seu aplicativo poderá receber erros quando um [desafio de declarações de acesso condicional](../azuread-dev/conditional-access-dev-guide.md) , como a política de MFA, for exigido por uma API que você está tentando acessar.
 
 O padrão para lidar com esse erro é adquirir interativamente um token usando MSAL. A obtenção interativa de um token solicita a participação do usuário e oferece a oportunidade para atender à política de acesso condicional exigida.
 
@@ -520,7 +520,7 @@ Para lidar com o desafio da declaração, você precisará usar o método `.With
 
 ### <a name="javascript"></a>JavaScript
 
-Ao obter os tokens silenciosamente (usando `acquireTokenSilent`) usando MSAL. js, seu aplicativo poderá receber erros quando um [desafio de declarações de acesso condicional](conditional-access-dev-guide.md) , como a política de MFA, for exigido por uma API que você está tentando acessar.
+Ao obter os tokens silenciosamente (usando `acquireTokenSilent`) usando MSAL. js, seu aplicativo poderá receber erros quando um [desafio de declarações de acesso condicional](../azuread-dev/conditional-access-dev-guide.md) , como a política de MFA, for exigido por uma API que você está tentando acessar.
 
 O padrão para tratar esse erro é fazer uma chamada interativa para obter o token em MSAL.js, como `acquireTokenPopup` ou `acquireTokenRedirect`, conforme no exemplo a seguir:
 

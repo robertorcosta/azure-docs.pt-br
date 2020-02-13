@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: a96a3de7c8ad309986417e21a13d5e18f56cbd24
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: a279aebdd19ebd3a41ddad0c1c279937e00838c2
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934122"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168453"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Perguntas frequentes sobre Conversão de Fala em Texto
 
@@ -106,7 +106,7 @@ Para aumentar a simultaneidade para um ***modelo base***, precisamos das seguint
 
 - A região do seu serviço,
 
-e
+e qualquer um
 
 - um token de acesso para sua assinatura (veja [aqui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
 
@@ -195,7 +195,7 @@ ou
 
 As experiências de fala incorporadas ao Office 365, como ditado e legendas do PowerPoint, não são alteradas quando você cria um modelo de locatário para seus aplicativos de serviço de fala.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Solução de problemas](troubleshooting.md)
 - [Notas de versão](releasenotes.md)

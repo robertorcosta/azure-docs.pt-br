@@ -16,32 +16,32 @@ ms.date: 02/18/2019
 ms.author: mimart
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32f3b2f45a808ebfa71f456c015de3dd59d60bd9
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 97954123b6fc31dce09282c08c702438cd64c476
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381372"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159243"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemas ao entrar em um aplicativo na galeria configurado para logon único federado
 
 Para solucionar os problemas de entrada abaixo, recomendamos que você siga estas sugestões para obter um diagnóstico melhor e automatizar as etapas de resolução:
 
 - Instale a [extensão do navegador seguro meus aplicativos](access-panel-extension-problem-installing.md) para ajudar a Azure Active Directory (Azure AD) a fornecer melhor diagnóstico e resoluções ao usar a experiência de teste no portal do Azure.
-- Reproduza o erro usando a experiência de teste na página de configuração do aplicativo no portal do Azure. Saiba mais em [depurar aplicativos de logon único baseados em SAML](../develop/howto-v1-debug-saml-sso-issues.md)
+- Reproduza o erro usando a experiência de teste na página de configuração do aplicativo no portal do Azure. Saiba mais em [depurar aplicativos de logon único baseados em SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
 
 
 ## <a name="application-not-found-in-directory"></a>Aplicativo não encontrado no diretório
 
-*Erro AADSTS70001: O aplicativo com o identificador '\/https:/contoso.com ' não foi encontrado no*diretório.
+*Erro AADSTS70001: o aplicativo com o identificador ' https:\//contoso.com ' não foi encontrado no diretório*.
 
 **Possível causa**
 
-O `Issuer` atributo enviado do aplicativo para o Azure ad na solicitação SAML não corresponde ao valor do identificador configurado para o aplicativo no Azure AD.
+O atributo `Issuer` enviado do aplicativo para o Azure AD na solicitação SAML não corresponde ao valor do identificador configurado para o aplicativo no Azure AD.
 
 **Resolução**
 
-Verifique se o `Issuer` atributo na solicitação SAML corresponde ao valor do identificador configurado no Azure AD. Se você usar a [experiência de teste](../develop/howto-v1-debug-saml-sso-issues.md) no portal do Azure com a extensão de navegador seguro meus aplicativos, não precisará seguir estas etapas manualmente.
+Verifique se o atributo `Issuer` na solicitação SAML corresponde ao valor do identificador configurado no Azure AD. Se você usar a [experiência de teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal do Azure com a extensão de navegador seguro meus aplicativos, não precisará seguir estas etapas manualmente.
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global** ou **Coadministrador**.
 
@@ -61,17 +61,17 @@ Verifique se o `Issuer` atributo na solicitação SAML corresponde ao valor do i
 
 
 
-## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>O endereço de resposta não coincide com os endereços de resposta configurados para o aplicativo
+## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>O endereço de resposta não corresponde aos endereços de resposta configurados para o aplicativo
 
-*Erro AADSTS50011: O endereço de resposta ' https\/:/contoso.com ' não corresponde aos endereços de resposta configurados para o aplicativo*
+*Erro AADSTS50011: o endereço de resposta ' https:\//contoso.com ' não corresponde aos endereços de resposta configurados para o aplicativo*
 
 **Possível causa**
 
-O `AssertionConsumerServiceURL` valor na solicitação SAML não corresponde ao padrão ou ao valor da URL de resposta configurado no Azure AD. O `AssertionConsumerServiceURL` valor na solicitação SAML é a URL que você vê no erro.
+O valor de `AssertionConsumerServiceURL` na solicitação SAML não corresponde ao padrão ou ao valor da URL de resposta configurado no Azure AD. O valor de `AssertionConsumerServiceURL` na solicitação SAML é a URL que você vê no erro.
 
 **Resolução**
 
-Verifique se o `AssertionConsumerServiceURL` valor na solicitação SAML corresponde ao valor da URL de resposta configurado no Azure AD. Se você usar a [experiência de teste](../develop/howto-v1-debug-saml-sso-issues.md) no portal do Azure com a extensão de navegador seguro meus aplicativos, não precisará seguir estas etapas manualmente.
+Verifique se o valor de `AssertionConsumerServiceURL` na solicitação SAML corresponde ao valor da URL de resposta configurado no Azure AD. Se você usar a [experiência de teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal do Azure com a extensão de navegador seguro meus aplicativos, não precisará seguir estas etapas manualmente.
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global** ou **Coadministrador**.
 
@@ -87,13 +87,13 @@ Verifique se o `AssertionConsumerServiceURL` valor na solicitação SAML corresp
 
 1.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 
-1.  Depois que o aplicativo for carregado, abra **Configuração Básica de SAML**. Verifique ou atualize o valor na caixa de texto URL de resposta para `AssertionConsumerServiceURL` corresponder ao valor na solicitação SAML.    
+1.  Depois que o aplicativo for carregado, abra **Configuração Básica de SAML**. Verifique ou atualize o valor na caixa de texto URL de resposta para corresponder ao valor de `AssertionConsumerServiceURL` na solicitação SAML.    
     
 Depois de atualizar o valor da URL de resposta no Azure AD, e ele corresponder ao valor enviado pelo aplicativo na solicitação SAML, você deverá ser capaz de entrar no aplicativo.
 
 ## <a name="user-not-assigned-a-role"></a>Usuário não atribuído a uma função
 
-*Erro AADSTS50105: O usuário conectado ' Brian\@contoso.com ' não está atribuído a uma função para o aplicativo.*
+*Erro AADSTS50105: o usuário conectado ' brian\@contoso.com ' não está atribuído a uma função para o aplicativo*.
 
 **Possível causa**
 
@@ -101,7 +101,7 @@ O usuário não teve acesso concedido para o aplicativo no Azure AD.
 
 **Resolução**
 
-Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas abaixo. Se você usar a [experiência de teste](../develop/howto-v1-debug-saml-sso-issues.md) no portal do Azure com a extensão de navegador seguro meus aplicativos, não precisará seguir estas etapas manualmente.
+Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas abaixo. Se você usar a [experiência de teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal do Azure com a extensão de navegador seguro meus aplicativos, não precisará seguir estas etapas manualmente.
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global**.
 
@@ -143,14 +143,14 @@ Após um curto período de tempo, os usuários selecionados poderão iniciar ess
 
 **Possível causa**
 
-O Azure AD não dá suporte à solicitação SAML enviada pelo aplicativo para logon único. Alguns problemas comuns são:
+O Azure Active Directory não oferece suporte para a solicitação SAML enviada pelo aplicativo para logon único. Alguns problemas comuns são:
 
 -   Campos obrigatórios ausentes na solicitação SAML
 -   Método codificado de solicitação SAML
 
 **Resolução**
 
-1. Capture a solicitação SAML. Siga o tutorial [como depurar o logon único baseado em SAML para aplicativos no Azure ad](../develop/howto-v1-debug-saml-sso-issues.md) para saber como capturar a solicitação SAML.
+1. Capture a solicitação SAML. Siga o tutorial [como depurar o logon único baseado em SAML para aplicativos no Azure ad](../azuread-dev/howto-v1-debug-saml-sso-issues.md) para saber como capturar a solicitação SAML.
 
 1. Entre em contato com o fornecedor do aplicativo e compartilhe as seguintes informações:
 
@@ -162,15 +162,15 @@ O fornecedor do aplicativo deve validar que eles dão suporte à implementação
 
 ## <a name="misconfigured-application"></a>Aplicativo configurado incorretamente
 
-*Erro AADSTS650056: Aplicativo configurado incorretamente. Isso pode ser devido a um dos seguintes: O cliente não listou nenhuma permissão para ' AAD Graph ' nas permissões solicitadas no registro do aplicativo do cliente. Ou, o administrador não consentiu no locatário. Ou então, verifique o identificador do aplicativo na solicitação para garantir que ele corresponda ao identificador do aplicativo cliente configurado. Entre em contato com seu administrador para corrigir a configuração ou o consentimento em nome do locatário.* .
+*Erro AADSTS650056: aplicativo configurado incorretamente. Isso pode ser devido a um dos seguintes: o cliente não listou nenhuma permissão para ' AAD Graph ' nas permissões solicitadas no registro do aplicativo do cliente. Ou, o administrador não consentiu no locatário. Ou então, verifique o identificador do aplicativo na solicitação para garantir que ele corresponda ao identificador do aplicativo cliente configurado. Entre em contato com seu administrador para corrigir a configuração ou o consentimento em nome do locatário.*
 
 **Possível causa**
 
-O `Issuer` atributo enviado do aplicativo para o Azure ad na solicitação SAML não corresponde ao valor do identificador configurado para o aplicativo no Azure AD.
+O atributo `Issuer` enviado do aplicativo para o Azure AD na solicitação SAML não corresponde ao valor do identificador configurado para o aplicativo no Azure AD.
 
 **Resolução**
 
-Verifique se o `Issuer` atributo na solicitação SAML corresponde ao valor do identificador configurado no Azure AD. Se você usar a [experiência de teste](../develop/howto-v1-debug-saml-sso-issues.md) no portal do Azure com a extensão de navegador seguro meus aplicativos, não precisará seguir estas etapas manualmente:
+Verifique se o atributo `Issuer` na solicitação SAML corresponde ao valor do identificador configurado no Azure AD. Se você usar a [experiência de teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal do Azure com a extensão de navegador seguro meus aplicativos, não precisará seguir estas etapas manualmente:
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global** ou **Coadministrador**.
 
@@ -227,7 +227,7 @@ Para excluir e criar um novo certificado, siga as etapas abaixo:
 
 ## <a name="saml-request-not-present-in-the-request"></a>A solicitação SAML não está presente na solicitação
 
-*Erro AADSTS750054: SAMLRequest ou SAMLResponse deve estar presente como parâmetro de cadeia de caracteres na solicitação HTTP para a Associação de redirecionamento SAML.*
+*Erro AADSTS750054: SAMLRequest ou SAMLResponse deve estar presente como parâmetros de cadeia de caracteres de consulta na solicitação HTTP para associação de redirecionamento SAML.*
 
 **Possível causa**
 
@@ -271,4 +271,4 @@ Para saber como personalizar as declarações de atributo SAML enviadas ao seu a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Como depurar o logon único baseado em SAML em aplicativos no do Azure AD](../develop/howto-v1-debug-saml-sso-issues.md)
+[Como depurar o logon único baseado em SAML em aplicativos no do Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 01/28/2020
+ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 766ac4f67c0d448f3988eb66c84dddbf44076ab5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 70b13b16e6aca6b0bdb0858a32a219defef6cca3
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841125"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162031"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Suporte para VMs de geração 2 no Azure
 
@@ -58,7 +58,8 @@ As VMs de geração 2 dão suporte às seguintes imagens do Marketplace:
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
 * Ubuntu Server 16, 4, 18, 4, 19, 4, 19,10 
-* RHEL 8,0
+* RHEL 8,0, 7,6, 7,5, 7,4, 7,0
+* Cent OS 8,0
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>VMs locais vs. Azure geração 2
 
@@ -78,18 +79,18 @@ Atualmente, o Azure não dá suporte a alguns dos recursos que o Hyper-V local d
 
 | Recurso | Geração 1 | Geração 2 |
 |---------|--------------|--------------|
-| Inicializar             | PCAT         | UEFI |
+| Inicialização             | PCAT         | UEFI |
 | Controladores de disco | IDE          | SCSI |
 | Tamanhos de VM         | Todos os tamanhos de VM | Somente VMs que dão suporte ao armazenamento Premium |
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Recursos de geração 1 versus geração 2
 
-| Capacidade | Geração 1 | Geração 2 |
+| Recurso | Geração 1 | Geração 2 |
 |------------|--------------|--------------|
 | Disco do sistema operacional > 2 TB                    | :x:                | :heavy_check_mark: |
 | Disco personalizado/imagem/sistema operacional de permuta         | :heavy_check_mark: | :heavy_check_mark: |
 | Suporte ao conjunto de dimensionamento de máquinas virtuais | :heavy_check_mark: | :heavy_check_mark: |
-| Recuperação de Site do Azure               | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Backup/restauração                    | :heavy_check_mark: | :heavy_check_mark: |
 | Galeria de imagens compartilhadas              | :heavy_check_mark: | :heavy_check_mark: |
 | Criptografia de disco do Azure             | :heavy_check_mark: | :x:                |
@@ -102,16 +103,17 @@ No portal do Azure ou CLI do Azure, você pode criar VMs de geração 2 de uma i
 
 #### <a name="azure-portal"></a>Portal do Azure
 
-As imagens de geração 2 para Windows e SLES estão incluídas na mesma oferta de servidor que as imagens Gen1. O que isso significa de uma perspectiva de fluxo é que você seleciona a oferta e a SKU do portal para sua VM. Se a SKU der suporte a imagens de geração 1 e geração 2, você poderá optar por criar uma VM de geração 2 na guia *avançado* no fluxo de criação de VM.
+Abaixo estão as etapas para criar uma VM de geração 2 (Gen2) no portal do Azure.
 
-Atualmente, as SKUs a seguir oferecem suporte a imagens de geração 1 e geração 2:
-
-* Windows Server 2012
-* Windows Server 2012 R2
-* Windows Server 2016
-* Windows Server 2019
-
-Quando você seleciona uma SKU do Windows Server como a oferta, na guia **avançado** , há uma opção para criar uma VM **Gen 1** (BIOS) ou **Gen 2** (UEFI). Se você selecionar **Gen 2**, verifique se o tamanho da VM selecionado na guia **noções básicas** tem [suporte para VMs de geração 2](#generation-2-vm-sizes).
+1. Entre no Portal do Azure em https://portal.azure.com.
+1. Selecione **Criar um recurso**.
+1. Clique em **ver tudo** no Azure Marketplace à esquerda.
+1. Selecione uma imagem que dê suporte a Gen2.
+1. Clique em **Criar**.
+1. Na guia **avançado** , na seção **geração de VM** , selecione a opção **Gen 2** .
+1. Na guia **noções básicas** , em **detalhes da instância**, vá para **tamanho** e abra a folha **selecionar um tamanho da VM** .
+1. Selecione uma [VM de geração 2 com suporte](#generation-2-vm-sizes).
+1. Percorra o [fluxo de criação de portal do Azure](quick-create-portal.md) para concluir a criação da VM.
 
 ![Selecione a VM Gen 1 ou Gen 2](./media/generation-2/gen1-gen2-select.png)
 
@@ -144,7 +146,7 @@ Consulte a seção [recursos e funcionalidades](#features-and-capabilities) para
 
 Você pode criar uma VM de geração 2 de uma imagem gerenciada ou de um disco gerenciado da mesma maneira que criaria uma VM de geração 1.
 
-### <a name="virtual-machine-scale-sets"></a>Conjuntos de dimensionamento de máquinas virtuais
+### <a name="virtual-machine-scale-sets"></a>conjuntos de escala de máquina virtual
 
 Você também pode criar VMs de geração 2 usando conjuntos de dimensionamento de máquinas virtuais. No CLI do Azure, use conjuntos de dimensionamento do Azure para criar VMs de geração 2.
 
@@ -196,6 +198,13 @@ Você também pode criar VMs de geração 2 usando conjuntos de dimensionamento 
 * **Posso migrar uma VM da geração 1 para a geração 2?**  
     Não, você não pode alterar a geração de uma VM depois de criá-la. Se você precisar alternar entre gerações de VM, crie uma nova VM de uma geração diferente.
 
-## <a name="next-steps"></a>Próximos passos
+* **Por que o tamanho da minha VM não está habilitado no seletor de tamanho quando tento criar uma VM Gen2?**
+
+    Isso pode ser resolvido fazendo o seguinte:
+
+    1. Verifique se a propriedade de **geração de VM** está definida como **Gen 2** na guia **avançado** .
+    1. Verifique se você está procurando um [tamanho de VM que dá suporte a VMs Gen2](#generation-2-vm-sizes).
+
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre as [máquinas virtuais de geração 2 no Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).

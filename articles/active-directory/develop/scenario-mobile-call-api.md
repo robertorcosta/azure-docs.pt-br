@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: f41c9a0e4754c60fd248e540a81e2afa833d655b
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: bd848fa6f74f049f97956ef1736ac2b08f3a6148
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132401"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160144"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Chamar uma API da Web de um aplicativo móvel
 
@@ -124,7 +124,7 @@ Se você precisar chamar a mesma API várias vezes ou se precisar chamar várias
 
 - **Consentimento incremental**: a plataforma de identidade da Microsoft permite que os aplicativos obtenham consentimento do usuário quando forem necessárias permissões em vez de todos no início. Cada vez que seu aplicativo estiver pronto para chamar uma API, ele deverá solicitar apenas os escopos de que precisa.
 
-- **Acesso condicional**: quando você faz várias solicitações de API, em certos cenários, talvez seja necessário atender aos requisitos de acesso condicional adicional. Os requisitos podem aumentar dessa forma se a primeira solicitação não tiver políticas de acesso condicional e seu aplicativo tentar acessar silenciosamente uma nova API que exija acesso condicional. Para lidar com esse problema, não se esqueça de detectar erros de solicitações silenciosas e esteja preparado para fazer uma solicitação interativa.  Para obter mais informações, consulte [diretrizes para acesso condicional](conditional-access-dev-guide.md).
+- **Acesso condicional**: quando você faz várias solicitações de API, em certos cenários, talvez seja necessário atender aos requisitos de acesso condicional adicional. Os requisitos podem aumentar dessa forma se a primeira solicitação não tiver políticas de acesso condicional e seu aplicativo tentar acessar silenciosamente uma nova API que exija acesso condicional. Para lidar com esse problema, não se esqueça de detectar erros de solicitações silenciosas e esteja preparado para fazer uma solicitação interativa.  Para obter mais informações, consulte [diretrizes para acesso condicional](../azuread-dev/conditional-access-dev-guide.md).
 
 ## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>Chamar várias APIs usando o consentimento incremental e o acesso condicional
 
@@ -160,7 +160,7 @@ catch(MsalUiRequiredException ex)
 }
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Mover para produção](scenario-mobile-production.md)

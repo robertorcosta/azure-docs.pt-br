@@ -9,19 +9,16 @@ ms.topic: conceptual
 ms.author: jmartens
 author: j-martens
 ms.date: 12/09/2019
-ms.openlocfilehash: f5607c5d41a028a20a4658a67a7ce487a75f0d7c
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 1999d29db21f820fbcdbca08f2258b657673be3e
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990344"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169750"
 ---
 # <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Depurar interativamente em uma instância de computação Azure Machine Learning com VS Code remoto
 
 Neste artigo, você aprenderá a configurar o Visual Studio Code remoto em uma instância de computação Azure Machine Learning para que você possa **depurar interativamente seu código** de vs Code. 
-
-> [!NOTE]
-> As instâncias de computação estão disponíveis somente para espaços de trabalho com uma região do **norte EUA Central**, **leste dos eua 2**, **Europa setentrional** ou **sul do Reino Unido**, com suporte para outras regiões em breve.
 
 + Uma [instância de computação Azure Machine Learning](concept-compute-instance.md) é uma estação de trabalho baseada em nuvem totalmente gerenciada para cientistas de dados e fornece recursos de gerenciamento e preparação empresarial para os administradores de ti. 
 
@@ -89,11 +86,11 @@ Host azmlci1
 
 Aqui estão alguns detalhes sobre os campos: 
 
-|Campo|Description|
+|Campo|DESCRIÇÃO|
 |----|---------|
 |Host|Use qualquer abreviação que desejar para a instância de computação |
 |HostName|Este é o endereço IP da instância de computação |
-|Port|Esta é a porta mostrada na caixa de diálogo SSH acima |
+|Porta|Esta é a porta mostrada na caixa de diálogo SSH acima |
 |Usuário|Isso precisa ser `azureuser` |
 |IdentityFile|Deve apontar para o arquivo em que você salvou a chave privada |
 
@@ -113,7 +110,7 @@ Agora, você deve ser capaz de usar o ssh em sua instância de computação usan
 
 Daqui em diante, você está trabalhando totalmente na instância de computação e agora pode editar, depurar, usar o Git, usar extensões, etc.--assim como você pode com seu Visual Studio Code local. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você configurou o Visual Studio Code remoto, é possível usar uma instância de computação como computação remota do Visual Studio Code para depurar interativamente seu código. 
 

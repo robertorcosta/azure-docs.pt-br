@@ -16,12 +16,12 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 12a20abb4014712f26e5827bcd1d3c822e8b25a1
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 68aa62ad34f8db531d439a581ef024862da0f90c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750717"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162303"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurar logs de diagnóstico para um hub de eventos do Azure
 
@@ -71,7 +71,7 @@ Todos os logs são armazenados no formato JSON (JavaScript Object Notation). Cad
 
 As cadeias de caracteres JSON do log de arquivo morto incluem os elementos listados na seguinte tabela:
 
-Nome | Description
+Nome | DESCRIÇÃO
 ------- | -------
 TaskName | Descrição da tarefa que falhou.
 ActivityId | ID interna, usada para acompanhamento.
@@ -109,7 +109,7 @@ O código a seguir é um exemplo de uma cadeia de caracteres JSON do log de arqu
 
 As cadeias de caracteres JSON do log operacional incluem os elementos listados na seguinte tabela:
 
-Nome | Description
+Nome | DESCRIÇÃO
 ------- | -------
 ActivityId | ID interna, usada para fins de rastreamento.
 EventName | Nome da operação.  
@@ -138,7 +138,11 @@ Example:
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
-* [Introdução aos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
-* [Visão geral de API de Hubs de Eventos](event-hubs-api-overview.md)
-* [Introdução aos Hubs de Evento](event-hubs-dotnet-standard-getstarted-send.md)
+## <a name="next-steps"></a>Próximas etapas
+- [Introdução aos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
+- [Visão geral de API de Hubs de Eventos](event-hubs-api-overview.md)
+- Introdução aos Hubs de Eventos
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)

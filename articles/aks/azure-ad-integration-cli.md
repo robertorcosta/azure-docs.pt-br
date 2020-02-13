@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: mlearned
-ms.openlocfilehash: 5b99d76ef20c288d6ae0bd33e1e2b6a75a359d3a
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 520557c80bf2630a359188dd86ec0987e0d5326b
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "67616287"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158138"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrar Azure Active Directory com o serviço kubernetes do Azure usando o CLI do Azure
 
@@ -40,7 +40,7 @@ aksname="myakscluster"
 
 A autenticação do Azure AD é fornecida aos clusters do AKS com OpenID Connect. O OpenID Connect é uma camada de identidade compilada sobre o protocolo OAuth 2.0. Para obter mais informações sobre o OpenID Connect, consulte a [documentação do Open ID Connect][open-id-connect].
 
-No cluster do Kubernetes, a autenticação de token do Webhook é usada para verificar os tokens de autenticação. A autenticação de token do Webhook é configurada e gerenciada como parte do cluster AKS. Para obter mais informações sobre a autenticação de tokens de webhook, consulte a [documentação de autenticação][kubernetes-webhook]do webhook.
+No cluster do Kubernetes, a autenticação de token do Webhook é usada para verificar os tokens de autenticação. A autenticação de token do Webhook é configurada e gerenciada como parte do cluster AKS. Para obter mais informações sobre a autenticação de tokens de webhook, consulte a [documentação de autenticação do webhook][kubernetes-webhook].
 
 > [!NOTE]
 > Ao configurar o Azure AD para autenticação do AKS, dois aplicativos do Azure AD são configurados. Essa operação deve ser concluída por um administrador de locatário do Azure.
@@ -98,7 +98,7 @@ az ad app permission admin-consent --id  $serverApplicationId
 
 ## <a name="create-azure-ad-client-component"></a>Criar componente de cliente do Azure AD
 
-O segundo aplicativo do Azure AD é usado quando um usuário faz logon no cluster AKS com a CLI do`kubectl`kubernetes (). Esse aplicativo cliente usa a solicitação de autenticação do usuário e verifica suas credenciais e permissões. Crie o aplicativo do Azure AD para o componente cliente usando o comando [AZ ad app Create][az-ad-app-create] :
+O segundo aplicativo do Azure AD é usado quando um usuário faz logon no cluster AKS com a CLI do kubernetes (`kubectl`). Esse aplicativo cliente usa a solicitação de autenticação do usuário e verifica suas credenciais e permissões. Crie o aplicativo do Azure AD para o componente cliente usando o comando [AZ ad app Create][az-ad-app-create] :
 
 ```azurecli-interactive
 clientApplicationId=$(az ad app create \
@@ -129,7 +129,7 @@ az ad app permission grant --id $clientApplicationId --api $serverApplicationId
 
 ## <a name="deploy-the-cluster"></a>Implantar o cluster
 
-Com os dois aplicativos do Azure AD criados, agora crie o próprio cluster AKS. Primeiro, crie um grupo de recursos usando o comando [AZ Group Create][az-group-create] . O exemplo a seguir cria o grupo de recursos  na região eastus:
+Com os dois aplicativos do Azure AD criados, agora crie o próprio cluster AKS. Primeiro, crie um grupo de recursos usando o comando [AZ Group Create][az-group-create] . O exemplo a seguir cria o grupo de recursos na região *eastus* :
 
 Crie um grupo de recursos para o cluster:
 
@@ -172,7 +172,7 @@ az ad signed-in-user show --query userPrincipalName -o tsv
 > [!IMPORTANT]
 > Se o usuário para o qual você concede a associação de RBAC estiver no mesmo locatário do Azure AD, atribua permissões com base no *userPrincipalName*. Se o usuário estiver em um locatário do Azure AD diferente, consulte e use a propriedade *ObjectID* em seu lugar.
 
-Crie um manifesto do YAML `basic-azure-ad-binding.yaml` chamado e cole o conteúdo a seguir. Na última linha, substitua *userPrincipalName_or_objectId* com a saída de ID de objeto ou UPN do comando anterior:
+Crie um manifesto YAML chamado `basic-azure-ad-binding.yaml` e cole o conteúdo a seguir. Na última linha, substitua *userPrincipalName_or_objectId* pela saída de ID de objeto ou UPN do comando anterior:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -197,7 +197,7 @@ kubectl apply -f basic-azure-ad-binding.yaml
 
 ## <a name="access-cluster-with-azure-ad"></a>Acessar cluster com Azure AD
 
-Agora, vamos testar a integração da autenticação do Azure AD para o cluster AKS. Defina o `kubectl` contexto de configuração para usar credenciais de usuário regulares. Esse contexto passa todas as solicitações de autenticação por meio do Azure AD.
+Agora, vamos testar a integração da autenticação do Azure AD para o cluster AKS. Defina o contexto de configuração `kubectl` para usar credenciais de usuário regulares. Esse contexto passa todas as solicitações de autenticação por meio do Azure AD.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name $aksname --overwrite-existing
@@ -209,7 +209,7 @@ Agora, use o comando [kubectl Get pods][kubectl-get] para exibir pods em todos o
 kubectl get pods --all-namespaces
 ```
 
-Você recebe uma solicitação de entrada para autenticar usando as credenciais do Azure AD usando um navegador da Web. Depois de autenticado com êxito, o `kubectl` comando exibe o pods no cluster AKs, conforme mostrado na seguinte saída de exemplo:
+Você recebe uma solicitação de entrada para autenticar usando as credenciais do Azure AD usando um navegador da Web. Depois de autenticado com êxito, o comando `kubectl` exibe o pods no cluster AKS, conforme mostrado na seguinte saída de exemplo:
 
 ```console
 $ kubectl get pods --all-namespaces
@@ -228,7 +228,7 @@ kube-system   metrics-server-7b97f9cd9-btxzz          1/1     Running   0       
 kube-system   tunnelfront-6ff887cffb-xkfmq            1/1     Running   0          23h
 ```
 
-O token de autenticação recebido `kubectl` para é armazenado em cache. Você só será solicitado a entrar quando o token tiver expirado ou o arquivo de configuração kubernetes for recriado.
+O token de autenticação recebido para `kubectl` é armazenado em cache. Você só será solicitado a entrar quando o token tiver expirado ou o arquivo de configuração kubernetes for recriado.
 
 Se você vir uma mensagem de erro de autorização depois de entrar com êxito usando um navegador da Web como na saída de exemplo a seguir, verifique os seguintes problemas possíveis:
 
@@ -238,7 +238,7 @@ error: You must be logged in to the server (Unauthorized)
 
 * Você definiu a ID de objeto ou o UPN apropriado, dependendo de se a conta de usuário está no mesmo locatário do Azure AD ou não.
 * O usuário não é um membro de mais de 200 grupos.
-* O segredo definido no registro do aplicativo para o servidor corresponde ao valor configurado usando`--aad-server-app-secret`
+* O segredo definido no registro do aplicativo para o servidor corresponde ao valor configurado usando `--aad-server-app-secret`
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -260,7 +260,7 @@ Para obter as práticas recomendadas sobre identidade e controle de recursos, co
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
-[open-id-connect]:../active-directory/develop/v1-protocols-openid-connect-code.md
+[open-id-connect]:../active-directory/develop/v2-protocols-oidc.md
 [az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
 [az-ad-app-create]: /cli/azure/ad/app#az-ad-app-create
 [az-ad-app-update]: /cli/azure/ad/app#az-ad-app-update

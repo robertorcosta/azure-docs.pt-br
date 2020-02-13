@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2019
+ms.date: 02/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 0635be14937a3688792f65208dcb9d482b9e6d44
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 110e935671ab1d640b2ff3dc26c203b262e999fe
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781989"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77163085"
 ---
 # <a name="preview-deploy-spot-vms-using-the-azure-cli"></a>Versão prévia: implantar VMs especiais usando o CLI do Azure
 
@@ -35,12 +35,12 @@ O processo para criar uma VM com o Spot usando o CLI do Azure é o mesmo detalha
 > Atualmente, as instâncias especiais estão em visualização pública.
 > Esta versão de visualização não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Para a parte inicial da visualização pública, as instâncias Spot terão um preço fixo, portanto, não haverá nenhuma remoção baseada em preço.
 
 
-## <a name="install-azure-cli"></a>Instalar o Azure CLI
 
-Para criar VMs pontuais, você precisa estar executando o CLI do Azure versão 2.0.74 ou posterior. Execute **az --version** para descobrir a versão. Caso precise instalá-la ou atualizá-la, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+## <a name="install-azure-cli"></a>Instalar a CLI do Azure.
+
+Para criar VMs pontuais, você precisa estar executando o CLI do Azure versão 2.0.74 ou posterior. Execute **az --version** para descobrir a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
 
 Entrar no Azure usando [login az](/cli/azure/reference-index#az-login).
 

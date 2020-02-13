@@ -17,16 +17,14 @@ ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4d06e5a2bfe05a530fe369f70880ea04f0bc3dd3
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: b45ba0c0b417be9cf308fedbb7fad2f6ad5fceaf
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76700508"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159724"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Plataforma de identidade da Microsoft e o fluxo de concessão de autorização de dispositivo OAuth 2,0
-
-[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 A plataforma de identidade da Microsoft dá suporte à [concessão de autorização de dispositivo](https://tools.ietf.org/html/rfc8628), que permite aos usuários entrar em dispositivos com restrição de entrada, como uma TV inteligente, um dispositivo IOT ou uma impressora.  Para habilitar esse fluxo, o dispositivo exige que o usuário visite uma página da Web no navegador em outro dispositivo para entrar.  Depois que o usuário entra, o dispositivo é capaz de acessar e atualizar tokens, conforme o necessário.  
 
@@ -60,23 +58,23 @@ scope=user.read%20openid%20profile
 
 ```
 
-| Parâmetro | Condição | Description |
+| Parâmetro | Condição | DESCRIÇÃO |
 | --- | --- | --- |
 | `tenant` | Obrigatório | Pode ser/Common,/consumers ou/Organizations.  Ele também pode ser o locatário de diretório do qual você deseja solicitar permissão no formato GUID ou nome amigável.  |
 | `client_id` | Obrigatório | A **ID do aplicativo (cliente)** que a [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída ao seu aplicativo. |
-| `scope` | Recomendado | Uma lista separada por espaços de [escopos](v2-permissions-and-consent.md) para os quais você deseja o consentimento do usuário.  |
+| `scope` | Recomendadas | Uma lista separada por espaços de [escopos](v2-permissions-and-consent.md) para os quais você deseja o consentimento do usuário.  |
 
 ### <a name="device-authorization-response"></a>Resposta de autorização de dispositivo
 
 Uma resposta bem-sucedida será um objeto JSON contendo as informações necessárias para permitir que o usuário faça login.  
 
-| Parâmetro | Formatar | Description |
+| Parâmetro | Formatar | DESCRIÇÃO |
 | ---              | --- | --- |
 |`device_code`     | String | Uma cadeia de caracteres longa usada para verificar a sessão entre o cliente e o servidor de autorização. O cliente usa esse parâmetro para solicitar o token de acesso do servidor de autorização. |
 |`user_code`       | String | Uma cadeia de caracteres curta mostrada para o usuário que é usado para identificar a sessão em um dispositivo secundário.|
 |`verification_uri`| URI | O URI que o usuário deve acessar com o `user_code` para entrar. |
-|`expires_in`      | int | O número de segundos antes que o `device_code` e o `user_code` expirem. |
-|`interval`        | int | O número de segundos que o cliente deve aguardar entre as solicitações de sondagem. |
+|`expires_in`      | INT | O número de segundos antes que o `device_code` e o `user_code` expirem. |
+|`interval`        | INT | O número de segundos que o cliente deve aguardar entre as solicitações de sondagem. |
 | `message`        | String | Uma cadeia de caracteres legível com instruções para o usuário. Ela pode ser localizada incluindo um **parâmetro de consulta** na solicitação do formulário `?mkt=xx-XX`, preenchendo o código de cultura do idioma apropriado. |
 
 > [!NOTE]
@@ -99,7 +97,7 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 ```
 
-| Parâmetro | Obrigatório | Description|
+| Parâmetro | Obrigatório | DESCRIÇÃO|
 | -------- | -------- | ---------- |
 | `tenant`  | Obrigatório | O mesmo alias de locatário ou locatário usado na solicitação inicial. | 
 | `grant_type` | Obrigatório | Precisa ser `urn:ietf:params:oauth:grant-type:device_code`|
@@ -110,7 +108,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 
 O fluxo de código do dispositivo é um protocolo de sondagem, de modo que o cliente deve esperar receber erros antes de concluir a autenticação do usuário.  
 
-| Erro | Description | Ação do Cliente |
+| Erro | DESCRIÇÃO | Ação do Cliente |
 | ------ | ----------- | -------------|
 | `authorization_pending` | O usuário não concluiu a autenticação, mas não cancelou o fluxo. | Repita a solicitação depois de pelo menos `interval` segundos. |
 | `authorization_declined` | O usuário final negou a solicitação de autorização.| Interrompa a sondagem e reverta para um estado não autenticado.  |
@@ -132,11 +130,11 @@ Uma resposta de token bem-sucedida se parecerá com esta:
 }
 ```
 
-| Parâmetro | Formatar | Description |
+| Parâmetro | Formatar | DESCRIÇÃO |
 | --------- | ------ | ----------- |
 | `token_type` | String| Sempre "Portador. |
 | `scope` | Cadeia de caracteres separadas por espaço | Se um token de acesso for retornado, isso listará os escopos em que o token de acesso é válido. |
-| `expires_in`| int | Número de segundos antes que o token de acesso incluído seja válido. |
+| `expires_in`| INT | Número de segundos antes que o token de acesso incluído seja válido. |
 | `access_token`| Cadeia de caracteres opaca | Emitido para os [escopos](v2-permissions-and-consent.md) que foram solicitados.  |
 | `id_token`   | JWT | Emitido quando o parâmetro original `scope` inclui o escopo `openid`.  |
 | `refresh_token` | Cadeia de caracteres opaca | Emitido quando o parâmetro original `scope` inclui `offline_access`.  |

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 930ff1abf77c4e28d377daf12174ff3fbb60cf23
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: HT
+ms.openlocfilehash: e7aa19c1d189eb19237ea85aae1ad2441d7e98b9
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152237"
+ms.locfileid: "77163187"
 ---
 # <a name="import-data-module"></a>Importar módulo de dados
 
@@ -42,7 +42,7 @@ Antes de usar o armazenamento em nuvem, você precisa registrar um repositório 
 
 Depois de definir os dados desejados e conectar-se à origem, **[importar dados](./import-data.md)** infere o tipo de dados de cada coluna com base nos valores que ele contém e carrega os dados em seu pipeline de designer. A saída de **Import data** é um conjunto de dados que pode ser usado com qualquer pipeline de designer.
 
-Se os dados de origem forem alterados, você poderá atualizar o conjunto de dados e adicionar novos data executando novamente os [dados de importação](./import-data.md). No entanto, se você não quiser ler novamente a origem toda vez que executar o pipeline, defina a opção **usar resultados em cache** como true. Quando essa opção é selecionada, o módulo verifica se o pipeline foi executado anteriormente usando a mesma origem e as mesmas opções de entrada. Se uma execução anterior for encontrada, os dados no cache serão usados, em vez de recarregar os dados da origem.
+Se os dados de origem forem alterados, você poderá atualizar o conjunto de dados e adicionar novos data executando novamente os [dados de importação](./import-data.md).
 
 ## <a name="how-to-configure-import-data"></a>Como configurar dados de importação
 
@@ -60,11 +60,7 @@ Se os dados de origem forem alterados, você poderá atualizar o conjunto de dad
 
     ![importação-dados-visualização](media/module/import-data.png)
 
-1. Selecione a opção **usar resultados em cache** se você quiser armazenar em cache o conjunto de armazenamento para reutilização em execuções sucessivas.
 
-    Supondo que não houvesse nenhuma outra alteração nos parâmetros do módulo, o pipeline carrega os dados somente na primeira vez em que o módulo é executado e depois usa uma versão armazenada em cache do conjunto de dados.
-
-    Desmarque essa opção se precisar recarregar os dados cada vez que executar o pipeline.
 
 1. Execute o pipeline.
 

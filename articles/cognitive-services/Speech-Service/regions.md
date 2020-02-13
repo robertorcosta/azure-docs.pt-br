@@ -11,18 +11,20 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 409ce8b904997f2ab75f70b2138ec5b1e70a0e69
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: f1379202fc59e9cca7a3543be201f8ebff276bef
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816654"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168355"
 ---
 # <a name="speech-service-supported-regions"></a>Regiões com suporte do serviço de fala
 
 O Serviço de Fala permite que seu aplicativo converta áudio em texto, realize a tradução de fala e converta texto em Fala. O serviço está disponível em várias regiões com pontos de extremidade exclusivos para o SDK de Fala e APIs de REST.
 
-Certifique-se de que você use o ponto de extremidade que corresponde à região de sua assinatura.
+O portal de fala para executar configurações personalizadas para sua experiência de fala para todas as regiões está disponível aqui: https://speech.microsoft.com
+
+Para invocações de seu serviço de fala, verifique se a chamada corresponde à região da sua assinatura.
 
 ## <a name="speech-sdk"></a>SDK de fala
 
@@ -30,28 +32,13 @@ No [SDK de Fala](speech-sdk.md), regiões são especificadas como uma cadeia de 
 
 ### <a name="speech-to-text-text-to-speech-and-translation"></a>Conversão de fala em texto, texto em fala e tradução
 
-O SDK de fala está disponível nessas regiões para **reconhecimento de fala**, conversão de **texto em fala**e **tradução**:
+O portal de personalização de fala está disponível aqui: https://speech.microsoft.com
 
-| Região           | Parâmetro do SDK de Fala | Portal de personalização de Fala    |
-| ---------------- | -------------------- | ------------------------------ |
-| Oeste dos EUA          | `westus`             | https://westus.cris.ai         |
-| Oeste dos EUA 2        | `westus2`            | https://westus2.cris.ai        |
-| Leste dos EUA          | `eastus`             | https://eastus.cris.ai         |
-| Leste dos EUA 2        | `eastus2`            | https://eastus2.cris.ai        |
-| EUA Central       | `centralus`          | https://centralus.cris.ai      |
-| Centro-Norte dos EUA | `northcentralus`     | https://northcentralus.cris.ai |
-| Centro-Sul dos EUA | `southcentralus`     | https://southcentralus.cris.ai |
-| Índia Central    | `centralindia`       | https://centralindia.cris.ai   |
-| Leste da Ásia        | `eastasia`           | https://eastasia.cris.ai       |
-| Sudeste Asiático   | `southeastasia`      | https://southeastasia.cris.ai  |
-| Leste do Japão       | `japaneast`          | https://japaneast.cris.ai      |
-| Coreia Central    | `koreacentral`       | https://koreacentral.cris.ai   |
-| Leste da Austrália   | `australiaeast`      | https://australiaeast.cris.ai  |
-| Canadá Central   | `canadacentral`      | https://canadacentral.cris.ai  |
-| Europa Setentrional     | `northeurope`        | https://northeurope.cris.ai    |
-| Oeste da Europa      | `westeurope`         | https://westeurope.cris.ai     |
-| Sul do Reino Unido         | `uksouth`            | https://uksouth.cris.ai        |
-| França Central   | `francecentral`      | https://francecentral.cris.ai  |
+O serviço de fala está disponível nessas regiões para **reconhecimento de fala**, conversão de **texto em fala**e **tradução**:
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
+
+Se você usar o [SDK de fala](speech-sdk.md), as regiões serão especificadas pelo **identificador de região** (por exemplo, como um parâmetro para `SpeechConfig.FromSubscription`). Verifique se a região corresponde à região da sua assinatura.
 
 ### <a name="intent-recognition"></a>Reconhecimento de intenção
 
@@ -62,11 +49,11 @@ As regiões disponíveis para **reconhecimento de intenção** por meio do SDK d
 | Ásia          | Leste da Ásia        | `eastasia`           |
 | Ásia          | Sudeste Asiático   | `southeastasia`      |
 | Austrália     | Leste da Austrália   | `australiaeast`      |
-| Europa        | Europa Setentrional     | `northeurope`        |
-| Europa        | Oeste da Europa      | `westeurope`         |
+| Europa        | Norte da Europa     | `northeurope`        |
+| Europa        | Europa Ocidental      | `westeurope`         |
 | América do Norte | Leste dos EUA          | `eastus`             |
 | América do Norte | Leste dos EUA 2        | `eastus2`            |
-| América do Norte | Centro-Sul dos EUA | `southcentralus`     |
+| América do Norte | Centro-Sul dos Estados Unidos | `southcentralus`     |
 | América do Norte | Centro-Oeste dos EUA  | `westcentralus`      |
 | América do Norte | Oeste dos EUA          | `westus`             |
 | América do Norte | Oeste dos EUA 2        | `westus2`            |
@@ -84,8 +71,8 @@ O [SDK de fala](speech-sdk.md) dá suporte a recursos do **Assistente de voz** n
 | Oeste dos EUA 2      | `westus2`            |
 | Leste dos EUA        | `eastus`             |
 | Leste dos EUA 2      | `eastus2`            |
-| Oeste da Europa    | `westeurope`         |
-| Europa Setentrional   | `northeurope`        |
+| Europa Ocidental    | `westeurope`         |
+| Norte da Europa   | `northeurope`        |
 | Sudeste Asiático | `southeastasia`      |
 
 ## <a name="rest-apis"></a>APIs REST
@@ -96,7 +83,18 @@ O serviço de fala também expõe pontos de extremidade REST para solicitações
 
 Para obter a documentação de referência de fala para texto, consulte [API REST de fala em texto](rest-speech-to-text.md).
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+O ponto de extremidade para a API REST tem este formato:
+
+```
+https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
+```
+
+Substitua `<REGION_IDENTIFIER>` pelo identificador correspondente à região da sua assinatura desta tabela:
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
+
+> [!NOTE]
+> O parâmetro de linguagem deve ser anexado à URL para evitar o recebimento de um erro HTTP 4xx. Por exemplo, o idioma definido para inglês dos EUA usando o ponto de extremidade West US é: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
 
 ### <a name="text-to-speech"></a>Conversão de texto em fala
 

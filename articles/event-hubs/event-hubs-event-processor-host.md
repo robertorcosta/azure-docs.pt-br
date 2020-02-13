@@ -14,12 +14,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 01/10/2020
 ms.author: shvija
-ms.openlocfilehash: 7533c2a4d5ef2bb3e6f66e116d3ff3937ddd77b3
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 414179d62970315a7575be0411bf1cb152349fdc
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899977"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162286"
 ---
 # <a name="event-processor-host"></a>Host do processador de eventos
 > [!NOTE]
@@ -182,11 +182,11 @@ O recurso época fornece aos usuários a capacidade de garantir que haja apenas 
 - Se houver um receptor com um valor de época E1 e um novo receptor for criado com um valor de época E2 em que E1 > E2, a criação de E2 com falha com o erro: um receptor com época E1 já existe.
 
 ### <a name="no-epoch"></a>Sem época
-Você cria um receptor não baseado em época usando o método [createreceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet). 
+Você cria um receptor não baseado em época usando o método [Createreceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet) . 
 
 Há alguns cenários no processamento de fluxo em que os usuários gostariam de criar vários destinatários em um único grupo de consumidores. Para dar suporte a esses cenários, temos a capacidade de criar um receptor sem época e, nesse caso, permitimos 5 destinatários simultâneos no grupo de consumidores.
 
-### <a name="mixed-mode"></a>Modo misto
+### <a name="mixed-mode"></a>Modo Misto
 Não recomendamos o uso do aplicativo no qual você cria um receptor com época e, em seguida, muda para nenhuma época ou vice-versa no mesmo grupo de consumidores. No entanto, quando esse comportamento ocorre, o serviço o trata usando as seguintes regras:
 
 - Se houver um receptor já criado com a época E1 e estiver recebendo eventos ativamente e um novo destinatário for criado sem nenhuma época, a criação do novo receptor falhará. Os receptores de época sempre têm precedência no sistema.
@@ -198,11 +198,15 @@ Não recomendamos o uso do aplicativo no qual você cria um receptor com época 
 > É recomendável usar diferentes grupos de consumidores para aplicativos que usam épocas e para aqueles que não usam épocas para evitar erros. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você está familiarizado com o Host do processador de eventos, consulte os seguintes artigos para saber mais sobre os Hubs de eventos:
 
-* Introdução com um [Tutorial de Hubs de Eventos](event-hubs-dotnet-standard-getstarted-send.md)
+- Introdução aos Hubs de Eventos
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 * [Guia de programação dos Hubs de Eventos](event-hubs-programming-guide.md)
 * [Disponibilidade e consistência nos Hubs de Eventos](event-hubs-availability-and-consistency.md)
 * [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)

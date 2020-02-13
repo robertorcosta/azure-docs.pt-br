@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: 3dfdbc56456ea67c830d0e1e9785b9d0032bf2cc
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: fd358801b5fe84aac754b5a975234688a707e544
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988203"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169957"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteger trabalhos de experimentação e de inferência do Azure ML em uma rede virtual do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ Este artigo também fornece informações detalhadas sobre *configurações de s
 > [!WARNING]
 > A Microsoft não dá suporte ao uso do designer de Azure Machine Learning ou do Machine Learning automatizado (do estúdio) com recursos dentro de uma rede virtual.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 + Um [espaço de trabalho](how-to-manage-workspace.md)Azure Machine Learning.
 
@@ -124,10 +124,6 @@ Para usar Azure Machine Learning recursos de experimentação com Azure Key Vaul
 <a id="amlcompute"></a>
 
 ## <a name="compute-instance"></a>Usar um Computação do Machine Learning
-
-> [!NOTE]
-> Atualmente, as instâncias de computação (versão prévia) só estão disponíveis em workspaces com a região **Centro-Norte dos EUA** ou **Sul do Reino Unido**, com suporte para outras regiões em breve.
-> Use uma dessas regiões para criar uma instância de computação que pode ser adicionada à rede virtual.
 
 Para usar uma instância de computação ou cluster de computação Azure Machine Learning em uma rede virtual, os requisitos de rede a seguir devem ser atendidos:
 
@@ -505,7 +501,7 @@ Ao adicionar a regra, defina o __protocolo__ como Any e as portas para `*`.
 
 Para obter mais informações sobre como configurar uma regra de rede, consulte [implantar e configurar o Firewall do Azure](/azure/firewall/tutorial-firewall-deploy-portal#configure-a-network-rule).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Configurar ambientes de treinamento](how-to-set-up-training-targets.md)
 * [Onde implantar modelos](how-to-deploy-and-where.md)

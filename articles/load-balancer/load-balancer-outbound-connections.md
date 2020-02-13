@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: f9135d0a602bfa1f36f9723311e82a4d26abe6c9
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: d3e4a794a948dd6bd9860c9b7e6f06ac981f86b9
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934565"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162490"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexões de saída no Azure
 
@@ -40,10 +40,10 @@ Há vários [cenários de saída](#scenarios). É possível combinar esses cená
 
 O Azure Load Balancer e os recursos relacionados são explicitamente definidos ao utilizar o [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  Atualmente, o Azure fornece três métodos diferentes para alcançar a conectividade de saída para recursos do Azure Resource Manager. 
 
-| SKUs | Cenário | Método | Protocolos IP | Description |
+| SKUs | Cenário | Método | Protocolos IP | DESCRIÇÃO |
 | --- | --- | --- | --- | --- |
 | Standard, Básico | [1. VM com endereço IP público (com ou sem Load Balancer)](#ilpip) | SNAT, disfarce de porta não usado | TCP, UDP, ICMP, ESP | O Azure usa o IP público atribuído à configuração de IP do NIC da instância. A instância possui todas as portas efêmeras disponíveis. Ao usar o Standard Load Balancer, você precisa usar [regras de saída](load-balancer-outbound-rules-overview.md) para definir explicitamente a conectividade de saída |
-| Standard, Básico | [2. Load Balancer público associado a uma VM (nenhum endereço IP público na instância)](#lb) | SNAT com PAT (disfarce de porta) usando front-ends do Load Balancer | TCP, UDP |O Azure compartilha o endereço IP público dos front-ends do Load Balancer público com vários endereços IP privados. O Azure usa os portas efêmeras dos front-ends para PAT. |
+| Standard, Básico | [1. VM com um endereço IP público em nível de instância (com ou sem Load Balancer)](#ilpip) | SNAT, disfarce de porta não usado | TCP, UDP, ICMP, ESP | O Azure usa o IP público atribuído à configuração de IP do NIC da instância. A instância possui todas as portas efêmeras disponíveis. Ao usar Standard Load Balancer, [as regras de saída](load-balancer-outbound-rules-overview.md) não serão suportadas se um IP público for atribuído à máquina virtual |
 | Nenhuma ou Básico | [3. VM autônoma (sem Load Balancer, nenhum endereço IP público)](#defaultsnat) | SNAT com disfarce de porta (PAT) | TCP, UDP | O Azure designa automaticamente um endereço IP público para SNAT, compartilha esse endereço IP público com vários endereços IP privados do conjunto de disponibilidade e usa portas efêmeras desse endereço IP público. Esse cenário é um fallback para os cenários anteriores. Não é recomendável se você precisar de visibilidade e controle. |
 
 Se você não quiser que uma VM comunique-se com os pontos de extremidade fora do Azure no espaço de endereço IP público, poderá usar NSGs (grupos de segurança de rede) para bloquear o acesso conforme necessário. A seção [Impedir conectividade de saída](#preventoutbound) descreve sobre os NSGs mais detalhadamente. As diretrizes sobre a projeto, implementação e gerenciamento de uma rede virtual sem qualquer acesso de saída estão fora do escopo deste artigo.
@@ -91,7 +91,7 @@ Um exemplo é uma implantação do Azure Resource Manager onde o aplicativo depe
 
 ### <a name="multife"></a> Vários front-ends para fluxos de saída
 
-#### <a name="standard-load-balancer"></a>Load Balancer Standard
+#### <a name="standard-load-balancer"></a>Standard Load Balancer
 
 O Standard Load Balancer usa todos os candidatos para fluxos de saída ao mesmo tempo em que [vários IP (públicos) de front-ends](load-balancer-multivip-overview.md) estão presentes. Cada interface multiplicará o número de portas de SNAT pré-alocadas disponíveis, se uma regra de balanceamento de carga estiver habilitada para conexões de saída.
 
@@ -161,9 +161,9 @@ A tabela a seguir mostra as pré-alocações de porta SNAT para níveis de taman
 | Tamanho do pool (instâncias VM) | Portas SNAT pré-alocadas por configuração de IP|
 | --- | --- |
 | 1-50 | 1\.024 |
-| 51 a 100 | 512 |
-| 101 a 200 | 256 |
-| 201 a 400 | 128 |
+| 51-100 | 512 |
+| 101-200 | 256 |
+| 201-400 | 128 |
 | 401-800 | 64 |
 | 801-1,000 | 32 |
 
@@ -259,7 +259,7 @@ Se um NSG bloquear solicitações de investigação de integridade da marcação
 - DisableOutboundSnat não está disponível como uma opção ao configurar uma regra de balanceamento de carga no portal.  Ao invés disso, utilize ferramentas de cliente, modelo ou REST.
 - Funções de trabalho sem uma rede virtual e outros serviços da plataforma Microsoft podem ser acessados quando apenas um Standard Load Balancer interno é usado devido a um efeito colateral de como os serviços pré-VNet e outros serviços da plataforma funcionam. Não confie neste efeito colateral como o próprio serviço em si ou a plataforma subjacente pode mudar sem aviso prévio. Você sempre deve supor que precisa criar conectividade de saída explicitamente se desejado ao usar apenas um Standard Load Balancer interno. O cenário [SNAT padrão](#defaultsnat) 3 descrito neste artigo não está disponível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [Load Balancer Standard](load-balancer-standard-overview.md).
 - Saiba mais sobre as [regras de saída](load-balancer-outbound-rules-overview.md) para o Load Balancer Standard público.

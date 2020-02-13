@@ -2,7 +2,7 @@
   href: index.yml
 - name: Visão geral
   items:
-    - name: O que são os Azure AD Domain Services?
+    - name: O que são os Serviços de Domínio do Azure AD?
       href: overview.md
     - name: Comparar serviços de identidade
       href: compare-identity-solutions.md
@@ -47,7 +47,7 @@
       href: synchronization.md
     - name: Como a sincronização de hash de senha funciona
       href: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
-    - name: O que é o Azure Active Directory?
+    - name: O que é o Active Directory do Azure?
       href: ../active-directory/fundamentals/active-directory-whatis.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
     - name: Arquitetura do Azure Active Directory
       href: ../active-directory/fundamentals/active-directory-architecture.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
@@ -77,7 +77,7 @@
           href: notifications.md
         - name: Excluir um domínio gerenciado
           href: delete-aadds.md
-        - name: Migrar de uma implantação Clássica (versão prévia)
+        - name: Migrar de uma implantação Clássica
           href: migrate-from-classic-vnet.md
         - name: Alterar SKU
           href: change-sku.md

@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: 20b667ae345e468bcd3db25d85b7c9de561af4bc
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 447e8a67cedbb8f78e4db9602f603fefd382693c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111486"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162932"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Usar o banco de dados de acompanhamento para anexar bancos de dados no Azure Data Explorer
 
@@ -26,7 +26,7 @@ A anexação de um banco de dados a um cluster diferente usando a funcionalidade
 * Um único cluster pode seguir os bancos de dados de vários clusters de líder. 
 * Um cluster pode conter bancos de dados de acompanhamento e bancos de dados de preenchimento
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 1. Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 1. [Crie cluster e BD](/azure/data-explorer/create-cluster-database-portal) para o líder e o acompanhamento.
@@ -206,12 +206,12 @@ Você pode implantar o modelo de Azure Resource Manager [usando o portal do Azur
 
 |**Configuração**  |**Descrição**  |
 |---------|---------|
-|Nome do cluster de acompanhamento     |  O nome do cluster de acompanhamento. Esse é o cluster no qual este modelo será implantado.  |
-|Nome das configurações do banco de dados anexado    |    O nome do objeto de configurações de banco de dados anexado. O nome pode ser qualquer cadeia de caracteres, desde que seja exclusivo no nível do cluster.     |
+|Nome do cluster de acompanhamento     |  O nome do cluster de acompanhamento; onde o modelo será implantado.  |
+|Nome das configurações do banco de dados anexado    |    O nome do objeto de configurações de banco de dados anexado. O nome pode ser qualquer cadeia de caracteres que seja exclusiva no nível do cluster.     |
 |Nome do Banco de Dados     |      O nome do banco de dados a ser seguido. Se você quiser seguir todos os bancos de dados do líder, use ' * '.   |
 |ID de recurso de cluster de líder    |   A ID de recurso do cluster de líder.      |
 |Tipo de modificação de entidades de segurança padrão    |   O tipo de modificação principal padrão. Pode ser `Union`, `Replace` ou `None`. Para obter mais informações sobre o tipo de modificação principal padrão, consulte o [comando de controle do tipo de modificação principal](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind).      |
-|Local   |   O local de todos os recursos. O líder e o seguidor devem estar no mesmo local.       |
+|Location   |   O local de todos os recursos. O líder e o seguidor devem estar no mesmo local.       |
  
 ### <a name="verify-that-the-database-was-successfully-attached"></a>Verifique se o banco de dados foi anexado com êxito
 
@@ -388,6 +388,6 @@ O administrador de banco de dados de acompanhamento pode modificar a [política 
 * Não é possível excluir um cluster que tenha um banco de dados anexado a um cluster diferente antes de desanexá-lo.
 * Não é possível parar um cluster que tenha bancos de dados de acompanhamento ou de líder anexados. 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter informações sobre a configuração do cluster de acompanhamento, consulte [comandos de controle para gerenciar um cluster de acompanhamento](/azure/kusto/management/cluster-follower).

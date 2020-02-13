@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cd10bd2a04bfb2a3e3316d86e64a98c75c12e36d
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: aa7ddb75017a532b436b9a5cfc71d1a7c2832cb6
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76530908"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77179089"
 ---
 Este artigo explica como planejar o backup e a DR (recuperação de desastre) de VMs (máquinas virtuais) e discos de IaaS no Azure. Este documento aborda discos gerenciados e discos não gerenciados.
 
@@ -51,7 +51,7 @@ Para proteger cargas de trabalho do aplicativo contra o tempo de inatividade dev
 
 Devido a esses domínios de falha separados, as falhas de hardware localizadas geralmente não afetam várias VMs no conjunto ao mesmo tempo. Ter domínios de falha separados fornece alta disponibilidade para o aplicativo. É considerada uma melhor prática usar conjuntos de disponibilidade quando a alta disponibilidade é necessária. A próxima seção aborda o aspecto de recuperação de desastre.
 
-### <a name="backup-and-disaster-recovery"></a>Backup e recuperação de desastre
+### <a name="backup-and-disaster-recovery"></a>Backup e recuperação de desastres
 
 A recuperação de desastre é a capacidade de recuperação de incidentes raros, mas importantes. Esses incidentes incluem falhas não transitórias de larga escala, como interrupções de serviço que afetam toda uma região. A recuperação de desastre inclui backup e arquivamento de dados e pode incluir a intervenção manual, como a restauração um banco de dados com base em um backup.
 
@@ -103,17 +103,17 @@ Se você usar [SSDs premium](../articles/virtual-machines/windows/disks-types.md
 Para discos não gerenciados, use o tipo de armazenamento com redundância local para discos de IaaS, mas verifique se o Backup do Azure está habilitado com a opção de armazenamento com redundância geográfica no cofre dos serviços de recuperação.
 
 > [!NOTE]
-> Se você usar a opção [armazenamento com redundância geográfica](../articles/storage/common/storage-redundancy-grs.md) ou [armazenamento com redundância geográfica com acesso de leitura](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) para os discos não gerenciados, ainda precisará de instantâneos consistentes para backup e DR. Use o [Backup do Azure](https://azure.microsoft.com/services/backup/) ou [instantâneos consistentes](#alternative-solution-consistent-snapshots).
+> Se você usar a opção [armazenamento com redundância geográfica](../articles/storage/common/storage-redundancy-grs.md) ou [armazenamento com redundância geográfica com acesso de leitura](../articles/storage/common/storage-redundancy.md) para os discos não gerenciados, ainda precisará de instantâneos consistentes para backup e DR. Use o [Backup do Azure](https://azure.microsoft.com/services/backup/) ou [instantâneos consistentes](#alternative-solution-consistent-snapshots).
 
  A tabela a seguir é um resumo das soluções disponíveis para DR.
 
 | Cenário | Replicação automática | Solução de DR |
 | --- | --- | --- |
 | Discos SSD Premium | Local ([armazenamento com redundância local](../articles/storage/common/storage-redundancy-lrs.md)) | [Serviço de Backup do Azure](https://azure.microsoft.com/services/backup/) |
-| Managed Disks | Local ([armazenamento com redundância local](../articles/storage/common/storage-redundancy-lrs.md)) | [Serviço de Backup do Azure](https://azure.microsoft.com/services/backup/) |
+| Discos gerenciados | Local ([armazenamento com redundância local](../articles/storage/common/storage-redundancy-lrs.md)) | [Serviço de Backup do Azure](https://azure.microsoft.com/services/backup/) |
 | Discos não gerenciados com armazenamento com redundância local | Local ([armazenamento com redundância local](../articles/storage/common/storage-redundancy-lrs.md)) | [Serviço de Backup do Azure](https://azure.microsoft.com/services/backup/) |
 | Discos não gerenciados com armazenamento com redundância geográfica | Várias regiões ([armazenamento com redundância geográfica](../articles/storage/common/storage-redundancy-grs.md)) | [Serviço de Backup do Azure](https://azure.microsoft.com/services/backup/)<br/>[Instantâneos consistentes](#alternative-solution-consistent-snapshots) |
-| Discos não gerenciados de armazenamento com redundância geográfica com acesso de leitura | Entre regiões ([armazenamento com redundância geográfica com acesso de leitura](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)) | [Serviço de Backup do Azure](https://azure.microsoft.com/services/backup/)<br/>[Instantâneos consistentes](#alternative-solution-consistent-snapshots) |
+| Discos não gerenciados de armazenamento com redundância geográfica com acesso de leitura | Entre regiões ([armazenamento com redundância geográfica com acesso de leitura](../articles/storage/common/storage-redundancy.md)) | [Serviço de Backup do Azure](https://azure.microsoft.com/services/backup/)<br/>[Instantâneos consistentes](#alternative-solution-consistent-snapshots) |
 
 A alta disponibilidade é melhor alcançada com discos gerenciados em um conjunto de disponibilidade junto com o Backup do Azure. Se você usar discos não gerenciados, ainda poderá usar o Backup do Azure para DR. Se não for possível usar o Backup do Azure, tirar [instantâneos consistentes](#alternative-solution-consistent-snapshots), conforme descrito em uma seção posterior, é uma solução alternativa para backup e DR.
 
@@ -121,7 +121,7 @@ Suas escolhas de alta disponibilidade, backup e DR nos níveis do aplicativo ou 
 
 | Nível |   Alta disponibilidade   | Backup ou DR |
 | --- | --- | --- |
-| Aplicativo | SQL Server AlwaysOn | Backup do Azure |
+| Aplicativo | SQL Server AlwaysOn | Serviço de Backup do Azure |
 | Infraestrutura    | Conjunto de disponibilidade  | Armazenamento com redundância geográfica com instantâneos consistentes |
 
 ### <a name="using-azure-backup"></a>Usando o Backup do Azure 

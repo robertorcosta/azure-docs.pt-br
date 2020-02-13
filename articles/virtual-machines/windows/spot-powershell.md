@@ -7,14 +7,14 @@ manager: gwallace
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 10/14/2019
+ms.date: 02/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 8752522e4b5a7b91778d6eb2cd8e4ba3bac95da0
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 17186d1d7b50ea872dc47eca8c2c4491787d2a38
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74782119"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158937"
 ---
 # <a name="preview-deploy-spot-vms-using-azure-powershell"></a>Versão prévia: implantar VMs especiais usando Azure PowerShell
 
@@ -29,7 +29,7 @@ Você tem a opção de definir um preço máximo que está disposto a pagar, por
 > Atualmente, as instâncias especiais estão em visualização pública.
 > Esta versão de visualização não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Para a parte inicial da visualização pública, as instâncias Spot terão um preço fixo, portanto, não haverá nenhuma remoção baseada em preço.
+
 
 
 ## <a name="create-the-vm"></a>Criar a VM
@@ -37,9 +37,6 @@ Você tem a opção de definir um preço máximo que está disposto a pagar, por
 Crie um spotVM usando [New-AzVmConfig](/powershell/module/az.compute/new-azvmconfig) para criar a configuração. Inclua `-Priority Spot` e defina `-MaxPrice` como:
 - `-1` para que a VM não seja removida com base no preço.
 - um valor de dólar, até 5 dígitos. Por exemplo, `-MaxPrice .98765` significa que a VM será desalocada quando o preço de um spotVM vai cerca de US $98765 por hora.
-
-> [!IMPORTANT]
-> Para a parte inicial da visualização pública, você pode definir um preço máximo, mas ele será ignorado. As VMs pontuais terão um preço fixo, portanto, não haverá nenhuma remoção baseada em preço.
 
 
 Este exemplo cria um spotVM que não será desalocado com base no preço (somente quando o Azure precisar da capacidade de volta).
@@ -82,7 +79,7 @@ Get-AzVM -ResourceGroupName $resourceGroup | `
    Select-Object Name,@{Name="maxPrice"; Expression={$_.BillingProfile.MaxPrice}}
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Você também pode criar uma VM Spot usando o [CLI do Azure](../linux/spot-cli.md) ou um [modelo](../linux/spot-template.md).
 

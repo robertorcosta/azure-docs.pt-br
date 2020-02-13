@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 90387a033a43c627be4ce69a93ee37c5b959732d
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
-ms.translationtype: MT
+ms.openlocfilehash: 54401d4fd8a911fc9cf5bc67d4324e84005fa752
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091792"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157237"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestão de dados do Azure Data Explorer
 
@@ -70,7 +70,7 @@ O Kusto oferece um SDK cliente que pode ser usado para ingerir e consultar dados
 
 * [SDK do Node](/azure/kusto/api/node/kusto-node-client-library)
 
-* [API REST](/azure/kusto/api/netfx/kusto-ingest-client-rest)
+* [REST API](/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
 **Técnicas programáticas de ingestão**:
 
@@ -88,7 +88,7 @@ O Kusto oferece um SDK cliente que pode ser usado para ingerir e consultar dados
 
 **Latência de métodos diferentes**:
 
-| Método | Latência |
+| Método | Latency |
 | --- | --- |
 | **Ingestão embutida** | Imediata |
 | **Ingestão de consulta** | Tempo de consulta + tempo de processamento |
@@ -118,7 +118,7 @@ Para organizações com uma infraestrutura existente baseada em um serviço de m
 ## <a name="supported-data-formats"></a>Formatos de dados com suporte
 
 Para todos os métodos de ingestão diferentes da ingestão de consulta, formate os dados de modo que o Azure Data Explorer possa analisá-los. 
-* Os formatos de dados com suporte são: TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (separados por linha, várias linhas), Avro e parquet. 
+* Os formatos de dados com suporte são: TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (separados por linha, várias linhas), Avro, Orc e parquet. 
 * Dá suporte à compactação ZIP e GZIP.
 
 > [!NOTE]

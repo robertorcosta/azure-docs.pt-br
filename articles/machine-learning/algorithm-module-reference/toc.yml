@@ -2,7 +2,7 @@
   href: module-reference.md
 - name: Entrada e saída de dados
   items:
-    - name: Importar Dados
+    - name: Importar dados
       href: import-data.md
     - name: Inserir Dados Manualmente
       href: enter-data-manually.md
@@ -26,6 +26,8 @@
       href: convert-to-csv.md
     - name: Converter em conjunto de dados
       href: convert-to-dataset.md
+    - name: Converter em valores de indicador
+      href: convert-to-indicator-values.md
     - name: Limpar dados ausentes
       href: clean-missing-data.md
     - name: Editar Metadados
@@ -124,7 +126,7 @@
   items:
     - name: Executar script R
       href: execute-r-script.md
-- name: Análise de texto
+- name: Análise de Texto
   items:
     - name: Extrair recursos N-Gram do texto
       href: extract-n-gram-features-from-text.md
@@ -132,7 +134,7 @@
       href: feature-hashing.md
     - name: Pré-processar Texto
       href: preprocess-text.md
-- name: Recomendações
+- name: Recomendação
   items:
     - name: Avaliar o sistema de recomendação
       href: evaluate-recommender.md

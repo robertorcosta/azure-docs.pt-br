@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ecb704253597bf4eb5672fe924a0dafc4c1b3fd1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b53fca292630ef988ee1357ea50adc4d7b7e9be5
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726528"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162872"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia do Azure com o .NET
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [diretrizes de migração da v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 A partir do windowsazure.mediaservices 4.0.0.4, os Serviços de Mídia do Azure dão suporte à autenticação baseada no Azure AD (Azure Active Directory). Este tópico mostra como usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia do Azure com o Microsoft .NET.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma conta do Azure. Para obter detalhes, confira [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Uma conta dos Serviços de Mídia. Para obter mais informações, consulte [Criar uma conta dos Serviços de Mídia do Azure usando o portal do Azure](media-services-portal-create-account.md).
@@ -48,7 +48,7 @@ Para se conectar à API dos Serviços de Mídia do Azure com a autenticação do
 
 Por exemplo, você não precisa fornecer a autoridade do Azure AD, o URI de recurso dos Serviços de Mídia ou os detalhes do aplicativo nativo do Azure AD. Esses são valores conhecidos que já são configurados pela classe de provedor do token de acesso do Azure AD. 
 
-Se você não estiver usando o SDK do .NET dos Serviços de Mídia do Azure, recomendamos que você use a [Biblioteca de Autenticação do Azure AD](../../active-directory/develop/active-directory-authentication-libraries.md). Para obter valores para os parâmetros que você precisa usar com a Biblioteca de Autenticação do Azure AD, consulte [Usar o portal do Azure para acessar as configurações de autenticação do Azure AD](media-services-portal-get-started-with-aad.md).
+Se você não estiver usando o SDK do .NET dos Serviços de Mídia do Azure, recomendamos que você use a [Biblioteca de Autenticação do Azure AD](../../active-directory/azuread-dev/active-directory-authentication-libraries.md). Para obter valores para os parâmetros que você precisa usar com a Biblioteca de Autenticação do Azure AD, consulte [Usar o portal do Azure para acessar as configurações de autenticação do Azure AD](media-services-portal-get-started-with-aad.md).
 
 Você também tem a opção de substituir a implementação padrão do **AzureAdTokenProvider** por sua própria implementação.
 
@@ -125,7 +125,7 @@ O seguinte exemplo mostra como criar o token do Azure AD e o contexto:
     }
 
 >[!NOTE]
->Se você receber uma exceção informando que "O servidor remoto retornou um erro: (401) Não autorizado", confira a seção [Controle de acesso](media-services-use-aad-auth-to-access-ams-api.md#access-control) em Visão geral sobre o acesso à API dos Serviços de Mídia do Microsoft Azure com a autenticação do Azure Active Directory.
+>Se você receber uma exceção informando que “O servidor remoto retornou um erro: (401) Não autorizado”, consulte a seção [Controle de acesso](media-services-use-aad-auth-to-access-ams-api.md#access-control) de Visão geral do acesso à API dos Serviços de Mídia do Azure com a autenticação do Azure AD.
 
 ## <a name="use-service-principal-authentication"></a>Usar a autenticação de entidade de serviço
     

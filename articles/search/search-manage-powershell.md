@@ -8,39 +8,35 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: fdb558267d823657f6a735d8b96efde33cdb8383
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 02/11/2020
+ms.openlocfilehash: b6147e45ca686328b1702faa5a8d50d9a75e50d6
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466523"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157832"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Gerenciar o serviço de Pesquisa Cognitiva do Azure com o PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
-> * [API REST](https://docs.microsoft.com/rest/api/searchmanagement/)
+> * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-Você pode executar os cmdlets e scripts do PowerShell no Windows, Linux ou no [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) para criar e configurar o pesquisa cognitiva do Azure. O módulo **AZ. Search** estende Azure PowerShell] com paridade total para as [APIs REST do gerenciamento de pesquisa cognitiva do Azure](https://docs.microsoft.com/rest/api/searchmanagement). Com Azure PowerShell e **AZ. Search**, você pode executar as seguintes tarefas:
+Você pode executar os cmdlets e scripts do PowerShell no Windows, Linux ou no [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) para criar e configurar o pesquisa cognitiva do Azure. O módulo **AZ. Search** estende [Azure PowerShell](https://docs.microsoft.com/powershell/) com paridade total para as [APIs REST de gerenciamento de pesquisa](https://docs.microsoft.com/rest/api/searchmanagement) e a capacidade de executar as seguintes tarefas:
 
 > [!div class="checklist"]
-> * [Listar todos os serviços de pesquisa em sua assinatura](#list-search-services)
-> * [Obter informações sobre um serviço de pesquisa específico](#get-search-service-information)
+> * [Listar serviços de pesquisa em uma assinatura](#list-search-services)
+> * [Informações de serviço de retorno](#get-search-service-information)
 > * [Criar ou excluir um serviço](#create-or-delete-a-service)
 > * [Regenerar chaves de API de administrador](#regenerate-admin-keys)
 > * [Criar ou excluir as chaves de API de consulta](#create-or-delete-query-keys)
-> * [Dimensionar um serviço aumentando ou diminuindo réplicas e partições](#scale-replicas-and-partitions)
+> * [Escalar ou reduzir verticalmente com réplicas e partições](#scale-replicas-and-partitions)
 
-O PowerShell não pode ser usado para alterar o nome, a região ou a camada do seu serviço. Os recursos dedicados são alocados quando um serviço é criado. Alterar o hardware subjacente (local ou tipo de nó) requer um novo serviço. Não há ferramentas ou APIs para transferir o conteúdo de um serviço para outro. Todo o gerenciamento de conteúdo é por meio de APIs [REST](https://docs.microsoft.com/rest/api/searchservice/) ou [.net](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search) e, se você quiser mover índices, será necessário recriá-los e recarregá-los em um novo serviço. 
+Ocasionalmente, as perguntas são feitas sobre tarefas que *não* estão na lista acima. No momento, você não pode usar o módulo **AZ. Search** ou a API REST de gerenciamento para alterar um nome de servidor, região ou camada. Os recursos dedicados são alocados quando um serviço é criado. Assim, alterar o hardware subjacente (local ou tipo de nó) requer um novo serviço. Da mesma forma, não há ferramentas ou APIs para transferir conteúdo, como um índice, de um serviço para outro.
 
-Embora não haja comandos dedicados do PowerShell para o gerenciamento de conteúdo, você pode escrever o script do PowerShell que chama REST ou .NET para criar e carregar índices. O módulo **AZ. Search** por si só não fornece essas operações.
-
-Outras tarefas sem suporte por meio do PowerShell ou de qualquer outra API (somente de Portal) incluem:
-+ [Anexe um recurso de serviços cognitivas](cognitive-search-attach-cognitive-services.md) para [indexação aprimorada de ia](cognitive-search-concept-intro.md). Um serviço cognitiva é anexado a um contratador, não a uma assinatura ou serviço.
-+ [Soluções de monitoramento de complemento](search-monitor-usage.md#add-on-monitoring-solutions) para monitorar pesquisa cognitiva do Azure.
+Dentro de um serviço, a criação e o gerenciamento de conteúdo são por meio de [serviço de pesquisa API REST](https://docs.microsoft.com/rest/api/searchservice/) ou [SDK do .net](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search). Embora não haja nenhum comando do PowerShell dedicado para o conteúdo, você pode escrever o script do PowerShell que chama as APIs REST ou .NET para criar e carregar índices.
 
 <a name="check-versions-and-load"></a>
 
@@ -92,7 +88,7 @@ Select-AzSubscription -SubscriptionName ContosoSubscription
 
 <a name="list-search-services"></a>
 
-## <a name="list-all-azure-cognitive-search-services-in-your-subscription"></a>Listar todos os serviços de Pesquisa Cognitiva do Azure em sua assinatura
+## <a name="list-services-in-a-subscription"></a>Listar serviços em uma assinatura
 
 Os comandos a seguir são de [**AZ. Resources**](https://docs.microsoft.com/powershell/module/az.resources/?view=azps-1.4.0#resources), retornando informações sobre os recursos e serviços existentes já provisionados em sua assinatura. Se você não souber quantos serviços de pesquisa já foram criados, esses comandos retornarão essas informações, poupando uma viagem ao Portal.
 

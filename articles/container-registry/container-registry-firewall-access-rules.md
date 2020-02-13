@@ -2,13 +2,13 @@
 title: Regras de acesso de firewall
 description: Configure regras para acessar um registro de contêiner do Azure por trás de um firewall, permitindo o acesso a API REST ("lista de permissões") e nomes de domínio de ponto de extremidade de armazenamento ou intervalos de endereços IP específicos do serviço.
 ms.topic: article
-ms.date: 07/17/2019
-ms.openlocfilehash: 4d3c4ff4ca19d8b563c185e5c314011823081df1
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 02/11/2020
+ms.openlocfilehash: 06fedea2adf5e73929f5752279f2bd7e7227e570
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745192"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168015"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configurar regras para acessar um registro de contêiner do Azure atrás de um firewall
 
@@ -116,7 +116,11 @@ Em uma rede virtual do Azure, use as regras de segurança de rede para filtrar o
 
 Por exemplo, crie uma regra de grupo de segurança de rede de saída com **AzureContainerRegistry** de destino para permitir o tráfego para um registro de contêiner do Azure. Para permitir o acesso à marca de serviço somente em uma região específica, especifique a região no seguinte formato: **AzureContainerRegistry**. [*nome da região*].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="configure-client-firewall-rules-for-mcr"></a>Configurar regras de firewall do cliente para MCR
+
+Se você precisar acessar o MCR (registro de contêiner da Microsoft) por trás de um firewall, consulte a orientação para configurar [regras de firewall de cliente do MCR](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md). MCR é o registro principal para todas as imagens do Docker publicadas pela Microsoft, como imagens do Windows Server.
+
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [as práticas recomendadas do Azure para segurança de rede](../security/fundamentals/network-best-practices.md)
 
