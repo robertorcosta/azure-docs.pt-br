@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5034aaaee335bbd87e7ea42b448e4e8fbf6aacca
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 11fdaa0d547e588daa9d264c2393606705554a17
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274558"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157254"
 ---
 # <a name="storage-account-overview"></a>Visão geral da conta de armazenamento
 
@@ -31,7 +31,7 @@ Para saber como criar uma conta de armazenamento do Azure, confira [Criar uma co
 As contas de armazenamento para uso geral v2 são compatíveis com os recursos mais recentes do Armazenamento do Azure e incorporam todas as funcionalidades das contas de armazenamento de blobs e para uso geral v1. As contas de armazenamento para uso geral v2 têm os menores preços de capacidade por gigabyte para o Armazenamento do Azure, bem como os preços de transação competitivos no setor. As contas de armazenamento para uso geral v2 são compatíveis com estes serviços do Armazenamento do Azure:
 
 - BLOBs (todos os tipos: bloco, acrescentar, página)
-- O Data Lake Gen2
+- Data Lake Gen2
 - Arquivos
 - Discos
 - Filas
@@ -115,11 +115,9 @@ Se houver uma alteração no padrão de uso de seus dados, você poderá alterna
 > [!IMPORTANT]
 > Alterar a camada de acesso para uma conta de armazenamento existente ou um blob pode resultar em cobranças adicionais. Para obter mais informações, consulte a [Seção de cobrança de conta de armazenamento](#storage-account-billing).
 
-## <a name="replication"></a>Replicação
+## <a name="redundancy"></a>Redundância
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
-
-Para saber mais sobre a replicação de armazenamento, confira [Replicação do Armazenamento do Azure](storage-redundancy.md).
 
 ## <a name="encryption"></a>Criptografia
 
@@ -187,7 +185,7 @@ Para saber mais sobre a API REST do Armazenamento do Azure, confira a [Referênc
 
 [!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Criar uma conta de armazenamento](storage-account-create.md)
 - [Criar uma conta de armazenamento de blob de blocos](../blobs/storage-blob-create-account-block-blob.md)

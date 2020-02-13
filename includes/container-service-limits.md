@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: container-service
 author: dlepow
 ms.service: container-service
@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 11/22/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 0695416c65eed2bbf0a19d5ed1ea0c53a7ece332
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: ac928d9087ba5db312540b8ec542d7a2a29e2a99
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485479"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77179111"
 ---
 | Recurso | Limite padrão |
 | --- | :--- |
 | Máximo de clusters por assinatura | 100 |
 | Máximo de nós por cluster com conjuntos de disponibilidade de máquina virtual e SKU de Load Balancer básica  | 100 |
-| Máximo de nós por cluster com conjuntos de dimensionamento de máquinas virtuais e [Standard Load BALANCER SKU][standard-load-balancer] | 800 (100 nós por [pool de nós][node-pool]) |
+| Máximo de nós por cluster com conjuntos de dimensionamento de máquinas virtuais e [Standard Load BALANCER SKU][standard-load-balancer] | 1000 (100 nós por [pool de nós][node-pool]) |
 | Pods máxima por nó: [sistema de rede básico][basic-networking] com Kubenet | 110 |
 | Pods máxima por nó: [rede avançada][advanced-networking] com a interface de rede de contêiner do Azure | Implantação da CLI do Azure: 30<sup>1</sup><br />Modelo de Azure Resource Manager: 30<sup>1</sup><br />Implantação do portal: 30 |
 
