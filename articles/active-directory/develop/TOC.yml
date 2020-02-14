@@ -7,6 +7,7 @@
     - name: Evolução da plataforma de identidade da Microsoft
       href: about-microsoft-identity-platform.md
 - name: Inícios rápidos
+  expanded: true
   items:
     - name: Configurar um locatário
       href: quickstart-create-new-tenant.md
@@ -90,6 +91,7 @@
 - name: Exemplos
   href: sample-v2-code.md
 - name: Conceitos
+  expanded: true
   items:
     - name: Noções básicas de autenticação
       href: authentication-scenarios.md
