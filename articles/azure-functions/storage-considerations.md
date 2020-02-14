@@ -3,12 +3,12 @@ title: Considerações de armazenamento para Azure Functions
 description: Saiba mais sobre os requisitos de armazenamento do Azure Functions e sobre a criptografia de dados armazenados.
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 353fdd3bf7775e3bc7a9d017a9e8dd8238b09830
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: f094996ca44ec36d46330e54eac56b28794ef22e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964976"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190293"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considerações de armazenamento para Azure Functions
 
@@ -17,7 +17,7 @@ Azure Functions requer uma conta de armazenamento do Azure quando você cria uma
 
 |Serviço de armazenamento  | Uso de funções  |
 |---------|---------|
-| [Armazenamento de Blobs do Azure](/storage/blobs/storage-blobs-overview.md)     | Mantenha o estado de associações e as teclas de função.  <br/>Também usado por [hubs de tarefas no Durable Functions](durable/durable-functions-task-hubs.md). |
+| [Armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md)     | Mantenha o estado de associações e as teclas de função.  <br/>Também usado por [hubs de tarefas no Durable Functions](durable/durable-functions-task-hubs.md). |
 | [Arquivos do Azure](../storage/files/storage-files-introduction.md)  | Compartilhamento de arquivos usado para armazenar e executar o código do aplicativo de funções em um [plano de consumo](functions-scale.md#consumption-plan). |
 | [Armazenamento de Filas do Azure](../storage/queues/storage-queues-introduction.md)     | Usado pelos [hubs de tarefas no Durable Functions](durable/durable-functions-task-hubs.md).   |
 | [Armazenamento de Tabelas do Azure](../storage/tables/table-storage-overview.md)  |  Usado pelos [hubs de tarefas no Durable Functions](durable/durable-functions-task-hubs.md).       |
@@ -57,7 +57,7 @@ O armazenamento do Azure criptografa todos os dados em uma conta de armazenament
 
 Por padrão, os dados são criptografados com chaves gerenciadas pela Microsoft. Para obter controle adicional sobre as chaves de criptografia, você pode fornecer chaves gerenciadas pelo cliente para usar para criptografia de dados de BLOB e arquivo. Essas chaves devem estar presentes no Azure Key Vault para que o Functions possa acessar a conta de armazenamento. Para saber mais, confira [Configurar chaves gerenciadas pelo cliente com Azure Key Vault usando o portal do Azure](../storage/common/storage-encryption-keys-portal.md).  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as opções de Hospedagem de Azure Functions.
 

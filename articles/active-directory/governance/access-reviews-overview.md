@@ -16,12 +16,12 @@ ms.date: 01/10/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e77f507f2a3bd89069f25bf984cf4059009faa6
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 5499c8808c3916842071df1f03a865efd98719f6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932654"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185751"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Quais são as revisões de acesso do Azure AD?
 
@@ -58,13 +58,13 @@ Dependendo do que você deseja examinar, você criará sua análise de acesso na
 | --- | --- | --- | --- |
 | Membros do grupo de segurança</br>Membros do grupo do escritório | Revisores especificados</br>Proprietários do grupo</br>Análise automática | Revisões de acesso do Azure AD</br>Grupos do Azure AD | Painel de acesso |
 | Atribuído a um aplicativo conectado | Revisores especificados</br>Análise automática | Revisões de acesso do Azure AD</br>Aplicativos corporativos do Azure Active Directory (visualização) | Painel de acesso |
-| Função de AD do Azure | Revisores especificados</br>Análise automática | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portal do Azure |
-| Função de recurso do Azure | Revisores especificados</br>Análise automática | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portal do Azure |
+| Função de AD do Azure | Revisores especificados</br>Análise automática | [PIM do Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portal do Azure |
+| Função de recurso do Azure | Revisores especificados</br>Análise automática | [PIM do Azure AD](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portal do Azure |
 
 
-## <a name="onboard-access-reviews"></a>Revisões de acesso integrado
+## <a name="create-access-reviews"></a>Criar revisões de acesso
 
-Para carregar as revisões de acesso, siga estas etapas.
+Para criar revisões de acesso, siga estas etapas:
 
 1. Vá para o [portal do Azure](https://portal.azure.com) para gerenciar as revisões de acesso e entre como administrador global ou administrador de usuários.
 
@@ -74,13 +74,9 @@ Para carregar as revisões de acesso, siga estas etapas.
 
 1. Selecione **governança de identidade**.
 
-1. Clique em **revisões de acesso**.
- 
-    ![Página inicial de revisões de acesso](./media/access-reviews-overview/access-reviews-overview-onboard.png)
+1. Na página guia de introdução, clique no botão **criar uma revisão de acesso** .
 
-1. Na página, clique no botão **integrado agora** .
-    
-      ![Revisões de acesso integradas](./media/access-reviews-overview/access-reviews-overview-select-onboard.png)
+   ![Página inicial de revisões de acesso](./media/access-reviews-overview/access-reviews-overview-create-access-reviews.png) 
 
 
 ## <a name="learn-about-access-reviews"></a>Saiba mais sobre as revisões de acesso
@@ -126,7 +122,7 @@ Aqui estão alguns exemplos de cenários de licença para ajudá-lo a determinar
 | Um administrador cria uma revisão de acesso do grupo C com 50 usuários Membros e 25 usuários convidados. O torna uma análise automática. | 50 licenças para cada usuário como revisores automáticos.<br/>(os usuários convidados são abordados na proporção 1:5 necessária) | 50 |
 | Um administrador cria uma revisão de acesso do Grupo D com 6 usuários Membros e usuários convidados de 108. O torna uma análise automática. | 6 licenças para cada usuário como autoviewers + 16 licenças adicionais para cobrir todos os usuários convidados de 108 na proporção 1:5 necessária. 6 licenças, que abrangem 6\*5 = 30 usuários convidados. Para os restantes (108-6\*5) = 78 usuários convidados, 78/5 = 16 licenças adicionais são necessárias. Portanto, no total, são necessárias 6 + 16 = 22 licenças. | 22 |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Criar uma revisão de acesso de grupos ou aplicativos](create-access-review.md)
 - [Criar uma revisão de acesso de usuários em uma função administrativa do Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)

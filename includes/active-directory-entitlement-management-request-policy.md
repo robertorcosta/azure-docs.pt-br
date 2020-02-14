@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: active-directory
 author: msaburnley
 ms.service: active-directory
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/11/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: d89240467d5ea5172d04c8eb187fe85d1b702723
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c73a62b2d5feeae42a5ea35c88073dd5fcc0d78c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980794"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77192479"
 ---
 ## <a name="for-users-in-your-directory"></a>Para usuários em seu diretório
 
@@ -198,7 +198,7 @@ Por exemplo, se você tiver listado Alice e Bob como os primeiros Aprovadores, l
 
 ## <a name="enable-requests"></a>Habilitar solicitações
 
-1. Se você quiser que o pacote de acesso seja disponibilizado imediatamente para usuários na política de solicitação para solicitar, clique em **Sim** para habilitar.
+1. Se você quiser que o pacote de acesso seja disponibilizado imediatamente para usuários na política de solicitação para solicitar, mova a opção Habilitar alternar para **Sim**.
 
     Você sempre poderá habilitá-lo no futuro depois de concluir a criação do pacote de acesso.
 
@@ -206,4 +206,4 @@ Por exemplo, se você tiver listado Alice e Bob como os primeiros Aprovadores, l
 
     ![Pacote de acesso-configuração de política de habilitação de política](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
-1. Clique em \\**Próximo**.
+1. Clique em **Próximo**.

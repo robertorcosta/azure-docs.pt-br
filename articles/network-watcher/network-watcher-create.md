@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: b091c501fb565fb267c40f686dc037e41f3c90ee
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 77812a3765a027152c957f6dbb7c9b3811a2278f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845132"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191191"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Criar uma instância do Observador de Rede do Azure
 
@@ -27,7 +27,7 @@ O Observador de Rede é um serviço regional que permite monitorar e diagnostica
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="network-watcher-is-automatically-enabled"></a>O observador de rede é habilitado automaticamente
-Quando você cria ou atualiza uma Rede Virtual do Microsoft Azure em sua assinatura, o Observador de Rede será ativado automaticamente na região da sua rede virtual. Seus recursos não serão afetados e não haverá encargos associados ao habilitar o Observador de Rede automaticamente.
+Quando você cria ou atualiza uma Rede Virtual do Microsoft Azure em sua assinatura, o Observador de Rede será ativado automaticamente na região da sua rede virtual. Não há impacto em seus recursos ou cobranças associadas para ativar automaticamente o Observador de Rede.
 
 #### <a name="opt-out-of-network-watcher-automatic-enablement"></a>Desativação da ativação automática do Observador de Rede
 Se você desejar desativar a ativação automática do Observador de Rede, poderá fazer isso executando os seguintes comandos:
@@ -121,7 +121,7 @@ New-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup NetworkWa
 Remove-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup NetworkWatcherRG
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você tem uma instância do Observador de Rede, saiba mais sobre os recursos disponíveis:
 
@@ -132,5 +132,3 @@ Agora que você tem uma instância do Observador de Rede, saiba mais sobre os re
 * [Vista de grupo de segurança](network-watcher-security-group-view-overview.md)
 * [Registro do fluxo NSG](network-watcher-nsg-flow-logging-overview.md)
 * [Solução de problemas do Gateway de Rede Virtual](network-watcher-troubleshoot-overview.md)
-
-Após uma instância do Observador de Rede, será possível habilitar a captura de pacote em máquinas virtuais. Para saber mais, consulte [Criar uma captura de pacote disparada por alerta](network-watcher-alert-triggered-packet-capture.md)

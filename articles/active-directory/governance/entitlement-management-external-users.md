@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf8a2cf6c50e05a0fecff387f2e125c50931b95f
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: bf7e4837aaf65b0df28ea4a07fb485948309bc7c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608713"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185568"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Controlar o acesso para usuários externos no gerenciamento de direitos do Azure AD
 
@@ -91,7 +91,7 @@ Para garantir que as pessoas fora de sua organização possam solicitar pacotes 
 
 ### <a name="review-your-conditional-access-policies"></a>Examinar suas políticas de acesso condicional
 
-- Certifique-se de excluir convidados de quaisquer políticas de acesso condicional que novos usuários convidados não poderão atender, pois isso os bloqueará de poder entrar no seu diretório. Por exemplo, os convidados provavelmente não têm um dispositivo registrado, não estão em um local conhecido e não querem se registrar novamente para a MFA (autenticação multifator); portanto, adicionar esses requisitos em uma política de acesso condicional bloqueará o uso de direitos gerenciamento. Para obter mais informações, consulte [o que são condições em Azure Active Directory acesso condicional?](../conditional-access/conditions.md).
+- Certifique-se de excluir convidados de quaisquer políticas de acesso condicional que novos usuários convidados não poderão atender, pois isso os bloqueará de poder entrar no seu diretório. Por exemplo, os convidados provavelmente não têm um dispositivo registrado, não estão em um local conhecido e não querem se registrar novamente para a MFA (autenticação multifator); portanto, adicionar esses requisitos em uma política de acesso condicional bloqueará o uso de direitos gerenciamento. Para obter mais informações, consulte [o que são condições em Azure Active Directory acesso condicional?](../conditional-access/concept-conditional-access-conditions.md).
 
     ![Configurações de exclusão de política de acesso condicional do Azure AD](./media/entitlement-management-external-users/conditional-access-exclude.png)
 
@@ -145,7 +145,7 @@ Você pode selecionar o que acontece quando um usuário externo, que foi convida
 
 1. Clique em **Save** (Salvar).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Adicionar uma organização conectada](entitlement-management-organization.md)
 - [Para usuários que não estão em seu diretório](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)

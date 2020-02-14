@@ -3,21 +3,22 @@ title: Visão geral do Azure Monitor para contêineres | Microsoft Docs
 description: Este artigo descreve o Azure Monitor para contêineres que monitora as soluções de Insights do Contêiner AKS e o valor que ele oferece monitorando a integridade dos clusters AKS e de Instâncias de Contêiner no Azure.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 341dd28f6c1523e4b4c06da30a0a8ffc61b1c6f4
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 3ff2c35ae9f5838447ce90e2a020649427920a43
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75730729"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198030"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Visão geral do Azure Monitor para contêineres
 
 O Azure Monitor para contêineres é um recurso projetado para monitorar o desempenho de cargas de trabalho de contêiner implantadas em:
 
-- Clusters Managed Kubernetes hospedados no serviço de kubernetes do Azure (AKS)
-- Instâncias de Contêiner do Azure
-- Clusters kubernetes autogerenciados hospedados no Azure Stack ou no local
-- Red Hat OpenShift no Azure
+- Clusters Managed Kubernetes hospedados no [serviço de kubernetes do Azure (AKs)](../../aks/intro-kubernetes.md)
+- Clusters kubernetes autogerenciados hospedados no Azure usando o [mecanismo AKs](https://github.com/Azure/aks-engine)
+- [Instâncias de Contêiner do Azure](../../container-instances/container-instances-overview.md)
+- Clusters kubernetes autogerenciados hospedados no [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) ou no local
+- [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
 
 Azure Monitor para contêineres dá suporte a clusters que executam o sistema operacional Linux e Windows Server 2019. 
 
@@ -38,7 +39,7 @@ Azure Monitor para contêineres fornece uma experiência de monitoramento abrang
 * Compreender o comportamento do cluster sob cargas mais pesadas e médias. Esse conhecimento pode ajudá-lo a identificar as necessidades de capacidade e determinar a carga máxima que o cluster pode sustentar. 
 * Configure alertas para notificá-lo proativamente ou registre-o quando a utilização de CPU e memória em nós ou contêineres exceder seus limites ou quando uma alteração de estado de integridade ocorrer no cluster no acúmulo de integridade de infraestrutura ou de nós.
 * Integre com o [Prometheus](https://prometheus.io/docs/introduction/overview/) para exibir as métricas de aplicativo e carga de trabalho coletadas de nós e kubernetes usando [consultas](container-insights-log-search.md) para criar alertas personalizados, painéis e executar análise detalhada.
-* Monitore cargas de trabalho de contêiner [implantadas](https://github.com/microsoft/OMS-docker/tree/aks-engine) no mecanismo do AKS no local e no [mecanismo de AKs no Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
+* Monitore cargas de trabalho de contêiner [implantadas](https://github.com/Azure/aks-engine) no mecanismo do AKS no local e no [mecanismo de AKs no Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
 * Monitore cargas [de trabalho de contêiner implantadas no Azure Red Hat OpenShift](../../openshift/intro-openshift.md).
 
     >[!NOTE]
@@ -66,6 +67,6 @@ Acesse o Azure Monitor para contêineres de duas maneiras, pelo Azure Monitor ou
 
 Se você estiver interessado em monitorar e gerenciar seus hosts de contêiner do Docker e do Windows em execução fora do AKS para exibir a configuração, a auditoria e a utilização de recursos, consulte a [solução de monitoramento de contêiner](../../azure-monitor/insights/containers.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para começar a monitorar o cluster do kubernetes, examine [como habilitar o Azure monitor para contêineres](container-insights-onboard.md) para entender os requisitos e os métodos disponíveis para habilitar o monitoramento. 

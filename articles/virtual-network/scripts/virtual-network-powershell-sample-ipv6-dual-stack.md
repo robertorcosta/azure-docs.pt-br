@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell amostra de script – configurar pontos de extremidade de rede virtual IPv6 (versão prévia)
+title: Exemplo de script Azure PowerShell-configurar pontos de extremidade IPv6
 titlesuffix: Azure Virtual Network
 description: Habilitar pontos de extremidade IPv6 usando o PowerShell na rede virtual do Azure
 services: virtual-network
@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 4f07aae0e8baae44ade152cf3fe20facc7fe6770
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 5e8102cbf89d601c027e3b969c1c431da8807018
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248808"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201349"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Configurar pontos de extremidade IPv6 na amostra de script de rede virtual (versão prévia)
 
@@ -27,7 +27,7 @@ Você pode executar o script do Azure [Cloud Shell](https://shell.azure.com/powe
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Antes de implantar um aplicativo de pilha dupla no Azure, você deve configurar sua assinatura somente uma vez para esse recurso de visualização usando as seguintes Azure PowerShell:
 
 Registre-se da seguinte maneira:
@@ -46,7 +46,7 @@ Após a conclusão do registro, execute o seguinte comando:
 Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 
 

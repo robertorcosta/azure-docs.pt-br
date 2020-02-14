@@ -6,12 +6,12 @@ ms.workload: integration
 ms.reviewer: klam, jehollan, logicappspm
 ms.topic: article
 ms.date: 11/04/2019
-ms.openlocfilehash: dbb91106ad00e1a82e2e6e9c470e61764a4ad4c4
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: d5b5a69c7927d07c0ae6b3b56ec97b6551e5d46b
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792023"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191342"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Chamar, disparar ou aninhar aplicativos lógicos usando pontos de extremidade HTTP em aplicativos lógicos do Azure
 
@@ -28,7 +28,7 @@ Para configurar um ponto de extremidade HTTP, você pode usar qualquer um desses
 
 Se você for novo em aplicativos lógicos, consulte [o que é o início rápido e aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) [: Crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Se você não tem uma assinatura, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
@@ -275,7 +275,7 @@ No corpo da resposta, você pode incluir vários cabeçalhos e qualquer tipo de 
 
 As respostas têm estas propriedades:
 
-| Propriedade (exibição) | Propriedade (JSON) | Descrição |
+| Propriedade (exibição) | Propriedade (JSON) | DESCRIÇÃO |
 |--------------------|-----------------|-------------|
 | **Código de status** | `statusCode` | O código de status HTTP a ser usado na resposta para a solicitação de entrada. Este código pode ser qualquer código de status válido que comece com 2xx, 4xx ou 5xx. No entanto, não há permissão para códigos de status 3xx. |
 | **Cabeçalhos** | `headers` | Um ou mais cabeçalhos a serem incluídos na resposta |
@@ -302,17 +302,17 @@ Para exibir a definição de JSON para a ação de resposta e a definição JSON
 }
 ```
 
-## <a name="q--a"></a>P e R
+## <a name="q--a"></a>Perguntas e respostas
 
 #### <a name="q-what-about-url-security"></a>P: O que dizer sobre a segurança de URL?
 
 **R: o**Azure gera com segurança URLs de retorno de chamada de aplicativo lógico usando [SAS (assinatura de acesso compartilhado)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature). Essa assinatura passa como um parâmetro de consulta e deve ser validada antes que seu aplicativo lógico possa ser executado. O Azure gera a assinatura usando uma combinação exclusiva de uma chave secreta por aplicativo lógico, o nome do gatilho e a operação que é executada. Portanto, a menos que alguém tenha acesso à chave secreta do aplicativo lógico, não é possível gerar uma assinatura válida.
 
 > [!IMPORTANT]
-> Para sistemas seguros e de produção, aconselhamos fortemente a chamar seu aplicativo lógico diretamente do navegador por esses motivos:
+> Para sistemas de produção e de maior segurança, aconselhamos fortemente a chamar seu aplicativo lógico diretamente do navegador por esses motivos:
 >
 > * A chave de acesso compartilhado é exibida na URL.
-> * Você não pode gerenciar políticas de conteúdo seguro devido a domínios compartilhados em clientes de aplicativos lógicos do Azure.
+> * Você não pode gerenciar políticas de conteúdo de segurança devido a domínios compartilhados em clientes de aplicativos lógicos do Azure.
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>P: Posso configurar pontos de extremidade HTTP mais tarde?
 
@@ -323,6 +323,6 @@ Para exibir a definição de JSON para a ação de resposta e a definição JSON
 * Configurar seus domínios de gerenciamento de API no [portal do Azure](https://portal.azure.com/)
 * Configurar a política para verificar a autenticação Básica
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Receber e responder a chamadas HTTPS de entrada usando aplicativos lógicos do Azure](../connectors/connectors-native-reqres.md)

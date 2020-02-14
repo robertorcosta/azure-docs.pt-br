@@ -9,12 +9,12 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0e35efc0da929136a889b1611a48a60671ed2af8
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: f105eac0f6f21ea3358340a4e2aaec7d1f1a95ad
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828324"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190554"
 ---
 # <a name="security-controls-for-windows-virtual-machines"></a>Controles de segurança para Máquinas Virtuais do Windows
 
@@ -50,11 +50,11 @@ Este artigo documenta os controles de segurança internos do Máquinas Virtuais 
 
 | Controle de segurança | Sim/Não | Observações |
 |---|---|--|
-| Criptografia no lado do servidor em repouso: Chaves gerenciadas pela Microsoft | Sim | Consulte [criptografar discos virtuais em uma VM do Windows](/azure/virtual-machines/windows/encrypt-disks). |
+| Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft | Sim | Consulte [criptografar discos virtuais em uma VM do Windows](/azure/virtual-machines/windows/encrypt-disks). |
 | Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | As máquinas virtuais do Azure dão suporte à criptografia de [ExpressRoute](/azure/expressroute) e VNet. Consulte [criptografia em trânsito em VMs](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Sim | As chaves gerenciadas pelo cliente são um cenário de criptografia do Azure com suporte; consulte [visão geral da criptografia do Azure](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms).|
 | Criptografia em nível de coluna (serviços de dados do Azure)| N/D | |
-| Chamadas à API criptografadas| Sim | Via HTTPS e SSL. |
+| Chamadas criptografadas à API| Sim | Via HTTPS e TLS. |
 
 
 

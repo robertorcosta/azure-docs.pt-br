@@ -4,34 +4,34 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: f7dcf342a1b9b2107138044dfc207d6dbcb42e9e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4259868ff3b3c9ca9f9818532acd7e865e0300d7
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260640"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77205712"
 ---
 Para criar VMs (máquinas virtuais) em larga escala de maneira consistente, é ideal ter algum grau de automação. Há muitas ferramentas e soluções que permitem automatizar a implantação de toda a infraestrutura do Azure e o ciclo de vida de gerenciamento. Este artigo apresenta algumas das ferramentas de automação de infraestrutura que você pode usar no Azure. Essas ferramentas normalmente se encaixam em uma das seguintes abordagens:
 
 - Automatizar a configuração de VMs
     - As ferramentas incluem [Ansible](#ansible), [Chef](#chef) e [Puppet](#puppet).
-    - Ferramentas específicas para a personalização de VM incluem [cloud-init](#cloud-init) para VMs do Linux, [DSC (Configuração de Estado Desejado) do PowerShell](#powershell-dsc)e a [Extensão de Script Personalizado do Azure](#azure-custom-script-extension) para todas as VMs do Azure.
+    - As ferramentas específicas para a personalização de VM incluem [cloud-init](#cloud-init) para VMs do Linux, [DSC (Configuração de Estado Desejado) do PowerShell](#powershell-dsc) e [Extensão de Script Personalizado do Azure](#azure-custom-script-extension) para todas as VMs do Azure.
  
 - Automatizar o gerenciamento de infraestrutura
-    - As ferramentas incluem o [Packer](#packer), para automatizar as builds de imagem de VM personalizadas, e [Terraform](#terraform), para automatizar a infraestrutura do processo de compilação.
+    - As ferramentas incluem o [Packer](#packer), para automatizar as builds de imagem de VM personalizadas, e o [Terraform](#terraform), para automatizar a infraestrutura do processo de compilação.
     - A [Automação do Azure](#azure-automation) pode executar ações em sua infraestrutura local e do Azure.
 
 - Automatizar a entrega e a implantação de aplicativos
     - Os exemplos incluem [Azure DevOps Services](#azure-devops-services) e [Jenkins](#jenkins).
 
 ## <a name="ansible"></a>Ansible
-[Ansible](https://www.ansible.com/) é um mecanismo de automação para gerenciamento de configuração, criação de VMs ou implantação do aplicativo. O Ansible usa um modelo sem agente, normalmente com as chaves SSH para autenticar e gerenciar computadores de destino. As tarefas de configuração são definidas em playbooks, com uma quantidade de módulos do Ansible para executar tarefas específicas. Para saber mais, confira [Como o Ansible funciona](https://www.ansible.com/how-ansible-works).
+[Ansible](https://www.ansible.com/) é um mecanismo de automação para gerenciamento de configurações, criação de VMs ou implantação de aplicativos. O Ansible usa um modelo sem agente, normalmente com as chaves SSH para autenticar e gerenciar computadores de destino. As tarefas de configuração são definidas em playbooks, com uma quantidade de módulos do Ansible para executar tarefas específicas. Para saber mais, confira [Como o Ansible funciona](https://www.ansible.com/how-ansible-works).
 
 Saiba como:
 
-- [Instalar e configurar o Ansible no Linux para usar com o Azure](../articles/virtual-machines/linux/ansible-install-configure.md).
-- [Crie uma máquina virtual do Linux](../articles/virtual-machines/linux/ansible-create-vm.md).
-- [Gerencie uma máquina virtual do Linux](../articles/virtual-machines/linux/ansible-manage-linux-vm.md).
+- [Instalar e configurar o Ansible no Linux para usar com o Azure](../articles/ansible/ansible-install-configure.md).
+- [Crie uma máquina virtual do Linux](../articles/ansible/ansible-create-vm.md).
+- [Gerencie uma máquina virtual do Linux](../articles/ansible/ansible-manage-linux-vm.md).
 
 
 ## <a name="chef"></a>Chef
@@ -62,7 +62,7 @@ Trabalhamos ativamente com nossos parceiros endossados de distribuição de Linu
 - [Tente um tutorial sobre configuração de VM automatizada usando o cloud-init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
 
 
-## <a name="powershell-dsc"></a>DSC do PowerShell
+## <a name="powershell-dsc"></a>PowerShell DSC
 A [DSC (Configuração de Estado Desejado) do PowerShell](/powershell/scripting/dsc/overview/overview) é uma plataforma de gerenciamento para definir a configuração dos computadores de destino. A DSC também pode ser usada no Linux por meio do [servidor OMI (infraestrutura de gerenciamento aberta)](https://collaboration.opengroup.org/omi/).
 
 As configurações de DSC definem o que instalar em um computador e como configurar o host. Um mecanismo do LCM (Gerenciador de Configurações Local) é executado em cada nó de destino que processa as ações solicitadas com base em configurações enviadas por push. Um servidor de pull é um serviço Web que é executado em um host central para armazenar as configurações de DSC e os recursos associados. O servidor de pull se comunica com o mecanismo de LCM em cada host de destino para fornecer as configurações necessárias e os relatórios de conformidade.

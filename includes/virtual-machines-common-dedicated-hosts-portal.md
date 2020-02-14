@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 01/09/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 77eb54f5d7194f3006ce463fc5f905165bdfc659
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 2d440db3e55638fcf2e3d3f3fe76f82ac4d25948
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75833925"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77192834"
 ---
 ## <a name="limitations"></a>Limitações
 
 - Atualmente, não há suporte para conjuntos de dimensionamento de máquinas virtuais em hosts dedicados.
-- A versão inicial dá suporte à seguinte série de VMs: DSv3 e ESv3. 
+- A versão inicial dá suporte à seguinte série de VMs: DSv3, ESv3 e Fsv2. 
 
 ## <a name="create-a-host-group"></a>Criar um grupo de hosts
 
@@ -54,7 +54,7 @@ Só deve levar alguns minutos para criar o grupo de hosts.
 
 ## <a name="create-a-dedicated-host"></a>Criar um host dedicado
 
-Agora, crie um host dedicado no grupo de hosts. Além de um nome para o host, você deve fornecer a SKU para o host. O SKU do host captura a série de VMs com suporte, bem como a geração de hardware para seu host dedicado. Há suporte para os seguintes valores de SKU do host: DSv3_Type1 e ESv3_Type1.
+Agora, crie um host dedicado no grupo de hosts. Além de um nome para o host, você deve fornecer a SKU para o host. O SKU do host captura a série de VMs com suporte, bem como a geração de hardware para seu host dedicado.
 
 Para obter mais informações sobre os preços e as SKUs do host, consulte [preços do host dedicado do Azure](https://aka.ms/ADHPricing).
 

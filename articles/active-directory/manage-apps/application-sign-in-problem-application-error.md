@@ -1,6 +1,6 @@
 ---
-title: Mensagem de erro é exibida na página de aplicativo depois de entrar no | Microsoft Docs
-description: Como resolver problemas de entrada do Azure AD quando o aplicativo retornar uma mensagem de erro.
+title: A mensagem de erro aparece na página do aplicativo depois que você entra | Microsoft Docs
+description: Como resolver problemas com a entrada do Azure AD quando o aplicativo retorna uma mensagem de erro.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,47 +16,47 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23e6a3d0b533dccc3c3111382b014907d5c026ab
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 9b8d20b31e96973a492355f0515d0532deea0ac9
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612657"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185488"
 ---
-# <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>Uma página de aplicativo mostra uma mensagem de erro depois que o usuário faz logon
+# <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>Uma página de aplicativo mostra uma mensagem de erro após o usuário entrar
 
-Nesse cenário, Azure Active Directory (Azure AD) conecta o usuário. Mas o aplicativo exibe uma mensagem de erro e não permite que o usuário concluir o fluxo de entrada. O problema é que o aplicativo não aceitou a resposta que emitido do AD do Azure.
+Nesse cenário, o Azure Active Directory (Azure AD) assina o usuário no. Mas o aplicativo exibe uma mensagem de erro e não permite que o usuário conclua o fluxo de entrada. O problema é que o aplicativo não aceitou a resposta emitida pelo AD do Azure.
 
-Há várias razões possíveis por que o aplicativo não aceitou a resposta do AD do Azure. Se a mensagem de erro não identificar claramente o que está faltando da resposta, tente o seguinte:
+Há vários motivos possíveis para o aplicativo não aceitar a resposta do Azure AD. Se a mensagem de erro não identificar claramente o que está ausente da resposta, tente o seguinte:
 
--   Se o aplicativo de galeria do Azure AD, verifique se que você seguiu as etapas em [como depurar baseado em SAML SSO para aplicativos no Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
+-   Se o aplicativo for a galeria do Azure AD, verifique se você seguiu as etapas em [como depurar o logon único baseado em SAML para aplicativos no Azure ad](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
 
--   Use uma ferramenta como [Fiddler](https://www.telerik.com/fiddler) para capturar a solicitação SAML, a resposta e o token.
+-   Use uma ferramenta como o [Fiddler](https://www.telerik.com/fiddler) para capturar a solicitação, a resposta e o token SAML.
 
--   Enviar a resposta SAML para o fornecedor do aplicativo e peça-lhe o que está faltando.
+-   Envie a resposta SAML para o fornecedor do aplicativo e pergunte o que está faltando.
 
-## <a name="attributes-are-missing-from-the-saml-response"></a>Atributos estão faltando da resposta SAML
+## <a name="attributes-are-missing-from-the-saml-response"></a>Atributos ausentes da resposta SAML
 
-Para adicionar um atributo na configuração do AD do Azure que será enviada na resposta do Azure AD, siga estas etapas:
+Para adicionar um atributo na configuração do Azure AD que será enviada na resposta do Azure AD, siga estas etapas:
 
-1. Abra o [ **portal do Azure** ](https://portal.azure.com/) e entre como um administrador global ou um coadministrador.
+1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um administrador global ou coadministrador.
 
-2. Na parte superior do painel de navegação à esquerda, selecione **todos os serviços** para abrir a extensão do AD do Azure.
+2. Na parte superior do painel de navegação no lado esquerdo, selecione **todos os serviços** para abrir a extensão do Azure AD.
 
-3. Tipo de **Azure Active Directory** na caixa de pesquisa do filtro e selecione **Azure Active Directory**.
+3. Digite **Azure Active Directory** na caixa de pesquisa de filtro e, em seguida, selecione **Azure Active Directory**.
 
 4. Selecione **aplicativos empresariais** no painel de navegação do Azure AD.
 
-5. Selecione **todos os aplicativos** para exibir uma lista dos seus aplicativos.
+5. Selecione **todos os aplicativos** para exibir uma lista de seus aplicativos.
 
    > [!NOTE]
-   > Se você não vir o aplicativo que você deseja, use o **filtro** controle na parte superior das **lista de todos os aplicativos**. Defina as **Mostrar** opção para "Todos os aplicativos".
+   > Se você não vir o aplicativo desejado, use o controle de **filtro** na parte superior da **lista todos os aplicativos**. Defina a opção **Mostrar** como "todos os aplicativos".
 
 6. Selecione o aplicativo que você deseja configurar para logon único.
 
 7. Depois que o aplicativo for carregado, selecione **logon único** no painel de navegação.
 
-8. No **atributos de usuário** seção, selecione **exibir e editar todos os outros atributos de usuário**. Aqui você pode alterar quais atributos devem enviar para o aplicativo no token SAML quando os usuários entrarem.
+8. Na seção **atributos de usuário** , selecione **Exibir e editar todos os outros atributos de usuário**. Aqui você pode alterar quais atributos enviar para o aplicativo no token SAML quando os usuários entram.
 
    Para adicionar um atributo:
 
@@ -66,102 +66,102 @@ Para adicionar um atributo na configuração do AD do Azure que será enviada na
 
 9. Salve a configuração.
 
-   Na próxima vez que o usuário faz logon para o aplicativo do Azure AD enviará o novo atributo na resposta SAML.
+   Na próxima vez que o usuário entrar no aplicativo, o Azure AD enviará o novo atributo na resposta SAML.
 
 ## <a name="the-app-doesnt-identify-the-user"></a>O aplicativo não identifica o usuário
 
-Entrar aplicativo falhará porque a resposta SAML está faltando um atributo, como uma função. Ou ele falhará porque o aplicativo espera um formato diferente ou o valor para o **NameID** atributo (identificador de usuário).
+A entrada no aplicativo falha porque a resposta SAML não tem um atributo, como uma função. Ou falha porque o aplicativo espera um formato ou valor diferente para o atributo **NameID** (identificador de usuário).
 
-Se você estiver usando [do Azure AD provisionamento automatizado de usuários](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) para criar, manter e remover usuários no aplicativo, verifique se que o usuário foi provisionado para o aplicativo SaaS. Para obter mais informações, consulte [nenhum usuário está sendo provisionado para um aplicativo de galeria do Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned).
+Se você estiver usando o [provisionamento de usuário automatizado do Azure ad](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) para criar, manter e remover usuários no aplicativo, verifique se o usuário foi provisionado para o aplicativo SaaS. Para obter mais informações, consulte [nenhum usuário está sendo provisionado para um aplicativo da galeria do Azure ad](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md).
 
-## <a name="add-an-attribute-to-the-azure-ad-app-configuration"></a>Adicionar um atributo a configuração de aplicativo do Azure AD
+## <a name="add-an-attribute-to-the-azure-ad-app-configuration"></a>Adicionar um atributo à configuração de aplicativo do Azure AD
 
 Para alterar o valor do Identificador de Usuário, siga estas etapas:
 
-1. Abra o [ **portal do Azure** ](https://portal.azure.com/) e entre como um administrador global ou um coadministrador.
+1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um administrador global ou coadministrador.
 
-2. Selecione **todos os serviços** na parte superior do painel de navegação à esquerda para abrir a extensão do AD do Azure.
+2. Selecione **todos os serviços** na parte superior do painel de navegação no lado esquerdo para abrir a extensão do Azure AD.
 
-3. Tipo de **Azure Active Directory** na caixa de pesquisa do filtro e selecione **Azure Active Directory**.
+3. Digite **Azure Active Directory** na caixa de pesquisa de filtro e, em seguida, selecione **Azure Active Directory**.
 
 4. Selecione **aplicativos empresariais** no painel de navegação do Azure AD.
 
-5. Selecione **todos os aplicativos** para exibir uma lista dos seus aplicativos.
+5. Selecione **todos os aplicativos** para exibir uma lista de seus aplicativos.
 
    > [!NOTE]
-   > Se você não vir o aplicativo que você deseja, use o **filtro** controle na parte superior das **lista de todos os aplicativos**. Defina as **Mostrar** opção para "Todos os aplicativos".
+   > Se você não vir o aplicativo desejado, use o controle de **filtro** na parte superior da **lista todos os aplicativos**. Defina a opção **Mostrar** como "todos os aplicativos".
 
-6. Selecione o aplicativo que você deseja configurar para que o SSO.
+6. Selecione o aplicativo que você deseja configurar para o SSO.
 
 7. Depois que o aplicativo for carregado, selecione **logon único** no painel de navegação.
 
-8. Sob **atributos de usuário**, selecione o identificador exclusivo para o usuário da **identificador de usuário** lista suspensa.
+8. Em **atributos de usuário**, selecione o identificador exclusivo para o usuário na lista suspensa **identificador de usuário** .
 
-## <a name="change-the-nameid-format"></a>Alterar o formato de NameID
+## <a name="change-the-nameid-format"></a>Alterar o formato NameID
 
-Se o aplicativo espera outro formato para o **NameID** atributo (identificador de usuário), consulte [edição nameID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization#editing-nameid) para alterar o formato de NameID.
+Se o aplicativo espera outro formato para o atributo **NameID** (identificador de usuário), consulte [editando NameID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization#editing-nameid) para alterar o formato NameID.
 
-Azure AD seleciona o formato para o **NameID** (identificador de usuário) do atributo com base no valor selecionado ou o formato solicitado pelo aplicativo no AuthRequest do SAML. Para obter mais informações, consulte a seção "NameIDPolicy" [único protocolo de logon SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol#nameidpolicy).
+O Azure AD seleciona o formato para o atributo **NameID** (identificador de usuário) com base no valor selecionado ou no formato solicitado pelo aplicativo no AUTHREQUEST do SAML. Para obter mais informações, consulte a seção "NameIDPolicy" do [protocolo SAML de logon único](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol#nameidpolicy).
 
 ## <a name="the-app-expects-a-different-signature-method-for-the-saml-response"></a>O aplicativo espera um método de assinatura diferente para a resposta SAML
 
-Para alterar quais partes do token SAML são assinados digitalmente pelo AD do Azure, siga estas etapas:
+Para alterar quais partes do token SAML são assinadas digitalmente pelo Azure AD, siga estas etapas:
 
-1. Abra o [portal do Azure](https://portal.azure.com/) e entre como um administrador global ou um coadministrador.
+1. Abra o [portal do Azure](https://portal.azure.com/) e entre como um administrador global ou coadministrador.
 
-2. Selecione **todos os serviços** na parte superior do painel de navegação à esquerda para abrir a extensão do AD do Azure.
+2. Selecione **todos os serviços** na parte superior do painel de navegação no lado esquerdo para abrir a extensão do Azure AD.
 
-3. Tipo de **Azure Active Directory** na caixa de pesquisa do filtro e selecione **Azure Active Directory**.
+3. Digite **Azure Active Directory** na caixa de pesquisa de filtro e, em seguida, selecione **Azure Active Directory**.
 
 4. Selecione **aplicativos empresariais** no painel de navegação do Azure AD.
 
-5. Selecione **todos os aplicativos** para exibir uma lista dos seus aplicativos.
+5. Selecione **todos os aplicativos** para exibir uma lista de seus aplicativos.
 
    > [!NOTE]
-   > Se você não vir o aplicativo que você deseja, use o **filtro** controle na parte superior das **lista de todos os aplicativos**. Defina as **Mostrar** opção para "Todos os aplicativos".
+   > Se você não vir o aplicativo desejado, use o controle de **filtro** na parte superior da **lista todos os aplicativos**. Defina a opção **Mostrar** como "todos os aplicativos".
 
 6. Selecione o aplicativo que você deseja configurar para logon único.
 
-7. Depois que o aplicativo é carregado, selecione **logon único** no painel de navegação.
+7. Depois que o aplicativo for carregado, selecione **logon único** no painel de navegação.
 
-8. Sob **certificado de autenticação SAML**, selecione **Mostrar configurações avançadas de certificado assinatura**.
+8. Em **certificado de autenticação SAML**, selecione **Mostrar configurações avançadas de assinatura de certificado**.
 
-9. Selecione o **opção de assinatura** que o aplicativo espera dentre estas opções:
+9. Selecione a **opção de assinatura** que o aplicativo espera entre estas opções:
 
    * **Assinar resposta SAML**
-   * **Assinar resposta SAML e declaração**
-   * **Assinar declaração SAML**
+   * **Assinar resposta SAML e asserção**
+   * **Assinar Asserção SAML**
 
-   Na próxima vez que o usuário faz logon para o aplicativo do Azure AD assinará a parte da resposta SAML que você selecionou.
+   Na próxima vez que o usuário entrar no aplicativo, o Azure AD assinará a parte da resposta SAML que você selecionou.
 
-## <a name="the-app-expects-the-sha-1-signing-algorithm"></a>O aplicativo espera que o algoritmo de assinatura SHA-1
+## <a name="the-app-expects-the-sha-1-signing-algorithm"></a>O aplicativo espera o algoritmo de assinatura SHA-1
 
-Por padrão, o Azure AD assina o token SAML usando o algoritmo mais segura. É recomendável que você não altere o algoritmo de assinatura *SHA-1* , a menos que o aplicativo exige o SHA-1.
+Por padrão, o Azure AD assina o token SAML usando o algoritmo mais seguro. Recomendamos que você não altere o algoritmo de assinatura para *SHA-1* , a menos que o aplicativo exija SHA-1.
 
 Para alterar o algoritmo de assinatura, siga estas etapas:
 
-1. Abra o [portal do Azure](https://portal.azure.com/) e entre como um administrador global ou um coadministrador.
+1. Abra o [portal do Azure](https://portal.azure.com/) e entre como um administrador global ou coadministrador.
 
-2. Selecione **todos os serviços** na parte superior do painel de navegação à esquerda para abrir a extensão do AD do Azure.
+2. Selecione **todos os serviços** na parte superior do painel de navegação no lado esquerdo para abrir a extensão do Azure AD.
 
-3. Tipo de **Azure Active Directory** na caixa de pesquisa do filtro e selecione **Azure Active Directory**.
+3. Digite **Azure Active Directory** na caixa de pesquisa de filtro e, em seguida, selecione **Azure Active Directory**.
 
 4. Selecione **aplicativos empresariais** no painel de navegação do Azure AD.
 
-5. Selecione **todos os aplicativos** para exibir uma lista dos seus aplicativos.
+5. Selecione **todos os aplicativos** para exibir uma lista de seus aplicativos.
 
    > [!NOTE]
-   > Se você não vir o aplicativo que você deseja, use o **filtro** controle na parte superior das **lista de todos os aplicativos**. Defina as **Mostrar** opção para "Todos os aplicativos".
+   > Se você não vir o aplicativo desejado, use o controle de **filtro** na parte superior da **lista todos os aplicativos**. Defina a opção **Mostrar** como "todos os aplicativos".
 
 6. Selecione o aplicativo que você deseja configurar para logon único.
 
 7. Depois que o aplicativo for carregado, selecione **logon único** no painel de navegação no lado esquerdo do aplicativo.
 
-8. Sob **certificado de autenticação SAML**, selecione **Mostrar configurações avançadas de certificado assinatura**.
+8. Em **certificado de autenticação SAML**, selecione **Mostrar configurações avançadas de assinatura de certificado**.
 
 9. Selecione **SHA-1** como o **algoritmo de assinatura**.
 
-   Na próxima vez que o usuário faz logon para o aplicativo do Azure AD assinará o token SAML usando o algoritmo SHA-1.
+   Na próxima vez que o usuário entrar no aplicativo, o Azure AD assinará o token SAML usando o algoritmo SHA-1.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Como depurar baseado em SAML SSO para aplicativos no Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
+[Como depurar o logon único baseado em SAML para aplicativos no Azure ad](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).

@@ -1,6 +1,6 @@
 ---
-title: Tarefa de DevOps do Azure para o Data Explorer do Azure
-description: Neste tópico, você aprenderá a criar um pipeline de lançamento e implantar
+title: Tarefa do Azure DevOps para Azure Data Explorer
+description: Neste tópico, você aprende a criar um pipeline de liberação e a implantar
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,104 +8,104 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/05/2019
-ms.openlocfilehash: 0628d5c07d7258cc4d68727c364e65bd81c78e8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6394d7149bd4e80f0a17a59a6259eedf4c806fd4
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388989"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188168"
 ---
-# <a name="azure-devops-task-for-azure-data-explorer"></a>Tarefa de DevOps do Azure para o Gerenciador de dados do Azure
+# <a name="azure-devops-task-for-azure-data-explorer"></a>Tarefa do Azure DevOps para Azure Data Explorer
 
-[Os serviços do Azure DevOps](https://azure.microsoft.com/services/devops/) fornece ferramentas de colaboração como pipelines de alto desempenho, os repositórios Git privados gratuitos, quadros Kanban configuráveis e recursos abrangentes de testes automatizados e contínuos de desenvolvimento. [Pipelines do Azure](https://azure.microsoft.com/services/devops/pipelines/) é um recurso de DevOps do Azure que permite que você gerencie o CI/CD para implantar seu código com pipelines de alto desempenho que funcionam com qualquer linguagem, a plataforma e a nuvem.
-[Gerenciador de dados do Azure - Admin comandos](https://marketplace.visualstudio.com/items?itemName=Azure-Kusto.PublishToADX) é a tarefa de Pipelines do Azure que permite que você crie pipelines de liberação e implantar seu banco de dados é alterado para seus bancos de dados do Data Explorer do Azure. Ele está disponível gratuitamente na [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
+O [Azure DevOps Services](https://azure.microsoft.com/services/devops/) fornece ferramentas de colaboração de desenvolvimento, como pipelines de alto desempenho, repositórios git privados gratuitos, quadros Kanban configuráveis e recursos abrangentes de teste automatizado e contínuo. [Azure pipelines](https://azure.microsoft.com/services/devops/pipelines/) é um recurso de DevOps do Azure que permite que você gerencie CI/CD para implantar seu código com pipelines de alto desempenho que funcionam com qualquer linguagem, plataforma e nuvem.
+Os [comandos de administração data Explorer do Azure](https://marketplace.visualstudio.com/items?itemName=Azure-Kusto.PublishToADX) são a tarefa Azure pipelines que permite que você crie pipelines de versão e implante suas alterações de banco de dados em seus bancos de dados do Azure data Explorer. Ele está disponível gratuitamente no [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 
-Este documento descreve um exemplo simples sobre o uso do **Data Explorer do Azure – administrador comandos** tarefas para implantar o seu esquema é alterado para seu banco de dados. Para pipelines de CI/CD completos, consulte [documentação do Azure DevOps](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops#vsts).
+Este documento descreve um exemplo simples sobre o uso da tarefa **Azure data Explorer – comandos de administração** para implantar as alterações de esquema em seu banco de dados. Para pipelines de CI/CD completos, consulte a [documentação do Azure DevOps](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops#vsts).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
-* Configuração do Cluster do Gerenciador de dados do Azure:
-    * Um [cluster Data Explorer do Azure e banco de dados](/azure/data-explorer/create-cluster-database-portal)
-    * Criar aplicativo do Azure Active Directory (Azure AD) por [provisionamento de um aplicativo do Azure AD](/azure/kusto/management/access-control/how-to-provision-aad-app).
-    * Conceder acesso ao aplicativo do AD do Azure em seu banco de dados do Data Explorer do Azure por [gerenciamento de permissões de banco de dados do Data Explorer do Azure](/azure/data-explorer/manage-database-permissions).
-* Configuração do DevOps do Azure:
-    * [Inscreva-se para uma organização livre](/azure/devops/user-guide/sign-up-invite-teammates?view=azure-devops)
+* Configuração do cluster Data Explorer do Azure:
+    * Um [cluster de data Explorer do Azure e um banco de dados](/azure/data-explorer/create-cluster-database-portal)
+    * Crie um aplicativo Azure Active Directory (Azure AD) [provisionando um aplicativo do Azure ad](/azure/kusto/management/access-control/how-to-provision-aad-app).
+    * Conceda acesso ao seu Aplicativo Azure AD no banco de dados de Data Explorer do Azure [Gerenciando permissões do banco de dados data Explorer do Azure](/azure/data-explorer/manage-database-permissions).
+* Configuração do Azure DevOps:
+    * [Inscreva-se em uma organização gratuita](/azure/devops/user-guide/sign-up-invite-teammates?view=azure-devops)
     * [Criar uma organização](/azure/devops/organizations/accounts/create-organization?view=azure-devops)
-    * [Criar um projeto no DevOps do Azure](/azure/devops/organizations/projects/create-project?view=azure-devops)
-    * [Código com Git](/azure/devops/user-guide/code-with-git?view=azure-devops)
+    * [Criar um projeto no Azure DevOps](/azure/devops/organizations/projects/create-project?view=azure-devops)
+    * [Código com git](/azure/devops/user-guide/code-with-git?view=azure-devops)
 
 ## <a name="create-folders"></a>Criar pastas
 
-Crie as seguintes pastas de exemplo (*funções*, *diretivas*, *tabelas*) em seu repositório Git. Copie os arquivos da [aqui](https://github.com/Azure/azure-kusto-docs-samples/tree/master/DevOps_release_pipeline) nas respectivas pastas, como visto abaixo e confirmar as alterações. Os arquivos de exemplo são fornecidos para executar o seguinte fluxo de trabalho.
+Crie as seguintes pastas de exemplo (*funções*, *políticas*, *tabelas*) no repositório git. Copie os arquivos [aqui](https://github.com/Azure/azure-kusto-docs-samples/tree/master/DevOps_release_pipeline) para as respectivas pastas, conforme mostrado abaixo e confirme as alterações. Os arquivos de exemplo são fornecidos para executar o fluxo de trabalho a seguir.
 
 ![Criar pastas](media/devops/create-folders.png)
 
 > [!TIP]
-> Ao criar seu próprio fluxo de trabalho, é recomendável fazer idempotente seu código. Por exemplo, use [tabela de mesclagem. Crie](/azure/kusto/management/tables#create-merge-tables) em vez de [criar tabela](/azure/kusto/management/tables#create-table)e usar [criar ou alterar](/azure/kusto/management/functions#create-or-alter-function) de função em vez de [. Crie](/azure/kusto/management/functions#create-function) função.
+> Ao criar seu próprio fluxo de trabalho, é recomendável tornar seu código idempotente. Por exemplo, use [a tabela. Create-Merge](/azure/kusto/management/create-table-command#create-merge-table) , em vez de [. CREATE TABLE](/azure/kusto/management/create-table-command), e use a função [. Create-ou-ALTER](/azure/kusto/management/functions#create-or-alter-function) em vez da função [. Create](/azure/kusto/management/functions#create-function) .
 
 ## <a name="create-a-release-pipeline"></a>Criar um pipeline de lançamento
 
-1. Entrar no seu [organização de DevOps do Azure](https://dev.azure.com/).
-1. Selecione **Pipelines** > **versões** no menu esquerdo e selecione **novo pipeline**.
+1. Entre na sua [organização do DevOps do Azure](https://dev.azure.com/).
+1. Selecione **pipelines** > **versões** do menu à esquerda e selecione **novo pipeline**.
 
     ![Novo pipeline](media/devops/new-pipeline.png)
 
-1. O **novo pipeline da versão** janela é aberta. No **Pipelines** guia, o **selecionar um modelo** painel, selecione **trabalhos vazias**.
+1. A janela **novo pipeline de lançamento** é aberta. Na guia **pipelines** , no painel **selecionar um modelo** , selecione **trabalho vazio**.
 
      ![Selecione um modelo](media/devops/select-template.png)
 
-1. Selecione **estágio** botão. Na **estágio** painel, adicione o **nome do estágio**. Selecione **salvar** para salvar seu pipeline.
+1. Selecione o botão de **estágio** . No painel **estágio** , adicione o **nome do estágio**. Selecione **salvar** para salvar o pipeline.
 
-    ![O estágio de nome](media/devops/stage-name.png)
+    ![Nomear o estágio](media/devops/stage-name.png)
 
-1. Selecione **adicionar um artefato** botão. No **adicionar um artefato** painel, selecione o repositório em que seu código existe, preencha as informações relevantes e clique em **Add**. Selecione **salvar** para salvar seu pipeline.
+1. Selecione **o botão Adicionar um artefato** . No painel **Adicionar um artefato** , selecione o repositório onde o código existe, preencha as informações relevantes e clique em **Adicionar**. Selecione **salvar** para salvar o pipeline.
 
     ![Adicionar um artefato](media/devops/add-artifact.png)
 
-1. No **variáveis** guia, selecione **+ adicionar** para criar uma variável para o **URL de ponto de extremidade** que será usado na tarefa. Gravar o **nome** e o **valor** do ponto de extremidade. Selecione **salvar** para salvar seu pipeline. 
+1. Na guia **variáveis** , selecione **+ Adicionar** para criar uma variável para a **URL do ponto de extremidade** que será usada na tarefa. Escreva o **nome** e o **valor** do ponto de extremidade. Selecione **salvar** para salvar o pipeline. 
 
     ![Criar variável](media/devops/create-variable.png)
 
-    Para localizar seu Endpoint_URL, a página de visão geral de seu **Cluster do Azure Data Explorer** no Azure portal contém o URI de cluster do Data Explorer do Azure. Construir o URI no seguinte formato `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  Por exemplo, https:\//kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
+    Para localizar seu Endpoint_URL, a página Visão geral do **cluster de data Explorer do Azure** no portal do Azure contém o URI do cluster de data Explorer do Azure. Construa o URI no seguinte formato `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  Por exemplo, https:\//kustodocs.westus.Kusto.Windows.net? DatabaseName = SampleDB
 
-    ![URI do cluster Data Explorer do Azure](media/devops/adx-cluster-uri.png)
+    ![URI do cluster de Data Explorer do Azure](media/devops/adx-cluster-uri.png)
 
 ## <a name="create-tasks-to-deploy"></a>Criar tarefas para implantar
 
-1. No **Pipeline** guia, clique em **1 trabalho, 0 tarefa** para adicionar tarefas. 
+1. Na guia **pipeline** , clique em **um trabalho, 0 tarefa** para adicionar tarefas. 
 
     ![Adicionar tarefas](media/devops/add-task.png)
 
-1. Crie três tarefas para implantar **tabelas**, **funções**, e **políticas**, nessa ordem. 
+1. Crie três tarefas para implantar **tabelas**, **funções**e **políticas**, nesta ordem. 
 
-1. No **tarefas** guia, selecione **+** pelo **trabalho do agente**. Pesquise **Azure Data Explorer**. Na **Marketplace**, instale o **Data Explorer do Azure – administrador comandos** extensão. Em seguida, selecione **Add** na **executar comando de Gerenciador de dados do Azure**.
+1. Na guia **tarefas** , selecione **+** por **trabalho do Agent**. Pesquise **Azure Data Explorer**. No **Marketplace**, instale a extensão **do Azure data Explorer – comandos de administração** . Em seguida, selecione **Adicionar** no **comando executar data Explorer do Azure**.
 
-     ![Adicionar comandos de administração](media/devops/add-admin-commands.png)
+     ![Adicionar comandos de administrador](media/devops/add-admin-commands.png)
 
-1. Clique em **Kusto comando** à esquerda e atualizar a tarefa com as seguintes informações:
-    * **Nome de exibição**: Nome da tarefa
-    * **Caminho do arquivo**: No **tabelas** da tarefa, especifique */Tables/{nome_da_tabela}/Rows*.csl, pois os arquivos de criação de tabela estão no *tabela* pasta.
-    * **URL de ponto de extremidade**: insira o `EndPoint URL`variável criada na etapa anterior.
-    * Selecione **ponto de extremidade de serviço de uso** e selecione **+ novo**.
+1. Clique no **comando Kusto** à esquerda e atualize a tarefa com as seguintes informações:
+    * **Nome de exibição**: o nome da tarefa
+    * **Caminho do arquivo**: na **tarefa tabelas** , especifique */Tables/* . CSL, já que os arquivos de criação de tabela estão na pasta da *tabela* .
+    * **URL do ponto de extremidade**: Insira a variável de `EndPoint URL`criada na etapa anterior.
+    * Selecione **usar ponto de extremidade de serviço** e selecione **+ novo**.
 
-    ![Atualizar tarefa de comando do Kusto](media/devops/kusto-command-task.png)
+    ![Tarefa de comando Atualizar Kusto](media/devops/kusto-command-task.png)
 
-1. Conclua as seguintes informações na **conexão de serviço do Gerenciador de dados do Azure adicionar** janela:
+1. Preencha as seguintes informações na janela **Adicionar conexão de serviço do Azure data Explorer** :
 
     |Configuração  |Valor sugerido  |
     |---------|---------|
-    |**Nome da conexão**     |    Insira um nome para identificar esse ponto de extremidade de serviço     |
-    |**Url do cluster**    |    Valor pode ser encontrado na seção Visão geral do seu Cluster do Azure Data Explorer no portal do Azure | 
-    |**Id da entidade de serviço**    |    Insira a ID de aplicativo do AAD (criado como pré-requisito)     |
-    |**Chave de entidade de serviço do aplicativo**     |    Insira a chave de aplicativo do AAD (criado como pré-requisito)    |
-    |**Id de locatário do AAD**    |      Insira o seu locatário do AAD (por exemplo, microsoft.com, contoso.com...)    |
+    |**Nome da conexão**     |    Insira um nome para identificar este ponto de extremidade de serviço     |
+    |**URL do cluster**    |    O valor pode ser encontrado na seção visão geral do cluster de Data Explorer do Azure no portal do Azure | 
+    |**ID da entidade de serviço**    |    Insira a ID do aplicativo do AAD (criada como pré-requisito)     |
+    |**Chave do aplicativo da entidade de serviço**     |    Insira a chave do aplicativo do AAD (criada como pré-requisito)    |
+    |**ID do locatário do AAD**    |      Insira seu locatário do AAD (como microsoft.com, contoso.com...)    |
 
-    Selecione **permitir todos os pipelines usar essa conexão** caixa de seleção. Selecione **OK**.
+    Marque **a caixa de seleção permitir que todos os pipelines usem esta conexão** . Selecione **OK**.
 
     ![Adicionar conexão de serviço](media/devops/add-service-connection.png)
 
-1. Repita etapas 1 a 5 outro duas vezes para implantar os arquivos do *funções* e *diretivas* pastas. Clique em **Salvar**. No **tarefas** guia, consulte as três tarefas criadas: **Implantar tabelas**, **implantar funções**, e **implantar políticas**.
+1. Repita as etapas 1-5 outras duas vezes para implantar arquivos das pastas *funções* e *políticas* . Clique em **Salvar**. Na guia **tarefas** , consulte as três tarefas criadas: **implantar tabelas**, **implantar funções**e **implantar políticas**.
 
     ![Implantar todas as pastas](media/devops/deploy-all-folders.png)
 
@@ -113,7 +113,7 @@ Crie as seguintes pastas de exemplo (*funções*, *diretivas*, *tabelas*) em seu
 
     ![Criar uma versão](media/devops/create-release.png)
 
-1. No **Logs** guia, verifique o status da implantação é bem-sucedida.
+1. Na guia **logs** , verifique se o status da implantação foi bem-sucedido.
 
     ![A implantação foi bem-sucedida](media/devops/deployment-successful.png)
 

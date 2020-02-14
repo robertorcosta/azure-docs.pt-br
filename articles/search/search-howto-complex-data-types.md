@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 657cded5e16897f9581bbcf365bacc2d2f1a821a
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 2edd62825de08becf22f2f953a63a7f89f55e0a6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754364"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190989"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Como modelar tipos de dados complexos no Azure Pesquisa Cognitiva
 
@@ -125,7 +125,7 @@ Os campos devem ser marcados como recuperáveis no índice, se você quiser nos 
 
 ## <a name="filter-facet-and-sort-complex-fields"></a>Filtrar, facetar e classificar campos complexos
 
-A mesma [sintaxe de caminho OData](query-odata-filter-orderby-syntax.md) usada para filtragem e pesquisas em campo também pode ser usada para facetar, classificar e selecionar campos em uma solicitação de pesquisa. Para tipos complexos, as regras se aplicam que regem quais subcampos podem ser marcados como classificável ou facetable. Para obter mais informações sobre essas regras, consulte a [referência de API CREATE INDEX](https://docs.microsoft.com/rest/api/searchservice/create-index#request).
+A mesma [sintaxe de caminho OData](query-odata-filter-orderby-syntax.md) usada para filtragem e pesquisas em campo também pode ser usada para facetar, classificar e selecionar campos em uma solicitação de pesquisa. Para tipos complexos, as regras se aplicam que regem quais subcampos podem ser marcados como classificável ou facetable. Para obter mais informações sobre essas regras, consulte a [referência de API CREATE INDEX](/rest/api/searchservice/create-index).
 
 ### <a name="faceting-sub-fields"></a>Subcampos de faceta
 
@@ -149,9 +149,9 @@ Para filtrar em um campo de coleção complexo, você pode usar uma **expressão
 
     $filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)
 
-Assim como acontece com campos simples de nível superior, subcampos simples de campos complexos só podem ser incluídos em filtros se tiverem o atributo **filtrável** definido como `true` na definição do índice. Para obter mais informações, consulte a [referência de API CREATE INDEX](https://docs.microsoft.com/rest/api/searchservice/create-index#request).
+Assim como acontece com campos simples de nível superior, subcampos simples de campos complexos só podem ser incluídos em filtros se tiverem o atributo **filtrável** definido como `true` na definição do índice. Para obter mais informações, consulte a [referência de API CREATE INDEX](/rest/api/searchservice/create-index).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Experimente o [conjunto de dados de hotéis](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md) no assistente de **importação de dados** . Você precisará do Cosmos DB informações de conexão fornecidas no Leiame para acessar os dados.
 

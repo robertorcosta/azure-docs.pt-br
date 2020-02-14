@@ -6,19 +6,19 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 125f92b64ee745a595d15ccacafb6a62414955a9
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 5516bfcb3ed32ba6635943298db2a7773db0a622
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157526"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198693"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database para PostgreSQL criptografia de dados de servidor único com uma chave gerenciada pelo cliente
 
 > [!NOTE]
 > Neste momento, você deve solicitar acesso para usar esse recurso. Para fazer isso, entre em contato com AskAzureDBforPostgreSQL@service.microsoft.com.
 
-A criptografia de dados com chaves gerenciadas pelo cliente para um servidor único para PostgreSQL para a proteção de dados do Azure permite que você traga sua BYOK (chave de Qwn) em repouso. Ele também permite que as organizações implementem a separação de tarefas no gerenciamento de chaves e dados. Com a criptografia gerenciada pelo cliente, você é responsável por, e em um controle total do, o ciclo de vida de uma chave, as permissões de uso de chave e a auditoria de operações em chaves.
+A criptografia de dados com chaves gerenciadas pelo cliente para um servidor único do banco de dados do Azure para PostgreSQL permite que você traga sua própria chave (BYOK) para proteção de dados em repouso. Ele também permite que as organizações implementem a separação de tarefas no gerenciamento de chaves e dados. Com a criptografia gerenciada pelo cliente, você é responsável por, e em um controle total do, o ciclo de vida de uma chave, as permissões de uso de chave e a auditoria de operações em chaves.
 
 A criptografia de dados com chaves gerenciadas pelo cliente para um servidor único para PostgreSQL do banco de dados do Azure é definida no nível do servidor. Para um determinado servidor, uma chave gerenciada pelo cliente, chamada chave de criptografia de chave (KEK), é usada para criptografar a DEK (chave de criptografia de dados) usada pelo serviço. O KEK é uma chave assimétrica armazenada em uma instância de [Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) de Propriedade do cliente e gerenciada pelo cliente. A chave de criptografia de chave (KEK) e a chave de criptografia de dados (DEK) são descritas em mais detalhes posteriormente neste artigo.
 

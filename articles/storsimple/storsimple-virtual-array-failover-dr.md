@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: be3d98dc0b3a8119fb853493440c6fc78d65c5a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 19a676f4187af2d358934539e4ca29dbc5c25897
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61409473"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190631"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Failover de dispositivo e recuperação de desastre para o StorSimple Virtual Array via portal do Azure
 
@@ -40,11 +40,11 @@ A recuperação de desastres é modelada como uma restauração completa do disp
 > 
 > 
 
-A recuperação de desastre é orquestrada por meio do recurso de failover de dispositivo e é iniciada na folha **Dispositivos** . Esta folha exibe em formato de tabela todos os dispositivos StorSimple conectados ao seu serviço Gerenciador de Dispositivos StorSimple. Para cada dispositivo, você pode ver o nome amigável, o status, a capacidade de provisionamento e a capacidade máxima, o tipo e o modelo são exibidos.
+A recuperação de desastres é orquestrada por meio do recurso de failover de dispositivo e é iniciada na folha **dispositivos** . Esta folha exibe em formato de tabela todos os dispositivos StorSimple conectados ao seu serviço Gerenciador de Dispositivos StorSimple. Para cada dispositivo, você pode ver o nome amigável, o status, a capacidade de provisionamento e a capacidade máxima, o tipo e o modelo são exibidos.
 
 ## <a name="prerequisites-for-device-failover"></a>Pré-requisitos para failover de dispositivo
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 Para um failover de dispositivo, certifique-se de que os pré-requisitos a seguir sejam atendidos:
 
@@ -57,15 +57,15 @@ Para um failover de dispositivo, certifique-se de que os pré-requisitos a segui
   > 
 * O dispositivo de destino não pode ter o mesmo nome do que o dispositivo de origem.
 * O dispositivo de origem e o de destino precisam ser do mesmo tipo. Você só pode realizar failover de uma matriz virtual configurada como um servidor de arquivos para outro servidor de arquivos. O mesmo é verdadeiro para um servidor iSCSI.
-* Para a recuperação de desastre de um servidor de arquivos, é recomendável que você ingresse o dispositivo de destino no mesmo domínio do de origem. Essa configuração garante que as permissões de compartilhamento sejam resolvidas automaticamente. Apenas o failover para um dispositivo de destino no mesmo domínio.
+* Para a recuperação de desastre de um servidor de arquivos, é recomendável que você ingresse o dispositivo de destino no mesmo domínio do de origem. Essa configuração garante que as permissões de compartilhamento sejam resolvidas automaticamente. Há suporte apenas para o failover para um dispositivo de destino no mesmo domínio.
 * Os dispositivos de destino disponíveis para recuperação de desastre são dispositivos que têm a capacidade igual ou maior que a do dispositivo de origem. Os dispositivos conectados ao serviço, mas que não atendem aos critérios de espaço suficiente, não estão disponíveis como dispositivos de destino.
 
 ### <a name="other-considerations"></a>Outras considerações
 
-* Para um failover planejado 
+* Para um failover planejado:
   
   * Recomendamos que você deixe todos os volumes ou compartilhamentos no dispositivo de origem em estado offline.
-  * Nós recomendamos que você faça um backup do dispositivo e, em seguida, continue com o failover para minimizar a perda de dados. 
+  * Nós recomendamos que você faça um backup do dispositivo e, em seguida, continue com o failover para minimizar a perda de dados.
 * Para um failover não planejado, o dispositivo usa o backup mais recente para restaurar os dados.
 
 ### <a name="device-failover-prechecks"></a>Verificações prévias de failover de dispositivo

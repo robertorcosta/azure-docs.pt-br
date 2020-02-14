@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 26906f2a7343dbaf09f3107d2598e81a42c65091
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 270b3f0fe7c654d2bf059784e872b7dbe97a6068
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064641"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190486"
 ---
 # <a name="virtual-network-service-tags"></a>Marcas de serviço de rede virtual 
 <a name="network-service-tags"></a>
@@ -42,7 +42,7 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Alg
 
 | Marca | Finalidade | Pode usar entrada ou saída? | Pode ser regional? | Pode usar com o Firewall do Azure? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **ApiManagement** | Tráfego de gerenciamento para o gerenciamento de API do Azure-implantações dedicadas. | Ambos | Não | Sim |
+| **ApiManagement** | Tráfego de gerenciamento para o gerenciamento de API do Azure-implantações dedicadas. <br/><br/>*Observação:* Essa marca representa o ponto de extremidade do serviço de gerenciamento de API do Azure para o plano de controle por região. Isso permite que os clientes executem operações de gerenciamento nas APIs, operações, políticas, NamedValues configuradas no serviço de gerenciamento de API.  | Entrada | Sim | Sim |
 | **ApplicationInsightsAvailability** | Disponibilidade de Application Insights. | Entrada | Não | Não |
 | **AppService**    | Serviço de Aplicativo do Azure. Essa marca é recomendada para regras de segurança de saída para front-ends do aplicativo Web. | Saída | Sim | Sim |
 | **AppServiceManagement** | Tráfego de gerenciamento para implantações dedicadas a Ambiente do Serviço de Aplicativo. | Ambos | Não | Sim |

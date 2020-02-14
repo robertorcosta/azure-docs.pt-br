@@ -1,0 +1,173 @@
+---
+title: Condições na política de acesso condicional-Azure Active Directory
+description: O que são condições em uma política de acesso condicional do Azure AD
+services: active-directory
+ms.service: active-directory
+ms.subservice: conditional-access
+ms.topic: conceptual
+ms.date: 02/11/2020
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: calebb
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d9fe24e4a2b25b1ef3f0da2b1a5e1c0f29251df1
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77192227"
+---
+# <a name="conditional-access-conditions"></a>Acesso condicional: condições
+
+Em uma política de acesso condicional, um administrador pode usar sinais de condições como risco, plataforma de dispositivo ou local para aprimorar suas decisões de política. 
+
+![Definir uma política de acesso condicional e especificar condições](./media/concept-conditional-access-conditions/conditional-access-conditions.png)
+
+Várias condições podem ser combinadas para criar políticas de acesso condicional específicas e refinadas.
+
+Por exemplo, ao acessar um aplicativo confidencial, um administrador pode fatorar as informações de risco de entrada da proteção de identidade e o local em sua decisão de acesso, além de outros controles, como a autenticação multifator.
+
+## <a name="sign-in-risk"></a>Risco de entrada
+
+Para clientes com acesso à [proteção de identidade](../identity-protection/overview-identity-protection.md), o risco de entrada pode ser avaliado como parte de uma política de acesso condicional. O risco de entrada representa a probabilidade de que uma determinada solicitação de autenticação não seja autorizada pelo proprietário da identidade. Mais informações sobre o risco de entrada podem ser encontradas nos artigos, [o que é risco](../identity-protection/concept-identity-protection-risks.md#sign-in-risk) e [como: configurar e habilitar políticas de risco](../identity-protection/howto-identity-protection-configure-risk-policies.md).
+
+## <a name="device-platforms"></a>Plataformas de dispositivo
+
+A plataforma do dispositivo é caracterizada pelo sistema operacional executado em um dispositivo. O Azure AD identifica a plataforma usando as informações fornecidas pelo dispositivo, como cadeias de caracteres do agente do usuário. Como as cadeias de caracteres do agente do usuário podem ser modificadas, essas informações não são verificadas. A plataforma do dispositivo deve ser usada em conjunto com Microsoft Intune políticas de conformidade do dispositivo ou como parte de uma instrução de bloco. O padrão é aplicar a todas as plataformas de dispositivo.
+
+O acesso condicional do Azure AD dá suporte às seguintes plataformas de dispositivo:
+
+- Android
+- iOS
+- Windows Phone
+- Windows
+- macOS
+
+Se você bloquear a autenticação herdada usando a condição **outros clientes** , também poderá definir a condição de plataforma do dispositivo.
+
+## <a name="locations"></a>Locais
+
+Ao configurar o local como uma condição, as organizações podem optar por incluir ou excluir locais. Esses locais nomeados podem incluir informações de rede IPv4 públicas, país ou região ou até mesmo áreas desconhecidas que não são mapeadas para países ou regiões específicas. Somente os intervalos de IP podem ser marcados como um local confiável.
+
+Ao incluir **qualquer local**, essa opção inclui qualquer endereço IP na Internet não apenas para os locais nomeados configurados. Ao selecionar **qualquer local**, os administradores podem optar por excluir **todos os locais confiáveis** ou **selecionados**.
+
+Por exemplo, algumas organizações podem optar por não exigir a autenticação multifator quando seus usuários estiverem conectados à rede em um local confiável, como sua matriz física. Os administradores podem criar uma política que inclui qualquer local, mas exclui os locais selecionados para suas redes da sede
+
+## <a name="client-apps-preview"></a>Aplicativos cliente (visualização)
+
+Por padrão, as políticas de acesso condicional se aplicam a aplicativos e aplicativos baseados em navegador que utilizam protocolos de autenticação modernos. Além desses aplicativos, os administradores podem optar por incluir clientes do Exchange ActiveSync e outros clientes que utilizem protocolos herdados.
+
+- Navegador
+   - Isso inclui aplicativos baseados na Web que usam protocolos como SAML, WS-Federation, OpenID Connect ou serviços registrados como um cliente confidencial do OAuth.
+- Aplicativos móveis e clientes de desktop
+   - Clientes de autenticação moderna
+      - Essa opção inclui aplicativos como os aplicativos de área de trabalho e de telefone do Office.
+   - Clientes do Exchange ActiveSync
+      - Quando a política bloqueia o uso do Exchange ActiveSync, o usuário afetado receberá um único email de quarentena. Este email com fornece informações sobre por que eles estão bloqueados e incluem instruções de correção, se possível.
+   - Outros clientes
+      - Essa opção inclui clientes que usam protocolos de autenticação básica/herdada, incluindo IMAP, MAPI, POP, SMTP e aplicativos herdados do Office que não dão suporte à autenticação moderna.
+
+Essas condições são normalmente usadas quando se requer um dispositivo gerenciado, bloqueando a autenticação herdada e bloqueando aplicativos Web, mas permitindo aplicativos móveis ou de desktop.
+
+### <a name="supported-browsers"></a>Navegadores com suporte
+
+Essa configuração funciona com todos os navegadores. No entanto, para satisfazer uma política de dispositivo, como um requisito de conformidade de dispositivo, há suporte para os sistemas operacionais e navegadores a seguir:
+
+| Sistema operacional | Navegadores |
+| :-- | :-- |
+| Windows 10 | Microsoft Edge, Internet Explorer, Chrome |
+| Windows 8 / 8.1 | Internet Explorer, Chrome |
+| Windows 7 | Internet Explorer, Chrome |
+| iOS | Microsoft Edge, Intune Managed Browser, Safari |
+| Android | Microsoft Edge, Intune Managed Browsers, Chrome |
+| Windows Phone | Microsoft Edge, Internet Explorer |
+| Windows Server 2019 | Microsoft Edge, Internet Explorer, Chrome |
+| Windows Server 2016 | Internet Explorer |
+| Windows Server 2012 R2 | Internet Explorer |
+| Windows Server 2008 R2 | Internet Explorer |
+| macOS | Chrome, Safari |
+
+#### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>Por que vejo um prompt de certificado no navegador
+
+No Windows 7, iOS, Android e macOS, o Azure AD identifica o dispositivo usando um certificado de cliente que é provisionado quando o dispositivo é registrado no Azure AD.  Quando um usuário entra pela primeira vez por meio do navegador, é solicitado que o usuário selecione o certificado. O usuário deve selecionar esse certificado antes de usar o navegador.
+
+#### <a name="chrome-support"></a>Suporte ao Chrome
+
+Para obter suporte ao Chrome na **atualização do Windows 10 para criadores (versão 1703)** ou posterior, instale a [extensão de contas do Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Essa extensão é necessária quando uma política de acesso condicional requer detalhes específicos do dispositivo.
+
+Para implantar automaticamente essa extensão para os navegadores Chrome, crie a seguinte chave do registro:
+
+|    |    |
+| --- | --- |
+| Caminho | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| Nome | 1 |
+| Type | REG_SZ (String) |
+| data | ppnbnpeolgkicgegkbkbjmhlideopiji; https\://clients2.google.com/service/update2/crx |
+
+Para obter suporte ao Chrome no **Windows 8.1 e 7**, crie a seguinte chave do registro:
+
+|    |    |
+| --- | --- |
+| Caminho | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| Nome | 1 |
+| Type | REG_SZ (String) |
+| data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
+
+Esses navegadores dão suporte à autenticação de dispositivo, permitindo que o dispositivo seja identificado e validado em relação a uma política. A verificação de dispositivo falha caso o navegador esteja sendo executado em modo privado.
+
+### <a name="supported-mobile-applications-and-desktop-clients"></a>Aplicativos móveis e cliente de área de trabalho com suporte
+
+As organizações podem selecionar **aplicativos móveis e clientes de desktop** como aplicativo cliente.
+
+Essa configuração tem um impacto nas tentativas de acesso feitas a partir dos seguintes aplicativos móveis e clientes de desktop:
+
+| Aplicativos cliente | Serviço de Destino | Plataforma |
+| --- | --- | --- |
+| Aplicativo Dynamics CRM | Dynamics CRM | Windows 10, Windows 8.1, iOS e Android |
+| Aplicativo de Calendário/Email/Pessoas, Outlook 2016 Outlook 2013 (com autenticação moderna)| Office 365 Exchange Online | Windows 10 |
+| Política de localização e MFA para aplicativos. Políticas baseadas em dispositivos não têm suporte.| Qualquer serviço de aplicativo de Meus Aplicativos | Android e iOS |
+| Microsoft Teams Services – controla todos os serviços que dão suporte ao Microsoft Teams e todos os seus aplicativos cliente – Windows Desktop, iOS, Android, WP e cliente da Web | Equipes da Microsoft | Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS |
+| Aplicativos do Office 2016, Office 2013 (com autenticação moderna), [cliente de sincronização do onedrive](https://docs.microsoft.com/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 8.1, Windows 7 |
+| Aplicativos do Office 2016, aplicativos do Universal Office, Office 2013 (com autenticação moderna), [cliente de sincronização do onedrive](https://docs.microsoft.com/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 10 |
+| Office 2016 (somente Word, Excel, PowerPoint, OneNote). | Office 365 SharePoint Online | macOS |
+| Office 2019| Office 365 SharePoint Online | Windows 10, macOS |
+| Aplicativos móveis do Office | Office 365 SharePoint Online | Android, iOS |
+| Aplicativo Office Yammer | Office 365 Yammer | Windows 10, iOS, Android |
+| Outlook 2019 | Office 365 SharePoint Online | Windows 10, macOS |
+| Outlook 2016 (Office para macOS) | Office 365 Exchange Online | macOS |
+| Outlook 2016, Outlook 2013 (com autenticação moderna), Skype for Business (com autenticação moderna) | Office 365 Exchange Online | Windows 8.1, Windows 7 |
+| Aplicativo móvel do Outlook | Office 365 Exchange Online | Android, iOS |
+| Aplicativo Power BI | serviço do Power BI | Windows 10, Windows 8.1, Windows 7, Android e iOS |
+| Skype for Business | Office 365 Exchange Online| Android, IOS |
+| Aplicativo Visual Studio Team Services | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS e Android |
+
+### <a name="exchange-activesync-clients"></a>Clientes do Exchange ActiveSync
+
+- As organizações só podem selecionar clientes do Exchange ActiveSync ao atribuir a política a usuários ou grupos. Selecionar **todos os usuários**, **todos os usuários convidados e externos**ou **funções de diretório** fará com que todos os usuários se tornem bloqueados.
+- Ao criar uma política atribuída aos clientes do Exchange ActiveSync, o **Office 365 Exchange Online** deve ser o único aplicativo de nuvem atribuído à política. 
+- As organizações podem restringir o escopo dessa política a plataformas específicas usando a condição de **plataformas de dispositivo** .
+
+Se o controle de acesso atribuído à política usar **exigir aplicativo cliente aprovado**, o usuário será direcionado para instalar e usar o cliente móvel do Outlook. No caso de a **autenticação multifator** ser necessária, os usuários afetados são bloqueados, pois a autenticação básica não oferece suporte à autenticação multifator.
+
+Para obter mais informações, consulte os seguintes artigos:
+
+- [Bloquear a autenticação herdada com acesso condicional](block-legacy-authentication.md)
+- [Exigindo aplicativos cliente aprovados com acesso condicional](app-based-conditional-access.md)
+
+### <a name="other-clients"></a>Outros clientes
+
+Ao selecionar **Outros clientes**, é possível especificar uma condição que afeta os aplicativos que usam autenticação básica com protocolos de email, como IMAP, MAPI, POP, SMTP e aplicativos mais antigos do Office que não usam autenticação moderna.
+
+## <a name="device-state-preview"></a>Estado do dispositivo (versão prévia)
+
+A condição de estado do dispositivo pode ser usada para excluir dispositivos que são ingressados no Azure AD híbrido e/ou dispositivos marcados como compatíveis com uma política de conformidade de Microsoft Intune das políticas de acesso condicional de uma organização.
+
+Por exemplo, *todos os usuários* que acessam o aplicativo de nuvem de *Gerenciamento de Microsoft Azure* , incluindo todo o estado do **dispositivo** , excluindo o dispositivo **híbrido do Azure ad** e o **dispositivo marcado como compatível** e para *controles de acesso*, **Bloquear**. 
+   - Este exemplo criaria uma política que permite apenas o acesso ao gerenciamento de Microsoft Azure de dispositivos que são ingressados no Azure AD híbrido e/ou dispositivos marcados como compatíveis.
+
+## <a name="next-steps"></a>Próximas etapas
+
+- [Acesso condicional: Grant](concept-conditional-access-grant.md)
+
+- [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)

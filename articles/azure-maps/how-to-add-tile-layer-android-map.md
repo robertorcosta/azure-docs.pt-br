@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e54eeaa6dafd60e5fc481f2f4b45929edda77c44
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 4113f632e70bf1008c688066b51a27f1bc3c6345
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911523"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198251"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Adicionar uma camada de bloco a um mapa usando o Azure Maps SDK do Android
 
 Este artigo mostra como renderizar uma camada de bloco em um mapa usando o SDK do Android do Azure Maps. Camadas lado a lado permitem que você sobreponha imagens sobre peças de mapa base do Azure Mapas. Obtenha mais informações sobre o sistema de mosaico do Azure Mapas na documentação [Níveis de Zoom e grade lado a lado](zoom-levels-and-tile-grid.md).
 
-Uma camada de bloco é carregada em blocos de um servidor. Essas imagens podem ser renderizadas previamente e armazenadas como qualquer outra imagem em um servidor usando uma convenção de nomenclatura que compreende a camada de peça ou um serviço dinâmico que gera as imagens em tempo real. Há três convenções de nomenclatura de serviço de bloco diferentes com suporte pela classe TileLayer do Azure Maps; 
+Uma camada de bloco é carregada em blocos de um servidor. Essas imagens podem ser previamente renderizadas e armazenadas como qualquer outra imagem em um servidor, usando uma Convenção de nomenclatura que a camada de bloco compreende. Ou, essas imagens podem ser renderizadas com um serviço dinâmico que gera as imagens quase em tempo real. Há três convenções de nomenclatura de serviço de bloco diferentes com suporte pela classe TileLayer do Azure Maps:
 
 * X, Y, notação de Zoom - com base no nível de zoom, x é a coluna e y é a posição da linha do bloco na grade lado a lado.
 * Notação Quadkey - combinação x, y, informações de zoom em um valor de cadeia de caracteres única que é um identificador exclusivo para um bloco.
@@ -35,16 +35,16 @@ A URL do bloco passada para uma camada de peça deve ser uma URL http/https para
 * `{z}` -Nível de zoom do bloco. Também precisa `{x}` e `{y}`.
 * `{quadkey}` - identificador quadkey de bloco baseado a convenção de nomenclatura do sistema de blocos Bing Maps.
 * `{bbox-epsg-3857}` -Uma cadeia de caracteres de caixa delimitadora com o formato `{west},{south},{east},{north}` no sistema de referência espacial do EPSG 3857.
-* `{subdomain}` -Um espaço reservado para onde os valores de subdomínio, se especificado serão adicionados.
+* `{subdomain}`-um espaço reservado para os valores de subdomínio, se o valor de subdomínio for especificado.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir o processo neste artigo, você precisa instalar o [Azure Maps SDK do Android](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para carregar um mapa.
 
 
 ## <a name="add-a-tile-layer-to-the-map"></a>Adicionar uma camada de bloco ao mapa
 
- Este exemplo mostra como criar uma camada lado a lado que aponta para um conjunto de blocos que usam o sistema lado a lado do zoom, x,y. A origem dessa camada lado a lado é uma sobreposição de radar clima da [Iowa Environmental Mesonet of Iowa State University](https://mesonet.agron.iastate.edu/ogc/). 
+ Este exemplo mostra como criar uma camada de bloco que aponta para um conjunto de blocos. Esses blocos usam o sistema de divisão "x, y," zoom ". A origem dessa camada lado a lado é uma sobreposição de radar clima da [Iowa Environmental Mesonet of Iowa State University](https://mesonet.agron.iastate.edu/ogc/). 
 
 Você pode adicionar uma camada de bloco ao mapa seguindo as etapas abaixo.
 
@@ -174,7 +174,7 @@ Se você executar o aplicativo agora, deverá ver uma linha no mapa, como mostra
 
 ](./media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)</center> de linha do mapa do Android ![
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte o artigo a seguir para saber mais sobre maneiras de definir estilos de mapa
 

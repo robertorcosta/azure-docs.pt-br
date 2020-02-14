@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 01/30/2020
 ms.author: victorh
-ms.openlocfilehash: c49c37ced4a5d5cc7cdde0737b889aad3b538f7f
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f56929e14aef34f675139782328ed5c559df12c7
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899018"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198591"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configurar um gateway de aplicativo com um ponto de extremidade de ILB (balanceador de carga interno)
 
@@ -27,7 +27,7 @@ Este artigo orienta você pelas etapas para configurar um gateway de aplicativo 
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no portal do Azure em <https://portal.azure.com>kV
+Entre no portal do Microsoft Azure em <https://portal.azure.com>
 
 ## <a name="create-an-application-gateway"></a>Criar um Gateway de Aplicativo
 
@@ -110,7 +110,7 @@ Para fazer isto:
 ### <a name="install-iis"></a>Instalar o IIS
 
 1. Abra o Cloud Shell e verifique se ele está definido como **PowerShell**.
-    ![private-frontendip-3](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
+    ![particular-frontendip-3](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
 2. Execute o comando a seguir para instalar o IIS na máquina virtual:
 
    ```azurepowershell
@@ -153,6 +153,6 @@ Para fazer isto:
     ![particular-frontendip-5](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
 2. Copie o endereço IP privado e cole-o na barra de endereços do navegador em uma VM na mesma VNet ou local que tenha conectividade com essa VNet e tente acessar o gateway de aplicativo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se você quiser monitorar a integridade do seu back-end, consulte [logs de diagnóstico e de integridade de back-end para o gateway de aplicativo](application-gateway-diagnostics.md).

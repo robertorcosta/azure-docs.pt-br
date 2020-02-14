@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 02/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: 298d720d3848f27b18aa24897357dfaa47a12a70
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: e386e5fc9c4d62266e0ca23869bf30ccaffeb91d
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863716"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201553"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Criar uma conexão Site a Site usando o portal do Azure (clássico)
 
@@ -39,7 +39,7 @@ Verifique se você atende aos seguintes critérios antes de iniciar a configura�
 * Verifique se você possui um dispositivo VPN compatível e alguém que possa configurá-lo. Para obter mais informações sobre dispositivos VPN compatíveis e a configuração de dispositivo, confira [Sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md).
 * Verifique se você possui um endereço IPv4 público voltado para o exterior para seu dispositivo VPN.
 * Se não estiver familiarizado com os intervalos de endereços IP localizados na configuração de rede local, você precisará trabalhar em conjunto com alguém que possa lhe fornecer os detalhes. Ao criar essa configuração, você deve especificar os prefixos de intervalo de endereços IP que o Azure roteará para seu local. Nenhuma das sub-redes da rede local podem se sobrepor às sub-redes de rede virtual às quais você deseja se conectar.
-* No momento, o PowerShell é necessário para especificar a chave compartilhada e criar a conexão de gateway de VPN. Instale a versão mais recente dos cmdlets do PowerShell do SM (Gerenciamento de Serviços) do Azure. Para instalar os cmdlets, consulte [Gerenciamento de serviços](/powershell/azure/servicemanagement/install-azure-ps). Para obter mais informações sobre as instalações do PowerShell em geral, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Ao trabalhar com o PowerShell para essa configuração, verifique se você está executando como administrador.
+* O PowerShell é necessário para especificar a chave compartilhada e criar a conexão de gateway de VPN. [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
 ### <a name="values"></a>Exemplo de valores de configuração para este exercício
 
@@ -72,7 +72,7 @@ Ao criar uma rede virtual a ser usada para uma conexão de S2S, você precisa ce
 1. Em um navegador, navegue até o [portal do Azure](https://portal.azure.com) e, se necessário, entre com sua conta do Azure.
 2. Clique em * *+ criar um recurso*. No campo **Pesquisar no Marketplace**, digite "Rede Virtual". Localize a **Rede Virtual** na lista retornada e clique para abrir a página **Rede Virtual**.
 3. clique em **(alterar para clássico)** e, em seguida, clique em **criar**.
-4. Na página **Criar rede virtual (clássico)** , defina as configurações da VNet. Nessa página, você adiciona o primeiro espaço de endereço e um único intervalo de endereços da sub-rede. Depois de terminar a criação da rede virtual, você poderá voltar e adicionar espaços de endereço e sub-redes adicionais.
+4. Na página **Criar rede virtual (clássico)** , defina as configurações da VNet. Nessa página, você adiciona o primeiro espaço de endereço e um único intervalo de endereços da sub-rede. Depois de criar a VNet, você pode voltar e adicionar mais sub-redes e espaços de endereço.
 
    ![Página criar rede virtual](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Criar página da rede virtual")
 5. Verifique se a **Assinatura** é a correta. Você pode alterar as assinaturas usando o menu suspenso.
@@ -159,23 +159,24 @@ Nesta etapa, defina a chave compartilhada e crie a conexão. A chave que você d
 
 ### <a name="step-1-connect-to-your-azure-account"></a>Etapa 1. Conectar-se à sua conta do Azure
 
-Você deve executar esses comandos localmente usando o módulo de gerenciamento de serviços do PowerShell. Para alternar para o gerenciamento de serviços, use este comando:
+Você deve executar esses comandos localmente usando o módulo de gerenciamento de serviços do PowerShell. 
 
-```powershell
-azure config mode asm
-```
+1. Abra o console do PowerShell com direitos elevados. Para alternar para o gerenciamento de serviços, use este comando:
 
-1. Abra o console do PowerShell com direitos elevados e conecte-se à sua conta. Use o exemplo a seguir para ajudar a se conectar:
+   ```powershell
+   azure config mode asm
+   ```
+2. Conecte-se à sua conta. Use o exemplo a seguir para ajudar a se conectar:
 
    ```powershell
    Add-AzureAccount
    ```
-2. Verificar as assinaturas da conta.
+3. Verificar as assinaturas da conta.
 
    ```powershell
    Get-AzureSubscription
    ```
-3. Se você tiver mais de uma assinatura, selecione a assinatura que deseja usar.
+4. Se você tiver mais de uma assinatura, selecione a assinatura que deseja usar.
 
    ```powershell
    Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
@@ -214,7 +215,7 @@ Redefinir um gateway de VPN do Azure é útil se você perde a conectividade VPN
 
 Para obter as etapas para alterar um SKU de gateway, consulte [Redimensionar um SKU de gateway](vpn-gateway-about-SKUS-legacy.md#classicresize).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, veja [Máquinas virtuais](https://docs.microsoft.com/azure/).
 * Para saber mais sobre Túneis Forçados, confira [Sobre o Túnel Forçado](vpn-gateway-about-forced-tunneling.md).

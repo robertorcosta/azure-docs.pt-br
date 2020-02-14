@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: 41410d4e534d0940050521ecc86e8a384566f439
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 486f90d82af729a3dbfd836239d2d19ebdf44819
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972693"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191416"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Visão geral: automatizar a implantação para aplicativos lógicos do Azure usando modelos de Azure Resource Manager
 
@@ -61,7 +61,7 @@ No nível superior, um modelo do Resource Manager segue essa estrutura, que é t
 
 Para um modelo de aplicativo lógico, você trabalha principalmente com estes objetos de modelo:
 
-| Atributo | Description |
+| Atributo | DESCRIÇÃO |
 |-----------|-------------|
 | `parameters` | Declara os [parâmetros de modelo](../azure-resource-manager/templates/template-syntax.md#parameters) para aceitar os valores a serem usados ao criar e personalizar recursos para implantação no Azure. Por exemplo, esses parâmetros aceitam os valores para o nome e o local do seu aplicativo lógico, as conexões e outros recursos necessários para a implantação. Você pode armazenar esses valores de parâmetro em um [arquivo de parâmetros](#template-parameter-files), que é descrito posteriormente neste tópico. Para obter detalhes gerais, consulte [parâmetros – estrutura e sintaxe do modelo do Resource Manager](../azure-resource-manager/templates/template-syntax.md#parameters). |
 | `resources` | Define os [recursos](../azure-resource-manager/templates/template-syntax.md#resources) para criar ou atualizar e implantar em um grupo de recursos do Azure, como seu aplicativo lógico, conexões, contas de armazenamento do Azure e assim por diante. Para obter detalhes gerais, consulte [recursos – estrutura e sintaxe do modelo do Resource Manager](../azure-resource-manager/templates/template-syntax.md#resources). |
@@ -145,11 +145,11 @@ Este exemplo mostra apenas os parâmetros de modelo para os valores usados para 
 
 Exceto para parâmetros que manipulam valores que são confidenciais ou devem ser protegidos, como nomes de dados, senhas e segredos, todos esses parâmetros incluem `defaultValue` atributos, embora em alguns casos os valores padrão sejam valores vazios. Os valores de implantação a serem usados para esses parâmetros de modelo são fornecidos pelo [arquivo de parâmetros](#template-parameter-files) de exemplo descrito posteriormente neste tópico.
 
-Para proteger os parâmetros de modelo, consulte estes tópicos:
+Para obter mais informações sobre como proteger os parâmetros de modelo, consulte estes tópicos:
 
 * [Recomendações de segurança para parâmetros de modelo](../azure-resource-manager/templates/template-best-practices.md#parameters)
-* [Parâmetros de modelo seguro](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
-* [Passar valores de parâmetros seguros com Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
+* [Melhorar a segurança para parâmetros de modelo](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
+* [Passar valores de parâmetros protegidos com Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
 Outros objetos de modelo geralmente referenciam parâmetros de modelo para que eles possam usar os valores que passam por parâmetros de modelo, por exemplo:
 
@@ -171,9 +171,9 @@ Aqui estão algumas práticas recomendadas para definir parâmetros:
 
   * [Recomendações de segurança para parâmetros de modelo](../azure-resource-manager/templates/template-best-practices.md#parameters)
 
-  * [Parâmetros de modelo seguro](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
+  * [Melhorar a segurança para parâmetros de modelo](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 
-  * [Passar valores de parâmetros seguros com Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
+  * [Passar valores de parâmetros protegidos com Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
 * Para diferenciar nomes de parâmetro de modelo dos nomes de parâmetros de definição de fluxo de trabalho, você pode usar nomes de parâmetro de modelo descritivos, por exemplo: `TemplateFabrikamPassword`
 
@@ -188,7 +188,7 @@ Para fornecer os valores para parâmetros de modelo, armazene esses valores em u
 * Nome do arquivo de modelo do aplicativo lógico: **<*Logic-app-Name*>. JSON**
 * Nome do arquivo de parâmetros: **<*Logic-app-Name*>. Parameters. JSON**
 
-Aqui está a estrutura dentro do arquivo de parâmetros, que inclui uma referência do Key Vault para [passar um valor de parâmetro seguro com Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md):
+Aqui está a estrutura dentro do arquivo de parâmetros, que inclui uma referência do Key Vault para [passar um valor de parâmetro protegido com Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md):
 
 ```json
 {
@@ -319,7 +319,7 @@ A definição de recurso do aplicativo lógico começa com o objeto `properties`
 
 Aqui estão os atributos que são específicos para sua definição de recurso de aplicativo lógico:
 
-| Atributo | Obrigatório | Tipo | Description |
+| Atributo | Obrigatório | Type | DESCRIÇÃO |
 |-----------|----------|------|-------------|
 | `state` | Sim | String | O estado do aplicativo lógico na implantação em que `Enabled` significa que seu aplicativo lógico está ativo e `Disabled` significa que seu aplicativo lógico está inativo. Por exemplo, se você não estiver pronto para o aplicativo lógico ficar ativo, mas desejar implantar uma versão de rascunho, poderá usar a opção `Disabled`. |
 | `integrationAccount` | Não | Objeto | Se seu aplicativo lógico usar uma conta de integração, que armazena artefatos para cenários B2B (entre empresas), esse objeto incluirá o atributo `id`, que especifica a ID da conta de integração. |
@@ -413,7 +413,7 @@ Para definir o valor do parâmetro de definição de fluxo de trabalho, use o ob
 
 Este modelo de exemplo mostra como você pode concluir essas tarefas definindo parâmetros protegidos quando necessário para que você possa armazenar seus valores no Azure Key Vault:
 
-* Declare parâmetros seguros para os valores usados para autenticar o acesso.
+* Declare parâmetros protegidos para os valores usados para autenticar o acesso.
 * Use esses valores nos níveis de definição de modelo e de fluxo de trabalho.
 * Forneça esses valores usando um arquivo de parâmetros.
 
@@ -936,7 +936,7 @@ Algumas conexões dão suporte ao uso de uma entidade de [serviço](../active-di
 }
 ```
 
-| Atributo | Description |
+| Atributo | DESCRIÇÃO |
 |-----------|-------------|
 | `token:clientId` | A ID do aplicativo ou do cliente associada à sua entidade de serviço |
 | `token:clientSecret` | O valor de chave associado à entidade de serviço |
@@ -1243,7 +1243,7 @@ Este é o modelo de exemplo com parâmetros que é usado pelos exemplos deste t�
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Criar modelos de aplicativo lógico](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)

@@ -16,16 +16,16 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 189b8666adde0eedcb451655657a4a82dc5e4fec
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 6f1656d730d55d4c5ab7fb963e49a8057ad88c9f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062512"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185532"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configurar domínios personalizados com o Azure Proxy de Aplicativo do AD
 
-Ao publicar um aplicativo por meio do Proxy de Aplicativo do Azure Active Directory, você cria uma URL externa para seus usuários. Essa URL obtém o domínio padrão *seulocatário.msappproxy.net*. Por exemplo, se você publicar um aplicativo chamado *despesas* em seu locatário chamado *contoso*, a URL externa será *https: \//Expenses-contoso.msappproxy.net*. Se você quiser usar seu próprio nome de domínio em vez de *msappproxy.net*, poderá configurar um domínio personalizado para seu aplicativo. 
+Ao publicar um aplicativo por meio do Proxy de Aplicativo do Azure Active Directory, você cria uma URL externa para seus usuários. Essa URL obtém o domínio padrão *seulocatário.msappproxy.net*. Por exemplo, se você publicar um aplicativo chamado *despesas* em seu locatário chamado *contoso*, a URL externa será *https:\//Expenses-contoso.msappproxy.net*. Se você quiser usar seu próprio nome de domínio em vez de *msappproxy.net*, poderá configurar um domínio personalizado para seu aplicativo. 
 
 ## <a name="benefits-of-custom-domains"></a>Benefícios de domínios personalizados
 
@@ -49,7 +49,7 @@ Há várias opções para configurar sua configuração de DNS, dependendo de se
 
 Se você não quiser que os usuários internos sejam direcionados por meio do proxy de aplicativo, poderá configurar um *DNS de divisão-Brain*. Uma infraestrutura de DNS de divisão direciona hosts internos para um servidor de nome de domínio interno e hosts externos para um servidor de nome de domínio externo, para resolução de nomes. 
 
-![DNS de divisão-Brain](./media/application-proxy-configure-custom-domain/split-brain-dns.png)
+![DNS com partição de rede](./media/application-proxy-configure-custom-domain/split-brain-dns.png)
 
 ### <a name="different-internal-and-external-urls"></a>Diferentes URLs internas e externas 
 
@@ -77,7 +77,7 @@ Para obter instruções mais detalhadas, consulte [Adicionar seu nome de domíni
 
 Para publicar seu aplicativo por meio do proxy de aplicativo com um domínio personalizado:
 
-1. Para um novo aplicativo, em Azure Active Directory, selecione **aplicativos empresariais** no painel de navegação esquerdo. Selecione **Novo aplicativo**. Na seção **aplicativos locais** , selecione **Adicionar um aplicativo local**. 
+1. Para um novo aplicativo, em Azure Active Directory, selecione **aplicativos empresariais** no painel de navegação esquerdo. Selecione **Novo aplicativo**. Na seção **Aplicativos locais**, selecione **Adicionar um aplicativo local**. 
    
    Para um aplicativo que já está em **aplicativos corporativos**, selecione-o na lista e, em seguida, selecione **proxy de aplicativo** no painel de navegação esquerdo. 
 
@@ -142,7 +142,7 @@ Você pode usar o mesmo certificado para vários aplicativos. Se um certificado 
 
 Quando um certificado expirar, você receberá um aviso informando que você deseja carregar outro certificado. Se o certificado for revogado, os usuários poderão ver um aviso de segurança ao acessar o aplicativo. Para atualizar o certificado para um aplicativo, navegue até a página **proxy de aplicativo** do aplicativo, selecione **certificado**e carregue um novo certificado. Se o certificado antigo não estiver sendo usado por outros aplicativos, ele será excluído automaticamente. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Habilite o logon único](application-proxy-configure-single-sign-on-with-kcd.md) aos seus aplicativos publicados com a autenticação do Azure AD.
-* [Habilite o acesso condicional](../conditional-access/technical-reference.md#cloud-apps-assignments) para seus aplicativos publicados.
+* [Habilite o acesso condicional](../conditional-access/overview.md) para seus aplicativos publicados.
 

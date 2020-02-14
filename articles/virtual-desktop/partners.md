@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 02/13/2020
 ms.author: helohr
-ms.openlocfilehash: b7c7c21f14eddf29c3dda1f420d7748a4c23e53d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f75e404e37ff45eb7d9f540cf6acba71fa83349f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906888"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201774"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de área de trabalho virtual do Windows
 
@@ -46,6 +46,8 @@ Como um provedor aprovado, os benefícios da área de trabalho virtual do Window
 a tecnologia 10ZiG, com hardware e software de cliente fino e zero de ponta, é um parceiro de longa atividade da Microsoft e de uma Microsoft Azure dedicada e de um parceiro de área de trabalho virtual do Windows. Os clientes finos baseados em IoT do Windows 10 10ZiG são pontos de extremidade poderosos, confiáveis e acessíveis para todos os vários usuários da área de trabalho virtual do Windows. o software do 10ZiG Manager fornece gerenciamento e implantação excepcionais sem limitações de licença e nenhum custo adicional. A equipe de tecnologia 10ZiG, o programa de garantia avançada e as demonstrações sem complicações são uma solução de suporte de várias sessões de área de trabalho virtual do Windows única na nuvem.
 
 a liderança do mercado mundial de 10ZiG's em dispositivos de ponto de extremidade de cliente fino e zero e software de gerenciamento para áreas de trabalho virtuais é exemplificado por meio de como eles funcionam para seus clientes. Seu hardware de cliente fino é fornecido com recursos e opções de benefício construídos de acordo com o objetivo de garantir que os clientes recebam os dispositivos de cliente corretos com base em suas necessidades. o 10ZiG personaliza seus dispositivos para caber em ambientes de clientes com clientes baseados em Windows e Linux que fornecem o melhor desempenho possível em áreas de trabalho virtuais, dentro e fora da nuvem.
+
+- [Acesse o site do parceiro](https://www.10zig.com/).
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -148,6 +150,8 @@ O liquide Essentials estende o valor da área de trabalho virtual do Windows com
 O software de agregação e entrega de aplicativos liquit permite que empresas e provedores de serviços se conectem e combinem com todos os back-ends do espaço de trabalho (Citrix, VMWare, área de trabalho virtual do Windows, RDP e herdado) e fornecem um cliente personalizado e consistente experiência, independentemente de onde residem os aplicativos do cliente. Quando um cliente publica o ícone inteligente, o liquit decide onde iniciar o aplicativo com base nos direitos de localização, dispositivo e perfil do cliente.
 
 Como um parceiro de integração certificado, o liquit ajuda a acelerar a transição para a nuvem sem um atraso de RIP e substituir. A área de trabalho virtual do Windows pode se conectar facilmente a um ambiente existente, criar um espaço de trabalho e entregar a área de trabalho. Você pode então levar seu tempo migrando de plataformas antigas e fazer alterações no back-end sem que os usuários percebam. Obter uma experiência consistente do usuário final, uma infraestrutura flexível e manter o controle de seus aplicativos, independentemente de onde estiverem.
+
+- [Acesse o site do parceiro](https://www.liquit.com/wvd/).
 
 ## <a name="login-vsi"></a>VSI de logon
 
@@ -261,7 +265,7 @@ Workspot estende o valor da área de trabalho virtual do Windows simplificando o
 - [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8P).
 - [Acesse o site do parceiro](https://www.workspot.com/wvd).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Saiba mais sobre a área de trabalho virtual do Windows](overview.md).
 - [Crie um locatário na área de trabalho virtual do Windows](tenant-setup-azure-active-directory.md).

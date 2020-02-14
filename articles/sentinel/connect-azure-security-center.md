@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 8d8f960d8cf1310ec0a380e75bdaa714408e2cac
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 4c75d1870ca3b966acdd658c91c0af8fd7465bfb
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563659"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190874"
 ---
 # <a name="connect-data-from-azure-security-center"></a>Conectar dados da central de segurança do Azure
 
@@ -24,13 +24,12 @@ ms.locfileid: "75563659"
 
 O Azure Sentinel permite que você conecte alertas da [central de segurança do Azure](../security-center/security-center-intro.md) e transmita-os para o Azure Sentinel. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
-- Se você deseja exportar alertas da central de segurança do Azure, você deve ser um colaborador na assinatura cujos logs são transmitidos.
+- Para exportar alertas da central de segurança do Azure, você deve ter a função de leitor de segurança na assinatura dos logs que você transmite.
 
 - Você deve ter a [camada Standard da central de segurança do Azure](../security-center/security-center-pricing.md) em execução na assinatura. Caso contrário, [Atualize sua assinatura para Standard](https://azure.microsoft.com/pricing/details/security-center/).
 
-- Você deve fazer logon com um usuário que tenha permissões de administrador global ou de administrador de segurança em cada assinatura que deseja conectar.
 
 
 ## <a name="connect-to-azure-security-center"></a>Conectar-se à central de segurança do Azure
@@ -45,7 +44,7 @@ O Azure Sentinel permite que você conecte alertas da [central de segurança do 
 
 4. Para usar o esquema relevante no Log Analytics para os alertas da central de segurança do Azure, procure **SecurityAlert**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a conectar a central de segurança do Azure ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).

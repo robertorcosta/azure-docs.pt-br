@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a9b545d71f21138c0374cf199ce10dc2dc246afb
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: d94237d2cfeb814b2e15d43c9f8863a76c0bcd11
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732137"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190668"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Habilitar e criar compartilhamentos de arquivos grandes
 
-Originalmente, os compartilhamentos de arquivos padrão só poderiam ser dimensionados para até 5 TiB. Agora, com grandes compartilhamentos de arquivos, eles podem ser escalados verticalmente até 100 TiB. Você pode habilitar esse dimensionamento em suas contas de armazenamento existentes para seus compartilhamentos de arquivos existentes. Os compartilhamentos de arquivos Premium são escalados verticalmente até 100 TiB por padrão.
+Quando você habilita grandes compartilhamentos de arquivos em sua conta de armazenamento, seus compartilhamentos de arquivos podem ser escalados verticalmente até 100 TiB. Você pode habilitar esse dimensionamento em suas contas de armazenamento existentes para seus compartilhamentos de arquivos existentes.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 - Se você pretende usar o CLI do Azure, [Instale a versão mais recente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -26,7 +26,7 @@ Originalmente, os compartilhamentos de arquivos padrão só poderiam ser dimensi
 
 ## <a name="restrictions"></a>Restrições
 
-Por enquanto, você só pode usar LRS ou ZRS em contas com compartilhamento de arquivos grandes – habilitados. Você não pode usar GZRS, GRS ou RA-GRS.
+Por enquanto, você só pode usar LRS (armazenamento com redundância local) ou ZRS (armazenamento com redundância de zona) em contas habilitadas para compartilhamento de arquivos grandes. Você não pode usar armazenamento com redundância de zona geográfica (GZRS), armazenamento com redundância geográfica (GRS) ou armazenamento com redundância geográfica com acesso de leitura (RA-GRS).
 A habilitação de grandes compartilhamentos de arquivos em uma conta é um processo irreversível. Depois de habilitá-lo, você não conseguirá converter sua conta em GZRS, GRS ou RA-GRS.
 
 ## <a name="create-a-new-storage-account"></a>Criar uma nova conta de armazenamento
@@ -49,10 +49,10 @@ A habilitação de grandes compartilhamentos de arquivos em uma conta é um proc
 
    |Campo  |Valor  |
    |---------|---------|
-   |Modelo de implantação     |Resource Manager         |
-   |Performance     |Padrão         |
+   |Modelo de implantação     |Gerenciador de Recursos         |
+   |Desempenho     |Standard         |
    |Tipo de conta     |StorageV2 (uso geral v2)         |
-   |Camada de acesso     |Quente         |
+   |Camada de acesso     |Dinâmica         |
 
 1. Selecione **avançado**e, em seguida, selecione o botão de opção **habilitado** à direita de **grandes compartilhamentos de arquivos**.
 1. Selecione **Revisar + Criar** para examinar as configurações da conta de armazenamento e criar a conta.
@@ -185,7 +185,7 @@ $ctx = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAcco
 Set-AzStorageShareQuota -ShareName $shareName -Context $ctx -Quota 102400
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Conectar e montar um compartilhamento de arquivos no Windows](storage-how-to-use-files-windows.md)
 * [Conectar e montar um compartilhamento de arquivos no Linux](storage-how-to-use-files-linux.md)

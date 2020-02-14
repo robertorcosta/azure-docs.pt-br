@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 2c4e5d0117f046343b140ef2b2c46c074c835075
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1c86570850894a47f57a2d3587811411cc9a76eb
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60557898"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190007"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Uso dos serviços externos do serviço de Gerenciamento de API do Azure
 As políticas disponíveis no serviço de Gerenciamento de API do Azure permitem uma ampla variedade de trabalhos úteis com base apenas na solicitação de entrada, na resposta de saída e em informações básicas de configuração. No entanto, a capacidade de interagir com serviços externos das políticas de Gerenciamento de API abre muitas outras oportunidades.
@@ -101,6 +101,10 @@ Quando o Gerenciamento de API tiver o token de autorização, o Gerenciamento de
 O atributo `response-variable-name` é usado para dar acesso à resposta retornada. O nome definido nessa propriedade pode ser usado como uma chave para o dicionário `context.Variables` a fim de acessar o objeto `IResponse`.
 
 A partir do objeto de resposta, é possível recuperar o corpo e a RFC 7622 informa Gerenciamento de API que a resposta deve ser um objeto JSON e conter pelo menos uma propriedade chamada `active` que seja um valor booliano. Quando `active` é verdadeiro, o token é considerado válido.
+
+Como alternativa, se o servidor de autorização não incluir o campo "ativo" para indicar se o token é válido, use uma ferramenta como o postmaster para determinar quais propriedades estão definidas em um token válido. Por exemplo, se uma resposta de token válida contiver uma propriedade chamada "expires_in", verifique se esse nome de propriedade existe na resposta do servidor de autorização dessa forma:
+
+< quando Condition = "@ (((IResponse) contexto. Variáveis ["tokenstate"]). Body.As<JObject>(). Propriedade ("expires_in") = = NULL) ">
 
 ### <a name="reporting-failure"></a>Indicação de falha
 É possível usar `<choose>` para detectar se o token é inválido e, em caso afirmativo, retornar uma resposta 401.

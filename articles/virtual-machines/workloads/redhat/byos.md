@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: b0ef6030b1b460d118a255ede3c46719616fe3b0
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: a54e1c9cbc9a80139d71a89f86ac51ecf5ce9902
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133827"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190509"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux imagens Gold de sua própria assinatura no Azure
 
@@ -175,11 +175,11 @@ Este é um script de exemplo. Você deve substituir o grupo de recursos, o local
 
 Red Hat Enterprise Linux imagens Gold de sua própria assinatura podem ser protegidas por meio do uso de [Azure Disk Encryption](../../linux/disk-encryption-overview.md). No entanto, a assinatura **deve** ser registrada antes de habilitar a criptografia.  Detalhes sobre como registrar uma imagem do RHEL BYOS Gold estão disponíveis no site do Red Hat. Consulte [como registrar e assinar um sistema para o portal do cliente Red Hat usando o Red Hat Subscription-Manager](https://access.redhat.com/solutions/253273); Se você tiver uma assinatura ativa do Red Hat, também poderá ler a [criação de chaves de ativação do portal do cliente do Red Hat](https://access.redhat.com/articles/1378093).
 
-Não há suporte para Azure Disk Encryption em [imagens personalizadas do Red Hat](/linux/redhat-create-upload-vhd). Requisitos e pré-requisitos adicionais de ADE são documentados em [Azure Disk Encryption para VMs do Linux](../../linux/disk-encryption-overview.md#additional-vm-requirements).
+Não há suporte para Azure Disk Encryption em [imagens personalizadas do Red Hat](../../linux/redhat-create-upload-vhd.md). Requisitos e pré-requisitos adicionais de ADE são documentados em [Azure Disk Encryption para VMs do Linux](../../linux/disk-encryption-overview.md#additional-vm-requirements).
 
 As etapas para aplicar Azure Disk Encryption estão disponíveis em [cenários de Azure Disk Encryption em VMs do Linux](../../linux/disk-encryption-linux.md) e artigos relacionados.
 
-## <a name="additional-information"></a>{1&gt;{2&gt;Informações adicionais&lt;2}&lt;1}
+## <a name="additional-information"></a>Informações adicionais
 
 - Se você tentar provisionar uma VM em uma assinatura que não está habilitada para esta oferta, você receberá o seguinte erro:
 
@@ -203,7 +203,7 @@ As etapas para aplicar Azure Disk Encryption estão disponíveis em [cenários d
 
 - Se você estiver usando a automação para provisionar VMs das imagens RHEL BYOS, deverá fornecer parâmetros de plano semelhantes ao que foi mostrado acima. Por exemplo, se você estiver usando Terraform, você forneceria as informações do plano em um [bloco de plano](https://www.terraform.io/docs/providers/azurerm/r/virtual_machine.html#plan).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 - Os guias passo a passo e os detalhes do programa para acesso à nuvem estão disponíveis na [documentação do Red Hat Cloud Access.](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index)
 - Saiba mais sobre a [infraestrutura de atualização do Red Hat do Azure](./redhat-rhui.md).
 - Para saber mais sobre todas as imagens do Red Hat no Azure, vá para a [página de documentação](./redhat-images.md).

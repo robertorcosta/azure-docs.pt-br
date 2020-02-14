@@ -1,24 +1,24 @@
 ---
 title: Ingerir dados usando o SDK do .NET Standard do Azure Data Explorer (Versão prévia)
-description: Neste artigo, você aprenderá a ingestão de dados (carga) no Data Explorer do Azure usando o SDK do .NET Standard.
+description: Neste artigo, você aprenderá a ingerir (carregar) dados no Azure Data Explorer usando o SDK do .NET Standard.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 53cf055a0900a25923fe67b961755c1f4367e1fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1fb1301ae7e0cdff36f3771a44769c8bf9cc9c62
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66496886"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187927"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Ingerir dados usando o SDK do .NET Standard do Azure Data Explorer (Versão prévia)
 
-O Azure Data Explorer (ADX) é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. O ADX fornece duas bibliotecas de cliente para .NET Standard: uma [biblioteca de ingestão](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard) e [uma biblioteca de dados](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard). Essas bibliotecas permitem a inclusão de dados (carga) em um cluster e dados de consulta do seu código. Neste artigo, você primeiro crie uma tabela e o mapeamento de dados em um cluster de teste. Depois, você enfileira uma ingestão no cluster e valida os resultados.
+O Azure Data Explorer (ADX) é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. O ADX fornece duas bibliotecas de cliente para .NET Standard: uma [biblioteca de ingestão](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard) e [uma biblioteca de dados](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard). Essas bibliotecas permitem a inclusão de dados (carga) em um cluster e dados de consulta do seu código. Neste artigo, você primeiro cria uma tabela e um mapeamento de dados em um cluster de teste. Depois, você enfileira uma ingestão no cluster e valida os resultados.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 
@@ -30,7 +30,7 @@ O Azure Data Explorer (ADX) é um serviço de exploração de dados rápido e al
 Install-Package Microsoft.Azure.Kusto.Ingest.NETStandard
 ```
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 
 Para autenticar um aplicativo, o Azure Data Explorer usa seu ID de locatário do AAD. Para encontrar seu ID de locatário, use a seguinte URL, substituindo seu domínio por *YourDomain*.
 
@@ -123,7 +123,7 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
 ## <a name="define-ingestion-mapping"></a>Definir mapeamento de ingestão
 
 Mapear os dados CSV de entrada para os nomes de colunas usados ao criar a tabela.
-Provisionar um [objeto de mapeamento de coluna CSV](/azure/kusto/management/tables#create-ingestion-mapping) nessa tabela
+Provisionar um [objeto de mapeamento de coluna CSV](/azure/kusto/management/create-ingestion-mapping-command) nessa tabela
 
 ```csharp
 var tableMapping = "StormEvents_CSV_Mapping";
@@ -224,9 +224,9 @@ Execute o seguinte comando para exibir o status de todas as operações de inges
 | summarize arg_max(LastUpdatedOn, *) by OperationId
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se você planeja siga nossos outros artigos, manter os recursos que você criou. Caso contrário, execute o comando a seguir no seu banco de dados para limpar a tabela `StormEvents`.
+Se você planeja seguir nossos outros artigos, mantenha os recursos que você criou. Caso contrário, execute o comando a seguir no seu banco de dados para limpar a tabela `StormEvents`.
 
 ```Kusto
 .drop table StormEvents

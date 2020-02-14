@@ -10,13 +10,13 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: f1b15688004d23e8a568695b565b5b34d7b466d6
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.date: 02/12/2020
+ms.openlocfilehash: 7c9f22d27351b0f57c5a0158821f347073ae60b4
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110194"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187821"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
@@ -80,7 +80,7 @@ A seguir, um guia para configurar uma versão Azure Pipelines, que automatiza a 
 
 ![Diagrama de integração contínua com os pipelines do Azure](media/continuous-integration-deployment/continuous-integration-image12.png)
 
-### <a name="requirements"></a>{1&gt;{2&gt;Requisitos&lt;2}&lt;1}
+### <a name="requirements"></a>Requisitos
 
 -   Uma assinatura do Azure vinculada ao Visual Studio Team Foundation Server ou Azure Repos que usa o [ponto de extremidade de serviço do Azure Resource Manager](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
 
@@ -139,6 +139,9 @@ A seguir, um guia para configurar uma versão Azure Pipelines, que automatiza a 
 
    ![Selecionar criar versão](media/continuous-integration-deployment/continuous-integration-image10.png)
 
+> [!IMPORTANT]
+> Em cenários de CI/CD, o tipo de IR (Integration Runtime) em ambientes diferentes deve ser o mesmo. Por exemplo, se você tiver um IR auto-hospedado no ambiente de desenvolvimento, o mesmo IR também deverá ser do tipo auto-hospedado em outros ambientes, como teste e produção. Da mesma forma, se você estiver compartilhando tempos de execução de integração em vários estágios, precisará configurar os tempos de execução de integração como vinculados internamente em todos os ambientes, como desenvolvimento, teste e produção.
+
 ### <a name="get-secrets-from-azure-key-vault"></a>Obter segredos de Azure Key Vault
 
 Se você tiver segredos para passar um modelo de Azure Resource Manager, recomendamos que você use Azure Key Vault com a versão Azure Pipelines.
@@ -184,11 +187,11 @@ Há duas maneiras de lidar com os segredos:
 
 A implantação poderá falhar se você tentar atualizar gatilhos ativos. Para atualizar os gatilhos ativos, você precisa interrompê-los manualmente e reiniciá-los após a implantação. Você pode fazer isso usando uma tarefa de Azure PowerShell:
 
-1.  Na guia **tarefas** da versão, adicione uma tarefa de **Azure PowerShell** .
+1.  Na guia **tarefas** da versão, adicione uma tarefa de **Azure PowerShell** . Escolha a tarefa versão 4. *. 
 
-1.  Selecione **Azure Resource Manager** como o tipo de conexão e, em seguida, selecione sua assinatura.
+1.  Selecione a assinatura em que sua fábrica está.
 
-1.  Selecione **script embutido** como o tipo de script e, em seguida, forneça seu código. O código a seguir interrompe os gatilhos:
+1.  Selecione **caminho do arquivo de script** como o tipo de script. Isso exige que você salve o script do PowerShell em seu repositório. O seguinte script do PowerShell pode ser usado para parar gatilhos:
 
     ```powershell
     $triggersADF = Get-AzDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
@@ -196,21 +199,28 @@ A implantação poderá falhar se você tentar atualizar gatilhos ativos. Para a
     $triggersADF | ForEach-Object { Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
     ```
 
-    ![Azure PowerShell tarefa](media/continuous-integration-deployment/continuous-integration-image11.png)
-
 Você pode concluir etapas semelhantes (com a função `Start-AzDataFactoryV2Trigger`) para reiniciar os gatilhos após a implantação.
 
-> [!IMPORTANT]
-> Em cenários de CI/CD, o tipo de IR (Integration Runtime) em ambientes diferentes deve ser o mesmo. Por exemplo, se você tiver um IR auto-hospedado no ambiente de desenvolvimento, o mesmo IR também deverá ser do tipo auto-hospedado em outros ambientes, como teste e produção. Da mesma forma, se você estiver compartilhando tempos de execução de integração em vários estágios, precisará configurar os tempos de execução de integração como vinculados internamente em todos os ambientes, como desenvolvimento, teste e produção.
+### <a name="sample-pre--and-post-deployment-script"></a>Script pré e pós-implantação de exemplo
 
-#### <a name="sample-pre--and-post-deployment-script"></a>Script pré e pós-implantação de exemplo
+O script de exemplo a seguir pode ser usado para parar os gatilhos antes da implantação e reiniciá-los depois. O script também inclui código para excluir recursos que foram removidos. Salve o script em um repositório Git do Azure DevOps e faça referência a ele por meio de uma tarefa Azure PowerShell usando a versão 4. *.
 
-O script de exemplo a seguir mostra como parar os gatilhos antes da implantação e reiniciá-los depois. O script também inclui código para excluir recursos que foram removidos. Para instalar a versão mais recente do Azure PowerShell, consulte [Instalar o Azure PowerShell no Windows com o PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Ao executar um script de pré-implantação, você precisará especificar uma variação dos parâmetros a seguir no campo **argumentos de script** .
+
+`-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $true -deleteDeployment $false`
+
+
+Ao executar um script pós-implantação, será necessário especificar uma variação dos parâmetros a seguir no campo **argumentos de script** .
+
+`-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
+
+    ![Azure PowerShell task](media/continuous-integration-deployment/continuous-integration-image11.png)
+
+Este é o script que pode ser usado para pré e pós-implantação. Ele conta para recursos excluídos e referências de recursos.
 
 ```powershell
 param
 (
-    [parameter(Mandatory = $false)] [String] $rootFolder,
     [parameter(Mandatory = $false)] [String] $armTemplate,
     [parameter(Mandatory = $false)] [String] $ResourceGroupName,
     [parameter(Mandatory = $false)] [String] $DataFactoryName,
@@ -564,7 +574,7 @@ Aqui está uma explicação de como o modelo anterior é construído, dividido p
 * A propriedade `connectionString` será parametrizada como um valor de `securestring`. Ele não terá um valor padrão. Ele terá um nome de parâmetro abreviado com um sufixo `connectionString`.
 * A propriedade `secretAccessKey` é uma `AzureKeyVaultSecret` (por exemplo, em um serviço vinculado do Amazon S3). Ele é parametrizado automaticamente como um Azure Key Vault segredo e buscado a partir do cofre de chaves configurado. Você também pode parametrizar o cofre de chaves em si.
 
-#### <a name="datasets"></a>Conjuntos de dados
+#### <a name="datasets"></a>Conjunto de dados
 
 * Embora a personalização específica de tipo esteja disponível para conjuntos de informações, você pode fornecer configuração sem ter explicitamente uma configuração de nível \*. No exemplo anterior, todas as propriedades de DataSet em `typeProperties` são parametrizadas.
 

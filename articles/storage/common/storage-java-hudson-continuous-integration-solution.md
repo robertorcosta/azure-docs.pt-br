@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: tarcher
 ms.subservice: common
-ms.openlocfilehash: f8cdd7b950a11045f795ac93d4a0904f2dc526fa
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a89439f49dd53f09d5cd40be0bf2e4981e9235d4
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970187"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201378"
 ---
-# <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Usando o armazenamento do Azure com uma solução Hudson de integração contínua
-## <a name="overview"></a>Visão Geral
+# <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Usando o Armazenamento do Azure com uma solução Hudson Continuous Integration
+## <a name="overview"></a>Visão geral
 As informações a seguir mostram como usar o Armazenamento de Blobs como um repositório de artefatos de compilação criado por uma solução de CI (Integração Contínua) Hudson, ou como uma fonte de arquivos baixáveis a serem usados em um processo de compilação. Um dos cenários em que isso poderia ser útil é quando você está codificando em um ambiente de desenvolvimento ágil (usando Java ou outras linguagens), as compilações estão sendo executadas com base na integração contínua e você precisa de um repositório para seus artefatos de compilação, para que possa, por exemplo, compartilhá-los com outros membros da organização, com seus clientes ou mantê-los em um arquivo.  Outro cenário é quando o seu próprio trabalho de compilação requer outros arquivos, por exemplo, dependências a serem baixadas como parte da entrada da compilação.
 
 Neste tutorial, você usará o plug-in do armazenamento do Azure para Hudson CI disponibilizado pela Microsoft.
@@ -35,14 +35,14 @@ Alguns dos benefícios de usar o serviço Blob para hospedar seus artefatos de c
 * Desempenho quando seus clientes e parceiros baixam seus artefatos de compilação.
 * O controle sobre as políticas de acesso do usuário, com uma opção entre acesso anônimo, acesso compartilhado com base em expiração, acesso de assinatura, acesso particular, etc.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Será necessário o seguinte para usar o serviço Blob com a solução Hudson CI:
 
 * Uma solução Hudson Continuous Integration.
   
     Se não tem uma solução Hudson CI no momento, você pode executá-la usando a técnica a seguir:
   
-  1. Em um computador com Java, baixe o Hudson WAR de <http://hudson-ci.org/>.
+  1. Em um computador habilitado para Java, [Baixe o arquivo WAR do Hudson](https://www.eclipse.org/hudson/download.php).
   2. Em um prompt de comando aberto para a pasta que contém o Hudson WAR, execute o Hudson WAR. Por exemplo, se você baixou a versão 3.1.2:
      
       `java -jar hudson-3.1.2.war`
@@ -157,7 +157,7 @@ Segue abaixo uma visão geral dos componentes do serviço Blob.
   
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Conheça o Hudson](https://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
 * [SDK de Armazenamento do Azure para Java](https://github.com/azure/azure-storage-java)
 * [Referência de SDK do Cliente de Armazenamento do Azure](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)

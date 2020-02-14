@@ -16,12 +16,12 @@ ms.date: 10/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 814c81b6092c4af3778617e165a0bdbce09d71d7
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: d4b52a3025bfb15e2679709353cebf28254a75c2
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779119"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185513"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Entrada do usuário com autenticação de passagem do Azure Active Directory
 
@@ -49,7 +49,7 @@ Você pode combinar a Autenticação de Passagem com o recurso de [SSO (logon ú
   - Não há sobrecarga de gerenciamento. O agente recebe automaticamente melhorias e correções de bugs.
 - *Proteger*
   - Senhas locais nunca são armazenadas na nuvem, em formato nenhum.
-  - Proteja suas contas de usuário trabalhando diretamente com as [Políticas de acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md), incluindo a MFA (Autenticação Multifator), [bloqueando autenticação herdada](../conditional-access/conditions.md) e [filtrando ataques de senha de força bruta](../authentication/howto-password-smart-lockout.md).
+  - Proteja suas contas de usuário trabalhando diretamente com as [Políticas de acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md), incluindo a MFA (Autenticação Multifator), [bloqueando autenticação herdada](../conditional-access/concept-conditional-access-conditions.md) e [filtrando ataques de senha de força bruta](../authentication/howto-password-smart-lockout.md).
   - O agente estabelece conexões de saída apenas de dentro de sua rede. Portanto, não há nenhum requisito de instalar o agente em uma rede de perímetro, também conhecida como DMZ.
   - A comunicação entre um agente e o Azure AD é protegida com a autenticação baseada em certificado. Esses certificados são renovados automaticamente a cada poucos meses pelo Azure AD.
 - *Altamente disponível*
@@ -70,7 +70,7 @@ Você pode combinar a Autenticação de Passagem com o recurso de [SSO (logon ú
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Início rápido](how-to-connect-pta-quick-start.md) – comece a usar rapidamente a Autenticação de Passagem do Azure AD.
+- [Início rápido](how-to-connect-pta-quick-start.md) -obtenha a autenticação de passagem do Azure AD.
 - [Migrar do AD FS para Autenticação de Passagem](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) – um guia detalhado para migrar do AD FS (ou outras tecnologias de federação) para Autenticação de Passagem.
 - [Bloqueio Inteligente](../authentication/howto-password-smart-lockout.md) – configure a capacidade de Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
 - [Limitações Atuais](how-to-connect-pta-current-limitations.md) – saiba quais cenários têm suporte e quais não têm.

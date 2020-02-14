@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c173d0e17166911e28fea3d1c5820879d17af4a8
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 1a8832234978a2c8b2db25d88b5dd6c211b634b7
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381115"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186464"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Como: exigir aplicativos cliente aprovados para acesso ao aplicativo de nuvem com acesso condicional 
 
@@ -36,7 +36,7 @@ Na terminologia de acesso condicional, esses aplicativos cliente são conhecidos
 
 ![Acesso Condicional](./media/app-based-conditional-access/05.png)
 
-Para obter uma lista de aplicativos cliente aprovada, veja [requisito de aplicativo cliente aprovado](technical-reference.md#approved-client-app-requirement).
+Para obter uma lista de aplicativos cliente aprovada, veja [requisito de aplicativo cliente aprovado](concept-conditional-access-grant.md).
 
 Você pode combinar políticas de acesso condicional com base no aplicativo com outras políticas, como [políticas de acesso condicional com base no dispositivo](require-managed-devices.md) , para fornecer flexibilidade na proteção de dados para dispositivos pessoais e corporativos.
 
@@ -44,12 +44,12 @@ Você pode combinar políticas de acesso condicional com base no aplicativo com 
 
 Este tópico pressupõe que você esteja familiarizado com:
 
-- A referência técnica do [requisito de aplicativo cliente aprovado](technical-reference.md#approved-client-app-requirement).
+- O [requisito de aplicativo cliente aprovado](concept-conditional-access-grant.md).
 - Os conceitos básicos de [acesso condicional no Azure Active Directory](overview.md).
 - Como [Configurar uma política de acesso condicional](app-based-mfa.md).
 - A [migração de políticas de acesso condicional](best-practices.md#policy-migration).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para criar uma política de acesso condicional com base no aplicativo, você deve ter uma assinatura Enterprise Mobility + Security ou Azure Active Directory Premium e os usuários devem ser licenciados para o EMS ou o Azure AD. 
 

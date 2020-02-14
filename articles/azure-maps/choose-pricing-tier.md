@@ -8,45 +8,45 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 8764e9161f952118ca7ae28343dcd16477cf1eee
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 2950c0e0fdd6839b905386c90665d95563a0a3f2
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155750"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190279"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Escolha a camada de preços certa no Azure Mapas
 
-O mapas do Azure oferece dois tipos de preço, S0 e S1. A finalidade deste artigo é ajudá-lo a escolher o melhor preço para suas necessidades. Para ajudar a escolher a melhor camada de preços, pergunte o seguinte a si mesmo.
-
-## <a name="what-geospatial-capabilities-do-i-plan-to-use"></a>Quais recursos geoespaciais planejo usar?
-A camada de preços S0 é ideal para você se as APIs geoespaciais principais atendem aos seus requisitos de serviço. Se quiser recursos mais avançados para seu aplicativo, considere a camada de preços S1. Exemplo de recursos avançados: imagens híbridas, como obter intervalo de rotas e geocodificação de lote. A tabela de **capacidades de tipo de preço** pode ajudá-lo a escolher um tipo de preço mais adequado para seu aplicativo.
+O mapas do Azure oferece dois tipos de preço, S0 e S1. A finalidade deste artigo é ajudá-lo a escolher o melhor preço para suas necessidades. Para escolher o tipo de preço certo, faça a si mesmo as duas perguntas a seguir.
 
 ## <a name="how-many-concurrent-users-do-i-plan-to-support"></a>Quantos usuários simultâneos planejam oferecer suporte? 
-As camadas de preços S0 e S1 lidam com diferentes quantidades de taxa de transferência de dados. O tipo de preço S0 lida com até **50 consultas por segundo**, enquanto a camada S1 lida com **mais de 50 consultas por segundo**.
+As camadas de preços S0 e S1 lidam com diferentes quantidades de taxa de transferência de dados. A camada de preços S0 lida com até **50 consultas por segundo**. Enquanto a camada S1 lida com **mais de 50 consultas por segundo**.
+
+## <a name="what-geospatial-capabilities-do-i-plan-to-use"></a>Quais recursos geoespaciais planejo usar?
+O tipo de preço S0 é ideal para você, se as APIs geoespaciais principais atenderem aos seus requisitos de serviço. Se quiser recursos mais avançados para seu aplicativo, considere a camada de preços S1. Os recursos avançados incluem: imagens aéreas e híbridas, obter intervalo de rotas e geocodificação em lote. Examine a tabela de **capacidades do tipo de preço** para selecionar o tipo de preço mais adequado para seu aplicativo.
 
 ### <a name="pricing-tier-capabilities"></a>Recursos do tipo de preço
 
-| Capacidade                              |        S0           |  S1      |
+| Recurso                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
 | Renderização de mapa                              | ✓                   | ✓       |
 | Imagens satélite                       |                     | ✓        |
-| Pesquisa                                  | ✓                    | ✓        |
-| Pesquisa de Lote                            |                     | ✓        |
+| Search                                  | ✓                    | ✓        |
+| Pesquisa em lotes                            |                     | ✓        |
 | Rota                                   | ✓                    |✓        |
-| Roteamento de Lote                            |                    | ✓        |
-| Roteamento de Matriz                          |                     | ✓        |
-| Intervalo de Rota (Isócronos)                |                     | ✓        |
+| Roteamento do lote                            |                    | ✓        |
+| Roteamento de matriz                          |                     | ✓        |
+| Intervalo de rotas (isócronas)                |                     | ✓        |
 | Tráfego                                |✓                    |✓        |
 | Fuso horário                               |✓                    |✓        |
 | Localização geográfica (versão prévia)                    |✓                   |✓        |
 | Operações Espaciais                        |                    |✓        |
-| Delimitação geográfica                                |                    |✓        |
+| Geofencing                                |                    |✓        |
 | Dados do Azure Maps (versão prévia)                |                     | ✓        |
 | Mobilidade (visualização)                       |                     | ✓        |
 | Clima (visualização)                        |✓                    |✓        |
 
-Vale a pena considerar esses pontos de dados adicionais:
+Considere estes pontos adicionais:
 * Que tipo de empresa você tem?
 * Quão crítico é seu aplicativo?
 
@@ -54,12 +54,12 @@ Vale a pena considerar esses pontos de dados adicionais:
 
 Consulte a tabela com **Clientes da camada de preços** para obter uma noção melhor das camadas de preços S1 e S0. Para saber mais, consulte [Preços do Azure Mapas](https://azure.microsoft.com/pricing/details/azure-maps/). 
 
-| tipo de preço  |     Clientes de destino                                                                |
+| Tipo de preço  |     Clientes de destino                                                                |
 |-----------------|:-----------------------------------------------------------------------------------------|
 | S0            |    <p>O tipo de preço S0 funciona para aplicativos em todos os estágios de produção: desde desenvolvimento de prova de conceito e teste antecipado para produção e implantação de aplicativos. No entanto, essa camada foi projetada para desenvolvimento de pequena escala ou para clientes com poucos usuários simultâneos, ou ambos. <p>|
-| S1            |    <p>A camada de preços S1 serve clientes que precisam oferecer suporte a uma empresa de grande porte, aplicativos essenciais ou altos volumes de usuários simultâneos. Vale também para os clientes que necessitam de serviços geoespaciais avançados.</p>|
+| S1            |    <p>O tipo de preço S1 é para clientes com aplicativos empresariais de grande escala, aplicativos de missão crítica ou grandes volumes de usuários simultâneos. Vale também para os clientes que necessitam de serviços geoespaciais avançados.</p>|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre como exibir e alterar a camada de preços:
 

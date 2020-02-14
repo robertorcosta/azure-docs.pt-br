@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: fd235f3f39d67f86c8387add79ca0dbf17dc5906
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: cf9c79f608aa3ffd1137be41ff3348f62b890867
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911681"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198302"
 ---
 # <a name="drawing-tool-events"></a>Eventos da ferramenta de desenho
 
-Ao usar ferramentas de desenho em um mapa, geralmente é útil reagir a determinados eventos à medida que o usuário desenha no mapa. A tabela a seguir lista todos os eventos com suporte pela classe `DrawingManager`.
+Ao usar ferramentas de desenho em um mapa, é útil reagir a determinados eventos à medida que o usuário desenha no mapa. Esta tabela lista todos os eventos com suporte pela classe `DrawingManager`.
 
-| Evento | Description |
+| Evento | DESCRIÇÃO |
 |-------|-------------|
 | `drawingchanged` | Acionado quando qualquer coordenada em uma forma tiver sido adicionada ou alterada. | 
-| `drawingchanging` | Acionado quando qualquer coordenada de visualização para uma forma está sendo exibida. Por exemplo, serão disparados várias vezes à medida que uma coordenada for arrastada. | 
+| `drawingchanging` | Acionado quando qualquer coordenada de visualização para uma forma está sendo exibida. Por exemplo, esse evento será disparado várias vezes à medida que uma coordenada for arrastada. | 
 | `drawingcomplete` | Acionado quando uma forma termina de ser desenhada ou retirada do modo de edição. |
 | `drawingmodechanged` | Acionado quando o modo de desenho é alterado. O novo modo de desenho é passado para o manipulador de eventos. |
 | `drawingstarted` | Acionado quando o usuário começa a desenhar uma forma ou coloca uma forma no modo de edição.  |
@@ -39,11 +39,11 @@ Consulte os <a href='https://codepen.io/azuremaps/pen/dyPMRWo'>eventos das ferra
 
 ## <a name="examples"></a>Exemplos
 
-Veja a seguir exemplos de alguns cenários comuns que usam os eventos de ferramentas de desenho.
+Vamos ver alguns cenários comuns que usam os eventos de ferramentas de desenho.
 
 ### <a name="select-points-in-polygon-area"></a>Selecionar pontos na área de polígono
 
-O código a seguir mostra como monitorar o desenho de formas que representam áreas de polígono (polígonos, retângulos e círculos) e determinar quais pontos de dados no mapa estão dentro da área de desenho. O evento `drawingcomplete` é usado para disparar a lógica SELECT. Na lógica Select, todos os pontos de dados no mapa são iterados e testados para interseção com a área de polígono da forma desenhada. Este exemplo usa a biblioteca [Turf. js](https://turfjs.org/) de software livre para executar um cálculo de interseção espacial.
+Este código demonstra como monitorar um evento de formas de desenho de usuário. Para este exemplo, o código monitora formas de polígonos, retângulos e círculos. Em seguida, ele determina quais pontos de dados no mapa estão dentro da área de desenho. O evento `drawingcomplete` é usado para disparar a lógica SELECT. Na lógica Select, o código percorre todos os pontos de dados no mapa. Ele verifica se há uma interseção do ponto e a área da forma desenhada. Este exemplo usa a biblioteca [Turf. js](https://turfjs.org/) de software livre para executar um cálculo de interseção espacial.
 
 <br/>
 
@@ -55,7 +55,7 @@ Consulte a caneta <a href='https://codepen.io/azuremaps/pen/XWJdeja'>selecionar 
 
 ### <a name="draw-and-search-in-polygon-area"></a>Desenhar e pesquisar na área do polígono
 
-O código a seguir mostra como executar uma pesquisa por pontos de interesse dentro de uma área de forma depois que o usuário termina de desenhar a forma. O evento `drawingcomplete` é usado para disparar a lógica de pesquisa. Se o usuário desenha um retângulo ou polígono, uma pesquisa dentro de geometry é executada. Se um círculo for desenhado, a posição RADIUS e Center será usada para executar uma pesquisa de ponto de interesse. O evento `drawingmodechanged` é usado para determinar quando o usuário está alternando para um modo de desenho e limpa a tela de desenho.
+Esse código procura pontos de interesse dentro da área de uma forma após o usuário terminar de desenhar a forma. Você pode modificar e executar o código clicando em ' Editar na caneta de código ' no canto superior direito do quadro. O evento `drawingcomplete` é usado para disparar a lógica de pesquisa. Se o usuário desenha um retângulo ou polígono, uma pesquisa dentro de geometry é executada. Se um círculo for desenhado, a posição RADIUS e Center será usada para executar uma pesquisa de ponto de interesse. O evento `drawingmodechanged` é usado para determinar quando o usuário alterna para o modo de desenho, e esse evento limpa a tela de desenho.
 
 <br/>
 
@@ -67,7 +67,7 @@ Veja a caneta <a href='https://codepen.io/azuremaps/pen/eYmZGNv'>desenhar e pesq
 
 ### <a name="create-a-measuring-tool"></a>Criar uma ferramenta de medição
 
-O código a seguir mostra como os eventos de desenho podem ser usados para criar uma ferramenta de medição. O `drawingchanging` é usado para monitorar a forma à medida que ela está sendo desenhada. À medida que o usuário move o mouse, as dimensões da forma são calculadas. O evento `drawingcomplete` é usado para fazer um cálculo final na forma depois que ele é desenhado. O evento `drawingmodechanged` é usado para determinar quando o usuário está alternando para um modo de desenho e limpa a tela de desenho e as informações de medição antigas.
+O código a seguir mostra como os eventos de desenho podem ser usados para criar uma ferramenta de medição. O `drawingchanging` é usado para monitorar a forma, pois ela está sendo desenhada. À medida que o usuário move o mouse, as dimensões da forma são calculadas. O evento `drawingcomplete` é usado para fazer um cálculo final na forma depois que ele é desenhado. O evento `drawingmodechanged` é usado para determinar quando o usuário está alternando para um modo de desenho. Além disso, o evento `drawingmodechanged` limpa a tela de desenho e limpa as informações de medição antigas.
 
 <br/>
 
@@ -77,7 +77,7 @@ Consulte a <a href='https://codepen.io/azuremaps/pen/RwNaZXe'>ferramenta de medi
 
 <br/>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como usar recursos adicionais do módulo ferramentas de desenho:
 

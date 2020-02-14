@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 81f776428303ad5e6486ba52c1acdf70d051563e
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 1c1995b4daf3b76abf7663d8d6c1f4cb7b1d6e2b
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75835011"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201672"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a instância gerenciada do banco de dados SQL
 
@@ -82,21 +82,11 @@ Uma opção é [exportar o banco de dados para um BACPAC](sql-database-export.md
 
 Essa é a abordagem recomendada se o banco de dados for menor que 100 GB. A replicação transacional poderá ser usada se todas as tabelas no banco de dados tiverem chaves primárias.
 
-## <a name="gen-4-vs-gen-5"></a>Gen 4 vs Gen 5 
-
-**Como fazer escolher entre a geração de hardware Gen 4 e Gen 5 para a instância gerenciada?**
-
-Depende de sua carga de trabalho, pois alguma geração de hardware é melhor para determinados tipos de cargas de trabalho do que a outra. Embora o assunto do desempenho seja, em vez disso, um complexo para simplificar, as seguintes diferenças entre as gerações de hardware que afetam o desempenho da carga de trabalho:
-- A Gen 4 fornece um suporte de computação melhor, pois baseia-se em processadores físicos, em comparação com a Gen 5, baseada em processadores vCore. Pode ser mais vantajoso para computar cargas de trabalho intensivas.
-- A Gen 5 dá suporte à rede acelerada, resultando em uma largura de banda de e/s melhor para o armazenamento remoto Pode ser vantajoso para cargas de trabalho com uso intensivo de e/s em Uso Geral camadas de serviço. A Gen 5 usa discos locais SSD mais rápidos em comparação com a Gen 4. Pode ser vantajoso para cargas de trabalho com uso intensivo de e/s em camadas de serviço críticas para os negócios.
-
-É altamente recomendável testar o desempenho de cargas de trabalho reais destinadas à produção antes de entrar em tempo real para determinar qual geração de hardware funcionará melhor em um caso específico.
-
 ## <a name="switch-hardware-generation"></a>Alternar geração de hardware 
 
 **Posso mudar minha geração de hardware de instância gerenciada entre Gen 4 e Gen 5 online?**
 
-A alternância online automatizada entre gerações de hardware é possível se ambas as gerações de hardware estiverem disponíveis na região em que a instância gerenciada é provisionada. Nesse caso, você pode usar o [script da postagem do blog](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Change-hardware-generation-on-Managed-Instance/ba-p/699824) explicando como alternar entre as gerações de hardware.
+A alternância online automatizada entre gerações de hardware é possível se ambas as gerações de hardware estiverem disponíveis na região em que a instância gerenciada é provisionada. Nesse caso, você pode verificar a [página Visão geral do modelo vCore](sql-database-service-tiers-vcore.md) explicando como alternar entre as gerações de hardware.
 
 Essa é uma operação de execução longa, pois uma nova instância gerenciada será provisionada em segundo plano e os bancos de dados são transferidos automaticamente entre a instância antiga e a nova com um failover rápido no final do processo. 
 
@@ -108,8 +98,6 @@ Se as duas gerações de hardware não tiverem suporte na mesma região, a alter
 **Como fazer ajustar o desempenho da minha instância gerenciada?**
 
 Uso Geral instância gerenciada usa o armazenamento remoto porque o tamanho dos arquivos de dados e de log é importante para o desempenho. Para obter mais informações, consulte [impacto do tamanho do arquivo de log em Uso Geral instância gerenciada desempenho](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e).
-
-Para cargas de trabalho com uso intensivo de e/s, considere o uso de hardware Gen 5, versus usar Gen 4 para cargas de trabalho com computação intensiva. Para obter mais informações, consulte [como fazer escolha entre Gen 4 e Gen 5](#gen-4-vs-gen-5).
 
 Se sua carga de trabalho consistir em muitas transações pequenas, considere alternar o tipo de conexão do proxy para o modo de redirecionamento.
 

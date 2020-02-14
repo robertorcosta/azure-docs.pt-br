@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: mialdrid
-ms.openlocfilehash: 143f2f36cc93a9d67a3ab800782c9a6bb8a52af0
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: b4a83013d2cbeb2871a3963ec0c95144c02f4d66
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77067351"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187019"
 ---
 # <a name="expressroute-crossconnnections-api-development-and-integration"></a>Desenvolvimento e integração de API do ExpressRoute CrossConnnections
 
@@ -51,7 +51,7 @@ Os locais de emparelhamento de teste: dispositivos e portas fictícios não são
 
 ### <a name="2-register-the-dev_provider-subscription-to-access-the-expressroutecrossconnections-api"></a>2. Registre a assinatura do Dev_Provider para acessar a API do expressRouteCrossConnections
 
-Para acessar a API do expressRouteCrossConnections, a assinatura do parceiro precisa ser inscrita no **provedor de recursos Microsoft. Network**. Siga as etapas no artigo [provedores de recursos e tipos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#portal) para concluir o processo de registro.
+Para acessar a API do expressRouteCrossConnections, a assinatura do parceiro precisa ser inscrita no **provedor de recursos Microsoft. Network**. Siga as etapas no artigo [provedores de recursos e tipos do Azure](/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal) para concluir o processo de registro.
 
 ### <a name="3-set-up-authentication-for-azure-resource-manager-rest-api-calls"></a>3. configurar a autenticação para Azure Resource Manager chamadas à API REST
 
@@ -82,6 +82,6 @@ Desenvolva em relação à [API do expressRouteCrossConnections](https://docs.mi
 
 Consulte a documentação da [API REST do ExpressRoute CrossConnections](https://docs.microsoft.com/rest/api/expressroute/expressroutecrossconnections) para a API REST.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre todas as APIs REST do ExpressRoute, consulte [APIs REST do expressroute](https://docs.microsoft.com/rest/api/expressroute/).

@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 11/27/2019
-ms.openlocfilehash: 90f39a5edd32225b7fed259ca48dcf4802d0ced3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: eed0ed96efdc84697797c50578e11eee37d4d495
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443824"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201723"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Visão geral dos limites de recursos de instância gerenciada do banco de dados SQL
 
@@ -38,8 +38,8 @@ A instância gerenciada tem características e limites de recursos que dependem 
 | Armazenamento reservado de instância máx. |  Uso Geral: 8 TB<br/>Comercialmente Crítico: 1 TB | Uso Geral: 8 TB<br/> Comercialmente Crítico 1 TB, 2 TB ou 4 TB, dependendo do número de núcleos |
 
 > [!IMPORTANT]
-> - O hardware Gen4 está sendo desativado. É recomendável implantar novas instâncias gerenciadas em hardware Gen5.
-> - O hardware do Gen4 no momento ainda está disponível apenas nas seguintes regiões: Europa Setentrional, Europa Ocidental, leste dos EUA, Sul EUA Central, norte EUA Central, oeste dos EUA 2, EUA Central, Canadá central, sul da Índia, Sudeste Asiático e Coreia central.
+> - O hardware Gen4 está sendo descontinuado e não está mais disponível para as novas implantações. Todas as novas instâncias gerenciadas devem ser implantadas em hardware Gen5.
+> - Considere [mover suas instâncias gerenciadas para o hardware de geração 5](sql-database-service-tiers-vcore.md) para experimentar uma ampla gama de escalabilidade de armazenamento e vCore, rede acelerada, melhor desempenho de e/s e latência mínima.
 
 ### <a name="in-memory-oltp-available-space"></a>Espaço disponível no OLTP na memória 
 
@@ -134,7 +134,7 @@ A tabela a seguir mostra os **limites regionais padrão** para os tipos de assin
 
 |Tipo de assinatura| Número máximo de sub-redes de instância gerenciada | Número máximo de unidades vCore * |
 | :---| :--- | :--- |
-|Pós-pago|3|320|
+|Pago conforme o uso|3|320|
 |CSP |8 (15 em algumas regiões * *)|960 (1440 em algumas regiões * *)|
 |Desenvolvimento/Teste pago conforme o uso|3|320|
 |Desenvolvimento/Teste Enterprise|3|320|
@@ -180,7 +180,7 @@ Para iniciar o processo de obtenção de uma cota maior:
 6. Na guia Informações de contato da nova solicitação de suporte, insira o método de contato preferencial (email ou telefone) e os detalhes de contato.
 7. Clique em **Criar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter mais informações sobre a instância gerenciada, consulte [o que é uma instância gerenciada?](sql-database-managed-instance.md).
 - Para saber mais sobre preços, veja [Preços de instância gerenciada do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/managed/).

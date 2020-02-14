@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: dfb1d71a02ae3bf06a5f2d8a93bcb3ac83433a86
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 361ee5179b20d9488bb477a4e3c9fc0f0e6f266e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460354"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190657"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Desenvolvimento para o Arquivos do Azure com .NET
 
@@ -39,7 +39,7 @@ Os Arquivos do Azure fornecem duas abordagens amplas para aplicativos cliente: p
 API | Quando usar | Observações
 ----|-------------|------
 [System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Seu aplicativo: <ul><li>Precisa ler/gravar arquivos usando SMB</li><li>Está em execução em um dispositivo que tem acesso pela porta 445 à sua conta do Arquivos do Azure</li><li>Não precisa gerenciar nenhum das configurações administrativas do compartilhamento de arquivo</li></ul> | A e/s de arquivo implementada com os arquivos do Azure via SMB geralmente é a mesma de e/s com qualquer compartilhamento de arquivos de rede ou dispositivo de armazenamento local. Para obter uma introdução a vários recursos no .NET, incluindo e/s de arquivo, consulte o tutorial [aplicativo de console](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter) .
-[Microsoft.Azure.Storage.File](https://docs.microsoft.com/dotnet/api/overview/azure/storage#client-library) | Seu aplicativo: <ul><li>Não é possível acessar os arquivos do Azure usando SMB na porta 445 devido a restrições de firewall ou ISP</li><li>Requer a funcionalidade administrativa, como a capacidade de definir uma cota de compartilhamento de arquivos ou criar uma assinatura de acesso compartilhado</li></ul> | Este artigo demonstra o uso de `Microsoft.Azure.Storage.File` para e/s de arquivo usando REST em vez de SMB e gerenciamento do compartilhamento de arquivos.
+[Microsoft. Azure. Storage. File](/dotnet/api/overview/azure/storage?view=azure-dotnet#version-11x) | Seu aplicativo: <ul><li>Não é possível acessar os arquivos do Azure usando SMB na porta 445 devido a restrições de firewall ou ISP</li><li>Requer a funcionalidade administrativa, como a capacidade de definir uma cota de compartilhamento de arquivos ou criar uma assinatura de acesso compartilhado</li></ul> | Este artigo demonstra o uso de `Microsoft.Azure.Storage.File` para e/s de arquivo usando REST em vez de SMB e gerenciamento do compartilhamento de arquivos.
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Criar o aplicativo do console e obter o assembly
 
@@ -79,7 +79,7 @@ Você pode usar NuGet para obter os dois pacotes. Siga estas etapas:
 1. Pesquise e instale esses pacotes:
 
    * **Microsoft. Azure. Storage. Common**
-   * **Microsoft.Azure.Storage.File**
+   * **Microsoft. Azure. Storage. File**
    * **Microsoft. Azure. ConfigurationManager**
 
 ## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Salvar as credenciais da conta de armazenamento no arquivo app. config
@@ -480,7 +480,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 
 Se você encontrar algum problema, poderá consultar [solucionar problemas de arquivos do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre os arquivos do Azure, consulte os seguintes recursos:
 
@@ -497,7 +497,7 @@ Para obter mais informações sobre os arquivos do Azure, consulte os seguintes 
 
 ### <a name="reference"></a>Referência
 
-* [APIs do Armazenamento do Microsoft Azure para .NET](/dotnet/api/overview/azure/storage)
+* [APIs de armazenamento do Azure para .NET](/dotnet/api/overview/azure/storage)
 * [API REST do serviço de arquivo](/rest/api/storageservices/File-Service-REST-API)
 
 ### <a name="blog-posts"></a>Postagens no blog

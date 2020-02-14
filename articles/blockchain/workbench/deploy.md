@@ -4,12 +4,12 @@ description: Como implantar a visualização do Azure Blockchain Workbench
 ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: brendal
-ms.openlocfilehash: 190f780d7aed30667c23bb97f9ce7726da0f00ca
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: fab61b5850815e480b4a380fdccd6c1df5b449cd
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779817"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189239"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Implantar a visualização do Azure Blockchain Workbench
 
@@ -19,15 +19,15 @@ Para obter mais informações sobre os componentes do Blockchain Workbench, cons
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
-## <a name="prepare-for-deployment"></a>Preparar para implantação
+## <a name="prepare-for-deployment"></a>Preparar para a implantação
 
 O Workbench Blockchain permite que você implante uma razão blockchain juntamente com um conjunto de serviços do Microsoft Azure relevante geralmente usado para criar um aplicativo baseado em blockchain. Implantar o Blockchain Workbench resulta nos seguintes serviços do Azure que estão sendo provisionados dentro de um grupo de recursos em sua assinatura do Azure.
 
 * Plano do serviço de aplicativo (padrão)
-* Percepções sobre o Aplicativo
+* Application Insights
 * Grade de Eventos
-* Azure Key Vault
-* Service Bus
+* Cofre de Chave do Azure
+* Barramento de Serviço
 * Banco de dados SQL (Standard S0) + servidor lógico do SQL
 * Conta de armazenamento do Azure (Standard LRS)
 * Conjunto de dimensionamento de máquinas virtuais com capacidade de 1
@@ -40,7 +40,7 @@ A seguir está um exemplo de implantação criado no grupo de recursos do **mybl
 
 O custo do Blockchain Workbench é uma agregação do custo de serviços subjacentes do Azure. Informações sobre preços para serviços do Azure podem ser calculadas usando a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 O Azure Blockchain Workbench requer a configuração do Azure AD e os registros de aplicativos. É possível fazer as [configurações do Azure AD](#azure-ad-configuration) manualmente antes da implantação ou executar uma implantação pós-script. Se estiver reimplementando o Blockchain Workbench, consulte as [configurações do Azure AD](#azure-ad-configuration) para verificar a configuração do Azure AD.
 
@@ -58,7 +58,7 @@ Depois de concluir as etapas de pré-requisito, você estará pronto para implan
 
     ![Criar Azure Blockchain Workbench](media/deploy/blockchain-workbench-settings-basic.png)
 
-    | Configuração | Description  |
+    | Configuração | DESCRIÇÃO  |
     |---------|--------------|
     | Prefixo de recursos | Identificador exclusivo curto para sua implantação. Esse valor é usado como base para nomear recursos. |
     | Nome de usuário da VM | O nome de usuário é usado como administrador para todas as máquinas virtuais (VM). |
@@ -69,7 +69,7 @@ Depois de concluir as etapas de pré-requisito, você estará pronto para implan
     | Resultados da implantação | Especifique onde implantar os recursos Blockchain Workbench. Para melhor disponibilidade, isso deve corresponder à configuração do **Local**. |
     | Subscription | Especifique a assinatura do Azure que você deseja usar para sua implantação. |
     | Grupos de recursos | Crie um novo grupo de recursos selecionando **Criar novo** e especifique um nome exclusivo para o grupo de recursos. |
-    | Local | Especifique a região em que você deseja implantar a estrutura. |
+    | Location | Especifique a região em que você deseja implantar a estrutura. |
 
 1. Selecione **OK** para concluir a seção de configuração básica.
 
@@ -81,7 +81,7 @@ Depois de concluir as etapas de pré-requisito, você estará pronto para implan
 
     ![Configurações avançadas para nova rede de blockchain](media/deploy/advanced-blockchain-settings-new.png)
 
-    | Configuração | Description  |
+    | Configuração | DESCRIÇÃO  |
     |---------|--------------|
     | Tipo de preço do serviço Blockchain do Azure | Escolha a camada de serviço do Azure Blockchain **básica** ou **padrão** que é usada para o Blockchain Workbench |
     | Configurações do Azure Active Directory | Escolha **Adicionar mais tarde**.</br>Observação: se você escolher [pré-configurar o Azure AD](#azure-ad-configuration) ou estiver reimplantando, escolha *Adicionar Agora*. |
@@ -100,7 +100,7 @@ Depois de concluir as etapas de pré-requisito, você estará pronto para implan
 
      ![Configurações avançadas para rede de blockchain existente](media/deploy/advanced-blockchain-settings-existing.png)
 
-     | Configuração | Description  |
+     | Configuração | DESCRIÇÃO  |
      |---------|--------------|
      | Ponto de extremidade RPC do Ethereum | Fornecer o ponto de extremidade RPC de uma rede de blockchain de PoA existente. O ponto de extremidade começa com https:// ou http:// e termina com um número de porta. Por exemplo, `http<s>://<network-url>:<port>` |
      | Configurações do Azure Active Directory | Escolha **Adicionar mais tarde**.</br>Observação: se você escolher [pré-configurar o Azure AD](#azure-ad-configuration) ou estiver reimplantando, escolha *Adicionar Agora*. |
@@ -195,7 +195,7 @@ A implantação do Blockchain Workbench exige o registro de um aplicativo do Mic
 Em seguida, será necessário modificar o manifesto para usar as funções do aplicativo no Azure AD e especificar os administradores do Blockchain Workbench.  Para obter mais informações sobre manifestos de aplicativos, consulte [Manifesto de aplicativo do Microsoft Azure Active Directory](../../active-directory/develop/reference-app-manifest.md).
 
 
-1. Você precisa gerar um GUID para o manifesto. Você pode gerar um GUID usando o comando do PowerShell `[guid]::NewGuid()` ou `New-GUID` cmdlet. Outra opção é usar um site gerador de GUID.
+1. Um GUID é necessário para o manifesto. Você pode gerar um GUID usando o comando do PowerShell `[guid]::NewGuid()` ou `New-GUID` cmdlet. Outra opção é usar um site gerador de GUID.
 1. Para o aplicativo que você registrou, selecione **manifesto** na seção **gerenciar** .
 1. Em seguida, atualize a seção **appRoles** do manifesto. Substitua `"appRoles": []` pelo JSON fornecido. Certifique-se de substituir o valor do campo **id** pelo GUID gerado. 
 
@@ -233,8 +233,15 @@ Em seguida, será necessário modificar o manifesto para usar as funções do ap
 O aplicativo de API precisa solicitar a permissão do usuário para acessar o diretório. Defina a seguinte permissão necessária para o aplicativo de API:
 
 1. No registro do aplicativo de *API do Blockchain* , selecione **permissões de API**. Por padrão, a permissão API do Graph **User. Read** é adicionada.
+1. O aplicativo Workbench requer acesso de leitura às informações básicas de perfil dos usuários. Em *permissões configuradas*, selecione **Adicionar uma permissão**. Em **APIs da Microsoft**, selecione **Microsoft Graph**.
+1. Como o aplicativo Workbench usa as credenciais de usuário autenticado, selecione **permissões delegadas**.
+1. Na categoria *usuário* , escolha a permissão **User. ReadBasic. All** .
 
-1. Em **conceder consentimento**, selecione **conceder consentimento do administrador** para o domínio e, em seguida, selecione **Sim** para o prompt de verificação.
+    ![Configuração de registro de aplicativo do Azure AD mostrando a adição do Microsoft Graph usuário. ReadBasic. todas as permissões delegadas](media/deploy/add-graph-user-permission.png)
+
+    Selecione **Adicionar Permissões**.
+
+1. Em *permissões configuradas*, selecione **conceder consentimento do administrador** para o domínio e, em seguida, selecione **Sim** para o prompt de verificação.
 
    ![Conceder permissões](media/deploy/client-app-grant-permissions.png)
 
@@ -277,7 +284,7 @@ Após a implantação do Azure Blockchain Workbench, será necessário configura
 1. Verifique se que você está no locatário em que registrou o aplicativo cliente do Microsoft Azure Active Directory.
 1. No painel de navegação esquerdo, selecione o serviço do **Azure Active Directory**. Selecione **Registros do Aplicativo**.
 1. Selecione o aplicativo cliente do Microsoft Azure Active Directory registrado na seção de pré-requisitos.
-1. Selecione **Autenticação**.
+1. Selecione **autenticação**.
 1. Especifique a URL da Web principal da implantação do Azure Blockchain Workbench que você recuperou na seção [URL da Web do Blockchain Workbench](#blockchain-workbench-web-url) . A URL de resposta é prefixada com `https://`. Por exemplo, `https://myblockchain2-7v75.azurewebsites.net`
 
     ![URLs de resposta de autenticação](media/deploy/configure-reply-url.png)
@@ -297,7 +304,7 @@ Quando uma implantação não é mais necessária, você pode remover uma implan
 
     ![Excluir grupo de recursos](media/deploy/delete-resource-group.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo de procedimentos, você implantou o Workbench do Azure Blockchain. Para saber como usar o aplicativo blockchain, continue no próximo artigo de instruções.
 

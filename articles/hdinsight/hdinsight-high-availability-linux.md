@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 8c3e377faef4e18bff01fd7001751d1f1e347b8d
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 085933f9a74ee37779ce63ce499d89ea53a9f7d6
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030856"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198932"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilidade e confiabilidade dos clusters Apache Hadoop em HDInsight
 
@@ -27,7 +27,7 @@ O Hadoop atinge a alta disponibilidade e confiabilidade replicando serviços e d
 Os nós em um cluster HDInsight são implementados com o uso de Máquinas Virtuais do Azure. As seções a seguir abordam os tipos de nós individuais usados com o HDInsight.
 
 > [!NOTE]  
-> Nem todos os tipos de nó são usados para um tipo de cluster. Por exemplo, um tipo de cluster Hadoop não tem nenhum nó Nimbus. Para obter mais informações sobre os nós usados pelos tipos de cluster HDInsight, veja a seção “Tipos de cluster” do documento [Criar clusters Hadoop baseados em Linux no HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+> Nem todos os tipos de nó são usados para um tipo de cluster. Por exemplo, um tipo de cluster Hadoop não tem nenhum nó Nimbus. Para obter mais informações sobre os nós usados pelos tipos de cluster HDInsight, veja a seção “Tipos de cluster” do documento [Criar clusters Hadoop baseados em Linux no HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-type).
 
 ### <a name="head-nodes"></a>Nós de cabeçalho
 
@@ -64,7 +64,7 @@ O acesso ao cluster pela internet é fornecido por meio de um gateway público. 
 
 O acesso ao gateway público é limitado às portas 443 (HTTPS), 22 e 23.
 
-|Porta |Descrição |
+|Porta |DESCRIÇÃO |
 |---|---|
 |443|Usado para acessar o Ambari e outra interface do usuário da Web ou APIs REST hospedadas nos nós de cabeçalho.|
 |22|Usado para acessar o nó principal ou o nó de borda primário com SSH.|
@@ -97,7 +97,7 @@ Para saber mais sobre como trabalhar com a API REST do Ambari, consulte [Monitor
 
 Você pode se conectar a nós que não são diretamente acessíveis pela Internet usando os seguintes métodos:
 
-|Método |Descrição |
+|Método |DESCRIÇÃO |
 |---|---|
 |SSH|Assim que estiver conectado a um nó de cabeçalho usando o SSH, você poderá usar o SSH por meio do nó de cabeçalho para se conectar aos outros nós no cluster. Para saber mais, consulte o documento [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
 |Túnel SSH|Se precisar acessar um serviço Web hospedado em um dos nós que não está exposto à Internet, você deverá usar um túnel SSH. Para saber mais, consulte o documento [Usar túnel SSH com HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).|
@@ -119,7 +119,7 @@ Há uma série de ícones que podem aparecer ao lado de um serviço para indicar
 
 Os alertas a seguir ajudam a monitorar a disponibilidade de um cluster:
 
-| Nome do alerta                               | Descrição                                                                                                                                                                                  |
+| Nome do alerta                               | DESCRIÇÃO                                                                                                                                                                                  |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Status do monitor de métrica                    | Esse alerta indica o status do processo de monitor de métricas conforme determinado pelo script de status do monitor.                                                                                   |
 | Pulsação do agente Ambari                   | Esse alerta será disparado se o servidor tiver perdido o contato com um agente.                                                                                                                        |
@@ -276,7 +276,7 @@ Ao criar um cluster, você pode especificar o tamanho dos nós. As informações
 
 * **Azure PowerShell**: ao usar o cmdlet [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) , você pode definir o tamanho dos nós de cabeçalho, trabalho e ZooKeeper usando os parâmetros `-HeadNodeSize`, `-WorkerNodeSize`e `-ZookeeperNodeSize`.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre os itens discutidos neste artigo, consulte:
 

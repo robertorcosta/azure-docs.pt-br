@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/03/2020
-ms.openlocfilehash: e1eb852b7cf7aea887dea429e19b0a3b1ac5805a
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.date: 02/14/2020
+ms.openlocfilehash: 14b04f7d6068863c79c7060d29b58232be1f40cb
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989851"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201791"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nível de compatibilidade para trabalhos do Azure Stream Analytics
 
@@ -49,9 +49,13 @@ Para atualizar o nível de compatibilidade do trabalho no portal do Azure:
 
 Quando você atualiza o nível de compatibilidade, o compilador T valida o trabalho com a sintaxe que corresponde ao nível de compatibilidade selecionado.
 
-## <a name="compatibility-level-12"></a>Nível de compatibilidade 1.2
+## <a name="compatibility-level-12"></a>Nível de compatibilidade 1,2
 
 As seguintes alterações principais são introduzidas no nível de compatibilidade 1,2:
+
+###  <a name="amqp-messaging-protocol"></a>Protocolo de mensagens AMQP
+
+**nível 1,2**: o Azure Stream Analytics usa o protocolo de mensagens [do protocolo AMQP](../service-bus-messaging/service-bus-amqp-overview.md) para gravar em filas e tópicos do barramento de serviço. O AMQP permite que você crie várias plataformas, aplicativos híbridos usando um protocolo de padrão aberto.
 
 ### <a name="geospatial-functions"></a>Funções geoespaciais
 
@@ -146,7 +150,7 @@ As alterações principais a seguir são apresentadas no nível de compatibilida
 
 **nível de 1,1:** Não há mais nenhum upcast automático de valores de cadeia de caracteres com informações de data/hora/zona para o tipo DateTime. Dessa forma, as informações de fuso horário são mantidas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Solucionar problemas de entradas do Azure Stream Analytics](stream-analytics-troubleshoot-input.md)
 * [Stream Analytics o Resource Health](stream-analytics-resource-health.md)

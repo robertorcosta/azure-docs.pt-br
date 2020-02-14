@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: e4ba7326d9c23bed2406e62fe1a206501d05a1b1
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 021941339bbbf72112628c54f5b05d5fd305bd0f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666169"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198574"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar um aplicativo do serviço de aplicativo no portal do Azure
 
@@ -90,7 +90,7 @@ No [portal do Azure], procure e selecione serviços de **aplicativos**e, em segu
 
 ![Configurações do aplicativo](./media/configure-common/open-ui.png)
 
-Para desenvolvedores de ASP.NET e ASP.NET Core, definir cadeias de conexão no serviço de aplicativo é como configurá-los em `<connectionStrings>` no *Web. config*, mas os valores definidos no serviço de aplicativo substituem aqueles em *Web. config*. Você pode manter as configurações de desenvolvimento (por exemplo, um arquivo de banco de dados) em *Web. config* e segredos de produção (por exemplo, credenciais do banco de dados SQL) seguras no serviço de aplicativo. O mesmo código usa suas configurações de desenvolvimento quando você depura localmente e usa seus segredos de produção quando implantado no Azure.
+Para desenvolvedores de ASP.NET e ASP.NET Core, definir cadeias de conexão no serviço de aplicativo é como configurá-los em `<connectionStrings>` no *Web. config*, mas os valores definidos no serviço de aplicativo substituem aqueles em *Web. config*. Você pode manter as configurações de desenvolvimento (por exemplo, um arquivo de banco de dados) em *Web. config* e os segredos de produção (por exemplo, credenciais do banco de dados SQL) com segurança no serviço de aplicativo. O mesmo código usa suas configurações de desenvolvimento quando você depura localmente e usa seus segredos de produção quando implantado no Azure.
 
 Para outras pilhas de idiomas, é melhor usar [as configurações do aplicativo](#configure-app-settings) , pois as cadeias de conexão exigem formatação especial nas chaves variáveis para acessar os valores. Aqui está uma exceção. no entanto: certos tipos de banco de dados do Azure são submetidos a backup junto com o aplicativo se você configurar suas cadeias de conexão em seu aplicativo. Para obter mais informações, consulte [o que é feito](manage-backup.md#what-gets-backed-up)backup. Se você não precisar desse backup automatizado, use as configurações do aplicativo.
 
@@ -155,7 +155,7 @@ As cadeias de conexão têm a seguinte formatação JSON:
 <a name="platform"></a>
 <a name="alwayson"></a>
 
-## <a name="configure-general-settings"></a>Definir as configurações gerais
+## <a name="configure-general-settings"></a>Definir configurações gerais
 
 No [portal do Azure], procure e selecione serviços de **aplicativos**e, em seguida, selecione seu aplicativo. No menu à esquerda do aplicativo, selecione **configuração** > **configurações gerais**.
 
@@ -225,7 +225,7 @@ Você pode [Adicionar armazenamento personalizado para seu aplicativo em contêi
 - **Chave de acesso**: para configuração avançada, a chave de acesso.
 - **Caminho de montagem**: o caminho absoluto em seu contêiner para montar o armazenamento personalizado.
 
-Para obter mais informações, consulte [fornecer conteúdo do armazenamento do Azure no serviço de aplicativo no Linux](containers/how-to-serve-content-from-azure-storage.md).
+Para obter mais informações, confira [Servir conteúdo do Armazenamento do Microsoft Azure no Serviço de Aplicativo no Linux](containers/how-to-serve-content-from-azure-storage.md).
 
 ## <a name="configure-language-stack-settings"></a>Definir configurações de pilha de idiomas
 
@@ -242,7 +242,7 @@ Para aplicativos do Linux, consulte:
 
 Consulte [configurar um contêiner personalizado do Linux para o serviço Azure app](containers/configure-custom-container.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure]
 - [Configurar ambientes de preparo no Serviço de Aplicativo do Azure]

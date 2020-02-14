@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 894530aa9624af18f2f33a061d5cde683e9f01be
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 266fa2403ef96e808a0c1f1eb46b4f7065c06252
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72880271"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185898"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Como planejar sua implantação de acesso condicional no Azure Active Directory
 
@@ -53,7 +53,7 @@ Use o modelo de exemplo a seguir para criar políticas de acesso condicional par
 |For feita uma tentativa de acesso:<br>- Em um aplicativo em nuvem *<br> - Por usuários e grupos*<br>Usando:<br>- Condição 1 (por exemplo, fora da rede corporativa)<br>- Condição 2 (por exemplo, plataformas de dispositivo)|Conceda acesso com (E):<br>- Requisito 1 (por exemplo, MFA)<br>- Requisito 2 (por exemplo, conformidade de dispositivo)|
 |For feita uma tentativa de acesso:<br>- Em um aplicativo em nuvem *<br> - Por usuários e grupos*<br>Usando:<br>- Condição 1 (por exemplo, fora da rede corporativa)<br>- Condição 2 (por exemplo, plataformas de dispositivo)|Conceda acesso com (OU):<br>- Requisito 1 (por exemplo, MFA)<br>- Requisito 2 (por exemplo, conformidade de dispositivo)|
 
-No mínimo, **quando isso ocorrer** define a entidade de segurança (**quem**) que tenta acessar um aplicativo em nuvem (**o quê**). Se necessário, você também pode incluir **como** uma tentativa de acesso é realizada. No acesso condicional, os elementos que definem quem, o que e como são conhecidos como condições. Para obter mais informações, consulte [o que são condições em Azure Active Directory acesso condicional?](conditions.md) 
+No mínimo, **quando isso ocorrer** define a entidade de segurança (**quem**) que tenta acessar um aplicativo em nuvem (**o quê**). Se necessário, você também pode incluir **como** uma tentativa de acesso é realizada. No acesso condicional, os elementos que definem quem, o que e como são conhecidos como condições. Para obter mais informações, consulte [o que são condições em Azure Active Directory acesso condicional?](concept-conditional-access-conditions.md) 
 
 Com **faça isso**, você define a resposta da sua política a uma condição de acesso. Em sua resposta, você bloqueia ou concede acesso com requisitos adicionais, por exemplo, MFA (autenticação multifator). Para obter uma visão geral completa, consulte [o que são controles de acesso no Azure Active Directory acesso condicional?](controls.md)  
 
@@ -116,7 +116,7 @@ Os casos de uso comuns para exigir MFA são os acessos:
 
 Com as políticas de acesso condicional, você pode implementar respostas automatizadas para entradas de identidades potencialmente comprometidas. A probabilidade de que uma conta tenha sido comprometida é expressa na forma de níveis de risco. Há dois níveis de risco calculados pela proteção de identidade: risco de credenciais e risco de usuário. Para implementar uma resposta em um risco de credenciais, você tem duas opções:
 
-- [A condição de risco de entrada](conditions.md#sign-in-risk) na política de acesso condicional
+- [A condição de risco de entrada](concept-conditional-access-conditions.md#sign-in-risk) na política de acesso condicional
 - [A política de risco de credenciais](../identity-protection/howto-sign-in-risk-policy.md) na proteção de identidade 
 
 Abordar o risco de credenciais como condição é o método preferencial, pois ele proporciona a você mais opções de personalização.
@@ -172,7 +172,7 @@ O plano de teste é importante para que se tenha uma comparação entre os resul
 
 O gerenciamento de políticas de acesso condicional é uma tarefa manual. No portal do Azure, você pode gerenciar suas políticas de acesso condicional em um local central-a página de acesso condicional. Um ponto de entrada para a página de acesso condicional é a seção **segurança** no painel de navegação **Active Directory** . 
 
-![Acesso condicional](media/plan-conditional-access/03.png)
+![Acesso Condicional](media/plan-conditional-access/03.png)
 
 Se você quiser saber mais sobre como criar políticas de acesso condicional, consulte [exigir MFA para aplicativos específicos com Azure Active Directory acesso condicional](app-based-mfa.md). Este início rápido ajuda você a:
 
@@ -181,7 +181,7 @@ Se você quiser saber mais sobre como criar políticas de acesso condicional, co
 
 ### <a name="evaluate-a-simulated-sign-in"></a>Avaliar uma entrada simulada
 
-Agora que você configurou a política de acesso condicional, provavelmente deseja saber se ela funciona conforme o esperado. Como primeira etapa, use a [ferramenta de política “What If”](what-if-tool.md) do acesso condicional para simular uma entrada de seu usuário de teste. A simulação calcula o impacto que essa conexão tem em suas políticas e gera um relatório de simulação.
+Agora que você configurou a política de acesso condicional, provavelmente deseja saber se ela funciona conforme o esperado. Como primeira etapa, use a [ferramenta de política “What If”](what-if-tool.md) do acesso condicional para simular uma entrada de seu usuário de teste. A simulação calcula o impacto que esse logon tem em suas políticas e gera um relatório de simulação.
 
 >[!NOTE]
 > Embora uma execução simulada lhe dê a impressão do impacto de uma política de acesso condicional, ela não substitui uma execução de teste real.
@@ -231,6 +231,6 @@ Caso você precise reverter as suas políticas recentemente implementadas, use u
 
 1. **Excluir a política**: se a política não for mais necessária, exclua-a.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte a [Documentação de Acesso Condicional do Azure Active Directory](index.yml) para obter uma visão geral das informações disponíveis.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: c5e58f496176ec0f1b8317c8b862a8ef2ffa434d
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 96515d81668bf172325f88e3e5bac8d8cccfa999
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262726"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190854"
 ---
 # <a name="connect-your-domain-name-server"></a>Conectar seu servidor de nome de domínio
 
@@ -73,7 +73,17 @@ A solução coleta dados relacionados a eventos e ao inventário DNS dos servido
 
 Em Log Analytics, procure o esquema **DnsEvents** e verifique se há eventos.
 
+## <a name="troubleshooting"></a>solução de problemas
+
+Se as consultas de pesquisa não aparecerem no Azure Sentinel, siga estas etapas para que as consultas sejam exibidas corretamente:
+1. Ative os [logs de análise de DNS em seus servidores](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)).
+2. Certifique-se de que DNSEvents apareça na lista de coleções de Log Analytics.
+3. Ativar [análise de DNS do Azure](../azure-monitor/insights/dns-analytics.md).
+4. No Azure Análise de DNS, em **configuração**, altere qualquer uma das configurações, salve-a e, em seguida, altere-a novamente, se necessário, e salve-a novamente.
+5. Verifique a análise de DNS do Azure para certificar-se de que as consultas estão sendo exibidas agora.
+
 ## <a name="next-steps"></a>Próximas etapas
+
 Neste documento, você aprendeu a conectar os dispositivos locais do DNS ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
-- Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
-- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
+- Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).

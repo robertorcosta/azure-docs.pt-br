@@ -1,5 +1,5 @@
 ---
-title: Migrar políticas de acesso condicional-Azure Active Directory
+title: Migrar políticas de acesso condicional – Azure Active Directory
 description: Veja o que você precisa saber para migrar as políticas clássicas no portal do Azure.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16c6ce46af8fb9a9ab4be5fcc63ccd4909374e4f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 33b1f76dd1489e00115d0f805add8d754038df84
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74846157"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185921"
 ---
 # <a name="conditional-access-classic-policy-migration"></a>Migração de política clássica de acesso condicional
 
@@ -89,7 +89,7 @@ Se você tiver uma nova política que tem **Exchange Active Sync** como condiç�
 
 ![Condições de acesso condicional](./media/policy-migration/16.png)
  
-As políticas clássicas [com base no aplicativo](technical-reference.md#approved-client-app-requirement) para o Office 365 Exchange online que incluem **Exchange Active Sync** como condição de aplicativos cliente permitem **plataformas de dispositivo** **com suporte** e [sem suporte](technical-reference.md#device-platform-condition). Uma vez que você não pode configurar plataformas de dispositivos individuais em uma nova política relacionada, você pode limitar o suporte somente para [plataformas de dispositivo com suporte](technical-reference.md#device-platform-condition). 
+As políticas clássicas baseadas em aplicativo para o Office 365 Exchange Online que incluem o **Exchange Active Sync** como condição de aplicativos cliente permitem plataformas de dispositivo **com** e sem **suporte** . Uma vez que você não pode configurar plataformas de dispositivos individuais em uma nova política relacionada, você pode limitar o suporte somente para [plataformas de dispositivo com suporte](concept-conditional-access-conditions.md#device-platforms). 
 
 ![Acesso condicional selecione Exchange ActiveSync](./media/policy-migration/65.png)
 
@@ -109,13 +109,13 @@ Nesse caso, você pode consolidar suas políticas clássicas em uma nova políti
 
 ### <a name="device-platforms"></a>Plataformas de dispositivo
 
-As políticas clássicas com [controles baseados em aplicativo](technical-reference.md#approved-client-app-requirement) são pré-configurados com iOS e Android como [condição de plataforma de dispositivo](technical-reference.md#device-platform-condition). 
+As políticas clássicas com controles baseados em aplicativo são pré-configuradas com iOS e Android como a condição de plataforma do dispositivo. 
 
-Em uma nova política, você precisa selecionar as [plataformas de dispositivo](technical-reference.md#device-platform-condition) que você deseja dar suporte individualmente.
+Em uma nova política, você precisa selecionar as [plataformas de dispositivo](concept-conditional-access-conditions.md#device-platforms) que você deseja dar suporte individualmente.
 
 ![Seleção de plataformas de dispositivo de acesso condicional](./media/policy-migration/41.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Use o modo somente de relatório para acesso condicional para determinar o impacto das novas decisões de política.](concept-conditional-access-report-only.md)
 - Se você quiser saber como configurar uma política de acesso condicional, consulte [políticas comuns de acesso condicional](concept-conditional-access-policy-common.md).

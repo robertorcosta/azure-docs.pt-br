@@ -10,18 +10,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
-ms.openlocfilehash: 9ca2ea6a45bdf37f15f2ab4fd9c685f11f6d7f64
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 09051ad3633ddc720cb34d3d145ccf649fa9cb08
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031485"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200105"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Usar segredos de Azure Key Vault em atividades de pipeline
 
 Você pode armazenar credenciais ou valores secretos em um Azure Key Vault e usá-los durante a execução do pipeline para passar para suas atividades.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 Esse recurso depende da identidade gerenciada data factory.  Saiba como ele funciona da [identidade gerenciada para data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) e certifique-se de que sua data Factory tenha uma associada.
 
@@ -47,10 +47,10 @@ Esse recurso depende da identidade gerenciada data factory.  Saiba como ele func
 
 4. Em seu pipeline de Data Factory, adicione uma nova atividade da Web e configure-a da seguinte maneira.  
 
-    |Propriedade  |{1&gt;Valor&lt;1}  |
+    |Propriedade  |Valor  |
     |---------|---------|
     |Saída segura     |True         |
-    |{1&gt;URL&lt;1}     |[Seu valor de URI secreto]? API-Version = 7.0         |
+    |URL     |[Seu valor de URI secreto]? API-Version = 7.0         |
     |Método     |GET         |
     |Autenticação     |MSI         |
     |Recurso        |https://vault.azure.net       |
@@ -63,10 +63,10 @@ Esse recurso depende da identidade gerenciada data factory.  Saiba como ele func
     > [!CAUTION]
     > Defina a opção de saída segura como true para impedir que o valor secreto seja registrado em texto sem formatação.  Todas as atividades adicionais que consomem esse valor devem ter sua opção de entrada segura definida como true.
 
-5. Para usar o valor em outra atividade, use a expressão de código a seguir **@activity("Web"). Output. Value**.
+5. Para usar o valor em outra atividade, use a expressão de código a seguir **@activity(' web1 '). Output. Value**.
 
     ![Expressão de código](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber como usar Azure Key Vault para armazenar credenciais para armazenamentos de dados e computações, consulte [armazenar credenciais no Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)

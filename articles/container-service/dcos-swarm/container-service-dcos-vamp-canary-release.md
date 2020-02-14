@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 60ff148e044df81e64b54fc48c1cb6f67aee14df
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 2af20a1ddf4239b7eec6cceabf2ff9711959c128
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275652"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189101"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(PRETERIDO) Microsserviços da versão Canário com Vamp no cluster de DC/SO do Serviço de Contêiner do Azure
 
@@ -127,7 +127,7 @@ Quando Elasticsearch é relatada como **Em execução**, você pode adicionar o 
 
 Agora que o Vamp está em execução, implante um serviço de um plano gráfico. 
 
-Em sua forma mais simples, um [plano gráfico do Vamp](https://vamp.io/documentation/using-vamp/blueprints/) descreve os pontos de extremidade (gateways), clusters e serviços a implantar. O Vamp usa clusters para agrupar diferentes variantes do mesmo serviço em grupos lógicos para a versão canário ou teste A/B.  
+Em sua forma mais simples, um [plano gráfico do Vamp](https://docs.vamp.io/how-vamp-works/vamp-and-kubernetes#vamp-deployments) descreve os pontos de extremidade (gateways), clusters e serviços a implantar. O Vamp usa clusters para agrupar diferentes variantes do mesmo serviço em grupos lógicos para a versão canário ou teste A/B.  
 
 Esse cenário usa um aplicativo monolítico de exemplo chamado [**sava**](https://github.com/magneticio/sava), que está na versão 1.0. O monolito é empacotado em um contêiner do Docker, que está no Hub do Docker em magneticio/sava:1.0.0. O aplicativo normalmente é executado na porta 8080, mas você deseja expô-los na porta 9050 neste caso. Implante o aplicativo por meio do Vamp usando um plano gráfico simples.
 
@@ -285,11 +285,11 @@ Este artigo foi uma breve introdução ao Vamp em um cluster de DC/SO. Para os i
 Também abordamos alguns recursos avançados do Vamp: mesclar uma nova variante de serviço à implantação em execução e introduzi-la incrementalmente, então filtrar o tráfego para resolver uma incompatibilidade conhecida.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* Saiba como gerenciar ações do Vamp por meio da [API REST do Vamp](https://vamp.io/documentation/api/api-reference/).
+* Saiba como gerenciar ações do Vamp por meio da [API REST do Vamp](https://docs.vamp.io/how-vamp-works/events-and-metrics#events).
 
-* Crie scripts de automação do Vamp no Node.js e execute-os como [Fluxos de trabalho do Vamp](https://vamp.io/documentation/using-vamp/v1.0.0/workflows/#create-a-workflow).
+* Crie scripts de automação do Vamp no Node.js e execute-os como [Fluxos de trabalho do Vamp](https://docs.vamp.io/how-vamp-works/concepts-and-components#workflows).
 
-* Consulte [Tutoriais do VAMP](https://vamp.io/documentation/tutorials/) adicionais.
+* Consulte [Tutoriais do VAMP](https://docs.vamp.io/tutorials/) adicionais.
 

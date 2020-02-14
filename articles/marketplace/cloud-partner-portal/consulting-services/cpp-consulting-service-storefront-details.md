@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 3d741361cdeb25d6fc063f95da7bc301178f31fc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 557cfeb66301650e932e5ce271080e9fc8a256d6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818091"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191161"
 ---
 # <a name="storefront-details-tab"></a>Guia Detalhes da Vitrine
 
@@ -71,7 +71,7 @@ Insira a descrição do que a oferta de serviço de consultoria na caixa **Descr
 
 Não inclua seu número de telefone nem endereço de email na descrição da oferta. Um botão **Fale Comigo** está incluído com sua oferta para carregar os clientes potenciais para o destino de gerenciamento de cliente potencial que você identifica para sua oferta.
 
-Insira a descrição da oferta no formato Markdown. Se você não estiver familiarizado com Markdown ou formatação para HTML, confira [Usar Markdown para escrever docs](https://docs.microsoft.com/contribute/how-to-write-use-markdown).
+Insira a descrição da oferta no formato Markdown. Se você não estiver familiarizado com Markdown ou formatação para HTML, confira [Usar Markdown para escrever docs](/contribute/markdown-reference).
 
 Use esses formatos para que seja fácil para os clientes lerem sua oferta.
 
@@ -170,7 +170,7 @@ Selecione o país e a região em que essa oferta de serviço de consultoria est�
 
 Selecione os setores aos quais sua oferta de serviço de consultoria mais se aplica.
 
-**Duração**
+**Duration**
 
 Selecione um número (por exemplo, 3 ou 4) em **Duração** e, em seguida, selecione **Hora**, **Dia** ou **Semana**.
 

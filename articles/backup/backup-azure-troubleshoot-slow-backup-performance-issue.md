@@ -4,12 +4,12 @@ description: Fornece orientação para solução de problemas para ajudá-lo a d
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 2b7b8903da0d8dd83591b260bacb496b0c253ae3
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 01fff1d970a76d0d4d38c2536b41d58a4db301c8
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172575"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198602"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Solução de problemas de lentidão de backup de arquivos e pastas no Backup do Azure
 
@@ -25,6 +25,18 @@ Antes de começar a solucionar o problema, recomendamos o download e a instalaç
 Também recomendamos que você revise as [Perguntas frequentes do serviço Backup do Azure](backup-azure-backup-faq.md) para ter certeza de que você não está enfrentando problemas comuns de configuração.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
+## <a name="cause-backup-job-running-in-unoptimized-mode"></a>Causa: trabalho de backup em execução no modo não otimizado
+
+* O agente MARS pode executar o trabalho de backup no **modo otimizado** usando o diário de alterações do USN (número de sequência de atualização) ou o **modo não otimizado** verificando as alterações em diretórios ou arquivos examinando todo o volume.
+* O modo não otimizado é lento porque o agente precisa verificar cada arquivo no volume e comparar com os metadados para determinar os arquivos alterados.
+* Para verificar isso, abra os **detalhes do trabalho** no console do agente Mars e verifique o status para ver se ele diz transferência de **dados (não otimizado, pode levar mais tempo)** , conforme mostrado abaixo:
+
+    ![Executando em modo não otimizado](./media/backup-azure-troubleshoot-slow-backup-performance-issue/unoptimized-mode.png)
+
+* As seguintes condições podem fazer com que o trabalho de backup seja executado no modo não otimizado:
+  * O primeiro backup (também conhecido como replicação inicial) sempre será executado no modo não otimizado
+  * Se o trabalho de backup anterior falhar, o próximo trabalho de backup agendado será executado como não otimizado.
 
 <a id="cause1"></a>
 

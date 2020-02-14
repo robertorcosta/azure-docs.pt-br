@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 39bcaac2ca94eedebd991a1c4e93f324ef651888
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 2bfdf1046c67ed1651f792191923bf4c533d0299
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76961422"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77205700"
 ---
 Este artigo responde a algumas perguntas frequentes sobre o Azure Managed Disks e os discos Azure Premium SSD.
 
@@ -148,7 +148,7 @@ Os instantâneos de suporte a SSD Premium, SSD padrão e HDD padrão. Para esses
 **O que são as reservas de disco do Azure?**
 A reserva de disco é a opção de comprar um ano de armazenamento em disco com antecedência, reduzindo o custo total. Para obter detalhes sobre as reservas de disco do Azure, consulte nosso artigo sobre o assunto: [entender como seu desconto de reserva é aplicado ao disco do Azure](../articles/cost-management-billing/reservations/understand-disk-reservations.md).
 
-**Quais opções a reserva de disco do Azure oferece?** A reserva de disco do Azure fornece a opção de comprar o SSDs Premium nas SKUs especificadas de p30 (1 TiB) até P80 (32 TiB) por um termo de um ano. Não há nenhuma limitação na quantidade mínima de discos necessários para comprar uma reserva de disco. Além disso, você pode optar pelo pagamento único antecipado ou por pagamentos mensais. Não há nenhum custo transacional adicional aplicado para SSD Premium Managed Disks. 
+**Quais opções a reserva de disco do Azure oferece?** A reserva de disco do Azure fornece a opção de comprar o SSDs Premium nas SKUs especificadas de p30 (1 TiB) até P80 (32 TiB) por um termo de um ano. Não há nenhuma limitação na quantidade mínima de discos necessários para comprar uma reserva de disco. Além disso, você pode optar por pagar com um único pagamento antecipado ou pagamentos mensais. Não há nenhum custo transacional adicional aplicado para SSD Premium Managed Disks. 
 
 As reservas são feitas na forma de discos, não na capacidade. Em outras palavras, ao reservar um disco P80 (32 TiB), você obtém um único disco P80, não é possível dividir essa reserva específica em dois discos menores de P70 (16 TiB). É claro que você pode reservar tantos discos quanto desejar, incluindo dois discos P70 (16 TiB) separados.
 
@@ -160,6 +160,44 @@ A reserva de discos do Azure é adquirida para uma região e SKU específicos (c
 
 **O que acontece quando minha reserva de discos do Azure expira?**    
 Você receberá notificações por email 30 dias antes da expiração e novamente na data de expiração. Depois que a reserva expirar, os discos implantados continuarão a ser executados e serão cobrados com as [tarifas pagas pelo uso](https://azure.microsoft.com/pricing/details/managed-disks/)mais recentes.
+
+### <a name="azure-shared-disks"></a>Discos compartilhados do Azure
+
+**O recurso de discos compartilhados é compatível com discos não gerenciados ou BLOBs de páginas?**
+
+Não, só há suporte para discos gerenciados do SSD Premium.
+
+**Quais regiões dão suporte a discos compartilhados?**
+
+Atualmente, apenas EUA Central oeste.
+
+**OS discos compartilhados podem ser usados como um disco do sistema operacional?**
+
+Não, os discos compartilhados só têm suporte para discos de dados.
+
+**Quais tamanhos de disco dão suporte a discos compartilhados?**
+
+Somente SSDs Premium que são P15 ou superior dão suporte a discos compartilhados.
+
+**Se eu tiver um SSD Premium existente, posso habilitar discos compartilhados nele?**
+
+Todos os discos gerenciados criados com a versão de API 2019-07-01 ou superior podem habilitar discos compartilhados. Para fazer isso, você precisa desmontar o disco de todas as VMs às quais ele está anexado. Em seguida, edite a propriedade `maxShares` no disco.
+
+**Se eu não quiser mais usar um disco no modo compartilhado, como posso desabilitá-lo?**
+
+Desmonte o disco de todas as VMs às quais ele está anexado. Em seguida, edite a propriedade maxShare no disco como 1.
+
+**Você pode redimensionar um disco compartilhado?**
+
+Sim.
+
+**Posso habilitar o acelerador de gravação em um disco que também tem discos compartilhados habilitados?**
+
+Não.
+
+**Posso habilitar o cache de host para um disco com disco compartilhado habilitado?**
+
+A única opção de cache de host com suporte é ' none '.
 
 ## <a name="ultra-disks"></a>Ultra discos
 
@@ -245,7 +283,7 @@ A exemplo a seguir mostra a seção *properties.storageProfile.osDisk* de uma VM
 Para obter um exemplo de modelo completo de como criar um disco SSD padrão com um modelo, consulte [Criar uma máquina virtual a partir de uma imagem do Windows com discos de dados padrão SSD](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
 
 **Posso converter discos existentes em SDD padrão?**
-Sim, você pode. Para obter as diretrizes gerais de conversão do serviço Managed Disks, confira o artigo [Converter o armazenamento de Managed Disks do Azure de padrão em premium, e vice-versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Use o valor a seguir para atualizar o tipo de disco como SDD padrão.
+Sim, pode. Para obter as diretrizes gerais de conversão do serviço Managed Disks, confira o artigo [Converter o armazenamento de Managed Disks do Azure de padrão em premium, e vice-versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Use o valor a seguir para atualizar o tipo de disco como SDD padrão.
 -AccountType StandardSSD_LRS
 
 **O que é a vantagem de usar discos SSD padrão em vez de HDD?**
@@ -257,7 +295,7 @@ Não, os discos SSDs Padrão somente estão disponíveis como discos gerenciados
 **Os discos SSD padrão têm suporte para "SLA de VM de Instância Única"?**
 Não. Os discos SSD padrão não são compatíveis com SLA de VM de Instância Única. Use discos SSD premium para SLA de VM de Instância Única.
 
-## <a name="migrate-to-managed-disks"></a>Migrar para o Managed Disks
+## <a name="migrate-to-managed-disks"></a>Como migrar para Managed Disks
 
 **Há algum impacto da migração sobre o desempenho de Discos Gerenciados?**
 

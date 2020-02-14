@@ -14,20 +14,21 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 00262b48b8fa2fd1292554155e8ec8e933d886e6
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 502d1fe599accb29ccc99c9e527f8d1c8e1d52b8
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690902"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201808"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Alterar o modelo de licença para uma máquina virtual SQL Server no Azure
 Este artigo descreve como alterar o modelo de licença para uma VM (máquina virtual) SQL Server no Azure usando o novo provedor de recursos de VM do SQL, **Microsoft. SqlVirtualMachine**.
 
-Há dois modelos de licença para uma VM que está hospedando SQL Server: pré-pago e Benefício Híbrido do Azure. Você pode modificar o modelo de licença de sua VM SQL Server usando o portal do Azure, o CLI do Azure ou o PowerShell. 
+Há três modelos de licença para uma VM que está hospedando SQL Server: pré-pago, Benefício Híbrido do Azure e recuperação de desastre (DR). Você pode modificar o modelo de licença de sua VM SQL Server usando o portal do Azure, o CLI do Azure ou o PowerShell. 
 
-O modelo pago conforme o uso significa que o custo por segundo da execução da VM do Azure inclui o custo da licença de SQL Server.
-[Benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) permite que você use sua própria licença de SQL Server com uma VM que está executando o SQL Server. 
+- O modelo **pago conforme o uso** significa que o custo por segundo da execução da VM do Azure inclui o custo da licença de SQL Server.
+- [Benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) permite que você use sua própria licença de SQL Server com uma VM que está executando o SQL Server. 
+- O tipo de licença de **recuperação de desastre** é usado para a [réplica gratuita de Dr](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure) no Azure. 
 
 Benefício Híbrido do Azure permite o uso de licenças SQL Server com o Software Assurance ("licença qualificada") em máquinas virtuais do Azure. Com o Benefício Híbrido do Azure, os clientes não são cobrados pelo uso de uma licença SQL Server em uma VM. Mas eles ainda devem pagar pelo custo da computação em nuvem subjacente (ou seja, a taxa base), o armazenamento e os backups. Eles também devem pagar pela e/s associada ao uso dos serviços (conforme aplicável).
 
@@ -41,7 +42,7 @@ Para indicar o uso de Benefício Híbrido do Azure para SQL Server em uma VM do 
 
 O tipo de licença de SQL Server é definido quando a VM é provisionada. Você pode alterá-lo a qualquer momento depois. Alternar entre modelos de licença não provoca nenhum tempo de inatividade, não reinicia a VM ou o serviço de SQL Server, não adiciona custos adicionais e entra em vigor imediatamente. Na verdade, a ativação de Benefício Híbrido do Azure *reduz* o custo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Alterar o modelo de licenciamento de sua VM SQL Server tem os seguintes requisitos: 
 
@@ -50,7 +51,7 @@ Alterar o modelo de licenciamento de sua VM SQL Server tem os seguintes requisit
 - O [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) é um requisito para utilizar o [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). 
 
 
-## <a name="change-the-license-for-vms-already-registered-with-the-resource-provider"></a>Alterar a licença para VMs já registradas com o provedor de recursos 
+## <a name="vms-already-registered-with-the-resource-provider"></a>VMs já registradas com o provedor de recursos 
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
@@ -70,7 +71,8 @@ Você pode modificar o modelo de licença diretamente do portal:
 
 Você pode usar o CLI do Azure para alterar o modelo de licença.  
 
-O trecho de código a seguir alterna seu modelo de licença pago conforme o uso para trazer sua própria licença (ou usando Benefício Híbrido do Azure):
+
+**Benefício híbrido do Azure**
 
 ```azurecli-interactive
 # Switch your SQL Server VM license from pay-as-you-go to bring-your-own
@@ -79,7 +81,7 @@ O trecho de código a seguir alterna seu modelo de licença pago conforme o uso 
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type AHUB
 ```
 
-O trecho de código a seguir alterna seu modelo traga sua própria licença para o pré-pago: 
+**Pague conforme o uso**: 
 
 ```azurecli-interactive
 # Switch your SQL Server VM license from bring-your-own to pay-as-you-go
@@ -88,28 +90,45 @@ O trecho de código a seguir alterna seu modelo traga sua própria licença para
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type PAYG
 ```
 
+**Recuperação de desastres (DR)**
+
+```azurecli-interactive
+# Switch your SQL Server VM license from bring-your-own to pay-as-you-go
+# example: az sql vm update -n AHBTest -g AHBTest --license-type DR
+
+az sql vm update -n <VMName> -g <ResourceGroupName> --license-type DR
+```
+
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
 Você pode usar o PowerShell para alterar seu modelo de licença.
 
-O trecho de código a seguir alterna seu modelo de licença pago conforme o uso para trazer sua própria licença (ou usando Benefício Híbrido do Azure):
+**Benefício Híbrido do Azure**
 
 ```powershell-interactive
 # Switch your SQL Server VM license from pay-as-you-go to bring-your-own
 Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -LicenseType AHUB
 ```
 
-O trecho de código a seguir alterna seu modelo traga sua própria licença para o pré-pago:
+**Pago conforme o uso**
 
 ```powershell-interactive
 # Switch your SQL Server VM license from bring-your-own to pay-as-you-go
 Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -LicenseType PAYG
 ```
 
+**Recuperação de desastre** 
+
+```powershell-interactive
+# Switch your SQL Server VM license from bring-your-own to pay-as-you-go
+Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -LicenseType DR
+```
+
 ---
 
-## <a name="change-the-license-for-vms-not-registered-with-the-resource-provider"></a>Alterar a licença para VMs não registradas com o provedor de recursos
+## <a name="vms-not-registered-with-the-resource-provider"></a>VMs não registradas com o provedor de recursos
 
-Se você provisionou uma VM SQL Server das imagens pré-pagas do Azure Marketplace, o tipo de licença de SQL Server será pago conforme o uso. Se você provisionou uma VM SQL Server usando uma imagem traga sua própria licença do Azure Marketplace, o tipo de licença será AHUB. Todas as SQL Server VMs provisionadas a partir do padrão (pré-pago) ou suas imagens do Azure Marketplace de traga sua própria licença serão automaticamente registradas com o provedor de recursos de VM do SQL, para que possam alterar o [tipo de licença](#change-the-license-for-vms-already-registered-with-the-resource-provider).
+Se você provisionou uma VM SQL Server das imagens pré-pagas do Azure Marketplace, o tipo de licença de SQL Server será pago conforme o uso. Se você provisionou uma VM SQL Server usando uma imagem traga sua própria licença do Azure Marketplace, o tipo de licença será AHUB. Todas as SQL Server VMs provisionadas a partir do padrão (pré-pago) ou suas imagens do Azure Marketplace de traga sua própria licença serão automaticamente registradas com o provedor de recursos de VM do SQL, para que possam alterar o [tipo de licença](#vms-already-registered-with-the-resource-provider).
 
 Você só está qualificado para instalar automaticamente SQL Server em uma VM do Azure por meio de Benefício Híbrido do Azure. Você deve [registrar essas VMs com o provedor de recursos de VM do SQL](virtual-machines-windows-sql-register-with-resource-provider.md) definindo a licença de SQL Server como benefício híbrido do Azure, para indicar o uso de benefício híbrido do Azure de acordo com os termos de produto da Microsoft.
 
@@ -149,7 +168,7 @@ Você precisará registrar sua assinatura com o provedor de recursos e [registra
 Esse erro ocorre em máquinas virtuais que têm mais de uma NIC. Remova uma das NICs antes de alterar o modelo de licenciamento. Embora você possa adicionar a NIC de volta à VM depois de alterar o modelo de licença, as operações no portal do Azure, como backup automático e aplicação de patches, não terão mais suporte. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações, consulte os seguintes artigos: 
 

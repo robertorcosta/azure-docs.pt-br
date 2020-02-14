@@ -1,25 +1,25 @@
 ---
 title: Adicionar autenticação para proteger chamadas para APIs personalizadas
-description: Como configurar a autenticação para proteger chamadas para APIs personalizadas de aplicativos lógicos do Azure
+description: Como configurar a autenticação para melhorar a segurança de chamadas para APIs personalizadas de aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: 2f8b1cc002fe3f340ff6d5329329507316577885
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 110a684cf6ad21c13411d3bc2ada84750744f00e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666883"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191400"
 ---
-# <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Proteger chamadas a APIs personalizadas dos Aplicativos Lógicos do Azure
+# <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Aumentar a segurança para chamadas para APIs personalizadas de aplicativos lógicos do Azure
 
-Para proteger chamadas para suas APIs, você pode configurar a autenticação do Azure Active Directory (Azure AD) no portal do Azure para que não precise atualizar seu código. Ou você pode exigir e aplicar a autenticação por meio do seu código da API.
+Para melhorar a segurança para chamadas para suas APIs, você pode configurar a autenticação do Azure Active Directory (AD do Azure) por meio do portal do Azure para que não precise atualizar seu código. Ou você pode exigir e aplicar a autenticação por meio do seu código da API.
 
 ## <a name="authentication-options-for-your-api"></a>Opções de autenticação para sua API
 
-Você pode proteger as chamadas à API personalizada das seguintes maneiras:
+Você pode melhorar a segurança para chamadas para sua API personalizada das seguintes maneiras:
 
 * [Sem alterações de código](#no-code): proteja sua API com [Azure AD (Azure Active Directory)](../active-directory/fundamentals/active-directory-whatis.md) por meio do Portal do Azure, para que você não precise atualizar o código ou reimplantar sua API.
 
@@ -197,7 +197,7 @@ Abra a definição do aplicativo lógico na exibição de código, vá para a de
 }
 ```
 
-| Propriedade | Obrigatório | Description | 
+| Propriedade | Obrigatório | DESCRIÇÃO | 
 | -------- | -------- | ----------- | 
 | locatário | Sim | O GUID para o locatário do Azure AD | 
 | audiência | Sim | O GUID do recurso de destino que você deseja acessar, que é a ID do cliente da identidade de aplicativo para seu aplicativo Web ou aplicativo de API | 
@@ -248,7 +248,7 @@ Na seção **autorização** , inclua estas propriedades:
 } 
 ```
 
-| Propriedade | Obrigatório | Description |
+| Propriedade | Obrigatório | DESCRIÇÃO |
 | -------- | -------- | ----------- |
 | `type` | Sim | O tipo de autenticação. Para certificados de cliente SSL, o valor deve ser `ClientCertificate`. |
 | `password` | Não | A senha para acessar o certificado do cliente (arquivo PFX) |
@@ -271,7 +271,7 @@ Na seção **autorização** , inclua estas propriedades:
 }
 ```
 
-| Propriedade | Obrigatório | Description | 
+| Propriedade | Obrigatório | DESCRIÇÃO | 
 | -------- | -------- | ----------- | 
 | type | Sim | O tipo de autenticação que você deseja usar. Para a autenticação básica, o valor deve ser `Basic`. | 
 | Nome de Usuário | Sim | O nome de usuário que você deseja usar para autenticação | 
@@ -293,6 +293,6 @@ and not use the Azure portal, learn how to
 To create an application identity for your logic app and use that identity to call your API, 
 you must follow the previous steps. -->
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Implantar e chamar APIs personalizadas de fluxos de trabalho do aplicativo lógico](../logic-apps/logic-apps-custom-api-host-deploy-call.md)

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: b92e03c4e5346dd39eaba84cfeeedb93e418678c
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: cabf39f017afe440c883a63db57643c5c5367128
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911788"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189732"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Escolha um estilo de mapa no Azure Mapas
 
-Muitos dos [estilos de mapa com suporte no mapas do Azure](./supported-map-styles.md) estão disponíveis no SDK da Web. Este artigo mostra como usar as funcionalidades relacionadas ao estilo para definir um estilo no carregamento do mapa, definir um novo estilo e usar o controle selecionador de estilos.
+Muitos dos [estilos de mapa com suporte no mapas do Azure](./supported-map-styles.md) estão disponíveis no SDK da Web. Este artigo mostra como usar as funcionalidades relacionadas ao estilo. Aprenda a definir um estilo ao carregar um mapa e aprender a definir um novo estilo de mapa usando o controle do seletor de estilo.
 
 ## <a name="set-style-on-map-load"></a>Definir estilo no carregamento do mapa
 
@@ -30,7 +30,7 @@ No código a seguir, a opção `style` do mapa é definida como `grayscale_dark`
 
 ## <a name="update-the-style"></a>Atualizar o estilo
 
-No código a seguir, depois que uma instância de mapa é carregada, o estilo de mapa  é atualizado de `road` para `satellite` usando a função [SetStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) do mapa.
+No código a seguir, depois que uma instância de mapa é carregada, o estilo de mapa é atualizado de `road` para `satellite` usando a função [SetStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) .
 
 <br/>
 
@@ -39,7 +39,7 @@ No código a seguir, depois que uma instância de mapa é carregada, o estilo de
 
 ## <a name="add-the-style-picker"></a>Adicionar o selecionador de estilos
 
-O código a seguir adiciona um [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) ao mapa para que o usuário possa alternar facilmente entre os diferentes estilos de mapa. 
+O código a seguir adiciona um [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) ao mapa, para que o usuário possa alternar facilmente entre os diferentes estilos de mapa. Alterne o estilo de mapa usando o controle de estilo de mapa próximo ao canto superior direito.
 
 <br/>
 
@@ -47,9 +47,9 @@ O código a seguir adiciona um [StyleControl](/javascript/api/azure-maps-control
 </iframe>
 
 > [!TIP]
-> Por padrão, o controle seletor de estilo lista todos os estilos disponíveis ao usar o tipo de preço S0 de mapas do Azure por padrão. Se você quiser reduzir o número de estilos nessa lista, passe uma matriz dos estilos que você deseja que apareça na lista na `mapStyle` opção do seletor de estilo. Se você estiver usando S1 e quiser mostrar todos os estilos disponíveis, defina a opção `mapStyles` do seletor de estilo como `"all"`.
+> Por padrão, ao usar o tipo de preço S0 do Azure Maps, o controle seletor de estilo lista todos os estilos disponíveis. Se você quiser reduzir o número de estilos nessa lista, passe uma matriz dos estilos que você deseja que apareça na lista na `mapStyle` opção do seletor de estilo. Se você estiver usando S1 e quiser mostrar todos os estilos disponíveis, defina a opção `mapStyles` do seletor de estilo como `"all"`.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre as classes e os métodos usados neste artigo:
 

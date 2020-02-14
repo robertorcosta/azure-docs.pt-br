@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/25/2019
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bc8dbfd315702f666d6b811e855d6bcd99df938e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e3a80628e5729813e1d405e58ecb623925b63076
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836041"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193372"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre resolvedores de declaração em políticas personalizadas do Azure Active Directory B2C
 
@@ -46,16 +46,16 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 
 ### <a name="culture"></a>Cultura
 
-| Declaração | Description | Exemplo |
+| Declaração | DESCRIÇÃO | Exemplo |
 | ----- | ----------- | --------|
 | {Culture:LanguageName} | As duas letras do código ISO para o idioma. | en |
-| {Culture:LCID}   | O LCID do código de idioma. | 1033 |
+| {Culture:LCID}   | O LCID do código de idioma. | 1046 |
 | {Culture:RegionName} | As duas letras do código ISO para a região. | EUA |
 | {Culture:RFC5646} | O código de idioma RFC5646. | pt-BR |
 
 ### <a name="policy"></a>Política
 
-| Declaração | Description | Exemplo |
+| Declaração | DESCRIÇÃO | Exemplo |
 | ----- | ----------- | --------|
 | {Policy:PolicyId} | O nome da política de terceira parte confiável. | B2C_1A_signup_signin |
 | {Policy:RelyingPartyTenantId} | A ID do locatário da política de terceira parte confiável. | your-tenant.onmicrosoft.com |
@@ -64,7 +64,7 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 
 ### <a name="openid-connect"></a>OpenID Connect
 
-| Declaração | Description | Exemplo |
+| Declaração | DESCRIÇÃO | Exemplo |
 | ----- | ----------- | --------|
 | {OIDC:AuthenticationContextReferences} |O parâmetro de cadeia de caracteres da consulta `acr_values`. | N/D |
 | {OIDC:ClientId} |O parâmetro de cadeia de caracteres da consulta `client_id`. | 00000000-0000-0000-0000-000000000000 |
@@ -78,7 +78,7 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 
 ### <a name="context"></a>Contexto
 
-| Declaração | Description | Exemplo |
+| Declaração | DESCRIÇÃO | Exemplo |
 | ----- | ----------- | --------|
 | {Context:BuildNumber} | A versão do Identity Experience Framework (número de build).  | 1.0.507.0 |
 | {Context:CorrelationId} | ID de correlação.  | 00000000-0000-0000-0000-000000000000 |
@@ -91,7 +91,7 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 
 Qualquer nome de parâmetro incluído como parte de uma solicitação OIDC ou OAuth2 pode ser mapeado para uma declaração no percurso do usuário. Por exemplo, a solicitação do aplicativo pode incluir um parâmetro da cadeia de consulta com um nome de `app_session`, `loyalty_number` ou qualquer cadeia de consulta personalizada.
 
-| Declaração | Description | Exemplo |
+| Declaração | DESCRIÇÃO | Exemplo |
 | ----- | ----------------------- | --------|
 | {OAUTH-KV:campaignId} | Um parâmetro de cadeia de consulta. | havaí |
 | {OAUTH-KV:app_session} | Um parâmetro de cadeia de consulta. | A3C5R |
@@ -100,9 +100,31 @@ Qualquer nome de parâmetro incluído como parte de uma solicitação OIDC ou OA
 
 ### <a name="oauth2"></a>OAuth2
 
-| Declaração | Description | Exemplo |
+| Declaração | DESCRIÇÃO | Exemplo |
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | O token de acesso. | N/D |
+
+## <a name="using-claim-resolvers"></a>Usando resolvedores de declaração 
+
+Você pode usar resolvedores de declarações com os seguintes elementos: 
+
+| Item | Elemento | Configurações |
+| ----- | ----------------------- | --------|
+|Perfil técnico do Application Insights |`InputClaim` | |
+|[Azure Active Directory](active-directory-technical-profile.md) o perfil técnico| `InputClaim`, `OutputClaim`| 1, 2|
+|Perfil técnico do [OAuth2](oauth2-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Perfil técnico do [OpenID Connect](openid-connect-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Perfil técnico de [transformação de declarações](claims-transformation-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Perfil técnico do [provedor RESTful](restful-technical-profile.md)| `InputClaim`| 1, 2|
+|Perfil técnico do [SAML2](saml-technical-profile.md)| `OutputClaim`| 1, 2|
+|Perfil técnico [autodeclarado](self-asserted-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|[ContentDefinition](contentdefinitions.md)| `LoadUri`| |
+|[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |
+|Perfil técnico do [RelyingParty](relyingparty.md#technicalprofile)| `OutputClaim`| 2 |
+
+Configurações: 
+1. Os metadados de `IncludeClaimResolvingInClaimsHandling` devem ser definidos como `true`
+1. O atributo de declarações de entrada ou saída `AlwaysUseDefaultValue` deve ser definido como `true`
 
 ## <a name="how-to-use-claim-resolvers"></a>Como usar os resolvedores de declaração
 

@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 54401d4fd8a911fc9cf5bc67d4324e84005fa752
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+ms.openlocfilehash: 4846a19c403cce16bed704ed4e7c70499f3b5d13
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157237"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187990"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestão de dados do Azure Data Explorer
 
@@ -133,8 +133,8 @@ Para todos os métodos de ingestão diferentes da ingestão de consulta, formate
 
 O mapeamento de esquema ajuda a associar os campos de dados de origem às colunas da tabela de destino.
 
-* O [mapeamento de CSV](/azure/kusto/management/mappings?branch=master#csv-mapping) (opcional) funciona com todos os formatos com base em classificação ordinal. Ele pode ser realizado usando o parâmetro do comando de ingestão ou [pré-criado na tabela](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) e referenciado pelo parâmetro do comando de ingestão.
-* O [Mapeamento de JSON](/azure/kusto/management/mappings?branch=master#json-mapping) (obrigatório) e o [Mapeamento de Avro](/azure/kusto/management/mappings?branch=master#avro-mapping) (obrigatório) podem ser executados usando o parâmetro do comando de ingestão. Eles também podem ser [previamente criados na tabela](/azure/kusto/management/tables#create-ingestion-mapping) e referenciados no parâmetro do comando de ingestão.
+* O [mapeamento de CSV](/azure/kusto/management/mappings?branch=master#csv-mapping) (opcional) funciona com todos os formatos com base em classificação ordinal. Ele pode ser realizado usando o parâmetro do comando de ingestão ou [pré-criado na tabela](/azure/kusto/management/create-ingestion-mapping-command) e referenciado pelo parâmetro do comando de ingestão.
+* O [Mapeamento de JSON](/azure/kusto/management/mappings?branch=master#json-mapping) (obrigatório) e o [Mapeamento de Avro](/azure/kusto/management/mappings?branch=master#avro-mapping) (obrigatório) podem ser executados usando o parâmetro do comando de ingestão. Eles também podem ser [previamente criados na tabela](/azure/kusto/management/create-ingestion-mapping-command) e referenciados no parâmetro do comando de ingestão.
 
 ## <a name="next-steps"></a>Próximas etapas
 

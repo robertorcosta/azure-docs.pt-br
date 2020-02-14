@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: 9ac22461e04b447fe34d5647eb5ec7847d25a09d
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: b60b117b10ac9ade6f685acf788e942ff7a2c93c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931278"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188763"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar a taxa de transferência para contêineres e bancos de dados
 
@@ -60,24 +60,11 @@ Todos os contêineres criados dentro de um banco de dados com taxa de transferê
 
 Se a carga de trabalho em uma partição lógica consumir mais do que a taxa de transferência alocada para uma partição lógica específica, suas operações serão limitadas por taxa. Quando a limitação de taxa ocorre, você pode aumentar a taxa de transferência do banco de dados inteiro ou tentar novamente as operações. Para saber mais sobre particionamento, confira [Partições lógicas](partition-data.md).
 
-A taxa de transferência provisionada em um banco de dados pode ser compartilhada pelos contêineres dentro desse banco de dados. Cada novo contêiner na taxa de transferência compartilhada no nível do banco de dados exigirá 100 RU/s. Ao provisionar contêineres com oferta de banco de dados compartilhado:
+Os contêineres em um banco de dados de produtividade compartilhado compartilham a taxa de transferência (RU/s) alocada para esse banco de dados. Em um banco de dados de produtividade compartilhado:
 
-* Cada 25 contêineres é agrupado em um conjunto de partições e a taxa de transferência do banco de dados (D) é compartilhada entre os contêineres no conjunto de partições. Se houver até 25 contêineres no banco de dados e em qualquer ponto no tempo, se você estiver usando apenas um contêiner, esse contêiner poderá usar uma taxa de transferência máxima de ' d'.
+* Você pode ter até quatro contêineres com um mínimo de 400 RU/s no banco de dados. Cada novo contêiner após os quatro primeiros precisará de mais 100 RU/s no mínimo. Por exemplo, se você tiver um banco de dados de produtividade compartilhado com oito contêineres, o RU/s mínimo no banco de dados será de 800 RU/s.
 
-* Para cada novo contêiner criado após 25 contêineres, um novo conjunto de partições é criado e a taxa de transferência do banco de dados é dividida entre os novos conjuntos de partições criados (ou seja, D/2 para 2 conjuntos de partições, D/3 para 3 conjuntos de partições...). Em qualquer momento, se você estiver usando apenas um contêiner do banco de dados, ele poderá usar um máximo de (D/2, D/3, D/4... taxa de transferência), respectivamente. Dada a taxa de transferência reduzida, é recomendável que você não crie mais do que 25 contêineres em um banco de dados.
-
-**Exemplo**
-
-* Se você criar um banco de dados chamado "MyDB" com uma taxa de transferência provisionada de 10K RU/s.
-
-* Se você provisionar 25 contêineres em "MyDB", todos os contêineres serão agrupados em um conjunto de partições. Em qualquer momento, se você estiver usando apenas um contêiner do banco de dados, ele poderá usar um máximo de 10K RU/s (D).
-
-* Quando você provisiona o contêiner 26, um novo conjunto de partições é criado e a taxa de transferência é dividida igualmente entre os dois conjuntos de partições. Portanto, em qualquer ponto no tempo, se você estiver usando apenas um contêiner do banco de dados, ele poderá usar um máximo de 5K RU/s (D/2). Como há dois conjuntos de partições, o fator de compartilhamento de produtividade é dividido em D/2.
-
-   A imagem a seguir demonstra o exemplo anterior graficamente:
-
-   ![Fator de compartilhamento na taxa de transferência no nível do banco de dados](./media/set-throughput/database-level-throughput-shareability-factor.png)
-
+* Você pode ter um máximo de 25 contêineres no banco de dados. Se você já tiver mais de 25 contêineres em um banco de dados de produtividade compartilhado, não poderá criar contêineres adicionais até que a contagem de contêineres seja menor que 25.
 
 Se suas cargas de trabalho envolvem excluir e recriar todas as coleções em um banco de dados, é recomendável descartar o banco de dados vazio e recriar um novo banco de dados antes da criação da coleção. A imagem a seguir mostra como uma partição física pode hospedar uma ou mais partições lógicas que pertencem a contêineres diferentes dentro de um banco de dados:
 
@@ -127,6 +114,6 @@ Você pode dimensionar a taxa de transferência provisionada de um contêiner ou
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [partições lógicas](partition-data.md).
-* Saiba como [provisionar taxa de transferência em um contêiner do Azure Cosmos](how-to-provision-container-throughput.md).
+* Saiba como [provisionar taxa de transferência em um contêiner do Azure Cosmos DB](how-to-provision-container-throughput.md).
 * Saiba como [provisionar taxa de transferência em um banco de dados do Azure Cosmos DB](how-to-provision-database-throughput.md).
 

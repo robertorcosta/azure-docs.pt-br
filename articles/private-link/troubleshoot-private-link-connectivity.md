@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: 667fa1c85c63ffb87e49c4bf99112f57d0c85a72
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 0d26ad6802e551523875dcad13066fdbdbf39ada
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031914"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191049"
 ---
-# <a name="troubleshoot-private-link-service-connectivity-problems"></a>Solucionar problemas de conectividade do serviço de vínculo privado
+# <a name="troubleshoot-private-link-service-connectivity-problems"></a>Solucionar problemas de conectividade do serviço Link Privado
 
 Este guia fornece orientações passo a passo para validar e diagnosticar a conectividade para a instalação do serviço de vínculo privado. 
 
@@ -108,8 +108,8 @@ Se você estiver tendo problemas de conectividade com a configuração de link p
 
 3. Contate a equipe de [suporte do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) se o problema ainda não estiver resolvido e se o problema de conectividade ainda existir. 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
  * [Criar um serviço de vínculo privado (CLI)](https://docs.microsoft.com/azure/private-link/create-private-link-service-cli)
 
- * [Guia de solução de problemas de ponto de extremidade privado](https://docs.microsoft.com/azure/private-link/private-endpoint-connectivity-troubleshooting)
+ * [Guia de solução de problemas de ponto de extremidade privado](troubleshoot-private-endpoint-connectivity.md)

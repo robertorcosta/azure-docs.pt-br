@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/27/2020
-ms.openlocfilehash: b8bb68f7da74e547b020ae00a4672e10d70cbfd1
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: d7723ea63cbb9bab6adf42d7e92f84a6b8b2ab9b
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844455"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199000"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Usar nós de borda vazios em clusters do Apache Hadoop no HDInsight
 
@@ -52,7 +52,7 @@ Você pode adicionar um nó de borda vazio a um cluster HDInsight existente ou a
 
 Conforme mostrado no exemplo, você pode, opcionalmente, chamar uma [ação do script](hdinsight-hadoop-customize-cluster-linux.md) para executar configurações adicionais, como a instalação do [Apache Hue](hdinsight-hadoop-hue-linux.md) no nó de borda. O script de ação de script deve ser publicamente acessível na Web.  Por exemplo, se o script for armazenado no armazenamento do Azure, use contêineres públicos ou BLOBs públicos.
 
-O tamanho de máquina virtual do nó de borda deve atender aos requisitos de tamanho de VM do nó de trabalho do cluster HDInsight. Para obter os tamanhos recomendados de VM do nó de trabalho, consulte [Criar clusters Apache Hadoop no HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+O tamanho de máquina virtual do nó de borda deve atender aos requisitos de tamanho de VM do nó de trabalho do cluster HDInsight. Para obter os tamanhos recomendados de VM do nó de trabalho, consulte [Criar clusters Apache Hadoop no HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-type).
 
 Depois de criar um nó de borda, você pode se conectar ao nó de borda usando SSH e executar ferramentas de cliente para acessar o cluster Hadoop no HDInsight.
 
@@ -77,11 +77,11 @@ Nesta seção, você pode usar um modelo do Resource Manager para adicionar um n
 
 1. Configure as seguintes propriedades:
 
-    |Propriedade |Description |
+    |Propriedade |DESCRIÇÃO |
     |---|---|
     |Subscription|escolha uma assinatura do Azure usada para criar esse cluster.|
-    |Grupo de recursos|escolha o grupo de recursos usado no cluster HDInsight existente.|
-    |Local|escolha a localização do cluster HDInsight existente.|
+    |Resource group|escolha o grupo de recursos usado no cluster HDInsight existente.|
+    |Location|escolha a localização do cluster HDInsight existente.|
     |Nome do cluster|insira o nome de um cluster HDInsight existente.|
 
 1. Marque **eu concordo com os termos e condições declarados acima**e, em seguida, selecione **comprar** para criar o nó de borda.
@@ -101,11 +101,11 @@ Nesta seção, você pode usar um modelo do Resource Manager para criar um clust
 
 1. Configure as seguintes propriedades:
 
-    |Propriedade |Description |
+    |Propriedade |DESCRIÇÃO |
     |---|---|
     |Subscription|escolha uma assinatura do Azure usada para criar esse cluster.|
-    |Grupo de recursos|crie um novo grupo de recursos usado para o cluster.|
-    |Local|Selecione um local para o grupo de recursos.|
+    |Resource group|crie um novo grupo de recursos usado para o cluster.|
+    |Location|Selecione um local para o grupo de recursos.|
     |Nome do cluster|insira um nome para o novo cluster que será criado.|
     |Nome de usuário de logon do cluster|insira o nome de usuário HTTP do Hadoop.  O nome padrão é **admin**.|
     |Senha de logon do cluster|insira a senha do usuário HTTP do Hadoop.|
@@ -156,7 +156,7 @@ Você pode excluir um nó de borda no portal do Azure.
 4. Clique com o botão direito do mouse no nó de borda que você deseja excluir e selecione **excluir**.
 5. Clique em **Sim** para confirmar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu como adicionar um nó de borda e como acessar o nó de borda. Para saber mais, leia os seguintes artigos:
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4289f4870ca03657afabec07049b3333412f3899
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 75880f4c533a503852d62ff940e53d4bcc30d218
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180323"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186113"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>O que é o modo somente de relatório de acesso condicional?
 
@@ -25,7 +25,8 @@ O acesso condicional é amplamente usado por nossos clientes para manter a segur
 O modo somente de relatório é um novo estado de política de acesso condicional que permite aos administradores avaliar o impacto das políticas de acesso condicional antes de habilitá-las em seu ambiente.  Com a versão do modo somente de relatório:
 
 - As políticas de acesso condicional podem ser habilitadas no modo somente de relatório.
-- Durante a entrada, as políticas no modo somente de relatório são avaliadas, mas não impostas. Os resultados são registrados nas guias **acesso condicional** e **somente relatório (visualização)** dos detalhes do log de entrada.
+- Durante a entrada, as políticas no modo somente de relatório são avaliadas, mas não impostas.
+- Os resultados são registrados nas guias **acesso condicional** e **somente relatório (visualização)** dos detalhes do log de entrada.
 - Os clientes com uma assinatura Azure Monitor podem monitorar o impacto de suas políticas de acesso condicional usando a pasta de trabalho de informações de acesso condicional.
 
 > [!WARNING]
@@ -37,7 +38,7 @@ O modo somente de relatório é um novo estado de política de acesso condiciona
 
 Quando uma política no modo somente de relatório é avaliada para uma determinada entrada, há quatro novos valores de resultado possíveis:
 
-| Result | Descrição |
+| Result | DESCRIÇÃO |
 | --- | --- |
 | Somente relatório: êxito | Todas as condições de política configuradas, controles de concessão não interativa e controles de sessão necessários foram satisfeitos. Por exemplo, um requisito de autenticação multifator é atendido por uma declaração de MFA já presente no token ou uma política de dispositivo compatível é satisfeita com a execução de uma verificação de dispositivo em um dispositivo compatível. |
 | Somente relatório: falha | Todas as condições de política configuradas foram satisfeitas, mas nem todos os controles de concessão ou controles de sessão não interativos necessários foram satisfeitos. Por exemplo, uma política se aplica a um usuário em que um controle de bloco está configurado ou um dispositivo falha em uma política de dispositivo em conformidade. |
@@ -48,6 +49,6 @@ Quando uma política no modo somente de relatório é avaliada para uma determin
 
 Os administradores têm a capacidade de criar várias políticas no modo somente de relatório, portanto, é necessário entender o impacto individual de cada política e o impacto combinado de várias políticas avaliadas juntas. A nova pasta de trabalho de informações de acesso condicional permite que os administradores visualizem consultas de acesso condicional e monitorem o impacto de uma política para um determinado intervalo de tempo, conjunto de aplicativos e usuários. 
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Configurar o modo somente de relatório em uma política de acesso condicional](howto-conditional-access-report-only.md)

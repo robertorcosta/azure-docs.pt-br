@@ -9,35 +9,35 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen
-ms.openlocfilehash: 74b45d3f7fa7d0e13b8767d4a887d8a22cad3a30
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 1675d63fd3a65beda46042f4a78535bb4e066e62
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911726"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190224"
 ---
 # <a name="create-a-data-source"></a>Criar uma fonte de dados
 
-O SDK da Web do Azure Maps armazena dados em fontes de dados que otimizam os dados para consulta e renderização. Atualmente, há dois tipos de fontes de dados:
+O SDK da Web do Azure Maps armazena dados em fontes de dados. O uso de fontes de dados otimiza as operações de dados para consulta e renderização. Atualmente, há dois tipos de fontes de dados:
 
 **Fonte de dados geojson**
 
-Uma fonte de dados baseada em geojson pode carregar e armazenar dados localmente usando a classe `DataSource`. Os dados geojson podem ser criados ou criados manualmente usando as classes auxiliares no namespace do [Atlas. Data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) . A classe `DataSource` fornece funções para importar arquivos geojson locais ou remotos. Arquivos geojson remotos devem ser hospedados em um ponto de extremidade habilitado para CORs. A classe `DataSource` fornece funcionalidade para dados de ponto de cluster. Os dados podem ser facilmente adicionados, removidos e atualizados com a classe `DataSource`.
+Uma fonte de dados baseada em geojson carrega e armazena dados localmente usando a classe `DataSource`. Os dados geojson podem ser criados ou criados manualmente usando as classes auxiliares no namespace do [Atlas. Data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) . A classe `DataSource` fornece funções para importar arquivos geojson locais ou remotos. Arquivos geojson remotos devem ser hospedados em um ponto de extremidade habilitado para CORs. A classe `DataSource` fornece funcionalidade para dados de ponto de cluster. E, os dados podem ser facilmente adicionados, removidos e atualizados com a classe `DataSource`.
 
 
 > [!TIP]
-> Se você quiser substituir todos os dados em um `DataSource`, se fizer chamadas para o `clear` em seguida, `add` funções, o mapa tentará renderizar novamente duas vezes, o que pode causar um pouco de atraso. Em vez disso, use a função `setShapes` que removerá e substituirá todos os dados na fonte de dados e disparará apenas uma única rerenderização do mapa.
+> Digamos que você deseja substituir todos os dados em um `DataSource`. Se você fizer chamadas para a `clear` `add` funções, o mapa poderá renderizar novamente duas vezes, o que pode causar um pouco de atraso. Em vez disso, use a função `setShapes`, que removerá e substituirá todos os dados na fonte de dados e disparará apenas uma única rerenderização do mapa.
 
 **Origem do bloco de vetor**
 
-Uma fonte de bloco de vetor descreve como acessar uma camada de bloco de vetor e pode ser criada usando a classe [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource) . O Azure Maps se alinha com a [especificação de bloco de vetor Mapbox](https://github.com/mapbox/vector-tile-spec), que é um padrão aberto. As camadas de bloco de vetor são semelhantes às camadas de bloco, no entanto, em vez de cada bloco sendo uma imagem rasterizada, eles são um arquivo compactado (formato PBF) que contém dados de mapa de vetor e uma ou mais camadas que podem ser renderizadas e estilizadas no cliente com base no estilo de cada camada. Os dados em um bloco de vetor contêm recursos geográficos na forma de pontos, linhas e polígonos. Há várias vantagens de camadas de bloco de vetor em camadas de bloco rasterizadas;
+Uma fonte de bloco de vetor descreve como acessar uma camada de bloco de vetor. Use a classe [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource) para criar uma instância de uma fonte de bloco de vetor. As camadas de bloco de vetor são semelhantes às camadas de bloco, mas não são as mesmas. Uma camada de peça é uma imagem rasterizada. As camadas de bloco de vetor são um arquivo compactado, no formato PBF. Esse arquivo compactado contém dados de mapa de vetor e uma ou mais camadas. O arquivo pode ser renderizado e estilizado no cliente, com base no estilo de cada camada. Os dados em um bloco de vetor contêm recursos geográficos na forma de pontos, linhas e polígonos. Há várias vantagens de usar camadas de bloco vetorial em vez de camadas de bloco rasterizadas:
 
- - Um tamanho de arquivo de um bloco de vetor normalmente é muito menor do que um bloco rasterizado equivalente. Dessa forma, menos largura de banda é usada, o que significa latência mais baixa e um mapa mais rápido. Isso cria uma melhor experiência do usuário.
- - Como os blocos de vetor são renderizados no cliente, eles podem se adaptar à resolução do dispositivo em que estão sendo exibidos. Isso permite que os mapas renderizados pareçam muito mais bem definidos e com rótulos de cristal claro. 
- - A alteração do estilo dos dados nos mapas de vetor não exige o download dos dados novamente, pois o novo estilo pode ser aplicado ao cliente. Por outro lado, alterar o estilo de uma camada de bloco de varredura normalmente requer o carregamento de blocos do servidor que têm o novo estilo aplicado a eles.
- - Como os dados são entregues na forma de vetor, há menos processamento do lado do servidor necessário para preparar os dados, o que significa que os dados mais novos podem ser disponibilizados mais rapidamente.
+ - Um tamanho de arquivo de um bloco de vetor normalmente é muito menor do que um bloco rasterizado equivalente. Dessa forma, menos largura de banda é usada. Isso significa menor latência, um mapa mais rápido e uma melhor experiência do usuário.
+ - Como os blocos de vetor são renderizados no cliente, eles se adaptam à resolução do dispositivo em que estão sendo exibidos. Como resultado, os mapas renderizados aparecem mais bem definidos, com rótulos de cristal claro.
+ - Alterar o estilo dos dados nos mapas de vetor não exige o download dos dados novamente, já que o novo estilo pode ser aplicado ao cliente. Por outro lado, alterar o estilo de uma camada de bloco de varredura normalmente requer o carregamento de blocos do servidor, aplicando o novo estilo.
+ - Como os dados são entregues na forma de vetor, há menos processamento no lado do servidor necessário para preparar os dados. Como resultado, os dados mais recentes podem ser disponibilizados mais rapidamente.
 
-Todas as camadas que usam uma fonte de vetor devem especificar um valor de `sourceLayer`. 
+Todas as camadas que usam uma fonte de vetor devem especificar um valor de `sourceLayer`.
 
 Depois de criadas, as fontes de dados podem ser adicionadas ao mapa por meio da propriedade `map.sources`, que é um [sourcemanager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager). O código a seguir mostra como criar um `DataSource` e adicioná-lo ao mapa.
 
@@ -47,17 +47,19 @@ var dataSource = new atlas.source.DataSource();
 map.sources.add(dataSource);
 ```
 
+O mapas do Azure segue a [especificação de bloco de vetor Mapbox](https://github.com/mapbox/vector-tile-spec), um padrão aberto.
+
 ## <a name="connecting-a-data-source-to-a-layer"></a>Conectando uma fonte de dados a uma camada
 
-Os dados são renderizados no mapa usando camadas de renderização. Uma única fonte de dados pode ser referenciada por uma ou mais camadas de renderização. As camadas de renderização a seguir exigem que uma fonte de dados seja religada:
+Os dados são renderizados no mapa usando camadas de renderização. Uma única fonte de dados pode ser referenciada por uma ou mais camadas de renderização. As seguintes camadas de renderização exigem uma fonte de dados:
 
 - [Camada de bolha](map-add-bubble-layer.md) – renderiza dados de ponto como círculos em escala no mapa.
-- [Camada de símbolo](map-add-pin.md) – renderiza dados de ponto como ícones e/ou texto.
+- [Camada de símbolo](map-add-pin.md) – renderiza dados de ponto como ícones ou texto.
 - [Camada do mapa de calor](map-add-heat-map-layer.md) – renderiza dados de ponto como um mapa de calor de densidade.
-- [Camada de linha](map-add-shape.md) – pode ser usada para renderizar a linha e ou a estrutura de polígonos. 
+- [Camada de linha](map-add-shape.md) – renderizar uma linha e ou renderizar a estrutura de polígonos. 
 - [Camada de polígono](map-add-shape.md) – preenche a área de um polígono com uma cor sólida ou padrão de imagem.
 
-O código a seguir mostra como criar uma fonte de dados, adicioná-la ao mapa e conectá-la a uma camada de bolha e, em seguida, importar dados do ponto geojson de um local remoto para ele. 
+O código a seguir mostra como criar uma fonte de dados, adicioná-la ao mapa e conectá-la a uma camada de bolha. Em seguida, importe dados do ponto geojson de um local remoto para a fonte de dados. 
 
 ```javascript
 //Create a data source and add it to the map.
@@ -71,18 +73,18 @@ map.layers.add(new atlas.layer.BubbleLayer(datasource));
 datasource.importDataFromUrl('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson');
 ```
 
-Há camadas de renderização adicionais que não se conectam a essas fontes de dados, mas carregam os dados que elas renderizam diretamente. 
+Há camadas de renderização adicionais que não se conectam a essas fontes de dados, mas carregam diretamente os dados para renderização. 
 
 - [Camada de imagem](map-add-image-layer.md) – sobrepõe uma única imagem na parte superior do mapa e associa seus cantos a um conjunto de coordenadas especificadas.
 - [Camada de bloco](map-add-tile-layer.md) – sobrepõe uma camada de bloco de rasterização na parte superior do mapa.
 
 ## <a name="one-data-source-with-multiple-layers"></a>Uma fonte de dados com várias camadas
 
-Várias camadas podem ser conectadas a uma única fonte de dados. Isso pode parecer estranho, mas há muitos cenários diferentes em que isso se torna útil. Veja, por exemplo, o cenário de criação de uma experiência de desenho de polígono. Ao permitir que um usuário desenhe um polígono, devemos renderizar a área de polígono de preenchimento, pois o usuário está adicionando pontos ao mapa. A adição de uma linha com estilo que descreve o polígono facilitará a visualização das bordas do polígono à medida que ele está sendo desenhado. Por fim, adicionar algum tipo de alça, como um PIN ou marcador, acima de cada posição no polígono, facilitaria a edição de cada posição individual. Aqui está uma imagem que demonstra esse cenário.
+Várias camadas podem ser conectadas a uma única fonte de dados. Há vários cenários diferentes nos quais essa opção é útil. Por exemplo, considere o cenário no qual um usuário desenha um polígono. Devemos renderizar e preencher a área do polígono, pois o usuário adiciona pontos ao mapa. A adição de uma linha com estilo para descrever o polígono facilita a visualização das bordas do polígono, conforme o usuário desenha. Para editar convenientemente uma posição individual no polígono, podemos adicionar um identificador, como um PIN ou um marcador, acima de cada posição.
 
 ![Mapa mostrando várias camadas Renderizando dados de uma única fonte de dados](media/create-data-source-web-sdk/multiple-layers-one-datasource.png)
 
-Para realizar esse cenário na maioria das plataformas de mapeamento, você precisaria criar um objeto Polygon, um objeto line e um PIN para cada posição no polígono. À medida que o polígono é modificado, você precisa atualizar manualmente a linha e os Pins, o que pode se tornar complexo rapidamente.
+Na maioria das plataformas de mapeamento, você precisaria de um objeto Polygon, de um objeto line e de um PIN para cada posição no polígono. À medida que o polígono é modificado, você precisa atualizar manualmente a linha e os Pins, o que pode se tornar rapidamente complexo.
 
 Com o Azure Maps, tudo o que você precisa é de um único polígono em uma fonte de dados, conforme mostrado no código abaixo.
 
@@ -117,7 +119,7 @@ var bubbleLayer = new atlas.layer.BubbleLayer(dataSource, 'myBubbleLayer', {
 map.layers.add([polygonLayer, lineLayer, bubbleLayer]);
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as classes e métodos usados neste artigo:
 

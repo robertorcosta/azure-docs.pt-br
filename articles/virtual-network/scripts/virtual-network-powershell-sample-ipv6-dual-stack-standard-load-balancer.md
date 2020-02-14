@@ -1,25 +1,24 @@
 ---
-title: Azure PowerShell amostra de script – configurar pontos de extremidade de rede virtual IPv6 com Standard Load Balancer (versão prévia)
+title: Azure PowerShell amostra de script – configurar o front-end IPv6 com Standard Load Balancer (versão prévia)
 titlesuffix: Azure Virtual Network
 description: Habilitar pontos de extremidade IPv6 usando o PowerShell na rede virtual do Azure
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: fc5bc23ffec0956cb53e62f0cd14d7135d5fbcca
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 24d25813a5cafc98f04d3daef2803aa44acc7f69
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68269696"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201315"
 ---
-# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-with-standard-load-balancerpreview"></a>Configurar pontos de extremidade IPv6 no exemplo de script de rede virtual com Standard Load Balancer (versão prévia)
+# <a name="configure-ipv6-frontend-in-virtual-network-script-sample-with-standard-load-balancerpreview"></a>Configurar o front-end IPv6 no exemplo de script de rede virtual com Standard Load Balancer (versão prévia)
 
 Este artigo mostra como implantar um aplicativo de pilha dupla (IPv4 + IPv6) no Azure que inclui uma rede virtual de pilha dupla com uma sub-rede de pilha dupla, um balanceador de carga com configurações de front-end dual (IPv4 + IPv6), VMs com NICs que têm uma configuração de IP dupla, regras de grupo de segurança de rede duplas e IPs públicos duplos.
 
@@ -27,7 +26,7 @@ Você pode executar o script do Azure [Cloud Shell](https://shell.azure.com/powe
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Antes de implantar um aplicativo de pilha dupla no Azure, você deve configurar sua assinatura somente uma vez para esse recurso de visualização usando as seguintes Azure PowerShell:
 
 Registre-se da seguinte maneira:
@@ -46,7 +45,7 @@ Após a conclusão do registro, execute o seguinte comando:
 Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 ```azurepowershell
 #   Deploys Dual-stack (IPv4+IPv6) Azure virtual network with 2 VMs and Standard Load Balancer with IPv4 and IPv6 public IPs

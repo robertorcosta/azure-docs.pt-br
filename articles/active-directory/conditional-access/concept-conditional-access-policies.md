@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87f3e815f541ad4cfabc22d917ca9cecba47b50f
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 87224c9e3e697b86aab51d1e922af8ab2130ac40
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077601"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186244"
 ---
 # <a name="building-a-conditional-access-policy"></a>Criando uma política de acesso condicional
 
@@ -32,27 +32,27 @@ A parte de atribuições controla quem, e e onde a política de acesso condicion
 
 ### <a name="users-and-groups"></a>Usuários e grupos
 
-Usuários e grupos atribuem quem a política incluirá ou excluirá. Essa atribuição pode incluir todos os usuários, grupos específicos de usuários, funções de diretório ou usuários convidados externos. 
+[Usuários e grupos](concept-conditional-access-users-groups.md) atribuem quem a política incluirá ou excluirá. Essa atribuição pode incluir todos os usuários, grupos específicos de usuários, funções de diretório ou usuários convidados externos. 
 
-### <a name="cloud-apps-or-actions"></a>Aplicativos na nuvem ou ações
+### <a name="cloud-apps-or-actions"></a>Aplicativos de nuvem ou ações
 
-Os aplicativos de nuvem ou as ações podem incluir ou excluir aplicativos de nuvem ou ações do usuário que estarão sujeitas à política.
+Os [aplicativos de nuvem ou as ações](concept-conditional-access-cloud-apps.md) podem incluir ou excluir aplicativos de nuvem ou ações do usuário que estarão sujeitas à política.
 
 ### <a name="conditions"></a>Condições
 
-Uma política pode conter várias condições.
+Uma política pode conter várias [condições](concept-conditional-access-conditions.md).
 
 #### <a name="sign-in-risk"></a>Risco de entrada
 
 Para organizações com [Azure ad Identity Protection](../identity-protection/overview.md), as detecções de risco geradas podem influenciar suas políticas de acesso condicional.
 
-#### <a name="device-platforms"></a>Plataforma de dispositivo
+#### <a name="device-platforms"></a>Plataformas de dispositivo
 
 As organizações com várias plataformas de sistema operacional de dispositivos podem querer impor políticas específicas em diferentes plataformas. 
 
 As informações usadas para calcular a plataforma de dispositivo vêm de fontes não verificadas, como cadeias de caracteres de agente do usuário que podem ser alteradas.
 
-#### <a name="locations"></a>Localizações
+#### <a name="locations"></a>Locais
 
 Os dados de local são fornecidos por dados de localização geográfica de IP. Os administradores podem optar por definir locais e optar por marcá-los como confiáveis para os locais de rede de sua organização.
 
@@ -72,19 +72,21 @@ A parte controles de acesso da política de acesso condicional controla como uma
 
 ### <a name="grant"></a>Conceder
 
-#### <a name="block-access"></a>Bloquear acesso
+[Grant](concept-conditional-access-grant.md) fornece aos administradores um meio de imposição de política onde eles podem bloquear ou conceder acesso.
+
+#### <a name="block-access"></a>Acesso bloqueado
 
 Bloquear acesso faz exatamente isso, ele bloqueará o acesso nas atribuições especificadas. O controle de bloco é poderoso e deve ser atraente com o conhecimento apropriado.
 
-#### <a name="grant-access"></a>Permitir acesso
+#### <a name="grant-access"></a>Conceder acesso
 
 O controle Grant pode disparar a imposição de um ou mais controles. 
 
 - Exigir autenticação multifator (autenticação multifator do Azure)
 - Exigir que o dispositivo seja marcado como compatível (Intune)
-- Exigir dispositivo ingressado no Azure AD híbrido
-- Exigir o aplicativo cliente aprovado
-- Exigir política de proteção do aplicativo
+- Exigir um dispositivo ingressado no Azure AD Híbrido
+- Exigir um aplicativo cliente aprovado
+- Requer política de proteção do aplicativo
 
 Os administradores podem optar por exigir um dos controles anteriores ou todos os controles selecionados usando as opções a seguir. O padrão para vários controles é exigir todos.
 
@@ -93,12 +95,12 @@ Os administradores podem optar por exigir um dos controles anteriores ou todos o
 
 ### <a name="session"></a>Session
 
-Controles de sessão podem limitar a experiência 
+[Controles de sessão](concept-conditional-access-session.md) podem limitar a experiência 
 
-- Usar restrições impostas de aplicativo
+- Usar restrições de aplicativo impostas
    - Atualmente, funciona somente com o Exchange Online e o SharePoint Online.
       - Passa informações do dispositivo para permitir o controle da experiência que concede acesso completo ou limitado.
-- Usar o Controle de Aplicativos de Acesso Condicional
+- Usar Controle de Aplicativos de Acesso Condicional
    - Usa sinais de Microsoft Cloud App Security para fazer coisas como: 
       - Bloquear download, recortar, copiar e imprimir documentos confidenciais.
       - Monitore o comportamento de sessão arriscada.
@@ -121,11 +123,11 @@ Uma política de acesso condicional deve conter, no mínimo, o seguinte para ser
 
 ![Política de acesso condicional em branco](./media/concept-conditional-access-policies/conditional-access-blank-policy.png)
 
+O artigo [políticas de acesso condicional comum](concept-conditional-access-policy-common.md) inclui algumas políticas que achamos que seriam úteis para a maioria das organizações.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 [Simular comportamento de entrada usando a ferramenta de What If de acesso condicional](troubleshoot-conditional-access-what-if.md)
-
-[Políticas de acesso condicional comum](concept-conditional-access-policy-common.md)
 
 [Planejando uma implantação da autenticação multifator do Azure baseada em nuvem](../authentication/howto-mfa-getstarted.md)
 

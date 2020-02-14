@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 54fcd1fb936b5dd41715798408b604106a24bcf9
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: b31a4e40c1e9095499faf265673ab4213ad6bde0
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112585"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190979"
 ---
 # <a name="how-to-use-azure-cognitive-search-from-a-net-application"></a>Como usar o Azure Pesquisa Cognitiva de um aplicativo .NET
 
@@ -462,7 +462,7 @@ A primeira coisa a ser observada é que o nome de cada propriedade pública na c
 > 
 > 
 
-A segunda coisa a ser observada é que cada propriedade é decorada com atributos como `IsFilterable`, `IsSearchable`, `Key`e `Analyzer`. Esses atributos são mapeados diretamente para os [atributos de campo correspondentes em um índice de pesquisa cognitiva do Azure](https://docs.microsoft.com/rest/api/searchservice/create-index#request). A classe `FieldBuilder` usa essas propriedades para construir definições de campo para o índice.
+A segunda coisa a ser observada é que cada propriedade é decorada com atributos como `IsFilterable`, `IsSearchable`, `Key`e `Analyzer`. Esses atributos são mapeados diretamente para os [atributos de campo correspondentes em um índice de pesquisa cognitiva do Azure](/rest/api/searchservice/create-index). A classe `FieldBuilder` usa essas propriedades para construir definições de campo para o índice.
 
 A terceira coisa importante sobre a classe `Hotel` é os tipos de dados das propriedades públicas. Os tipos .NET dessas propriedades são mapeados para seus tipos de campo equivalentes na definição do índice. Por exemplo, a propriedade de cadeia de caracteres `Category` mapeia para o campo `category`, que é do tipo `Edm.String`. Há mapeamentos de tipo semelhantes entre `bool?`, `Edm.Boolean`, `DateTimeOffset?`e `Edm.DateTimeOffset` e assim por diante. As regras específicas para o mapeamento de tipo são documentadas com o método `Documents.Get` na [referência do SDK .net do Azure pesquisa cognitiva](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). A classe `FieldBuilder` cuida desse mapeamento para você, mas ainda pode ser útil para entender caso você precise solucionar problemas de serialização.
 

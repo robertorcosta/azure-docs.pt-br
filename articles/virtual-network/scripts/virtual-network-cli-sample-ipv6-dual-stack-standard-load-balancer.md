@@ -1,5 +1,5 @@
 ---
-title: Exemplo de script CLI do Azure-configurar pontos de extremidade de rede virtual IPv6-Standard Load Balancer (versão prévia)
+title: Exemplo de script CLI do Azure-configurar o front-end IPv6-Standard Load Balancer
 titlesuffix: Azure Virtual Network
 description: Habilitar pontos de extremidade IPv6 usando o CLI do Azure na rede virtual do Azure
 services: virtual-network
@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: afeb0c83c6e9afca16d0f0b21adafac4b7f3f2c2
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 86c8acedb230989fa7a7f28690bd4be9c51ead9e
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68269709"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201332"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-using-standard-load-balancerpreview"></a>Configurar pontos de extremidade IPv6 no exemplo de script de rede virtual usando Standard Load Balancer (versão prévia)
 
@@ -27,7 +27,7 @@ Você pode executar o script do Azure [Cloud Shell](https://shell.azure.com/bash
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Para usar o recurso IPv6 para rede virtual do Azure, você deve configurar sua assinatura somente uma vez da seguinte maneira:
 
 ```azurecli
@@ -46,7 +46,7 @@ Após a conclusão do registro, execute o seguinte comando:
 az provider register --namespace Microsoft.Network
 ```
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 
 ```azurecli

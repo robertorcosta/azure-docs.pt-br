@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0637e160454897af774c3bac48fc02866cb71835
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 8b45840215092281c7fbc8d499e26b095b374dd6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760786"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191038"
 ---
 # <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Conceitos e composição do Skills no Azure Pesquisa Cognitiva
 
@@ -43,11 +43,11 @@ Quando um documento está no pipeline de enriquecimento, ele é representado com
 
 |Modo de Source\Parsing de dados|Padrão|JSON, linhas JSON & CSV|
 |---|---|---|
-|Armazenamento de Blob|/document/content<br>/Document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
+|Armazenamento de Blobs|/document/content<br>/Document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
 |SQL|/document/{column1}<br>/document/{column2}<br>…|N/D |
 |Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/D|
 
- À medida que as habilidades são executadas, elas adicionam novos nós à árvore de enriquecimento. Esses novos nós podem ser usados como entradas para habilidades de downstream, projeção para a loja de conhecimento ou mapeamento para campos de índice. Os aprimoramentos não são mutáveis: uma vez criados, os nós não podem ser editados. À medida que seu habilidades se tornar mais complexo, sua árvore de enriquecimento, mas nem todos os nós na árvore de enriquecimento precisarão fazê-lo no índice ou na loja de conhecimento. Você pode persistir seletivamente apenas um subconjunto dos aprimoramentos no índice ou na loja de conhecimento.
+ À medida que as habilidades são executadas, elas adicionam novos nós à árvore de enriquecimento. Esses novos nós podem ser usados como entradas para habilidades de downstream, projeção para a loja de conhecimento ou mapeamento para campos de índice. Os aprimoramentos não são mutáveis: uma vez criados, os nós não podem ser editados. À medida que seu habilidades se tornar mais complexo, sua árvore de enriquecimento, mas nem todos os nós na árvore de enriquecimento precisarão fazê-lo no índice ou na loja de conhecimento. 
 
 Você pode persistir seletivamente apenas um subconjunto dos aprimoramentos no índice ou na loja de conhecimento.
 No restante deste documento, vamos pressupor que estamos trabalhando com o [exemplo de revisões de Hotel](https://docs.microsoft.com/azure/search/knowledge-store-connect-powerbi), mas os mesmos conceitos se aplicam a documentos aprimorados de todas as outras fontes de dados.
@@ -297,7 +297,7 @@ A abordagem de modelagem embutida não requer uma habilidade de formador, pois t
   
 Uma observação de ambas as abordagens é como os valores de `"Keyphrases"` são projetados usando o `"sourceContext"`. O nó `"Keyphrases"`, que contém uma coleção de cadeias de caracteres, é, em si, um filho do texto da página. No entanto, como as projeções exigem um objeto JSON e a página é uma primitiva (cadeia de caracteres), a `"sourceContext"` é usada para encapsular a frase-chave em um objeto com uma propriedade nomeada. Essa técnica permite que até mesmo primitivos sejam projetados de forma independente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Como uma próxima etapa, crie seu primeiro Conmy Skill com habilidades cognitivas.
 

@@ -5,12 +5,12 @@ author: usha-rathnavel
 ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
-ms.openlocfilehash: b7d99c3bf61de17f9cebba834234cc8ea52f30d6
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 701e42caba5325df34bdbb2381389708b9b5a03f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77131873"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198847"
 ---
 # <a name="install-azure-farmbeats"></a>Instalar o Azure FarmBeats
 
@@ -38,7 +38,7 @@ Quando você instala o Azure FarmBeats, os seguintes recursos são provisionados
 | Azure Cosmos DB   |  Datahub       |
 | Azure Data Factory V2       |     Acelerador de & Datahub      |
 | Conta do Lote do Azure    | Datahub   |
-| Azure Key Vault |  Acelerador de & Datahub        |
+| Cofre de Chave do Azure |  Acelerador de & Datahub        |
 | Conta do Azure Maps       |     Acelerador    |
 | Namespace do hub de eventos    |     Datahub      |
 | Aplicativo Lógico      |  Datahub       |
@@ -57,7 +57,7 @@ O custo da FarmBeats do Azure é uma agregação do custo dos serviços do Azure
 Atualmente, o Azure FarmBeats tem suporte em ambientes de nuvem pública nas seguintes regiões:
 
 - Leste da Austrália
-- EUA Central
+- Centro dos EUA
 - Leste dos EUA
 - Leste dos EUA 2
 - Oeste dos EUA
@@ -71,7 +71,7 @@ Atualmente, o Azure FarmBeats tem suporte em ambientes de nuvem pública nas seg
 
 Toda a configuração do Azure FarmBeats, incluindo a preparação e a instalação, levará menos de uma hora.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 Você precisará concluir as etapas a seguir antes de iniciar a instalação real do Azure FarmBeats:
 
@@ -83,7 +83,9 @@ Você precisará das seguintes permissões no locatário do Azure para instalar 
 - Assinatura-proprietário
 - Grupo de recursos no qual o FarmBeats está sendo instalado-proprietário
 
-As duas primeiras permissões são necessárias para [criar a etapa do aplicativo do AAD](#create-an-aad-application) . Se necessário, você pode obter uma pessoa com as permissões apropriadas para criar o aplicativo do AAD. A pessoa que está instalando o FarmBeats precisa ser um proprietário do grupo de recursos no qual o FarmBeats está sendo instalado.
+As duas primeiras permissões são necessárias para [criar a etapa do aplicativo do AAD](#create-an-aad-application) . Se necessário, você pode obter uma pessoa com as permissões apropriadas para criar o aplicativo do AAD.
+
+A pessoa que executa a instalação do FarmBeats do Marketplace precisa ser um proprietário do grupo de recursos no qual o FarmBeats está sendo instalado. Para proprietários de assinatura, isso ocorre automaticamente quando o grupo de recursos é criado. Para outros, crie previamente o grupo de recursos e peça ao proprietário da assinatura para torná-lo um proprietário do grupo de recursos.
 
 Você pode verificar suas permissões de acesso no portal do Azure seguindo as instruções em [controle de acesso baseado em função](https://docs.microsoft.com/azure/role-based-access-control/check-access).
 
@@ -120,7 +122,15 @@ Execute as etapas a seguir em uma instância de Cloud Shell usando o ambiente do
         ./create_aad_script.ps1
     ```
 
-4. O script do AAD leva cerca de 2 minutos para ser executado e gera valores na tela, bem como em um arquivo JSON no mesmo diretório. Se você tiver outra pessoa que executa o script, peça-lhe para compartilhar essa saída com você.
+4. O script solicita as três entradas a seguir:
+
+    - Nome do site FarmBeats: Este é o prefixo de URL exclusivo para seu aplicativo Web FarmBeats. Caso o prefixo já esteja em uso, o script será retirado. Uma vez instalado, sua implantação do FarmBeats estará acessível em https://\<FarmBeats-site-Name >. azurewebsites. net e as APIs do Swagger estarão em https://\<FarmBeats-site-Name >-api.azurewebsites.net
+
+    - ID de logon do Azure: forneça a ID de logon do Azure para o usuário que você deseja adicionar como administrador de FarmBeats. Esse usuário pode, então, conceder acesso para acessar o aplicativo Web FarmBeats para outros usuários. A ID de logon geralmente é do john.doe@domain.comde formulário. O UPN do Azure também tem suporte.
+
+    - ID da assinatura: é a ID da assinatura na qual você deseja instalar o Azure FarmBeats
+
+5. O script do AAD leva cerca de 2 minutos para ser executado e gera valores na tela, bem como em um arquivo JSON no mesmo diretório. Se você tiver outra pessoa que executa o script, peça-lhe para compartilhar essa saída com você.
 
 ### <a name="create-sentinel-account"></a>Criar conta do Sentinel
 
@@ -138,7 +148,7 @@ Seu processo de registro foi concluído. Anote seu **nome de usuário do Sentine
 
 Agora você está pronto para instalar o FarmBeats. Siga as etapas abaixo para iniciar a instalação:
 
-1. Entre no Portal do Azure. Selecione sua conta no canto superior direito e alterne para o locatário do Azure AD no qual você deseja instalar o Azure FarmBeats.
+1. Entre no portal do Azure. Selecione sua conta no canto superior direito e alterne para o locatário do Azure AD no qual você deseja instalar o Azure FarmBeats.
 
 2. Vá para o Azure Marketplace no portal e pesquise **FarmBeats do Azure** no Marketplace.
 
@@ -162,7 +172,7 @@ Depois que a instalação for concluída, você poderá verificar a instalação
 
 **Datahub** pode ser encontrado em https://\<FarmBeats-website-Name >-API. azurewebsites. net/Swagger. Aqui, você verá os diferentes objetos da API FarmBeats e executará operações REST nas APIs.
 
-## <a name="upgrade"></a>Atualização
+## <a name="upgrade"></a>Atualizar
 
 Para atualizar o FarmBeats para a versão mais recente, execute as etapas a seguir em uma instância de Cloud Shell usando o ambiente do PowerShell. O usuário precisará ser o proprietário da assinatura na qual o FarmBeats está instalado.
 
@@ -196,6 +206,6 @@ Para desinstalar o FarmBeats Datahub ou acelerador do Azure, conclua as seguinte
 
 2. Vá para Azure Active Directory & **excluir o aplicativo do Azure ad** vinculado à instalação do FarmBeats do Azure.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Você aprendeu a instalar o Azure FarmBeats em sua assinatura do Azure. Agora, saiba como [Adicionar usuários](manage-users-in-azure-farmbeats.md#manage-users) à instância do FarmBeats do Azure.

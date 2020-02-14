@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: d56b83c8bd9a71ac30112f9e77a97ed8ab61a137
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: cd90ae2b751a97c18dc8b6be4b8eb565a17df7a2
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825964"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191138"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Consulte de Serviços para o Azure Marketplace e AppSource
 Os Serviços de Consultoria no Azure Marketplace e AppSource fornecem a parceiros da Microsoft a meta de conectar clientes com os serviços de suporte e estender seu uso e objetivos de negócios. 
@@ -76,7 +76,7 @@ Serviços de consultoria e ofertas de serviços gerenciados baseados em Microsof
 |---------|----------|----------|----------|
 |Austrália |França  |     México          |Espanha       |
 |Bélgica   |Alemanha |     Países Baixos     |Suécia       |
-|Canadá    |Índia   |     Nova Zelândia     |Reino Unido  |
+|Canada    |Índia   |     Nova Zelândia     |United Kingdom  |
 |Dinamarca   |Itália   |     Noruega          |Estados Unidos |
 |Finlândia   |Japão   |     Polônia          
 
@@ -159,7 +159,7 @@ Ao revisar Descrições da Oferta e Resumos da Oferta, a equipe aplicará os seg
 |**Prova de conceito**    |    Articule quais alterações de engenharia, artefatos técnicos ou outros artefatos que um cliente pode esperar como resultados do engajamento     | Otimize seu resumo de ofertas com suas principais palavras-chave de Otimização do Mecanismo de Pesquisa        |
 |**Workshop**    |   Inclua uma agenda detalhada diária, semanal ou mensal, dependendo da duração escolhida da sua oferta. Articule quais são os objetivos de aprendizado ou outras entregas de seu workshop     |   Otimize seu resumo de ofertas com suas principais palavras-chave de Otimização do Mecanismo de Pesquisa      |
 
-Dentro do Portal do Microsoft Cloud Partner você pode adicionar a formatação para a sua listagem usando [Markdown](https://docs.microsoft.com/contribute/how-to-write-use-markdown). Esta é uma linguagem de design leve que ajudará a adicionar polimento à sua listagem. 
+Dentro do Portal do Microsoft Cloud Partner você pode adicionar a formatação para a sua listagem usando [Markdown](/contribute/markdown-reference). Esta é uma linguagem de design leve que ajudará a adicionar polimento à sua listagem. 
 
 **Anotações de exemplo de Markdown**
 * Adicione * no início e no final do bloco de cópia - sem espaço para criar o itálico (por exemplo: *conteúdo*)

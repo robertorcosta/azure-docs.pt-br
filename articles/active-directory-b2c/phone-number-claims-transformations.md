@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 02/12/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c43e3386886456eed0c58fefd0fb1212795db66c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 38763f414b1e5373af79d2501850a44e8e813451
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480158"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185466"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definir transformações de declarações de número de telefone no Azure AD B2C
 
@@ -32,8 +32,8 @@ Essa declaração valida o formato do número de telefone. Se ele estiver em um 
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | cadeia de caracteres | A declaração do tipo de cadeia de caracteres que converte de. |
-| OutputClaim | outputClaim | cadeia de caracteres | O resultado dessa transformação de declarações. |
+| InputClaim | InputClaim | string | A declaração do tipo de cadeia de caracteres que converte de. |
+| OutputClaim | outputClaim | phoneNumber | O resultado dessa transformação de declarações. |
 
 A transformação declarações **ConvertStringToPhoneNumberClaim** é sempre executada de um [perfil técnico de validação](validation-technical-profile.md) que é chamado por um [perfil técnico autodeclarado](self-asserted-technical-profile.md) ou [controle de exibição](display-controls.md). Os metadados do perfil técnico autodeclarado **UserMessageIfClaimsTransformationInvalidPhoneNumber** controlam a mensagem de erro apresentada ao usuário.
 
@@ -76,11 +76,11 @@ Isso extrairá o código do país e o número nacional da declaração de entrad
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | phoneNumber | cadeia de caracteres | A declaração de cadeia de caracteres do número de telefone. O número de telefone deve estar em formato internacional, completo com um "+" e código de país à esquerda. |
+| InputClaim | phoneNumber | string | A declaração de cadeia de caracteres do número de telefone. O número de telefone deve estar em formato internacional, completo com um "+" e código de país à esquerda. |
 | InputParameter | throwExceptionOnFailure | booleano | Adicional Um parâmetro que indica se uma exceção é lançada quando o número de telefone não é válido. O valor padrão é falso. |
-| InputParameter | countryCodeType | cadeia de caracteres | Adicional Um parâmetro que indica o tipo de código do país na declaração de saída. Os valores disponíveis são **CallingCode** (o código de chamada internacional para um país, por exemplo + 1) ou **ISO3166** (o código do país ISO-3166 de duas letras). |
-| OutputClaim | nationalNumber | cadeia de caracteres | A declaração de cadeia de caracteres para o número nacional do número de telefone. |
-| OutputClaim | countryCode | cadeia de caracteres | A declaração de cadeia de caracteres para o código do país do número de telefone. |
+| InputParameter | countryCodeType | string | Adicional Um parâmetro que indica o tipo de código do país na declaração de saída. Os valores disponíveis são **CallingCode** (o código de chamada internacional para um país, por exemplo + 1) ou **ISO3166** (o código do país ISO-3166 de duas letras). |
+| OutputClaim | nationalNumber | string | A declaração de cadeia de caracteres para o número nacional do número de telefone. |
+| OutputClaim | countryCode | string | A declaração de cadeia de caracteres para o código do país do número de telefone. |
 
 
 Se a transformação declarações **GetNationalNumberAndCountryCodeFromPhoneNumberString** for executada a partir de um [perfil técnico de validação](validation-technical-profile.md) que é chamado por um [perfil técnico autodeclarado](self-asserted-technical-profile.md) ou uma [ação de controle de exibição](display-controls.md#display-control-actions), os metadados do perfil técnico **UserMessageIfPhoneNumberParseFailure** autodeclarado controlam a mensagem de erro apresentada ao usuário.

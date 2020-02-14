@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a89983a9ae45f21deb7a823de049373b4ff9b935
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: ca77d4704fb71972090ce0b96dfdb888ef7d1d2c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989052"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190328"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Reagir a eventos do Azure Mapas usando a Grade de Eventos 
 
-O Azure Maps integra-se à grade de eventos do Azure, para que os usuários possam enviar notificações de eventos para outros serviços e disparar processos downstream. A finalidade deste artigo é ajudá-lo a configurar seus aplicativos de negócios para ouvir os eventos do Azure Maps. Esse serviço permite reagir a eventos críticos de maneira confiável, escalonável e segura. Por exemplo, os usuários podem criar um aplicativo para atualizar um banco de dados, criar um tíquete e entregar uma notificação por email, toda vez que um dispositivo entrar em uma cerca geográfica.
+O Azure Maps integra-se à grade de eventos do Azure, para que os usuários possam enviar notificações de eventos para outros serviços e disparar processos downstream. A finalidade deste artigo é ajudá-lo a configurar seus aplicativos de negócios para ouvir os eventos do Azure Maps. Isso permite que os usuários reajam a eventos críticos de maneira confiável, escalonável e segura. Por exemplo, os usuários podem criar um aplicativo para atualizar um banco de dados, criar um tíquete e entregar uma notificação por email, toda vez que um dispositivo entrar em uma cerca geográfica.
 
 A grade de eventos do Azure é um serviço de roteamento de eventos totalmente gerenciado, que usa um modelo de publicação/assinatura. A grade de eventos tem suporte interno para serviços do Azure como [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) e [aplicativos lógicos do Azure](https://docs.microsoft.com/azure/azure-functions/functions-overview). Ele pode entregar alertas de eventos para serviços que não são do Azure usando WebHooks. Para obter uma lista completa dos manipuladores de eventos que dá suporte a Grade de Eventos, consulte [Uma introdução à Grade de Eventos do Azure](https://docs.microsoft.com/azure/event-grid/overview).
 
@@ -30,10 +30,10 @@ A grade de eventos do Azure é um serviço de roteamento de eventos totalmente g
 
 A Grade de eventos usa [assinaturas de evento](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) para rotear mensagens de evento para os assinantes. Uma conta do Azure Mapas emite os seguintes tipos de eventos: 
 
-| Tipo de evento | Description |
+| Tipo de evento | DESCRIÇÃO |
 | ---------- | ----------- |
-| Microsoft.Maps.GeofenceEntered | Gerado quando as coordenadas recebidas são movidas de fora de uma determinada cerca geográfica para dentro |
-| Microsoft.Maps.GeofenceExited | Gerado quando as coordenadas recebidas são movidas de dentro de uma determinada cerca geográfica para fora |
+| Microsoft.Maps.GeofenceEntered | Gerado quando as coordenadas recebidas foram movidas de fora de uma determinada limite geopara dentro |
+| Microsoft.Maps.GeofenceExited | Gerado quando as coordenadas recebidas foram movidas de dentro de uma determinada cerca geográfica para externa |
 | Microsoft.Maps.GeofenceResult | Gerado sempre que uma consulta de delimitação geográfica retorna um resultado, independentemente do estado |
 
 ## <a name="event-schema"></a>Esquema do evento
@@ -80,11 +80,11 @@ O exemplo a seguir mostra o esquema para GeofenceResult:
 
 Aplicativos que manipulam eventos de limite geográfico do Azure Mapas devem seguir algumas práticas recomendadas:
 
-* Várias assinaturas podem ser configuradas para eventos de rota para o mesmo manipulador de eventos. É importante não presumir que os eventos são de uma fonte específica. Sempre verifique o tópico de mensagem para verificar se eles vêm da fonte que você espera.
-* As mensagens podem chegar fora de ordem ou após um atraso. Use o campo `X-Correlation-id` no cabeçalho de resposta para entender se suas informações sobre objetos estão atualizadas.
-* Quando a API do limite geográfico de Get e POST é chamada com o parâmetro de modo definido como `EnterAndExit`, um evento de entrada ou saída é gerado para cada geometria no limite geográfico para a qual o status foi alterado desde a última chamada à API do limite geográfico.
+* Configure várias assinaturas para rotear eventos para o mesmo manipulador de eventos. É importante não presumir que os eventos são de uma fonte específica. Sempre verifique o tópico da mensagem para garantir que a mensagem provém da origem esperada.
+* Use o campo `X-Correlation-id` no cabeçalho de resposta para entender se suas informações sobre objetos estão atualizadas. As mensagens podem chegar fora de ordem ou após um atraso.
+* Quando uma solicitação GET ou uma POST na API de isolamento geométrico é chamada com o parâmetro mode definido como `EnterAndExit`, um evento Enter ou Exit é gerado para cada geometria no limite geográfico para o qual o status foi alterado da chamada à API de limite geográfica anterior.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre como usar o isolamento geográfico para operações de controle em um local de construção, confira:
 

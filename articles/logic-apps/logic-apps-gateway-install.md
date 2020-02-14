@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 12/05/2019
-ms.openlocfilehash: 4fbfb31feb2183e3175a96023cbb3b08c4d18027
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 797cd82327d68003d4e5f007d1f16e9534092ac0
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893649"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191351"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para os Aplicativos Lógicos do Azure
 
@@ -26,7 +26,7 @@ Este artigo mostra como baixar, instalar e configurar seu gateway de dados local
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma conta e uma assinatura do Azure. Se você não tiver uma conta do Azure com uma assinatura, [Inscreva-se para obter uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
@@ -96,7 +96,7 @@ Este artigo mostra como baixar, instalar e configurar seu gateway de dados local
 
    A instalação do gateway pode ser vinculada a apenas uma conta do Azure.
 
-1. Selecione **Registrar um novo gateway neste computador** > **Avançar**. Essa etapa registra a instalação do gateway com o [serviço de nuvem do gateway](#gateway-cloud-service).
+1. Selecione **registrar um novo gateway neste computador** > **Avançar**. Essa etapa registra a instalação do gateway com o [serviço de nuvem do gateway](#gateway-cloud-service).
 
    ![Registrar gateway no computador local](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
 
@@ -142,7 +142,7 @@ Este artigo mostra como baixar, instalar e configurar seu gateway de dados local
 O gateway de dados local depende do [barramento de serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md) para conectividade de nuvem e estabelece as conexões de saída correspondentes à região do Azure associada do gateway. Se o seu ambiente de trabalho exigir que o tráfego passe por um proxy ou firewall para acessar a Internet, essa restrição poderá impedir que o gateway de dados local se conecte ao serviço de nuvem do gateway e ao barramento de serviço do Azure. O gateway tem várias configurações de comunicação que você pode ajustar. Para saber mais, consulte esses tópicos:
 
 * [Ajustar as configurações de comunicação para o gateway de dados local](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)
-* [Definir as configurações de proxy do gateway de dados local](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
+* [Definir configurações de proxy para o gateway de dados local](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
 
 <a name="high-availability"></a>
 
@@ -203,9 +203,9 @@ Como qualquer outro serviço do Windows, você pode iniciar e parar o gateway de
 
 Os usuários em sua organização podem acessar dados locais para os quais eles já têm acesso autorizado. No entanto, antes que esses usuários possam se conectar à sua fonte de dados local, você precisa instalar e configurar um gateway de dados local. Normalmente, um administrador é a pessoa que instala e configura um gateway. Essas ações podem exigir permissões de administrador do servidor ou conhecimento especial sobre seus servidores locais.
 
-O gateway facilita a comunicação rápida e segura por trás das cenas de comunicação. Essa comunicação flui entre um usuário na nuvem, o serviço de nuvem do gateway e sua fonte de dados local. O serviço de nuvem do gateway criptografa e armazena suas credenciais da fonte de dados e os detalhes do gateway. O serviço também roteia consultas e seus resultados entre o usuário, o gateway e sua fonte de dados local.
+O gateway ajuda a facilitar a comunicação nos bastidores mais rápida e segura. Essa comunicação flui entre um usuário na nuvem, o serviço de nuvem do gateway e sua fonte de dados local. O serviço de nuvem do gateway criptografa e armazena suas credenciais da fonte de dados e os detalhes do gateway. O serviço também roteia consultas e seus resultados entre o usuário, o gateway e sua fonte de dados local.
 
-O gateway funciona com firewalls e usa apenas conexões de saída. Todo o tráfego é originado como tráfego de saída seguro do agente de gateway. O gateway retransmite dados de fontes locais em canais criptografados por meio do [barramento de serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md). O barramento de serviço cria um canal entre o gateway e o serviço de chamada, mas não armazena nenhum dado. Todos os dados que trafegam através do gateway são criptografados.
+O gateway funciona com firewalls e usa apenas conexões de saída. Todo o tráfego é originado como tráfego de saída protegido do agente de gateway. O gateway retransmite dados de fontes locais em canais criptografados por meio do [barramento de serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md). O barramento de serviço cria um canal entre o gateway e o serviço de chamada, mas não armazena nenhum dado. Todos os dados que trafegam através do gateway são criptografados.
 
 ![Arquitetura do gateway de dados local](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
@@ -226,7 +226,7 @@ Estas etapas descrevem o que acontece quando você interage com um elemento que 
 
 1. Os resultados são enviados da fonte de dados de volta ao gateway e, em seguida, para o serviço de nuvem do gateway. O serviço de nuvem do gateway então usa os resultados.
 
-### <a name="authentication-to-on-premises-data-sources"></a>Autenticação em fontes de dados locais
+### <a name="authentication-to-on-premises-data-sources"></a>Autenticação para fontes de dados locais
 
 Uma credencial armazenada é usada para se conectar do gateway para fontes de dados locais. Independentemente do usuário, o gateway usa a credencial armazenada para se conectar. Pode haver exceções de autenticação para serviços específicos, como DirectQuery e LiveConnect para Analysis Services em Power BI.
 
@@ -265,7 +265,7 @@ Para saber mais, consulte esses tópicos:
 * [Solucionar problemas do gateway de dados local](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
 * [Monitorar e otimizar o desempenho do gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Conectar-se a dados locais de aplicativos lógicos](../logic-apps/logic-apps-gateway-connection.md)
 * [Recursos de integração corporativa](../logic-apps/logic-apps-enterprise-integration-overview.md)

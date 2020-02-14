@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: f8d49a62ae9006e65ef86db1ae90cd5a5e9f1c6d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d2313bfc47026ed9655d0ca25f0a0fdf3f86d8a5
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647366"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191078"
 ---
 # <a name="what-is-azure-private-link-service"></a>O que é o serviço de vínculo privado do Azure?
 
@@ -55,6 +55,7 @@ Um serviço de vínculo privado especifica as seguintes propriedades:
 |Load Balancer configuração de IP de front-end (loadBalancerFrontendIpConfigurations)    |    O serviço de vínculo privado está vinculado ao endereço IP de front-end de um Standard Load Balancer. Todo o tráfego destinado ao serviço alcançará o front-end do SLB. Você pode configurar regras SLB para direcionar esse tráfego para os pools de back-end apropriados onde seus aplicativos estão em execução. As configurações de IP de front-end do balanceador de carga são diferentes das configurações de IP NAT.      |
 |Configuração de IP de NAT (ipConfigurations)    |    Essa propriedade refere-se à configuração de IP NAT (conversão de endereços de rede) para o serviço de link privado. O IP de NAT pode ser escolhido de qualquer sub-rede em uma rede virtual do provedor de serviços. O serviço de vínculo privado executa NAT-ing no tráfego do link privado. Isso garante que não haja nenhum conflito de IP entre a origem (lado do consumidor) e o espaço de endereço de destino (provedor de serviço). No lado de destino (lado do provedor de serviço), o endereço IP de NAT aparecerá como IP de origem para todos os pacotes recebidos pelo seu serviço e IP de destino para todos os pacotes enviados pelo seu serviço.       |
 |Conexões de ponto de extremidade privado (privateEndpointConnections)     |  Essa propriedade lista os pontos de extremidade privados que se conectam ao serviço de vínculo privado. Vários pontos de extremidade privados podem se conectar ao mesmo serviço de vínculo privado e o provedor de serviços pode controlar o estado de pontos de extremidade privados individuais.        |
+|Proxy TCP v2 (EnableProxyProtocol)     |  Essa propriedade permite que o provedor de serviços use o proxy TCP v2 para recuperar informações de conexão sobre o consumidor de serviço. O provedor de serviços é responsável por configurar as configurações do destinatário para poder analisar o cabeçalho do protocolo proxy v2.        |
 |||
 
 
@@ -95,15 +96,29 @@ Os consumidores que têm exposição (controlada pela configuração de visibili
 
 A ação de aprovar as conexões pode ser automatizada usando a propriedade aprovação automática no serviço de vínculo privado. A aprovação automática é uma capacidade para os provedores de serviços aprovarem um conjunto de assinaturas para acesso automatizado ao serviço. Os clientes precisarão compartilhar suas assinaturas offline para que os provedores de serviços adicionem à lista de aprovação automática. A aprovação automática é um subconjunto da matriz de visibilidade. A visibilidade controla as configurações de exposição, enquanto a aprovação automática controla as configurações de aprovação do seu serviço. Se um cliente solicitar uma conexão de uma assinatura na lista aprovação automática, a conexão será aprovada automaticamente e a conexão será estabelecida. Os provedores de serviço não precisam mais aprovar manualmente a solicitação. Por outro lado, se um cliente solicitar uma conexão de uma assinatura na matriz de visibilidade e não na matriz de aprovação automática, a solicitação atingirá o provedor de serviços, mas o provedor de serviços precisará aprovar as conexões manualmente.
 
+## <a name="getting-connection-information-using-tcp-proxy-v2"></a>Obtendo informações de conexão usando o proxy TCP v2
+
+Ao usar o serviço de vínculo privado, o endereço IP de origem dos pacotes provenientes do ponto de extremidade privado é convertido de endereço de rede (NAT) no lado do provedor de serviço usando o IP de NAT alocado da rede virtual do provedor. Portanto, os aplicativos recebem o endereço IP NAT alocado em vez do endereço IP de origem real dos consumidores de serviço. Se o seu aplicativo precisar de um endereço IP de origem real do lado do consumidor, você poderá habilitar o protocolo de proxy em seu serviço e recuperar as informações do cabeçalho do protocolo de proxy. Além do endereço IP de origem, o cabeçalho do protocolo proxy também carrega a LinkId do ponto de extremidade privado. A combinação de endereço IP de origem e LinkId pode ajudar os provedores de serviços a identificar exclusivamente seus consumidores. Para obter mais informações sobre o protocolo proxy, visite aqui. 
+
+Essas informações são codificadas usando um vetor TLV (tipo-tamanho-valor) personalizado da seguinte maneira:
+
+Detalhes do TLV personalizado:
+
+|Campo |Comprimento (octetos)  |DESCRIÇÃO  |
+|---------|---------|----------|
+|Type  |1        |PP2_TYPE_AZURE (0xEE)|
+|Comprimento  |2      |Comprimento do valor|
+|Valor  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
+|  |4        |UINT32 (4 bytes) que representa a LINKID do ponto de extremidade privado. Codificado no formato little endian.|
+
+
 ## <a name="limitations"></a>Limitações
 
 A seguir estão as limitações conhecidas ao usar o serviço de link privado:
 - Com suporte apenas em Standard Load Balancer 
 - Dá suporte apenas ao tráfego IPv4
 - Dá suporte apenas ao tráfego TCP
-- Não há suporte para criar e gerenciar a experiência do portal do Azure
-- As informações de conexão dos clientes usando o protocolo proxy não estão disponíveis para o provedor de serviços
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - [Criar um serviço de vínculo privado usando Azure PowerShell](create-private-link-service-powershell.md)
 - [Criar um serviço de vínculo privado usando CLI do Azure](create-private-link-service-cli.md)

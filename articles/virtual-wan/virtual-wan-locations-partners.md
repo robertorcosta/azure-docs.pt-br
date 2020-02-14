@@ -1,19 +1,19 @@
 ---
-title: Localizações dos parceiros WAN Virtual do Azure | Microsoft Docs
+title: Parceiros e locais de WAN virtual do Azure | Microsoft Docs
 description: Este artigo contém uma lista de parceiros de WAN virtual do Azure e locais de Hub.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 02/12/2020
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to connect find a Virtual WAN partner
-ms.openlocfilehash: afa808c95c88184fb531e858fbfe6d102a6f1f08
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
+ms.openlocfilehash: 68379fd2334e517df4011c05bb32543f7ce4a173
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157152"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190395"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Parceiros WAN Virtual e localizações de hub virtual
 
@@ -34,7 +34,7 @@ A automação de alto nível seguinte é configurada no centro de gerenciamento/
 * Download automático de informações de conectividade do Azure
 * Configuração de dispositivo de branch local 
 
-Alguns parceiros de conectividade podem estender a automação para incluir a criação do Gateway de VPN e VNet do Hub Virtual do Azure. Se você quiser saber mais sobre a automação, consulte [Configurar a automação – Parceiros WAN](virtual-wan-configure-automation-providers.md).
+Alguns parceiros de conectividade podem estender a automação para incluir a criação do Gateway de VPN e VNet do Hub Virtual do Azure. Se você quiser saber mais sobre a automação, consulte [diretrizes de automação para parceiros de WAN virtual](virtual-wan-configure-automation-providers.md).
 
 ## <a name="partners"></a>Conectividade por meio de parceiros
 
@@ -50,4 +50,4 @@ Os parceiros a seguir são candidatos a nosso roteiro para o futuro próximo: Ar
 
 * Para obter mais informações sobre a WAN Virtual, consulte as [Perguntas frequentes sobre a WAN Virtual](virtual-wan-faq.md).
 
-* Para obter mais informações sobre como automatizar a conectividade com a WAN Virtual do Azure, consulte [Parceiros da WAN Virtual – Como automatizar](virtual-wan-configure-automation-providers.md).
+* Para obter mais informações sobre como automatizar a conectividade com a WAN virtual do Azure, consulte [diretrizes de automação para parceiros de WAN virtual](virtual-wan-configure-automation-providers.md).

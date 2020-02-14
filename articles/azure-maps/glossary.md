@@ -1,6 +1,6 @@
 ---
 title: Glossário do Azure Mapas | Microsoft Docs
-description: Um glossário de termos comumente usados associados aos mapas do Azure, serviços baseados na localização e GIS.
+description: Um glossário de termos comumente usados associados com mapas do Azure, serviços baseados em local e GIS.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 09/18/2018
@@ -8,40 +8,40 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 02bf5ba30a1fc7b4ee739cb0a591ffe084269541
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a6c1e14e332f6081111d2a58a30702093b99a876
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408870"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198234"
 ---
 # <a name="glossary"></a>Glossário
 
-O exemplo a seguir é uma lista de palavras comuns usadas com mapas do Azure Mapas.
+A lista a seguir descreve as palavras comuns usadas com os serviços do Azure Maps.
 
-## <a name="a"></a>A
+## <a name="a"></a>Um
 
 <a name="address-validation"></a>**Validação de endereço**: o processo de verificar a existência de um endereço.
 
-<a name="advanced-routing"></a>**Roteamento avançado**: uma coleção de serviços que executam operações avançadas usando dados de roteamento de estrada, como calcular intervalos acessíveis (isócronas), matrizes de distância e solicitações de rota de lote.
+<a name="advanced-routing"></a>**Roteamento avançado**: uma coleção de serviços que executam operações avançadas usando dados de roteamento de estrada; como, calculando intervalos acessíveis (isócronas), matrizes de distância e solicitações de rota de lote.
 
 <a name="aerial-imagery"></a>**Imagens aéreas**: consulte [imagens satélite](#satellite-imagery). 
 
-<a name="along-a-route-search"></a>**Ao longo de uma pesquisa de rota**: uma consulta espacial que procura dados que estão dentro de um determinado tempo de desvio ou distância de um caminho de rota.
+<a name="along-a-route-search"></a>**Ao longo de uma pesquisa de rota**: uma consulta espacial que procura dados em uma hora ou distância de desvio especificada de um caminho de rota.
 
 <a name="altitude"></a>**Altitude**: a altura ou a elevação vertical de um ponto acima de uma superfície de referência. Medidas de altitude são baseadas no dado referência fornecida, como o nível médio do mar. Consulte também elevação.
 
-<a name="ambiguous"></a>**Ambíguo**: um estado de incerteza na classificação de dados que existe quando um objeto pode ser atribuído adequadamente a dois ou mais valores para um determinado atributo. Por exemplo, geocodificação "CA" dois resultados ambíguos são retornados; "Canadá" e "Califórnia" como "CA" é um código de país e estado para cada um, respectivamente. 
+<a name="ambiguous"></a>**Ambíguo**: um estado de incerteza na classificação de dados que existe quando um objeto pode ser atribuído adequadamente a dois ou mais valores para um determinado atributo. Por exemplo, ao geocodificar "CA", dois resultados ambíguos são retornados: "Canadá" e "Califórnia". "CA" é um país e um código de estado, para "Canadá" e "Califórnia", respectivamente. 
 
 <a name="annotation"></a>**Anotação**: texto ou elementos gráficos exibidos no mapa para fornecer informações ao usuário. A anotação pode identificar ou descrever uma entidade de mapa específico, fornecer informações gerais sobre uma área do mapa ou fornecer informações sobre o mapa em si.
 
-<a name="antimeridian"></a>**Antimeridiano**: também conhecido como<sup>o meridiano 180</sup> , é o ponto em que-180 graus e 180 graus de longitude se encontram. Que é o oposto do primeiro meridiano no globo.
+<a name="antimeridian"></a>**Antimeridiano**: também conhecido como<sup>o meridiano de</sup> 180. Esse é o ponto onde-180 graus e 180 graus de longitude se encontram. Que é o oposto do meridiano principal do globo.
 
 <a name="application-programming-interface-api"></a>**API (interface de programação de aplicativo)** : uma especificação que permite aos desenvolvedores criar aplicativos.
 
 <a name="api-key"></a>**Chave de API**: consulte [autenticação de chave compartilhada](#shared-key-authentication).
 
-<a name="area-of-interest-aoi"></a>**Área de interesse (Aoi)** : a extensão usada para definir uma área de foco para uma produção de mapa ou de banco de dados.
+<a name="area-of-interest-aoi"></a>**Área de interesse (Aoi)** : a extensão usada para definir uma área de foco para um mapa ou uma produção de banco de dados.
 
 <a name="asset-tracking"></a>**Acompanhamento de ativos**: o processo de rastrear o local de um ativo, como uma pessoa, um veículo ou algum outro objeto.
 
@@ -63,7 +63,7 @@ O exemplo a seguir é uma lista de palavras comuns usadas com mapas do Azure Map
 
 <a name="batch-request"></a>**Solicitação em lote**: o processo de combinar várias solicitações em uma única solicitação.
 
-<a name="bearing"></a>**Rumo**: a direção horizontal de um ponto em relação a outro ponto. Isso é expresso como um ângulo em relação ao norte de 0 a 360 graus no sentido horário. 
+<a name="bearing"></a>**Rumo**: a direção horizontal de um ponto em relação a outro ponto. Isso é expresso como um ângulo em relação ao norte, de 0 a 360 graus em uma direção horária. 
 
 <a name="boundary"></a>**Limite**: uma linha ou polígono que separa entidades políticas adjacentes, como países/regiões, distritos e propriedades. Um limite é uma linha que pode ou não pode seguir características físicas, como rios, montanhas ou muros.
 
@@ -75,11 +75,11 @@ O exemplo a seguir é uma lista de palavras comuns usadas com mapas do Azure Map
 
 <a name="cadastre"></a>**Cadastre**: um registro de Land e propriedades registradas. Consulte também [Lote](#parcel).
 
-<a name="camera"></a>**Câmera**: no contexto de um controle de mapa interativo, uma câmera define o campo mapas da exibição. O visor da câmera é determinado com base em vários parâmetros de mapa; centro, nível de zoom, densidade, influência. 
+<a name="camera"></a>**Câmera**: no contexto de um controle de mapa interativo, uma câmera define o campo mapas da exibição. O visor da câmera é determinado com base em vários parâmetros de mapa: Centro, nível de zoom, pitch, rumo. 
 
 <a name="centroid"></a>**Centróide**: o centro geométrico de um recurso. O centroide de uma linha seria o ponto médio, enquanto o centroide de um polígono seria seu centro da área.
 
-<a name="choropleth-map"></a>**Mapa de coropléticos**: um mapa de temática em que as áreas são sombreadas em proporção à medida de uma variável estatística que está sendo exibida no mapa. Por exemplo, colorir o limite de cada estado dos EUA com base em sua população relativa a todos os outros estados.
+<a name="choropleth-map"></a>**Mapa coropléticos**: um mapa temática no qual as áreas são sombreadas em proporção à medida de uma variável estatística. Essa variável estatística é exibida no mapa. Por exemplo, colorir o limite de cada estado dos EUA com base em sua população relativa a todos os outros estados.
 
 <a name="concave-hull"></a>**Envoltória côncavo**: uma forma que representa uma possível geometria côncavo que inclui todas as formas no conjunto de dados especificado. A forma gerada é semelhante ao encapsulamento de dados com encapsulamento de plástico e, em seguida, aquecendo, assim causando extensões grandes entre os pontos para cavar em direção aos outros pontos de dados.
 
@@ -127,11 +127,11 @@ O exemplo a seguir é uma lista de palavras comuns usadas com mapas do Azure Map
 
 ## <a name="e"></a>E
 
-<a name="elevation"></a>**Elevação**: a distância vertical de um ponto ou objeto acima ou abaixo de uma superfície de referência ou Datum (geralmente significa nível de mar). A elevação geralmente se refere à altura vertical de terra.
+<a name="elevation"></a>**Elevação**: a distância vertical de um ponto ou um objeto acima ou abaixo de uma superfície de referência ou referência. Geralmente, a superfície de referência é o nível médio do mar. A elevação geralmente se refere à altura vertical de terra.
 
 <a name="envelope"></a>**Envelope**: consulte a [caixa delimitadora](#bounding-box).
 
-<a name="extended-postal-code"></a>CEP **estendido**: um código postal que pode incluir informações adicionais. Por exemplo, nos EUA, os códigos postais têm cinco dígitos, mas um código postal estendido, conhecido como zip + 4, incluirá quatro dígitos adicionais. Esses dígitos adicionais são usados para identificar um segmento geográfico dentro da área de entrega de cinco dígitos, como um bloco de cidade, um grupo de apartmentos ou uma caixa postal, que auxilia na classificação de mensagens eficiente e entrega.
+<a name="extended-postal-code"></a>CEP **estendido**: um código postal que pode incluir informações adicionais. Por exemplo, nos EUA, CEPs têm cinco dígitos. Mas, um CEP estendido, conhecido como zip + 4, inclui quatro dígitos adicionais. Esses dígitos adicionais são usados para identificar um segmento geográfico dentro da área de entrega de cinco dígitos, como um bloco de cidade, um grupo de Apartments ou uma caixa de Post Office. Conhecer o segmento geográfico ajuda na classificação e entrega eficientes de emails.
 
 <a name="extent"></a>**Extensão**: consulte a [caixa delimitadora](#bounding-box).
 
@@ -147,7 +147,7 @@ O exemplo a seguir é uma lista de palavras comuns usadas com mapas do Azure Map
 
 <a name="find-nearby"></a>**Localizar próximo**: uma consulta espacial que pesquisa uma distância de linha reta fixa (à medida que as galinha surge) de um ponto.
 
-<a name="fleet-management"></a>**Gerenciamento de frota**: o gerenciamento de veículos comerciais, como carros, caminhões, veículos e aviões. A gestão de frotas pode incluir uma variedade de funções, como financiamento de veículo, manutenção, telemática (rastreamento e diagnóstico) bem como driver, velocidade, combustível, gerenciamento de segurança e integridade. Gestão de frotas é um processo usado por empresas que dependem de transporte em seus negócios para minimizar os riscos e reduzir os custos gerais de transporte e da equipe, garantindo a conformidade com a legislação do governo.
+<a name="fleet-management"></a>**Gerenciamento de frota**: o gerenciamento de veículos comerciais, como carros, caminhões, veículos e aviões. A gestão de frotas pode incluir uma variedade de funções, como financiamento de veículo, manutenção, telemática (rastreamento e diagnóstico) bem como driver, velocidade, combustível, gerenciamento de segurança e integridade. O gerenciamento de frota é um processo usado por empresas que dependem de transporte em seus negócios. As empresas desejam minimizar os riscos e reduzir os custos gerais com o transporte e a equipe, garantindo, ao mesmo tempo, a conformidade com a legislação governamental.
 
 <a name="free-flow-speed"></a>**Velocidade de fluxo livre**: a velocidade de fluxo livre esperada sob condições ideais. Normalmente, o limite de velocidade.
 
@@ -211,13 +211,13 @@ O exemplo a seguir é uma lista de palavras comuns usadas com mapas do Azure Map
 
 <a name="isodistance"></a>**Isodistance**: dado um local, um isochrone define a área na qual alguém pode viajar dentro de uma distância especificada para um modo de transporte em qualquer direção. Consulte também [Intervalo Acessível](#reachable-range).
 
-## <a name="k"></a>mil
+## <a name="k"></a>K
 
 <a name="kml"></a>**KML**: também conhecido como linguagem de marcação Keyhole, é um formato de arquivo XML comum para armazenar dados vetoriais geográficos, como pontos, linhas e polígonos. 
 
-## <a name="l"></a>G
+## <a name="l"></a>L
 
-<a name="landsat"></a>**Landsat**: Multispectral, satélites de alta-órbita desenvolvidos pela NASA que coletam imagens do Land que são usadas em muitos setores, como agricultura, florestal e cartografia.
+<a name="landsat"></a>**Landsat**: Multispectral, satélites de alta-órbita desenvolvidos pela NASA que coletam imagens de terra. Essa imagem é usada em muitos setores, como agricultura, florestal e cartografia.
 
 <a name="latitude"></a>**Latitude**: a distância angular medida em graus de Equador em uma direção norte ou Sul.
 
@@ -247,7 +247,7 @@ O exemplo a seguir é uma lista de palavras comuns usadas com mapas do Azure Map
 
 <a name="multipoint"></a>**MultiPoint**: uma geometria que representa uma coleção de objetos Point.
 
-<a name="multipolygon"></a>**MultiPolygon**: uma geometria que representa uma coleção de objetos Polygon. Por exemplo, para mostrar a fronteira do Havaí, cada ilha poderia ser descrita com um polígono e o limite do Havaí, portanto, seria um MultiPolygon.
+<a name="multipolygon"></a>**MultiPolygon**: uma geometria que representa uma coleção de objetos Polygon. Por exemplo, para mostrar o limite do Havaí, cada ilha seria descrita com um polígono. Portanto, o limite do Havaí seria, portanto, um MultiPolygon.
 
 <a name="municipality"></a>**Município**: uma cidade ou cidade. 
 
@@ -285,13 +285,13 @@ O exemplo a seguir é uma lista de palavras comuns usadas com mapas do Azure Map
 
 <a name="post-code"></a>**Código post**: consulte o [CEP](#postal-code).
 
-<a name="postal-code"></a>**CEP**: uma série de letras ou números, ou ambos, em um formato específico, usado pelo serviço postal de um país/região para dividir áreas geográficas em zonas a fim de simplificar a entrega de emails.
+<a name="postal-code"></a>**CEP**: uma série de letras ou números, ou ambos, em um formato específico. O código postal é usado pelo serviço postal de um país/região para dividir áreas geográficas em zonas a fim de simplificar a entrega de emails.
 
 <a name="primary-key"></a>**Chave primária**: a primeira de duas chaves de assinaturas fornecidas para a autenticação de chave compartilhada do Azure Maps. Consulte [autenticação de chave compartilhada](#shared-key-authentication).
 
-<a name="prime-meridian"></a>**Meridiano principal**: uma linha de longitude que representa a longitude de 0 graus. Em geral, os valores de longitude diminuem durante uma viagem em uma direção a oeste de até 180 graus e aumentam ao viajar em direções a leste para -180-graus. 
+<a name="prime-meridian"></a>**Meridiano principal**: uma linha de longitude que representa a longitude de 0 graus. Em geral, os valores de longitude diminuem quando viajamos em uma direção de WESTERLY até 180 graus e aumentam ao viajar em direções de ponta a 180 graus. 
 
-<a name="prj"></a>**PRJ**: um arquivo de texto que geralmente acompanha um arquivo de formafile que contém informações sobre o sistema de coordenadas projetado no qual o conjunto de dados está.
+<a name="prj"></a>**PRJ**: um arquivo de texto que geralmente acompanha um arquivo de forma que contém informações sobre o sistema de coordenadas projetado no qual o conjunto de dados está.
 
 <a name="projection"></a>**Projeção**: um sistema de coordenadas projetado com base em uma projeção de mapa, como transversal Mercator, área igual a Albers e Robinson. Fornecem a capacidade de mapas de projeto de superfície esférica da Terra em um plano de coordenadas bidimensional de cartesianas. Sistemas de coordenadas projetados, às vezes, são chamados de projeções de mapa.
 
@@ -299,7 +299,7 @@ O exemplo a seguir é uma lista de palavras comuns usadas com mapas do Azure Map
 
 <a name="quadkey"></a>**Quadkey**: um índice de endereço de base 4 para um bloco dentro de um sistema de divisão de quadtree. Para obter mais informações, consulte [Níveis de Zoom e peça de blocos](zoom-levels-and-tile-grid.md).
 
-<a name="quadtree"></a>**Quadtree**: uma estrutura de dados na qual cada nó tem exatamente quatro filhos. O sistema de lado a lado usado em mapas do Azure Mapas usa uma estrutura de quadtree, de modo que, como um usuário aplica zoom em um nível, divide cada peça de mapa em quatro blocos inferiores.  Para obter mais informações, consulte [Níveis de Zoom e peça de blocos](zoom-levels-and-tile-grid.md).
+<a name="quadtree"></a>**Quadtree**: uma estrutura de dados na qual cada nó tem exatamente quatro filhos. O sistema de divisão usada no Azure Maps usa uma estrutura quadtree de modo que, como um usuário se aplique zoom em um nível, cada bloco de mapa é dividido em quatro subblocos.  Para obter mais informações, consulte [Níveis de Zoom e peça de blocos](zoom-levels-and-tile-grid.md).
 
 <a name="queries-per-second-qps"></a>**Consultas por segundo (QPS)** : o número de consultas ou solicitações que podem ser feitas em um serviço ou plataforma dentro de um segundo. 
 
@@ -321,7 +321,7 @@ O exemplo a seguir é uma lista de palavras comuns usadas com mapas do Azure Map
 
 <a name="reproject"></a>**Reprojetar**: consulte [transformação](#transformation).
 
-<a name="rest-service"></a>**Serviço REST**: acrônimo para transferência de estado de reapresentação. Uma arquitetura para a troca de informações entre pontos em um ambiente distribuído, descentralizado. REST permite que os programas em computadores diferentes se comuniquem independentemente de um sistema operacional ou plataforma, enviando uma solicitação de protocolo HTTP (Hypertext Transfer) para um localizador de recursos uniforme (URL) e obter dados de volta.
+<a name="rest-service"></a>**Serviço REST**: acrônimo para transferência de estado de reapresentação. Uma arquitetura para a troca de informações entre pontos em um ambiente distribuído, descentralizado. O REST permite que programas em computadores diferentes se comuniquem independentemente de um sistema operacional ou plataforma. Um serviço pode enviar uma solicitação HTTP (Hypertext Transfer Protocol) para um Uniform Resource Locator (URL) e obter dados de volta.
 
 <a name="route"></a>**Rota**: um caminho entre dois ou mais locais, que também podem incluir informações adicionais, como instruções para Marcos ao longo da rota.
 
@@ -329,7 +329,7 @@ O exemplo a seguir é uma lista de palavras comuns usadas com mapas do Azure Map
 
 <a name="rss"></a>**RSS**: acrônimo para distribuição realmente simples, Resumo do site de estrutura de descrição de recursos (RDF) ou Resumo de site avançado, dependendo da origem. Formato XML estruturado simples para o compartilhamento de conteúdo entre diferentes sites da Web. Documentos do RSS incluem elementos de metadados de chave, como autor, data, título, uma breve descrição e um link de hipertexto. Essa informação ajuda um usuário (ou um serviço de editor RSS) a decidir quais materiais que valem a pena mais investigação.
 
-## <a name="s"></a>P
+## <a name="s"></a>S
 
 <a name="satellite-imagery"></a>**Imagens satélite**: imagens que foram capturadas por planos e satélites apontando diretamente para baixo.
 
@@ -345,13 +345,13 @@ O exemplo a seguir é uma lista de palavras comuns usadas com mapas do Azure Map
 
 <a name="spatial-query"></a>**Consulta espacial**: uma solicitação feita a um serviço que executa uma operação espacial. Como uma pesquisa radial ou ao longo de uma pesquisa de rota.
 
-<a name="spatial-reference"></a>**Referência espacial**: um sistema local, regional ou global baseado em coordenadas usado para localizar precisamente as entidades geográficas. Define o sistema de coordenadas usado para relacionar as coordenadas de mapa para locais no mundo real. Referências espaciais garantem que dados espaciais de diferentes camadas ou de fontes podem ser integrados a uma visualização precisa ou análise. O Azure Mapas usa o [EPSG:3857](https://epsg.io/3857) sistema de referência coordenada e o WGS 84 para entrada de dados geométricos. 
+<a name="spatial-reference"></a>**Referência espacial**: um sistema local, regional ou global baseado em coordenadas usado para localizar precisamente as entidades geográficas. Define o sistema de coordenadas usado para relacionar as coordenadas de mapa para locais no mundo real. As referências espaciais garantem que os dados espaciais de diferentes camadas, ou fontes, possam ser integrados para exibição ou análise precisa. O Azure Mapas usa o [EPSG:3857](https://epsg.io/3857) sistema de referência coordenada e o WGS 84 para entrada de dados geométricos.
 
 <a name="sql-spatial"></a>**Spatial SQL**: refere-se à funcionalidade espacial interna do SQL Azure e SQL Server 2008 e acima. Essa funcionalidade espacial também está disponível como uma biblioteca .NET que pode ser usada independentemente do SQL Server. Para obter mais informações, veja [Documentação do ExpressRoute (Microsoft SQL Server)](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) para obter mais informações.
 
 <a name="subscription-key"></a>**Chave de assinatura**: consulte [autenticação de chave compartilhada](#shared-key-authentication).
 
-<a name="synchronous-request"></a>**Solicitação síncrona**: uma solicitação HTTP abre uma conexão e aguarda uma resposta. Os navegadores limitam o número de solicitações HTTP simultâneas que podem ser feitas a partir de uma página. Se várias solicitações síncronas de longa execução são feitas ao mesmo tempo, esse limite pode ser acessado e solicitações atrasadas até que uma das solicitações de tenha sido concluída.
+<a name="synchronous-request"></a>**Solicitação síncrona**: uma solicitação HTTP abre uma conexão e aguarda uma resposta. Os navegadores limitam o número de solicitações HTTP simultâneas que podem ser feitas a partir de uma página. Se várias solicitações síncronas de execução longa forem feitas ao mesmo tempo, esse limite poderá ser atingido. As solicitações serão atrasadas até que uma das outras solicitações seja concluída.
 
 ## <a name="t"></a>T
 
@@ -363,20 +363,20 @@ O exemplo a seguir é uma lista de palavras comuns usadas com mapas do Azure Map
 
 <a name="thematic-maps"></a>**Mapas do temática**: um mapa do temática é um mapa simples feito para refletir um tema sobre uma área geográfica. Um cenário comum para esse tipo de mapa é colorir as regiões administrativas, como países/regiões com base em alguma métrica de dados.
 
-<a name="tile-layer"></a>**Camada de peça**: uma camada exibida ao montar blocos de mapa (seções retangulares) em uma camada contínua. As peças são qualquer peça de imagem ou peças de vetor. Camadas de peça de varredura normalmente são renderizadas antecipadamente e armazenadas como imagens em um servidor. Isso pode levar até muito espaço de armazenamento. As camadas de bloco de vetor são renderizadas em tempo real dentro do aplicativo cliente, portanto, os requisitos de armazenamento do lado do servidor são menores.
+<a name="tile-layer"></a>**Camada de peça**: uma camada exibida ao montar blocos de mapa (seções retangulares) em uma camada contínua. As peças são qualquer peça de imagem ou peças de vetor. Camadas de bloco de varredura normalmente são renderizadas antecipadamente e são armazenadas como imagens em um servidor. Camadas de bloco de varredura podem usar um grande espaço de armazenamento. As camadas de bloco de vetor são renderizadas quase em tempo real dentro do aplicativo cliente. Portanto, os requisitos de armazenamento do lado do servidor são menores para camadas de bloco de vetor.
 
 <a name="time-zone"></a>**Fuso horário**: uma região do globo que observa um horário padrão uniforme para fins jurídicos, comerciais e sociais. Os fusos horários tendem a seguir os limites de países/regiões e suas subdivisãos.
 
 <a name="transaction"></a>**Transação**: o Azure Maps usa um modelo de licenciamento transacional em que;
 
 - Uma transação é criada para cada 15 peças de mapa ou tráfego solicitados.
-- Uma transação é criada para cada chamada de API para um dos serviços de mapas do Azure Mapas, como roteamento ou pesquisa.
+- Uma transação é criada para cada chamada à API para um dos serviços no Azure Maps. Pesquisa e roteamento são exemplos de serviço do Azure Maps.
 
 <a name="transformation"></a>**Transformação**: o processo de converter dados entre diferentes sistemas de coordenadas geográficas. Por exemplo, você terá alguns dados que foram capturados no Reino Unido e com base no sistema de coordenadas geográficas OSGB 1936. O Azure Mapas usa o [EPSG:3857](https://epsg.io/3857) sistema de referência coordenada e o WGS 84 para entrada de dados geométricos. Como tal, para exibir os dados corretamente, precisará ter suas coordenadas transformadas de um sistema para outro.
 
 <a name="traveling-salesmen-problem-tsp"></a>**Problema de venda de vendas de viagens (TSP)** : um problema de circuito Hamiltonian no qual um vendedor deve encontrar a maneira mais eficiente de visitar uma série de paradas e, em seguida, retornar para o local inicial.  
 
-<a name="trilateration"></a>**Trirecentes**: o processo de determinar a posição de um ponto na superfície da terra em relação a dois outros pontos, medindo as distâncias entre os três pontos.
+<a name="trilateration"></a>**Trirecentes**: o processo de determinar a posição de um ponto na superfície da terra, com relação a dois outros pontos, medindo as distâncias entre os três pontos.
 
 <a name="turn-by-turn-navigation"></a>**Navegação ativada por ativação**: um aplicativo que fornece instruções de rota para cada etapa de uma rota à medida que os usuários se aproximam da próxima manobra.
 
@@ -386,19 +386,19 @@ O exemplo a seguir é uma lista de palavras comuns usadas com mapas do Azure Map
 
 <a name="vector-tile"></a>**Bloco de vetor**: uma especificação de dados abertos para armazenar dados de vetor geoespaciais usando o mesmo sistema de peças que o controle de mapa. Consulte também [camada de peça lado a lado](#tile-layer).
 
-<a name="vehicle-routing-problem-vrp"></a>**VRP (problema de roteamento de veículo)** : uma classe de problemas em que um conjunto de rotas ordenadas para uma frota de veículos é calculado enquanto leva em consideração como um conjunto de restrições. Essas restrições podem incluem coisas como janelas de tempo de entrega, várias capacidades de rota e restrições de duração de viagem.
+<a name="vehicle-routing-problem-vrp"></a>**VRP (problema de roteamento de veículo)** : uma classe de problemas, na qual um conjunto de rotas ordenadas para uma frota de veículos é calculado enquanto leva em consideração como um conjunto de restrições. Essas restrições podem incluir janelas de tempo de entrega, vários recursos de rota e restrições de duração de viagem.
 
-<a name="voronoi-diagram"></a>**Diagrama de Voronoi**: uma partição de espaço em áreas, ou células, que envolvem um conjunto de objetos geométricos (geralmente os recursos de ponto). Essas células ou polígonos, devem satisfazer os critérios para os triângulos de Delaunay. Todos os locais dentro de uma área são mais próximos para o objeto que ele envolva que para qualquer outro objeto no conjunto. Diagramas de Voronoi geralmente são usados para delinear as áreas de influência em torno de características geográficas. 
+<a name="voronoi-diagram"></a>**Diagrama Voronoi**: uma partição de espaço em áreas, ou células, que envolvem um conjunto de objetos geométricos, geralmente apontam os recursos. Essas células ou polígonos, devem satisfazer os critérios para os triângulos de Delaunay. Todos os locais dentro de uma área são mais próximos para o objeto que ele envolva que para qualquer outro objeto no conjunto. Diagramas de Voronoi geralmente são usados para delinear as áreas de influência em torno de características geográficas. 
 
 ## <a name="w"></a>W
 
 <a name="waypoint"></a>**Waypoint**: um waypoint é uma localização geográfica especificada definida por longitude e latitude que é usada para fins de navegação. Geralmente usado para representar um ponto em que alguém navega por meio de uma rota.
 
-<a name="waypoint-optimization"></a>**Otimização de waypoint**: o processo de reordenação de um conjunto de Marcos para minimizar o tempo de viagem ou a distância necessária para passar por todos os marcos fornecidos. Também conhecido como o [Problema do Caixeiro Viajante](#traveling-salesmen-problem-tsp) ou [problema de roteamento de veículo](#vehicle-routing-problem-vrp) dependendo da complexidade da otimização.
+<a name="waypoint-optimization"></a>**Otimização de waypoint**: o processo de reordenação de um conjunto de Marcos para minimizar o tempo de viagem ou a distância necessária para passar por todos os marcos fornecidos. Dependendo da complexidade da otimização, essa otimização é muitas vezes conhecida como problema de venda ou [problema de roteamento de veículo](#vehicle-routing-problem-vrp)em [viagem](#traveling-salesmen-problem-tsp) .
 
 <a name="web-map-service-wms"></a>**Serviço de mapa da Web (WMS)** : o WMS é um padrão de OGC (consórcio geográfica aberta) que define serviços de mapa baseados em imagem. Serviços WMS fornecem imagens de mapa para áreas específicas dentro de um mapa sob demanda. As imagens incluem simbologia pré-renderizada e podem ser renderizadas em um dos vários estilos nomeados se definidas pelo serviço.
 
-<a name="web-mercator"></a>**Web Mercator**: também conhecida como projeção de Mercator esférica é uma ligeira variante da projeção Mercator, uma usada principalmente em programas de mapeamento baseados na Web. Usa as mesmas fórmulas como a projeção Mercator padrão usados para mapas de pequena escala. No entanto, o Web Mercator usa fórmulas esféricas em todas as escalas enquanto o Mercator em larga escala mapeia normalmente o uso do formulário elipsoidal da projeção. A discrepância é imperceptível em escala global, mas faz com que os mapas de áreas de locais desviem um pouco dos verdadeiros mapas do Mercator na mesma escala.
+<a name="web-mercator"></a>**Mercator Web**: também conhecido como projeção de Mercator esférica. É uma ligeira variante da projeção Mercator, usada principalmente em programas de mapeamento baseados na Web. Usa as mesmas fórmulas como a projeção Mercator padrão usados para mapas de pequena escala. No entanto, o Mercator da Web usa as fórmulas esféricas em todas as escalas, mas mapas de Mercator de grande escala normalmente usam a forma dados elipsoidais da projeção. A discrepância é imperceptível na escala global, mas faz com que os mapas das áreas locais se desviem ligeiramente do verdadeiro dados elipsoidais Mercator Maps, na mesma escala.
 
 <a name="wgs84"></a>**WGS84**: um conjunto de constantes usado para relacionar coordenadas espaciais a locais na superfície do mapa. A referência de WGS84 é o padrão usado por mais provedores de mapeamento online e os dispositivos GPS. O Azure Mapas usa o [EPSG:3857](https://epsg.io/3857) sistema de referência coordenada e o WGS 84 para entrada de dados geométricos.
 
@@ -408,5 +408,5 @@ O exemplo a seguir é uma lista de palavras comuns usadas com mapas do Azure Map
 
 <a name="zip-code"></a>**CEP**: consulte [código postal](#postal-code).
 
-<a name="Zoom level"></a>**Nível de zoom**: especifica o nível de detalhes e quanto do mapa é visível. Quando ampliado até um nível 0, o mapa do mundo inteiro geralmente estará no modo de exibição, mas mostrará detalhes limitados, como nomes de país/região e bordas, bem como nomes de oceano. Depois de ampliar o próximo nível 17, o mapa exibirá uma área de alguns blocos da cidade com informações detalhadas da estrada. Para obter mais informações, consulte [Níveis de Zoom e grade de peças](zoom-levels-and-tile-grid.md).
+<a name="Zoom level"></a>**Nível de zoom**: especifica o nível de detalhes e quanto do mapa é visível. Quando ampliado até o nível 0, o mapa do mundo inteiro geralmente estará visível. No entanto, o mapa mostrará detalhes limitados, como nomes de país/região, bordas e nomes de oceano. Depois de ampliar o próximo nível 17, o mapa exibirá uma área de alguns blocos da cidade com informações detalhadas da estrada. No Azure Maps, o nível de zoom mais alto é 22. Para obter mais informações, consulte [Níveis de Zoom e grade de peças](zoom-levels-and-tile-grid.md).
 

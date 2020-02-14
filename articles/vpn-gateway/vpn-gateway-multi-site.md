@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 02/11/2020
 ms.author: yushwang
-ms.openlocfilehash: 5bedf5bd6d061d74201dbac3f1f99ed0d4c381aa
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: a95cd6ea85a16b0e0bf5f67f5dfc20d57f11463b
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902430"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198081"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Adicione uma conexão Site a Site a uma rede virtual com uma conexão de gateway de VPN existente (clássico)
 
@@ -55,10 +55,13 @@ Antes de começar a configuração, verifique se você tem os seguintes itens:
 
 * Hardware de VPN compatível para cada caminho no local. Confira [Sobre dispositivos VPN para conectividade de rede virtual](vpn-gateway-about-vpn-devices.md) para verificar se o dispositivo que você deseja usar é sabidamente compatível.
 * Um endereço IP IPv4 público voltado para o exterior para cada dispositivo VPN. O endereço IP não pode estar localizado atrás de um NAT. Isso é obrigatório.
-* Você precisará instalar a versão mais recente dos cmdlets do Azure PowerShell. Instale a versão do Gerenciamento de Serviços (SM) além da versão do Resource Manager. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para obter mais informações.
 * Alguém que seja proficiente na configuração de seu hardware de VPN. Você precisará ter um grande conhecimento de como configurar seu dispositivo VPN ou trabalhar com alguém que tenha.
 * Os intervalos de endereços IP que você deseja usar na sua rede virtual (se ainda não tiver criado uma).
 * Os intervalos de endereços IP para cada um dos sites de rede local aos quais se conectará. Você precisará certificar-se de que os intervalos de endereço IP para cada um dos sites de rede local aos quais quer se conectar não se sobrepõem. Caso contrário, o portal ou a API REST rejeitará a configuração que está sendo carregada.<br>Por exemplo, se você tiver dois sites de rede local que contenham o intervalo de endereço IP 10.2.3.0/24 e tiver um pacote com um endereço de destino 10.2.3.3, o Azure não saberá para qual site você deseja enviar o pacote porque os intervalos de endereço estão sobrepostos. Para evitar problemas de roteamento, o Azure não permite carregar um arquivo de configuração com sobreposição de intervalos.
+
+### <a name="working-with-azure-powershell"></a>Trabalhando com o Azure PowerShell
+
+[!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
 ## <a name="1-create-a-site-to-site-vpn"></a>1. criar uma VPN site a site
 Se você já tiver uma VPN site a site com um gateway de roteamento dinâmico, ótimo! Continue em [Exporte as definições da configuração de rede virtual](#export). Caso contrário, faça o seguinte:
@@ -72,6 +75,19 @@ Se você já tiver uma VPN site a site com um gateway de roteamento dinâmico, �
 2. Configure um gateway de roteamento dinâmico usando estas instruções: [Configurar um gateway de VPN](vpn-gateway-configure-vpn-gateway-mp.md). Lembre-se de selecionar **roteamento dinâmico** para o tipo de gateway.
 
 ## <a name="export"></a>2. exportar o arquivo de configuração de rede
+
+Abra o console do PowerShell com direitos elevados. Para alternar para o gerenciamento de serviços, use este comando:
+
+```powershell
+azure config mode asm
+```
+
+Conecte-se à sua conta. Use o exemplo a seguir para ajudar a se conectar:
+
+```powershell
+Add-AzureAccount
+```
+
 Baixe o arquivo de configuração de rede do Azure executando o comando a seguir. Você pode alterar o local do arquivo a ser exportado para um local diferente, se necessário.
 
 ```powershell
@@ -200,6 +216,6 @@ Exemplo de retorno:
     OperationStatus           : Succeeded
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre Gateways de VPN, confira [Sobre gateways de VPN](vpn-gateway-about-vpngateways.md).

@@ -1,20 +1,20 @@
 ---
-title: Parceiros de WAN Virtual do Azure | Microsoft Docs
+title: Diretrizes de automação de parceiros de WAN virtual do Azure | Microsoft Docs
 description: Este artigo ajuda os parceiros a configurarem a automação da WAN Virtual do Azure.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 02/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6f95107960cf11ab15cb5a8294a5432498956a7a
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 7848dda09b39f446dd218b7ce1eb2a07664bcaa6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775312"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190414"
 ---
-# <a name="virtual-wan-partners"></a>Parceiros de WAN Virtual
+# <a name="automation-guidelines-for-virtual-wan-partners"></a>Diretrizes de automação para parceiros de WAN virtual
 
 Este artigo ajuda a entender como configurar o ambiente de automação para conectar e configurar um dispositivo de branch (um dispositivo de VPN local do cliente ou CPE SDWAN) para WAN Virtual do Azure. Se você é um provedor que fornece dispositivos de branch que podem acomodar conectividade de VPN sobre IPsec/IKEv2 ou IPsec/IKEv1, este artigo é para você.
 
@@ -27,7 +27,7 @@ Um dispositivo de branch (um dispositivo VPN local do cliente ou CPE SDWAN) norm
 * Experimente a experiência do portal de WAN Virtual do Azure.
 * Depois, decida qual parte das etapas de conectividade você quer automatizar. Recomendamos automatizar no mínimo o seguinte:
 
-  * Access Control
+  * Controle de acesso
   * Upload de informações de dispositivo de branch na WAN Virtual do Azure
   * Download da configuração do Azure e configuração da conectividade do dispositivo de branch na WAN Virtual do Azure
 
@@ -223,7 +223,7 @@ O dispositivo VPN/SDWAN local ou a configuração SD-WAN devem corresponder ou c
 
 [!INCLUDE [IPsec Custom](../../includes/virtual-wan-ipsec-custom-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre WAN Virtual, consulte [Sobre a WAN Virtual do Azure](virtual-wan-about.md) e [Perguntas frequentes sobre a WAN Virtual do Azure](virtual-wan-faq.md).
 

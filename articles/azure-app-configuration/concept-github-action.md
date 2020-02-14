@@ -6,14 +6,14 @@ ms.author: lcozzens
 ms.date: 01/14/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 269ae5630d1524cb8f89d3af8728892079f6eb5f
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: ce8d42ec7c37b19378b6f4ae0c81548f2eff5c9c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899614"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190390"
 ---
-# <a name="sync-your-app-configuration-instance-using-github-actions"></a>Sincronizar a instância de configuração do aplicativo usando as ações do GitHub
+# <a name="sync-your-app-configuration-instance-using-github-actions"></a>Sincronizar a instância da Configuração de Aplicativos usando o GitHub Actions
 Azure App configuração usa ações do GitHub para atualizar uma instância de configuração de aplicativo quando disparada por uma ação executada em um repositório GitHub. Você pode aproveitar os fluxos de trabalho do GitHub para atualizar a configuração do aplicativo, permitindo a integração das atualizações de configuração do aplicativo no mesmo fluxo de trabalho usado para atualizar o código do aplicativo.
 
 Um fluxo de [trabalho](https://help.github.com/articles/about-github-actions#workflow) de ações do GitHub é um processo automatizado definido em seu repositório github. Esse processo informa ao GitHub como criar e implantar seu projeto do GitHub. Azure App configuração fornece a ação de *sincronização de configuração de Azure app* para habilitar atualizações em uma instância de configuração de aplicativo quando são feitas alterações no repositório de origem. 
@@ -25,8 +25,7 @@ Os eventos do GitHub, como um envio por push para um repositório, podem dispara
 A [documentação](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) do GitHub fornece uma visão detalhada dos fluxos de trabalho e ações do github. 
 
 ## <a name="enable-github-actions-in-your-repository"></a>Habilitar ações do GitHub em seu repositório
-Para começar a usar essa ação do GitHub, vá para o repositório e selecione a guia **ações** . Localize e selecione a ação do GitHub no Marketplace pesquisando "sincronização de configuração do Azure app". 
-
+Para começar a usar essa ação do GitHub, vá para o repositório e selecione a guia **ações** . clique em "novo fluxo de trabalho" e, em seguida, em "configurar um fluxo de trabalho por conta própria". A partir daí, pesquise no Marketplace a "sincronização de configuração do Azure App".
 > [!div class="mx-imgBorder"]
 > ![selecione a guia ação](media/find-github-action.png)
 
@@ -196,6 +195,6 @@ Os parâmetros de entrada especificam os dados usados pela ação durante o temp
 | Detalhado | Não | Profundidade máxima para mesclar o arquivo de configuração.  A profundidade deve ser um número positivo.  O padrão não terá nenhuma profundidade máxima. |
 | marcas | Não | Especifica a marca definida em pares chave-valor.  O formato esperado é uma forma em cadeias de um objeto JSON da seguinte forma: {[propertyName: String]: String;} Cada nome de propriedade-valor torna-se uma marca. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu sobre a ação de sincronização de configuração de aplicativo do GitHub e como ela pode ser usada para automatizar atualizações para sua instância de configuração de aplicativo. Para saber como Azure App configuração reage às alterações em pares chave-valor, vá para o próximo [artigo](./concept-app-configuration-event.md).

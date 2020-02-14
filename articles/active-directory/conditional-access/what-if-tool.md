@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5846934a8ad8455ca375b4bc54fc46d45aba1cd
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: aeb2e98ad9bbd35f3ec507e36e958c5ce6ad2198
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379989"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185875"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Solucionar problemas usando a ferramenta de What If no acesso condicional
 
@@ -72,11 +72,11 @@ O endereço IP é um único endereço IPv4 para imitar a [condição local](loca
 
 ### <a name="device-platforms"></a>Plataformas de dispositivo
 
-Essa configuração imita a [condição de plataformas de dispositivo](conditions.md#device-platforms) e representa o equivalente a **todas as plataformas (incluindo plataformas sem suporte)** . 
+Essa configuração imita a [condição de plataformas de dispositivo](concept-conditional-access-conditions.md#device-platforms) e representa o equivalente a **todas as plataformas (incluindo plataformas sem suporte)** . 
 
 ### <a name="client-apps"></a>Aplicativos cliente
 
-Essa configuração imita a [condição de aplicativos do cliente](conditions.md#client-apps).
+Essa configuração imita a [condição de aplicativos do cliente](concept-conditional-access-conditions.md#client-apps-preview).
 Por padrão, essa configuração faz com que uma avaliação de todas as políticas com **navegador** ou **aplicativos móveis e clientes de desktop** sejam cada ou ambos selecionados. Ela também detecta políticas que impõem o **Exchange ActiveSync (EAS)** . Você pode reduzir essa configuração selecionando:
 
 - **Navegador** para avaliar todas as políticas com menos **Navegador** selecionado. 
@@ -84,7 +84,7 @@ Por padrão, essa configuração faz com que uma avaliação de todas as políti
 
 ### <a name="sign-in-risk"></a>Risco de entrada
 
-Essa configuração imita a [condição de risco de logon](conditions.md#sign-in-risk).   
+Essa configuração imita a [condição de risco de logon](concept-conditional-access-conditions.md#sign-in-risk).   
 
 ## <a name="evaluation"></a>Avaliação 
 

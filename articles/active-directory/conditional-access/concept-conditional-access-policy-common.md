@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5cfe6b790d5eb2877e46845317779c89cf33884
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: cfb5fb17abd5a433c177d3efc5a4f0a2cec3d4d7
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978013"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186135"
 ---
 # <a name="common-conditional-access-policies"></a>Políticas de Acesso Condicional Comum
 
@@ -44,7 +44,7 @@ Mais informações sobre contas de acesso de emergência e por que elas são imp
 
 \* essas quatro políticas quando configuradas juntas, imitariam a funcionalidade habilitada por [padrões de segurança](../fundamentals/concept-fundamentals-security-defaults.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Simule o comportamento de entrada usando a ferramenta de What If de acesso condicional.](troubleshoot-conditional-access-what-if.md)
 - [Use o modo somente de relatório para acesso condicional para determinar o impacto das novas decisões de política.](concept-conditional-access-report-only.md)

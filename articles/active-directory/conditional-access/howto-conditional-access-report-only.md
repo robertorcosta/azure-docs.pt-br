@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3cd57c09c08ab4c86feeca27915639123b439d0
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: d63aaa0103715a928cdd5332de738a473b329f2e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180297"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186078"
 ---
 # <a name="configure-a-conditional-access-policy-in-report-only-mode-preview"></a>Configurar uma política de acesso condicional no modo somente de relatório (visualização)
 
 Para configurar uma política de acesso condicional no modo somente de relatório:
 
 1. Entre no **portal do Azure** como administrador de acesso condicional, administrador de segurança ou administrador global.
-1. Navegue até **Azure Active Directory** > **segurança** > **acesso condicional**.
+1. Procure **Azure Active Directory** > **Segurança** > **Acesso Condicional**.
 1. Selecione **Nova política**.
 1. Configure as condições da política e os controles de concessão necessários, conforme necessário.
 1. Em **habilitar política** , defina alternar para o modo **somente relatório** .
@@ -41,9 +41,12 @@ Para exibir o resultado de uma política somente de relatório para uma entrada 
 1. Selecione uma entrada ou adicione filtros para restringir os resultados.
 1. Na gaveta de **detalhes** , selecione a guia **somente relatório (visualização)** para exibir as políticas avaliadas durante a entrada.
 
+> [!NOTE]
+> Ao baixar os logs de entradas, escolha formato JSON para incluir acesso condicional somente para dados de resultados de relatório.
+
 ## <a name="set-up-azure-monitor-integration-with-azure-ad"></a>Configurar a integração do Azure Monitor com o Azure AD
 
-Para exibir o impacto agregado das políticas de acesso condicional usando a nova pasta de trabalho de informações de acesso condicional, você deve integrar o Azure Monitor ao Azure AD e exportar os logs de entrada. Há duas etapas para definir essa integração: 
+Para exibir o impacto agregado das políticas de acesso condicional usando a nova pasta de trabalho de informações de acesso condicional, você deve integrar o Azure Monitor ao Azure AD e exportar os logs de entrada. Há duas etapas para configurar essa integração: 
 
 1. [Inscreva-se em uma assinatura Azure monitor e crie um espaço de trabalho](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 1. [Exporte os logs de entrada do Azure ad para Azure monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
@@ -61,7 +64,7 @@ Depois de integrar os logs do Azure AD ao Azure Monitor, você poderá monitorar
 1. Selecione um intervalo de tempo (se o intervalo de tempo exceder o conjunto de dados disponível, o relatório mostrará todos os dados disponíveis). Depois de definir a **política de acesso condicional** e os parâmetros de **intervalo de tempo** , o relatório será carregado.
    1. Opcionalmente, pesquise por **usuários** ou **aplicativos** individuais para restringir o escopo do relatório.
 1. Selecione entre exibir os dados no intervalo de tempo pelo número de usuários ou o número de entradas.
-1. Dependendo da exibição de **dados**, o **Resumo de impacto** exibe o número de usuários ou de entradas no escopo dos parâmetros escolhidos, agrupados por número total, **êxito**, **falha**, **ação do usuário necessária**e **não aplicado** . Selecione um bloco para examinar as entradas de um tipo de resultado específico. 
+1. Dependendo da exibição de **dados**, o **Resumo de impacto** exibe o número de usuários ou de entradas no escopo dos parâmetros escolhidos, agrupados por número total, **êxito**, **falha**, **ação do usuário necessária**e **não aplicado**. Selecione um bloco para examinar as entradas de um tipo de resultado específico. 
    1. Se você alterou os parâmetros da pasta de trabalho, poderá optar por salvar uma cópia para uso futuro. Selecione o ícone salvar na parte superior do relatório e forneça um nome e um local para salvar.
 1. Role para baixo para exibir a divisão de entradas para cada condição.
 1. Exiba os **detalhes de entrada** na parte inferior do relatório para investigar eventos de entrada individuais filtrados por seleções acima.
@@ -79,7 +82,7 @@ Os clientes perceberam que as consultas às vezes falham se os espaços de traba
 
 A lista suspensa políticas de acesso condicional é populada consultando as entradas mais recentes em um período de 4 horas. Se um locatário não tiver nenhuma entrada nas últimas 4 horas, é possível que a lista suspensa esteja vazia. Se esse atraso for um problema persistente, como em locatários pequenos com entradas infrequentes, os administradores poderão editar a consulta para o menu suspenso políticas de acesso condicional e estender o tempo para a consulta a um tempo maior que 4 horas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 

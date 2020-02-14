@@ -1,6 +1,6 @@
 ---
 title: Introdução ao controle de mapeamento do Android | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá a começar a usar o controle de mapeamento do Android usando o SDK do Android de mapas de Microsoft Azure.
+description: Neste artigo, você aprenderá a começar a usar o controle de mapeamento do Android usando os mapas de Microsoft Azure SDK do Android.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -9,24 +9,24 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: bb9dc16eabbd6065e05d26258c1421aa7a46dbd7
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: fbb81764262d98a401a26cd089e53ad37007050c
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911407"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198183"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Introdução ao Azure Maps SDK do Android
 
 O Azure Maps SDK do Android é uma biblioteca de mapas de vetor para Android. Este artigo orienta você pelos processos de instalação do Azure Maps SDK do Android e carregamento de um mapa.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="create-an-azure-maps-account"></a>Criar uma conta dos Mapas do Azure
 
 Para concluir os procedimentos deste artigo, primeiro você precisa [criar uma conta do Azure Maps](quick-demo-map-app.md#create-an-account-with-azure-maps) no tipo de preço S1 e [obter a chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) da sua conta.
 
-Para obter mais detalhes sobre a autenticação no Azure Maps, consulte [gerenciar a autenticação no Azure Maps](./how-to-manage-authentication.md).
+Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](./how-to-manage-authentication.md).
 
 ### <a name="download-android-studio"></a>Baixar Android Studio
 
@@ -57,7 +57,7 @@ Você pode saber mais sobre como configurar um AVD na [documentação do Android
 
 A próxima etapa na criação do aplicativo é instalar o SDK do Android do Azure Maps. Conclua estas etapas para instalar o SDK:
 
-1. Abra o arquivo **Build. gradle** de nível superior e adicione o seguinte código à seção **todos os projetos**, blocos de **repositórios** :
+1. Abra o arquivo de nível superior **build.gradle** e adicione o código a seguir à seção do bloco **todos os projetos**, **repositórios**:
 
     ```
     maven {
@@ -65,11 +65,11 @@ A próxima etapa na criação do aplicativo é instalar o SDK do Android do Azur
     }
     ```
 
-2. Atualize seu **app/Build. gradle** e adicione o seguinte código a ele:
+2. Atualize o **app/build.gradle** e adicione a ele o seguinte código:
     
     1. Verifique se o **minSdkVersion** do seu projeto está na API 21 ou superior.
 
-    2. Adicione o seguinte código à seção do Android:
+    2. Adicione o código a seguir à seção do Android:
 
         ```
         compileOptions {
@@ -77,14 +77,14 @@ A próxima etapa na criação do aplicativo é instalar o SDK do Android do Azur
             targetCompatibility JavaVersion.VERSION_1_8
         }
         ```
-    3. Atualize seu bloco de dependências e adicione uma nova linha de dependência de implementação para os mais recentes SDK do Android do Azure Maps:
+    3. Atualize seu bloco de dependências e adicione uma nova linha de dependência de implementação para o mais recente SDK do Android do Azure Mapas:
 
         ```
         implementation "com.microsoft.azure.maps:mapcontrol:0.2"
         ```
     
-    4. Vá para **arquivo** na barra de ferramentas e clique em **sincronizar projeto com arquivos gradle**.
-3. Adicione um fragmento de mapa à atividade principal (res \> layout \> atividade\_Main. xml):
+    4. Vá para **Arquivo** na barra de ferramentas e clique em **Sincronizar Projeto com Arquivos Gradle**.
+3. Adicione um fragmento de mapa à atividade principal (res \> layout \> activity\_main.xml):
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -105,13 +105,13 @@ A próxima etapa na criação do aplicativo é instalar o SDK do Android do Azur
 
 4. No arquivo **MainActivity. java** , você precisará:
     
-    * Adicionar importações para o SDK do Azure Maps
-    * definir as informações de autenticação do Azure Maps
-    * obter a instância de controle de mapa no método **OnCreate**
+    * adicionar importações para o SDK do Azure Mapas
+    * definir as informações de autenticação do Azure Mapas
+    * obter a instância de controle de mapeamento no método **onCreate**
 
     Definir as informações de autenticação na classe `AzureMaps` globalmente usando os métodos `setSubscriptionKey` ou `setAadProperties` faz isso para que você não precise adicionar suas informações de autenticação a cada exibição. 
 
-    O controle de mapa contém seus próprios métodos de ciclo de vida para gerenciar o ciclo de vida do OpenGL do Android, que deve ser chamado diretamente da atividade que o contém. Para que o aplicativo chame corretamente os métodos de ciclo de vida do controle de mapa, você deve substituir os seguintes métodos de ciclo de vida na atividade que contém o controle de mapa e chamar o respectivo método de controle de mapa. 
+    O controle de mapa contém seus próprios métodos de ciclo de vida para gerenciar o ciclo de vida OpenGL do Android. Esses métodos de ciclo de vida devem ser chamados diretamente da atividade que a contém. Para que seu aplicativo chame corretamente os métodos de ciclo de vida do controle de mapa, você deve substituir os seguintes métodos de ciclo de vida na atividade que contém o controle de mapa. E, você deve chamar o respectivo método de controle de mapa. 
 
     * onCreate (pacote) 
     * OnStart () 
@@ -122,7 +122,7 @@ A próxima etapa na criação do aplicativo é instalar o SDK do Android do Azur
     * onSaveInstanceState (pacote) 
     * onLowMemory() 
 
-    Edite o arquivo **MainActivity. java** da seguinte maneira:
+    Edite o arquivo **MainActivity.java** da seguinte maneira:
     
     ```java
     package com.example.myapplication;
@@ -219,7 +219,7 @@ Android Studio levará alguns segundos para criar o aplicativo. Depois que a com
 
 ![mapas do Azure no aplicativo Android](./media/how-to-use-android-map-control-library/android-map.png)</center>
 
-## <a name="localizing-the-map"></a>Localizando o mapa
+## <a name="localizing-the-map"></a>Como localizar o mapa
 
 O Azure Maps SDK do Android fornece três maneiras diferentes de definir o idioma e a exibição regional do mapa. O código a seguir mostra como definir o idioma como francês ("fr-FR") e a exibição regional como "auto". 
 
@@ -238,7 +238,7 @@ static {
 }
 ```
 
-A segunda opção é passar o idioma e exibir informações para o XML de controle de mapa.
+A segunda opção é passar as informações de idioma e de exibição para o XML de controle de mapeamento.
 
 ```XML
 <com.microsoft.azure.maps.mapcontrol.MapControl
@@ -250,7 +250,7 @@ A segunda opção é passar o idioma e exibir informações para o XML de contro
     />
 ```
 
-A terceira opção é definir programaticamente o idioma e a exibição regional do mapa usando o método Maps `setStyle`. Isso pode ser feito a qualquer momento para alterar o idioma e a exibição regional do mapa.
+A terceira opção é definir programaticamente o idioma e a exibição regional do mapa usando o método `setStyle` dos mapas. Isso pode ser feito a qualquer momento para alterar o idioma e a exibição regional do mapa.
 
 ```Java
 mapControl.onReady(map -> {
@@ -266,9 +266,9 @@ Aqui está um exemplo de mapas do Azure com a linguagem definida como "fr-FR" e 
 ![mapas do Azure, imagem de mapa mostrando rótulos em francês](./media/how-to-use-android-map-control-library/android-localization.png)
 </center>
 
-Uma lista completa de idiomas com suporte e exibições regionais está documentada [aqui](supported-languages.md).
+Uma lista completa de idiomas e exibições regionais compatíveis está documentada [aqui](supported-languages.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como adicionar dados de sobreposição no mapa:
 

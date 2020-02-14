@@ -9,12 +9,12 @@ manager: rkarlin
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 00753d885985e2734f0d87fdad9f219f44277d5a
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 300acaf4a9d2a11ef107e19df99452c909257d54
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828342"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190567"
 ---
 # <a name="security-controls-for-linux-virtual-machines"></a>Controles de segurança para Máquinas Virtuais do Linux
 
@@ -50,11 +50,11 @@ Este artigo documenta os controles de segurança internos do Máquinas Virtuais 
 
 | Controle de segurança | Sim/Não | Observações |
 |---|---|--|
-| Criptografia no lado do servidor em repouso: Chaves gerenciadas pela Microsoft | Sim | Consulte [Azure Disk Encryption para VMs do Linux](disk-encryption-overview.md). |
+| Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft | Sim | Consulte [Azure Disk Encryption para VMs do Linux](disk-encryption-overview.md). |
 | Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | As máquinas virtuais do Azure dão suporte à criptografia de [ExpressRoute](/azure/expressroute) e VNet. Consulte [criptografia em trânsito em VMs](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Sim | As chaves gerenciadas pelo cliente são um cenário de criptografia do Azure com suporte; consulte [visão geral da criptografia do Azure](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms).|
 | Criptografia em nível de coluna (serviços de dados do Azure)| N/D | |
-| Chamadas à API criptografadas| Sim | Via HTTPS e SSL. |
+| Chamadas criptografadas à API| Sim | Via HTTPS e TLS. |
 
 ## <a name="configuration-management"></a>Gerenciamento de configuração
 

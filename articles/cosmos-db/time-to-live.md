@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/26/2019
 ms.reviewer: sngun
-ms.openlocfilehash: c504e2f574970142942945de5a0a9fb409bb166b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5407c38f33d167ff5114cd55878e3470e7248d71
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498305"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188711"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Vida útil (TTL) no Azure Cosmos DB 
 
@@ -44,9 +44,7 @@ O valor de vida útil é definido em segundos e é interpretado como um Delta de
 
 * Se a TTL não estiver definida em um contêiner, o tempo de vida de um item nesse contêiner não terá efeito. 
 
-* Se a TTL em um contêiner for definida como -1, um item nesse contêiner que tenha a vida útil definida como n expirará após n segundos, e os itens restantes não expirarão. 
-
-A exclusão de itens com base na TTL é gratuita. Não haverá custos adicionais (isto é, nenhuma RU adicional será consumida) quando o item for excluído como resultado da expiração de TTL.
+* Se a TTL em um contêiner for definida como -1, um item nesse contêiner que tenha a vida útil definida como n expirará após n segundos, e os itens restantes não expirarão.
 
 ## <a name="examples"></a>Exemplos
 
@@ -59,8 +57,8 @@ TTL no contêiner é definido como nulo (DefaultTimeToLive = NULL)
 |TTL no item| Result|
 |---|---|
 |TTL = nulo|    O TTL está desabilitado. O item nunca expirará (padrão).|
-|TTL =-1   |O TTL está desabilitado. O item nunca expirará.|
-|TTL = 2000 |O TTL está desabilitado. O item nunca expirará.|
+|ttl = -1   |O TTL está desabilitado. O item nunca expirará.|
+|ttl = 2000 |O TTL está desabilitado. O item nunca expirará.|
 
 
 ### <a name="example-2"></a>Exemplo 2
@@ -70,8 +68,8 @@ TTL no contêiner é definido como-1 (DefaultTimeToLive =-1)
 |TTL no item| Result|
 |---|---|
 |TTL = nulo |O TTL está habilitado. O item nunca expirará (padrão).|
-|TTL =-1   |O TTL está habilitado. O item nunca expirará.|
-|TTL = 2000 |O TTL está habilitado. O item expirará após 2000 segundos.|
+|ttl = -1   |O TTL está habilitado. O item nunca expirará.|
+|ttl = 2000 |O TTL está habilitado. O item expirará após 2000 segundos.|
 
 
 ### <a name="example-3"></a>Exemplo 3
@@ -81,8 +79,8 @@ TTL no contêiner é definido como 1000 (DefaultTimeToLive = 1000)
 |TTL no item| Result|
 |---|---|
 |TTL = nulo|    O TTL está habilitado. O item expirará após 1000 segundos (padrão).|
-|TTL =-1   |O TTL está habilitado. O item nunca expirará.|
-|TTL = 2000 |O TTL está habilitado. O item expirará após 2000 segundos.|
+|ttl = -1   |O TTL está habilitado. O item nunca expirará.|
+|ttl = 2000 |O TTL está habilitado. O item expirará após 2000 segundos.|
 
 ## <a name="next-steps"></a>Próximas etapas
 

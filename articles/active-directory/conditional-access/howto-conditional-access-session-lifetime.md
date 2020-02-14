@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 797475bfe0f1ec077ad39c6fce1f0facdf679802
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: eb094d04a7210d76a98f3e47af750e49b617e493
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483471"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77195055"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar o gerenciamento de sessão de autenticação com acesso condicional
 
@@ -50,6 +50,23 @@ A configuração frequência de entrada funciona com aplicativos que implementar
 - Cliente Web de equipes
 - Dynamics CRM Online
 - Portal do Azure
+
+### <a name="user-sign-in-frequency-and-device-identities"></a>Frequência de entrada do usuário e identidades do dispositivo
+
+Se você tiver ingressado no Azure AD, ingressado no Azure AD híbrido ou dispositivos registrados no Azure AD, quando um usuário desbloquear seu dispositivo ou entrar de forma interativa, esse evento também atenderá à política de frequência de entrada. Nos dois exemplos a seguir, a frequência de entrada do usuário é definida como 1 hora:
+
+Exemplo 1:
+
+- Em 00:00, um usuário entra em seu dispositivo ingressado no Azure AD do Windows 10 e inicia o trabalho em um documento armazenado no SharePoint Online.
+- O usuário continua trabalhando no mesmo documento em seu dispositivo por uma hora.
+- Em 01:00, o usuário é solicitado a entrar novamente com base no requisito de frequência de entrada na política de acesso condicional configurada pelo administrador.
+
+Exemplo 2:
+
+- Em 00:00, um usuário entra em seu dispositivo ingressado no Azure AD do Windows 10 e inicia o trabalho em um documento armazenado no SharePoint Online.
+- Às 00:30, o usuário Obtém e faz um bloqueio de interrupção de seu dispositivo.
+- Em 00:45, o usuário retorna de sua quebra e desbloqueia o dispositivo.
+- Em 01:45, o usuário é solicitado a entrar novamente com base no requisito de frequência de entrada na política de acesso condicional configurada pelo administrador desde que a última entrada ocorreu às 00:45.
 
 ## <a name="persistence-of-browsing-sessions"></a>Persistência de sessões de navegação
 
