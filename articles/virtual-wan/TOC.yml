@@ -21,7 +21,11 @@
 - name: Conceitos
   items:
     - name: Locais e parceiros
-      href: virtual-wan-locations-partners.md
+      items:
+        - name: Locais e parceiros do hub
+          href: virtual-wan-locations-partners.md
+        - name: Diretrizes de automação para parceiros
+          href: virtual-wan-configure-automation-providers.md
     - name: Políticas de IPsec
       href: virtual-wan-ipsec.md
 - name: Guias de instruções
@@ -46,8 +50,6 @@
       href: virtual-wan-point-to-site-azure-ad.md
     - name: Configurar a autenticação multiaplicativo do Azure AD para a VPN do usuário
       href: openvpn-azure-ad-tenant-multi-app.md
-    - name: Configurar a automação (parceiros da WAN Virtual)
-      href: virtual-wan-configure-automation-providers.md
     - name: Baixar perfis de VPN globais e baseados em hub
       href: global-hub-profile.md
     - name: Configurar o roteamento
