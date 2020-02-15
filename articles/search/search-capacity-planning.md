@@ -1,5 +1,5 @@
 ---
-title: Capacidade de escala para cargas de trabalho de consulta e índice
+title: Ajustar a capacidade de cargas de trabalho de consulta e índice
 titleSuffix: Azure Cognitive Search
 description: Ajuste os recursos de computador da partição e da réplica no Azure Pesquisa Cognitiva, em que cada recurso é cobrado nas unidades de pesquisa cobráveis.
 manager: nitinme
@@ -7,54 +7,46 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 349587063c528fef1cbdb09d84e61e82443d45d1
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/14/2020
+ms.openlocfilehash: bc90ecb029afe70ed61e94a727c67c53bb968b96
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906721"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212553"
 ---
-# <a name="scale-up-partitions-and-replicas-to-add-capacity-for-query-and-index-workloads-in-azure-cognitive-search"></a>Escalar verticalmente partições e réplicas para adicionar capacidade para cargas de trabalho de consulta e índice no Azure Pesquisa Cognitiva
+# <a name="adjust-capacity-in-azure-cognitive-search"></a>Ajustar a capacidade no Azure Pesquisa Cognitiva
 
-Depois que você [escolhe um tipo de preço](search-sku-tier.md) e [provisiona um serviço de pesquisa](search-create-service-portal.md), a próxima etapa é, como opção, aumentar o número de réplicas ou partições usadas pelo serviço. Cada camada oferece um número fixo de unidades de cobrança. Este artigo explica como alocar essas unidades para obter uma configuração ideal que equilibra os requisitos para execução da consulta, indexação e armazenamento.
+Antes de [provisionar um serviço de pesquisa](search-create-service-portal.md) e bloqueá-lo em um tipo de preço específico, reserve alguns minutos para entender a função de réplicas e partições em um serviço, independentemente de você precisar de partições proporcionalmente maiores ou mais rápidas, e como você pode configurar o serviço para a carga esperada.
 
-A configuração de recursos está disponível quando você configura um serviço na [camada básica](https://aka.ms/azuresearchbasic) ou em uma das [camadas padrão ou de armazenamento otimizado](search-limits-quotas-capacity.md). Para os serviços nessas camadas, a capacidade é comprada em incrementos de *unidades de pesquisa* (SUs), em que cada partição e réplica conta como uma SU. 
-
-Usar menos SUs resulta em uma lista menor proporcionalmente. A cobrança fica em vigor durante o tempo de configuração do serviço. Se, no momento, você não estiver usando um serviço, a única maneira de evitar a cobrança será excluindo o serviço e o recriando quando precisar dele.
-
-> [!Note]
-> Excluir um serviço exclui tudo nele. Há um recurso no Azure Cognitive Search para fazer backup e restaurar dados de pesquisa persistentes. Para reimplantar um índice existente em um novo serviço, você deverá executar o programa usado para criar e carregá-lo originalmente. 
+A capacidade é uma função da [camada escolhida](search-sku-tier.md) (camadas determinam as características de hardware) e a combinação de réplica e partição necessária para cargas de trabalho projetadas. Este artigo se concentra em combinações de réplica e partição e interações.
 
 ## <a name="terminology-replicas-and-partitions"></a>Terminologia: réplicas e partições
-Réplicas e partições são os recursos principais que retornam um serviço de pesquisa.
 
-| Grupos | Definição |
-|----------|------------|
-|*Partições* | Fornecem armazenamento de índice e E/S para operações de leitura/gravação (por exemplo, ao recompilar ou atualizar um índice).|
-|*Réplicas* | Instâncias do serviço de pesquisa, usadas principalmente para equilibrar a carga das operações de consulta. Cada réplica sempre hospeda uma cópia de um índice. Se você tiver 12 réplicas, terá 12 cópias de cada índice carregadas no serviço.|
-
-> [!NOTE]
-> Não há uma maneira de manipular ou gerenciar diretamente quais índices são executados em uma réplica. Uma cópia de cada índice em cada réplica faz parte da arquitetura do serviço.
->
-
+|||
+|-|-|
+|*Partições* | Fornecem armazenamento de índice e E/S para operações de leitura/gravação (por exemplo, ao recompilar ou atualizar um índice). Cada partição tem um compartilhamento do índice total. Se você alocar três partições, o índice será dividido em terços. |
+|*Réplicas* | Instâncias do serviço de pesquisa, usadas principalmente para equilibrar a carga das operações de consulta. Cada réplica é uma cópia de um índice. Se você alocar três réplicas, terá três cópias de um índice disponível para atender às solicitações de consulta.|
 
 ## <a name="how-to-allocate-replicas-and-partitions"></a>Como alocar réplicas e partições
-No Azure Pesquisa Cognitiva, um serviço é inicialmente alocado um nível mínimo de recursos consistindo em uma partição e uma réplica. Para tipos que dão suporte a isso, você poderá ajustar de forma incremental a capacidade de recursos computacionais aumentando as partições, se precisar de mais armazenamento e E/S ou adicionar mais réplicas para volumes maiores de consulta ou melhor desempenho. Um único serviço deve ter recursos suficientes para manipular todas as cargas de trabalho (indexação e consultas). Você não pode subdividir cargas de trabalho entre vários serviços.
 
-Para aumentar ou alterar a alocação de réplicas e partições, recomendamos o uso do portal do Azure. O portal impõe limites para combinações permitidas que ficam abaixo dos limites máximos. Se você precisar de uma abordagem de provisionamento baseada em script ou em código, o [Azure PowerShell](search-manage-powershell.md) ou a [API REST de gerenciamento](https://docs.microsoft.com/rest/api/searchmanagement/services) são soluções alternativas.
+Inicialmente, um serviço é alocado um nível mínimo de recursos que consistem em uma partição e uma réplica. 
 
-Em geral, os aplicativos de pesquisa precisam de mais réplicas do que partições, especialmente quando as operações de serviço são polarizadas para cargas de trabalho de consulta. A seção sobre [alta disponibilidade](#HA) , explica o motivo.
+Um único serviço deve ter recursos suficientes para manipular todas as cargas de trabalho (indexação e consultas). Nenhuma carga de trabalho é executada em segundo plano. Você pode agendar a indexação para tempos em que as solicitações de consulta são naturalmente menos frequentes, mas o serviço não priorizará uma tarefa em vez de outra.
+
+Ao modificar a alocação de réplicas e partições, é recomendável usar o portal do Azure. O portal impõe limites para combinações permitidas que ficam abaixo dos limites máximos de uma camada. No entanto, se você precisar de uma abordagem de provisionamento baseada em script ou em código, o [Azure PowerShell](search-manage-powershell.md) ou a [API REST de gerenciamento](https://docs.microsoft.com/rest/api/searchmanagement/services) são soluções alternativas.
+
+Como regra geral, os aplicativos de pesquisa tendem a precisar de mais réplicas do que as partições, especialmente quando as operações de serviço são tendenciosas em relação a cargas de trabalho de consulta. A seção sobre [alta disponibilidade](#HA) , explica o motivo.
 
 1. Entre no [portal do Azure](https://portal.azure.com/) e selecione o serviço de pesquisa.
 
-2. Em **configurações**, abra a página **escala** para modificar réplicas e partições. 
+1. Em **configurações**, abra a página **escala** para modificar réplicas e partições. 
 
    A captura de tela a seguir mostra um serviço padrão provisionado com uma réplica e uma partição. A fórmula na parte inferior indica quantas unidades de pesquisa estão sendo usadas (1). Se o preço unitário era $100 (não um preço real), o custo mensal da execução desse serviço seria de $100 em média.
 
    ![Página escala mostrando os valores atuais](media/search-capacity-planning/1-initial-values.png "Página escala mostrando os valores atuais")
 
-3. Use o controle deslizante para aumentar ou diminuir o número de partições. A fórmula na parte inferior indica quantas unidades de pesquisa estão sendo usadas.
+1. Use o controle deslizante para aumentar ou diminuir o número de partições. A fórmula na parte inferior indica quantas unidades de pesquisa estão sendo usadas.
 
    Este exemplo duplica a capacidade, com duas réplicas e partições cada. Observe a contagem de unidades de pesquisa; Agora, ele é quatro porque a fórmula de cobrança é réplicas multiplicada por partições (2 x 2). Dobrar a capacidade mais do que o dobro do custo da execução do serviço. Se o custo da unidade de pesquisa fosse $100, a nova fatura mensal agora será $400.
 
@@ -62,7 +54,7 @@ Em geral, os aplicativos de pesquisa precisam de mais réplicas do que partiçõ
 
    ![Adicionar réplicas e partições](media/search-capacity-planning/2-add-2-each.png "Adicionar réplicas e partições")
 
-3. Clique em **salvar** para confirmar as alterações.
+1. Clique em **salvar** para confirmar as alterações.
 
    ![Confirmar alterações de escala e cobrança](media/search-capacity-planning/3-save-confirm.png "Confirmar alterações de escala e cobrança")
 
@@ -70,10 +62,10 @@ Em geral, os aplicativos de pesquisa precisam de mais réplicas do que partiçõ
 
    ![Mensagem de status no portal](media/search-capacity-planning/4-updating.png "Mensagem de status no portal")
 
-
 > [!NOTE]
-> Após o provisionamento de um serviço, ele não pode ser atualizado para um SKU superior. Você precisará criar um serviço de pesquisa no novo tipo e recarregar os índices. Consulte [criar um serviço de pesquisa cognitiva do Azure no portal](search-create-service-portal.md) para obter ajuda com o provisionamento de serviço.
+> Depois que um serviço é provisionado, ele não pode ser atualizado para uma camada superior. Você precisará criar um serviço de pesquisa no novo tipo e recarregar os índices. Consulte [criar um serviço de pesquisa cognitiva do Azure no portal](search-create-service-portal.md) para obter ajuda com o provisionamento de serviço.
 >
+> Além disso, partições e réplicas são gerenciadas exclusivamente e internamente pelo serviço. Não há nenhum conceito de afinidade de processador ou atribuição de uma carga de trabalho a um nó específico.
 >
 
 <a id="chart"></a>
@@ -100,10 +92,10 @@ SUs, preço e capacidade são explicados detalhadamente no site do Azure. Para o
 > O número de réplicas e partições divide de maneira uniforme em 12 (especificamente, 1, 2, 3, 4, 6 e 12). Isso ocorre porque o Azure Pesquisa Cognitiva divide cada índice em 12 fragmentos para que ele possa ser distribuído em partes iguais em todas as partições. Por exemplo, se o serviço tiver três partições e você criar um índice, cada partição conterá quatro fragmentos do índice. Como o Azure Pesquisa Cognitiva fragmenta um índice é um detalhe de implementação, sujeito a alterações em versões futuras. Embora o número seja 12 hoje, você não deve esperar que ele seja sempre 12 no futuro.
 >
 
-
 <a id="HA"></a>
 
 ## <a name="high-availability"></a>Alta disponibilidade
+
 Uma vez que é relativamente fácil e rápido escalar verticalmente, recomendamos começar com uma partição e uma ou duas réplicas e então escalar verticalmente conforme os volumes de consulta se acumulam. As cargas de trabalho de consulta são executadas principalmente em réplicas. Se precisar de mais taxa de transferência ou alta disponibilidade, provavelmente, você precisará de mais réplicas.
 
 Recomendações gerais para alta disponibilidade são:
@@ -116,31 +108,27 @@ Os contratos de nível de serviço (SLA) para o Azure Pesquisa Cognitiva são di
 
 Camada Básico alcança o topo em uma partição e três réplicas. Se você quiser flexibilidade para responder imediatamente a flutuações na demanda por taxa de transferência de indexação e consulta, considere uma das camadas Standard.  Se você achar que seus requisitos de armazenamento estão crescendo muito mais rapidamente do que a taxa de transferência de consulta, considere uma das camadas de armazenamento otimizado.
 
-### <a name="index-availability-during-a-rebuild"></a>Disponibilidade de índice durante uma recompilação
-
-A alta disponibilidade do Pesquisa Cognitiva do Azure pertence a consultas e atualizações de índice que não envolvem a recriação de um índice. Se você excluir um campo, alterar um tipo de dados ou renomear um campo, será necessário recompilar o índice. Para recompilar o índice, é necessário excluir o índice, recriar o índice e recarregar os dados.
-
-> [!NOTE]
-> Você pode adicionar novos campos a um índice de Pesquisa Cognitiva do Azure sem recompilar o índice. O valor do novo campo será nulo para todos os documentos já existentes no índice.
-
-Ao recompilar o índice, haverá um período de tempo em que os dados estão sendo adicionados ao novo índice. Se você quiser continuar a disponibilizar o índice antigo durante esse tempo, deverá ter uma cópia do índice antigo com um nome diferente no mesmo serviço ou uma cópia do índice com o mesmo nome em um serviço diferente e, em seguida, fornecer redirecionamento ou lógica de failover em seu código.
-
 ## <a name="disaster-recovery"></a>Recuperação de desastre
+
 Atualmente, não há mecanismo integrado para recuperação de desastres. Adicionar partições ou réplicas seria a estratégia incorreta para atingir os objetivos de recuperação de desastres. A abordagem mais comum é adicionar redundância no nível de serviço configurando um segundo serviço de pesquisa em outra região. Assim como acontece com a disponibilidade durante uma recompilação de índice, o redirecionamento ou a lógica de failover deve vir de seu código.
 
-## <a name="increase-query-performance-with-replicas"></a>Aumentar o desempenho de consulta com réplicas
-A latência da consulta é um indicador da necessidade de réplicas adicionais. Em geral, uma primeira etapa para melhorar o desempenho de consulta é adicionar mais desse recurso. Conforme você adiciona réplicas, cópias adicionais do índice são colocadas online para oferecer maior suporte a cargas de trabalho de consulta e balancear a carga das solicitações em várias réplicas.
+## <a name="estimate-replicas"></a>Estimar réplicas
 
-Não podemos fornecer estimativas fixas para QPS (consultas por segundo): o desempenho da consulta depende da complexidade da consulta e de cargas de trabalho concorrentes. Embora a adição de réplicas definitivamente adicione escala e desempenho, o resultado não é estritamente linear: a adição de três réplicas não garante o triplo da taxa de transferência.
+Em um serviço de produção, você deve alocar três réplicas para fins de SLA. Se você tiver um desempenho de consulta lento, uma solução é adicionar réplicas para que cópias adicionais do índice sejam colocadas online para dar suporte a cargas de trabalho de consulta maiores e balancear a carga das solicitações em várias réplicas.
 
-Para obter orientação sobre como estimar o QPS para suas cargas de trabalho, consulte [Considerações sobre desempenho e otimização do Azure pesquisa cognitiva](search-performance-optimization.md).
+Não fornecemos diretrizes sobre quantas réplicas são necessárias para acomodar cargas de consulta. O desempenho da consulta depende da complexidade da consulta e das cargas de trabalho concorrentes. Embora a adição de réplicas definitivamente adicione escala e desempenho, o resultado não é estritamente linear: a adição de três réplicas não garante o triplo da taxa de transferência.
 
-## <a name="increase-indexing-performance-with-partitions"></a>Aumentar o desempenho de indexação com partições
+Para obter orientação sobre como estimar o QPS para sua solução, consulte [escala para desempenho](search-performance-optimization.md)e [consultas de monitor](search-monitor-queries.md)
+
+## <a name="estimate-partitions"></a>Estimar partições
+
+A [camada escolhida](search-sku-tier.md) determina o tamanho e a velocidade da partição, e cada camada é otimizada em um conjunto de características que se ajustam a vários cenários. Se você escolher uma camada de extremidade superior, poderá precisar de menos partições do que se você estiver com S1.
+
 Aplicativos de pesquisa que exigem atualização de dados quase em tempo real precisarão proporcionalmente de mais partições de réplicas. A adição de partições distribui as operações de leitura/gravação em uma quantidade maior de recursos de computação. Também oferece mais espaço em disco para armazenar documentos e índices adicionais.
 
 Índices maiores levam mais tempo para consultar. Assim, você poderá perceber que cada aumento incremental em partições requer um aumento proporcional, mas menor, em réplicas. A complexidade de suas consultas e seu volume influenciarão a rapidez com que a execução da consulta é retornada.
 
+## <a name="next-steps"></a>Próximas etapas
 
-## <a name="next-steps"></a>Próximos passos
-
-[Escolha um tipo de preço para o Azure Pesquisa Cognitiva](search-sku-tier.md)
+> [!div class="nextstepaction"]
+> [Escolha um tipo de preço para o Azure Pesquisa Cognitiva](search-sku-tier.md)

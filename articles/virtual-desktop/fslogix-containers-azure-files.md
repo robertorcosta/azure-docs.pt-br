@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 7003e5b8574d2caa05bfe66e500b93db0c1cdcfa
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d45fa08383d9f61776a739093d78fc033ad54a6b
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891630"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212407"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contêineres de perfil FSLogix e arquivos do Azure
 
@@ -48,15 +48,15 @@ A tabela a seguir mostra os benefícios e as limitações das tecnologias de per
 
 | Tecnologia | Configurações modernas | Configurações do Win32 | Configurações do so | Dados do usuário | Com suporte no SKU do servidor | Armazenamento de back-end no Azure | Armazenamento de back-end local | Suporte à versão | Hora de entrada subsequente |Observações|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
-| **Discos de perfil do usuário (UPD)** | sim | sim | sim | sim | sim | Não | sim | Win 7 + | sim | |
-| **Perfil de usuário de roaming (RUP), modo de manutenção** | Não | sim | sim | sim | sim| Não | sim | Win 7 + | Não | |
-| **Enterprise State Roaming (ESR)** | sim | Não | sim | Não | Consulte as observações | sim | Não | Win 10 | Não | Funções no SKU do servidor, mas sem interface do usuário de suporte |
-| **User Experience Virtualization (UE-V)** | sim | sim | sim | Não | sim | Não | sim | Win 7 + | Não |  |
-| **Arquivos de nuvem do OneDrive** | Não | Não | Não | sim | Consulte as observações | Consulte as observações  | Consulte as observações | Win 10 RS3 | Não | Não testado no SKU do servidor. O armazenamento de back-end no Azure depende do cliente de sincronização. O armazenamento de back-end no local precisa de um cliente de sincronização. |
+| **Discos de perfil do usuário (UPD)** | Sim | Sim | Sim | Sim | Sim | Não | Sim | Win 7 + | Sim | |
+| **Perfil de usuário de roaming (RUP), modo de manutenção** | Não | Sim | Sim | Sim | Sim| Não | Sim | Win 7 + | Não | |
+| **Enterprise State Roaming (ESR)** | Sim | Não | Sim | Não | Consulte as observações | Sim | Não | Win 10 | Não | Funções no SKU do servidor, mas sem interface do usuário de suporte |
+| **User Experience Virtualization (UE-V)** | Sim | Sim | Sim | Não | Sim | Não | Sim | Win 7 + | Não |  |
+| **Arquivos de nuvem do OneDrive** | Não | Não | Não | Sim | Consulte as observações | Consulte as observações  | Consulte as observações | Win 10 RS3 | Não | Não testado no SKU do servidor. O armazenamento de back-end no Azure depende do cliente de sincronização. O armazenamento de back-end no local precisa de um cliente de sincronização. |
 
 #### <a name="performance"></a>Desempenho
 
-O UPD requer [espaços de armazenamento diretos (S2D)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) para resolver os requisitos de desempenho. O UPD usa o protocolo SMB. Ele copia o perfil para a VM na qual o usuário está sendo registrado. O UPD com S2D é a solução que recomendamos para a área de trabalho virtual do Windows.  
+O UPD requer [espaços de armazenamento diretos (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) para resolver os requisitos de desempenho. O UPD usa o protocolo SMB. Ele copia o perfil para a VM na qual o usuário está sendo registrado. O UPD com S2D é a solução que recomendamos para a área de trabalho virtual do Windows.  
 
 #### <a name="cost"></a>Custo
 
@@ -70,15 +70,15 @@ Os clusters S2D exigem um sistema operacional que seja corrigido, atualizado e m
 
 Em 19 de novembro de 2018, a [Microsoft adquiriu o FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). FSLogix resolve muitos desafios de contêiner de perfil. A chave entre eles são:
 
-- **Desempenho:** Os [contêineres de perfil do FSLogix](https://fslogix.com/products/profile-containers) são de alto desempenho e resolvem problemas de desempenho que têm o modo de troca armazenado em cache historicamente bloqueado.
-- **Onedrive:** Sem os contêineres de perfil do FSLogix, o OneDrive for Business não tem suporte em ambientes de RDSH ou VDI não persistentes. O [onedrive for Business e o FSLogix Best Practices](https://fslogix.com/products/technical-faqs/284-onedrive-for-business-and-fslogix-best-practices) descrevem como eles interagem. Para obter mais informações, consulte [usar o cliente de sincronização em áreas de trabalho virtuais](https://docs.microsoft.com/deployoffice/rds-onedrive-business-vdi).
+- **Desempenho:** Os [contêineres de perfil do FSLogix](/fslogix/configure-profile-container-tutorial/) são de alto desempenho e resolvem problemas de desempenho que têm o modo de troca armazenado em cache historicamente bloqueado.
+- **Onedrive:** Sem os contêineres de perfil do FSLogix, o OneDrive for Business não tem suporte em ambientes de RDSH ou VDI não persistentes. O [onedrive for Business e o FSLogix Best Practices](/fslogix/overview/) descrevem como eles interagem. Para obter mais informações, consulte [usar o cliente de sincronização em áreas de trabalho virtuais](/deployoffice/rds-onedrive-business-vdi/).
 - **Pastas adicionais:** O FSLogix fornece a capacidade de estender perfis de usuário para incluir pastas adicionais.
 
 Desde a aquisição, a Microsoft começou a substituir as soluções de perfil de usuário existentes, como o UPD, por contêineres de perfil FSLogix.
 
 ## <a name="azure-files-integration-with-azure-active-directory-domain-service"></a>Integração de arquivos do Azure com o serviço de domínio Azure Active Directory
 
-O desempenho e os recursos dos contêineres de perfil do FSLogix aproveitam a nuvem. Em 7 de agosto de 2019, os arquivos de Microsoft Azure anunciaram a disponibilidade geral da [autenticação de arquivos do Azure com o AD DS (serviço de domínio Azure Active Directory)](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview). Ao abordar o custo e a sobrecarga administrativa, os arquivos do Azure com a autenticação de AD DS do Azure são uma solução premium para perfis de usuário no serviço de área de trabalho virtual do Windows.
+O desempenho e os recursos dos contêineres de perfil do FSLogix aproveitam a nuvem. Em 7 de agosto de 2019, os arquivos de Microsoft Azure anunciaram a disponibilidade geral da [autenticação de arquivos do Azure com o AD DS (serviço de domínio Azure Active Directory)](../storage/files/storage-files-active-directory-overview.md). Ao abordar o custo e a sobrecarga administrativa, os arquivos do Azure com a autenticação de AD DS do Azure são uma solução premium para perfis de usuário no serviço de área de trabalho virtual do Windows.
 
 ## <a name="best-practices-for-windows-virtual-desktop"></a>Práticas recomendadas para área de trabalho virtual do Windows
 
@@ -87,7 +87,7 @@ A área de trabalho virtual do Windows oferece controle total sobre o tamanho, o
 Para garantir que seu ambiente de área de trabalho virtual do Windows siga as práticas recomendadas:
 
 - A conta de armazenamento de arquivos do Azure deve estar na mesma região que as VMs do host de sessão.
-- As permissões dos arquivos do Azure devem corresponder às permissões descritas em [requisitos – contêineres de perfil](https://docs.microsoft.com/fslogix/overview#requirements).
+- As permissões dos arquivos do Azure devem corresponder às permissões descritas em [requisitos – contêineres de perfil](/fslogix/overview#requirements/).
 - Cada pool de hosts deve ser compilado do mesmo tipo e de uma VM de tamanho com base na mesma imagem mestra.
 - Cada VM do pool de hosts deve estar no mesmo grupo de recursos para ajudar no gerenciamento, no dimensionamento e na atualização.
 - Para obter um desempenho ideal, a solução de armazenamento e o contêiner de perfil FSLogix devem estar no mesmo local de data center.
@@ -99,7 +99,7 @@ Use os guias a seguir para configurar um ambiente de área de trabalho virtual d
 
 - Para começar a criar sua solução de virtualização de desktops, consulte [criar um locatário na área de trabalho virtual do Windows](tenant-setup-azure-active-directory.md).
 - Para criar um pool de hosts dentro de seu locatário de área de trabalho virtual do Windows, confira [criar um pool de hosts com o Azure Marketplace](create-host-pools-azure-marketplace.md).
-- Para configurar compartilhamentos de arquivos totalmente gerenciados na nuvem, consulte [Configurar o compartilhamento de arquivos do Azure](/azure/storage/files/storage-files-active-directory-enable).
+- Para configurar compartilhamentos de arquivos totalmente gerenciados na nuvem, consulte [Configurar o compartilhamento de arquivos do Azure](/azure/storage/files/storage-files-active-directory-enable/).
 - Para configurar contêineres de perfil FSLogix, consulte [criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivos](create-host-pools-user-profile.md).
 - Para atribuir usuários a um pool de hosts, consulte [gerenciar grupos de aplicativos para a área de trabalho virtual do Windows](manage-app-groups.md).
 - Para acessar os recursos da área de trabalho virtual do Windows em um navegador da Web, consulte [conectar-se à área de trabalho virtual do Windows](connect-web.md).

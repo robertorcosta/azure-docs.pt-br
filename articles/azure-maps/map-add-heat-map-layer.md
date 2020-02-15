@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d52d808813078c2aca7de59aa626e83f96221720
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 4a853871ef5f66881235e5a6ffec0886b81f5a92
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986233"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208532"
 ---
 # <a name="add-a-heat-map-layer"></a>Adicionar uma camada do mapa de calor
 
@@ -79,10 +79,10 @@ O exemplo anterior personalizou o mapa de calor, definindo as opções de raio e
   | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'interpolate',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['linear'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, 'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'purple',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.5, '#fb00fb',<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, '#00c3ff'<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'step',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'navy',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,25, ' verde ',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,50, ' amarelo ',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,75, ' vermelho '<br/>\] |   
 
 - `opacity`: especifica o quão opaco ou transparente a camada do mapa de calor é.
-- `intensity`: aplica um multiplicador ao peso de cada ponto de dados para aumentar a intensidade geral do calor. Isso ajuda a fazer uma diferença no peso dos pontos de dados, facilitando a visualização.
+- `intensity`: aplica um multiplicador ao peso de cada ponto de dados para aumentar a intensidade geral do calor. Isso causa uma diferença no peso dos pontos de dados, facilitando a visualização.
 - `weight`: por padrão, todos os pontos de dados têm um peso de 1 e são ponderados igualmente. A opção Weight atua como um multiplicador e você pode defini-la como um número ou uma expressão. Se um número for definido como o peso, será a equivalência de colocar cada ponto de dados no mapa duas vezes. Por exemplo, se o peso for 2, a densidade dobrará. Definir a opção de peso para um número renderiza o mapa de calor de maneira semelhante a usar a opção de intensidade. 
 
-  No entanto, se você usar uma expressão, o peso de cada ponto de dados poderá ser baseado nas propriedades de cada ponto de dados. Por exemplo, suponha que cada ponto de dados representa um terremoto. Uma métrica importante de cada ponto de dados de terremoto tem sido um valor de magnitude. Os terremotos acontecem o tempo todo, mas têm uma magnitude menor e não são percebidos. Usando o valor de magnitude em uma expressão para atribuir o peso a cada ponto de dados, você obtém uma representação melhor da significância dos terremotos dentro do mapa de calor.
+  No entanto, se você usar uma expressão, o peso de cada ponto de dados poderá ser baseado nas propriedades de cada ponto de dados. Por exemplo, suponha que cada ponto de dados representa um terremoto. O valor de magnitude tem sido uma métrica importante para cada ponto de dados de terremoto. Os terremotos acontecem o tempo todo, mas têm uma magnitude menor e não são percebidos. Use o valor de magnitude em uma expressão para atribuir o peso a cada ponto de dados. Usando o valor de magnitude para atribuir o peso, você obtém uma representação melhor da significância dos terremotos dentro do mapa de calor.
 - `source` e `source-layer`: permite que você atualize a fonte de dados.
 
 Aqui está uma ferramenta para testar as diferentes opções de camada do mapa de calor.
@@ -115,7 +115,7 @@ Consulte o <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>mapa de calor com 
 > ```
 > Se o raio de clustering for apenas alguns pixels, haveria uma pequena diferença visual na renderização. Um raio maior agrupa mais pontos em cada cluster e melhora o desempenho do calor.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as classes e métodos usados neste artigo:
 

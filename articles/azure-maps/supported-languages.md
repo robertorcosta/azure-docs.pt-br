@@ -1,19 +1,19 @@
 ---
 title: Suporte à localização | Mapas do Microsoft Azure
 description: Neste artigo, você aprenderá sobre os idiomas com suporte para os serviços no Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: eec8e47e75a6c92be8f893af893761a9ccddc650
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 5de04b4e37e79a47f89bb235aad2b0f9cab69e6a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025428"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208141"
 ---
 # <a name="localization-support-in-azure-maps"></a>Suporte à localização no Azure Maps
 
@@ -22,10 +22,10 @@ O Azure Maps dá suporte a várias linguagens e exibições baseadas em país/re
 
 ## <a name="azure-maps-supported-languages"></a>Idiomas com suporte nos Mapas do Azure
 
-Os Mapas do Azure foram traduzidos para variedade de idiomas nos serviços. A tabela a seguir fornece os códigos de idioma com suporte para cada serviço.  
+Os mapas do Azure foram localizados em várias linguagens em seus serviços. A tabela a seguir fornece os códigos de idioma com suporte para cada serviço.  
   
 
-| ID         | Nome                   |  Mapas | Pesquisa | Roteamento | Clima | Incidentes de tráfego | Controle de mapa JS |
+| ID         | Nome                   |  Mapas | Search | Roteamento | Clima | Incidentes de tráfego | Controle de mapa JS |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | af-ZA      | Africâner              |       |    ✓   |    ✓    |         |                   |                |
 | ar-SA      | Árabe                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
@@ -35,7 +35,7 @@ Os Mapas do Azure foram traduzidos para variedade de idiomas nos serviços. A ta
 | eu-ES      | Basco                 |       |    ✓   |         |         |                   |                |
 | bg-BG      | Búlgaro              |   ✓   |    ✓   |    ✓    |     ✓     |                   |        ✓       |
 | ca-ES      | Catalão                |       |    ✓   |         |    ✓      |                   |                |
-| zh-HanS    | Chinês (simplificado)   |       |  zh-CN |         |     zh-CN   |                   |                |
+| zh-HanS    | Chinês (Simplificado)   |       |  zh-CN |         |     zh-CN   |                   |                |
 | zh-HanT    | Chinês (RAE de Hong Kong)  |  |   |    |    zh-HK   |                   |           |
 | zh-HanT    | Chinês (Taiwan)  | zh-TW |  zh-TW |  zh-TW  |    zh-TW   |                   |      zh-TW     |
 | hr-HR      | Croata               |       |    ✓   |         |    ✓      |                   |                |
@@ -109,7 +109,7 @@ Os Mapas do Azure foram traduzidos para variedade de idiomas nos serviços. A ta
 >
 > Após 1º de agosto de 2019, o parâmetro de **exibição** definirá o conteúdo do mapa retornado para as novas regiões/países listados acima. O parâmetro de **exibição** do Azure Maps (também conhecido como "parâmetro de região do usuário") é um código de país ISO-3166 de duas letras que mostrará os mapas corretos para esse país/região especificando qual conjunto de conteúdo geoestruturado geoestruturado será retornado por meio dos serviços do Azure Maps, incluindo bordas e rótulos exibidos no mapa. 
 
-Verifique se você configurou o parâmetro de **exibição** conforme necessário para as APIs REST e SDKs que seus serviços estão usando.
+Certifique-se de configurar o parâmetro de **exibição** conforme necessário para as APIs REST e os SDKs, que os serviços estão usando.
 >  
 >
 >  **APIs REST:**
@@ -142,12 +142,12 @@ Verifique se você configurou o parâmetro de **exibição** conforme necessári
 >    * SDK da Web do Azure Mapas
 >    * SDK do Android do Azure Mapas
 
-Por padrão, o parâmetro View é definido como **Unified**, mesmo que você não o tenha definido na solicitação. Determine o local dos usuários e, em seguida, defina o parâmetro de **exibição** corretamente para esse local. Como alternativa, você pode definir ' View = auto ', que retornará os dados do mapa com base no endereço IP da solicitação.  O parâmetro **View** no Azure Maps deve ser usado em conformidade com as leis aplicáveis, incluindo as leis sobre o mapeamento do país em que mapas, imagens e outros dados e conteúdo de terceiros que você está autorizado a acessar por meio do mapas do Azure são disponibilizados.
+Por padrão, o parâmetro View é definido como **Unified**, mesmo que você não o tenha definido na solicitação. Determine o local dos usuários. Em seguida, defina o parâmetro de **exibição** corretamente para esse local. Como alternativa, você pode definir ' View = auto ', que retornará os dados do mapa com base no endereço IP da solicitação.  O parâmetro **View** no Azure Maps deve ser usado em conformidade com as leis aplicáveis, incluindo as leis sobre o mapeamento do país em que mapas, imagens e outros dados e conteúdo de terceiros que você está autorizado a acessar por meio do mapas do Azure são disponibilizados.
 
 
 A tabela a seguir fornece exibições com suporte.
 
-| Exibir         | Description                            |  Mapas | Pesquisa | JS Controle de Mapeamento |
+| Visualizar         | DESCRIÇÃO                            |  Mapas | Search | JS Controle de Mapeamento |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | Emirados Árabes Unidos (modo de exibição árabe)    |   ✓   |        |     ✓          |
 | AR           | Argentina (exibição de Argentinian)           |   ✓   |    ✓   |     ✓          |
@@ -161,9 +161,9 @@ A tabela a seguir fornece exibições com suporte.
 | OM           | Omã (exibição em árabe)                    |   ✓   |        |     ✓          |
 | PK           | Paquistão (exibição Rúpia)              |   ✓   |    ✓    |     ✓          |
 | PS           | Autoridade Palestina (exibição em árabe)    |   ✓   |        |     ✓          |
-| Garantia de qualidade           | Catar (exibição em árabe)                   |   ✓   |        |     ✓          |
+| QA           | Catar (exibição em árabe)                   |   ✓   |        |     ✓          |
 | SA           | Arábia Saudita (exibição em árabe)            |   ✓   |        |     ✓          |
 | SY           | Síria (exibição em árabe)                   |   ✓   |        |     ✓          |
 | YE           | Iêmen (exibição em árabe)                   |   ✓   |        |     ✓          |
 | Auto         | Retornar os dados do mapa com base no endereço IP da solicitação.|   ✓   |    ✓   |     ✓          |
-| Unificado      | Exibição unificada (outras)                  |   ✓   |   ✓     |     ✓          |
+| Unificada      | Exibição unificada (outras)                  |   ✓   |   ✓     |     ✓          |

@@ -1,18 +1,18 @@
 ---
-title: Plano Premium do Azure Functions
+title: Azure Functions plano Premium
 description: Detalhes e opções de configuração (VNet, sem início frio, duração de execução ilimitada) para o plano Azure Functions Premium.
 author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: b373691a6b9649a43d68c9da93b49fd20536c42b
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 81db0889294360f74cb42d388e5d875de91c1019
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024629"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212468"
 ---
-# <a name="azure-functions-premium-plan"></a>Plano Premium do Azure Functions
+# <a name="azure-functions-premium-plan"></a>Azure Functions plano Premium
 
 O plano Azure Functions Premium (às vezes chamado de plano Premium elástico) é uma opção de hospedagem para aplicativos de funções. O plano Premium fornece recursos como conectividade VNet, sem início frio e hardware Premium.  Vários aplicativos de funções podem ser implantados no mesmo plano Premium e o plano permite que você configure o tamanho da instância de computação, o tamanho do plano base e o tamanho máximo do plano.  Para obter uma comparação do plano Premium e outros tipos de plano e hospedagem, consulte [Opções de escala e Hospedagem de função](functions-scale.md).
 
@@ -90,9 +90,14 @@ Ao criar ou dimensionar seu plano, você pode escolher entre três tamanhos de i
 
 |SKU|Núcleos|Memória|Armazenamento|
 |--|--|--|--|
-|EP1|1|3,5 GB|250 GB|
-|EP2|2|7 GB|250 GB|
-|EP3|4|14 GB|250 GB|
+|EP1|1|3,5 GB|250GB|
+|EP2|2|7 GB|250GB|
+|EP3|4|14 GB|250GB|
+
+### <a name="memory-utilization-considerations"></a>Considerações sobre utilização de memória
+A execução em um computador com mais memória nem sempre significa que seu aplicativo de funções usará toda a memória disponível.
+
+Por exemplo, um aplicativo de funções JavaScript é restrito pelo limite de memória padrão no node. js. Para aumentar esse limite de memória fixa, adicione a configuração do aplicativo `languageWorkers:node:arguments` com um valor de `--max-old-space-size=<max memory in MB>`.
 
 ## <a name="regions"></a>Regiões
 
@@ -106,8 +111,8 @@ Abaixo estão as regiões com suporte no momento para cada sistema operacional.
 |Sudeste da Austrália | ✔ | ✔<sup>1</sup> |
 |Sul do Brasil| ✔<sup>2</sup> |  |
 |Canadá Central| ✔ |  |
-|EUA Central| ✔ |  |
-|Ásia Oriental| ✔ |  |
+|Centro dos EUA| ✔ |  |
+|Leste da Ásia| ✔ |  |
 |Leste dos EUA | ✔ | ✔<sup>1</sup> |
 |Leste dos EUA 2| ✔ |  |
 |França Central| ✔ |  |
@@ -116,14 +121,14 @@ Abaixo estão as regiões com suporte no momento para cada sistema operacional.
 |Oeste do Japão| ✔ | |
 |Coreia Central| ✔ |  |
 |Centro-Norte dos EUA| ✔ |  |
-|Europa Setentrional| ✔ | ✔<sup>1</sup> |
-|Centro-Sul dos EUA| ✔ | ✔<sup>1</sup> |
+|Norte da Europa| ✔ | ✔<sup>1</sup> |
+|Centro-Sul dos Estados Unidos| ✔ | ✔<sup>1</sup> |
 |Sul da Índia | ✔ | |
 |Sudeste Asiático| ✔ | ✔<sup>1</sup> |
 |Sul do Reino Unido| ✔ | |
 |Oeste do Reino Unido| ✔ |  |
-|Oeste da Europa| ✔ | ✔<sup>1</sup> |
-|Índia Ocidental| ✔ |  |
+|Europa Ocidental| ✔ | ✔<sup>1</sup> |
+|Oeste da Índia| ✔ |  |
 |Oeste dos EUA| ✔ | ✔<sup>1</sup> |
 |Oeste dos EUA 2| ✔ |  |
 
@@ -131,7 +136,7 @@ Abaixo estão as regiões com suporte no momento para cada sistema operacional.
 <sup>2</sup> Expansão máxima limitada a 60 instâncias.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Entender Azure Functions escala e opções de hospedagem](functions-scale.md)

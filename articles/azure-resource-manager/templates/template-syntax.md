@@ -3,12 +3,12 @@ title: Estrutura e sintaxe do modelo
 description: Descreve a estrutura e as propriedades dos modelos do Azure Resource Manager usando a sintaxe JSON declarativa.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 7f9b964212d7b8056895aa1c6826766315af2ec2
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 9cd602644ecf803e97254189cfc157d60713cc6c
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122059"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209453"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager
 
@@ -33,7 +33,7 @@ Em sua estrutura mais simples, um modelo tem os seguintes elementos:
 }
 ```
 
-| Nome do elemento | Obrigatório | Description |
+| Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--- |:--- |:--- |
 | $schema |Sim |Local do arquivo de esquema JSON que descreve a versão da linguagem do modelo.<br><br> Para implantações de grupo de recursos, use: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Para implantações de assinatura, use: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |Sim |Versão do modelo (como 1.0.0.0). Você pode fornecer qualquer valor para esse elemento. Use esse valor para documentar alterações significativas em seu modelo. Ao implantar recursos com o modelo, esse valor pode ser usado para garantir que o modelo certo esteja sendo usado. |
@@ -46,7 +46,7 @@ Em sua estrutura mais simples, um modelo tem os seguintes elementos:
 
 Cada elemento tem propriedades que você pode definir. Esse artigo descreve as seções do modelo com mais detalhes.
 
-## <a name="parameters"></a>Parâmetros
+## <a name="parameters"></a>parâmetros
 
 Na seção de parâmetros do modelo, você deve especificar os valores que você pode inserir ao implantar os recursos. Você está limitado a 256 parâmetros em um modelo. Você pode reduzir o número de parâmetros usando objetos que contêm várias propriedades.
 
@@ -69,7 +69,7 @@ As propriedades disponíveis para um parâmetro são:
 }
 ```
 
-| Nome do elemento | Obrigatório | Description |
+| Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--- |:--- |:--- |
 | nome do parâmetro |Sim |Nome do parâmetro. Deve ser um identificador JavaScript válido. |
 | type |Sim |Tipo do valor do parâmetro. Os valores e tipos permitidos são **cadeia de caracteres**, **securestring**, **int**, **bool**, **objeto**, **secureObject**, e **matriz**. Consulte [tipos de dados](#data-types). |
@@ -95,7 +95,7 @@ Cadeias de caracteres seguras e objetos seguros não podem ser lidos após a imp
 
 Para obter exemplos de formatação de tipos de dados, consulte [formatos de tipo de parâmetro](parameter-files.md#parameter-type-formats).
 
-## <a name="variables"></a>Variáveis
+## <a name="variables"></a>variáveis
 
 Na seção de variáveis, você constrói valores que podem ser usados em todo o seu modelo. Você não precisa definir variáveis, mas normalmente elas simplificam seu modelo reduzindo expressões complexas.
 
@@ -126,7 +126,7 @@ O exemplo a seguir mostra as opções disponíveis para definir uma variável:
 }
 ```
 
-Para obter informações sobre como usar `copy` para criar vários valores para uma variável, consulte [Iteration Variable](create-multiple-instances.md#variable-iteration).
+Para obter informações sobre como usar `copy` para criar vários valores para uma variável, consulte [Iteration Variable](copy-variables.md).
 
 Para obter exemplos de como usar variáveis, consulte [variáveis no modelo Azure Resource Manager](template-variables.md).
 
@@ -164,7 +164,7 @@ Ao definir uma função de usuário, há algumas restrições:
 ],
 ```
 
-| Nome do elemento | Obrigatório | Description |
+| Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--- |:--- |:--- |
 | namespace |Sim |Namespace para as funções personalizadas. Use para evitar conflitos de nomenclatura com funções de modelo. |
 | nome da função |Sim |Nome da função personalizada. Ao chamar a função, combine o nome da função com o namespace. Por exemplo, para chamar uma função chamada uniqueName no namespace contoso, use `"[contoso.uniqueName()]"`. |
@@ -175,7 +175,7 @@ Ao definir uma função de usuário, há algumas restrições:
 
 Para obter exemplos de como usar funções personalizadas, consulte [funções definidas pelo usuário no modelo Azure Resource Manager](template-user-defined-functions.md).
 
-## <a name="resources"></a>Implante
+## <a name="resources"></a>Recursos
 
 Na seção de recursos, você define os recursos que são implantados ou atualizados.
 
@@ -235,7 +235,7 @@ Você define recursos com a seguinte estrutura:
 ]
 ```
 
-| Nome do elemento | Obrigatório | Description |
+| Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--- |:--- |:--- |
 | condition | Não | Valor booliano que indica se o recurso será provisionado durante esta implantação. Quando for `true`, o recurso será criado durante a implantação. Quando `false`, o recurso será ignorado para essa implantação. Consulte a [condição](conditional-resource-deployment.md). |
 | type |Sim |Tipo do recurso. Esse valor é uma combinação do namespace do provedor de recursos e do tipo de recurso (como **Microsoft.Storage/storageAccounts**). Para determinar os valores disponíveis, consulte [referência de modelo](/azure/templates/). Para um recurso filho, o formato do tipo depende de se ele está aninhado dentro do recurso pai ou definido fora do recurso pai. Confira [Definir o nome e o tipo de recursos filho](child-resource-name-type.md). |
@@ -247,7 +247,7 @@ Você define recursos com a seguinte estrutura:
 | marcas |Não |Marcas que são associadas ao recurso. Aplique marcas para organizar recursos logicamente em toda a sua assinatura. |
 | sku | Não | Alguns recursos permitem que os valores definam a SKU para implantar. Por exemplo, você pode especificar o tipo de redundância para uma conta de armazenamento. |
 | kind | Não | Alguns recursos permitem que um valor defina o tipo de recurso que você implantar. Por exemplo, você pode especificar o tipo de Cosmos DB para criar. |
-| copy |Não |Se mais de uma instância for necessária, o número de recursos a serem criados. O modo padrão é paralelo. Especifica o modo serial quando você não deseja que todos os recursos sejam implantados ao mesmo tempo. Para obter mais informações, consulte [Criar várias instâncias de recursos no Azure Resource Manager](create-multiple-instances.md). |
+| copy |Não |Se mais de uma instância for necessária, o número de recursos a serem criados. O modo padrão é paralelo. Especifica o modo serial quando você não deseja que todos os recursos sejam implantados ao mesmo tempo. Para obter mais informações, consulte [Criar várias instâncias de recursos no Azure Resource Manager](copy-resources.md). |
 | plan | Não | Alguns recursos permitem que um valor defina o plano para implantar. Por exemplo, você pode especificar a imagem do marketplace para uma máquina virtual. |
 | properties |Não |Definições de configuração específicas do recurso. Os valores para as propriedades são iguais aos valores que você fornece no corpo da solicitação para a operação da API REST (método PUT) para criar o recurso. Especifique também uma matriz de cópia para criar várias instâncias de uma propriedade. Para determinar os valores disponíveis, consulte [referência de modelo](/azure/templates/). |
 | recursos |Não |Recursos filho que dependem do recurso que está sendo definido. Forneça apenas os tipos de recurso permitidos pelo esquema do recurso pai. A dependência do recurso pai não é implícita. Você deve definir explicitamente essa dependência. Confira [Definir o nome e o tipo de recursos filho](child-resource-name-type.md). |
@@ -268,7 +268,7 @@ O exemplo a seguir mostra a estrutura de uma definição de saída:
 }
 ```
 
-| Nome do elemento | Obrigatório | Description |
+| Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--- |:--- |:--- |
 | nome de saída |Sim |Nome do valor de saída. Deve ser um identificador JavaScript válido. |
 | condition |Não | Valor booliano que indica se esse valor de saída é retornado. Quando `true`, o valor é incluído na saída para a implantação. Quando `false`, o valor de saída é ignorado para esta implantação. Quando não especificado, o valor padrão é `true`. |
@@ -401,7 +401,7 @@ Você pode dividir uma cadeia de caracteres em várias linhas. Por exemplo, a pr
 
 Para implantar modelos com cadeias de caracteres de várias linhas usando CLI do Azure, você deve usar a opção `--handle-extended-json-format`.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para exibir modelos completos para muitos tipos diferentes de soluções, consulte os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 * Para obter detalhes sobre as funções que podem ser usadas em um modelo, consulte [Funções do Modelo do Azure Resource Manager](template-functions.md).

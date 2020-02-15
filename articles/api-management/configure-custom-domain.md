@@ -12,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 3c2cc3c280ba0da474898bed93bb8533a42ab07f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 72075d4eff336af625bbf6d62f1276d2997bfed4
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967359"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251186"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar um nome de domínio personalizado
 
@@ -27,9 +27,9 @@ Quando você cria uma instância de serviço de gerenciamento de API do Azure, o
 > O gerenciamento de API aceita somente solicitações com valores de [cabeçalho de host](https://tools.ietf.org/html/rfc2616#section-14.23) que correspondem ao nome de domínio padrão ou a qualquer um dos nomes de domínio personalizados configurados.
 
 > [!WARNING]
-> Clientes que desejam usar a anexação de certificado para aumentar a segurança de seus aplicativos devem usar um nome de domínio personalizado > e o certificado que gerenciam, não o padrão. Os clientes que fixarem o certificado padrão receberão uma dependência rígida das propriedades do certificado que eles não controlam, o que não é uma prática recomendada.
+> Os clientes que desejam usar a fixação de certificado para melhorar a segurança de seus aplicativos devem usar um nome de domínio personalizado e um certificado que eles gerenciam, não o certificado padrão. Os clientes que fixarem o certificado padrão receberão uma dependência rígida das propriedades do certificado que eles não controlam, o que não é uma prática recomendada.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para executar as etapas descritas neste artigo, você precisa ter:
 
@@ -73,7 +73,7 @@ Para executar as etapas descritas neste artigo, você precisa ter:
     > É recomendável usar Azure Key Vault para gerenciar certificados e defini-los para rotação automática.
     > Se você usar Azure Key Vault para gerenciar o certificado SSL de domínio personalizado, verifique se o certificado foi inserido no Key Vault [como um _certificado_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), não como um _segredo_.
     >
-    > Para buscar um certificado SSL, o gerenciamento de API deve ter a lista uma permissão obter segredos no Azure Key Vault que contém o certificado. Ao usar portal do Azure todas as etapas de configuração necessárias serão concluídas automaticamente. Ao usar as ferramentas de linha de comando ou a API de gerenciamento, essas permissões devem ser concedidas manualmente. Isso é feito em duas etapas. Primeiro, use a página identidades gerenciadas na instância de gerenciamento de API para garantir que a identidade gerenciada esteja habilitada e anote a ID da entidade de segurança mostrada nessa página. Em segundo lugar, dê à lista de permissões e obtenha permissões de segredos para essa ID de entidade de segurança no Azure Key Vault que contém o certificado.
+    > Para buscar um certificado SSL, o gerenciamento de API deve ter a lista e obter permissões de segredos no Azure Key Vault que contém o certificado. Ao usar portal do Azure todas as etapas de configuração necessárias serão concluídas automaticamente. Ao usar as ferramentas de linha de comando ou a API de gerenciamento, essas permissões devem ser concedidas manualmente. Isso é feito em duas etapas. Primeiro, use a página identidades gerenciadas na instância de gerenciamento de API para garantir que a identidade gerenciada esteja habilitada e anote a ID da entidade de segurança mostrada nessa página. Em segundo lugar, dê à lista de permissões e obtenha permissões de segredos para essa ID de entidade de segurança no Azure Key Vault que contém o certificado.
     >
     > Se o certificado for definido para rotação automática, o gerenciamento de API selecionará a versão mais recente automaticamente sem nenhum tempo de inatividade para o serviço (se sua camada de gerenciamento de API tiver SLA-i. e. em todas as camadas, exceto a camada de desenvolvedor).
 
@@ -94,6 +94,6 @@ Ao configurar o DNS para seu nome de domínio personalizado, você tem duas opç
 > [!NOTE]
 > Embora o endereço IP da instância de gerenciamento de API seja estático, ele pode ser alterado em alguns cenários. Por isso, é recomendável usar CNAME ao configurar o domínio personalizado. Leve isso em consideração ao escolher o método de configuração de DNS. Leia mais nas [perguntas frequentes sobre gerenciamento de API](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Atualizar e colocar em escala o serviço](upgrade-and-scale.md)

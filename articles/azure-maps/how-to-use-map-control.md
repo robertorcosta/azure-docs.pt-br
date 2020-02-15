@@ -1,19 +1,19 @@
 ---
 title: Introdução ao controle de mapa da Web | Mapas do Microsoft Azure
 description: Saiba como usar a biblioteca JavaScript do lado do cliente do controle de mapeamento do Microsoft Azure Maps para renderizar mapas e a funcionalidade do Azure Maps incorporada em seu aplicativo Web ou móvel.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/15/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 90cd752ddd46999627de538abe3ca6b1926005aa
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 6701d777fb9aa16d3012baba082415bf9858e46f
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264111"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209810"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Usar o controle de mapeamento do Azure Maps
 
@@ -180,7 +180,7 @@ Para obter mais informações, consulte o documento [autenticação com o Azure 
 
 ![Imagem do mapa mostrando resultado renderizado](./media/how-to-use-map-control/map-of-seattle.png)
 
-## <a name="localizing-the-map"></a>Localizando o mapa
+## <a name="localizing-the-map"></a>Como localizar o mapa
 
 O mapas do Azure fornece duas maneiras diferentes de definir o idioma e a exibição regional para o mapa renderizado. A primeira opção é adicionar essas informações ao namespace global `atlas`, o que resultará em todas as instâncias de controle de mapa em seu aplicativo padronizando essas configurações. O seguinte define o idioma como francês ("fr-FR") e a exibição regional como "auto":
 
@@ -212,7 +212,7 @@ Aqui está um exemplo de mapas do Azure com o idioma definido como "fr-FR" e a e
 
 ![Imagem do mapa mostrando rótulos em francês](./media/how-to-use-map-control/websdk-localization.png)
 
-Uma lista completa de idiomas com suporte e exibições regionais está documentada [aqui](supported-languages.md).
+Uma lista completa de idiomas e exibições regionais compatíveis está documentada [aqui](supported-languages.md).
 
 ## <a name="azure-government-cloud-support"></a>Suporte de nuvem do Azure governamental
 
@@ -234,7 +234,7 @@ var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
 
 Se acessar diretamente os serviços REST do Azure Maps, altere o domínio da URL para `atlas.azure.us`. Por exemplo, se estiver usando o serviço de API de pesquisa, altere o domínio da URL de `https://atlas.microsoft.com/search/` para `https://atlas.azure.us/search/`.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como criar e interagir com um mapa:
 

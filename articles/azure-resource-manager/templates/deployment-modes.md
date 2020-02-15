@@ -3,12 +3,12 @@ title: Modos de implantação
 description: Descreve como especificar se um modo de implantação completo ou incremental deve ser usado com o Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 01/17/2020
-ms.openlocfilehash: e53b8c58bf0919e64079e62c687b76ada1db7ff0
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 9cc0e8eb20a0375a98906524d4d598ccb473d2a8
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261017"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207580"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implantação do Azure Resource Manager
 
@@ -24,7 +24,7 @@ No modo completo, o Gerenciador de recursos **exclui** recursos existentes no gr
 
 Se o seu modelo inclui um recurso que não está implantado porque a [condição](conditional-resource-deployment.md) é avaliada como false, o resultado depende de qual versão da API REST você usa para implantar o modelo. Se você usar uma versão anterior à 2019-05-10, o recurso **não será excluído**. Com o 2019-05-10 ou posterior, o recurso **é excluído**. As versões mais recentes do Azure PowerShell e CLI do Azure excluir o recurso.
 
-Tenha cuidado ao usar o modo completo com [loops de cópia](create-multiple-instances.md). Todos os recursos que não são especificados no modelo após a resolução do loop de cópia são excluídos.
+Tenha cuidado ao usar o modo completo com [loops de cópia](copy-resources.md). Todos os recursos que não são especificados no modelo após a resolução do loop de cópia são excluídos.
 
 Se você implantar em [mais de um grupo de recursos em um modelo](cross-resource-group-deployment.md), os recursos no grupo de recursos especificado na operação de implantação poderão ser excluídos. Os recursos nos grupos de recursos secundários não são excluídos.
 
@@ -119,7 +119,7 @@ O exemplo a seguir mostra um conjunto de modelos vinculados para o modo de impla
 ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre a criação de modelos do Gerenciador de Recursos, confira [Criando modelos do Gerenciador de Recursos do Azure](template-syntax.md).
 * Para saber mais sobre como implantar recursos, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](deploy-powershell.md).

@@ -1,19 +1,19 @@
 ---
 title: Estruturas de dados do serviço de mobilidade no Azure Maps | Mapas do Microsoft Azure
 description: Neste artigo, você aprenderá sobre os campos comuns e estruturas de dados retornados por meio dos serviços de mobilidade de mapas de Microsoft Azure.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: ceecdcc508e5b43c8775b6a88f9b4e4f0eb23c77
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 685810a6efa46c8eb3ad6cee0c2424299f0347d8
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989001"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209606"
 ---
 # <a name="data-structures-in-azure-maps-mobility-service"></a>Estruturas de dados no serviço de mobilidade do Azure Maps
 
@@ -52,7 +52,7 @@ Conforme discutido acima, cada grupo de linhas é composto por um conjunto de li
 Para começar, você pode solicitar grupos de linhas usando a [API obter linha de trânsito](https://aka.ms/AzureMapsMobilityTransitLine).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como solicitar dados de trânsito usando o serviço de mobilidade:
 

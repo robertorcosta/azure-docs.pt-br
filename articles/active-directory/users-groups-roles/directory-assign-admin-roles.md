@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b142d3561e7d05b9afaeab9768b6b50a33ef28ce
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 7595ef1b8742c2ba18a262d5afc5eea1b4d7a15c
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77158155"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251610"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -246,7 +246,7 @@ Os usuários nessa função podem ler configurações e informações administra
 > No momento, esses recursos estão em desenvolvimento.
 >
 
-### <a name="group-administratorgroup-administrator-permissions"></a>[Administrador de grupo](#group-administrator-permissions)
+### <a name="groups-administratorgroups-administrator-permissions"></a>[Administrador de grupos](#groups-administrator-permissions)
 
 Os usuários nessa função podem criar/gerenciar grupos e suas configurações, como políticas de nomenclatura e expiração. É importante entender que a atribuição de um usuário a essa função oferece a eles a capacidade de gerenciar todos os grupos no locatário em várias cargas de trabalho, como equipes, SharePoint, Yammer, além do Outlook. Além disso, o usuário poderá gerenciar as configurações de vários grupos em vários portais de administrador, como o centro de administração da Microsoft, portal do Azure, bem como a carga de trabalho específica, como equipes e centros de administração do SharePoint.
 
@@ -1081,7 +1081,7 @@ Pode ler tudo o que um administrador global pode, mas não editar nada.
 | Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
 | Microsoft. office365. webportal/myentities/Standard/Read   | Ler propriedades padrão em todos os recursos no Microsoft. office365. webportal. |
 
-### <a name="group-administrator-permissions"></a>Permissões de administrador de grupo
+### <a name="groups-administrator-permissions"></a>Permissões de administrador de grupos
 Pode gerenciar todos os aspectos de grupos e configurações de grupo, como políticas de nomenclatura e expiração.
 
 | **Ações** | **Descrição** |
@@ -1718,7 +1718,7 @@ Gravadores de diretório | Gravadores de diretório | 9360feb5-f418-4baa-8175-e2
 Administrador de serviços do Exchange | Administrador do Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
 Administrador do provedor de identidade externo | Administrador do provedor de identidade externo | be2f45a1-457d-42af-a067-6ec1fa63bc45
 Leitor global | Leitor global | f2ef992c-3afb-46b9-b7cf-a126ee74c451
-Administrador de grupo | Administrador de grupo | fdd7a751-b60b-444a-984c-02652fe8fa1c 
+Administrador de grupos | Administrador de grupos | fdd7a751-b60b-444a-984c-02652fe8fa1c 
 Emissor do Convite ao Convidado | Emissor do convite ao convidado | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 Administrador de assistência técnica | Administrador de assistência técnica | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 Administrador de serviços do Intune | Administrador do Intune | 3a2c62db-5318-420d-8d74-23affee5d9d5

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: a27d44a7684b4ad3d39d7fba50ca52e08e932971
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 3d93d3aa3e4e646f8e054f96f17bbe4a011d422d
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769754"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77211372"
 ---
 O modelo de projeto do Azure Functions no Visual Studio cria um projeto que pode ser publicado em um aplicativo de funções no Azure. Você pode usar um aplicativo de funções para agrupar funções como uma unidade lógica para facilitar o gerenciamento, a implantação, o dimensionamento e o compartilhamento de recursos.
 
@@ -30,14 +30,14 @@ O modelo de projeto do Azure Functions no Visual Studio cria um projeto que pode
     + **Conta de Armazenamento**: **Emulador de armazenamento**
     + **Nível de autorização**: **Anônimo** 
 
-    | Opção      | Valor sugerido  | DESCRIÇÃO                      |
+    | Opção      | Valor sugerido  | Descrição                      |
     | ------------ |  ------- |----------------------------------------- |
     | **Runtime do Functions** | **Azure Functions 2.x <br />(.NET Core)** | Essa configuração cria um projeto de função que usa o runtime versão 2.x do Azure Functions, o qual dá suporte a .NET Core. O Azure Functions 1.x dá suporte ao .NET Framework. Para obter mais informações, consulte [Direcionar o Azure Functions runtime](../articles/azure-functions/functions-versions.md).   |
     | **Modelo de função** | **Gatilho HTTP** | Essa configuração cria uma função acionada por uma solicitação HTTP. |
     | **Conta de armazenamento**  | **Emulador de armazenamento** | Um gatilho HTTP não usa a conexão da conta de Armazenamento do Microsoft Azure. Todos os outros tipos de gatilho exigem uma cadeia de conexão de conta de armazenamento válida. Como o Functions requer uma conta de armazenamento, uma é atribuída ou criada quando você publica seu projeto no Azure. |
-    | **Nível de autorização** | **Anônimo** | A função criada pode ser acionada por qualquer cliente sem fornecer uma chave. Essa configuração de autorização torna fácil testar a nova função. Para obter mais informações sobre chaves e autorização, consulte [Chaves de autorização](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys) no [associações HTTP e webhook](../articles/azure-functions/functions-bindings-http-webhook.md). |
+    | **Nível de autorização** | **Anônimo** | A função criada pode ser acionada por qualquer cliente sem fornecer uma chave. Essa configuração de autorização torna fácil testar a nova função. Para obter mais informações sobre chaves e autorização, consulte [Chaves de autorização](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) no [associações HTTP e webhook](../articles/azure-functions/functions-bindings-http-webhook.md). |
     
     > [!NOTE]
-    > Verifique se você definiu o **Nível de autorização** como `Anonymous`. Se você escolher o nível padrão de `Function`, é necessário que você apresente a [chave da função](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys) em solicitações para acessar seu ponto de extremidade da função.
+    > Verifique se você definiu o **Nível de autorização** como `Anonymous`. Se você escolher o nível padrão de `Function`, é necessário que você apresente a [chave da função](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) em solicitações para acessar seu ponto de extremidade da função.
     
 4. Selecione **Criar** para criar o projeto de função e a função disparada por HTTP.

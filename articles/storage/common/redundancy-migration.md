@@ -10,12 +10,12 @@ ms.date: 02/10/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 78a7f3eb920d2f656b91cff187ca22b1e15973b7
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 14ad6dbf139b34f501e0b0ea8c16d8570b2ace5b
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77165404"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212564"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Alterar como uma conta de armazenamento é replicada
 
@@ -38,10 +38,10 @@ A tabela a seguir fornece uma visão geral de como alternar de cada tipo de repl
 
 | Independente | ... para LRS | ... para GRS/RA-GRS | ... para ZRS | ... para GZRS/RA-GZRS |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| <b>... de LRS</b> | N/D | Usar portal do Azure, PowerShell ou CLI para alterar a configuração de replicação | Executar uma migração manual <br /><br />Solicitar uma migração ao vivo | Executar uma migração manual <br /><br />Solicitar uma migração ao vivo |
-| <b>... de GRS/RA-GRS</b> | Usar portal do Azure, PowerShell ou CLI para alterar a configuração de replicação | N/D | Executar uma migração manual <br /><br />Solicitar uma migração ao vivo | Executar uma migração manual <br /><br />Solicitar uma migração ao vivo |
-| <b>... de ZRS</b> | Executar uma migração manual <br /><br />Solicitar uma migração ao vivo | Executar uma migração manual <br /><br />Solicitar uma migração ao vivo | N/D | Usar portal do Azure, PowerShell ou CLI para alterar a configuração de replicação |
-| <b>... de GZRS/RA-GZRS</b> | Executar uma migração manual <br /><br />Solicitar uma migração ao vivo | Executar uma migração manual <br /><br />Solicitar uma migração ao vivo | Usar portal do Azure, PowerShell ou CLI para alterar a configuração de replicação | N/D |
+| <b>... de LRS</b> | N/D | Usar portal do Azure, PowerShell ou CLI para alterar a configuração de replicação<sup>1</sup> | Executar uma migração manual <br /><br />Solicitar uma migração ao vivo | Executar uma migração manual <br /><br /> OU <br /><br /> Alterne para GRS/RA-GRS primeiro e, em seguida, solicite uma migração ao vivo<sup>1</sup> |
+| <b>... de GRS/RA-GRS</b> | Usar portal do Azure, PowerShell ou CLI para alterar a configuração de replicação | N/D | Executar uma migração manual <br /><br /> OU <br /><br /> Alterne para o LRS primeiro e, em seguida, solicite uma migração ao vivo | Executar uma migração manual <br /><br /> Solicitar uma migração ao vivo |
+| <b>... de ZRS</b> | Executar uma migração manual | Executar uma migração manual | N/D | Usar portal do Azure, PowerShell ou CLI para alterar a configuração de replicação<sup>1</sup> |
+| <b>... de GZRS/RA-GZRS</b> | Executar uma migração manual | Executar uma migração manual | Usar portal do Azure, PowerShell ou CLI para alterar a configuração de replicação | N/D |
 
 <sup>1</sup> gera uma cobrança de egresso única.
 

@@ -1,0 +1,286 @@
+---
+title: Implantar várias instâncias de recursos
+description: Use a operação de cópia e matrizes em um modelo de Azure Resource Manager para implantar o tipo de recurso muitas vezes.
+ms.topic: conceptual
+ms.date: 09/27/2019
+ms.openlocfilehash: 38b5bcd38e0dc8ba8c758e9aa8371857541ba55e
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210821"
+---
+# <a name="resource-iteration-in-azure-resource-manager-templates"></a>Iteração de recurso em modelos de Azure Resource Manager
+
+Este artigo mostra como criar mais de uma instância de um recurso em seu modelo de Azure Resource Manager. Ao adicionar o elemento **copiar** à seção recursos do modelo, você pode definir dinamicamente o número de recursos a serem implantados. Você também evita a repetição da sintaxe do modelo.
+
+Você também pode usar copiar com [Propriedades](copy-properties.md) e [variáveis](copy-variables.md).
+
+Caso precise especificar se um recurso é ou não implantado, confira [Elemento condition](conditional-resource-deployment.md).
+
+## <a name="resource-iteration"></a>Iteração de recurso
+
+O elemento Copy tem o seguinte formato geral:
+
+```json
+"copy": {
+  "name": "<name-of-loop>",
+  "count": <number-of-iterations>,
+  "mode": "serial" <or> "parallel",
+  "batchSize": <number-to-deploy-serially>
+}
+```
+
+A propriedade **Name** é qualquer valor que identifique o loop. A propriedade **Count** especifica o número de iterações que você deseja para o tipo de recurso.
+
+Use as propriedades **Mode** e **BatchSize** para especificar se os recursos são implantados em paralelo ou em sequência. Essas propriedades são descritas em [serial ou paralela](#serial-or-parallel).
+
+O exemplo a seguir cria o número de contas de armazenamento especificadas no parâmetro **storageCount** .
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageCount": {
+            "type": "int",
+            "defaultValue": 2
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-04-01",
+            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {},
+            "copy": {
+                "name": "storagecopy",
+                "count": "[parameters('storageCount')]"
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Observe que o nome de cada recurso inclui a função `copyIndex()`, que retorna a iteração atual no loop. `copyIndex()`é baseado em zero. Assim, o seguinte exemplo:
+
+```json
+"name": "[concat('storage', copyIndex())]",
+```
+
+Cria estes nomes:
+
+* storage0
+* storage1
+* storage2.
+
+Para deslocar o valor do índice, você pode passar um valor na função copyIndex(). O número de iterações ainda é especificado no elemento Copy, mas o valor de copyIndex é offset pelo valor especificado. Assim, o seguinte exemplo:
+
+```json
+"name": "[concat('storage', copyIndex(1))]",
+```
+
+Cria estes nomes:
+
+* storage1
+* storage2
+* storage3
+
+A operação de cópia é útil ao trabalhar com matrizes porque você pode percorrer cada elemento da matriz. Use a função `length` na matriz para especificar a contagem de iterações e `copyIndex` para recuperar o índice atual na matriz.
+
+O exemplo a seguir cria uma conta de armazenamento para cada nome fornecido no parâmetro.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "storageNames": {
+          "type": "array",
+          "defaultValue": [
+            "contoso",
+            "fabrikam",
+            "coho"
+          ]
+      }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-04-01",
+      "name": "[concat(parameters('storageNames')[copyIndex()], uniqueString(resourceGroup().id))]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {},
+      "copy": {
+        "name": "storagecopy",
+        "count": "[length(parameters('storageNames'))]"
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
+
+## <a name="serial-or-parallel"></a>Serial ou paralela
+
+Por padrão, o Gerenciador de Recursos cria os recursos em paralelo. Ele não aplica nenhum limite ao número de recursos implantados em paralelo, além do limite total de 800 recursos no modelo. A ordem em que eles são criados não é garantida.
+
+No entanto, convém especificar que os recursos são implantados em sequência. Por exemplo, ao atualizar um ambiente de produção, convém balancear as atualizações para que apenas um determinado número seja atualizado por vez. Para implantar em série mais de uma instância de um recurso, defina `mode` para **serial** e `batchSize` para o número de instâncias a serem implantadas de cada vez. Com o modo serial, o Resource Manager cria uma dependência em instâncias anteriores no loop de modo que não inicie um lote até que o lote anterior esteja concluído.
+
+Por exemplo, para implantar em série duas contas de armazenamento por vez, use:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-04-01",
+      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "copy": {
+        "name": "storagecopy",
+        "count": 4,
+        "mode": "serial",
+        "batchSize": 2
+      },
+      "properties": {}
+    }
+  ],
+  "outputs": {}
+}
+```
+
+A propriedade de modo também aceita **paralelo**, que é o valor padrão.
+
+## <a name="depend-on-resources-in-a-loop"></a>Depender dos recursos em um loop
+
+Você especifica que um recurso é implantado após outro recurso usando o elemento `dependsOn`. Para implantar um recurso que depende da coleção de recursos em um loop, forneça o nome do loop de cópia no elemento dependsOn. O exemplo a seguir mostra como implantar três contas de armazenamento antes de implantar a máquina virtual. A definição completa da máquina virtual não é mostrada. Observe que o elemento Copy tem o nome definido como `storagecopy` e o elemento depende da máquina virtual também é definido como `storagecopy`.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-04-01",
+      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "copy": {
+        "name": "storagecopy",
+        "count": 3
+      },
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2015-06-15",
+      "name": "[concat('VM', uniqueString(resourceGroup().id))]",
+      "dependsOn": ["storagecopy"],
+      ...
+    }
+  ],
+  "outputs": {}
+}
+```
+
+## <a name="iteration-for-a-child-resource"></a>Iteração para um recurso filho
+
+Você não pode usar um loop de cópia para um recurso filho. Para criar mais de uma instância de um recurso que você normalmente define como aninhado em outro recurso, você deve criar esse recurso como um recurso de nível superior. Você define a relação com o recurso pai por meio das propriedades de tipo e nome.
+
+Por exemplo, suponha que você normalmente defina um conjunto de dados como um recurso filho em uma data factory.
+
+```json
+"resources": [
+{
+  "type": "Microsoft.DataFactory/datafactories",
+  "name": "exampleDataFactory",
+  ...
+  "resources": [
+    {
+      "type": "datasets",
+      "name": "exampleDataSet",
+      "dependsOn": [
+        "exampleDataFactory"
+      ],
+      ...
+    }
+  ]
+```
+
+Para criar mais de um conjunto de dados, mova-o para fora do data factory. O conjunto de dados deve estar no mesmo nível que a data factory, mas ainda é um recurso filho da data factory. Você preserva a relação entre um conjunto de dados e o data factory por meio das propriedades de tipo e nome. Como o tipo não pode ser inferido de sua posição no modelo, você deve fornecer o tipo totalmente qualificado no formato: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
+
+Para estabelecer uma relação pai/filho com uma instância da data factory, forneça um nome para o conjunto de dados que inclui o nome do recurso pai. Use o formato: `{parent-resource-name}/{child-resource-name}`.
+
+O exemplo a seguir mostra a implementação:
+
+```json
+"resources": [
+{
+  "type": "Microsoft.DataFactory/datafactories",
+  "name": "exampleDataFactory",
+  ...
+},
+{
+  "type": "Microsoft.DataFactory/datafactories/datasets",
+  "name": "[concat('exampleDataFactory', '/', 'exampleDataSet', copyIndex())]",
+  "dependsOn": [
+    "exampleDataFactory"
+  ],
+  "copy": {
+    "name": "datasetcopy",
+    "count": "3"
+  },
+  ...
+}]
+```
+
+## <a name="copy-limits"></a>Limites de cópia
+
+A contagem não pode exceder 800.
+
+A contagem não pode ser um número negativo. Se você implantar um modelo com Azure PowerShell 2,6 ou posterior, CLI do Azure 2.0.74 ou posterior, ou a API REST versão **2019-05-10** ou posterior, poderá definir Count como zero. As versões anteriores do PowerShell, da CLI e da API REST não dão suporte a zero para contagem.
+
+Tenha cuidado ao usar a [implantação do modo completo](deployment-modes.md) com a cópia. Se você reimplantar com o modo completo em um grupo de recursos, todos os recursos que não forem especificados no modelo após a resolução do loop de cópia serão excluídos.
+
+## <a name="example-templates"></a>Modelos de exemplo
+
+Os exemplos a seguir mostram cenários comuns para criar mais de uma instância de um recurso ou propriedade.
+
+|Modelo  |DESCRIÇÃO  |
+|---------|---------|
+|[Armazenamento de cópia](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Implanta a mais de uma conta de armazenamento com um número de índice no nome. |
+|[Armazenamento de cópia serial](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Implanta várias contas de armazenamento ao tempo. O nome inclui o número de índice. |
+|[Armazenamento de cópia com matriz](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Implanta várias contas de armazenamento. O nome inclui um valor de uma matriz. |
+|[Implantação da VM com um número variável de discos de dados](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Implanta vários discos de dados com uma máquina virtual. |
+|[Várias regras de segurança](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Implanta várias regras de segurança em um grupo de segurança de rede. Cria as regras de segurança a partir de um parâmetro. Para o parâmetro, consulte [vários arquivos de parâmetro NSG](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
+
+## <a name="next-steps"></a>Próximas etapas
+
+* Para passar por um tutorial, consulte [Tutorial: crie várias instâncias de recursos usando os modelos do Resource Manager](template-tutorial-create-multiple-instances.md).
+* Para outros usos do elemento Copy, consulte [iteração de propriedade em modelos de Azure Resource Manager](copy-properties.md) e [iteração de variável em modelos de Azure Resource Manager](copy-variables.md).
+* Para obter informações sobre como usar a cópia com modelos aninhados, consulte [usando copiar](linked-templates.md#using-copy).
+* Para saber mais sobre as seções de um modelo, veja [Criando modelos do Azure Resource Manager](template-syntax.md).
+* Para saber mais sobre como implantar o modelo, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](deploy-powershell.md).
+

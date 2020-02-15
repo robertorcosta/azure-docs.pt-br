@@ -3,12 +3,12 @@ title: Funções de modelo – lógica
 description: Descreve as funções a serem usadas em um modelo do Resource Manager para determinar valores lógicos.
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 48c6a05c5a449626c66f9d75c8578b217906d8e0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: aef520a26124a85f414c4f4aa1a3e307d383c29b
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483954"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207206"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funções lógicas para modelos do Azure Resource Manager
 
@@ -20,15 +20,15 @@ O Resource Manager fornece várias funções para fazer comparações em seus mo
 * [not](#not)
 * [or](#or)
 
-## <a name="and"></a>e a
+## <a name="and"></a>e
 
 `and(arg1, arg2, ...)`
 
 Verifica se todos os valores de parâmetros são verdadeiros.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |booleano |O primeiro valor para verificar se é verdadeiro. |
 | arg2 |Sim |booleano |O segundo valor para verificar se é verdadeiro. |
@@ -66,10 +66,10 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | Falso |
-| orExampleOutput | Bool | Verdadeiro |
+| orExampleOutput | Bool | True |
 | notExampleOutput | Bool | Falso |
 
 ## <a name="bool"></a>bool
@@ -78,9 +78,9 @@ O resultado do exemplo anterior é:
 
 Converte o parâmetro em um booliano.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |cadeia de caracteres ou inteiro |O valor a ser convertido em um booliano. |
 
@@ -119,11 +119,11 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
-| trueString | Bool | Verdadeiro |
+| trueString | Bool | True |
 | falseString | Bool | Falso |
-| trueInt | Bool | Verdadeiro |
+| trueInt | Bool | True |
 | falseInt | Bool | Falso |
 
 ## <a name="if"></a>if
@@ -132,9 +132,9 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna um valor com base em se uma condição é verdadeira ou falsa.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | condition |Sim |booleano |O valor para verificar se é verdadeiro ou falso. |
 | trueValue |Sim | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é verdadeira. |
@@ -177,7 +177,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | yesOutput | String | sim |
 | noOutput | String | não |
@@ -237,9 +237,9 @@ O [modelo de exemplo](https://github.com/krnese/AzureDeploy/blob/master/ARM/depl
 
 Converte o valor booliano em seu valor oposto.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |booleano |O valor a ser convertido. |
 
@@ -275,10 +275,10 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | Falso |
-| orExampleOutput | Bool | Verdadeiro |
+| orExampleOutput | Bool | True |
 | notExampleOutput | Bool | Falso |
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) a seguir usa **not** com [equals](template-functions-comparison.md#equals).
@@ -299,9 +299,9 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | Verdadeiro |
+| checkNotEquals | Bool | True |
 
 ## <a name="or"></a>ou
 
@@ -309,9 +309,9 @@ O resultado do exemplo anterior é:
 
 Verifica se qualquer valor do parâmetro é verdadeiro.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |booleano |O primeiro valor para verificar se é verdadeiro. |
 | arg2 |Sim |booleano |O segundo valor para verificar se é verdadeiro. |
@@ -349,16 +349,16 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | Falso |
-| orExampleOutput | Bool | Verdadeiro |
+| orExampleOutput | Bool | True |
 | notExampleOutput | Bool | Falso |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](template-syntax.md).
 * Para mesclar vários modelos, veja [Usando modelos vinculados com o Azure Resource Manager](linked-templates.md).
-* Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](create-multiple-instances.md).
+* Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](copy-resources.md).
 * Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Azure Resource Manager](deploy-powershell.md).
 

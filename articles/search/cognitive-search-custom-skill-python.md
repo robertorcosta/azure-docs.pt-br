@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: e4f27e582e6b920e9de068fe2c3270af19ad8a17
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: fc69761a05ea381d39d58d5ebf0046e0d9874961
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122414"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210458"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Exemplo: criar uma habilidade personalizada usando Python
 
@@ -52,7 +52,7 @@ O modelo de projeto do Azure Functions no Visual Studio Code cria um projeto que
 1. Selecione a versão do Python, (a versão 3.7.5 é suportada por Azure Functions)
 1. Selecione um modelo para a primeira função do projeto. Selecione **gatilho http** para criar uma função disparada por http no novo aplicativo de funções.
 1. Forneça um nome de função. Nesse caso, vamos usar o **concatenador** 
-1. Selecione **função** como o nível de autorização. Isso significa que forneceremos uma [chave de função](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) para chamar o ponto de extremidade http da função. 
+1. Selecione **função** como o nível de autorização. Isso significa que forneceremos uma [chave de função](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) para chamar o ponto de extremidade http da função. 
 1. Selecione como você gostaria de abrir seu projeto. Para esta etapa, selecione **Adicionar ao espaço de trabalho** para criar o aplicativo de funções no espaço de trabalho atual.
 
 O Visual Studio Code cria o projeto de aplicativo de função em um novo workspace. Este projeto contém os arquivos de configuração [host.json](../azure-functions/functions-host-json.md) e [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file), além de quaisquer arquivos de projeto específicos a uma linguagem. 

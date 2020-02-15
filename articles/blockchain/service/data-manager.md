@@ -2,14 +2,14 @@
 title: O que é o Gerenciador de Dados Blockchain para o Azure Blockchain Service?
 description: O Gerenciador de Dados de Blockchain captura, transforma e entrega dados de blockchain para tópicos da Grade de Eventos.
 ms.date: 11/04/2019
-ms.topic: overview
+ms.topic: conceptual
 ms.reviewer: chroyal
-ms.openlocfilehash: 6583a99ef6efaefa732178d0228708cea82365b1
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
-ms.translationtype: HT
+ms.openlocfilehash: 78c93880007259267b26cf53e93de722be1c7323
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326208"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209436"
 ---
 # <a name="what-is-blockchain-data-manager-for-azure-blockchain-service"></a>O que é o Gerenciador de Dados Blockchain para o Azure Blockchain Service?
 
@@ -21,7 +21,7 @@ O Gerenciador de Dados de Blockchain executa três funções principais: captura
 
 ![Funções do Gerenciador de Dados de Blockchain](./media/data-manager/functions.png)
 
-## <a name="capture"></a>Captura
+## <a name="capture"></a>Capturar
 
 Cada instância do Gerenciador de Dados de Blockchain se conecta a um nó de transação membro do Azure Blockchain Service. Somente os usuários com acesso ao nó de transação podem criar uma conexão garantindo o controle de acesso apropriado aos dados do cliente. Uma instância do Gerenciador de Dados de Blockchain captura de forma confiável todos os dados brutos de bloco e transação do nó de transação e pode redimensionar para dar suporte a cargas de trabalho empresariais.
 

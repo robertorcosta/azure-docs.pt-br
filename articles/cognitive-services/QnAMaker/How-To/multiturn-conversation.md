@@ -1,22 +1,14 @@
 ---
 title: Conversas com vários desligamentos-QnA Maker
-titleSuffix: Azure Cognitive Services
 description: Use prompts e contexto para gerenciar as várias ativações, conhecidas como Multiturn, para o bot de uma pergunta para outra. A passagem múltipla é a capacidade de ter uma conversa de frente e para trás, na qual o contexto da pergunta anterior influencia a próxima pergunta e resposta.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.author: diberry
-ms.openlocfilehash: 681f00adde1d440fbb41f2e66652db34d53fbf99
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/13/2020
+ms.openlocfilehash: abdde09fbb1f6b066772366c5cea933824cb5864
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843253"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210407"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Usar avisos de acompanhamento para criar várias rodadas de uma conversa
 
@@ -31,6 +23,9 @@ Para ver como funciona a opção múltipla, veja o vídeo de demonstração a se
 Algumas perguntas não podem ser respondidas em uma única vez. Quando você projeta suas conversas de aplicativo cliente (bot de bate-papo), um usuário pode fazer uma pergunta que precisa ser filtrada ou refinada para determinar a resposta correta. Você pode fazer esse fluxo seguindo as perguntas possíveis apresentando o usuário com *avisos de acompanhamento*.
 
 Quando um usuário faz uma pergunta, QnA Maker retorna a resposta _e_ quaisquer avisos de acompanhamento. Essa resposta permite que você apresente as perguntas de acompanhamento como opções.
+
+> [!CAUTION]
+> As solicitações de troca múltipla não são extraídas dos documentos de perguntas frequentes. Se precisar de extração múltipla, remova os pontos de interrogação que designam os pares QnA como perguntas frequentes.
 
 ## <a name="example-multi-turn-conversation-with-chat-bot"></a>Exemplo de conversa múltipla com bot de chat
 
@@ -370,7 +365,7 @@ Você pode adicionar ou excluir prompts de várias ativações usando a [API de 
 
 O QnA Maker dá suporte ao controle de versão, incluindo etapas de conversa de passagem múltipla no arquivo exportado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre conversas contextuais neste [exemplo de caixa de diálogo](https://aka.ms/qnamakermultiturnsample) ou saiba mais sobre [design de bot conceitual para conversas com vários folheios](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
 

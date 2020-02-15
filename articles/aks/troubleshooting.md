@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: df3ca877570b6b3e3a34dd20d617ce3896f1dd99
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 663a1dc597493c7b534b54eab7ccc4bed0ff0e11
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76120954"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209215"
 ---
 # <a name="aks-troubleshooting"></a>Solução de problemas do AKS
 
@@ -120,7 +120,7 @@ As restrições de nomenclatura são implementadas pela plataforma do Azure e AK
 
 * Os nomes de cluster devem ter de 1-63 caracteres. Os únicos caracteres permitidos são letras, números, traços e sublinhados. O primeiro e o último caractere devem ser uma letra ou um número.
 * O nome do grupo de recursos do AKS *MC_* combina o nome do grupo de recursos e o nome do recurso. A sintaxe gerada automaticamente de `MC_resourceGroupName_resourceName_AzureRegion` não deve ser maior que 80 caracteres. Se necessário, reduza o tamanho do nome do grupo de recursos ou do nome do cluster AKS.
-* O *dnsPrefix* deve começar e terminar com valores alfanuméricos. Os caracteres válidos incluem valores alfanuméricos e hifens (-). O *dnsPrefix* não pode incluir caracteres especiais, como um ponto (.).
+* O *dnsPrefix* deve começar e terminar com valores alfanuméricos e deve ter entre 1-54 caracteres. Os caracteres válidos incluem valores alfanuméricos e hifens (-). O *dnsPrefix* não pode incluir caracteres especiais, como um ponto (.).
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Estou recebendo erros ao tentar criar, atualizar, dimensionar, excluir ou atualizar o cluster. essa operação não é permitida porque outra operação está em andamento.
 
@@ -155,8 +155,8 @@ Verifique se as configurações não estão em conflito com nenhuma das portas d
 
 | Versão do kubernetes | Versão recomendada |
 | -- | :--: |
-| 1.12 | 1.12.9 ou posterior |
-| 1.13 | 1.13.6 ou posterior |
+| 1,12 | 1.12.9 ou posterior |
+| 1,13 | 1.13.6 ou posterior |
 | 1,14 | 1.14.2 ou posterior |
 
 
@@ -164,8 +164,8 @@ Verifique se as configurações não estão em conflito com nenhuma das portas d
 
 | Versão do kubernetes | Versão recomendada |
 | -- | :--: |
-| 1.12 | 1.12.0 ou posterior |
-| 1.13 | 1.13.0 ou posterior |
+| 1,12 | 1.12.0 ou posterior |
+| 1,13 | 1.13.0 ou posterior |
 | 1,14 | 1.14.0 ou posterior |
 
 
@@ -265,8 +265,8 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 | -- | :--: |
 | 1,10 | 1.10.10 ou posterior |
 | 1.11 | 1.11.5 ou posterior |
-| 1.12 | 1.12.3 ou posterior |
-| 1.13 | 1.13.0 ou posterior |
+| 1,12 | 1.12.3 ou posterior |
+| 1,13 | 1.13.0 ou posterior |
 | 1,14 e posterior | N/D |
 
 Se você estiver usando uma versão do kubernetes que não tenha a correção para esse problema, você pode mitigar o problema aguardando vários minutos e tentando novamente.
@@ -286,8 +286,8 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 | -- | :--: |
 | 1,10 | 1.10.12 ou posterior |
 | 1.11 | 1.11.6 ou posterior |
-| 1.12 | 1.12.4 ou posterior |
-| 1.13 | 1.13.0 ou posterior |
+| 1,12 | 1.12.4 ou posterior |
+| 1,13 | 1.13.0 ou posterior |
 | 1,14 e posterior | N/D |
 
 Se você estiver usando uma versão do kubernetes que não tenha a correção para esse problema, você pode mitigar o problema experimentando o seguinte:
@@ -307,8 +307,8 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 | Versão do kubernetes | Versão corrigida |
 | -- | :--: |
 | 1.11 | 1.11.9 ou posterior |
-| 1.12 | 1.12.7 ou posterior |
-| 1.13 | 1.13.4 ou posterior |
+| 1,12 | 1.12.7 ou posterior |
+| 1,13 | 1.13.4 ou posterior |
 | 1,14 e posterior | N/D |
 
 Se você estiver usando uma versão do kubernetes que não tenha a correção para esse problema, você pode mitigar o problema desanexando manualmente o disco.
@@ -321,8 +321,8 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 
 | Versão do kubernetes | Versão corrigida |
 | -- | :--: |
-| 1.12 | 1.12.9 ou posterior |
-| 1.13 | 1.13.6 ou posterior |
+| 1,12 | 1.12.9 ou posterior |
+| 1,13 | 1.13.6 ou posterior |
 | 1,14 | 1.14.2 ou posterior |
 | 1,15 e posterior | N/D |
 
@@ -341,8 +341,8 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 
 | Versão do kubernetes | Versão corrigida |
 | -- | :--: |
-| 1.12 | 1.12.10 ou posterior |
-| 1.13 | 1.13.8 ou posterior |
+| 1,12 | 1.12.10 ou posterior |
+| 1,13 | 1.13.8 ou posterior |
 | 1,14 | 1.14.4 ou posterior |
 | 1,15 e posterior | N/D |
 
@@ -364,16 +364,16 @@ Se você estiver usando uma versão do kubernetes que não tenha a correção pa
  
 | Versão do kubernetes | Versão recomendada |
 | -- | :--: |
-| 1.12 | 1.12.6 ou posterior |
-| 1.13 | 1.13.4 ou posterior |
+| 1,12 | 1.12.6 ou posterior |
+| 1,13 | 1.13.4 ou posterior |
 | 1,14 | 1.14.0 ou posterior |
 
 ### <a name="what-versions-of-kubernetes-have-azure-files-support-on-the-sovereign-cloud"></a>Quais versões do kubernetes têm suporte aos arquivos do Azure na nuvem do soberanas?
 
 | Versão do kubernetes | Versão recomendada |
 | -- | :--: |
-| 1.12 | 1.12.0 ou posterior |
-| 1.13 | 1.13.0 ou posterior |
+| 1,12 | 1.12.0 ou posterior |
+| 1,13 | 1.13.0 ou posterior |
 | 1,14 | 1.14.0 ou posterior |
 
 ### <a name="what-are-the-default-mountoptions-when-using-azure-files"></a>Quais são as montagens padrão ao usar os arquivos do Azure?
@@ -459,8 +459,8 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 
 | Versão do kubernetes | Versão corrigida |
 | -- | :--: |
-| 1.12 | 1.12.6 ou posterior |
-| 1.13 | 1.13.4 ou posterior |
+| 1,12 | 1.12.6 ou posterior |
+| 1,13 | 1.13.4 ou posterior |
 | 1,14 e posterior | N/D |
 
 ### <a name="azure-files-mount-fails-due-to-storage-account-key-changed"></a>Falha na montagem de arquivos do Azure devido à chave de conta de armazenamento alterada

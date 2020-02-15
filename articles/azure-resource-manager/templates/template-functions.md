@@ -2,19 +2,21 @@
 title: Funções de modelo
 description: Descreve as funções a serem usadas no modelo do Gerenciador de Recursos do Azure para recuperar valores, trabalhar com cadeias de caracteres e numéricos e recuperar informações de implantação.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: aef813595df96449d5dd59ad1e95e77c4c198d0f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/13/2020
+ms.openlocfilehash: a9d10ad4899f35acd45069cb3d351a60632fed3a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483967"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207035"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funções do modelo do Gerenciador de Recursos do Azure
 
 Este artigo descreve todas as funções que você pode usar em um modelo do Azure Resource Manager. Para obter informações sobre como usar funções em seu modelo, consulte [sintaxe do modelo](template-expressions.md).
 
 Para criar suas próprias funções, consulte [Funções definidas pelo usuário](template-syntax.md#functions).
+
+A maioria das funções funciona da mesma quando implantada em um grupo de recursos, assinatura, grupo de gerenciamento ou locatário. Algumas funções não podem ser usadas em todos os escopos. Eles são indicados nas listas abaixo.
 
 <a id="array" aria-hidden="true" />
 <a id="coalesce" aria-hidden="true" />
@@ -35,6 +37,7 @@ Para criar suas próprias funções, consulte [Funções definidas pelo usuário
 <a id="union" aria-hidden="true" />
 
 ## <a name="array-and-object-functions"></a>Funções de objeto e matriz
+
 O Resource Manager fornece diversas funções para trabalhar com matrizes e objetos.
 
 * [array](template-functions-array.md#array)
@@ -62,6 +65,7 @@ O Resource Manager fornece diversas funções para trabalhar com matrizes e obje
 <a id="greaterorequals" aria-hidden="true" />
 
 ## <a name="comparison-functions"></a>Funções de comparação
+
 O Resource Manager fornece várias funções para fazer comparações em seus modelos.
 
 * [equals](template-functions-comparison.md#equals)
@@ -75,10 +79,11 @@ O Resource Manager fornece várias funções para fazer comparações em seus mo
 <a id="variables" aria-hidden="true" />
 
 ## <a name="deployment-value-functions"></a>Funções de valor de implantação
+
 O Gerenciador de Recursos fornece as seguintes funções para obter os valores de seções do modelo e os valores relacionados à implantação:
 
 * [implantação](template-functions-deployment.md#deployment)
-* [environment](template-functions-deployment.md#environment)
+* [ambiente](template-functions-deployment.md#environment)
 * [parameters](template-functions-deployment.md#parameters)
 * [variáveis](template-functions-deployment.md#variables)
 
@@ -89,6 +94,7 @@ O Gerenciador de Recursos fornece as seguintes funções para obter os valores d
 <a id="or" aria-hidden="true" />
 
 ## <a name="logical-functions"></a>Funções lógicas
+
 O Gerenciador de Recursos fornece as seguintes funções para trabalhar com condições lógicas:
 
 * [and](template-functions-logical.md#and)
@@ -109,6 +115,7 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cond
 <a id="sub" aria-hidden="true" />
 
 ## <a name="numeric-functions"></a>Funções numéricas
+
 O Gerenciador de Recursos fornece as seguintes funções para trabalhar com números inteiros:
 
 * [adicionar](template-functions-numeric.md#add)
@@ -134,6 +141,7 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com núm
 <a id="tenantResourceId" aria-hidden="true" />
 
 ## <a name="resource-functions"></a>Funções de recurso
+
 O Gerenciador de Recursos fornece as seguintes funções para obter valores de recurso:
 
 * [extensionResourceId](template-functions-resource.md#extensionresourceid)
@@ -143,9 +151,9 @@ O Gerenciador de Recursos fornece as seguintes funções para obter valores de r
 * [list*](template-functions-resource.md#list)
 * [providers](template-functions-resource.md#providers)
 * [reference](template-functions-resource.md#reference)
-* [resourceGroup](template-functions-resource.md#resourcegroup)
-* [resourceId](template-functions-resource.md#resourceid)
-* [subscription](template-functions-resource.md#subscription)
+* [resourcegroup](template-functions-resource.md#resourcegroup) -só pode ser usado em implantações em um grupo de recursos.
+* [ResourceId](template-functions-resource.md#resourceid) -pode ser usado em qualquer escopo, mas os parâmetros válidos são alterados dependendo do escopo.
+* [assinatura](template-functions-resource.md#subscription) -só pode ser usada em implantações em um grupo de recursos ou assinatura.
 * [subscriptionResourceId](template-functions-resource.md#subscriptionresourceid)
 * [tenantResourceId](template-functions-resource.md#tenantresourceid)
 
@@ -181,6 +189,7 @@ O Gerenciador de Recursos fornece as seguintes funções para obter valores de r
 <a id="uricomponenttostring" aria-hidden="true" />
 
 ## <a name="string-functions"></a>Funções de cadeia de caracteres
+
 O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cadeias de caracteres:
 
 * [base64](template-functions-string.md#base64)
@@ -217,9 +226,9 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cade
 * [uriComponentToString](template-functions-string.md#uricomponenttostring)
 * [utcNow](template-functions-string.md#utcnow)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter uma descrição das seções de um modelo do Gerenciador de Recursos do Azure, veja a seção [Criando modelos do Gerenciador de Recursos do Azure](template-syntax.md)
 * Para mesclar diversos modelos, confira a seção [Como usar modelos vinculados com o Gerenciador de Recursos do Azure](linked-templates.md)
-* Para iterar um número de vezes especificado ao criar um tipo de recurso, confira [Criar várias instâncias de recursos no Azure Resource Manager](create-multiple-instances.md)
+* Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](copy-resources.md).
 * Para ver como implantar o modelo que você criou, consulte [implantar um aplicativo com Azure Resource Manager modelo](deploy-powershell.md)

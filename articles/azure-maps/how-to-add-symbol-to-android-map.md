@@ -1,25 +1,25 @@
 ---
 title: Adicionar uma camada de símbolo aos mapas do Android | Mapas do Microsoft Azure
 description: Neste artigo, você aprenderá como renderizar dados de ponto em um mapa adicionando uma camada de símbolo a ele usando o SDK do Android mapas de Microsoft Azure.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 877147bc0fd680278f999d2007040a92b0cbff38
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: e323d99c11df7f482e6caf81e8d38bf64d160859
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911533"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209980"
 ---
 # <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Adicionar uma camada de símbolo a um mapa usando o Azure Maps SDK do Android
 
 Este artigo mostra como renderizar dados de ponto de uma fonte de dados como uma camada de símbolo em um mapa usando o SDK do Android do Azure Maps.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir as etapas deste artigo, você precisa instalar o [Azure Maps SDK do Android](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para carregar um mapa.
 
@@ -173,7 +173,7 @@ Neste ponto, se você executar seu aplicativo, verá um marcador no mapa, como m
 ![PIN do mapa do Android](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center>
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para adicionar mais coisas ao mapa, consulte:
 

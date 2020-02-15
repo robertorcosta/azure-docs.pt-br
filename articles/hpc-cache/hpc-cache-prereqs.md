@@ -4,14 +4,14 @@ description: Pré-requisitos para usar o cache HPC do Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 02/12/2020
 ms.author: rohogue
-ms.openlocfilehash: 90b84d936bda4e3a974e60934e82ac6c3389d85a
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 135c231f84d95ea2418fab4647d715473378e41c
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645762"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251950"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Pré-requisitos para o cache HPC do Azure
 
@@ -70,12 +70,6 @@ O cache dá suporte a exportações de armazenamento NFS ou de contêineres de b
 
 Cada tipo de armazenamento tem pré-requisitos específicos.
 
-### <a name="nfs-storage-requirements"></a>Requisitos de armazenamento NFS
-
-Se você estiver usando o armazenamento de hardware local, o cache precisará ter acesso à rede de largura de banda alta para o datacenter a partir de sua sub-rede. O [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) ou acesso semelhante é recomendado.
-
-O armazenamento de back-end do NFS deve ser uma plataforma de hardware/software compatível. Contate a equipe de cache do Azure HPC para obter detalhes.
-
 ### <a name="blob-storage-requirements"></a>Requisitos de armazenamento de BLOBs
 
 Se você quiser usar o armazenamento de BLOBs do Azure com o cache, precisará de uma conta de armazenamento compatível e de um contêiner de blob vazio ou de um contêiner que é preenchido com os dados formatados do cache HPC do Azure, conforme descrito em [mover dados para o armazenamento de BLOBs do Azure](hpc-cache-ingest.md).
@@ -94,6 +88,52 @@ Para criar uma conta de armazenamento compatível, use estas configurações:
 
 Você também deve conceder ao aplicativo de cache acesso à sua conta de armazenamento do Azure, conforme mencionado em [permissões](#permissions)acima. Siga o procedimento em [Adicionar destinos de armazenamento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para fornecer ao cache as funções de acesso necessárias. Se você não for o proprietário da conta de armazenamento, faça com que o proprietário execute esta etapa.
 
-## <a name="next-steps"></a>Próximos passos
+### <a name="nfs-storage-requirements"></a>Requisitos de armazenamento NFS
+
+Se estiver usando um sistema de armazenamento NFS (por exemplo, um sistema de NAS de hardware local), verifique se ele atende a esses requisitos. Talvez seja necessário trabalhar com os administradores de rede ou os gerenciadores de firewall para seu sistema de armazenamento (ou data center) para verificar essas configurações.
+
+> [!NOTE]
+> A criação do destino de armazenamento falhará se o cache tiver acesso insuficiente ao sistema de armazenamento NFS.
+
+* **Conectividade de rede:** O cache HPC do Azure precisa de acesso à rede de largura de banda alta entre a sub-rede de cache e o data center do sistema NFS. O [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) ou acesso semelhante é recomendado. Se estiver usando uma VPN, talvez seja necessário configurá-la como fixe TCP MSS em 1350 para garantir que os pacotes grandes não sejam bloqueados.
+
+* **Acesso à porta:** O cache precisa de acesso a portas TCP/UDP específicas em seu sistema de armazenamento. Tipos diferentes de armazenamento têm requisitos de porta diferentes.
+
+  Para verificar as configurações do seu sistema de armazenamento, siga este procedimento.
+
+  * Emita um comando `rpcinfo` para o sistema de armazenamento para verificar as portas necessárias. O comando a seguir lista as portas e formata os resultados relevantes em uma tabela. (Use o endereço IP do seu sistema no lugar do *< storage_IP >* termo.)
+
+    Você pode emitir esse comando de qualquer cliente Linux que tenha a infraestrutura de NFS instalada. Se você usar um cliente dentro da sub-rede do cluster, ele também poderá ajudar a verificar a conectividade entre a sub-rede e o sistema de armazenamento.
+
+    ```bash
+    rpcinfo -p <storage_IP> |egrep "100000\s+4\s+tcp|100005\s+3\s+tcp|100003\s+3\s+tcp|100024\s+1\s+tcp|100021\s+4\s+tcp"| awk '{print $4 "/" $3 " " $5}'|column -t
+    ```
+
+  * Além das portas retornadas pelo comando `rpcinfo`, certifique-se de que essas portas comumente usadas permitam o tráfego de entrada e de saída:
+
+    | Protocolo | Porta  | Serviço  |
+    |----------|-------|----------|
+    | TCP/UDP  | 111   | rpcbind  |
+    | TCP/UDP  | 2049  | NFS      |
+    | TCP/UDP  | 4045  | nlockmgr |
+    | TCP/UDP  | 4046  | montado   |
+    | TCP/UDP  | 4047  | status   |
+
+  * Verifique as configurações de firewall para garantir que elas permitam o tráfego em todas essas portas necessárias. Certifique-se de verificar os firewalls usados no Azure, bem como firewalls locais no seu data center.
+
+* **Acesso ao diretório:** Habilite o comando `showmount` no sistema de armazenamento. O cache HPC do Azure usa esse comando para verificar se a configuração de destino de armazenamento aponta para uma exportação válida e também para garantir que várias montagens não acessem os mesmos subdiretórios (que arriscam as colisões de arquivo).
+
+  > [!NOTE]
+  > Se o sistema de armazenamento NFS usar o sistema operacional ONTAP 9,2 da NetApp, não **habilite `showmount`** . [Contate o serviço e suporte da Microsoft](hpc-cache-support-ticket.md) para obter ajuda.
+
+* **Acesso à raiz:** O cache se conecta ao sistema back-end como ID de usuário 0. Verifique essas configurações no seu sistema de armazenamento:
+  
+  * Habilitar `no_root_squash`. Essa opção garante que o usuário raiz remoto possa acessar arquivos pertencentes à raiz.
+
+  * Verifique as políticas de exportação para certificar-se de que elas não incluem restrições de acesso de raiz da sub-rede do cache.
+
+* O armazenamento de back-end do NFS deve ser uma plataforma de hardware/software compatível. Contate a equipe de cache do Azure HPC para obter detalhes.
+
+## <a name="next-steps"></a>Próximas etapas
 
 * [Criar uma instância de cache do HPC do Azure](hpc-cache-create.md) do portal do Azure

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1df823776208418eae3e465693dd51e108c5a8bb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: da983f87977de922ec547c3ade2972dfb4d69363
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841022"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77206252"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Associação dinâmica do Azure Active Directory para grupos
 
@@ -138,7 +138,7 @@ A tabela a seguir lista os operadores com suporte e sua sintaxe para uma única 
 | Operador | Sintaxe |
 | --- | --- |
 | Não é igual a |-ne |
-| Igual a |-eq |
+| É igual a |-eq |
 | Não começa com |-notStartsWith |
 | Começa com |-startsWith |
 | Não contém |-notContains |
@@ -341,13 +341,13 @@ device.objectId -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>As propriedades de extensão e as propriedades de extensão personalizado
 
-Atributos de extensão e propriedades de extensão personalizadas têm suporte como propriedades de cadeia de caracteres em regras de associação dinâmica. Os atributos de extensão são sincronizados no AD do Windows Server local e têm o formato "ExtensionAttributeX", em que X é igual a 1 a 15. Um exemplo de uma regra que usa um atributo de extensão como propriedade:
+Atributos de extensão e propriedades de extensão personalizadas têm suporte como propriedades de cadeia de caracteres em regras de associação dinâmica. Os [atributos de extensão](https://docs.microsoft.com/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) são sincronizados do AD do servidor de janelas local e têm o formato "ExtensionAttributeX", onde X é igual a 1-15. Um exemplo de uma regra que usa um atributo de extensão como propriedade:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-Propriedades de extensão personalizadas são sincronizadas do local AD do Windows Server ou de um aplicativo SaaS conectado e estão no formato de `user.extension_[GUID]_[Attribute]`, onde:
+[As propriedades de extensão personalizadas](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) são sincronizadas do AD do Windows Server local ou de um aplicativo SaaS conectado e têm o formato de `user.extension_[GUID]_[Attribute]`, em que:
 
 * [GUID] é o identificador exclusivo no Microsoft Azure Active Directory para o aplicativo que criou a propriedade do Microsoft Azure Active Directory
 * [Atributo] é o nome da propriedade como ele foi criado
@@ -395,7 +395,7 @@ Os seguintes atributos de dispositivo podem ser usados.
 > [!Note]  
 > Para o deviceOwnership ao criar grupos dinâmicos para dispositivos, é necessário definir o valor igual a "Company". No Intune, a propriedade do dispositivo é representada como Corporate. Consulte [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes) para obter mais detalhes. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Esses artigos fornecem mais informações sobre grupos no Azure Active Directory.
 

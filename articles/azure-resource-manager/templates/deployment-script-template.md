@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 01/24/2020
 ms.author: jgao
-ms.openlocfilehash: f18c9c6efb17f84446b9fee3d2df2c0977bed0c4
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: a67f360aa08f306d6462342d96f59e06a4d3b501
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76757296"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251848"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usar scripts de implantação em modelos (visualização)
 
@@ -30,7 +30,7 @@ Os benefícios do script de implantação:
 
 - Fácil de codificar, usar e depurar. Você pode desenvolver scripts de implantação em seus ambientes de desenvolvimento favoritos. Os scripts podem ser inseridos em modelos ou em arquivos de script externos.
 - Você pode especificar a linguagem de script e a plataforma. Atualmente, há suporte apenas para Azure PowerShell scripts de implantação no ambiente Linux.
-- Permitir a especificação das identidades que são usadas para executar os scripts. Atualmente, há suporte apenas para [a identidade gerenciada atribuída pelo usuário do Azure](../../active-directory/managed-identities-azure-resources/overview.md) .
+- Permitir a especificação das identidades que são usadas para executar os scripts. Atualmente, há suporte apenas para [a identidade gerenciada atribuída pelo usuário do Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) .
 - Permita passar argumentos de linha de comando para o script.
 - Pode especificar saídas de script e passá-las de volta para a implantação.
 
@@ -40,7 +40,7 @@ Os benefícios do script de implantação:
 > [!IMPORTANT]
 > Dois recursos de script de implantação, uma conta de armazenamento e uma instância de contêiner são criados no mesmo grupo de recursos para execução de script e solução de problemas. Esses recursos geralmente são excluídos pelo serviço de script quando a execução do script de implantação entra em um estado terminal. Você será cobrado pelos recursos até que eles sejam excluídos. Para saber mais, consulte [limpar recursos de script de implantação](#clean-up-deployment-script-resources).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - **Uma identidade gerenciada atribuída por usuário com função de colaborador no nível da assinatura**. Essa identidade é usada para executar scripts de implantação. Para criar um, consulte [criar uma identidade gerenciada atribuída pelo usuário usando o portal do Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), ou [usando CLI do Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md), ou [usando Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). Você precisa da ID da identidade ao implantar o modelo. O formato da identidade é:
 
@@ -59,7 +59,7 @@ Os benefícios do script de implantação:
 
 - **Azure PowerShell versão 2.7.0, 2.8.0 ou 3.0.0**. Você não precisa dessas versões para implantar modelos. Mas essas versões são necessárias para testar os scripts de implantação localmente. Confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Você pode usar uma imagem pré-configurada do Docker.  Consulte [Configurar ambiente de desenvolvimento](#configure-development-environment).
 
-## <a name="resource-schema"></a>Esquema de recursos
+## <a name="sample-template"></a>Modelo de exemplo
 
 O JSON a seguir é um exemplo.  O esquema de modelo mais recente pode ser encontrado [aqui](/azure/templates/microsoft.resources/deploymentscripts).
 
@@ -87,7 +87,7 @@ O JSON a seguir é um exemplo.  O esquema de modelo mais recente pode ser encont
       $DeploymentScriptOutputs = @{}
       $DeploymentScriptOutputs['text'] = $output
     ",
-    "primaryScriptUri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.json",
+    "primaryScriptUri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
     "supportingScriptUris":[],
     "timeout": "PT30M",
     "cleanupPreference": "OnSuccess",
@@ -122,7 +122,7 @@ O modelo a seguir tem um recurso definido com o tipo de `Microsoft.Resources/dep
 > [!NOTE]
 > Como os scripts de implantação embutidos são colocados entre aspas duplas, as cadeias de caracteres dentro dos scripts de implantação precisam ser colocadas entre aspas simples em vez disso. O caractere de escape para o **&#92;** PowerShell é. Você também pode considerar o uso da substituição de cadeia de caracteres, como mostrado no exemplo de JSON anterior. Consulte o valor padrão do parâmetro Name.
 
-O script usa um parâmetro e a saída do valor do parâmetro. **DeploymentScriptOutputs** é usado para armazenar saídas.  Na seção de saídas, a linha de **valor** mostra como acessar os valores armazenados. `Write-Output` é usado para fins de depuração. Para saber como acessar o arquivo de saída, consulte [depurar scripts de implantação](#debug-deployment-scripts).  Para obter as descrições de propriedade, consulte [esquema de recursos](#resource-schema).
+O script usa um parâmetro e a saída do valor do parâmetro. **DeploymentScriptOutputs** é usado para armazenar saídas.  Na seção de saídas, a linha de **valor** mostra como acessar os valores armazenados. `Write-Output` é usado para fins de depuração. Para saber como acessar o arquivo de saída, consulte [depurar scripts de implantação](#debug-deployment-scripts).  Para obter as descrições de propriedade, consulte [modelo de exemplo](#sample-template).
 
 Para executar o script, selecione **Experimente-** o para abrir o Cloud Shell e cole o código a seguir no painel Shell.
 
@@ -304,7 +304,7 @@ Atualmente, o script de implantação dá suporte à Azure PowerShell versão 2.
 
 Depois que o script do PowerShell é testado com êxito, você pode usá-lo como um script de implantação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu a usar os scripts de implantação. Para percorrer um tutorial de script de implantação:
 

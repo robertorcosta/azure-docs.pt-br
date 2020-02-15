@@ -1,19 +1,19 @@
 ---
 title: Pesquisar um local usando os serviços de pesquisa do Azure Maps | Mapas do Microsoft Azure
 description: Neste artigo, você aprenderá a procurar um local usando a Serviço de Pesquisa de mapas de Microsoft Azure para geocodificação e geocodificação geográfica.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/15/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 3b5da7eab9cff5c5e051fc4d5ab7ff582a95c20d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 40066f24fec00610a1efd10b2cb874b1100acdee
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899232"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209878"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Pesquisar um local usando os serviços de pesquisa do Azure Maps
 
@@ -27,7 +27,7 @@ Neste artigo, você aprenderá a:
 * Faça uma [pesquisa de endereço reverso](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) para converter o local da coordenada em endereço
 * Procurar uma cruzada usando o [endereço de pesquisa API de várias ruas inversa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir as etapas neste artigo, primeiro você precisa criar uma conta do Azure Maps e fazer com que você mapeie a chave de assinatura da conta. Siga as instruções em [criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma assinatura de conta do Azure Maps e siga as etapas em [obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária para sua conta. Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](./how-to-manage-authentication.md).
 
@@ -225,7 +225,7 @@ Se você tiver um conjunto de locais de coordenadas para reverter o código, voc
   
 4. Clique em **Enviar** e analise o corpo da resposta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Explore a documentação da [API do serviço de pesquisa do Azure Maps](https://docs.microsoft.com/rest/api/maps/search).
 - Saiba mais sobre [as práticas recomendadas](https://docs.microsoft.com/azure/azure-maps/how-to-use-best-practices-for-search).

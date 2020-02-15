@@ -1,19 +1,19 @@
 ---
 title: Estilos de mapa com suporte | Mapas do Microsoft Azure
 description: Neste artigo, você aprenderá sobre os diferentes estilos de renderização de mapa com suporte pelos mapas do Microsoft Azure.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 92e48486777d82589a56074790dd709c5d525859
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 9cdfd0d029057e36e010203b7c35a5aafee4b574
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910635"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208277"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Categorias compatíveis com o Azure Mapas
 O Azure Mapas dá suporte a vários estilos de mapa internos diferentes, como descrito abaixo.
@@ -31,7 +31,7 @@ Um **mapa** de estradas é um mapa padrão que exibe estradas, naturais e artifi
 
 ## <a name="blank-and-blank_accessible"></a>em branco e blank_accessible
 
-Os estilos de mapa **em branco** e de **blank_accessible** fornecem uma tela em branco na qual os dados são visualizados. O estilo de **blank_accessible** continuará a fornecer atualizações de leitor de tela com detalhes de local de onde o mapa está localizado, mesmo que o mapa base não seja exibido.
+Os estilos de mapa **em branco** e de **blank_accessible** fornecem uma tela em branco na qual os dados são visualizados. O estilo de **blank_accessible** continuará a fornecer atualizações de leitor de tela com detalhes de local do mapa, mesmo que o mapa base não seja exibido.
 
 > [!Note]
 > No SDK Web, você pode alterar a cor do plano de fundo do mapa definindo o estilo de `background-color` CSS do elemento DIV do mapa.
@@ -100,7 +100,7 @@ a **luz de escala de cinza** é uma versão leve do estilo de mapa rodoviário.
 * Controle de mapa do Android
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre como definir um estilo de mapa no Azure Maps:
 

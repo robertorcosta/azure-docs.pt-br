@@ -3,12 +3,12 @@ title: Funções de modelo – comparação
 description: Descreve as funções a serem usadas em um modelo do Resource Manager para comparar valores.
 ms.topic: conceptual
 ms.date: 09/05/2017
-ms.openlocfilehash: 3f21066ae5882f51ef1e01343752eea725fece1d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 67cb1c1f92694ca217e99fb6528fb1d00f2cfcf6
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484045"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207302"
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Funções de comparação para modelos do Azure Resource Manager
 
@@ -27,9 +27,9 @@ O Resource Manager fornece várias funções para fazer comparações em seus mo
 
 Verifica se dois valores são iguais entre si.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |int, string, array ou object |O primeiro valor para verificar a igualdade. |
 | arg2 |Sim |int, string, array ou object |O segundo valor para verificar a igualdade. |
@@ -124,12 +124,12 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
-| checkInts | Bool | Verdadeiro |
-| checkStrings | Bool | Verdadeiro |
-| checkArrays | Bool | Verdadeiro |
-| checkObjects | Bool | Verdadeiro |
+| checkInts | Bool | True |
+| checkStrings | Bool | True |
+| checkArrays | Bool | True |
+| checkObjects | Bool | True |
 
 Para implantar este modelo de exemplo com a CLI do Azure, use:
 
@@ -162,9 +162,9 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | Verdadeiro |
+| checkNotEquals | Bool | True |
 
 Para implantar este modelo de exemplo com a CLI do Azure, use:
 
@@ -183,9 +183,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 Verifica se o primeiro valor é maior que o segundo valor.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |int ou string |O primeiro valor da comparação de maior que. |
 | arg2 |Sim |int ou string |O segundo valor da comparação de maior que. |
@@ -237,10 +237,10 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | checkInts | Bool | Falso |
-| checkStrings | Bool | Verdadeiro |
+| checkStrings | Bool | True |
 
 Para implantar este modelo de exemplo com a CLI do Azure, use:
 
@@ -259,9 +259,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 Verifica se o primeiro valor é maior que ou igual ao segundo valor.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |int ou string |O primeiro valor da comparação de maior que ou igual a. |
 | arg2 |Sim |int ou string |O segundo valor da comparação de maior que ou igual a. |
@@ -313,10 +313,10 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | checkInts | Bool | Falso |
-| checkStrings | Bool | Verdadeiro |
+| checkStrings | Bool | True |
 
 Para implantar este modelo de exemplo com a CLI do Azure, use:
 
@@ -335,9 +335,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 Verifica se o primeiro valor é menor que o segundo valor.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |int ou string |O primeiro valor da comparação de menor que. |
 | arg2 |Sim |int ou string |O segundo valor da comparação de menor que. |
@@ -389,9 +389,9 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
-| checkInts | Bool | Verdadeiro |
+| checkInts | Bool | True |
 | checkStrings | Bool | Falso |
 
 Para implantar este modelo de exemplo com a CLI do Azure, use:
@@ -411,9 +411,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 Verifica se o primeiro valor é menor que ou igual ao segundo valor.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |int ou string |O primeiro valor da comparação de menor que ou igual a. |
 | arg2 |Sim |int ou string |O segundo valor da comparação de menor que ou igual a. |
@@ -465,9 +465,9 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
-| checkInts | Bool | Verdadeiro |
+| checkInts | Bool | True |
 | checkStrings | Bool | Falso |
 
 Para implantar este modelo de exemplo com a CLI do Azure, use:
@@ -482,9 +482,9 @@ Para implantar este modelo de exemplo com o PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](template-syntax.md).
 * Para mesclar vários modelos, veja [Usando modelos vinculados com o Azure Resource Manager](linked-templates.md).
-* Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](create-multiple-instances.md).
+* Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](copy-resources.md).
 * Para ver como implantar o modelo que você criou, veja [Implantar um aplicativo com o modelo do Azure Resource Manager](deploy-powershell.md).
 

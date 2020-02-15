@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 08d9245201a8e0899d47847eb10dcdff3c0d8d16
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 13daf20e364b1e629b3ae13be2c9406da3702211
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984669"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209640"
 ---
 # <a name="show-search-results-on-the-map"></a>Mostrar resultados da pesquisa no mapa
 
@@ -37,7 +37,7 @@ O quarto bloco de código usa o método [SearchFuzzy](/javascript/api/azure-maps
 
 O último bloco de código ajusta os limites da câmera para o mapa usando a propriedade [setcamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) do mapa.
 
-Os limites de solicitação de pesquisa, fonte de dados, camada de símbolo e câmera estão dentro do [ouvinte de evento](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)pronto do mapa. Queremos garantir que os resultados sejam exibidos depois que o mapa for totalmente carregado.
+Os limites de solicitação de pesquisa, fonte de dados, camada de símbolo e câmera estão dentro do [ouvinte de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) do mapa. Queremos garantir que os resultados sejam exibidos depois que o mapa for totalmente carregado.
 
 
 ## <a name="make-a-search-request-via-fetch-api"></a>Fazer uma solicitação de pesquisa por meio da API de busca
@@ -57,7 +57,7 @@ O último bloco de código cria um objeto [BoundingBox](https://docs.microsoft.c
 
 A solicitação de pesquisa, a fonte de dados, a camada de símbolo e os limites da câmera são definidos dentro do [ouvinte de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) do mapa para garantir que os resultados sejam exibidos depois que o mapa for totalmente carregado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre a **Pesquisa Difusa**:
 

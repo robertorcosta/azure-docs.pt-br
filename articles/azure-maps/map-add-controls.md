@@ -1,19 +1,19 @@
 ---
 title: Adicionar controles a um mapa | Mapas do Microsoft Azure
 description: Como adicionar controle de zoom, controle de densidade, controle de rotação e um seletor de estilo a um mapa em mapas de Microsoft Azure.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: e2ad8eb181685d3ac3de8b1e0ed7ef8ddfa4e224
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: e386c136e7d0258d00c22c627dfa5047ba803169
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933291"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209759"
 ---
 # <a name="add-controls-to-a-map"></a>Adicionar controles a um mapa
 
@@ -96,7 +96,7 @@ Consulte as <a href='https://codepen.io/azuremaps/pen/LwBZMx/'>Opções de contr
 
 Se você quiser criar controles de navegação personalizados, crie uma classe que se estenda da classe `atlas.Control` ou crie um elemento HTML e posicione-o acima do div do mapa. Fazer com que este controle de interface do usuário chame a função Maps `setCamera` para mover o mapa. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as classes e métodos usados neste artigo:
 

@@ -1,19 +1,19 @@
 ---
 title: Cobertura de tráfego | Mapas do Microsoft Azure
 description: Neste artigo, você aprenderá sobre a cobertura de tráfego em mapas de Microsoft Azure.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 09/22/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 083f659f9392faff8f381e1552db23c291ffa8ca
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 02d57f39f2a911864ebe16d05456409d0119b495
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988138"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209521"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Cobertura de tráfego dos Mapas do Azure
 
@@ -23,11 +23,11 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 
 ## <a name="americas"></a>Américas
 
-|País/Região  |Incidentes  |Fluxo  |
+|País/Região  |Incidentes  |Flow  |
 |---------|:---------:|:---------:|
 |Argentina      |✓         |✓         |
 |Brasil     |✓         |✓         |
-|Canadá     |✓         |✓         |
+|Canada     |✓         |✓         |
 |Chile     |✓         |✓         |
 |Colômbia      |✓         |✓         |
 |México     |✓         |✓         |
@@ -39,7 +39,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 
 ## <a name="asia-pacific"></a>Pacífico Asiático
 
-|País/Região   |Incidentes  |Fluxo  |
+|País/Região   |Incidentes  |Flow  |
 |---------|:---------:|:---------:|
 |Austrália     |✓         |✓        |
 |Brunei   |✓         |✓        |
@@ -51,7 +51,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 |Malásia     |✓         |✓         |
 |Nova Zelândia     |✓         |✓         |
 |Filipinas  |✓         |✓         |
-|Cingapura     |✓         |✓         |
+|Singapura     |✓         |✓         |
 |Taiwan     |✓         |✓        |
 |Tailândia     |✓         |✓        |
 |Vietnã   |✓         |✓         |
@@ -59,7 +59,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 
 ## <a name="europe"></a>Europa
 
-|País/Região   |Incidentes  |Fluxo  |
+|País/Região   |Incidentes  |Flow  |
 |---------|:---------:|:---------:|
 |Andorra   |✓         |✓         |
 |Áustria     |✓         |✓         |
@@ -89,7 +89,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 |Luxemburgo     |✓         |✓         |
 |Malta     |✓         |✓         |
 |Mônaco   |✓         |✓         |
-|Holanda     |✓         |✓         |
+|Países Baixos     |✓         |✓         |
 |Noruega     |✓         |✓         |
 |Polônia     |✓         |✓         |
 |Portugal     |✓         |✓         |
@@ -108,7 +108,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 |Suíça     |✓         |✓        |
 |Turquia     |✓         |✓         |
 |Ucrânia     |✓         |✓         |
-|Reino Unido     |✓         |✓         |
+|United Kingdom     |✓         |✓         |
 |+Gibraltar     |✓         |✓         |
 |\+ Guernsey & Jersey     |✓         |✓         |
 |\+ Ilha de Man     |✓         |✓         |
@@ -117,7 +117,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 
 ## <a name="middle-east-and-africa"></a>Oriente Médio e África
 
-|País/Região |Incidentes  |Fluxo  |
+|País/Região |Incidentes  |Flow  |
 |---------|:---------:|:---------:|
 |Bahrein     |✓         |✓         |
 |Egito     |✓         |✓         |
@@ -133,6 +133,6 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 |África do Sul     |✓         |✓         |
 |Emirados Árabes Unidos  |✓         |✓         |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre os dados de tráfego de Mapas do Azure, consulte as páginas de referência [Tráfego](https://docs.microsoft.com/rest/api/maps/traffic).

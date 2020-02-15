@@ -9,12 +9,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/11/2020
-ms.openlocfilehash: 7011bf068a96fe9da035ec08a1f6ef7f80a0b240
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 686e426ef0b7706eff168e42ffc67417b2c5c743
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161946"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212896"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
 
@@ -90,7 +90,7 @@ Para configurar a gravação de logs de auditoria para uma conta de armazenament
 
    ![do Azure](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-Para configurar uma conta de armazenamento em uma rede virtual ou firewall, você precisará de um [Active Directory administrador](/sql-database-aad-authentication-configure.md?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) no servidor, habilitar **permitir que os serviços confiáveis da Microsoft acessem essa conta de armazenamento** na conta de armazenamento. Além disso, você precisa ter a permissão ' Microsoft. Authorization/roleAssignments/Write ' na conta de armazenamento selecionada.
+Para configurar uma conta de armazenamento em uma rede virtual ou firewall, você precisará de um [Active Directory administrador](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-managed-instance) no servidor, habilitar **permitir que os serviços confiáveis da Microsoft acessem essa conta de armazenamento** na conta de armazenamento. Além disso, você precisa ter a permissão ' Microsoft. Authorization/roleAssignments/Write ' na conta de armazenamento selecionada.
 
 Recomendamos que você seja [administrador de acesso do usuário](../role-based-access-control/built-in-roles.md#user-access-administrator) para conceder à identidade gerenciada a função ' colaborador de dados de blob de armazenamento '. Para saber mais sobre permissões e controle de acesso baseado em função, consulte [o que é o RBAC (controle de acesso baseado em função) para recursos do Azure?](../role-based-access-control/overview.md) e [Adicionar ou remover atribuições de função usando o RBAC do azure e o portal do Azure](../role-based-access-control/role-assignments-portal.md)
 

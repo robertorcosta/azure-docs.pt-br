@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: bb0f2e3fc3b84f5e1f9fe999b31fffadaa5915d4
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: c2dc98d683d822628dc9ea1b4ead02279ea10ea5
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687588"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251797"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Perguntas frequentes sobre o Serviço de Aplicativo do Azure no Linux
 
@@ -30,9 +30,9 @@ Se você tiver qualquer dúvida, comente este artigo.
 
 **Quais são os valores esperados para a seção Arquivo de Inicialização quando configuro a pilha de runtime?**
 
-| Sobreposta           | Valor esperado                                                                         |
+| Pilha           | Valor Esperado                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
-| Java SE         | o comando para iniciar seu aplicativo JAR (por exemplo, `java -jar my-app.jar --server.port=80`) |
+| Java SE         | o comando para iniciar seu aplicativo JAR (por exemplo, `java -jar /home/site/wwwroot/app.jar --server.port=80`) |
 | Tomcat, Wildfly | o local de um script para executar as configurações necessárias (por exemplo, `/home/site/deployments/tools/startup_script.sh`)          |
 | Node.js         | o arquivo de configuração PM2 ou o arquivo de script                                |
 | .NET Core       | o nome da DLL compilada como `dotnet <myapp>.dll`                                 |
@@ -58,7 +58,7 @@ Sim, você pode fazer isso por meio do site de gerenciamento do controle de orig
 
 Você deve definir o campo **reservado** do serviço de aplicativo para *true*.
 
-## <a name="continuous-integration-and-deployment"></a>Integração e implantação contínua
+## <a name="continuous-integration-and-deployment"></a>Integração e implantação contínuas
 
 **Meu aplicativo Web ainda usa uma imagem de contêiner do Docker antiga depois de atualizar a imagem no Hub do Docker. Você dá suporte à integração e à implantação contínuas de contêineres personalizados?**
 
@@ -78,7 +78,7 @@ Se a implantação do Git falhar no aplicativo Web do Linux, escolha uma das op�
 
 - Usar o recurso entrega contínua (versão prévia): você pode armazenar o código-fonte do aplicativo em um repositório Git do Azure DevOps ou repositório GitHub para usar a entrega contínua do Azure. Para obter mais informações, consulte [Como configurar a Entrega Contínua para aplicativos Web do Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Usar a [API de implantação via arquivo ZIP](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): para usar essa API, [adicione o SSH ao seu aplicativo Web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) e vá para a pasta onde você deseja implantar seu código. Execute o código a seguir:
+- Usar a [API de implantação via arquivo ZIP](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): para usar essa API, [adicione o SSH ao seu aplicativo Web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) e vá para a pasta onde você deseja implantar seu código. Execute o seguinte código:
 
    ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
@@ -86,7 +86,7 @@ Se a implantação do Git falhar no aplicativo Web do Linux, escolha uma das op�
 
    Se você receber uma mensagem de erro informando que o comando `curl` não foi encontrado, instale a ondulação usando `apt-get install curl` antes de executar o comando `curl` anterior.
 
-## <a name="language-support"></a>Suporte de idiomas
+## <a name="language-support"></a>Suporte ao idioma
 
 **Eu quero usar websockets no aplicativo Node.js, há definições ou configurações especiais a serem definidas?**
 
@@ -173,7 +173,7 @@ Estas são as regras para determinar qual contêiner está acessível – na ord
 - O primeiro contêiner a definir a porta 80 ou 8080
 - Se nenhuma das opções acima for verdadeira, o primeiro contêiner definido no arquivo estará acessível (exposto)
 
-## <a name="pricing-and-sla"></a>Precificação e SLA
+## <a name="pricing-and-sla"></a>Preço e SLA
 
 **Qual é o preço agora que o serviço está disponível?**
 
@@ -189,7 +189,7 @@ Você pode usar apenas letras (A-Z, a-z), números (0-9) e o caractere de sublin
 
 É possível enviar sua ideia para o [fórum de comentários dos Aplicativos Web](https://aka.ms/webapps-uservoice). Adicione “[Linux]” ao título de sua ideia.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [O que é o Serviço de Aplicativo do Azure no Linux?](app-service-linux-intro.md)
 - [Configurar ambientes de preparo no Serviço de Aplicativo do Azure](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)

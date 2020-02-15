@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 04e7aeddaa4e3aba38f1bf08893b0b0487109653
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 7821b0b76fb9be1b62aaf334b3c07aaff1d0021a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025445"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209538"
 ---
 # <a name="azure-maps-render-coverage"></a>Cobertura de renderização do Mapas do Azure
 
-O Mapas do Azure usa blocos de varredura e blocos de vetor para criar mapas. Na resolução mais baixa, o mundo inteiro se encaixa em um único bloco. Na resolução mais alta, um único bloco representa 38 metros quadrados. Ao ampliar, você verá mais detalhes sobre continentes, regiões, cidades e ruas individuais. Para obter mais informações sobre blocos, consulte [níveis de zoom e grade de blocos](zoom-levels-and-tile-grid.md).
+O Mapas do Azure usa blocos de varredura e blocos de vetor para criar mapas. Na resolução mais baixa, o mundo inteiro se encaixa em um único bloco. Na resolução mais alta, um único bloco representa 38 metros quadrados. Você verá mais detalhes sobre continentes, regiões, cidades e ruas individuais à medida que aplicar zoom no mapa. Para obter mais informações sobre blocos, consulte [níveis de zoom e grade de blocos](zoom-levels-and-tile-grid.md).
 
-No entanto, o Mapas não têm o mesmo nível de informações e precisão para todas as regiões. As tabelas a seguir detalham o nível de informações que você pode renderizar para cada região.
+No entanto, o Maps não tem o mesmo nível de informações e precisão para todas as regiões. As tabelas a seguir detalham o nível de informações que você pode renderizar para cada região.
 
 ## <a name="legend"></a>Legenda
 
@@ -38,10 +38,10 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Angola                           | ✓ | ✓ |
 | Benin                            | ✓ | ✓ |
 | Botsuana                         | ✓ | ✓ |
-| Burquina Faso                     | ✓ | ✓ |
+| Burkina Faso                     | ✓ | ✓ |
 | Burundi                          | ✓ | ✓ |
 | Cabo Verde                       | ✓ | ✓ |
-| República dos Camarões                         | ✓ | ✓ |
+| Camarões                         | ✓ | ✓ |
 | República Centro-Africana         | ✓ | Ø |
 | Chad                             | ✓ | Ø |
 | Ilhas Comores                          | ✓ | Ø |
@@ -101,11 +101,11 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Bahamas                   | ✓ | ✓ |
 | Barbados                  | ✓ | ✓ |
 | Belize                    | ✓ | ✓ |
-| Bermuda                   | ✓ | ✓ |
+| Bermudas                   | ✓ | ✓ |
 | Estado Plurinacional da Bolívia | ✓ | ✓ |
 | Bonaire, Santo Eustáquio e Saba | ✓ | ✓ |
 | Brasil                    | ✓ | ✓ |
-| Canadá                    | ✓ | ✓ |
+| Canada                    | ✓ | ✓ |
 | Ilhas Cayman            | ✓ | ✓ |
 | Chile                     | ✓ | ✓ |
 | Colômbia                  | ✓ | ✓ |
@@ -136,13 +136,13 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Porto Rico               | ✓ | ✓ |
 | Quebec (Canadá)           | ✓ | ✓ |
 | São Bartolomeu          | ✓ | ✓ |
-| São Cristóvão e Nevis     | ✓ | ✓ |
+| São Cristóvão e Névis     | ✓ | ✓ |
 | Santa Lúcia               | ✓ | ✓ |
 | Saint Martin (francesa)     | ✓ | ✓ |
 | São Pierre e Miquelon | ✓ | ✓ |
-| São Vicente e Granadinas | ✓ | ✓ |
+| São Vincent e Granadinas | ✓ | ✓ |
 | Sint Maarten (holandesa)      | ✓ | ✓ |
-| Ilhas Geórgia do Sul e Sandwich do Sul | ✓ | ✓ |
+| Geórgia do Sul e Ilhas Sandwich do Sul | ✓ | ✓ |
 | Suriname                  | ✓ | ✓ |
 | Trinidad e Tobago       | ✓ | ✓ |
 | Ilhas Turcas e Caicos  | ✓ | ✓ |
@@ -177,7 +177,7 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Cazaquistão                |   | ✓ |
 | Kuwait                    | ✓ | ✓ |
 | Quirguistão                |   | Ø |
-| República Democrática Popular do Laos |   | Ø |
+| República Democrática do Laos |   | Ø |
 | Líbano                   | ✓ | ✓ |
 | RAE de Macau                 | ✓ | ✓ |
 | Malásia                  | ✓ | ✓ |
@@ -192,9 +192,9 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | República da Coreia         | ✓ | Ø |
 | Arábia Saudita              | ✓ | ✓ |
 | Ilhas Senkaku           |   | ✓ |
-| Cingapura                 | ✓ | ✓|
+| Singapura                 | ✓ | ✓|
 | Sri Lanka                 |   | Ø |
-| República Árabe da Síria      |   | Ø |
+| República Árabe Síria      |   | Ø |
 | Taiwan                    | ✓ | ✓ |
 | Tadjiquistão                |   | Ø |
 | Tailândia                  | ✓ | ✓ |
@@ -267,7 +267,7 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Irlanda                   | ✓ | ✓ |
 | Ilha de Man               | ✓ | ✓ |
 | Itália                     | ✓ | ✓ |
-| Svalbard                 | ✓ | ✓ |
+| Jan Mayen                 | ✓ | ✓ |
 | Jersey                    | ✓ | ✓ |
 | Letônia                    | ✓ | ✓ |
 | Liechtenstein             | ✓ | ✓ |
@@ -278,7 +278,7 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Moldova                   | ✓ | ✓ |
 | Mônaco                    | ✓ | ✓ |
 | Montenegro                | ✓ | ✓ |
-| Holanda               | ✓ | ✓ |
+| Países Baixos               | ✓ | ✓ |
 | Noruega                    | ✓ | ✓ |
 | Polônia                    | ✓ | ✓ |
 | Portugal                  | ✓ | ✓ |
@@ -295,10 +295,10 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Suíça               | ✓ | ✓ |
 | Turquia                    | ✓ | ✓ |
 | Ucrânia                   | ✓ | ✓ |
-| Reino Unido            | ✓ | ✓ |
+| United Kingdom            | ✓ | ✓ |
 | Cidade do Vaticano              | ✓ | ✓ |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre a renderização de Mapas do Azure, consulte [Níveis de Zoom e grade de blocos](zoom-levels-and-tile-grid.md).
 

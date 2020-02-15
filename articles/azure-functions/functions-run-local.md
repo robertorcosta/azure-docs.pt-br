@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 4eafd0fbaed067a0852edea010408a1d82353392
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: dd36895a34b36bbdf8e796cf629ab031613663cd
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277972"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208875"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com o Azure Functions Core Tools
 
@@ -190,7 +190,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 `func init` dá suporte às seguintes opções, que são somente da versão 2.x, a menos que haja outro tipo de orientação:
 
-| Opção     | Description                            |
+| Opção     | DESCRIÇÃO                            |
 | ------------ | -------------------------------------- |
 | **`--csharp`**<br/> **`--dotnet`** | Inicializa um [ C# projeto de biblioteca de classes (. cs)](functions-dotnet-class-library.md). |
 | **`--csx`** | Inicializa um [ C# projeto de script (. CSX)](functions-reference-csharp.md). Você precisam especificar `--csx` nos próximos comandos. |
@@ -291,7 +291,7 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 Você também pode especificar essas opções no comando usando os seguintes argumentos:
 
-| Argumento     | Description                            |
+| Argumento     | DESCRIÇÃO                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Versão 2. x) Gera os mesmos modelos C# (. CSx) de script usados na versão 1. x e no portal. |
 | **`--language`** , **`-l`**| A linguagem de programação modelo, como C#, F# ou JavaScript. Essa opção é necessária na versão 1.x. Na versão 2.x, não use essa opção nem escolha uma linguagem que corresponda ao runtime do trabalho. |
@@ -347,7 +347,7 @@ func host start
 
 `func start` dá suporte para as seguintes opções:
 
-| Opção     | Description                            |
+| Opção     | DESCRIÇÃO                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | Não compile o projeto atual antes da execução. Somente para projetos dotnet. O padrão é definido como false. Versão 2.x somente. |
 | **`--cert`** | O caminho para um arquivo .pfx que contém uma chave privada. Usado somente com `--useHttps`. Versão 2.x somente. |
@@ -373,7 +373,7 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
 >[!IMPORTANT]
->Ao executar localmente, a autorização não é imposta para pontos de extremidade HTTP. Isso significa que todas as solicitações HTTP locais são tratadas como `authLevel = "anonymous"`. Para obter mais informações, confira o [artigo de associação HTTP](functions-bindings-http-webhook.md#authorization-keys).
+>Ao executar localmente, a autorização não é imposta para pontos de extremidade HTTP. Isso significa que todas as solicitações HTTP locais são tratadas como `authLevel = "anonymous"`. Para obter mais informações, confira o [artigo de associação HTTP](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
 ### <a name="passing-test-data-to-a-function"></a>Transferência dos dados de teste para uma função
 
@@ -437,7 +437,7 @@ Você também pode invocar uma função diretamente usando `func run <FunctionNa
 
 `func run` dá suporte para as seguintes opções:
 
-| Opção     | Description                            |
+| Opção     | DESCRIÇÃO                            |
 | ------------ | -------------------------------------- |
 | **`--content`** , **`-c`** | Conteúdo embutido. |
 | **`--debug`** , **`-d`** | Anexe um depurador ao processo de host antes de executar a função.|
@@ -473,14 +473,14 @@ Esse comando publica a um aplicativo de funções existente no Azure. Você rece
 
 As opções de publicação a seguir se aplicam a ambas as versões, 1. x e 2. x:
 
-| Opção     | Description                            |
+| Opção     | DESCRIÇÃO                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Configurações de publicação em local.settings.json do Azure, a solicitação para substituir se a configuração já existe. Se você estiver usando a Emulador de Armazenamento do Microsoft Azure, primeiro altere a configuração do aplicativo para uma [conexão de armazenamento real](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Suprima o prompt para substituir as configurações do aplicativo quando `--publish-local-settings -i` for usado.|
 
 Somente há suporte para as seguintes opções de publicação na versão 2.x:
 
-| Opção     | Description                            |
+| Opção     | DESCRIÇÃO                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only`** , **`-o`** |  Somente publicar as configurações e ignorar o conteúdo. O padrão é solicitado. |
 |**`--list-ignored-files`** | Exibe uma lista de arquivos que são ignorados durante a publicação, que é baseada no arquivo .funcignore. |
@@ -504,7 +504,7 @@ func deploy
 
 As seguintes opções de implantação de contêiner personalizado estão disponíveis:
 
-| Opção     | Description                            |
+| Opção     | DESCRIÇÃO                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | O nome de um Registro do Docker ao qual o usuário atual está conectado. |
 | **`--platform`** | A plataforma de hospedagem do aplicativo de funções. As opções válidas são `kubernetes` |
@@ -534,7 +534,7 @@ Você pode exibir um fluxo de arquivos de log que estão sendo gerados por suas 
 Esse tipo de logs de streaming requer que Application Insights integração seja habilitada para seu aplicativo de funções.   
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como desenvolver, testar e publicar Azure Functions usando Azure Functions Core Tools [módulo do Microsoft learn](https://docs.microsoft.com/learn/modules/develop-test-deploy-azure-functions-with-core-tools/) Azure Functions Core Tools é software livre [e hospedado no GitHub](https://github.com/azure/azure-functions-cli).  
 Para arquivar uma solicitação de bug ou recurso, [abra um problema do GitHub](https://github.com/azure/azure-functions-cli/issues).
@@ -545,5 +545,5 @@ Para arquivar uma solicitação de bug ou recurso, [abra um problema do GitHub](
 [Azure portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
-[`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
+[AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage
 [pacotes de extensão]: functions-bindings-register.md#extension-bundles

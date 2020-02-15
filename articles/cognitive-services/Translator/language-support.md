@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: ec5c1295f883bb37ad5f016bc3346c134863e6bd
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: a4f9833e8dd14dc7c8ec5849cb809bf2089a5dae
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118819"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77206116"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Idiomas e regiões compatíveis com a API de Tradução de Texto
 
@@ -141,7 +141,7 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 | Sérvio (latino) | `sr-Latn` | Latim `Latn` | --> | Cirílico `Cyrl`|
 | Tâmil | `ta` | Tâmil `Taml` | --> | Latim `Latn` |
 | Télugo | `te` | Télugo `Telu` | --> | Latim `Latn` |
-| Tailandês | `th` | Tailandês `Thai` | <--> | Latim `Latn` |
+| Tailandês | `th` | Tailandês `Thai` | --> | Latim `Latn` |
 
 ## <a name="dictionary"></a>Dicionário
 

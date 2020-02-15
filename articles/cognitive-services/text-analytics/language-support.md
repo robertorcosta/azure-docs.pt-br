@@ -10,18 +10,18 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 3e7402be79f7b57a426543c35f08524e0da9d283
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: c5a413a4fe8d9ac9b7aac59ca78cedc6d5a7a313
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024527"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77206167"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Idiomas e regiões compatíveis com a API de Análise de Texto
 
 Este artigo explica quais idiomas têm suporte para cada operação: análise de sentimentos, extração de frases-chave, detecção de idioma e reconhecimento de entidade nomeada.
 
-## <a name="language-detection"></a>Detecção de idioma
+## <a name="language-detection"></a>Detecção de Idioma
 
 O API de Análise de Texto pode detectar uma ampla gama de linguagens, variantes, dialetos e alguns idiomas regionais/culturais.  A detecção de idioma retorna o "script" de um idioma. Por exemplo, a frase "Eu tenho um cachorro" retornará `en`, em vez de `en-US`. O único especial é chinês, em que a funcionalidade de detecção de idioma retornará `zh_CHS` ou `zh_CHT` se ela puder determinar o script fornecido pelo texto fornecido. Em situações em que um script específico não pode ser identificado para um documento em chinês, ela retornará simplesmente `zh`.
 
@@ -47,11 +47,11 @@ O suporte a idiomas é implantado inicialmente em versão prévia, passando para
 > [!NOTE]
 > Para obter suporte de idioma detalhado para a visualização pública de reconhecimento de entidade nomeada (NER) v3, consulte [tipos de entidade nomeada](named-entity-types.md).
 
-| Idioma              | Código de idioma | Sentimento | Frases-chave | Reconhecimento de Entidade Nomeada | Vinculação de entidade |       Observações        |
+| Linguagem              | Código de idioma | Sentimento | Frases principais | Reconhecimento de Entidade Nomeada | Vinculação de entidade |       Observações        |
 |:----------------------|:-------------:|:---------:|:-----------:|:------------------------:|:--------------:|:------------------:|
 | Árabe                |     `ar`      |           |             |           ✔ \*           |                |                    |
 | Tcheco                 |     `cs`      |           |             |           ✔ \*           |                |                    |
-| Chinês-simplificado    |   `zh-hans`   |  ✔ \*\*   |             |            ✔             |                |                    |
+| Chinês-simplificado    |   `zh-hans`   |  ✔ \*\*   |             |            ✔             |                | `zh` também é aceito                   |
 | Chinês-tradicional   |   `zh-hant`   |  ✔ \*\*   |             |                          |                |                    |
 | Dinamarquês                |     `da`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Holandês                 |     `nl`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
@@ -64,7 +64,7 @@ O suporte a idiomas é implantado inicialmente em versão prévia, passando para
 | Italiano               |     `it`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
 | Japonês              |     `ja`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
 | Coreano                |     `ko`      |   ✔ \*\*  |      ✔      |           ✔ \*           |                |                    |
-| Norueguês (Bokmål)   |     `no`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| Norueguês (Bokmål)   |     `no`      |   ✔ \*    |      ✔      |           ✔ \*           |                | `nb` também é aceito                   |
 | Polonês                |     `pl`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Português (Portugal) |    `pt-PT`    |   ✔\**    |      ✔      |           ✔ \*           |                | `pt` também é aceito |
 | Português (Brasil)   |    `pt-BR`    |           |      ✔      |           ✔ \*           |                |                    |
@@ -77,7 +77,7 @@ o suporte ao idioma \* está em versão prévia
 
 \** também disponível no [análise de sentimento v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-versions-and-features) e/ou em visualizações públicas do [reconhecimento de entidade nomeada v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) .
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 [Página Documentação dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/)   
 [Página do Produto de Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/)

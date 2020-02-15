@@ -3,12 +3,12 @@ title: Recursos filho em modelos
 description: Descreve como definir o nome e o tipo de recursos filho em um modelo de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 7d8a7a39bab3340b6f5c9e66d54b7398fa70ee3e
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 6de2b476fe19a057a62e4a54963dd8fde0d11579
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122008"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207886"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Definir nome e tipo para recursos filho
 
@@ -27,7 +27,7 @@ Em um modelo do Resource Manager, você pode especificar o recurso filho dentro 
 ]
 ```
 
-O exemplo a seguir mostra o recurso filho fora do recurso pai. Você pode usar essa abordagem se o recurso pai não estiver implantado no mesmo modelo ou se quiser usar [copiar](create-multiple-instances.md) para criar mais de um recurso filho.
+O exemplo a seguir mostra o recurso filho fora do recurso pai. Você pode usar essa abordagem se o recurso pai não estiver implantado no mesmo modelo ou se quiser usar [copiar](copy-resources.md) para criar mais de um recurso filho.
 
 ```json
 "resources": [
@@ -130,7 +130,7 @@ O exemplo a seguir mostra uma rede virtual e uma sub-rede que são definidas no 
 ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre a criação de modelos do Gerenciador de Recursos do Azure, consulte [Criando modelos](template-syntax.md).
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 376d7c1a9d2fe2ebce857362fd216e2047eb1f7b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 7916bbb28602d64e0916fce7badf16a65c242227
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934324"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251865"
 ---
 # <a name="security-control-network-security"></a>Controle de segurança: segurança de rede
 
@@ -183,7 +183,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Azure Policy exemplos de rede:
 
-https://docs.microsoft.com/azure/governance/policy/samples/#network
+https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network
 
 Como criar um Azure Blueprint:
 
@@ -193,7 +193,7 @@ https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 1,1 | 11.2 | Cliente |
+| 1,1 | 11,2 | Cliente |
 
 Use marcas para NSGs e outros recursos relacionados à segurança de rede e ao fluxo de tráfego. Para regras NSG individuais, use o campo Descrição do &quot;&quot; para especificar a necessidade de negócios e/ou duração (etc.) para qualquer regra que permita o tráfego de/para uma rede.
 
@@ -223,8 +223,8 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Azure Policy exemplos de rede:
 
-https://docs.microsoft.com/azure/governance/policy/samples/#network
+https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Consulte o próximo controle de segurança: [registro em log e monitoramento](security-control-logging-monitoring.md)

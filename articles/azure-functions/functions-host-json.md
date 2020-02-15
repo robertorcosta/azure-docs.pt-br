@@ -3,12 +3,12 @@ title: Referência host.json para o Azure Functions 2.x
 description: Documentação de referência do arquivo host.json do Azure Functions com o runtime v2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 3ad3682e301eb98d48372c3955c6ff049422c517
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: cc982d3f810c944a5273cbf0cf9778076d119692
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024663"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208817"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>referência de host. JSON para Azure Functions 2. x e posterior 
 
@@ -143,21 +143,21 @@ Para obter a estrutura JSON completa, consulte o [exemplo anterior de arquivo ho
 > [!NOTE]
 > A amostragem de log pode fazer com que algumas execuções não apareçam na folha do Monitor do Application Insights. Para evitar a amostragem de log, adicione `samplingExcludedTypes: "Request"` ao valor de `applicationInsights`.
 
-| Propriedade | Padrão | Description |
+| Propriedade | Padrão | DESCRIÇÃO |
 | --------- | --------- | --------- | 
-| samplingSettings | N/D | Consulte [applicationInsights. samplingSettings](#applicationinsightssamplingsettings). |
+| samplingSettings | n/d | Consulte [applicationInsights. samplingSettings](#applicationinsightssamplingsettings). |
 | samplingExcludedTypes | nulo | Uma lista delimitada por ponto e vírgula de tipos que você não deseja que sejam amostrados. Os tipos reconhecidos são: Dependência, Evento, Exceção, PageView, Solicitação, Rastreamento. Todas as instâncias dos tipos especificados são transmitidas; os tipos que não são especificados são amostrados. |
 | samplingIncludedTypes | nulo | Uma lista delimitada por ponto e vírgula dos tipos que você deseja que sejam amostrados; uma lista vazia implica todos os tipos. Tipo listado em `samplingExcludedTypes` tipos de substituição listados aqui. Os tipos reconhecidos são: Dependência, Evento, Exceção, PageView, Solicitação, Rastreamento. Todas as instâncias dos tipos especificados são transmitidas; os tipos que não são especificados são amostrados. |
 | enableLiveMetrics | true | Habilita a coleta de métricas em tempo real. |
 | enableDependencyTracking | true | Habilita o rastreamento de dependência. |
 | enablePerformanceCountersCollection | true | Habilita a coleta de contadores de desempenho kudu. |
 | liveMetricsInitializationDelay | 00:00:15 | Apenas para uso interno. |
-| httpAutoCollectionOptions | N/D | Consulte [applicationInsights. httpAutoCollectionOptions](#applicationinsightshttpautocollectionoptions). |
-| snapshotConfiguration | N/D | Consulte [applicationInsights. snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
+| httpAutoCollectionOptions | n/d | Consulte [applicationInsights. httpAutoCollectionOptions](#applicationinsightshttpautocollectionoptions). |
+| snapshotConfiguration | n/d | Consulte [applicationInsights. snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights. samplingSettings
 
-|Propriedade | Padrão | Description |
+|Propriedade | Padrão | DESCRIÇÃO |
 | --------- | --------- | --------- | 
 | isEnabled | true | Habilita ou desabilita a amostragem. | 
 | maxTelemetryItemsPerSecond | 20 | O número de destino de itens de telemetria registrados por segundo em cada host do servidor. Se seu aplicativo for executado em vários hosts, reduza esse valor para permanecer dentro da taxa de destino de tráfego geral. | 
@@ -171,7 +171,7 @@ Para obter a estrutura JSON completa, consulte o [exemplo anterior de arquivo ho
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights. httpAutoCollectionOptions
 
-|Propriedade | Padrão | Description |
+|Propriedade | Padrão | DESCRIÇÃO |
 | --------- | --------- | --------- | 
 | enableHttpTriggerExtendedInfoCollection | true | Habilita ou desabilita informações de solicitação HTTP estendidas para gatilhos HTTP: cabeçalhos de correlação de solicitação de entrada, suporte para chaves de várias instrumentação, método HTTP, caminho e resposta. |
 | enableW3CDistributedTracing | true | Habilita ou desabilita o suporte do protocolo de rastreamento distribuído W3C (e ativa o esquema de correlação herdado). Habilitado por padrão se `enableHttpTriggerExtendedInfoCollection` for true. Se `enableHttpTriggerExtendedInfoCollection` for false, esse sinalizador se aplicará somente a solicitações de saída, não a solicitações de entrada. |
@@ -181,10 +181,10 @@ Para obter a estrutura JSON completa, consulte o [exemplo anterior de arquivo ho
 
 Para obter mais informações sobre instantâneos, consulte [depurar instantâneos em exceções em aplicativos .net](/azure/azure-monitor/app/snapshot-debugger) e [solucionar problemas ao habilitar Application insights depurador de instantâneos ou exibir instantâneos](/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
 
-|Propriedade | Padrão | Description |
+|Propriedade | Padrão | DESCRIÇÃO |
 | --------- | --------- | --------- | 
 | agentEndpoint | nulo | O ponto de extremidade usado para se conectar ao serviço de Depurador de Instantâneos de Application Insights. Se for NULL, será usado um ponto de extremidade padrão. |
-| captureSnapshotMemoryWeight | 0,5 | O peso dado ao tamanho da memória do processo atual ao verificar se há memória suficiente para tirar um instantâneo. O valor esperado é maior que 0 fração correta (0 < CaptureSnapshotMemoryWeight < 1). |
+| captureSnapshotMemoryWeight | 0.5 | O peso dado ao tamanho da memória do processo atual ao verificar se há memória suficiente para tirar um instantâneo. O valor esperado é maior que 0 fração correta (0 < CaptureSnapshotMemoryWeight < 1). |
 | failedRequestLimit | 3 | O limite do número de solicitações com falha para solicitar instantâneos antes que o processador de telemetria seja desabilitado.|
 | handleUntrackedExceptions | true | Habilita ou desabilita o rastreamento de exceções que não são controladas pela telemetria do Application Insights. |
 | isEnabled | true | Habilita ou desabilita a coleta de instantâneos | 
@@ -228,7 +228,7 @@ Os pacotes de extensão permitem que você adicione um conjunto compatível de e
 
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
-## <a name="functions"></a>functions
+## <a name="functions"></a>funções
 
 Uma lista de funções que o host de trabalho executa. Uma matriz vazia significa que todas as funções serão executadas. Para uso somente quando [em execução localmente](functions-run-local.md). Em aplicativos de funções no Azure, você deve seguir as etapas em [Como desabilitar funções no Azure Functions](disable-function.md) para desabilitar funções específicas em vez de usar essa configuração.
 
@@ -268,7 +268,7 @@ Definições de configuração para [monitor de integridade de Host](https://git
 }
 ```
 
-|Propriedade  |Padrão | Description |
+|Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------| 
 |Habilitado|true|Especifica se o recurso está habilitado. | 
 |healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações de integridade em segundo plano. | 
@@ -278,7 +278,7 @@ Definições de configuração para [monitor de integridade de Host](https://git
 
 ## <a name="http"></a>http
 
-As definições de configuração podem ser encontradas em [Associações e gatilhos HTTP](functions-bindings-http-webhook.md#hostjson-settings).
+As definições de configuração podem ser encontradas em [Associações e gatilhos HTTP](functions-bindings-http-webhook-output.md#hostjson-settings).
 
 ## <a name="logging"></a>registro em log
 
@@ -300,12 +300,12 @@ Controla os comportamentos de registro em log do aplicativo de funções, inclui
 }
 ```
 
-|Propriedade  |Padrão | Description |
+|Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Define qual nível de log de arquivos está habilitado.  As opções são: `never`, `always` e `debugOnly`. |
-|logLevel|N/D|Objeto que define a filtragem da categoria de log para funções no aplicativo. As versões 2. x e posteriores seguem o layout de ASP.NET Core para filtragem de categorias de log. Essa configuração permite filtrar o registro em log para funções específicas. Para obter mais informações, consulte [Filtragem de logs](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
-|console|N/D| A configuração de log do [console](#console). |
-|applicationInsights|N/D| A configuração [applicationInsights](#applicationinsights). |
+|logLevel|n/d|Objeto que define a filtragem da categoria de log para funções no aplicativo. As versões 2. x e posteriores seguem o layout de ASP.NET Core para filtragem de categorias de log. Essa configuração permite filtrar o registro em log para funções específicas. Para obter mais informações, consulte [Filtragem de logs](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
+|console|n/d| A configuração de log do [console](#console). |
+|applicationInsights|n/d| A configuração [applicationInsights](#applicationinsights). |
 
 ## <a name="console"></a>console
 
@@ -323,7 +323,7 @@ Essa configuração é a filha de [Registro em log](#logging). Ela controla o lo
 }
 ```
 
-|Propriedade  |Padrão | Description |
+|Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------| 
 |isEnabled|false|Habilita ou desabilita o log de console.| 
 
@@ -367,13 +367,13 @@ Parâmetro de configuração para o comportamento de bloqueio de Singleton. Para
 }
 ```
 
-|Propriedade  |Padrão | Description |
+|Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|O período em que ocorrem os bloqueios de nível de função. Os bloqueios têm renovação automática.| 
 |listenerLockPeriod|00:01:00|O período em que ocorrem os bloqueios de ouvinte.| 
 |listenerLockRecoveryPollingInterval|00:01:00|O intervalo de tempo usado para a recuperação do bloqueio de ouvinte caso não tenha sido possível adquirir um bloqueio de ouvinte durante a inicialização.| 
 |lockAcquisitionTimeout|00:01:00|A quantidade máxima de tempo em que o runtime tenta adquirir um bloqueio.| 
-|lockAcquisitionPollingInterval|N/D|O intervalo entre as tentativas de aquisição de bloqueio.| 
+|lockAcquisitionPollingInterval|n/d|O intervalo entre as tentativas de aquisição de bloqueio.| 
 
 ## <a name="version"></a>version
 
@@ -389,7 +389,7 @@ Um conjunto de [diretórios de código compartilhado](functions-reference-csharp
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Saiba como atualizar o arquivo host.json](functions-reference.md#fileupdate)

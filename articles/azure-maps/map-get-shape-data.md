@@ -1,19 +1,19 @@
 ---
 title: Obter dados de formas em um mapa | Mapas do Microsoft Azure
 description: Neste artigo, saiba como obter dados de forma desenhados em um mapa usando o SDK da Web do Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 09/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: d74a7906157eed33487a5f88082701da1b2269dc
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 63d947b85e75e3809445c5bc65577aeaed38caa1
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988542"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209657"
 ---
 # <a name="get-shape-data"></a>Obter dados da forma
 
@@ -40,7 +40,7 @@ Abaixo está o exemplo de código completo em execução, onde você pode desenh
 </iframe>
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como usar recursos adicionais do módulo ferramentas de desenho:
 

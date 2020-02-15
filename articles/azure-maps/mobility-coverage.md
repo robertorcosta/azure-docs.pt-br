@@ -1,25 +1,25 @@
 ---
 title: Cobertura de mobilidade (trânsito) | Mapas do Microsoft Azure
 description: Neste artigo, você aprenderá sobre a cobertura de mobilidade no Microsoft Azure Maps
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8dcbfe7a47dba5a1783d6010d41e33073bc0bb20
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 04804f28b2b0b5c45ed8f523d2f465f81b6ab151
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048913"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208243"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Cobertura de mobilidade do Azure Maps
 
-O Azure Maps oferece um [serviço de mobilidade](https://aka.ms/AzureMapsMobilityService). O serviço de mobilidade melhora o tempo de desenvolvimento de aplicativos com recursos de trânsito públicos, de bicicletas e de compartilhamento de motocicleta. Ele oferece uma opção para rotear com opções de planejamento de viagem de multimodal. Os recursos para trânsito público incluem pesquisa de estações próximas, pesquisa por interrupções, pesquisa de linhas de trânsito, recuperação de informações de agenda, recuperação de entradas de trânsito em tempo real e guias de lista e paradas. O serviço retorna informações de disponibilidade estáticas e em tempo real para veículos compartilhados, como carros, bicicletas e scooters. A API retorna roteiros detalhados e multimodals passo a passo e alertas de serviço.
+O Azure Maps oferece um [serviço de mobilidade](https://aka.ms/AzureMapsMobilityService). O serviço de mobilidade melhora o tempo de desenvolvimento de aplicativos com recursos de trânsito públicos, de bicicletas e de compartilhamento de motocicleta. Os recursos para trânsito público incluem pesquisa de estações próximas, pesquisa por interrupções, pesquisa de linhas de trânsito, recuperação de informações de agenda, recuperação de entradas de trânsito públicas em tempo real, lista de interrupções e guias de rota de lista. O serviço retorna informações de disponibilidade estáticas e em tempo real para veículos compartilhados, como carros, bicicletas e scooters. Além disso, o serviço de mobilidade fornece recursos de roteamento com opções de planejamento de viagem de multimodal. O planejamento de viagens multimodal incorpora opções de interciclo, Hailing e trânsito, tudo em uma viagem. Usuários Cam acesso detalhado e multimodal de itinerários passo a passo e alertas de serviço.
 
-O mapas do Azure não tem o mesmo nível de informações e precisão para todas as cidades e países/regiões. A capacidade de chamar dados de trânsito depende da cidade. Os dados podem não incluir todas as opções de trânsito público e as agências que servem a cidade.
+O mapas do Azure não tem o mesmo nível de informações e precisão para todas as cidades e países/regiões. A capacidade de chamar dados de trânsito depende da cidade. Além disso, os dados podem não incluir todas as opções de trânsito público e as agências que servem a cidade.
 
 A tabela a seguir fornece informações de cobertura para o serviço de mobilidade do Azure Maps.
 
@@ -35,7 +35,7 @@ A tabela a seguir fornece informações de cobertura para o serviço de mobilida
 | Argentina       | <p>Bahía Blanca, Buenos Aires, Caleta Olivia, Chivilcoy, comcheiroe Rivadavia, nicaraguense, Corrientes, General RsFilter, La Rioja, Mar del Plata, Mendoza, Miramar, Neuquén, Oberá, Olavarría, Paraná, Posadas, Rio Tercero, Rosario, salta, San Carlos de Bariloche, San Luis, San Pedro, Santa Fe, Tandil, Ushuaia, Victoria, Villa María</p>|
 | Barbados       |  Barbados |
 | Brasil         | <p>Angra dos reis, Anápolis, Apucarana, Aracaju, Araraquara, Araxa, Araçatuba, Bage, Barretos, Bauru, Belém, Belo Horizonte, Blumenau, boa vista, Brasília, caldas novas, Campina moca, Campinas, campo belo, campo moca, Caraguatatuba, Cascavel, Cataguases, Caxias, Leopoldina e região, catalão, Caxias do Sul, Chapecó, Cianorte, Conselheiro Lafaiete, Corumbá, Criciúma, cruzeiro do Sul, Cuiabá, Curitiba, Curitibanos, Curvelo, Diamantina, Divinópolis, dourados, estrela, feira de Santana, Fernando de Noronha, Florianópolis, fortaleza, Foz do Iguaçu, franca, Garanhuns, Goiania, Governador Valadares, Guarapuava, Imperatriz, Ipatinga, Irati, Itabira, Itabuna, Itajaí, Ituiutaba, Jaraguá do Sul, joao pessoa, Joinville, Juazeiro do Norte, juiz de consiga, Jundiaí, Lages , Londrina, Macapa, Macaé, Maceió, Mafra e Rio Negro, Manaus, Manhuacu, Maringá, Marília, Monte Carmelo, montes claros, Mossoró, Natal, Osorio, Ourinhos, ouro preto, palmas, Paracatu, Paranaguá, Parnaíba, passo fundo, passos, patos de minas, patrocínio, Pelotas, Piracicaba, pocos de Caldas, ponta grossa, Porto Alegre, Porto Ferreira, porto seguro, porto velho, praia moca, Recife, Ribeirão Preto, Rio, rio branco, Rondonópolis, Salinas, Salvador, Santa Cruz do Sul, Santa Maria, Santa Rita do Sapucaí, Santarem, Santos, são Gabriel do oeste, são joao del Rei, Tiradentes e regiao, são José do rio preto, são Mateus, são Paulo, Sorocaba, são Carlos, São Francisco, Sul, são José dos campos, São Lourenço, são Luís, Taubaté, telemaco borba, Teofilo Otoni, Teresina, caramba, três Lagoas, Tucurui, Ubatuba, Uberaba, Uberlândia, Ubá, Uruguaiana, Varginha, Vicosa, videira & Fraiburgo, vitória, vitória da conquista, voltar redonda, Votuporanga </p>|
-| Canadá | Banff (AB), Brandon (MB), Calgary (AB), Comox valer (BC), Cowichan vale (BC), Edmonton (AB), Fort St. John, Fredericton (NB), maior Sudbury (ON), maior Vancouver (BC), Halifax (NS), Kamloops (BC), Kelowna (BC), Kingston (ON), London (ON), Moncton (NB), Montreal (QC), Nanaimo (BC), Ottawa (ON), Príncipe George (BC), Québec City (QC), Red Deer (AB), Regina (SK), Rimouski (QC), Saskatoon (SK), Sherbrooke (QC), Squamish (BC), St. João (NL), sol Coast, compartimento do Thunder (ON), Toronto (ON), Victoria (BC), Whistler (BC ), Windsor (ON), Winnipeg (MB), Woodstock</p>|
+| Canada | Banff (AB), Brandon (MB), Calgary (AB), Comox valer (BC), Cowichan vale (BC), Edmonton (AB), Fort St. John, Fredericton (NB), maior Sudbury (ON), maior Vancouver (BC), Halifax (NS), Kamloops (BC), Kelowna (BC), Kingston (ON), London (ON), Moncton (NB), Montreal (QC), Nanaimo (BC), Ottawa (ON), Príncipe George (BC), Québec City (QC), Red Deer (AB), Regina (SK), Rimouski (QC), Saskatoon (SK), Sherbrooke (QC), Squamish (BC), St. João (NL), sol Coast, compartimento do Thunder (ON), Toronto (ON), Victoria (BC), Whistler (BC ), Windsor (ON), Winnipeg (MB), Woodstock</p>|
 | Chile  | <p>Antofagasta, Arica, Aysén, Chillán, Concepción, Constitución, Copiapó, Curicó, Iquique, la Serena y Coquimbo, Linares, Los Angeles (Chile), los Lagos, Punta Arenas, Rancagua, Santiago, Talca, Temuco, Valdivia, Valparaíso, Viña del mar</p>|
 | Colômbia | <p>Barranquilla, Bogotá, Bucaramanga, Cali, Cartagena, Ibagué, Medellín, pasto, Popayán, Santa Marta, Sincelejo, Valledupar</p>|  
 | Costa Rica | José San|
@@ -89,11 +89,11 @@ A tabela a seguir fornece informações de cobertura para o serviço de mobilida
 | Dinamarca   | Dinamarca |
 | Estônia   | Estônia |   
 | Finlândia   | Hämeenlinna, Helsinque, Joensuu, Jyväskylä, Kajaani, Kouvola-Kotka, Kuopio, Lappeenranta, Mikkeli, Oulu, Seinäjoki, Tampere, Turku, Vaasa|
-| France    | <p>Amberieu-en-Bugey, Amiens, Angers, Annecy, Annonay, Arras, Aubenas, Bayonne, Besançon, Blois, Bordeaux, Boulogne sur Mer, Brest, Briançon, Cannes, Châlons-en-champanhe, Chartres, Clermont-Ferrand, Colmar, Dax, Dijon, Grenoble, Haguenau, La Rochelle, Le Mans, Lens, Lille, Lorient, Lyon, MACS, Marselha & Provence, Metz, Millau, Mont-de-Marsan, Montpellier, Mulhouse, Nancy, Nantes, belo, Nimes, Normandia, Nyons, Paris, Poitiers, Privas, Quimper, Rennes, Saint Malo, Saint-Étienne, Saint-Nazaire, Saintes, Sarrebourg, sete, Strasbourg, Tarbes, Toulouse, Tours</P> | 
+| França    | <p>Amberieu-en-Bugey, Amiens, Angers, Annecy, Annonay, Arras, Aubenas, Bayonne, Besançon, Blois, Bordeaux, Boulogne sur Mer, Brest, Briançon, Cannes, Châlons-en-champanhe, Chartres, Clermont-Ferrand, Colmar, Dax, Dijon, Grenoble, Haguenau, La Rochelle, Le Mans, Lens, Lille, Lorient, Lyon, MACS, Marselha & Provence, Metz, Millau, Mont-de-Marsan, Montpellier, Mulhouse, Nancy, Nantes, belo, Nimes, Normandia, Nyons, Paris, Poitiers, Privas, Quimper, Rennes, Saint Malo, Saint-Étienne, Saint-Nazaire, Saintes, Sarrebourg, sete, Strasbourg, Tarbes, Toulouse, Tours</P> | 
 | \+ Guiana francesa | Caiena |
 | \+ Nova Caledônia | Nouméa  |
 | Geórgia | Tbilisi | 
-| Germany | <p>Berlim, Brandenburg, Bremen & Niedersachsen, Cologne, Eisenach, Frankfurt, Hamburgo, Karlsruhe, Mainz, München-Munique, Rhein-Neckar região, Rhein-Ruhr região, Stuttgart, Titisee-Neustadt, Ulm</P> | 
+| Alemanha | <p>Berlim, Brandenburg, Bremen & Niedersachsen, Cologne, Eisenach, Frankfurt, Hamburgo, Karlsruhe, Mainz, München-Munique, Rhein-Neckar região, Rhein-Ruhr região, Stuttgart, Titisee-Neustadt, Ulm</P> | 
 | Grécia | <p>Atenas, Arta, Amorgos, Chania, Corfu, Chios Kos, Heraklion, Ioannina, Kavala, Kalamata, Komotini, Kos, Larissa, Meganisi, Milos, Mykonos, Patra, Rethimno, Rhodes, Santorini, Serres, Syros, Tinos, Thessaloniki, versãoa, Volos, Xanthi </P> |
 | Hungria | Budapeste, região do Condado, Szeged, Székesfehérvár |
 | Islândia | Ísland-Islândia * | 
@@ -118,7 +118,7 @@ A tabela a seguir fornece informações de cobertura para o serviço de mobilida
 | Suécia | Goteborg/Gothenburg/Jonkoping, Malmö kommun-Malmö, Norrköping och Linköping, Estocolmo, Sundsvall |
 | Suíça | Basel, Geneva, Yverdon-les-Bains, Zurique | 
 | Turquia | Adana-Mersin, Ankara, Antalya, Balıkesir, Bilecik, Bolu, Bursa, Denizli, Duzce, Elazig, Eskisehir, Istambul, Izmir-Aydin, Kahramanmaras, Kayseri, Konya, Malatya, Muğla, Samsun, Şanlıurfa |    
-| Reino Unido | Leste Anglia, leste Midlands, Londres e sudeste, leste do Norte, norte da Índia, Irlanda do Norte, Escócia, sudoeste do Sul, Gales, oeste Midlands, Yorkshire |
+| United Kingdom | Leste Anglia, leste Midlands, Londres e sudeste, leste do Norte, norte da Índia, Irlanda do Norte, Escócia, sudoeste do Sul, Gales, oeste Midlands, Yorkshire |
 | Ucrânia | Kharkiv, Zhytomyr, Kiev, Lviv, Chernivtsi |
 
 
@@ -139,7 +139,7 @@ A tabela a seguir fornece informações de cobertura para o serviço de mobilida
 | Emirados Árabes Unidos  | Abu Dhabi, Dubai |
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como solicitar dados de trânsito usando o serviço de mobilidade:
 

@@ -1,6 +1,6 @@
 ---
 title: Adicionar uma camada de símbolo a um mapa | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá a usar a camada de símbolo para personalizar e adicionar símbolos em um mapa usando o SDK da Web do Microsoft Azure Maps.
+description: Neste artigo, você aprenderá como usar a camada de símbolo para personalizar um símbolo e adicionar símbolos em um mapa usando o SDK da Web do Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,16 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 8c39c7b57167d65dfa639d41665f5d5b38110183
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: b8d131dcc798fb2fe1d4bb650cd5b0a68903381b
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933133"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209691"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Adicionar uma camada de símbolo a um mapa
 
-Um símbolo conectado a uma fonte de dados e usado para renderizar um ícone e/ou um texto em um determinado ponto. As camadas de símbolo são renderizadas usando WebGL e são usadas para renderizar grandes coleções de pontos no mapa. Em comparação com o marcador HTML, a camada de símbolo renderiza um grande número de dados de ponto no mapa, com melhor desempenho. No entanto, a camada de símbolo não dá suporte a elementos CSS tradicionais e HTML para estilização.  
+Conecte um símbolo a uma fonte de dados e use-o para renderizar um ícone ou um texto em um determinado ponto. 
+
+As camadas de símbolo são renderizadas usando o WebGL. Use uma camada de símbolo para renderizar grandes coleções de pontos no mapa. Em comparação com o marcador HTML, a camada de símbolo renderiza um grande número de dados de ponto no mapa, com melhor desempenho. No entanto, a camada de símbolo não dá suporte a elementos CSS tradicionais e HTML para estilização.  
 
 > [!TIP]
 > Por padrão, as camadas de Símbolo renderizarão as coordenadas de todas as geometrias em uma fonte de dados. Para limitar a camada de modo que ela só processe os recursos de geometria de ponto, defina a propriedade `filter` da camada como `['==', ['geometry-type'], 'Point']` ou `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]`, se desejar, você também pode incluir recursos do MultiPoint.
@@ -33,7 +35,9 @@ A imagem de mapas do Gerenciador de Sprite carrega imagens personalizadas usadas
 
 ## <a name="add-a-symbol-layer"></a>Adicionar uma camada de símbolo
 
-Para poder adicionar uma camada de símbolo ao mapa, você precisa realizar algumas etapas. Primeiro, crie uma fonte de dados e adicione-a ao mapa. Uma camada de símbolo pode ser criada e passada na fonte de dados para recuperar os dados da fonte de dados. Por fim, os dados precisam ser adicionados à fonte de dados para que haja algo a ser processado. O código a seguir mostra o código que deve ser adicionado ao mapa depois que ele é carregado. O código processa um único ponto no mapa usando uma camada de símbolo. 
+Para poder adicionar uma camada de símbolo ao mapa, você precisa executar algumas etapas. Primeiro, crie uma fonte de dados e adicione-a ao mapa. Crie uma camada de símbolo. Em seguida, passe a fonte de dados para a camada de símbolo para recuperar os dados da fonte de dados. Por fim, adicione dados à fonte de dados para que haja algo a ser renderizado. 
+
+O código a seguir demonstra o que deve ser adicionado ao mapa depois que ele é carregado. Este exemplo renderiza um único ponto no mapa usando uma camada de símbolo. 
 
 ```javascript
 //Create a data source and add it to the map.
@@ -91,7 +95,7 @@ A camada de símbolo tem muitas opções de estilo disponíveis. Veja a seguir u
 > [!TIP]
 > Quando você quiser renderizar apenas o texto com uma camada de símbolo, poderá ocultar o ícone definindo a propriedade `image` das opções de ícone como `'none'`.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as classes e métodos usados neste artigo:
 

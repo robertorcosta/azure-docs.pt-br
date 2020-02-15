@@ -3,12 +3,12 @@ title: Funções de modelo – cadeia de caracteres
 description: Descreve as funções a serem usadas em um modelo do Azure Resource Manager para trabalhar com cadeias de caracteres.
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 7a55a6108c9bf1e87dba0b3ccbba5d9b0bd217b8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f8d19179461693331a6091ec7a3562f536b959e4
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483993"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207054"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funções de cadeia de caracteres para modelos do Azure Resource Manager
 
@@ -54,11 +54,11 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cade
 
 Retorna a representação base64 da cadeia de caracteres de entrada.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| inputString |Sim |cadeia de caracteres |O valor a retornar como uma representação base64. |
+| inputString |Sim |string |O valor a retornar como uma representação base64. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -107,7 +107,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | um, dois, três |
@@ -119,11 +119,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 Converte uma representação base64 em um objeto JSON.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| base64Value |Sim |cadeia de caracteres |A representação base64 a ser convertida em um objeto JSON. |
+| base64Value |Sim |string |A representação base64 a ser convertida em um objeto JSON. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -172,7 +172,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | um, dois, três |
@@ -184,11 +184,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 Converte uma representação base64 em uma cadeia de caracteres.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| base64Value |Sim |cadeia de caracteres |A representação base64 a ser convertida em uma cadeia de caracteres. |
+| base64Value |Sim |string |A representação base64 a ser convertida em uma cadeia de caracteres. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -237,7 +237,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | um, dois, três |
@@ -249,9 +249,9 @@ A saída do exemplo anterior com os valores padrão é:
 
 Combina vários valores de cadeia de caracteres e retorna a cadeia de caracteres concatenada ou combina várias matrizes e retorna a matriz concatenada.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |cadeia de caracteres ou matriz |A primeira cadeia de caracteres ou matriz para concatenação. |
 | argumentos adicionais |Não |cadeia de caracteres ou matriz |Cadeias de caracteres ou matrizes adicionais em ordem sequencial para concatenação. |
@@ -288,7 +288,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
 
@@ -329,7 +329,7 @@ O próximo [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | retorno | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -339,9 +339,9 @@ A saída do exemplo anterior com os valores padrão é:
 
 Verifica se uma matriz contém um valor, um objeto contém uma chave ou uma cadeia de caracteres contém uma subcadeia de caracteres. A comparação de cadeia de caracteres diferencia maiúsculas de minúsculas. No entanto, ao testar se um objeto contém uma chave, a comparação não diferencia maiúsculas de minúsculas.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | contêiner |Sim |matriz, objeto ou cadeia de caracteres |O valor que contém o valor a ser encontrado. |
 | itemToFind |Sim |cadeia de caracteres ou inteiro |O valor a ser encontrado. |
@@ -405,13 +405,13 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
-| stringTrue | Bool | Verdadeiro |
+| stringTrue | Bool | True |
 | stringFalse | Bool | Falso |
-| objectTrue | Bool | Verdadeiro |
+| objectTrue | Bool | True |
 | objectFalse | Bool | Falso |
-| arrayTrue | Bool | Verdadeiro |
+| arrayTrue | Bool | True |
 | arrayFalse | Bool | Falso |
 
 ## <a name="datauri"></a>dataUri
@@ -420,11 +420,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 Converte um valor em um URI de dados.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Sim |cadeia de caracteres |O valor a ser convertido em um URI de dados. |
+| stringToConvert |Sim |string |O valor a ser convertido em um URI de dados. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -464,7 +464,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Hello, World! |
@@ -475,11 +475,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 Converte um valor formatado como um URI de dados em uma cadeia de caracteres.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Sim |cadeia de caracteres |Os valor de URI de dados a ser convertido. |
+| dataUriToConvert |Sim |string |Os valor de URI de dados a ser convertido. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -519,7 +519,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Hello, World! |
@@ -530,9 +530,9 @@ A saída do exemplo anterior com os valores padrão é:
 
 Determina se uma matriz, objeto ou uma cadeia de caracteres está vazio.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | itemToTest |Sim |matriz, objeto ou cadeia de caracteres |O valor para verificar se ele está vazio. |
 
@@ -583,11 +583,11 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
-| arrayEmpty | Bool | Verdadeiro |
-| objectEmpty | Bool | Verdadeiro |
-| stringEmpty | Bool | Verdadeiro |
+| arrayEmpty | Bool | True |
+| objectEmpty | Bool | True |
+| stringEmpty | Bool | True |
 
 ## <a name="endswith"></a>endsWith
 
@@ -595,12 +595,12 @@ A saída do exemplo anterior com os valores padrão é:
 
 Determina se uma cadeia de caracteres termina com um valor. A comparação não diferencia maiúsculas de minúsculas.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |cadeia de caracteres |O valor que contém o item a ser encontrado. |
-| stringToFind |Sim |cadeia de caracteres |O valor a ser encontrado. |
+| stringToSearch |Sim |string |O valor que contém o item a ser encontrado. |
+| stringToFind |Sim |string |O valor a ser encontrado. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -646,13 +646,13 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
-| startsTrue | Bool | Verdadeiro |
-| startsCapTrue | Bool | Verdadeiro |
+| startsTrue | Bool | True |
+| startsCapTrue | Bool | True |
 | startsFalse | Bool | Falso |
-| endsTrue | Bool | Verdadeiro |
-| endsCapTrue | Bool | Verdadeiro |
+| endsTrue | Bool | True |
+| endsCapTrue | Bool | True |
 | endsFalse | Bool | Falso |
 
 ## <a name="first"></a>first
@@ -661,9 +661,9 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna o primeiro caractere da cadeia de caracteres ou o primeiro elemento da matriz.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz ou cadeia de caracteres |O valor para recuperar o primeiro elemento ou caractere. |
 
@@ -702,9 +702,9 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | String | um |
+| arrayOutput | String | one |
 | stringOutput | String | O |
 
 ## <a name="format"></a>format
@@ -713,11 +713,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 Cria uma cadeia de caracteres formatada a partir de valores de entrada.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| formatString | Sim | cadeia de caracteres | A cadeia de caracteres de formato de composição. |
+| formatString | Sim | string | A cadeia de caracteres de formato composto. |
 | arg1 | Sim | Cadeia de caracteres, inteiro ou booliano | O valor a ser incluído na cadeia de caracteres formatada. |
 | argumentos adicionais | Não | Cadeia de caracteres, inteiro ou booliano | Valores adicionais a serem incluídos na cadeia de caracteres formatada. |
 
@@ -760,7 +760,7 @@ O modelo de exemplo a seguir mostra como usar a função Format.
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | formatTest | String | Olá, usuário. Número formatado: 8.175.133 |
 
@@ -770,12 +770,12 @@ A saída do exemplo anterior com os valores padrão é:
 
 Cria um valor no formato de um identificador global exclusivo com base nos valores fornecidos como parâmetros.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| baseString |Sim |cadeia de caracteres |O valor usado na função de hash para criar o GUID. |
-| parâmetros extras conforme necessário |Não |cadeia de caracteres |Você pode adicionar quantas cadeias de caracteres forem necessárias para criar o valor que especifica o nível de exclusividade. |
+| baseString |Sim |string |O valor usado na função de hash para criar o GUID. |
+| parâmetros extras conforme necessário |Não |string |Você pode adicionar quantas cadeias de caracteres forem necessárias para criar o valor que especifica o nível de exclusividade. |
 
 ### <a name="remarks"></a>Comentários
 
@@ -841,12 +841,12 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 Retorna a primeira posição de um valor em uma cadeia de caracteres. A comparação não diferencia maiúsculas de minúsculas.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |cadeia de caracteres |O valor que contém o item a ser encontrado. |
-| stringToFind |Sim |cadeia de caracteres |O valor a ser encontrado. |
+| stringToSearch |Sim |string |O valor que contém o item a ser encontrado. |
+| stringToFind |Sim |string |O valor a ser encontrado. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -888,7 +888,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | Int | 3 |
@@ -902,9 +902,9 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna o último caractere da cadeia de caracteres ou o último elemento da matriz.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz ou cadeia de caracteres |O valor para recuperar o último elemento ou caractere. |
 
@@ -943,7 +943,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | String | três |
 | stringOutput | String | e |
@@ -954,12 +954,12 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna a última posição de um valor em uma cadeia de caracteres. A comparação não diferencia maiúsculas de minúsculas.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |cadeia de caracteres |O valor que contém o item a ser encontrado. |
-| stringToFind |Sim |cadeia de caracteres |O valor a ser encontrado. |
+| stringToSearch |Sim |string |O valor que contém o item a ser encontrado. |
+| stringToFind |Sim |string |O valor a ser encontrado. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -1001,7 +1001,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | Int | 3 |
@@ -1015,9 +1015,9 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna o número de caracteres em uma cadeia de caracteres, elementos em uma matriz ou propriedades de nível raiz em um objeto.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz, Cadeia de caracteres ou objeto |A matriz a ser usada para obter o número de elementos, a cadeia de caracteres a ser usada para obter o número de caracteres ou o objeto a ser usado para obter o número de propriedades no nível raiz. |
 
@@ -1079,7 +1079,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -1134,9 +1134,9 @@ O modelo de exemplo a seguir mostra um parâmetro com um novo identificador.
 
 A saída do exemplo anterior varia de acordo com cada implantação, mas será semelhante a:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
-| guidOutput | cadeia de caracteres | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
+| guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
 O exemplo a seguir usa a função newGuid para criar um nome exclusivo para uma conta de armazenamento. Esse modelo pode funcionar para o ambiente de teste em que a conta de armazenamento existe por um curto período e não é reimplantada.
 
@@ -1177,9 +1177,9 @@ O exemplo a seguir usa a função newGuid para criar um nome exclusivo para uma 
 
 A saída do exemplo anterior varia de acordo com cada implantação, mas será semelhante a:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
-| nameOutput | cadeia de caracteres | storagenziwvyru7uxie |
+| nameOutput | string | storagenziwvyru7uxie |
 
 
 ## <a name="padleft"></a>padLeft
@@ -1188,12 +1188,12 @@ A saída do exemplo anterior varia de acordo com cada implantação, mas será s
 
 Retorna uma cadeia de caracteres alinhada à direita adicionando caracteres à esquerda até alcançar o comprimento total especificado.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | valueToPad |Sim |cadeia de caracteres ou inteiro |O valor para alinhar à direita. |
-| totalLength |Sim |int |O número total de caracteres na cadeia de caracteres retornada. |
+| totalLength |Sim |INT |O número total de caracteres na cadeia de caracteres retornada. |
 | paddingCharacter |Não |caractere único |O caractere a ser usado para o preenchimento à esquerda até que o tamanho total seja atingido. O valor padrão é um espaço. |
 
 Se a cadeia de caracteres original for mais longa que o número de caracteres a ser preenchido, nenhum caractere será adicionado.
@@ -1228,7 +1228,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | stringOutput | String | 0000000123 |
 
@@ -1238,13 +1238,13 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna uma nova cadeia de caracteres com todas as instâncias de uma cadeia de caracteres substituídas por outra cadeia de caracteres.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| originalString |Sim |cadeia de caracteres |O valor que tem todas as instâncias de uma cadeia de caracteres substituídas por outra cadeia de caracteres. |
-| oldString |Sim |cadeia de caracteres |A cadeia de caractere a ser removida da cadeia de caracteres original. |
-| newString |Sim |cadeia de caracteres |A cadeia de caracteres a ser adicionada no lugar da cadeia removida. |
+| originalString |Sim |string |O valor que tem todas as instâncias de uma cadeia de caracteres substituídas por outra cadeia de caracteres. |
+| oldString |Sim |string |A cadeia de caractere a ser removida da cadeia de caracteres original. |
+| newString |Sim |string |A cadeia de caracteres a ser adicionada no lugar da cadeia removida. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -1280,7 +1280,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | firstOutput | String | 1231231234 |
 | secondOutput | String | 123-123-xxxx |
@@ -1291,12 +1291,12 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna uma cadeia de caracteres com todos os caracteres após o número especificado de caracteres ou uma matriz com todos os elementos após o número especificado de elementos.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sim |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres a ser usada para ignorar. |
-| numberToSkip |Sim |int |O número de elementos ou caracteres a ser ignorado. Se esse valor for 0 ou menos, todos os elementos ou caracteres no valor serão retornados. Se for maior do que o comprimento da matriz ou da cadeia de caracteres, uma matriz ou cadeia de caracteres vazia será retornada. |
+| numberToSkip |Sim |INT |O número de elementos ou caracteres a ser ignorado. Se esse valor for 0 ou menos, todos os elementos ou caracteres no valor serão retornados. Se for maior do que o comprimento da matriz ou da cadeia de caracteres, uma matriz ou cadeia de caracteres vazia será retornada. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -1348,7 +1348,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
 | stringOutput | String | two three |
@@ -1359,11 +1359,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna uma matriz de cadeias de caracteres que contém as subcadeias de caracteres da cadeia de caracteres de entrada que são delimitadas por delimitadores especificados.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| inputString |Sim |cadeia de caracteres |A cadeia de caracteres a dividir. |
+| inputString |Sim |string |A cadeia de caracteres a dividir. |
 | delimiter |Sim |cadeia de caracteres ou matriz de cadeias de caracteres |O delimitador a ser usado para dividir a cadeia de caracteres. |
 
 ### <a name="return-value"></a>Valor retornado
@@ -1407,7 +1407,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | firstOutput | Array | ["one", "two", "three"] |
 | secondOutput | Array | ["one", "two", "three"] |
@@ -1418,12 +1418,12 @@ A saída do exemplo anterior com os valores padrão é:
 
 Determina se uma cadeia de caracteres começa com um valor. A comparação não diferencia maiúsculas de minúsculas.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |cadeia de caracteres |O valor que contém o item a ser encontrado. |
-| stringToFind |Sim |cadeia de caracteres |O valor a ser encontrado. |
+| stringToSearch |Sim |string |O valor que contém o item a ser encontrado. |
+| stringToFind |Sim |string |O valor a ser encontrado. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -1469,24 +1469,24 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
-| startsTrue | Bool | Verdadeiro |
-| startsCapTrue | Bool | Verdadeiro |
+| startsTrue | Bool | True |
+| startsCapTrue | Bool | True |
 | startsFalse | Bool | Falso |
-| endsTrue | Bool | Verdadeiro |
-| endsCapTrue | Bool | Verdadeiro |
+| endsTrue | Bool | True |
+| endsCapTrue | Bool | True |
 | endsFalse | Bool | Falso |
 
-## <a name="string"></a>cadeia de caracteres
+## <a name="string"></a>string
 
 `string(valueToConvert)`
 
 Converte o valor especificado em uma cadeia de caracteres.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Sim | Qualquer |O valor a ser convertido em cadeia de caracteres. Qualquer tipo de valor pode ser convertido, incluindo objetos e matrizes. |
 
@@ -1543,7 +1543,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | objectOutput | String | {"valueA":10,"valueB":"Example Text"} |
 | arrayOutput | String | ["a","b","c"] |
@@ -1555,13 +1555,13 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna uma subcadeia de caraceteres que começa na posição do caractere especificado e contém o número especificado de caracteres.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Sim |cadeia de caracteres |A cadeia original da qual a subcadeia de caracteres é extraída. |
-| startIndex |Não |int |A posição inicial do caractere baseada em zero para a subcadeia de caracteres. |
-| comprimento |Não |int |O número de caracteres para a subcadeia de caracteres. Deve se referir a uma localização dentro da cadeia de caracteres. Deve ser zero ou maior. |
+| stringToParse |Sim |string |A cadeia original da qual a subcadeia de caracteres é extraída. |
+| startIndex |Não |INT |A posição inicial do caractere baseada em zero para a subcadeia de caracteres. |
+| comprimento |Não |INT |O número de caracteres para a subcadeia de caracteres. Deve se referir a uma localização dentro da cadeia de caracteres. Deve ser zero ou maior. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -1606,7 +1606,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | substringOutput | String | dois |
 
@@ -1616,12 +1616,12 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna uma cadeia de caracteres com o número especificado de caracteres desde o início da cadeia de caracteres ou uma matriz com o número especificado de elementos desde o início da matriz.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sim |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres da qual extrair os elementos. |
-| numberToTake |Sim |int |O número de elementos ou caracteres a ser extraído. Se esse valor for 0 ou menos, uma matriz ou cadeia de caracteres vazia será retornada. Se for maior do que o comprimento da matriz ou cadeia de caracteres determinada, todos os elementos na matriz ou na cadeia de caracteres serão retornados. |
+| numberToTake |Sim |INT |O número de elementos ou caracteres a ser extraído. Se esse valor for 0 ou menos, uma matriz ou cadeia de caracteres vazia será retornada. Se for maior do que o comprimento da matriz ou cadeia de caracteres determinada, todos os elementos na matriz ou na cadeia de caracteres serão retornados. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -1673,7 +1673,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
 | stringOutput | String | em |
@@ -1684,11 +1684,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 Converte a cadeia de caracteres especificada em letras minúsculas.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sim |cadeia de caracteres |O valor a ser convertido em letras minúsculas. |
+| stringToChange |Sim |string |O valor a ser convertido em letras minúsculas. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -1724,7 +1724,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | toLowerOutput | String | um dois três |
 | toUpperOutput | String | UM DOIS TRÊS |
@@ -1735,11 +1735,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 Converte a cadeia de caracteres especificada em maiúsculas.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sim |cadeia de caracteres |O valor a ser convertido em letras maiúsculas. |
+| stringToChange |Sim |string |O valor a ser convertido em letras maiúsculas. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -1775,7 +1775,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | toLowerOutput | String | um dois três |
 | toUpperOutput | String | UM DOIS TRÊS |
@@ -1786,11 +1786,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 Remove todos os caracteres de espaço em branco à esquerda e à direita da cadeia de caracteres especificada.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Sim |cadeia de caracteres |O valor de corte. |
+| stringToTrim |Sim |string |O valor de corte. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -1822,7 +1822,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | retorno | String | um dois três |
 
@@ -1832,12 +1832,12 @@ A saída do exemplo anterior com os valores padrão é:
 
 Cria uma cadeia de caracteres de hash determinístico com base nos valores fornecidos como parâmetros. 
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| baseString |Sim |cadeia de caracteres |O valor usado na função de hash para criar uma cadeia de caracteres exclusiva. |
-| parâmetros extras conforme necessário |Não |cadeia de caracteres |Você pode adicionar quantas cadeias de caracteres forem necessárias para criar o valor que especifica o nível de exclusividade. |
+| baseString |Sim |string |O valor usado na função de hash para criar uma cadeia de caracteres exclusiva. |
+| parâmetros extras conforme necessário |Não |string |Você pode adicionar quantas cadeias de caracteres forem necessárias para criar o valor que especifica o nível de exclusividade. |
 
 ### <a name="remarks"></a>Comentários
 
@@ -1910,12 +1910,12 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 Cria um URI absoluto, combinando o baseUri e a cadeia de caracteres relativeUri.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| baseUri |Sim |cadeia de caracteres |Cadeia de caracteres do URI de base. Tome cuidado para observar o comportamento em relação à manipulação da barra à direita ('/'), conforme descrito a seguir nesta tabela.  |
-| relativeUri |Sim |cadeia de caracteres |Cadeia de caracteres de uri relativo para adicionar a cadeia de caracteres do uri de base. |
+| baseUri |Sim |string |Cadeia de caracteres do URI de base. Tome cuidado para observar o comportamento em relação à manipulação da barra à direita ('/'), conforme descrito a seguir nesta tabela.  |
+| relativeUri |Sim |string |Cadeia de caracteres de uri relativo para adicionar a cadeia de caracteres do uri de base. |
 
 * Se **BaseUri** terminar em uma barra à direita, o resultado será simplesmente **BaseUri** seguido por **relativeUri**.
 
@@ -1978,7 +1978,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -1990,11 +1990,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 Codifica um URI.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Sim |cadeia de caracteres |O valor a ser codificado. |
+| stringToEncode |Sim |string |O valor a ser codificado. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -2033,7 +2033,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -2045,11 +2045,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna uma cadeia de caracteres de um valor codificado em URI.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Sim |cadeia de caracteres |O valor codificado em URI a ser convertido em uma cadeia de caracteres. |
+| uriEncodedString |Sim |string |O valor codificado em URI a ser convertido em uma cadeia de caracteres. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -2088,7 +2088,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -2100,11 +2100,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna o valor DateTime (UTC) atual no formato especificado. Se nenhum formato for fornecido, o formato ISO 8601 (yyyyMMddTHHmmssZ) será usado. **Essa função só pode ser usada no valor padrão para um parâmetro.**
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Description |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| format |Não |cadeia de caracteres |O valor codificado em URI a ser convertido em uma cadeia de caracteres. Use cadeias de caracteres de [formato padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cadeias de caracteres de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |Não |string |O valor codificado em URI a ser convertido em uma cadeia de caracteres. Use cadeias de caracteres de [formato padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cadeias de caracteres de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Comentários
 
@@ -2161,11 +2161,11 @@ O modelo de exemplo a seguir mostra formatos diferentes para o valor DateTime.
 
 A saída do exemplo anterior varia de acordo com cada implantação, mas será semelhante a:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
-| utcOutput | cadeia de caracteres | 20190305T175318Z |
-| utcShortOutput | cadeia de caracteres | 05/03/2019 |
-| utcCustomOutput | cadeia de caracteres | 3 5 |
+| utcOutput | string | 20190305T175318Z |
+| utcShortOutput | string | 03/05/2019 |
+| utcCustomOutput | string | 3 5 |
 
 O exemplo a seguir mostra como usar um valor da função ao definir um valor de marca.
 
@@ -2203,9 +2203,9 @@ O exemplo a seguir mostra como usar um valor da função ao definir um valor de 
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](template-syntax.md).
 * Para mesclar vários modelos, veja [Usando modelos vinculados com o Azure Resource Manager](linked-templates.md).
-* Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](create-multiple-instances.md).
+* Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](copy-resources.md).
 * Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Azure Resource Manager](deploy-powershell.md).
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: ba1ad7c533ea1dc9e88c8337373e607db653ac24
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 42b7ceb86e360f192c55fc1090f291f5b7fe7ac5
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048541"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252018"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Criptografia de dados para o Azure Database para MySQL usando o portal do Azure
 
@@ -25,7 +25,7 @@ Saiba como usar o portal do Azure para configurar e gerenciar a criptografia de 
   * [Exclusão reversível](../key-vault/key-vault-ovw-soft-delete.md)
 
     ```azurecli-interactive
-    az resource update --id $(az keyvault show --name \ <key_vault_name> -test -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
+    az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
     ```
 
   * [Limpar protegido](../key-vault/key-vault-ovw-soft-delete.md#purge-protection)
@@ -49,7 +49,7 @@ Saiba como usar o portal do Azure para configurar e gerenciar a criptografia de 
 
    ![Visão geral da política de acesso](media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png)
 
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
 
 ## <a name="set-data-encryption-for-azure-database-for-mysql"></a>Definir a criptografia de dados para o Azure Database para MySQL
 
@@ -61,7 +61,7 @@ Saiba como usar o portal do Azure para configurar e gerenciar a criptografia de 
 
    ![Captura de tela do banco de dados do Azure para MySQL, com opções de criptografia de dados destacadas](media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png)
 
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
 
 4. Para garantir que todos os arquivos (incluindo arquivos temporários) sejam totalmente criptografados, reinicie o servidor.
 
@@ -94,6 +94,6 @@ Depois que o banco de dados do Azure para MySQL é criptografado com a chave ger
 
    ![Captura de tela do banco de dados do Azure para MySQL, mostrando a funcionalidade restaurada](media/concepts-data-access-and-security-data-encryption/restore-successful.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
  Para saber mais sobre a criptografia de dados, consulte [banco de dados do Azure para MySQL Data Encryption com chave gerenciada pelo cliente](concepts-data-encryption-mysql.md).

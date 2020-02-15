@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: bbb0992eaeef7892e5940130131ac139a339b47d
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: fa73cb690fafb67f75abafab1b0dd27ffa0b8e32
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77083243"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210492"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implantar modelos com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -584,6 +584,20 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 [!INCLUDE [aml-local-deploy-config](../../includes/machine-learning-service-local-deploy-config.md)]
 
 Para obter mais informações, consulte a documentação de [implantação do modelo AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) .
+
+### <a name="understanding-service-state"></a>Compreendendo o estado do serviço
+
+Durante a implantação do modelo, você pode ver a alteração do estado do serviço durante a implantação completa.
+
+A tabela a seguir descreve os diferentes Estados de serviço:
+
+| Estado WebService | DESCRIÇÃO | Estado final?
+| ----- | ----- | ----- |
+| Transição | O serviço está em processo de implantação. | Não |
+| Não Íntegro | O serviço foi implantado, mas está inacessível no momento.  | Não |
+| Não agendável | O serviço não pode ser implantado no momento devido à falta de recursos. | Não |
+| Falhou | O serviço falhou ao ser implantado devido a um erro ou falha. | Sim |
+| Healthy | O serviço está íntegro e o ponto de extremidade está disponível. | Sim |
 
 ### <a id="notebookvm"></a>Serviço Web de instância de computação (desenvolvimento/teste)
 

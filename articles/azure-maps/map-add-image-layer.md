@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: cfdf7dfd4c16f70065e338f8983d2124d3f6f0ef
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 69bf41f9d88081b9a416b9bee91e8650a84f12c7
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933209"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209708"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Adicionar uma camada de imagem ao um mapa
 
-Este artigo mostra como você pode sobrepor uma imagem a um conjunto fixo de coordenadas no mapa. Aqui estão alguns exemplos do tipo de imagens geralmente sobrepostas em mapas:
+Este artigo mostra como sobrepor uma imagem a um conjunto fixo de coordenadas. Aqui estão alguns exemplos de diferentes tipos de imagens que podem ser sobrepostas em mapas:
 
 * Imagens capturadas de drones
 * Criando floorplans
@@ -62,9 +62,9 @@ Aqui está o exemplo de código completo em execução do código anterior.
 
 ## <a name="import-a-kml-file-as-ground-overlay"></a>Importar um arquivo KML como uma sobreposição de terra
 
-Este exemplo a seguir mostra como sobrepor informações de sobreposição de terra KML como uma camada de imagem no mapa. As sobreposições de aterramento KML fornecem coordenadas norte, Sul, leste e oeste e uma rotação no sentido anti-horário, enquanto a camada de imagem espera coordenadas para cada canto da imagem. A sobreposição de aterramento KML neste exemplo é do Chartres Cathedral e é originada de [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
+Este exemplo demonstra como adicionar informações de sobreposição de terra KML como uma camada de imagem no mapa. As sobreposições de aterramento KML fornecem coordenadas norte, Sul, leste e oeste e uma rotação no sentido anti-horário. Porém, a camada de imagem espera coordenadas para cada canto da imagem. A sobreposição de aterramento KML neste exemplo é para o Chartres Cathedral e é originada de [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
 
-O código a seguir usa a função estática `getCoordinatesFromEdges` da classe [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) . Ele calcula os quatro cantos da imagem do Norte, Sul, leste e oeste e informações de rotação da sobreposição de aterramento KML.
+O código usa a função estática `getCoordinatesFromEdges` da classe [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) . Ele calcula os quatro cantos da imagem usando as informações do Norte, Sul, leste, oeste e de rotação da sobreposição de aterramento KML.
 
 <br/>
 
@@ -80,7 +80,7 @@ A camada de imagem tem muitas opções de estilo. Aqui está uma ferramenta para
 <iframe height='700' scrolling='no' title='Opções de Camada de Imagem' src='//codepen.io/azuremaps/embed/RqOGzx/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte as <a href='https://codepen.io/azuremaps/pen/RqOGzx/'>Opções de Camada de Imagem</a> pelo Azure Mapas (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as classes e métodos usados neste artigo:
 

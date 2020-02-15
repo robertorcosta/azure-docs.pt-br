@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: rohogue
-ms.openlocfilehash: 9ad6348e15c8a25f721a89be7eab3e17c58ae17c
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: da260074fc69fac9e98d3698bb2d40fdf80d7118
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988819"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252035"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Gerenciar seu cache do portal do Azure
 
@@ -74,6 +74,8 @@ A atualização de software pode levar várias horas. Os caches configurados com
 
 Quando uma atualização de software estiver disponível, você terá uma semana ou mais para aplicá-la manualmente. A data de término é listada na mensagem de atualização. Se você não atualizar durante esse tempo, o Azure aplicará automaticamente a atualização ao seu cache. O tempo de atualização automática não é configurável. Se você estiver preocupado com o impacto no desempenho do cache, atualize o software por conta própria antes que o período de tempo expire.
 
+Se o cache for interrompido quando a data de término passar, o cache atualizará automaticamente o software na próxima vez que for iniciado. (A atualização pode não iniciar imediatamente, mas será iniciada na primeira hora.)
+
 Clique no botão **Atualizar** para iniciar a atualização de software. O status do cache muda para **atualizando** até que a operação seja concluída.
 
 ## <a name="delete-the-cache"></a>Excluir o cache
@@ -102,7 +104,7 @@ A página Visão geral mostra grafos para algumas estatísticas básicas de cach
 
 Esses gráficos fazem parte das ferramentas internas de monitoramento e análise do Azure. Ferramentas e alertas adicionais estão disponíveis nas páginas no cabeçalho **monitoramento** na barra lateral do Portal. Saiba mais na seção portal da documentação de [monitoramento do Azure](../azure-monitor/insights/monitor-azure-resource.md#monitoring-in-the-azure-portal).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 <!-- * Learn more about metrics and statistics for hpc cache -->
 * Saiba mais sobre as [ferramentas de métricas e estatísticas do Azure](../azure-monitor/index.yml)

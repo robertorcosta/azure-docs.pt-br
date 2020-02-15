@@ -3,14 +3,14 @@ title: Automatizar o serviço de mobilidade para recuperação de desastre de in
 description: Como instalar automaticamente o serviço de mobilidade para a recuperação de desastre do VMware/Physical Server com o Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.topic: how-to
-ms.date: 12/22/2019
+ms.date: 2/5/2020
 ms.author: ramamill
-ms.openlocfilehash: 235b96cfd2da0c097bc576c63f5bd1c8ed224781
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f24d321e882024d324435498adf11694037547f7
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896018"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252220"
 ---
 # <a name="automate-mobility-service-installation"></a>Automatizar a instalação do serviço de mobilidade
 
@@ -20,7 +20,7 @@ Ao implantar Site Recovery para recuperação de desastre de VMs VMware locais e
 
 - **Instalação por push**: permita que site Recovery instale o agente do serviço de mobilidade quando você habilitar a replicação para um computador no portal do Azure.
 - **Instalação manual**: Instale o serviço de mobilidade manualmente em cada computador. [Saiba mais](vmware-physical-mobility-service-overview.md) sobre a instalação manual e por push.
-- **Implantação automatizada**: automatize a instalação com ferramentas de implantação de software, como o Microsoft Endpoint Configuration Manager ou ferramentas de terceiros, como Intigua JetPatch.
+- **Implantação automatizada**: automatize a instalação com ferramentas de implantação de software, como o Microsoft Endpoint Configuration Manager ou ferramentas de terceiros, como JetPatch.
 
 A instalação automatizada e a atualização fornece uma solução se:
 
@@ -31,7 +31,7 @@ A instalação automatizada e a atualização fornece uma solução se:
 - Você precisa dimensionar as instalações do agente para vários servidores simultaneamente.
 - Você deseja agendar instalações e atualizações durante as janelas de manutenção planejadas.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para automatizar a instalação, você precisa dos seguintes itens:
 
@@ -418,6 +418,6 @@ IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UNINSTALL
 :ENDSCRIPT
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Habilite a replicação](vmware-azure-enable-replication.md) para VMs.

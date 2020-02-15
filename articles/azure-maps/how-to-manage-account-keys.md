@@ -1,19 +1,19 @@
 ---
 title: Gerenciar sua conta do Azure Maps no portal do Azure | Mapas do Microsoft Azure
 description: Neste artigo, você aprenderá a usar o portal do Azure para gerenciar sua conta do Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: a983eab03e948d092af652962d75211eb8ee3e7b
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 1186c3ab0fc333896f3be4db5d103bcd6d12abf9
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025598"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209963"
 ---
 # <a name="manage-your-azure-maps-account"></a>Gerenciar sua conta do Azure Mapas
 
@@ -41,7 +41,7 @@ Você pode excluir uma conta no Portal do Azure. Navegue até a página de visã
 
 Em seguida, você verá uma página de confirmação. Você pode confirmar a exclusão de sua conta digitando seu nome.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Configure a autenticação com o Azure Maps e saiba como obter uma chave de assinatura do Azure Maps:
 > [!div class="nextstepaction"]

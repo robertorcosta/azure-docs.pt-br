@@ -8,12 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: e298aad6dc43f85f5b6c344eec56f5d8b37980d4
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 2ae84b59cd70a5b27ad3e501db6cfae110d90fbd
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933311"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209776"
 ---
 # <a name="building-an-accessible-application"></a>Criando um aplicativo acessível
 
@@ -61,7 +61,7 @@ Há várias maneiras diferentes pelas quais o mapa pode ser ampliado, panorâmic
 - Com o mapa focalizado, use a tecla Shift mais as teclas de seta para cima ou para baixo. 
 - Usando o controle de densidade com uma tecla de mouse, toque ou teclado/insira chaves.
 
-**Alterar o estilo do mapa** Nem todos os desenvolvedores desejarão que todos os estilos de mapa possíveis estejam disponíveis em seu aplicativo. O desenvolvedor pode definir e alterar de forma programática o estilo de mapa conforme desejado. Se o desenvolvedor exibir o controle do seletor de estilo de mapa, o usuário poderá alterar o estilo de mapa usando o mouse, toque ou o teclado usando as teclas Tab/Enter. O desenvolvedor pode especificar quais estilos de mapa eles desejam disponibilizar no controle do seletor de estilo do mapa. 
+**Alterar o estilo do mapa** Nem todos os desenvolvedores querem que todos os estilos de mapa possíveis estejam disponíveis em seu aplicativo. O desenvolvedor pode definir e alterar o estilo do mapa de forma programática. Se o desenvolvedor exibir o controle do seletor de estilo do mapa, o usuário poderá alterar o estilo do mapa usando o mouse, um toque ou o teclado com a tecla TAB ou Enter. O desenvolvedor pode especificar quais estilos de mapa eles desejam disponibilizar no controle do seletor de estilo do mapa. 
 
 ## <a name="keyboard-shortcuts"></a>Atalhos do teclado
 
@@ -94,7 +94,7 @@ Qualquer informação adicional é colocada no mapa de base deve ter informaçõ
 
 ## <a name="make-popups-keyboard-accessible"></a>Tornar o teclado de pop-ups acessível
 
-Um marcador ou símbolo geralmente é usado para representar um local no mapa. Informações adicionais sobre o local normalmente são exibidas em um pop-up quando o usuário interage com o marcador. Na maioria dos pop-ups de aplicativos aparecem quando um usuário clica ou toca em um marcador, no entanto, esse evento requer que o usuário use um mouse ou uma tela sensível ao toque. Uma boa prática é tornar os pop-ups acessíveis ao usar um teclado. Essa funcionalidade pode ser obtida criando-se um pop-up para cada ponto de dados e adicionando-o ao mapa. 
+Um marcador ou símbolo geralmente é usado para representar um local no mapa. Informações adicionais sobre o local normalmente são exibidas em um pop-up quando o usuário interage com o marcador. Na maioria dos aplicativos, os pop-ups aparecem quando um usuário clica ou toca em um marcador. No entanto, clicar e tocar exigirá que o usuário use um mouse e uma tela sensível ao toque, respectivamente. Uma boa prática é tornar os pop-ups acessíveis ao usar um teclado. Essa funcionalidade pode ser obtida criando-se um pop-up para cada ponto de dados e adicionando-o ao mapa. 
 
 O exemplo a seguir carrega pontos de interesse no mapa usando uma camada de símbolo e adiciona um pop-up ao mapa para cada ponto de interesse. Uma referência a cada popup é armazenada nas propriedades de cada ponto de dados. Ele também pode ser recuperado para um marcador, como quando um marcador é clicado. Quando focalizado no mapa, pressionar a tecla Tab permitirá que o usuário percorra cada pop-up no mapa.
 
@@ -116,17 +116,17 @@ Aqui estão algumas dicas adicionais para tornar o aplicativo de mapeamento da W
     - Limite as atualizações para uma vez a cada segundos. 
     - Combine mensagens de maneira lógica. 
 - Evite usar cores como o único meio de transmitir informações. Use texto, ícones ou padrões para complementar ou substituir a cor. Algumas considerações:
-    - Se estiver usando uma camada de bolha para mostrar o valor relativo entre os pontos de dados, considere dimensionar o raio de cada bolha, além de ou como uma alternativa para Colorá-los. 
+    - Se estiver usando uma camada de bolha para mostrar o valor relativo entre os pontos de dados, considere dimensionar o raio de cada bolha, colorir a bolha ou ambos. 
     - Considere usar uma camada de símbolo com ícones diferentes para categorias de métrica diferentes, como triângulos, estrelas e quadrados. A camada de símbolo também dá suporte ao dimensionamento do tamanho do ícone. Um rótulo de texto também pode ser exibido.
     - Ao exibir dados de linha, a largura pode ser usada para representar peso ou tamanho. Um padrão de matriz Dash pode ser usado para representar diferentes categorias de linhas. Uma camada de símbolo pode ser usada em combinação com uma linha para sobrepor ícones ao longo da linha. O uso de um ícone de seta é útil para mostrar o fluxo ou a direção da linha.
     - Se exibir dados de polígono, um padrão, como faixas, pode ser usado como uma alternativa à cor. 
 - Algumas visualizações, como calor, camadas de bloco e camadas de imagem, não são acessíveis para usuários com deficiências visuais. Algumas considerações:
-    - Faça com que o leitor de tela Descreva o que a camada está exibindo quando adicionada ao mapa. Por exemplo, se uma camada de bloco de radar de clima for exibida, faça com que o leitor de tela diga algo como "dados de radar de clima sobrepostos no mapa".
+    - Faça com que o leitor de tela Descreva o que a camada está exibindo quando adicionada ao mapa. Por exemplo, se uma camada de bloco de radar de clima for exibida, faça com que o leitor de tela diga que "os dados de radar de clima estão sobrepostos no mapa".
 - Limite a quantidade de funcionalidade que exige um foco do mouse. Essas funcionalidades ficarão inacessíveis aos usuários que estão usando um teclado ou dispositivo de toque para interagir com o aplicativo. Observe que ainda é uma boa prática ter um estilo de foco para conteúdo interativo, como ícones clicáveis, links e botões.
 - Tente navegar pelo seu aplicativo usando o teclado. Verifique se a ordem de tabulação é lógica.
 - Se estiver criando atalhos de teclado, Tente limitá-lo para duas chaves ou menos. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre acessibilidade nos módulos do SDK da Web.
 

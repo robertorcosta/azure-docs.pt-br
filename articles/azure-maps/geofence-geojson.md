@@ -1,19 +1,19 @@
 ---
 title: Formato de dados geojson para cerca de cerca | Mapas do Microsoft Azure
 description: Neste artigo, você aprenderá a preparar os dados de limite geográfico que podem ser usados no Microsoft Azure mapeia as APIs GET e POST de cerca geográfica.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 02/14/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: f853962bba7302affd78d5ef267460893ea80a33
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 7d1c9a1587771a020f5c9f89e2497a25eb1bba70
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911585"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210014"
 ---
 # <a name="geofencing-geojson-data"></a>Dados GeoJSON de delimitação geográfica
 
@@ -30,11 +30,11 @@ Os dados para cerca geográfica ou conjunto de cercas geográficas são represen
 * O `expiredTime` é a data e hora de expiração dos dados de delimitação geográfica. Se o valor de `userTime` na solicitação for posterior a esse valor, os dados de cerca geográfica correspondentes serão considerados como dados expirados e não serão consultados. Para os quais, o geometryId desses dados de cerca geográfica serão incluídos na matriz `expiredGeofenceGeometryId` dentro da resposta da cerca geográfica.
 * O `validityPeriod` é uma lista do período de validade da cerca geográfica. Se o valor de `userTime` na solicitação ficar fora do período de validade, os dados de cerca geográfica correspondentes serão considerados inválidos e não serão consultados. O geometryId desses dados de cerca geográfica é incluído na matriz `invalidPeriodGeofenceGeometryId` dentro da resposta da cerca geográfica. A tabela a seguir mostra as propriedades do elemento validityPeriod.
 
-| Nome | Tipo | Obrigatório  | Description |
+| Nome | Type | Obrigatório  | DESCRIÇÃO |
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | Datetime  | true | A data/hora de início do período de tempo validade. |
 | endTime   | Datetime  | true |  A data/hora de término do período de tempo de validade. |
-| recurrenceType | cadeia de caracteres | false |   O tipo de recorrência do período. O valor pode ser `Daily`, `Weekly`, `Monthly` ou `Yearly`. O valor padrão é `Daily`.|
+| recurrenceType | string | false |   O tipo de recorrência do período. O valor pode ser `Daily`, `Weekly`, `Monthly` ou `Yearly`. O valor padrão é `Daily`.|
 | businessDayOnly | Boolean | false |  Indique se os dados são válidos apenas durante os dias úteis. O valor padrão é `false`.|
 
 

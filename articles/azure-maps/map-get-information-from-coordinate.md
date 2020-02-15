@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 0b1ab7b2c233eb1e6e231b0ae7935b6c24363948
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 1a6b3b4665e6141fb4c95508a8d8405268de6d19
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988525"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208515"
 ---
 # <a name="get-information-from-a-coordinate"></a>Obter informações de uma coordenada
 
 Este artigo mostra como fazer uma pesquisa inversa de endereço que mostra o endereço de um local de pop-up clicado.
 
-Há duas maneiras de fazer uma pesquisa inversa de endereço. Uma delas é a consulta da [API de Pesquisa do Endereço Reverso do Azure Mapas](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) por meio de um módulo de serviço. A outra maneira é utilizar a [API de busca](https://fetch.spec.whatwg.org/) para fazer uma solicitação para a [API de pesquisa de endereço reverso do Azure Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) para localizar um endereço. As duas formas são pesquisadas abaixo.
+Há duas maneiras de fazer uma pesquisa inversa de endereço. Uma delas é a consulta da [API de Pesquisa do Endereço Reverso do Azure Mapas](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) por meio de um módulo de serviço. A outra maneira é usar a [API de busca](https://fetch.spec.whatwg.org/) para fazer uma solicitação para a [API de pesquisa de endereço reverso do Azure Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) para localizar um endereço. As duas formas são pesquisadas abaixo.
 
 ## <a name="make-a-reverse-search-request-via-service-module"></a>Fazer uma solicitação de pesquisa reversa por meio do módulo de serviço
 
@@ -37,7 +37,7 @@ O quarto bloco de código adiciona um [ouvinte de eventos](https://docs.microsof
 
 O quinto bloco de código configura o conteúdo do pop-up HTML para exibir o endereço de resposta para a posição da coordenada clicada.
 
-A alteração do cursor, um objeto popup e o evento de clique são todos criados no [ouvinte de eventos de carga](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) do mapa para garantir que as cargas de mapa sejam totalmente carregadas antes que as informações das coordenadas sejam recuperadas.
+A alteração de cursor, o objeto popup e o evento Click são todos criados no [ouvinte de eventos Load](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)do mapa. Essa estrutura de código garante que o MAP seja totalmente carregado antes de recuperar as informações de coordenadas.
 
 ## <a name="make-a-reverse-search-request-via-fetch-api"></a>Fazer uma solicitação de pesquisa inversa por meio da API de busca
 
@@ -52,9 +52,9 @@ O segundo bloco de código atualiza o estilo do cursor do mouse para um ponteiro
 
 O terceiro bloco de código adiciona um ouvinte de evento para cliques do mouse. Após um clique do mouse, ele usa a [API de busca](https://fetch.spec.whatwg.org/) para consultar a API de pesquisa de [endereço reverso do Azure Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) para o endereço de coordenadas clicado. Para uma resposta bem-sucedida, ele coleta o endereço para o local clicado. Ele define o conteúdo e a posição do Popup usando a função [SetOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) da classe Popup.
 
-A alteração do cursor, um objeto popup e o evento Click são todos criados no [ouvinte de eventos Load](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) do mapa para garantir que as cargas de mapa sejam totalmente obtidas antes que as informações das coordenadas sejam recuperadas.
+A alteração de cursor, o objeto popup e o evento Click são todos criados no [ouvinte de eventos Load](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)do mapa. Essa estrutura de código garante que o mapa seja totalmente carregado antes de recuperar as informações de coordenadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as classes e métodos usados neste artigo:
 

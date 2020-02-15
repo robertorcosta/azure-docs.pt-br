@@ -3,12 +3,12 @@ title: Desenvolva Azure Functions usando Visual Studio Code
 description: Saiba como desenvolver e testar Azure Functions usando a extensão Azure Functions para Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 7e533d5826d429a716ad1592d75159782ed43fa7
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 3bc8c9aa5d31f757a34350d9605fdecbe42b8be7
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963999"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210235"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolva Azure Functions usando Visual Studio Code
 
@@ -38,7 +38,7 @@ Este artigo fornece detalhes sobre como usar a extensão Azure Functions para de
 > [!IMPORTANT]
 > Não combine desenvolvimento local e desenvolvimento de portal para um único aplicativo de funções. Ao publicar a partir de um projeto local para um aplicativo de funções, o processo de implantação substitui quaisquer funções que você desenvolveu o portal.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de instalar e executar a extensão de Azure Functions de [extensão de Azure Functions][extensão azure functions para visual studio code], você deve atender a esses requisitos:
 
@@ -71,7 +71,7 @@ A extensão Functions permite criar um projeto de aplicativo de funções, junta
 
     ![Escolher o modelo de gatilho HTTP](./media/functions-develop-vs-code/create-function-choose-template.png)
 
-1. Digite **HttpExample** para o nome da função e selecione Enter e, em seguida, selecione autorização de **função** . Esse nível de autorização exige que você forneça uma [chave de função](functions-bindings-http-webhook.md#authorization-keys) ao chamar o ponto de extremidade da função.
+1. Digite **HttpExample** para o nome da função e selecione Enter e, em seguida, selecione autorização de **função** . Esse nível de autorização exige que você forneça uma [chave de função](functions-bindings-http-webhook-trigger.md#authorization-keys) ao chamar o ponto de extremidade da função.
 
     ![Selecionar autorização de função](./media/functions-develop-vs-code/create-function-auth.png)
 
@@ -184,7 +184,7 @@ Visual Studio Code permite que você adicione associações ao seu arquivo funct
 
 Veja a seguir exemplos de prompts para definir uma nova associação de saída de armazenamento:
 
-| Prompt | Valor | Description |
+| Prompt | Valor | DESCRIÇÃO |
 | -------- | ----- | ----------- |
 | **Selecionar direção de associação** | `out` | A associação é uma associação de saída. |
 | **Selecionar associação com direção** | `Azure Queue Storage` | A associação é uma associação de fila do Armazenamento do Azure. |
@@ -248,7 +248,7 @@ As etapas a seguir publicam seu projeto em um novo aplicativo de funções criad
 
 1. Seguindo os prompts, forneça estas informações:
 
-    | Prompt | Valor | Description |
+    | Prompt | Valor | DESCRIÇÃO |
     | ------ | ----- | ----------- |
     | Selecionar aplicativo de funções no Azure | Criar novos Aplicativo de funções no Azure | No prompt seguinte, digite um nome globalmente exclusivo que identifique o novo aplicativo de funções e selecione Enter. Caracteres válidos para um nome de aplicativo de funções são `a-z`, `0-9` e `-`. |
     | Selecionar um sistema operacional | Windows | O aplicativo de funções é executado no Windows. |
@@ -256,7 +256,7 @@ As etapas a seguir publicam seu projeto em um novo aplicativo de funções criad
     | Selecione um tempo de execução para seu novo aplicativo | A linguagem do projeto | O tempo de execução deve corresponder ao projeto que você está publicando. |
     | Selecionar um grupo de recursos para novos recursos | Criar novo grupo de recursos | No prompt seguinte, digite um nome de grupo de recursos, como `myResourceGroup`e, em seguida, selecione Enter. Você também pode selecionar um grupo de recursos existente. |
     | Selecionar uma conta de armazenamento | Criar nova conta de armazenamento | No prompt seguinte, digite um nome globalmente exclusivo para a nova conta de armazenamento usada pelo seu aplicativo de funções e selecione Enter. Os nomes de conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas. Você também pode selecionar uma conta existente. |
-    | Selecione um local para novos recursos | region | Selecione um local em uma [região](https://azure.microsoft.com/regions/) perto de você ou perto de outros serviços que suas funções acessam. |
+    | Selecione uma localização para novos recursos | region | Selecione um local em uma [região](https://azure.microsoft.com/regions/) perto de você ou perto de outros serviços que suas funções acessam. |
 
     Uma notificação é exibida depois que seu aplicativo de funções é criado e o pacote de implantação é aplicado. Escolha **Exibir Saída** nessa notificação para exibir a criação e os resultados da implantação, incluindo os recursos do Azure que você criou.
 
@@ -277,7 +277,7 @@ O projeto é recriado, reempacotado e carregado no Azure. O projeto existente é
 
 ## <a name="get-the-url-of-the-deployed-function"></a>Obter a URL da função implantada
 
-Para chamar uma função disparada por HTTP, você precisa da URL da função quando ela é implantada em seu aplicativo de funções. Essa URL inclui quaisquer [chaves de função](functions-bindings-http-webhook.md#authorization-keys)necessárias. Você pode usar a extensão para obter essas URLs para suas funções implantadas.
+Para chamar uma função disparada por HTTP, você precisa da URL da função quando ela é implantada em seu aplicativo de funções. Essa URL inclui quaisquer [chaves de função](functions-bindings-http-webhook-trigger.md#authorization-keys)necessárias. Você pode usar a extensão para obter essas URLs para suas funções implantadas.
 
 1. Selecione F1 para abrir a paleta de comandos e, em seguida, procure e execute o comando **Azure Functions: Copiar URL da função**.
 
@@ -297,7 +297,7 @@ Para executar o projeto do Functions localmente, você deve atender a estes requ
 
 * Instale os requisitos específicos para a linguagem de programação escolhida:
 
-    | Idioma | Requisito |
+    | Linguagem | Requisito |
     | -------- | --------- |
     | **C#** | [Extensão C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[Ferramentas de CLI do .NET Core](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Depurador para extensão Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 ou posterior](https://maven.apache.org/) |
@@ -389,7 +389,7 @@ Para saber mais, confira [logs de streaming](functions-monitoring.md#streaming-l
 > [!NOTE]
 > Os logs de streaming dão suporte a apenas uma única instância do host do functions. Quando a função é dimensionada para várias instâncias, os dados de outras instâncias não são mostrados no fluxo de log. [Live Metrics Stream](../azure-monitor/app/live-stream.md) no Application insights oferece suporte a várias instâncias. Embora também esteja quase em tempo real, o Stream Analytics é baseado em [dados de amostra](functions-monitoring.md#configure-sampling).
 
-### <a name="application-insights"></a>Percepções sobre o Aplicativo
+### <a name="application-insights"></a>Application Insights
 
 Recomendamos que você monitore a execução de suas funções integrando seu aplicativo de funções com Application Insights. Quando você cria um aplicativo de funções no portal do Azure, essa integração ocorre por padrão. Ao criar seu aplicativo de funções durante a publicação do Visual Studio, você precisa integrar Application Insights você mesmo.
 
@@ -413,7 +413,7 @@ Depois de concluir essas etapas, as chamadas feitas às ferramentas básicas sub
 
 A extensão Azure Functions fornece uma interface gráfica útil na área para interagir com seus aplicativos de funções no Azure. A mesma funcionalidade também está disponível como comandos na paleta de comandos (F1). Estes Azure Functions comandos estão disponíveis:
 
-|Azure Functions comando  | Description  |
+|Azure Functions comando  | DESCRIÇÃO  |
 |---------|---------|
 |**Adicionar novas configurações**  |  Cria uma nova configuração de aplicativo no Azure. Para saber mais, consulte [Publicar configurações do aplicativo](#publish-application-settings). Talvez você também precise [baixar essa configuração para suas configurações locais](#download-settings-from-azure). |
 | **Configurar a origem da implantação** | Conecta seu aplicativo de funções no Azure a um repositório git local. Para saber mais, consulte [implantação contínua para Azure Functions](functions-continuous-deployment.md). |
@@ -446,7 +446,7 @@ A extensão Azure Functions fornece uma interface gráfica útil na área para i
 | **Exibir confirmação no GitHub** | Mostra a confirmação mais recente em uma implantação específica quando seu aplicativo de funções está conectado a um repositório. |
 | **Exibir logs de implantação** | Mostra os logs de uma implantação específica para o aplicativo de funções no Azure. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre Azure Functions Core Tools, confira [trabalhar com Azure Functions Core Tools](functions-run-local.md).
 

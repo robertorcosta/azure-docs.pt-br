@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: mlearned
-ms.openlocfilehash: d1d04ab3ebb96d2739b991620b05aa307d9eaf91
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 0583e773a344a6786d13a5da30be24369d75f11f
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767447"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251695"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Visualização-criar um contêiner do Windows Server em um cluster do AKS (serviço kubernetes do Azure) usando o CLI do Azure
 
@@ -148,6 +148,10 @@ az aks create \
 > [!Note]
 > Se você receber um erro de validação de senha, tente criar seu grupo de recursos em outra região.
 > Em seguida, tente criar o cluster com o novo grupo de recursos.
+
+> [!Note]
+> Se não for possível criar o cluster AKS porque a versão não tem suporte nesta região, você poderá usar o comando [AZ AKs Get-Versions--Location lesteus] para localizar a lista de versões com suporte para essa região.
+
 
 Após alguns minutos, o comando será concluído e retornará informações no formato JSON sobre o cluster. Ocasionalmente, o cluster pode levar mais de alguns minutos para ser provisionado. Aguarde até 10 minutos nesses casos. 
 
@@ -289,6 +293,9 @@ Para ver o aplicativo de exemplo em ação, abra um navegador da Web para o ende
 
 ![Imagem de navegação para o aplicativo de exemplo ASP.NET](media/windows-container/asp-net-sample-app.png)
 
+> [!Note]
+> Se você receber um tempo limite de conexão ao tentar carregar a página, verifique se o aplicativo de exemplo está pronto com o seguinte comando [kubectl Get pods--Watch]. Às vezes, o contêiner do Windows não será iniciado no momento em que o endereço IP externo estiver disponível.
+
 ## <a name="delete-cluster"></a>Excluir cluster
 
 Quando o cluster não for mais necessário, use o comando [az group delete][az-group-delete] para remover o grupo de recursos, o serviço de contêiner e todos os recursos relacionados.
@@ -300,7 +307,7 @@ az group delete --name myResourceGroup --yes --no-wait
 > [!NOTE]
 > Quando você excluir o cluster, a entidade de serviço do Azure Active Directory usada pelo cluster do AKS não será removida. Para obter as etapas para remover a entidade de serviço, confira [Considerações sobre a entidade de serviço do AKS e sua exclusão][sp-delete].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você implantou um cluster kubernetes e implantou um aplicativo de exemplo ASP.NET em um contêiner do Windows Server para ele. [Acesse o painel da Web do kubernetes][kubernetes-dashboard] para o cluster que você acabou de criar.
 

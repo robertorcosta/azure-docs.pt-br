@@ -9,23 +9,23 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 462d820824ad6c53ad4b93ad5c88c66128619467
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 7ae11734eb804715f3eb1b5edcb02fc328dafec8
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933659"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208549"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Adicionar uma camada de bolha a um mapa
 
-Este artigo mostra como renderizar dados de ponto de uma fonte de dados como uma camada de bolha em um mapa. As camadas de bolhas renderizam pontos como círculos no mapa com raio de pixel fixo. 
+Este artigo mostra como renderizar dados de ponto de uma fonte de dados como uma camada de bolha em um mapa. Camadas de bolha renderizam pontos como círculos no mapa com um raio de pixel fixo. 
 
 > [!TIP]
 > As camadas de bolha por padrão processarão as coordenadas de todas as geometrias em uma fonte de dados. Para limitar a camada de modo que ela só processe os recursos de geometria de ponto, defina a propriedade `filter` da camada como `['==', ['geometry-type'], 'Point']` ou `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` se você quiser incluir recursos do MultiPoint também.
 
 ## <a name="add-a-bubble-layer"></a>Adicionar uma camada de bolha
 
-O código a seguir carrega uma matriz de pontos em uma fonte de dados. Em seguida, os pontos de dados são conectados a uma [camada de bolha](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). A camada de bolha renderiza o raio de cada bolha com cinco pixels, uma cor de preenchimento de branco, uma cor de traço de azul e uma largura de traço de seis pixels. 
+O código a seguir carrega uma matriz de pontos em uma fonte de dados. Em seguida, ele conecta os pontos de dados a uma [camada de bolha](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). A camada de bolha renderiza o raio de cada bolha com cinco pixels e uma cor de preenchimento de branco. E uma cor de traço de azul e uma largura de traço de seis pixels. 
 
 ```javascript
 //Add point locations.
@@ -62,7 +62,7 @@ Abaixo está o exemplo de código completo em execução da funcionalidade acima
 
 ## <a name="show-labels-with-a-bubble-layer"></a>Mostrar rótulos de uma camada de bolha
 
-O código a seguir mostra como usar uma camada de bolha para renderizar um ponto no mapa e uma camada de símbolo para renderizar um rótulo. Para ocultar o ícone da camada de símbolo, defina a propriedade `image` das opções de ícone como `'none'`.
+Este código mostra como usar uma camada de bolha para renderizar um ponto no mapa. E, como usar uma camada de símbolo para renderizar um rótulo. Para ocultar o ícone da camada de símbolo, defina a propriedade `image` das opções de ícone como `'none'`.
 
 <br/>
 
@@ -78,7 +78,7 @@ A camada de bolha tem apenas algumas opções de estilo. Aqui está uma ferramen
 <iframe height='700' scrolling='no' title='Opções de camada de bolha' src='//codepen.io/azuremaps/embed/eQxbGm/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/eQxbGm/'>Opções de Camada de Bolhas</a> pelo Azure Mapas (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as classes e métodos usados neste artigo:
 

@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 8370b71bfa980dbd099ade59a3a19633dfd5dc72
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 8107b16a3db76fb0e248f1681463b73cc4ee21cf
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910888"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208413"
 ---
 # <a name="show-traffic-on-the-map"></a>Mostrar tráfego no mapa
 
 Há dois tipos de dados de tráfego disponíveis no Azure Maps:
 
 - Dados de incidentes – consistem em dados de ponto e de linha para coisas como construção, fechamentos de estrada e acidentes.
-- Dados de fluxo-fornece métricas sobre o fluxo de tráfego nas estradas. Os dados de fluxo de tráfego geralmente são usados para colorir as estradas com base na quantidade de tráfego que está diminuindo o fluxo em relação ao limite de velocidade ou a alguma outra métrica. Os dados de fluxo de tráfego no Azure Maps têm três métricas diferentes de medida:
+- Dados de fluxo-fornece métricas sobre o fluxo de tráfego nas estradas. Geralmente, os dados de fluxo de tráfego são usados para colorir as estradas. As cores são baseadas na quantidade de tráfego que está diminuindo o fluxo, em relação ao limite de velocidade ou a outra métrica. Os dados de fluxo de tráfego no Azure Maps têm três métricas diferentes de medida:
     - `relative`-é relativo à velocidade do fluxo livre da estrada.
     - `absolute`-é a velocidade absoluta de todos os veículos em trânsito.
     - `relative-delay`-exibe áreas que são mais lentas do que o atraso médio esperado.
@@ -53,7 +53,7 @@ A ferramenta a seguir permite alternar entre as diferentes configurações de so
 Consulte as <a href='https://codepen.io/azuremaps/pen/RwbPqRY/'>Opções de sobreposição de tráfego</a> de caneta pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as classes e métodos usados neste artigo:
 

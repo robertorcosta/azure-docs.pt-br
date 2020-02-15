@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: juliako
-ms.openlocfilehash: e457fbe5b8dd23c93110fb8ccc7d8857128de82c
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: b0a4f390a3a897d14adc2944195b0c51148de495
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169367"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209266"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar seus vídeos  
 
@@ -47,16 +47,16 @@ O artigo mostra como carregar e indexar vídeos com estas opções:
 
     Se for uma URL privada, o token de acesso precisará ser fornecido na solicitação.
 - A URL deve apontar para um arquivo de mídia válido e não para uma página da Web, como um link para a página de `www.youtube.com`.
-- Você pode carregar até 60 filmes por minuto.
+- Em uma conta paga, você pode carregar até 50 filmes por minuto e, em uma conta de avaliação, até 5 filmes por minuto.
 
 > [!Tip]
 > É recomendável usar o .NET Framework versão 4.6.2. ou superior porque versões mais antigas do .NET Framework não usam TLS 1.2 por padrão.
 >
 > Se você precisar usar versões mais antigas do .NET Framework, adicione uma linha em seu código antes de fazer a chamada à API REST:  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
-## <a name="supported-file-formats-for-video-indexer"></a>Formatos de arquivo com suporte para Video Indexer
+## <a name="supported-file-formats-for-video-indexer"></a>Formatos de arquivo compatíveis com o Video Indexer
 
-Consulte o artigo [formatos de contêiner/arquivo de entrada](../latest/media-encoder-standard-formats.md#input-containerfile-formats) para obter uma lista de formatos de arquivo que você pode usar com Video indexer.
+Confira o artigo [contêiner de entrada/formatos de arquivo](../latest/media-encoder-standard-formats.md#input-containerfile-formats) para obter uma lista de formatos de arquivo que você pode usar com o Video Indexer.
 
 ## <a name="a-idwebsiteupload-and-index-a-video-using-the-video-indexer-website"></a><a id="website"/>carregar e indexar um vídeo usando o site do Video Indexer
 
@@ -93,7 +93,7 @@ Uma URL usada para notificar o cliente (usando uma solicitação POST) sobre os 
 - Alteração de estado de indexação: 
     - Propriedades:    
     
-        |Nome|Description|
+        |Nome|DESCRIÇÃO|
         |---|---|
         |id|A ID do vídeo|
         |state|O estado do vídeo|  
@@ -101,7 +101,7 @@ Uma URL usada para notificar o cliente (usando uma solicitação POST) sobre os 
 - Pessoa identificada no vídeo:
   - Propriedades
     
-      |Nome|Description|
+      |Nome|DESCRIÇÃO|
       |---|---|
       |id| A ID do vídeo|
       |faceId|A identificação de face que aparece no índice de vídeo|
@@ -160,7 +160,7 @@ Depois de copiar esse código em sua plataforma de desenvolvimento, você precis
 
     Para obter sua chave de API, percorra este fluxo:
 
-    * Navegar para https://api-portal.videoindexer.ai/
+    * Navegue até https://api-portal.videoindexer.ai/
     * Logon
     * Ir para **produtos** -> **autorização** -> **assinatura de autorização**
     * Copiar a **chave primária**
@@ -344,11 +344,12 @@ public class AccountContractSlim
 
 Os códigos de status listados na tabela a seguir podem ser retornados pela operação de Upload.
 
-|Código de status|ErrorType (no corpo da resposta)|Description|
+|Código de status|ErrorType (no corpo da resposta)|DESCRIÇÃO|
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|O mesmo vídeo já está em curso de ser processado na conta especificada.|
 |400|VIDEO_ALREADY_FAILED|O mesmo vídeo falhou ao processar na conta informada há menos de duas horas. Os clientes da API devem aguardar pelo menos duas horas antes de carregar novamente um vídeo.|
+|429||As contas de avaliação são permitidas 5 uploads por minuto. Contas pagas são permitidas 50 uploads por minuto.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Examinar a saída do Video Indexer do Azure produzida pela API](video-indexer-output-json-v2.md)

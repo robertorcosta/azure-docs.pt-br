@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 02/14/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 38763f414b1e5373af79d2501850a44e8e813451
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: c5beef98f03c52ca022a7ab8047d3b392755c0bf
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185466"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212198"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definir transformações de declarações de número de telefone no Azure AD B2C
 
@@ -32,7 +32,8 @@ Essa declaração valida o formato do número de telefone. Se ele estiver em um 
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | string | A declaração do tipo de cadeia de caracteres que converte de. |
+| InputClaim | phoneNumberString | string |  A declaração de cadeia de caracteres para o número de telefone. O número de telefone deve estar em formato internacional, completo com um "+" e código de país à esquerda. Se a declaração de entrada `country` for fornecida, o número de telefone estará no formato local (sem o código do país). |
+| InputClaim | country | string | Adicional A declaração de cadeia de caracteres para o código do país do número de telefone no formato ISO3166 (o código do país ISO-3166 de duas letras). |
 | OutputClaim | outputClaim | phoneNumber | O resultado dessa transformação de declarações. |
 
 A transformação declarações **ConvertStringToPhoneNumberClaim** é sempre executada de um [perfil técnico de validação](validation-technical-profile.md) que é chamado por um [perfil técnico autodeclarado](self-asserted-technical-profile.md) ou [controle de exibição](display-controls.md). Os metadados do perfil técnico autodeclarado **UserMessageIfClaimsTransformationInvalidPhoneNumber** controlam a mensagem de erro apresentada ao usuário.
@@ -44,7 +45,8 @@ Você pode usar essa transformação de declarações para garantir que a declar
 ```XML
 <ClaimsTransformation Id="ConvertStringToPhoneNumber" TransformationMethod="ConvertStringToPhoneNumberClaim">
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="phoneString" TransformationClaimType="inputClaim" />
+    <InputClaim ClaimTypeReferenceId="phoneString" TransformationClaimType="phoneNumberString" />
+    <InputClaim ClaimTypeReferenceId="countryCode" TransformationClaimType="country" />
   </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="outputClaim" />
@@ -63,11 +65,19 @@ O perfil técnico autodeclarado que chama o perfil técnico de validação que c
 </TechnicalProfile>
 ```
 
-### <a name="example"></a>Exemplo
+### <a name="example-1"></a>Exemplo 1
 
 - Declarações de entrada:
-  - **inputClaim**: + 1 (123) 456-7890
+  - **phoneNumberString**: 045 456-7890
+  - **país**: DK
 - Declarações de saída:
+  - **outputClaim**: + 450546148120
+
+### <a name="example-2"></a>Exemplo 2
+
+- Declarações de entrada:
+  - **phoneNumberString**: + 1 (123) 456-7890
+- Declarações de saída: 
   - **outputClaim**: + 11234567890
 
 ## <a name="getnationalnumberandcountrycodefromphonenumberstring"></a>GetNationalNumberAndCountryCodeFromPhoneNumberString

@@ -9,13 +9,13 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.topic: article
-ms.date: 05/31/2019
-ms.openlocfilehash: 634f949daa4926f2707c0611b819800441e76610
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 06/01/2019
+ms.openlocfilehash: d573378bc5e729eb75b6c3b51d3671492f7f98f1
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438020"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209368"
 ---
 # <a name="what-is-azure-database-migration-service"></a>O que é o Serviço de Migração de Banco de Dados do Azure?
 
@@ -36,7 +36,7 @@ Para obter informações atualizadas sobre a disponibilidade regional do serviç
 
 Para obter informações atualizadas sobre os preços do serviço de migração de banco de dados do Azure, consulte [preços do serviço de migração de banco de dados do Azure](https://azure.microsoft.com/pricing/details/database-migration/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Status dos cenários de migração com suporte pelo serviço de migração de banco de dados do Azure](resource-scenario-status.md).
 * [Crie uma instância do serviço de migração de banco de dados do Azure usando o portal do Azure](quickstart-create-data-migration-service-portal.md).

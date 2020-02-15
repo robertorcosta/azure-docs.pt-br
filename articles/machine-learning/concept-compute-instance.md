@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: b65b7a9fd38b690729fafd86fe213ff56760a1bb
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 280851b2fea0b8100a7d0f8ec8105109a41c8c83
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169829"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252069"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é uma instância de computação Azure Machine Learning?
 
@@ -141,11 +141,11 @@ As instâncias de computação podem ser usadas como um [destino de computação
 
 ## <a name="notebookvm"></a>O que aconteceu com a VM do notebook?
 
-As instâncias de computação estão substituindo a VM do notebook.  Em regiões em que as instâncias de computação ainda não estão disponíveis, você pode continuar a usar VMs de notebook com funcionalidade completa e criar novas VMs de notebook.
+As instâncias de computação estão substituindo a VM do notebook.  
 
 Todos os arquivos de bloco de anotações armazenados no compartilhamento de arquivos do espaço de trabalho e dados em armazenamentos de dados de espaço de trabalho estarão acessíveis de uma instância de computação No entanto, todos os pacotes personalizados instalados anteriormente em uma VM do notebook precisarão ser instalados novamente na instância de computação. As limitações de cota que se aplicam à criação de clusters de computação também serão aplicadas à criação da instância de computação. 
 
-Em regiões em que as instâncias de computação estão disponíveis, novas VMs de notebook não podem ser criadas. No entanto, você ainda pode acessar e usar VMs de notebook que você criou, com funcionalidade completa. As instâncias de computação podem ser criadas no mesmo espaço de trabalho que as VMs de notebook existentes. 
+Não é possível criar novas VMs de notebook. No entanto, você ainda pode acessar e usar VMs de notebook que você criou, com funcionalidade completa. As instâncias de computação podem ser criadas no mesmo espaço de trabalho que as VMs de notebook existentes. 
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 1bdb4e40d7e173dcb2368f2f0cf645581647f6ee
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 09e5a6c5eee21e5432c4cf96a63fd2337307954a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77202197"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77211371"
 ---
 Os discos compartilhados do Azure (versão prévia) são um novo recurso para discos gerenciados do Azure que permite anexar um disco gerenciado do Azure a várias VMs (máquinas virtuais) simultaneamente. A anexação de um disco gerenciado a várias VMs permite que você implante novos aplicativos em cluster existentes ou migre-os para o Azure.
 
@@ -55,7 +55,7 @@ Os clusters do Linux podem aproveitar os gerenciadores de cluster, como o [pacem
 
 O diagrama a seguir ilustra um exemplo de aplicativo de banco de dados clusterizado de 2 nós que aproveita o SCSI PR para habilitar o failover de um nó para o outro.
 
-![Shared-Disk-updated-Two-node-cluster-Diagram. png](media/virtual-machines-disks-shared-disks/shared-disk-updated-two-node-cluster-diagram.png)
+![Cluster de dois nós. Um aplicativo em execução no cluster está manipulando o acesso ao disco](media/virtual-machines-disks-shared-disks/shared-disk-updated-two-node-cluster-diagram.png)
 
 O fluxo é da seguinte maneira:
 
@@ -68,7 +68,7 @@ O fluxo é da seguinte maneira:
 
 O diagrama a seguir ilustra outra carga de trabalho em cluster comum que consiste em vários nós lendo dados do disco para executar processos paralelos, como treinamento de modelos de aprendizado de máquina.
 
-![Shared-Disk-updated-Machine-Learning-trainer-Model. png](media/virtual-machines-disks-shared-disks/shared-disk-updated-machine-learning-trainer-model.png)
+![Cluster de VM de quatro nós, cada nó registra a intenção de escrever, o aplicativo usa reserva exclusiva para lidar corretamente com os resultados de gravação](media/virtual-machines-disks-shared-disks/shared-disk-updated-machine-learning-trainer-model.png)
 
 O fluxo é da seguinte maneira:
 

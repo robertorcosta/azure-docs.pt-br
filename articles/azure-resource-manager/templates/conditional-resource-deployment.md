@@ -3,12 +3,12 @@ title: Implantação condicional com modelos
 description: Descreve como implantar condicionalmente um recurso em um modelo de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: b4ee733e81f3a923f268f33f5826387059923bcb
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 83aa22ba57e0111d060665778922437723481c69
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121991"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207784"
 ---
 # <a name="conditional-deployment-in-resource-manager-templates"></a>Implantação condicional em modelos do Resource Manager
 
@@ -85,7 +85,7 @@ Você define um [recurso como dependente](define-resource-dependency.md) de um r
 
 Se você implantar um modelo com o [modo completo](deployment-modes.md) e um recurso não for implantado porque a condição é avaliada como false, o resultado depende de qual versão da API REST você usa para implantar o modelo. Se você usar uma versão anterior à 2019-05-10, o recurso **não será excluído**. Com o 2019-05-10 ou posterior, o recurso **é excluído**. As versões mais recentes do Azure PowerShell e CLI do Azure excluir o recurso quando a condição for falsa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter recomendações sobre a criação de modelos, consulte[Melhores práticas para modelo do Azure Resource Manager](template-best-practices.md).
-* Para criar várias instâncias de um recurso, consulte [recurso, propriedade ou iteração de variável em modelos de Azure Resource Manager](create-multiple-instances.md).
+* Para criar várias instâncias de um recurso, consulte [iteração de recursos em modelos de Azure Resource Manager](copy-resources.md).

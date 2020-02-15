@@ -1,25 +1,25 @@
 ---
 title: Adicionar formas a mapas do Android | Mapas do Microsoft Azure
 description: Neste artigo, você aprenderá a renderizar formas diferentes em um mapa usando a SDK do Android de mapas de Microsoft Azure.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8135d11624fa57547528b023b6d2dc5c3caecb39
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 6c59aadf89190f796134e22eb155eebb8579f3f0
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911612"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210031"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Adicionar uma forma a um mapa usando o Azure Maps SDK do Android
 
 Este artigo mostra como renderizar formas em um mapa usando o Azure Maps SDK do Android.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir o processo neste artigo, você precisa instalar o [Azure Maps SDK do Android](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para carregar um mapa.
 
@@ -353,7 +353,7 @@ Se você executar seu aplicativo agora, você deverá ver um polígono no mapa, 
 ![um polígono renderizado em um mapa do Android](./media/how-to-add-shapes-to-android-map/android-map-polygon.png)</center>
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para adicionar mais dados ao seu mapa:
 

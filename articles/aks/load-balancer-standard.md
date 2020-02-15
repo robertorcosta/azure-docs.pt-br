@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 03daafd383810a5e6cf086ca8e546981b06fa6eb
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: b15c60d5436feada8558c83cb14efd7e21a22493
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025700"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212422"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Usar um balanceador de carga SKU padrão no serviço kubernetes do Azure (AKS)
 
@@ -57,7 +57,10 @@ As seguintes limitações se aplicam quando você cria e gerencia clusters AKS q
 
 ## <a name="use-the-standard-sku-load-balancer"></a>Usar o balanceador de carga SKU *padrão*
 
-Quando você cria um cluster AKS, por padrão, o balanceador de carga SKU *padrão* é usado quando você executa os serviços nesse cluster. Por exemplo, [o início rápido usando o CLI do Azure][aks-quickstart-cli] implanta um aplicativo de exemplo que usa o balanceador de carga SKU *padrão* . 
+Quando você cria um cluster AKS, por padrão, o balanceador de carga SKU *padrão* é usado quando você executa os serviços nesse cluster. Por exemplo, [o início rápido usando o CLI do Azure][aks-quickstart-cli] implanta um aplicativo de exemplo que usa o balanceador de carga SKU *padrão* .
+
+> [!IMPORTANT]
+> Os endereços IP públicos podem ser evitados com a personalização de uma UDR (rota definida pelo usuário). A especificação de um tipo de saída do cluster AKS como UDR pode ignorar o provisionamento de IP e a configuração do pool de back-end para o AKS criado do Azure Load Balancer. Consulte [definindo o `outboundType` de um cluster como ' userDefinedRouting '](egress-outboundtype.md).
 
 ## <a name="configure-the-load-balancer-to-be-internal"></a>Configurar o balanceador de carga para ser interno
 
@@ -246,7 +249,7 @@ spec:
 
 O exemplo acima atualiza a regra para permitir somente o tráfego externo de entrada do intervalo de *MY_EXTERNAL_IP_RANGE* . Mais informações sobre como usar esse método para restringir o acesso ao serviço de balanceador de carga estão disponíveis na [documentação do kubernetes][kubernetes-cloud-provider-firewall].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre os serviços Kubernetess na [documentação dos serviços Kubernetess][kubernetes-services].
 

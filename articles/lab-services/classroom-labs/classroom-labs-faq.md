@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: 551167cda28a2bb6007e66c1b4b458a0a7b2e396
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: a0361203f4a8a2e57d179b39ba6da2fb62f68720
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718021"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252052"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Laboratórios da sala de aula em Azure Lab Services – perguntas frequentes (FAQ)
 Obtenha respostas para algumas das perguntas mais comuns sobre os laboratórios de sala de aula em Azure Lab Services. 
@@ -46,6 +46,12 @@ As portas são: 49152 – 65535. Os laboratórios de sala de aula ficam atrás d
 
 ### <a name="what-public-ip-address-range-should-i-open-on-my-organizations-firewall-settings-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Qual intervalo de endereços IP públicos devo abrir nas configurações de firewall da minha organização para se conectar às máquinas virtuais do laboratório via RDP/SSH?
 Consulte [intervalos de IP do Azure e marcas de serviço – nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519), que fornece o intervalo de endereços IP públicos para data centers no Azure. Você pode abrir os endereços IP para as regiões nas quais suas contas de laboratório estão.
+
+## <a name="virtual-machine-images"></a>Imagens da máquina virtual
+
+### <a name="as-a-lab-creator-why-cant-i-enable-additional-image-options-in-the-virtual-machine-images-dropdown-when-creating-a-new-lab"></a>Como um criador de laboratório, por que não é possível habilitar opções de imagem adicionais no menu suspenso imagens de máquinas virtuais ao criar um novo laboratório?
+
+Quando um administrador adiciona você como um criador de laboratório a uma conta de laboratório, você recebe as permissões para criar laboratórios. Mas, você não tem as permissões para editar as configurações dentro da conta do laboratório, incluindo a lista de imagens de máquina virtual habilitadas. Para habilitar imagens adicionais, entre em contato com o administrador da conta do laboratório para fazer isso ou peça ao administrador para adicioná-lo como uma função de colaborador à conta do laboratório. A função colaborador fornecerá as permissões para editar a lista de imagens da máquina virtual na conta do laboratório.
 
 ## <a name="users"></a>Usuários
 

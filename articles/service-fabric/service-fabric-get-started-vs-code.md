@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: d7d3182ad00d0ce151c6d327b29584c7e2ff1323
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 67846293257661a4f7a907d76402d2e98c339225
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457855"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251627"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Microsoft Azure Service Fabric para Visual Studio Code
 
@@ -21,7 +21,7 @@ Este artigo fornece uma visão geral dos requisitos e instalação da extensão,
 > [!IMPORTANT]
 > Aplicativos do Java do Microsoft Service Fabric podem ser desenvolvidos em máquinas Windows, mas podem ser implantados nos clusters do Linux do Azure apenas. Não há suporte para a depuração de aplicativos Java no Windows.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Os pré-requisitos a seguir devem ser instalados em todos os ambientes.
 
@@ -69,7 +69,7 @@ A extensão de serviços confiáveis do Service Fabric para VS Code fornece muit
 
 O comando **Microsoft Azure Service Fabric: criar aplicativo** cria um novo aplicativo do Microsoft Azure Service Fabric no workspace atual. Dependendo de quais geradores yeoman estão instalados no computador de desenvolvimento, você pode criar vários tipos de aplicativo do Microsoft Azure Service Fabric, incluindo projetos Java, C#, contêiner e convidado. 
 
-1.  Selecione o comando **Service Fabric: Adicionar serviço**
+1.  Selecione o comando **Service Fabric: criar aplicativo**
 2.  Selecione o tipo para o novo aplicativo do Microsoft Azure Service Fabric. 
 3.  Insira o nome do aplicativo que você deseja criar
 3.  Selecione o tipo de serviço que você deseja adicionar ao seu aplicativo do Microsoft Azure Service Fabric. 
@@ -124,7 +124,7 @@ O comando **Microsoft Azure Service Fabric: limpar aplicativo** exclui todos os 
 2.  Selecione o comando **Microsoft Azure Service Fabric: Limpar aplicativo**.
 3.  A saída do processo de compilação é enviada para o terminal integrado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba como [Desenvolver aplicativos Service Fabric do C# com Visual Studio Code](./service-fabric-develop-csharp-applications-with-vs-code.md).
 * Saiba como [desenvolver aplicativos Microsoft Azure Service Fabric Java com Visual Studio Code](./service-fabric-develop-java-applications-with-vs-code.md).

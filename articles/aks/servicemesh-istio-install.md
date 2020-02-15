@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/15/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 85ef34f8644d95f6cfd2c7262bfe4bbc0683547f
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: d886205e88db780a7a09554391bd975f57eebfe7
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561731"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251729"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Instalar e usar o Istio no AKS (Serviço de Kubernetes do Azure)
 
@@ -98,7 +98,9 @@ A abordagem de instalação do [Helm][helm] para İSTİO será preterida no futu
 > No momento, o İSTİO deve ser agendado para ser executado em nós do Linux. Se você tiver nós do Windows Server em seu cluster, deverá garantir que os pods İSTİO sejam agendados apenas para execução em nós do Linux. Usaremos [seletores de nó][kubernetes-node-selectors] para garantir que os pods estejam agendados para os nós corretos.
 
 > [!CAUTION]
-> Os recursos [SDS (serviço de descoberta de segredo)][istio-feature-sds] e [İSTİO CNI][istio-feature-cni] İSTİO estão atualmente em [Alpha][istio-feature-stages], portanto, deve-se considerar antes de habilitá-los. Além disso, o recurso de kubernetes de [projeção do volume de token da conta de serviço][kubernetes-feature-sa-projected-volume] (um requisito para o SDS) não está habilitado nas versões atuais do AKS.
+> Os recursos [SDS (serviço de descoberta de segredo)][istio-feature-sds] e [İSTİO CNI][istio-feature-cni] İSTİO estão atualmente em [Alpha][istio-feature-stages], portanto, deve-se considerar antes de habilitá-los. 
+>
+> Observe que o recurso kubernetes de [projeção do volume de token da conta de serviço][kubernetes-feature-sa-projected-volume] (um requisito para o SDS) agora está **habilitado** para todas as versões kubernetes 1,13 e superiores no AKs.
 
 Crie um arquivo chamado `istio.aks.yaml` com o conteúdo a seguir. Este arquivo conterá os detalhes de [especificação do plano de controle İSTİO][istio-control-plane] para configurar o İSTİO.
 
@@ -246,7 +248,7 @@ kubectl get svc --namespace istio-system --output wide
 
 A saída de exemplo a seguir mostra os serviços que devem estar em execução agora:
 
-- Serviços do `istio-*`
+- serviços `istio-*`s
 - `jaeger-*`, `tracing`e `zipkin` serviços de rastreamento de complemento
 - `prometheus` serviço de métricas complementares
 - `grafana` o serviço de painel de análise e monitoramento do complemento
@@ -388,7 +390,7 @@ Os comandos acima excluem todos os componentes e namespace İSTİO, mas ainda co
 
 ::: zone-end
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 A documentação a seguir descreve como você pode usar o İSTİO para fornecer roteamento inteligente para distribuir uma versão do canário:
 

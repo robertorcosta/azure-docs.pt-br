@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 597bbfdc35c556b5c75968084c01ac222fc468f4
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 37a657093fd55ce752095417fe744f83946962db
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718093"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210561"
 ---
 # <a name="configure-lab-accounts-in-azure-lab-services"></a>Configurar contas de laboratório no Azure Lab Services 
 No Azure Lab Services, uma conta de laboratório é um contêiner para tipos de laboratório gerenciados, como laboratórios de sala de aula. Um administrador configura uma conta de laboratório no Azure Lab Services e fornece acesso aos proprietários de laboratório que podem criar laboratórios na conta. Este artigo descreve como criar uma conta de laboratório, exibir todas as contas de laboratório ou excluir uma conta de laboratório.
@@ -37,18 +37,6 @@ Para conectar uma rede virtual como uma rede de mesmo nível à rede virtual do 
 Os laboratórios criados nessa conta estão conectados à rede virtual selecionada. Eles podem acessar os recursos na rede virtual selecionada. Para obter mais informações, consulte [conectar a rede do seu laboratório a uma rede virtual de mesmo nível no Azure Lab Services](how-to-connect-peer-virtual-network.md).
 
 Quando você seleciona uma rede virtual para o campo **rede virtual par** , a opção **permitir que o criador do laboratório selecione o local do laboratório** está desabilitada. É porque os laboratórios na conta do laboratório devem estar na mesma região que a conta do laboratório para que eles se conectem aos recursos na rede virtual do par. 
-
-## <a name="allow-lab-creator-to-pick-location-for-the-lab"></a>Permitir que o criador do laboratório escolha o local do laboratório
-Você pode permitir que o criador do laboratório crie laboratórios em um local diferente do local da conta do laboratório seguindo estas etapas: 
-
-1. Na página **conta do laboratório** , selecione **configuração de laboratórios** no menu à esquerda.
-2. Para **permitir que o criador do laboratório escolha o local do laboratório**, selecione **habilitado** se desejar que o criador do laboratório possa selecionar um local para o laboratório. Se ele estiver desabilitado, os laboratórios serão criados automaticamente no mesmo local em que a conta de laboratório existe. 
-    
-    Esse campo é desabilitado quando você seleciona uma rede virtual para o campo **rede virtual par** . É porque os laboratórios na conta do laboratório devem estar na mesma região que a conta do laboratório para que eles acessem os recursos na rede virtual do par. 
-1. Selecione **Salvar** na barra de ferramentas. 
-
-    ![Definir configuração de local do laboratório](../media/how-to-manage-lab-accounts/labs-configuration-page-lab-location.png)
-
 
 ## <a name="specify-an-address-range-for-vms-in-the-lab"></a>Especificar um intervalo de endereços para VMs no laboratório
 O procedimento a seguir tem etapas para especificar um intervalo de endereços para VMs no laboratório. Se você atualizar o intervalo especificado anteriormente, o intervalo de endereços modificados se aplicará somente às VMs criadas depois que a alteração tiver sido feita. 
@@ -142,7 +130,7 @@ Essa configuração se aplica a todos os laboratórios criados na conta do labor
 
 Para saber mais sobre como um proprietário de laboratório pode definir essa configuração no nível de laboratório, consulte [Este artigo](how-to-enable-shutdown-disconnect.md)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Veja os artigos a seguir:
 
 - [Como um proprietário de laboratório, crie e gerencie laboratórios](how-to-manage-classroom-labs.md)
