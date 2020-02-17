@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: aahi
-ms.openlocfilehash: 607b65d6a6893901ce23cd48c277c14209128866
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 0622aca5579c64c6d840761abb151665af559eea
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137965"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367646"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como usar o reconhecimento de entidade nomeada no Análise de Texto
 
@@ -28,7 +28,9 @@ A vinculação de entidades é a capacidade de identificar e desambiguar a ident
 
 ### <a name="named-entity-recognition-ner"></a>NER (Reconhecimento de Entidade Nomeada)
 
-O NER (reconhecimento de entidade nomeada) é a capacidade de identificar diferentes entidades no texto e categorizá-las em classes ou tipos predefinidos. Por exemplo: pessoas, lugares e organizações.
+O NER (reconhecimento de entidade nomeada) é a capacidade de identificar diferentes entidades no texto e categorizá-las em classes predefinidas ou tipos como: pessoa, local, evento, produto e organização.  
+
+A partir da versão 3, esse recurso do API de Análise de Texto também pode identificar tipos de informações pessoais e confidenciais, como o número de telefone, o número do seguro social, o endereço de email e o número da conta bancária.  Identificar essas entidades pode ajudar a classificar documentos confidenciais e a redação de informações pessoais.
 
 ## <a name="named-entity-recognition-versions-and-features"></a>Versões e recursos de reconhecimento de entidade nomeada
 
@@ -45,7 +47,7 @@ O API de Análise de Texto oferece duas versões do reconhecimento de entidade n
 Consulte [suporte a idiomas](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) para obter informações.
 
 
-#### <a name="version-30-previewtabversion-3"></a>[Versão 3,0-visualização](#tab/version-3)
+#### <a name="version-30-previewtabversion-3"></a>[Versão prévia 3.0](#tab/version-3)
 
 ### <a name="entity-types"></a>Tipos de entidade
 
@@ -72,33 +74,33 @@ Vinculação de entidade
 
 [!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
 
-#### <a name="version-21tabversion-2"></a>[Versão 2,1](#tab/version-2)
+#### <a name="version-21tabversion-2"></a>[Versão 2.1](#tab/version-2)
 
 ### <a name="entity-types"></a>Tipos de entidade
 
 > [!NOTE]
 > O NER (reconhecimento de entidade nomeada) versão 2 só dá suporte às entidades a seguir. O NER v3 está em visualização pública e expande muito o número e a profundidade das entidades reconhecidas no texto.   
 
-| Tipo  | SubType | {1&gt;Exemplo&lt;1} |
+| Type  | SubType | Exemplo |
 |:-----------   |:------------- |:---------|
-| Pessoa        | N/D\*         | "João", "Bill Gates"     |
-| Local      | N/D\*         | "Redmond, Washington", "Paris"  |
+| Person        | N/D\*         | "João", "Bill Gates"     |
+| Location      | N/D\*         | "Redmond, Washington", "Paris"  |
 | Organização  | N/D\*         | "Microsoft"   |
-| Quantidade      | Number        | "6", "seis"     |
-| Quantidade      | Percentual    | "50%", "cinquenta por cento"|
+| Quantidade      | Número        | "6", "seis"     |
+| Quantidade      | Porcentagem    | "50%", "cinquenta por cento"|
 | Quantidade      | Ordinal       | "2º", "segundo"     |
-| Quantidade      | Duração           | "90 dias", "30 anos"    |
+| Quantidade      | Idade           | "90 dias", "30 anos"    |
 | Quantidade      | Moeda      | "US$ 10,99"     |
 | Quantidade      | Dimensão     | "10 milhas", "40 cm"     |
 | Quantidade      | Temperatura   | "32 graus"    |
-| DateTime      | N/D\*         | "18h30 em 4 de fevereiro de 2012"      |
-| DateTime      | Date          | "2 de maio de 2017", "02/05/2017"   |
-| DateTime      | Tempo          | "8h", "8:00"  |
-| DateTime      | DateRange     | "2 de maio a 5 de maio"    |
-| DateTime      | TimeRange     | "18h às 19h"     |
-| DateTime      | Duration      | "1 minuto e 45 segundos"   |
-| DateTime      | Definir           | "toda terça-feira"     |
-| {1&gt;URL&lt;1}           | N/D\*         | "https:\//www.bing.com"    |
+| Datetime      | N/D\*         | "18h30 em 4 de fevereiro de 2012"      |
+| Datetime      | Data          | "2 de maio de 2017", "02/05/2017"   |
+| Datetime      | Hora          | "8h", "8:00"  |
+| Datetime      | DateRange     | "2 de maio a 5 de maio"    |
+| Datetime      | TimeRange     | "18h às 19h"     |
+| Datetime      | Duration      | "1 minuto e 45 segundos"   |
+| Datetime      | Definir           | "toda terça-feira"     |
+| URL           | N/D\*         | "https:\//www.bing.com"    |
 | Email         | N/D\*         | "support@contoso.com" |
 | Número de telefone dos EUA  | N/D\*         | (Somente números de telefone dos EUA) "(312) 555-0176" |
 | Endereço IP    | N/D\*         | "10.0.0.100" |
@@ -128,7 +130,7 @@ Crie uma solicitação POST. Você pode [usar o postmaster](text-analytics-how-t
 > [!NOTE]
 > Você pode encontrar sua chave e ponto de extremidade para seu recurso de Análise de Texto no portal do Azure. Eles estarão localizados na página de **Início rápido** do recurso, em **Gerenciamento de recursos**. 
 
-#### <a name="version-30-previewtabversion-3"></a>[Versão 3,0-visualização](#tab/version-3)
+#### <a name="version-30-previewtabversion-3"></a>[Versão prévia 3.0](#tab/version-3)
 
 [Referência v3 de reconhecimento de entidade nomeada](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)
 
@@ -142,7 +144,7 @@ NER
 Vinculação de entidade
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
 
-#### <a name="version-21tabversion-2"></a>[Versão 2,1](#tab/version-2)
+#### <a name="version-21tabversion-2"></a>[Versão 2.1](#tab/version-2)
 
 [Referência v2 de reconhecimento de entidade nomeada (NER)](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
@@ -176,7 +178,7 @@ A análise é executada após o recebimento da solicitação. Consulte a seção
 
 A API de Análise de Texto é sem estado. Nenhum dado é armazenado em sua conta e os resultados são retornados imediatamente na resposta.
 
-## <a name="view-results"></a>Exibir resultados
+## <a name="view-results"></a>Exibir os resultados
 
 Todas as solicitações POST retornam uma resposta formatada em JSON com as IDs e as propriedades de entidade detectadas.
 
@@ -240,7 +242,7 @@ A versão 3 fornece pontos de extremidade separados para NER e vinculação de e
 }
 ```
 
-#### <a name="version-21tabversion-2"></a>[Versão 2,1](#tab/version-2)
+#### <a name="version-21tabversion-2"></a>[Versão 2.1](#tab/version-2)
 
 ### <a name="example-ner-v2-response"></a>Exemplo de resposta do NER v2
 ```json
@@ -288,7 +290,7 @@ Neste artigo, você aprendeu os conceitos e fluxo de trabalho para detecção de
 * As solicitações POST são enviadas para um ou mais pontos de extremidade, usando uma [chave de acesso personalizada e um ponto de extremidade](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para sua assinatura.
 * A saída da resposta, composta por entidades vinculadas (incluindo pontuações de confiança, deslocamentos e links da Web, para cada ID de documento) pode ser usada em qualquer aplicativo
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Visão geral da Análise de Texto](../overview.md)
 * [Como usar a biblioteca de clientes da Análise de Texto](../quickstarts/text-analytics-sdk.md)

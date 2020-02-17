@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 01/19/2020
-ms.openlocfilehash: 336d2ef471e21e3157c7d8c81b3837bb6a962e2e
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 18e9c9d330ffb8cc4e284fc649cff0840ec2c82c
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191303"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366237"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guia de referência de esquema para tipos de ação e gatilho em aplicativos lógicos do Azure
 
@@ -2304,7 +2304,7 @@ Esta ação de loop contém ações que são executadas até que a condição es
 | <*tipo de ação*> | String | O tipo de ação que você deseja executar | 
 | <*entradas de ação*> | Vários | As entradas para a ação a ser executada | 
 | <*Condição*> | String | A condição ou expressão a ser avaliada depois que todas as ações no loop concluem a execução | 
-| <*Contagem de loop*> | Integer | O limite no maior número de loops que a ação pode executar. O padrão `count` valor é 60. | 
+| <*Contagem de loop*> | Integer | O limite no maior número de loops que a ação pode executar. Para obter mais informações sobre o limite padrão e máximo, consulte [limites e configuração para aplicativos lógicos do Azure](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). | 
 | <*tempo limite de loop*> | String | O limite de tempo mais longo que o loop pode ser executados. O padrão `timeout` valor é `PT1H`, que é o necessário [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). |
 |||| 
 

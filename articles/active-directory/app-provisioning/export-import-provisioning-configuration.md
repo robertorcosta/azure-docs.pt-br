@@ -1,6 +1,6 @@
 ---
-title: Exportar ou importar sua configuração de provisionamento usando o API do Graph | Microsoft Docs
-description: Saiba como exportar e importar a configuração de provisionamento usando o API do Graph.
+title: Exportar ou importar sua configuração de provisionamento usando a API de Microsoft Graph | Microsoft Docs
+description: Saiba como exportar e importar a configuração de provisionamento usando a API de Microsoft Graph.
 services: active-directory
 author: cmmdesai
 documentationcenter: na
@@ -15,21 +15,21 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af699fa2201bce5627426dcdefc1b98c1d885ae5
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e2fa80726875c82cfa4b5d4cf6a14f4e0dae1871
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066610"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367803"
 ---
-# <a name="export-or-import-your-provisioning-configuration-by-using-graph-api"></a>Exportar ou importar sua configuração de provisionamento usando API do Graph
+# <a name="export-or-import-your-provisioning-configuration-by-using-the-microsoft-graph-api"></a>Exportar ou importar sua configuração de provisionamento usando a API de Microsoft Graph
 
-Você pode usar Microsoft Graph API e o explorador do Graph para exportar os mapeamentos e o esquema de atributo de provisionamento de usuário para um arquivo JSON e importá-los de volta para o Azure AD. Você também pode usar as etapas capturadas aqui para criar um backup de sua configuração de provisionamento. 
+Você pode usar a API de Microsoft Graph e o Microsoft Graph Explorer para exportar mapeamentos e esquemas de atributos de provisionamento de usuário para um arquivo JSON e importá-los de volta ao Azure AD. Você também pode usar as etapas capturadas aqui para criar um backup de sua configuração de provisionamento. 
 
 ## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Etapa 1: recuperar a ID da entidade de serviço do aplicativo de provisionamento (ID do objeto)
 
 1. Inicie o [portal do Azure](https://portal.azure.com)e navegue até a seção Propriedades do seu aplicativo de provisionamento. Por exemplo, se você quiser exportar seu *WORKDAY para* o mapeamento de aplicativo de provisionamento de usuário do AD, navegue até a seção de propriedades desse aplicativo. 
-1. Na seção Propriedades do seu aplicativo de provisionamento, copie o valor GUID associado ao campo *ID de Objeto*. Esse valor também é chamado de **ServicePrincipalId** do seu aplicativo e ele será usado em operações do Graph Explorer.
+1. Na seção Propriedades do seu aplicativo de provisionamento, copie o valor GUID associado ao campo *ID de Objeto*. Esse valor também é chamado de **servicePrincipalName** do seu aplicativo e será usado em operações do Microsoft Graph Explorer.
 
    ![ID da Entidade de Serviço de Aplicativo do Workday](./media/export-import-provisioning-configuration/wd_export_01.png)
 
@@ -38,7 +38,7 @@ Você pode usar Microsoft Graph API e o explorador do Graph para exportar os map
 1. Abrir o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
 1. Clique no botão “Entrar com a Microsoft” e entre usando as credenciais de administrador do aplicativo ou de administrador global do Azure AD.
 
-    ![Entrar no Graph](./media/export-import-provisioning-configuration/wd_export_02.png)
+    ![Microsoft Graph entrar](./media/export-import-provisioning-configuration/wd_export_02.png)
 
 1. Após entrar com êxito, você verá os detalhes da conta de usuário no painel esquerdo.
 

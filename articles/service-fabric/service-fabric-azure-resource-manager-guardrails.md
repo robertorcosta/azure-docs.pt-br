@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: peterpogorski
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 02/13/2020
 ms.author: pepogors
-ms.openlocfilehash: fe5ff2a5eeb4b2c73165d1577702eb6af7079b61
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a61b0cf30ca46eb77837eb09d6a9a0b6f30e89a9
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426732"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368571"
 ---
 # <a name="service-fabric-guardrails"></a>Service Fabric guardrails 
 Ao implantar um cluster de Service Fabric, os guardrails são colocados em vigor, o que falhará em uma implantação de Azure Resource Manager no caso de uma configuração de cluster inválida. As seções a seguir fornecem uma visão geral dos problemas comuns de configuração de cluster e as etapas necessárias para mitigar esses problemas. 
 
 ## <a name="durability-mismatch"></a>Incompatibilidade de durabilidade
-### <a name="overview"></a>Visão Geral
+### <a name="overview"></a>Visão geral
 O valor de durabilidade para um Service Fabric tipo de nó é definido em duas seções diferentes de um modelo de Azure Resource Manager. A seção extensão do conjunto de dimensionamento de máquinas virtuais do recurso de conjunto de dimensionamento de máquinas virtuais e a seção tipo de nó do recurso de Cluster Service Fabric. É um requisito que o valor de durabilidade nessas seções corresponde, caso contrário, a implantação de recursos falhará.
 
 A seção a seguir contém um exemplo de incompatibilidade de durabilidade entre a configuração de durabilidade da extensão do conjunto de dimensionamento de máquinas virtuais e a configuração de durabilidade do tipo de nó Service Fabric  
@@ -60,13 +60,28 @@ A seção a seguir contém um exemplo de incompatibilidade de durabilidade entre
 * A durabilidade do conjunto de dimensionamento de máquinas virtuais não corresponde ao nível de durabilidade do tipo de nó de Service Fabric
 * A durabilidade do conjunto de dimensionamento de máquinas virtuais corresponde ao nível de durabilidade atual Service Fabric ou ao nível de durabilidade do tipo de nó de Service Fabric 
 
-
 ### <a name="mitigation"></a>Atenuação
 Para corrigir uma incompatibilidade de durabilidade, que é indicada por qualquer uma das mensagens de erro acima:
 1. Atualize o nível de durabilidade na seção extensão do conjunto de dimensionamento de máquinas virtuais ou Service Fabric tipo de nó do modelo de Azure Resource Manager para garantir que os valores correspondam.
 2. Reimplante o modelo de Azure Resource Manager com os valores atualizados.
 
-## <a name="next-steps"></a>Próximos passos
+
+## <a name="seed-node-deletion"></a>Exclusão do nó de semente 
+### <a name="overview"></a>Visão geral
+Um Cluster Service Fabric tem uma propriedade de [camada de confiabilidade](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) que é usada para determinar o número de réplicas dos serviços do sistema que são executados no tipo de nó primário do cluster. O número de réplicas necessárias determinará o número mínimo de nós que devem ser mantidos no tipo de nó primário do cluster. Se o número de nós no tipo de nó primário ficar abaixo do mínimo necessário para a camada de confiabilidade, o cluster ficará instável.  
+
+### <a name="error-messages"></a>Mensagens de erro 
+A operação de remoção do nó de semente foi detectada e será rejeitada. 
+* Essa operação resultaria apenas {0} possíveis nós de semente permanecerem no cluster, enquanto {1} são necessárias no mínimo.
+* Remover {0} nós de semente de {1} resultaria no desativação do cluster devido à perda do quorum do nó de propagação. O número máximo de nós de semente que podem ser removidos por vez é {2}.
+ 
+### <a name="mitigation"></a>Atenuação 
+Verifique se o tipo de nó primário tem máquinas virtuais suficientes para a confiabilidade especificada no cluster. Você não poderá remover uma máquina virtual se ela for colocar o conjunto de dimensionamento de máquinas virtuais abaixo do número mínimo de nós para a camada de confiabilidade fornecida.
+* Se a camada de confiabilidade for especificada corretamente, verifique se você tem nós suficientes no tipo de nó primário conforme necessário para a camada de confiabilidade. 
+* Se a camada de confiabilidade estiver incorreta, inicie uma alteração no recurso de Service Fabric para reduzir o nível de confiabilidade primeiro antes de iniciar qualquer operação do conjunto de dimensionamento de máquinas virtuais e aguarde a conclusão.
+* Se a camada de confiabilidade for bronze, siga estas [etapas](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) para reduzir o cluster de forma apropriada.
+
+## <a name="next-steps"></a>Próximas etapas
 * Crie um cluster em VMs ou em computadores que estejam executando o Windows Server: [Criação de um cluster do Service Fabric para o Windows Server](service-fabric-cluster-creation-for-windows-server.md)
 * Criar um cluster em VMs ou em computadores que estejam executando o Linux: [Criar um cluster do Linux](service-fabric-cluster-creation-via-portal.md)
 * Solucionar problemas Service Fabric: [guias de solução de problemas](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides)

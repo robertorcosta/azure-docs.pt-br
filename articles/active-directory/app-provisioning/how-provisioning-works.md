@@ -15,12 +15,12 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c3c0aea6ecaccc972702a8c87e4d127c71c75d6
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: a3b1b38063dcef1c61fbfb6fec529aeeed40a662
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121357"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367784"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o provisionamento
 
@@ -91,7 +91,7 @@ Observe que o userPrincipalName de um usuário convidado geralmente é armazenad
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>Ciclos de provisionamento: inicial e incremental
 
-Quando o Azure AD é o sistema de origem, o serviço de provisionamento usa o [recurso Consulta Diferencial da API do Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) para monitorar usuários e grupos. O serviço de provisionamento executa um ciclo inicial no sistema de origem e no sistema de destino, seguido por ciclos incrementais periódicos.
+Quando o Azure AD é o sistema de origem, o serviço de provisionamento usa a [consulta usar Delta para controlar as alterações nos Microsoft Graph dados](https://docs.microsoft.com/graph/delta-query-overview) para monitorar usuários e grupos. O serviço de provisionamento executa um ciclo inicial no sistema de origem e no sistema de destino, seguido por ciclos incrementais periódicos.
 
 ### <a name="initial-cycle"></a>Ciclo inicial
 
@@ -142,8 +142,8 @@ Após o ciclo inicial, todos os outros ciclos irão:
 
 O serviço de provisionamento continua executando ciclos incrementais back-to-back indefinidamente, em intervalos definidos no [tutorial específico de cada aplicativo](../saas-apps/tutorial-list.md). Os ciclos incrementais continuam até que ocorra um dos seguintes eventos:
 
-- O serviço é interrompido manualmente usando-se o portal do Azure ou o comando apropriado da API do Graph 
-- Um novo ciclo inicial é disparado usando a opção **limpar estado e reiniciar** na portal do Azure ou usando o comando API do Graph apropriado. Esta ação limpa qualquer marca d' água armazenada e faz com que todos os objetos de origem sejam avaliados novamente.
+- O serviço é interrompido manualmente usando o portal do Azure ou usando o comando da API Microsoft Graph apropriado.
+- Um novo ciclo inicial é disparado usando a opção **limpar estado e reiniciar** na portal do Azure ou usando o comando da API Microsoft Graph apropriado. Esta ação limpa qualquer marca d' água armazenada e faz com que todos os objetos de origem sejam avaliados novamente.
 - Um novo ciclo inicial é disparado devido a uma alteração nos mapeamentos de atributo ou filtros de escopo. Essa ação também limpa qualquer marca-d ' água armazenada e faz com que todos os objetos de origem sejam avaliados novamente.
 - O processo de provisionamento entra em quarentena (veja abaixo) devido a uma alta taxa de erros e permanece em quarentena por mais de quatro semanas. Neste caso, o serviço será desabilitado automaticamente.
 

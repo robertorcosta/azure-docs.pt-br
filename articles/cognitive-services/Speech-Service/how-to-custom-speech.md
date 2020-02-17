@@ -3,19 +3,19 @@ title: Introdução ao serviço de Fala Personalizada-fala
 titleSuffix: Azure Cognitive Services
 description: Fala Personalizada é um conjunto de ferramentas online que permite que você avalie e aprimore nossa precisão de fala para texto para seus aplicativos, ferramentas e produtos. Tudo o que é necessário para começar são alguns arquivos de áudio de teste. Siga os links abaixo para começar a criar uma experiência de fala em texto Personalizada.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/06/2019
-ms.author: erhopf
-ms.openlocfilehash: c8c849cb83ecb1db5e972c660d94c795092c458e
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 02/14/2020
+ms.author: dapine
+ms.openlocfilehash: 0788ff84cd5b0d50e0798d0d72ee84b47cb5f0b1
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806004"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368317"
 ---
 # <a name="what-is-custom-speech"></a>O que é Fala Personalizada?
 
@@ -61,7 +61,10 @@ Conteúdo como dados, modelos, testes e pontos de extremidade são organizados e
 
 Para criar seu primeiro projeto, selecione a fala de **fala para texto/Personalizada**e clique em **novo projeto**. Siga as instruções fornecidas pelo Assistente para criar seu projeto. Depois de criar um projeto, você deverá ver quatro guias: **dados**, **teste**, **treinamento**e **implantação**. Use os links fornecidos nas [próximas etapas](#next-steps) para aprender a usar cada guia.
 
-## <a name="next-steps"></a>Próximos passos
+> [!IMPORTANT]
+> O [portal de fala personalizada](https://aka.ms/custom-speech) foi atualizado recentemente! Se você criou projetos anteriores com dados, modelos, testes e pontos de extremidade publicados no portal do CRIS ou com APIs, será necessário criar um novo projeto no novo portal para se conectar a essas entidades antigas.
+
+## <a name="next-steps"></a>Próximas etapas
 
 * [Preparar e testar seus dados](how-to-custom-speech-test-data.md)
 * [Inspecione seus dados](how-to-custom-speech-inspect-data.md)

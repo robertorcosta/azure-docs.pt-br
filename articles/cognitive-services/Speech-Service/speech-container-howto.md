@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: dapine
-ms.openlocfilehash: ca7e7f7460db82a357ed8aa240467a6894254217
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 5d30693eb13104504d1cf27ffdbfb8d098d4ef9e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087000"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367765"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalar e executar contêineres do serviço de fala (versão prévia)
 
@@ -261,7 +261,16 @@ Esse comando:
 
 # <a name="custom-speech-to-texttabcstt"></a>[Fala Personalizada para texto](#tab/cstt)
 
-O contêiner de *fala personalizada para texto* depende de um modelo de fala personalizado. O modelo personalizado deve ter sido [treinado](how-to-custom-speech-train-model.md) usando o [portal de fala personalizado](https://speech.microsoft.com/customspeech). A ID do **modelo** de fala personalizado é necessária para executar o contêiner. Ele pode ser encontrado na página de **treinamento** do portal de fala personalizado. No portal de fala personalizado, navegue até a página de **treinamento** e selecione o modelo.
+O contêiner de *fala personalizada para texto* depende de um modelo de fala personalizado. O modelo personalizado deve ter sido [treinado](how-to-custom-speech-train-model.md) usando o [portal de fala personalizado](https://speech.microsoft.com/customspeech).
+
+> [!IMPORTANT]
+> O modelo de Fala Personalizada precisa ser treinado a partir de uma das seguintes versões de modelo:
+> * **20181201 (v 3.3 unificado)**
+> * **20190520 (v 4.14 unificado)**
+> * **20190701 (v 4.17 unificado)**<br>
+> ![Fala Personalizada modelo de contêiner de treinamento](media/custom-speech/custom-speech-train-model-container-scoped.png)
+
+A ID do **modelo** de fala personalizado é necessária para executar o contêiner. Ele pode ser encontrado na página de **treinamento** do portal de fala personalizado. No portal de fala personalizado, navegue até a página de **treinamento** e selecione o modelo.
 <br>
 
 ![Página de treinamento de fala personalizada](media/custom-speech/custom-speech-model-training.png)

@@ -1,6 +1,6 @@
 ---
-title: Usar APIs do MS Graph para configurar o provisionamento-Azure Active Directory | Microsoft Docs
-description: Precisa configurar o provisionamento para várias instâncias de um aplicativo? Saiba como economizar tempo usando as APIs do MS Graph para automatizar a configuração do provisionamento automático.
+title: Usar Microsoft Graph APIs para configurar o provisionamento-Azure Active Directory | Microsoft Docs
+description: Precisa configurar o provisionamento para várias instâncias de um aplicativo? Saiba como economizar tempo usando as APIs de Microsoft Graph para automatizar a configuração do provisionamento automático.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,16 +16,16 @@ ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f19f6e4add9bd677b05e09c627532a7a48354ce
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: f5780227274e8f9574fcdfcd388d75e333cc3d42
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77067182"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367833"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Configurar o provisionamento usando APIs de Microsoft Graph
 
-A portal do Azure é uma maneira conveniente de configurar o provisionamento de aplicativos individuais, um de cada vez. Mas se você estiver criando vários — ou até mesmo centenas, de instâncias de um aplicativo, pode ser mais fácil automatizar a criação e a configuração de aplicativos com APIs de Microsoft Graph. Este artigo descreve como automatizar a configuração de provisionamento por meio de APIs. Esse método é usado normalmente para aplicativos como [Amazon Web Services](../saas-apps/amazon-web-service-tutorial.md#configure-azure-ad-sso).
+A portal do Azure é uma maneira conveniente de configurar o provisionamento de aplicativos individuais, um de cada vez. Mas se você estiver criando vários — ou até mesmo centenas, de instâncias de um aplicativo, pode ser mais fácil automatizar a criação e a configuração de aplicativos com as APIs de Microsoft Graph. Este artigo descreve como automatizar a configuração de provisionamento por meio de APIs. Esse método é usado normalmente para aplicativos como [Amazon Web Services](../saas-apps/amazon-web-service-tutorial.md#configure-azure-ad-sso).
 
 **Visão geral das etapas para usar Microsoft Graph APIs para automatizar a configuração de provisionamento**
 
@@ -529,7 +529,7 @@ Content-type: application/json
 }
 
 ```
-## <a name="related-articles"></a>{1&gt;{2&gt;Artigos relacionados&lt;2}&lt;1}
+## <a name="related-articles"></a>Artigos relacionados
 
 - [Examinar a documentação de Microsoft Graph de sincronização](https://docs.microsoft.com/graph/api/resources/synchronization-overview?view=graph-rest-beta)
 - [Integrando um aplicativo SCIM personalizado com o Azure AD](use-scim-to-provision-users-and-groups.md)
