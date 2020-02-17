@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/14/2019
 ms.author: helohr
-ms.openlocfilehash: 8e8eec8af81832992a27206efcd7b7e7051a83b8
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: f6a8e4b9129018686aa5833a2ac260075e5627f9
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772543"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367619"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurar anexação de aplicativo MSIX
 
@@ -38,7 +38,7 @@ Primeiro, você precisa obter a imagem do sistema operacional que usará para o 
 1. Abra o [portal do Windows Insider](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0) e entre.
 
      >[!NOTE]
-     >Você deve ser membro do programa Windows Insider para acessar o portal do Windows Insider. Para saber mais sobre o programa Windows Insider, Confira nossa [documentação do Windows Insider](https://docs.microsoft.com/windows-insider/at-home/).
+     >Você deve ser membro do programa Windows Insider para acessar o portal do Windows Insider. Para saber mais sobre o programa Windows Insider, Confira nossa [documentação do Windows Insider](/windows-insider/at-home/).
 
 2. Role para baixo até a seção **selecionar edição** e selecione **Windows 10 Insider Preview Enterprise (rápido) – Build 19035** ou posterior.
 
@@ -79,7 +79,7 @@ Depois de carregar o VHD no Azure, crie um pool de hosts baseado nessa nova imag
 
 ## <a name="prepare-the-application-for-msix-app-attach"></a>Preparar o aplicativo para anexação do aplicativo MSIX 
 
-Se você já tiver um pacote MSIX, pule para [Configurar a infraestrutura de área de trabalho virtual do Windows](#configure-windows-virtual-desktop-infrastructure). Se você quiser testar aplicativos herdados, siga as instruções em [criar um pacote MSIX de um instalador de desktop em uma VM](https://docs.microsoft.com/windows/msix/packaging-tool/create-app-package-msi-vm) para converter o aplicativo herdado em um pacote MSIX.
+Se você já tiver um pacote MSIX, pule para [Configurar a infraestrutura de área de trabalho virtual do Windows](#configure-windows-virtual-desktop-infrastructure). Se você quiser testar aplicativos herdados, siga as instruções em [criar um pacote MSIX de um instalador de desktop em uma VM](/windows/msix/packaging-tool/create-app-package-msi-vm/) para converter o aplicativo herdado em um pacote MSIX.
 
 ## <a name="generate-a-vhd-or-vhdx-package-for-msix"></a>Gerar um pacote VHD ou VHDX para MSIX
 
@@ -390,7 +390,7 @@ rmdir $packageName -Force -Verbose
 
 ## <a name="set-up-simulation-scripts-for-the-msix-app-attach-agent"></a>Configurar scripts de simulação para o agente de anexação do aplicativo MSIX
 
-Depois de criar os scripts, os usuários podem executá-los manualmente ou configurá-los para serem executados automaticamente como scripts de inicialização, logon, logoff e desligamento. Para saber mais sobre esses tipos de scripts, consulte [usando scripts de inicialização, desligamento, logon e logoff em política de grupo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)).
+Depois de criar os scripts, os usuários podem executá-los manualmente ou configurá-los para serem executados automaticamente como scripts de inicialização, logon, logoff e desligamento. Para saber mais sobre esses tipos de scripts, consulte [usando scripts de inicialização, desligamento, logon e logoff em política de grupo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)/).
 
 Cada um desses scripts automáticos executa uma fase dos scripts de anexação do aplicativo:
 
@@ -407,7 +407,7 @@ Para instalar os arquivos de licença, você precisará usar um script do PowerS
 
 Veja como configurar as licenças para uso offline: 
 
-1. Baixe o pacote do aplicativo, as licenças e as estruturas necessárias do Microsoft Store for Business. Você precisa dos arquivos de licença codificados e não codificados. Instruções de download detalhadas podem ser encontradas [aqui](https://docs.microsoft.com/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
+1. Baixe o pacote do aplicativo, as licenças e as estruturas necessárias do Microsoft Store for Business. Você precisa dos arquivos de licença codificados e não codificados. Instruções de download detalhadas podem ser encontradas [aqui](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app/).
 2. Atualize as seguintes variáveis no script para a etapa 3:
       1. `$contentID` é o valor ContentId do arquivo de licença não codificado (. xml). Você pode abrir o arquivo de licença em um editor de texto de sua escolha.
       2. `$licenseBlob` é a cadeia de caracteres inteira para o blob de licença no arquivo de licença codificado (. bin). Você pode abrir o arquivo de licença codificada em um editor de texto de sua escolha. 
@@ -447,7 +447,7 @@ catch [Exception]
 }  
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Atualmente, não há suporte para esse recurso, mas você pode fazer perguntas para a Comunidade na [área de trabalho virtual do Windows TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 

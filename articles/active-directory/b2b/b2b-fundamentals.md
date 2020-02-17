@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2aa6bc856fc7b7de071a45f3aa11c051e36eca4f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e17e0f1f01e836a7a240100c1c0e1f015da5f00
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480106"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368160"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Práticas recomendadas do Azure Active Directory B2B
 Este artigo contém recomendações e práticas recomendadas para colaboração B2B (entre empresas) no Azure Active Directory (AD do Azure).
@@ -33,9 +33,9 @@ Este artigo contém recomendações e práticas recomendadas para colaboração 
 | Impor políticas de acesso condicional para a autenticação multifator (MFA) | É recomendável impor políticas de MFA nos aplicativos que você deseja compartilhar com os usuários B2B do parceiro. Dessa forma, a MFA será imposta consistentemente nos aplicativos em seu locatário, independentemente de a organização parceira estar usando MFA. Consulte [acesso condicional para usuários de colaboração B2B](conditional-access.md). |
 | Se você estiver impondo políticas de acesso condicional com base no dispositivo, use listas de exclusão para permitir o acesso a usuários B2B | Se as políticas de acesso condicional com base no dispositivo estiverem habilitadas em sua organização, os dispositivos de usuário convidado B2B serão bloqueados porque não são gerenciados pela sua organização. Você pode criar listas de exclusão que contenham usuários de parceiros específicos para excluí-las da política de acesso condicional com base no dispositivo. Consulte [acesso condicional para usuários de colaboração B2B](conditional-access.md). |
 | Use uma URL específica do locatário ao fornecer links diretos para seus usuários convidados B2B | Como alternativa ao email de convite, você pode dar a um convidado um link direto para seu aplicativo ou Portal. Esse link direto deve ser específico do locatário, o que significa que ele deve incluir uma ID de locatário ou um domínio verificado para que o convidado possa ser autenticado em seu locatário, onde o aplicativo compartilhado está localizado. Consulte [experiência de resgate para o usuário convidado](redemption-experience.md). |
-| Ao desenvolver um aplicativo, use UserType para determinar a experiência do usuário convidado  | Se você estiver desenvolvendo um aplicativo e desejar fornecer experiências diferentes para usuários de locatário e usuários convidados, use a propriedade UserType. A declaração UserType não está incluída no token no momento. Os aplicativos devem usar o API do Graph para consultar o diretório para que o usuário Obtenha seu UserType. |
+| Ao desenvolver um aplicativo, use UserType para determinar a experiência do usuário convidado  | Se você estiver desenvolvendo um aplicativo e desejar fornecer experiências diferentes para usuários de locatário e usuários convidados, use a propriedade UserType. A declaração UserType não está incluída no token no momento. Os aplicativos devem usar a API Microsoft Graph para consultar o diretório para que o usuário Obtenha seu UserType. |
 | Alterar a propriedade UserType *somente* se a relação do usuário com a organização for alterada | Embora seja possível usar o PowerShell para converter a propriedade UserType de um usuário de membro para Guest (e vice-versa), você deve alterar essa propriedade somente se a relação do usuário com a organização for alterada. Consulte [Propriedades de um usuário convidado B2B](user-properties.md).|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Gerenciar o compartilhamento B2B](delegate-invitations.md)

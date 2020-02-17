@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: helohr
-ms.openlocfilehash: b6b310bf1958671583aab873ab42a70845f93f9a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5eff53119362cd03c9a6497e3133984627e513c1
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452421"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368853"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Implantar a ferramenta de diagnóstico
 
@@ -25,7 +25,7 @@ Veja o que a ferramenta de diagnóstico para a área de trabalho virtual do Wind
 - Enviar mensagem para usuários ativos em um host de sessão específico.
 - Desconectar usuários de um host de sessão.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Você precisa criar um registro de aplicativo Azure Active Directory e um espaço de trabalho Log Analytics antes de poder implantar o modelo de Azure Resource Manager para a ferramenta. Você ou o administrador precisa dessas permissões para fazer isso:
 
@@ -36,8 +36,8 @@ Você precisa criar um registro de aplicativo Azure Active Directory e um espaç
 
 Você também precisa instalar esses dois módulos do PowerShell antes de começar:
 
-- [Módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.4.0)
-- [Módulo do AD do Azure](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
+- [Módulo do Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.4.0/)
+- [Módulo do AD do Azure](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/)
 
 Verifique se sua ID de assinatura está pronta para quando você entrar.
 
@@ -50,7 +50,7 @@ Esta seção mostrará como usar o PowerShell para criar o aplicativo Azure Acti
 >[!NOTE]
 >As permissões de API são área de trabalho virtual do Windows, Log Analytics e permissões de API Microsoft Graph são adicionadas ao aplicativo Azure Active Directory.
 
-1. Abra o PowerShell como Administrador.
+1. Abra o PowerShell como administrador.
 2. Entre no Azure com uma conta que tenha permissões de proprietário ou colaborador na assinatura do Azure que você gostaria de usar para a ferramenta de diagnóstico:
    ```powershell
    Login-AzAccount
@@ -83,7 +83,7 @@ Você pode executar um script do PowerShell para criar um Log Analytics espaço 
 
 Para executar o script do PowerShell:
 
-1.  Abrir o PowerShell como administrador.
+1.  Abra o PowerShell como administrador.
 2.  Vá para o [repositório do GitHub de modelos de RDS](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) e execute o script **CreateLogAnalyticsWorkspaceforDiagnostics. ps1** no PowerShell.
 3. Insira os seguintes valores para os parâmetros:
 
@@ -253,11 +253,11 @@ Você também pode interagir com os usuários no host da sessão:
 
     - Limite: maior que 80% é marcado como não íntegro.
 
-- [Atraso de entrada do usuário por sessão (\*)\\atraso de entrada máximo](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
+- [Atraso de entrada do usuário por sessão (\*)\\atraso de entrada máximo](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/):
 
     - Limite: maior que 2000 MS é marcado como não íntegro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como monitorar logs de atividades em [usar diagnósticos com log Analytics](diagnostics-log-analytics.md).
 - Leia sobre cenários de erro comuns e como corrigi-los em [identificar e diagnosticar problemas](diagnostics-role-service.md).

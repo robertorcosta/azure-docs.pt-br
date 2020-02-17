@@ -105,9 +105,9 @@
           href: search-sku-tier.md
         - name: Limites de serviço
           href: search-limits-quotas-capacity.md
-        - name: Dimensionar partições e réplicas
+        - name: Ajustar a capacidade
           href: search-capacity-planning.md
-        - name: Estratégias e melhores práticas de implantação
+        - name: Dimensionamento em razão de desempenho
           href: search-performance-optimization.md
         - name: Arquitetura de multilocatários
           href: search-modeling-multitenant-saas-applications.md

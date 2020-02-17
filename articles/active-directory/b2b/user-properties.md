@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa282afdf910c2449b5d5ea0bc5e38a396f3aa02
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 70156335d0d5617b4c1ccb2d11ce8e9f8dc9d036
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608849"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368124"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriedades de um usuário de colaboração B2B do Azure Active Directory
 
@@ -68,12 +68,12 @@ Essa propriedade indica a relação entre o usuário e o locatário do host. Ess
   > [!NOTE]
   > O UserType não tem nenhuma relação com o tipo de acesso do usuário, nem com a função do diretório do usuário e assim por diante. Essa propriedade só indica a relação do usuário com a organização host, e permite que a organização aplique as políticas que dependem desse atributo.
 
-### <a name="source"></a>Origem
+### <a name="source"></a>Fonte
 Essa propriedade indica o tipo de acesso do usuário.
 
 - Usuário convidado: esse usuário foi convidado, mas ainda não resgatou seu convite.
 
-- Active Directory externo: esse usuário está hospedado em uma organização externa e é autenticado com uma conta do AD do Azure que pertence a outra organização. Esse tipo de acesso corresponde ao Estado 1.
+- Azure Active Directory externos: esse usuário é hospedado em uma organização externa e é autenticado usando uma conta do Azure AD que pertence a outra organização. Esse tipo de acesso corresponde ao Estado 1.
 
 - Conta da Microsoft: este usuário está hospedado em uma conta da Microsoft e é autenticado usando uma conta da Microsoft. Esse tipo de acesso corresponde ao Estado 2.
 
@@ -103,7 +103,7 @@ Em alguns casos, talvez você queira dar privilégios mais altos aos usuários c
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>É possível tornar os usuários convidados visíveis na Lista de Endereços Global do Exchange?
 Sim. Por padrão, objetos convidados não são visíveis na lista de endereços global da organização, mas você pode usar o PowerShell do Azure Active Directory para torná-los visíveis. Para obter mais detalhes, confira **É possível tornar os objetos convidados visíveis na lista de endereços global?** em [Gerenciar acesso para convidado em Grupos do Office 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#add-guests-to-the-global-address-list). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [O que é a colaboração B2B do AD do Azure?](what-is-b2b.md)
 * [Tokens de usuário de colaboração B2B](user-token.md)

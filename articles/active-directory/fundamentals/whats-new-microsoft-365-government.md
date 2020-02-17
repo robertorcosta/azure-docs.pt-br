@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75e7c6809810a78c81348bd4bbeb808e103f453f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: bc6a478bebef0733847ef4744b722ed9e61a6c7f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73805275"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367952"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>O que há de novo para Azure Active Directory no governo Microsoft 365
 
@@ -51,11 +51,10 @@ Anteriormente, os clientes podiam entrar usando os portais mundiais do Azure (po
 
 A tabela a seguir mostra os pontos de extremidade para todos os clientes:
 
-| NOME | Detalhes do ponto de extremidade |
+| Nome | Detalhes do ponto de extremidade |
 |------|------------------|
 | Portais |Microsoft Azure Governamental: https://portal.azure.us<p>Governo Microsoft 365 – GCC alto: https://portal.office365.us<p>Governo Microsoft 365 – DoD: https://portal.apps.mil |
 | Ponto de extremidade de autoridade de Azure Active Directory | https://login.microsoftonline.us |
-| API do Graph do Active Directory do Azure | https://graph.windows.net |
 | API de Microsoft Graph para Microsoft 365 governamental-GCC alto | https://graph.microsoft.us |
 | API de Microsoft Graph para Microsoft 365 governamental-DoD | https://dod-graph.microsoft.us |
 | Pontos de extremidade de serviços do Azure governamental | Para obter detalhes, consulte [Guia do desenvolvedor do Azure governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |

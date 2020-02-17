@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: 187c92f8e5b0148577f204f68077c58ea9ab9a3d
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 032062dd200781b6d1f5abeb2391ae75c4c43e6a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887352"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367301"
 ---
 # <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Implantar uma ferramenta de gerenciamento com um modelo do Azure Resource Manager
 
@@ -36,11 +36,11 @@ Antes de implantar a ferramenta de gerenciamento, você precisará que um usuár
 
 - Ter a (MFA) Autenticação Multifator do Azure desabilitada
 - Ter permissão para criar recursos em sua assinatura do Azure
-- Ter permissão para criar um aplicativo do Azure AD. Siga estas etapas para verificar se o usuário tem as permissões necessárias, seguindo as instruções em [Permissões necessárias](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+- Ter permissão para criar um aplicativo do Azure AD. Siga estas etapas para verificar se o usuário tem as permissões necessárias, seguindo as instruções em [Permissões necessárias](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
 Depois de implantar e configurar a ferramenta de gerenciamento, é recomendável solicitar que um usuário inicie a interface do usuário de gerenciamento para verificar se tudo está funcionando. O usuário que inicia a interface do usuário de gerenciamento deve ter uma atribuição de função que permita exibir ou editar o locatário da Área de Trabalho Virtual do Windows.
 
-## <a name="deploy-the-management-tool"></a>Implantação da ferramenta de gerenciamento
+## <a name="deploy-the-management-tool"></a>Implantar a ferramenta de gerenciamento
 
 Antes de começar, verifique se os aplicativos cliente e servidor têm consentimento visitando a [Página de Consentimento da Área de Trabalho Virtual do Windows](https://rdweb.wvd.microsoft.com) referente ao AAD (Azure Active Directory) representado.
 

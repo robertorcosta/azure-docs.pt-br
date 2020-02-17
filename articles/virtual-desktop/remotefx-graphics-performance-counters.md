@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
-ms.openlocfilehash: c41a433ee19969546e1db2aa583c72ed166b7ebf
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: eee8fdf515861b43b58d5af111930e2224c9a60a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607470"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367228"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnosticar problemas de desempenho de gráficos no Área de Trabalho Remota
 
@@ -69,15 +69,15 @@ Um valor alto para qualquer um dos quadros ignorados/segundo os contadores impli
 
 Se o contador de quadros/segundos de saída corresponder ao contador de quadros de entrada/segundo, ainda assim você perceberá um atraso ou parada incomum, o tempo médio de codificação poderá ser o culpado. A codificação é um processo síncrono que ocorre no servidor no cenário de vGPU (única sessão) e na VM no cenário de várias sessões. O tempo médio de codificação deve ser inferior a 33 MS. Se o tempo médio de codificação estiver abaixo de 33 MS, mas você ainda tiver problemas de desempenho, poderá haver um problema com o aplicativo ou o sistema operacional que você está usando.
 
-Para obter mais informações sobre como diagnosticar problemas relacionados ao aplicativo, consulte [contadores de desempenho de atraso de entrada do usuário](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters).
+Para obter mais informações sobre como diagnosticar problemas relacionados ao aplicativo, consulte [contadores de desempenho de atraso de entrada do usuário](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/).
 
-Como o RDP dá suporte a um tempo médio de codificação de 33 MS, ele dá suporte a uma taxa de quadros de entrada de até 30 quadros/segundo. Observe que 33 MS é a taxa de quadros máxima com suporte. Em muitos casos, a taxa de quadros experimentada pelo usuário será menor, dependendo da frequência com que um quadro é fornecido ao RDP pela origem. Por exemplo, tarefas como assistir a um vídeo exigem uma taxa de quadros de entrada completa de 30 quadros/segundo, mas menos tarefas computacionalmente intensivas, como a edição infrequente de um documento, resultam em um valor muito menor para quadros de entrada/segundo sem degradação no qualidade da experiência.
+Como o RDP dá suporte a um tempo médio de codificação de 33 MS, ele dá suporte a uma taxa de quadros de entrada de até 30 quadros/segundo. Observe que 33 MS é a taxa de quadros máxima com suporte. Em muitos casos, a taxa de quadros experimentada pelo usuário será menor, dependendo da frequência com que um quadro é fornecido ao RDP pela origem. Por exemplo, tarefas como assistir a um vídeo exigem uma taxa de quadros de entrada completa de 30 quadros/segundo, mas menos tarefas computacionalmente intensivas, como a edição infrequente de um documento, resultam em um valor muito menor para quadros de entrada/segundo sem degradação na qualidade da experiência do usuário.
 
 ### <a name="addressing-poor-frame-quality"></a>Lidando com uma qualidade de quadro ruim
 
 Use o contador de qualidade do quadro para diagnosticar problemas de qualidade do quadro. Esse contador expressa a qualidade do quadro de saída como uma porcentagem da qualidade do quadro de origem. A perda de qualidade pode ser devido ao RemoteFX ou pode ser inerente à fonte de gráficos. Se o RemoteFX causou a perda de qualidade, o problema pode ser uma falta de recursos de rede ou de servidor para enviar conteúdo de alta fidelidade.
 
-## <a name="mitigation"></a>Redução
+## <a name="mitigation"></a>Atenuação
 
 Se os recursos do servidor estiverem causando o afunilamento, tente uma das seguintes abordagens para melhorar o desempenho:
 
@@ -101,6 +101,6 @@ Se os recursos do cliente estiverem causando o afunilamento, tente uma das segui
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para criar uma máquina virtual do Azure otimizada para GPU, consulte [Configurar a aceleração da GPU (unidade de processamento gráfico) para o ambiente de área de trabalho virtual do Windows](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu).
-- Para obter uma visão geral das faixas de solução de problemas e escalonamento, consulte [visão geral da solução de problemas, comentários e suporte](https://docs.microsoft.com/azure/virtual-desktop/troubleshoot-set-up-overview).
-- Para saber mais sobre o serviço, consulte [ambiente de área de trabalho do Windows](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- Para criar uma máquina virtual do Azure otimizada para GPU, consulte [Configurar a aceleração da GPU (unidade de processamento gráfico) para o ambiente de área de trabalho virtual do Windows](configure-vm-gpu.md).
+- Para obter uma visão geral das faixas de solução de problemas e escalonamento, consulte [visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
+- Para saber mais sobre o serviço, consulte [ambiente de área de trabalho do Windows](environment-setup.md).

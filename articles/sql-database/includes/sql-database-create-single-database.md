@@ -3,14 +3,15 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 02/14/2020
 ms.author: mathoma
-ms.openlocfilehash: 0fad326107fa101cbba869311724710bd3f5307b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.reviewer: vanto
+ms.openlocfilehash: 3e2c8a424c9a3744bfb91d03632965c15613a424
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496171"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252086"
 ---
 Nesta etapa, você criará um banco de dados individual do Banco de Dados SQL do Azure. 
 
@@ -29,14 +30,14 @@ Crie o grupo de recursos e o banco de dados individual usando o portal do Azure.
 
    ![Criar banco de dados individual](../media/sql-database-get-started-portal/create-single-database.png)
 
-3. Na guia **Informações Básicas** da seção **Detalhes do Projeto**, digite ou selecione os seguintes valores:
+4. Na guia **Informações Básicas** da seção **Detalhes do Projeto**, digite ou selecione os seguintes valores:
 
    - **Assinatura**: Selecione a lista suspensa e escolha a assinatura correta, caso ela não seja exibida.
    - **Grupo de recursos**: Selecione **Criar novo**, digite `myResourceGroup` e selecione **OK**.
 
      ![Novo banco de dados SQL – guia Informações Básicas](../media/sql-database-get-started-portal/new-sql-database-basics.png)
 
-4. Na seção **Detalhes do Banco de Dados**, digite ou selecione os seguintes valores:
+5. Na seção **Detalhes do Banco de Dados**, digite ou selecione os seguintes valores:
 
    - **Nome do banco de dados**: Digite `mySampleDatabase`.
    - **Servidor**: Selecione **Criar**, insira os valores a seguir e, em seguida, escolha **Selecionar**.
@@ -63,18 +64,22 @@ Crie o grupo de recursos e o banco de dados individual usando o portal do Azure.
      - Opcionalmente, você também pode selecionar **Alterar Configuração** para alterar a geração do hardware.
    - Escolha **Aplicar**.
 
-5. Selecione a guia **Configurações adicionais**. 
-6. Na seção **Fonte de dados**, em **Usar dados existentes**, selecione `Sample`.
+6. Selecione a guia **Rede** e decida se você quer [**Permitir o acesso de serviços e de recursos do Azure a este servidor**](../sql-database-networkaccess-overview.md), ou adicione um [ponto de extremidade privado](../../private-link/private-endpoint-overview.md).
+
+   ![Rede](../media/sql-database-get-started-portal/create-database-networking.png)
+
+7. Selecione a guia **Configurações adicionais**. 
+8. Na seção **Fonte de dados**, em **Usar dados existentes**, selecione `Sample`.
 
    ![Configurações adicionais do BD SQL](../media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
 
    > [!IMPORTANT]
    > Selecione os dados da **Amostra (AdventureWorksLT)** para seguir com facilidade este e outros Guias de Início Rápido do Banco de Dados SQL do Azure que usam esses dados.
 
-7. Mantenha o restante dos valores como padrão e selecione **Examinar + Criar** na parte inferior do formulário.
-8. Examine as configurações finais e selecione **Criar**.
+9. Mantenha o restante dos valores como padrão e selecione **Examinar + Criar** na parte inferior do formulário.
+10. Examine as configurações finais e selecione **Criar**.
 
-9. No formulário **Banco de Dados SQL**, selecione **Criar** para implantar e provisionar o grupo de recursos, o servidor e o banco de dados.
+11. No formulário **Banco de Dados SQL**, selecione **Criar** para implantar e provisionar o grupo de recursos, o servidor e o banco de dados.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 

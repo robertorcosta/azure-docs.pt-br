@@ -8,12 +8,12 @@ ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f50b7a53d739073ced7ea590a9a6da2eceb8bda1
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 8eb24fe878638853cd8519c08045552a91f0c190
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548638"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368564"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Aprenda a implantar módulos e estabelecer rotas no IoT Edge
 
@@ -133,7 +133,7 @@ As rotas são declaradas nas propriedades desejadas do **$edgeHub** com a seguin
 
 Cada rota precisa de uma origem e um coletor, mas a condição é uma parte opcional que você pode usar para filtrar mensagens.
 
-### <a name="source"></a>Origem
+### <a name="source"></a>Fonte
 
 A origem especifica de onde as mensagens são provenientes. IoT Edge pode rotear mensagens de módulos ou dispositivos folha.
 
@@ -141,7 +141,7 @@ Usando os SDKs de IoT, os módulos podem declarar filas de saída específicas p
 
 A propriedade da fonte pode ser qualquer um dos valores a seguir:
 
-| Origem | Description |
+| Fonte | DESCRIÇÃO |
 | ------ | ----------- |
 | `/*` | Todas as mensagens do dispositivo para a nuvem ou gêmeo alteração as notificações de qualquer módulo ou dispositivo de folha |
 | `/twinChangeNotifications` | Qualquer alteração de gêmeo (propriedades relatadas) proveniente de qualquer dispositivo de módulo ou folha |
@@ -177,7 +177,7 @@ O coletor define onde as mensagens são enviadas. Somente os módulos e o Hub Io
 
 A propriedade da fonte pode ser qualquer um dos valores a seguir:
 
-| Coletor | Description |
+| Coletor | DESCRIÇÃO |
 | ---- | ----------- |
 | `$upstream` | Enviar a mensagem para o Hub IoT |
 | `BrokeredEndpoint("/modules/<moduleId>/inputs/<input>")` | Enviar a mensagem para uma entrada específica de um módulo específico |
@@ -232,7 +232,7 @@ O exemplo a seguir mostra o que pode ser a aparência de um documento de manifes
             "restartPolicy": "always",
             "settings": {
               "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-              "createOptions": ""
+              "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
             }
           }
         },
@@ -276,7 +276,7 @@ O exemplo a seguir mostra o que pode ser a aparência de um documento de manifes
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter uma lista completa das propriedades que podem ou devem ser incluídas em $edgeAgent e $edgeHub, consulte [Propriedades do agente de IOT Edge e hub IOT Edge](module-edgeagent-edgehub.md).
 

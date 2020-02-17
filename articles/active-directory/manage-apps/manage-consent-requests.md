@@ -12,12 +12,12 @@ ms.date: 12/27/2019
 ms.author: mimart
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 528aff73b931776ef9a6542437db271bb214c7fb
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 0451fe18629a572c9b49f14924bfa50293f42a2b
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290692"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367838"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Gerenciamento de consentimento para aplicativos e avaliação de solicitações de consentimento
 
@@ -100,7 +100,7 @@ Consulte [conceder consentimento de administrador em todo o locatário a um apli
 
 ### <a name="granting-consent-on-behalf-of-a-specific-user"></a>Concedendo consentimento em nome de um usuário específico
 
-Em vez de conceder consentimento para toda a organização, um administrador também pode usar o [API do Graph do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) para conceder consentimento a permissões delegadas em nome de um único usuário. Para fazer isso, envie uma solicitação de `POST` para criar uma entidade [OAuth2PermissionGrant](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) em que `consentType` está definido como "principal" e `principalId` é definido como a ID de objeto para o usuário em nome do qual o consentimento está sendo concedido.
+Em vez de conceder consentimento para toda a organização, um administrador também pode usar o [API do Graph Microsft](https://docs.microsoft.com/graph/use-the-api) para conceder consentimento a permissões delegadas em nome de um único usuário. Para obter mais informações, consulte [obter acesso em nome de um usuário](https://docs.microsoft.com/graph/auth-v2-user).
 
 ## <a name="limiting-user-access-to-applications"></a>Limitando o acesso do usuário a aplicativos
 
@@ -108,7 +108,7 @@ O acesso dos usuários aos aplicativos ainda pode ser limitado mesmo quando o co
 
 Para obter mais uma visão geral mais ampla, incluindo como lidar com cenários complexos adicionais, consulte [usando o Azure ad para o gerenciamento de acesso do aplicativo](what-is-access-management.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Cinco etapas para proteger a infraestrutura de identidade](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#before-you-begin-protect-privileged-accounts-with-mfa)
 

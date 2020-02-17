@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 02/07/2020
 ms.author: helohr
-ms.openlocfilehash: dc4e4e271ac7108f4c29c82646e9849b9a5cd929
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 730d12625b134f411096b4b49641b79efb1a0d26
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110776"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368751"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>Visão geral da solução de problemas, comentários e suporte
 
@@ -24,7 +24,7 @@ Visite a [Comunidade Tecnológica da Área de Trabalho Virtual do Windows](https
 
 ## <a name="escalation-tracks"></a>Faixas de escalonamento
 
-Use a tabela a seguir para identificar e resolver os problemas que você pode encontrar ao configurar um ambiente de locatário usando o Área de Trabalho Remota Client. Depois de configurar o locatário, você pode usar nosso novo [serviço de diagnóstico](https://docs.microsoft.com/azure/virtual-desktop/diagnostics-role-service) para identificar problemas em cenários comuns.
+Use a tabela a seguir para identificar e resolver os problemas que você pode encontrar ao configurar um ambiente de locatário usando o Área de Trabalho Remota Client. Depois de configurar o locatário, você pode usar nosso novo [serviço de diagnóstico](diagnostics-role-service.md) para identificar problemas em cenários comuns.
 
 >[!NOTE]
 > Temos um fórum da comunidade técnica que você pode visitar para discutir seus problemas com a equipe de produto e os membros ativos da Comunidade. Visite a [comunidade técnica de área de trabalho virtual do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para iniciar uma discussão.
@@ -38,7 +38,7 @@ Use a tabela a seguir para identificar e resolver os problemas que você pode en
 | Criação de VM (máquina virtual) do pool de hosts da sessão quando Azure Resource Manager modelos fornecidos com a área de trabalho virtual do Windows não estão sendo usados | [Abra uma solicitação de suporte do Azure](https://azure.microsoft.com/support/create-ticket/)e selecione **máquina virtual executando o Windows** para o serviço. <br> <br> Para problemas com os modelos de Azure Resource Manager que são fornecidos com a área de trabalho virtual do Windows, consulte a seção criando locatário da área de trabalho virtual do Windows do [locatário e criação do pool de hosts](troubleshoot-set-up-issues.md). |
 | Gerenciando o ambiente de host de sessão de área de trabalho virtual do Windows no portal do Azure    | [Abra uma solicitação de suporte do Azure](https://azure.microsoft.com/support/create-ticket/). <br> <br> Para problemas de gerenciamento ao usar o Serviços de Área de Trabalho Remota/Windows Virtual Desktop PowerShell, consulte [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md) ou [abra uma solicitação de suporte do Azure](https://azure.microsoft.com/support/create-ticket/), selecione **área de trabalho virtual do Windows** para o serviço, selecione **configuração e gerenciamento** para o tipo de problema e, em seguida, selecione **problemas ao configurar o locatário usando o PowerShell** para o subtipo de problema. |
 | Gerenciando a configuração da área de trabalho virtual do Windows vinculada a pools de hosts e grupos de aplicativos      | Consulte [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md)ou [abra uma solicitação de suporte do Azure](https://azure.microsoft.com/support/create-ticket/), selecione **área de trabalho virtual do Windows** para o serviço e, em seguida, selecione o tipo de problema apropriado.|
-| Implantando e gerenciando contêineres de perfil FSLogix | Consulte [Guia de solução de problemas para produtos FSLogix](https://docs.microsoft.com/fslogix/fslogix-trouble-shooting-ht) e, se isso não resolver o problema, [abra uma solicitação de suporte do Azure](https://azure.microsoft.com/support/create-ticket/), selecione **área de trabalho virtual do Windows** para o serviço, selecione **FSLogix** para o tipo de problema e, em seguida, selecione o subtipo de problema apropriado. |
+| Implantando e gerenciando contêineres de perfil FSLogix | Consulte [Guia de solução de problemas para produtos FSLogix](/fslogix/fslogix-trouble-shooting-ht/) e, se isso não resolver o problema, [abra uma solicitação de suporte do Azure](https://azure.microsoft.com/support/create-ticket/), selecione **área de trabalho virtual do Windows** para o serviço, selecione **FSLogix** para o tipo de problema e, em seguida, selecione o subtipo de problema apropriado. |
 | Problemas de clientes de área de trabalho remota em iniciar                                                 | Consulte [solucionar problemas do cliente área de trabalho remota](troubleshoot-client.md) e, se isso não resolver o problema, [abra uma solicitação de suporte do Azure](https://azure.microsoft.com/support/create-ticket/), selecione **área de trabalho virtual do Windows** para o serviço e, em seguida, selecione **área de trabalho remota clientes** para o tipo de problema.  <br> <br> Se for um problema de rede, os usuários precisarão entrar em contato com o administrador da rede. |
 | Conectado, mas sem feed                                                                 | Solucionar problemas usando o [usuário se conecta, mas nada é exibido (sem feed)](troubleshoot-service-connection.md#user-connects-but-nothing-is-displayed-no-feed) seção de [conexões do serviço de área de trabalho virtual do Windows](troubleshoot-service-connection.md). <br> <br> Se os usuários tiverem sido atribuídos a um grupo de aplicativos, [abra uma solicitação de suporte do Azure](https://azure.microsoft.com/support/create-ticket/), selecione **área de trabalho virtual do Windows** para o serviço e, em seguida, selecione **área de trabalho remota clientes** para o tipo de problema. |
 | Problemas de descoberta de feed devido à rede                                            | Os usuários precisam entrar em contato com o administrador da rede. |
@@ -47,7 +47,7 @@ Use a tabela a seguir para identificar e resolver os problemas que você pode en
 | Mensagens de licenciamento ou erros                                                          | Se os problemas estiverem vinculados a um aplicativo ou produto específico, entre em contato com a equipe responsável pelo produto. |
 | Problemas ao usar as ferramentas de área de trabalho virtual do Windows no GitHub (modelos de Azure Resource Manager, ferramenta de diagnóstico, ferramenta de gerenciamento) | Consulte [modelos de Azure Resource Manager para serviços de área de trabalho remota](https://github.com/Azure/RDS-Templates/blob/master/README.md) para relatar problemas. |
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Para solucionar problemas ao criar um pool de locatários e de host em um ambiente de área de trabalho virtual do Windows, confira [criação de locatário e pool de hosts](troubleshoot-set-up-issues.md).
 - Para solucionar problemas durante a configuração de uma VM (máquina virtual) na área de trabalho virtual do Windows, consulte [configuração de máquina virtual do host de sessão](troubleshoot-vm-configuration.md).

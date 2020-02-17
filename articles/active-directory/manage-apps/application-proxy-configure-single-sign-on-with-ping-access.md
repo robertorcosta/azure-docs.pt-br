@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec115e0fa76e695809ba140202d5f13a319d33dd
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: f3fb94629262519f8cfa5da72ee343726aa7d1c1
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062724"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367988"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada em cabeçalho para logon único com Proxy de Aplicativo e PingAccess
 
@@ -130,7 +130,7 @@ Por fim, configure seu aplicativo local para que os usuários tenham acesso de l
 
 1. Selecione **permissões delegadas** > usuário de > de **usuário** **. ler**.
 1. Selecione **permissões de aplicativo** > **aplicativo** > **Application. ReadWrite. All**.
-1. Selecione **adicionar permissões**.
+1. Selecione **Adicionar Permissões**.
 1. Na página **permissões de API** , selecione **conceder consentimento de administrador para \<seu nome de diretório >** .
 
 #### <a name="collect-information-for-the-pingaccess-steps"></a>Coletar informações sobre as etapas do PingAccess
@@ -161,21 +161,7 @@ Para coletar essas informações:
 1. Selecione **Adicionar**. A chave PingAccess aparece na tabela de segredos do cliente, com uma cadeia de caracteres aleatória que é preenchida por preenchimento automática no campo **valor** .
 1. Ao lado do campo **valor** da chave PingAccess, selecione o ícone **copiar para área de transferência** , em seguida, copie e salve-o. Você especifica esse valor posteriormente como o segredo do cliente do PingAccess.
 
-### <a name="update-graphapi-to-send-custom-fields-optional"></a>Atualizar GraphAPI para enviar campos personalizados (opcional)
-
-Se você precisar de uma declaração personalizada que envie outros tokens dentro do access_token consumido pelo PingAccess, defina o campo `acceptMappedClaims` aplicativo como `True`. Você pode usar o Graph Explorer ou o manifesto do aplicativo do portal do Azure AD para fazer essa alteração.
-
-**Este exemplo usa o Gerenciador de gráficos:**
-
-```
-PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_your_application>
-
-{
-  "acceptMappedClaims":true
-}
-```
-
-**Este exemplo usa o [portal de Azure Active Directory](https://aad.portal.azure.com/) para atualizar o campo `acceptMappedClaims`:**
+**Atualize o campo de `acceptMappedClaims`:**
 
 1. Entre no portal de [Azure Active Directory](https://aad.portal.azure.com/) como um administrador de aplicativos.
 1. Selecione **Azure Active Directory** > **Registros de aplicativo**. Uma lista de aplicativos é exibida.
@@ -213,7 +199,7 @@ Para fazer seu aplicativo usar uma declaração personalizada e incluir campos a
 > [!NOTE]
 > Para usar uma declaração personalizada, você também deve ter uma política personalizada definida e atribuída ao aplicativo. Essa política deve incluir todos os atributos personalizados necessários.
 >
-> Você pode fazer a definição de política e a atribuição por meio do PowerShell, do explorador do Azure AD Graph ou do Microsoft Graph. Se estiver fazendo isso no PowerShell, talvez seja necessário primeiro usar `New-AzureADPolicy` e, em seguida, atribuí-lo ao aplicativo com `Add-AzureADServicePrincipalPolicy`. Para obter mais informações, consulte [atribuição de política de mapeamento de declarações](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+> Você pode fazer a definição de política e a atribuição por meio do PowerShell ou Microsoft Graph. Se estiver fazendo isso no PowerShell, talvez seja necessário primeiro usar `New-AzureADPolicy` e, em seguida, atribuí-lo ao aplicativo com `Add-AzureADServicePrincipalPolicy`. Para obter mais informações, consulte [atribuição de política de mapeamento de declarações](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 Exemplo:
 ```powershell
@@ -240,7 +226,7 @@ Essas etapas ajudam a instalar o PingAccess e a configurar uma conta do PingAcce
 
 Quando você concluir todas essas etapas, seu aplicativo deverá estar em execução. Para testá-lo, abra um navegador e navegue até a URL externa que você criou quando publicou o aplicativo no Azure. Entre com a conta de teste que você atribuiu ao aplicativo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Configurar o PingAccess para o Azure AD para proteger aplicativos publicados usando Microsoft Azure AD proxy de aplicativo](https://support.pingidentity.com/s/document-item?bundleId=pingaccess-52&topicId=agents/azure/pa_c_PAAzureSolutionOverview.html)
 - [Logon único em aplicativos no Azure Active Directory](what-is-single-sign-on.md)

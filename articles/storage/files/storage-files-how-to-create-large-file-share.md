@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d94237d2cfeb814b2e15d43c9f8863a76c0bcd11
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 94a376c01229de20e6a1264da3f29532becefa8a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190668"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368668"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Habilitar e criar compartilhamentos de arquivos grandes
 
@@ -43,7 +43,7 @@ A habilitação de grandes compartilhamentos de arquivos em uma conta é um proc
     ![Captura de tela mostrando como criar um grupo de recursos no portal](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
 
 1. Em seguida, insira um nome para sua conta de armazenamento. O nome deve ser exclusivo em todo o Azure. O nome também deve ter de 3 a 24 caracteres de comprimento e só pode ter números e letras minúsculas.
-1. Selecione um local para sua conta de armazenamento e verifique se ele é [uma das regiões com suporte para grandes compartilhamentos de arquivos](storage-files-planning.md#regional-availability).
+1. Selecione um local para sua conta de armazenamento e verifique se ele é [uma das replicações com suporte para grandes compartilhamentos de arquivos](storage-files-planning.md#regional-availability).
 1. Defina a replicação para armazenamento com redundância **local** ou **armazenamento com redundância de zona**.
 1. Deixe esses campos com seus valores padrão:
 

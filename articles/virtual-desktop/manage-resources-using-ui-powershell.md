@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: 2a7d10f41e343f21e16b10f4bf7c79670824ec2c
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: e55641457e1ed27928e6bf380701b646b672cae8
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77115909"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368838"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>Implantar uma ferramenta de gerenciamento com o PowerShell
 
@@ -36,7 +36,7 @@ Os navegadores a seguir são compatíveis com a ferramenta de gerenciamento do:
 Antes de implantar a ferramenta de gerenciamento, você precisará que um usuário do Azure AD (Azure Active Directory) crie um registro de aplicativo e implante a interface do usuário de gerenciamento. Esse usuário precisa:
 
 - Ter permissão para criar recursos em sua assinatura do Azure
-- Ter permissão para criar um aplicativo do Azure AD. Siga estas etapas para verificar se o usuário tem as permissões necessárias, seguindo as instruções em [Permissões necessárias](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+- Ter permissão para criar um aplicativo do Azure AD. Siga estas etapas para verificar se o usuário tem as permissões necessárias, seguindo as instruções em [Permissões necessárias](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
 Para implantar e configurar com êxito a ferramenta de gerenciamento, primeiro você precisa baixar os seguintes scripts do PowerShell do repositório do [GitHub de modelos de RDS](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts) e salvá-los na mesma pasta em seu computador local.
 
@@ -79,7 +79,7 @@ $subscriptionId = Read-Host -Prompt "Enter the Azure subscription ID where you w
 
 Agora que você concluiu o registro do aplicativo do Azure AD, você pode implantar a ferramenta de gerenciamento.
 
-## <a name="deploy-the-management-tool"></a>Implantação da ferramenta de gerenciamento
+## <a name="deploy-the-management-tool"></a>Implantar a ferramenta de gerenciamento
 
 Execute os seguintes comandos do PowerShell para implantar a ferramenta de gerenciamento e associá-la à entidade de serviço que você acabou de criar:
      

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: helohr
-ms.openlocfilehash: 1e26d61e0b1ec50e7a3831970af1fd8fad7fed99
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 4c5b31c54bf4926caaa1bd793229bdfbb22af2a2
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483652"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368923"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Criar um contêiner de perfil do FSLogix para um pool de hosts usando Azure NetApp Files
 
@@ -32,19 +32,19 @@ As instruções neste guia são específicas para usuários da área de trabalho
 >[!NOTE]
 >Se você estiver procurando material de comparação sobre as diferentes opções de armazenamento de contêiner de perfil FSLogix no Azure, consulte [Opções de armazenamento para contêineres de perfil FSLogix](store-fslogix-profile.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de criar um contêiner de perfil do FSLogix para um pool de hosts, você deve:
 
 - Configurar e configurar a área de trabalho virtual do Windows
 - Provisionar um pool de hosts de área de trabalho virtual Windows
-- [Habilitar sua assinatura do Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register)
+- [Habilitar sua assinatura do Azure NetApp Files](../azure-netapp-files/azure-netapp-files-register.md)
 
 ## <a name="set-up-your-azure-netapp-files-account"></a>Configurar sua conta de Azure NetApp Files
 
 Para começar, você precisa configurar uma conta de Azure NetApp Files.
 
-1. Entre no [Portal do Azure](https://portal.azure.com). Verifique se sua conta tem permissões de colaborador ou administrador.
+1. Entre no [portal do Azure](https://portal.azure.com). Verifique se sua conta tem permissões de colaborador ou administrador.
 
 2. Selecione o **ícone de Azure cloud Shell** à direita da barra de pesquisa para abrir Azure cloud Shell.
 

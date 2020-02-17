@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 02/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1f560a7aa746ce7c6262dcaddf74c9d573332fa6
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 884244b245be06f1477d27a4828cad18e36eca24
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861380"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368628"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Modelo de série temporal na visualização Azure Time Series Insights
 
@@ -97,7 +97,7 @@ A [demonstração do farm de vento da Contoso](https://insights.timeseries.azure
 
 As instâncias são definidas por **Timeseriesid**, **typeId**, **Name**, **Description**, **hierarchyIds**e **instanceFields**. Cada instância é mapeada para apenas um *tipo*e uma ou mais *hierarquias*.
 
-| Propriedade | Description |
+| Propriedade | DESCRIÇÃO |
 | --- | ---|
 | Série temporal | O UUID da série temporal à qual a instância está associada. |
 | Identificação | O UUID do tipo de modelo de série temporal ao qual a instância está associada. Por padrão, todas as novas instâncias descobertas são associadas a um tipo padrão.
@@ -145,7 +145,7 @@ A interface do cliente de [demonstração do farm de vento da Contoso](https://i
 
 As hierarquias são definidas por **ID**de hierarquia, **nome**e **origem**.
 
-| Propriedade | Description |
+| Propriedade | DESCRIÇÃO |
 | ---| ---|
 | id | O identificador exclusivo da hierarquia, que é usado, por exemplo, quando você define uma instância. |
 | name | Uma cadeia de caracteres usada para fornecer um nome para a hierarquia. |
@@ -237,7 +237,7 @@ A [demonstração do farm de vento da Contoso](https://insights.timeseries.azure
 
 Os tipos de modelo de série temporal são definidos por **ID**, **nome**, **Descrição**e **variáveis**.
 
-| Propriedade | Description |
+| Propriedade | DESCRIÇÃO |
 | ---| ---|
 | id | O UUID para o tipo. |
 | name | Uma cadeia de caracteres usada para fornecer um nome para o tipo. |
@@ -284,7 +284,7 @@ Os tipos estão em conformidade com o seguinte exemplo de JSON:
 }
 ```
 
-### <a name="variables"></a>Variáveis
+### <a name="variables"></a>variáveis
 
 Tipos de Time Series Insights podem ter muitas variáveis que especificam fórmulas e regras de computação em eventos.
 
@@ -300,7 +300,7 @@ A tabela a seguir exibe quais propriedades são relevantes para cada tipo de var
 
 #### <a name="numeric-variables"></a>Variáveis numéricas
 
-| Propriedade Variable | Description |
+| Propriedade Variable | DESCRIÇÃO |
 | --- | ---|
 | Filtro de variável | Os filtros são cláusulas condicionais opcionais para restringir o número de linhas que estão sendo consideradas para computação. |
 | Valor da variável | Valores de telemetria usados para computação provenientes do dispositivo ou sensores ou transformados usando expressões de série temporal. Variáveis de tipo numérico devem ser do tipo *Double*.|
@@ -330,7 +330,7 @@ As variáveis estão em conformidade com o seguinte exemplo de JSON:
 
 #### <a name="categorical-variables"></a>Variáveis categóricas
 
-| Propriedade Variable | Description |
+| Propriedade Variable | DESCRIÇÃO |
 | --- | ---|
 | Filtro de variável | Os filtros são cláusulas condicionais opcionais para restringir o número de linhas que estão sendo consideradas para computação. |
 | Valor da variável | Valores de telemetria usados para computação provenientes do dispositivo ou dos sensores. As variáveis de tipo categórico devem ser *longas* ou de *cadeia de caracteres*. |
@@ -370,7 +370,7 @@ As variáveis estão em conformidade com o seguinte exemplo de JSON:
 
 #### <a name="aggregate-variables"></a>Variáveis de agregação
 
-| Propriedade Variable | Description |
+| Propriedade Variable | DESCRIÇÃO |
 | --- | ---|
 | Filtro de variável | Os filtros são cláusulas condicionais opcionais para restringir o número de linhas que estão sendo consideradas para computação. |
 | Agregação de variáveis | Suporte a computação por meio de *Méd*, *mín*, *máx*, *soma*, *contagem*, *primeiro*, *último*. |
@@ -389,7 +389,7 @@ As variáveis estão em conformidade com o seguinte exemplo de JSON:
 
 As variáveis são armazenadas na definição de tipo de um modelo de série temporal e podem ser fornecidas embutidas por meio de [APIs de consulta](time-series-insights-update-tsq.md) para substituir a definição armazenada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Leia [Azure Time Series insights visualização de armazenamento e entrada](./time-series-insights-update-storage-ingress.md).
 

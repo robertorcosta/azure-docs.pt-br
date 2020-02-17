@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: e202eed8e3694245b5b4527578c02cfb518723f4
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 4db6ad83c44e0c811df0a3b91a473861e4e1ab87
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705338"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367150"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-ad-domain-services-managed-domain"></a>Criar uma UO (unidade organizacional) em um domínio gerenciado Azure AD Domain Services
 
@@ -54,7 +54,7 @@ Ao criar UOs personalizadas em um domínio gerenciado AD DS do Azure, você obte
 * Uma UO padrão para *usuários AADDC* é criada contendo todas as contas de usuário sincronizadas do seu locatário do Azure AD.
     * Não é possível mover usuários ou grupos da UO *usuários do AADDC* para as UOs personalizadas que você criar. Somente contas de usuário ou recursos criados no domínio gerenciado AD DS do Azure podem ser movidos para UOs personalizadas.
 * Contas de usuário, grupos, contas de serviço e objetos de computador que você cria em UOs personalizadas não estão disponíveis no seu locatário do Azure AD.
-    * Esses objetos não aparecem usando o API do Graph do Azure AD ou na interface do usuário do Azure AD; Eles estão disponíveis somente em seu domínio gerenciado AD DS do Azure.
+    * Esses objetos não aparecem usando a API Microsoft Graph ou na interface do usuário do Azure AD; Eles estão disponíveis somente em seu domínio gerenciado AD DS do Azure.
 
 ## <a name="create-a-custom-ou"></a>Criar uma UO personalizada
 
@@ -82,7 +82,7 @@ Para criar uma UO personalizada, use as ferramentas administrativas Active Direc
 
     ![UO personalizada disponível para uso no Centro Administrativo do Active Directory](./media/active-directory-domain-services-admin-guide/create-ou-done.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre como usar as ferramentas administrativas ou criar e usar contas de serviço, consulte os seguintes artigos:
 

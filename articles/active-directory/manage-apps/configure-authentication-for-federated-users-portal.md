@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1300ecff416962bda4da800c5eff134951658846
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 600cd3f3ad8826b52648b51beb8c66a382766b80
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159158"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367887"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurar aceleração automática de entrada para um aplicativo usando a política Descoberta de Realm Inicial
 
@@ -100,9 +100,7 @@ As políticas só entram em vigor para um aplicativo específico quando são ane
 
 Apenas uma política de HRD pode estar ativa em uma entidade de serviço a qualquer momento.  
 
-Você pode usar diretamente a API do Microsoft Active Directory Graph, ou os cmdlets do Azure Active Directory do PowerShell para criar e gerenciar diretivas de HRD.
-
-A API do Graph que manipula a política é descrita no artigo [Operações na política](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) no MSDN.
+Você pode usar os cmdlets do Azure Active Directory PowerShell para criar e gerenciar a política HRD.
 
 Aqui está uma definição de política HRD de exemplo:
     
@@ -209,7 +207,7 @@ Para aplicar a política de HRD depois de criá-la, você pode atribuí-la a vá
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Etapa 2: localize a entidade de serviço à qual atribuir a política.  
 Você precisa da **ObjectID** das entidades de serviço às quais deseja atribuir a política. Há várias maneiras de encontrar a **ObjectID** de entidades de serviço.    
 
-Você pode usar o portal ou consultar [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Você também pode ir até a [Ferramenta Explorador do Graph](https://developer.microsoft.com/graph/graph-explorer) e entrar na conta do Azure AD para ver todas as entidades de serviço da organização. 
+Você pode usar o portal ou consultar [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta). Você também pode ir até a [Ferramenta Explorador do Graph](https://developer.microsoft.com/graph/graph-explorer) e entrar na conta do Azure AD para ver todas as entidades de serviço da organização. 
 
 Como você está usando o PowerShell, você pode usar o cmdlet a seguir para listar as entidades de serviço e suas IDs.
 

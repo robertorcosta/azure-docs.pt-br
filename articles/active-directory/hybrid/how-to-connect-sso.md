@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7791e7b50a963d2f92a2cbc460e36f9e83bb1b52
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 4ef8f1ef381c86b6eec62c96ff6dcf87522de040
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025705"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367971"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Logon Único Contínuo do Azure Active Directory
 
@@ -36,7 +36,7 @@ O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização 
 ![Logon Único Contínuo](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
->O SSO contínuo precisa no dispositivo do usuário para ser **ingressado no domínio**, mas não necessário para o dispositivo esteja [ingressado no Azure AD](../active-directory-azureadjoin-overview.md).
+>O SSO contínuo precisa que o dispositivo do usuário seja apenas **ingressado no domínio** , mas não é usado no [Azure ad Unido](../active-directory-azureadjoin-overview.md) ou [ingressado no Azure ad híbrido] (.. /active-directory-azureadjoin-overview.md). SSO PN Azure AD ingressado e ingressado no Azure AD híbrido funciona com base no [token de atualização principal] (.. /active-directory/devices/concept-primary-refresh-token.md)
 
 ## <a name="key-benefits"></a>Principais benefícios
 
@@ -82,7 +82,7 @@ O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [**Início Rápido** ](how-to-connect-sso-quick-start.md) – colocar o SSO Contínuo do Azure AD em funcionamento.
+- [**Início Rápido**](how-to-connect-sso-quick-start.md) – colocar o SSO Contínuo do Azure AD em funcionamento.
 - [**Plano de Implantação**](https://aka.ms/deploymentplans/sso) - Plano de implantação passo a passo.
 - [**Aprofundamento técnico**](how-to-connect-sso-how-it-works.md) – entenda como esse recurso funciona.
 - [**Perguntas frequentes**](how-to-connect-sso-faq.md) – respostas para perguntas frequentes.

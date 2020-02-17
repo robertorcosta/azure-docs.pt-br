@@ -5,15 +5,15 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: include
-ms.date: 08/07/2019
+ms.date: 02/13/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: e93ce54262fe6dd38ef2ebc07d676608dae7cfff
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bbdafde85097d0052edd5984b594fd37066dc1e6
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75968896"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77279738"
 ---
 Esta seção descreve como criar um hub IoT usando o [portal do Azure](https://portal.azure.com).
 
@@ -35,7 +35,7 @@ Esta seção descreve como criar um hub IoT usando o [portal do Azure](https://p
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-   ![Criar um hub no portal do Azure](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics-vs2019.png)
+   ![Criar um hub no portal do Azure](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
 
 1. Selecione **Avançar: Tamanho e escala** para continuar criando o hub IoT.
 
@@ -48,10 +48,18 @@ Esta seção descreve como criar um hub IoT usando o [portal do Azure](https://p
     - **Unidades do Hub IoT**: O número de mensagens permitidas por unidade ao dia depende do tipo de preço do seu hub. Por exemplo, se você quiser que o hub dê suporte à entrada de 700 mil mensagens, escolha duas unidades do nível S1.
     Para obter detalhes sobre as outras opções da camada, consulte [Escolher a camada certa do Hub IoT](../articles/iot-hub/iot-hub-scaling.md).
 
+    - **Central de Segurança do Azure**: Ative essa opção para adicionar uma camada extra de proteção contra ameaças à IoT e aos seus dispositivos. Ela não está disponível para hubs na camada gratuita. Para mais informações sobre esse recurso, veja [Central de Segurança do Azure para IoT](https://docs.microsoft.com/azure/asc-for-iot/).
+
     - **Configurações avançadas** > **Partições de dispositivo para nuvem**: Essa propriedade está relacionada a mensagens de dispositivo para nuvem para o número de leitores simultâneos das mensagens. A maioria dos hubs precisa apenas de quatro partições.
 
-1. Para este artigo, aceite as opções padrão e, em seguida, selecione **Analisar + criar** para analisar suas escolhas. Você verá algo semelhante a esta tela.
+1. Para este artigo, aceite as escolhas padrão e, em seguida, selecione **Avançar: Marcas** para acessar a próxima tela.
 
-   ![Examinar informações para criar o hub](./media/iot-hub-include-create-hub/iot-hub-create-review-vs2019.png)
+    Marcas são pares nome/valor. Você pode atribuir a mesma marca a vários recursos e grupos de recursos para categorizá-los e consolidar a cobrança.
+
+   ![Definir o tamanho e a escala para um novo hub usando o portal do Azure](./media/iot-hub-include-create-hub/iot-hub-create-tabs.png)
+
+    Selecione **Avançar: Analisar + criar** para examinar suas escolhas. Você verá algo semelhante a esta tela.
+
+   ![Examinar informações para criar o hub](./media/iot-hub-include-create-hub/iot-hub-create-review.png)
 
 1. Selecione **Criar** para criar o hub. Criar o hub leva alguns minutos.

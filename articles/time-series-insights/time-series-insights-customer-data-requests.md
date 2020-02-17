@@ -4,17 +4,17 @@ description: Saiba mais sobre os recursos de solicitação de dados do cliente n
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 12/23/2019
+ms.date: 02/14/2020
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: c33fce5b6999c5b8372fe4c04401bf55898aee8d
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 64660e497bb1765b649e00b07fdb5db8c05910f5
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863437"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368704"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumo dos recursos de solicitação de dados do cliente
 
@@ -66,7 +66,7 @@ No momento, o Time Series Insights não dá suporte à exclusão granular de dad
 
 Para obter mais informações, leia [Configurando a retenção em time Series insights](time-series-insights-how-to-configure-retention.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Leia mais sobre como [conceder acesso a dados ao seu ambiente de Azure Time Series insights](./time-series-insights-data-access.md).
 

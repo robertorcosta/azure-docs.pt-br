@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: f8400cbefc514fa01dedb1434a60989b1df0528d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c15662409f9f5badf50765b78bce7dd71e9fb1bc
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980228"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367172"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuração da máquina virtual do host da sessão
 
@@ -26,7 +26,7 @@ Visite a [Comunidade Tecnológica da Área de Trabalho Virtual do Windows](https
 
 Siga estas instruções se você estiver tendo problemas para ingressar VMs no domínio.
 
-- Ingresse a VM manualmente usando o processo em [ingressar uma máquina virtual do Windows Server em um domínio gerenciado](https://docs.microsoft.com/azure/active-directory-domain-services/Active-directory-ds-admin-guide-join-windows-vm-portal) ou usando o [modelo de ingresso no domínio](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
+- Ingresse a VM manualmente usando o processo em [ingressar uma máquina virtual do Windows Server em um domínio gerenciado](../active-directory-domain-services/join-windows-vm.md) ou usando o [modelo de ingresso no domínio](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
 - Tente executar o ping no nome de domínio da linha de comando na VM.
 - Examine a lista de mensagens de erro de ingresso no domínio em [Solucionando problemas de mensagens de erro de ingresso no domínio](https://social.technet.microsoft.com/wiki/contents/articles/1935.troubleshooting-domain-join-error-messages.aspx).
 
@@ -37,7 +37,7 @@ Siga estas instruções se você estiver tendo problemas para ingressar VMs no d
 **Correção:** Execute uma das ações a seguir para resolver.
 
 - Adicione manualmente as VMs a um domínio.
-- Reimplante o modelo depois que as credenciais tiverem sido confirmadas. Consulte [criar um pool de hosts com o PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+- Reimplante o modelo depois que as credenciais tiverem sido confirmadas. Consulte [criar um pool de hosts com o PowerShell](create-host-pools-powershell.md).
 - Ingresse VMs em um domínio usando um modelo com [une uma VM do Windows existente ao domínio do AD](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
 
 ### <a name="error-timeout-waiting-for-user-input"></a>Erro: tempo limite de espera para a entrada do usuário
@@ -62,17 +62,17 @@ Siga estas instruções se você estiver tendo problemas para ingressar VMs no d
 
 **Causa 1:** As VMs estão em uma rede virtual que não está associada à rede virtual (VNET) em que o domínio está localizado.
 
-**Correção 1:** Crie um emparelhamento VNET entre a VNET em que as VMs foram provisionadas e a VNET em que o DC (controlador de domínio) está em execução. Consulte [criar um emparelhamento de rede virtual – Gerenciador de recursos, assinaturas diferentes](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions).
+**Correção 1:** Crie um emparelhamento VNET entre a VNET em que as VMs foram provisionadas e a VNET em que o DC (controlador de domínio) está em execução. Consulte [criar um emparelhamento de rede virtual – Gerenciador de recursos, assinaturas diferentes](../virtual-network/create-peering-different-subscriptions.md).
 
 **Causa 2:** Ao usar Azure Active Directory Domain Services (Azure AD DS), a rede virtual não tem suas configurações de servidor DNS atualizadas para apontar para os controladores de domínio gerenciados.
 
-**Correção 2:** Para atualizar as configurações de DNS para a rede virtual que contém o AD DS do Azure, consulte [Atualizar configurações de DNS para a rede virtual do Azure](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network).
+**Correção 2:** Para atualizar as configurações de DNS para a rede virtual que contém o AD DS do Azure, consulte [Atualizar configurações de DNS para a rede virtual do Azure](../active-directory-domain-services/tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network).
 
 **Causa 3:** As configurações do servidor DNS da interface de rede não apontam para o servidor DNS apropriado na rede virtual.
 
 **Correção 3:** Execute uma das ações a seguir para resolver, seguindo as etapas em [alterar servidores DNS].
-- Altere as configurações do servidor DNS da interface de rede para **personalizado** com as etapas de [alterar servidores DNS](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers) e especifique os endereços IP privados dos servidores DNS na rede virtual.
-- Altere as configurações do servidor DNS da interface de rede para **herdar da rede virtual** com as etapas de [alterar servidores DNS](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers)e, em seguida, altere as configurações do servidor DNS da rede virtual com as etapas de [alterar servidores DNS](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#change-dns-servers).
+- Altere as configurações do servidor DNS da interface de rede para **personalizado** com as etapas de [alterar servidores DNS](../virtual-network/virtual-network-network-interface.md#change-dns-servers) e especifique os endereços IP privados dos servidores DNS na rede virtual.
+- Altere as configurações do servidor DNS da interface de rede para **herdar da rede virtual** com as etapas de [alterar servidores DNS](../virtual-network/virtual-network-network-interface.md#change-dns-servers)e, em seguida, altere as configurações do servidor DNS da rede virtual com as etapas de [alterar servidores DNS](../virtual-network/manage-virtual-network.md#change-dns-servers).
 
 ## <a name="windows-virtual-desktop-agent-and-windows-virtual-desktop-boot-loader-are-not-installed"></a>O agente de área de trabalho virtual do Windows e o carregador de inicialização do Windows Virtual Desktop não estão instalados
 
@@ -88,7 +88,7 @@ Siga estas instruções para confirmar se os componentes estão instalados e par
 
 **Causa 1:** As credenciais fornecidas durante a entrada para o modelo de Azure Resource Manager estavam incorretas ou as permissões eram insuficientes.
 
-**Correção 1:** Adicione manualmente os componentes ausentes às VMs usando [criar um pool de hosts com o PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+**Correção 1:** Adicione manualmente os componentes ausentes às VMs usando [criar um pool de hosts com o PowerShell](create-host-pools-powershell.md).
 
 **Causa 2:** O DSC do PowerShell foi capaz de iniciar e executar, mas não foi concluído, pois não conseguiu entrar na área de trabalho virtual do Windows e obter as informações necessárias.
 
@@ -147,7 +147,7 @@ Quando o agente de área de trabalho virtual do Windows é instalado pela primei
 
 **Correção 2:** Siga estas instruções para abrir a porta 443.
 
-1. Confirme se a porta 443 está aberta baixando a ferramenta PSPing de [Ferramentas do Sysinternal](https://docs.microsoft.com/sysinternals/downloads/psping).
+1. Confirme se a porta 443 está aberta baixando a ferramenta PSPing de [Ferramentas do Sysinternal](/sysinternals/downloads/psping/).
 2. Instale o PSPing na VM host da sessão em que o agente está em execução.
 3. Abra o prompt de comando como administrador e emita o comando a seguir:
 
@@ -189,7 +189,7 @@ A saída de **Qwinsta** listará o **RDP-SxS** na saída se a pilha lado a lado 
 
 ![Pilha lado a lado instalada ou habilitada com Qwinsta listado como RDP-SxS na saída.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-Examine as entradas de registro listadas abaixo e confirme se seus valores correspondem. Se as chaves do registro estiverem ausentes ou se os valores forem incompatíveis, siga as instruções em [criar um pool de hosts com o PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell) sobre como reinstalar a pilha lado a lado.
+Examine as entradas de registro listadas abaixo e confirme se seus valores correspondem. Se as chaves do registro estiverem ausentes ou se os valores forem incompatíveis, siga as instruções em [criar um pool de hosts com o PowerShell](create-host-pools-powershell.md) sobre como reinstalar a pilha lado a lado.
 
 ```registry
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal
@@ -208,13 +208,13 @@ Examine as entradas de registro listadas abaixo e confirme se seus valores corre
 **Correção:** Siga estas instruções para instalar a pilha lado a lado na VM host de sessão.
 
 1. Use protocolo RDP (RDP) para obter diretamente a VM host da sessão como administrador local.
-2. Baixe e importe [o módulo do PowerShell de área de trabalho virtual do Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) para usar em sua sessão do PowerShell, se ainda não tiver feito isso, execute este cmdlet para entrar em sua conta:
+2. Baixe e importe [o módulo do PowerShell de área de trabalho virtual do Windows](/powershell/windows-virtual-desktop/overview/) para usar em sua sessão do PowerShell, se ainda não tiver feito isso, execute este cmdlet para entrar em sua conta:
 
     ```powershell
     Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
     ```
 
-3. Instale a pilha lado a lado usando [criar um pool de hosts com o PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+3. Instale a pilha lado a lado usando [criar um pool de hosts com o PowerShell](create-host-pools-powershell.md).
 
 ## <a name="how-to-fix-a-windows-virtual-desktop-side-by-side-stack-that-malfunctions"></a>Como corrigir uma pilha lado a lado da área de trabalho virtual do Windows que não funciona corretamente
 
@@ -226,7 +226,7 @@ Há circunstâncias conhecidas que podem causar o mau funcionamento da pilha lad
 - Executando enablesxsstackrc. ps1 várias vezes
 - Executando enablesxsstackrc. ps1 em uma conta que não tem privilégios de administrador local
 
-As instruções nesta seção podem ajudá-lo a desinstalar a pilha lado a lado da área de trabalho virtual do Windows. Depois de desinstalar a pilha lado a lado, vá para "registrar a VM com o pool de hosts da área de trabalho virtual do Windows" em [criar um pool de hosts com o PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell) para reinstalar a pilha lado a lado.
+As instruções nesta seção podem ajudá-lo a desinstalar a pilha lado a lado da área de trabalho virtual do Windows. Depois de desinstalar a pilha lado a lado, vá para "registrar a VM com o pool de hosts da área de trabalho virtual do Windows" em [criar um pool de hosts com o PowerShell](create-host-pools-powershell.md) para reinstalar a pilha lado a lado.
 
 A VM usada para executar a correção deve estar na mesma sub-rede e domínio que a VM com a pilha lado a lado com funcionamento inadequado.
 
@@ -305,7 +305,7 @@ Se o limite de tempo expirar, será exibida uma mensagem de erro dizendo "a sess
 Se você vir uma dessas mensagens, isso significa que a imagem não tem as atualizações mais recentes do Windows instaladas ou que você está definindo o modo de licenciamento Área de Trabalho Remota por meio da diretiva de grupo. Siga as etapas nas próximas seções para verificar a configuração da política de grupo, identificar a versão do Windows 10 Enterprise Multi-Session e instalar a atualização correspondente.  
 
 >[!NOTE]
->A área de trabalho virtual do Windows requer uma CAL (licença de acesso para cliente) do RDS quando o pool de hosts contém hosts de sessão do Windows Server. Para saber como configurar um RDS CAL, confira [licenciar sua implantação de RDS com licenças de acesso para cliente](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license).
+>A área de trabalho virtual do Windows requer uma CAL (licença de acesso para cliente) do RDS quando o pool de hosts contém hosts de sessão do Windows Server. Para saber como configurar um RDS CAL, confira [licenciar sua implantação de RDS com licenças de acesso para cliente](/windows-server/remote/remote-desktop-services/rds-client-access-license/).
 
 ### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Desabilitar a configuração de política de grupo do modo de licenciamento Área de Trabalho Remota
 
@@ -335,7 +335,7 @@ Se o seu número de versão diz "1809", instale [a atualização do KB4516077](h
 
 Reimplante o sistema operacional do host com a versão mais recente da imagem do Windows 10, versão 1903 da galeria do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma visão geral da solução de problemas da área de trabalho virtual do Windows e das faixas de escalonamento, consulte [visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
 - Para solucionar problemas ao criar um pool de locatários e de host em um ambiente de área de trabalho virtual do Windows, confira [criação de locatário e pool de hosts](troubleshoot-set-up-issues.md).

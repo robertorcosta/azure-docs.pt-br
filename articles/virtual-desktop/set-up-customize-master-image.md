@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 30895af3e973fd5c9ae0de559df440f18cec1563
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 23763123ce8e92b6bb15b2b33a196ed1a1d75c9f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013139"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368805"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem de VHD mestre
 
@@ -22,13 +22,13 @@ Este artigo mostra como preparar uma imagem de VHD (disco rígido virtual) mestr
 
 O Windows 10 Enterprise Multi-Session está disponível na Galeria de imagens do Azure. Há duas opções para personalizar essa imagem.
 
-A primeira opção é provisionar uma VM (máquina virtual) no Azure seguindo as instruções em [criar uma VM com base em uma imagem gerenciada](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)e, em seguida, pular para a [preparação e instalação de software](set-up-customize-master-image.md#software-preparation-and-installation).
+A primeira opção é provisionar uma VM (máquina virtual) no Azure seguindo as instruções em [criar uma VM com base em uma imagem gerenciada](../virtual-machines/windows/create-vm-generalized-managed.md)e, em seguida, pular para a [preparação e instalação de software](set-up-customize-master-image.md#software-preparation-and-installation).
 
 A segunda opção é criar a imagem localmente baixando a imagem, Provisionando uma VM do Hyper-V e personalizando-a para atender às suas necessidades, que abordamos na seção a seguir.
 
 ### <a name="local-image-creation"></a>Criação de imagem local
 
-Depois de baixar a imagem em um local local, abra o **Gerenciador do Hyper-V** para criar uma VM com o VHD que você copiou. As instruções a seguir são uma versão simples, mas você pode encontrar instruções mais detalhadas em [criar uma máquina virtual no Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v).
+Depois de baixar a imagem em um local local, abra o **Gerenciador do Hyper-V** para criar uma VM com o VHD que você copiou. As instruções a seguir são uma versão simples, mas você pode encontrar instruções mais detalhadas em [criar uma máquina virtual no Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v/).
 
 Para criar uma VM com o VHD copiado:
 
@@ -50,7 +50,7 @@ Set-VM -Name <VMNAME> -CheckpointType Disabled
 
 ### <a name="fixed-disk"></a>Disco fixo
 
-Se você criar uma VM de um VHD existente, ele criará um disco dinâmico por padrão. Ele pode ser alterado para um disco fixo selecionando **Editar disco...** conforme mostrado na imagem a seguir. Para obter instruções mais detalhadas, consulte [preparar um VHD do Windows ou VHDX para carregar no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+Se você criar uma VM de um VHD existente, ele criará um disco dinâmico por padrão. Ele pode ser alterado para um disco fixo selecionando **Editar disco...** conforme mostrado na imagem a seguir. Para obter instruções mais detalhadas, consulte [preparar um VHD do Windows ou VHDX para carregar no Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
 
 ![Uma captura de tela da opção Editar disco.](media/35772414b5a0f81f06f54065561d1414.png)
 
@@ -70,7 +70,7 @@ Se os usuários precisarem acessar determinados aplicativos LOB, recomendamos qu
 
 ### <a name="set-up-user-profile-container-fslogix"></a>Configurar o contêiner de perfil de usuário (FSLogix)
 
-Para incluir o contêiner FSLogix como parte da imagem, siga as instruções em [criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivos](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Você pode testar a funcionalidade do contêiner FSLogix com este guia de [início rápido](https://docs.microsoft.com/fslogix/configure-cloud-cache-tutorial).
+Para incluir o contêiner FSLogix como parte da imagem, siga as instruções em [criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivos](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Você pode testar a funcionalidade do contêiner FSLogix com este guia de [início rápido](/fslogix/configure-cloud-cache-tutorial/).
 
 ### <a name="configure-windows-defender"></a>Configurar o Windows Defender
 
@@ -78,9 +78,9 @@ Se o Windows Defender estiver configurado na VM, verifique se ele está configur
 
 Essa configuração remove apenas a verificação de arquivos VHD e VHDX durante o anexo, mas não afeta a verificação em tempo real.
 
-Para obter instruções mais detalhadas sobre como configurar o Windows Defender no Windows Server, consulte [configurar exclusões do Windows Defender antivírus no Windows Server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus).
+Para obter instruções mais detalhadas sobre como configurar o Windows Defender no Windows Server, consulte [configurar exclusões do Windows Defender antivírus no Windows Server](/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus/).
 
-Para saber mais sobre como configurar o Windows Defender para excluir determinados arquivos da verificação, consulte [configurar e validar exclusões com base na extensão do arquivo e no local da pasta](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus).
+Para saber mais sobre como configurar o Windows Defender para excluir determinados arquivos da verificação, consulte [configurar e validar exclusões com base na extensão do arquivo e no local da pasta](/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus/).
 
 ### <a name="disable-automatic-updates"></a>Desabilitar Atualizações Automáticas
 
@@ -137,9 +137,9 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\
 
 Este artigo não aborda como configurar o suporte a idiomas e regionais. Para obter mais informações, consulte os seguintes artigos:
 
-- [Adicionar idiomas a imagens do Windows](https://docs.microsoft.com/windows-hardware/manufacture/desktop/add-language-packs-to-windows)
-- [Recursos sob demanda](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities)
-- [Recursos de linguagem e região sob demanda (FOD)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-language-fod)
+- [Adicionar idiomas a imagens do Windows](/windows-hardware/manufacture/desktop/add-language-packs-to-windows/)
+- [Recursos sob demanda](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities/)
+- [Recursos de linguagem e região sob demanda (FOD)](/windows-hardware/manufacture/desktop/features-on-demand-language-fod/)
 
 ### <a name="other-applications-and-registry-configuration"></a>Outros aplicativos e configuração do registro
 
@@ -174,7 +174,7 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-s
 
 ## <a name="prepare-the-image-for-upload-to-azure"></a>Preparar a imagem para carregar no Azure
 
-Depois de concluir a configuração e instalar todos os aplicativos, siga as instruções em [preparar um VHD do Windows ou VHDX para carregar no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image) para preparar a imagem.
+Depois de concluir a configuração e instalar todos os aplicativos, siga as instruções em [preparar um VHD do Windows ou VHDX para carregar no Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) para preparar a imagem.
 
 Depois de preparar a imagem para upload, verifique se a VM permanece no estado desligado ou desalocado.
 

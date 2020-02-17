@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: helohr
-ms.openlocfilehash: 0db1ffe46165d91148b6980abbf89d03340e646e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8065be841b18fa0f8706a3bea3739ee2cb013323
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75486684"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367594"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configurar o tipo de atribuição de pool de hosts de área de trabalho pessoal
 
@@ -27,7 +27,7 @@ Atribuição automática é o tipo de atribuição padrão para novos pools de h
 
 Para atribuir usuários automaticamente, primeiro atribua-os ao pool de hosts de área de trabalho pessoal para que eles possam ver a área de trabalho em seu feed. Quando um usuário atribuído iniciar a área de trabalho no feed, ele solicitará um host de sessão disponível se ainda não tiver se conectado ao pool de hosts, o que concluirá o processo de atribuição.
 
-Antes de começar, [Baixe e importe o módulo do PowerShell da área de trabalho virtual do Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) , caso ainda não tenha feito isso. 
+Antes de começar, [Baixe e importe o módulo do PowerShell da área de trabalho virtual do Windows](/powershell/windows-virtual-desktop/overview/) , caso ainda não tenha feito isso. 
 
 > [!NOTE]
 > Verifique se você instalou o módulo do PowerShell da área de trabalho virtual do Windows versão 1.0.1534.2001 ou posterior antes de seguir estas instruções.
@@ -72,7 +72,7 @@ Para atribuir um usuário a um host de sessão específico, execute o seguinte c
 Set-RdsSessionHost <tenantname> <hostpoolname> -Name <sessionhostname> -AssignedUser <userupn>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você configurou o tipo de atribuição de área de trabalho pessoal, você pode entrar em um cliente de área de trabalho virtual do Windows para testá-lo como parte de uma sessão de usuário. Esses próximos dois como tos informarão como se conectar a uma sessão usando o cliente de sua escolha:
 

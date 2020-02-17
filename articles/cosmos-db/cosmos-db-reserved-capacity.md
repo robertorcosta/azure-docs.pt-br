@@ -4,15 +4,15 @@ description: Aprenda a comprar a capacidade reservada do Azure Cosmos DB para ec
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 02/14/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 17f6787cddf2800663d37b153b3e1b8cf33390f8
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 8e29683b994d66e769a24bb2d386a2120cf8eab9
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201162"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367660"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Otimizar o custo com a capacidade reservada no Azure Cosmos DB
 
@@ -52,7 +52,7 @@ Aqui está um exemplo de recomendação:
 
 ![Recomendações de capacidade reservada](./media/cosmos-db-reserved-capacity/reserved-capacity-recommendation.png)
 
-Essa recomendação para comprar uma reserva de 3 milhões RU/s indica que, entre as reservas de 3 anos, um tamanho de reserva de 3 milhões RU/s aumentará a economia. Nesse caso, a recomendação é calculada com base nos últimos 30 dias de uso de Azure Cosmos DB. Se esse cliente esperar que os últimos 30 dias de uso do Azure Cosmos DB sejam representativos de uso futuro, eles maximizarão a economia adquirindo uma reserva de 3 milhões RU/s.
+Essa recomendação para comprar uma reserva de 30.000 RU/s indica que, entre as reservas de 3 anos, um tamanho de reserva de 30.000 RU/s aumentará a economia. Nesse caso, a recomendação é calculada com base nos últimos 30 dias de uso de Azure Cosmos DB. Se esse cliente esperar que os últimos 30 dias de uso do Azure Cosmos DB sejam representativos de uso futuro, eles maximizarão a economia adquirindo uma reserva de 30.000 RU/s.
 
 ## <a name="buy-azure-cosmos-db-reserved-capacity"></a>Comprar capacidade reservada do Azure Cosmos DB
 
