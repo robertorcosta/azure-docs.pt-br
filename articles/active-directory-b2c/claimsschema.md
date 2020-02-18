@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/12/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 76e2b1c221475a90dc63498d13d4ede7a78e0779
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: fc01bd5c868cddd448e3a262960af64f50b78d74
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185597"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77372982"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -51,13 +51,31 @@ O elemento **ClaimType** contém os seguintes elementos:
 | Elemento | Ocorrências | DESCRIÇÃO |
 | ------- | ----------- | ----------- |
 | DisplayName | 1:1 | O título que é exibido aos usuários em várias telas. O valor pode ser [localizado](localization.md). |
-| Tipo de dados | 1:1 | O tipo da declaração. Os tipos de dados Boolean, Date, dateTime, int, Long, String, StringCollection e phoneNumber podem ser usados. O tipo de dados Primitive representa o C# equivalente do tipo de dados Variable. StringCollection representa uma coleção de cadeias de caracteres. Para obter mais informações [ C# , consulte tipos e variáveis](https://docs.microsoft.com/dotnet/csharp/tour-of-csharp/types-and-variables). A data segue a Convenção ISO 8601. |
+| Tipo de dados | 1:1 | O tipo da declaração. |
 | DefaultPartnerClaimTypes | 0:1 | Os tipos de declaração padrão do parceiro a serem usados para um protocolo especificado. O valor pode ser substituído no **PartnerClaimType** especificado nos elementos **InputClaim** ou **OutputClaim**. Use esse elemento para especificar o nome padrão de um protocolo.  |
 | Mask | 0:1 | Uma cadeia de caracteres opcional de caracteres de mascaramento que podem ser aplicados ao exibir a declaração. Por exemplo, o número de telefone 324-232-4343 pode ser mascarado como XXX-XXX-4343. |
 | UserHelpText | 0:1 | Uma descrição do tipo de declaração que pode ser útil para os usuários entenderem sua finalidade. O valor pode ser [localizado](localization.md). |
 | UserInputType | 0:1 | O tipo de controle de entrada que deve estar disponível para o usuário ao inserir manualmente os dados da declaração para o tipo de declaração. Confira os tipos de entrada do usuário definidos nesta página. |
 | Restrição | 0:1 | As restrições de valor para essa declaração, como uma expressão regular (Regex) ou uma lista de valores aceitáveis. O valor pode ser [localizado](localization.md). |
 PredicateValidationReference| 0:1 | Uma referência a um elemento **PredicateValidationsInput**. Os elementos **PredicateValidationReference** permitem que você execute um processo de validação para garantir que apenas dados formados corretamente sejam inseridos. Para obter mais informações, confira [Predicados](predicates.md). |
+
+### <a name="datatype"></a>Tipo de dados
+
+O elemento **DataType** dá suporte aos seguintes valores:
+
+| Type | DESCRIÇÃO |
+| ------- | ----------- | 
+|booleano|Representa um valor booliano (`true` ou `false`).|
+|date| Representa um instante no tempo, normalmente expresso como uma data de um dia. O valor da data segue a Convenção ISO 8601.|
+|dateTime|Representa um instante no tempo, normalmente expresso como uma data e hora do dia. O valor da data segue a Convenção ISO 8601.|
+|duration|Representa um intervalo de tempo em anos, meses, dias, horas, minutos e segundos. O formato de é `PnYnMnDTnHnMnS`, em que `P` indica positivo ou `N` para valor negativo. `nY` é o número de anos seguido por uma `Y`literal. `nMo` é o número de meses seguido por uma `Mo`literal. `nD` é o número de dias seguidos por uma `D`literal. Exemplos: `P21Y` representa 21 anos. `P1Y2Mo` representa um ano e dois meses. `P1Y2Mo5D` representa um ano, dois meses e cinco dias.  `P1Y2M5DT8H5M620S` representa um ano, dois meses, cinco dias, oito horas, cinco minutos e vinte segundos.  |
+|phoneNumber|Representa um número de telefone. |
+|INT| Representa o número entre-2.147.483.648 e 2.147.483.647|
+|long| Representa o número entre-9.223.372.036.854.775.808 e 9.223.372.036.854.775.807 |
+|string| Representa o texto como uma sequência de unidades de código UTF-16.|
+|stringCollection|Representa uma coleção de `string`.|
+|userIdentity| Representa uma identidade de usuário.|
+|useridentitycollection|Representa uma coleção de `userIdentity`.|
 
 ### <a name="defaultpartnerclaimtypes"></a>DefaultPartnerClaimTypes
 
@@ -155,7 +173,7 @@ O elemento **Restriction** contém os seguintes elementos:
 | Enumeração | 1:n | As opções disponíveis na interface do usuário para o usuário selecionar para uma declaração, como um valor em uma lista suspensa. |
 | Padrão | 1:1 | A expressão regular a ser usada. |
 
-### <a name="enumeration"></a>Enumeração
+#### <a name="enumeration"></a>Enumeração
 
 O elemento **Enumeration** contém os seguintes atributos:
 
@@ -214,11 +232,26 @@ O Identity Experience Framework renderiza a declaração de endereço de email c
 
 ![Caixa de texto mostrando a mensagem de erro disparada pela restrição Regex](./media/claimsschema/pattern.png)
 
-## <a name="userinputtype"></a>UserInputType
+### <a name="userinputtype"></a>UserInputType
 
-O Azure AD B2C dá suporte a uma variedade de tipos de entrada do usuário, como uma lista suspensa, uma caixa de texto e uma senha, que podem ser usados ao inserir manualmente dados da declaração para o tipo de declaração. Você precisa especificar o **UserInputType** quando coleta informações do usuário usando um [perfil técnico autodeclarado](self-asserted-technical-profile.md).
+O Azure AD B2C dá suporte a uma variedade de tipos de entrada do usuário, como uma lista suspensa, uma caixa de texto e uma senha, que podem ser usados ao inserir manualmente dados da declaração para o tipo de declaração. Você deve especificar o **Userinputtype** ao coletar informações do usuário usando um [perfil técnico autodeclarado](self-asserted-technical-profile.md) e [controles de exibição](display-controls.md).
 
-### <a name="textbox"></a>TextBox
+Os tipos de entrada do usuário do elemento **Userinputtype** estão disponíveis:
+
+| UserInputType | ClaimType com suporte | DESCRIÇÃO |
+| --------- | -------- | ----------- |
+|CheckboxMultiSelect| `string` |Caixa suspensa seleção múltipla. O valor da declaração é representado em uma cadeia de caracteres delimitadores de vírgula dos valores selecionados. |
+|DateTimeDropdown | `date`, `dateTime` |Menus suspensos para selecionar um dia, mês e ano. |
+|DropdownSingleSelect |`string` |Caixa suspensa seleção única. O valor da declaração é o valor selecionado.|
+|EmailBox | `string` |Campo de entrada de email. |
+|Paragraph | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`|Um campo que mostra texto somente em uma marca de parágrafo. |
+|Senha | `string` |Caixa de texto de senha.|
+|RadioSingleSelect |`string` | Coleção de botões de opção. O valor da declaração é o valor selecionado.|
+|Readonly | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`| Caixa de texto somente leitura. |
+|TextBox |`boolean`, `int`, `string` |Caixa de texto de linha única. |
+
+
+#### <a name="textbox"></a>TextBox
 
 O tipo de entrada do usuário **TextBox** é usado para fornecer uma caixa de texto de linha única.
 
@@ -233,7 +266,7 @@ O tipo de entrada do usuário **TextBox** é usado para fornecer uma caixa de te
 </ClaimType>
 ```
 
-### <a name="emailbox"></a>EmailBox
+#### <a name="emailbox"></a>EmailBox
 
 O tipo de entrada do usuário **EmailBox** é usado para fornecer um campo de entrada de email básico.
 
@@ -251,7 +284,7 @@ O tipo de entrada do usuário **EmailBox** é usado para fornecer um campo de en
 </ClaimType>
 ```
 
-### <a name="password"></a>Senha
+#### <a name="password"></a>Senha
 
 O tipo de entrada do usuário **Password** é usado para registrar uma senha inserida pelo usuário.
 
@@ -266,7 +299,7 @@ O tipo de entrada do usuário **Password** é usado para registrar uma senha ins
 </ClaimType>
 ```
 
-### <a name="datetimedropdown"></a>DateTimeDropdown
+#### <a name="datetimedropdown"></a>DateTimeDropdown
 
 O tipo de entrada do usuário **DateTimeDropdown** é usado para fornecer um conjunto de menus suspensos para selecionar um dia, mês e ano. Você pode usar os elementos Predicates e PredicateValidations para controlar os valores de data mínimo e máximo. Para obter mais informações, confira a seção **Configurar um intervalo de datas** de [Predicates e PredicateValidations](predicates.md).
 
@@ -281,7 +314,7 @@ O tipo de entrada do usuário **DateTimeDropdown** é usado para fornecer um con
 </ClaimType>
 ```
 
-### <a name="radiosingleselect"></a>RadioSingleSelect
+#### <a name="radiosingleselect"></a>RadioSingleSelect
 
 O tipo de entrada do usuário **RadioSingleSelect** é usado para fornecer uma coleção de botões de opção que permitem ao usuário selecionar uma opção.
 
@@ -300,7 +333,7 @@ O tipo de entrada do usuário **RadioSingleSelect** é usado para fornecer uma c
 </ClaimType>
 ```
 
-### <a name="dropdownsingleselect"></a>DropdownSingleSelect
+#### <a name="dropdownsingleselect"></a>DropdownSingleSelect
 
 O tipo de entrada do usuário **DropdownSingleSelect** é usado para fornecer uma caixa suspensa que permite ao usuário selecionar uma opção.
 
@@ -319,7 +352,7 @@ O tipo de entrada do usuário **DropdownSingleSelect** é usado para fornecer um
 </ClaimType>
 ```
 
-### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
+#### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
 
 O tipo de entrada do usuário **CheckboxMultiSelect** é usado para fornecer uma coleção de caixas de seleção que permitem ao usuário selecionar várias opções.
 
@@ -338,7 +371,7 @@ O tipo de entrada do usuário **CheckboxMultiSelect** é usado para fornecer uma
 </ClaimType>
 ```
 
-### <a name="readonly"></a>Readonly
+#### <a name="readonly"></a>Readonly
 
 O tipo de entrada do usuário **Readonly** é usado para fornecer um campo somente leitura para exibir a declaração e o valor.
 
@@ -354,9 +387,9 @@ O tipo de entrada do usuário **Readonly** é usado para fornecer um campo somen
 ```
 
 
-### <a name="paragraph"></a>Paragraph
+#### <a name="paragraph"></a>Paragraph
 
-O tipo de entrada do usuário **Paragraph** é usado para fornecer um campo que mostra texto apenas em uma marca de parágrafo. Por exemplo, &lt;p&gt;texto&lt;/p&gt;.
+O tipo de entrada do usuário **Paragraph** é usado para fornecer um campo que mostra texto apenas em uma marca de parágrafo.  Por exemplo, &lt;p&gt;texto&lt;/p&gt;. Um tipo de entrada de usuário de **parágrafo** `OutputClaim` do perfil técnico autodeclarado, deve definir o atributo de `Required` `false` (padrão).
 
 ![Usando o tipo de declaração com paragraph](./media/claimsschema/paragraph.png)
 

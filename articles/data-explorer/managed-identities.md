@@ -7,16 +7,16 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 3b0bb62de4a96a45d607e05b32a87feec692e4d4
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: e76ae2e072bb780ac9788902e9157db871e4f09d
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75725969"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373379"
 ---
 # <a name="configure-managed-identities-for-your-azure-data-explorer-cluster"></a>Configurar identidades gerenciadas para o cluster de Data Explorer do Azure
 
-Uma [identidade gerenciada do Azure Active Directory](/azure/active-directory/managed-identities-azure-resources/overview) permite que o cluster acesse facilmente outros recursos protegidos por AAD, como Azure Key Vault. A identidade é gerenciada pela plataforma do Azure e não exige que você provisione ou gire segredos. Este artigo mostra como criar uma identidade gerenciada para clusters de Data Explorer do Azure. 
+Uma [identidade gerenciada do Azure Active Directory](/azure/active-directory/managed-identities-azure-resources/overview) permite que o cluster acesse facilmente outros recursos protegidos por AAD, como Azure Key Vault. A identidade é gerenciada pela plataforma do Azure e não exige que você provisione ou gire segredos. Este artigo mostra como criar uma identidade gerenciada para clusters de Data Explorer do Azure. Atualmente, a configuração de identidade gerenciada tem suporte apenas para [habilitar chaves gerenciadas pelo cliente para o cluster](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault).
 
 > [!Note]
 > As identidades gerenciadas para o Azure Data Explorer não se comportarão conforme o esperado se seu aplicativo for migrado entre assinaturas ou locatários. O aplicativo precisará obter uma nova identidade, o que pode ser feito desabilitando e reabilitando o recurso usando [remover uma identidade](#remove-an-identity). As políticas de acesso dos recursos downstream também precisarão ser atualizadas para usar a nova identidade.
@@ -135,7 +135,7 @@ A remoção de uma identidade atribuída pelo sistema também a excluirá do AAD
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Proteger clusters de Data Explorer do Azure no Azure](security.md)
 * [Proteja seu cluster no Azure data Explorer-portal do Azure](manage-cluster-security.md) habilitando a criptografia em repouso.

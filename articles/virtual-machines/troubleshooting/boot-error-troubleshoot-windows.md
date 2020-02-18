@@ -1,5 +1,5 @@
 ---
-title: A reinicialização de máquinas virtuais do Azure está paralisada na reinicialização, no desligamento ou na interrupção dos serviços | Microsoft Docs
+title: O desligamento de máquinas virtuais do Azure está preso na reinicialização, no desligamento ou na interrupção dos serviços | Microsoft Docs
 description: Este artigo ajuda você a solucionar problemas de erros de serviço no Azure Máquinas Virtuais do Windows.
 services: virtual-machines-windows
 documentationCenter: ''
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/19/2019
 ms.author: tibasham
-ms.openlocfilehash: db7b26402170236843891799738088b9229e4693
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5d6396efc9ab25baa0d32e7c33c7715863516249
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75477402"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77371364"
 ---
-# <a name="azure-windows-vm-restart-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>A reinicialização de VM do Windows do Azure está presa em "reinicializando", "desligando" ou "parando serviços"
+# <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>O desligamento de VM do Windows do Azure está preso em "reinicializando", "desligando" ou "interrompendo serviços"
 
 Este artigo fornece etapas para resolver os problemas de mensagens de "reinicialização", "desligamento" ou "interrupção de serviços" que você pode encontrar ao reinicializar uma VM (máquina virtual) do Windows no Microsoft Azure.
 

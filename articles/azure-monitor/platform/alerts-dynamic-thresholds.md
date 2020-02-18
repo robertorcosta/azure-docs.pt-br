@@ -5,15 +5,15 @@ author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 02/16/2020
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 750aded128804468ae557d7c016a50c5378d9217
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: f67dcf7f1f4f39a11eb995995a8d0acc278b5d4a
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74762498"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373400"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertas de métrica com limites dinâmicos no Azure Monitor
 
@@ -92,11 +92,11 @@ Provavelmente, não. Limites Dinâmicos são bons para detectar desvios signific
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>Qual é a quantidade de dados usada para visualizar e então calcular os limites?
 
-Quando e alerta é criado pela primeira vez, os limites que aparecem no gráfico são calculados com base em dados históricos suficientes para calcular a hora ou os padrões sazonais diários (10 dias). Depois que uma regra de alerta é criada, os limites dinâmicos usam todos os dados históricos necessários que estão disponíveis e irão aprender e se adaptar continuamente com base nos novos dados para tornar os limites mais precisos. Isso significa que, após esse cálculo, o gráfico também exibirá padrões semanais.
+Quando uma regra de alerta é criada pela primeira vez, os limites que aparecem no gráfico são calculados com base em dados históricos suficientes para calcular a hora ou os padrões sazonais diários (10 dias). Depois que uma regra de alerta é criada, os limites dinâmicos usam todos os dados históricos necessários que estão disponíveis e irão aprender e se adaptar continuamente com base nos novos dados para tornar os limites mais precisos. Isso significa que, após esse cálculo, o gráfico também exibirá padrões semanais.
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>Qual é a quantidade de dados necessária para disparar um alerta?
 
-Se você tiver um novo recurso ou dados de métrica ausentes, os limites dinâmicos não dispararão alertas antes que três dias de dados estejam disponíveis para garantir limites precisos.
+Se você tiver um novo recurso ou dados de métrica ausentes, os limites dinâmicos não dispararão alertas antes de três dias ou 30 amostras de dados de métrica estarão disponíveis para garantir limites precisos.
 
 ## <a name="dynamic-thresholds-best-practices"></a>Melhores práticas para Limites Dinâmicos
 

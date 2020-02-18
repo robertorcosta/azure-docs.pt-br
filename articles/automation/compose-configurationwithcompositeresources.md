@@ -6,18 +6,18 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/21/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2c6d9aa13c8c320dc46f6634f3a60e0c1730c710
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e5083ec55ee0a57cd7defd466f5baf1704336320
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75418724"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370656"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>Compor configurações de DSC na configuração do estado de automação do Azure (DSC) usando recursos compostos
 
 Quando um recurso precisa ser gerenciado com mais de uma configuração de configuração de estado desejado (DSC), o melhor caminho é usar [recursos compostos](/powershell/scripting/dsc/resources/authoringresourcecomposite). Um recurso composto é uma configuração aninhada e parametrizada sendo usada como um recurso DSC em outra configuração. Isso permite a criação de configurações complexas, permitindo que os recursos compostos subjacentes (configurações parametrizadas) sejam gerenciados e construídos individualmente.
 
-A Automação do Azure permite a [importação e a compilação de recursos compostos](automation-dsc-compile.md#compiling-configurations-in-azure-automation-that-contain-composite-resources).
+A Automação do Azure permite a [importação e a compilação de recursos compostos](automation-dsc-compile.md).
 Depois que os recursos compostos tiverem sido importados para sua conta de automação, você poderá usar a experiência **Compor configuração** na página **Configuração do estado (DSC)** .
 
 ## <a name="composing-a-configuration-from-composite-resources"></a>Compor uma configuração a partir de recursos compostos
@@ -39,7 +39,7 @@ Depois que a nova configuração é salva, ela é enviada para compilação. O s
 
 Quando a compilação for concluída com êxito, a nova configuração aparecerá na guia **configurações compiladas** . Quando estiver visível nessa guia, ela poderá ser atribuída a um nó gerenciado usando as etapas em [reatribuir um nó a uma configuração de nó diferente](automation-dsc-getting-started.md#reassigning-a-node-to-a-different-node-configuration).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para começar, consulte [Introdução à Configuração de Estado da Automação do Azure](automation-dsc-getting-started.md)
 - Para saber mai sobre nós de integração, veja [Máquinas de integração para o gerenciamento pela Configuração do Estado de Automação do Azure](automation-dsc-onboarding.md)

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/11/2020
+ms.date: 02/16/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3e5fb1ebb763cc5ecd7dfe8724347c03a487bc13
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: c759b7f0467ddb961f44f27c2d2f18ed24d2cfca
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157866"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77372801"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -82,7 +82,7 @@ O elemento **DataUri** é usado para especificar o identificador de página. O A
 | Identificador de página | DESCRIÇÃO |
 | ----- | ----------- |
 | `globalexception` | Exibe uma página de erro quando uma exceção ou um erro é encontrado. |
-| `providerselection` | Lista os provedores de identidade que os usuários podem escolher durante a entrada. |
+| `providerselection`, `idpselection` | Lista os provedores de identidade que os usuários podem escolher durante a entrada.  |
 | `unifiedssp` | Exibe um formulário de entrada para entrar com uma conta local baseada em endereço de email ou nome de usuário. Esse valor também oferece as funcionalidades "Mantenha-me conectado" e "Esqueceu sua senha?" . |
 | `unifiedssd` | Exibe um formulário de entrada para entrar com uma conta local baseada em endereço de email ou nome de usuário. |
 | `multifactor` | Verifica os números de telefone usando o texto ou voz durante a inscrição ou entrada. |

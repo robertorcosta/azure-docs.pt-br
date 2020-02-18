@@ -1,18 +1,18 @@
 ---
 title: Ingerir Blobs do Azure no Azure Data Explorer
 description: Neste artigo, você aprenderá a enviar dados da conta de armazenamento para o Azure Data Explorer usando uma assinatura da grade de eventos.
-author: radennis
-ms.author: radennis
-ms.reviewer: orspodek
+author: orspod
+ms.author: orspodek
+ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: da701dc91781ef72c29e6454e79523073810dbe4
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 728f4d4f6cc4a2d34e3a7b8f4ca1b150fd7a56c7
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667493"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373391"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Ingerir blobs no Azure Data Explorer assinando notificações da Grade de Eventos
 
@@ -26,7 +26,7 @@ O Azure Data Explorer é um serviço de exploração de dados rápido e escalon�
 
 Neste artigo, você aprenderá a definir uma assinatura da [grade de eventos do Azure](/azure/event-grid/overview) e a rotear eventos para o Azure data Explorer por meio de um hub de eventos. Para começar, você precisa ter uma conta de armazenamento com uma assinatura da grade de eventos que envie notificações para os Hubs de Eventos do Azure. Então, você criará uma conexão de dados da Grade de Eventos e verá o fluxo de dados pelo sistema.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Criar uma [conta gratuita do Azure](https://azure.microsoft.com/free/).
 * [Um cluster e um banco de dados](create-cluster-database-portal.md).
@@ -44,7 +44,7 @@ Neste artigo, você aprenderá a definir uma assinatura da [grade de eventos do 
 
     **Configuração** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | name | *test-grid-connection* | O nome da grade de eventos que você deseja criar.|
+    | Nome | *test-grid-connection* | O nome da grade de eventos que você deseja criar.|
     | Esquema do evento | *Esquema da Grade de Eventos* | O esquema que deve ser usado para a grade de eventos. |
     | Tipo de tópico | *Conta de armazenamento* | O tipo de tópico da grade de eventos. |
     | Recurso do Tópico | *gridteststorage* | O nome da sua conta de armazenamento. |
@@ -186,7 +186,7 @@ Você poderá alterar a política em um momento posterior se necessário. Neste 
 
     ![Conjunto de resultados de mensagem](media/ingest-data-event-grid/table-result.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não planeja usar sua grade de eventos novamente, limpe **test-hub-rg** para evitar custos.
 
@@ -200,6 +200,6 @@ Se você não planeja usar sua grade de eventos novamente, limpe **test-hub-rg**
 
 1. Na nova janela, insira o nome do grupo de recursos para excluir (*test-hub-rg*) e, em seguida, selecione **Excluir**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Consultar dados no Azure Data Explorer](web-query-data.md)

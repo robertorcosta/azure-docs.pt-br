@@ -10,19 +10,19 @@
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Configurar entrada – ASP.NET
+    - name: Configurar entrada - ASP.NET
       href: quickstart-web-app-dotnet.md
-    - name: Configurar entrada – Desktop
+    - name: Configurar entrada - Desktop
       href: quickstart-native-app-desktop.md
-    - name: Configurar entrada – Página única
+    - name: Configurar entrada - Página única
       href: quickstart-single-page-app.md
 - name: Tutoriais
   items:
-    - name: 1 – Criar o locatário B2C
+    - name: 1 - Criar o locatário B2C
       href: tutorial-create-tenant.md
     - name: 2 – Registrar um aplicativo
       href: tutorial-register-applications.md
-    - name: 3 – Criar fluxos dos usuários
+    - name: 3 - Criar fluxos de usuário
       href: tutorial-create-user-flows.md
     - name: Adicionar provedores de identidade
       href: tutorial-add-identity-providers.md
@@ -66,7 +66,7 @@
           href: access-tokens.md
     - name: Política e fluxo de usuário
       items:
-        - name: Fluxos dos usuários
+        - name: Fluxos de usuário
           href: user-flow-overview.md
         - name: Políticas personalizadas
           href: custom-policy-overview.md
@@ -101,7 +101,7 @@
               href: user-flow-self-service-password-reset.md
         - name: Personalização de experiência do usuário
           items:
-            - name: Personalização da interface do usuário
+            - name: Personalizar a interface do usuário
               href: customize-ui-overview.md
             - name: JavaScript e layouts da página
               href: user-flow-javascript-overview.md
@@ -120,7 +120,7 @@
               href: identity-provider-amazon.md
             - name: Azure AD (único locatário)
               href: identity-provider-azure-ad-single-tenant.md
-            - name: Conta Microsoft
+            - name: Conta da Microsoft
               href: identity-provider-microsoft-account.md
             - name: Facebook
               href: identity-provider-facebook.md
@@ -177,8 +177,6 @@
             - name: Personalizar a interface do usuário
               href: custom-policy-ui-customization.md
               displayName: 'ux, input, cors, html, css'
-            - name: Personalizar a interface do usuário dinamicamente
-              href: custom-policy-ui-customization-dynamic.md
             - name: Email personalizado
               href: custom-email.md
               displayName: verification
@@ -200,7 +198,7 @@
                   href: identity-provider-google-custom.md
                 - name: LinkedIn
                   href: identity-provider-linkedin-custom.md
-                - name: Conta Microsoft
+                - name: Conta da Microsoft
                   href: identity-provider-microsoft-account-custom.md
                 - name: Twitter
                   href: identity-provider-twitter-custom.md
@@ -262,13 +260,13 @@
                 - name: ClaimsTransformations
                   href: claimstransformations.md
                   items:
-                    - name: Booliano
+                    - name: Boolean
                       href: boolean-transformations.md
                     - name: Data
                       href: date-transformations.md
                     - name: Geral
                       href: general-transformations.md
-                    - name: Inteiro
+                    - name: Integer
                       href: integer-transformations.md
                     - name: JSON
                       href: json-transformations.md
@@ -420,5 +418,5 @@
     - name: Suporte
       href: support-options.md
       displayName: technical
-    - name: Vídeos
+    - name: vídeos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c'

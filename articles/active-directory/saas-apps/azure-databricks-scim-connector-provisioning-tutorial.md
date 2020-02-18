@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: de60b4ea1b09998e84bab4d204e3c8c3bc8779a4
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: fe1260982edc877c049716bd74f1bb3e90d33b0f
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77050441"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370527"
 ---
 # <a name="tutorial-configure-azure-databricks-scim-connector-for-automatic-user-provisioning"></a>Tutorial: configurar Azure Databricks conector do SCIM para provisionamento automático de usuário
 
@@ -34,7 +34,7 @@ Este tutorial descreve as etapas que você precisa executar em ambos Azure Datab
 > * Manter os atributos de usuário sincronizados entre o Azure AD e o conector SCIM do Azure Databricks
 > * Provisionar grupos e associações de grupo no conector do SCIM Azure Databricks
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
@@ -96,7 +96,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Guia provisionamento](common/provisioning-automatic.png)
 
-5. Na seção **credenciais de administrador** , insira seu Azure Databricks credenciais de administrador do conector scim e o nome de usuário. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao conector do scim Azure Databricks. Se a conexão falhar, verifique se a conta do conector do Azure Databricks SCIM tem permissões de administrador e tente novamente.
+5. Na seção **credenciais de administrador** , insira o valor de ponto de extremidade scim na **URL do locatário**. A URL do locatário deve estar no formato `https://<region>.azuredatabricks.net/api/2.0/preview/scim` onde a **região** pode ser encontrada em seu Azure Databricks URL Home Page. Por exemplo, um ponto de extremidade SCIM para a região **westus** será `https://westus.azuredatabricks.net/api/2.0/preview/scim`. Insira o valor do token recuperado anteriormente no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao conector do scim Azure Databricks. Se a conexão falhar, verifique se a conta do conector do Azure Databricks SCIM tem permissões de administrador e tente novamente.
 
     ![provisionamento](./media/azure-databricks-scim-provisioning-connector-provisioning-tutorial/provisioning.png)
 
@@ -104,13 +104,13 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Selecione **Salvar**.
+7. Clique em **Salvar**.
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para Azure Databricks conector scim**.
 
 9. Examine os atributos de usuário que são sincronizados do Azure AD para Azure Databricks conector do SCIM na seção de **mapeamento de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no conector de Azure Databricks scim para operações de atualização. Se você optar por alterar o [atributo de destino correspondente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), será necessário garantir que o Azure Databricks API do conector do scim dê suporte à filtragem de usuários com base nesse atributo. Selecione o botão **Salvar** para confirmar as alterações.
 
-   |Atributo|Tipo|
+   |Atributo|Type|
    |---|---|
    |userName|String|
    |displayName|String|
@@ -120,7 +120,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 11. Examine os atributos de grupo que são sincronizados do Azure AD para Azure Databricks conector SCIM na seção de **mapeamento de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos no conector de Azure Databricks scim para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-     |Atributo|Tipo|
+     |Atributo|Type|
      |---|---|
      |displayName|String|
      |membros|Referência|
@@ -157,6 +157,6 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
 * [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)

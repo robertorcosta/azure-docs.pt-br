@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 5f3bceb8398f9837f6f8eaa390def41456daf08d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 786950011f10e25d6bcb72061212c1878e79d45a
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271603"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373360"
 ---
 # <a name="secure-azure-data-explorer-clusters-in-azure"></a>Proteger clusters de Data Explorer do Azure no Azure
 
@@ -34,10 +34,10 @@ O recurso identidades gerenciadas do Azure Active Directory (Azure AD) para recu
 
 Por padrão, os dados são criptografados com chaves gerenciadas pela Microsoft. Para obter mais controle sobre as chaves de criptografia, você pode fornecer chaves gerenciadas pelo cliente para usar na criptografia de dados. Você pode gerenciar a criptografia de seus dados no nível de armazenamento com suas próprias chaves. Uma chave gerenciada pelo cliente é usada para proteger e controlar o acesso à chave de criptografia raiz, que é usada para criptografar e descriptografar todos os dados. Chaves gerenciadas pelo cliente oferecem maior flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados.
 
-Use Azure Key Vault para armazenar as chaves gerenciadas pelo cliente. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar uma API de Azure Key Vault para gerar chaves. O cluster Data Explorer do Azure e o Azure Key Vault devem estar na mesma região, mas podem estar em assinaturas diferentes. Para obter mais informações sobre Azure Key Vault, consulte [o que é Azure Key Vault?](/azure/key-vault/key-vault-overview). Para obter uma explicação detalhada sobre chaves gerenciadas pelo cliente, consulte [chaves gerenciadas pelo cliente com Azure Key Vault](/azure/storage/common/storage-service-encryption)
+Use Azure Key Vault para armazenar as chaves gerenciadas pelo cliente. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar uma API de Azure Key Vault para gerar chaves. O cluster Data Explorer do Azure e o Azure Key Vault devem estar na mesma região, mas podem estar em assinaturas diferentes. Para obter mais informações sobre Azure Key Vault, consulte [o que é Azure Key Vault?](/azure/key-vault/key-vault-overview). Para obter uma explicação detalhada sobre chaves gerenciadas pelo cliente, consulte [chaves gerenciadas pelo cliente com Azure Key Vault](/azure/storage/common/storage-service-encryption). Configurar chaves gerenciadas pelo cliente no cluster de Data Explorer do [C#](/azure/data-explorer/customer-managed-keys-csharp) Azure usando o ou o [modelo de Azure Resource Manager](/azure/data-explorer/customer-managed-keys-resource-manager)
 
 > [!Note]
-> As chaves gerenciadas pelo cliente dependem de identidades gerenciadas para recursos do Azure, um recurso do Azure Active Directory (Azure AD). Para configurar chaves gerenciadas pelo cliente no portal do Azure, você precisa configurar uma identidade gerenciada do **SystemAssigned** para o cluster.
+> As chaves gerenciadas pelo cliente dependem de identidades gerenciadas para recursos do Azure, um recurso do Azure Active Directory (Azure AD). Para configurar chaves gerenciadas pelo cliente no portal do Azure, você precisa configurar uma identidade gerenciada do **SystemAssigned** para o cluster, conforme detalhado em [Configurar identidades gerenciadas para o cluster de data Explorer do Azure](/azure/data-explorer/managed-identities).
 
 #### <a name="store-customer-managed-keys-in-azure-key-vault"></a>Armazenar chaves gerenciadas pelo cliente no Azure Key Vault
 
@@ -54,14 +54,14 @@ Para revogar o acesso às chaves gerenciadas pelo cliente, use o PowerShell ou C
 > [!Note]
 > Quando o Azure Data Explorer identifica que o acesso a uma chave gerenciada pelo cliente é revogado, ele suspende automaticamente o cluster para excluir todos os dados armazenados em cache. Depois que o acesso à chave é retornado, o cluster precisa ser retomado manualmente.
 
-## <a name="role-based-access-control"></a>Controle de acesso baseado em funções
+## <a name="role-based-access-control"></a>Controle de acesso baseado em função
 
 Usando o [RBAC (controle de acesso baseado em função)](/azure/role-based-access-control/overview), você pode separar as tarefas dentro de sua equipe e conceder apenas o acesso necessário aos usuários do cluster. Em vez de fornecer a todos permissões irrestritas no cluster, você pode permitir apenas determinadas ações. Você pode configurar o [controle de acesso para os bancos de dados](/azure/data-explorer/manage-database-permissions) no [portal do Azure](/azure/role-based-access-control/role-assignments-portal), usando o [CLI do Azure](/azure/role-based-access-control/role-assignments-cli)ou [Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* [Configurar identidades gerenciadas para o cluster de Data Explorer do Azure](managed-identities.md)
 * [Proteja seu cluster no portal de data Explorer do Azure](manage-cluster-security.md) habilitando a criptografia em repouso.
+* [Configurar identidades gerenciadas para o cluster de Data Explorer do Azure](managed-identities.md)
 * [Configurar chaves gerenciadas pelo cliente usando o modelo de Azure Resource Manager](customer-managed-keys-resource-manager.md)
 * [Configurar chaves gerenciadas pelo cliente usando oC#](customer-managed-keys-csharp.md)
 
