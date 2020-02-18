@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 59c38423f771685dc79a8be12a383cfdec6a0266
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 798c80ec2290a96b6f76116120292720c05c9198
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031519"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426230"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-preview-using-cli"></a>Criar e gerenciar um link privado para o banco de dados do Azure para MySQL (versão prévia) usando a CLI
 
@@ -20,7 +20,7 @@ Um ponto de extremidade privado é o bloco de construção fundamental para o li
 > [!NOTE]
 > Esse recurso está disponível em todas as regiões do Azure em que o banco de dados do Azure para MySQL dá suporte a tipos de preço Uso Geral e com otimização de memória.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -54,7 +54,7 @@ az network vnet subnet update \
  --vnet-name myVirtualNetwork \
  --disable-private-endpoint-network-policies true
 ```
-## <a name="create-the-vm"></a>Criar a máquina virtual 
+## <a name="create-the-vm"></a>Criar a VM 
 Crie uma VM com az vm create. Quando solicitado, forneça uma senha a ser usada como credencial de entrada para a VM. Este exemplo cria uma VM chamada *myVm*: 
 ```azurecli-interactive
 az vm create \
@@ -127,7 +127,7 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
 
 1. Selecione **Baixar Arquivo RDP**. O Azure cria um arquivo *.rdp* (protocolo RDP) e ele é baixado no computador.
 
-1. Abra o arquivo downloaded.rdp*.
+1. Abra o arquivo *downloaded.rdp*.
 
     1. Se solicitado, selecione **Conectar**.
 
@@ -155,34 +155,35 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
     Non-authoritative answer:
     Name:    mydemomysqlserver.privatelink.mysql.database.azure.com
     Address:  10.1.3.4
+    ```
 
-3. Test the private link connection for the MySQL server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
+3. Teste a conexão de link privado para o servidor MySQL usando qualquer cliente disponível. No exemplo abaixo, usei o [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) para realizar a operação.
 
 
-4. In **New connection**, enter or select this information:
+4. Em **nova conexão**, insira ou selecione estas informações:
 
-    | Setting | Value |
+    | Configuração | Valor |
     | ------- | ----- |
-    | Connection Name| Select the connection name of your choice.|
-    | Hostname | Select *mydemoserver.privatelink.mysql.database.azure.com* |
-    | Username | Enter username as *username@servername* which is provided during the MySQL server creation. |
-    | Password | Enter a password provided during the MySQL server creation. |
+    | Nome da Conexão| Selecione o nome de conexão de sua escolha.|
+    | Nome do host | Selecionar *mydemoserver.privatelink.mysql.Database.Azure.com* |
+    | Nome de Usuário | Insira o nome de usuário como *username@servername* que é fornecido durante a criação do servidor MySQL. |
+    | Senha | Insira uma senha fornecida durante a criação do servidor MySQL. |
     ||
 
-5. Select Connect.
+5. Selecione conectar.
 
-6. Browse databases from left menu.
+6. Procurar bancos de dados no menu à esquerda.
 
-7. (Optionally) Create or query information from the MySQL database.
+7. Opcionalmente Crie ou consulte informações do banco de dados MySQL.
 
-8. Close the remote desktop connection to myVm.
+8. Feche a conexão de área de trabalho remota para myVm.
 
-## Clean up resources 
-When no longer needed, you can use az group delete to remove the resource group and all the resources it has: 
+## <a name="clean-up-resources"></a>Limpar os recursos 
+Quando não for mais necessário, você poderá usar az group delete para remover o grupo de recursos e todos os recursos que ele contém: 
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes 
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre [o que é o ponto de extremidade privado do Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)

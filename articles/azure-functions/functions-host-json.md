@@ -3,12 +3,12 @@ title: Referência host.json para o Azure Functions 2.x
 description: Documentação de referência do arquivo host.json do Azure Functions com o runtime v2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: cc982d3f810c944a5273cbf0cf9778076d119692
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 9b0d078a8c6df21e8000930e72856e92e2d40af7
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208817"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425197"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>referência de host. JSON para Azure Functions 2. x e posterior 
 
@@ -21,9 +21,9 @@ O arquivo de metadados *host.json* contém opções de configuração global que
 > [!NOTE]
 > Este artigo é para o Azure Functions 2. x e versões posteriores.  Para obter uma referência de host.json no Functions 1.x, confira [Referência de host.json para o Azure Functions 1.x](functions-host-json-v1.md).
 
-Outras opções de configuração de aplicativo de funções são gerenciadas nas [configurações de aplicativo](functions-app-settings.md).
+Outras opções de configuração de aplicativo de funções são gerenciadas nas [configurações do aplicativo](functions-app-settings.md) (para aplicativos implantados) ou no arquivo [local. Settings. JSON](functions-run-local.md#local-settings-file) (para o desenvolvimento local).
 
-Algumas configurações host.json são usadas apenas quando executadas localmente no arquivo [local.settings.json](functions-run-local.md#local-settings-file).
+As configurações em host. JSON relacionadas às associações são aplicadas igualmente a cada função no aplicativo de funções. 
 
 ## <a name="sample-hostjson-file"></a>Arquivo host.json de exemplo
 
@@ -69,11 +69,11 @@ O seguinte arquivo *host. JSON* de exemplo para a versão 2. x + tem todas as op
               "isEnabled": true,
               "maxTelemetryItemsPerSecond" : 20,
               "evaluationInterval": "01:00:00",
-              "initialSamplingPercentage": 1.0, 
+              "initialSamplingPercentage": 100.0, 
               "samplingPercentageIncreaseTimeout" : "00:00:01",
               "samplingPercentageDecreaseTimeout" : "00:00:01",
               "minSamplingPercentage": 0.1,
-              "maxSamplingPercentage": 0.1,
+              "maxSamplingPercentage": 100.0,
               "movingAverageRatio": 1.0,
               "excludedTypes" : "Dependency;Event",
               "includedTypes" : "PageView;Trace"

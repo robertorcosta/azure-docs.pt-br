@@ -4,15 +4,15 @@ description: Compreendendo as definições comuns de esquema de alerta para Azur
 ms.service: azure-monitor
 ms.subservice: alerts
 ms.topic: conceptual
-author: anantr
+author: ofirmanor
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: fb8c2c7e25f94c66c8cc8f7768071d508da8d3b5
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: efa6a8807b3db14649a2b4ad38c575cf98aba113
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765669"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425163"
 ---
 # <a name="common-alert-schema-definitions"></a>Definições comuns do esquema de alertas
 
@@ -71,13 +71,13 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 }
 ```
 
-## <a name="essentials"></a>Essentials
+## <a name="essentials"></a>Conceitos básicos
 
-| Campo | Description|
+| Campo | DESCRIÇÃO|
 |:---|:---|
 | alertId | O GUID que identifica exclusivamente a instância de alerta. |
 | alertRule | O nome da regra de alerta que gerou a instância de alerta. |
-| Gravidade | A severidade do alerta. Valores possíveis: Sev0, Sev1, Sev2, Sev3 ou Sev4. |
+| Severity | A severidade do alerta. Valores possíveis: Sev0, Sev1, Sev2, Sev3 ou Sev4. |
 | sinaltype | Identifica o sinal no qual a regra de alerta foi definida. Valores possíveis: métrica, log ou log de atividades. |
 | monitorCondition | Quando um alerta é **disparado, a condição**do monitor do alerta é definida como disparada. Quando a condição subjacente que fez com que o alerta fosse limpo, a condição do monitor é definida como **resolvida**.   |
 | monitoringService | O serviço de monitoramento ou a solução que gerou o alerta. Os campos para o contexto de alerta são determinados pelo serviço de monitoramento. |
@@ -151,7 +151,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 ### <a name="log-alerts"></a>Alertas de registro
 
 > [!NOTE]
-> Para alertas de log que têm um assunto de email personalizado e/ou conteúdo JSON definido, habilitar o esquema comum reverte o assunto do email e/ou esquema de carga para o descrito a seguir. Os alertas com o esquema comum habilitado têm um limite de tamanho superior de 256 KB por alerta. Os resultados da pesquisa não serão inseridos na carga de alertas de log se fizerem com que o tamanho do alerta cruze esse limite. Você pode determinar isso verificando o sinalizador `IncludedSearchResults`. Quando os resultados da pesquisa não são incluídos, você deve usar a consulta de pesquisa em conjunto com a [API log Analytics](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
+> Para alertas de log que têm um assunto de email personalizado e/ou conteúdo JSON definido, habilitar o esquema comum reverte o assunto do email e/ou esquema de carga para o descrito a seguir. Os alertas com o esquema comum habilitado têm um limite de tamanho superior de 256 KB por alerta. Os resultados da pesquisa não serão inseridos na carga de alertas de log se fizerem com que o tamanho do alerta cruze esse limite. Você pode determinar isso verificando o sinalizador `IncludeSearchResults`. Quando os resultados da pesquisa não são incluídos, você deve usar a consulta de pesquisa em conjunto com a [API log Analytics](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
@@ -214,7 +214,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
         }
       ]
     },
-    "IncludedSearchResults": "True",
+    "IncludeSearchResults": "True",
     "AlertType": "Number of results"
   }
 }
@@ -277,7 +277,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
         }
       ]
     },
-    "IncludedSearchResults": "True",
+    "IncludeSearchResults": "True",
     "AlertType": "Number of results"
   }
 }
@@ -481,7 +481,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [esquema de alerta comum](https://aka.ms/commonAlertSchemaDocs).
 - Saiba [como criar um aplicativo lógico que usa o esquema de alerta comum para lidar com todos os seus alertas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations). 

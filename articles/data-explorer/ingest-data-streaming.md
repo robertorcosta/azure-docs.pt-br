@@ -7,23 +7,23 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: cc152460be777c30d79f783b9acfa846a4c73a72
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 49129bede62e456cf2807cc879b7fc5e1793b65b
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188014"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77424942"
 ---
 # <a name="streaming-ingestion-preview"></a>Ingestão de streaming (visualização)
 
-A ingestão de streaming é destinada a cenários que exigem baixa latência com um tempo de ingestão de menos de 10 segundos para dados de volume variados. Ele é usado para a otimização do processamento operacional de muitas tabelas, em um ou mais bancos de dados em que o fluxo de dado em cada tabela é relativamente pequeno (poucos registros por segundo), mas o volume de ingestão de dados geral é alto (milhares de registros por segundo).
+A ingestão de streaming é destinada a cenários que exigem baixa latência com um tempo de ingestão de menos de 10 segundos para dados de volume variados. Ele é usado para otimizar o processamento operacional de muitas tabelas, em um ou mais bancos de dados, em que o fluxo de dado em cada tabela é relativamente pequeno (poucos registros por segundo), mas o volume de ingestão de dados geral é alto (milhares de registros por segundo).
 
 Use a ingestão clássica (em massa) em vez da ingestão de streaming quando a quantidade de dados aumentar para mais de 1 MB por segundo por tabela. Leia [visão geral de ingestão de dados](/azure/data-explorer/ingest-data-overview) para saber mais sobre os vários métodos de ingestão.
 
 > [!NOTE]
 > A ingestão de streaming não dá suporte aos seguintes recursos:
 > * [Cursores de banco de dados](/azure/kusto/management/databasecursor).
-> * [Mapeamento de dados](/azure/kusto/management/mappings). Somente o mapeamento [de dados pré-criado](/azure/kusto/management/create-ingestion-mapping-command) tem suporte. 
+> * [Mapeamento de dados](/azure/kusto/management/mappings). Somente o mapeamento [de dados pré-criado](/azure/kusto/management/tables#create-ingestion-mapping) tem suporte. 
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -64,7 +64,7 @@ Há dois tipos de ingestão de streaming com suporte:
 > [!WARNING]
 > Desabilitar a ingestão de streaming pode levar algumas horas.
 
-1. Remova a [política de ingestão de streaming](/azure/kusto/concepts/streamingingestionpolicy) de todas as tabelas e bancos de dados relevantes. A remoção da política de ingestão de streaming dispara a movimentação de dados de ingestão de streaming do armazenamento inicial para o armazenamento permanente no repositório de coluna (extensões ou fragmentos). A movimentação de dados pode durar entre alguns segundos e algumas horas, dependendo da quantidade de dados no armazenamento inicial e da utilização de CPU e memória do cluster.
+1. Remova a [política de ingestão de streaming](/azure/kusto/concepts/streamingingestionpolicy) de todas as tabelas e bancos de dados relevantes. A remoção da política de ingestão de streaming dispara a movimentação de dados de ingestão de streaming do armazenamento inicial para o armazenamento permanente no repositório de coluna (extensões ou fragmentos). A movimentação de dados pode durar entre alguns segundos e algumas horas, dependendo da quantidade de dados no armazenamento inicial e de como a CPU e a memória são usadas pelo cluster.
 1. No portal do Azure, acesse o cluster do Azure Data Explorer. Em **configurações**, selecione **configurações**. 
 1. No painel **configurações** , selecione **desativado** para desabilitar a **ingestão de streaming**.
 1. Clique em **Salvar**.
@@ -73,10 +73,11 @@ Há dois tipos de ingestão de streaming com suporte:
 
 ## <a name="limitations"></a>Limitações
 
-* O desempenho de ingestão de streaming e a capacidade aumentam com tamanhos de VM e cluster maiores. Ingestãos simultâneas são limitadas a 6 ingestãos por núcleo. Por exemplo, para SKUs de 16 núcleos, como D14 e L16, a carga com suporte máxima é de 96 ingestãos simultâneas. Para SKUs de 2 núcleos, como D11, a carga com suporte máxima é de 12 ingestãos simultâneas.
+* O desempenho de ingestão de streaming e a capacidade aumentam com tamanhos de VM e cluster maiores. Ingestãos simultâneas são limitadas a seis ingestãos por núcleo. Por exemplo, para SKUs de 16 núcleos, como D14 e L16, a carga com suporte máxima é de 96 ingestãos simultâneas. Para dois SKUs principais, como D11, a carga com suporte máxima é de 12 ingestãos simultâneas.
 * A limitação de tamanho de dados por solicitação de ingestão é 4 MB.
 * As atualizações de esquema, como criação e modificação de tabelas e mapeamentos de ingestão, podem levar até 5 minutos para o serviço de ingestão de streaming.
 * Habilitar a ingestão de streaming em um cluster, mesmo quando os dados não são ingeridos via streaming, o usa parte do disco SSD local das máquinas de cluster para dados de ingestão de streaming e reduz o armazenamento disponível para cache ativo.
+* As [marcas de extensão](/azure/kusto/management/extents-overview.md#extent-tagging) não podem ser definidas nos dados de ingestão de streaming.
 
 ## <a name="next-steps"></a>Próximas etapas
 

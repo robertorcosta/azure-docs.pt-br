@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/17/2020
 ms.author: dapine
-ms.openlocfilehash: 0788ff84cd5b0d50e0798d0d72ee84b47cb5f0b1
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 4a2887ef8b264628128872730422fd38d6b0ac0f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368317"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77424993"
 ---
 # <a name="what-is-custom-speech"></a>O que é Fala Personalizada?
 
@@ -62,9 +62,9 @@ Conteúdo como dados, modelos, testes e pontos de extremidade são organizados e
 Para criar seu primeiro projeto, selecione a fala de **fala para texto/Personalizada**e clique em **novo projeto**. Siga as instruções fornecidas pelo Assistente para criar seu projeto. Depois de criar um projeto, você deverá ver quatro guias: **dados**, **teste**, **treinamento**e **implantação**. Use os links fornecidos nas [próximas etapas](#next-steps) para aprender a usar cada guia.
 
 > [!IMPORTANT]
-> O [portal de fala personalizada](https://aka.ms/custom-speech) foi atualizado recentemente! Se você criou projetos anteriores com dados, modelos, testes e pontos de extremidade publicados no portal do CRIS ou com APIs, será necessário criar um novo projeto no novo portal para se conectar a essas entidades antigas.
+> O [portal de fala personalizada](https://aka.ms/custom-speech) foi atualizado recentemente! Se você criou dados, modelos, testes e pontos de extremidade publicados anteriores no portal do CRIS.ai ou com APIs, você precisa criar um novo projeto no novo portal para se conectar a essas entidades antigas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Preparar e testar seus dados](how-to-custom-speech-test-data.md)
 * [Inspecione seus dados](how-to-custom-speech-inspect-data.md)

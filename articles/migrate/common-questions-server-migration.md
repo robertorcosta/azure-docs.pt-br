@@ -1,56 +1,62 @@
 ---
 title: Perguntas comuns sobre a migração de servidor de migrações para Azure
-description: Obtenha respostas para perguntas comuns sobre migração de servidor de migrações para Azure
+description: Obtenha respostas para perguntas comuns sobre a migração de computadores com a migração de servidor de migrações para Azure
 ms.topic: conceptual
-ms.date: 02/06/2020
-ms.openlocfilehash: bae3447f0fada18de5473e1ef1a1c1d431535f63
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.date: 02/17/2020
+ms.openlocfilehash: 0c967027457b925b45ea19d994cfadfdbd0b8ab3
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77067377"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425826"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migração de servidor de migrações para Azure: perguntas comuns
 
-Este artigo responde a perguntas comuns sobre o migrações para Azure: migração de servidor. Se você tiver outras consultas depois de ler este artigo, poste-as no [Fórum de migrações para Azure](https://aka.ms/AzureMigrateForum). Se você tiver outras dúvidas, leia estes artigos:
+Este artigo responde a perguntas comuns sobre o migrações para Azure: ferramenta de migração de servidor. Se você tiver mais dúvidas depois de ler este artigo, leia estes artigos:
 
 - [Perguntas gerais](resources-faq.md) sobre as migrações para Azure.
 - [Perguntas](common-questions-appliance.md) sobre o dispositivo migrações para Azure.
 - [Perguntas](common-questions-discovery-assessment.md) sobre a descoberta, avaliação e visualização de dependência.
+- Poste perguntas no [Fórum de migrações para Azure](https://aka.ms/AzureMigrateForum).
 
 
 ## <a name="how-does-agentless-vmware-replication-work"></a>Como funciona a replicação do VMware sem agente?
 
-O método de replicação sem agente para VMware usa instantâneos do VMware e o CBT (controle de bloqueio) alterado pela VMware. Um ciclo de replicação inicial é agendado quando o usuário inicia a replicação. No ciclo de replicação inicial, um instantâneo da VM é tirado e esse instantâneo é usado para replicar os VMDK (discos) de VMs. Após a conclusão do ciclo de replicação inicial, os ciclos de replicação delta são agendados periodicamente. No ciclo de replicação delta, um instantâneo é tirado e os blocos de dados que foram alterados desde o ciclo de replicação anterior são replicados. O VMware Changed Monitoring Block é usado para determinar os blocos que foram alterados desde o último ciclo.
-A frequência dos ciclos de replicação periódicos é gerenciada automaticamente pelo serviço, dependendo de quantas outras VMs/discos estão replicando simultaneamente o mesmo repositório de armazenamento e, em condições ideais, eventualmente convergirá para um ciclo por hora por VM.
+O método de replicação sem agente para VMware usa instantâneos do VMware e o CBT (controle de bloqueio) alterado pela VMware.
 
-Quando você migra, um ciclo de replicação sob demanda é agendado para a VM capturar os dados restantes. Você pode optar por desligar a VM como parte da migração para garantir zero perda de dados e consistência do aplicativo.
+1. Quando você inicia a replicação, um ciclo de replicação inicial é agendado. No ciclo inicial, um instantâneo da VM é tirado. Esse instantâneo é usado para replicar os VMDK (discos) de VMs. 
+2. Após a conclusão do ciclo de replicação inicial, os ciclos de replicação delta são agendados periodicamente.
+    - Durante a replicação delta, um instantâneo é tirado e os blocos de dados que foram alterados desde o ciclo de replicação anterior são replicados.
+    - O VMware CBT é usado para determinar os blocos que foram alterados desde o último ciclo.
+    - A frequência dos ciclos de replicação periódicos é gerenciada automaticamente pelas migrações para Azure, dependendo de quantas outras VMs/discos estão replicando simultaneamente do mesmo repositório de armazenamento. Nas condições ideais, a replicação eventualmente é convergida para um ciclo por hora para cada VM.
 
-## <a name="why-is-the-resynchronization-option-not-exposed-in-agentless-stack"></a>Por que a opção de ressincronização não é exposta na pilha sem agente?
+Quando você migra, um ciclo de replicação sob demanda é agendado para a máquina para capturar os dados restantes. Você pode optar por desligar o computador durante a migração para garantir zero perda de dados e consistência do aplicativo.
 
-Na pilha sem agente, em cada ciclo Delta, transferimos a comparação entre o instantâneo atual e o instantâneo anterior que tínhamos feito. Como sempre é uma comparação entre os instantâneos, isso dá a vantagem de dobrar os dados (ou seja, se um setor específico é escrito ' n' vezes entre os instantâneos, só precisamos transferir a última gravação, pois estamos interessados apenas na última sincronização). Isso é diferente da pilha baseada em agente na qual acompanhamos todas as gravações e as aplicamos. Isso significa que cada ciclo Delta é uma ressincronização. Portanto, não há nenhuma opção de ressincronização exposta. 
+## <a name="why-isnt-resynchronization-exposed"></a>Por que a ressincronização não está exposta?
 
-Se os discos estiverem fora de sincronia devido a uma falha, eles serão corrigidos no próximo ciclo. 
+Durante a migração sem agente, em cada ciclo Delta, a diferença entre o instantâneo atual e o instantâneo previamente criado é gravada. Já que é sempre a diferença entre instantâneos, dobrando dados em. Assim, se um setor específico for gravado N vezes entre os instantâneos, apenas a última gravação precisará ser transferida, pois estamos interessados apenas na última sincronização. Isso difere da replicação baseada em agente, onde acompanhamos e aplicamos cada gravação. Isso significa que cada ciclo Delta é uma ressincronização. Portanto, não há nenhuma opção de ressincronização exposta. Se os discos não estiverem sincronizados devido a uma falha, eles serão corrigidos no próximo ciclo. 
 
-## <a name="what-is-the-impact-of-churn-rate-if-i-use-agentless-replication"></a>Qual é o impacto da taxa de variação se eu usar a replicação sem agente?
+## <a name="how-does-churn-rate-impact-agentless-replication"></a>Como a taxa de rotatividade impacta a replicação sem agente?
 
-Como a pilha depende dos dados que estão sendo dobrados, mais do que a taxa de rotatividade, o padrão de rotatividade é o que importa nessa pilha. Um padrão em que um arquivo está sendo gravado novamente não tem muito impacto. No entanto, um padrão no qual cada outro setor é escrito causará alta rotatividade no próximo ciclo. Como minimizamos a quantidade de dados que transferimos, permitimos que os dados dobrem o máximo possível antes de agendar o próximo ciclo.  
+Como a data dobra da replicação sem agente, o padrão de rotatividade é mais importante que a taxa de rotatividade. Quando um arquivo é gravado novamente e novamente, a taxa não tem muito impacto. No entanto, um padrão no qual cada outro setor é escrito causa alta rotatividade no próximo ciclo. Como minimizamos a quantidade de dados que transferimos, permitimos que os dados dobrem o máximo possível antes de agendar o próximo ciclo.  
 
 ## <a name="how-frequently-is-a-replication-cycle-scheduled"></a>Com que frequência um ciclo de replicação é agendado?
 
-A fórmula para agendar o próximo ciclo de replicação é esta: (tempo de ciclo anterior/2) ou 1 hora, o que for maior. Por exemplo, se uma VM levou quatro horas para um ciclo Delta, agendaremos seu próximo ciclo em 2 horas e não na próxima hora. Isso é diferente quando o ciclo é imediatamente após IR, onde agendamos o primeiro ciclo Delta imediatamente.
+A fórmula para agendar o próximo ciclo de replicação: (tempo de ciclo anterior/2) ou 1 hora, o que for maior.
 
-## <a name="what-is-the-impact-on-performance-of-vcenter-server-or-esxi-host-while-using-agentless-replication"></a>Qual é o impacto no desempenho de vCenter Server ou host ESXi ao usar a replicação sem agente?
+Por exemplo, se uma VM levar quatro horas para um ciclo Delta, o próximo ciclo será agendado em duas horas, e não na próxima hora. Isso é diferente imediatamente após a replicação inicial, em que o primeiro ciclo Delta é agendado imediatamente.
 
-Como a replicação sem agente usa instantâneos, haverá o consumo de IOPs no armazenamento e os clientes precisarão de algum espaço de IOPs no armazenamento. Não é recomendável usar essa pilha no ambiente de armazenamento/IOPs restrito.
+## <a name="how-does-agentless-replication-impact-vmware-servers"></a>Como a replicação sem agente afeta os servidores VMware?
 
-## <a name="does-agentless-migration-stack-support-migration-of-uefi-vms-to-azure-gen-2-vms"></a>A pilha de migração sem agente dá suporte à migração de VMs UEFI para VMs do Azure Gen 2?
+Há algum impacto no desempenho em hosts vCenter Server/ESXi. Como a replicação sem agente usa instantâneos, ele consome IOPs no armazenamento e alguma largura de banda de armazenamento de IOPS é necessária. Não recomendamos o uso da replicação sem agente se houver restrições de armazenamento/IOPs em seu ambiente.
 
-Não, você deve usar Azure Site Recovery para migrar essas VMs para VMs do Azure de Gen 2. 
+## <a name="can-i-do-agentless-migration-of-uefi-vms-to-azure-gen-2"></a>Posso fazer a migração sem agente de VMs UEFI para o Azure Gen 2?
 
-## <a name="can-i-pin-my-vms-to-azure-availability-zones-when-i-migrate"></a>Posso fixar minhas VMs para Zonas de Disponibilidade do Azure quando eu migrar?
+Não. Use Azure Site Recovery para migrar essas VMs para VMs do Azure de Gen 2. 
 
-Não, o suporte para Zonas de Disponibilidade do Azure não está lá.
+## <a name="can-i-pin-vms-to-azure-availability-zones-when-i-migrate"></a>Posso fixar VMs para Zonas de Disponibilidade do Azure quando eu migrar?
+
+Não, não há suporte para Zonas de Disponibilidade do Azure.
 
 ## <a name="which-transport-protocol-is-used-by-azure-migrate-during-replication"></a>Qual protocolo de transporte é usado pelas migrações para Azure durante a replicação?
 
@@ -64,10 +70,10 @@ Você precisa ter pelo menos vCenter Server 5,5 e VMware vSphere o host ESXi ver
 
 Não. As migrações para Azure dão suporte à migração somente para discos gerenciados (HDD padrão, SSD Premium).
 
-## <a name="how-many-vms-can-replicate-simultaneously-using-agentless-vmware-stack"></a>Quantas VMs podem ser replicadas simultaneamente usando o VMware Stack sem agente?
+## <a name="how-many-vms-can-i-replicate-together-with-agentless-migration"></a>Quantas VMs posso replicar junto com a migração sem agente?
 
-Atualmente, os clientes podem migrar 100 VMs por vCenter Server simultaneamente. Isso pode ser feito em lotes de 10 VMs.
-
+No momento, você pode migrar 100 VMs por vCenter Server simultaneamente. Migre em lotes de 10 VMs.
+ 
 
 
 

@@ -2,13 +2,13 @@
 title: Dispositivo de Migrações para Azure
 description: Fornece uma visão geral do dispositivo de migrações para Azure usado em avaliação e migração de servidor.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: 652fe9d379d6e2ba50e9e282f384905e154368d8
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.date: 02/17/2020
+ms.openlocfilehash: d02227747be4bc7d994e2ea84cd74e7f2fd2531f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031656"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425452"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo de Migrações para Azure
 
@@ -55,7 +55,7 @@ Computador físico |  Migrações para Azure: avaliação do servidor |  Descobr
 **Valor de hash** | MD5:29a7531f32bcf69f32d964fa5ae950bc<br/><br/> SHA256:37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
 **Host Hyper-V** | Executando o Windows Server 2012 R2 ou posterior.
 **Projeto de migrações para Azure** | Um dispositivo pode ser associado a um único projeto. <br/> Qualquer número de dispositivos pode ser associado a um único projeto.<br/> 
-**Descoberta** | Um dispositivo pode descobrir até 5000 VMs VMware em um vCenter Server.<br/> Um dispositivo pode se conectar a até 300 hosts Hyper-V.
+**Descoberta** | Um dispositivo pode descobrir até 5000 VMs do Hyper-V.<br/> Um dispositivo pode se conectar a até 300 hosts Hyper-V.
 **Componentes do dispositivo** | Aplicativo de gerenciamento: aplicativo Web no dispositivo para entrada do usuário durante a implantação.<br/> Agente de descoberta: coleta dados de configuração do computador.<br/> Agente de avaliação: coletar dados de desempenho.<br/>  Serviço de atualização automática: atualizar componentes (é executado a cada 24 horas).
 
 
@@ -85,7 +85,7 @@ O dispositivo de migrações para Azure precisa de conectividade com a Internet.
 --- | --- |
 *. portal.azure.com  | Navegue até o Portal do Azure.
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Entre em sua assinatura do Azure.
-*.microsoftonline.com <br/> *.microsoftonline-p.com | Crie Active Directory aplicativos para o dispositivo se comunicar com as migrações para Azure.
+*.microsoftonline.com <br/> *.microsoftonline p.com | Crie Active Directory aplicativos para o dispositivo se comunicar com as migrações para Azure.
 management.azure.com | Crie Active Directory aplicativos para o dispositivo se comunicar com o serviço migrações para Azure.
 dc.services.visualstudio.com | Carregar logs de aplicativo usados para monitoramento interno.
 *.vault.azure.net | Gerenciar segredos no Azure Key Vault.
@@ -159,7 +159,7 @@ Endereços IPv6 | vm.Guest.Net
 Taxa de transferência de leitura (MB por segundo) | net.received.average
 Taxa de transferência de gravação (MB por segundo) | net.transmitted.average
 **Detalhes do caminho de inventário** | 
-{1&gt;Nome&lt;1} | container.GetType().Name
+Nome | container.GetType().Name
 Tipo de objeto filho | container.ChildType
 Detalhes de referência | container.MoRef
 Detalhes do pai | Container.Parent
@@ -209,7 +209,7 @@ Nome/versão/FQDN do sistema operacional | Msvm_KvpExchangeComponent | Dados do 
 Status de energia da VM | Msvm_ComputerSystem | Habilitadostate
 **Detalhes de por disco** | 
 Identificador de disco | Msvm_VirtualHardDiskSettingData | VirtualDiskId
-Tipo de disco rígido virtual | Msvm_VirtualHardDiskSettingData | Tipo
+Tipo de disco rígido virtual | Msvm_VirtualHardDiskSettingData | Type
 Tamanho do disco rígido virtual | Msvm_VirtualHardDiskSettingData | MaxInternalSize
 Pai do disco rígido virtual | Msvm_VirtualHardDiskSettingData | ParentPath
 **Por detalhes da NIC** | 
@@ -258,7 +258,7 @@ O dispositivo é atualizado conforme os agentes de migração do Azure em execu�
 
 Para atualizações manuais, certifique-se de atualizar todos os agentes no dispositivo ao mesmo tempo, usando o botão **Atualizar** para cada agente desatualizado no dispositivo. Você pode alternar a configuração de atualização de volta para atualizações automáticas a qualquer momento.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 [Saiba como](tutorial-assess-vmware.md#set-up-the-appliance-vm) configurar o dispositivo para VMware.
 [Saiba como](tutorial-assess-hyper-v.md#set-up-the-appliance-vm) configurar o dispositivo para o Hyper-V.

@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: fbb30b0a290011a5edfb05c1de9b5d4717a5f733
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 1cd13369f443f91782eef1024003e07435a44a45
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898696"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425214"
 ---
 # <a name="keys-and-values"></a>Chaves e valores
 
@@ -25,7 +25,7 @@ O uso de dados de configuração em estruturas do aplicativo pode exigir esquema
 
 As chaves armazenadas na Configuração de Aplicativo são cadeias de caracteres baseadas em Unicode que diferenciam maiúsculas de minúsculas. As chaves *app1* e *App1* são distintas em um repositório de Configuração de Aplicativos. Tenha isso em mente ao usar definições de configuração em um aplicativo, pois algumas estruturas manipulam as chaves de configuração sem diferenciar maiúsculas de minúsculas. Por exemplo, o sistema de configuração do ASP.NET Core trata as chaves como cadeias de caracteres que não diferenciam maiúsculas de minúsculas. Para evitar comportamentos imprevisíveis ao consultar a Configuração de Aplicativo dentro de um aplicativo ASP.NET Core, não use chaves que diferem somente pelo uso de maiúsculas.
 
-Você pode usar qualquer caractere unicode nos nomes de chave inseridos na Configuração de Aplicativo, exceto `*`, `,` e `\`. Esses caracteres são reservados. Caso precise incluir um caractere reservado, você precisará fazer escape dele usando `\{Reserved Character}`. Há um limite de tamanho combinado de 10 mil caracteres em um par chave-valor. Esse limite inclui todos os caracteres na chave, seu valor e todos os atributos opcionais associados. Dentro desse limite, você pode ter vários níveis hierárquicos para chaves.
+Você pode usar qualquer caractere unicode nos nomes de chave inseridos na Configuração de Aplicativo, exceto `*`, `,` e `\`. Esses caracteres são reservados. Caso precise incluir um caractere reservado, você precisará fazer escape dele usando `\{Reserved Character}`. Há um limite de tamanho combinado de 10 KB em um par chave-valor. Esse limite inclui todos os caracteres na chave, seu valor e todos os atributos opcionais associados. Dentro desse limite, você pode ter vários níveis hierárquicos para chaves.
 
 ### <a name="design-key-namespaces"></a>Criar namespaces de chave
 
@@ -51,7 +51,7 @@ Estes são vários exemplos de como você pode estruturar os nomes de chave em u
 
 ### <a name="label-keys"></a>Chaves de rótulo
 
-Valores de chave na Configuração de Aplicativo podem, opcionalmente, ter um atributo de rótulo. Os rótulos são usados para diferenciar os valores de chave com a mesma chave. Uma chave *app1* com rótulos *A* e *B* forma duas chaves separadas em um repositório de Configuração de Aplicativos. Por padrão, o rótulo de um valor chave está vazio (ou `null`).
+Valores de chave na Configuração de Aplicativo podem, opcionalmente, ter um atributo de rótulo. Os rótulos são usados para diferenciar os valores de chave com a mesma chave. Uma chave *app1* com rótulos *A* e *B* forma duas chaves separadas em um repositório de Configuração de Aplicativos. Por padrão, um valor de chave não tem nenhum rótulo. Para referenciar explicitamente um valor de chave sem um rótulo, use `\0` (URL codificada como `%00`).
 
 O rótulo fornece uma maneira conveniente de criar variantes de uma chave. Um uso comum dos rótulos é especificar vários ambientes para a mesma chave:
 
@@ -74,8 +74,6 @@ Cada valor de chave é identificado exclusivamente pela sua chave, além de um r
 | `key` é omitido ou `key=*` | Corresponde a todas as chaves |
 | `key=abc` | Corresponde exatamente ao nome da chave **abc** |
 | `key=abc*` | Corresponde aos nomes de chave que começam com **abc** |
-| `key=*abc` | Correspondem aos nomes de chave que terminam com **abc** |
-| `key=*abc*` | Corresponde aos nomes de chave que contêm **abc** |
 | `key=abc,xyz` | Corresponde aos nomes de chave **abc** ou **xyz**, limitado a cinco CSVs |
 
 Inclua também os seguintes padrões de rótulo:
@@ -86,8 +84,6 @@ Inclua também os seguintes padrões de rótulo:
 | `label=%00` | Corresponde ao rótulo `null` |
 | `label=1.0.0` | Corresponde exatamente ao rótulo **1.0.0** |
 | `label=1.0.*` | Corresponde aos rótulos que começam com **1.0.** |
-| `label=*.0.0` | Corresponde aos rótulos que terminam com **.0.0** |
-| `label=*.0.*` | Corresponde aos rótulos que contêm **.0.** |
 | `label=%00,1.0.0` | Corresponde aos rótulos `null` ou **1.0.0**, limitado a cinco CSVs |
 
 ## <a name="values"></a>Valores
@@ -96,7 +92,7 @@ Os valores atribuídos às chaves também são cadeias de caracteres Unicode. Us
 
 Os dados de configuração armazenados em um repositório de Configuração de Aplicativos, que inclui todas as chaves e todos os valores, são criptografados em repouso e em trânsito. A Configuração de Aplicativo não é uma solução substituta do Azure Key Vault. Não armazene segredos do aplicativo nele.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Instantâneo pontual](./concept-point-time-snapshot.md)  
 * [Gerenciamento de recursos](./concept-feature-management.md)  

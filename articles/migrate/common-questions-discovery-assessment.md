@@ -2,21 +2,22 @@
 title: Perguntas comuns – descoberta, avaliação e análise de dependência em migrações para Azure
 description: Obtenha respostas para perguntas comuns sobre descoberta, avaliação e análise de dependência em migrações para Azure.
 ms.topic: conceptual
-ms.date: 12/29/2019
-ms.openlocfilehash: 201d67c38e9583de16cb6075cc1c4bf826c204fd
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.date: 02/17/2020
+ms.openlocfilehash: 2ae534e50cbee3ebd17d703f957aa7200460dbfe
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77059480"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426285"
 ---
 # <a name="common-questions-about-discovery-assessment-and-dependency-analysis"></a>Perguntas comuns sobre descoberta, avaliação e análise de dependência
 
-Este artigo responde a perguntas comuns sobre descoberta, avaliação e análise de dependência em migrações para Azure. Se você tiver outras consultas depois de ler este artigo, poste-as no [Fórum de migrações para Azure](https://aka.ms/AzureMigrateForum). Se você tiver outras dúvidas, leia estes artigos:
+Este artigo responde a perguntas comuns sobre descoberta, avaliação e análise de dependência em migrações para Azure. Se você tiver outras dúvidas, leia estes artigos:
 
 - [Perguntas gerais](resources-faq.md) sobre as migrações para Azure.
 - [Perguntas](common-questions-appliance.md) sobre o dispositivo migrações para Azure.
 - [Perguntas](common-questions-server-migration.md) sobre a migração do servidor.
+- Poste perguntas no [Fórum de migrações para Azure](https://aka.ms/AzureMigrateForum)
 
 
 

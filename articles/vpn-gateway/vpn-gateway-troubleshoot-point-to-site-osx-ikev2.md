@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: f76fd7bce539ebcf79216aabb5bf868b2d18107a
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: f88053c93884e10e46a0f7d70106bda67b057562
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780174"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425707"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Solucionar problemas de conexões VPN ponto a site do Azure dos clientes Mac OS X
 
@@ -48,7 +48,7 @@ Este artigo ajuda você a solucionar problemas de conectividade de Ponto a Site 
 4. A **ID Local** pode ficar em branco.
 5. Clique no **Configuração de Autenticação** e verifique se o "Nome de usuário" está selecionado na lista suspensa.
 
-   ![Configurações de autenticação](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.jpg)
+   ![Configurações de autenticação](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
 6. Verifique se as credenciais corretas estão inseridas.
 
 ## <a name="additional"></a>Etapas adicionais
@@ -60,7 +60,7 @@ Se você tentar realizar as etapas anteriores e tudo estiver configurado correta
 
    ![pacote](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
   
-3. Se não houver resposta do servidor nos rastreamentos de rede, verifique se você ativou o protocolo IKEv2 na página Configuração do Gateway do Azure no site do Portal do Azure.
+3. Se não houver nenhuma resposta de servidor nos rastreamentos de rede, verifique se você habilitou o protocolo IKEv2 na página de configuração do gateway do Azure no site do portal do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter mais ajuda, entre em contato com o [Suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

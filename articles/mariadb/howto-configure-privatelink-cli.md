@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 2d39afcea056c76b6c9672e1963d7529fbfce549
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 19613ab917d303863a8d90133bcce2e1353289c1
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280927"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426200"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-preview-using-cli"></a>Criar e gerenciar o link privado para o banco de dados do Azure para MariaDB (versão prévia) usando a CLI
 
@@ -20,7 +20,7 @@ Um ponto de extremidade privado é o bloco de construção fundamental para o li
 > [!NOTE]
 > Esse recurso está disponível em todas as regiões do Azure em que o banco de dados do Azure para MariaDB dá suporte a tipos de preço Uso Geral e com otimização de memória.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir este guia de instruções, você precisa:
 
@@ -131,7 +131,7 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
 
 1. Selecione **Baixar Arquivo RDP**. O Azure cria um arquivo *.rdp* (protocolo RDP) e ele é baixado no computador.
 
-1. Abra o arquivo downloaded.rdp*.
+1. Abra o arquivo *downloaded.rdp*.
 
     1. Se solicitado, selecione **Conectar**.
 
@@ -159,31 +159,32 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
     Non-authoritative answer:
     Name:    mydemoserver.privatelink.mariadb.database.azure.com
     Address:  10.1.3.4
+    ```
 
-3. Test the private link connection for the MariaDB server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
+3. Teste a conexão de link privado para o servidor MariaDB usando qualquer cliente disponível. No exemplo abaixo, usei o [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) para realizar a operação.
 
-4. In **New connection**, enter or select this information:
+4. Em **nova conexão**, insira ou selecione estas informações:
 
-    | Setting | Value |
+    | Configuração | Valor |
     | ------- | ----- |
-    | Connection Name| Select the connection name of your choice.|
-    | Hostname | Select *mydemoserver.privatelink.mariadb.database.azure.com* |
-    | Username | Enter username as *username@servername* which is provided during the MariaDB server creation. |
-    | Password | Enter a password provided during the MariaDB server creation. |
+    | Nome da Conexão| Selecione o nome de conexão de sua escolha.|
+    | Nome do host | Selecionar *mydemoserver.privatelink.MariaDB.Database.Azure.com* |
+    | Nome de Usuário | Insira o nome de usuário como *username@servername* que é fornecido durante a criação do servidor MariaDB. |
+    | Senha | Insira uma senha fornecida durante a criação do servidor MariaDB. |
     ||
 
-5. Select **Test Connection** or **OK**.
+5. Selecione **testar conexão** ou **OK**.
 
-6. (Optionally) Browse databases from left menu and Create or query information from the MariaDB database
+6. Opcionalmente Procurar bancos de dados no menu à esquerda e criar ou consultar informações do banco de MariaDB
 
-8. Close the remote desktop connection to myVm.
+8. Feche a conexão de área de trabalho remota para myVm.
 
-## Clean up resources 
-When no longer needed, you can use az group delete to remove the resource group and all the resources it has: 
+## <a name="clean-up-resources"></a>Limpar os recursos 
+Quando não for mais necessário, você poderá usar az group delete para remover o grupo de recursos e todos os recursos que ele contém: 
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [o que é o ponto de extremidade privado do Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
-ms.openlocfilehash: facd52ea1fdaa2ad30d6b1544cb1f2d6d5833bfa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1f3dd1fa4b70fcdbec7e62c84bbfc1df14d3502e
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450569"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425078"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solução de problemas do Diagnóstico do Azure
 Este artigo descreve informações de solução de problemas relevantes para o uso do Diagnóstico do Azure. Para mais informações sobre o Diagnóstico do Azure, consulte [Visão geral do Diagnóstico do Azure](diagnostics-extension-overview.md).
@@ -51,7 +51,7 @@ A seguir, são apresentados os caminhos para alguns logs e artefatos importantes
 | **Arquivo de log MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Os dados de métrica não aparecem no Portal do Azure
-O Diagnóstico do Azure fornece dados de métrica que podem ser exibidos no Portal do Azure. Se tiver problemas para visualizar os dados no portal, verifique a tabela \* WADMetrics na conta de armazenamento do Diagnóstico do Azure para ver se os registros de métricas correspondentes estão presentes.
+O Diagnóstico do Azure fornece dados de métrica que podem ser exibidos no Portal do Azure. Se você tiver problemas para ver os dados no portal, verifique a tabela de\* de WADMetrics na Diagnóstico do Azure conta de armazenamento para ver se os registros de métrica correspondentes estão lá e certifique-se de que o [provedor de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) Microsoft. insights está registrado.
 
 Aqui, o **PartitionKey** da tabela é a ID de recurso, máquina virtual ou conjunto de dimensionamento de máquinas virtuais. **RowKey** é o nome da métrica (também conhecido como o nome do contador de desempenho).
 
@@ -229,7 +229,7 @@ Para a função de serviço de nuvem, se você escolher a configuração a parti
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Códigos de saída do plug-in do Diagnóstico do Microsoft Azure
 O plug-in retorna os seguintes códigos de saída:
 
-| Código de saída | Description |
+| Código de saída | DESCRIÇÃO |
 | --- | --- |
 | 0 |Sucesso. |
 | -1 |Erro genérico. |

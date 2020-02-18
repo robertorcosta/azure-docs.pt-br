@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 728f4d4f6cc4a2d34e3a7b8f4ca1b150fd7a56c7
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: a07a5a5956d8ea295d269d81ed264177bc8805f2
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77373391"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77424976"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Ingerir blobs no Azure Data Explorer assinando notificações da Grade de Eventos
 
@@ -157,6 +157,11 @@ Salve os dados em um arquivo e carregue-o com este script:
 
     echo "Done"
 ```
+
+> [!NOTE]
+> O Azure Data Explorer não excluirá os BLOBs após a ingestão.
+> Mantenha os blobs por thrre para cinco dias.
+> Use o [ciclo de vida do armazenamento de blob do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal) para gerenciar a exclusão de BLOB. 
 
 ## <a name="review-the-data-flow"></a>Revise o fluxo de dados
 

@@ -8,19 +8,22 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 5d6b8ce557cb794b3a56ecb3a938a2fe184156ab
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: a6f71cca2c63591d2d26a7d34ced232eabfbc6bb
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680742"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425144"
 ---
-# <a name="switch-api-preference-for-log-alerts"></a>Alternar a preferência de API para os Alertas de Log
+# <a name="switch-api-preference-for-log-alerts"></a>Mudar preferência de API para os Alertas de Log
 
 > [!NOTE]
 > Conteúdo declarado aplicável a usuários somente na nuvem pública do Azure e **não** para o Azure governamental ou para a nuvem do Azure China.  
 
-Até recentemente, você gerenciava regras de alerta no portal do Microsoft Operations Management Suite. A nova experiência de alertas foi integrada a vários serviços no Microsoft Azure, incluindo o Log Analytics, e solicitamos [estender as regras de alerta do portal do OMS para o Azure](alerts-extend.md). Mas, para assegurar o mínimo de interrupção para os clientes, o processo não alterou a interface programática do seu consumo – [API de alerta do Log Analytics](api-alerts.md) com base em SavedSearch.
+> [!NOTE]
+> Depois que um usuário optar por alternar a preferência para a nova [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) , não será possível reverter para o uso da [API de alerta de log Analytics herdada](api-alerts.md)mais antiga.
+
+Até recentemente, você gerenciava regras de alerta no Portal do Microsoft Operations Management Suite. A nova experiência de alertas foi integrada a vários serviços no Microsoft Azure, incluindo o Log Analytics, e solicitamos [estender as regras de alerta do portal do OMS para o Azure](alerts-extend.md). Mas, para assegurar o mínimo de interrupção para os clientes, o processo não alterou a interface programática do seu consumo – [API de alerta do Log Analytics](api-alerts.md) com base em SavedSearch.
 
 Mas agora você anuncia para os usuários de alerta do Log Analytics uma verdadeira alternativa programática do Azure, [Azure Monitor – API ScheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), que também se reflete em sua [Cobrança do Azure – para alertas de log](alerts-unified-log.md#pricing-and-billing-of-log-alerts). Para saber mais sobre como gerenciar seus alertas de log usando a API, consulte [Gerenciando alertas de log usando o modelo de recursos do Azure](alerts-log.md#managing-log-alerts-using-azure-resource-template) e [Gerenciando alertas de log usando o PowerShell](alerts-log.md#managing-log-alerts-using-powershell).
 
@@ -50,9 +53,6 @@ O processo de mudar as regras de alerta da [API herdada de alertas do Log Analyt
 
 - Uma alteração na preferência de API e o acesso às suas regras por meio de uma nova API.
 - Um URI de recurso de regra de alerta modificado que contém as IDs usadas na [API de alerta log Analytics herdada](api-alerts.md) em vez do nome da regra de alerta nesta `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`de estrutura. O nome de exibição da regra de alerta permanecerá inalterado.
-
-> [!NOTE]
-> Depois que um usuário optar por alternar a preferência para a nova [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) , não será possível reverter para o uso da [API de alerta de log Analytics herdada](api-alerts.md)mais antiga.
 
 Qualquer cliente que desejar mudar voluntariamente para a nova [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e bloquear o uso da [API herdada de alertas do Log Analytics](api-alerts.md) poderá fazer isso executando uma chamada PUT na API abaixo para mudar todas as regras de alerta associadas ao espaço de trabalho do Log Analytics específico.
 
@@ -113,7 +113,7 @@ Além do mais, se o workspace do Log Analytics especificado ainda não tiver sid
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [Azure Monitor – Alertas de log](alerts-unified-log.md).
 - Saiba como criar [alertas de log nos alertas do Azure](alerts-log.md).

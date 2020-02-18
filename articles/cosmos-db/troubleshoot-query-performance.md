@@ -8,12 +8,12 @@ ms.date: 02/10/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 34f5de01df72b48d275448e028ab0f8cb71e51f8
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: aae11facd2fea5413b2996b3088cb2edc23f0dc1
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132058"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77424925"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Solucionar problemas de consulta ao usar o Azure Cosmos DB
 
@@ -302,7 +302,7 @@ Se a contagem de documentos recuperados for aproximadamente igual à contagem de
 
 Azure Cosmos DB usa o [particionamento](partitioning-overview.md) para dimensionar contêineres individuais à medida que as necessidades de unidade de solicitação e armazenamento de dados aumentam. Cada partição física tem um índice separado e independente. Se sua consulta tiver um filtro de igualdade que corresponda à chave de partição do contêiner, você só precisará verificar o índice da partição relevante. Essa otimização reduz o número total de RU que a consulta requer.
 
-Se você tiver um grande número de RU provisionadas (mais de 30.000) ou uma grande quantidade de dados armazenados (mais de ~ 100 GB), provavelmente terá um contêiner grande o suficiente para ver uma redução significativa nos encargos de consulta RU.
+Se você tiver um grande número de RU provisionadas (mais de 30.000) ou uma grande quantidade de dados armazenados (aproximadamente cerca de 100 GB), provavelmente terá um contêiner grande o suficiente para ver uma redução significativa nos encargos de consulta RU.
 
 Por exemplo, se criarmos um contêiner com a chave de partição de alimentos, as consultas a seguir precisarão apenas verificar uma única partição física:
 
@@ -383,7 +383,7 @@ As consultas executadas a partir de uma região diferente da conta de Azure Cosm
 
 ## <a name="increase-provisioned-throughput"></a>Aumentar a taxa de transferência provisionada
 
-Em Azure Cosmos DB, sua taxa de transferência provisionada é medida em unidades de solicitação (RU). Vamos imaginar que você tenha uma consulta que consuma 5 RU de taxa de transferência. Por exemplo, se você provisionar 1.000 RU, poderá executar essa consulta 200 vezes por segundo. Se você tentou executar a consulta quando não havia taxa de transferência suficiente disponível, Azure Cosmos DB retornaria um erro HTTP 429. Qualquer um dos principais SDK da API do núcleo (SQL) tentará automaticamente essa consulta depois de aguardar um breve período. As solicitações limitadas demoram mais tempo, portanto, aumentar a taxa de transferência provisionada pode melhorar a latência da consulta. Você pode observar o [número total de solicitações limitadas de solicitações](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) na folha métricas do portal do Azure.
+Em Azure Cosmos DB, sua taxa de transferência provisionada é medida em unidades de solicitação (RU). Vamos imaginar que você tenha uma consulta que consuma 5 RU de taxa de transferência. Por exemplo, se você provisionar 1.000 RU, poderá executar essa consulta 200 vezes por segundo. Se você tentou executar a consulta quando não havia taxa de transferência suficiente disponível, Azure Cosmos DB retornaria um erro HTTP 429. Qualquer um dos principais SDK da API do núcleo (SQL) tentará automaticamente essa consulta depois de aguardar um breve período. As solicitações limitadas demoram mais tempo, portanto, aumentar a taxa de transferência provisionada pode melhorar a latência da consulta. Você pode observar o [número total de solicitações limitadas](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) na folha métricas do portal do Azure.
 
 ## <a name="increase-maxconcurrency"></a>Aumentar MaxConcurrency
 
@@ -393,7 +393,7 @@ As consultas paralelas funcionam consultando várias partições em paralelo. No
 
 As consultas são projetadas para buscar antecipadamente resultados enquanto o lote atual de resultados está sendo processado pelo cliente. A busca prévia ajuda a melhorar a latência geral de uma consulta. Definir o MaxBufferedItemCount limita o número de resultados previamente buscados. Ao definir esse valor como o número esperado de resultados retornados (ou um número mais alto), a consulta pode receber o máximo benefício da busca prévia. Definir esse valor como-1 permite que o sistema decida automaticamente o número de itens para armazenar em buffer.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Consulte os documentos abaixo sobre como medir o RUs por consulta, obter estatísticas de execução para ajustar suas consultas e muito mais:
 
 * [Obter métricas de execução de consulta SQL usando o SDK do .NET](profile-sql-api-query.md)

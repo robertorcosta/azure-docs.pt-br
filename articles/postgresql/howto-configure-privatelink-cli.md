@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 19dd0051985231a0274baf550755cc61782ce740
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: d982771d5c7ebc864991026e399e9648d333cc8f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281301"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425520"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-preview-using-cli"></a>Criar e gerenciar o link privado para o banco de dados do Azure para PostgreSQL-servidor único (visualização) usando a CLI
 
@@ -20,7 +20,7 @@ Um ponto de extremidade privado é o bloco de construção fundamental para o li
 > [!NOTE]
 > Esse recurso está disponível em todas as regiões do Azure em que o banco de dados do Azure para PostgreSQL oferece suporte a tipos de preço Uso Geral e com otimização de memória.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir este guia de instruções, você precisa:
 
@@ -131,7 +131,7 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
 
 1. Selecione **Baixar Arquivo RDP**. O Azure cria um arquivo *.rdp* (protocolo RDP) e ele é baixado no computador.
 
-1. Abra o arquivo downloaded.rdp*.
+1. Abra o arquivo *downloaded.rdp*.
 
     1. Se solicitado, selecione **Conectar**.
 
@@ -159,34 +159,35 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
     Non-authoritative answer:
     Name:    mydemopostgresserver.privatelink.postgres.database.azure.com
     Address:  10.1.3.4
+    ```
 
-3. Test the private link connection for the PostgreSQL server using any available client. In the example below I have used [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) to do the operation.
+3. Teste a conexão de link particular para o servidor PostgreSQL usando qualquer cliente disponível. No exemplo abaixo, usei o [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) para realizar a operação.
 
-4. In **New connection**, enter or select this information:
+4. Em **nova conexão**, insira ou selecione estas informações:
 
-    | Setting | Value |
+    | Configuração | Valor |
     | ------- | ----- |
-    | Server type| Select **PostgreSQL**.|
-    | Server name| Select *mydemopostgresserver.privatelink.postgres.database.azure.com* |
-    | User name | Enter username as username@servername which is provided during the PostgreSQL server creation. |
-    |Password |Enter a password provided during the PostgreSQL server creation. |
-    |SSL|Select **Required**.|
+    | Tipo de servidor| Selecione **PostgreSQL**.|
+    | Nome do servidor| Selecionar *mydemopostgresserver.privatelink.Postgres.Database.Azure.com* |
+    | Nome de usuário | Insira o nome de usuário como username@servername que é fornecido durante a criação do servidor PostgreSQL. |
+    |Senha |Insira uma senha fornecida durante a criação do servidor PostgreSQL. |
+    |SSL|Selecione **obrigatório**.|
     ||
 
-5. Select Connect.
+5. Selecione conectar.
 
-6. Browse databases from left menu.
+6. Procurar bancos de dados no menu à esquerda.
 
-7. (Optionally) Create or query information from the postgreSQL server.
+7. Opcionalmente Crie ou consulte informações do servidor postgreSQL.
 
-8. Close the remote desktop connection to myVm.
+8. Feche a conexão de área de trabalho remota para myVm.
 
-## Clean up resources 
-When no longer needed, you can use az group delete to remove the resource group and all the resources it has: 
+## <a name="clean-up-resources"></a>Limpar os recursos 
+Quando não for mais necessário, você poderá usar az group delete para remover o grupo de recursos e todos os recursos que ele contém: 
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre [o que é o ponto de extremidade privado do Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)

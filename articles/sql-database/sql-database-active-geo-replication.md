@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 07/09/2019
-ms.openlocfilehash: e32250102d095f341b2de918037b9ad834adfd33
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/17/2020
+ms.openlocfilehash: fe006cebe9aab30a6aaa0bdf2bf3362a494f64d7
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842641"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426265"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Criando e usando a replicação geográfica ativa
 
@@ -113,7 +113,7 @@ Para garantir que seu aplicativo possa acessar imediatamente o novo primário ap
 
 ## <a name="configuring-secondary-database"></a>Configurando banco de dados secundário
 
-Os bancos de dados primário e secundário devem ter a mesma camada de serviço. Também é altamente recomendável que o banco de dados secundário seja criado com o mesmo tamanho da computação (DTUs ou vCores) que o primário. Se o banco de dados primário estiver com uma carga de trabalho de gravação pesada, um secundário com tamanho de computação inferior poderá não ser capaz de acompanhar o problema. Isso causará o atraso de restauração no secundário e em potencial indisponibilidade. Um banco de dados secundário com atraso em relação ao primário também gera o risco de uma grande perda de dados caso um failover forçado seja necessário. Para atenuar esses riscos, a replicação geográfica ativa em vigor limitará a taxa de log primária para permitir que seus secundários se acompanhem. A outra consequência de uma configuração secundária desbalanceada é que, após o failover, o desempenho do aplicativo será afetado devido à capacidade de computação insuficiente do novo primário. Será necessário atualizar para uma computação mais alta para o nível necessário, o que não será possível até que a interrupção seja atenuada. 
+Os bancos de dados primário e secundário devem ter a mesma camada de serviço. Também é altamente recomendável que o banco de dados secundário seja criado com o mesmo tamanho da computação (DTUs ou vCores) que o primário. Se o banco de dados primário estiver com uma carga de trabalho de gravação pesada, um secundário com tamanho de computação inferior poderá não ser capaz de acompanhar o problema. Isso causará o atraso de restauração no secundário e em potencial indisponibilidade. Um banco de dados secundário que está se esforçando por trás do primário também é um grande risco de que um failover forçado seja necessário. Para atenuar esses riscos, a replicação geográfica ativa em vigor limitará a taxa de log primária para permitir que seus secundários se acompanhem. A outra consequência de uma configuração secundária desbalanceada é que, após o failover, o desempenho do aplicativo será afetado devido à capacidade de computação insuficiente do novo primário. Será necessário atualizar para uma computação mais alta para o nível necessário, o que não será possível até que a interrupção seja atenuada. 
 
 
 > [!IMPORTANT]
@@ -145,7 +145,7 @@ O cliente que executa as alterações precisa de acesso à rede para o servidor 
 1. Crie um usuário correspondente e atribua-o à função dbmanager: 
 
    ```sql
-   create user geodrsetup for login gedrsetup
+   create user geodrsetup for login geodrsetup
    alter role geodrsetup dbmanager add member geodrsetup
    ```
 
@@ -223,12 +223,12 @@ Devido à alta latência das redes de longa distância, a cópia contínua usa u
 
 ## <a name="monitoring-geo-replication-lag"></a>Monitorando o retardo da replicação geográfica
 
-Para monitorar o atraso em relação ao RPO, use *replication_lag_sec* coluna de [Sys. dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) no banco de dados primário. Ele mostra o retardo em segundos entre as transações confirmadas no primário e persistido no secundário. Por exemplo: Se o valor da latência for de 1 segundo, isso significará que, se o primário for afetado por uma interrupção neste momento e o failover for iniciado, 1 segundo das transições mais recentes não será salva. 
+Para monitorar o atraso em relação ao RPO, use *replication_lag_sec* coluna de [Sys. dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) no banco de dados primário. Ele mostra o retardo em segundos entre as transações confirmadas no primário e persistido no secundário. Por ex.: Se o valor da latência for de 1 segundo, isso significará que, se o primário for afetado por uma interrupção neste momento e o failover for iniciado, 1 segundo das transições mais recentes não será salva. 
 
 Para medir o retardo em relação às alterações no banco de dados primário que foram aplicadas no secundário, ou seja, disponíveis para leitura do secundário, compare *last_commit* tempo no banco de dados secundário com o mesmo valor no banco de dados primário.
 
 > [!NOTE]
-> Às vezes *replication_lag_sec* no banco de dados primário tem um valor nulo, o que significa que o primário atualmente não sabe o quanto o secundário é.   Isso normalmente ocorre depois que o processo é reiniciado e deve ser uma condição transitória. Considere alertar o aplicativo se o *replication_lag_sec* retornar nulo por um longo período de tempo. Isso indicaria que o banco de dados secundário não pode se comunicar com o primário devido a uma falha de conectividade permanente. Também há condições que podem causar a diferença entre *last_commit* tempo no secundário e no banco de dados primário se tornarem grandes. Por exemplo: se uma confirmação for feita no primário após um longo período de nenhuma alteração, a diferença saltará para um valor grande antes de retornar rapidamente para 0. Considere uma condição de erro quando a diferença entre esses dois valores permanecer grande por um longo tempo.
+> Às vezes *replication_lag_sec* no banco de dados primário tem um valor nulo, o que significa que o primário atualmente não sabe o quanto o secundário é.   Isso normalmente ocorre depois que o processo é reiniciado e deve ser uma condição transitória. Considere alertar o aplicativo se o *replication_lag_sec* retornar nulo por um longo período de tempo. Isso indicaria que o banco de dados secundário não pode se comunicar com o primário devido a uma falha de conectividade permanente. Também há condições que podem causar a diferença entre *last_commit* tempo no secundário e no banco de dados primário se tornarem grandes. Por ex.: se uma confirmação for feita no primário após um longo período de nenhuma alteração, a diferença saltará para um valor grande antes de retornar rapidamente para 0. Considere uma condição de erro quando a diferença entre esses dois valores permanecer grande por um longo tempo.
 
 
 ## <a name="programmatically-managing-active-geo-replication"></a>Gerenciando a replicação geográfica ativa programaticamente
@@ -240,7 +240,7 @@ Conforme discutido anteriormente, a replicação geográfica ativa pode ser gere
 > [!IMPORTANT]
 > Esses comandos Transact-SQL só se aplicam à replicação geográfica ativa e não se aplicam a grupos de failover. Como tal, eles também não se aplicam para instâncias gerenciadas, pois eles são compatíveis somente com grupos de failover.
 
-| Comando | Description |
+| Comando | DESCRIÇÃO |
 | --- | --- |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Use o argumento ADD SECONDARY ON SERVER para criar um banco de dados secundário para um banco de dados existente e inicie a replicação de dados |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Usar o FAILOVER ou FORCE_FAILOVER_ALLOW_DATA_LOSS para alternar um banco de dados secundário para primário a fim de iniciar o failover |
@@ -257,7 +257,7 @@ Conforme discutido anteriormente, a replicação geográfica ativa pode ser gere
 > [!IMPORTANT]
 > O módulo Azure Resource Manager do PowerShell ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para esses cmdlets, consulte [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo AZ e nos módulos AzureRm são substancialmente idênticos.
 
-| Cmdlet | Description |
+| Cmdlet | DESCRIÇÃO |
 | --- | --- |
 | [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase) |Obtém um ou mais bancos de dados. |
 | [New-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasesecondary) |Cria um banco de dados secundário para um banco de dados existente e inicia a replicação de dados. |
@@ -271,7 +271,7 @@ Conforme discutido anteriormente, a replicação geográfica ativa pode ser gere
 
 ### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>API REST: gerenciar failover de bancos de dados individuais e em pool
 
-| API | Description |
+| API | DESCRIÇÃO |
 | --- | --- |
 | [Criar ou atualizar banco de dados (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Cria, atualiza ou restaura um banco de dados primário ou secundário. |
 | [Obter, Criar ou Atualizar o Status de um Banco de Dados](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Retorna o status durante uma operação de criação. |
@@ -282,7 +282,7 @@ Conforme discutido anteriormente, a replicação geográfica ativa pode ser gere
 | [Excluir links de replicação](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | Exclui um link de replicação do banco de dados. Não pode ser feito durante o failover. |
 |  | |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para exemplos de scripts, consulte:
   - [Configurar e fazer failover de um banco de dados individual usando replicação geográfica ativa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)

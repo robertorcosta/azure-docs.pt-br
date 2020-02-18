@@ -3,12 +3,12 @@ title: Usar Servidor de Backup do Azure para fazer backup de cargas de trabalho
 description: Neste artigo, saiba como preparar seu ambiente para proteger e fazer backup de cargas de trabalho usando o Backup do Microsoft Azure Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: ff5df19d3e2d42af9a45fbc1b71980cee1cdb8a0
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: efa54eac2e3e134fb285d38242ca1b59727c2c86
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111605"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425180"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar o Servidor de Backup do Azure
 
@@ -51,7 +51,7 @@ Proteger as cargas de trabalho com o Servidor de Backup do Azure tem muitas nuan
 
 Se você não deseja executar o servidor de base no Azure, poderá executar o servidor em uma VM do Hyper-V, uma VM do VMware ou um host físico. Os requisitos mínimos recomendados para o hardware do servidor são dois núcleos e 8 GB de RAM. Os sistemas operacionais com suporte são listados na seguinte tabela:
 
-| Sistema Operacional | Platform | SKU |
+| Sistema operacional | Plataforma | SKU |
 |:--- | --- |:--- |
 | Windows Server 2019 |64 bits |Standard, Datacenter, Essentials |
 | Windows Server 2016 e SPs mais recentes |64 bits |Standard, Datacenter, Essentials  |
@@ -62,10 +62,10 @@ Você pode eliminar duplicadas do armazenamento DPM usando a Eliminação de Dup
 > O Servidor de Backup do Azure foi projetado para ser executado em um servidor dedicado de finalidade única. Você não pode instalar o Servidor de Backup do Azure em:
 >
 > * Um computador que esteja sendo executado como um controlador de domínio
-> * Um computador no qual a função Servidor de Aplicativos está instalada
+> * Um computador no qual a função de Servidor de Aplicativos está instalada
 > * Um computador que seja um servidor de gerenciamento do System Center Operations Manager
-> * Um computador que está executando o Exchange Server
-> * Um computador que é um nó de um cluster
+> * Um computador que o Exchange Server está executando
+> * Um computador que seja um nó de um cluster
 >
 > Não há suporte para a instalação do Servidor de Backup do Azure no Windows Server Core ou Microsoft Hyper-V Server.
 
@@ -163,14 +163,15 @@ Após concluir o processo de extração, marque a caixa para iniciar o *setup.ex
 2. Na tela de boas-vindas, clique no botão **Avançar** . Isso o levará à seção *Verificações de Pré-Requisitos* . Nessa tela, clique em **Verificar** para determinar se os pré-requisitos de hardware e software do Servidor de Backup do Azure foram atendidos. Se todos os pré-requisitos forem atendidos com êxito, você verá uma mensagem indicando que o computador atende aos requisitos. Clique no botão **Avançar** .
 
     ![Servidor de Backup do Azure - Boas-vindas e Verificação de pré-requisitos](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
-3. O Servidor de Backup do Microsoft Azure exige o SQL Server Enterprise. Adicionalmente, o pacote de instalação do Servidor de Backup do Azure é fornecido em pacote com os binários apropriados do SQL Server necessários, caso você não queira usar o seu próprio SQL. Ao iniciar uma nova instalação do Servidor de Backup do Azure, você deverá escolher a opção **Instalar nova Instância do SQL Server com esta Instalação** e clicar no botão **Verificar e Instalar**. Depois que os pré-requisitos tiverem sido instalados com êxito, clique em **Avançar**.
+3. O pacote de instalação do Servidor de Backup do Azure vem em conjunto com os binários de SQL Server apropriados necessários. Ao iniciar uma nova instalação do Servidor de Backup do Azure, escolha a opção **Instalar nova instância do SQL Server com essa configuração** e clique no botão **verificar e instalar** . Depois que os pré-requisitos tiverem sido instalados com êxito, clique em **Avançar**.
+
+    >[!NOTE]
+    >Se você quiser usar seu próprio SQL Server, as versões de SQL Server com suporte serão SQL Server 2014 SP1 ou superior, 2016 e 2017.  Todas as versões de SQL Server devem ser Standard ou Enterprise de 64 bits.
+    >O Servidor de Backup do Azure não funcionará com uma instância remota do SQL Server. A instância que está sendo usada pelo Servidor de Backup do Azure precisa ser local. Se você estiver usando um SQL Server existente para MABS, a instalação do MABS só dará suporte ao uso de *instâncias nomeadas* do SQL Server.
 
     ![Servidor de Backup do Azure - verificação do SQL](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
     Se ocorrer uma falha com uma recomendação de reiniciar o computador, faça isso e clique em **Verificar Novamente**. Se houver algum problema de configuração do SQL, reconfigure o SQL de acordo com as diretrizes do SQL e tente novamente instalar/atualizar MABS usando a instância existente do SQL.
-
-   > [!NOTE]
-   > O Servidor de Backup do Azure não funcionará com uma instância remota do SQL Server. A instância que está sendo usada pelo Servidor de Backup do Azure precisa ser local. Caso você esteja usando um servidor SQL existente para MABS, a configuração do MABS dará suporte apenas para uso de *instâncias nomeadas* do SQL Server.
 
    **Configuração manual**
 
@@ -343,12 +344,12 @@ Use as etapas a seguir para fazer upgrade do MABS:
 4. Os backups devem continuar sem a necessidade de reiniciar os servidores de produção.
 5. Agora, você pode começar a proteger seus dados. Se estiver atualizando para o Armazenamento de Backup Moderno, durante a proteção você também poderá escolher os volumes nos quais quer armazenar os backups e verificar o espaço provisionado. [Saiba mais](backup-mabs-add-storage.md).
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Se o servidor de Backup do Microsoft Azure falha com erros durante a fase de instalação (ou no backup ou na restauração), consulte o [documento de códigos de erro](https://support.microsoft.com/kb/3041338) para saber mais.
 Você também pode consultar as [Perguntas frequentes relacionadas ao Backup do Azure](backup-azure-backup-faq.md)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 É possível obter informações detalhadas sobre como [preparar seu ambiente para o DPM](https://technet.microsoft.com/library/hh758176.aspx) no site do Microsoft TechNet. Ele também contém informações sobre as configurações com suporte, nas quais o Servidor de Backup do Azure pode ser implantado e usado. É possível usar uma série de [cmdlet do PowerShell](https://docs.microsoft.com/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016) para executar várias operações.
 

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 1be6420598e7983ef9014f617da1f87f5550fa6a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: dbc2e08ab131c591d8857e1cf88b5c9f91db9610
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705353"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425231"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Associações de armazenamento de tabelas do Azure Functions
 
@@ -40,7 +40,7 @@ Use a associação de entrada de armazenamento de Tabela do Azure para ler uma t
 
 ### <a name="one-entity"></a>Uma entidade
 
-O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que lê uma linha da tabela. 
+O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que lê uma linha da tabela. Para cada registro inserido na tabela, a função será disparada.
 
 O valor de chave de linha “{queueTrigger}” indica que a chave de linha foi obtida da cadeia de caracteres da mensagem da fila.
 
@@ -503,11 +503,11 @@ Na [biblioteca de runtime de funções Java](/java/api/overview/azure/functions/
 
 A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `Table`.
 
-|Propriedade function.json | Propriedade de atributo |Description|
+|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
-|**tipo** | N/D | Deve ser definido como `table`. Esse parâmetro é definido automaticamente quando você cria a associação no portal do Azure.|
-|**direction** | N/D | Deve ser definido como `in`. Esse parâmetro é definido automaticamente quando você cria a associação no portal do Azure. |
-|**name** | N/D | O nome da variável que representa a tabela ou entidade no código de função. | 
+|**tipo** | n/d | Deve ser definido como `table`. Esse parâmetro é definido automaticamente quando você cria a associação no portal do Azure.|
+|**direction** | n/d | Deve ser definido como `in`. Esse parâmetro é definido automaticamente quando você cria a associação no portal do Azure. |
+|**name** | n/d | O nome da variável que representa a tabela ou entidade no código de função. | 
 |**tableName** | **TableName** | O nome da tabela.| 
 |**partitionKey** | **PartitionKey** |Opcional. Chave de partição da entidade de tabela para leitura. Consulte a seção de [uso](#input---usage) para obter orientação sobre como usar essa propriedade.| 
 |**rowKey** |**RowKey** | Opcional. Chave de linha da entidade de tabela para leitura. Consulte a seção de [uso](#input---usage) para obter orientação sobre como usar essa propriedade.| 
@@ -889,11 +889,11 @@ Consulte o [exemplo para obter mais detalhes](#output).
 
 A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `Table`.
 
-|Propriedade function.json | Propriedade de atributo |Description|
+|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
-|**tipo** | N/D | Deve ser definido como `table`. Esse parâmetro é definido automaticamente quando você cria a associação no portal do Azure.|
-|**direction** | N/D | Deve ser definido como `out`. Esse parâmetro é definido automaticamente quando você cria a associação no portal do Azure. |
-|**name** | N/D | O nome da variável usada no código da função que representa a tabela ou entidade. Definido como `$return` para referenciar o valor de retorno da função.| 
+|**tipo** | n/d | Deve ser definido como `table`. Esse parâmetro é definido automaticamente quando você cria a associação no portal do Azure.|
+|**direction** | n/d | Deve ser definido como `out`. Esse parâmetro é definido automaticamente quando você cria a associação no portal do Azure. |
+|**name** | n/d | O nome da variável usada no código da função que representa a tabela ou entidade. Definido como `$return` para referenciar o valor de retorno da função.| 
 |**tableName** |**TableName** | O nome da tabela.| 
 |**partitionKey** |**PartitionKey** | Chave de partição da entidade de tabela para gravar. Consulte a [seção de uso](#output---usage) para obter orientação sobre como usar essa propriedade.| 
 |**rowKey** |**RowKey** | A chave de linha da entidade de tabela para gravar. Consulte a [seção de uso](#output---usage) para obter orientação sobre como usar essa propriedade.| 
@@ -945,7 +945,7 @@ Há duas opções para a saída de uma linha de armazenamento de tabela de uma f
 | Blob, tabela, fila | [Códigos de erro de armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Blob, tabela, fila | [Solução de problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)

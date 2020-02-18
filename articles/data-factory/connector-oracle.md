@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 02/13/2020
 ms.author: jingwang
-ms.openlocfilehash: 736cf03b58ec09b291c91857177a32c7dad89c6a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 874c685491774e2a318ae0a8b7394945a51b2f7f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892054"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77423803"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiar dados de e para o Oracle usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -44,19 +44,18 @@ Especificamente, este conector Oracle oferece suporte a:
     - Oracle 9i R2 (9,2) e superior
     - Oracle 8i R3 (8.1.7) e superior
     - Oracle Database serviço Cloud Exadata
-- Copiar dados usando autenticações Básica ou OID.
 - Cópia paralela de uma origem do Oracle. Consulte a seção [cópia paralela do Oracle](#parallel-copy-from-oracle) para obter detalhes.
 
 > [!Note]
 > Não há suporte para servidor proxy do Oracle.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)] 
 
 O integration runtime fornece um driver interno do Oracle. Portanto, você não precisa instalar manualmente um driver quando você copia dados de e para Oracle.
 
-## <a name="get-started"></a>Comece agora
+## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -66,7 +65,7 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 O serviço vinculado do Oracle oferece suporte às seguintes propriedades:
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **Oracle**. | Sim |
 | connectionString | Especifica as informações necessárias para se conectar à instância do Banco de Dados Oracle. <br/>Você também pode colocar uma senha em Azure Key Vault e extrair a configuração de `password` da cadeia de conexão. Consulte os exemplos a seguir e [armazene as credenciais em Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. <br><br>**Tipo de conexão com suporte**: você pode optar por usar a **Oracle SID** ou o **Oracle Service Name** para identificar o banco de dados:<br>-Se você usar a SID:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Se você usar Service Name:`Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;`<br>Para opções avançadas de conexão nativa da Oracle, você pode optar por adicionar uma entrada em [arquivo tnsnames. ORA](http://www.orafaq.com/wiki/Tnsnames.ora) no servidor Oracle e, no serviço vinculado do Oracle do ADF, escolha usar o tipo de conexão do nome do serviço Oracle e configure o nome do serviço correspondente. | Sim |
@@ -77,7 +76,7 @@ O serviço vinculado do Oracle oferece suporte às seguintes propriedades:
 
 Mais propriedades de conexão que você pode definir na cadeia de conexão por seu caso:
 
-| Propriedade | Description | Valores permitidos |
+| Propriedade | DESCRIÇÃO | Valores permitidos |
 |:--- |:--- |:--- |
 | ArraySize |O número de bytes que o conector pode buscar em uma única viagem de ida e volta da rede. Por exemplo, `ArraySize=‭10485760‬`.<br/><br/>Valores maiores aumentam a taxa de transferência, reduzindo o número de vezes para buscar dados na rede. Valores menores aumentam o tempo de resposta, pois há menos de um atraso aguardando o servidor transmitir dados. | Um número inteiro de 1 a 4294967296 (4 GB). O valor padrão é `60000`. O valor 1 não define o número de bytes, mas indica alocar espaço para exatamente uma linha de dados. |
 
@@ -167,11 +166,11 @@ Para habilitar a criptografia na conexão do Oracle, há duas opções:
 ```
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados do Oracle. Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, consulte os [DataSets](concepts-datasets-linked-services.md). 
+Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados do Oracle. Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte [DataSets](concepts-datasets-linked-services.md). 
 
 Para copiar dados de e para o Oracle, defina a propriedade Type do conjunto para `OracleTable`. Há suporte para as seguintes propriedades.
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade Type do conjunto de conjuntos deve ser definida como `OracleTable`. | Sim |
 | esquema | Nome do esquema. |Não para fonte, Sim para o coletor  |
@@ -210,7 +209,7 @@ Esta seção fornece uma lista das propriedades com suporte pela fonte e pelo co
 
 Para copiar dados do Oracle, defina o tipo de fonte na atividade de cópia como `OracleSource`. As propriedades a seguir têm suporte na seção **source** da atividade de cópia.
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade Type da fonte da atividade de cópia deve ser definida como `OracleSource`. | Sim |
 | oracleReaderQuery | Utiliza a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`.<br>Ao habilitar a carga particionada, você precisa vincular quaisquer parâmetros de partição internos correspondentes em sua consulta. Para obter exemplos, consulte a seção [cópia paralela do Oracle](#parallel-copy-from-oracle) . | Não |
@@ -257,7 +256,7 @@ Para copiar dados do Oracle, defina o tipo de fonte na atividade de cópia como 
 
 Para copiar dados para o Oracle, defina o tipo de coletor na atividade de cópia como `OracleSink`. As propriedades a seguir têm suporte na seção **sink** da atividade de cópia.
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade Type do coletor da atividade de cópia deve ser definida como `OracleSink`. | Sim |
 | writeBatchSize | Insere dados na tabela SQL quando o tamanho do buffer atinge `writeBatchSize`.<br/>Os valores permitidos são inteiro (número de linhas). |Não (o padrão é 10.000) |
@@ -353,7 +352,7 @@ Quando você copia dados do e para o Oracle, os mapeamentos a seguir se aplicam.
 | BLOB |Byte[]<br/>(só tem suporte no Oracle 10g e superior) |
 | CHAR |String |
 | CLOB |String |
-| DATE |DateTime |
+| DATE |Datetime |
 | FLOAT |Decimal, cadeia de caracteres (se precisão > 28) |
 | INTEGER |Decimal, cadeia de caracteres (se precisão > 28) |
 | LONG |String |
@@ -364,7 +363,7 @@ Quando você copia dados do e para o Oracle, os mapeamentos a seguir se aplicam.
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |
-| timestamp |DateTime |
+| timestamp |Datetime |
 | TIMESTAMP WITH LOCAL TIME ZONE |String |
 | TIMESTAMP WITH TIME ZONE |String |
 | UNSIGNED INTEGER |Número |
@@ -378,5 +377,5 @@ Quando você copia dados do e para o Oracle, os mapeamentos a seguir se aplicam.
 
 Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

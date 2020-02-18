@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: f7a796408267fda08d765425a3c529895a251782
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: e73f5e578ef498d3c6be8422fbbcfa7ac8856adf
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281097"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425809"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-preview-using-portal"></a>Criar e gerenciar o link privado para o banco de dados do Azure para PostgreSQL-servidor único (visualização) usando o portal
 
@@ -40,14 +40,14 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM us
     | Nome | Insira *MyVirtualNetwork*. |
     | Espaço de endereço | Insira *10.1.0.0/16*. |
     | Subscription | Selecione sua assinatura.|
-    | Grupo de recursos | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
-    | Local | Selecione **Europa Ocidental**.|
+    | Resource group | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
+    | Location | Selecione **Europa Ocidental**.|
     | Sub-rede – Nome | Insira *mySubnet*. |
     | Sub-rede – Intervalo de endereços | Insira *10.1.0.0/24*. |
     |||
 3. Deixe o restante com os valores padrão e selecione **Criar**.
 
-### <a name="create-virtual-machine"></a>Crie uma Máquina Virtual
+### <a name="create-virtual-machine"></a>Criar máquina virtual
 
 1. No lado superior esquerdo da tela no portal do Azure, selecione **Criar um recurso** > **Computação** > **Máquina Virtual**.
 
@@ -57,7 +57,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM us
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
     | Subscription | Selecione sua assinatura. |
-    | Grupo de recursos | Selecione **myResourceGroup**. Você o criou na seção anterior.  |
+    | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.  |
     | **DETALHES DA INSTÂNCIA** |  |
     | Nome da máquina virtual | Insira *myVm*. |
     | Região | Selecione **Europa Ocidental**. |
@@ -107,12 +107,12 @@ Nesta seção, você criará um servidor de banco de dados do Azure para Postgre
     | ------- | ----- |
     | **Detalhes do projeto** | |
     | Subscription | Selecione sua assinatura. |
-    | Grupo de recursos | Selecione **myResourceGroup**. Você o criou na seção anterior.|
+    | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.|
     | **Detalhes do servidor** |  |
     |Nome do servidor  | Insira *myserver*. Se esse nome já estiver sendo usado, crie um nome exclusivo.|
     | Nome de usuário do administrador| Insira um nome de administrador de sua escolha. |
     | Senha | Insira uma senha de sua escolha. A senha deve ter no mínimo 8 caracteres e atender a requisitos complexidade definidos. |
-    | Local | Selecione uma região do Azure em que você deseja que o servidor PostgreSQL resida. |
+    | Location | Selecione uma região do Azure em que você deseja que o servidor PostgreSQL resida. |
     |Versão  | Selecione a versão do banco de dados do servidor PostgreSQL necessária.|
     | Computação + armazenamento| Selecione o tipo de preço necessário para o servidor com base na carga de trabalho. |
     |||
@@ -137,7 +137,7 @@ Nesta seção, você criará um servidor PostgreSQL e adicionará um ponto de ex
     | ------- | ----- |
     | **Detalhes do projeto** | |
     | Subscription | Selecione sua assinatura. |
-    | Grupo de recursos | Selecione **myResourceGroup**. Você o criou na seção anterior.|
+    | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.|
     | **Detalhes da instância** |  |
     | Nome | Insira *myPrivateEndpoint*. Se esse nome já estiver sendo usado, crie um nome exclusivo. |
     |Região|Selecione **Europa Ocidental**.|
@@ -150,7 +150,7 @@ Nesta seção, você criará um servidor PostgreSQL e adicionará um ponto de ex
     |Método de conexão  | Selecione conectar-se a um recurso do Azure em meu diretório.|
     | Subscription| Selecione sua assinatura. |
     | Tipo de recurso | Selecione **Microsoft. DBforPostgreSQL/servidores**. |
-    | Grupos |Selecione *myServer*|
+    | Recurso |Selecione *myServer*|
     |Sub-recurso de destino |Selecionar *postgresqlServer*|
     |||
 7. Selecione **Avançar: configuração**.
@@ -210,35 +210,36 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
     Non-authoritative answer:
     Name:    mydemopostgresserver.privatelink.postgres.database.azure.com
     Address:  10.1.3.4
+    ```
 
-3. Test the private link connection for the PostgreSQL server using any available client. In the example below I have used [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) to do the operation.
+3. Teste a conexão de link particular para o servidor PostgreSQL usando qualquer cliente disponível. No exemplo abaixo, usei o [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) para realizar a operação.
 
-4. In **New connection**, enter or select this information:
+4. Em **nova conexão**, insira ou selecione estas informações:
 
-    | Setting | Value |
+    | Configuração | Valor |
     | ------- | ----- |
-    | Server type| Select **PostgreSQL**.|
-    | Server name| Select *mydemopostgresserver.privatelink.postgres.database.azure.com* |
-    | User name | Enter username as username@servername which is provided during the PostgreSQL server creation. |
-    |Password |Enter a password provided during the PostgreSQL server creation. |
-    |SSL|Select **Required**.|
+    | Tipo de servidor| Selecione **PostgreSQL**.|
+    | Nome do servidor| Selecionar *mydemopostgresserver.privatelink.Postgres.Database.Azure.com* |
+    | Nome de usuário | Insira o nome de usuário como username@servername que é fornecido durante a criação do servidor PostgreSQL. |
+    |Senha |Insira uma senha fornecida durante a criação do servidor PostgreSQL. |
+    |SSL|Selecione **obrigatório**.|
     ||
 
-5. Select Connect.
+5. Selecione conectar.
 
-6. Browse databases from left menu.
+6. Procurar bancos de dados no menu à esquerda.
 
-7. (Optionally) Create or query information from the postgreSQL server.
+7. Opcionalmente Crie ou consulte informações do servidor postgreSQL.
 
-8. Close the remote desktop connection to myVm.
+8. Feche a conexão de área de trabalho remota para myVm.
 
-## Clean up resources
-When you're done using the private endpoint, PostgreSQL server, and the VM, delete the resource group and all of the resources it contains:
+## <a name="clean-up-resources"></a>Limpar os recursos
+Quando você terminar de usar o ponto de extremidade privado, o servidor PostgreSQL e a VM, exclua o grupo de recursos e todos os recursos que ele contém:
 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results.
-2. Select **Delete resource group**.
-3. Enter myResourceGroup for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
+1. Insira *myResourceGroup* na caixa **Pesquisar** na parte superior do portal e selecione *myResourceGroup* nos resultados da pesquisa.
+2. Selecione **Excluir grupo de recursos**.
+3. Insira myResourceGroup em **DIGITAR O NOME DO GRUPO DE RECURSOS** e selecione **Excluir**.
 
-## Next steps
+## <a name="next-steps"></a>Próximas etapas
 
-In this how-to, you created a VM on a virtual network, an Azure Database for PostgreSQL - Single server, and a private endpoint for private access. You connected to one VM from the internet and securely communicated to the PostgreSQL server using Private Link. To learn more about private endpoints, see [What is Azure private endpoint](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+Neste "como", você criou uma VM em uma rede virtual, um banco de dados do Azure para PostgreSQL-servidor único e um ponto de extremidade privado para acesso privado. Você se conectou a uma VM da Internet e se comunica com segurança ao servidor PostgreSQL usando o link privado. Para saber mais sobre pontos de extremidade privados, confira [o que é o ponto de extremidades privado do Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).

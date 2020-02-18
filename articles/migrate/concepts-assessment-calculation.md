@@ -2,13 +2,13 @@
 title: Avaliações em migrações para Azure
 description: Saiba mais sobre as avaliações nas migrações para Azure.
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: 5fc61d9987c9e728a5d83cb3ab3f91b8e8f5f740
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/17/2020
+ms.openlocfilehash: 0cf933dd1c8c61edfcea20ea954c5813f3848b28
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76833321"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425690"
 ---
 # <a name="about-assessments-in-azure-migrate"></a>Sobre avaliações em migrações para Azure
 
@@ -149,7 +149,7 @@ Cliente do Windows 7, 8 e 10 | O Azure oferece suporte apenas [com a Assinatura 
 Windows 10 Pro Desktop | O Azure oferece suporte com [Direitos de Hospedagem multilocatário.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | Condicionalmente pronta para o Azure
 Windows Vista, XP Professional | Esses sistemas operacionais passaram pela data de fim do suporte. O computador pode iniciar no Azure, mas o Azure não fornece suporte ao sistema operacional. | Condicionalmente pronto para o Azure. Recomendamos que você atualize o sistema operacional antes de migrar para o Azure.
 Linux | O Azure endossa esses [sistemas operacionais Linux](../virtual-machines/linux/endorsed-distros.md). Outros sistemas operacionais Linux podem ser iniciados no Azure, mas é recomendável que você atualize o sistema operacional para uma versão endossada antes de migrar para o Azure. | Pronto para o Azure se a versão é aprovada.<br/><br/>Condicionalmente pronto se a versão não é aprovada.
-Outros sistemas operacionais<br/><br/> Por exemplo, Oracle Solaris, sistema operacional Apple Mac OS, FreeBSD, etc. | O Azure não endossa esses sistemas operacionais. O computador pode iniciar no Azure, mas o Azure não fornece suporte ao sistema operacional. | Condicionalmente pronto para o Azure. Recomendamos que você instale um sistema operacional com suporte antes de migrar para o Azure.  
+Outros sistemas operacionais<br/><br/> Por exemplo, Oracle Solaris, Apple macOS etc., FreeBSD, etc. | O Azure não endossa esses sistemas operacionais. O computador pode iniciar no Azure, mas o Azure não fornece suporte ao sistema operacional. | Condicionalmente pronto para o Azure. Recomendamos que você instale um sistema operacional com suporte antes de migrar para o Azure.  
 Sistema operacional especificado como **Outros** no vCenter Server | As Migrações para Azure não podem identificar o sistema operacional neste caso. | Preparação desconhecida. Certifique-se de que o sistema operacional em execução dentro da VM tem suporte no Azure.
 Sistemas operacionais de 32 bits | O computador pode iniciar no Azure, mas o Azure pode não fornecer suporte completo. | Condicionalmente pronto para o Azure. Considere atualizar o sistema operacional do computador de um sistema operacional de 32 bits para o sistema operacional de 64 bits antes de migrar para o Azure.
 
@@ -250,6 +250,6 @@ Após a conclusão das recomendações de dimensionamento, as migrações para A
 Os custos são exibidos na moeda especificada nas configurações de avaliação.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Examine](best-practices-assessment.md) as práticas recomendadas para a criação de avaliações. 

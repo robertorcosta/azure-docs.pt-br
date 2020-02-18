@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f15006f9c7f2778c986d1977123e1a396c4317f3
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d54103cad8a3550bdc300cba2308397dd1ce3d6c
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701596"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425571"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Aplicativo Web que assina usuários: configuração de código
 
@@ -30,7 +30,7 @@ Saiba como configurar o código para seu aplicativo Web que faz logon em usuári
 <!-- This section can be in an include for Web App and Web APIs -->
 As bibliotecas que são usadas para proteger um aplicativo Web (e uma API da Web) são:
 
-| Plataforma | Biblioteca | Description |
+| Plataforma | Biblioteca | DESCRIÇÃO |
 |----------|---------|-------------|
 | ![.NET](media/sample-v2-code/logo_net.png) | [Extensões do modelo de identidade para .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Usado diretamente pelo ASP.NET e pelo ASP.NET Core, o Microsoft Identity modelo Extensions for .NET propõe um conjunto de DLLs em execução no .NET Framework e no .NET Core. Em um aplicativo Web ASP.NET ou ASP.NET Core, você pode controlar a validação de token usando a classe **TokenValidationParameters** (em particular, em alguns cenários de parceiros). |
 | ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Suporte para aplicativos Web Java |
@@ -93,7 +93,7 @@ No ASP.NET Core, essas configurações estão localizadas no arquivo [appSetting
     // - "organizations" to sign in users in any work or school account
     // - "common" to sign in users with any work or school account or Microsoft personal account
     // - "consumers" to sign in users with a Microsoft personal account only
-    "TenantId": "[Enter the tenantId here]]",
+    "TenantId": "[Enter the tenantId here]",
 
     // Client ID (application ID) obtained from the Azure portal
     "ClientId": "[Enter the Client Id]",
@@ -377,7 +377,7 @@ Session(app)
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 No próximo artigo, você aprenderá a disparar o logon e a saída.
 

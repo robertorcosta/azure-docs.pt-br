@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/29/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ad6b84323ac49713506bc61bd0051421e0234a94
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 5dc9bc56ac717d355f0fb0ebcc482430662378ca
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982272"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425600"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -75,17 +75,17 @@ Um elemento **TechnicalProfiles** contém um conjunto de perfis técnicos com su
 
 O elemento **TechnicalProfile** contém o seguinte atributo:
 
-| Atributo | Obrigatório | Description |
+| Atributo | Obrigatório | DESCRIÇÃO |
 |---------|---------|---------|
 | ID | Sim | Um identificador exclusivo do perfil técnico. O perfil técnico pode ser referenciado usando esse identificador em outros elementos no arquivo de política. Por exemplo, **OrchestrationSteps** e **ValidationTechnicalProfile**. |
 
 O **TechnicalProfile** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | DESCRIÇÃO |
 | ------- | ----------- | ----------- |
 | Domínio | 0:1 | O nome de domínio do perfil técnico. Por exemplo, se o perfil técnico especificar o provedor de identidade Facebook, o nome de domínio será Facebook.com. |
 | DisplayName | 1:1 | O nome do perfil técnico que pode ser exibido aos usuários. |
-| Description | 0:1 | A descrição do perfil técnico que pode ser exibida aos usuários. |
+| DESCRIÇÃO | 0:1 | A descrição do perfil técnico que pode ser exibida aos usuários. |
 | Protocolo | 0:1 | O protocolo usado para a comunicação com a outra parte. |
 | Metadados | 0:1 | Uma coleção de pares chave-valor que são usados pelo protocolo para a comunicação com o ponto de extremidade no decorrer de uma transação. |
 | InputTokenFormat | 0:1 | O formato do token de entrada. Valores possíveis: `JSON`, `JWT`, `SAML11` ou `SAML2`. O valor `JWT` representa um Token Web JSON de acordo com a especificação IETF. O valor `SAML11` representa um token de segurança SAML 1.1 de acordo com a especificação OASIS.  O valor `SAML2` representa um token de segurança SAML 2.0 de acordo com a especificação OASIS. |
@@ -109,16 +109,16 @@ O **TechnicalProfile** contém os seguintes elementos:
 
 O elemento **Protocol** contém os seguintes atributos:
 
-| Atributo | Obrigatório | Description |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| Nome | Sim | O nome de um protocolo válido com suporte no Azure AD B2C que é usado como parte do perfil técnico. Valores possíveis: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary`, `session management`, `self-asserted`ou `None`. |
+| Nome | Sim | O nome de um protocolo válido com suporte no Azure AD B2C que é usado como parte do perfil técnico. Valores possíveis: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary`ou `None`. |
 | Manipulador | Não | Quando o nome do protocolo for definido como `Proprietary`, especifique o nome totalmente qualificado do assembly usado pelo Azure AD B2C para determinar o manipulador de protocolo. |
 
 ## <a name="metadata"></a>Metadados
 
 Um elemento **Metadata** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | DESCRIÇÃO |
 | ------- | ----------- | ----------- |
 | Item | 0:n | Os metadados que se relacionam ao perfil técnico. Cada tipo de perfil técnico tem um conjunto diferente de itens de metadados. Confira a seção de tipos de perfil técnico para obter mais informações. |
 
@@ -126,7 +126,7 @@ Um elemento **Metadata** contém os seguintes elementos:
 
 O elemento **Item** do elemento **Metadata** contém os seguintes atributos:
 
-| Atributo | Obrigatório | Description |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | Chave | Sim | A chave de metadados. Confira cada tipo de perfil técnico para obter a lista de itens de metadados. |
 
@@ -134,7 +134,7 @@ O elemento **Item** do elemento **Metadata** contém os seguintes atributos:
 
 O elemento **CryptographicKeys** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | DESCRIÇÃO |
 | ------- | ----------- | ----------- |
 | Chave | 1:n | Uma chave de criptografia usada neste perfil técnico. |
 
@@ -142,7 +142,7 @@ O elemento **CryptographicKeys** contém o seguinte elemento:
 
 O elemento **Key** contém o seguinte atributo:
 
-| Atributo | Obrigatório | Description |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ID | Não | Um identificador exclusivo de um par de chaves específico referenciado por outros elementos no arquivo de política. |
 | StorageReferenceId | Sim | Um identificador de um contêiner de chave de armazenamento referenciado por outros elementos no arquivo de política. |
@@ -151,7 +151,7 @@ O elemento **Key** contém o seguinte atributo:
 
 O elemento **InputClaimsTransformations** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | DESCRIÇÃO |
 | ------- | ----------- | ----------- |
 | InputClaimsTransformation | 1:n | O identificador de uma transformação de declarações que deve ser executado antes que uma declaração seja enviada ao provedor de declarações ou à terceira parte confiável. Uma transformação de declarações pode ser usada para modificar as declarações de ClaimsSchema existentes ou gerar novas declarações. |
 
@@ -159,7 +159,7 @@ O elemento **InputClaimsTransformations** contém o seguinte elemento:
 
 O elemento **InputClaimsTransformation** contém o seguinte atributo:
 
-| Atributo | Obrigatório | Description |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ReferenceId | Sim | Um identificador de uma transformação de declarações já definido no arquivo de política ou no arquivo de política pai. |
 
@@ -167,7 +167,7 @@ O elemento **InputClaimsTransformation** contém o seguinte atributo:
 
 O elemento **InputClaims** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | DESCRIÇÃO |
 | ------- | ----------- | ----------- |
 | InputClaim | 1:n | Um tipo de declaração de entrada esperado. |
 
@@ -175,7 +175,7 @@ O elemento **InputClaims** contém o seguinte elemento:
 
 O elemento **InputClaim** contém os seguintes atributos:
 
-| Atributo | Obrigatório | Description |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sim | O identificador de um tipo de declaração já definido na seção ClaimsSchema no arquivo de política ou no arquivo de política pai. |
 | DefaultValue | Não | Um valor padrão a ser usado para criar uma declaração se a declaração indicada por ClaimTypeReferenceId não existir. Assim, a declaração resultante poderá ser usada como um InputClaim pelo perfil técnico. |
@@ -185,7 +185,7 @@ O elemento **InputClaim** contém os seguintes atributos:
 
 O elemento **DisplayClaims** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | DESCRIÇÃO |
 | ------- | ----------- | ----------- |
 | DisplayClaim | 1:n | Um tipo de declaração de entrada esperado. |
 
@@ -195,7 +195,7 @@ O recurso DislayClaims está atualmente em **Visualização**.
 
 O elemento **DisplayClaim** contém os seguintes atributos:
 
-| Atributo | Obrigatório | Description |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Não | O identificador de um tipo de declaração já definido na seção ClaimsSchema no arquivo de política ou no arquivo de política pai. |
 | DisplayControlReferenceId | Não | O identificador de um [controle de exibição](display-controls.md) já definido na seção de ClaimsSchema no arquivo de política ou de política pai. |
@@ -207,7 +207,7 @@ O **DisplayClaim** requer que você especifique um `ClaimTypeReferenceId` ou `Di
 
 O elemento **PersistedClaims** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | DESCRIÇÃO |
 | ------- | ----------- | ----------- |
 | PersistedClaim | 1:n | O tipo de declaração que deverá persistir. |
 
@@ -215,7 +215,7 @@ O elemento **PersistedClaims** contém os seguintes elementos:
 
 O elemento **PersistedClaim** contém os seguintes atributos:
 
-| Atributo | Obrigatório | Description |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sim | O identificador de um tipo de declaração já definido na seção ClaimsSchema no arquivo de política ou no arquivo de política pai. |
 | DefaultValue | Não | Um valor padrão a ser usado para criar uma declaração se a declaração indicada por ClaimTypeReferenceId não existir. Assim, a declaração resultante poderá ser usada como um InputClaim pelo perfil técnico. |
@@ -225,7 +225,7 @@ O elemento **PersistedClaim** contém os seguintes atributos:
 
 O elemento **OutputClaims** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | DESCRIÇÃO |
 | ------- | ----------- | ----------- |
 | OutputClaim | 1:n | Um tipo de declaração de saída esperado. |
 
@@ -233,7 +233,7 @@ O elemento **OutputClaims** contém o seguinte elemento:
 
 O elemento **OutputClaim** contém os seguintes atributos:
 
-| Atributo | Obrigatório | Description |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sim | O identificador de um tipo de declaração já definido na seção ClaimsSchema no arquivo de política ou no arquivo de política pai. |
 | DefaultValue | Não | Um valor padrão a ser usado para criar uma declaração se a declaração indicada por ClaimTypeReferenceId não existir. Assim, a declaração resultante poderá ser usada como um InputClaim pelo perfil técnico. |
@@ -244,7 +244,7 @@ O elemento **OutputClaim** contém os seguintes atributos:
 
 O elemento **OutputClaimsTransformations** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | DESCRIÇÃO |
 | ------- | ----------- | ----------- |
 | OutputClaimsTransformation | 1:n | Os identificadores de transformações de declarações que devem ser executados antes que uma declaração seja enviada ao provedor de declarações ou à terceira parte confiável. Uma transformação de declarações pode ser usada para modificar as declarações de ClaimsSchema existentes ou gerar novas declarações. |
 
@@ -252,7 +252,7 @@ O elemento **OutputClaimsTransformations** contém o seguinte elemento:
 
 O elemento **OutputClaimsTransformation** contém o seguinte atributo:
 
-| Atributo | Obrigatório | Description |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ReferenceId | Sim | Um identificador de uma transformação de declarações já definido no arquivo de política ou no arquivo de política pai. |
 
@@ -260,7 +260,7 @@ O elemento **OutputClaimsTransformation** contém o seguinte atributo:
 
 O elemento **ValidationTechnicalProfiles** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | DESCRIÇÃO |
 | ------- | ----------- | ----------- |
 | ValidationTechnicalProfile | 1:n | Os identificadores dos perfis técnicos usados validam algumas ou todas as declarações de saída do perfil técnico de referência. Todas as declarações de entrada do perfil técnico referenciado precisam aparecer nas declarações de saída do perfil técnico de referência. |
 
@@ -268,7 +268,7 @@ O elemento **ValidationTechnicalProfiles** contém o seguinte elemento:
 
 O elemento **ValidationTechnicalProfile** contém o seguinte atributo:
 
-| Atributo | Obrigatório | Description |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ReferenceId | Sim | Um identificador de um perfil técnico já definido no arquivo de política ou no arquivo de política pai. |
 
@@ -276,7 +276,7 @@ O elemento **ValidationTechnicalProfile** contém o seguinte atributo:
 
 O **SubjectNamingInfo** contém o seguinte atributo:
 
-| Atributo | Obrigatório | Description |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ClaimType | Sim | Um identificador de um tipo de declaração já definido na seção ClaimsSchema no arquivo de política. |
 
@@ -284,7 +284,7 @@ O **SubjectNamingInfo** contém o seguinte atributo:
 
 O elemento **IncludeTechnicalProfile** contém o seguinte atributo:
 
-| Atributo | Obrigatório | Description |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ReferenceId | Sim | Um identificador de um perfil técnico já definido no arquivo de política ou no arquivo de política pai. |
 
@@ -292,7 +292,7 @@ O elemento **IncludeTechnicalProfile** contém o seguinte atributo:
 
 O elemento **UseTechnicalProfileForSessionManagement** contém o seguinte atributo:
 
-| Atributo | Obrigatório | Description |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ReferenceId | Sim | Um identificador de um perfil técnico já definido no arquivo de política ou no arquivo de política pai. |
 

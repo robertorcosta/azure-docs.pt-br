@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/15/2020
+ms.date: 02/17/2020
 ms.author: dapine
-ms.openlocfilehash: 6edd8f89ed2db2927cce14ea86b589090bdc35ed
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 15d15ce2d4dfc55a51bf21ba005512606cc4997a
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77371280"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77424959"
 ---
 # <a name="get-started-with-custom-voice"></a>Introdução à Voz Personalizada
 
@@ -65,7 +65,7 @@ Conteúdo como dados, modelos, testes e pontos de extremidade são organizados e
 Para criar seu primeiro projeto, selecione a guia **conversão de texto em fala/voz personalizada** e clique em **novo projeto**. Siga as instruções fornecidas pelo Assistente para criar seu projeto. Depois de criar um projeto, você verá quatro guias: **dados**, **treinamento**, **teste**e **implantação**. Use os links fornecidos nas [próximas etapas](#next-steps) para aprender a usar cada guia.
 
 > [!IMPORTANT]
-> O [portal de voz personalizado](https://aka.ms/custom-voice) foi atualizado recentemente! Se você criou projetos anteriores com dados, modelos, testes e pontos de extremidade publicados no portal do CRIS ou com APIs, será necessário criar um novo projeto no novo portal para se conectar a essas entidades antigas.
+> O [portal de voz personalizado](https://aka.ms/custom-voice) foi atualizado recentemente! Se você criou dados, modelos, testes e pontos de extremidade publicados anteriores no portal do CRIS.ai ou com APIs, você precisa criar um novo projeto no novo portal para se conectar a essas entidades antigas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

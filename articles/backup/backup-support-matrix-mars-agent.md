@@ -3,12 +3,12 @@ title: Matriz de suporte para o agente MARS
 description: Este artigo resume o suporte ao backup do Azure ao fazer backup de computadores que executam o agente de Serviços de Recuperação do Microsoft Azure (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: a87d778bff5a52f4251d83e401028c9949713e33
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 8f5ce33b5057b11caa33c0ae80cf72e1b13da5d0
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988066"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425010"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para backup com o agente MARS (Serviços de Recuperação do Microsoft Azure)
 
@@ -44,7 +44,7 @@ Quando você usa o agente MARS para fazer backup de dados, o agente tira um inst
 **Cache** | **Detalhes**
 --- | ---
 Tamanho |  O espaço livre na pasta de cache deve ter pelo menos 5 a 10% do tamanho geral dos dados de backup.
-Local | A pasta de cache deve ser armazenada localmente no computador que está sendo submetido a backup e deve estar online. A pasta de cache não deve estar em um compartilhamento de rede, em mídia removível ou em um volume offline.
+Location | A pasta de cache deve ser armazenada localmente no computador que está sendo submetido a backup e deve estar online. A pasta de cache não deve estar em um compartilhamento de rede, em mídia removível ou em um volume offline.
 Pasta | A pasta de cache não deve ser criptografada em um volume com eliminação de duplicação ou em uma pasta compactada, que seja esparsa ou que tenha um ponto de nova análise.
 Alterações de local | Você pode alterar o local do cache interrompendo o mecanismo de backup (`net stop bengine`) e copiando a pasta de cache para uma nova unidade. (Verifique se a nova unidade tem espaço suficiente.) Em seguida, atualize duas entradas de registro em **HKLM\Software\Microsoft\Windows Azure backup** (**config/ScratchLocation** e **config/CloudBackupProvider/ScratchLocation**) para o novo local e reinicie o mecanismo.
 
@@ -132,6 +132,7 @@ Criptografados e esparsos |Sem suporte. Ignorada.
 Fluxo compactado| Sem suporte. Ignorada.
 Fluxo esparso| Sem suporte. Ignorada.
 OneDrive (arquivos sincronizados são fluxos esparsos)| Sem suporte.
+Pastas com Replicação do DFS habilitado | Sem suporte.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Unidades ou volumes com suporte para backup
 
@@ -143,7 +144,7 @@ Compartilhamento de rede| Sem suporte |O volume deve ser local no servidor.
 Volumes bloqueados pelo BitLocker| Sem suporte |O volume deve ser desbloqueado antes do início do backup.
 Identificação do sistema de arquivos| Sem suporte |Há suporte apenas para NTFS.
 Mídia removível| Sem suporte |Todas as fontes de itens de backup devem ter um status *fixo* .
-Unidades com eliminação de duplicação | Com suporte | O Backup do Azure converte dados com eliminação de duplicação em dados normais. Ele otimiza, criptografa, armazena e envia os dados para o cofre.
+Unidades com eliminação de duplicação | Suportado | O Backup do Azure converte dados com eliminação de duplicação em dados normais. Ele otimiza, criptografa, armazena e envia os dados para o cofre.
 
 ## <a name="support-for-initial-offline-backup"></a>Suporte para o backup offline inicial
 
@@ -160,7 +161,7 @@ Usando o recurso de [restauração instantânea](backup-instant-restore-capabili
 
 Os backups não podem ser restaurados em um computador de destino que esteja executando uma versão anterior do sistema operacional. Por exemplo, um backup feito de um computador que executa o Windows 7 pode ser restaurado no Windows 8 ou posterior. Mas um backup feito de um computador que executa o Windows 8 não pode ser restaurado em um computador que esteja executando o Windows 7.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [a arquitetura de backup que usa o agente Mars](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders).
 - Saiba o que tem suporte quando você [executa o agente Mars no mAbs ou em um servidor DPM](backup-support-matrix-mabs-dpm.md).

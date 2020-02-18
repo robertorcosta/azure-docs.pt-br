@@ -1,17 +1,14 @@
 ---
 title: Visualização de dependência em Migrações para Azure
 description: Fornece uma visão geral dos cálculos de avaliação no serviço de avaliação do servidor nas migrações para Azure
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2019
-ms.author: hamusa
-ms.openlocfilehash: 75b2120b9fef904114d532e83d571c08e1a1034d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.date: 02/17/2020
+ms.openlocfilehash: 65a99e230262ae05d34dc8c04e87252c15133fda
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772305"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425673"
 ---
 # <a name="dependency-visualization"></a>Visualização de dependência
 
@@ -54,7 +51,7 @@ Antes de implantar a visualização de dependência, você deve ter um projeto d
 [Saiba mais](how-to-assess.md) sobre como adicionar a ferramenta e implantar um dispositivo para servidores [Hyper-V](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md)ou físicos.
 
 
-### <a name="how-does-it-work"></a>Como funciona?
+### <a name="how-does-it-work"></a>Como ele funciona?
 
 As migrações para Azure usam a solução [mapa do serviço](../operations-management-suite/operations-management-suite-service-map.md) em [logs de Azure monitor](../log-analytics/log-analytics-overview.md) para visualização de dependência.
 
@@ -91,7 +88,7 @@ Saiba mais sobre os preços de Migrações para Azure [aqui](https://azure.micro
 - Se você excluir o projeto de migrações do Azure associado, o espaço de trabalho não será excluído automaticamente. Você precisa [excluí-lo manualmente](../azure-monitor/platform/manage-access.md).
 - Não exclua o espaço de trabalho criado pela migração do Azure, a menos que você exclua o projeto de migrações para Azure. Se você fizer isso, a funcionalidade de visualização de dependência não funcionará conforme o esperado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - [Agrupar máquinas usando dependências da máquina](how-to-create-group-machine-dependencies.md)
 - [Saiba mais](common-questions-discovery-assessment.md#what-is-dependency-visualization) sobre as perguntas frequentes na visualização de dependência.
 

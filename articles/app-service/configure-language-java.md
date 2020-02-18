@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9ee989a079366a470d086a8b931685a6c1dbc757
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: a088a90642a0394b0ede3c163590f64112799d1a
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889350"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425282"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configurar um aplicativo Java do Windows para o serviço Azure App
 
@@ -24,7 +24,7 @@ Este guia fornece os principais conceitos e instruções para desenvolvedores Ja
 
 ## <a name="deploying-your-app"></a>Implantação do aplicativo
 
-Você pode usar o [plug-in do Maven para Azure app serviço](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) para implantar seus arquivos. War. A implantação com IDEs populares também tem suporte com [Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) ou [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
+Você pode usar o [plug-in do aplicativo Web do Azure para Maven](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) para implantar seus arquivos. War. A implantação com IDEs populares também tem suporte com [Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) ou [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
 
 Caso contrário, o método de implantação dependerá do tipo de arquivo morto:
 
@@ -209,7 +209,7 @@ Esta seção mostra como conectar aplicativos Java implantados no serviço de Az
 
 Essas instruções se aplicam a todas as conexões de banco de dados. Você precisará preencher os espaços reservados com nome de classe do driver do banco de dados escolhido e o arquivo JAR. É fornecida uma tabela com nomes de classe e downloads de driver para bancos de dados comuns.
 
-| Banco de dados   | Nome de Classe do Driver                             | JDBC Driver                                                                      |
+| Banco de dados   | Nome de Classe do Driver                             | Driver JDBC                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
 | PostgreSQL | `org.postgresql.Driver`                        | [Download](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Baixar](https://dev.mysql.com/downloads/connector/j/) (Selecione "Independente de Plataforma") |
@@ -317,7 +317,7 @@ O suporte ao produto para o [azul Zulu com suporte do Azure](https://www.azul.co
 
 Os desenvolvedores podem [abrir um problema](/azure/azure-portal/supportability/how-to-create-azure-support-request) com o Azul Zulu JDK por meio do Suporte do Azure se tiverem um [plano de suporte qualificado](https://azure.microsoft.com/support/plans/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Este tópico fornece a declaração de suporte do Java em tempo de execução para Azure App serviço no Windows.
 

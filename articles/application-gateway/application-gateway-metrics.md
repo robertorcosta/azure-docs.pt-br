@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: 1fa9c72f7ca305a03cdc90ea02cefe973932792b
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 838d215cb49e526251aff9267dbeb0feb6d5f8df
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77046311"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425249"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para o gateway de aplicativo
 
@@ -95,10 +95,20 @@ Para o Gateway de Aplicativo, as seguintes métricas estão disponíveis:
 - **Conexões atuais**
 
    O número total de conexões simultâneas ativas de clientes para o gateway de aplicativo
+   
+- **Unidades de capacidade cobradas estimadas**
+
+  Número de unidades de capacidade usando as quais a cobrança é estimada. Isso é calcutaed como o maior valor entre as *unidades de capacidade atuais* e as *unidades de capacidade Faturável fixas*.  
 
 - **Solicitações com falha**
 
    Contagem de solicitações com falha que o gateway de aplicativo serviu. A contagem de solicitações pode ser filtrada para mostrar a contagem por cada/pool de back-end específico-combinação de configurações de http.
+   
+- **Unidades de capacidade Faturável fixas** O número mínimo de unidades de capacidade mantidas provisionadas de acordo com a configuração de *unidades de escala mínimas* na configuração do gateway de aplicativo.
+   
+ - **Novas conexões por segundo**
+
+   O número médio de novas conexões TCP por segundo estabelecidas de clientes para o gateway de aplicativo e do gateway de aplicativo para os membros de back-end.
 
 
 - **Status da resposta**
@@ -224,7 +234,7 @@ Para saber mais sobre notificações de alerta, consulte [Receber notificações
 
 Para entender mais sobre webhooks e como eles podem ser usados com alertas, consulte [Configurar um webhook em um alerta de métrica do Azure](../azure-monitor/platform/alerts-webhooks.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Visualize o contador e os logs de eventos com os [logs do Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md).
 * Postagem no blog [Visualize your Azure Activity Log with Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) (Visualizar o log de atividades do Azure com o Power BI).

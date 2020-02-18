@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: a2a65c6fcca4a037408c6b7e780708623aebed2b
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: e53bd3deae5ccd7339c7a6d491dc4ff0da44a277
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212244"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426215"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -184,9 +184,6 @@ Selecione as opções a seguir, conforme mostrado na imagem:
 2. Selecione a *versão 2* para a **versão dos logs de fluxo**. A versão 2 contém estatísticas de sessão de fluxo (bytes e pacotes)
 3. Selecione uma conta de armazenamento existente na qual armazenar os logs de fluxo. Se você deseja armazenar os dados indefinidamente, defina o valor como *0*. Incorrem em taxas de armazenamento do Azure para a conta de armazenamento. Verifique se o armazenamento não tem "Data Lake Storage Gen2 namespace hierárquico habilitado" definido como true.
 4. Defina a **Retenção** para o número de dias que você deseja armazenar os dados.
-> [!IMPORTANT]
-> Atualmente, há um problema em que os [logs de fluxo do NSG (grupo de segurança de rede)](network-watcher-nsg-flow-logging-overview.md) para o Observador de Rede não são automaticamente excluídos do Armazenamento de Blobs com base nas configurações da política de retenção. Se você tiver uma política de retenção diferente de zero, recomendamos que você exclua periodicamente os blobs de armazenamento que ultrapassaram os respectivos períodos de retenção para evitar incorrer em alguma cobrança. Para obter mais informações sobre como excluir o blob de armazenamento de log de fluxo do NSG, confira [Excluir blobs de armazenamento de log de fluxo do NSG](network-watcher-delete-nsg-flow-log-blobs.md).
-
 5. Selecione *Ativado* para **Status de Análise de Tráfego**.
 6. Selecione o intervalo de processamento. Com base em sua escolha, os logs de fluxo serão coletados da conta de armazenamento e processados pelo Análise de Tráfego. Você pode escolher o intervalo de processamento de cada uma hora ou a cada 10 minutos. 
 7. Selecione um workspace do Log Analytics (OMS) existente ou selecione **Criar novo workspace** para criar um novo. Um espaço de trabalho do Log Analytics é usado pela Análise de Tráfego para armazenar os dados agregados e indexados que são usados para gerar a análise. Se você selecionar um workspace existente, ele deve existir em uma das [regiões com suporte](#supported-regions-log-analytics-workspaces) e ter sido atualizado para a nova linguagem de consulta. Se você não desejar atualizar um workspace existente ou não tem um workspace em uma região com suporte, crie um novo. Para obter mais informações sobre linguagens de consulta, consulte [Atualização do Azure Log Analytics para a nova pesquisa de logs ](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 0f444838c87e14fa88f2785030c29915df637cf8
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 45977f52226fac0a3e23455ce9457a721947a8cc
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552195"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425877"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Use MirrorMaker para replicar tópicos do Apache Kafka com Kafka no HDInsight
 
@@ -63,9 +63,9 @@ Essa arquitetura apresenta dois clusters em diferentes grupos de recursos e rede
 
 1. Crie dois novos grupos de recursos:
 
-    |Grupo de recursos | Local |
+    |Grupo de recursos | Location |
     |---|---|
-    | Kafka-principal-RG | EUA Central |
+    | Kafka-principal-RG | Centro dos EUA |
     | Kafka-secundário-RG | Centro-Norte dos EUA |
 
 1. Crie uma nova rede virtual **Kafka-Primary-vnet** em **Kafka-Primary-RG**. Deixe as configurações padrão.
@@ -73,7 +73,7 @@ Essa arquitetura apresenta dois clusters em diferentes grupos de recursos e rede
 
 1. Crie dois novos clusters Kafka:
 
-    | Nome do cluster | Grupo de recursos | Rede virtual | Conta de Armazenamento |
+    | Nome do cluster | Grupo de recursos | Rede Virtual | Conta de Armazenamento |
     |---|---|---|---|
     | Kafka-primário-cluster | Kafka-principal-RG | Kafka-Primary-vnet | kafkaprimarystorage |
     | Kafka-secundário-cluster | Kafka-secundário-RG | Kafka-secundário-vnet | kafkasecondarystorage |
@@ -268,7 +268,7 @@ Configure o anúncio de IP para permitir que um cliente se conecte usando endere
 
     Os parâmetros usados neste exemplo são:
 
-    |Parâmetro |Description |
+    |Parâmetro |DESCRIÇÃO |
     |---|---|
     |--Consumer. config|Especifica o arquivo que contém as propriedades do consumidor. Essas propriedades são usadas para criar um consumidor que lê o cluster *primário* Kafka.|
     |--produtor. config|Especifica o arquivo que contém as propriedades do produtor. Essas propriedades são usadas para criar um produtor que grava no cluster Kafka *secundário* .|
@@ -300,12 +300,12 @@ Configure o anúncio de IP para permitir que um cliente se conecte usando endere
 
 As etapas neste documento criaram clusters em diferentes grupos de recursos do Azure. Para excluir todos os recursos criados, você pode excluir os dois grupos de recursos criados: **Kafka-Primary-RG** e **Kafka-secondary_rg**. A exclusão dos grupos de recursos remove todos os recursos criados com o seguinte documento, incluindo clusters, redes virtuais e contas de armazenamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste documento, você aprendeu a usar o [MirrorMake](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330)r para criar uma réplica de um cluster [Apache Kafka](https://kafka.apache.org/). Use os links a seguir para descobrir outras maneiras de trabalhar com Kafka:
 
 * [Documentação do Apache Kafka MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) em cwiki.apache.org.
+* [Práticas recomendadas do Kafka Mirror Maker](https://community.cloudera.com/t5/Community-Articles/Kafka-Mirror-Maker-Best-Practices/ta-p/249269)
 * [Introdução ao Apache Kafka no HDInsight](apache-kafka-get-started.md)
 * [Usar o Apache Spark com o Apache Kafka no HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Use o Apache Storm com o Apache Kafka no HDInsight](../hdinsight-apache-storm-with-kafka.md)
 * [Conectar-se ao Apache Kafka por meio de uma Rede Virtual do Azure](apache-kafka-connect-vpn-gateway.md)

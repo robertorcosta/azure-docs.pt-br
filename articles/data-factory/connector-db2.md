@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 02/17/2020
 ms.author: jingwang
-ms.openlocfilehash: 3d3a1704b75de53bf65012329fba5f8522adff3a
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 22ecac12e049e58e533cdde0078f4a25f6bb2aa6
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941760"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77423820"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiar dados do DB2 usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -46,7 +46,10 @@ Especificamente, este conector DB2 dá suporte às plataformas e versões do IBM
 * IBM DB2 para LUW 10.5
 * IBM DB2 para LUW 10.1
 
-## <a name="prerequisites"></a>Pré-requisitos
+>[!TIP]
+>O conector do DB2 é criado com base em Provedor Microsoft OLE DB para DB2. Para solucionar problemas de erros do conector do DB2, consulte [provedor de dados códigos de erro](https://docs.microsoft.com/host-integration-server/db2oledbv/data-provider-error-codes#drda-protocol-errors).
+
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -62,11 +65,11 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 As propriedades a seguir têm suporte para o serviço vinculado do DB2:
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **Db2** | Sim |
 | Servidor |Nome do servidor DB2. Você pode especificar o número da porta após o nome do servidor delimitado por dois pontos, por exemplo, `server:port`. |Sim |
-| banco de dados |Nome do banco de dados DB2. |Sim |
+| Banco de Dados |Nome do banco de dados DB2. |Sim |
 | authenticationType |Tipo de autenticação usado para se conectar ao banco de dados DB2.<br/>O valor permitido é: **Básica**. |Sim |
 | Nome de Usuário |Especifica o nome de usuário para se conectar ao banco de dados DB2. |Sim |
 | password |Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
@@ -108,7 +111,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do DB2, há suporte para as seguintes propriedades:
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade Type do conjunto de conjuntos deve ser definida como: **Db2Table** | Sim |
 | esquema | Nome do esquema. |Não (se "query" na fonte da atividade for especificada)  |
@@ -143,7 +146,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do DB2, há suporte para as seguintes propriedades na seção **origem** da atividade de cópia:
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **Db2Source** | Sim |
 | Consulta | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Não (se "tableName" no conjunto de dados for especificado) |
@@ -206,10 +209,10 @@ Ao copiar dados do DB2, os seguintes mapeamentos são usados de tipos de dados d
 | LongVarChar |String |
 | LongVarGraphic |String |
 | Numérico |Decimal |
-| Real |Individual |
+| Real |Single |
 | SmallInt |Int16 |
-| Tempo |TimeSpan |
-| Timestamp |DateTime |
+| Hora |TimeSpan |
+| Timestamp |Datetime |
 | VarBinary |Byte[] |
 | VarChar |String |
 | VarGraphic |String |
@@ -219,5 +222,5 @@ Ao copiar dados do DB2, os seguintes mapeamentos são usados de tipos de dados d
 
 Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/16/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 37d895e2514d01bdbe73f42e1ba5ea5e4c46bfa1
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: 8f2a86f72f16a23b0133601cfe41b9e636d8866d
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77372867"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425588"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico autodeclarado em uma política personalizada do Azure Active Directory B2C
 
@@ -55,7 +55,7 @@ Em um perfil técnico autodeclarado, você pode usar os elementos **InputClaims*
 
 O recurso Exibir declarações está em **Visualização**no momento.
 
-O elemento **DisplayClaims** contém uma lista de declarações a serem apresentadas na tela para coletar dados do usuário. Para preencher previamente os valores das declarações de saída, use as declarações de entrada que foram descritas anteriormente. O elemento também pode conter um valor padrão.
+O elemento **DisplayClaims** contém uma lista de declarações a serem apresentadas na tela para coletar dados do usuário. Para preencher previamente os valores de declarações de exibição, use as declarações de entrada que foram descritas anteriormente. O elemento também pode conter um valor padrão.
 
 A ordem das declarações em **DisplayClaims** especifica a ordem na qual Azure ad B2C renderiza as declarações na tela. Para forçar o usuário a fornecer um valor para uma declaração específica, defina o atributo **Required** do elemento **DisplayClaim** como `true`.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 01/17/2020
 ms.author: tagore
-ms.openlocfilehash: c4cbe2a99de97b2938d494e80d410a44c4143629
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 85fb87e23fa11781587572e836d1439dd813170e
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026829"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425027"
 ---
 # <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Solucionando problemas de aplicativos que não dão suporte a TLS 1,2
 Este artigo descreve como habilitar os protocolos TLS mais antigos (TLS 1,0 e 1,1), bem como aplicar pacotes de criptografia herdados para dar suporte aos protocolos adicionais nas funções Web e de trabalho do serviço de nuvem do Windows Server 2019. 
@@ -27,7 +27,7 @@ Este artigo descreve como habilitar os protocolos TLS mais antigos (TLS 1,0 e 1,
 Entendemos que, enquanto estamos realizando etapas para substituir o TLS 1,0 e o TLS 1,1, nossos clientes talvez precisem dar suporte aos protocolos mais antigos e conjuntos de codificação até que possam planejar sua substituição.  Embora não seja recomendável reabilitar esses valores herdados, estamos fornecendo orientações para ajudar os clientes. Incentivamos os clientes a avaliar o risco de regressão antes de implementar as alterações descritas neste artigo. 
 
 > [!NOTE]
-> As versões da família de sistemas operacionais convidados 6 aplicam o TLS 1,2 desabilitando as codificações 1.0/1.0. 
+> As versões da família de sistemas operacionais convidados 6 aplicam o TLS 1,2 desabilitando as codificações 1.0/1.1. 
 
   
 ## <a name="dropping-support-for-tls-10-tls-11-and-older-cipher-suites"></a>Descartando o suporte para TLS 1,0, TLS 1,1 e pacotes de criptografia mais antigos 

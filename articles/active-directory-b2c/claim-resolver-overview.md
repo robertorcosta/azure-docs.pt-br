@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 74813d9f84f682447d30cea43984f0810954da85
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: 4434c877f69391f5dc5926c6aed07049ba46b7b7
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77372716"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425639"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre resolvedores de declaração em políticas personalizadas do Azure Active Directory B2C
 
@@ -103,6 +103,18 @@ Qualquer nome de parâmetro incluído como parte de uma solicitação OIDC ou OA
 | Declaração | DESCRIÇÃO | Exemplo |
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | O token de acesso. | N/D |
+
+
+### <a name="saml"></a>SAML
+
+| Declaração | DESCRIÇÃO | Exemplo |
+| ----- | ----------- | --------|
+| {SAML: AuthnContextClassReferences} | O valor do elemento `AuthnContextClassRef`, da solicitação SAML. | urn: Oasis: names: TC: SAML: 2.0: AC: classes: PasswordProtectedTransport |
+| {SAML: NameIdPolicyFormat} | O atributo `Format`, do elemento `NameIDPolicy` da solicitação SAML. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
+| {SAML: emissor} |  O valor do elemento de `Issuer` SAML da solicitação SAML.| https://contoso.com |
+| {SAML: AllowCreate} | O valor do atributo `AllowCreate`, do elemento `NameIDPolicy` da solicitação SAML. | True |
+| {SAML: ForceAuthn} | O valor do atributo `ForceAuthN`, do elemento `AuthnRequest` da solicitação SAML. | True |
+| {SAML: ProviderName} | O valor do atributo `ProviderName`, do elemento `AuthnRequest` da solicitação SAML.| Contoso.com |
 
 ## <a name="using-claim-resolvers"></a>Usando resolvedores de declaração 
 

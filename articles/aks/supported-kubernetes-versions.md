@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: saudas
-ms.openlocfilehash: 8c144fb0c9818e21c2ca5bd61525067b485531bb
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 625b44ae3f8a1d5d474d980693d92840b1317f09
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026108"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425758"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versões do Kubernetes com suporte no AKS (Serviço de Kubernetes do Azure)
 
-A comunidade Kubernetes libera versões secundárias aproximadamente a cada três meses. Essas versões incluem novos recursos e melhorias. As versões de patch são mais frequentes (às vezes semanais) e são destinadas apenas a correções de bugs críticas em uma versão secundária. Essas versões de patch incluem correções de vulnerabilidades de segurança ou de bugs importantes que afetam um grande número de clientes e produtos em execução na produção com base no Kubernetes.
+A comunidade Kubernetes libera versões secundárias aproximadamente a cada três meses. Essas versões incluem novos recursos e melhorias. As versões de patch são mais frequentes (às vezes, semanais) e são destinadas apenas a correções de bugs críticas em uma versão secundária. Essas versões de patch incluem correções de vulnerabilidades de segurança ou de bugs importantes que afetam um grande número de clientes e produtos em execução na produção com base no Kubernetes.
 
 O AKS tem o objetivo de certificar e lançar novas versões do kubernetes dentro de 30 dias após uma versão de upstream, sujeito à estabilidade da versão.
 
@@ -45,7 +45,7 @@ Os usuários devem visar executar a versão mais recente do patch da versão sec
 O AKS dá suporte a três versões secundárias do kubernetes:
 
 * A versão secundária atual lançada em AKS (N)
-* Duas versões secundárias anteriores. Cada versão secundária compatível também dá suporte a dois patches estáveis.
+* Duas versões secundárias anteriores. Cada versão secundária com suporte também dá suporte a dois patches estáveis.
 
 Isso é conhecido como "N-2": (N (versão mais recente)-2 (versões secundárias)).
 
@@ -70,7 +70,7 @@ Quando uma nova versão secundária é introduzida, a versão secundária mais a
 1.13.f
 ```
 
-E AKS versões 1,16. *, isso significa que o 1,13.* as versões (todas as versões 1,13) serão removidas e estarão fora de suporte.
+E AKS versões 1,16. *, isso significa que o 1,13.* as versões (todas as versões 1,13) serão removidas e estarão sem suporte.
 
 > [!NOTE]
 > Observe que, se os clientes estiverem executando uma versão sem suporte do kubernetes, eles serão solicitados a atualizar ao solicitar suporte para o cluster. Os clusters que executam versões kubernetes sem suporte não são cobertos pelas [políticas de suporte do AKS](https://docs.microsoft.com/azure/aks/support-policies).
@@ -99,7 +99,7 @@ New Supported Version List
   * Os clientes têm **30 dias** a partir da data de notificação pública para atualizar para um lançamento de versão secundária com suporte.
 * Para novas versões de **patch** do kubernetes
   * Todos os usuários são notificados sobre a versão do novo patch que está sendo lançada e para atualizar para a versão mais recente do patch.
-  * Os usuários têm **30 dias** para atualizar para uma versão de patch mais recente e com suporte. Os usuários têm **30 dias** para atualizar para uma versão de patch com suporte antes que o mais antigo seja removido.
+  * Os usuários têm **30 dias** para atualizar para uma versão de patch mais recente e com suporte antes que o mais antigo seja removido.
 
 AKS define uma "versão liberada" como as versões disponíveis para o público geral, habilitadas em todas as medições de SLO/qualidade de serviço e disponíveis em todas as regiões. O AKS também pode oferecer suporte a versões de visualização que são rotuladas explicitamente e sujeitas a termos e condições de visualização.
 
@@ -135,18 +135,18 @@ Para descobrir quais versões estão disponíveis no momento para sua assinatura
 az aks get-versions --location eastus --output table
 ```
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Perguntas frequentes
 
 **O que acontece quando um cliente atualiza um cluster do Kubernetes com uma versão secundária sem suporte?**
 
 Se você estiver na versão *n-3* , você estará fora do suporte e será solicitado a fazer a atualização. Se a atualização da versão n-3 para o n-2 tiver sucesso, agora você estará dentro de nossas políticas de suporte. Por exemplo:
 
 - Se a versão mais antiga do AKS com suporte for *1.13. a* e você estiver no *1.12. b* ou mais antigo, você está fora do suporte.
-- Se a atualização de *1.12. b* para *1.13. a* ou superior for realizada com sucesso, você voltará ao dentro de nossas políticas de suporte.
+- Se a atualização de *1.12. b* para *1.13. a* ou superior for realizada com sucesso, você voltará para nossas políticas de suporte.
 
 Não há suporte para atualizações para versões anteriores à janela *N-2* com suporte. Nesses casos, recomendamos que os clientes criem novos clusters AKS e reimplantem suas cargas de trabalho com versões na janela com suporte.
 
-**O que significa "fora do suporte"**
+**O que significa ' fora do suporte '**
 
 ' Fora do suporte ' significa que a versão que você está executando está fora da lista de versões com suporte e você será solicitado a atualizar o cluster para uma versão com suporte ao solicitar suporte. Além disso, o AKS não torna nenhum tempo de execução ou outras garantias para clusters fora da lista de versões com suporte.
 
@@ -162,7 +162,7 @@ Sim. No entanto, se o cluster não estiver em uma das versões com suporte do AK
 
 O plano de controle deve estar dentro de uma janela de versões de todos os pools de nós. Para obter detalhes sobre como atualizar o plano de controle ou pools de nós, visite a documentação sobre como [Atualizar pools de nós](use-multiple-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter informações sobre como atualizar o cluster, consulte [atualizar um cluster do AKS (serviço kubernetes do Azure)][aks-upgrade].
 

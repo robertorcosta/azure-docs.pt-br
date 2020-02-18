@@ -3,16 +3,16 @@ title: Fazendo backup de arquivos e pastas-perguntas comuns
 description: Aborda perguntas comuns sobre como fazer backup de arquivos e pastas com o backup do Azure.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 45c01a08151060b60b0f3e3b27b2fcc16ec8e60b
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 7b80932d49038bb42fa93f71b3ac0194c2869489
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720354"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425061"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Perguntas comuns sobre como fazer backup de arquivos e pastas
 
-Este artigo tem respostas para perguntas comuns abound fazer backup de arquivos e pastas com o agente de Serviços de Recuperação do Microsoft Azure (MARS) no serviço de [backup do Azure](backup-overview.md) .
+Este artigo responde a perguntas comuns abound backup de arquivos e pastas com o agente de Serviços de Recuperação do Microsoft Azure (MARS) no serviço de [backup do Azure](backup-overview.md) .
 
 ## <a name="configure-backups"></a>Configurar backups
 
@@ -90,7 +90,7 @@ Esse aviso pode aparecer mesmo que você tenha configurado uma política de back
 O tamanho da pasta de cache determina a quantidade de dados submetida a backup.
 
 * Os volumes da pasta de cache devem ter espaço livre igual a pelo menos 5-10% do tamanho total dos dados de backup.
-* Se o volume tiver menos de 5% de espaço livre, aumente o tamanho do volume ou mova a pasta de cache para um volume com espaço suficiente.
+* Se o volume tiver menos de 5% de espaço livre, aumente o tamanho do volume ou mova a pasta de cache para um volume com espaço suficiente seguindo [estas etapas](#how-do-i-change-the-cache-location-for-the-mars-agent).
 * Se você fazer backup do estado do sistema do Windows, precisará de mais 30-35 GB de espaço livre no volume que contém a pasta de cache.
 
 ### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>Como verificar se a pasta de rascunho é válida e acessível?
@@ -98,35 +98,35 @@ O tamanho da pasta de cache determina a quantidade de dados submetida a backup.
 1. Por padrão, a pasta de rascunho está localizada em `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 2. Verifique se o caminho do local da pasta de rascunho corresponde aos valores das entradas da chave do registro mostradas abaixo:
 
-  | Caminho do registro | Chave do Registro | Valor |
-  | --- | --- | --- |
-  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Novo local da pasta de cache* |
-  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Novo local da pasta de cache* |
+    | Caminho do registro | Chave do Registro | Valor |
+    | --- | --- | --- |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Novo local da pasta de cache* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Novo local da pasta de cache* |
 
 ### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>Como fazer alterar o local do cache para o agente MARS?
 
 1. Execute este comando em um prompt de comandos com privilégios elevados para interromper o mecanismo de backup:
 
     ```Net stop obengine```
-
 2. Se você tiver configurado o backup do estado do sistema, abra o gerenciamento de disco e desmonte os discos com nomes no formato `"CBSSBVol_<ID>"`.
-3. Não mova os arquivos. Em vez disso, copie a pasta de espaço em cache para uma unidade diferente que tenha espaço suficiente.
-4. Atualize as entradas de registro a seguir com o caminho da nova pasta de cache.
+3. Por padrão, a pasta de rascunho está localizada em `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+4. Copie a pasta `\Scratch` inteira para uma unidade diferente que tenha espaço suficiente. Certifique-se de que o conteúdo seja copiado, não movido.
+5. Atualize as entradas de registro a seguir com o caminho da pasta de rascunho recentemente movida.
 
     | Caminho do registro | Chave do Registro | Valor |
     | --- | --- | --- |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Novo local da pasta de cache* |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Novo local da pasta de cache* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Novo local da pasta de rascunho* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Novo local da pasta de rascunho* |
 
-5. Reinicie o mecanismo de backup em um prompt de comandos com privilégios elevados:
+6. Reinicie o mecanismo de backup em um prompt de comandos com privilégios elevados:
 
-  ```command
-  Net stop obengine
+    ```command
+    Net stop obengine
 
-  Net start obengine
-  ```
+    Net start obengine
+    ```
 
-6. Executar um backup sob demanda. Depois que o backup for concluído com êxito usando o novo local, você poderá remover a pasta de cache original.
+7. Executar um backup sob demanda. Depois que o backup for concluído com êxito usando o novo local, você poderá remover a pasta de cache original.
 
 ### <a name="where-should-the-cache-folder-be-located"></a>Onde a pasta de cache deve ser localizada?
 
@@ -153,7 +153,7 @@ Sim, você pode usar a opção **alterar propriedades** no agente Mars para ajus
 
 ## <a name="restore"></a>Restaurar
 
-### <a name="manage"></a>Gerenciamento
+### <a name="manage"></a>Gerenciar
 
 **Posso recuperar se esqueci minha frase secreta?**
 O agente de backup do Azure requer uma frase secreta (que você forneceu durante o registro) para descriptografar os dados de backup durante a restauração. Examine os cenários abaixo para entender suas opções de tratamento de uma senha perdida:
@@ -193,6 +193,6 @@ Se um trabalho de restauração em andamento for cancelado, o processo de restau
 * Para a opção de recuperação de volume, o agente MARS fornece uma opção para ignorar a restauração de permissões de ACL para o arquivo ou pasta que está sendo recuperada
 * Para a opção de recuperação de arquivo e pastas individuais, o agente MARS será restaurado com permissões de ACL (não há nenhuma opção para ignorar a restauração de ACL).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Saiba](tutorial-backup-windows-server-to-azure.md) como fazer backup de um computador Windows.

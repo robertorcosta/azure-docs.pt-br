@@ -1,18 +1,18 @@
 ---
-title: Criar e gerenciar projetos de migrações para Azure
+title: Criar e gerenciar projetos de Migrações para Azure
 description: Localize, crie, gerencie e exclua projetos em migrações para Azure.
 ms.topic: how-to
-ms.date: 01/01/2020
-ms.openlocfilehash: 548e51cbd215dd9b5e69c68b9bd8fc81625240a2
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.date: 02/17/2020
+ms.openlocfilehash: a49595f0580e71048239d5c5d8f4d1a66e24fe6d
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75725878"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425656"
 ---
-# <a name="create-and-manage-azure-migrate-projects"></a>Criar e gerenciar projetos de migrações para Azure
+# <a name="create-and-manage-azure-migrate-projects"></a>Criar e gerenciar projetos de Migrações para Azure
 
-Este artigo descreve como criar, gerenciar e excluir projetos de [migrações para Azure](migrate-services-overview.md)
+Este artigo descreve como criar, gerenciar e excluir projetos de [migrações para Azure](migrate-services-overview.md) .
 
 
 ## <a name="create-a-project-for-the-first-time"></a>Criar um projeto pela primeira vez
@@ -85,6 +85,6 @@ Observe que:
        
 2. [Siga as instruções](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) para excluir o espaço de trabalho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Adicione ferramentas de [avaliação](how-to-assess.md) ou [migração](how-to-migrate.md) para projetos de migrações para Azure.
