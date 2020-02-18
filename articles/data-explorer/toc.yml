@@ -32,6 +32,10 @@
         - name: Visão geral de ingestão de dados
           displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
           href: ingest-data-overview.md
+    - name: Linguagem de Consulta Kusto
+      items:
+        - name: Guia de referência rápida
+          href: kql-quick-reference.md
     - name: Visão geral da visualização de dados
       href: viz-overview.md
     - name: Visão geral da segurança
@@ -52,6 +56,10 @@
           href: create-cluster-database-resource-manager.md
     - name: Ingestão de dados
       items:
+        - name: Ingestão com um clique
+          href: ingest-data-one-click.md
+        - name: Ingestão de streaming
+          href: ingest-data-streaming.md
         - name: Hub de evento
           items:
             - name: Portal do Azure
@@ -82,10 +90,6 @@
               href: data-connection-iot-hub-python.md
             - name: Modelo do Azure Resource Manager
               href: data-connection-iot-hub-resource-manager.md
-        - name: Ingestão com um clique
-          href: ingest-data-one-click.md
-        - name: Ingestão de streaming
-          href: ingest-data-streaming.md
         - name: Uso de SDKs
           items:
             - name: Python
