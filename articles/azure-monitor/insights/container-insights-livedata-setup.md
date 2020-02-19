@@ -3,12 +3,12 @@ title: Configurar Azure Monitor para dados dinâmicos de contêineres (visualiza
 description: Este artigo descreve como configurar a exibição em tempo real de logs de contêiner (stdout/stderr) e eventos sem usar o kubectl com Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 91f035b98a57fd9a37203cc48b3cc5d685967a13
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: f19071ca642cd229cbd7d49b4eab90c970672eee
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251780"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459915"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Como configurar o recurso de dados dinâmicos (versão prévia)
 
@@ -48,7 +48,7 @@ O portal do Azure solicita que você valide suas credenciais de logon para um cl
 
 ## <a name="using-clustermonitoringuser-with-rbac-enabled-clusters"></a>Usando o clusterMonitoringUser com clusters habilitados para RBAC
 
-Para eliminar a necessidade de aplicar alterações de configuração adicionais para permitir que a associação de regra de usuário kubernetes **clusterUser** o acesso ao recurso de dados dinâmicos (versão prévia) depois de habilitar a autorização de [RBAC](#configure-kubernetes-rbac-authorization) , o AKs adicionou uma nova associação de função de cluster kubernetes chamada **clusterMonitoringUser**. Essa associação de função de cluster tem todas as permissões necessárias prontas para acessar a API kubernetes e os pontos de extremidade para utilizar o recurso de dados dinâmicos (versão prévia). 
+Para eliminar a necessidade de aplicar alterações de configuração adicionais para permitir que a associação de função de usuário kubernetes **clusterUser** o acesso ao recurso de dados dinâmicos (versão prévia) depois de habilitar a autorização de [RBAC](#configure-kubernetes-rbac-authorization) , o AKs adicionou uma nova associação de função de cluster kubernetes chamada **clusterMonitoringUser**. Essa associação de função de cluster tem todas as permissões necessárias prontas para acessar a API kubernetes e os pontos de extremidade para utilizar o recurso de dados dinâmicos (versão prévia).
 
 Para utilizar o recurso de dados dinâmicos (versão prévia) com esse novo usuário, você precisa ser um membro da função [colaborador](../../role-based-access-control/built-in-roles.md#contributor) no recurso de cluster AKs. Azure Monitor para contêineres, quando habilitado, é configurado para autenticar usando esse usuário por padrão. Se a associação de função clusterMonitoringUser não existir em um cluster, o **clusterUser** será usado para autenticação em vez disso.
 
