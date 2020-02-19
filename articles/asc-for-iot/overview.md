@@ -7,7 +7,6 @@ documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
-ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
 ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
@@ -15,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 6a4fc842113218294b3e2ab449e27cfa94c5cfd3
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 1c85f0205f568f065a7959a9b33890b2117e45a0
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766516"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462217"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Apresentação da Central de Segurança do Azure para IoT
 
 Unifique o gerenciamento de segurança e habilite a detecção e análise de ameaças de ponta a ponta em cargas de trabalho de nuvem híbrida e sua solução de IoT do Azure. 
 
-## <a name="secure-your-entire-iot-solution-from-iot-devices-to-azure-cloud"></a>Proteja toda a sua solução IoT de dispositivos IoT para a nuvem do Azure.
+## <a name="secure-your-entire-iot-solution-from-iot-devices-to-azure-cloud"></a>Proteja toda a sua solução IoT de dispositivos IoT para a nuvem do Azure
 
 Escolha em nossa solução ininterrupta sem agente ou aproveite a segurança abrangente baseada em agente, a central de segurança do Azure para IoT fornece prevenção de ameaças e análise para cada dispositivo, IoT Edge e Hub IoT, em seus ativos de IoT.
 
@@ -38,7 +37,7 @@ A central de segurança do Azure para IoT simplifica a proteção de carga de tr
 
 ### <a name="unified-visibility-and-control"></a>Visibilidade e controle unificados
 
-Obtenha uma exibição unificada da segurança de todas as cargas de trabalho locais e na nuvem, incluindo a solução de IoT do Azure. Integre novos dispositivos e aplique políticas de segurança em suas cargas de trabalho (dispositivos folha, dispositivos Microsoft Edge, Hub IoT) para garantir a conformidade com os padrões de segurança e a postura de segurança aprimorada. 
+Obtenha uma exibição unificada de segurança em todas as suas cargas de trabalho locais e na nuvem, incluindo sua solução de IoT do Azure. Integre novos dispositivos e aplique políticas de segurança em suas cargas de trabalho (dispositivos folha, dispositivos Microsoft Edge, Hub IoT) para garantir a conformidade com os padrões de segurança e a postura de segurança aprimorada. 
 
 ### <a name="adaptive-threat-prevention"></a>Prevenção de ameaças adaptáveis
 
@@ -46,9 +45,9 @@ Use a central de segurança do Azure para IoT para monitorar continuamente a seg
 
 ### <a name="intelligent-threat-detection-and-response"></a>Detecção e resposta inteligentes de ameaças
 
-Use a análise avançada e a Gráfico de Segurança Inteligente da Microsoft para obter uma borda sobre ataques cibernéticos em evolução. A análise comportamental interna e o aprendizado de máquina identificam ataques e explorações de dia zero. Monitore sua solução de IoT para ataques recebidos e atividades pós-violação. Simplifique a investigação e a correção de dispositivos com ferramentas interativas e inteligência de ameaças contextuais.
+Use a análise avançada e a Gráfico de Segurança Inteligente da Microsoft para obter uma borda sobre ataques cibernéticos em evolução. A análise comportamental interna e o aprendizado de máquina identificam ataques e explorações de dia zero. Monitore sua solução de IoT para ataques de entrada e atividade de pós-violação. Simplifique a investigação e a correção de dispositivos com ferramentas interativas e inteligência de ameaças contextuais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Nesta visão geral, você aprendeu sobre os recursos e serviços da central de segurança do Azure para IoT. Para saber mais sobre a central de segurança do Azure para a arquitetura de IoT, os pré-requisitos e saiba como começar, consulte os seguintes artigos:
 

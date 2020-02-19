@@ -10,12 +10,12 @@ ms.date: 02/10/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 0e612dbecb9f215a90f728afb0f06a65db09764b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 076708cdc32b0547fe34f714798b4a7a963296fe
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162915"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462625"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -66,7 +66,7 @@ A tabela a seguir mostra quais tipos de contas de armazenamento dão suporte a Z
 |    Armazenamento de    | Europa Ocidental<br /> Leste dos EUA    |    Somente arquivos do Azure    |
 
 <sup>1</sup> atualmente, a camada de arquivo morto não tem suporte para contas ZRS.<br />
-<sup>2</sup> discos do Azure para máquinas virtuais, incluindo discos gerenciados e não gerenciados, dão suporte apenas a lRS. Eles não dão suporte a ZRS ou GZRS. Para obter mais informações sobre discos gerenciados, consulte [preços para Azure Managed disks](/pricing/details/managed-disks/).
+<sup>2</sup> discos do Azure para máquinas virtuais, incluindo discos gerenciados e não gerenciados, dão suporte apenas a lRS. Eles não dão suporte a ZRS ou GZRS. Para obter mais informações sobre discos gerenciados, consulte [preços para Azure Managed disks](https://azure.microsoft.com/pricing/details/managed-disks).
 
 Para obter informações sobre quais regiões dão suporte a ZRS, consulte **suporte de serviços por região** em [o que são zonas de disponibilidade do Azure?](../../availability-zones/az-overview.md).
 
@@ -131,7 +131,7 @@ Se sua conta de armazenamento estiver configurada para acesso de leitura à regi
 
 Quando o acesso de leitura ao secundário está habilitado, seus dados podem ser lidos do ponto de extremidade secundário, bem como do ponto de extremidade primário para sua conta de armazenamento. O ponto de extremidade secundário acrescenta o sufixo *– secundário* ao nome da conta. Por exemplo, se o ponto de extremidade primário para o armazenamento de BLOBs for `myaccount.blob.core.windows.net`, o ponto de extremidade secundário será `myaccount-secondary.blob.core.windows.net`. As chaves de acesso da conta para sua conta de armazenamento são as mesmas para os pontos de extremidade primários e secundários.
 
-### <a name="check-the-last-sync-time-property"></a>Verificar a propriedade hora da última sincronização
+### <a name="check-the-last-sync-time-property"></a>Verificar a propriedade Horário da Última Sincronização
 
 Como os dados são replicados para a região secundária de forma assíncrona, a região secundária geralmente está atrás da região primária. Se ocorrer uma falha na região primária, é provável que todas as gravações no primário ainda não tenham sido replicadas para o secundário.
 

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30f8111e1d8c9bd76e7b55dd958256f8892b9058
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
-ms.translationtype: HT
+ms.openlocfilehash: d7c8bdb7236ed0a3a12bae5050e564afe0b68cde
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77442013"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461225"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Criar um ponto de extremidade SCIM e configurar o provisionamento de usuário com o Azure Active Directory (Azure AD)
 
@@ -1445,6 +1445,16 @@ Depois que o ciclo inicial for iniciado, você poderá selecionar **logs de prov
 
 Se você estiver criando um aplicativo que será usado por mais de um locatário, você poderá disponibilizá-lo na Galeria de aplicativos do Azure AD. Isso facilitará para as organizações descobrirem o aplicativo e configurar o provisionamento. Publicar seu aplicativo na galeria do Azure AD e disponibilizar o provisionamento para outras pessoas é fácil. Confira as etapas [aqui](../develop/howto-app-gallery-listing.md). A Microsoft trabalhará com você para integrar seu aplicativo em nossa galeria, testar seu ponto de extremidade e liberar a [documentação](../saas-apps/tutorial-list.md) de integração para os clientes usarem. 
 
+### <a name="gallery-onboarding-checklist"></a>Lista de verificação de integração da Galeria
+Siga a lista de verificação abaixo para garantir que seu aplicativo seja integrado de forma rápida e os clientes tenham uma experiência de implantação tranqüila. As informações serão coletadas quando você estiver na integração à galeria. 
+> [!div class="checklist"]
+> * [Suporte a SCIM 2,0](https://tools.ietf.org/html/draft-wahl-scim-profile-00) (obrigatório)
+> * Suporte a pelo menos 25 solicitações por segundo por locatário (obrigatório)
+> * Descoberta de esquema de suporte (recomendado)
+> * Suporte à concessão de código de autorização OAuth ou a um token de vida útil longa, conforme descrito abaixo (obrigatório)
+> * Estabelecer uma engenharia e um ponto de suporte de contato para dar suporte à integração da Galeria de postagens do cliente (obrigatório)
+> * Documentar seu ponto de extremidade SCIM publicamente (recomendado) 
+
 
 ### <a name="authorization-for-provisioning-connectors-in-the-application-gallery"></a>Autorização para o provisionamento de conectores na Galeria de aplicativos
 A especificação SCIM não define um esquema específico de SCIM para autenticação e autorização. Ele se baseia no uso de padrões do setor existentes. O cliente de provisionamento do Azure AD dá suporte a dois métodos de autorização para aplicativos na galeria. 
@@ -1471,6 +1481,17 @@ Práticas recomendadas (recomendado, mas não obrigatório):
 **Tokens de portador OAuth de vida útil longa:** Se o seu aplicativo não oferecer suporte ao fluxo de concessão de código de autorização OAuth, você também poderá gerar um token de portador OAuth de vida útil longa do que um administrador pode usar para configurar a integração de provisionamento. O token deve ser permanente ou, caso contrário, o trabalho de provisionamento será [colocado em quarentena](application-provisioning-quarantine-status.md) quando o token expirar. Esse token deve estar abaixo de 1 KB de tamanho.  
 
 Para métodos de autenticação e autorização adicionais, informe-nos no [UserVoice](https://aka.ms/appprovisioningfeaturerequest).
+
+### <a name="gallery-go-to-market-launch-check-list"></a>Lista de verificação de início do lançamento no mercado da Galeria
+Para ajudar a impulsionar o reconhecimento e a demanda de nossa integração conjunta, recomendamos que você atualize sua documentação existente e aumente a integração em seus canais de marketing.  A seguir está um conjunto de atividades de lista de verificação que recomendamos que você conclua para dar suporte ao lançamento
+
+* **Preparação para vendas e atendimento ao cliente.** Verifique se suas equipes de vendas e de suporte estão cientes e podem falar com os recursos de integração. Resuma sua equipe de vendas e suporte, forneça perguntas frequentes e inclua a integração em seus materiais de vendas. 
+* **Postagem no blog e/ou pressione a versão.** Crie uma postagem no blog ou pressione a versão que descreve a integração conjunta, os benefícios e como começar. [Exemplo: Imprivata e Azure Active Directory pressione Release](https://www.imprivata.com/company/press/imprivata-introduces-iam-cloud-platform-healthcare-supported-microsoft) 
+* **Mídia social.** Aproveite sua mídia social, como o Twitter, o Facebook ou o LinkedIn, para promover a integração aos seus clientes. Certifique-se de incluir @AzureAD de forma que possamos retweetr sua postagem. [Exemplo: postagem do Twitter Imprivata](https://twitter.com/azuread/status/1123964502909779968)
+* **Site de marketing.** Crie ou atualize suas páginas de marketing (por exemplo, página de integração, página de parceiro, página de preços, etc...) para incluir a disponibilidade da integração conjunta. [Exemplo: página de integração do Pingboard](https://pingboard.com/org-chart-for), [página de integração do SmartSheet](https://www.smartsheet.com/marketplace/apps/microsoft-azure-ad), página de preços do [Monday.com](https://monday.com/pricing/) 
+* **Documentação técnica.** Crie um artigo do centro de ajuda ou documentação técnica sobre como os clientes podem começar. [Exemplo: Envoy + integração de Microsoft Azure Active Directory.](https://envoy.help/en/articles/3453335-microsoft-azure-active-directory-integration/
+) 
+* **Comunicação do cliente.** Alerte os clientes da nova integração por meio da comunicação do cliente (boletins informativos mensais, campanhas de email, notas de versão do produto). 
 
 ### <a name="allow-ip-addresses-used-by-the-azure-ad-provisioning-service-to-make-scim-requests"></a>Permitir que os endereços IP usados pelo serviço de provisionamento do Azure AD façam solicitações SCIM
 

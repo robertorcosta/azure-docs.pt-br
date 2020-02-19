@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/16/2019
-ms.openlocfilehash: ba632a98c21926ec28606def128cc068abf47f53
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 20e4827b1a86bff338646ef71f0dd732255c09c9
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646618"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460017"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Desenvolver topologias do Apache Storm usando o Python no HDInsight
 
@@ -22,11 +22,11 @@ Saiba como criar uma topologia [Apache Storm](https://storm.apache.org/) que usa
 > [!IMPORTANT]  
 > As informações neste documento foram testadas usando o Storm no HDInsight 3.6.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Um cluster do Apache Storm no HDInsight. Confira [Criar clusters Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Storm** como **Tipo de cluster**.
 
-* Um ambiente de desenvolvimento Storm local (opcional). Um ambiente local do Storm só será necessário se você quiser executar a topologia localmente. Para obter mais informações, consulte [Configurar um ambiente de desenvolvimento](http://storm.apache.org/releases/current/Setting-up-development-environment.html).
+* Um ambiente de desenvolvimento Storm local (opcional). Um ambiente local do Storm só será necessário se você quiser executar a topologia localmente. Para obter mais informações, consulte [Configurar um ambiente de desenvolvimento](https://storm.apache.org/releases/current/Setting-up-development-environment.html).
 
 * [Python 2,7 ou superior](https://www.python.org/downloads/).
 
@@ -38,7 +38,7 @@ Saiba como criar uma topologia [Apache Storm](https://storm.apache.org/) que usa
 
 O Apache Storm foi projetado para trabalhar com componentes escritos usando qualquer linguagem de programação. Os componentes devem entender como trabalhar com a definição de thrift para Storm. Para o Python, é fornecido um módulo como parte do projeto do Apache Storm que permite interagir facilmente com o Storm. Você pode encontrar esse módulo em [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
 
-O Storm é um processo Java que é executado na máquina virtual Java (JVM). Componentes escritos em outras linguagens são executados como subprocessos. O Storm comunica-se com esses subprocessos usando mensagens JSON enviadas por stdin/stdout. Mais detalhes sobre a comunicação entre os componentes podem ser encontrados na documentação sobre [Protocolo de várias linguagens](https://storm.apache.org/documentation/Multilang-protocol.html) .
+O Storm é um processo Java que é executado na máquina virtual Java (JVM). Componentes escritos em outras linguagens são executados como subprocessos. O Storm comunica-se com esses subprocessos usando mensagens JSON enviadas por stdin/stdout. Mais detalhes sobre a comunicação entre os componentes podem ser encontrados na documentação sobre [Protocolo de várias linguagens](https://storm.apache.org/releases/current/Multilang-protocol.html) .
 
 ## <a name="python-with-the-flux-framework"></a>Python com a estrutura do Flux
 
@@ -143,6 +143,6 @@ Uma vez que a topologia é iniciada, ela emite informações para o console loca
 
 Para interromper a topologia, use __Ctrl+C__.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte os seguintes documentos para obter outras maneiras de usar o Python com [o HDInsight: como usar UDF (funções definidas pelo usuário) do Python no Apache Pig e Apache Hive](../hadoop/python-udf-hdinsight.md).

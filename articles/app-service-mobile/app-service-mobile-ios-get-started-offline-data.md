@@ -6,30 +6,25 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 66897263ff9c7d71c64d04fcc6860b96bf59588c
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: d943213814b999f101a541abb0195a9fdd5a7423
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668491"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459167"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Habilitar a sincronização offline com aplicativos móveis do iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
-> [!NOTE]
-> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados essenciais para o desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar os serviços de **Build**, **Teste** e **Distribuição** para configurar o pipeline de integração e entrega contínuas. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso dos respectivos aplicativos usando os serviços de **Análise** e **Diagnóstico** e se envolver com usuários usando o serviço de **Push**. Os desenvolvedores também podem aproveitar o serviço de **Autenticação** para autenticar os respectivos usuários e o serviço de **Dados** para persistir e sincronizar dados de aplicativo na nuvem.
->
-> Se desejar integrar os serviços de nuvem em seu aplicativo móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
-
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Este tutorial aborda a sincronização offline com o recurso Aplicativos Móveis do Serviço de Aplicativo do Azure para iOS. Com a sincronização offline, os usuários podem interagir com um aplicativo móvel para exibir, adicionar ou alterar dados, mesmo quando não têm conexão com a rede. As alterações são armazenadas em um banco de dados local. Quando o dispositivo estiver online novamente, as alterações são sincronizadas com o back-end remoto.
 
-Se essa for sua primeira experiência com Aplicativos Móveis, você deve primeiro concluir o tutorial [Criar um aplicativo iOS]. Se você não usar o projeto baixado do início rápido do servidor, deve adicionar os pacotes de extensão de acesso de dados ao seu projeto. Para obter mais informações sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Se essa for sua primeira experiência com Aplicativos Móveis, você deve primeiro concluir o tutorial [Criar um aplicativo do iOS]. Se você não usar o projeto baixado do início rápido do servidor, deve adicionar os pacotes de extensão de acesso de dados ao seu projeto. Para obter mais informações sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 Para saber mais sobre o recurso de sincronização offline, confira [Sincronização de dados offline nos Aplicativos Móveis].
 
 ## <a name="review-sync"></a>Examine o código de sincronização do cliente
-O projeto cliente que você baixou para o tutorial [Criar um aplicativo iOS] já contém o código que oferece suporte à sincronização offline usando um banco de dados local baseado em Dados Básicos. Esta seção resume o que já está incluso no código do tutorial. Para obter uma visão geral conceitual do recurso, confira [Sincronização de dados offline nos Aplicativos Móveis].
+O projeto cliente que você baixou para o tutorial [Criar um aplicativo do iOS] já contém o código que oferece suporte à sincronização offline usando um banco de dados local baseado em Dados Básicos. Esta seção resume o que já está incluso no código do tutorial. Para obter uma visão geral conceitual do recurso, confira [Sincronização de dados offline nos Aplicativos Móveis].
 
 Usando o recurso de sincronização de dados offline dos Aplicativos Móveis, os usuários podem interagir com um banco de dados local mesmo quando a rede estiver inacessível. Para usar esses recursos em seu aplicativo, inicialize o contexto de sincronização de `MSClient` e faça referência a um repositório local. Em seguida, faça referência à sua tabela por meio da interface **MSSyncTable**.
 
@@ -158,10 +153,10 @@ Ao usar o recurso de sincronização offline, você define as três tabelas do s
 
 | Atributo | Type |
 | --- | --- |
-| ID | Número Inteiro 64 |
-| itemId | string |
-| properties | Dados binários |
-| tabela | string |
+| id | Número Inteiro 64 |
+| itemId | String |
+| properties | Binary Data |
+| tabela | String |
 | tableKind | Número inteiro 16 |
 
 
@@ -171,9 +166,9 @@ Ao usar o recurso de sincronização offline, você define as três tabelas do s
 
 | Atributo | Type |
 | --- | --- |
-| ID |string |
+| id |String |
 | operationId |Número Inteiro 64 |
-| properties |Dados binários |
+| properties |Binary Data |
 | tableKind |Número inteiro 16 |
 
  **MS_TableConfig**
@@ -182,11 +177,11 @@ Ao usar o recurso de sincronização offline, você define as três tabelas do s
 
 | Atributo | Type |
 | --- | --- |
-| ID |string |
-| chave |string |
+| id |String |
+| chave |String |
 | keyType |Número Inteiro 64 |
-| tabela |string |
-| value |string |
+| tabela |String |
+| value |String |
 
 ### <a name="data-table"></a>Tabela de dados
 
@@ -194,12 +189,12 @@ Ao usar o recurso de sincronização offline, você define as três tabelas do s
 
 | Atributo | Type | Observação |
 | --- | --- | --- |
-| ID | Cadeia de caracteres, marcadas como obrigatórias |Chave primária no repositório remoto |
-| concluído | Booliano | Campo To-do item |
-| text |string |Campo To-do item |
+| id | Cadeia de caracteres, marcadas como obrigatórias |Chave primária no repositório remoto |
+| concluído | Boolean | Campo To-do item |
+| text |String |Campo To-do item |
 | createdAt | Data | (opcional) É mapeado para a propriedade do sistema **createdAt** |
 | updatedAt | Data | (opcional) É mapeado para a propriedade do sistema **updatedAt** |
-| version | string | (opcional) Usado para detectar conflitos, é mapeado para a versão |
+| version | String | (opcional) Usado para detectar conflitos, é mapeado para a versão |
 
 ## <a name="setup-sync"></a>Alterar o comportamento de sincronização do aplicativo
 Nesta seção, você altera o aplicativo para que ele não sincronize na inicialização ou ao inserir e atualizar itens. Ele sincroniza somente quando o botão de atualização é executado.
@@ -269,12 +264,12 @@ Ao sincronizar o repositório local com o servidor, usamos o método **MSSyncTab
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Sincronização de dados offline nos Aplicativos Móveis]
-* [Cloud Cover: sincronização offline em serviços móveis do Azure] \(O vídeo é sobre Serviços Móveis, mas a sincronização offline de Aplicativos Móveis funciona de maneira semelhante.\)
+* [Cobertura em nuvem: sincronização offline nos serviços móveis do Azure] \(o vídeo é sobre os serviços móveis, mas a sincronização offline de aplicativos móveis funciona de maneira semelhante.\)
 
 <!-- URLs. -->
 
 
-[Criar um aplicativo iOS]: app-service-mobile-ios-get-started.md
+[Criar um aplicativo do iOS]: app-service-mobile-ios-get-started.md
 [Sincronização de dados offline nos Aplicativos Móveis]: app-service-mobile-offline-data-sync.md
 
 [defining-core-data-tableoperationerrors-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableoperationerrors-entity.png
@@ -282,5 +277,5 @@ Ao sincronizar o repositório local com o servidor, usamos o método **MSSyncTab
 [defining-core-data-tableconfig-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableconfig-entity.png
 [defining-core-data-todoitem-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-todoitem-entity.png
 
-[Cloud Cover: sincronização offline em serviços móveis do Azure]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Cobertura em nuvem: sincronização offline nos serviços móveis do Azure]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: https://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/

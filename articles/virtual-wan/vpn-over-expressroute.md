@@ -1,21 +1,20 @@
 ---
-title: Criar uma conexão VPN site a site por meio do emparelhamento privado do ExpressRoute na WAN virtual do Azure | Microsoft Docs
+title: 'Configurar a criptografia do ExpressRoute: IPsec sobre o ExpressRoute para WAN virtual do Azure'
 description: Neste tutorial, saiba como usar a WAN virtual do Azure para criar uma conexão VPN site a site por meio do emparelhamento privado do ExpressRoute.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 02/18/2020
 ms.author: cherylmc
-Customer intent: I want to connect my on-premises networks to my virtual networks by using an S2S VPN connection over my ExpressRoute private peering through Azure Virtual WAN.
-ms.openlocfilehash: ae971bad47d84b6928ebea64e416d21af25528ad
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c74f703927999bf35dd2d8292b8fa0a6d3c55065
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896610"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459779"
 ---
-# <a name="create-a-site-to-site-vpn-connection-over-expressroute-private-peering-by-using-azure-virtual-wan"></a>Criar uma conexão VPN site a site por meio do emparelhamento privado do ExpressRoute usando a WAN virtual do Azure
+# <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Criptografia do ExpressRoute: IPsec sobre ExpressRoute para WAN virtual
 
 Este artigo mostra como usar a WAN virtual do Azure para estabelecer uma conexão VPN IPsec/IKE de sua rede local para o Azure por meio do emparelhamento privado de um circuito do Azure ExpressRoute. Essa técnica pode fornecer um trânsito criptografado entre as redes locais e as redes virtuais do Azure no ExpressRoute, sem passar pela Internet pública ou usar endereços IP públicos.
 
@@ -243,6 +242,6 @@ Quando você não precisar mais desses recursos, poderá usar [Remove-AzResource
 Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Este artigo ajuda você a criar uma conexão VPN no emparelhamento privado do ExpressRoute usando a WAN virtual. Para saber mais sobre WAN virtual e recursos relacionados, consulte [visão geral da WAN virtual](virtual-wan-about.md).
