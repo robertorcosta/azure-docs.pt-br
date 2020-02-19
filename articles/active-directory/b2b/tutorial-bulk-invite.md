@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 9/19/2019
+ms.date: 2/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c78d2a8b4ccc51bc7afaef82a6c0dd609acdcab9
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c429648adeb0c81799bff2dca1650de965395a60
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76908829"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77166449"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Tutorial: Convidar usuários de Colaboração B2B do Azure AD em massa (versão prévia)
 
@@ -27,7 +27,7 @@ ms.locfileid: "76908829"
 
 > [!NOTE]
 > Desde 22/12/2019, o recurso de convidar usuários em massa (versão prévia) está temporariamente desabilitado.
-> No momento, não há uma data conhecida para quando esse recurso será habilitado novamente. 
+> No momento, não há uma data conhecida para quando esse recurso será habilitado novamente no portal do Azure. Para convidar usuários em massa usando o PowerShell, confira o [tutorial de convite em massa B2B](bulk-invite-powershell.md) ou o [código B2B e amostras do PowerShell](code-samples.md).
 
 Se você usar a colaboração B2B do Azure AD (Azure Active Directory) para trabalhar com parceiros externos, poderá convidar vários usuários convidados para a sua organização ao mesmo tempo. Neste tutorial, você aprenderá a usar o portal do Azure para enviar convites em massa para usuários externos. Especificamente, faça o seguinte:
 
@@ -38,7 +38,7 @@ Se você usar a colaboração B2B do Azure AD (Azure Active Directory) para trab
 
 Caso não tenha o Azure Active Directory, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 É necessário ter duas ou mais contas de email de teste para enviar o convite. As contas precisam estar fora da organização. É possível usar qualquer tipo de conta, incluindo contas sociais, como endereços gmail.com ou outlook.com.
 

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
-ms.openlocfilehash: 788fcf15ebd68aae525c2895340f437594c9c58c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 34583ef49b2f919391af3fe5700a558b2dc40700
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906399"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187233"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Capturar dados dos Hubs de Eventos no Armazenamento do Azure e lê-los usando o Python (azure-eventhub versão 5)
 
-Você pode configurar um hub de eventos para que os dados enviados para um hub de eventos sejam capturados em uma conta de armazenamento do Azure ou no Azure Data Lake Storage. Este artigo mostra como escrever o código Python para enviar eventos para um hub de eventos e ler os dados capturados do Armazenamento de Blobs do Azure. Para obter mais informações sobre esse recurso, confira [visão geral do recurso Captura dos Hubs de Eventos](event-hubs-capture-overview.md).
+Você pode configurar um hub de eventos para que os dados enviados para um hub de eventos sejam capturados em uma conta de armazenamento do Azure ou no Azure Data Lake Storage Gen 1 ou Gen 2. Este artigo mostra como escrever o código Python para enviar eventos para um hub de eventos e ler os dados capturados do **Armazenamento de Blobs do Azure**. Para obter mais informações sobre esse recurso, confira [visão geral do recurso Captura dos Hubs de Eventos](event-hubs-capture-overview.md).
 
 Este início rápido usa o [SDK para Python do Azure](https://azure.microsoft.com/develop/python/) para demonstrar o recurso Captura. O aplicativo *sender.py* envia telemetria de ambiente simulado para os Hubs de Eventos no formato JSON. O hub de eventos está configurado para usar o recurso de Captura a fim de gravar esses dados no armazenamento de Blobs em lotes. O aplicativo *capturereader.py* lê esses blobs e cria um arquivo de acréscimo para cada dispositivo. O aplicativo grava os dados em arquivos CSV.
 
@@ -37,7 +37,7 @@ Neste início rápido, você:
 > * Enviar dados para o hub de eventos usando um script Python.
 > * Ler e processar arquivos da Captura dos Hubs de Eventos usando outro script Python.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Python 2.7 e 3.5 ou posterior, com PIP instalado e atualizado.  
 - Uma assinatura do Azure. Se você não tiver [uma conta gratuita](https://azure.microsoft.com/free/), crie uma antes de começar.  

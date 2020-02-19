@@ -9,13 +9,13 @@ ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
-ms.date: 12/25/2019
-ms.openlocfilehash: 6f4fe941cc44211f9f5d5e77b11043257b43a8ea
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.date: 02/11/2020
+ms.openlocfilehash: 58adbc7607b0b32e79123b701c37f55ce7cc1d2e
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963279"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138122"
 ---
 # <a name="use-regression-to-predict-car-prices-with-azure-machine-learning-designer"></a>Use a regressão para prever os preços de automóveis com o designer do Azure Machine Learning
 
@@ -38,7 +38,7 @@ Este é o grafo final e concluído do pipeline. Este artigo fornece a justificat
 
 ![Grafo do pipeline](./media/how-to-designer-sample-regression-automobile-price-basic/overall-graph.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [aml-ui-prereq](../../includes/aml-ui-prereq.md)]
 
@@ -61,7 +61,7 @@ Use o módulo **Selecionar Colunas no Conjunto de Dados** para excluir as perdas
 
 Os problemas de aprendizado de máquina variam. As tarefas comuns de aprendizado de máquina incluem classificação, clustering, regressão e sistemas de recomendação, e cada uma delas pode exigir um algoritmo diferente. A escolha do algoritmo geralmente depende dos requisitos do caso de uso. Depois de escolher um algoritmo, você precisará ajustar os parâmetros para treinar um modelo mais preciso. Em seguida, precisará avaliar todos os modelos com base em métricas, como precisão, inteligibilidade e eficiência.
 
-Como o objetivo desta amostra é prever os preços de automóveis e, como a coluna de rótulo (preço) contém números reais, um modelo de regressão é uma boa opção. Considerando que o número de recursos é relativamente pequeno (menos de 100) e esses recursos não são esparsos, o limite de decisão provavelmente será não linear. Portanto, usamos a **Regressão de Floresta de Decisão** para esse pipeline.
+Como o objetivo desta amostra é prever os preços de automóveis e, como a coluna de rótulo (preço) contém dados contínuos, um modelo de regressão pode ser uma boa opção. Usamos **Regressão Linear** para esse pipeline.
 
 Use o módulo **Dividir Dados** para dividir aleatoriamente os dados de entrada, de modo que o conjunto de dados de treinamento contenha 70% dos dados originais e o conjunto de dados de teste contenha 30% dos dados originais.
 

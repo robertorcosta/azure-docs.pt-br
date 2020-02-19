@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
-ms.openlocfilehash: 44c5d037797d845aa9c68af2d7b8e5e45bf418fb
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 522ed13681a98535c35552128fc8432782ec1ca2
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892440"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162694"
 ---
 # <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>Tutorial: Simule uma falha na leitura de dados da região primária
 
-Este tutorial é a parte dois de uma série. Nele, você aprenderá sobre os benefícios de uma conta de armazenamento [RA-GRS](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (com redundância geográfica com acesso de leitura) simulando uma falha.
+Este tutorial é a parte dois de uma série. Nele, você aprenderá sobre os benefícios do [RA-GRS](../common/storage-redundancy.md) (armazenamento com redundância geográfica com acesso de leitura) simulando uma falha.
 
-Para simular uma falha, use o [Roteamento Estático](#simulate-a-failure-with-an-invalid-static-route) ou o [Fiddler](#simulate-a-failure-with-fiddler). Os dois métodos permitirão simular uma falha de solicitações para o ponto de extremidade primário de sua conta de armazenamento [RA-GRS](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (armazenamento com redundância geográfica com acesso de leitura), fazendo com que o aplicativo faça a leitura do ponto de extremidade secundário.
+Para simular uma falha, use o [Roteamento Estático](#simulate-a-failure-with-an-invalid-static-route) ou o [Fiddler](#simulate-a-failure-with-fiddler). Os dois métodos permitirão simular uma falha de solicitações para o ponto de extremidade primário de sua conta de armazenamento [RA-GRS](../common/storage-redundancy.md) (armazenamento com redundância geográfica com acesso de leitura), fazendo com que o aplicativo faça a leitura do ponto de extremidade secundário.
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -41,7 +41,7 @@ Para simular uma falha usando o Fiddler, baixe e [instale o Fiddler](https://www
 
 ## <a name="simulate-a-failure-with-an-invalid-static-route"></a>Simular uma falha com uma rota estática inválida
 
-É possível criar uma rota estática inválida para todas as solicitações do ponto de extremidade primário da sua conta de armazenamento [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS). Neste tutorial, o host local é usado como o gateway para rotear solicitações à conta de armazenamento. Usando o host local como o gateway faz com que todas as solicitações ao seu ponto de extremidade primário da conta de armazenamento executem um loop dentro do host, o que leva à falha como consequência. Siga as etapas a seguir para simular uma falha e a restauração de ponto de extremidade primário com uma rota estática inválida.
+É possível criar uma rota estática inválida para todas as solicitações do ponto de extremidade primário da sua conta de armazenamento [read-access geo-redundant](../common/storage-redundancy.md) (RA-GRS). Neste tutorial, o host local é usado como o gateway para rotear solicitações à conta de armazenamento. Usando o host local como o gateway faz com que todas as solicitações ao seu ponto de extremidade primário da conta de armazenamento executem um loop dentro do host, o que leva à falha como consequência. Siga as etapas a seguir para simular uma falha e a restauração de ponto de extremidade primário com uma rota estática inválida.
 
 ### <a name="start-and-pause-the-application"></a>Inicie e pause o aplicativo
 

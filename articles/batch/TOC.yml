@@ -4,7 +4,7 @@
   items:
     - name: O que é o Lote do Azure?
       href: batch-technical-overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Executar um trabalho em lotes - CLI
@@ -51,7 +51,7 @@
       href: batch-quota-limit.md
     - name: Tamanhos de VM com suporte
       href: batch-pool-vm-sizes.md
-    - name: Alta disponibilidade e recuperação de desastres
+    - name: Alta disponibilidade e recuperação de desastre
       href: high-availability-disaster-recovery.md
     - name: Variável de ambiente do runtime de tarefas
       href: batch-compute-node-environment-variables.md
@@ -71,6 +71,8 @@
           href: batch-aad-auth.md
         - name: Azure AD com o Gerenciamento de Lote
           href: batch-aad-auth-management.md
+        - name: Acessar com segurança o Key Vault com o Lote
+          href: credential-access-key-vault.md
     - name: Como usar pacotes de aplicativos
       href: batch-application-packages.md
     - name: Criar e gerenciar pools

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 517940ab4a3e004d99faf6ca2bedb43c93dba8c5
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: d116ba81b0c8940687663c17a4ed403e86dd6c22
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514180"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187545"
 ---
 ::: zone target="docs"
 
@@ -35,13 +35,13 @@ Este tutorial descreve como devolver o Azure Data Box e verificar os dados carre
 Neste tutorial, você aprenderá sobre tópicos como:
 
 > [!div class="checklist"]
-> * Prerequisites
+> * Pré-requisitos
 > * Preparar para o envio
 > * Enviar o Data Box para a Microsoft
 > * Verificar o carregamento de dados para o Azure
 > * Eliminar dados do Data Box
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, verifique se:
 
@@ -77,7 +77,7 @@ Verifique se a cópia de dados no dispositivo foi concluída e se a execução d
 
 ::: zone-end
 
-## <a name="in-us-canada-europetabin-us-canada-europe"></a>[Nos EUA, no Canadá e na Europa](#tab/in-us-canada-europe)
+## <a name="in-us-canada-europe"></a>[Nos EUA, no Canadá e na Europa](#tab/in-us-canada-europe)
 
 Execute as etapas a seguir se estiver devolvendo o dispositivo nos EUA, no Canadá ou na Europa.
 
@@ -114,7 +114,7 @@ Após a conclusão do upload no Azure, o Data Box apaga os dados nos discos de a
 ::: zone-end
 
 
-## <a name="in-australiatabin-australia"></a>[Na Austrália](#tab/in-australia)
+## <a name="in-australia"></a>[Na Austrália](#tab/in-australia)
 
 Datacenters do Azure na Austrália têm uma notificação de segurança adicional. Todas as remessas de entrada devem ter uma notificação avançada. Execute as etapas a seguir para o envio na Austrália.
 
@@ -143,7 +143,7 @@ Após a conclusão do upload no Azure, o Data Box apaga os dados nos discos de a
 
 ::: zone-end
 
-## <a name="in-japantabin-japan"></a>[No Japão](#tab/in-japan) 
+## <a name="in-japan"></a>[No Japão](#tab/in-japan) 
 
 1. Mantenha a caixa original usada para enviar o dispositivo para a remessa de devolução.
 2. Desligue o dispositivo e remova os cabos.
@@ -191,5 +191,120 @@ Após a conclusão do upload no Azure, o Data Box apaga os dados nos discos de a
 
 ::: zone-end
 
+## <a name="in-singapore"></a>[Em Singapura](#tab/in-singapore) 
 
+1. Mantenha a caixa original usada para enviar o dispositivo para a remessa de devolução.
+2. Anote o número de acompanhamento (exibido como um número de referência na página Preparar para o Envio da interface de usuário da Web local do Data Box). Isso estará disponível depois que a etapa preparar para o envio for concluída. Baixe a etiqueta de remessa desta página e cole na caixa de embalagem. 
+3. Desligue o dispositivo e remova os cabos.
+4. Enrole e coloque o cabo de alimentação fornecido com o dispositivo com segurança na parte traseira do dispositivo. 
+5. Envie um email para o Serviço de atendimento ao consumidor da SingPost usando este modelo de email com o número de acompanhamento.
+
+    ```
+    To: kadcustcare@singpost.com
+    Subject: Microsoft Azure Pick-up - OrderName 
+    Body: 
+        1. Requestor name  
+        2. Requestor contact number
+        3. Requestor collection address
+        4. Preferred collection date
+    ```
+
+   > [!NOTE]
+   > Para solicitações de reserva recebidas em um dia útil:
+   > - Antes das 15:00, a retirada ocorrerá no dia útil a seguir, entre 9:00 e 13:00.
+   > - Após às 15:00, a retirada ocorrerá no dia útil a seguir, entre 14:00 e 18:00.  
+
+::: zone target="chromeless"
+
+## <a name="verify-data-upload-to-azure"></a>Verificar o carregamento de dados para o Azure
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+## <a name="erasure-of-data-from-data-box"></a>Eliminar dados do Data Box
+ 
+Após a conclusão do upload no Azure, o Data Box apaga os dados nos discos de acordo com as [diretrizes NIST SP 800-88 Revision 1](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
+
+::: zone-end
+
+::: zone target="docs"
+
+[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
+
+::: zone-end
+
+
+<!--## [In Korea](#tab/in-korea) 
+
+1. Retain the original box used to ship the device for return shipment.
+2. Note down the tracking number (shown as reference number on the Prepare to Ship page of the Data Box local web UI). This is available after the prepare to ship step successfully completes. Download the shipping label from this page and paste on the packing box. 
+3. Power off the device and remove the cables.
+4. Spool and securely place the power cord that was provided with the device in the back of the device. 
+
+Request pickup  
+If consignment note is present:  
+
+1. Call Quantium Solutions International hotline at 070-8231-1418 during office hours (10 AM to 5 PM, Monday to Friday). Quote Microsoft Azure pickup and the service request number to arrange for a collection.
+2. If the hotline is busy, email microsoft@rocketparcel.com, with the email subject Microsoft Azure Pickup and the service request number as reference.  
+3. If the courier does not arrive for collection, call Quantium Solutions International hotline for alternate arrangements.  
+4. You will receive an email confirmation for the pickup schedule.  
+
+Exception process
+If the consignment note is not present:
+1. Call Quantium Solutions International hotline at 070-8231-1418 during office hours (10 AM to 5 PM, Monday to Friday). Quote Microsoft Azure pickup and the service request number. Specify that you need a new consignment note to arrange for a collection. Provide sender (customer), receiver information (Azure datacenter), and reference number (service request number).
+2. If the hotline is busy, email microsoft@rocketparcel.com, with the email subject Microsoft Azure Pickup and the service request number as reference.
+3. If the courier does not arrive for collection, call Quantium Solutions International hotline for alternate arrangements.
+4. You get a verbal confirmation if request is made via telephone.  
+::: zone target="chromeless"
+
+## Verify data upload to Azure
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+## Erasure of data from Data Box
+ 
+Once the upload to Azure is complete, the Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
+
+::: zone-end
+
+::: zone target="docs"
+
+[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
+
+::: zone-end
+-->
+
+## <a name="self-managed"></a>[Autogerenciado](#tab/in-selfmanaged) 
+
+Se estiver usando o Data Box no Japão, em Singapura, na Coreia do Sul e no Oeste da Europa e tiver selecionado a opção de remessa autogerenciada durante a criação do pedido, siga estas instruções. 
+
+1. Após a conclusão dessa etapa, anote o código de Autorização mostrado na página Preparar para o Envio da IU da Web local do Data Box.
+2. Desligue o dispositivo e remova os cabos. Enrole o cabo de alimentação fornecido com o dispositivo e coloque-o com segurança na parte traseira do dispositivo.
+3. Envie um email para a equipe de Operações do Azure Data Box usando o modelo abaixo quando estiver pronto para devolver o dispositivo.
+    
+    ```
+    To: adbops@microsoft.com 
+    Subject: Request for Azure Data Box drop-off for order: ‘orderName’ 
+    Body: 
+        1. Order name  
+        2. Authorization code available after Prepare to Ship has completed [Yes/No]  
+        3. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
+    ```
+
+::: zone target="chromeless"
+
+## <a name="verify-data-upload-to-azure"></a>Verificar o carregamento de dados para o Azure
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+## <a name="erasure-of-data-from-data-box"></a>Eliminar dados do Data Box
+ 
+Após a conclusão do upload no Azure, o Data Box apaga os dados nos discos de acordo com as [diretrizes NIST SP 800-88 Revision 1](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
+
+::: zone-end
+
+::: zone target="docs"
+
+[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
+
+::: zone-end
 

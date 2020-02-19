@@ -3,29 +3,27 @@ title: Tutorial – Criar e gerenciar regras no aplicativo Azure IoT Central
 description: Este tutorial mostra a você como as regras do Azure IoT Central permitem monitorar os dispositivos quase em tempo real e invocar ações automaticamente, como enviar um email, quando a regra é disparada.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/09/2019
+ms.date: 02/12/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 96514a224960240f2187164aac7c79c1659880e6
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: f61a41fa89c7006341db928472f6b20d272bc550
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026349"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77167476"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Tutorial: Criar uma regra e configurar notificações no aplicativo Azure IoT Central
 
 *Este artigo aplica-se a operadores, construtores e administradores.*
 
-
-
 É possível usar a Azure IoT Central para monitorar remotamente os dispositivos conectados. As regras do Azure IoT Central permitem monitorar os dispositivos quase em tempo real e invocar ações automaticamente, como enviar um email. Com apenas alguns cliques, você pode definir uma condição para monitorar a telemetria de seus dispositivos e configurar uma ação correspondente. Este artigo explica como criar regras para monitorar a telemetria enviada pelo dispositivo.
 
 Os dispositivos usam a telemetria para enviar dados numéricos do dispositivo. Uma regra é disparada quando a telemetria do dispositivo selecionado ultrapassa um limite especificado.
 
-Neste tutorial, você criará uma regra para enviar um email quando a temperatura em um dispositivo de sensor ambiental exceder 70&deg; F.
+Neste tutorial, você cria uma regra para enviar um email quando a temperatura em um dispositivo de sensor ambiental simulado exceder 70&deg;F.
 
 Neste tutorial, você aprenderá como:
 
@@ -34,9 +32,9 @@ Neste tutorial, você aprenderá como:
 > * Criar uma regra
 > * Adicionar uma ação de e-mail
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, você deve concluir os inícios rápidos [Criar um aplicativo do Azure IoT Central](./quick-deploy-iot-central.md) e [Adicionar um dispositivo simulado ao seu aplicativo do IoT Central](./quick-create-pnp-device.md) para criar o modelo de dispositivo **Sensor Ambiental** com o qual trabalhar.
+Antes de começar, você deve concluir os inícios rápidos [Criar um aplicativo do Azure IoT Central](./quick-deploy-iot-central.md) e [Adicionar um dispositivo simulado ao seu aplicativo do IoT Central](./quick-create-pnp-device.md) para criar o modelo de dispositivo **MXChip IoT DevKit** com o qual trabalhar.
 
 ## <a name="create-a-rule"></a>Criar uma regra
 
@@ -52,7 +50,7 @@ Para criar uma regra de telemetria, o modelo do dispositivo deve ter pelo menos 
 
 1. Insira o nome _Monitor de temperatura_ para identificar a regra e pressione Enter.
 
-1. Selecione o modelo de dispositivo **Sensor Ambiental**. Por padrão, a regra aplica-se automaticamente a todos os dispositivos associados ao modelo de dispositivo. Para filtrar um subconjunto dos dispositivos, selecione **+ Filtro** e use as propriedades do dispositivo para identificar os dispositivos. Para desabilitar a regra, alterne o botão **Habilitada/Desabilitada** no cabeçalho da regra:
+1. Selecione o modelo de dispositivo **MXChip IoT DevKit**. Por padrão, a regra aplica-se automaticamente a todos os dispositivos associados ao modelo de dispositivo. Para filtrar um subconjunto dos dispositivos, selecione **+ Filtro** e use as propriedades do dispositivo para identificar os dispositivos. Para desabilitar a regra, alterne o botão **Habilitada/Desabilitada** no cabeçalho da regra:
 
     ![Filtros e habilitação](media/tutorial-create-telemetry-rules/device-filters.png)
 
@@ -77,7 +75,7 @@ Você pode adicionar várias condições a uma regra selecionando **+ Condição
 
 ### <a name="configure-actions"></a>Configurar ações
 
-Após definir a condição, configure as ações a serem executadas quando a regra for acionada. As ações são invocadas quando todas as condições especificadas na regra são avaliadas como true. No momento, o email é a única ação disponível.
+Após definir a condição, configure as ações a serem executadas quando a regra for acionada. As ações são invocadas quando todas as condições especificadas na regra são avaliadas como true.
 
 1. Selecione **+ Email** na seção **Ações**.
 

@@ -81,7 +81,7 @@
           href: container-instances-managed-identity.md
         - name: Usar recursos da GPU (versão prévia)
           href: container-instances-gpu.md
-        - name: Habilitar ponto de extremidade SSL
+        - name: Habilitar ponto de extremidade SSL no sidecar
           href: container-instances-container-group-ssl.md
     - name: Montar volumes de dados
       items:

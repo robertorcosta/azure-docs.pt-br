@@ -1,14 +1,14 @@
 ---
-title: Exemplo – Blueprint do FedRAMP High – Mapeamento de controle
+title: Controles do exemplo de blueprint do FedRAMP High
 description: Mapeamento de controle do exemplo de blueprint do FedRAMP High. Cada controle é mapeado para uma ou mais Políticas do Azure que auxiliam na avaliação.
 ms.date: 01/31/2020
 ms.topic: sample
-ms.openlocfilehash: 4b4d644497eb98ed88f57803e99cf27a419523fe
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: cceca23e4bdc749c553eaf41b5f9599be3c9bf7d
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76941344"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150605"
 ---
 # <a name="control-mapping-of-the-fedramp-high-blueprint-sample"></a>Controlar o mapeamento do exemplo de blueprint do FedRAMP High
 
@@ -261,7 +261,7 @@ Além disso, este blueprint atribui definições de política que monitoram pont
 
 - As regras do grupo de segurança de rede para máquinas virtuais para a Internet devem ser protegidas
 - O acesso pelo ponto de extremidade para a Internet deve ser restrito
-- As regras NSGs para aplicativos Web em IaaS devem ser protegidas
+- As portas Web devem ser restritas nos grupos de segurança de rede associados à sua VM
 - Auditar o acesso irrestrito à rede para contas de armazenamento
 
 ## <a name="sc-7-3-boundary-protection--access-points"></a>SC-7 (3) Proteção de Limite | Pontos de Acesso

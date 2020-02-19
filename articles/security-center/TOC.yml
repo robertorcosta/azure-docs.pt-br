@@ -87,6 +87,8 @@
           href: built-in-vulnerability-assessment.md
         - name: Como usar verificadores externos
           href: partner-vulnerability-assessment.md
+    - name: Monitore seus contêineres
+      href: monitor-container-security.md
     - name: Proteja seus servidores com o Microsoft Defender ATP
       href: security-center-wdatp.md
     - name: Use a segurança de dados avançada do SQL em VMs do Azure

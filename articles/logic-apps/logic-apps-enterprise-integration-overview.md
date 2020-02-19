@@ -8,16 +8,16 @@ ms.author: divswa
 ms.reviewer: jonfan, logicappspm
 ms.topic: overview
 ms.date: 08/01/2019
-ms.openlocfilehash: 141f1a7fc8f966132cb3570fd9d9cfa911127eed
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 9356cecb22672ae15505d14b5ac73d5baeef09e0
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792458"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191366"
 ---
 # <a name="b2b-enterprise-integration-solutions-with-azure-logic-apps-and-enterprise-integration-pack"></a>Soluções de integração empresarial corporativa B2B com Aplicativos Lógicos do Azure e o Enterprise Integration Pack
 
-Para soluções B2B (entre empresas) e comunicação direta entre organizações, você pode criar fluxos de trabalho de integração empresarial escalonáveis automatizados usando o EIP (Enterprise Integration Pack) com [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md). Embora as organizações usem diferentes protocolos e formatos, elas podem trocar mensagens eletronicamente. O EIP transforma formatos diferentes em um formato que os sistemas de sua organização podem processar e dá suporte a protocolos padrão do setor, incluindo [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) e [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md). Também é possível proteger mensagens com criptografia e assinaturas digitais. O EIP dá suporte a esses [conectores de integração empresarial](../connectors/apis-list.md#integration-account-connectors) e a estes padrões do setor:
+Para soluções B2B (entre empresas) e comunicação direta entre organizações, você pode criar fluxos de trabalho de integração empresarial escalonáveis automatizados usando o EIP (Enterprise Integration Pack) com [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md). Embora as organizações usem diferentes protocolos e formatos, elas podem trocar mensagens eletronicamente. O EIP transforma formatos diferentes em um formato que os sistemas de sua organização podem processar e dá suporte a protocolos padrão do setor, incluindo [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) e [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md). Você também pode melhorar a segurança das mensagens usando criptografia e assinaturas digitais. O EIP dá suporte a esses [conectores de integração empresarial](../connectors/apis-list.md#integration-account-connectors) e a estes padrões do setor:
 
 * EDI (intercâmbio eletrônico de dados)
 * EAI (Integração de Aplicativos Empresariais)

@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Criar uma função personalizada para recursos do Azure usando a CLI do Azure
+title: 'Tutorial: Criar uma função personalizada para recursos do Azure com a CLI do Azure'
 description: Comece a criar uma função personalizada para recursos do Azure usando a CLI do Azure neste tutorial.
 services: active-directory
 documentationCenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 29b0bea851466b5173711441a5a7927c796c9926
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: f1a6e72e1444a26b675379d9948217a7773c4a1c
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419589"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138260"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Tutorial: Criar uma função personalizada para recursos do Azure usando a CLI do Azure
 
@@ -36,7 +36,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você precisará de:
+Neste tutorial, você precisará de:
 
 - Permissões para criar funções personalizadas, como [Proprietário](built-in-roles.md#owner) ou [Administrador de acesso do usuário](built-in-roles.md#user-access-administrator)
 - [Azure Cloud Shell](../cloud-shell/overview.md) ou [CLI do Azure](/cli/azure/install-azure-cli)
@@ -51,7 +51,7 @@ A maneira mais fácil de criar uma função personalizada é começar com um mod
 
 1. Examine a lista de operações para o [provedor de recursos Microsoft.Support](resource-provider-operations.md#microsoftsupport). É útil conhecer as operações disponíveis para criar as permissões.
 
-    | Operação | DESCRIÇÃO |
+    | Operação | Descrição |
     | --- | --- |
     | Microsoft.Support/register/action | Registrar para dar suporte ao provedor de recursos |
     | Microsoft.Support/supportTickets/read | Obter detalhes de tíquete de suporte (incluindo status, severidade, detalhes de contato e comunicações) ou obtém a lista de tíquetes de suporte entre assinaturas. |

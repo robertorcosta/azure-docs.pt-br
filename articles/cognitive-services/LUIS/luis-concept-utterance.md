@@ -55,10 +55,10 @@ Pegue estes enunciados de exemplo:
 
 |Exemplo de enunciados|
 |--|
-|Como obtenho um computador?|
-|Onde obtenho um computador?|
-|Quero obter um computador, como faço isso?|
-|Quando posso ter um computador?| 
+|how do I get a computer?|
+|Where do I get a computer?|
+|I want to get a computer, how do I go about it?|
+|When can I have a computer?| 
 
 O termo principal aqui, "Computer", não é variado. Use alternativas como computadores, laptops, estações de trabalho ou até mesmo máquinas. O LUIS pode inferir de forma inteligente sinônimos do contexto, mas quando você cria declarações para treinamento, é sempre melhor adaptá-los.
 
@@ -144,8 +144,8 @@ Nas declarações a seguir, a palavra `fair` é um homógrafo. Sua ortografia é
 
 |Enunciado|
 |--|
-|Que tipos de festivais regionais estão acontecendo na área de Seattle neste verão?|
-|A classificação atual para a análise de Seattle é justa?|
+|What kind of county fairs are happening in the Seattle area this summer?|
+|Is the current rating for the Seattle review fair?|
 
 Se você quiser que uma entidade de evento localize todos os dados do evento, rotule a palavra `fair` na primeira declaração, mas não na segunda.
 

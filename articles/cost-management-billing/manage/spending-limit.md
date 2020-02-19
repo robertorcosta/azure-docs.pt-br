@@ -2,21 +2,21 @@
 title: Limite de gastos do Azure | Microsoft Docs
 description: Este artigo descreve como funciona o limite de gastos do Azure e como removê-lo.
 author: bandersmsft
-manager: amberb
+manager: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 5dbf885848d9866a184caee1da6b9000a26f83a9
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: bde3c142fa0f4f69948a9ff1df61d77f06d2b430
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76314108"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188352"
 ---
 # <a name="azure-spending-limit"></a>Limite de gastos do Azure
 
@@ -36,30 +36,48 @@ Se você se inscreveu em uma conta gratuita do Azure e atinge o limite de gastos
 
 ## <a name="remove-the-spending-limit-in-azure-portal"></a>Remover o limite de gastos no portal do Azure
 
+Você poderá remover o limite de gastos a qualquer momento, contanto que haja uma forma de pagamento válida associada à sua assinatura do Azure. Para os tipos de assinatura que têm créditos durante vários meses, como o Visual Studio Enterprise e o Visual Studio Professional, você pode escolher remover o limite de gastos indefinidamente ou para o período de cobrança atual. Se você escolher apenas o período de cobrança atual, o limite de gastos será automaticamente habilitado no início do seu próximo período de cobrança.
+
+Se você tiver uma conta gratuita do Azure, confira [Atualizar sua assinatura do Azure](upgrade-azure-subscription.md) para remover seu limite de gastos. Caso contrário, execute estas etapas para remover seu limite de gastos:
+
 <a id="remove"></a>
 
-Você poderá remover o limite de gastos a qualquer momento, contanto que haja uma forma de pagamento válida associada à sua assinatura do Azure. Para os tipos de assinatura que têm créditos durante vários meses, como o Visual Studio Enterprise e o Visual Studio Professional, você também pode habilitar o limite de gastos no início do próximo período de cobrança.
+1. Entre no [Portal do Azure](https://portal.azure.com) como Administrador da Conta.
+1. Pesquise **Gerenciamento de Custos + Cobrança**.
 
-Para remover seu limite de gastos, execute estas etapas:
+    ![Captura de tela que mostra a pesquisa de gerenciamento de custos + cobrança ](./media/spending-limit/search-bar.png)
 
-1. Entre no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Navegue até **Assinaturas**.
-1. Selecione sua assinatura. Por exemplo, *Visual Studio Enterprise*.
-1. Na parte superior da página, selecione **Gerenciar**. Você será redirecionado para https://account.azure.com/. No lado direito da página, selecione **Remover limite de gastos**.  
-  ![Exemplo mostrando a opção Remover limite de gastos](./media/spending-limit/account-azure-com-spending-limit.png)
-1. Você será redirecionado de volta ao portal do Azure. Selecione uma opção apropriada para você e, em seguida, selecione uma forma de pagamento. Selecione **Concluir**.  
-  ![Selecionar uma opção para remover o limite de gastos](./media/spending-limit/remove-spending-limit.png)
+1. Na lista **Minhas assinaturas**, selecione sua assinatura. Por exemplo, *Visual Studio Enterprise*. 
 
-| Opção | Efeito |
-| --- | --- |
-| Remover o limite de gastos indefinidamente | Remove o limite de gastos sem ativá-lo automaticamente no início do próximo período de cobrança. |
-| Remover limite de gastos para o período de cobrança atual | Remove o limite de gastos para que ele seja ativado automaticamente no início do próximo período de cobrança. |
+   ![Captura de tela que mostra a grade de minhas assinaturas em visão geral](./media/spending-limit/cost-management-overview-msdn-x.png)
+
+    > [!NOTE]
+    > Caso não veja algumas de suas assinaturas do Visual Studio aqui, pode ser porque você alterou um diretório de assinatura em algum momento. Para essas assinaturas, você precisa alternar o diretório para o diretório original (o diretório no qual você se inscreveu inicialmente). Em seguida, repita a etapa 2.
+    
+1. Na visão geral da Assinatura, clique na faixa laranja para remover o limite de gastos.
+    
+    ![Captura de tela que mostra a faixa remover o limite de gastos](./media/spending-limit/msdn-remove-spending-limit-banner-x.png)
+
+1. Escolha se deseja remover o limite de gastos indefinidamente ou apenas para o período de cobrança atual.
+    
+      ![Captura de tela que mostra a folha remover o limite de gastos](./media/spending-limit/remove-spending-limit-blade-x.png)
+    
+      | Opção | Efeito |
+      | --- | --- |
+      | Remover o limite de gastos indefinidamente | O limite de gastos não reativa automaticamente no início do próximo período de cobrança. No entanto, você pode recomeçá-lo a qualquer momento. |
+      | Remover limite de gastos para o período de cobrança atual | O limite de gastos reativa automaticamente no início do próximo período de cobrança. |
+
+
+1. Clique **Selecionar método de pagamento** para escolher um método de pagamento para sua assinatura. Esse se tornará o método de pagamento ativo da sua assinatura.
+
+1. Clique em **Concluir**.
+
 
 ## <a name="why-you-might-want-to-remove-the-spending-limit"></a>Por que remover o limite de gastos?
 
 O limite de gastos pode evitar que você implante ou use determinados serviços da Microsoft e de terceiros. Veja algumas situações em que você poderia remover o limite de gastos da sua assinatura.
 
--  Você pretende implantar imagens internas como o Oracle e serviços como o Azure DevOps Services. Essa situação faz com que você atinja seu limite de gastos quase imediatamente e que a sua assinatura seja desabilitada.
+-  Você pretende implantar imagens de terceiros, como da Oracle e de serviços como o Azure DevOps Services. Essa situação faz com que você atinja seu limite de gastos quase imediatamente e que a sua assinatura seja desabilitada.
 - Há alguns serviços que não podem ser interrompidos. Quando você atinge seu limite de gastos, os recursos do Azure implantados são removidos da produção e suas máquinas virtuais do Azure são interrompidas e desalocadas. Caso você tenha serviços que não deseja que sejam interrompidos, precisará remover seu limite de gastos.
 - Você tem serviços e recursos com configurações como endereços IP virtuais e que não deseja perder. Essas configurações são perdidas quando você atinge seu limite de gastos e os serviços e os recursos são desalocados.
 
@@ -67,9 +85,20 @@ O limite de gastos pode evitar que você implante ou use determinados serviços 
 
 Esse recurso só está disponível quando o limite de gastos é removido por tempo indefinido para tipos de assinatura que incluem créditos durante vários meses. Use esse recurso para ativar seu limite de gastos automaticamente no início do próximo período de cobrança.
 
-1. Entre no [Centro de Contas](https://account.windowsazure.com/Subscriptions).
-1. Selecione a faixa amarela para alterar a opção de limite de gastos.
-1. Escolha **Ativar o limite de gastos no próximo período de cobrança \<start date of billing period\>**
+
+1. Entre no [Portal do Azure](https://portal.azure.com) como Administrador da Conta.
+1. Pesquise **Gerenciamento de Custos + Cobrança**.
+
+    ![Captura de tela que mostra a pesquisa de gerenciamento de custos + cobrança ](./media/spending-limit/search-bar.png)
+
+1. Na lista **Minhas assinaturas**, selecione sua assinatura. Por exemplo, *Visual Studio Enterprise*. 
+
+   ![Captura de tela que mostra a grade de minhas assinaturas em visão geral](./media/spending-limit/cost-management-overview-msdn-x.png)
+
+    > [!NOTE]
+    > Caso não veja algumas de suas assinaturas do Visual Studio aqui, pode ser porque você alterou um diretório de assinatura em algum momento. Para essas assinaturas, você precisa alternar o diretório para o diretório original (o diretório no qual você se inscreveu inicialmente). Em seguida, repita a etapa 2.
+    
+1. Na visão geral da Assinatura, clique na faixa na parte superior da página para reativar o limite de gastos.
 
 ## <a name="custom-spending-limit"></a>Limite de gastos personalizado
 

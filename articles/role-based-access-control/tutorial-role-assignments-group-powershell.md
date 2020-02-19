@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Conceder acesso a um grupo aos recursos do Azure usando o RBAC e o Azure PowerShell
+title: 'Tutorial: Conceder ao grupo acesso aos recursos do Azure com o RBAC e o Azure PowerShell'
 description: Saiba como conceder acesso a um grupo aos recursos do Azure usando o RBAC (controle de acesso baseado em função) e o Azure PowerShell neste tutorial.
 services: active-directory
 documentationCenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: fb26e603ebb867bda47a93162ffef9bf716d3db6
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 2f001e781640704cfcee161b3de75b3f4cae1423
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74418597"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138251"
 ---
 # <a name="tutorial-grant-a-group-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Tutorial: Permitir acesso a um grupo aos recursos do Azure usando o RBAC e o Azure PowerShell
 
@@ -37,7 +37,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você precisará de:
+Neste tutorial, você precisará de:
 
 - Permissões para criar grupos no Azure Active Directory (ou ter um grupo existente)
 - [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell)
@@ -265,7 +265,7 @@ Para remover o acesso para usuários, grupos e aplicativos, use [Remove-AzRoleAs
       -Scope $subScope
     ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar os recursos criados por este tutorial, exclua o grupo de recursos e o grupo.
 

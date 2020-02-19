@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/25/2019
-ms.openlocfilehash: 125cde85d3caa6fd1a33045e85c5383f83a669bf
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.date: 02/10/2020
+ms.openlocfilehash: a6f977c0cdca670b40ccdc01db64a493962e3dda
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982527"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77165969"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: Introdução à criação de seu primeiro experimento de ML com o SDK de Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -84,7 +84,7 @@ Conclua a configuração do experimento a seguir e execute as etapas no Azure Ma
     > [!IMPORTANT]
     > Você pode exibir notebooks na pasta **samples**, mas não pode executar um notebook partindo dela.  Para executar um notebook, abra a versão clonada do notebook na seção **Arquivos do Usuário**.
     
-1. Selecione o arquivo **tutorial-1st-experiment-sdk-train.ipynb** na pasta **tutorials**.
+1. Selecione o arquivo **tutorial-1st-experiment-sdk-train.ipynb** na pasta **tutorials/create-first-ml-experiment**.
 
 1. Na barra superior, selecione uma instância de computação a ser usada para executar o notebook. Essas VMs são pré-configuradas com [tudo o que você precisa para executar Azure Machine Learning](concept-compute-instance.md#contents). Você pode selecionar uma VM criada por qualquer usuário do seu workspace. 
 
@@ -99,10 +99,6 @@ Conclua a configuração do experimento a seguir e execute as etapas no Azure Ma
 1. Depois que a VM estiver disponível, ela será exibida na barra de ferramentas superior.  Agora você pode executar o notebook usando **Executar tudo** na barra de ferramentas ou usando **Shift + Enter** nas células de código do notebook.
 
 Caso você tenha widgets personalizados ou prefira usar o Jupyter/o JupyterLab, selecione o menu suspenso do **Jupyter** na extrema direita e, em seguida, selecione **Jupyter** ou **JupyterLab**. A nova janela do navegador será aberta.
-
-> [!NOTE]
-> Atualmente, as instâncias de computação (versão prévia) só estão disponíveis em workspaces com uma região **Centro-Norte dos EUA**, **Leste dos EUA 2**, **Europa Setentrional** ou **Sul do Reino Unido**, com suporte para outras regiões em breve.
->Se o seu espaço de trabalho estiver em qualquer outra região, você poderá continuar a criar e usar uma [VM do Notebook](concept-compute-instance.md#notebookvm) em vez disso.  Você pode usar uma VM do Notebook ou uma instância de computação para executar o bloco de anotações. Uma VM continuará em execução e gerará custos, a menos que você a interrompa. Você pode interrompê-la manualmente na guia **Computação** no Studio ou conferir a [postagem no blog](https://techcommunity.microsoft.com/t5/educator-developer-blog/azure-virtual-machine-auto-shutdown/ba-p/379342) sobre como habilitar o desligamento automático agendado para VMs do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 

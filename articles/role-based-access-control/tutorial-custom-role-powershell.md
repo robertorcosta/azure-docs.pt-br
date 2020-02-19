@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Criar uma função personalizada para recursos do Azure usando o Azure PowerShell
+title: 'Tutorial: Criar uma função personalizada para recursos do Azure com o Azure PowerShell'
 description: Comece a criar uma função personalizada para recursos do Azure usando o Azure PowerShell neste tutorial.
 services: active-directory
 documentationCenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 176e465163d92156308eda64c4187467cc10ee15
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: d337e31f554c0aabbb94771aa7bfca4afb19a431
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419755"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138273"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>Tutorial: Criar uma função personalizada para recursos do Azure usando o Azure PowerShell
 
@@ -38,7 +38,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você precisará de:
+Neste tutorial, você precisará de:
 
 - Permissões para criar funções personalizadas, como [Proprietário](built-in-roles.md#owner) ou [Administrador de acesso do usuário](built-in-roles.md#user-access-administrator)
 - [Azure Cloud Shell](../cloud-shell/overview.md) ou [Azure PowerShell](/powershell/azure/install-az-ps)
@@ -107,7 +107,7 @@ A maneira mais fácil de criar uma função personalizada é começar com uma fu
 
 1. Exclua a linha da propriedade `Id` e altere a propriedade `IsCustom` para `true`.
 
-1. Alterar as propriedades `Name` e `Description` para "Tíquetes de suporte do leitor" e "Exibir tudo na assinatura e também abrir tíquetes de suporte".
+1. Altere as propriedades `Name` e `Description` para "Tíquetes de suporte do leitor" e "Exibir tudo na assinatura e também abrir tíquetes de suporte".
 
     Seu arquivo JSON deverá ter a seguinte aparência:
 

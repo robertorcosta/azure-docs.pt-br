@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: e1c5504b30c2784e8657ccc0dc4ec18689fe2a68
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: ef5cc0fb561d385a1b1d7b4c14db8c10343508cf
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806806"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133659"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Visão geral dos tipos de classes – Azure Lab Services
 
@@ -46,9 +46,25 @@ Em uma classe de hacking ético, os alunos podem aprender técnicas modernas par
 
 Para obter informações detalhadas sobre como configurar esse tipo de laboratório, confira [Configurar um laboratório para ensinar uma classe de hacking ético](class-type-ethical-hacking.md).
 
+## <a name="database-management"></a>Gerenciamento de banco de dados
+Os conceitos de bancos de dados são um dos cursos introdutórios ensinados na maioria dos departamentos de ciência da computação na faculdade. Você pode configurar um laboratório para uma classe básica de gerenciamento de bancos de dados nos Azure Lab Services. Por exemplo, você pode configurar um modelo de máquina virtual em um laboratório com um servidor de banco de dados [MySQL](https://www.mysql.com/) ou um servidor [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019).
+
+Para obter informações detalhadas sobre como configurar esse tipo de laboratório, confira [Configurar um laboratório para ensinar gerenciamento de banco de dados para bancos de dados relacionais](class-type-database-management.md).
+
+## <a name="python-and-jupyter-notebooks"></a>Python e Jupyter Notebooks
+Você pode configurar uma máquina de modelo nos Serviços de Laboratório do Azure com as ferramentas necessárias para ensinar aos alunos como usar os [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io). O Jupyter Notebooks é um projeto de código aberto que permite combinar facilmente texto rico e código-fonte executável [Python](https://www.python.org/) em uma única tela chamada notebook. A execução de um notebook resulta em um registro linear de entradas e saídas.  Essas saídas podem incluir texto, tabelas de informações, gráficos de dispersão e muito mais.
+
+Para obter informações detalhadas sobre como configurar esse tipo de laboratório, confira [Configurar um laboratório para ensinar ciência de dados com Python e Jupyter Notebooks](class-type-jupyter-notebook.md).
+
+## <a name="mobile-app-development-with-android-studio"></a>Desenvolvimento de aplicativos móveis com o Android Studio
+Você pode configurar um laboratório nos Serviços de Laboratório do Azure para ministrar uma aula introdutória de desenvolvimento de aplicativos móveis. Esta classe se concentra nos aplicativos para dispositivos móveis Android que podem ser publicados na [Google Play Store](https://play.google.com/store/apps).  Os alunos aprendem como usar o [Android Studio](https://developer.android.com/studio) para criar aplicativos.  [O emulador do Visual Studio para Android](https://visualstudio.microsoft.com/vs/msft-android-emulator/) é usado para testar o aplicativo localmente.
+
+Para obter informações detalhadas sobre como configurar esse tipo de laboratório, confira [Configurar um laboratório para ensinar o desenvolvimento de aplicativos móveis com o Android Studio](class-type-mobile-dev-android-studio.md).
+
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira os seguintes artigos:
+Veja os artigos a seguir:
 
 - [Configurar um laboratório voltado para o aprendizado profundo em processamento em idioma natural usando o Azure Lab Services](class-type-deep-learning-natural-processing.md)
 - [Script de shell no Linux](class-type-shell-scripting-linux.md)

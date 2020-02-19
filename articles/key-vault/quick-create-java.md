@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 0cde8b48e7bd1d1daa8f14dcded87001fb898fa7
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: b5748824590f40e30af8f462d4c8ff25521cfd94
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76769228"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136085"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-java"></a>Início Rápido: Biblioteca de clientes do Azure Key Vault para Java
 
@@ -27,7 +27,7 @@ O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usa
 
 [Código-fonte](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault) | [Documentação de referência da API](https://azure.github.io/azure-sdk-for-java) | [Documentação do produto](index.yml) | [Exemplos](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) versão 8 ou superior
@@ -168,7 +168,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 A biblioteca de clientes do Azure Key Vault para Java permite gerenciar chaves e ativos relacionados, como certificados e segredos. Os exemplos de código abaixo mostrarão como criar um cliente, definir, recuperar e excluir um segredo.
 
-Todo o aplicativo de console está disponível em https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app.
+Todo o aplicativo de console está [abaixo](#sample-code).
 
 ## <a name="code-examples"></a>Exemplos de código
 

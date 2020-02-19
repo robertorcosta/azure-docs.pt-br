@@ -7,12 +7,12 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 864cccc4629140754a326823cbaebd7ad8933d3d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: e469837c8e374e62824bd8f7a7feb110ed1be9c9
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75765062"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153104"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e exportar rótulos 
 
@@ -37,7 +37,7 @@ Neste artigo, você aprenderá a:
 > * Exportar os rótulos
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Os dados que deseja rotular, em arquivos locais ou no Armazenamento do Azure.
 * O conjunto de rótulos que deseja aplicar.
@@ -125,7 +125,7 @@ Com relação às caixas delimitadoras, entre as perguntas importantes se inclue
 
 ## <a name="initialize-the-labeling-project"></a>Inicializar o projeto de rotulagem
 
-Depois que o projeto de rotulagem for inicializado, alguns aspectos do projeto serão imutáveis. Não será possível alterar o tipo de tarefa nem o conjunto de dados. Você *poderá* modificar os rótulos e a URL para a descrição da tarefa. Examine cuidadosamente as configurações antes de criar o projeto. Depois de enviar o projeto, você será direcionado novamente para a home page **Rotulagem**, que mostrará o projeto como **Inicializando**. Essa página não é atualizada automaticamente. Portanto, após uma pausa, atualize manualmente a página para ver o status do projeto como **Criado**.
+Depois que o projeto de rotulagem for inicializado, alguns aspectos do projeto serão imutáveis. Não será possível alterar o tipo de tarefa nem o conjunto de dados. Você *poderá* modificar os rótulos e a URL para a descrição da tarefa. Examine cuidadosamente as configurações antes de criar o projeto. Depois de enviar o projeto, você será direcionado novamente para a home page **Rotulagem de Dados**, que mostrará o projeto como **Inicializando**. Essa página não é atualizada automaticamente. Portanto, após uma pausa, atualize manualmente a página para ver o status do projeto como **Criado**.
 
 ## <a name="manage-teams-and-people"></a>Gerenciar equipes e pessoas
 
@@ -139,7 +139,7 @@ Para enviar um email à equipe, selecione a equipe para exibir a página **Detal
 
 ## <a name="run-and-monitor-the-project"></a>Executar e monitorar o projeto
 
-Depois que você inicializar o projeto, o Azure começará a executá-lo. Selecione o projeto na página principal **Rotulagem** para acessar os **Detalhes do projeto**. A guia **Painel** mostra o progresso da tarefa de rotulagem.
+Depois que você inicializar o projeto, o Azure começará a executá-lo. Selecione o projeto na página principal **Rotulagem de Dados** para acessar os **Detalhes do projeto**. A guia **Painel** mostra o progresso da tarefa de rotulagem.
 
 Na guia **Dados**, você poderá ver o conjunto de dados e examinar os dados rotulados. Se você perceber que há dados rotulados incorretamente, selecione-os e escolha **Rejeitar**, o que removerá os rótulos e colocará os dados novamente na fila sem rótulo.
 
@@ -148,6 +148,24 @@ Use a guia **Equipe** para atribuir equipes ou cancelar a atribuição de equipe
 Para pausar ou reiniciar o projeto, selecione o botão **Pausar**/**Iniciar**. Você só pode rotular dados quando o projeto está em execução.
 
 Você pode rotular dados diretamente da página **Detalhes do projeto** selecionando **Rotular dados**.
+
+## <a name="add-labels-to-a-project"></a>Adicionar rótulos a um projeto
+
+Durante o processo de rotulagem, você pode achar que rótulos adicionais são necessários para classificar suas imagens.  Por exemplo, você pode adicionar um rótulo "Desconhecido" ou "Outro" para indicar imagens confusas.
+
+Use estas etapas para adicionar um ou mais rótulos a um projeto:
+
+1. Selecione o projeto na página principal **Rotulagem de Dados**.
+1. Na parte superior da página, selecione **Pausar** para interromper os rotuladores de suas atividades.
+1. Selecione a guia **Detalhes**.
+1. Na lista à esquerda, selecione **Classes de rótulo**.
+1. No topo da lista, selecione **+ Adicionar rótulos** ![Adicionar um rótulo](media/how-to-create-labeling-projects/add-label.png)
+1. No formulário, adicione o novo rótulo e escolha como continuar.  Como alterou os rótulos disponíveis para uma imagem, você escolhe como tratar os dados já rotulados:
+    * Recomece, removendo todos os rótulos existentes.  Escolha esta opção se desejar começar a rotular desde o início com o novo conjunto completo de rótulos. 
+    * Recomece, mantendo todos os rótulos existentes.  Escolha esta opção para marcar todos os dados como sem rótulo, mas mantenha os rótulos existentes como uma marca padrão para imagens que foram rotuladas anteriormente.
+    * Continue, mantendo todos os rótulos existentes. Escolha esta opção para manter todos os dados já rotulados como estão, e comece a usar o novo rótulo para dados ainda não rotulados.
+1. Modifique a página de instruções conforme necessário para os novos rótulos.
+1. Depois de adicionar todos os novos rótulos, na parte superior da página, selecione **Iniciar** para reiniciar o projeto.  
 
 ## <a name="export-the-labels"></a>Exportar os rótulos
 

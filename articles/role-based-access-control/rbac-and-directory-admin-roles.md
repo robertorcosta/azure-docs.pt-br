@@ -1,5 +1,5 @@
 ---
-title: Funções de administrador da assinatura clássica, funções do Azure RBAC e funções de administrador do Azure AD | Microsoft Docs
+title: Funções de administrador da assinatura clássica, funções do Azure RBAC e funções do Azure AD
 description: 'Descreve as diferentes funções no Azure: funções de administrador de assinatura Clássico, funções do Azure RBAC (controle de acesso baseado em função) e funções de administrador do Azure AD (Azure Active Directory)'
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 10/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 1d0966737964c44fc4a6778cdb811a4ecc732ffc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 08c14135ba17df4de446de5625352c8cffdc60a1
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979300"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138068"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Funções de administrador da assinatura clássica, funções do Azure RBAC e funções de administrador do Azure AD
 

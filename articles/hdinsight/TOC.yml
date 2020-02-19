@@ -852,6 +852,8 @@
           href: ./domain-joined/hdinsight-use-oozie-domain-joined-clusters.md
     - name: Conceitos
       items:
+        - name: Diretrizes gerais de segurança corporativa
+          href: ./domain-joined/general-guidelines.md
         - name: Plano para clusters ESP
           href: ./domain-joined/apache-domain-joined-architecture.md
         - name: Arquitetura de rede virtual do HDInsight
@@ -864,6 +866,8 @@
           href: ./hdinsight-service-tags.md
         - name: Criptografia de disco de chave gerenciada pelo cliente
           href: ./disk-encryption.md
+        - name: Sincronização LDAP no Ranger e no Apache Ambari
+          href: ./domain-joined/ldap-sync.md
     - name: Como
       items:
         - name: Usar o agente de IDs para o gerenciamento de credenciais

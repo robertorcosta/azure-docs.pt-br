@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 12/17/2019
+ms.date: 02/10/2020
 ms.author: aahi
-ms.openlocfilehash: 214c071e0d01908e2d46c932fcf87906de834102
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 84ef01b5e7fc3f628b1cdf7a1f13175604ebcdd4
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644674"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137954"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Como fazer: Detectar o sentimento usando a API de Análise de Texto
 
@@ -50,14 +50,7 @@ A API de Análise de Texto oferece duas versões da Análise de Sentimento: v2 e
 | Rotulação de sentimento                        |                       | X                     |
 | Controle de versão de modelo                   |                       | X                     |
 
-#### <a name="version-2tabversion-2"></a>[Versão 2](#tab/version-2)
-
-### <a name="sentiment-scoring"></a>Pontuação de sentimento
-
-O analisador de sentimento classifica texto como predominantemente positivo ou negativo. Ele atribui uma pontuação no intervalo de 0 a 1. Valores próximos 0,5 são neutros ou indeterminados. Uma pontuação de 0,5 indica neutralidade. Quando uma cadeia de caracteres não pode ser analisada para sentimento ou não tem nenhum sentimento, a pontuação é sempre exatamente 0,5. Por exemplo, se você passar uma cadeia de caracteres espanhol com um código de idioma inglês, a pontuação é 0,5.
-
-
-#### <a name="version-3-public-previewtabversion-3"></a>[Versão 3 (versão prévia pública)](#tab/version-3)
+#### <a name="version-30-preview"></a>[Versão prévia 3.0](#tab/version-3)
 
 ### <a name="sentiment-scoring"></a>Pontuação de sentimento
 
@@ -85,6 +78,13 @@ A Análise de Sentimento v3 pode retornar pontuações e rótulos no nível do d
 
 Você pode encontrar um aplicativo em C# de exemplo que chama esta versão da Análise de Sentimento no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs).
 
+
+#### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
+
+### <a name="sentiment-scoring"></a>Pontuação de sentimento
+
+O analisador de sentimento classifica texto como predominantemente positivo ou negativo. Ele atribui uma pontuação no intervalo de 0 a 1. Valores próximos 0,5 são neutros ou indeterminados. Uma pontuação de 0,5 indica neutralidade. Quando uma cadeia de caracteres não pode ser analisada para sentimento ou não tem nenhum sentimento, a pontuação é sempre exatamente 0,5. Por exemplo, se você passar uma cadeia de caracteres espanhol com um código de idioma inglês, a pontuação é 0,5.
+
 ---
 
 ## <a name="sending-a-rest-api-request"></a>Como enviar uma solicitação da API REST 
@@ -101,27 +101,28 @@ O tamanho do documento deve ser inferior a 5.120 caracteres. Você pode ter até
 
 Crie uma solicitação POST. Você pode [usar o Postman](text-analytics-how-to-call-api.md) ou o **console de teste da API** nos links de referência a seguir para estruturar e enviar uma rapidamente. 
 
-#### <a name="version-2tabversion-2"></a>[Versão 2](#tab/version-2)
-
-[Referência da Análise de Sentimento v2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
-
-#### <a name="version-3-public-previewtabversion-3"></a>[Versão 3 (versão prévia pública)](#tab/version-3)
+#### <a name="version-30-preview"></a>[Versão prévia 3.0](#tab/version-3)
 
 [Referência da Análise de Sentimento v3](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment)
+
+#### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
+
+[Referência da Análise de Sentimento v2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
 ---
 
 Defina o ponto de extremidade HTTPS para a Análise de Sentimento usando um recurso da Análise de Texto no Azure ou um [contêiner da Análise de Texto](text-analytics-how-to-install-containers.md) instanciado. É necessário incluir a URL correta para a versão que você deseja usar. Por exemplo:
-    
-[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
 
-#### <a name="version-2tabversion-2"></a>[Versão 2](#tab/version-2)
+> [!NOTE]
+> Você pode encontrar sua chave e ponto de extremidade para o recurso da Análise de Texto no portal do Azure. Eles estarão localizados na página de **Início rápido** do recurso, em **Gerenciamento de recursos**. 
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
-
-#### <a name="version-3-public-previewtabversion-3"></a>[Versão 3 (versão prévia pública)](#tab/version-3)
+#### <a name="version-30-preview"></a>[Versão prévia 3.0](#tab/version-3)
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/sentiment`
+
+#### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
 
 ---
 
@@ -161,26 +162,7 @@ O analisador de sentimento classifica texto como predominantemente positivo ou n
 
 A saída é retornada imediatamente. Você pode transmitir os resultados para um aplicativo que aceita JSON ou salvar a saída em um arquivo no sistema local. Em seguida, importe a saída para um aplicativo que você possa usar para classificar, pesquisar e manipular os dados.
 
-#### <a name="version-2tabversion-2"></a>[Versão 2](#tab/version-2)
-
-### <a name="sentiment-analysis-v2-example-response"></a>Resposta de exemplo da Análise de Sentimento v2
-
-As respostas da Análise de Sentimento v2 contêm pontuações de sentimentos para cada documento enviado.
-
-```json
-{
-  "documents": [{
-    "id": "1",
-    "score": 0.98690706491470337
-  }, {
-    "id": "2",
-    "score": 0.95202046632766724
-  }],
-  "errors": []
-}
-```
-
-#### <a name="version-3-public-previewtabversion-3"></a>[Versão 3 (versão prévia pública)](#tab/version-3)
+#### <a name="version-30-preview"></a>[Versão prévia 3.0](#tab/version-3)
 
 ### <a name="sentiment-analysis-v3-example-response"></a>Exemplo de resposta da Análise de Sentimento v3
 
@@ -255,6 +237,26 @@ As respostas da Análise de Sentimento v3 contêm rótulos e pontuações de sen
     "errors": []
 }
 ```
+
+#### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
+
+### <a name="sentiment-analysis-v2-example-response"></a>Resposta de exemplo da Análise de Sentimento v2
+
+As respostas da Análise de Sentimento v2 contêm pontuações de sentimentos para cada documento enviado.
+
+```json
+{
+  "documents": [{
+    "id": "1",
+    "score": 0.98690706491470337
+  }, {
+    "id": "2",
+    "score": 0.95202046632766724
+  }],
+  "errors": []
+}
+```
+
 ---
 
 ## <a name="summary"></a>Resumo

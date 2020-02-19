@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 37253bb4c6001afe436e22597e75e2bc869fbbc8
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 04b3802ae17440fe7cb96b424727600ab53aefce
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75990288"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168760"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Tutorial: Otimizar os custos usando recomendações
 
@@ -28,7 +28,7 @@ Neste tutorial, você aprenderá como:
 > * Aja em uma recomendação para redimensionar uma máquina virtual para uma opção mais econômica
 > * Verifique a ação para garantir que a máquina virtual foi redimensionada com êxito
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 As recomendações estão disponíveis para uma variedade de escopos e de tipos de conta do Azure. Para exibir a lista completa dos tipos de contas compatíveis, confira [Entender os dados do Gerenciamento de Custos](understand-cost-mgt-data.md). Você precisa ter acesso de leitura a pelo menos um ou mais dos seguintes escopos para exibir os dados de custo. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
 
 - Subscription
@@ -79,7 +79,7 @@ Nos detalhes da VM, verifique a utilização da máquina virtual para confirmar 
 
 Observe o tamanho atual da máquina virtual. Depois de verificar que a máquina virtual deve ser redimensionada, feche os detalhes da VM para ver a lista de máquinas virtuais.
 
-Na lista de candidatos a serem desligados ou redimensionados, selecione **Redimensionar de *&lt;FromVirtualMachineSKU&gt;* para *&lt;ToVirtualMachineSKU&gt;***.
+Na lista de candidatos a serem desligados ou redimensionados, selecione **Redimensionar _&lt;de FromVirtualMachineSKU&gt;_ para _&lt;ToVirtualMachineSKU&gt;_** .
 ![Recomendação de exemplo com a opção para redimensionar a máquina virtual](./media/tutorial-acm-opt-recommendations/resize-vm.png)
 
 Em seguida, será apresentada uma lista de opções de redimensionamento disponíveis. Escolha o que gerará o melhor desempenho e custo-benefício para seu cenário. No exemplo a seguir, a opção escolheu redimensionamentos de um **Standard_D8s_v3** para um **Standard_D2s_v3**.

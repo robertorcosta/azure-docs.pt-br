@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Conceder acesso aos recursos do Azure para um usuário usando o RBAC e o portal do Azure
+title: 'Tutorial: Conceder ao usuário acesso aos recursos do Azure com o RBAC e o portal do Azure '
 description: Neste tutorial, saiba como conceder acesso a um usuário aos recursos do Azure usando o RBAC (controle de acesso baseado em função) no portal do Azure.
 services: role-based-access-control
 documentationCenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: f4dd3995df2a068824c4aa6bccca5606d250a165
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 6281c9a1818a3b46ac4f7a62f8ae76668db56887
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419657"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138088"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Tutorial: Permitir acesso a um usuário aos recursos do Azure usando o RBAC e o portal do Azure
 
@@ -115,4 +115,4 @@ No RBAC, para remover o acesso, você deve remover uma atribuição de função.
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial: Permitir acesso a um usuário aos recursos do Azure usando o RBAC e o Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+> [Tutorial: Conceder acesso aos recursos do Azure para um usuário usando o RBAC e o Azure PowerShell](tutorial-role-assignments-user-powershell.md)

@@ -3,17 +3,17 @@ title: Início rápido – Adicionar um dispositivo simulado ao Azure IoT Centra
 description: Este início rápido mostra como criar um modelo de dispositivo e adicionar um dispositivo simulado ao seu aplicativo IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/10/2019
+ms.date: 02/12/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: cb8f0c806435a6c623d14e50263844db7aac61bb
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 489bf81388c1bb889756d54957e791282054f0f7
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026179"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169559"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Início Rápido: Adicionar um dispositivo simulado ao seu aplicativo IoT Central
 
@@ -28,7 +28,7 @@ Neste guia de início rápido, você adiciona um modelo de dispositivo a uma pla
 * Responde a comandos como ativar e desativar.
 * Relata propriedades genéricas de dispositivo como a versão de firmware e o número de série.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Conclua o início rápido [Criar um aplicativo do Azure IoT Central](./quick-deploy-iot-central.md) para criar um aplicativo do IoT Central usando o modelo de **App personalizado > Aplicativo personalizado**.
 
@@ -48,7 +48,7 @@ Há várias opções para adicionar um modelo de funcionalidade do dispositivo n
 
 As etapas a seguir mostram como usar o catálogo de dispositivos para importar o modelo de capacidade para um dispositivo **MXChip IoT DevKit**. Esses dispositivos enviam a telemetria, como a temperatura, para seu aplicativo:
 
-1. Para adicionar um novo modelo de dispositivo, selecione **+** na página **Modelos de Dispositivo**.
+1. Para adicionar um novo modelo de dispositivo, selecione **+** na página **Modelos de dispositivo**.
 
 1. Na página **Selecionar o tipo de modelo**, role a tela para baixo até encontrar o bloco **MXChip IoT DevKit**.
 
@@ -66,7 +66,7 @@ As etapas a seguir mostram como usar o catálogo de dispositivos para importar o
 
 Um modelo de dispositivo pode incluir propriedades de nuvem. As propriedades de nuvem existem somente no aplicativo IoT Central e nunca são enviadas ou recebidas de um dispositivo.
 
-1. Selecione **Propriedades da Nuvem** e, em seguida, **+ Adicionar Propriedade de nuvem**. Use as informações da seguinte tabela para adicionar duas propriedades de nuvem ao seu modelo de dispositivo:
+1. Selecione **Propriedades da Nuvem** e, em seguida, **+ Adicionar propriedade de nuvem**. Use as informações da seguinte tabela para adicionar duas propriedades de nuvem ao seu modelo de dispositivo:
 
     | Nome de exibição      | Tipo Semântico | Esquema |
     | ----------------- | ------------- | ------ |
@@ -128,7 +128,7 @@ Para adicionar um dispositivo simulado ao seu aplicativo, use o modelo de dispos
 
 1. Para adicionar um novo dispositivo como um operador, escolha **Dispositivos** no painel esquerdo. A guia **Dispositivos** mostra **Todos os dispositivos** e o modelo de dispositivo **MXChip IoT DevKit**. Selecione **MXChip IoT DevKit**.
 
-1. Para adicionar um dispositivo DevKit simulado, selecione **+** . Use a **ID do Dispositivo** sugerida ou insira sua própria **ID do Dispositivo** em minúsculas. Você também pode inserir um nome para o novo dispositivo. Confira se a opção **simulado** está como **Ativado** e, em seguida, selecione **Criar**.
+1. Para adicionar um dispositivo DevKit simulado, selecione **+** . Use a **ID do Dispositivo** sugerida ou insira sua própria **ID do Dispositivo** em minúsculas. Você também pode inserir um nome para o novo dispositivo. Confira se a opção **Simulado** está como **Ativado** e, em seguida, selecione **Criar**.
 
     ![Dispositivo simulado](./media/quick-create-pnp-device/simulated-device.png)
 

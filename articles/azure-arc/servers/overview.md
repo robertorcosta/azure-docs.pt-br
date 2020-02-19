@@ -7,15 +7,14 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 01/29/2020
-ms.custom: mvc
+ms.date: 02/12/2020
 ms.topic: overview
-ms.openlocfilehash: b0f1d235391c4c4e3804a6dccc8174e946035b6a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 33681d5c9e296d7c292dabbd64560e3d95c45af2
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899191"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190314"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>O que é Azure Arc para servidores (versão prévia)
 
@@ -42,7 +41,9 @@ Com o Azure Arc para servidores (versão prévia), só há suporte a determinada
 - WestEurope
 - WestAsia
 
-## <a name="prerequisites"></a>Prerequisites
+Na maioria dos casos, o local selecionado durante a criação do script de instalação deve ser a região do Azure mais próxima à localização do seu computador. Os dados em repouso serão armazenados na geografia do Azure que contém a região especificada por você, o que também pode afetar sua escolha de região se você tiver requisitos de residência de dados. Se a região do Azure a qual seu computador está conectado for afetada por uma interrupção, a máquina conectada não será afetada, mas talvez as operações de gerenciamento que usam o Azure não possam terminar. Para obter resiliência no caso de uma interrupção regional, se houver várias localizações que fornecem um serviço com redundância geográfica, será melhor conectar os computadores em cada localização a uma região diferente do Azure.
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
@@ -55,9 +56,15 @@ Há suporte oficial para as seguintes versões do sistema operacional Windows e 
 >Essa versão prévia do agente do Connected Machine para Windows só é compatível com o Windows Server configurado para usar o idioma inglês.
 >
 
+### <a name="required-permissions"></a>Permissões necessárias
+
+- Para os computadores de integração, você é membro da função **Integração do Azure Connected Machine**.
+
+- Para ler, modificar, reintegrar e excluir um computador, é necessário ser membro da função **Administrador de Recursos do Azure Connected Machine**. 
+
 ### <a name="azure-subscription-and-service-limits"></a>Limites de serviço e assinatura do Azure
 
-Antes de configurar seus computadores com o Azure Arc para servidores (versão prévia), você deve examinar os [limites de assinatura](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager) e os [limites do grupo de recursos](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) do Azure Resource Manager para planejar o número de computadores a ser conectado.
+Antes de configurar seus computadores com o Azure Arc para servidores (versão prévia), você deve examinar os [limites de assinatura](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) e os [limites do grupo de recursos](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) do Azure Resource Manager para planejar o número de computadores a ser conectado.
 
 ### <a name="networking-configuration"></a>Configuração de rede
 
@@ -129,10 +136,10 @@ Conectar computadores em seu ambiente híbrido diretamente com o Azure pode ser 
 
 | Método | Descrição |
 |--------|-------------|
-| Interativamente | Instalar manualmente o agente em um número único ou pequeno de computadores seguindo as etapas em [Conectar computadores do portal do Azure](quickstart-onboard-portal.md).<br> No portal do Azure, você pode gerar um script e executá-lo no computador para automatizar as etapas de instalação e configuração do agente.|
-| Em escala | Instalar e configurar o agente para vários computadores seguindo [Conectar computadores usando uma Entidade de Serviço](quickstart-onboard-powershell.md).<br> Esse método cria uma entidade de serviço para conectar computadores de maneira não interativa.|
+| Interativamente | Instalar manualmente o agente em um número único ou pequeno de computadores seguindo as etapas em [Conectar computadores do portal do Azure](onboard-portal.md).<br> No portal do Azure, você pode gerar um script e executá-lo no computador para automatizar as etapas de instalação e configuração do agente.|
+| Em escala | Instalar e configurar o agente para vários computadores seguindo [Conectar computadores usando uma Entidade de Serviço](onboard-service-principal.md).<br> Esse método cria uma entidade de serviço para conectar computadores de maneira não interativa.|
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para começar a avaliar o Azure Arc para servidores (versão prévia), siga o artigo [Conectar computadores híbridos ao Azure do portal do Azure](quickstart-onboard-portal.md). 
+- Para começar a avaliar o Azure Arc para servidores (versão prévia), siga o artigo [Conectar computadores híbridos ao Azure do portal do Azure](onboard-portal.md). 

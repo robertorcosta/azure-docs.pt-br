@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 6fd9166168a5b21900aa49d42a1dd5b81039dbcd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c2a26f2f40e0312fbfa0962e69ddfd0cfdabad5f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428753"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191290"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Início Rápido: Criar seu primeiro fluxo de trabalho usando os Aplicativos Lógicos do Azure – portal do Azure
 
@@ -42,7 +42,7 @@ Entre no [portal do Azure](https://portal.azure.com) com suas credenciais da con
 
    ![Forneça detalhes para o novo aplicativo lógico](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
-   | Propriedade | Valor | DESCRIÇÃO |
+   | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
    | **Nome** | <*logic-app-name*> | O nome do aplicativo lógico, que pode conter apenas letras, números, hifens (`-`), sublinhados (`_`), parênteses(`(`, `)`) e pontos (`.`). Este exemplo usa "My-First-Logic-App". |
    | **Assinatura** | <*Azure-subscription-name*> | Seu nome da assinatura do Azure |
@@ -77,7 +77,7 @@ Em seguida, adicione um [gatilho](../logic-apps/logic-apps-overview.md#logic-app
 
    ![Configurar um gatilho com o RSS feed, frequência e intervalo](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
 
-   | Propriedade | Valor | DESCRIÇÃO |
+   | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
    | **A URL do RSS feed** | `http://feeds.reuters.com/reuters/topNews` | O link do RSS feed do site que você deseja monitorar |
    | **Intervalo** | 1 | O número de intervalos de espera entre as verificações |
@@ -116,7 +116,7 @@ Agora, adicione uma [ação](../logic-apps/logic-apps-overview.md#logic-app-conc
 1. Se o conector de email selecionado solicitar a autenticação da sua identidade, conclua essa etapa agora para criar uma conexão entre o aplicativo lógico e o serviço de email.
 
    > [!NOTE]
-   > Neste exemplo específico, autentique manualmente sua identidade. No entanto, os conectores que exigem a autenticação diferem em relação aos tipos de autenticação com os quais são compatíveis. Você também tem opções para configurar a forma como deseja lidar com a autenticação. Por exemplo, quando você usa os modelos do Azure Resource Manager para implantação, é possível parametrizar e proteger as entradas que você queira alterar com frequência ou com facilidade, como informações de conexão. Para saber mais, consulte esses tópicos:
+   > Neste exemplo específico, autentique manualmente sua identidade. No entanto, os conectores que exigem a autenticação diferem em relação aos tipos de autenticação com os quais são compatíveis. Você também tem opções para configurar a forma como deseja lidar com a autenticação. Por exemplo, quando você usa os modelos do Azure Resource Manager para implantação, é possível parametrizar e melhorar a segurança nas entradas que você queira alterar com frequência ou com facilidade, como informações de conexão. Para saber mais, consulte esses tópicos:
    >
    > * [Parâmetros de modelo para implantação](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)
    > * [Autorizar conexões do OAuth](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections)
@@ -147,7 +147,7 @@ Agora, adicione uma [ação](../logic-apps/logic-apps-overview.md#logic-app-conc
 
       ![Selecionar propriedades para o conteúdo do corpo do email](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
-      | Propriedade | DESCRIÇÃO |
+      | Propriedade | Descrição |
       |----------|-------------|
       | **Título do feed** | O título do item |
       | **Feed publicado em** | A data e a hora de publicação do item |

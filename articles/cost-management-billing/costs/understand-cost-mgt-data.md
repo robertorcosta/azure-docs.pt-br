@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/29/2020
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 156684676758d777231d3b159ba7bc4749b8582a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: a514dc07da3e4fd5928614099eb86ecef311bbb1
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901770"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188528"
 ---
 # <a name="understand-cost-management-data"></a>Entender os dados de Gerenciamento de Custos
 
@@ -85,8 +85,6 @@ Se não vir os dados de uma assinatura e quiser determinar se sua assinatura se 
 
 As tabelas a seguir mostram os dados que estão incluídos ou não no Gerenciamento de Custos. Todos os custos são estimados até que uma fatura seja gerada. Os custos mostrados não incluem créditos gratuitos e pré-pagos.
 
-**Dados de uso e de custo**
-
 | **Incluído** | **Não incluído** |
 | --- | --- |
 | Uso de serviço do Azure<sup>5</sup>        | Encargos de suporte – Para obter mais informações, consulte [Termos da fatura explicados](../understand/understand-invoice.md). |
@@ -101,13 +99,42 @@ _<sup>**6**</sup> As compras do Marketplace não estão disponíveis para oferta
 
 _<sup>**7**</sup> As compras de reserva estão disponíveis somente para contas de EA (Contrato Enterprise) no momento._
 
-**Metadados**
+## <a name="how-tags-are-used-in-cost-and-usage-data"></a>Como as marcas são usadas em dados de custo e de uso
 
-| **Incluído** | **Não incluído** |
-| --- | --- |
-| Marcas de recursos<sup>8</sup> | Marcas de grupo de recursos |
+O Gerenciamento de Custos do Azure recebe marcas como parte de cada registro de uso enviado por serviços individuais. As restrições a seguir se aplicam a essas marcas:
 
-_<sup>**8**</sup> As marcas de recurso são aplicadas conforme o uso é transmitido por cada serviço e não ficam disponíveis retroativamente para o uso histórico._
+- As marcas devem ser aplicadas diretamente aos recursos e não são herdadas implicitamente do grupo de recursos pai.
+- As marcas de recurso só têm suporte em recursos implantados em grupos de recursos.
+- Talvez alguns recursos implantados não deem suporte a marcas ou não incluam marcas em dados de uso. Confira [Suporte a marcas para recursos do Azure](../../azure-resource-manager/tag-support.md).
+- As marcas de recurso só são incluídas nos dados de uso enquanto a marca estiver aplicada. As marcas não são aplicadas aos dados históricos.
+- As marcas de recurso só estão disponíveis no Gerenciamento de Custos após a atualização dos dados. Confira [A frequência de atualização dos dados de uso varia](#usage-data-update-frequency-varies).
+- As marcas de recurso só ficam disponíveis no Gerenciamento de Custos quando o recurso está ativo/em execução e produzindo registros de uso (por exemplo, não quando uma VM é desalocada).
+- O gerenciamento de marcas exige acesso de colaborador a cada recurso.
+- O gerenciamento de políticas de marca exige acesso de proprietário ou de colaborador de política a um grupo de gerenciamento, assinatura ou grupo de recursos.
+    
+Se você não vir uma marca específica em Gerenciamento de Custos, considere o seguinte:
+
+- A marca foi aplicada diretamente ao recurso?
+- A marca foi aplicada há mais de 24 horas? Confira [A frequência de atualização dos dados de uso varia](#usage-data-update-frequency-varies)
+- O tipo de recurso dá suporte a marcas? Os tipos de recurso a seguir não dão suporte a marcas em dados de uso desde 1º de dezembro de 2019. Confira [Suporte a marcas para recursos do Azure](../../azure-resource-manager/tag-support.md) para obter a lista completa do que tem suporte.
+    - Diretórios do Azure Active Directory B2C
+    - Firewalls do Azure
+    - Azure NetApp Files
+    - Data Factory
+    - Databricks
+    - Balanceadores de carga
+    - Observador de Rede
+    - Hubs de Notificação
+    - Barramento de Serviço
+    - Time Series Insights
+    - gateway de VPN
+    
+Confira algumas dicas para trabalhar com marcas:
+
+- Planeje antecipadamente e defina uma estratégia de marcação que permita dividir os custos por organização, aplicativo, ambiente etc.
+- Use o Azure Policy para copiar marcas de grupo de recursos para recursos individuais e impor sua estratégia de marcação.
+- Use a API de Tags em conjunto com Consulta ou o UsageDetails para obter todo o custo com base nas marcas atuais.
+
 
 **Atualização da versão de avaliação gratuita para a paga conforme o uso**
 

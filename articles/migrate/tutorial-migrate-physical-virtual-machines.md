@@ -4,12 +4,12 @@ description: Este artigo descreve como migrar computadores físicos para o Azure
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.custom: MVC
-ms.openlocfilehash: 6cdd107cb761aab3a85b73067fd646a36fe97d63
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 908a5915cbb7f5aeb9f641da18024d5dbf497707
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989749"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134930"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrar computadores como servidores físicos para o Azure
 
@@ -42,7 +42,7 @@ Neste tutorial, você aprenderá como:
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar este tutorial, você deverá:
 
@@ -61,9 +61,6 @@ Antes de iniciar este tutorial, você deverá:
 Configure as permissões do Azure antes de migrar com a Migração de Servidor de Migrações para Azure.
 
 - **Criar um projeto**: sua conta do Azure precisa de permissões para criar um projeto de Migrações para Azure. 
-- **Registrar o dispositivo de replicação de Migrações para Azure**: o dispositivo de replicação cria e registra um aplicativo do Azure Active Directory em sua conta do Azure. Delegue permissões para isso.
-- **Criar um Cofre de Chaves**: para migrar computadores, as Migrações para Azure criam um cofre de chaves no grupo de recursos para gerenciar chaves de acesso para a conta de armazenamento de replicação em sua assinatura. Para criar o cofre, você precisa de permissões de atribuição de função no grupo de recursos no qual o projeto de Migrações para Azure reside. 
-
 
 ### <a name="assign-permissions-to-create-project"></a>Atribuir permissões para criar o projeto
 
@@ -73,43 +70,6 @@ Configure as permissões do Azure antes de migrar com a Migração de Servidor d
     - Se você acaba de criar uma conta gratuita do Azure, você é o proprietário da assinatura.
     - Se você não for o proprietário da assinatura, trabalhe com o proprietário para atribuir a função.
 
-### <a name="assign-permissions-to-register-the-replication-appliance"></a>Atribuir permissões para registrar o dispositivo de replicação
-
-Para a migração baseada em agente, delegue permissões para Migração de Servidor de Migrações para Azure para criar e registrar um aplicativo do Azure AD em sua conta. Você pode atribuir permissões usando um dos seguintes métodos:
-
-- Um locatário/administrador global pode conceder permissões a usuários no locatário para criar e registrar aplicativos do Azure AD.
-- Um locatário/administrador global pode atribuir a função de Desenvolvedor de Aplicativos (que tem as permissões) à conta.
-
-Vale a pena observar que:
-
-- Os aplicativos não têm nenhuma outra permissão de acesso na assinatura diferente daquelas descritas acima.
-- Você só precisa dessas permissões ao registrar um novo dispositivo de replicação. Você pode remover as permissões depois que o dispositivo de replicação está configurado. 
-
-
-#### <a name="grant-account-permissions"></a>Conceder permissões da conta
-
-O locatário/administrador global pode conceder permissões da seguinte maneira
-
-1. No Azure AD, o administrador de locatário/global deve navegar até **Azure Active Directory** > **Usuários** > **Configurações do Usuário**.
-2. O administrador deve definir **Registros de aplicativo** como **Sim**.
-
-    ![Permissões do Azure AD](./media/tutorial-migrate-physical-virtual-machines/aad.png)
-
-> [!NOTE]
-> Essa é uma configuração padrão que não é confidencial. [Saiba mais](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
-
-#### <a name="assign-application-developer-role"></a>Atribuir função de Desenvolvedor de Aplicativos 
-
-O locatário/administrador global pode atribuir a função de Desenvolvedor de Aplicativos a uma conta. [Saiba mais](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
-
-## <a name="assign-permissions-to-create-key-vault"></a>Atribuir permissões para criar o cofre de chaves
-
-Atribua permissões de atribuição de função no grupo de recursos no qual o projeto de Migrações para Azure reside, da seguinte maneira:
-
-1. No grupo de recursos no portal do Azure, selecione **Controle de acesso (IAM).**
-2. Em **Verificar acesso**, localize a conta relevante e clique nela para exibir as permissões. Você precisa das permissões de **Proprietário** (ou **Colaborador** e **Administrador de Acesso do Usuário**).
-3. Se você não tiver as permissões necessárias, solicite-as do proprietário do grupo de recursos. 
-
 ## <a name="prepare-for-migration"></a>Preparar para a migração
 
 ### <a name="check-machine-requirements-for-migration"></a>Verificar os requisitos do computador para a migração
@@ -117,7 +77,7 @@ Atribua permissões de atribuição de função no grupo de recursos no qual o p
 Verifique se os computadores estão em conformidade com os requisitos da migração para o Azure. 
 
 > [!NOTE]
-> A migração baseada em agente com a Migração de Servidor de Migrações para Azure baseia-se nos recursos do serviço do Azure Site Recovery. Alguns requisitos podem ser vinculados à documentação do Site Recovery.
+> A migração baseada em agente com a Migração de Servidor das Migrações para Azure tem a mesma arquitetura de replicação que o recurso de recuperação de desastre baseado em agente do serviço de Azure Site Recovery, e alguns dos componentes usados compartilham a mesma base de código. Alguns requisitos podem ser vinculados à documentação do Site Recovery.
 
 1. [Verificar](migrate-support-matrix-physical-migration.md#physical-server-requirements) os requisitos do servidor físico.
 2. Verifique as configurações da VM. As máquinas locais que você replica para o Azure precisam cumprir os [requisitos de VM do Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
@@ -194,7 +154,7 @@ A primeira etapa da migração é configurar o dispositivo de replicação. Voc�
 
     ![Finalizar registro](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
-Podem ser necessários até 15 minutos após a finalização do registro até que os computadores descobertos sejam exibidos na Migração de Servidor das Migrações para Azure. À medida que as VMs são descobertas, a contagem de **Servidores descobertos** aumenta.
+Pode levar algum tempo após a finalização do registro até que os computadores descobertos sejam exibidos na Migração de Servidor das Migrações para Azure. À medida que as VMs são descobertas, a contagem de **Servidores descobertos** aumenta.
 
 ![Servidores descobertos](./media/tutorial-migrate-physical-virtual-machines/discovered-servers.png)
 

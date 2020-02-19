@@ -7,10 +7,14 @@
 - name: Tutoriais
   expanded: true
   items:
-    - name: Proteger sua rede de nuvem – portal
+    - name: Proteja seu WAN virtual – portal
       href: secure-cloud-network.md
+    - name: Proteja sua rede virtual de hub – portal
+      href: secure-hybrid-network.md
 - name: Conceitos
   items:
+    - name: Visão geral da política
+      href: policy-overview.md
     - name: O que é um hub virtual seguro?
       href: secured-virtual-hub.md
     - name: Processo de implantação geral
@@ -19,11 +23,13 @@
       href: trusted-security-partners.md
     - name: Lógica de processamento da regra
       href: rule-processing.md
+    - name: Opções de arquitetura
+      href: vhubs-and-vnets.md
 - name: Guias de instruções
   items:
     - name: Implantar parceiros de segurança confiáveis
       href: deploy-trusted-security-partner.md
-    - name: Migração para a política de firewall
+    - name: Migrar para a política de firewall – PowerShell
       href: migrate-to-policy.md
 - name: Referência
   items:

@@ -1,23 +1,23 @@
 ---
-title: Criar uma função Python disparada por HTTP no Azure
+title: Criar uma função de Python sem servidor para solicitações HTTP no Azure Functions
 description: Crie e implante código Python sem servidor na nuvem usando o Azure Functions.
-ms.date: 01/15/2020
+ms.date: 02/11/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: c665f807d78c699423db457bf57dca2f16109913
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: a781e10cee4cf433de5e837490d901020a875205
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898572"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157883"
 ---
-# <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>Início Rápido: Criar uma função Python disparada por HTTP no Azure
+# <a name="quickstart-create-a-python-function-in-azure-that-responds-to-http-requests"></a>Início Rápido: Criar uma função do Python no Azure que responde a solicitações HTTP
 
 Neste artigo, você usa ferramentas de linha de comando para criar uma função em Python que responde a solicitações HTTP. Após testar o código localmente, implante-o no ambiente sem servidor do Azure Functions. A realização deste início rápido gera um pequeno custo de alguns centavos de dólar ou menos em sua conta do Azure.
 
 Há também uma [versão baseada no Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-python) deste artigo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - O [Azure Functions Core Tools](./functions-run-local.md#v2) versão 2.7.1846 ou posterior.
@@ -36,7 +36,7 @@ Há também uma [versão baseada no Visual Studio Code](/azure/azure-functions/f
 Em uma pasta adequada, execute os comandos a seguir para criar e ativar um ambiente virtual chamado `.venv`. Lembre-se de usar o Python 3.7, que é compatível com o Azure Functions.
 
 
-# <a name="bashtabbash"></a>[Bash](#tab/bash)
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```bash
 python -m venv .venv
@@ -52,7 +52,7 @@ Se o Python não instalou o pacote venv na distribuição do Linux, execute o se
 sudo apt-get install python3-venv
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 py -m venv .venv
@@ -62,7 +62,7 @@ py -m venv .venv
 .venv\scripts\activate
 ```
 
-# <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+# <a name="cmd"></a>[Cmd](#tab/cmd)
 
 ```cmd
 py -m venv .venv
@@ -107,7 +107,7 @@ No Azure Functions, um projeto de função é um contêiner para uma ou mais fun
 
 Se preferir, você poderá ir diretamente para [Executar a função localmente](#run-the-function-locally) e examinar o conteúdo do arquivo mais tarde.
 
-### <a name="__init__py"></a>\_\_init\_\_.py
+#### <a name="__init__py"></a>\_\_init\_\_.py
 
 *\_\_init\_\_.py* contém uma função de Python `main()` que é disparada de acordo com a configuração em *function.json*.
 
@@ -140,7 +140,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 Para o gatilho HTTP, a função recebe dados de solicitação na variável `req`, conforme definido em *function.json*. `req` é uma instância da [classe azure.functions.HttpRequest](/python/api/azure-functions/azure.functions.httprequest). O objeto de retorno, definido como `$return` em *function.json*, é uma instância da [classe azure.functions.HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Para saber mais, confira [Gatilhos e associações HTTP do Azure Functions](functions-bindings-http-webhook.md).
 
-### <a name="functionjson"></a>function.json
+#### <a name="functionjson"></a>function.json
 
 *function.json* é um arquivo de configuração que define as `bindings` de entrada e de saída da função, incluindo o tipo de gatilho. Se preferir, você poderá alterar `scriptFile` para invocar um arquivo Python diferente.
 
@@ -199,7 +199,7 @@ Quando estiver pronto, pressione **CTRL**+**C** para parar o host das funções.
 
 ## <a name="create-supporting-azure-resources-for-your-function"></a>Criar recursos de suporte do Azure para a função
 
-Para implantar o código da função no Azure, você precisa criar três recursos:
+Antes de poder implantar o código da função no Azure, você precisa criar três recursos:
 
 - Um grupo de recursos, que é um contêiner lógico para recursos relacionados.
 - Uma conta de Armazenamento do Azure, que mantém o estado e outras informações sobre seus projetos.
@@ -269,14 +269,14 @@ Functions in msdocs-azurefunctions-qs:
 
 Como a função usa um gatilho HTTP, você a invoca fazendo uma solicitação HTTP para sua URL no navegador ou usando uma ferramenta como curl. Nos dois casos, o parâmetro da URL `code` é sua chave de função exclusiva que autoriza a invocação com o ponto de extremidade da função.
 
-# <a name="browsertabbrowser"></a>[Navegador](#tab/browser)
+# <a name="browser"></a>[Navegador](#tab/browser)
 
 Copie a **URL de invocação** completa mostrada na saída do comando de publicação para a barra de endereços de um navegador, acrescentando o parâmetro de consulta `&name=Azure`. O navegador deverá exibir uma saída semelhante à que foi exibida quando você executou a função localmente.
 
 ![A saída da função executada no Azure em um navegador](./media/functions-create-first-function-python/function-test-cloud-browser.png)
 
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curl"></a>[curl](#tab/curl)
 
 Execute [curl](https://curl.haxx.se/) com a **URL de invocação**, acrescentando o parâmetro `&name=Azure`. A saída do comando deverá ser o texto "Olá, Azure".
 

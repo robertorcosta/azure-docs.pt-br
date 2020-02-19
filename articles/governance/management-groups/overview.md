@@ -4,12 +4,12 @@ description: Saiba mais sobre os grupos de gerenciamento, o funcionamento de sua
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.date: 12/18/2019
 ms.topic: overview
-ms.openlocfilehash: 507f4575e6d8daa16a1ed7db3d429d2810a63a7c
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 319f48d4d0f8ce8501fecb74282760340b597188
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750240"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186978"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar seus recursos com grupos de gerenciamento do Azure
 
@@ -23,7 +23,7 @@ Por exemplo, aplique políticas a um grupo de gerenciamento que limite as regiõ
 
 ![Exemplo de uma árvore de hierarquia do grupo de gerenciamento](./media/tree.png)
 
-É possível criar uma hierarquia que aplica uma política, por exemplo, que limite os locais de VM à Região Oeste dos EUA no grupo chamado “Produção”. Essa política herdará todas as assinaturas do EA nesse grupo de gerenciamento e será aplicada a todas as VMs sob essas assinaturas. Essa política de segurança não pode ser alterada pelo recurso ou pelo proprietário da assinatura, permitindo uma governança aprimorada.
+É possível criar uma hierarquia que aplica uma política, por exemplo, que limite os locais de VM à Região Oeste dos EUA no grupo chamado “Produção”. Essa política herdará todas as assinaturas do EA (Enterprise Agreement) descendentes desse grupo de gerenciamento e aplicará a todas as VMs sob essas assinaturas. Essa política de segurança não pode ser alterada pelo recurso ou pelo proprietário da assinatura, permitindo uma governança aprimorada.
 
 Outro cenário em que você usaria grupos de gerenciamento é fornecer acesso de usuário a várias assinaturas. Ao mover várias assinaturas nesse grupo de gerenciamento, você poderá criar uma atribuição de [RBAC](../../role-based-access-control/overview.md) (controle de acesso baseado em função) no grupo de gerenciamento, que herdará esse acesso a todas as assinaturas.
 Uma atribuição no grupo de gerenciamento pode permitir que os usuários tenham acesso a tudo o que precisam em vez de fazer script de atribuições de RBAC em várias assinaturas.
@@ -102,7 +102,7 @@ O gráfico a seguir mostra a lista de funções e as ações compatíveis nos gr
 
 ## <a name="custom-rbac-role-definition-and-assignment"></a>Atribuição e definição de função RBAC personalizada
 
-O suporte à função RBAC personalizada para grupos de gerenciamento é compatível atualmente com algumas [limitações](#limitations).  Você pode definir o escopo do grupo de gerenciamento no escopo atribuível da definição de função.  Essa função personalizada de RBAC estará disponível para atribuição nesse grupo de gerenciamento e qualquer grupo de gerenciamento, assinatura, grupo de recursos ou recurso sob ele. Essa função personalizada herdará a hierarquia como qualquer função interna.    
+Atualmente, o suporte à função RBAC personalizada para grupos de gerenciamento está em versão prévia com algumas [limitações](#limitations).  Você pode definir o escopo do grupo de gerenciamento no escopo atribuível da definição de função.  Essa função personalizada de RBAC estará disponível para atribuição nesse grupo de gerenciamento e qualquer grupo de gerenciamento, assinatura, grupo de recursos ou recurso sob ele. Essa função personalizada herdará a hierarquia como qualquer função interna.    
 
 ### <a name="example-definition"></a>Definição de exemplo
 [Definir e criar uma função personalizada](../../role-based-access-control/custom-roles.md) não muda com a inclusão de grupos de gerenciamento. Use o caminho completo para definir o grupo de gerenciamento **/providers/Microsoft.Management/managementgroups/{groupId}** . 

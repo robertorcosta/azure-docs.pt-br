@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 10/26/2019
+ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 4fec6b93ad206ae3052df5f7763f3c146b7aa680
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 02ae140568150b0db8ebdea065ee683e4f4eec9c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446795"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189013"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Tutorial: Criar um modelo de locatário (versão prévia)
 
@@ -39,11 +39,11 @@ Antes de implantar seu modelo de locatário, você precisa estar registrado no s
 
 1. Entre no [Centro de Administração do Microsoft 365](https://admin.microsoft.com).
 
-1. No painel esquerdo, selecione **Configurações**, **Aplicativos** e, em seguida, selecione **Serviços de Fala do Azure**.
+1. No painel esquerdo, selecione **Configurações**, depois, selecione **Configurações** no menu aninhado e, em seguida, selecione **Serviços de Fala do Azure** na janela principal.
 
    ![O painel "Serviços e suplementos"](media/tenant-language-model/tenant-language-model-enrollment.png)
 
-1. Marque a caixa de seleção **Permitir o modelo de linguagem em toda a organização** e, em seguida, selecione **Salvar alterações**. 
+1. Marque a caixa de seleção **Permitir o modelo de linguagem em toda a organização** e, em seguida, selecione **Salvar alterações**.
 
    ![O painel Serviços de Fala do Azure](media/tenant-language-model/tenant-language-model-enrollment-2.png)
 
@@ -79,11 +79,11 @@ Depois que o administrador tiver habilitado o Modelo de Locatário para sua orga
 
    > [!NOTE]
    > Os clientes do Office 365 Enterprise na América do Norte estão qualificados para criar um modelo de locatário (inglês). Se você for um cliente do Sistema de Proteção de Dados do Cliente, da Chave de Cliente ou do Office 365 Government, esse recurso não estará disponível. Para determinar se você é um cliente do Sistema de Proteção de Dados do Cliente ou da Chave do Cliente, confira:
-   > * [Sistema de Proteção de Dados do Cliente](https://docs.microsoft.com/office365/securitycompliance/controlling-your-data-using-customer-key#FastTrack)
-   > * [Chave de Cliente](https://docs.microsoft.com/microsoft-365/compliance/customer-lockbox-requests)
-   > * [Office 365 Government](https://www.microsoft.com/microsoft-365/government)
+   > * [Sistema de Proteção de Dados do Cliente](/microsoft-365/compliance/customer-lockbox-requests)
+   > * [Chave de Cliente](/microsoft-365/compliance/customer-key-overview)
+   > * [Office 365 Government](/microsoft-365/government)
 
-1. Selecione **Aceitar**. 
+1. Selecione **Aceitar**.
 
    Quando seu modelo de locatário estiver pronto, você receberá uma mensagem de email de confirmação com mais instruções.
 

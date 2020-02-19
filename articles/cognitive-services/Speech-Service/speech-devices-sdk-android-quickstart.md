@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 02/12/2020
 ms.author: erhopf
-ms.openlocfilehash: 2def0eaa2e1ee22498202228cf62257605d940e5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 657cf0a0648cd53e5692a2cf5333ba29951b77a4
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75380313"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189134"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Início Rápido: Executar o aplicativo de exemplo do SDK de Dispositivos de Fala no Android
 
@@ -25,7 +25,7 @@ Este guia exige uma conta dos [Serviços Cognitivos do Azure](get-started.md) co
 
 O código-fonte para o aplicativo de exemplo é incluído com o SDK de Dispositivos de Fala. Também está [disponível no GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar a usar o SDK de Dispositivos de Fala, você precisará:
 
@@ -34,7 +34,7 @@ Antes de começar a usar o SDK de Dispositivos de Fala, você precisará:
 - Baixar a última versão do [SDK de Dispositivos de Fala](https://aka.ms/sdsdk-download) e extrair o arquivo .zip no diretório de trabalho.
 
   > [!NOTE]
-  > O arquivo Android-Sample-Release.zip inclui o aplicativo de exemplo do Android e este início rápido pressupõe que o aplicativo seja extraído para C:\SDSDK\Android-Sample-Release
+  > Este início rápido supõe que o aplicativo tenha sido extraído para C:\SDSDK\Android-Sample-Release
 
 - Para obter uma [chave de assinatura do Azure para o Serviço de Fala](get-started.md)
 
@@ -83,6 +83,29 @@ Para validar sua instalação do kit de desenvolvimento, crie e instale o aplica
 
 1. Vá para C:\SDSDK\Android-Sample-Release\example. Selecione **Ok** para abrir o projeto de exemplo.
 
+1. Configure o Gradle para fazer referência ao SDK de Fala. Encontre os arquivos a seguir em **Scripts do Gradle** no Android Studio.
+
+    Atualize o **build.gradle(Project:example)** , o bloco allprojects deve estar igual ao mostrado abaixo, adicionando as linha de maven.
+
+    ```xml
+    allprojects {
+        repositories {
+            google()
+            jcenter()
+            mavenCentral()
+            maven {
+                url 'https://csspeechstorage.blob.core.windows.net/maven/'
+            }
+        }
+    }
+    ```
+
+    Atualize o **build.gradle(Module:app)** adicionando esta linha à seção de dependências. 
+    
+    ```xml
+    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.9.0'
+    ```
+    
 1. Adicione sua chave de assinatura de fala ao código-fonte. Se você quiser experimentar o reconhecimento de intenção, adicione também sua chave de assinatura [Serviço Inteligente de Reconhecimento Vocal](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) e ID do aplicativo.
 
    Para a fala e o LUIS, suas informações são inseridas em MainActivity.java:
@@ -152,7 +175,7 @@ Para validar sua instalação do kit de desenvolvimento, crie e instale o aplica
 
 1. Experimento!
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Se você não puder se conectar ao Dispositivo de Fala. Digite o comando a seguir em uma janela do prompt de comando. Ele retornará uma lista de dispositivos:
 

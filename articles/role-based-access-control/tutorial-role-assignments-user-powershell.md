@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Conceder a um usuário acesso a um grupo aos recursos do Azure usando o RBAC e o Azure PowerShell
+title: 'Tutorial: Conceder ao usuário acesso aos recursos do Azure com o RBAC e o Azure PowerShell'
 description: Saiba como conceder acesso a um usuário aos recursos do Azure usando o RBAC (controle de acesso baseado em função) e o Azure PowerShell neste tutorial.
 services: active-directory
 documentationCenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: c5570c6b1d2cdd168dbaeb0a91d80a61e171e5d1
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: f4ba56bf79d707200bf361ab4c717bb63d081953
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74418617"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138222"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Tutorial: Permitir acesso a um usuário aos recursos do Azure usando o RBAC e o Azure PowerShell
 
@@ -37,7 +37,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você precisará de:
+Neste tutorial, você precisará de:
 
 - Permissões para criar usuários no Azure Active Directory (ou ter um usuário existente)
 - [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell)
@@ -252,7 +252,7 @@ Para remover o acesso para usuários, grupos e aplicativos, use [Remove-AzRoleAs
       -Scope $subScope
     ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar os recursos criados por este tutorial, exclua o grupo de recursos e o usuário.
 

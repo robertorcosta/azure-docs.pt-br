@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Conceder a um usuário acesso a recursos do Azure usando RBAC e modelo do Resource Manager
+title: 'Tutorial: Conceder ao usuário acesso aos recursos do Azure com o RBAC e o modelo do Resource Manager'
 description: Saiba como conceder acesso a um usuário aos recursos do Azure usando o RBAC (controle de acesso baseado em função) e modelo do Azure Resource Manager neste tutorial.
 services: role-based-access-control,azure-resource-manager
 documentationCenter: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 05/15/2019
 ms.author: rolyon
-ms.openlocfilehash: ed143f85b4372348baa1d74b4ec7a7447943a74f
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 96ca4f65d2def5f5004388c533410f09cc2a71fa
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74418498"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138210"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-resource-manager-template"></a>Tutorial: Permitir a um usuário acesso a recursos do Azure usando RBAC e modelo do Resource Manager
 
-O [RBAC (controle de acesso baseado em função)](overview.md) serve para gerenciar o acesso aos recursos do Azure. Neste tutorial, você cria um grupo de recursos e permite acesso a um usuário para criar e gerenciar máquinas virtuais no grupo de recursos. Este tutorial aborda o processo de implantação de um modelo do Resource Manager para permitir o acesso. Para obter mais informações sobre como desenvolver modelos do Resource Manager, confira [documentação do Resource Manager](/azure/azure-resource-manager/) e a [referência de modelo](/azure/templates/microsoft.authorization/allversions
+O [RBAC (controle de acesso baseado em função)](overview.md) é a maneira usada para gerenciar o acesso aos recursos no Azure. Neste tutorial, você cria um grupo de recursos e permite acesso a um usuário para criar e gerenciar máquinas virtuais no grupo de recursos. Este tutorial aborda o processo de implantação de um modelo do Resource Manager para permitir o acesso. Para obter mais informações sobre como desenvolver modelos do Resource Manager, confira [documentação do Resource Manager](/azure/azure-resource-manager/) e a [referência de modelo](/azure/templates/microsoft.authorization/allversions
 ).
 
 Neste tutorial, você aprenderá como:
@@ -63,7 +63,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## <a name="validate-the-deployment"></a>Validar a implantação
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. Abra o grupo de recursos criado no último procedimento. O nome padrão é o nome do projeto com **rg** acrescentado.
 1. Selecione **Controle de acesso (IAM)** no menu à esquerda.
 1. Selecione **Atribuições de função**. 
@@ -83,4 +83,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial: Permitir acesso a um usuário aos recursos do Azure usando o RBAC e o Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+> [Tutorial: Conceder acesso aos recursos do Azure para um usuário usando o RBAC e o Azure PowerShell](tutorial-role-assignments-user-powershell.md)

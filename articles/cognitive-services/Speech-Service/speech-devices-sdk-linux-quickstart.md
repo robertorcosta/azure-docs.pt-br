@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/13/2019
+ms.date: 02/12/2020
 ms.author: erhopf
-ms.openlocfilehash: c9175f1f592c72e047b02a06a174d3013b0c7ef6
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 8035cce1482c3c441cc956272a7300f0d0ea8194
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815316"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189076"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-linux"></a>Início Rápido: Executar o aplicativo de exemplo do SDK de Dispositivos de Fala no Linux
 
@@ -31,14 +31,14 @@ O código-fonte para o [aplicativo de exemplo](https://aka.ms/sdsdk-download-JRE
 
 Este início rápido requer:
 
-* Sistema operacional: Linux de 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9)
+* Sistema Operacional: Linux de 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9)
 * [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
 * [Java IDE do Eclipse](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html) apenas.
 * Uma chave de assinatura do Azure para o serviço de Fala. [Obtenha uma gratuitamente](get-started.md).
 * Baixe a última versão do [SDK de Dispositivos de Fala](https://aka.ms/sdsdk-download-JRE) para Java e extraia o arquivo .zip para seu diretório de trabalho.
    > [!NOTE]
-   > O arquivo JRE-Sample-Release.zip inclui o aplicativo de exemplo do JRE e este início rápido pressupõe que o aplicativo seja extraído para /home/wcaltest/JRE-Sample-Release
+   > Este início rápido supõe que o aplicativo tenha sido extraído para /home/wcaltest/JRE-Sample-Release
 
 Instale essas dependências antes de iniciar o Eclipse.
 
@@ -96,7 +96,7 @@ Caso você planeje usar as intenções, será necessária uma assinatura do [LUI
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.7.0</version>
+             <version>1.9.0</version>
         </dependency>
     </dependencies>
    ```
