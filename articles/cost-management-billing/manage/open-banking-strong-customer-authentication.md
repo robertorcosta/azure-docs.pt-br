@@ -2,21 +2,21 @@
 title: Open Banking (PSD2) e SCA (Autenticação Forte do Cliente) para clientes do Azure
 description: Este artigo explica por que a autenticação multifator é necessária para algumas compras do Azure e como concluir a autenticação.
 author: bandersmsft
-manager: jureid
+manager: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: aff5e1e707980c9a63988c22653fa5fba0fc236b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 5f9c5f861e238bf38451863fb2d39cbb8af93225
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75996034"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133554"
 ---
 # <a name="open-banking-psd2-and-strong-customer-authentication-sca-for-azure-customers"></a>Open Banking (PSD2) e SCA (Autenticação Forte do Cliente) para clientes do Azure
 
@@ -53,14 +53,13 @@ Caso seu banco rejeite os encargos, o status de sua conta do Azure será alterad
 
 ### <a name="settle-outstanding-charges-for-marketplace-and-reservation-purchases"></a>Liquidar encargos pendentes para compras do Marketplace e de reserva
 
-As compras do Marketplace e de reserva são faturadas separadamente dos serviços do Azure. Caso seu banco rejeite os encargos do Marketplace ou de reserva, o status da fatura será exibido como **Devido** no portal do Azure. Verifique o status das faturas do Marketplace e de reserva seguindo estas etapas:
+As compras do Marketplace e de reserva são faturadas separadamente dos serviços do Azure. Caso seu banco rejeite os encargos do Marketplace ou de reserva, sua fatura será exibida como em atraso e você verá a opção de **Pagar agora** no portal do Azure. É possível pagar as faturas vencidas do Marketplace e de reserva seguindo estas etapas:
 
 1. Entre no [Portal do Azure](https://portal.azure.com/) como Administrador da Conta.
 2. Pesquise **Gerenciamento de Custos + Cobrança.**
 3. Em 'Cobrança', selecione **Faturas**.
-4. Clique na guia **Azure Marketplace e reservas** à direita.
-5. Selecione a assinatura correspondente.
-6. Na grade de faturas, examine a coluna de status. Se a fatura for **Vencida** ou **Devida**, clique em **Pagar agora.** Você deverá concluir a autenticação multifator durante o processo.
+5. No filtro suspenso de assinatura, selecione a assinatura associada à sua compra do Marketplace ou de reserva.
+6. Na grade de faturas, examine a coluna de tipo. Se o tipo for **Azure Marketplace e Reservas**, você verá um link **Pagar agora** se a fatura estiver devida ou vencida. Se você não vir a opção **Pagar agora**, significa que a fatura já foi paga. Você deverá concluir a autenticação multifator durante o processo de Pagar agora.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Confira [Resolver o saldo devido de sua assinatura do Azure](resolve-past-due-balance.md) caso você precise pagar uma fatura do Azure.

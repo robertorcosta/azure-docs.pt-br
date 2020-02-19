@@ -2,28 +2,28 @@
 title: Pague as assinaturas do Azure por fatura
 description: Descreve como pagar as assinaturas do Azure por fatura.
 author: bandersmsft
-manager: jureid
+manager: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: a0f012145788d2d1d4935e10691859e5aaf71255
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: a471e859261dc735e92bfff743eb3a8e13dd9a35
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75994331"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133636"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Pague as assinaturas do Azure por fatura
 
 Se você alternar para pagar por fatura, isso significa que você pagará sua conta dentro de 30 dias da data da fatura com cheque ou transferência eletrônica. Para se tornar qualificado para pagar sua assinatura do Azure por fatura, envie uma solicitação para o Suporte do Azure. Após sua solicitação ser aprovada, você poderá alternar para o pagamento por fatura (cheque ou transferência eletrônica) no [portal do Azure](https://portal.azure.com).
 
 > [!IMPORTANT]
-> * O pagamento por fatura (cheque ou transferência eletrônica) está disponível somente para contas empresariais.
+> * O pagamento da fatura (cheque/transferência eletrônica) só está disponível para clientes que usam o Azure em nome de uma empresa.
 > * Pague todos os encargos pendentes antes de alternar para o pagamento por fatura.
 > * No momento, o pagamento por fatura não é compatível com o Azure Global na China.
 

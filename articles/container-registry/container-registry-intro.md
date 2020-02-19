@@ -3,15 +3,15 @@ title: Registros de contêiner gerenciado
 description: Introdução ao serviço de Registro de Contêiner do Azure, fornecendo registros Docker privados gerenciados baseados em nuvem.
 author: stevelas
 ms.topic: overview
-ms.date: 12/03/2019
+ms.date: 02/10/2020
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 863b93497505443b79f41f580150a4dbf790a6f2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1992a2a63d16a955d136459f5dbaece7df815c71
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445724"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132025"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introdução aos registros de contêiner do Docker privado no Azure
 
@@ -41,7 +41,7 @@ O Azure fornece ferramentas, incluindo a interface de linha de comando do Azure,
 * **Segurança e acesso** – você faz logon em um registro usando o CLI do Azure ou o comando `docker login` padrão. O Registro de Contêiner do Azure transfere imagens de contêiner por HTTPS e é compatível com TLS para proteger conexões de cliente. 
 
   > [!IMPORTANT]
-  > A partir de 13 de janeiro de 2020, o Registro de Contêiner do Azure exigirá que todas as conexões seguras de servidores e aplicativos usem o TLS 1.2. O suporte para TLS 1.0 e 1.1 será desativado.
+  > A partir de 13 de janeiro de 2020, o Registro de Contêiner do Azure exigirá que todas as conexões seguras de servidores e aplicativos usem o TLS 1.2. Habilite o TLS 1.2 usando qualquer cliente recente do Docker (versão 18.03.0 ou posterior). O suporte para TLS 1.0 e 1.1 será desativado. 
 
   Você [controla o acesso](container-registry-authentication.md) a um registro de contêiner usando uma identidade do Azure, uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md) com suporte do Azure Active Directory ou uma conta do administrador fornecida. Use o RBAC (controle de acesso baseado em função) para atribuir a usuários ou sistemas permissões refinadas a um registro.
 

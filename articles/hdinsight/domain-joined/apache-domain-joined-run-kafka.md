@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: a0205d57fa68585b1a91b99b19e008eb92e73c0d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a0ffa6e20b42ed8ac145b50c062f5c0a8998add0
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435847"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061634"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configurar políticas do Apache Kafka no HDInsight com o Enterprise Security Package (Versão Prévia)
 
@@ -147,6 +147,8 @@ Com base nas políticas do Ranger configuradas, **sales_user** pode produzir/con
 
 4. Siga a Etapa 3 de **Compilar e implantar o exemplo** em [Tutorial: Usar as APIs de Produtor e Consumidor do Apache Kafka](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) para garantir que o `kafka-producer-consumer.jar` também esteja disponível para **sales_user**.
 
+**Observação:  Para este tutorial, use o kafka-producer-consumer.jar no projeto "DomainJoined-Producer-Consumer" (não aquele no projeto Producer-Consumer, que se destina aos cenários não ingressados no domínio).**
+
 5. Verifique se **sales_user1** pode produzir para o tópico `salesevents` executando o seguinte comando:
 
    ```bash
@@ -194,6 +196,9 @@ Se não for continuar usando este aplicativo, exclua o cluster do Kafka que voc�
 1. Selecione **Clusters do HDInsight** em **Serviços**.
 1. Na lista de clusters do HDInsight que aparece, clique em **…** ao lado do cluster que você criou para este tutorial. 
 1. Clique em **Excluir**. Clique em **Sim**.
+
+## <a name="troubleshooting"></a>Solução de problemas
+Se o kafka-producer-consumer.jar não funcionar em um cluster ingressado no domínio, verifique se você está usando o kafka-producer-consumer.jar no projeto "DomainJoined-Producer-Consumer" (não aquele no projeto Producer-Consumer, que se destina aos cenários não ingressados no domínio).
 
 ## <a name="next-steps"></a>Próximas etapas
 

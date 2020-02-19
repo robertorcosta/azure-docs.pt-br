@@ -4,12 +4,12 @@ description: Saiba como executar uma migração baseada em agente de VMs VMware 
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.custom: MVC
-ms.openlocfilehash: c6e0b65a586bfd629244404933836cde7287ae29
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 49b576770d67ae9d2b98a8a0004f4219ecf0fae4
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028960"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057270"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrar VMs VMware para o Azure (com base em agente)
 
@@ -57,7 +57,7 @@ Para decidir se deseja usar a migração sem agente ou baseada em agente, leia e
 
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar este tutorial, você deverá:
 
@@ -204,7 +204,7 @@ Se você não seguir o tutorial para avaliar as VMs VMware, configure um projeto
     **Geografia** | **Região**
     --- | ---
     Ásia | Sudeste Asiático
-    Europa | Europa Setentrional ou Europa Ocidental
+    Europa | Norte da Europa ou Europa Ocidental
     Estados Unidos | Leste dos EUA ou Centro-oeste dos EUA
 
     A localização geográfica especificada para o projeto só é usada para armazenar os metadados coletados das VMs locais. Você pode selecionar qualquer região de destino para a migração real.
@@ -402,7 +402,7 @@ Depois de verificar se a migração de teste funciona conforme o esperado, você
 
 2. Em **Replicando computadores**, clique com o botão direito do mouse na VM > **Migrar**.
 3. Em **Migrar** > **Desligar máquinas virtuais e realizar uma migração planejada sem perda de dados**, selecione **Sim** > **OK**.
-    - Por padrão, as Migrações para Azure desligam a VM local e executam uma replicação sob demanda para sincronizar as alterações de VM ocorridas desde a última replicação. Isso garante que não haja nenhuma perda de dados.
+    - Por padrão, as Migrações para Azure desligam a VM local para garantir a perda mínima de dados. 
     - Se você não quiser desligar a VM, selecione **Não**
 4. Um trabalho de migração é iniciado para a VM. Acompanhe o trabalho nas notificações do Azure.
 5. Após a conclusão do trabalho, você poderá exibir e gerenciar a VM na página **Máquinas Virtuais**.

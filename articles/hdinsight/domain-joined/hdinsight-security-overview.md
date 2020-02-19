@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: overview
 ms.date: 09/23/2019
-ms.openlocfilehash: 7fadb17476c2a071de767573994bb1120b476cdf
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 0e7b2db188ef6ee7d6b80ba5da4010112008ad70
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053730"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122117"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Visão geral da segurança empresarial no Azure HDInsight
 
@@ -32,7 +32,7 @@ A segurança de perímetro no HDInsight é obtida por meio de [redes virtuais](.
 
 Todos os clusters implantados em uma VNET também terão um ponto de extremidade privado que é resolvido para um IP privado dentro da VNET para acesso HTTP privado aos gateways do cluster.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticação
 
 O [Enterprise Security Package](apache-domain-joined-architecture.md) do HDInsight fornece autenticação baseada no Active Directory, suporte multiusuário e controle de acesso baseado em função. A integração do Active Directory é obtida pelo uso do [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). Com essas funcionalidades, você poderá criar um cluster HDInsight que ingressado em um domínio gerenciado do Active Directory. Em seguida, você poderá configurar uma lista de funcionários da empresa que podem se autenticar e entrar no cluster.
 
@@ -87,7 +87,7 @@ A tabela a seguir fornece links para recursos para cada tipo de solução de seg
 |  | Garantir a [aplicação de patch do sistema operacional](../hdinsight-os-patching.md) em intervalos regulares | Cliente |
 | Segurança de rede | Configurar uma [rede virtual](../hdinsight-plan-virtual-network-deployment.md) |
 |  | Configurar as [regras NSG (grupo de segurança de rede) de entrada](../hdinsight-plan-virtual-network-deployment.md#networktraffic) | Cliente |
-|  | Configurar a [Restrição de tráfego de saída](../hdinsight-restrict-outbound-traffic.md) com o firewall (versão prévia) | Cliente |
+|  | Configurar a [Restrição de tráfego de saída](../hdinsight-restrict-outbound-traffic.md) com o firewall | Cliente |
 | Infraestrutura virtualizada | N/D | HDInsight (provedor de nuvem) |
 | Segurança de infraestrutura física | N/D | HDInsight (provedor de nuvem) |
 

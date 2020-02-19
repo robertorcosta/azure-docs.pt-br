@@ -9,13 +9,13 @@ ms.topic: overview
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-ms.date: 01/25/2019
-ms.openlocfilehash: c2548bb4537d17a3dab94d5476c743e2a70faad0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 02/07/2020
+ms.openlocfilehash: 1ffa17bd0e35e3753cde3e915c0ee70d8000147a
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810102"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083128"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizar tarefas de gerenciamento usando trabalhos de banco de dados
 
@@ -202,7 +202,9 @@ O *banco de dados de trabalhos* é usado para definir os trabalhos e rastrear o 
 
 Na versão prévia atual, um banco de dados existente SQL do Azure (S0 ou superior) é necessário para criar um agente de Trabalho Elástico.
 
-O *Banco de dados de trabalhos* não precisa ser literalmente novo, mas deve ser uma camada limpa, vazia, S0 ou de serviço superior. A camada de serviço recomendada do *Banco de dados de trabalhos* é S1 ou superior, mas isso depende das necessidades de desempenho de seus trabalhos, considerando o número de etapas de trabalho e quantas vezes e com que frequência os trabalhos são executados. Por exemplo, um banco de dados S0 pode ser suficiente para um agente de trabalho que executa apenas alguns trabalhos por hora, mas não para um agente que executa um trabalho por minuto; neste caso, seria indicada uma camada de serviço mais alta.
+O *Banco de dados de trabalhos* não precisa ser literalmente novo, mas deve ser um objetivo de serviço limpo, vazio, S0 ou superior. O objetivo de serviço recomendado do *Banco de dados de trabalhos* é S1 ou superior, mas a opção ideal depende das necessidades de desempenho dos trabalhos: o número de etapas de trabalho, o número de destinos de trabalho e a frequência com que os trabalhos são executados. Por exemplo, um banco de dados S0 pode ser suficiente para um agente de trabalho que executa alguns trabalhos por hora direcionado a menos de dez bancos de dados, mas a execução de um trabalho por minuto pode não ser rápida o suficiente com um banco de dados S0, e uma camada de serviço superior pode ser melhor. 
+
+Se as operações no banco de dados de trabalhos forem mais lentas do que o esperado, [monitore](sql-database-monitor-tune-overview.md#monitor-database-performance) o desempenho do banco de dados e a utilização de recursos no banco de dados de trabalhos durante períodos de lentidão usando o portal do Azure ou a DMV [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database). Se a utilização de um recurso, como CPU, E/S de Dados ou Gravação de Log, se aproximar de 100% e se correlacionar com períodos de lentidão, considere a possibilidade de dimensionar de maneira incremental o banco de dados para objetivos de serviço superiores (no [modelo de DTU](sql-database-service-tiers-dtu.md) ou no [modelo de vCore](sql-database-service-tiers-vcore.md)) até que o desempenho do banco de dados de trabalhos seja suficientemente aprimorado.
 
 
 ##### <a name="job-database-permissions"></a>Permissões de banco de dados de trabalhos
@@ -212,7 +214,7 @@ Durante a criação do agente de trabalho, um esquema, tabelas e uma função ch
 
 |Nome da função  |permissões de esquema 'jobs'  |permissões de esquema 'jobs_internal'  |
 |---------|---------|---------|
-|**jobs_reader**     |    SELECIONAR     |    Nenhum     |
+|**jobs_reader**     |    SELECT     |    Nenhum     |
 
 > [!IMPORTANT]
 > Considere as implicações de segurança antes de conceder acesso ao *banco de dados de trabalhos* como um administrador de banco de dados. Um usuário mal-intencionado com permissões para criar ou editar tarefas pode criar ou editar um trabalho que usa uma credencial armazenada para se conectar a um banco de dados sob controle do usuário mal-intencionado, o que permitiria que o usuário mal-intencionado determinasse a senha da credencial.
@@ -250,6 +252,10 @@ O **exemplo 4** mostra um grupo de destino que contém um pool elástico como de
 
 O **exemplo 5** e o **exemplo 6** mostram cenários avançados em que os SQL Servers do Azure, os pools elásticos e os bancos de dados podem ser combinados usando regras de inclusão e exclusão.<br>
 O **exemplo 7** mostra que os fragmentos em um mapa de fragmentos também podem ser avaliados no tempo de execução do trabalho.
+
+> [!NOTE]
+> O próprio Banco de dados de trabalhos pode ser o destino de um trabalho. Nesse cenário, o Banco de dados de trabalhos é tratado da mesma forma que qualquer outro banco de dados de destino. O usuário do trabalho precisa ser criado e receber permissões suficientes no Banco de dados de trabalhos, e a credencial no escopo do banco de dados para o usuário do trabalho também precisa existir no banco de dados de trabalhos, assim como ele faz para qualquer outro banco de dados de destino.
+>
 
 #### <a name="job"></a>Trabalho
 

@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 11/04/2019
-ms.openlocfilehash: 83c4ad92cc367deb52e4e9e5cd8b76ddab409933
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 02/10/2020
+ms.openlocfilehash: 75e61ea3f4fa6c2b346f912a9effd66ad94e7e93
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532209"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116456"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: Usar aprendizado de máquina automatizado para prever tarifas de táxi
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,10 +33,10 @@ Neste tutorial, você aprende as seguintes tarefas:
 
 Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga](https://aka.ms/AMLFree) do Azure Machine Learning.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Conclua o [tutorial de instalação](tutorial-1st-experiment-sdk-setup.md) caso ainda não tenha uma máquina virtual de notebook ou um Workspace do Azure Machine Learning.
-* Depois de concluir o tutorial de instalação, abra o notebook **tutorials/regression-automated-ml.ipynb** usando o mesmo servidor de notebook.
+* Depois de concluir o tutorial de instalação, abra o notebook *tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb* usando o mesmo servidor de notebook.
 
 Este tutorial também está disponível no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) caso você deseje executá-lo em seu próprio [ambiente local](how-to-configure-environment.md#local). Execute `pip install azureml-sdk[automl] azureml-opendatasets azureml-widgets` para obter os pacotes necessários.
 
@@ -894,7 +894,7 @@ Para treinar o modelo automaticamente, execute as seguintes etapas:
 
 Defina as configurações de modelos e os parâmetros do experimento para o treinamento. Exiba a lista completa das [configurações](how-to-configure-auto-train.md). O envio do experimento com essas configurações padrão demorará aproximadamente de 5 a 20 minutos; se quiser um tempo de execução menor, reduza o parâmetro `experiment_timeout_minutes`.
 
-|Propriedade| Valor neste tutorial |DESCRIÇÃO|
+|Propriedade| Valor neste tutorial |Descrição|
 |----|----|---|
 |**iteration_timeout_minutes**|2|Limite de tempo em minutos para cada iteração. Reduza esse valor para diminuir o runtime total.|
 |**experiment_timeout_minutes**|20|Quantidade máxima de tempo em minutos que todas as iterações combinadas podem levar antes que o experimento seja encerrado.|

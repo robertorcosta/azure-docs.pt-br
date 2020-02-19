@@ -1,5 +1,5 @@
 ---
-title: Início Rápido do Serviço do Azure SignalR sem servidor – Java
+title: Usar o Java para criar uma sala de chat com o Azure Functions e o Serviço do SignalR
 description: Um início rápido para usar o Azure SignalR Service e o Azure Functions para criar uma sala de chat.
 author: sffamily
 ms.service: signalr
@@ -7,36 +7,34 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: 9e4e64b99a69e523547bae04146c7460d08bc1df
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 890fc381afe0146e721e084e2dcd7eae9215d004
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261166"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083210"
 ---
-# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-java"></a>Início Rápido: Criar uma sala de chat com o Azure Functions e o Serviço do SignalR usando Java
+# <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Início Rápido: Usar o Java para criar uma sala de chat com o Azure Functions e o Serviço do SignalR
 
-O Azure SignalR Service permite adicionar facilmente a funcionalidade em tempo real ao seu aplicativo. O Azure Functions é uma plataforma sem servidor que permite executar seu código sem gerenciar qualquer infraestrutura. Neste início rápido, saiba como usar o SignalR Service e o Functions para criar um aplicativo de chat em tempo real e sem servidor.
+O Serviço do Azure SignalR permite que você adicione funcionalidades em tempo real ao seu aplicativo com facilidade, e o Azure Functions é uma plataforma sem servidor que permite que você execute o código sem gerenciar nenhuma infraestrutura. Neste início rápido, você usará o Java para criar um aplicativo de chat em tempo real, sem servidor, usando o Serviço do SignalR e o Functions.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este início rápido pode ser executado no macOS, Windows ou Linux.
+- Um editor de códigos, como o [Visual Studio Code](https://code.visualstudio.com/)
+- Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing). Usado para executar os aplicativos de funções do Azure localmente.
 
-Certifique-se de ter um editor de código, como [Visual Studio Code](https://code.visualstudio.com/), instalado.
+   > [!NOTE]
+   > Só há suporte para as associações do Serviço do SignalR necessárias em Java no Azure Functions Core Tools versão 2.4.419 (versão do host 2.0.12332) ou superior.
 
-Instale o [Azure Functions Core Tools (v2)](https://github.com/Azure/azure-functions-core-tools#installing) para executar aplicativos do Azure Functions localmente.
+   > [!NOTE]
+   > Para instalar extensões, o Azure Functions Core Tools exige o [SDK do .NET Core](https://www.microsoft.com/net/download) instalado. No entanto, não é necessário nenhum conhecimento do .NET para criar aplicativos do Azure Functions no JavaScript.
+
+- [Java Developer Kit](https://www.azul.com/downloads/zulu/), versão 8
+- [Apache Maven](https://maven.apache.org), versão 3.0 ou posterior
 
 > [!NOTE]
-> Para usar as associações do Serviço do SignalR em Java, verifique se você está usando a versão 2.4.419 ou posterior do Azure Functions Core Tools (versão do host 2.0.12332).
-
-Para instalar extensões, o Azure Functions Core Tools atualmente exige o [SDK do .NET Core](https://www.microsoft.com/net/download) instalado. No entanto, não é necessário nenhum conhecimento do .NET para criar aplicativos do Azure Functions no JavaScript.
-
-Para desenvolver aplicativos de funções com Java, você deve ter o seguinte instalado:
-
-* [Java Developer Kit](https://www.azul.com/downloads/zulu/), versão 8.
-* [Apache Maven](https://maven.apache.org), versão 3.0 ou posterior.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+> Este início rápido pode ser executado no macOS, Windows ou Linux.
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 

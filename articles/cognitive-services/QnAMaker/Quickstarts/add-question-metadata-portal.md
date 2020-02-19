@@ -1,6 +1,5 @@
 ---
 title: 'Início Rápido: Adicionar perguntas e respostas no portal do QnA Maker'
-titleSuffix: Azure Cognitive Services
 description: O início rápido mostra como adicionar conjuntos de perguntas e respostas com metadados para que os usuários possam encontrar a resposta certa para as perguntas deles.
 services: cognitive-services
 author: diberry
@@ -8,58 +7,47 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 11/22/2019
+ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: 664d6006ab78f91a8ed0e199cf78fae9512efd73
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 25c0fe549dfc850a53b06f79f348a87cba3b70a1
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843032"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109937"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Início Rápido: Adicionar perguntas e respostas com o portal do QnA Maker
 
-Após uma base de dados de conhecimento ser criada, adicione conjuntos de perguntas e respostas com metadados para que os usuários possam encontrar a resposta certa para sua pergunta.
-
-A resposta certa é apenas uma, mas pode haver muitas maneiras de um cliente fazer a pergunta que leva a essa única resposta.
-
-Por exemplo, as perguntas na tabela a seguir são sobre os limites de serviço do Azure, mas cada uma tem a ver com um serviço do Azure diferente.
+Depois que uma base de dados de conhecimento for criada, adicione conjuntos de QnA (perguntas e respostas) com metadados para filtrar a resposta. As perguntas da tabela a seguir referem-se aos limites de serviço do Azure, mas cada uma diz respeito a um serviço do Azure diferente.
 
 <a name="qna-table"></a>
-
 
 |Definir|Perguntas|Resposta|Metadados|
 |--|--|--|--|
 |Nº 1|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`|`service=qna_maker`<br>`link_in_answer=true`|
 |Nº 2|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Cognitive Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Cognitive Search service size?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Cognitive Search tier supports.`|`service=search`<br>`link_in_answer=false`|
 
-Após os metadados serem adicionados a um conjunto de perguntas e respostas, o aplicativo cliente pode:
+Depois que os metadados forem adicionados a um conjunto de QnA, o aplicativo cliente poderá:
 
 * Solicitar respostas que correspondam apenas a determinados metadados.
 * Receber todas as respostas, mas pós-processá-las dependendo dos metadados de cada resposta.
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-* Um serviço do QnA Maker
-* Uma base de dados de conhecimento criada nesse serviço do QnA Maker
-
-Ambos foram criados no [primeiro início rápido](../how-to/create-knowledge-base.md).
+* Concluir o [início rápido anterior](./create-publish-knowledge-base.md)
 
 ## <a name="sign-in-to-the-qna-maker-portal"></a>Entrar no portal do QnA Maker
 
 1. Entre no [portal do QnA Maker](https://www.qnamaker.ai).
 
-1. Selecione sua base de dados de conhecimento existente. Se você não tiver uma base de dados de conhecimento, volte para o [início rápido anterior](../how-to/create-knowledge-base.md) e conclua as etapas para criar sua base de dados de conhecimento.
+1. Selecione a base de dados de conhecimento existente do [início rápido anterior](../how-to/create-knowledge-base.md).
 
 ## <a name="add-additional-alternatively-phrased-questions"></a>Adicionar outras perguntas com elaboração alternativa
 
-A base de dados de conhecimento atual, do [início rápido anterior](../how-to/create-knowledge-base.md), tem os conjuntos de perguntas e respostas de solução de problemas do QnA Maker. Esses conjuntos foram criados quando a URL foi adicionada à base de dados de conhecimento durante o processo de criação.
+A base de dados de conhecimento atual tem os conjuntos de QnA de solução de problemas do QnA Maker. Esses conjuntos foram criados quando a URL foi adicionada à base de dados de conhecimento durante o processo de criação.
 
-Quando essa URL foi importada, apenas uma pergunta com uma resposta foi criada.
-
-Neste procedimento, adicione outras perguntas.
+Quando essa URL foi importada, apenas uma pergunta com uma resposta foi criada. Neste procedimento, adicione outras perguntas.
 
 1. Na página **Editar**, use a caixa de texto de pesquisa acima dos conjuntos de perguntas e respostas para encontrar a pergunta `How large a knowledge base can I create?`
 
@@ -76,11 +64,13 @@ Neste procedimento, adicione outras perguntas.
 
     `What GB size can a knowledge base be?`
 
-    A resposta correta é retornada no formato de markdown: `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`
+    A resposta correta é retornada no formato markdown:
+
+    `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`
 
     Se selecionar **Inspecionar** sob a resposta retornada, você poderá ver mais respostas que correspondem à pergunta, mas não com o mesmo nível elevado de confiança.
 
-    Não adicione todas as combinações possíveis de frases alternativas. Acione o [aprendizado ativo](../how-to/improve-knowledge-base.md) do QnA Maker, que encontra as frases alternativas que mais ajudarão sua base de dados de conhecimento a atender às necessidades de seus usuários.
+    Não adicione todas as combinações possíveis de frases alternativas. Quando você ativa o [aprendizado ativo](../how-to/improve-knowledge-base.md) do QnA Maker, isso encontra as frases alternativas que mais ajudarão a base de dados de conhecimento a atender às necessidades dos usuários.
 
 1. Selecione **Testar** novamente para fechar a janela de teste.
 
@@ -92,11 +82,12 @@ Adicionar metadados a um conjunto de perguntas e respostas permite que o aplicat
 
 1. Selecione **Opções de exibição** e, em seguida, selecione **Mostrar metadados**.
 
-1. Para o conjunto de perguntas e respostas que você acabou de adicionar, selecione **Adicionar marcas de metadados** e, em seguida, adicione o nome `service` e o valor de `search`, `service:search`.
+1. Para o conjunto de QnA recém-adicionado, selecione **Adicionar marcas de metadados** e, em seguida, adicione o nome `service` e o valor `search`. Ele tem esta aparência: `service:search`.
 
-1. Adicione outras marcas de metadados com o nome `link_in_answer` e o valor de `false`, `link_in_answer:false`.
+1. Adicione outras marcas de metadados com o nome `link_in_answer` e o valor `false`. Ele tem esta aparência: `link_in_answer:false`.
 
 1. Pesquise a primeira resposta na tabela, `How large a knowledge base can I create?`.
+
 1. Adicione pares de metadados para as mesmas duas marcas de metadados:
 
     `link_in_answer` : `true`<br>
@@ -107,71 +98,16 @@ Adicionar metadados a um conjunto de perguntas e respostas permite que o aplicat
 1. Selecione **Salvar e treinar** para treinar a base de dados de conhecimento novamente.
 
 1. Selecione **Publicar** no menu superior para ir para a página de publicação.
-1. Selecione o botão **Publicar** para publicar a base de dados de conhecimento atual em um ponto de extremidade passível de consulta.
-1. Após a base de dados de conhecimento ser publicada, selecione a guia **Ondulação** para ver um exemplo de comando cURL usado para gerar uma resposta da base de dados de conhecimento.
-1. Copie o comando para um bloco de notas ou outro ambiente editável para que você possa editá-lo. Edite para inserir seu próprio nome de recurso, ID da base de dados de conhecimento e chave do ponto de extremidade:
+1. Selecione o botão **Publicar** para publicar a base de dados de conhecimento atual em um ponto de extremidade.
+1. Depois que a base de dados de conhecimento for publicada, prossiga para o próximo início rápido para saber como gerar uma resposta usando a base de dados de conhecimento.
 
-    |Substitua|
-    |--|
-    |`your-resource-name`|
-    |`your-knowledge-base-id`|
-    |`your-endpoint-key`|
+## <a name="what-did-you-accomplish"></a>O que você realizou?
 
-    ```curl
-    curl -X POST https://your-resource-name.azurewebsites.net/qnamaker/knowledgebases/your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
-    ```
-
-    Observe que a pergunta é apenas uma única palavra, `size`, que pode retornar qualquer conjunto de perguntas e respostas. A matriz `strictFilters` instrui a resposta a reduzir para apenas as respostas `qna_maker`.
-
-    [!INCLUDE [Tip for debug property to JSON request](../includes/tip-debug-json.md)]
-
-1. A resposta inclui apenas a resposta que atende aos critérios de filtro.
-
-    A seguinte resposta cURL foi formatada para facilitar a leitura:
-
-    ```JSON
-    {
-        "answers": [
-            {
-                "questions": [
-                    "How large a knowledge base can I create?",
-                    "What is the max size of a knowledge base?",
-                    "How many GB of data can a knowledge base hold?"
-                ],
-                "answer": "The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment)for more details.",
-                "score": 68.76,
-                "id": 3,
-                "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",
-                "metadata": [
-                    {
-                        "name": "link_in_answer",
-                        "value": "true"
-                    },
-                    {
-                        "name": "service",
-                        "value": "qna_maker"
-                    }
-                ],
-                "context": {
-                    "isContextOnly": false,
-                    "prompts": []
-                }
-            }
-        ],
-        "debugInfo": null
-    }
-    ```
-
-    Se houver um conjunto de perguntas e respostas que não correspondeu ao termo de pesquisa, mas que correspondeu ao filtro, ele não será retornado. Em vez disso, a resposta geral `No good match found in KB.` será retornada.
-
-    Certifique-se de manter seus pares de nome e valor de metadados dentro dos limites necessários.
+Você editou sua base de dados de conhecimento para dar suporte a mais perguntas e forneceu pares nome/valor para dar suporte à filtragem durante a pesquisa da resposta principal ou do pós-processamento, depois que as respostas são retornadas.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poderá excluir o recurso ou grupo de recursos. Excluir o grupo de recursos também exclui todos os recursos associados a ele.
-
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+Se você não for prosseguir para o próximo início rápido, exclua os recursos do QnA Maker e do Bot Framework no portal do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: dcb4c30fe485559834791fa567856bc78cff067e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 28229ad71327daefb8e42881cf001b6a3ddd3a53
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76770323"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086849"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Conectar uma conta do Amazon Web Services
 
@@ -41,7 +41,7 @@ A primeira etapa é obter a frase secreta de conexão exclusiva do portal do Clo
 
 ### <a name="add-aws-read-only-role-based-access"></a>Adicionar o acesso baseado em função somente leitura do AWS
 
-1. Conecte-se ao console do AWS em https://console.aws.amazon.com/iam/home e selecione **Funções**.
+1. Entre no console do AWS em [https://console.aws.amazon.com/iam/home](https://console.aws.amazon.com/iam/home) e selecione **Funções**.
 2. Clique em **Criar Função** e, em seguida, selecione **Outra Conta do AWS**.
 3. Na caixa **ID da conta**, cole `432263259397`. Essa ID da Conta é a conta do coletor de dados do Cloudyn atribuída pelo AWS ao serviço Cloudyn. Use a ID da conta exata mostrada.
 4. Ao lado de **Opções**, selecione **Exigir ID externa**. Cole o valor exclusivo que copiou anteriormente do campo **ID Externa** no Cloudyn. Em seguida, clique em **Próximo: Permissões.**  
@@ -76,7 +76,7 @@ As seções a seguir detalham como criar um usuário somente leitura para propor
 
 ### <a name="add-aws-read-only-user-based-access"></a>Adicionar acesso baseado em usuário somente leitura do AWS
 
-1. Conecte-se ao console do AWS em https://console.aws.amazon.com/iam/home e selecione **Usuários**.
+1. Entre no console do AWS em [https://console.aws.amazon.com/iam/home](https://console.aws.amazon.com/iam/home) e selecione **Usuários**.
 2. Clique em **Adicionar Usuário**.
 3. No campo **Nome de usuário**, digite um nome de usuário.
 4. Para **Tipo de Acesso**, selecione **Acesso programático** e clique em **Próximo: Permissões**.  
@@ -107,7 +107,7 @@ O Cloudyn começa coletando dados e populando relatórios. Em seguida, [habilite
 
 Use as etapas a seguir para obter o ARN da Função do AWS. Use o ARN da Função para conceder permissões de leitura a um bucket de cobrança.
 
-1. Entre no console do AWS em https://console.aws.amazon.com e selecione **Serviços**.
+1. Entre no console do AWS em [https://console.aws.amazon.com](https://console.aws.amazon.com) e selecione **Serviços**.
 2. Na caixa Pesquisa de Serviço, digite *IAM* e selecione essa opção.
 3. Selecione **Funções** no menu à esquerda.
 4. Na lista de funções, selecione a função que você criou para acesso ao Cloudyn.
@@ -117,7 +117,7 @@ Use as etapas a seguir para obter o ARN da Função do AWS. Use o ARN da Funçã
 
 Crie um bucket S3 para armazenar informações de cobrança detalhadas.
 
-1. Entre no console do AWS em https://console.aws.amazon.com e selecione **Serviços**.
+1. Entre no console do AWS em [https://console.aws.amazon.com](https://console.aws.amazon.com) e selecione **Serviços**.
 2. Na caixa Pesquisa de Serviço, digite *S3* e selecione **S3**.
 3. Na página Amazon S3, clique em **Criar bucket**.
 4. No assistente Criar bucket, escolha um nome de Bucket e Região e, em seguida, clique em **Avançar**.  

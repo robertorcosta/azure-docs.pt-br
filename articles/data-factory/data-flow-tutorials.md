@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 01/14/2020
-ms.openlocfilehash: dee8c919b815c6f22b171f58be9fc6a38167056a
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.date: 02/06/2020
+ms.openlocfilehash: 00b51c14a24b525d98e9634a4f416177364228cb
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030020"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069568"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Mapeamento de tutoriais em vídeo de fluxo de dados
 
@@ -42,6 +42,8 @@ Veja a seguir uma lista de tutoriais em vídeo sobre o fluxo de dados de mapeame
 [Transformação Coluna derivada](https://www.youtube.com/watch?v=FFCbU4ujCiY)
 
 [Transformação Junção](https://www.youtube.com/watch?v=zukwayEXRtg)
+
+[Padrão de autojunção](https://www.youtube.com/watch?v=Dx1kANfnvmk&feature=youtu.be&hd=1)
 
 [Transformação de Pesquisa](https://www.youtube.com/watch?v=9U-0VPU2ZPU)
 
@@ -130,3 +132,7 @@ Veja a seguir uma lista de tutoriais em vídeo sobre o fluxo de dados de mapeame
 [Modelos lógicos vs. modelos físicos](http://youtu.be/K5tgzLjEE9Q)
 
 [Detectar alterações de dados de origem](http://youtu.be/CaxIlI7oXfI?hd=1)
+
+## <a name="data-flow-expressions"></a>Expressões de fluxo de dados
+
+[Expressões de data/hora](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)

@@ -16,30 +16,31 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 monikerRange: vsts
-ms.openlocfilehash: 49514022dc00afcd07002c7a3278c18a606e5ad5
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 1a276770887bee39972ba8630fb13f52bcbe802d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203743"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049962"
 ---
 # <a name="quickstart-set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-projects"></a>Início Rápido: Configurar um pipeline de CI/CD para um aplicativo Java com o Azure DevOps Projects
 
-Neste artigo de início rápido, você usa a experiência simplificada do Azure DevOps Projects para configurar um pipeline de CI (integração contínua) e CD (entrega contínua) para seu aplicativo Java no Azure Pipelines. Você também pode usar o Azure DevOps Projects para criar outros recursos do Azure.  
+Neste início rápido, você usará a experiência simplificada do Azure DevOps Projects para configurar um pipeline de CI (integração contínua) e CD (entrega contínua) para o seu aplicativo Java no Azure Pipelines. Use o Azure DevOps Projects para configurar tudo o que você precisa para desenvolver, implantar e monitorar seu aplicativo. 
 
-Caso não tenha uma assinatura do Azure, você pode obter uma gratuitamente via [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+- Uma conta e uma organização do [Azure DevOps](https://azure.microsoft.com/services/devops/).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-  O DevOps Projects cria um pipeline de CI/CD no Azure Pipelines. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O DevOps Projects também cria recursos do Azure na assinatura do Azure de sua escolha.
+O DevOps Projects cria um pipeline de CI/CD no Azure Pipelines. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O DevOps Projects também cria recursos do Azure na assinatura do Azure de sua escolha.
 
-1. Entre no [Portal do Microsoft Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com) e, no painel esquerdo, selecione **Criar um recurso**. 
 
-1. No painel esquerdo, selecione **Criar um recurso**, depois procure o **DevOps Projects**.  
+   ![Criar um recurso do Azure no portal do Azure](_img/azure-devops-project-java/continuous-delivery-configuration-full-browser.png)
 
-2. Selecione **Criar**.
-
-    ![Criar um recurso do Azure no DevOps Projects](_img/azure-devops-project-java/continuous-delivery-configuration-full-browser.png)
+1. Pesquise e selecione **DevOps Projects** e, em seguida, selecione **Criar**.
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Selecionar um aplicativo de exemplo e o serviço do Azure
 
@@ -53,18 +54,17 @@ Os exemplos do Java incluem uma opção de várias estruturas de aplicativo.
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Configurar o Azure DevOps e uma assinatura do Azure 
 
 1. Crie uma nova organização do Azure DevOps ou escolha uma organização existente. 
-
-    a. Escolha um nome para o projeto. 
-
-    b. Selecione a assinatura e o local do Azure, escolha um nome para o aplicativo e selecione **Concluído**.  
-    Após alguns minutos, o painel do DevOps Projects é exibido no portal do Azure. Um aplicativo de exemplo é configurado em um repositório em sua organização do Azure DevOps, é executado um build, e seu aplicativo é implantado no Azure. Esse painel oferece visibilidade ao seu repositório de código, pipeline de CI/CD e seu aplicativo no Azure.
-    
-
+   
+   1. Escolha um nome para o projeto. 
+   
+   1. Selecione a assinatura e o local do Azure, escolha um nome para o aplicativo e selecione **Concluído**.  
+   Após alguns minutos, o painel do DevOps Projects é exibido no portal do Azure. Um aplicativo de exemplo é configurado em um repositório em sua organização do Azure DevOps, é executado um build, e seu aplicativo é implantado no Azure. Esse painel oferece visibilidade ao seu repositório de código, pipeline de CI/CD e seu aplicativo no Azure.
+   
 2. Selecione **Procurar** para exibir o aplicativo em execução.
+   
+   ![Exibir o painel de aplicativo no portal do Azure](_img/azure-devops-project-java/azure-devops-application-dashboard.png) 
 
-    ![Exibir o painel de aplicativo no portal do Azure](_img/azure-devops-project-java/azure-devops-application-dashboard.png) 
-    
-   O DevOps Projects configura automaticamente um build de CI e gatilho de liberação.  Agora você está pronto para colaborar com uma equipe em um aplicativo Java com um processo de CI/CD que implanta automaticamente o trabalho mais recente em seu site da Web.
+O DevOps Projects configura automaticamente um build de CI e gatilho de liberação.  Agora você está pronto para colaborar com uma equipe em um aplicativo Java com um processo de CI/CD que implanta automaticamente o trabalho mais recente em seu site da Web.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Confirmar as alterações de código e executar CI/CD
 
@@ -114,7 +114,7 @@ No painel **Histórico**, é exibida uma trilha de auditoria das alterações re
 1. Selecione **Retenção**.   
 Dependendo do seu cenário, você pode especificar políticas para manter ou remover um determinado número de compilações.
 
-1. Selecione **Build e lançamento**, depois selecione **Lançamentos**.  
+1. Selecione **Build e Lançamento** e selecione **Lançamentos**.  
  O DevOps Projects cria um pipeline de lançamento para gerenciar implantações no Azure.
 
 1. À esquerda, selecione as reticências (...) ao lado do pipeline de lançamento, depois selecione **Editar**.  
@@ -141,7 +141,7 @@ Essa exibição mostra as confirmações de código associadas à implantação 
 1. Selecione **Logs**.  
 Os logs contêm informações úteis sobre o processo de implantação. Eles podem ser exibidos durante e após as implantações.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 É possível excluir o Serviço de Aplicativo do Azure e outros recursos relacionados quando você não precisa mais deles. Use a funcionalidade **Excluir** no painel do DevOps Projects.
 

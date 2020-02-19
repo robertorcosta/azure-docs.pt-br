@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 12/19/2019
+ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: 9483db2187c05fe8e0f4fa2d41c17b8748ba3db7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e16166c741b99c1af5b36f2c7ccd25b01f7544ba
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451102"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109002"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Início Rápido: Testar a base de dados de conhecimento com perguntas em lotes e respostas esperadas
 
 Use a ferramenta de teste em lotes do QnA Maker para testar as bases de dados de conhecimento em seu recurso do QnA Maker para respostas esperadas, pontuações de confiança e prompts de vários turnos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Ou [criar um serviço de QnA Maker](create-publish-knowledge-base.md#create-a-new-qna-maker-knowledge-base) ou usar um serviço existente, que usa o idioma inglês do documento de exemplo usado neste guia de início rápido.
+* [Crie um serviço do QnA Maker](create-publish-knowledge-base.md) ou use um serviço existente, que usa o idioma inglês.
 * Baixar o [arquivo `.docx` de exemplo de vários turnos](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)
 * Baixe a [ferramenta de teste em lotes](https://aka.ms/qnamakerbatchtestingtool) e extraia o arquivo executável do arquivo `.zip`.
 
@@ -41,9 +41,16 @@ Use a ferramenta de teste em lotes do QnA Maker para testar as bases de dados de
     * Nome do Serviço QnA do Azure
     * Idioma – o idioma inglês
 1. Insira o nome `Multi-turn batch test quickstart` como o nome da sua base de dados de conhecimento.
-1. Na **Etapa 4**, marque **Habilitar a extração de vários turnos de URLs, arquivos .pdf ou .docx**.
-1. Insira o **Texto de resposta padrão** de `Quickstart - can't find answer`. Em uma base de dados de conhecimento de produção, essas informações devem ser mais instrutivas para o usuário, mas para este início rápido, uma resposta simples funciona.
-1. Ainda na **Etapa 4**, selecione **+ Adicionar arquivo** e, em seguida, selecione a lista de arquivos `.docx` baixada nos pré-requisitos.
+
+1. Na **Etapa 4**, defina as configurações com a seguinte tabela:
+
+    |Configuração|Valor|
+    |--|--|
+    |**Habilitar a extração de vários turnos de URLs, arquivos .pdf ou .docx.**|Verificado|
+    |**Texto de resposta padrão**| `Batch test - default answer not found.`|
+    |**+ Adicionar Arquivo**|Selecione a listagem de arquivos `.docx` baixada nos pré-requisitos.|
+    |**Bate-papo**|Selecione **Professional**|
+
 1. Na **Etapa 5**, selecione **Criar sua KB**.
 
     Quando o processo de criação for concluído, o portal exibirá a base de dados de conhecimento editável.
@@ -160,7 +167,7 @@ Há dois cenários principais para testes de lote:
 * **Processar arquivos de log de chat** – determinar a resposta principal para uma pergunta anteriormente não vista – a situação mais comum é quando você precisa processar o arquivo de log de consultas, como as perguntas de usuário de um chatbot. Crie um teste de arquivo em lotes, com apenas as colunas necessárias. O teste retorna a primeira resposta para cada pergunta. Isso não significa que a primeira resposta é a resposta correta. Depois de concluir este teste, vá para o teste de validação.
 * **Teste de validação** – valide a resposta esperada. Esse teste exige que todas as perguntas e respostas esperadas correspondentes no teste de lote tenham sido validadas. Isso pode exigir algum processamento manual.
 
-O procedimento a seguir pressupõe que o cenário é processar os logs de chat com 
+O procedimento a seguir pressupõe que o cenário é processar os logs de chat com
 
 1. Crie um arquivo de teste de lote para incluir dados opcionais, `batch-test-data-2.tsv`. Adicione as seis linhas do arquivo de entrada de teste de lote original e, em seguida, adicione a ID de conjunto de metadados, de conjunto superior e de conjunto de QnA para cada linha.
 

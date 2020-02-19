@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: executar um trabalho do Lote do Azure – API do Python'
+title: Usar a API do Python para executar um trabalho do Lote do Azure
 description: Execute rapidamente um trabalho e tarefas de exemplo do Lote do Azure usando a biblioteca de cliente Python do Lote. Conheça os principais conceitos do serviço de Lote.
 services: batch
 author: LauraBrenner
@@ -12,30 +12,26 @@ ms.author: labrenne
 ms.custom:
 - seo-python-october2019
 - mvc
-ms.openlocfilehash: 87c08c403a1e5eefd7645572f593b20037a8212b
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 140ae0fc9f9a8daba193aa05e0800d83b7b6b963
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77017098"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086052"
 ---
-# <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Início Rápido: Executar seu primeiro trabalho em Lotes com a API do Python
+# <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Início Rápido: Usar a API do Python para executar um trabalho do Lote do Azure
 
-Este guia de início rápido executa um trabalho do Lote do Azure de um aplicativo criado na API do Python do Lote do Azure.  Depois de concluir este guia de início rápido, você entenderá os conceitos principais do serviço Lote e estará pronto para experimentar o Lote com cargas de trabalho mais realistas em maior escala.
+Neste início rápido, você usará a API do Python para executar um trabalho do Lote do Azure em um aplicativo. O aplicativo carrega arquivos de dados de entrada no Armazenamento do Azure e cria um *pool* de nós de computação (máquinas virtuais) do Lote. Em seguida, ele cria um *trabalho* que executa *tarefas* para processar cada arquivo de entrada no pool usando um comando básico.
 
-O aplicativo carrega vários arquivos de dados de entrada no armazenamento do Azure e, em seguida, cria um *pool* de nós de computação (máquinas virtuais) do Lote. Em seguida, ele cria um exemplo de *trabalho* que executa *tarefas* para processar cada arquivo de entrada no pool usando um comando básico.
- 
+Aqui, você aprenderá os conceitos principais do serviço Lote e estará pronto para experimentar o Lote com cargas de trabalho mais realistas em maior escala.
+
 ![Visão geral do fluxo de trabalho do Lote do Azure](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="prerequisites"></a>Prerequisites
-
-* [Python 2.7 ou 3.3 ou versão posterior](https://www.python.org/downloads/)
-
-* Gerenciador de pacotes de [pip](https://pip.pypa.io/en/stable/installing/)
-
-* Uma conta do Lote do Azure e uma conta de Armazenamento do Azure vinculada. Para criar essas contas, consulte os guias de início rápido do Lote usando o [portal do Azure](quick-create-portal.md) ou a [CLI do Azure](quick-create-cli.md). 
+- Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Uma conta do **Lote do Azure** e uma conta do **Armazenamento do Azure** vinculada. Use o [portal do Azure](quick-create-portal.md) ou a [CLI](quick-create-cli.md) para criar essas contas.
+- [Python](https://python.org/downloads), versão 2.7 ou 3.3 ou posterior, incluindo o gerenciador de pacotes do [pip](https://pip.pypa.io/en/stable/installing/)
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 

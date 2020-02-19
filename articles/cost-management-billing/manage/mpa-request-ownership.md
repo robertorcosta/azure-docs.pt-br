@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: banders
-ms.openlocfilehash: 65b56511a3b454b192b5adb2a98fb3bb3510bb7e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 6a4b215b2b386754bae2c1bbec171ed4bc558a93
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75988195"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048202"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obter a propriedade de cobrança das assinaturas do Azure para sua conta do MPA
 
@@ -29,7 +29,7 @@ Para solicitar a propriedade de cobrança, é necessário ter a função **Admin
 
 Este artigo se aplica às contas de cobrança para Contratos de Parceiro da Microsoft. Essas contas são criadas para CSPs (Provedores de Soluções na Nuvem) para gerenciar a cobrança dos clientes na nova experiência de comércio. A nova experiência só está disponível para parceiros que têm, pelo menos, um cliente que tenha aceitado um MCA (Contrato de Cliente da Microsoft) e tenha um plano do Azure. [Verifique se você tem acesso a um Contrato de Parceiro da Microsoft](#check-access-to-a-microsoft-partner-agreement).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. Estabelecer um [relacionamento de revendedor](https://docs.microsoft.com/partner-center/request-a-relationship-with-a-customer) com um cliente. Verificar a [Visão Geral da Autorização Regional do CSP](https://docs.microsoft.com/partner-center/regional-authorization-overview) para garantir que o cliente e o locatário do Parceiro estejam dentro das mesmas regiões autorizadas.  
 
@@ -120,7 +120,7 @@ Este artigo se aplica às contas de cobrança para Contratos de Parceiro da Micr
 - [Desenvolvimento/Teste Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/)\*
 - [Contrato Enterprise da Microsoft](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
-\* A assinatura do Enterprise DevTest será cobrada com base na taxa pagas conforme o uso após a transferência e nenhum desconto oferecido por meio da oferta do Enterprise DevTest pelo EA do cliente estará disponível para o parceiro CSP.
+\* Uma assinatura de Desenvolvimento/Teste precisa primeiro ser convertida em uma oferta do EA Enterprise por meio de um tíquete de suporte. Uma assinatura de Desenvolvimento/Teste Enterprise será cobrada com base em uma taxa paga conforme o uso após a transferência. Qualquer desconto oferecido por meio da oferta de Desenvolvimento/Teste Enterprise por meio do EA do cliente não ficará disponível para o parceiro CSP.
 
 ## <a name="additional-information"></a>Informações adicionais
 

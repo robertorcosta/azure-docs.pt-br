@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: lbosq
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 1b37475cfa8df38a00ea6017d47e90677ed457d2
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 9f9b6614c586d9c7c721dfc59da9c4a9c342b57c
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212633"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062023"
 ---
-# <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-table-api"></a>Início Rápido: Criar um banco de dados de grafo com o SDK do Java e a API de Tabela do Azure Cosmos DB
+# <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>Início Rápido: Criar um banco de dados de grafo com o SDK do Java e a API do Gremlin para Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [Console do Gremlin](create-graph-gremlin-console.md)
@@ -27,21 +27,13 @@ ms.locfileid: "71212633"
 > * [PHP](create-graph-php.md)
 >  
 
-O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. Usando o Azure Cosmos DB, você pode criar e consultar rapidamente documentos, tabelas e bancos de dados de grafo gerenciados. 
-
-Este guia de início rápido cria um banco de dados de grafos simples usando as ferramentas do Portal do Azure para o Azure Cosmos DB. Este início rápido também mostra como criar rapidamente um aplicativo de console do Java usando um banco de dados da [API do Gremlin](graph-introduction.md) com o driver [Apache TinkerPop](https://tinkerpop.apache.org/) do OSS. Estas instruções podem ser seguidas em qualquer sistema operacional compatível com Java. Este guia de início rápido familiariza você com a criação e a modificação dos grafos na interface do usuário ou programaticamente, o que for sua preferência. 
+Neste início rápido, você criará e gerenciará uma conta da API do Gremlin para Azure Cosmos DB (grafo) no portal do Azure e adicionará dados usando um aplicativo Java clonado do GitHub. O Azure Cosmos DB é um serviço de banco de dados multimodelo que permite criar e consultar rapidamente bancos de dados de documentos, tabelas, pares chave-valor e grafo com funcionalidades de escala horizontal e distribuição global.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-Além disso:
-
-* [Java Development Kit (JDK) versão 8](https://aka.ms/azure-jdks)
-    * Defina a variável de ambiente JAVA_HOME para apontar para a pasta onde o JDK está instalado.
-* [Baixar](https://maven.apache.org/download.cgi) e [instalar](https://maven.apache.org/install.html) um armazenamento binário [Maven](https://maven.apache.org/)
-    * No Ubuntu, você pode executar `apt-get install maven` para instalar o Maven.
-* [Git](https://www.git-scm.com/)
-    * No Ubuntu, você pode executar `sudo apt-get install git` para instalar o Git.
+- Uma conta do Azure com uma assinatura ativa. [Crie um gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+- [JDK (Java Development Kit) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Aponte a variável de ambiente `JAVA_HOME` para a pasta em que o JDK está instalado.
+- Um [arquivo binário do Maven](https://maven.apache.org/download.cgi). 
+- [Git](https://www.git-scm.com/downloads). 
 
 ## <a name="create-a-database-account"></a>Criar uma conta de banco de dados
 
@@ -79,9 +71,11 @@ Agora, vamos trabalhar com o código. Vamos clonar um aplicativo de API do Greml
 
 Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os snippets de código a seguir. Caso contrário, você poderá pular para [Atualizar sua cadeia de conexão](#update-your-connection-information).
 
-Os snippets de código a seguir são todos obtidos do arquivo C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted\Program.java.
+Os snippets de código a seguir foram todos obtidos do arquivo *C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted\Program.java*.
 
-* O Gremlin `Client` é inicializado nas configurações do arquivo C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\remote.yaml.
+Este aplicativo de console Java usa um banco de dados da [API do Gremlin](graph-introduction.md) com o driver OSS [Apache TinkerPop](https://tinkerpop.apache.org/). 
+
+- O Gremlin `Client` é inicializado nas configurações do arquivo *C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\remote.yaml*.
 
     ```java
     cluster = Cluster.build(new File("src/remote.yaml")).create();
@@ -89,7 +83,7 @@ Os snippets de código a seguir são todos obtidos do arquivo C:\git-samples\azu
     client = cluster.connect();
     ```
 
-* Séries de etapas do Gremlin são executadas usando o método `client.submit`.
+- Séries de etapas do Gremlin são executadas usando o método `client.submit`.
 
     ```java
     ResultSet results = client.submit(gremlin);
@@ -106,14 +100,14 @@ Os snippets de código a seguir são todos obtidos do arquivo C:\git-samples\azu
 
 Agora, volte ao Portal do Azure para obter as informações de conexão e copiá-las para o aplicativo. Essas configurações permitem que seu aplicativo se comunique com o banco de dados hospedado.
 
-1. No [portal do Azure](https://portal.azure.com/), selecione **Chaves**. 
+1. Em sua conta do Azure Cosmos DB no [portal do Azure](https://portal.azure.com/), selecione **Chaves**. 
 
     Copie a primeira parte do valor do URI.
 
     ![Exibir e copiar uma chave de acesso no Portal do Azure, página Chaves](./media/create-graph-java/copy-access-key-azure-portal.png)
-2. Abra o arquivo src/remote.yaml e cole o valor de ID exclusivo em `$name$` em `hosts: [$name$.graphs.azure.com]`.
+2. Abra o arquivo *src/remote.yaml* e cole o valor de ID exclusivo de `$name$` em `hosts: [$name$.graphs.azure.com]`.
 
-    A linha 1 do remote.yaml agora deve ser semelhante a 
+    A linha 1 de *remote.yaml* agora deverá ser semelhante a 
 
     `hosts: [test-graph.graphs.azure.com]`
 
@@ -125,11 +119,11 @@ Agora, volte ao Portal do Azure para obter as informações de conexão e copiá
 
 4. No Portal do Azure, use o botão de copiar para copiar a CHAVE PRIMÁRIA e cole-a em `$masterKey$` em `password: $masterKey$`.
 
-    A linha 4 do remote.yaml agora deve ser semelhante a 
+    A linha 4 de *remote.yaml* agora deverá ser semelhante a 
 
     `password: 2Ggkr662ifxz2Mg==`
 
-5. Altere a linha 3 do remote.yaml de
+5. Altere a linha 3 de *remote.yaml* de
 
     `username: /dbs/$database$/colls/$collection$`
 
@@ -139,7 +133,7 @@ Agora, volte ao Portal do Azure para obter as informações de conexão e copiá
 
     Caso tenha usado um nome exclusivo para o banco de dados ou gráfico de exemplo, atualize os valores conforme apropriado.
 
-6. Salve o arquivo remote.yaml.
+6. Salve o arquivo *remote.yaml*.
 
 ## <a name="run-the-console-app"></a>Execute o aplicativo de console
 
@@ -172,7 +166,7 @@ Agora, volte ao Portal do Azure para obter as informações de conexão e copiá
 
 Agora, você pode voltar para o Data Explorer, ver os vértices adicionados ao grafo e acrescentar pontos de dados adicionais.
 
-1. Selecione **Data Explorer**, expanda **sample-graph**, selecione **Grafo** e, em seguida, selecione **Aplicar Filtro**. 
+1. Em sua conta do Azure Cosmos DB no portal do Azure, selecione **Data Explorer**, expanda **sample-graph**, selecione **Grafo** e, em seguida, selecione **Aplicar Filtro**. 
 
    ![Criar novos documentos no Data Explorer no portal do Azure](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
 
@@ -190,7 +184,7 @@ Agora, você pode voltar para o Data Explorer, ver os vértices adicionados ao g
 
     chave|value|Observações
     ----|----|----
-    ID|ashley|O identificador exclusivo do vértice. Se você não especificar uma ID, ela será gerada para você.
+    id|ashley|O identificador exclusivo do vértice. Se você não especificar uma ID, ela será gerada para você.
     gender|feminino| 
     técnico | java | 
 
@@ -207,13 +201,13 @@ Agora, você pode voltar para o Data Explorer, ver os vértices adicionados ao g
 
     chave|value|Observações
     ----|----|----
-    ID|rakesh|O identificador exclusivo do vértice. Se você não especificar uma ID, ela será gerada para você.
+    id|rakesh|O identificador exclusivo do vértice. Se você não especificar uma ID, ela será gerada para você.
     gender|masculino| 
     escola|MIT| 
 
 10. Selecione **OK**. 
 
-11. Selecione o botão **Aplicar Filtro** com o filtro `g.V()` padrão para exibir todos os valores no grafo. Todos os usuários agora aparecem na lista **Resultados**. 
+11. Selecione o botão **Aplicar Filtro** com o filtro `g.V()` padrão para exibir todos os valores do grafo. Todos os usuários agora aparecem na lista **Resultados**. 
 
     Conforme você adiciona mais dados, pode usar os filtros para limitar os resultados. Por padrão, o Data Explorer usa `g.V()` para recuperar todos os vértices em um grafo. Você pode alterá-lo para outra [consulta de grafo](tutorial-query-graph.md), como `g.V().count()`, para retornar uma contagem de todos os vértices no grafo no formato JSON. Se você alterou o filtro, altere o filtro novamente para `g.V()` e selecione **Aplicar Filtro** para exibir todos os resultados novamente.
 
@@ -229,19 +223,19 @@ Agora, você pode voltar para o Data Explorer, ver os vértices adicionados ao g
 
     ![Dois vértices conectados no Data Explorer – Azure CosmosDB](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
 
-    Isso conclui a parte da criação de recursos deste tutorial. Você pode continuar a adicionar vértices ao seu grafo, modificar os vértices existentes ou alterar as consultas. Agora vamos examinar as métricas que o Azure Cosmos DB fornece e, em seguida, limpar os recursos. 
+Isso conclui a parte da criação de recursos deste tutorial. Você pode continuar a adicionar vértices ao seu grafo, modificar os vértices existentes ou alterar as consultas. Agora vamos examinar as métricas que o Azure Cosmos DB fornece e, em seguida, limpar os recursos. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Examinar SLAs no Portal do Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você aprendeu como criar uma conta do Azure Cosmos DB, como criar um grafo usando o Data Explorer e como executar um aplicativo. Agora, você pode criar consultas mais complexas e implementar uma lógica de passagem de grafo avançada usando o Gremlin. 
+Neste início rápido, você aprendeu a criar uma conta do Azure Cosmos DB, criar um grafo usando o Data Explorer e executar um aplicativo Java que adiciona dados ao grafo. Agora, você pode criar consultas mais complexas e implementar uma lógica de passagem de grafo avançada usando o Gremlin. 
 
 > [!div class="nextstepaction"]
 > [Consultar usando o Gremlin](tutorial-query-graph.md)

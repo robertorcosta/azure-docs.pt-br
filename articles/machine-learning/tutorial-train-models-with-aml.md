@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 95e5754c440cc591444df8960fde34de6fc384f0
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 5a2ff4d78c1e0e67b390f607da69cc299e2dce4a
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261357"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116483"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Tutorial: Treinar modelos de classificação de imagem usando dados MNIST e scikit-learn com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,14 +39,14 @@ Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de co
 >[!NOTE]
 > O código neste artigo foi testado com a versão 1.0.65 do [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Conclua o [Tutorial: Introdução à criação do seu primeiro experimento do Azure Machine Learning](tutorial-1st-experiment-sdk-setup.md) para:
     * Criar um workspace
     * Clonar o notebook de tutoriais em sua pasta no workspace.
     * Crie uma instância de computação baseada em nuvem.
 
-* Na pasta **tutoriais** clonada, abra o notebook **img-classification-part1-training.ipynb**. 
+* Na pasta *tutorials/image-classification-mnist-data* clonada, abra o notebook *img-classification-part1-training.ipynb*. 
 
 
 O tutorial (e o arquivo complementar **utils.py**) também estará disponível no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se você quiser usá-lo em seu próprio [ambiente local](how-to-configure-environment.md#local). Execute `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` para instalar as dependências para este tutorial.

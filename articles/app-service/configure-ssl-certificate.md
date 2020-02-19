@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: acf7fd91eff6a868074c61d557effa076033e799
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 5df8ae89c16a453b008afed9ee9f8881a0ac4750
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845919"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046427"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Adicionar um certificado SSL no Serviço de Aplicativo do Azure
 
@@ -29,7 +29,7 @@ A tabela a seguir lista as opções disponíveis para adição de certificados n
 | Carregar um certificado privado | Se você já tiver um certificado privado de um provedor de terceiros, poderá carregá-lo. Consulte [Requisitos do certificado privado](#private-certificate-requirements). |
 | Carregar um certificado público | Os certificados públicos não são usados para proteger domínios personalizados, mas você pode carregá-los em seu código se precisar que eles acessem recursos remotos. |
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para seguir este guia de instruções, é necessário ter:
 
@@ -37,6 +37,9 @@ Para seguir este guia de instruções, é necessário ter:
 - Somente para certificado gratuito: mapeie um subdomínio (por exemplo, `www.contoso.com`) para o Serviço de Aplicativo com um [registro CNAME](app-service-web-tutorial-custom-domain.md#map-a-cname-record).
 
 ## <a name="private-certificate-requirements"></a>Requisitos do certificado privado
+
+> [!NOTE]
+> Os Aplicativos Web do Azure **não** dão suporte a AES256, e todos os arquivos .pfx devem ser criptografados com TrippleDES.
 
 O [Certificado gratuito gerenciado pelo Serviço de Aplicativo](#create-a-free-certificate-preview) ou o [certificado do Serviço de Aplicativo](#import-an-app-service-certificate) já atende aos requisitos do Serviço de Aplicativo. Se você optar por carregar ou importar um certificado privado no Serviço de Aplicativo, o certificado deverá atender aos seguintes requisitos:
 

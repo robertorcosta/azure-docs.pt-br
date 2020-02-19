@@ -1,21 +1,20 @@
 ---
 title: Tutorial – Criar e gerenciar orçamentos do Azure | Microsoft Docs
 description: Este tutorial ajuda a planejar e contabilizar os custos de serviços do Azure que você consome.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/22/2020
+ms.date: 02/10/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: adwise
+ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: bb02c4903348a3b8c1d129f02be64109ec0f48eb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9900a2f7a41a6b35be75326b9412ec628328e39b
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76769744"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132095"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: criar e gerenciar orçamentos do Azure
 
@@ -34,11 +33,12 @@ Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar um orçamento no portal do Azure
+> * Criar e editar orçamentos com o PowerShell
 > * Editar um orçamento
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Há suporte para orçamentos de uma variedade de tipos de conta do Azure. Para exibir a lista completa dos tipos de contas compatíveis, confira [Entender os dados do Gerenciamento de Custos](understand-cost-mgt-data.md). Para exibir os orçamentos, você precisará, pelo menos, de acesso de leitura em sua conta do Azure.
+Há suporte para orçamentos de diversos tipos de conta do Azure. Para exibir a lista completa dos tipos de contas compatíveis, confira [Entender os dados do Gerenciamento de Custos](understand-cost-mgt-data.md). Para exibir os orçamentos, você precisará, pelo menos, de acesso de leitura em sua conta do Azure.
 
  Para assinatura do Azure EA, você deve ter acesso de leitura para exibir orçamentos. Para criar e gerenciar orçamentos, você deve ter permissão de colaborador. Você pode criar orçamentos individuais para grupos de recursos e assinaturas de EA. No entanto, não é possível criar os orçamentos para contas de cobrança de EA.
 
@@ -62,7 +62,7 @@ Para criar ou exibir um orçamento, abra o escopo desejado no portal do Azure e 
 
 Depois de criar os orçamentos, eles mostram uma exibição simples de seus gastos atual em relação a eles.
 
-Clique em **Adicionar**.
+Selecione **Adicionar**.
 
 ![Exemplo mostrando uma lista de orçamentos já criados](./media/tutorial-acm-create-budgets/budgets01.png)
 
@@ -78,7 +78,11 @@ Com base nos campos escolhidos no orçamento até o momento, é mostrado um graf
 
 ![Exemplo mostrando a criação de um orçamento usando dados de custo mensal ](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
-Depois de configurar o valor do orçamento, clique em **Avançar** para configurar os alertas do orçamento. Orçamentos exigem pelo menos um limite de custo (% do orçamento) e um endereço de email correspondente. Opcionalmente, você pode incluir até cinco limites e cinco endereços de email em um único orçamento. Quando um limite de orçamento é atingido, as notificações por email são recebidas normalmente em menos de 20 horas. Para obter mais informações sobre as notificações, confira [Alertas de custo de uso](../../cost-management/cost-mgt-alerts-monitor-usage-spending.md). No exemplo a seguir, um alerta por email é gerado quando 90% do orçamento é atingido. Se criar um orçamento com a API de Orçamentos, você também poderá atribuir funções para que pessoas recebam os alertas. Não há suporte para a atribuição de funções a pessoas no portal do Azure. Para obter mais informações sobre a API de Orçamentos do Azure, confira [API de Orçamentos](/rest/api/consumption/budgets).
+Depois de configurar o valor do orçamento, selecione **Avançar** para configurar os alertas do orçamento. Orçamentos exigem pelo menos um limite de custo (% do orçamento) e um endereço de email correspondente. Opcionalmente, você pode incluir até cinco limites e cinco endereços de email em um único orçamento. Quando um limite de orçamento é atingido, as notificações por email são recebidas normalmente em menos de 20 horas.
+
+Se você quiser receber emails, adicione azure-noreply@microsoft.com à sua lista de remetentes aprovados para que os emails não entrem na pasta de lixo eletrônico. Para obter mais informações sobre as notificações, confira [Alertas de custo de uso](../../cost-management/cost-mgt-alerts-monitor-usage-spending.md).
+
+No exemplo a seguir, um alerta por email é gerado quando 90% do orçamento é atingido. Se criar um orçamento com a API de Orçamentos, você também poderá atribuir funções para que pessoas recebam os alertas. Não há suporte para a atribuição de funções a pessoas no portal do Azure. Para obter mais informações sobre a API de Orçamentos do Azure, confira [API de Orçamentos](/rest/api/consumption/budgets).
 
 ![Exemplo mostrando condições de alerta](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 
@@ -86,7 +90,7 @@ Depois de criar um orçamento, ele é mostrado na análise de custo. Exibir seu 
 
 ![Exemplo de orçamento e gastos mostrados na análise de custos](./media/tutorial-acm-create-budgets/cost-analysis.png)
 
-No exemplo anterior, você criou um orçamento para uma assinatura. No entanto, você também pode criar um orçamento para um grupo de recursos. Se você quiser criar um orçamento para um grupo de recursos, navegue até **Gerenciamento de Custos + Cobrança**&gt;**Assinaturas** &gt; selecione uma assinatura > **Grupo de recursos** > selecione um grupo de recursos > **Orçamentos** > e, em seguida escolha **Adicionar** um orçamento.
+No exemplo anterior, você criou um orçamento para uma assinatura. Você também pode criar um orçamento para um grupo de recursos. Se você quiser criar um orçamento para um grupo de recursos, navegue até **Gerenciamento de Custos + Cobrança**&gt;**Assinaturas** &gt; selecione uma assinatura > **Grupo de recursos** > selecione um grupo de recursos > **Orçamentos** > e, em seguida escolha **Adicionar** um orçamento.
 
 ## <a name="costs-in-budget-evaluations"></a>Avaliações dos custos no orçamento
 
@@ -102,16 +106,16 @@ As avaliações de custo do orçamento baseiam-se no custo real. Elas não inclu
 
 ## <a name="trigger-an-action-group"></a>Disparar um grupo de ações
 
-Quando cria ou edita um orçamento para um escopo de grupo de recursos ou de assinatura, você pode configurá-lo para chamar um grupo de ações. O grupo de ações pode executar diversas ações diferentes quando o limite do orçamento é atingido. No momento, os grupo de ações só têm suporte para os escopos de grupo de recursos e assinatura. Para obter mais informações sobre os Grupo de ações, confira [Criar e gerenciar grupos de ações no portal do Azure](../../azure-monitor/platform/action-groups.md). Para obter mais informações sobre como usar a automação baseada em orçamento com grupos de ações, confira [Gerenciar custos com os orçamentos do Azure](../manage/cost-management-budget-scenario.md).
+Quando cria ou edita um orçamento para um escopo de grupo de recursos ou de assinatura, você pode configurá-lo para chamar um grupo de ações. O grupo de ações pode executar várias ações quando o limite de orçamento é atingido. No momento, os grupo de ações só têm suporte para os escopos de grupo de recursos e assinatura. Para obter mais informações sobre os Grupo de ações, confira [Criar e gerenciar grupos de ações no portal do Azure](../../azure-monitor/platform/action-groups.md). Para obter mais informações sobre como usar a automação baseada em orçamento com grupos de ações, confira [Gerenciar custos com os orçamentos do Azure](../manage/cost-management-budget-scenario.md).
 
 
 
-Para criar ou atualizar grupos de ações, clique em **Gerenciar grupos de ações** quando estiver criando ou editando um orçamento.
+Para criar ou atualizar grupos de ações, selecione **Gerenciar grupos de ações** quando estiver criando ou editando um orçamento.
 
 ![Exemplo de criação de um orçamento para mostrar Gerenciar grupos de ações](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
 
 
-Em seguida, clique em **Adicionar grupo de ações** e crie o grupo de ações.
+Em seguida, selecione **Adicionar grupo de ações** e crie o grupo de ações.
 
 
 ![Imagem da caixa Adicionar grupo de ações](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
@@ -128,12 +132,42 @@ O exemplo a seguir mostra os limites de orçamento definidos como 50%, 75% e 100
 
 A integração do orçamento com os grupos de ação só funciona para grupos de ação que têm o esquema de alerta comum desabilitado. Para obter mais informações sobre como desabilitar o esquema, confira [Como habilitar o esquema de alerta comum?](../../azure-monitor/platform/alerts-common-schema.md#how-do-i-enable-the-common-alert-schema)
 
+## <a name="create-and-edit-budgets-with-powershell"></a>Criar e editar orçamentos com o PowerShell
+
+Os clientes do EA podem criar e editar orçamentos programaticamente usando o módulo Azure PowerShell.  Para baixar a versão mais recente do Azure PowerShell, execute o seguinte comando:
+
+```azurepowershell-interactive
+install-module -name AzureRm
+```
+
+Os comandos de exemplo a seguir criam um orçamento.
+
+```azurepowershell-interactive
+#Sign into Azure Powershell with your account
+
+Connect-AzureRmAccount
+
+#Select a subscription to to monitor with a budget
+
+select-AzureRmSubscription -Subscription "Your Subscription"
+
+#Create an action group email receiver and corresponding action group
+
+$email1 = New-AzureRmActionGroupReceiver -EmailAddress test@test.com -Name EmailReceiver1
+$ActionGroupId = (Set-AzureRmActionGroup -ResourceGroupName YourResourceGroup -Name TestAG -ShortName TestAG -Receiver $email1).Id
+
+#Create a monthly budget that sends an email and triggers an Action Group to send a second email. Make sure the StartDate for your monthly budget is set to the first day of the current month. Note that Action Groups can also be used to trigger automation such as Azure Functions or Webhooks.
+
+New-AzureRmConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
+```
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Criar um orçamento no portal do Azure
+> * Criar e editar orçamentos com o PowerShell
 > * Editar um orçamento
 
 Avance para o próximo tutorial para criar uma exportação recorrente para os dados de gerenciamento de custos.

@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 02/03/2020
+ms.date: 02/06/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 49c5566454a93307dedd150a3508b33dbd7506e6
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 1abcd22621d427244f9b0533aaea46cbf1f356ad
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022351"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064029"
 ---
 # <a name="use-collections-in-the-my-apps-portal"></a>Usar coleções no portal Meus Aplicativos
 
-Os workspaces são diferentes exibições de aplicativo que você vê no portal **Meus Aplicativos**. Os aplicativos podem ser agrupados em coleções por função de departamento ou função de usuário, por exemplo. Se você não vê nenhuma coleção ou categoria disponível, isso significa que o administrador não configurou nem compartilhou nenhuma delas com você. Contate a assistência técnica da sua organização para obter assistência ou permissões adicionais para ver as coleções compartilhadas.
+As coleções são diferentes exibições de aplicativo que você vê no portal **Meus Aplicativos**. Os aplicativos podem ser agrupados em coleções por função de departamento ou função de usuário, por exemplo. Se você não vê nenhuma coleção ou categoria disponível, isso significa que o administrador não configurou nem compartilhou nenhuma delas com você. Contate a assistência técnica da sua organização para obter assistência ou permissões adicionais para ver as coleções compartilhadas.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 

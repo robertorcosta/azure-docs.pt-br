@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: 64c5d80b5a2660164b21e71f06e847d5b11e40da
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: a8265680f74b2d5679d1ebfbb2873dd096f498a3
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964407"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083057"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Tutorial: Compartilhar dados usando o Azure Data Share  
 
@@ -25,10 +25,11 @@ Neste tutorial, você aprenderá como:
 > * Habilitar uma agenda de instantâneo para seu Data Share. 
 > * Adicionar destinatários a seu Data Share. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * O endereço de email de logon do Azure de seus destinatários (usar o alias de email não funcionará).
+* Se o armazenamento de dados do Azure de origem estiver em uma assinatura do Azure diferente daquela que você usará para criar o recurso do Data Share, registre o [provedor de recursos Microsoft.DataShare](concepts-roles-permissions.md#resource-provider-registration) na assinatura em que o armazenamento de dados do Azure está localizado. 
 
 ### <a name="share-from-a-storage-account"></a>Compartilhar de uma conta de armazenamento:
 
@@ -57,7 +58,7 @@ Neste tutorial, você aprenderá como:
 * Acesso ao Firewall do SQL Server de IP do cliente. Isso pode ser feito executando as seguintes etapas: 
     1. No SQL Server, no portal do Azure, navegue até *Firewalls e redes virtuais*
     1. Clique na alternância **ligar** para permitir o acesso aos Serviços do Azure.
-    1. Clique em **+ Adicionar IP de cliente** e clique em **Salvar**. O endereço IP do cliente está sujeito a alterações. Você também pode adicionar um intervalo de IP. 
+    1. Clique em **+ Adicionar IP de cliente** e clique em **Salvar**. O endereço IP do cliente está sujeito a alterações. Esse processo talvez precise ser repetido na próxima vez em que você estiver compartilhando dados SQL do portal do Azure. Você também pode adicionar um intervalo de IP. 
 
 ### <a name="share-from-azure-data-explorer"></a>Compartilhar do Azure Data Explorer
 * Um cluster do Azure Data Explorer com bancos de dados que você deseja compartilhar.

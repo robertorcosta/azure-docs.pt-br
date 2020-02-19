@@ -3,24 +3,30 @@ title: Migrar um Jupyter notebook local para a versão prévia do Azure Notebook
 description: Transfira rapidamente um Jupyter notebook para a versão prévia do Azure Notebooks do computador local ou de uma URL da Web e, em seguida, compartilhe-o para colaboração.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 9e5270c59a64f9510f9108bbe4d00b922178888c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: baf05d7adb1340d712ff0fc87436d5bbac51bc8f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647043"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064318"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook-in-azure-notebooks-preview"></a>Início Rápido: Migrar um Jupyter notebook local na versão prévia do Azure Notebooks
 
-Os notebooks Jupyter que você criou localmente no seu próprio computador são acessíveis apenas para você. Você pode compartilhar seus arquivos por meio de uma variedade de meios, mas, em seguida, os destinatários têm sua própria cópia local do bloco de anotações e é difícil incorporar as alterações que podem fazer. Você também pode armazenar os blocos de anotações em um repositório compartilhado online, como o GitHub, mas isso ainda exige que cada colaborador tenha sua própria instalação do Jupyter local com a mesma configuração que o seu.
+Neste início rápido, você migrará um Jupyter notebook do computador local ou de outra URL de arquivo acessível para o Azure Notebooks. 
 
-Ao migrar seus blocos de anotações locais ou baseada em repositório para o Azure Notebooks, armazena-as na nuvem da qual você pode instantaneamente compartilhar com seus colaboradores. Esses colaboradores precisam apenas de um navegador para exibir e executar o bloco de anotações e se eles [entrarem](quickstart-sign-in-azure-notebooks.md) para o Azure Notebooks eles também podem fazer alterações.
+Os Jupyter notebooks no próprio computador são acessíveis apenas para você. Você pode compartilhar seus arquivos, mas os destinatários têm as respectivas cópias locais do notebook, e é difícil incorporar as alterações deles. Mesmo que você armazene notebooks em um repositório online compartilhado, como o GitHub, cada colaborador precisa ter uma instalação local do Jupyter configurada como a sua.
 
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+Ao migrar seus notebooks locais ou baseados em repositório para o Azure Notebooks, você pode compartilhá-los instantaneamente com seus colaboradores, que precisam apenas de um navegador para ver e executar os notebooks. Se eles entrarem no Azure Notebooks, também poderão fazer alterações.
 
-Este Início Rápido demonstra o processo de migração de um bloco de anotações do seu computador local ou outra URL de arquivo acessível. Para migrar os notebooks de um repositório GitHub, consulte o [Guia de Início Rápido: Clonar um notebook](quickstart-clone-jupyter-notebook.md).
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Um [Jupyter notebook](https://jupyter-notebook.readthedocs.io) no computador local ou em outra URL de arquivo acessível. 
 
 ## <a name="create-a-project-on-azure-notebooks"></a>Criar um projeto no Azure Notebooks
+
+Este início rápido demonstra a migração de um notebook do computador local ou de outra URL de arquivo acessível. Para migrar os notebooks de um repositório GitHub, consulte o [Guia de Início Rápido: Clonar um notebook](quickstart-clone-jupyter-notebook.md).
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 1. Vá até [Azure Notebooks](https://notebooks.azure.com) e entre. (Para obter mais detalhes, consulte [Início Rápido – Entrar no Azure Notebooks](quickstart-sign-in-azure-notebooks.md)).
 
@@ -28,7 +34,7 @@ Este Início Rápido demonstra o processo de migração de um bloco de anotaçõ
 
     ![Link Meus Projetos na parte superior da janela do navegador](media/quickstarts/my-projects-link.png)
 
-1. Na página **Meus Projetos**, selecione **+ Novo Projeto**(atalho de teclado: n); o botão poderá aparecer apenas como **+** , se a janela do navegador for estreita:
+1. Na página **Meus Projetos**, selecione **Novo Projeto** (atalho de teclado: n). O botão poderá ser exibido somente como **+** se a janela do navegador for estreita:
 
     ![Comando Novo Projeto na página Meus Projetos](media/quickstarts/new-project-command.png)
 
@@ -40,13 +46,13 @@ Este Início Rápido demonstra o processo de migração de um bloco de anotaçõ
 
     ![Comando para carregar um bloco de anotações de uma URL ou o computador local](media/quickstarts/upload-from-computer-url-command.png)
 
-   (novamente, se o bloco de anotações estiver em um repositório do GitHub, siga as etapas no [Guia de Início Rápido: Clonar um notebook](quickstart-clone-jupyter-notebook.md) em vez disso).
+   Novamente, se o notebook estiver em um repositório GitHub, siga as etapas do [Início Rápido: Clonar um notebook](quickstart-clone-jupyter-notebook.md).
 
-   - Se estiver usando **Do computador**, arraste e solte seus arquivos *ipynb* para o pop-up ou selecione **Escolher arquivos**, em seguida, navegue e selecione os arquivos que você deseja importar. Depois selecionar **Carregar**. Os arquivos carregados recebem o mesmo nome que os arquivos locais. (você não precisa carregar o conteúdo de quaisquer pastas *.ipynb_checkpoints*.)
+   - Se estiver usando **Do computador**, arraste e solte seus arquivos *ipynb* para o pop-up ou selecione **Escolher arquivos**, em seguida, navegue e selecione os arquivos que você deseja importar. Depois selecionar **Carregar**. Os arquivos carregados recebem o mesmo nome que os arquivos locais. Você não precisa carregar o conteúdo de nenhuma pasta *.ipynb_checkpoints*.
 
      ![Carregar do popup do computador](media/quickstarts/upload-from-computer-popup.png)
 
-   - Se usar **Da URL**, insira o endereço de origem no campo **URL do Arquivo** e o nome do arquivo para atribuir ao bloco de anotações do projeto no campo **Nome do Arquivo**. Depois selecionar **Carregar**. Se você tiver vários arquivos com URLs separadas, use o comando **+ Adicionar arquivo** para verificar a primeira URL que você inseriu, após o qual o pop-up fornece novos campos para outro arquivo.
+   - Se usar **Da URL**, insira o endereço de origem no campo **URL do Arquivo** e o nome do arquivo para atribuir ao bloco de anotações do projeto no campo **Nome do Arquivo**. Depois selecionar **Carregar**. Se você tiver vários arquivos com URLs separadas, use o comando **Adicionar Arquivo** para verificar a primeira URL que você inseriu, após o qual o pop-up fornecerá novos campos para outro arquivo.
 
      ![Carregar de URL popup](media/quickstarts/upload-from-url-popup.png)
 
@@ -59,4 +65,4 @@ Este Início Rápido demonstra o processo de migração de um bloco de anotaçõ
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial: criar e executar um Jupyter Notebook para fazer uma regressão linear](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: criar e executar um Jupyter notebook para fazer uma regressão linear](tutorial-create-run-jupyter-notebook.md)

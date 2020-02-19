@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 91ea2b68828ac54d4128a90550e9c60e065b719d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0d78f3cc4f2b12b2d9f45878a0c1b91263112689
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75379412"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118548"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecimento de Formulários?
 
@@ -51,17 +51,9 @@ O Reconhecimento de Formulários também inclui um modelo para ler os recibos de
 
 O Reconhecimento de Formulários também pode extrair a estrutura de texto e tabela (os números de linha e coluna associados ao texto) usando o OCR (reconhecimento óptico de caracteres) de alta definição. 
 
-## <a name="where-do-i-start"></a>Por onde começo?
+## <a name="get-started"></a>Introdução
 
-**Etapa 1:** Solicitar acesso:
-
-O Reconhecimento de Formulários está disponível em uma versão prévia de acesso limitado. Para obter acesso à versão prévia, preencha e envie o formulário de [Solicitação de acesso ao Reconhecimento de Formulários](https://aka.ms/FormRecognizerRequestAccess). O formulário solicita informações sobre você, sua empresa e o cenário no qual usará o Reconhecimento de Formulários.
-
-**Etapa 2:** Criar um recurso do Reconhecimento de Formulários no portal do Azure:
-
-Quando o acesso para usar o Reconhecimento de Formulários for concedido, você receberá um email de boas-vindas com vários links e recursos. Use o link do "portal do Azure" na mensagem para abrir o portal do Azure e criar um recurso do Reconhecimento de Formulários.
-
-**Etapa 3:** Extrair dados de seus formulários:
+Siga um início rápido para começar a extrair dados de seus formulários. Recomendamos usar o serviço gratuito quando estiver aprendendo a tecnologia. Lembre-se de que o número de páginas gratuitas é limitado a 500 por mês.
 
 * Personalizado – treinar um modelo para seus formulários
   * Treinar sem rótulos
@@ -76,13 +68,11 @@ Quando o acesso para usar o Reconhecimento de Formulários for concedido, você 
 * Layout – extrair a estrutura de tabela e texto de formulários
   * [Início Rápido: Extrair dados de layout usando o Python](quickstarts/python-layout.md)
 
-Recomendamos usar o serviço gratuito quando estiver aprendendo a tecnologia. Lembre-se de que o número de páginas gratuitas é limitado a 500 por mês.
-
-**Etapa 4:** Examinar as APIs REST:
+### <a name="review-the-rest-apis"></a>revisar as Especificações das APIs REST
 
 Você usará as APIs a seguir para treinar modelos e extrair dados estruturados de formulários.
 
-|Nome |DESCRIÇÃO |
+|Nome |Descrição |
 |---|---|
 | **Treinar Modelo Personalizado**| Treine um novo modelo para analisar seus formulários usando cinco formulários do mesmo tipo. Defina o parâmetro _useLabelFile_ como `true` para treinar usando dados rotulados manualmente. |
 | **Analisar Formulário** |Analise um documento individual transmitido como um fluxo para extrair texto, pares chave-valor e tabelas do formulário com o modelo personalizado.  |

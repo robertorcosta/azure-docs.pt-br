@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/12/2019
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1aa2d58a40c623cc451ca30aaa9d75a4a6b3d4c0
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 7902112c1694bacfeb45b5f20db80d5136642169
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983853"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047946"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Azure AD SAML Toolkit
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o Kit de Ferramentas SAML do Azure A
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -45,6 +45,7 @@ Para começar, você precisará dos seguintes itens:
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O Azure AD SAML Toolkit dá suporte ao SSO iniciado por **SP**
+* Depois de configurar o Kit de Ferramentas SAML do Azure AD, você poderá impor o controle de sessão, que fornece proteção contra exportação e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-azure-ad-saml-toolkit-from-the-gallery"></a>Adicionar o Kit de Ferramentas SAML do Azure AD da galeria
 
@@ -76,17 +77,17 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Azure AD SAML Toolkit**, localize a seção **Gerenciar** e selecione **Logon único**.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações. Você pode recuperar as configurações usando a página Configuração de SAML do Kit de Ferramentas do SAML. 
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
 1. Na página **Configuração Básica de SAML**, insira os valores nos seguintes campos:
 
-    a. Na caixa de texto **URL de logon**, digite uma URL: `https://samltoolkit.azurewebsites.net/SAML/Login/<3digitnumber>`
+    a. Na caixa de texto **URL de logon**, digite uma URL: `https://samltoolkit.azurewebsites.net/`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL: `https://samltoolkit.azurewebsites.net`
 
-    c. Na caixa de texto **URL de Resposta**, insira uma URL: `https://samltoolkit.azurewebsites.net/SAML/Consume/<3digitnumber>`
+    c. Na caixa de texto **URL de Resposta**, insira uma URL: `https://samltoolkit.azurewebsites.net/SAML/Consume`
 
 1. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Bruto)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
@@ -173,3 +174,7 @@ Ao clicar no bloco do Azure AD SAML Toolkit no Painel de Acesso, você deverá s
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Experimentar o Azure AD SAML Toolkit com o Azure AD](https://aad.portal.azure.com/)
+
+- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Como proteger o Azure AD SAML Toolkit com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/protect-azure)

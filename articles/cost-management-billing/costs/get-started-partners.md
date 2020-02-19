@@ -1,25 +1,28 @@
 ---
 title: Introdução ao Gerenciamento de Custos do Azure para parceiros
 description: Este artigo explica como os parceiros usam os recursos do Gerenciamento de Custos do Azure e como eles habilitam o acesso do Gerenciamento de Custos para os clientes.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/28/2020
+ms.date: 02/10/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: fc0401ac200ac55de5d812ddc5162d970b8e6d2a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9f35f0ae2b310fba462a3f45038496854077da27
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76842411"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117594"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introdução ao Gerenciamento de Custos do Azure para parceiros
 
-O Gerenciamento de Custos do Azure está disponível nativamente para os parceiros que integraram os clientes a um Contrato de Cliente da Microsoft e [compraram um plano do Azure](/partner-center/purchase-azure-plan). Este artigo explica como os parceiros usam os recursos do [Gerenciamento de Custos do Azure](../index.yml) para ver os custos de assinaturas no plano do Azure. Também descreve como os parceiros habilitam o acesso do Gerenciamento de Custos para os clientes. Os clientes podem usar os recursos do Gerenciamento de Custos quando eles são habilitados pelo parceiro CSP.
+O Gerenciamento de Custos do Azure está disponível nativamente para os parceiros diretos que integraram os clientes a um Contrato de Cliente da Microsoft e [compraram um plano do Azure](/partner-center/purchase-azure-plan). Este artigo explica como os parceiros usam os recursos do [Gerenciamento de Custos do Azure](../index.yml) para ver os custos de assinaturas no plano do Azure. Também descreve como os parceiros habilitam o acesso do Gerenciamento de Custos para os clientes.
+
+Para parceiros diretos e provedores indiretos, o administrador global e os agentes administradores do provedor indireto podem acessar o Gerenciamento de Custos no locatário do parceiro. Os revendedores e os clientes podem acessar o Gerenciamento de Custos no locatário do cliente e ver os custos das assinaturas, em que os custos são calculados e mostrados em taxas de varejo. No entanto, eles precisam ter acesso RBAC à assinatura no locatário do cliente para ver os custos. A política de visibilidade de custo precisa ser habilitada pelo provedor para o locatário do cliente.
+
+Os clientes podem usar os recursos do Gerenciamento de Custos quando eles são habilitados pelo parceiro CSP.
 
 Os parceiros CSP usam o Gerenciamento de Custos para:
 
@@ -38,7 +41,7 @@ Veja um exemplo que mostra os custos de um só cliente.
 
 Todas as funcionalidades disponíveis no Gerenciamento de Custos do Azure também estão disponíveis nas APIs REST. Use as APIs para automatizar as tarefas de gerenciamento de custos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Como parceiro, o Gerenciamento de Custos do Azure está disponível nativamente apenas para as assinaturas que estão no plano do Azure.
 

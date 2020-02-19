@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 11/13/2019
+ms.date: 02/05/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 3b33015b3a69372f6783d59b28a111ec279dd860
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 9ac70252ce7c818ccbdecfd996b9970f011aa967
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048485"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77056335"
 ---
 # <a name="about-azure-virtual-wan"></a>Sobre a WAN Virtual do Azure
 
@@ -37,6 +37,13 @@ Há dois tipos de WANs virtuais: Básico e Standard. A tabela a seguir mostra as
 
 Para obter as etapas para atualizar uma WAN virtual, consulte [atualizar uma WAN virtual de básico para Standard](upgrade-virtual-wan.md).
 
+## <a name="architecture"></a>Arquitetura
+
+Para obter informações sobre a arquitetura da WAN Virtual e como fazer a migração para a WAN Virtual, confira os seguintes artigos:
+
+* [Arquitetura da WAN Virtual](migrate-from-hub-spoke-topology.md)
+* [Arquitetura de rede de trânsito global](virtual-wan-global-transit-network-architecture.md)
+
 ## <a name="resources"></a>Recursos da WAN Virtual
 
 Para configurar uma WAN virtual de ponta a ponta, crie os seguintes recursos:
@@ -57,7 +64,7 @@ Para configurar uma WAN virtual de ponta a ponta, crie os seguintes recursos:
 
   * **Site:** Esse recurso é usado apenas para conexões site a site. O recurso do site é **vpnsite**. Ele representa o dispositivo VPN local e as respectivas configurações. Ao trabalhar com um parceiro de WAN Virtual, você terá uma solução interna para exportar automaticamente essas informações para o Azure.
 
-## <a name="connectivity"></a>Conectividade
+## <a name="connectivity"></a>Tipos de conectividade
 
 A WAN Virtual permite os dois tipos de conectividade a seguir: VPN Site a Site, VPN do usuário (Ponto a Site) e ExpressRoute.
 

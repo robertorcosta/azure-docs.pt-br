@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
-ms.date: 06/12/2019
-ms.openlocfilehash: b04cc3a5e3a5680f7a16e890c39a4a7d83002bd7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.date: 02/10/2020
+ms.openlocfilehash: a77771880da962298f6e80782e5f3e251f5f4641
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74321668"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122361"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>O que são os Serviços de ML no Azure HDInsight
 
@@ -23,7 +23,7 @@ O ML Services no HDInsight fornece os recursos mais recentes para análise de R 
 
 O nó de borda de um cluster fornece um local conveniente para se conectar ao cluster e executar os scripts de R. Com um nó do borda, você tem a opção de executar funções distribuídas paralelizadas do ScaleR nos núcleos do servidor do nó de borda. Você também pode executá-los nos nós do cluster usando os contextos de cálculo Hadoop Map Reduce ou Apache Spark do ScaleR.
 
-Os modelos ou previsões que resultam de análises podem ser baixados para uso local. Elas também podem ser operacionalizadas em qualquer lugar no Azure, como por meio de um [serviço Web](../../machine-learning/studio/deploy-a-machine-learning-web-service.md) no [Azure Machine Learning Studio (clássico)](https://studio.azureml.net).
+Os modelos ou previsões que resultam de análises podem ser baixados para uso local. Eles também podem ser operacionalizados em outro lugar no Azure, particularmente, por meio do [serviço Web](../../machine-learning/studio/deploy-a-machine-learning-web-service.md) do [Azure Machine Learning Studio (clássico)](https://studio.azureml.net).
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>Introdução ML Services no HDInsight
 
@@ -51,11 +51,14 @@ Os Serviços ML no HDInsight fornecem os seguintes benefícios:
   Individuals embarking on the journey of making their applications intelligent or simply wanting to learn the new world of AI and machine learning, need the right resources to help them get started. In addition to this documentation, Microsoft provides several learning resources and has engaged several training partners to help you ramp up and become productive quickly.
 --->
 
+> [!NOTE]  
+> Há suporte para o tipo de cluster dos Serviços de ML no HDInsight apenas no HDInsight 3.6. O HDInsight 3.6 está agendado para ser desativado em 31 de dezembro de 2020.
+
 ## <a name="key-features-of-ml-services-on-hdinsight"></a>Principais recursos dos Serviços ML no HDInsight
 
 Os seguintes recursos estão incluídos nos Serviços ML no HDInsight.
 
-| Categoria da funcionalidade | DESCRIÇÃO |
+| Categoria da funcionalidade | Descrição |
 |------------------|-------------|
 | R habilitado | [pacotes R](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) para soluções escritas em R, com uma distribuição de código aberto de R e infraestrutura de tempo de execução para execução de scripts. |
 | Python habilitado | [Módulos Python](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) para soluções escritas em Python, com uma distribuição de software livre do Python e infraestrutura em tempo de execução para execução de scripts.

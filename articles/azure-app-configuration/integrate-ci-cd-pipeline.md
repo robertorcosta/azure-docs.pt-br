@@ -1,44 +1,38 @@
 ---
-title: 'Tutorial: Integrar-se com um pipeline de integração e entrega contínua'
-titleSuffix: Azure App Configuration
-description: Neste tutorial, você aprenderá como gerar um arquivo de configuração usando os dados na Configuração de Aplicativos do Azure durante a integração e entrega contínuas
+title: Integrar a Configuração de Aplicativos do Azure usando um pipeline de integração e entrega contínuas
+description: Saiba como implementar a integração e a entrega contínuas usando a Configuração de Aplicativos do Azure
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: balans
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
 ms.topic: tutorial
-ms.date: 02/24/2019
+ms.date: 01/30/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: cd40b52c20a3cafdbbeef093b574d44b9163c7b2
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c744557471a9b37bd620bb9195bdb709c24649ab
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899382"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047281"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrar com um pipeline de CI/CD
 
-Este artigo descreve várias maneiras de usar dados da Configuração de Aplicativos do Azure em um sistema de integração e implantação contínuas.
+Este artigo explica como usar dados da Configuração de Aplicativos do Azure em um sistema de integração e implantação contínuas.
 
 ## <a name="use-app-configuration-in-your-azure-devops-pipeline"></a>Usar a Configuração de Aplicativos no pipeline do Azure DevOps
 
-Se você tiver um pipeline do Azure DevOps, efetue fetch de valores de chave na Configuração de Aplicativos e defina-as como variáveis de tarefa. A [extensão de DevOps do Configuração de Aplicativos do Azure](https://go.microsoft.com/fwlink/?linkid=2091063) é um módulo complementar que fornece essa funcionalidade. Basta seguir as instruções para usar a extensão em uma sequência de tarefas de versão ou build.
+Se você tiver um pipeline do Azure DevOps, efetue fetch de valores de chave na Configuração de Aplicativos e defina-as como variáveis de tarefa. A [extensão de DevOps do Configuração de Aplicativos do Azure](https://go.microsoft.com/fwlink/?linkid=2091063) é um módulo complementar que fornece essa funcionalidade. Siga as instruções para usar a extensão em uma sequência de tarefas de versão ou build.
 
 ## <a name="deploy-app-configuration-data-with-your-application"></a>Implantar dados da Configuração de Aplicativos com seu aplicativo
 
-Seu aplicativo poderá falhar ao executar se depender da Configuração de Aplicativos do Azure e não puder acessá-la. Você pode melhorar a resiliência de seu aplicativo para lidar com um evento desse tipo, embora seja improvável que isso aconteça. Para fazer isso, empacote os dados de configuração atuais em um arquivo que é implantado com o aplicativo e carregado localmente durante sua inicialização. Essa abordagem garante que seu aplicativo tenha, pelo menos, valores de configuração padrão. Esses valores são substituídos por alterações mais recentes em um repositório de Configuração de Aplicativos quando ele está disponível.
+Seu aplicativo poderá falhar ao executar se depender da Configuração de Aplicativos do Azure e não puder acessá-la. Aprimore a resiliência do seu aplicativo empacotando os dados de configuração em um arquivo implantado com o aplicativo e carregado localmente durante a inicialização do aplicativo. Essa abordagem garante que o seu aplicativo tenha valores de configuração padrão na inicialização. Esses valores são substituídos por alterações mais recentes em um repositório de Configuração de Aplicativos quando ele está disponível.
 
-Usando a função [Exportar](./howto-import-export-data.md#export-data) da Configuração de Aplicativos do Azure, você pode automatizar o processo de recuperação de dados de configuração atuais como um único arquivo. Em seguida, insira esse arquivo em uma etapa de build ou implantação em seu pipeline de CI/CD (integração contínua e implantação contínua).
+Usando a função [Exportar](./howto-import-export-data.md#export-data) da Configuração de Aplicativos do Azure, você pode automatizar o processo de recuperação de dados de configuração atuais como um único arquivo. Em seguida, insira esse arquivo em uma etapa de build ou implantação no pipeline de CI/CD (integração e implantação contínuas).
 
 O exemplo a seguir mostra como incluir dados de Configuração de Aplicativos como uma etapa de build para o aplicativo Web introduzido nos guias de início rápido. Antes de continuar, conclua [Criar um aplicativo ASP.NET Core com a Configuração de Aplicativo](./quickstart-aspnet-core-app.md) primeiro.
 
 Você pode usar qualquer editor de código para executar as etapas deste tutorial. O [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção disponível nas plataformas Windows, macOS e Linux.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Pré-requisitos
 
 Se você compilar localmente, baixe e instale a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) se ainda não tiver feito isso.
 
@@ -54,10 +48,7 @@ Para fazer um build de nuvem com o Azure DevOps, por exemplo, assegure que a [CL
         <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Condition="$(ConnectionString) != ''" Command="az appconfig kv export -d file --path $(OutDir)\azureappconfig.json --format json --separator : --connection-string $(ConnectionString)" />
     </Target>
     ```
-
-    Adicione o *ConnectionString* associado a seu repositório de Configuração de Aplicativos como uma variável de ambiente.
-
-2. Abra *Program.cs* e atualize o método `CreateWebHostBuilder` para usar o arquivo JSON exportado chamando o método `config.AddJsonFile()`.
+1. Abra *Program.cs* e atualize o método `CreateWebHostBuilder` para usar o arquivo JSON exportado chamando o método `config.AddJsonFile()`.  Adicione o namespace `System.Reflection` também.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -75,7 +66,8 @@ Para fazer um build de nuvem com o Azure DevOps, por exemplo, assegure que a [CL
 
 ### <a name="build-and-run-the-app-locally"></a>Compilar e executar o aplicativo localmente
 
-1. Defina uma variável de ambiente chamada **ConnectionString** e defina-a como a chave de acesso ao repositório de Configuração de Aplicativos. Se você usar o prompt de comando do Windows, execute o comando a seguir e reinicie o prompt de comando para permitir que a alteração entre em vigor:
+1. Defina uma variável de ambiente chamada **ConnectionString** e defina-a como a chave de acesso ao repositório de Configuração de Aplicativos. 
+    Se você usar o prompt de comando do Windows, execute o comando a seguir e reinicie o prompt de comando para permitir que a alteração entre em vigor:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 

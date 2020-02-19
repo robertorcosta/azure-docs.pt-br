@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: b86f58a1b6b9e3a952861dbe7dbeef4dfe06a644
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 90d39635ac6302f816f39ca19cc00a39cfbbf850
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964822"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121023"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-c"></a>Início Rápido: Conectar um aplicativo de exemplo de dispositivo IoT Plug and Play Preview ao Hub IoT (C#)
 
@@ -23,9 +23,9 @@ Este guia de início rápido mostra como criar um aplicativo de exemplo de dispo
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este início rápido, você precisa instalar o .NET Core 2.2 em seu computador de desenvolvimento. Você pode baixar esta versão do SDK do .NET Core para várias plataformas em [Baixar o .NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2).
+Para concluir este início rápido, você precisará instalar o .NET Core 3.0 no computador de desenvolvimento. Baixe esta versão do SDK do .NET Core para várias plataformas em [Baixar o .NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
 Você pode verificar a versão do .NET que está em seu computador de desenvolvimento executando o seguinte comando em uma janela do terminal local: 
 
@@ -72,7 +72,7 @@ Você usa o código de exemplo clonado para criar um aplicativo que simula um di
 1. Execute um aplicativo de exemplo para simular um dispositivo IoT Plug and Play que envia telemetria ao Hub IoT. Na mesma janela do terminal, para criar os pacotes necessários e executar o aplicativo de exemplo, use o seguinte comando:
 
     ```cmd\sh
-        dotnet run
+    dotnet run --framework=netcoreapp3.0
     ```
 
 Você vê mensagens dizendo que o dispositivo foi registrado com êxito e está aguardando atualizações da nuvem. Isso indica que o dispositivo agora está pronto para receber comandos e atualizações de propriedade e começou a enviar dados telemétricos para o hub. Mantenha o exemplo em execução enquanto você conclui as próximas etapas.

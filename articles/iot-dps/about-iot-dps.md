@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
-ms.openlocfilehash: d097894c841d91d344b5958e7f5e1c10249f8b6e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e564660b502a950021ba4e4754ff5c210dfd477f
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904880"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77082870"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Provisionando dispositivos com o Serviço de provisionamento de dispositivos no Hub IoT do Azure
 O Microsoft Azure fornece um conjunto avançado de serviços de nuvem pública integrados para todas as suas necessidades de soluções de IoT. O DPS (Serviço de Provisionamento de Dispositivos) no Hub IoT é um serviço auxiliar para Hub IoT que permite o provisionamento Just-In-Time e sem toque no hub IoT correto sem exigir intervenção humana. O DPS permite o provisionamento de milhões de dispositivos de maneira segura e escalonável.
@@ -80,8 +80,10 @@ O DPS tem muitos recursos que o tornam ideal para provisionar dispositivos.
 * A **lista de registro** que contém o registro completo de dispositivos/grupos de dispositivos que podem, em algum ponto, ser registrados. A lista de registro contém informações sobre a configuração desejada do dispositivo após ele ser registrado e ele pode ser atualizado a qualquer momento.
 * **Várias políticas de alocação** para controlar como o DPS atribui dispositivos para Hubs IoT para dar suporte a seus cenários: Latência mais baixa, distribuição uniformemente ponderada (padrão) e configuração estática por meio da lista de registro. A latência é determinada usando o mesmo método que o [Gerenciador de Tráfego](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#performance).
 * **Logs de monitoramento e de diagnóstico** para verificar se tudo está funcionando corretamente.
-* O **suporte a vários hubs** permite que o DPS faça a associação tardia de dispositivos a um hub IoT em runtime. O DPS pode se comunicar com hubs entre várias assinaturas do Azure.
+* O **suporte a vários hubs** permite que o DPS atribua dispositivos a mais de um hub IoT. O DPS pode se comunicar com hubs entre várias assinaturas do Azure.
 * O **suporte entre regiões** permite que o DPS atribua dispositivos a hubs IoT em outras regiões.
+* A **criptografia de dados em repouso** permite que os dados do DPS sejam criptografados e descriptografados de maneira transparente usando a criptografia AES de 256 bits, uma das codificações de bloco mais fortes disponíveis, e é compatível com o FIPS 140-2.
+
 
 Você pode aprender mais sobre os conceitos e recursos envolvidos no provisionamento do dispositivo em [conceitos de dispositivo](concepts-device.md), [conceitos de serviço](concepts-service.md) e [conceitos de segurança](concepts-security.md).
 

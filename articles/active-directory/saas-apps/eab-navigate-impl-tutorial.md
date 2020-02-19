@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d02a9dbc5b89c4156b7ff8b6a49adb7f00fef83
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 465b41aaf3c3b16dcba489d1ea9ba951a3108c8e
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969738"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046596"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eab-navigate-impl"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao EAB Navigate IMPL
 
@@ -83,12 +83,15 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:
-
+1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:  Na caixa de texto **Identificador (ID da Entidade)** , insira exatamente o seguinte valor: `https://impl.bouncer.eab.com`
+    
+    Na caixa de texto **URL de Resposta (URL do Serviço do Consumidor de Declaração)** , insira os seguintes valores como linhas separadas: `https://impl.bouncer.eab.com/sso/saml2/acs`
+    `https://impl.bouncer.eab.com/sso/saml2/acs/`
+    
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<SUBDOMAIN>.navigate.impl.eab.com/`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com a URL de Logon real. Entre em contato com a [equipe de suporte ao cliente do EAB Navigate IMPL](mailto:jmahoney@eab.com) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > O valor não é real. Atualize o valor com a URL de Logon real. Entre em contato com a [equipe de suporte ao cliente do EAB Navigate IMPL](mailto:EABTechSupport@eab.com) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, clique no botão Copiar para copiar a **URL de Metadados de Federação do Aplicativo** e salve-a no computador.
 
@@ -126,11 +129,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 ## <a name="configure-eab-navigate-impl-sso"></a>Configurar o SSO do EAB Navigate IMPL
 
-Para configurar logon único no lado do **EAB Navigate IMPL**, é necessário enviar a **URL de Metadados de Federação de Aplicativos** para a [equipe de suporte do EAB Navigate IMPL](mailto:jmahoney@eab.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar logon único no lado do **EAB Navigate IMPL**, é necessário enviar a **URL de Metadados de Federação de Aplicativos** para a [equipe de suporte do EAB Navigate IMPL](mailto:EABTechSupport@eab.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-eab-navigate-impl-test-user"></a>Criar usuário de teste do EAB Navigate IMPL
 
-Nesta seção, você criará um usuário chamado B.Fernandes no EAB Navigate IMPL. Trabalhe com  [a equipe de suporte do EAB Navigate IMPL](mailto:jmahoney@eab.com) para adicionar os usuários na plataforma do EAB Navigate IMPL. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado B.Fernandes no EAB Navigate IMPL. Trabalhe com  [a equipe de suporte do EAB Navigate IMPL](mailto:EABTechSupport@eab.com) para adicionar os usuários na plataforma do EAB Navigate IMPL. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ## <a name="test-sso"></a>Testar o SSO
 

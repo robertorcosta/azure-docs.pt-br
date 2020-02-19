@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: b873cdc65ed483836dc4c3cf9904a8fab1d2f09f
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 78dfbabdcddaafefe77711e8f7b0ea1028f15c58
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665175"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117919"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Início Rápido: Criar, consultar e percorrer um banco de dados de grafo do Azure Cosmos DB usando o console do Gremlin
 
@@ -33,7 +33,7 @@ Este início rápido demonstra como criar uma conta de [API do Gremlin](graph-in
 
 O console Gremlin é baseado em Groovy/Java e é executado no Linux, Mac e Windows. Você pode baixá-lo no [site do Apache TinkerPop](https://tinkerpop.apache.org/downloads.html).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você precisa ter uma assinatura do Azure para criar uma conta do BD Cosmos do Azure para este início rápido.
 
@@ -49,11 +49,11 @@ Também é necessário instalar o [Console do Gremlin](https://tinkerpop.apache.
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
-## <a id="ConnectAppService"></a>Conectar-se ao serviço de aplicativo
+## <a id="ConnectAppService"></a>Conectar-se ao serviço de aplicativo/Graph
 1. Antes de iniciar o console do Gremlin, crie ou modifique seu arquivo de configuração remote-secure.yaml no diretório `apache-tinkerpop-gremlin-console-3.2.5/conf`.
 2. Preencha as configurações de *host*, *porta*, *nome de usuário*, *senha*, *connectionPool* e *serializador* como definido nesta tabela:
 
-    Configuração|Valor sugerido|DESCRIÇÃO
+    Configuração|Valor sugerido|Descrição
     ---|---|---
     hosts|[*nome-da-conta*.**gremlin**.cosmos.azure.com]|Consulte a seguinte captura de tela. Esse é o valor de **URI Gremlin** na página Visão geral do portal do Azure, entre colchetes, com a sequência :443/ à direita removida. Observação: é preciso usar o valor Gremlin e **não** o URI que termina com [*nome-da-conta*.documents.azure.com], o qual provavelmente resultaria em uma exceção "O host não respondeu em tempo hábil" ao tentar executar as consultas de Gremlin posteriormente. 
     porta|443|Definir para 443.
