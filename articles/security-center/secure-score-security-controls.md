@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2019
 ms.author: memildin
-ms.openlocfilehash: 0287a8011eb10120e273fb063c98ccd3c1a85782
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 0096bccf76e81f2bca1a449cea2474cb5266fabc
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278017"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443577"
 ---
 # <a name="the-enhanced-secure-score-preview"></a>A pontuação segura aprimorada (visualização) 
 
@@ -101,7 +101,7 @@ A tabela a seguir lista os controles de segurança na central de segurança do A
 |**Criptografar dados em trânsito**|4|-O aplicativo de API só deve ser acessível via HTTPS<br>-Aplicativo de funções só deve ser acessível via HTTPS<br>-Somente as conexões seguras para o cache Redis devem ser habilitadas<br>-A transferência segura para contas de armazenamento deve ser habilitada<br>-O aplicativo Web só deve ser acessível via HTTPS|
 |**Gerenciar acesso e permissões**|4|-Um máximo de 3 proprietários deve ser designado para sua assinatura<br>-As contas preteridas devem ser removidas da sua assinatura (versão prévia)<br>-Contas preteridas com permissões de proprietário devem ser removidas da sua assinatura (versão prévia)<br>-Contas externas com permissões de proprietário devem ser removidas da sua assinatura (versão prévia)<br>-Contas externas com permissões de leitura devem ser removidas da sua assinatura<br>-Contas externas com permissões de gravação devem ser removidas da sua assinatura (versão prévia)<br>-Deve haver mais de um proprietário atribuído à sua assinatura<br>-RBAC (controle de acesso baseado em função) deve ser usado em serviços Kubernetess (versão prévia)<br>-Service Fabric clusters só devem usar Azure Active Directory para autenticação de cliente|
 |**Corrigir as configurações de segurança**|4|-As políticas de segurança de Pod devem ser definidas nos serviços Kubernetess (versão prévia)<br>-Vulnerabilidades nas configurações de segurança do contêiner devem ser corrigidas<br>-Vulnerabilidades na configuração de segurança em seus computadores devem ser corrigidas<br>-As vulnerabilidades na configuração de segurança em seus conjuntos de dimensionamento de máquinas virtuais devem ser corrigidas<br>-O agente de monitoramento deve ser instalado em suas máquinas virtuais<br>-O agente de monitoramento deve ser instalado em seus computadores<br>-O agente de monitoramento deve ser instalado em conjuntos de dimensionamento de máquinas virtuais<br>-Problemas de integridade do agente de monitoramento devem ser resolvidos em seus computadores|
-|**Restringir o acesso não autorizado à rede**|4|-O encaminhamento IP em sua máquina virtual deve ser desabilitado<br>-Os intervalos de IP autorizados devem ser definidos nos serviços Kubernetess (versão prévia)<br>-O acesso aos serviços de aplicativos deve ser restrito (versão prévia)<br>-As regras para aplicativos Web em IaaS NSGs devem ser protegidas<br>-As máquinas virtuais devem ser associadas a um grupo de segurança de rede<br>-CORS não deve permitir que todos os recursos acessem seu aplicativo de API<br>-CORS não deve permitir que todos os recursos acessem seu Aplicativo de funções<br>-CORS não deve permitir que todos os recursos acessem seu aplicativo Web<br>-A depuração remota deve ser desativada para o aplicativo de API<br>-A depuração remota deve ser desativada para Aplicativo de funções<br>-A depuração remota deve ser desativada para o aplicativo Web<br>-O acesso deve ser restrito para grupos de segurança de rede permissivos com VMs voltadas para a Internet<br>-As regras de grupo de segurança de rede para máquinas virtuais voltadas para a Internet devem ser protegidas|
+|**Restringir o acesso não autorizado à rede**|4|-O encaminhamento IP em sua máquina virtual deve ser desabilitado<br>-Os intervalos de IP autorizados devem ser definidos nos serviços Kubernetess (versão prévia)<br>-(Preterido) o acesso aos serviços de aplicativo deve ser restrito (versão prévia)<br>-(Preterido) as regras para aplicativos Web em IaaS NSGs devem ser protegidas<br>-As máquinas virtuais devem ser associadas a um grupo de segurança de rede<br>-CORS não deve permitir que todos os recursos acessem seu aplicativo de API<br>-CORS não deve permitir que todos os recursos acessem seu Aplicativo de funções<br>-CORS não deve permitir que todos os recursos acessem seu aplicativo Web<br>-A depuração remota deve ser desativada para o aplicativo de API<br>-A depuração remota deve ser desativada para Aplicativo de funções<br>-A depuração remota deve ser desativada para o aplicativo Web<br>-O acesso deve ser restrito para grupos de segurança de rede permissivos com VMs voltadas para a Internet<br>-As regras de grupo de segurança de rede para máquinas virtuais voltadas para a Internet devem ser protegidas|
 |**Aplicar controle de aplicativo adaptável**|3|-Os controles de aplicativo adaptáveis devem ser habilitados em máquinas virtuais<br>-O agente de monitoramento deve ser instalado em suas máquinas virtuais<br>-O agente de monitoramento deve ser instalado em seus computadores<br>-Problemas de integridade do agente de monitoramento devem ser resolvidos em seus computadores|
 |**Aplicar classificação de dados**|2|-Os dados confidenciais em seus bancos de dado SQL devem ser classificados (versão prévia)|
 |**Proteger aplicativos contra ataques de DDoS**|2|-A proteção contra DDoS Standard deve ser habilitada|
@@ -127,7 +127,7 @@ Sim. É recomendável desabilitar as recomendações quando elas não são aplic
 ### <a name="if-a-security-control-offers-me-zero-points-towards-my-secure-score-should-i-ignore-it"></a>Se um controle de segurança me oferecer zero pontos em direção à minha pontuação segura, devo ignorá-lo?
 Em alguns casos, você verá uma pontuação máxima de controle maior que zero, mas o impacto é zero. Quando a pontuação incremental para corrigir recursos é insignificante, ela é arredondada para zero. Não ignore essas recomendações, pois elas ainda trazem melhorias de segurança. A única exceção é o controle "prática recomendada adicional". A correção dessas recomendações não aumentará sua pontuação, mas irá aprimorar a segurança geral.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Este artigo descreveu a pontuação segura aprimorada e os novos controles de segurança que ele introduz. Para obter material relacionado, consulte os seguintes artigos:
 

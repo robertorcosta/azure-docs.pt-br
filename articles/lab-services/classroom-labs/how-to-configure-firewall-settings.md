@@ -1,19 +1,19 @@
 ---
-title: Configurações de firewall para Azure Lab Services
+title: Configurações de firewall para o Azure Lab Services
 description: Saiba como determinar o endereço IP público e o intervalo de números de porta de máquinas virtuais em um laboratório para que as informações possam ser adicionadas às regras de firewall.
 author: emaher
 ms.author: enewman
-ms.date: 12/12/2019
+ms.date: 02/14/2020
 ms.topic: article
 ms.service: lab-services
-ms.openlocfilehash: da1614e4a3e02ed91ef2d3c59ac4eb3eac0dcc7c
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: fbd45af0c9b94f04fdaad9d9b5c8214a91a8db91
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75692765"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443441"
 ---
-# <a name="firewall-settings-for-azure-lab-services"></a>Configurações de firewall para Azure Lab Services
+# <a name="firewall-settings-for-azure-lab-services"></a>Configurações de firewall para o Azure Lab Services
 
 Cada organização ou escola configurará sua própria rede de uma maneira que melhor atenda às suas necessidades.  Às vezes, isso inclui a definição de regras de firewall que bloqueiam conexões protocolo RDP (RDP) ou Secure Shell (SSH) para computadores fora de sua própria rede.  Como Azure Lab Services é executado na nuvem pública, algumas configurações extras talvez sejam necessárias para permitir que os alunos acessem sua VM ao se conectarem da rede do campus.
 
@@ -24,10 +24,10 @@ Cada laboratório usa um único endereço IP público e várias portas.  Todas a
 
 ## <a name="find-public-ip-for-a-lab"></a>Localizar IP público para um laboratório
 
-Os endereços IP públicos de cada laboratório são listados na folha **todos os laboratórios** da conta do laboratório dos serviços de laboratório.  Para obter instruções sobre como encontrar a folha **todos os laboratórios** , consulte [como gerenciar laboratórios em uma conta de laboratório](how-to-manage-lab-accounts.md#view-and-manage-labs-in-the-lab-account).  
+Os endereços IP públicos de cada laboratório são listados na página **todos os laboratórios** da conta do laboratório dos serviços de laboratório.  Para obter instruções sobre como encontrar a página **todos os laboratórios** , consulte [como gerenciar laboratórios em uma conta de laboratório](how-to-manage-lab-accounts.md#view-and-manage-labs-in-the-lab-account).  
 
 > [!div class="mx-imgBorder"]
-> folha ![todos os laboratórios](../media/how-to-configure-firewall-settings/all-labs-properties.png)
+> página ![todos os laboratórios](../media/how-to-configure-firewall-settings/all-labs-properties.png)
 
 >[!NOTE]
 >Você não verá o endereço IP público se o computador de modelo do seu laboratório ainda não estiver publicado.
@@ -35,3 +35,13 @@ Os endereços IP públicos de cada laboratório são listados na folha **todos o
 ## <a name="conclusion"></a>Conclusão
 
 Agora sabemos o endereço IP público do laboratório.  As regras de entrada e saída podem ser criadas para o firewall da organização para o endereço IP público e o intervalo de portas 49152-65535.  Depois que as regras são atualizadas, os alunos podem acessar suas VMs sem o firewall de rede bloqueando o acesso.
+
+## <a name="next-steps"></a>Próximas etapas
+Veja os artigos a seguir:
+
+- [Permitir que o criador de laboratório escolha o local do laboratório](allow-lab-creator-pick-lab-location.md)
+- [Conectar a rede do seu laboratório a uma rede virtual de mesmo nível](how-to-connect-peer-virtual-network.md)
+- [Anexar uma galeria de imagens compartilhadas a um laboratório](how-to-attach-detach-shared-image-gallery.md)
+- [Adicionar um usuário como um proprietário de laboratório](how-to-add-user-lab-owner.md)
+- [Exibir configurações de firewall para um laboratório](how-to-configure-firewall-settings.md)
+- [Definir outras configurações para um laboratório](how-to-configure-lab-accounts.md)

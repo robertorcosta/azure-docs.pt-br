@@ -1,5 +1,5 @@
 ---
-title: Criar e editar políticas de segurança de Azure Policy usando a API REST | Microsoft Docs
+title: Criar e editar políticas de segurança de Azure Policy usando a API REST
 description: Saiba mais sobre o gerenciamento de políticas de Azure Policy por meio de uma API REST.
 services: security-center
 author: memildin
@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 56c5ca8c4e1d70e002a338c753f9ab1f0b1aa411
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: c218b5dc8ca3bfa0358a9b6a0d4867696762a8d4
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73522015"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430934"
 ---
 # <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Configurar uma política de segurança no Azure Policy usando a API REST
 
@@ -119,18 +119,18 @@ Este exemplo mostra como remover uma atribuição:
 
 |Nome da política na Central de Segurança|Nome da política exibido no Azure Policy |Nome do parâmetro de efeito da política|
 |----|----|----|
-|Criptografia do SQL |Monitorar o banco de dados SQL não criptografado na Central de Segurança do Azure |sqlEncryptionMonitoringEffect| 
+|Criptografia do SQL |monitora o banco de dados SQL não criptografado na Central de Segurança do Azure |sqlEncryptionMonitoringEffect| 
 |Auditoria do SQL |monitora o banco de dados SQL não auditado na Central de Segurança do Azure |sqlAuditingMonitoringEffect|
-|Atualizações do sistema |Monitorar atualizações de sistemas ausentes na Central de Segurança do Azure |systemUpdatesMonitoringEffect|
-|Criptografia do armazenamento |Auditar a criptografia de blob ausente para contas de armazenamento |storageEncryptionMonitoringEffect|
+|Atualizações do sistema |monitora atualizações de sistemas ausentes na Central de Segurança do Azure |systemUpdatesMonitoringEffect|
+|Criptografia do armazenamento |audita a criptografia de blob ausente para contas de armazenamento |storageEncryptionMonitoringEffect|
 |Acesso à rede JIT |Monitorar um possível acesso JIT (just-in-time) de rede na central de segurança do Azure |jitNetworkAccessMonitoringEffect |
 |Controles de aplicativo adaptáveis |monitora a possível lista de permissões de aplicativo na Central de Segurança do Azure |adaptiveApplicationControlsMonitoringEffect|
 |Grupos de segurança de rede |monitora o acesso permissivo à rede na Central de Segurança do Azure |networkSecurityGroupsMonitoringEffect| 
-|Configurações de segurança |Monitorar as vulnerabilidades do SO na Central de Segurança do Azure |systemConfigurationsMonitoringEffect| 
-|Proteção do ponto de extremidade |Monitorar o Endpoint Protection ausente na Central de Segurança do Azure |endpointProtectionMonitoringEffect |
-|Criptografia do disco |Monitorar discos da VM não criptografados na Central de Segurança do Azure |diskEncryptionMonitoringEffect|
-|Avaliação de vulnerabilidade |Monitorar vulnerabilidades da VM na Central de Segurança do Azure |vulnerabilityAssessmentMonitoringEffect|
-|Firewall do aplicativo Web |Monitorar o aplicativo Web desprotegido na Central de Segurança do Azure |webApplicationFirewallMonitoringEffect |
+|Configurações de segurança |monitora a vulnerabilidades do sistema operacional na Central de Segurança do Azure |systemConfigurationsMonitoringEffect| 
+|Proteção do ponto de extremidade |monitora o Endpoint Protection ausente na Central de Segurança do Azure |endpointProtectionMonitoringEffect |
+|Criptografia do disco |monitora discos não criptografados da VM na Central de Segurança do Azure |diskEncryptionMonitoringEffect|
+|Avaliação de vulnerabilidade |monitora vulnerabilidades de máquinas virtuais na Central de Segurança do Azure |vulnerabilityAssessmentMonitoringEffect|
+|Firewall do aplicativo Web |monitora o aplicativo Web desprotegido na Central de Segurança do Azure |webApplicationFirewallMonitoringEffect |
 |Firewall da próxima geração |monitora pontos de extremidade de rede desprotegidos na Central de Segurança do Azure| |
 
 

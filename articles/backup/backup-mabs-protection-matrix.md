@@ -3,12 +3,12 @@ title: Que tipo de backup o Servidor de Backup do Azure pode fazer
 description: Este artigo fornece uma matriz de suporte listando todas as cargas de trabalho, tipos de dados e instalações que o Servidor de Backup do Azure protege.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8f1ae1432f619dafc5084d250e3f89707405e08b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c7aa8823ca2bf638c6b726c504cddf8c5217fa19
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449883"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444036"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Matriz de proteção do Servidor de Backup do Azure
 
@@ -39,7 +39,7 @@ Este artigo lista os vários servidores e as cargas de trabalho que você pode p
 |Servidores (32 bits e 64 bits)|Windows Server 2008 SP2|Máquina virtual Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual Windows no VMWare)<br /> <br /> Azure Stack|V3, V2|Volume, compartilhamento, pasta, arquivo, estado do sistema/bare metal|
 |Servidores (32 bits e 64 bits)|Windows Storage Server 2008|Servidor físico<br /><br />Máquina virtual local do Hyper-V<br /> <br /> Azure Stack|V3, V2|Volume, compartilhamento, pasta, arquivo, estado do sistema/bare metal|
 |SQL Server|SQL Server 2019|Servidor físico <br /><br /> Máquina virtual local do Hyper-V <br /> <br /> Máquina virtual do Azure (quando a carga de trabalho está sendo executada como máquina virtual do Azure) <br /><br /> Máquina virtual Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual Windows no VMWare)<br /> <br /> Azure Stack|V3|Todos os cenários de implantação: banco de dados|
-|SQL Server|SQL Server 2017|Servidor físico <br /><br /> Máquina virtual local do Hyper-V <br /> <br /> Máquina virtual do Azure (quando a carga de trabalho está sendo executada como máquina virtual do Azure) <br /><br /> Máquina virtual Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual Windows no VMWare)<br /> <br /> Azure Stack|V3|Todos os cenários de implantação: banco de dados|
+|SQL Server|Microsoft SQL Server 2017|Servidor físico <br /><br /> Máquina virtual local do Hyper-V <br /> <br /> Máquina virtual do Azure (quando a carga de trabalho está sendo executada como máquina virtual do Azure) <br /><br /> Máquina virtual Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual Windows no VMWare)<br /> <br /> Azure Stack|V3|Todos os cenários de implantação: banco de dados|
 |SQL Server|Microsoft SQL Server 2016 SP2|Servidor físico <br /><br /> Máquina virtual local do Hyper-V <br /> <br /> Máquina virtual do Azure <br /><br /> Máquina virtual Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual Windows no VMWare)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implantação: banco de dados|
 |SQL Server|SQL Server 2016 SP1|Servidor físico <br /><br /> Máquina virtual local do Hyper-V <br /> <br /> Máquina virtual do Azure <br /><br /> Máquina virtual Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual Windows no VMWare)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implantação: banco de dados|
 |SQL Server|SQL Server 2016|Servidor físico <br /><br /> Máquina virtual local do Hyper-V <br /> <br /> Máquina virtual do Azure <br /><br /> Máquina virtual Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual Windows no VMWare)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implantação: banco de dados|
@@ -78,7 +78,7 @@ Este artigo lista os vários servidores e as cargas de trabalho que você pode p
 |Host Hyper-V-agente de proteção MABS no servidor host do Hyper-V, cluster ou VM|Windows Server 2008 SP2|Servidor físico<br /><br />Máquina virtual local do Hyper-V|Sem suporte|Protege: computadores Hyper-V, volumes compartilhados do cluster (CSVs)<br /><br />Recupera: máquina Virtual, recuperação em nível de item de arquivos e pastas, volumes, unidades de disco rígido virtual|
 |VMs VMware|VMware vCenter/vSphere ESX/ESXi licenciado versão 5.5/6.0/6.5 |Servidor físico, <br/>VM do Hyper-V local, <br/> VM do Windows no VMWare|V3, V2|VMs do VMware em CSVs (volumes compartilhados de cluster), NFS e armazenamento SAN<br /> A recuperação no nível de item de arquivos e pastas está disponível somente para VMs do Windows; não há suporte para vApps do VMware.|
 |VMs VMware|[VMware vSphere versão licenciada 6,7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |Servidor físico, <br/>VM do Hyper-V local, <br/> VM do Windows no VMWare|V3|VMs do VMware em CSVs (volumes compartilhados de cluster), NFS e armazenamento SAN<br /> A recuperação no nível de item de arquivos e pastas está disponível somente para VMs do Windows; não há suporte para vApps do VMware.|
-|Linux|Linux em execução como convidado de Hyper-V ou VMware|Servidor físico, <br/>VM do Hyper-V local, <br/> VM do Windows no VMWare|V3, V2|O Hyper-V deve ser executado no Windows Server 2012 R2 ou Windows Server 2016. Protege: a máquina virtual inteira<br /><br />Recupera: a máquina virtual inteira <br/><br/> Para obter uma lista completa de versões e distribuições do Linux com suporte, consulte o artigo [Linux em distribuições aprovadas pelo Azure](../virtual-machines/linux/endorsed-distros.md).|
+|Linux|Linux em execução como convidado de Hyper-V ou VMware|Servidor físico, <br/>VM do Hyper-V local, <br/> VM do Windows no VMWare|V3, V2|O Hyper-V deve ser executado no Windows Server 2012 R2 ou Windows Server 2016. Protege: a máquina virtual inteira<br /><br />Recupera: a máquina virtual inteira <br/><br/> Somente instantâneos consistentes com arquivos têm suporte. <br/><br/> Para obter uma lista completa de versões e distribuições do Linux com suporte, consulte o artigo [Linux em distribuições aprovadas pelo Azure](../virtual-machines/linux/endorsed-distros.md).|
 
 ## <a name="azure-expressroute-support"></a>Suporte do Azure ExpressRoute
 

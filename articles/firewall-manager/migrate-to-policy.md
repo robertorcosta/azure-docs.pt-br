@@ -1,20 +1,20 @@
 ---
-title: Como migrar configurações de firewall do Azure para a política de firewall do Azure (versão prévia)
+title: Migrar configurações de firewall do Azure para a política de firewall do Azure (versão prévia) usando o PowerShell
 description: Saiba como migrar configurações de firewall do Azure para a política de firewall do Azure (versão prévia)
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 02/18/2020
 ms.author: victorh
-ms.openlocfilehash: f23c9c030b94fe6f563b4e850a78d2d11db7ec25
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 498863c98f308a9fd9b47f80328d572187475901
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516325"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443101"
 ---
-# <a name="how-to-migrate-azure-firewall-configurations-to-azure-firewall-policy-preview"></a>Como migrar configurações de firewall do Azure para a política de firewall do Azure (versão prévia)
+# <a name="migrate-azure-firewall-configurations-to-azure-firewall-policy-preview-using-powershell"></a>Migrar configurações de firewall do Azure para a política de firewall do Azure (versão prévia) usando o PowerShell
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 21a11863bd2bc9882d4336f5c5d2bf1d7b7f49da
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 49ef78ac5a7d58d86583d91bf072f0f3131796fe
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133759"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444087"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Configure um laboratório voltado para o aprendizado profundo no processamento de linguagem natural usando Azure Lab Services
 Este artigo mostra como configurar um laboratório voltado para o aprendizado profundo no NLP (processamento de idioma natural) usando Azure Lab Services. O NLP (processamento de idioma natural) é uma forma de IA (inteligência artificial) que habilita os computadores com tradução, reconhecimento de fala e outras funcionalidades de reconhecimento vocal.  
@@ -30,9 +30,9 @@ Para configurar este laboratório, você precisa de uma assinatura do Azure para
  
 Depois de criar a conta de laboratório, habilite as seguintes configurações na conta do laboratório: 
 
-| Configuração de conta do laboratório | Instructions |
+| Configuração de conta do laboratório | Instruções |
 | ----------- | ------------ |  
-| Imagens do Marketplace | Habilite a imagem do Máquina Virtual de Ciência de Dados para Linux (Ubuntu) para uso em sua conta de laboratório.  Consulte os seguintes artigos para obter instruções: [especificar imagens do Marketplace disponíveis para criadores de laboratório](how-to-configure-lab-accounts.md#specify-marketplace-images-available-to-lab-creators). | 
+| Imagens do Marketplace | Habilite a imagem do Máquina Virtual de Ciência de Dados para Linux (Ubuntu) para uso em sua conta de laboratório.  Consulte o seguinte artigo para obter instruções: [especificar imagens do Marketplace disponíveis para criadores de laboratório](specify-marketplace-images.md). | 
 
 Siga [este tutorial](tutorial-setup-classroom-lab.md) para criar um novo laboratório e aplicar as seguintes configurações:
 
@@ -54,7 +54,7 @@ Mais detalhes sobre preços, consulte [preços de Azure Lab Services](https://az
 ## <a name="conclusion"></a>Conclusão
 Este artigo descreveu as etapas para criar um laboratório para a classe de processamento de idioma natural. Você pode usar uma configuração semelhante para outras classes de aprendizado profundo.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 As próximas etapas são comuns à configuração de qualquer laboratório:
 
 - [Adicionar usuários](tutorial-setup-classroom-lab.md#add-users-to-the-lab)

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/14/2020
 ms.author: mlearned
-ms.openlocfilehash: 20cef402a81ef348d4492daf05e6b16a8d9f709f
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: e77710fe446810ec566ebc7088d802f0721806d2
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77365184"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443917"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerenciar vários pools de nós para um cluster no serviço de kubernetes do Azure (AKS)
 
@@ -483,7 +483,7 @@ az aks nodepool add \
 > [!NOTE]
 > Você também pode usar o parâmetro `--tags` ao usar o comando [AZ AKs nodepool Update][az-aks-nodepool-update] , bem como durante a criação do cluster. Durante a criação do cluster, o parâmetro `--tags` aplica a marca ao pool de nós inicial criado com o cluster. Todos os nomes de marca devem aderir às limitações nas [marcas de uso para organizar os recursos do Azure][tag-limitation]. Atualizar um pool de nós com o parâmetro `--tags` atualiza quaisquer valores de marca existentes e acrescenta quaisquer novas marcas. Por exemplo, se o pool de nós tiver o *Dept = it* e o *costcenter = 9999* para marcas e você o tiver atualizado com *Team = dev* e *costcenter = 111* para marcas, você nodepool teria *Dept = it*, *costcenter = 111*e *Team = dev* para marcas.
 
-A saída de exemplo a seguir do comando [AZ AKs nodepool List][az-aks-nodepool-list] mostra que *taggednodepool* está *criando* nós com a *marca*especificada:
+A saída de exemplo a seguir do comando [AZ AKs nodepool List][az-aks-nodepool-list] mostra que *tagnodepool* está *criando* nós com a *marca*especificada:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: reference
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: dd9ac9654f916653af974e816485630423466ae5
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: fcc43caf895dadfaf832a47c3254f9b828bcb71a
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815433"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430798"
 ---
 # <a name="swagger-documentation"></a>Documentação do Swagger
 
@@ -28,7 +28,7 @@ O serviço de fala oferece uma especificação Swagger para interagir com alguma
 
 A [especificação do Swager](https://cris.ai/swagger/ui/index) traz opções que permitem testar rapidamente vários caminhos. No entanto, às vezes, é desejável para gerar o código para todos os caminhos, criando uma única biblioteca de chamadas na qual é possível basear as soluções futuras. Vamos dar uma olhada no processo de geração de uma biblioteca do Python.
 
-Você precisará definir o Swagger para a mesma região que sua assinatura do serviço de fala. Você pode confirmar sua região no portal do Azure em seu recurso de serviço de fala. Para obter uma lista completa das regiões com suporte, confira [Regiões](regions.md).
+Você precisará definir o Swagger para a mesma região que sua assinatura do serviço de fala. Você pode confirmar sua região no portal do Azure em seu recurso de serviço de fala. Para obter uma lista completa das regiões com suporte, consulte [regiões](regions.md).
 
 1. Acesse https://editor.swagger.io
 2. Clique em **Arquivo** e, em seguida, em **Importar**
@@ -38,13 +38,13 @@ Você precisará definir o Swagger para a mesma região que sua assinatura do se
 
 Você pode usar a biblioteca do Python gerada com os [exemplos de serviço de fala no GitHub](https://aka.ms/csspeech/samples).
 
-## <a name="reference-docs"></a>Documentos de referência
+## <a name="reference-docs"></a>Documentos de Referência
 
 * [REST (Swagger): transcrição e personalização do lote](https://westus.cris.ai/swagger/ui/index)
 * [API REST: conversão de fala em texto](rest-speech-to-text.md)
 * [API REST: conversão de texto em fala](rest-text-to-speech.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Exemplos de serviço de fala no GitHub](https://aka.ms/csspeech/samples).
 * [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](get-started.md)

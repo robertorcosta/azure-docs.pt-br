@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 226c9ae1c42c85db57dab3fd1911943e167a6288
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 100a485588c77f6977001dae984b30ebcb1de557
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133676"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443543"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Configurar um laboratório para ensinar scripts de Shell no Linux
 Este artigo mostra como configurar um laboratório para ensinar o script de Shell no Linux. O script é uma parte útil da administração do sistema que permite aos administradores evitar tarefas repetitivas. Neste cenário de exemplo, a classe abrange scripts do Bash tradicionais e scripts avançados. Scripts avançados são scripts que combinam comandos do Bash e o Ruby. Essa abordagem permite que o Ruby passe os dados e que os comandos do Bash interajam com o shell. 
@@ -30,9 +30,9 @@ Para configurar este laboratório, você precisa de uma assinatura do Azure para
 
 Depois de criar a conta de laboratório, habilite as seguintes configurações na conta do laboratório: 
 
-| Configuração de conta do laboratório | Instructions |
+| Configuração de conta do laboratório | Instruções |
 | ----------- | ------------ |  
-| Imagens do Marketplace | Habilite a imagem do [Ubuntu Server 18, 4 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) para uso em sua conta de laboratório. Para obter mais informações, consulte [especificar imagens do Marketplace disponíveis para criadores de laboratório](how-to-configure-lab-accounts.md#specify-marketplace-images-available-to-lab-creators) | 
+| Imagens do Marketplace | Habilite a imagem do [Ubuntu Server 18, 4 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) para uso em sua conta de laboratório. Para obter mais informações, consulte [especificar imagens do Marketplace disponíveis para criadores de laboratório](specify-marketplace-images.md). | 
 
 Siga [este tutorial](tutorial-setup-classroom-lab.md) para criar um novo laboratório e aplicar as seguintes configurações:
 
@@ -92,7 +92,7 @@ Para obter mais informações sobre os preços, encontre o seguinte documento: [
 ## <a name="conclusion"></a>Conclusão
 Este artigo descreveu as etapas para criar um laboratório para classes de script. Embora este artigo se concentre na configuração das ferramentas de script do Ruby no computador Linux, a mesma configuração pode ser usada para outras classes de script, como Python no Linux.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 As próximas etapas são comuns à configuração de qualquer laboratório:
 
 - [Adicionar usuários](tutorial-setup-classroom-lab.md#add-users-to-the-lab)

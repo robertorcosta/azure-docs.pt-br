@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2020
+ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: ea9df341fcc76a38364e590f8541e6a85d7ec466
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 52d5628698d1f945a7f672595ee7ce4739b6d13c
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77211003"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444359"
 ---
 # <a name="allow-lab-creator-to-pick-location-for-the-lab-in-azure-lab-services"></a>Permitir que o criador de laboratório escolha o local do laboratório em Azure Lab Services
 No Azure Lab Services, um proprietário de conta de laboratório pode permitir que os criadores de laboratório (educadores) escolham um local para o laboratório criado. Esse local pode ser diferente do local da conta do laboratório. Um local é um grupo de regiões do Azure. Por exemplo, Estados Unidos local é um grupo de regiões como leste dos EUA, oeste dos EUA e assim por diante. 
@@ -73,6 +73,8 @@ Anteriormente, o preço era baseado no tamanho da VM que você escolhe para o la
 ## <a name="next-steps"></a>Próximas etapas
 Veja os artigos a seguir:
 
-- [Como um proprietário de laboratório, crie e gerencie laboratórios](how-to-manage-classroom-labs.md)
-- [Como um proprietário de laboratório, configure e publique modelos](how-to-create-manage-template.md)
-- [Como um proprietário de laboratório, configure e controle o uso de um laboratório](how-to-configure-student-usage.md)
+- [Conectar a rede do seu laboratório a uma rede virtual de mesmo nível](how-to-connect-peer-virtual-network.md)
+- [Anexar uma galeria de imagens compartilhadas a um laboratório](how-to-attach-detach-shared-image-gallery.md)
+- [Adicionar um usuário como um proprietário de laboratório](how-to-add-user-lab-owner.md)
+- [Exibir configurações de firewall para um laboratório](how-to-configure-firewall-settings.md)
+- [Definir outras configurações para um laboratório](how-to-configure-lab-accounts.md)

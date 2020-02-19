@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 02/18/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 3df7e772ea88a7a58780f08ff20f44d50f01c336
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: f15e92f5e98c047fc5ed481968674370cf222a16
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063876"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443611"
 ---
 # <a name="frequently-asked-questions-faqs-about-the-microsoft-authenticator-app"></a>Perguntas frequentes sobre o aplicativo Microsoft Authenticator
 
@@ -52,6 +52,7 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 | Por que estou recebendo notificações sobre a atividade de minha conta? | Para ajudar a mantê-lo mais informado sobre o que está acontecendo com sua conta pessoal da Microsoft, estamos enviando notificações de atividade ao seu aplicativo Microsoft Authenticator. Essas notificações aparecem imediatamente depois que algo for alterado, ajudando você a manter a sua conta mais segura. Antes, enviávamos essas notificações por email e SMS e agora expandimos para incluir o aplicativo. Para obter mais informações sobre essas notificações de atividade, confira [O que acontece se houver uma entrada incomum na sua conta](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in). Para alterar onde você recebe suas notificações, entre na página [onde podemos entrar em contato com você com alertas de conta não críticos](https://account.live.com/SecurityNotifications/Update) de sua conta. |
 | Ao entrar em minha conta corporativa ou de estudante usando o aplicativo de email padrão que vem com o iOS, recebo uma solicitação do aplicativo Microsoft Authenticator para minhas informações de verificação de segurança. Depois de inserir essas informações e retornar ao aplicativo de email, recebo um erro. O que posso fazer? | Isso provavelmente acontece porque sua entrada e seu aplicativo de email estão ocorrendo em dois aplicativos diferentes, fazendo com que o processo inicial de entrada em segundo plano pare de funcionar e falhe. Para tentar corrigir isso, recomendamos que você selecione o ícone do **Safari** no lado inferior direito da tela ao entrar no seu aplicativo de email. Ao mudar para o Safari, todo o processo de entrada ocorre em um único aplicativo, permitindo que você entre no aplicativo com êxito. |
 | Meus códigos de senha de uso único (OTP) não estão funcionando. O que devo fazer? | Verifique se a data e a hora em seu dispositivo estão corretas e estão sendo sincronizadas automaticamente. Se a data e a hora estiverem erradas ou fora de sincronia, o código não funcionará. |
+| O sistema operacional Windows 10 Mobile foi preterido em dezembro de 2019. O Microsoft Authenticator em sistemas operacionais Windows Mobile também será preterido? | O aplicativo Microsoft Authenticator em todos os sistemas operacionais Windows Mobile não terá suporte após 28 de fevereiro de 2020. Os usuários não estarão qualificados para receber novas atualizações para o aplicativo após a data de lançamento. Após 28 de fevereiro de 2020, os serviços da Microsoft que atualmente dão suporte a autenticações usando o Microsoft Authenticator em todos os sistemas operacionais Windows Mobile começarão a desativar seu suporte. Para autenticar nos serviços da Microsoft, recomendamos que todos os nossos usuários mudem para um mecanismo de autenticação alternativo antes dessa data. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 8d43965e87ab57d9f0c79c6661a761b06ccb7073
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 50e050a05fd364a4b1f880e3501b04274ffd360c
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76902107"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444223"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Criar um cluster e um banco de dados do Azure Data Explorer usando Python
 
@@ -24,11 +24,15 @@ ms.locfileid: "76902107"
 > * [Python](create-cluster-database-python.md)
 > * [Modelo de ARM](create-cluster-database-resource-manager.md)
 
-O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerenciado para realizar a análise em tempo real de grandes volumes de dados transmitidos por aplicativos, sites, dispositivos IoT e muito mais. Para usar o Azure Data Explorer, primeiro crie um cluster e um ou mais bancos de dados nesse cluster. Em seguida, ingira (carregue) dados em um banco de dados para poder executar consultas nele. Neste artigo, você cria um cluster e um banco de dados usando o Python.
+Neste artigo, você cria um cluster de Data Explorer do Azure e um banco de dados usando Python. O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerenciado para análise em tempo real de grandes volumes de streaming de dados de aplicativos, sites, dispositivos IoT e muito mais. Para usar o Data Explorer do Azure, primeiro crie um cluster e crie um ou mais bancos de dados nesse cluster. Em seguida, ingerir, ou carregar, dados em um banco de dado para que você possa executar consultas nele.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
-Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
+* Uma conta do Azure com uma assinatura ativa. [Crie um gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
+* [Python 3.4+](https://www.python.org/downloads/).
+
+* [Um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Obter valores para `Directory (tenant) ID`, `Application ID`e `Client Secret`.
 
 ## <a name="install-python-package"></a>Instalar o pacote do Python
 
@@ -83,7 +87,7 @@ Para executar os exemplos neste artigo, precisamos de um aplicativo do Azure AD 
    | cluster_name | *mykustocluster* | O nome desejado do cluster.|
    | sku_name | *Standard_D13_v2* | O SKU que será usado para o cluster. |
    | Camada | *Standard* | A camada de SKU. |
-   | recurso | *number* | O número de instâncias do cluster. |
+   | ALOCADA | *number* | O número de instâncias do cluster. |
    | resource_group_name | *testrg* | O nome do grupo de recursos em que o cluster será criado. |
 
     > [!NOTE]
@@ -146,6 +150,6 @@ Agora você tem um cluster e um banco de dados.
     cluster_operations.delete(resource_group_name = resource_group_name, cluster_name = clusterName)
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Ingerir dados usando a biblioteca Python do Azure Data Explorer](python-ingest-data.md)

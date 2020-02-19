@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: d3f6acef7491a07f94eec0b2c3b2f3bcd9c01a33
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 5e013011f81542aa279ba9276a6a1aac01eb9e41
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701677"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443169"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Conecte a rede do seu laboratório a uma rede virtual de mesmo nível no Azure Lab Services 
 Este artigo fornece informações sobre como emparelhar sua rede de laboratórios com outra rede. 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 O emparelhamento de rede virtual permite que você conecte diretamente as redes virtuais do Azure. Uma vez emparelhadas, as redes virtuais aparecerão como uma para fins de conectividade. O tráfego entre as máquinas virtuais nas redes virtuais emparelhadas é roteado por meio da infraestrutura de backbone da Microsoft, assim como o tráfego é roteado entre máquinas virtuais na mesma rede virtual, somente por meio de endereços IP privados. Para obter mais informações, consulte [Emparelhamento de rede virtual do Azure](../../virtual-network/virtual-network-peering-overview.md).
 
 Talvez seja necessário conectar a rede do laboratório a uma rede virtual de mesmo nível em alguns cenários, incluindo as seguintes:
@@ -34,7 +34,7 @@ Talvez seja necessário conectar a rede do laboratório a uma rede virtual de me
 Determinadas redes locais são conectadas à rede virtual do Azure por meio do [ExpressRoute](../../expressroute/expressroute-introduction.md) ou do [Gateway de rede virtual](../../vpn-gateway/vpn-gateway-about-vpngateways.md). Esses serviços devem ser configurados fora do Azure Lab Services. Para saber mais sobre como conectar uma rede local ao Azure usando o ExpressRoute, consulte [visão geral do expressroute](../../expressroute/expressroute-introduction.md). Para a conectividade local usando um gateway de rede virtual, o gateway, a rede virtual especificada e a conta de laboratório devem estar na mesma região.
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Configurar no momento da criação da conta do laboratório
-Durante a criação da nova conta de laboratório, você pode escolher uma rede virtual existente que é mostrada na lista suspensa **rede virtual par** . A rede virtual selecionada está conectada (emparelhada) a laboratórios criados na conta do laboratório. Todas as máquinas virtuais em laboratórios que são criadas depois de fazer essa alteração teriam acesso aos recursos na rede virtual emparelhada. 
+Durante a criação da nova conta de laboratório, você pode escolher uma rede virtual existente que é mostrada na lista suspensa **rede virtual par** na guia **avançado** . A rede virtual selecionada está conectada (emparelhada) a laboratórios criados na conta do laboratório. Todas as máquinas virtuais em laboratórios que são criadas depois de fazer essa alteração teriam acesso aos recursos na rede virtual emparelhada. 
 
 ![Selecionar VNet para emparelhar](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer.png)
 
@@ -53,11 +53,11 @@ Quando você seleciona uma rede virtual para o campo **rede virtual par** , a op
 > Essa alteração de configuração aplica-se somente a laboratórios criados depois que a alteração é feita, não aos laboratórios existentes. 
 
 
-## <a name="next-steps"></a>Próximos passos
-Confira os seguintes artigos:
+## <a name="next-steps"></a>Próximas etapas
+Veja os artigos a seguir:
 
-- [Como administrador, crie e gerencie contas de laboratório](how-to-manage-lab-accounts.md)
-- [Como um proprietário de laboratório, crie e gerencie laboratórios](how-to-manage-classroom-labs.md)
-- [Como um proprietário de laboratório, configure e publique modelos](how-to-create-manage-template.md)
-- [Como um usuário de laboratório, acesse os laboratórios de sala de aula](how-to-use-classroom-lab.md)
-
+- [Permitir que o criador de laboratório escolha o local do laboratório](allow-lab-creator-pick-lab-location.md)
+- [Anexar uma galeria de imagens compartilhadas a um laboratório](how-to-attach-detach-shared-image-gallery.md)
+- [Adicionar um usuário como um proprietário de laboratório](how-to-add-user-lab-owner.md)
+- [Exibir configurações de firewall para um laboratório](how-to-configure-firewall-settings.md)
+- [Definir outras configurações para um laboratório](how-to-configure-lab-accounts.md)

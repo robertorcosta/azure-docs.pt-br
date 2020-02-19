@@ -1,5 +1,5 @@
 ---
-title: Central de segurança do Azure e serviço kubernetes do Azure | Microsoft Docs
+title: Central de segurança do Azure e serviço kubernetes do Azure
 description: Saiba mais sobre a integração da central de segurança do Azure com os serviços Kubernetess do Azure
 services: security-center
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 2a5d01978d8a4883d760e7ecf84afa381dfd563d
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 9d8c5f98cfd8b4b3831bcbd7e65285f93e6c323f
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74868551"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77441945"
 ---
 # <a name="azure-kubernetes-services-integration-with-security-center-preview"></a>Integração dos serviços Kubernetess do Azure com a central de segurança (versão prévia)
 O AKS (serviço kubernetes do Azure) é o serviço gerenciado da Microsoft para desenvolver, implantar e gerenciar aplicativos em contêineres. 
@@ -34,30 +34,33 @@ Juntas, essas duas ferramentas formam a melhor oferta de segurança de kubernete
 
 O uso de dois serviços juntos fornece:
 
-* **Recomendações de segurança** – a central de segurança identifica os recursos do AKs e os categoriza: de clusters para máquinas virtuais individuais. Em seguida, você pode exibir as recomendações de segurança por recurso. Para obter mais informações, consulte [como implementar recomendações de segurança](security-center-recommendations.md). 
+* **Recomendações de segurança** – a central de segurança identifica os recursos do AKs e os categoriza: de clusters para máquinas virtuais individuais. Em seguida, você pode exibir as recomendações de segurança por recurso. Para obter mais informações, consulte as recomendações de contêineres na [lista de recomendações de referência](recommendations-reference.md#recs-computeapp). 
 
     > [!NOTE]
-    > Se o nome de uma recomendação da central de segurança terminar com uma marca "(visualização)", ele se referirá à natureza de visualização da recomendação; Não o recurso.
+    > Se o nome de uma recomendação da central de segurança terminar com uma marca "(visualização)", ele se referirá à natureza de visualização da recomendação, não ao recurso.
 
-* **Proteção de ambiente** -a central de segurança monitora constantemente a configuração dos seus clusters kubernetes e gera recomendações de segurança que refletem os padrões do setor.
+* **Proteção do ambiente** – a central de segurança monitora constantemente a configuração dos clusters do kubernetes e das configurações do Docker. Em seguida, ele gera recomendações de segurança que refletem os padrões do setor.
 
-* **Proteção de tempo de execução** -por meio de análise contínua das seguintes fontes de AKs, a central de segurança alerta você sobre ameaças e atividades mal-intencionadas detectadas no nível de cluster do host *e* do AKS (para obter mais informações, consulte [detecção de ameaças para contêineres do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-)):
+* **Proteção de tempo de execução** -por meio de análise contínua das seguintes fontes de AKs, a central de segurança alerta você sobre ameaças e atividades mal-intencionadas detectadas no nível de cluster do host *e* do AKS:
     * Eventos de segurança brutos, como dados de rede e criação de processo
     * O log de auditoria do kubernetes
+
+    Para obter mais informações, consulte [detecção de ameaças para contêineres do Azure](security-center-alerts-compute.md#azure-containers-)
+
+    Para obter a lista de possíveis alertas, consulte estas seções na tabela de referência de alertas: [AKs alertas de nível de cluster](alerts-reference.md#alerts-akscluster) e [alertas de nível de host do contêiner](alerts-reference.md#alerts-containerhost).  
 
 ![Central de segurança do Azure e serviço de kubernetes do Azure (AKS) com mais detalhes](./media/azure-kubernetes-service-integration/aks-asc-integration-detailed.png)
 
 > [!NOTE]
 > Alguns dos dados verificados pela central de segurança do Azure do ambiente do kubernetes podem conter informações confidenciais.
 
-## <a name="next-steps"></a>Próximos passos
+
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre os recursos de segurança do contêiner da central de segurança, confira:
 
 * [Central de segurança do Azure e segurança do contêiner](container-security.md)
 
 * [Integração com o registro de contêiner do Azure](azure-container-registry-integration.md)
-
-* [Proteção da máquina virtual](security-center-virtual-machine-protection.md) – descreve as recomendações da central de segurança
 
 * [Gerenciamento de dados na Microsoft](https://www.microsoft.com/trust-center/privacy/data-management) – descreve as políticas de dados dos serviços da Microsoft (incluindo o Azure, o Intune e o Office 365), os detalhes do gerenciamento de dados da Microsoft e as políticas de retenção que afetam seus dados

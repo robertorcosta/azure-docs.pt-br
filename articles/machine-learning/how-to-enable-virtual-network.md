@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: fd358801b5fe84aac754b5a975234688a707e544
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 6e5571604e6154408f2005ab4804b4270041e4cf
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169957"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444342"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteger trabalhos de experimentação e de inferência do Azure ML em uma rede virtual do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -134,13 +134,14 @@ Para usar uma instância de computação ou cluster de computação Azure Machin
 > * Se você pretende colocar várias instâncias de computação ou clusters em uma rede virtual, talvez seja necessário solicitar um aumento de cota para um ou mais dos seus recursos.
 > * Se as contas de armazenamento do Azure para o espaço de trabalho também estiverem protegidas em uma rede virtual, elas deverão estar na mesma rede virtual que a instância ou cluster de computação Azure Machine Learning. 
 
-A instância ou cluster de computação Machine Learning aloca automaticamente recursos de rede adicionais no grupo de recursos que contém a rede virtual. Para cada instância ou cluster de computação, o serviço aloca os seguintes recursos:
-
-* Um grupo de segurança de rede
-* Um endereço IP público
-* Um balanceador de carga
-
-Esses recursos são limitados pelas [cotas de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) da assinatura.
+> [!TIP]
+> A instância ou cluster de computação Machine Learning aloca automaticamente recursos de rede adicionais no grupo de recursos que contém a rede virtual. Para cada instância ou cluster de computação, o serviço aloca os seguintes recursos:
+> 
+> * Um grupo de segurança de rede
+> * Um endereço IP público
+> * Um balanceador de carga
+> 
+> Esses recursos são limitados pelas [cotas de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) da assinatura.
 
 
 ### <a id="mlcports"></a> Portas obrigatórias
@@ -500,6 +501,10 @@ Ao usar o Firewall do Azure, você deve configurar uma regra de rede para permit
 Ao adicionar a regra, defina o __protocolo__ como Any e as portas para `*`.
 
 Para obter mais informações sobre como configurar uma regra de rede, consulte [implantar e configurar o Firewall do Azure](/azure/firewall/tutorial-firewall-deploy-portal#configure-a-network-rule).
+
+## <a name="use-azure-container-registry"></a>Usar o Registro de Contêiner do Azure
+
+Ao usar uma rede virtual com Azure Machine Learning, __não__ Coloque o registro de contêiner do Azure para o espaço de trabalho na rede virtual. Não há suporte para essa configuração.
 
 ## <a name="next-steps"></a>Próximas etapas
 

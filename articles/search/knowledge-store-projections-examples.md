@@ -7,38 +7,41 @@ author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/15/2020
-ms.openlocfilehash: f29f4b91b85c0027df4be2fd5f26ef8f9749fe33
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.date: 02/15/2020
+ms.openlocfilehash: daaedf346bed78a93e0762a37687b623d25ef753
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77165508"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77441962"
 ---
-# <a name="knowledge-store-projections-how-to-shape-and-export-enrichments-to-the-knowledge-store"></a>Projeções da loja de conhecimento: como formatar e exportar aprimoramentos na loja de conhecimento
+# <a name="knowledge-store-projections-how-to-shape-and-export-enrichments"></a>Projeções da loja de conhecimento: como formatar e exportar aprimoramentos
 
 > [!IMPORTANT] 
 > O repositório de conhecimento está atualmente em versão prévia pública. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece recursos de versão prévia. Atualmente, há suporte limitado ao portal e não há suporte para o SDK do .NET.
 
-As projeções são a expressão física de documentos aprimorados em uma loja de conhecimento. O uso efetivo de seus documentos aprimorados exige estrutura. Neste artigo, você explorará a estrutura e as relações, aprenderá a criar propriedades de projeção, bem como a relacionar dados nos tipos de projeção que você criar. 
+As projeções são a expressão física de documentos aprimorados em uma loja de conhecimento. O uso efetivo de seus documentos aprimorados requer estrutura. Neste artigo, você explorará a estrutura e as relações, aprenderá a criar propriedades de projeção, bem como a relacionar dados nos tipos de projeção que você criar. 
 
-Para criar uma projeção, você deve formatar os dados usando uma habilidade de formador para criar um objeto personalizado ou usar a sintaxe de shaping embutida. Uma forma de dados contém todos os dados que você pretende projetar. Este documento fornece um exemplo de cada opção, você pode optar por usar qualquer uma das opções para projeções que você criar.
+Para criar uma projeção, você deve formatar os dados usando uma [habilidade de formador](cognitive-search-skill-shaper.md) para criar um objeto personalizado ou usar a sintaxe de modelagem embutida dentro de uma definição de projeção. 
 
+Uma forma de dados contém todos os dados que você pretende projetar, formados como uma hierarquia de nós. Este artigo mostra várias técnicas para formatar dados para que eles possam ser projetados em estruturas físicas que conduzem a relatórios, análise ou processamento downstream. 
 
-Há três tipos de projeções:
+Os exemplos apresentados neste artigo podem ser encontrados neste exemplo de [API REST](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/projections/Projections%20Docs.postman_collection.json), que você pode baixar e executar em um cliente http.
+
+## <a name="introduction-to-the-examples"></a>Introdução aos exemplos
+
+Se você estiver familiarizado com [projeções](knowledge-store-projection-overview.md), você se lembrará de que há três tipos:
+
 + Tabelas
 + Objetos
 + Arquivos
 
-As projeções de tabela são armazenadas no armazenamento de tabelas do Azure. As projeções de objeto e arquivo são gravadas no armazenamento de BLOBs, as projeções de objeto são salvas como arquivos JSON e podem conter conteúdo do documento e quaisquer saídas ou aprimoramentos de habilidades. O pipeline de enriquecimento também pode extrair binários como imagens, esses binários são projetados como projeções de arquivo. Quando um objeto binário é projetado como uma projeção de objeto, somente os metadados associados a ele são salvos como um blob JSON. 
+As projeções de tabela são armazenadas no armazenamento de tabelas do Azure. As projeções de objeto e arquivo são gravadas no armazenamento de BLOBs, em que as projeções de objeto são salvas como arquivos JSON e podem conter conteúdo do documento de origem, bem como saídas ou aprimoramentos de habilidades. O pipeline de enriquecimento também pode extrair binários como imagens, esses binários são projetados como projeções de arquivo. Quando um objeto binário é projetado como uma projeção de objeto, somente os metadados associados a ele são salvos como um blob JSON. 
 
 Para entender a interseção entre a modelagem de dados e as projeções, usaremos o seguinte qualificable como base para explorar várias configurações. Esse qualificable processa conteúdo bruto de imagem e texto. As projeções serão definidas a partir do conteúdo do documento e das saídas das habilidades para os cenários para os quais desejamos dar suporte.
 
-Como alternativa, você pode baixar e usar um [exemplo de API REST](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/projections/Projections%20Docs.postman_collection.json) com todas as chamadas neste passo a passos.
-
 > [!IMPORTANT] 
-> Ao experimentar projeções, é útil [definir a propriedade cache do indexador](search-howto-incremental-index.md) para garantir o controle de custos. A edição das projeções fará com que todo o documento seja aprimorado novamente se o cache do indexador não estiver definido. Quando o cache é definido e apenas as projeções são atualizadas, as execuções do conjunto de qualificações para documentos previamente aprimorados não resultam em nenhum encargo de serviços cognitivas.
-
+> Ao experimentar projeções, é útil [definir a propriedade cache do indexador](search-howto-incremental-index.md) para garantir o controle de custos. A edição das projeções fará com que todo o documento seja aprimorado novamente se o cache do indexador não estiver definido. Quando o cache é definido e apenas as projeções são atualizadas, as execuções do conjunto de qualificações para documentos previamente aprimorados não resultam em novos encargos de serviços cognitivas.
 
 ```json
 {
@@ -197,92 +200,113 @@ Como alternativa, você pode baixar e usar um [exemplo de API REST](https://gith
 }
 ```
 
-Agora podemos adicionar o objeto `knowledgeStore` e configurar as projeções para cada um dos cenários, conforme necessário. 
+Usando esse configurador de dados, com seu `knowledgeStore` nulo como base, nosso primeiro exemplo preenche o objeto `knowledgeStore`, configurado com projeções que criam estruturas de dados tabulares que podemos usar em outros cenários. 
 
-## <a name="projecting-to-tables-for-scenarios-like-power-bi"></a>Projeção para tabelas para cenários como Power BI
+## <a name="projecting-to-tables"></a>Projeção para tabelas
+
+A projeção para tabelas no armazenamento do Azure é útil para relatórios e análises usando ferramentas como Power BI. Power BI pode ler de tabelas e descobrir relações com base nas chaves que são geradas durante a projeção. Se você estiver tentando criar um painel, ter dados relacionados simplificará essa tarefa. 
+
+Vamos supor que estamos tentando criar um painel no qual podemos Visualizar as frases-chave extraídas dos documentos como uma palavra em nuvem. Para criar a estrutura de dados correta, podemos adicionar uma habilidade de forma do Configurador para criar uma forma personalizada que tenha detalhes específicos do documento e frases-chave. A forma personalizada será chamada `pbiShape` no nó raiz `document`.
 
 > [!NOTE] 
-> Como a loja de conhecimento é uma conta de armazenamento do Azure, as projeções de tabela são tabelas de armazenamento do Azure e são governadas pelos limites de armazenamento em tabelas, para obter mais informações, consulte [limites de armazenamento de tabelas](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). É útil saber que o tamanho da entidade não pode exceder 1 MB e uma única propriedade não pode ser maior que 64 KB. Essas restrições tornam as tabelas uma boa solução para armazenar um grande número de pequenas entidades.
-
-Power BI pode ler de tabelas e descobrir relações com base nas chaves que as projeções da loja de conhecimento criam, isso torna as tabelas uma boa opção para projetar dados quando você estiver tentando criar um painel em seus dados aprimorados. Supondo que estamos tentando criar um painel no qual podemos Visualizar as frases-chave extraídas dos documentos como uma nuvem do Word, podemos adicionar uma habilidade de forma do contentor para criar uma forma personalizada que tenha detalhes específicos do documento e frases-chave. Adicione a habilidade do modelador ao contextset para criar um novo enriquecimento chamado ```pbiShape``` na ```document```.
+> As projeções de tabela são tabelas de armazenamento do Azure, governadas pelos limites de armazenamento impostos pelo armazenamento do Azure. Para obter mais informações, consulte [limites de armazenamento de tabelas](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). É útil saber que o tamanho da entidade não pode exceder 1 MB e uma única propriedade não pode ser maior que 64 KB. Essas restrições tornam as tabelas uma boa solução para armazenar um grande número de pequenas entidades.
 
 ### <a name="using-a-shaper-skill-to-create-a-custom-shape"></a>Usando uma habilidade de formador para criar uma forma personalizada
 
-Crie uma forma personalizada que você pode projetar no armazenamento de tabelas. Sem uma forma personalizada, uma projeção só pode fazer referência a um único nó (uma projeção por saída). A criação de uma forma personalizada permite agregar vários elementos em um novo lógico inteiro que pode ser projetado como uma única tabela ou segmentado e distribuído em uma coleção de tabelas. Neste exemplo, a forma personalizada combina metadados e entidades identificadas e frases-chave. O objeto é chamado de pbiShape e é pai em `/document`. 
+Crie uma forma personalizada que você pode projetar no armazenamento de tabelas. Sem uma forma personalizada, uma projeção só pode fazer referência a um único nó (uma projeção por saída). A criação de uma forma personalizada permite agregar vários elementos em um novo lógico inteiro que pode ser projetado como uma única tabela ou segmentado e distribuído em uma coleção de tabelas. 
+
+Neste exemplo, a forma personalizada combina metadados e entidades identificadas e frases-chave. O objeto é chamado `pbiShape` e é pai em `/document`. 
 
 > [!IMPORTANT] 
-> Caminhos de origem para aprimoramentos são necessários para serem objetos JSON bem formados, antes que possam ser projetados. A árvore de enriquecimento pode representar aprimoramentos que não são JSON bem formados, por exemplo, quando um enriquecimento é pai de um primitve como uma cadeia de caracteres. Observe como `KeyPhrases` e `Entities` são encapsulados em um objeto JSON válido com o `sourceContext`, isso é necessário, pois `keyphrases` e `entities` são aprimoramentos em primitivos e precisam ser convertidos em JSON válido antes que possam ser projetados.
+> Uma finalidade de Formatar é garantir que todos os nós de enriquecimento sejam expressos em JSON bem formado, o que é necessário para projetar na loja de conhecimento. Isso é especialmente verdadeiro quando uma árvore de enriquecimento contém nós que não são JSON bem formados (por exemplo, quando um enriquecimento é pai de um primitivo como uma cadeia de caracteres).
+>
+> Observe os dois últimos nós, `KeyPhrases` e `Entities`. Eles são encapsulados em um objeto JSON válido com o `sourceContext`. Isso é necessário, pois `keyphrases` e `entities` são aprimoramentos em primitivos e precisam ser convertidos em JSON válido antes que possam ser projetados.
+>
+
 
 ```json
 {
-            "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
-            "name": "ShaperForTables",
-            "description": null,
-            "context": "/document",
+    "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
+    "name": "ShaperForTables",
+    "description": null,
+    "context": "/document",
+    "inputs": [
+        {
+            "name": "metadata_storage_content_type",
+            "source": "/document/metadata_storage_content_type",
+            "sourceContext": null,
+            "inputs": []
+        },
+        {
+            "name": "metadata_storage_name",
+            "source": "/document/metadata_storage_name",
+            "sourceContext": null,
+            "inputs": []
+        },
+        {
+            "name": "metadata_storage_path",
+            "source": "/document/metadata_storage_path",
+            "sourceContext": null,
+            "inputs": []
+        },
+        {
+            "name": "metadata_content_type",
+            "source": "/document/metadata_content_type",
+            "sourceContext": null,
+            "inputs": []
+        },
+        {
+            "name": "keyPhrases",
+            "source": null,
+            "sourceContext": "/document/merged_content/keyphrases/*",
             "inputs": [
                 {
-                    "name": "metadata_storage_content_type",
-                    "source": "/document/metadata_storage_content_type",
-                    "sourceContext": null,
-                    "inputs": []
-                },
-                {
-                    "name": "metadata_storage_name",
-                    "source": "/document/metadata_storage_name",
-                    "sourceContext": null,
-                    "inputs": []
-                },
-                {
-                    "name": "metadata_storage_path",
-                    "source": "/document/metadata_storage_path",
-                    "sourceContext": null,
-                    "inputs": []
-                },
-                {
-                    "name": "metadata_content_type",
-                    "source": "/document/metadata_content_type",
-                    "sourceContext": null,
-                    "inputs": []
-                },
-                {
-                    "name": "keyPhrases",
-                    "source": null,
-                    "sourceContext": "/document/merged_content/keyphrases/*",
-                    "inputs": [
-                        {
-                            "name": "KeyPhrases",
-                            "source": "/document/merged_content/keyphrases/*"
-                        }
+                    "name": "KeyPhrases",
+                    "source": "/document/merged_content/keyphrases/*"
+                }
 
-                    ]
-                },
+            ]
+        },
+        {
+            "name": "Entities",
+            "source": null,
+            "sourceContext": "/document/merged_content/entities/*",
+            "inputs": [
                 {
                     "name": "Entities",
-                    "source": null,
-                    "sourceContext": "/document/merged_content/entities/*",
-                    "inputs": [
-                        {
-                            "name": "Entities",
-                            "source": "/document/merged_content/entities/*/name"
-                        }
+                    "source": "/document/merged_content/entities/*/name"
+                }
 
-                    ]
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "output",
-                    "targetName": "pbiShape"
-                }
             ]
         }
+    ],
+    "outputs": [
+        {
+            "name": "output",
+            "targetName": "pbiShape"
+        }
+    ]
+}
 ```
-Adicione a habilidade do modelador que acabamos de definir à lista de habilidades no configurador de habilidades. 
 
-Agora que temos todos os dados necessários para projetar em tabelas, atualize o objeto knowledgeStore com as definições de tabela. 
+Adicione a habilidade de Modelador acima ao skillset. 
 
 ```json
+    "name": "azureblob-skillset",
+    "description": "A friendly description of the skillset goes here.",
+    "skills": [
+        {
+            Shaper skill goes here
+            }
+        ],
+    "cognitiveServices":  "A key goes here",
+    "knowledgeStore": []
+}  
+```
 
+Agora que temos todos os dados necessários para projetar em tabelas, atualize o objeto knowledgeStore com as definições de tabela. Neste exemplo, temos três tabelas, definidas definindo as propriedades `tableName`, `source` e `generatedKeyName`.
+
+```json
 "knowledgeStore" : {
     "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
     "projections": [
@@ -311,22 +335,41 @@ Agora que temos todos os dados necessários para projetar em tabelas, atualize o
 }
 ```
 
-Defina a propriedade ```storageConnectionString``` como uma cadeia de conexão de conta de armazenamento de uso geral v2 válida. Nesse cenário, definimos três tabelas no objeto de projeção definindo as propriedades ```tableName```, ```source``` e ```generatedKeyName```. Agora você pode atualizar o configurador de habilidades emitindo a solicitação PUT.
+Você pode processar seu trabalho seguindo estas etapas:
+
+1. Defina a propriedade ```storageConnectionString``` como uma cadeia de conexão de conta de armazenamento de uso geral v2 válida.  
+
+1. Atualize o configurador emitindo a solicitação PUT.
+
+1. Depois de atualizar o skillset, execute o indexador. 
+
+Agora você tem uma projeção de trabalho com três tabelas. A importação dessas tabelas para Power BI deve resultar na Power BI descoberta automática das relações.
+
+Antes de mover no próximo exemplo, Vamos revisitar os aspectos da projeção da tabela para entender a mecânica de divisão e relacionar os dados.
 
 ### <a name="slicing"></a>Divisão 
 
-Ao iniciar com uma forma consolidada onde todo o conteúdo que precisa ser projetado está em uma única forma (ou nó de enriquecimento), a divisão fornece a capacidade de dividir um único nó em várias tabelas ou objetos. Aqui, o objeto ```pbiShape``` é dividido em várias tabelas. O recurso de divisão permite extrair partes da forma, ```keyPhrases``` e ```Entities``` em tabelas separadas. Isso é útil, pois várias entidades e prefrases são associadas a cada documento. A divisão implícita gera uma relação entre as tabelas pai e filho, usando o ```generatedKeyName``` na tabela pai para criar uma coluna com o mesmo nome na tabela filho. 
+A divisão é uma técnica que subdivide uma forma consolidada inteira em partes constituintes. O resultado consiste em tabelas separadas, mas relacionadas com as quais você pode trabalhar individualmente.
+
+No exemplo, `pbiShape` é a forma consolidada (ou nó de enriquecimento). Na definição de projeção, `pbiShape` é segmentada em tabelas adicionais, o que permite que você retire partes da forma, ```keyPhrases``` e ```Entities```. No Power BI, isso é útil, pois várias entidades e keyfrases são associadas a cada documento, e você obterá mais informações se puder ver entidades e keyfrases como dados categorizados.
+
+A divisão gera implicitamente uma relação entre as tabelas pai e filho, usando o ```generatedKeyName``` na tabela pai para criar uma coluna com o mesmo nome na tabela filho. 
 
 ### <a name="naming-relationships"></a>Relações de nomenclatura
-As propriedades ```generatedKeyName``` e ```referenceKeyName``` são usadas para relacionar dados entre tabelas ou até mesmo em tipos de projeção. Cada linha na tabela/projeção filho tem uma propriedade apontando de volta para o pai. O nome da coluna ou da propriedade no filho é a ```referenceKeyName``` do pai. Quando o ```referenceKeyName``` não é fornecido, o serviço o padroniza para o ```generatedKeyName``` do pai. O PowerBI conta com essas chaves geradas para descobrir relações dentro das tabelas. Se você precisar da coluna na tabela filho denominada de modo diferente, defina a propriedade ```referenceKeyName``` na tabela pai. Um exemplo seria definir o ```generatedKeyName``` como ID na tabela pbiDocument e o ```referenceKeyName``` como DocumentID. Isso resultaria na coluna nas tabelas pbiEntities e pbiKeyPhrases que contêm a ID do documento que está sendo nomeada DocumentID.
 
-Salvar o qualificable atualizado e executar o indexador, agora você tem uma projeção de trabalho com três tabelas. A importação dessas tabelas para Power BI deve resultar na Power BI descoberta automática das relações.
+As propriedades ```generatedKeyName``` e ```referenceKeyName``` são usadas para relacionar dados entre tabelas ou até mesmo em tipos de projeção. Cada linha na tabela/projeção filho tem uma propriedade apontando de volta para o pai. O nome da coluna ou da propriedade no filho é a ```referenceKeyName``` do pai. Quando o ```referenceKeyName``` não é fornecido, o serviço o padroniza para o ```generatedKeyName``` do pai. 
+
+Power BI conta com essas chaves geradas para descobrir relações dentro das tabelas. Se você precisar da coluna na tabela filho denominada de modo diferente, defina a propriedade ```referenceKeyName``` na tabela pai. Um exemplo seria definir o ```generatedKeyName``` como ID na tabela pbiDocument e o ```referenceKeyName``` como DocumentID. Isso resultaria na coluna nas tabelas pbiEntities e pbiKeyPhrases que contêm a ID do documento que está sendo nomeada DocumentID.
 
 ## <a name="projecting-to-objects"></a>Projeção para objetos
 
-As projeções de objeto não têm as mesmas limitações que as projeções de tabela, são mais adequadas para projetar documentos grandes. Neste exemplo, projetamos o documento inteiro em uma projeção de objeto. As projeções de objeto são limitadas a uma única projeção em um contêiner.
-Para definir uma projeção de objeto, usaremos a matriz de ```objects``` nas projeções. Você pode gerar uma nova forma usando a habilidade do modelador ou usar o Shaping embutido da projeção do objeto. Embora o exemplo de tabelas tenha demonstrado a abordagem de criação de uma forma e de divisão, este exemplo demonstra o uso de shaping embutido. O Shaping embutido é a capacidade de criar uma nova forma na definição das entradas para uma projeção. O Shaping embutido cria um objeto anônimo que é idêntico ao que um forma semelhante produziria. O Shaping embutido é útil se você estiver definindo uma forma que não planeja reutilizar.
-A propriedade projetions é uma matriz, para este exemplo, estamos adicionando uma nova instância de projeção à matriz. Atualize a definição de knowledgeStore com as projeções definidas em linha, você não precisa de uma habilidade de forma de formatação ao usar projeções embutidas.
+As projeções de objeto não têm as mesmas limitações que as projeções de tabela e são mais adequadas para a projeção de documentos grandes. Neste exemplo, projetamos o documento inteiro em uma projeção de objeto. As projeções de objeto são limitadas a uma única projeção em um contêiner e não podem ser segmentadas.
+
+Para definir uma projeção de objeto, usaremos a matriz de ```objects``` nas projeções. Você pode gerar uma nova forma usando a habilidade do modelador ou usar o Shaping embutido da projeção do objeto. Embora o exemplo de tabelas tenha demonstrado a abordagem de criação de uma forma e de divisão, este exemplo demonstra o uso de shaping embutido. 
+
+O Shaping embutido é a capacidade de criar uma nova forma na definição das entradas para uma projeção. O Shaping embutido cria um objeto anônimo que é idêntico ao que uma habilidade de forma pode produzir (em nosso caso, `pbiShape`). O Shaping embutido é útil se você estiver definindo uma forma que não planeja reutilizar.
+
+A propriedade projetions é uma matriz. Para este exemplo, estamos adicionando uma nova instância de projeção à matriz, em que a definição de knowledgeStore contém projeções embutidas. Ao usar projeções embutidas, você pode omitir a habilidade do modelador.
 
 ```json
 "knowledgeStore" : {
@@ -378,9 +421,12 @@ A propriedade projetions é uma matriz, para este exemplo, estamos adicionando u
         ]
     }
 ```
-## <a name="file-projections"></a>Projeções de arquivo
 
-Projeções de arquivos são imagens que são extraídas do documento de origem ou saídas de aprimoramentos que podem ser projetadas fora do processo de enriquecimento. As projeções de arquivo, semelhantes às projeções de objeto, são implementadas como BLOBs e contêm a imagem. Para gerar uma projeção de arquivo, usamos a matriz ```files``` no objeto de projeção. Este exemplo projeta todas as imagens extraídas do documento para um contêiner chamado `samplefile`.
+## <a name="projecting-to-file"></a>Projeção para arquivo
+
+Projeções de arquivos são imagens que são extraídas do documento de origem ou saídas de enriquecimento que podem ser projetadas fora do processo de enriquecimento. As projeções de arquivo, semelhantes às projeções de objeto, são implementadas como BLOBs no armazenamento do Azure e contêm a imagem. 
+
+Para gerar uma projeção de arquivo, usamos a matriz `files` no objeto de projeção. Este exemplo projeta todas as imagens extraídas do documento para um contêiner chamado `samplefile`.
 
 ```json
 "knowledgeStore" : {
@@ -402,83 +448,93 @@ Projeções de arquivos são imagens que são extraídas do documento de origem 
 
 ## <a name="projecting-to-multiple-types"></a>Projeção para vários tipos
 
-Um cenário mais complexo pode exigir que você projeto o conteúdo entre os tipos de projeção. Por exemplo, se você precisar projetar alguns dados como frases-chave e entidades para tabelas, salve os resultados do OCR de texto e de layout como objetos e projeto as imagens como arquivos. Esta atualização para o configurador de habilidades:
+Um cenário mais complexo pode exigir que você projeto o conteúdo entre os tipos de projeção. Por exemplo, se você precisar projetar alguns dados como frases-chave e entidades para tabelas, salve os resultados do OCR de texto e de layout como objetos e, em seguida, projetar as imagens como arquivos. 
+
+Neste exemplo, as atualizações para o Skills incluem as seguintes alterações:
 
 1. Crie uma tabela com uma linha para cada documento.
-2. Crie uma tabela relacionada à tabela de documentos com cada frase-chave identificada como uma linha nesta tabela.
-3. Crie uma tabela relacionada à tabela de documentos com cada entidade identificada como uma linha nesta tabela.
-4. Crie uma projeção de objeto com o texto de layout para cada imagem.
-5. Crie uma projeção de arquivo, projetando cada imagem extraída.
-6. Crie uma tabela de referência cruzada que contenha referências à tabela de documentos, projeção de objeto com o texto de layout e a projeção de arquivo.
+1. Crie uma tabela relacionada à tabela de documentos com cada frase-chave identificada como uma linha nesta tabela.
+1. Crie uma tabela relacionada à tabela de documentos com cada entidade identificada como uma linha nesta tabela.
+1. Crie uma projeção de objeto com o texto de layout para cada imagem.
+1. Crie uma projeção de arquivo, projetando cada imagem extraída.
+1. Crie uma tabela de referência cruzada que contenha referências à tabela de documentos, projeção de objeto com o texto de layout e a projeção de arquivo.
 
-Comece adicionando uma nova habilidade do modelador à matriz de habilidades que cria um objeto moldado. 
+Essas alterações são refletidas na definição de knowledgeStore mais adiante. 
+
+### <a name="shape-data-for-cross-projection"></a>Formatar dados para projeção cruzada
+
+Para obter as formas necessárias para essas projeções, comece adicionando uma nova habilidade de forma que cria um objeto moldado chamado `crossProjection`. 
 
 ```json
 {
-            "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
-            "name": "ShaperForCross",
-            "description": null,
-            "context": "/document",
+    "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
+    "name": "ShaperForCross",
+    "description": null,
+    "context": "/document",
+    "inputs": [
+        {
+            "name": "metadata_storage_name",
+            "source": "/document/metadata_storage_name",
+            "sourceContext": null,
+            "inputs": []
+        },
+        {
+            "name": "keyPhrases",
+            "source": null,
+            "sourceContext": "/document/merged_content/keyphrases/*",
             "inputs": [
                 {
-                    "name": "metadata_storage_name",
-                    "source": "/document/metadata_storage_name",
-                    "sourceContext": null,
-                    "inputs": []
-                },
-                {
-                    "name": "keyPhrases",
-                    "source": null,
-                    "sourceContext": "/document/merged_content/keyphrases/*",
-                    "inputs": [
-                        {
-                            "name": "KeyPhrases",
-                            "source": "/document/merged_content/keyphrases/*"
-                        }
-
-                    ]
-                },
-                {
-                    "name": "entities",
-                    "source": null,
-                    "sourceContext": "/document/merged_content/entities/*",
-                    "inputs": [
-                        {
-                            "name": "Entities",
-                            "source": "/document/merged_content/entities/*/name"
-                        }
-
-                    ]
-                },
-                {
-                    "name": "images",
-                    "source": null,
-                    "sourceContext": "/document/normalized_images/*",
-                    "inputs": [
-                        {
-                            "name": "image",
-                            "source": "/document/normalized_images/*"
-                        },
-                        {
-                            "name": "layoutText",
-                            "source": "/document/normalized_images/*/layoutText"
-                        },
-                        {
-                            "name": "ocrText",
-                            "source": "/document/normalized_images/*/text"
-                        }
-                        ]
+                    "name": "KeyPhrases",
+                    "source": "/document/merged_content/keyphrases/*"
                 }
-                
-            ],
-            "outputs": [
-                {
-                    "name": "output",
-                    "targetName": "crossProjection"
-                }
+
             ]
+        },
+        {
+            "name": "entities",
+            "source": null,
+            "sourceContext": "/document/merged_content/entities/*",
+            "inputs": [
+                {
+                    "name": "Entities",
+                    "source": "/document/merged_content/entities/*/name"
+                }
+
+            ]
+        },
+        {
+            "name": "images",
+            "source": null,
+            "sourceContext": "/document/normalized_images/*",
+            "inputs": [
+                {
+                    "name": "image",
+                    "source": "/document/normalized_images/*"
+                },
+                {
+                    "name": "layoutText",
+                    "source": "/document/normalized_images/*/layoutText"
+                },
+                {
+                    "name": "ocrText",
+                    "source": "/document/normalized_images/*/text"
+                }
+                ]
         }
+ 
+    ],
+    "outputs": [
+        {
+            "name": "output",
+            "targetName": "crossProjection"
+        }
+    ]
+}
 ```
+
+### <a name="define-table-object-and-file-projections"></a>Definir projeções de tabela, objeto e arquivo
+
+Do objeto crossProjection consolidado, podemos dividir o objeto em várias tabelas, capturar a saída do OCR como BLOBs e, em seguida, salvar a imagem como arquivos (também no armazenamento de BLOBs).
 
 ```json
 "knowledgeStore" : {
@@ -537,9 +593,14 @@ Comece adicionando uma nova habilidade do modelador à matriz de habilidades que
 
 As projeções de objeto exigem um nome de contêiner para cada projeção, projeções de objeto ou projeções de arquivo não podem compartilhar um contêiner. 
 
-### <a name="relationships"></a>Relações
+### <a name="relationships-among-table-object-and-file-projections"></a>Relações entre tabelas, objetos e projeções de arquivo
 
-Este exemplo também realça outro recurso de projeções, definindo vários tipos de projeções dentro do mesmo objeto de projeção, há uma relação expressa dentro e entre os diferentes tipos (tabelas, objetos, arquivos) de projeções, permitindo Você começa com uma linha de tabela para um documento e localiza todo o texto OCR das imagens dentro desse documento na projeção do objeto. Se você não quiser os dados relacionados, defina as projeções em diferentes objetos de projeção, por exemplo, o trecho a seguir fará com que as tabelas estejam relacionadas, mas nenhuma relação entre as tabelas e as projeções de texto OCR. Os grupos de projeção são úteis quando você deseja projetar os mesmos dados em diferentes formas para diferentes necessidades. Por exemplo, um grupo de projeção para o painel de Power BI e outro grupo de projeção para usar os dados para treinar um modelo de ia para uma habilidade.
+Este exemplo também destaca outro recurso de projeções. Ao definir vários tipos de projeções dentro do mesmo objeto de projeção, há uma relação expressa dentro e entre os diferentes tipos (tabelas, objetos, arquivos), permitindo que você inicie com uma linha de tabela para um documento e encontre todo o texto de OCR para as imagens dentro desse documento na projeção do objeto. 
+
+Se você não quiser os dados relacionados, defina as projeções em diferentes objetos de projeção. Por exemplo, o trecho a seguir fará com que as tabelas estejam relacionadas, mas sem relações entre as tabelas e as projeções de objeto (texto OCR). 
+
+Os grupos de projeção são úteis quando você deseja projetar os mesmos dados em diferentes formas para diferentes necessidades. Por exemplo, um grupo de projeção para o painel de Power BI e outro grupo de projeção para capturar dados usados para treinar um modelo de aprendizado de máquina encapsulado em uma habilidade personalizada.
+
 Ao criar projeções de tipos diferentes, as projeções de arquivo e de objeto são geradas primeiro e os caminhos são adicionados às tabelas.
 
 ```json
@@ -596,13 +657,21 @@ Ao criar projeções de tipos diferentes, as projeções de arquivo e de objeto 
     }
 ```
 
-Esses exemplos demonstraram os padrões comuns de como usar projeções, agora você também deve ter uma boa compreensão dos conceitos sobre a criação de uma projeção para seu cenário específico.
-
 ## <a name="common-issues"></a>Problemas comuns
 
-Ao definir uma projeção, há alguns problemas comuns que podem causar resultados imprevistos.
+Ao definir uma projeção, há alguns problemas comuns que podem causar resultados imprevistos. Verifique esses problemas se a saída na loja de conhecimento não for o que você espera.
 
-1. Não moldar os aprimoramentos de cadeia de caracteres. Quando as cadeias de caracteres são aprimoradas, por exemplo ```merged_content``` aprimoradas com frases-chave, a propriedade enriqueceda é representada como um filho de merged_content dentro da árvore de enriquecimento. Mas, no momento da projeção, isso precisa ser transformado em um objeto JSON válido com um nome e um valor.
-2. Omitir o ```/*``` no final de um caminho de origem. Se, por exemplo, a origem de uma projeção for ```/document/pbiShape/keyPhrases``` a matriz de frases-chave é projetada como um único objeto/linha. Definir o caminho de origem para ```/document/pbiShape/keyPhrases/*``` gera uma única linha ou objeto para cada uma das frases-chave.
-3. Os seletores de caminho diferenciam maiúsculas de minúsculas e podem levar a avisos de entrada ausentes se você não usar o caso exato para o seletor.
++ Não moldar os aprimoramentos de cadeia de caracteres em um JSON válido. Quando as cadeias de caracteres são aprimoradas, por exemplo `merged_content` aprimoradas com frases-chave, a propriedade enriqueceda é representada como um filho de `merged_content` dentro da árvore de enriquecimento. A representação padrão não é JSON bem formado. Portanto, no momento da projeção, certifique-se de transformar o enriquecimento em um objeto JSON válido com um nome e um valor.
 
++ Omitir o ```/*``` no final de um caminho de origem. Se a origem de uma projeção for `/document/pbiShape/keyPhrases`, a matriz de frases-chave será projetada como um único objeto/linha. Em vez disso, defina o caminho de origem como `/document/pbiShape/keyPhrases/*` para gerar uma única linha ou objeto para cada uma das frases-chave.
+
++ Erros de sintaxe de caminho. Os seletores de caminho diferenciam maiúsculas de minúsculas e podem levar a avisos de entrada ausentes se você não usar o caso exato para o seletor.
+
+## <a name="next-steps"></a>Próximas etapas
+
+Os exemplos neste artigo demonstram padrões comuns de como criar projeções. Agora que você tem uma boa compreensão dos conceitos, está mais bem equipado para criar projeções para seu cenário específico.
+
+À medida que você itera as definições da loja de conhecimento, considere o enriquecimento incremental como a próxima etapa. O aprimoramento incremental se baseia no cache, o que permite reutilizar os aprimoramentos que não são afetados de outra forma por uma modificação do Configurador de habilidades. Isso é especialmente útil para pipelines que incluem a análise de OCR e imagem.
+
+> [!div class="nextstepaction"]
+> [Introdução ao Caching e enriquecimento incremental](cognitive-search-incremental-indexing-conceptual.md)

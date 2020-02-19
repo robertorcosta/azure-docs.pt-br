@@ -3,12 +3,12 @@ title: Fazer backup de máquinas virtuais do Hyper-V com MABS
 description: Este artigo contém os procedimentos para fazer backup e recuperação de máquinas virtuais usando o Backup do Microsoft Azure Server (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: 3bca1b46a867c2967dfcebe4bc8477d5f9c9447d
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 69e415b5aef179c2b64bb04e933593010c8b47d3
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173526"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444053"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Fazer backup de máquinas virtuais do Hyper-V com Servidor de Backup do Azure
 
@@ -44,11 +44,11 @@ O MABS executa o backup com VSS da seguinte maneira. As etapas nesta descrição
 
    - Se uma máquina virtual estiver em conformidade com os requisitos de backup online e tiver o componente de serviços de integração do Hyper-V instalado, o gravador VSS do Hyper-V recursivamente encaminha a solicitação VSS para todos os processos de reconhecimento de VSS na máquina virtual. Essa operação ocorre sem que o agente de proteção do MABS esteja instalado na máquina virtual. A solicitação VSS recursiva permite que o gravador VSS do Hyper-V garanta que as operações de gravação em disco sejam sincronizadas para que um instantâneo do VSS seja capturado sem a perda de dados.
 
-     O componente de serviços de integração do Hyper-V invoca o gravador VSS do Hyper-V no VSS (serviços de cópias de sombra de volume) em máquinas virtuais para garantir que seus dados de aplicativo estejam em um estado consistente.
+     O componente dos serviços de integração do Hyper-V invoca o gravador VSS do Hyper-V nos VSS (Serviços de Cópias de Sombra de Volume) em máquinas virtuais para verificar se os dados do aplicativo estão em um estado consistente.
 
    - Se a máquina virtual não estiver em conformidade com os requisitos de backup online, o MABS usará automaticamente as APIs do Hyper-V para pausar a máquina virtual antes de capturar os arquivos de dados.
 
-4. Depois que a cópia de linha de base inicial da máquina virtual é sincronizada com o servidor MABS, todas as alterações feitas nos recursos da máquina virtual são capturadas em um novo ponto de recuperação. O ponto de recuperação representa o estado consistente da máquina virtual em um momento específico. As capturas de ponto de recuperação podem ocorrer pelo menos uma vez por dia. Quando um novo ponto de recuperação é criado, o MABS usa a replicação em nível de bloco em conjunto com o gravador VSS do Hyper-V para determinar quais blocos foram alterados no servidor que está executando o Hyper-V após a criação do último ponto de recuperação. Esses blocos de dados são então transferidos para o servidor MABS e aplicados à réplica dos dados protegidos.
+4. Depois que a cópia de linha de base inicial da máquina virtual é sincronizada com o servidor MABS, todas as alterações feitas nos recursos da máquina virtual são capturadas em um novo ponto de recuperação. O ponto de recuperação representa o estado consistente da máquina virtual em um horário específico. As capturas dele podem ocorrer pelo menos uma vez por dia. Quando um novo ponto de recuperação é criado, o MABS usa a replicação em nível de bloco em conjunto com o gravador VSS do Hyper-V para determinar quais blocos foram alterados no servidor que está executando o Hyper-V após a criação do último ponto de recuperação. Esses blocos de dados são então transferidos para o servidor MABS e aplicados à réplica dos dados protegidos.
 
 5. O servidor MABS usa o VSS nos volumes que hospedam dados de recuperação para que várias cópias de sombra estejam disponíveis. Cada uma dessas cópias de sombra fornece uma recuperação separada. Os pontos de recuperação do VSS são armazenados no servidor MABS. A cópia temporária feita no servidor que executa o Hyper-V é armazenada somente durante a sincronização de MABS.
 
@@ -64,7 +64,7 @@ Estes são os pré-requisitos para fazer backup de máquinas virtuais do Hyper-V
 |------------|-------|
 |Pré-requisitos do MABS|-Se você quiser executar a recuperação em nível de item para máquinas virtuais (recuperar arquivos, pastas, volumes), será necessário instalar a função Hyper-V no servidor MABS.  Se você quiser apenas recuperar a máquina virtual e não o nível de item, a função não será necessária.<br />-Você pode proteger até 800 máquinas virtuais de 100 GB cada em um servidor MABS e permitir vários servidores MABS que dão suporte a clusters maiores.<br />-MABS exclui o arquivo de paginação de backups incrementais para melhorar o desempenho de backup da máquina virtual.<br />-MABS pode fazer backup de um servidor ou cluster do Hyper-V no mesmo domínio que o servidor MABS ou em um domínio filho ou confiável. Se desejar fazer backup do Hyper-V em um grupo de trabalho ou em um domínio não confiável, você precisará configurar a autenticação. Para um único servidor Hyper-V, você pode usar autenticação NTLM ou de certificado. Para um cluster, você pode usar somente a autenticação de certificado.<br />-Não há suporte para o uso do backup em nível de host para fazer backup de dados de máquina virtual em discos de passagem. Nesse cenário, recomendamos que você use o backup em nível de host para fazer backup de arquivos VHD e backup em nível de convidado para fazer backup dos outros dados que não estão visíveis no host.<br />   -Você pode fazer backup de VMs armazenadas em volumes com eliminação de duplicação.|
 |Pré-requisitos de VM do Hyper-V|-A versão dos componentes de integração em execução na máquina virtual deve ser a mesma que a versão do host do Hyper-V. <br />-Para cada backup de máquina virtual, você precisará de espaço livre no volume que hospeda os arquivos de disco rígido virtual para permitir espaço suficiente no Hyper-V para discos diferenciais (AVHD) durante o backup. O espaço deve ser pelo menos igual ao **tamanho inicial do disco de cálculo\*taxa de rotatividade\*** tempo de janela de backup. Se você estiver executando vários backups em um cluster, precisará de capacidade de armazenamento suficiente para acomodar o AVHDs para cada uma das máquinas virtuais usando esse cálculo.<br />-Para fazer backup de máquinas virtuais localizadas em servidores host Hyper-V que executam o Windows Server 2012 R2, a máquina virtual deve ter um controlador SCSI especificado, mesmo que ele não esteja conectado a nada. (No Windows Server 2012 R2 online backup, o host Hyper-V monta um novo VHD na VM e depois o desmonta. Somente o controlador SCSI pode dar suporte a isso e, portanto, é necessário para o backup online da máquina virtual.  Sem essa configuração, a ID de evento 10103 será emitida quando você tentar fazer backup da máquina virtual.)|
-|Pré-requisitos do Linux|-Você pode fazer backup de máquinas virtuais do Linux usando o MABS 2012 R2. Somente instantâneos consistentes com arquivos têm suporte.|
+|Pré-requisitos do Linux|-Você pode fazer backup de máquinas virtuais do Linux usando o MABS. Somente instantâneos consistentes com arquivos têm suporte.|
 |Fazer backup de VMs com armazenamento CSV|-Para armazenamento CSV, instale o provedor de hardware do VSS (serviços de cópias de sombra de volume) no servidor Hyper-V. Contate seu fornecedor de SAN (rede de área de armazenamento) para o provedor de hardware VSS.<br />-Se um único nó for desligado inesperadamente em um cluster CSV, o MABS executará uma verificação de consistência nas máquinas virtuais que estavam em execução nesse nó.<br />-Se precisar reiniciar um servidor Hyper-V que tenha Criptografia de Unidade de Disco BitLocker habilitado no cluster CSV, você deverá executar uma verificação de consistência para máquinas virtuais do Hyper-V.|
 |Fazer backup de VMs com armazenamento SMB|-Ative a montagem automática no servidor que está executando o Hyper-V para habilitar a proteção da máquina virtual.<br />   -Desabilitar descarregamento de Chimney TCP.<br />-Verifique se todas as contas do computador $ do Hyper-V têm permissões completas sobre os compartilhamentos de arquivos SMB remotos específicos.<br />-Verifique se o caminho do arquivo para todos os componentes da máquina virtual durante a recuperação para o local alternativo tem menos de 260 caracteres. Caso contrário, a recuperação pode ter sucesso, mas o Hyper-V não conseguirá montar a máquina virtual.<br />-Não há suporte para os seguintes cenários:<br />     Implantações em que alguns componentes da máquina virtual estão em volumes locais e alguns componentes estão em volumes remotos; um endereço IPv4 ou IPv6 para o servidor de arquivos do local de armazenamento e a recuperação de uma máquina virtual em um computador que usa compartilhamentos SMB remotos.<br />-Você precisará habilitar o serviço de agente VSS do servidor de arquivos em cada servidor SMB-adicione-o em **adicionar funções e recursos** > **selecionar funções de servidor** > **serviços de arquivo e armazenamento** > **serviços de arquivos** > **serviço** de arquivos > **serviço de agente VSS de servidor de arquivos**.|
 
@@ -82,7 +82,7 @@ Estes são os pré-requisitos para fazer backup de máquinas virtuais do Hyper-V
 
 4. Na página **selecionar membros do grupo** , selecione as VMs que você deseja proteger dos servidores host do Hyper-V nos quais elas estão localizadas. Recomendamos que você Coloque todas as VMs que terão a mesma política de proteção em um grupo de proteção. Para fazer uso eficiente do espaço, habilite a colocação. A colocação permite que você localize dados de grupos de proteção diferentes no mesmo armazenamento de disco ou fita, para que várias fontes de dados tenham uma única réplica e volume de ponto de recuperação.
 
-5. Na página **selecionar método de proteção de dados** , especifique um nome de grupo de proteção. Selecione **desejo proteção de curto prazo usando disco** e selecione **desejo proteção online** se você quiser fazer backup de dados no Azure usando o serviço de backup do Azure.
+5. Na página **Selecionar Método de Proteção de Dados**, especifique um nome do grupo de proteção. Selecione **desejo proteção de curto prazo usando disco** e selecione **desejo proteção online** se você quiser fazer backup de dados no Azure usando o serviço de backup do Azure.
 
 6. Em **especificar objetivos de curto prazo** > **período de retenção**, especifique por quanto tempo deseja manter os dados do disco. Em **frequência de sincronização**, especifique com que frequência os backups incrementais dos dados devem ser executados. Como alternativa, em vez de selecionar um intervalo para backups incrementais, você pode habilitar **logo antes de um ponto de recuperação**. Com essa configuração habilitada, o MABS executará um backup completo expresso antes de cada ponto de recuperação agendado.
 
@@ -94,9 +94,9 @@ Estes são os pré-requisitos para fazer backup de máquinas virtuais do Hyper-V
 
    O **Tamanho total dos dados** é o tamanho dos dados que você deseja fazer backup e o **espaço em disco a ser provisionado no mAbs** é o espaço que o mAbs recomenda para o grupo de proteção. MABS escolhe o volume de backup ideal, com base nas configurações. No entanto, você pode editar as opções de volume de backup nos **detalhes de alocação de disco**. Para as cargas de trabalho, no menu suspenso, selecione o armazenamento preferido. Suas edições alteram os valores de **Armazenamento Total** e **Armazenamento Gratuito** no painel de **Armazenamento em Disco Disponível**. Espaço subprovisionado é a quantidade de MABS de armazenamento que sugere que você adicione ao volume para continuar com os backups sem problemas no futuro.
 
-8. Na página **escolher método de criação de réplica** , especifique como a replicação inicial de dados no grupo de proteção será executada. Se você optar por **replicar automaticamente pela rede**, recomendamos que você escolha um horário de pico. Para grandes quantidades de dados ou condições de rede abaixo do ideal, considere selecionar **manualmente**, o que requer a replicação de dados offline usando mídia removível.
+8. Na página **Escolher método de criação de réplica**, especifique como a replicação inicial de dados no grupo de proteção será executada. Se você optar por **replicar automaticamente pela rede**, recomendamos que você escolha um horário de pico. Para grandes quantidades de dados ou condições de rede abaixo do ideal, considere selecionar **manualmente**, o que requer a replicação de dados offline usando mídia removível.
 
-9. Na página **Opções de verificação de consistência** , selecione como você deseja automatizar as verificações de consistência. Você pode habilitar uma verificação para ser executada somente quando os dados da réplica se tornarem inconsistentes ou de acordo com uma agenda. Se você não quiser configurar a verificação de consistência automática, poderá executar uma verificação manual a qualquer momento clicando com o botão direito do mouse no grupo de proteção e selecionando **executar verificação de consistência**.
+9. Na página **Opções de verificação de consistência**, selecione como deseja automatizar as verificações de consistência. Você pode habilitar uma verificação para ser executada somente quando os dados da réplica se tornarem inconsistentes ou de acordo com uma agenda. Se você não quiser configurar a verificação de consistência automática, poderá executar uma verificação manual a qualquer momento clicando com o botão direito do mouse no grupo de proteção e selecionando **executar verificação de consistência**.
 
     Depois de criar o grupo de proteção, a replicação inicial dos dados ocorre de acordo com o método selecionado. Após a replicação inicial, cada backup ocorrerá em linha com as configurações do grupo de proteção. Se você precisar recuperar os dados de backup, observe o seguinte:
 
@@ -167,7 +167,7 @@ Para configurar a proteção para migração dinâmica:
 
 ### <a name="run-manual-migration"></a>Executar migração manual
 
-Depois de concluir as etapas nas seções anteriores, e o trabalho do Gerenciador de resumo do MABS for concluído, a migração será habilitada. Por padrão, esse trabalho começa à meia-noite e é executado a cada manhã. Se você quiser executar uma migração manual, para verificar se tudo está funcionando conforme o esperado, faça o seguinte:
+Depois de concluir as etapas nas seções anteriores, e o trabalho do Gerenciador de resumo do MABS for concluído, a migração será habilitada. Por padrão, esse trabalho inicia-se à meia-noite e é executado todas as manhãs. Se você quiser executar uma migração manual, para verificar se tudo está funcionando conforme o esperado, faça o seguinte:
 
 1. Abra SQL Server Management Studio e conecte-se à instância que hospeda o banco de dados MABS.
 
@@ -175,7 +175,7 @@ Depois de concluir as etapas nas seções anteriores, e o trabalho do Gerenciado
 
 3. Na SQL Server Management Studio, expanda **SQL Server Agent**e, em seguida, expanda **trabalhos**. Clique com o botão direito do mouse em **ScheduleID** que você anotou e selecione **Iniciar trabalho na etapa**.
 
-O desempenho do backup é afetado quando o trabalho é executado. O tamanho e a escala da sua implantação determinam quanto tempo o trabalho leva para ser concluído.
+O desempenho do backup é afetado quando o trabalho é executado. O tamanho e a escala de sua implantação determinarão o tempo que esse trabalho levará para ser concluído.
 
 ## <a name="back-up-replica-virtual-machines"></a>Fazer backup de máquinas virtuais de réplica
 
@@ -209,14 +209,14 @@ Quando você puder recuperar uma máquina virtual de backup, use o assistente de
 
 3. No menu **ações** , clique em **recuperar** para abrir o assistente de recuperação.
 
-    A VM e o ponto de recuperação selecionados aparecem na tela **examinar seleção de recuperação** . Clique em **Avançar**.
+    A VM e o ponto de recuperação selecionados aparecem na tela **examinar seleção de recuperação** . Clique em **Próximo**.
 
 4. Na tela **Selecionar tipo de recuperação** , selecione o local em que deseja restaurar os dados e clique em **Avançar**.
 
     - **Recuperar na instância original**: quando você recupera a instância original, o VHD original é excluído. MABS recupera o VHD e outros arquivos de configuração para o local original usando o gravador VSS do Hyper-V. No final do processo de recuperação, as máquinas virtuais ainda estão altamente disponíveis.
         O grupo de recursos deve estar presente para recuperação. Se não estiver disponível, recupere para um local alternativo e torne a máquina virtual altamente disponível.
 
-    - **Recuperar como máquina virtual em qualquer host**: o mAbs dá suporte à ALR (recuperação de local alternativo), que fornece uma recuperação direta de uma máquina virtual protegida do Hyper-v para um host Hyper-v diferente, independentemente da arquitetura do processador. As máquinas virtuais do Hyper-V que são recuperadas para um nó de cluster não estarão altamente disponíveis. Se você escolher essa opção, o assistente de recuperação apresentará uma tela adicional para identificar o destino e o caminho de destino.
+    - **Recuperar como máquina virtual em qualquer host**: o mAbs dá suporte à ALR (recuperação de local alternativo), que fornece uma recuperação direta de uma máquina virtual protegida do Hyper-v para um host Hyper-v diferente, independentemente da arquitetura do processador. As máquinas virtuais do Hyper-V que forem recuperadas em um nó de cluster não estarão altamente disponíveis. Se você escolher essa opção, o assistente de recuperação apresentará uma tela adicional para identificar o destino e o caminho de destino.
 
     - **Copiar para uma pasta de rede**: o mAbs dá suporte à ILR (recuperação em nível de item), que permite fazer a recuperação em nível de item de arquivos, pastas, volumes e VHDs (discos rígidos virtuais) de um backup em nível de host de máquinas virtuais do Hyper-V em um volume ou compartilhamento de rede em um servidor mAbs protegido. O agente de proteção do MABS não precisa ser instalado dentro do convidado para executar a recuperação em nível de item. Se você escolher essa opção, o assistente de recuperação apresentará uma tela adicional para identificar o destino e o caminho de destino.
 

@@ -10,20 +10,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: 9886f41b25e7c1b34f9805a2c16b716c642ae90e
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: ef87d8d02e6d7800435cab207a88197ef7c94b7c
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76936301"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430985"
 ---
 # <a name="container-security-in-security-center"></a>Segurança do contêiner na central de segurança
 
 A central de segurança do Azure é a solução Azure-Native para segurança de contêiner. A central de segurança também é o ideal painel único de experiência de vidro para a segurança de suas cargas de trabalho de nuvem, VMs, servidores e contêineres.
 
-Este artigo descreve como você pode melhorar, monitorar e manter a segurança de seus contêineres e seus aplicativos. Você aprenderá como a central de segurança ajuda com esses aspectos principais da segurança do contêiner:
+Este artigo descreve como a central de segurança ajuda você a melhorar, monitorar e manter a segurança de seus contêineres e seus aplicativos. Você aprenderá como a central de segurança ajuda com esses aspectos principais da segurança do contêiner:
 
 * Gerenciamento de vulnerabilidades
 * Proteção do ambiente do contêiner
@@ -31,17 +31,23 @@ Este artigo descreve como você pode melhorar, monitorar e manter a segurança d
 
 [![guia Segurança do contêiner da central de segurança do Azure](media/container-security/container-security-tab.png)](media/container-security/container-security-tab.png#lightbox)
 
+Para obter instruções sobre como usar esses recursos, consulte [monitorando a segurança de seus contêineres](monitor-container-security.md).
+
 ## <a name="vulnerability-management---scanning-container-images-preview"></a>Gerenciamento de vulnerabilidades-verificação de imagens de contêiner (visualização)
 Para monitorar seu registro de contêiner do Azure baseado em ARM, verifique se você está na camada Standard da central de segurança (consulte [preços](/azure/security-center/security-center-pricing)). Em seguida, habilite o pacote opcional de registros de contêiner. Quando uma nova imagem é enviada por push, a central de segurança examina a imagem usando um scanner do fornecedor de verificação de vulnerabilidade líder do setor, Qualys.
 
-Quando forem encontrados problemas – por Qualys ou pela central de segurança – você será notificado no painel da central de segurança. Para cada vulnerabilidade, a central de segurança fornece recomendações acionáveis, juntamente com uma classificação de gravidade, e orientações sobre como corrigir o problema. Para obter detalhes das recomendações da central de segurança, consulte a [lista de referências de recomendações](recommendations-reference.md).
+Quando forem encontrados problemas – por Qualys ou pela central de segurança – você será notificado no painel da central de segurança. Para cada vulnerabilidade, a central de segurança fornece recomendações acionáveis, juntamente com uma classificação de gravidade, e orientações sobre como corrigir o problema. Para obter detalhes das recomendações da central de segurança para contêineres, consulte a [lista de recomendações de referência](recommendations-reference.md#recs-containers).
 
 ## <a name="environment-hardening"></a>Proteção do ambiente
 
 ### <a name="continuous-monitoring-of-your-docker-configuration"></a>Monitoramento contínuo da configuração do Docker
-A central de segurança do Azure identifica contêineres não gerenciados hospedados em VMs do Linux IaaS ou em outros computadores Linux que executam contêineres do Docker. A central de segurança avalia continuamente as configurações desses contêineres. Em seguida, ele os compara com o [benchmark do Docker do CIS (centro para Internet Security](https://www.cisecurity.org/benchmark/docker/))). 
+A central de segurança do Azure identifica contêineres não gerenciados hospedados em VMs do Linux IaaS ou em outros computadores Linux que executam contêineres do Docker. A central de segurança avalia continuamente as configurações desses contêineres. Em seguida, ele os compara com o [benchmark do Docker do CIS (centro para Internet Security](https://www.cisecurity.org/benchmark/docker/))).
 
-A central de segurança inclui o conjunto de regras inteiro do parâmetro de comparação do Docker do CIS e o alerta se os contêineres não atenderem a nenhum dos controles. Quando ele encontra configurações incorretas, a central de segurança gera recomendações de segurança. Use a **página recomendações** para exibir as recomendações e corrigir os problemas. Você também verá as recomendações na guia **contêineres** que exibe todas as máquinas virtuais implantadas com o Docker. Quando você estiver explorando os problemas de segurança em uma máquina virtual, a central de segurança fornecerá informações adicionais sobre os contêineres no computador. Essas informações incluem a versão do Docker e o número de imagens em execução no host. Para obter detalhes sobre as recomendações, consulte [aqui](https://docs.microsoft.com/azure/security-center/security-center-virtual-machine-protection). 
+A central de segurança inclui o conjunto de regras inteiro do parâmetro de comparação do Docker do CIS e o alerta se os contêineres não atenderem a nenhum dos controles. Quando ele encontra configurações incorretas, a central de segurança gera recomendações de segurança. Use a **página recomendações** para exibir as recomendações e corrigir os problemas. Você também verá as recomendações na guia **contêineres** que exibe todas as máquinas virtuais implantadas com o Docker. 
+
+Para obter detalhes sobre as recomendações relevantes da central de segurança que podem ser exibidas para esse recurso, consulte a [seção contêiner](recommendations-reference.md#recs-containers) da tabela de referência de recomendações.
+
+Quando você estiver explorando os problemas de segurança de uma VM, a central de segurança fornecerá informações adicionais sobre os contêineres no computador. Essas informações incluem a versão do Docker e o número de imagens em execução no host. 
 
 >[!NOTE]
 > Essas verificações de parâmetro de comparação de CIS não serão executadas em instâncias gerenciadas por AKS ou em VMs gerenciadas por databricks.
@@ -53,7 +59,7 @@ O AKS fornece controles de segurança e visibilidade da postura de segurança de
 * Monitore constantemente a configuração de seus clusters AKS
 * Gerar recomendações de segurança alinhadas com os padrões do setor
 
-Para obter detalhes das recomendações da central de segurança, consulte [proteção da máquina virtual](security-center-virtual-machine-protection.md).
+Para obter detalhes sobre as recomendações relevantes da central de segurança que podem ser exibidas para esse recurso, consulte a [seção contêiner](recommendations-reference.md#recs-containers) da tabela de referência de recomendações.
 
 ## <a name="run-time-protection---real-time-threat-detection"></a>Proteção de tempo de execução-detecção de ameaças em tempo real
 
@@ -61,13 +67,30 @@ A central de segurança fornece detecção de ameaças em tempo real para seus a
 
 Detectamos ameaças no nível de cluster host e AKS. Para obter detalhes completos, consulte [detecção de ameaças para contêineres do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-).
 
-## <a name="to-view-the-security-posture-of-your-container-related-resources"></a>Para exibir a postura de segurança de seus recursos relacionados ao contêiner
-1.  Abra a página de **aplicativos & de computação** da central de segurança.
-2.  Clique na guia **contêineres** . A postura de seus clusters AKS, registros de ACR e VMs que executam o Docker é exibida.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="container-security-faq"></a>Perguntas frequentes sobre segurança do contêiner
 
-Para saber mais sobre a segurança de contêiner na central de segurança do Azure, consulte:
+### <a name="what-types-of-images-can-azure-security-center-scan"></a>Quais tipos de imagens a central de segurança do Azure pode verificar?
+A central de segurança examina as imagens baseadas no SO Linux. 
+
+O scanner Qualys não dá suporte a imagens "distroless" que contêm apenas seu aplicativo e suas dependências de tempo de execução.
+
+### <a name="how-does-we-scan-azure-security-center-scan-an-image"></a>Como Digitalizamos a central de segurança do Azure digitalizar uma imagem?
+A imagem é extraída do registro. Em seguida, ele é executado em uma área restrita isolada com o scanner Qualys, que extrai uma lista de vulnerabilidades conhecidas.
+
+### <a name="how-often-does-azure-security-center-scan-my-images"></a>Com que frequência a central de segurança do Azure verifica minhas imagens?
+As verificações de imagem são disparadas em cada Push.
+
+### <a name="can-i-get-the-scan-results-via-rest-api"></a>Posso obter os resultados da verificação por meio da API REST?
+Sim. Os resultados estão sob a [API REST de subavaliações](/rest/api/securitycenter/subassessments/list/). Além disso, você pode usar o grafo de recursos do Azure (ARG), a API do tipo Kusto para todos os seus recursos: uma consulta pode buscar uma verificação específica.
+ 
+
+## <a name="next-steps"></a>Próximas etapas
+
+Para saber mais sobre a segurança de contêiner na central de segurança do Azure, consulte estes artigos relacionados:
+
+* Para exibir a postura de segurança de seus recursos relacionados ao contêiner, consulte a seção Contêineres de [proteger seus computadores e aplicativos](security-center-virtual-machine-protection.md#containers).
+
 * Detalhes da [integração com o serviço kubernetes do Azure](azure-kubernetes-service-integration.md)
 
 * Detalhes da [integração com o registro de contêiner do Azure](azure-container-registry-integration.md)

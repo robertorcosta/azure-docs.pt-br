@@ -7,12 +7,12 @@ ms.date: 12/5/2019
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 8f84b5641b79514ffed493302f246ecc51a20a87
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: abcf7d100a1c195d4a49c3061bf22710285c2a9f
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850050"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444155"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Entender como funcionam os alertas de métrica no Azure Monitor
 
@@ -20,7 +20,7 @@ Os alertas de métrica no Azure Monitor funcionam com métricas multidimensionai
 
 ## <a name="how-do-metric-alerts-work"></a>Como funcionam os alertas de métrica?
 
-Você pode definir uma regra de alerta de métrica especificando um recurso de destino a ser monitorado, o nome, o tipo de condição (estático ou dinâmico) e a condição (um operador e um limite/sensibilidade) da métrica, além de um grupo de ações a disparar quando a regra de alerta é acionada. Os tipos de condição afetam a determinação dos limites. [Saiba mais sobre as opções de confidencialidade e tipo de condição dos Limites Dinâmicos](alerts-dynamic-thresholds.md).
+Você pode definir uma regra de alerta de métrica especificando um recurso de destino a ser monitorado, o nome, o tipo de condição (estático ou dinâmico) e a condição (um operador e um limite/sensibilidade) da métrica, além de um grupo de ações a disparar quando a regra de alerta é acionada. Os tipos de condição afetam a determinação dos limites. [Saiba mais sobre as opções de sensibilidade e o tipo de condição de Limites Dinâmicos](alerts-dynamic-thresholds.md).
 
 ### <a name="alert-rule-with-static-condition-type"></a>Regra de alerta com o tipo de condição estática
 
@@ -125,15 +125,15 @@ Aumentar os períodos de retrocesso e o número de violações também pode perm
 
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Monitoramento em escala usando alertas de métrica no Azure Monitor
 
-Até agora, você viu como um único alerta de métrica pode ser usado para monitorar uma ou diversas séries de métricas temporais relacionadas a um único recurso do Azure. Em muitas situações, podemos querer a mesma regra de alerta aplicada a vários recursos. O Azure Monitor também dá suporte ao monitoramento de vários recursos com uma regra de alerta de métrica. No momento, esse recurso tem suporte apenas em máquinas virtuais, bancos de dados do SQL Server, pools elásticos do SQL Server e dispositivos de borda da caixa do data box. Além disso, um único alerta de métrica pode monitorar os recursos em uma única região do Azure.
+Até agora, você viu como um único alerta de métrica pode ser usado para monitorar uma ou diversas séries de métricas temporais relacionadas a um único recurso do Azure. Em muitas situações, podemos querer a mesma regra de alerta aplicada a vários recursos. O Azure Monitor também dá suporte ao monitoramento de vários recursos (do mesmo tipo) com uma regra de alerta de métrica, para recursos que existem na mesma região do Azure. Atualmente, esse recurso tem suporte apenas na nuvem pública do Azure e somente para máquinas virtuais, bancos de dados do SQL Server, pools elásticos do SQL Server e dispositivos de borda da caixa de entrada. Além disso, esse recurso só está disponível para métricas de plataforma e não tem suporte para métricas personalizadas.
 
-Você pode especificar o escopo de monitoramento de um único alerta de métrica de uma destas três maneiras:
+Você pode especificar o escopo do monitoramento por uma única regra de alerta de métrica de uma das três maneiras:
 
 - como uma lista de máquinas virtuais em uma região do Azure dentro de uma assinatura
 - todas as máquinas virtuais (em uma única região do Azure) em um ou mais grupos de recursos em uma assinatura
 - todas as máquinas virtuais (em uma região do Azure) em uma assinatura
 
-Criar regras de alerta de métrica que monitorem vários recursos é como [criar qualquer outro alerta de métrica](alerts-metric.md) que monitore um único recurso. A única diferença é que você selecionaria todos os recursos que quisesse monitorar. Você também pode criar essas regras por meio de [modelos do Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Você receberá notificações individuais para cada máquina virtual.
+Criar regras de alerta de métrica que monitorem vários recursos é como [criar qualquer outro alerta de métrica](alerts-metric.md) que monitore um único recurso. A única diferença é que você selecionaria todos os recursos que quisesse monitorar. Você também pode criar essas regras por meio de [modelos do Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Você receberá notificações individuais para cada recurso monitorado.
 
 ## <a name="typical-latency"></a>Latência típica
 
@@ -144,7 +144,7 @@ Para alertas de métrica, normalmente você será notificado em menos de 5 minut
 Você pode encontrar a lista completa dos tipos de recursos com suporte neste [artigo](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Saiba como criar, exibir e gerenciar alertas de métrica no Azure](alerts-metric.md)
 - [Saiba como criar alertas de métrica usando modelos do Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md)

@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/15/2020
-ms.openlocfilehash: c4a787362089dabf9c4eda9681358e7a70d8e78a
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 5846e9516548032595c1ce072d1dae8dcce9d39e
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210527"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443594"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Monitorar operações e atividades do Azure Pesquisa Cognitiva
 
 Este artigo apresenta o monitoramento no nível de serviço (recurso), no nível de carga de trabalho (consultas e indexação) e sugere uma estrutura para monitorar o acesso do usuário.
 
-Em todo o espectro, você usará uma combinação de infraestrutura interna e serviços fundamentais como Azure Monitor, bem como APIs de serviço que retornam estatísticas, contagens e status. Entender a variedade de recursos ajudará você a configurar ou criar um sistema de comunicação eficaz para respostas proativas a problemas à medida que surgirem.
+Em todo o espectro, você usará uma combinação de infraestrutura interna e serviços fundamentais como Azure Monitor, bem como APIs de serviço que retornam estatísticas, contagens e status. Entender a variedade de recursos pode ajudá-lo a construir um loop de comentários para que você possa resolver problemas à medida que eles surgirem.
 
 ## <a name="use-azure-monitor"></a>Usar o Azure Monitor
 
@@ -52,9 +52,9 @@ As páginas com guias criadas na página Visão geral relatam sobre o uso de rec
 
 Se estiver decidindo sobre [qual camada usar para cargas de trabalho de produção](search-sku-tier.md), ou se quiser [ajustar o número de partições e réplicas ativas](search-capacity-planning.md), essas métricas podem ajudá-lo nessas decisões ao mostrar o quão rápido os recursos são consumidos e o quão bem a configuração atual lida com a carga existente.
 
-Os alertas relacionados ao armazenamento não estão disponíveis no momento; o consumo de armazenamento não é agregado ou está conectado ao **AzureMetrics**. Você precisaria criar uma solução personalizada para obter notificações relacionadas a recursos.
+Os alertas relacionados ao armazenamento não estão disponíveis no momento; o consumo de armazenamento não é agregado ou conectado à tabela **AzureMetrics** em Azure monitor. Você precisaria criar uma solução personalizada que emita notificações relacionadas a recursos, em que seu código verifica o tamanho do armazenamento e manipula a resposta. Para obter mais informações sobre métricas de armazenamento, consulte [obter estatísticas de serviço](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics#response).
 
-No portal, a guia **uso** mostra a disponibilidade de recursos em relação aos [limites](search-limits-quotas-capacity.md) atuais impostos pela camada de serviço. 
+Para o monitoramento visual no portal, a guia **uso** mostra a disponibilidade de recursos em relação aos [limites](search-limits-quotas-capacity.md) atuais impostos pela camada de serviço. 
 
 A ilustração a seguir aplica-se ao serviço gratuito, que está limitado a três objetos de cada tipo e 50 MB de armazenamento. Um serviço Basic ou Standard tem limites maiores e, se você aumentar a quantidade de partições, o armazenamento máximo aumenta proporcionalmente.
 
@@ -63,7 +63,7 @@ A ilustração a seguir aplica-se ao serviço gratuito, que está limitado a tr�
 
 ## <a name="monitor-workloads"></a>Monitorar cargas de trabalho
 
-Os eventos registrados incluem aqueles relacionados à indexação e às consultas. A tabela **diagnóstico do Azure** no log Analytics coleta dados operacionais relacionados a consultas e indexação.
+Os eventos registrados incluem aqueles relacionados à indexação e às consultas. A tabela **AzureDiagnostics** no log Analytics coleta dados operacionais relacionados a consultas e indexação.
 
 A maioria dos dados registrados em log é para operações somente leitura. Para outras operações de criação-atualização-exclusão não capturadas no log, você pode consultar o serviço de pesquisa para obter informações do sistema.
 
@@ -115,9 +115,9 @@ A API REST do Azure Pesquisa Cognitiva e o SDK do .NET fornecem acesso programá
 
 ## <a name="monitor-user-access"></a>Monitorar o acesso do usuário
 
-Como os índices de pesquisa são um componente de um aplicativo cliente maior, não há nenhuma metodologia interna e por usuário para controlar o acesso a um índice. As solicitações são consideradas provenientes de um aplicativo cliente, para solicitações de administrador ou de consulta. As operações de leitura/gravação do administrador incluem a criação, a atualização e a exclusão de objetos em todo o serviço. Operações somente leitura são consultas em relação à coleção de documentos, com escopo para um único índice. 
+Como os índices de pesquisa são um componente de um aplicativo cliente maior, não há nenhuma metodologia interna para controlar ou monitorar o acesso por usuário a um índice. As solicitações são consideradas provenientes de um aplicativo cliente, para solicitações de administrador ou de consulta. As operações de leitura/gravação do administrador incluem a criação, a atualização e a exclusão de objetos em todo o serviço. Operações somente leitura são consultas em relação à coleção de documentos, com escopo para um único índice. 
 
-Assim, o que você verá nos logs são referências a chamadas usando chaves de administração ou chaves de consulta. A chave apropriada é incluída em solicitações originadas do código do cliente. O serviço não está equipado para manipular tokens de identidade ou representação.
+Assim, o que você verá nos logs de atividade são referências a chamadas usando chaves de administração ou chaves de consulta. A chave apropriada é incluída em solicitações originadas do código do cliente. O serviço não está equipado para manipular tokens de identidade ou representação.
 
 Quando os requisitos de negócios existem para autorização por usuário, a recomendação é a integração com o Azure Active Directory. Você pode usar $filter e identidades de usuário para [aparar os resultados da pesquisa](search-security-trimming-for-azure-search-with-aad.md) de documentos que um usuário não deve ver. 
 

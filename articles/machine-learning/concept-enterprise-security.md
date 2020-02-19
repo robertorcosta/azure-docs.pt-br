@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 01/09/2020
-ms.openlocfilehash: bc083a95ebf6c7ecfabfef87e606f99053ba58bb
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 32b3135f805cc6c68d8cd9d6fa2b6f957cd140ad
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312406"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444138"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança corporativa para Azure Machine Learning
 
@@ -43,7 +43,7 @@ Para obter mais informações, consulte [Configurar a autenticação para Azure 
 
 O Azure Machine Learning dá suporte a duas formas de autenticação para serviços Web: chave e token. Cada serviço Web pode habilitar apenas uma forma de autenticação de cada vez.
 
-|Método de autenticação|Description|Instâncias de Contêiner do Azure|AKS|
+|Método de autenticação|DESCRIÇÃO|Instâncias de Contêiner do Azure|AKS|
 |---|---|---|---|
 |Chave|As chaves são estáticas e não precisam ser atualizadas. As chaves podem ser geradas novamente manualmente.|Desabilitado por padrão| Habilitado por padrão|
 |Token|Tokens expiram após um período de tempo especificado e precisam ser atualizados.| Não disponível| Desabilitado por padrão |
@@ -86,11 +86,11 @@ Cada espaço de trabalho também tem uma identidade gerenciada atribuída pelo s
 
 Para obter mais informações sobre identidades gerenciadas, consulte [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-| Grupos | Permissões |
+| Recurso | Permissões |
 | ----- | ----- |
 | Workspace | Colaborador |
 | Conta de armazenamento | Colaborador de dados do blob de armazenamento |
-| Key Vault | Acesso a todas as chaves, segredos, certificados |
+| Cofre de chaves | Acesso a todas as chaves, segredos, certificados |
 | Registro de Contêiner do Azure | Colaborador |
 | Grupo de recursos que contém o espaço de trabalho | Colaborador |
 | Grupo de recursos que contém o cofre de chaves (se for diferente daquele que contém o espaço de trabalho) | Colaborador |
@@ -123,7 +123,7 @@ Os dados de treinamento normalmente também são armazenados no armazenamento de
 
 Para obter informações sobre como regenerar as chaves de acesso, consulte [regenerar chaves de acesso de armazenamento](how-to-change-storage-access-key.md).
 
-#### <a name="azure-cosmos-db"></a>BD Cosmos do Azure
+#### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
 Azure Machine Learning armazena métricas e metadados em uma instância de Azure Cosmos DB. Essa instância está associada a uma assinatura da Microsoft gerenciada pelo Azure Machine Learning. Todos os dados armazenados no Azure Cosmos DB são criptografados em repouso com chaves gerenciadas pela Microsoft.
 
@@ -174,7 +174,7 @@ Para obter um exemplo de como criar um espaço de trabalho usando um registro de
 
 A instância de contêiner do Azure não dá suporte à criptografia de disco. Se você precisar de criptografia de disco, recomendamos [a implantação em uma instância do serviço kubernetes do Azure](how-to-deploy-azure-kubernetes-service.md) . Nesse caso, você também pode querer usar o suporte de Azure Machine Learning para controles de acesso baseado em função para impedir implantações em uma instância de contêiner do Azure em sua assinatura.
 
-#### <a name="azure-kubernetes-service"></a>Serviço do Kubernetes do Azure
+#### <a name="azure-kubernetes-service"></a>Serviço de Kubernetes do Azure
 
 Você pode criptografar um recurso implantado do serviço kubernetes do Azure usando chaves gerenciadas pelo cliente a qualquer momento. Para obter mais informações, consulte [traga suas próprias chaves com o serviço kubernetes do Azure](../aks/azure-disk-customer-managed-keys.md). 
 
@@ -215,7 +215,7 @@ Cada espaço de trabalho tem uma identidade gerenciada atribuída pelo sistema a
 
 A Microsoft pode coletar informações que não são de usuário, como nomes de recursos (por exemplo, o nome do conjunto de dados ou o nome do experimento do Machine Learning) ou variáveis de ambiente de trabalho para fins de diagnóstico. Todos esses dados são armazenados usando chaves gerenciadas pela Microsoft no armazenamento hospedado em assinaturas de propriedade da Microsoft e seguem [os padrões de política de privacidade padrão da Microsoft e de manipulação de dados](https://privacy.microsoft.com/privacystatement).
 
-A Microsoft também recomenda o não armazenamento de informações confidenciais (como segredos de chave de conta) em variáveis de ambiente. As variáveis de ambiente são registradas, criptografadas e armazenadas por nós.
+A Microsoft também recomenda o não armazenamento de informações confidenciais (como segredos de chave de conta) em variáveis de ambiente. As variáveis de ambiente são registradas, criptografadas e armazenadas por nós. Da mesma forma, ao nomear [RunId](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py), evite incluir informações confidenciais, como nomes de usuário ou nomes de projetos secretos. Essas informações podem aparecer nos logs de telemetria acessíveis a engenheiros de Suporte da Microsoft.
 
 Você pode recusar os dados de diagnóstico que estão sendo coletados definindo o parâmetro `hbi_workspace` como `TRUE` ao provisionar o espaço de trabalho. Essa funcionalidade tem suporte ao usar o SDK Python do AzureML, a CLI, as APIs REST ou os modelos de Azure Resource Manager.
 
@@ -237,7 +237,7 @@ As métricas incluem informações sobre execuções, implantações e registros
 
 Para obter mais informações, consulte [métricas em Azure monitor](/azure/azure-monitor/platform/data-platform-metrics).
 
-### <a name="activity-log"></a>Logs de atividades
+### <a name="activity-log"></a>Log de atividades
 
 Você pode exibir o log de atividades de um espaço de trabalho para ver várias operações executadas no espaço de trabalho. O log inclui informações básicas, como o nome da operação, o iniciador do evento e o carimbo de data/hora.
 
@@ -253,7 +253,7 @@ Os detalhes da solicitação de pontuação são armazenados em Application Insi
 * RequestUrl
 * StatusCode
 * RequestId
-* Duração
+* Duration
 
 > [!IMPORTANT]
 > Algumas ações no espaço de trabalho Azure Machine Learning não registram informações no log de atividades. Por exemplo, o início de uma execução de treinamento e o registro de um modelo não são registrados.
@@ -331,7 +331,7 @@ Estes são os detalhes:
 
 [fluxo de trabalho de inferência de ![](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing-expanded.png#lightbox)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Proteger serviços Web do Azure Machine Learning com SSL](how-to-secure-web-service.md)
 * [Consumir um modelo de Machine Learning implantado como um serviço Web](how-to-consume-web-service.md)
