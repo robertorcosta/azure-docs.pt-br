@@ -4,15 +4,15 @@ description: Saiba como criar uma entidade de serviço para automatizar Azure An
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/18/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c599abbf274eb4014323ec217c6d54d3c397b159
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: dc163de9a7fb46d62f4bc2983e040e68bbf9231c
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251661"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461667"
 ---
 # <a name="automation-with-service-principals"></a>Automação com entidades de serviço
 
@@ -20,16 +20,18 @@ As entidades de serviço são um recurso de aplicativo do Azure Active Directory
 
 No Analysis Services, as entidades de serviço são usadas com o Automação do Azure, o modo autônomo do PowerShell, aplicativos cliente personalizados e aplicativos Web para automatizar tarefas comuns. Por exemplo, servidores de provisionamento, modelos de implantação, atualização de dados, escalar verticalmente/reduzir verticalmente e pausar/continuar podem ser automatizados usando entidades de serviço. As permissões são atribuídas a entidades de serviço por meio da associação de funções, semelhante às contas comuns de UPN do Microsoft Azure AD.
 
+O Analysis Services também dá suporte a operações executadas por identidades gerenciadas usando entidades de serviço. Para saber mais, confira [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) e [Serviços do Azure que dão suporte à autenticação do Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).  
+
 ## <a name="create-service-principals"></a>Criar entidades de serviço
  
-As entidades de serviço podem ser criadas no portal do Azure ou usando o PowerShell. Para obter mais informações, consulte:
+As entidades de serviço podem ser criadas no portal do Azure ou usando o PowerShell. Para saber mais, consulte:
 
 [Criar entidade de serviço - Portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
 [Criar entidade de serviço - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Armazenar credenciais e ativos de certificado na Automação do Azure
 
-Credenciais e certificados da entidade de serviço podem ser armazenados de forma segura na Automação do Azure para operações de runbook. Para obter mais informações, consulte:
+Credenciais e certificados da entidade de serviço podem ser armazenados de forma segura na Automação do Azure para operações de runbook. Para saber mais, consulte:
 
 [Ativos de credenciais na Automação do Azure](../automation/automation-credentials.md)   
 [Ativos de certificado na Automação do Azure](../automation/automation-certificates.md)
@@ -106,6 +108,6 @@ tbl.RequestRefresh(RefreshType.Full);
 db.Model.SaveChanges();
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 [Entrar com o Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
 [Adicionar uma entidade de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md)   

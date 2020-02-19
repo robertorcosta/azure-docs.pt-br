@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 08/27/2019
-ms.openlocfilehash: b7c406c1d7f55b364d72b2b5626b3c17a34d8338
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: bf83155e971061f22e5f5fc33d216b58621c9249
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552756"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462642"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Tutorial: adicionar uma instância gerenciada do banco de dados SQL a um grupo de failover
 
@@ -34,15 +34,15 @@ Adicione uma instância gerenciada do banco de dados SQL a um grupo de failover.
   > - As instâncias gerenciadas que participam de um grupo de failover exigem o [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) ou dois gateways de VPN conectados. Este tutorial fornece etapas para criar e conectar os gateways de VPN. Ignore estas etapas se você já tiver o ExpressRoute configurado. 
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 Para concluir este tutorial, verifique se você tem: 
 
 - Uma assinatura do Azure. [Crie uma conta gratuita](https://azure.microsoft.com/free/) se você ainda não tiver uma.
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Para concluir o tutorial, verifique se você tem os seguintes itens:
 
 - Uma assinatura do Azure. [Crie uma conta gratuita](https://azure.microsoft.com/free/) se você ainda não tiver uma.
@@ -55,7 +55,7 @@ Para concluir o tutorial, verifique se você tem os seguintes itens:
 Nesta etapa, você criará o grupo de recursos e a instância gerenciada primária para seu grupo de failover usando o portal do Azure ou o PowerShell. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal) 
+# <a name="portal"></a>[Portal](#tab/azure-portal) 
 
 Crie o grupo de recursos e sua instância gerenciada primária usando o portal do Azure. 
 
@@ -75,7 +75,7 @@ Crie o grupo de recursos e sua instância gerenciada primária usando o portal d
 1. Deixe o restante das configurações em valores padrão e selecione **revisar + criar** para examinar as configurações de instância gerenciada. 
 1. Selecione **criar** para criar sua instância gerenciada primária. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Crie seu grupo de recursos e a instância gerenciada primária usando o PowerShell. 
 
@@ -405,7 +405,7 @@ Esta parte do tutorial usa os seguintes cmdlets do PowerShell:
 ## <a name="2---create-secondary-virtual-network"></a>2-criar rede virtual secundária
 Se você estiver usando o portal do Azure para criar sua instância gerenciada, será necessário criar a rede virtual separadamente porque há um requisito de que a sub-rede da instância gerenciada primária e secundária não tenha intervalos sobrepostos. Se você estiver usando o PowerShell para configurar sua instância gerenciada, pule para a etapa 3. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal) 
+# <a name="portal"></a>[Portal](#tab/azure-portal) 
 Para verificar o intervalo de sub-rede de sua rede virtual primária, siga estas etapas:
 1. No [portal do Azure](https://portal.azure.com), navegue até o grupo de recursos e selecione a rede virtual para sua instância primária. 
 1. Selecione **sub-redes** em **configurações** e anote o **intervalo de endereços**. O intervalo de endereços de sub-rede da rede virtual para a instância gerenciada secundária não pode sobrepor isso. 
@@ -433,7 +433,7 @@ Para criar uma rede virtual, siga estas etapas:
 
     ![Valores de rede virtual secundária](media/sql-database-managed-instance-failover-group-tutorial/secondary-virtual-network.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Esta etapa só será necessária se você estiver usando o portal do Azure para implantar sua instância gerenciada. Pule para a etapa 3 se você estiver usando o PowerShell. 
 
@@ -446,7 +446,7 @@ Sua segunda instância gerenciada deve:
 - Ficar vazio. 
 - Ter uma sub-rede e um intervalo de IPS diferentes da instância gerenciada primária. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal) 
+# <a name="portal"></a>[Portal](#tab/azure-portal) 
 
 Crie a instância gerenciada secundária usando o portal do Azure. 
 
@@ -482,7 +482,7 @@ Crie a instância gerenciada secundária usando o portal do Azure.
 1. Selecione **examinar + criar** para examinar as configurações de sua instância gerenciada secundária. 
 1. Selecione **criar** para criar sua instância gerenciada secundária. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Crie a instância gerenciada secundária usando o PowerShell. 
 
@@ -734,7 +734,7 @@ Para que duas instâncias gerenciadas participem de um grupo de failover, deve h
 Este artigo fornece etapas para criar os dois gateways de VPN e conectá-los, mas você pode pular para criar o grupo de failover se tiver configurado o ExpressRoute em vez disso. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Crie o gateway para a rede virtual da sua instância gerenciada primária usando o portal do Azure. 
 
@@ -773,7 +773,7 @@ Crie o gateway para a rede virtual da sua instância gerenciada primária usando
 1. Selecione **criar** para criar seu novo gateway de rede virtual. 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Crie o gateway para a rede virtual da sua instância gerenciada primária usando o PowerShell. 
 
@@ -828,7 +828,7 @@ Esta parte do tutorial usa os seguintes cmdlets do PowerShell:
 Nesta etapa, crie o gateway para a rede virtual da sua instância gerenciada secundária usando o portal do Azure, 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Usando o portal do Azure, repita as etapas na seção anterior para criar a sub-rede de rede virtual e o gateway para a instância gerenciada secundária. Preencha os campos obrigatórios para configurar o gateway para sua instância gerenciada secundária. 
 
@@ -851,7 +851,7 @@ Usando o portal do Azure, repita as etapas na seção anterior para criar a sub-
    ![Configurações do gateway secundário](media/sql-database-managed-instance-failover-group-tutorial/settings-for-secondary-gateway.png)
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Crie o gateway para a rede virtual da instância gerenciada secundária usando o PowerShell. 
 
@@ -908,7 +908,7 @@ Esta parte do tutorial usa os seguintes cmdlets do PowerShell:
 Nesta etapa, crie uma conexão bidirecional entre os dois gateways das duas redes virtuais. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Conecte os dois gateways usando o portal do Azure. 
 
@@ -933,7 +933,7 @@ Conecte os dois gateways usando o portal do Azure.
 1. Na guia **Resumo** , examine as configurações da conexão bidirecional e, em seguida, selecione **OK** para criar a conexão. 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Conecte os dois gateways usando o PowerShell. 
 
@@ -967,7 +967,7 @@ Esta parte do tutorial usa o seguinte cmdlet do PowerShell:
 Nesta etapa, você criará o grupo de failover e adicionará as duas instâncias gerenciadas a ele. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 Crie o grupo de failover usando o portal do Azure. 
 
 
@@ -984,7 +984,7 @@ Crie o grupo de failover usando o portal do Azure.
 1. Depois que a implantação do grupo de failover for concluída, você será levado de volta à página **grupo de failover** . 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Crie o grupo de failover usando o PowerShell. 
 
    ```powershell-interactive
@@ -1010,11 +1010,11 @@ Esta parte do tutorial usa o seguinte cmdlet do PowerShell:
 Nesta etapa, você falhará no grupo de failover para o servidor secundário e, em seguida, fará o failback usando o portal do Azure. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 Failover de teste usando o portal do Azure. 
 
 
-1. Navegue até sua instância gerenciada dentro do [portal do Azure](https://portal.azure.com) e selecione **grupos de failover de instância** em configurações. 
+1. Navegue até sua instância gerenciada _secundária_ dentro do [portal do Azure](https://portal.azure.com) e selecione grupos de **failover de instância** em configurações. 
 1. Examine qual instância gerenciada é a primária e qual instância gerenciada é a secundária. 
 1. Selecione **failover** e, em seguida, selecione **Sim** no aviso sobre as sessões de TDS sendo desconectadas. 
 
@@ -1024,10 +1024,10 @@ Failover de teste usando o portal do Azure.
 
    ![Instâncias gerenciadas têm funções alternadas após o failover](media/sql-database-managed-instance-failover-group-tutorial/mi-switched-after-failover.png)
 
-1. Selecione **failover** novamente para falhar a instância primária de volta para a função primária. 
+1. Vá para a nova instância gerenciada _secundária_ e selecione **failover** novamente para falhar a instância primária de volta para a função primária. 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Failover de teste usando o PowerShell. 
 
    ```powershell-interactive
@@ -1076,14 +1076,14 @@ Esta parte do tutorial usa os seguintes cmdlets do PowerShell:
 ## <a name="clean-up-resources"></a>Limpar os recursos
 Limpe os recursos excluindo primeiro a instância gerenciada, depois o cluster virtual, todos os recursos restantes e, por fim, o grupo de recursos. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
-1. Navegue até o grupo de recursos na [portal do Azure](https://portal.azure.com). 
-1. Selecione as instâncias gerenciadas e, em seguida, selecione **excluir**. Digite `yes` na caixa de texto para confirmar que deseja excluir o recurso e, em seguida, selecione **excluir**. Esse processo pode levar algum tempo para ser concluído em segundo plano e, até que seja concluído, você não poderá excluir o *cluster virtual* nem outros recursos dependentes. Monitore a exclusão na guia atividade para confirmar se a instância gerenciada foi excluída. 
-1. Depois que a instância gerenciada for excluída, exclua o *cluster virtual* selecionando-o em seu grupo de recursos e, em seguida, escolhendo **excluir**. Digite `yes` na caixa de texto para confirmar que deseja excluir o recurso e, em seguida, selecione **excluir**. 
-1. Exclua todos os recursos restantes. Digite `yes` na caixa de texto para confirmar que deseja excluir o recurso e, em seguida, selecione **excluir**. 
-1. Exclua o grupo de recursos selecionando **excluir grupo de recursos**, digitando o nome do grupo de recursos, `myResourceGroup`e, em seguida, selecionando **excluir**. 
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+1. Procure o grupo de recursos no [portal do Azure](https://portal.azure.com). 
+1. Selecione as instâncias gerenciadas e, em seguida, selecione **Excluir**. Digite `yes` na caixa de texto para confirmar se deseja excluir o recurso e, em seguida, selecione **Excluir**. Esse processo pode levar algum tempo para ser concluído em segundo plano e, até que seja concluído, você não poderá excluir o *cluster virtual* nem outros recursos dependentes. Monitore a exclusão na guia Atividade para confirmar se a instância gerenciada foi excluída. 
+1. Depois que a instância gerenciada for excluída, exclua o *cluster virtual* selecionando-o no grupo de recursos e, em seguida, escolhendo **Excluir**. Digite `yes` na caixa de texto para confirmar se deseja excluir o recurso e, em seguida, selecione **Excluir**. 
+1. Exclua todos os recursos restantes. Digite `yes` na caixa de texto para confirmar se deseja excluir o recurso e, em seguida, selecione **Excluir**. 
+1. Exclua o grupo de recursos selecionando **Excluir grupo de recursos**, digitando o nome do grupo de recursos, `myResourceGroup`, e, em seguida, selecionando **Excluir**. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Você precisará remover o grupo de recursos duas vezes. Remover o grupo de recursos pela primeira vez removerá a instância gerenciada e os clusters virtuais, mas falhará em seguida com esta mensagem de erro: `Remove-AzResourceGroup : Long running operation failed with status 'Conflict'.`. Execute o comando Remove-AzResourceGroup uma segunda vez para remover todos os recursos residuais, bem como o grupo de recursos.
 
@@ -1104,7 +1104,7 @@ Esta parte do tutorial usa o seguinte cmdlet do PowerShell:
 
 ## <a name="full-script"></a>Script completo
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 [!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-managed-instance-to-failover-group-az-ps.ps1 "Add managed instance to a failover group")]
 
 Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
@@ -1136,13 +1136,13 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 | [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | Executa um failover de um grupo de failover de instância gerenciada. | 
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos. | 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal) 
+# <a name="portal"></a>[Portal](#tab/azure-portal) 
 
 Não há nenhum script disponível para o portal do Azure.
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você configurou um grupo de failover entre duas instâncias gerenciadas. Você aprendeu a:
 

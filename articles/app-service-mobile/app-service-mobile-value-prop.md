@@ -5,19 +5,14 @@ ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
 ms.tgt_pltfrm: mobile-multiple
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.openlocfilehash: d85ac89a4226b545419cea3413a04f4013a073be
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 73fdf7f09ebb5073829f9787917946e8053f8e12
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668715"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461429"
 ---
-# <a name="getting-started"> </a>Sobre Aplicativos Móveis no Serviço de Aplicativo do Azure
-
-> [!NOTE]
-> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados essenciais para o desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar os serviços de **Build**, **Teste** e **Distribuição** para configurar o pipeline de integração e entrega contínuas. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso dos respectivos aplicativos usando os serviços de **Análise** e **Diagnóstico** e se envolver com usuários usando o serviço de **Push**. Os desenvolvedores também podem aproveitar o serviço de **Autenticação** para autenticar os respectivos usuários e o serviço de **Dados** para persistir e sincronizar dados de aplicativo na nuvem.
->
-> Se desejar integrar os serviços de nuvem em seu aplicativo móvel, inscreva-se no [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
+# <a name="getting-started"> </a>Sobre os aplicativos móveis no serviço Azure app
 
 O Serviço de Aplicativo do Azure é uma oferta de [PaaS](https://azure.microsoft.com/overview/what-is-paas/) (plataforma como um serviço) para desenvolvedores profissionais. O serviço oferece um conjunto avançado de recursos para cenários Web, móveis e de integração. 
 
@@ -75,7 +70,7 @@ Os recursos de plataforma abaixo são úteis para sites de produção móvel:
 
   Descubra mais sobre os [Ambientes do Serviço de Aplicativo].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para começar a usar os Aplicativos Móveis no Serviço de Aplicativo do Azure, conclua o tutorial de [introdução]. O tutorial abrange os fundamentos da produção de um back-end móvel e um cliente de sua escolha. Ele também aborda a integração de autenticação, sincronização offline e notificações por push. Você pode concluir o tutorial várias vezes, uma vez para cada aplicativo cliente.
 
@@ -103,4 +98,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 [ExpressRoute]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md
 [Ambientes do Serviço de Aplicativo]: ../app-service/environment/intro.md
 [mapa de aprendizado]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
-[Serviço de aplicativo do Azure]: ../app-service/overview.md
+[Serviço de Aplicativo do Azure]: ../app-service/overview.md

@@ -6,19 +6,14 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 32e0584478031226ed52d6ed5f6849f7ad6d3cfe
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 52e91d900ce0f22862904695ba8adf463219c469
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668901"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461582"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Como usar o SDK de Aplicativos Móveis do Azure para Android
-
-> [!NOTE]
-> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados essenciais para o desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar os serviços de **Build**, **Teste** e **Distribuição** para configurar o pipeline de integração e entrega contínuas. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso dos respectivos aplicativos usando os serviços de **Análise** e **Diagnóstico** e se envolver com usuários usando o serviço de **Push**. Os desenvolvedores também podem aproveitar o serviço de **Autenticação** para autenticar os respectivos usuários e o serviço de **Dados** para persistir e sincronizar dados de aplicativo na nuvem.
->
-> Se desejar integrar os serviços de nuvem em seu aplicativo móvel, inscreva-se no [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
 Este guia mostra como usar o SDK de cliente Android para Aplicativos Móveis a fim de implementar cenários comuns, como:
 
@@ -69,7 +64,7 @@ Altere ambos os arquivos **build.gradle** :
     }
     ```
 
-2. Adicione este código ao arquivo **build.gradle** do nível *Module app* dentro da marca *dependencies*:
+2. Adicione este código ao arquivo *build.gradle* do nível **Module app** dentro da marca *dependencies*:
 
     ```gradle
     implementation 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
@@ -158,8 +153,8 @@ O fundamental do SDK de Aplicativos Móveis do Azure é fornecer acesso aos dado
 
 Para acessar dados de tabelas do SQL Azure, defina as classes de dados do cliente que correspondem às tabelas no back-end de aplicativo móvel. Os exemplos deste tópico pressupõem a existência de uma tabela denominada **MyDataTable** com as seguintes colunas:
 
-* ID
-* text
+* {1&gt;id&lt;1}
+* texto
 * concluído
 
 O objeto tipado do lado do cliente correspondente reside em um arquivo chamado **MyDataTable.java**:
@@ -290,9 +285,9 @@ MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToD
 
 Primeiro, obtenha uma referência de tabela.  Em seguida, execute uma consulta na referência de tabela.  Uma consulta é qualquer combinação de:
 
-* Uma [cláusula de filtro `.where()`](#filtering).
-* Uma [cláusula de ordenação `.orderBy()`](#sorting).
-* Uma [cláusula de seleção de campo `.select()`](#selection).
+* Uma `.where()` [cláusula de filtro](#filtering).
+* Uma [cláusula de ordenação](#sorting)`.orderBy()`.
+* Uma [cláusula de seleção de campo](#selection)`.select()`.
 * Um `.skip()` e `.top()` para [resultados paginados](#paging).
 
 As cláusulas devem ser apresentadas na ordem anterior.
@@ -322,7 +317,7 @@ List<ToDoItem> result = mToDoTable
     .get();
 ```
 
-**mToDoTable** é a referência à tabela de serviços móveis que criamos anteriormente.
+**mToDoTable** é a referência à tabela do serviço móvel que criamos anteriormente.
 
 Defina um filtro usando a chamada ao método **where** na referência de tabela. O método **where** é seguido de um método **field** seguido de um método que especifica o predicado lógico. Os possíveis métodos de predicado incluem **eq** (igual),**ne** (diferente), **gt** (maior que), **ge** (maior que ou igual a), **lt** (menor que), **le** (menor que ou igual a). Esses métodos permitem que você compare os campos de número e cadeia de caracteres com valores específicos.
 
@@ -911,7 +906,7 @@ Quatro etapas são necessárias para habilitar a autenticação no seu aplicativ
 * Restringir permissões de tabela a usuários autenticados somente no back-end do Serviço de Aplicativo.
 * Adicionar código de autenticação ao aplicativo.
 
-Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar o SID de um usuário autenticado para modificar solicitações.  Para saber mais, confira [Comece a usar a autenticação] e a documentação TUTORIAL do SDK do Servidor.
+Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar o SID de um usuário autenticado para modificar solicitações.  Para saber mais, confira [Introdução à autenticação] e a documentação TUTORIAL do SDK do Servidor.
 
 ### <a name="caching"></a>Autenticação: Fluxo de servidor
 
@@ -994,7 +989,7 @@ dependencies {
 }
 ```
 
-Obtenha a ID do usuário conectado de um **MobileServiceUser** usando o método **getUserId**. Para ver um exemplo de como usar Futures para chamar as APIs de logon assíncronas, veja [Comece a usar a autenticação].
+Obtenha a ID do usuário conectado de um **MobileServiceUser** usando o método **getUserId**. Para ver um exemplo de como usar Futures para chamar as APIs de logon assíncronas, veja [Introdução à autenticação].
 
 > [!WARNING]
 > O esquema de URL mencionado diferencia maiúsculas de minúsculas.  Certifique-se de que todas as ocorrências de `{url_scheme_of_you_app}` tenham as mesmas maiúsculas ou minúsculas.
@@ -1298,7 +1293,7 @@ Esse código deve ser executado antes da criação de uma referência de cliente
 [ASCII control codes C0 and C1]: https://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Mobile Services SDK for Android]: https://go.microsoft.com/fwlink/p/?LinkID=717033
 [Azure portal]: https://portal.azure.com
-[Comece a usar a autenticação]: app-service-mobile-android-get-started-users.md
+[Introdução à autenticação]: app-service-mobile-android-get-started-users.md
 [1]: https://static.javadoc.io/com.google.code.gson/gson/2.8.5/com/google/gson/JsonObject.html
 [2]: https://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
 [3]: https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5

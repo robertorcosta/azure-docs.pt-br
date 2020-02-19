@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 794e18590f554d1537449d2aee9451c0053ac4a7
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 6950f1dd81ef2c70f2c45fb4c547ed7676067790
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198405"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462302"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Associações de armazenamento de BLOBs do Azure para Azure Functions visão geral
 
@@ -26,7 +26,7 @@ O Azure Functions integra-se com o [armazenamento do Azure](https://docs.microso
 
 ### <a name="functions-2x-and-higher"></a>Funções 2. x e posteriores
 
-Trabalhar com o gatilho e as associações exige que você referencie o pacote apropriado. O pacote NuGet é usado para bibliotecas de classes do .NET enquanto a extensão agrupa todos os outros tipos de aplicativos.
+Trabalhar com o gatilho e as associações exige que você referencie o pacote apropriado. O pacote NuGet é usado para bibliotecas de classes do .NET enquanto o pacote de extensão é usado para todos os outros tipos de aplicativos.
 
 | Linguagem                                        | Adicionar por...                                   | Comentários 
 |-------------------------------------------------|---------------------------------------------|-------------|

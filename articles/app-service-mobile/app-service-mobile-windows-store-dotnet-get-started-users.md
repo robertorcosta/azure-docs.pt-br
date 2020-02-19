@@ -6,22 +6,17 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 23d3c897f227dd49253abfcc6d3a84d477341c13
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 32d4313b345964a2db13d68e83f81756a4acf0d9
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668392"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77458929"
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Adicionar autenticação ao seu aplicativo do Windows
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-> [!NOTE]
-> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados essenciais para o desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar os serviços de **Build**, **Teste** e **Distribuição** para configurar o pipeline de integração e entrega contínuas. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso dos respectivos aplicativos usando os serviços de **Análise** e **Diagnóstico** e se envolver com usuários usando o serviço de **Push**. Os desenvolvedores também podem aproveitar o serviço de **Autenticação** para autenticar os respectivos usuários e o serviço de **Dados** para persistir e sincronizar dados de aplicativo na nuvem.
->
-> Se desejar integrar os serviços de nuvem em seu aplicativo móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
-
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Este tópico mostra como adicionar autenticação baseada em nuvem ao seu aplicativo móvel. Neste tutorial, você aprenderá a adicionar autenticação ao projeto de início rápido da UWP (Plataforma Universal do Windows) para aplicativos móveis usando um provedor de identidade com suporte no Serviço de Aplicativo do Azure. Após ser autenticado e autorizado com sucesso pelo back-end do Aplicativo Móvel, o valor da ID de usuário é exibido.
 
 Este tutorial baseia-se no início rápido dos Aplicativos Móveis. Você deve primeiro concluir o tutorial [Introdução aos Aplicativos Móveis](app-service-mobile-windows-store-dotnet-get-started.md).
@@ -152,13 +147,13 @@ O exemplo anterior mostrou uma entrada padrão, que requer que o cliente contate
 
 [!INCLUDE [mobile-windows-universal-dotnet-authenticate-app-with-token](../../includes/mobile-windows-universal-dotnet-authenticate-app-with-token.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Agora que você concluiu este tutorial de autenticação básica, considere continuar com um dos seguintes tutoriais:
 
 * [Adicionar notificações por push ao aplicativo](app-service-mobile-windows-store-dotnet-get-started-push.md)  
   Saiba como adicionar suporte a notificações por push ao aplicativo e configurar o back-end do Aplicativo Móvel para usar os Hubs de Notificação do Azure para enviar notificações por push.
 * [Habilitar sincronização offline para seu aplicativo](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
-  Saiba como adicionar suporte offline ao seu aplicativo usando um back-end de Aplicativo Móvel. Sincronização offline permite que os usuários finais interajam com um aplicativo móvel, &mdash;exibindo, adicionando ou modificando dados&mdash;, mesmo quando não há conexão de rede.
+  Saiba como adicionar suporte offline em seu aplicativo usando um back-end do aplicativo móvel. Sincronização offline permite que os usuários finais interajam com um aplicativo móvel, &mdash;exibindo, adicionando ou modificando dados&mdash;, mesmo quando não há conexão de rede.
 
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md

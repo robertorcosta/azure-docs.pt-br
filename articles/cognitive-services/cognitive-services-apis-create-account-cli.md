@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: aahi
-ms.openlocfilehash: 5d3aba2f6010ba16656be96433c521d2adae4c58
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 3e5fd2315a5d352ed5abee9253b5c84eea3b73a9
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169170"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462268"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Criar um recurso de serviços cognitivas usando a CLI (interface de linha de comando) do Azure
 
@@ -25,7 +25,7 @@ Neste guia de início rápido, você aprenderá a se inscrever nos serviços cog
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura válida do Azure- [crie uma](https://azure.microsoft.com/free/) gratuitamente.
 * A [CLI (interface de linha de comando) do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -88,14 +88,14 @@ Ao criar um novo recurso, você precisará saber o "tipo" de serviço que deseja
 
 | Serviço                    | Tipo                      |
 |----------------------------|---------------------------|
-| Visual computacional            | `ComputerVision`          |
+| Visual Computacional            | `ComputerVision`          |
 | Visão Personalizada-previsão | `CustomVision.Prediction` |
 | Visão Personalizada-treinamento   | `CustomVision.Training`   |
 | Face                       | `Face`                    |
 | Reconhecimento de Formulários            | `FormRecognizer`          |
 | Reconhecimento de Tinta Digital             | `InkRecognizer`           |
 
-### <a name="search"></a>Pesquisa
+### <a name="search"></a>Search
 
 | Serviço            | Tipo                  |
 |--------------------|-----------------------|
@@ -110,17 +110,17 @@ Ao criar um novo recurso, você precisará saber o "tipo" de serviço que deseja
 | Serviço            | Tipo                 |
 |--------------------|----------------------|
 | Serviços de Fala    | `SpeechServices`     |
-| Reconhecimento de Fala | `SpeakerRecognition` |
+| Reconhecimento de fala | `SpeakerRecognition` |
 
-### <a name="language"></a>Idioma
+### <a name="language"></a>Linguagem
 
 | Serviço            | Tipo                |
 |--------------------|---------------------|
 | Compreensão do formulário | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
 | QnA Maker          | `QnAMaker`          |
-| Análises de texto     | `TextAnalytics`     |
-| Tradução de Texto   | `TextTranslation`   |
+| Análise de texto     | `TextAnalytics`     |
+| Tradução de texto   | `TextTranslation`   |
 
 ### <a name="decision"></a>Decisão
 
@@ -195,12 +195,12 @@ Se você quiser limpar e remover um recurso de serviços cognitivas, poderá exc
 Para remover o grupo de recursos e seus recursos associados, use o comando AZ Group Delete.
 
 ```azurecli-interactive
-az group delete --name storage-resource-group
+az group delete --name cognitive-services-resource-group
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Autenticar solicitações para os Serviços Cognitivos do Azure](authentication.md)
 * [O que são os serviços cognitivas do Azure?](Welcome.md)
-* [Suporte à linguagem natural](language-support.md)
+* [Suporte a idioma natural](language-support.md)
 * [Suporte a contêiner do Docker](cognitive-services-container-support.md)

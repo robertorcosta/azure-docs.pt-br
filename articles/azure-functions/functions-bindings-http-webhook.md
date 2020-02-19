@@ -5,18 +5,18 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.openlocfilehash: ebf0728184a5fc104e3e1e7d8a199fec328dbdc0
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 29b5e9c7673b4a730a41bf7cf2b1c4a2a86209ed
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210167"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462098"
 ---
 # <a name="azure-functions-http-triggers-and-bindings-overview"></a>Visão geral de gatilhos e associações HTTP Azure Functions
 
 Azure Functions pode ser invocado por meio de solicitações HTTP para criar APIs sem servidor e responder a [WebHooks](https://en.wikipedia.org/wiki/Webhook).
 
-| Ação | Type |
+| Ação | Tipo |
 |---------|---------|
 | Executar uma função de uma solicitação HTTP | [Gatilho](./functions-bindings-http-webhook-trigger.md) |
 | Retornar uma resposta HTTP de uma função |[Associação de saída](./functions-bindings-http-webhook-output.md) |
@@ -27,7 +27,7 @@ O código neste artigo usa como padrão a sintaxe do .NET Core, usada nas funç�
 
 ### <a name="functions-2x-and-higher"></a>Funções 2. x e posteriores
 
-Trabalhar com o gatilho e as associações exige que você referencie o pacote apropriado. O pacote NuGet é usado para bibliotecas de classes do .NET enquanto a extensão agrupa todos os outros tipos de aplicativos.
+Trabalhar com o gatilho e as associações exige que você referencie o pacote apropriado. O pacote NuGet é usado para bibliotecas de classes do .NET enquanto o pacote de extensão é usado para todos os outros tipos de aplicativos.
 
 | Linguagem                                        | Adicionar por...                                   | Comentários 
 |-------------------------------------------------|---------------------------------------------|-------------|
@@ -45,7 +45,7 @@ Trabalhar com o gatilho e as associações exige que você referencie o pacote a
 
 Os aplicativos do Functions 1. x têm automaticamente uma referência ao pacote NuGet [Microsoft. Azure. webjobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) , versão 2. x.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Executar uma função de uma solicitação HTTP](./functions-bindings-http-webhook-trigger.md)
 - [Retornar uma resposta HTTP de uma função](./functions-bindings-http-webhook-output.md)

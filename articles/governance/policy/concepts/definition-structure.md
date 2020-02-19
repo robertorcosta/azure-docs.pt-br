@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos do Azure em sua organização.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: b98702161753a996cd8a6751670308a78dc36b7c
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: d30097badd3ab9ee5a328f17d0e3e91254a89185
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169761"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461995"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -21,10 +21,10 @@ O esquema de definição de política é encontrado aqui: [https://schema.manage
 
 Você usa JSON para criar uma definição de política. A definição de política contém elementos para:
 
-- mode
+- {1&gt;mode&lt;1}
 - parâmetros
 - nome de exibição
-- descrição
+- description
 - regra de política
   - avaliação de lógica
   - efeito
@@ -65,7 +65,7 @@ Por exemplo, o JSON a seguir mostra uma política que limita os locais em que os
 
 Todos os exemplos de Azure Policy estão em [exemplos de Azure Policy](../samples/index.md).
 
-## <a name="mode"></a>Mode
+## <a name="mode"></a>Modo
 
 O **modo** é configurado dependendo de se a política tem como alvo uma propriedade Azure Resource Manager ou uma propriedade de provedor de recursos.
 
@@ -94,7 +94,7 @@ Atualmente, há suporte para os seguintes modos de provedor de recursos durante 
 > [!NOTE]
 > Os modos de provedor de recursos só dão suporte a definições de políticas internas e não oferecem suporte a iniciativas durante a visualização.
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>Parâmetros
 
 Parâmetros ajudam a simplificar o gerenciamento de política, reduzindo o número de definições de política. Pense em parâmetros como os campos em um formulário – `name`, `address`, `city`, `state`. Esses parâmetros sempre permanecem iguais, porém, seus valores mudam com base no preenchimento individual do formulário.
 Os parâmetros funcionam da mesma maneira que ao criar políticas. Ao incluir parâmetros em uma definição de política, você pode reutilizar essa política para diferentes cenários usando valores diferentes.
@@ -102,7 +102,7 @@ Os parâmetros funcionam da mesma maneira que ao criar políticas. Ao incluir pa
 > [!NOTE]
 > Os parâmetros podem ser adicionados a uma definição existente e atribuída. O novo parâmetro deve incluir a propriedade **defaultValue**. Isso impede que atribuições existentes da política ou da iniciativa sejam tornadas inválidas indiretamente.
 
-### <a name="parameter-properties"></a>Propriedades do parâmetro
+### <a name="parameter-properties"></a>Propriedades de parâmetro
 
 Um parâmetro tem as seguintes propriedades que são usadas na definição de política:
 
@@ -111,6 +111,12 @@ Um parâmetro tem as seguintes propriedades que são usadas na definição de po
 - `metadata`: define as subpropriedades usadas principalmente pelo portal do Azure para exibir informações amigáveis ao usuário:
   - `description`: a explicação de como o parâmetro é usado. Pode ser usado para fornecer exemplos de valores aceitáveis.
   - `displayName`: o nome amigável mostrado no portal para o parâmetro.
+  - `version`: (opcional) rastreia detalhes sobre a versão do conteúdo de uma definição de política.
+
+    > [!NOTE]
+    > O serviço de Azure Policy usa as propriedades `version`, `preview`e `deprecated` para transmitir o nível de alteração para uma definição de política interna ou iniciativa e estado. O formato de `version` é: `{Major}.{Minor}.{Patch}`. Estados específicos, como _preterido_ ou _Visualização_, são acrescentados à propriedade `version` ou em outra propriedade como um **booliano**.
+
+  - `category`: (opcional) determina sob qual categoria em portal do Azure a definição de política é exibida.
   - `strongType`: (opcional) usado ao atribuir a definição de política por meio do Portal. Fornece uma lista de reconhecimento de contexto. Para obter mais informações, confira [strongType](#strongtype).
   - `assignPermissions`: (opcional) definido como _true_ para ter portal do Azure criar atribuições de função durante a atribuição de política. Essa propriedade é útil caso você queira atribuir permissões fora do escopo de atribuição. Há uma atribuição de função por definição de função na política (ou por definição de função em todas as políticas na iniciativa). O valor do parâmetro deve ser um recurso ou escopo válido.
 - `defaultValue`: (opcional) define o valor do parâmetro em uma atribuição se nenhum valor for fornecido.
@@ -316,7 +322,7 @@ No exemplo a seguir, `concat` é usado para criar uma pesquisa de campo de marca
 }
 ```
 
-### <a name="value"></a>Valor
+### <a name="value"></a>{1&gt;Valor&lt;1}
 
 As condições também podem ser formadas usando o **valor**. O **valor** verifica as condições em relação aos [parâmetros](#parameters), [funções de modelo com suporte](#policy-functions) ou literais.
 O **valor** é emparelhado a uma [condição](#conditions) com suporte.
@@ -402,7 +408,7 @@ Em vez disso, use a função [If ()](../../../azure-resource-manager/templates/t
 
 Com a regra de política revisada, `if()` verifica o comprimento do **nome** antes de tentar obter uma `substring()` em um valor com menos de três caracteres. Se o **nome** for muito curto, o valor "não iniciando com ABC" será retornado em vez disso e comparado com **ABC**. Um recurso com um nome curto que não começa com **ABC** ainda falha na regra de política, mas não causa mais um erro durante a avaliação.
 
-### <a name="count"></a>Contagem
+### <a name="count"></a>{1&gt;{2&gt;Contagem&lt;2}&lt;1}
 
 As condições que contam com quantos membros de uma matriz no conteúdo do recurso atendem a uma expressão de condição podem ser formadas usando a expressão de **contagem** . Os cenários comuns verificam se ' pelo menos um de ', ' exatamente um de ', ' todos os ' ou ' nenhum de ' os membros da matriz atendem à condição. a **contagem** avalia cada [\[\*\]](#understanding-the--alias) membro da matriz de alias para uma expressão de condição e soma os resultados _verdadeiros_ , que são então comparados com o operador de expressão.
 
@@ -772,7 +778,7 @@ O exemplo a seguir ilustra como criar uma iniciativa para lidar com duas marcas:
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revisar [Compreendendo os efeitos da política](effects.md).

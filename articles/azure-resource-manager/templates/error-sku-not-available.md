@@ -2,17 +2,17 @@
 title: Erros de SKU não disponível
 description: Descreve como solucionar o erro SKU não disponível ao implantar recursos com o Azure Resource Manager.
 ms.topic: troubleshooting
-ms.date: 10/19/2018
-ms.openlocfilehash: a79f55b4d3baf33126807fa099ed2d7b8b48aac5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/18/2020
+ms.openlocfilehash: be341a5ed5321fe71b0e3b34ba5f6cc823958c8b
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75477454"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462285"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Resolva erros de SKU não disponível
 
-Este artigo descreve como resolver o erro **SkuNotAvailable**. Caso você não consiga encontrar um SKU adequado na região ou em uma região alternativa que atende às suas necessidades de negócios, envie uma [solicitação de SKU](https://aka.ms/skurestriction) para o Suporte do Azure.
+Este artigo descreve como resolver o erro **SkuNotAvailable**. Se não for possível encontrar um SKU adequado nessa região/zona ou em uma região/zona alternativa que atenda às suas necessidades de negócios, envie uma [solicitação de SKU](https://aka.ms/skurestriction) para o suporte do Azure.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -22,7 +22,7 @@ Ao implantar um recurso (normalmente, uma máquina virtual), você recebe o segu
 
 ```
 Code: SkuNotAvailable
-Message: The requested tier for resource '<resource>' is currently not available in location '<location>' 
+Message: The requested tier for resource '<resource>' is currently not available in location '<location>'
 for subscription '<subscriptionID>'. Please try another tier or deploy to a different location.
 ```
 
@@ -34,7 +34,7 @@ Se você estiver implantando uma VM do Azure spot ou uma instância do conjunto 
 
 ## <a name="solution-1---powershell"></a>Solução 1: PowerShell
 
-Para determinar quais SKUs estão disponíveis em uma região, use o comando [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku). Filtre os resultados por local. Você deve ter a versão mais recente do PowerShell para esse comando.
+Para determinar quais SKUs estão disponíveis em uma região/zona, use o comando [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) . Filtre os resultados por local. Você deve ter a versão mais recente do PowerShell para esse comando.
 
 ```azurepowershell-interactive
 Get-AzComputeResourceSku | where {$_.Locations -icontains "centralus"}
@@ -43,12 +43,22 @@ Get-AzComputeResourceSku | where {$_.Locations -icontains "centralus"}
 Os resultados incluem uma lista de SKUs para o local e as restrições desse SKU. Observe que um SKU pode ser listado como `NotAvailableForSubscription`.
 
 ```powershell
-ResourceType          Name        Locations   Restriction                      Capability           Value
-------------          ----        ---------   -----------                      ----------           -----
-virtualMachines       Standard_A0 centralus   NotAvailableForSubscription      MaxResourceVolumeMB   20480
-virtualMachines       Standard_A1 centralus   NotAvailableForSubscription      MaxResourceVolumeMB   71680
-virtualMachines       Standard_A2 centralus   NotAvailableForSubscription      MaxResourceVolumeMB  138240
+ResourceType          Name           Locations   Zone      Restriction                      Capability           Value
+------------          ----           ---------   ----      -----------                      ----------           -----
+virtualMachines       Standard_A0    centralus             NotAvailableForSubscription      MaxResourceVolumeMB   20480
+virtualMachines       Standard_A1    centralus             NotAvailableForSubscription      MaxResourceVolumeMB   71680
+virtualMachines       Standard_A2    centralus             NotAvailableForSubscription      MaxResourceVolumeMB  138240
+virtualMachines       Standard_D1_v2 centralus   {2, 1, 3}                                  MaxResourceVolumeMB
 ```
+
+Alguns exemplos adicionais:
+
+```azurepowershell-interactive
+Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.ResourceType.Contains("virtualMachines") -and $_.Name.Contains("Standard_DS14_v2")}
+Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.ResourceType.Contains("virtualMachines") -and $_.Name.Contains("v3")} | fc
+```
+
+Acrescentar "FC" no final retorna mais detalhes.
 
 ## <a name="solution-2---azure-cli"></a>Solução 2: CLI do Azure
 

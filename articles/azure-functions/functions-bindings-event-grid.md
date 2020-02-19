@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c9891751ac24a630819d9b0a708ffbd288ac1327
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 21654a3b325e8b8f0a3e49ee64b7624c8540d0d5
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77365163"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461072"
 ---
 # <a name="azure-event-grid-bindings-for-azure-functions"></a>Associações da grade de eventos do Azure para Azure Functions
 
@@ -34,7 +34,7 @@ O código nessa referência usa como padrão a sintaxe do .NET Core, usada nas f
 
 ### <a name="functions-2x-and-higher"></a>Funções 2. x e posteriores
 
-Trabalhar com o gatilho e as associações exige que você referencie o pacote apropriado. O pacote NuGet é usado para bibliotecas de classes do .NET enquanto a extensão agrupa todos os outros tipos de aplicativos.
+Trabalhar com o gatilho e as associações exige que você referencie o pacote apropriado. O pacote NuGet é usado para bibliotecas de classes do .NET enquanto o pacote de extensão é usado para todos os outros tipos de aplicativos.
 
 | Linguagem                                        | Adicionar por...                                   | Comentários 
 |-------------------------------------------------|---------------------------------------------|-------------|

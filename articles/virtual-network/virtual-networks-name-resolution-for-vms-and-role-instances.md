@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: f17b4ee0e4ce79cd12a6fda6f056b4e63b4161c9
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: fac6c29d5371c536c20eca58d90ee5d54d7e90d1
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76991024"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462659"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolução de nomes para recursos em redes virtuais do Azure
 
@@ -105,8 +105,7 @@ Há um número de pacotes disponíveis de cache do DNS diferente (por exemplo, d
 
 > [!NOTE]
 > O pacote dnsmasq é apenas um dos vários caches DNS disponíveis para o Linux. Antes de usá-lo, verifique sua adequação para suas necessidades específicas e se nenhum outro cache está instalado.
->
->
+
     
 ### <a name="client-side-retries"></a>Tentativa do lado do cliente
 
@@ -169,8 +168,7 @@ Se o encaminhamento de consultas para o Azure não atender às suas necessidades
 * Ter proteção contra acesso da Internet, para atenuar as ameaças impostas por agentes externos.
 
 > [!NOTE]
-> Para melhor desempenho, quando você estiver usando máquinas virtuais do Azure como servidores DNS, o IPv6 deverá ser desabilitado. Um [endereço IP público](virtual-network-public-ip-address.md) deve ser atribuído a cada VM do servidor DNS. Para outras análises de desempenho e otimizações ao usar o Windows Server como seu servidor DNS, confira [Desempenho da resolução de nomes de um Windows DNS Server 2012 R2 recursivo](https://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx).
-> 
+> Para melhor desempenho, quando você estiver usando máquinas virtuais do Azure como servidores DNS, o IPv6 deverá ser desabilitado. Um [endereço IP público](virtual-network-public-ip-address.md) deve ser atribuído a cada VM do servidor DNS. 
 > 
 
 ### <a name="web-apps"></a>Aplicativos Web
@@ -204,7 +202,7 @@ Ao usar o modelo de implantação clássica, você pode especificar os servidore
 > [!NOTE]
 > Se você alterar as configurações de DNS para uma rede virtual ou máquina virtual que já está implantada, para que as novas configurações de DNS entrem em vigor, você deverá executar uma renovação de concessão DHCP em todas as VMs afetadas na rede virtual. Para VMs que executam o sistema operacional Windows, você pode fazer isso digitando `ipconfig /renew` diretamente na VM. As etapas variam dependendo do sistema operacional. Consulte a documentação relevante para seu tipo de sistema operacional.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Modelo de implantação do Azure Resource Manager:
 

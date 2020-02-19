@@ -6,21 +6,16 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.openlocfilehash: fe5ced96a74bfbfbacf3ce1874d64711f6db7449
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 566b6db829c9694a7e5e83cc25695e71ada0bc8d
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668758"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461446"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Como usar o SDK do Node.js para Aplicativos Móveis
 
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
-
-> [!NOTE]
-> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados essenciais para o desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar os serviços de **Build**, **Teste** e **Distribuição** para configurar o pipeline de integração e entrega contínuas. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso dos respectivos aplicativos usando os serviços de **Análise** e **Diagnóstico** e se envolver com usuários usando o serviço de **Push**. Os desenvolvedores também podem aproveitar o serviço de **Autenticação** para autenticar os respectivos usuários e o serviço de **Dados** para persistir e sincronizar dados de aplicativo na nuvem.
->
->  Se desejar integrar os serviços de nuvem em seu aplicativo móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
 Este artigo fornece informações detalhadas e exemplos de como trabalhar com um back-end do Node.js no recurso Aplicativos Móveis do Serviço de Aplicativo do Azure.
 
@@ -35,7 +30,7 @@ Ambas as operações fornecem autenticação em todos os provedores de identidad
 
 Você pode encontrar exemplos para cada caso de uso no [diretório de exemplos no GitHub].
 
-## <a name="supported-platforms"></a>Plataformas com suporte
+## <a name="supported-platforms"></a>Plataformas compatíveis
 
 O SDK do Node.js dos Aplicativos Móveis dá suporte à versão atual de LTS do Node e posterior. Atualmente, a versão mais recente do LTS é Node v4.5.0. Outras versões do Node podem funcionar, mas não são têm suporte.
 
@@ -86,7 +81,7 @@ Cada back-end do Node.js dos Aplicativos Móveis inicia como um aplicativo Expre
 
 Esse aplicativo cria uma API Web otimizada para celular com um único ponto de extremidade, (`/tables/TodoItem`) que fornece acesso não autenticado a um armazenamento de dados SQL subjacente usando um esquema dinâmico. Ele é adequado para os inícios rápidos da biblioteca de clientes a seguir:
 
-* [Início rápido do Cliente Android]
+* [Início rápido do cliente Android]
 * [Início rápido do cliente Apache Cordova]
 * [Início rápido do Cliente iOS]
 * [Início rápido do cliente Windows Store]
@@ -369,7 +364,7 @@ A maioria das configurações no arquivo azureMobile.js tem uma Configuração d
 
 | Configurações de aplicativo | Configuração azureMobile.js | Descrição | Valores válidos |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |Nome |Nome do aplicativo |string |
+| **MS_MobileAppName** |{1&gt;name&lt;1} |Nome do aplicativo |string |
 | **MS_MobileLoggingLevel** |logging.level |Nível de log mínimo das mensagens a serem registradas |erro, aviso, informações, detalhado, depuração, simples |
 | **MS_DebugMode** |depurar |Habilita ou desabilita o modo de depuração |verdadeiro, falso |
 | **MS_TableSchema** |data.schema |Nome do esquema padrão para tabelas SQL |cadeia de caracteres (padrão: dbo) |
@@ -386,7 +381,7 @@ Para definir uma configuração de Aplicativo:
 1. Role até a seção **Configurações de aplicativo**.
 1. Se a configuração do seu aplicativo já existir, selecione o valor da configuração de aplicativo para editar o valor.
    Se a configuração do seu aplicativo não existir, insira a configuração de aplicativo na caixa **Chave** e o valor na caixa **Valor**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 A alteração da maioria das Configurações do Aplicativo requer o reinício do serviço.
 
@@ -397,7 +392,7 @@ A alteração da maioria das Configurações do Aplicativo requer o reinício do
 O uso do Banco de Dados SQL do Azure como armazenamento de dados é idêntico em todos os tipos de aplicativo do Serviço de Aplicativo do Azure. Se você ainda não fez isso, siga estas etapas para criar um back-end de Aplicativos Móveis:
 
 1. Entre no [Azure portal].
-1. No canto superior esquerdo da janela, selecione o botão **+NOVO** > **Web + Celular** > **Aplicativo Móvel** e, em seguida, forneça um nome para o back-end de Aplicativos Móveis.
+1. No canto superior esquerdo da janela, selecione o botão **+ novo** > **Web + celular** > **aplicativo móvel**e forneça um nome para o back-end dos seus aplicativos móveis.
 1. Na caixa **Grupo de Recursos** , digite o mesmo nome do aplicativo.
 1. O Plano do Serviço de Aplicativo padrão é selecionado. Se você quiser alterar o Plano do Serviço de Aplicativo:
 
@@ -410,7 +405,7 @@ O uso do Banco de Dados SQL do Azure como armazenamento de dados é idêntico em
    d. Clique no botão **Selecionar**.
 
    e. De volta ao painel do **Plano do Serviço de Aplicativo**, selecione **OK**.
-1. Clique em **Criar**.
+1. Selecione **Criar**.
 
 O provisionamento de um back-end de Aplicativos Móveis pode demorar alguns minutos. Depois que o back-end de Aplicativos Móveis for provisionado, o portal abrirá o painel **Configurações** do back-end de Aplicativos Móveis.
 
@@ -911,7 +906,7 @@ Os aplicativos Node.js têm acesso a uma ampla gama de ferramentas de log de dia
 [6]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/dotnet-backend-create-db.png
 
 <!-- URLs -->
-[Início rápido do Cliente Android]: app-service-mobile-android-get-started.md
+[Início rápido do cliente Android]: app-service-mobile-android-get-started.md
 [Início rápido do Cliente Apache Cordova]: app-service-mobile-cordova-get-started.md
 [Início rápido do Cliente iOS]: app-service-mobile-ios-get-started.md
 [Início rápido do Cliente Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started.md

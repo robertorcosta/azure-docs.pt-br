@@ -6,29 +6,24 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: ce4ebe9e8874e779b8da16e9c30fcfc3ca46754e
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 6fec85c028e992c15fb9503ffb599023e668c58f
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668602"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459932"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Adicionar notificações por push ao aplicativo Android
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-> [!NOTE]
-> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados essenciais para o desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar os serviços de **Build**, **Teste** e **Distribuição** para configurar o pipeline de integração e entrega contínuas. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso dos respectivos aplicativos usando os serviços de **Análise** e **Diagnóstico** e se envolver com usuários usando o serviço de **Push**. Os desenvolvedores também podem aproveitar o serviço de **Autenticação** para autenticar os respectivos usuários e o serviço de **Dados** para persistir e sincronizar dados de aplicativo na nuvem.
->
-> Se desejar integrar os serviços de nuvem em seu aplicativo móvel, inscreva-se no [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
-
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Neste tutorial, você adicionará notificações por push ao projeto de [início rápido do Android] para que, sempre que um registro for inserido, uma notificação por push seja enviada.
 
 Se você não usar o projeto baixado do início rápido do servidor, deverá adicionar o pacote de extensão de notificação por push ao seu projeto. Para saber mais, veja [Trabalhar com o SDK do servidor de back-end do .NET para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Você precisará do seguinte:
 
@@ -55,7 +50,7 @@ Você precisará do seguinte:
 
 [!INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 
-## <a name="add-push-notifications-to-your-app"></a>Adicionar notificações por push ao seu aplicativo
+## <a name="add-push-notifications-to-your-app"></a>Adicionar notificações de push para seu aplicativo
 
 Nesta seção, você atualizará seu aplicativo de cliente Android para manipular notificações por push.
 
@@ -79,7 +74,7 @@ Se estiver testando com um dispositivo antigo, confira [Adicionar o Firebase ao 
 
 Você pode testar o aplicativo anexando um telefone Android com um cabo USB diretamente ou usando um dispositivo virtual no emulador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você concluiu este tutorial, considere continuar com um dos seguintes tutoriais:
 

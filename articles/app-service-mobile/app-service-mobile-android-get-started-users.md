@@ -6,20 +6,15 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: f68b4f8477d5b21a7107270370af387a7e88756e
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 705ebb5809840155e6bbf3f8eef091eb95f63e63
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668944"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461633"
 ---
 # <a name="add-authentication-to-your-android-app"></a>Adicionar autenticação ao aplicativo do Android
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-
-> [!NOTE]
-> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados essenciais para o desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar os serviços de **Build**, **Teste** e **Distribuição** para configurar o pipeline de integração e entrega contínuas. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso dos respectivos aplicativos usando os serviços de **Análise** e **Diagnóstico** e se envolver com usuários usando o serviço de **Push**. Os desenvolvedores também podem aproveitar o serviço de **Autenticação** para autenticar os respectivos usuários e o serviço de **Dados** para persistir e sincronizar dados de aplicativo na nuvem.
->
-> Se desejar integrar os serviços de nuvem em seu aplicativo móvel, inscreva-se no [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
 ## <a name="summary"></a>Resumo
 Neste tutorial, você adiciona autenticação ao projeto de início rápido da lista de tarefas pendentes no Android usando um provedor de identidade com suporte. Este tutorial se baseia no tutorial [Introdução aos Aplicativos Móveis] , que você deve concluir primeiro.
@@ -39,7 +34,7 @@ A autenticação segura exige que você defina um novo esquema de URL para seu a
 
 4. Clique em **OK**.
 
-5. Clique em **Save** (Salvar).
+5. Clique em **Salvar**.
 
 ## <a name="permissions"></a>Restringir permissões a usuários autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
@@ -58,7 +53,7 @@ Em seguida, você atualiza o aplicativo para autenticar os usuários antes de so
 ## <a name="cache-tokens"></a>Armazenar em cache tokens de autenticação no cliente
 [!INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Agora que você concluiu este tutorial de autenticação básica, considere continuar com um dos seguintes tutoriais:
 
 * [Adicionar notificações por push ao aplicativo Android](app-service-mobile-android-get-started-push.md).

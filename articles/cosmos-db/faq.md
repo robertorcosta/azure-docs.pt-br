@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: ac93d1f4f0f148e1f0ce3d0f21ac9a694f2e896d
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 322d1c9ead1e7591c359c35c445fa32529db22ef
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310009"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462472"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas frequentes sobre diferentes APIs no Azure Cosmos DB
 
@@ -79,17 +79,18 @@ Para corrigir um problema com sua conta, apresente uma [solicitação de suporte
 
 ## <a id="try-cosmos-db"></a>Experimente as assinaturas do Azure Cosmos DB
 
-Agora você pode aproveitar uma experiência do Azure Cosmos DB gratuitamente, por tempo limitado, sem assinatura e sem compromisso. Para se inscrever para uma assinatura de Experimente o Azure Cosmos DB gratuitamente, vá para [Experimente gratuitamente o Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/). Esta assinatura é separada da [Avaliação gratuita do Azure](https://azure.microsoft.com/free/) e pode ser usada juntamente com uma Avaliação gratuita do Azure ou uma assinatura paga do Azure.
+Agora você pode aproveitar uma experiência do Azure Cosmos DB gratuitamente, por tempo limitado, sem assinatura e sem compromisso. Para se inscrever em uma assinatura do try Azure Cosmos DB, vá para [experimentar Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) e use qualquer conta Microsoft pessoal (MSA). Esta assinatura é separada da [Avaliação gratuita do Azure](https://azure.microsoft.com/free/) e pode ser usada juntamente com uma Avaliação gratuita do Azure ou uma assinatura paga do Azure.
 
 Experimente as assinaturas do Azure Cosmos DB é exibido no portal do Azure ao lado de outras assinaturas associadas à sua ID de usuário.
 
 As seguintes condições se aplicam às assinaturas de Experimente o Azure Cosmos DB:
 
+* O acesso à conta pode ser concedido a MSA (contas pessoais da Microsoft). Evite usar contas do Active Directory (AAD) ou contas que pertencem a locatários do AAD corporativos, elas podem ter limitações em vigor que poderiam bloquear a concessão de acesso.
 * Um [contêiner de taxa de transferência provisionado](./set-throughput.md#set-throughput-on-a-container) por assinatura para SQL, API Gremlin e contas de tabela.
 * Até três [coleções de taxa de transferência provisionada](./set-throughput.md#set-throughput-on-a-container) por assinatura para contas do MongoDB.
 * Uma [taxa de transferência de banco de dados provisionada](./set-throughput.md#set-throughput-on-a-database) por assinatura. Os bancos de dados provisionados pela taxa de transferência podem conter qualquer número de contêineres dentro do.
 * Capacidade de armazenamento de 10 GB.
-* A replicação global está disponível nas seguintes [regiões do Azure](https://azure.microsoft.com/regions/): Centro dos EUA, Europa Setentrional e Sudeste Asiático
+* A replicação global está disponível nas seguintes [regiões do Azure](https://azure.microsoft.com/regions/): EUA Central, Norte da Europa e Sudeste Asiático
 * Taxa de transferência máxima de 5 K RU/s quando provisionado no nível de contêiner.
 * Taxa de transferência máxima de 20 K RU/s quando provisionado no nível do banco de dados.
 * As assinaturas expiram após 30 dias e podem ser estendidas para um máximo de 31 dias.
@@ -127,7 +128,7 @@ Sim, o Azure CosmosDB dá suporte à análise de série temporal; veja um exempl
 
 Consulte os artigos Azure Cosmos DB [cotas de serviço](concepts-limits.md) e [limites por contêiner e banco de dados](set-throughput.md#comparison-of-models) para obter mais informações.
 
-## <a name="sql-api"></a>API SQL
+## <a name="sql-api"></a>API do SQL
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>Como fazer para começar a desenvolver com a API do SQL?
 
@@ -226,7 +227,7 @@ Para saber mais, veja [Conectar-se ao banco de dados do Cosmos com a API do Azur
 
 Junto com os códigos de erro do MongoDB comuns, a API do Azure Cosmos DB para MongoDB tem seus próprios códigos de erro específicos:
 
-| Erro               | Codificar  | Description  | Solução  |
+| Erro               | Código  | DESCRIÇÃO  | Solução  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | O número total de unidades de solicitação consumidas é maior que a taxa de unidade de solicitação provisionada para o contêiner e foi limitada. | Considere a possibilidade de dimensionar a taxa de transferência atribuída a um contêiner ou um conjunto de contêineres do portal do Azure ou tentar novamente. |
 | ExceededMemoryLimit | 16501 | Como um serviço multilocatário, a operação excedeu a alocação de memória do cliente. | Reduza o escopo da operação por meio de um critério de consulta mais restritivo ou entre em contato com o suporte no [Portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Exemplo: <em>&nbsp;&nbsp;&nbsp;&nbsp;DB. GetCollection (' Users '). Aggregate ([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {Name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {Age:-1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])</em>) |
@@ -266,7 +267,7 @@ Em termos da API REST, há várias opções de pontos de extremidade/consulta qu
 | Métodos de REST | Opção de consulta/ponto de extremidade de REST | URLs de documento | Explicação |
 | ------------| ------------- | ---------- | ----------- |
 | GET, PUT | /?restype=service@comp=properties| [Definir propriedades de serviço de tabela](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) e [Obter propriedades do serviço de tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Esse ponto de extremidade é usado para definir as regras do CORS, a configuração de armazenamento da análise e as configurações de registro em log. Não há suporte para o CORS atualmente, e análises e registros em log são tratados de maneira diferente no Azure Cosmos DB em relação às Tabelas de Armazenamento do Azure |
-| OPÇÕES | /\<table-resource-name> | [Solicitação de tabela preliminar de CORS ](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Isso faz parte do CORS para o qual o Azure Cosmos DB não dá suporte atualmente. |
+| OPÇÕES | /\<Table-Resource-Name > | [Solicitação de tabela preliminar de CORS ](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Isso faz parte do CORS para o qual o Azure Cosmos DB não dá suporte atualmente. |
 | GET | /?restype=service@comp=stats | [Obter estatísticas do serviço de tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Fornece informações sobre quão rapidamente os dados estão replicando entre primários e secundários. Isso não é necessária no Cosmos DB, uma vez que a replicação é parte de gravações. |
 | GET, PUT | /mytable?comp=acl | [Obter ACL da tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) e [Definir ACL da tabela](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Isso obtém e define as políticas de acesso armazenadas usadas para gerenciar assinaturas de acesso compartilhado (SAS). Embora haja suporte para SAS, elas são definidas e gerenciadas de modo diferente. |
 
@@ -353,7 +354,7 @@ Você pode usar o avaliador de capacidade para calcular o TableThroughput necess
 
 ### <a name="can-i-use-the-table-api-sdk-locally-with-the-emulator"></a>Posso usar o SDK da API de Tabela localmente com o emulador?
 
-No momento, não.
+Não no momento.
 
 ### <a name="can-my-existing-application-work-with-the-table-api"></a>Um aplicativo que já tenho pode trabalhar com a API de Tabela?
 

@@ -6,23 +6,18 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: c1119a803f160c1833cd87413263b868928b82c2
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 4faab572cd77e20bb61d147ca6e58b25cd88ad9f
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668347"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77458861"
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>Habilitar sincronização offline para seu aplicativo móvel Xamarin.Android
 
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
-> [!NOTE]
-> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados essenciais para o desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar os serviços de **Build**, **Teste** e **Distribuição** para configurar o pipeline de integração e entrega contínuas. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso dos respectivos aplicativos usando os serviços de **Análise** e **Diagnóstico** e se envolver com usuários usando o serviço de **Push**. Os desenvolvedores também podem aproveitar o serviço de **Autenticação** para autenticar os respectivos usuários e o serviço de **Dados** para persistir e sincronizar dados de aplicativo na nuvem.
->
-> Se desejar integrar os serviços de nuvem em seu aplicativo móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
-
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Este tutorial apresenta o recurso de sincronização offline de Aplicativos móveis do Azure para Xamarin.Android. Sincronização offline permite que os usuários finais interajam com um aplicativo móvel, exibindo, adicionando ou modificando dados, mesmo quando não há conexão de rede. As alterações são armazenadas em um banco de dados local.
 Quando o dispositivo estiver online novamente, essas alterações serão sincronizadas com o serviço remoto.
@@ -51,7 +46,7 @@ Nesta seção, você interrompe a conexão com seu Aplicativo Móvel de back-end
 2. Pressione **F5** para compilar e executar o aplicativo. Observe a falha de sincronização na atualização, quando o aplicativo é iniciado.
 3. Insira os novos itens e observe que o envio falha com um status [CancelledByNetworkError] toda vez que você clicar em **Salvar**. Contudo, os novos itens de tarefas pendentes existem apenas no repositório local até serem enviados por push para o back-end do aplicativo móvel.  Em um aplicativo de produção, se você suprimir essas exceções, o aplicativo cliente se comportará como se ainda estivesse conectado ao back-end do aplicativo móvel.
 4. Feche o aplicativo e reinicie-o para verificar se os novos itens que você criou persistem no armazenamento local.
-5. (Opcional) No Visual Studio, abra o **Gerenciador de Servidores**. Navegue até o banco de dados em **Azure**->**Bancos de dados SQL**. Clique com o botão direito do mouse em seu banco de dados e selecione **Abrir no Gerenciador de Objetos do SQL Server**. Agora você pode navegar até sua tabela de banco de dados SQL e seu conteúdo. Verifique se os dados no banco de dados back-end não foram alterados.
+5. (Opcional) No Visual Studio, abra o **Gerenciador de Servidores**. Navegue até o banco de dados em **Azure**->**Bancos de dados SQL**. Clique com o botão direito do mouse em seu banco de dados e selecione **Abrir no Pesquisador de Objetos do SQL Server**. Agora você pode navegar até sua tabela de banco de dados SQL e seu conteúdo. Verifique se os dados no banco de dados back-end não foram alterados.
 6. (Opcional) Use uma ferramenta REST, como o Fiddler ou Postman, para consultar seu back-end móvel, usando uma consulta GET no formulário `https://<your-mobile-app-backend-name>.azurewebsites.net/tables/TodoItem`.
 
 ## <a name="update-online-app"></a>Atualize o aplicativo para reconectar o back-end do Aplicativo Móvel
@@ -60,7 +55,7 @@ Nesta seção, reconecte o aplicativo ao back-end do aplicativo móvel. Quando v
 
 1. Abra ToDoActivity.cs no projeto compartilhado e reverta a alteração da propriedade **applicationURL**.
 2. Pressione a tecla **F5** para recompilar e executar o projeto. O aplicativo sincroniza as alterações locais com o back-end do aplicativo móvel do Azure usando operações de push e pull quando o método `OnRefreshItemsSelected` é executado.
-3. (Opcional) Exiba os dados atualizados usando o Pesquisador de Objetos do SQL Server ou uma ferramenta REST, como o Fiddler. Observe que os dados foram sincronizados entre o banco de dados de back-end do aplicativo móvel do Azure e o armazenamento local.
+3. (Opcional) Exiba os dados atualizados usando o Gerenciador de objetos do SQL Server ou uma ferramenta REST como o Fiddler. Observe que os dados foram sincronizados entre o banco de dados de back-end do aplicativo móvel do Azure e o armazenamento local.
 4. No aplicativo, clique na caixa de seleção ao lado de alguns itens a serem concluídos no repositório local.
 
    `CheckItem` chama `SyncAsync` para sincronizar cada item concluído com o back-end do Aplicativo Móvel. `SyncAsync` chama push e pull. **Sempre que você executar um pull em uma tabela na qual o cliente fez alterações, um push será sempre executado automaticamente**. Isso garante que todas as tabelas no repositório local juntamente com os relacionamentos permaneçam consistentes. Esse comportamento pode resultar em um push inesperado. Para obter mais informações sobre esse comportamento, confira [Sincronização de Dados Offline em Aplicativos Móveis do Azure].

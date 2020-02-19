@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: f460bc3e4809b8a1cbabe1161c888255a7a484db
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 16ee8c1e271f0aa3e6565322f9a4a422dd90b8b8
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157492"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461758"
 ---
 # <a name="automated-backups"></a>Backups automatizados
 
@@ -81,10 +81,14 @@ Os backups anteriores ao período de retenção são limpos automaticamente com 
 
 O banco de dados SQL do Azure calculará o armazenamento de backup total na retenção como um valor cumulativo. A cada hora, esse valor é relatado para o pipeline de cobrança do Azure, que é responsável por agregar esse uso por hora para calcular seu consumo no final de cada mês. Depois que o banco de dados é Descartado, o consumo diminui como a idade dos backups. Depois que os backups se tornarem mais antigos que o período de retenção, a cobrança será interrompida. 
 
+   > [!IMPORTANT]
+   > Os backups de um banco de dados são retidos durante o período de retenção especificado, mesmo que o banco de dados tenha sido descartado. Embora a remoção e a recriação de um banco de dados muitas vezes possam economizar em custos de armazenamento e de computação, isso poderá aumentar os custos de armazenamento de backup à medida que mantivermos um backup para o período de retenção especificado (que é de sete dias no mínimo) para cada banco de dados descartado, sempre que for retirado. 
 
-### <a name="monitoring-consumption"></a>Monitorando o consumo
 
-Cada tipo de backup (completo, diferencial e log) é relatado na folha de monitoramento do banco de dados como uma métrica separada. O diagrama a seguir mostra como monitorar o consumo de armazenamento de backups.  
+
+### <a name="monitor-consumption"></a>Monitorar o consumo
+
+Cada tipo de backup (completo, diferencial e log) é relatado na folha de monitoramento do banco de dados como uma métrica separada. O diagrama a seguir mostra como monitorar o consumo de armazenamento de backups de um único banco de dados. Este recurso não está disponível no momento para instâncias gerenciadas.
 
 ![Monitore o consumo de backup de banco de dados na folha monitoramento de banco de dados do portal do Azure](media/sql-database-automated-backup/backup-metrics.png)
 
@@ -105,6 +109,7 @@ O consumo de armazenamento de backup excessivo dependerá da carga de trabalho e
 
 ## <a name="storage-costs"></a>Custos de armazenamento
 
+O preço do armazenamento varia se você estiver usando o modelo de DTU ou o modelo vCore. 
 
 ### <a name="dtu-model"></a>Modelo de DTU
 
@@ -120,11 +125,14 @@ Vamos supor que o banco de dados acumulau 744 GB de armazenamento de backup e es
 
 Agora, um exemplo mais complexo. Suponha que o banco de dados tenha sua retenção aumentada para 14 dias no meio do mês e isso (hipotéticomente) resulta na duplicação total do armazenamento de backup para 1488 GB. O BD SQL relataria 1 GB de uso por horas 1-372 e, em seguida, relataria o uso como 2 GB para horas 373-744. Isso seria agregado para ser uma lista final de 1116 GB/mês. 
 
-Você pode usar a análise de custo de assinatura do Azure para determinar seus gastos atuais no armazenamento de backup.
+### <a name="monitor-costs"></a>Monitorar custos
+
+Para entender os custos de armazenamento de backup, vá para **Gerenciamento de custos + cobrança** do portal do Azure, selecione **Gerenciamento de custos**e, em seguida, selecione análise de **custo**. Selecione a assinatura desejada como o **escopo**e, em seguida, filtre o período de tempo e o serviço em que você está interessado. 
+
+Adicione um filtro para **nome do serviço**e, em seguida, escolha **banco de dados SQL** na lista suspensa. Use o filtro **subcategoria de medidor** para escolher o contador de cobrança para seu serviço. Para um banco de dados individual ou um pool elástico, escolha **pool único/elástico pitr armazenamento de backup**. Para uma instância gerenciada, escolha **mi pitr backup Storage**. As subcategorias de **armazenamento** e **computação** também podem ser interessantes, embora não estejam associadas aos custos de armazenamento de backup. 
 
 ![Análise de custo de armazenamento de backup](./media/sql-database-automated-backup/check-backup-storage-cost-sql-mi.png)
 
-Por exemplo, para entender os custos de armazenamento de backup para a instância gerenciada, acesse sua assinatura no portal do Azure e abra a folha análise de custo. Selecione a subcategoria de medidor **mi pitr armazenamento de backup** para ver sua previsão de custo e cobrança de backup atual. Você também pode incluir outras subcategorias de medidor, como o **armazenamento de uso geral de instância gerenciada** ou a **instância gerenciada de uso geral-computação gen5** para comparar o custo de armazenamento de backup com outras categorias de custo.
 
 ## <a name="backup-retention"></a>Retenção de backup
 
@@ -169,13 +177,13 @@ Você pode alterar o período de retenção de backup PITR padrão usando o port
 
 Para alterar o período de retenção de backup PITR usando o portal do Azure, navegue até o objeto de servidor cujo período de retenção você deseja alterar no portal e, em seguida, selecione a opção apropriada com base no objeto de servidor que você está modificando.
 
-#### <a name="single-database--elastic-poolstabsingle-database"></a>[Banco de dados individual e pools elásticos](#tab/single-database)
+#### <a name="single-database--elastic-pools"></a>[Banco de dados individual e pools elásticos](#tab/single-database)
 
 A alteração da retenção de backup PITR para bancos de dados SQL individuais do Azure é executada no nível do servidor. A alteração feita no nível do servidor se aplica a bancos de dados nesse servidor. Para alterar o PITR do servidor de banco de dados SQL do Azure de portal do Azure, navegue até a folha visão geral do servidor, clique em gerenciar backups no menu de navegação e, em seguida, clique em configurar retenção na barra de navegação.
 
 ![Alterar PITR no portal do Azure](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 
-#### <a name="managed-instancetabmanaged-instance"></a>[Instância Gerenciada](#tab/managed-instance)
+#### <a name="managed-instance"></a>[Instância Gerenciada](#tab/managed-instance)
 
 A alteração da retenção de backup PITR para instância gerenciada do banco de dados SQL é executada em um nível de banco de dados individual. Para alterar a retenção de backup do PITR de um banco de dados de instância do portal do Azure, navegue até a folha de visão geral do banco de dados individual e clique em configurar retenção de backup na barra de navegação.
 
@@ -195,7 +203,7 @@ Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup
 
 ### <a name="change-pitr-retention-period-using-rest-api"></a>Alterar o período de retenção de PITR usando a API REST
 
-#### <a name="sample-request"></a>Solicitação de Exemplo
+#### <a name="sample-request"></a>Exemplo de solicitação
 
 ```http
 PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
@@ -211,7 +219,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 }
 ```
 
-#### <a name="sample-response"></a>Exemplo de Resposta
+#### <a name="sample-response"></a>Exemplo de resposta
 
 Código de status: 200
 
@@ -228,7 +236,7 @@ Código de status: 200
 
 Para obter mais informações, confira [API REST de retenção de backup](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Os backups de banco de dados são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade dos negócios, porque eles protegem seus dados contra exclusão ou corrupção acidentais. Para saber mais sobre as outras soluções de continuidade dos negócios do Banco de Dados SQL do Azure, consulte [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
 - Para restaurar para um determinado ponto no tempo usando o Portal do Azure, consulte [Restaurar um banco de dados para um ponto no tempo usando o Portal do Azure](sql-database-recovery-using-backups.md).

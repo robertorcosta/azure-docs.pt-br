@@ -6,29 +6,24 @@ ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 69fe4b98c26ac2f67fc777b754f3bc391e3b71b5
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: f23ac2d693492695c398893c103d5a77a0e93129
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023048"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461463"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Adicionar notificações por push ao aplicativo Xamarin.Forms
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-> [!NOTE]
-> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados essenciais para o desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar os serviços de **Build**, **Teste** e **Distribuição** para configurar o pipeline de integração e entrega contínuas. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso dos respectivos aplicativos usando os serviços de **Análise** e **Diagnóstico** e se envolver com usuários usando o serviço de **Push**. Os desenvolvedores também podem aproveitar o serviço de **Autenticação** para autenticar os respectivos usuários e o serviço de **Dados** para persistir e sincronizar dados de aplicativo na nuvem.
->
-> Se desejar integrar os serviços de nuvem em seu aplicativo móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
-
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Neste tutorial, você adiciona notificações por push a todos os projetos resultantes do [início rápido do Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md). Isso significa que uma notificação por push é enviada para todos os clientes de plataforma cruzada sempre que um registro é inserido.
 
 Se você não usar o projeto baixado do início rápido do servidor, deve adicionar o pacote de extensão de notificação por push ao seu projeto. Para saber mais, veja [Trabalhar com o SDK do servidor de back-end do .NET para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Para o iOS, você precisará de uma [associação ao Programa do Desenvolvedor da Apple](https://developer.apple.com/programs/ios/) e um dispositivo iOS físico. O [simulador do iOS não dá suporte a notificações por push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html).
 
@@ -399,7 +394,7 @@ Esta seção trata da execução dos projetos WinApp e WinPhone81 de Xamarin.For
 3. No aplicativo, digite um nome para um novo todoitem e, em seguida, clique no ícone de adição ( **+** ) para adicioná-lo.
 4. Verifique se uma notificação é recebida quando o item é adicionado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba mais sobre as notificações por push:
 

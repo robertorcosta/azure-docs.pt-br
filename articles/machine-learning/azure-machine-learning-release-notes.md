@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 33b3f9292a2fd185ea5487c0111dc294a6f163cf
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 11b8ade765a2b1c1ee25421073983b96c34e5d15
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030805"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462166"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
@@ -23,10 +23,53 @@ Neste artigo, saiba mais sobre as versões de Azure Machine Learning.  Para obte
 
 Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender sobre erros e soluções conhecidas.
 
+## <a name="2020-02-18"></a>2020-02-18
+
+### <a name="azure-machine-learning-sdk-for-python-v111rc0"></a>SDK do Azure Machine Learning para Python v 1.1.1 RC0
+
++ **Correções de bugs e melhorias**
+  + **azure-cli-ml**
+    + A criação de perfil de instância única foi corrigida para produzir uma recomendação e foi disponibilizada no SDK principal.
+  + **azureml-automl-Core**
+    + O log de erros foi aprimorado.
+  + **azureml-automl-tempo de execução**
+    + Corrigido o problema com a previsão quando o conjunto de dados contém granulações curtas com intervalos de tempo longos.
+    + Corrigido o problema quando o horizonte máximo automático é ativado e a coluna data contém datas na forma de cadeias de caracteres. Adicionamos uma conversão adequada e um erro sensato se a conversão em data não for possível
+    + Usando NumPy e SciPy nativos para serialização e desserialização de dados intermediários para FileCacheStore (usado para execuções locais de AutoML)
+    + Corrigido um bug em que as execuções de filho com falha poderiam ficar paralisadas no estado de execução.
+  + **azureml-CLI-comum**
+    + A criação de perfil de instância única foi corrigida para produzir uma recomendação e foi disponibilizada no SDK principal.
+  + **azureml-núcleo**
+    + Adicionado `--grant-workspace-msi-access` como um parâmetro adicional para a CLI do armazenamento de datastore para registrar o contêiner de BLOBs do Azure, que permitirá que você registre o contêiner de BLOB que está atrás de uma VNet
+    + A criação de perfil de instância única foi corrigida para produzir uma recomendação e foi disponibilizada no SDK principal.
+    + Correção do problema no aks.py _deploy
+    + Valida a integridade dos modelos que estão sendo carregados para evitar falhas de armazenamento silencioso.
+  + **azureml-interpretar**
+    + exceções do estilo do azureml adicionadas ao azureml-interpret
+    + correção de serialização de DeepScoringExplainer para modelos de Keras
+  + **azureml-pipeline-Core**
+    + O notebook de Pontuação do lote de pipeline agora usa ParallelRunStep
+  + **azureml-pipeline-etapas**
+    + Movido o `AutoMLStep` no pacote `azureml-pipeline-steps`. Preterido o `AutoMLStep` no `azureml-train-automl-runtime`.
+  + **azureml-contrib-pipeline-etapas**
+    + Parâmetro opcional side_inputs adicionado a ParallelRunStep. Esse parâmetro pode ser usado para montar a pasta no contêiner. Atualmente, os tipos com suporte são DataReference e PipelineData.
+  + **azureml-tensorboard**
+    + atualizado o azureml-tensorboard para dar suporte ao tensorflow 2,0
+  + **azureml-Train-automl-Client**
+    + correção do problema de substituição de FeaturizationConfig que filtra a configuração personalização personalizada.
+  + **azureml-Train-automl-Runtime**
+    + Movido o `AutoMLStep` no pacote `azureml-pipeline-steps`. Preterido o `AutoMLStep` no `azureml-train-automl-runtime`.
+  + **azureml-Train-Core**
+    + Dando suporte ao PyTorch versão 1,4 no estimador de PyTorch
+  
 ## <a name="2020-02-04"></a>2020-02-04
 
 ### <a name="azure-machine-learning-sdk-for-python-v110rc0"></a>SDK do Azure Machine Learning para Python v 1.1.0 RC0
 
++ **Alterações da falha**
+  + **2.0.0 de controle de versão semântico**
+    + A partir da versão 1,1, o SDK do Python do Azure ML adota o controle de versão semântico 2.0.0. [Leia mais aqui](https://semver.org/). Todas as versões subsequentes seguirão o novo esquema de numeração e o contrato de controle de versão semântico. 
+  
 + **Correções de bugs e melhorias**
   + **azureml-automl-tempo de execução**
     + Maior velocidade de personalização.
@@ -118,8 +161,7 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
     + Adicionadas informações de CreatedBy a objetos de modelo e de serviço. Pode ser acessado por meio de <var>. created_by
     + Foi corrigido ContainerImage. Run (), que não configurava corretamente a porta HTTP do contêiner do Docker.
     + Tornar `azureml-dataprep` opcional para `az ml dataset register` comando da CLI
-  + **azureml-dataprep**
-    + Correção de um bug em que TabularDataset. to_pandas_dataframe iria voltar incorretamente para um leitor alternativo e imprimir um aviso.
+    + Correção de um bug em que o `TabularDataset.to_pandas_dataframe` retorne incorretamente para um leitor alternativo e imprima um aviso.
   + **azureml-explicação-modelo**
     + adiar dependência de shap para interpretação-Community do azureml-interpret
   + **azureml-pipeline-Core**
@@ -255,7 +297,7 @@ No estúdio, você pode treinar, testar, implantar e gerenciar Azure Machine Lea
 
 Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
 
-| Ferramenta baseada na Web | Descrição | Edition |
+| Ferramenta baseada na Web | DESCRIÇÃO | Edition |
 |-|-|-|
 | VM do notebook (visualização) | Estação de trabalho baseada em nuvem totalmente gerenciada | Básico & Enterprise |
 | [Machine Learning automatizado](tutorial-first-experiment-automated-ml.md) (visualização) | Não há experiência de código para automatizar o desenvolvimento de modelos do Machine Learning | Enterprise |
@@ -1436,7 +1478,7 @@ Observação: o SDK do Python de preparação de dados não instalará mais paco
 + Nova experiência de criação de gráficos de arrastar e soltar para relatórios. Os usuários podem arrastar uma coluna ou um atributo do poço à área do gráfico, na qual o sistema selecionará automaticamente um tipo de gráfico apropriado para o usuário com base no tipo de dados. Os usuários podem alterar o tipo de gráfico para outros tipos aplicáveis ou adicionar outros atributos.
 
     Tipos de gráfico compatíveis:
-    - Gráfico de Linhas
+    - Gráfico de linhas
     - Histograma
     - Gráfico de barras empilhadas
     - Gráfico de caixa
@@ -1710,6 +1752,6 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
 Uma nova versão atualizada do Azure Machine Learning: Leia mais sobre esta versão: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Leia a visão geral do [Azure Machine Learning](overview-what-is-azure-ml.md).

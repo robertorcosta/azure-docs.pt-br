@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
 ms.date: 02/10/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 392d7d7efcd5b23a7a4575e2d22d21fb4433bb6d
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: d3e631fae4899fffafad9bd140abaae4fb170624
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121966"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462574"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferenças de T-SQL de instância gerenciada, limitações e problemas conhecidos
 
@@ -65,6 +65,7 @@ Limitações:
 
 - Com uma instância gerenciada, você pode fazer backup de um banco de dados de instância em um backup com até 32 faixas, o que é suficiente para bancos de dados de até 4 TB se a compactação de backup for usada.
 - Não é possível executar `BACKUP DATABASE ... WITH COPY_ONLY` em um banco de dados que é criptografado com o TDE (Transparent Data Encryption gerenciado por serviço). O TDE gerenciado por serviço força os backups a serem criptografados com uma chave TDE interna. A chave não pode ser exportada, portanto, não é possível restaurar o backup. Use backups automáticos e restauração pontual ou use o [TDE (BYOK) gerenciado pelo cliente](transparent-data-encryption-azure-sql.md#customer-managed-transparent-data-encryption---bring-your-own-key) em vez disso. Você também pode desabilitar a criptografia no banco de dados.
+- Os backups manuais para o armazenamento de BLOBs do Azure têm suporte apenas para [contas do BlockBlobStorage](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
 - O tamanho máximo de distribuição de backup usando o comando `BACKUP` em uma instância gerenciada é 195 GB, que é o tamanho máximo do blob. Aumente o número de faixas no comando de backup para reduzir o tamanho da faixa individual e permaneça dentro desse limite.
 
     > [!TIP]
@@ -110,7 +111,7 @@ Uma instância gerenciada não pode acessar compartilhamentos de arquivos e past
 
 Consulte [CRIAR CERTIFICADO](/sql/t-sql/statements/create-certificate-transact-sql) e [CERTIFICADO DE BACKUP](/sql/t-sql/statements/backup-certificate-transact-sql). 
  
-**Solução alternativa**: Em vez de criar backup de certificado e restaurar o backup, [obtenha o conteúdo binário do certificado e a chave privada, armazene-o como arquivo. SQL e crie a partir do binário](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database):
+**Solução alternativa**: em vez de criar backup de certificado e restaurar o backup, [obtenha o conteúdo binário do certificado e a chave privada, armazene-os como arquivo. SQL e crie a partir do binário](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database):
 
 ```sql
 CREATE CERTIFICATE  
@@ -140,7 +141,7 @@ Uma instância gerenciada não pode acessar arquivos, portanto, os provedores cr
 
 - Não há suporte para logons do Windows criados com a sintaxe `CREATE LOGIN ... FROM WINDOWS`. Use logons e usuário do Microsoft Azure Active Directory.
 - O usuário do Azure AD que criou a instância tem [privilégios de administrador irrestrito](sql-database-manage-logins.md#unrestricted-administrative-accounts).
-- Usuários de nível de banco de dados não administrador do Azure AD podem ser criados usando a sintaxe `CREATE USER ... FROM EXTERNAL PROVIDER`. Consulte [CRIAR USUÁRIO ... FROM EXTERNAL PROVIDER](sql-database-manage-logins.md#non-administrator-users).
+- Usuários de nível de banco de dados não administrador do Azure AD podem ser criados usando a sintaxe `CREATE USER ... FROM EXTERNAL PROVIDER`. Consulte [criar usuário... DO provedor externo](sql-database-manage-logins.md#non-administrator-users).
 - As entidades de segurança do servidor do Azure AD (logons) dão suporte a recursos SQL somente em uma instância gerenciada. Recursos que exigem interação entre instâncias, independentemente de estarem dentro do mesmo locatário do Azure AD ou locatários diferentes, não têm suporte para usuários do Azure AD. Exemplos de recursos desse tipo são:
 
   - Replicação transacional do SQL.
@@ -429,7 +430,7 @@ Para obter mais informações sobre como configurar a replicação transacional,
   - Não há suporte para `FROM DISK`/`TAPE`/dispositivo de backup.
   - Conjuntos de backup não são compatíveis.
 - Não há suporte para `WITH` opções, como nenhuma `DIFFERENTIAL` ou `STATS`.
-- `ASYNC RESTORE`: A restauração continua mesmo que a conexão do cliente seja interrompida. Se a conexão for descartada, você poderá verificar a `sys.dm_operation_status` exibição do status de uma operação de restauração e para criar e remover um banco de dados. Consulte [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). 
+- `ASYNC RESTORE`: a restauração continua mesmo que a conexão do cliente seja interrompida. Se a conexão for descartada, você poderá verificar a `sys.dm_operation_status` exibição do status de uma operação de restauração e para criar e remover um banco de dados. Consulte [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). 
 
 As opções de banco de dados a seguir são definidas ou substituídas e não podem ser alteradas posteriormente: 
 
@@ -458,9 +459,9 @@ Para obter informações sobre instruções RESTORE, consulte [instruções REST
 
 Não há suporte para agente de serviços entre instâncias:
 
-- `sys.routes`: Como pré-requisito, você deve selecionar o endereço de sys. routes. O endereço deve ser LOCAL em cada rota. Confira [sys.routes](/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE`: Não é possível usar `CREATE ROUTE` com `ADDRESS` diferente de `LOCAL`. Confira [CREATE ROUTE](/sql/t-sql/statements/create-route-transact-sql).
-- `ALTER ROUTE`: Não é possível usar `ALTER ROUTE` com `ADDRESS` diferente de `LOCAL`. Confira [ALTER ROUTE](/sql/t-sql/statements/alter-route-transact-sql). 
+- `sys.routes`: como um pré-requisito, você deve selecionar o endereço de sys. routes. O endereço deve ser LOCAL em cada rota. Confira [sys.routes](/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
+- `CREATE ROUTE`: não é possível usar `CREATE ROUTE` com `ADDRESS` diferente de `LOCAL`. Confira [CREATE ROUTE](/sql/t-sql/statements/create-route-transact-sql).
+- `ALTER ROUTE`: não é possível usar `ALTER ROUTE` com `ADDRESS` diferente de `LOCAL`. Confira [ALTER ROUTE](/sql/t-sql/statements/alter-route-transact-sql). 
 
 ### <a name="stored-procedures-functions-and-triggers"></a>Procedimentos armazenados, funções e gatilhos
 
@@ -490,7 +491,7 @@ As seguintes variáveis, funções e exibições retornam resultados diferentes:
 
 ## <a name="Environment"></a>Restrições de ambiente
 
-### <a name="subnet"></a>Subnet
+### <a name="subnet"></a>Sub-rede
 -  Você não pode inserir outros recursos (por exemplo, máquinas virtuais) na sub-rede em que você implantou sua instância gerenciada. Implante esses recursos usando uma sub-rede diferente.
 - A sub-rede deve ter um número suficiente de [endereços IP](sql-database-managed-instance-connectivity-architecture.md#network-requirements)disponíveis. O mínimo é 16, enquanto a recomendação é ter pelo menos 32 endereços IP na sub-rede.
 - [Os pontos de extremidade de serviço não podem ser associados à sub-rede da instância gerenciada](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Verifique se a opção pontos de extremidade de serviço está desabilitada quando você cria a rede virtual.
@@ -535,7 +536,7 @@ Uma instância gerenciada coloca informações detalhadas nos logs de erros. Há
 
 ### <a name="limitation-of-manual-failover-via-portal-for-failover-groups"></a>Limitação de failover manual por meio do portal para grupos de failover
 
-**Date** Jan 2020
+**Data:** Jan 2020
 
 Se o grupo de failover se estender entre instâncias em diferentes assinaturas ou grupos de recursos do Azure, o failover manual não poderá ser iniciado a partir da instância primária no grupo de failover.
 
@@ -543,11 +544,11 @@ Se o grupo de failover se estender entre instâncias em diferentes assinaturas o
 
 ### <a name="sql-agent-roles-need-explicit-execute-permissions-for-non-sysadmin-logins"></a>As funções do SQL Agent precisam de permissões de execução explícitas para logons não sysadmin
 
-**Date** Dec 2019
+**Data:** Dec 2019
 
-Se os logons não-sysadmin forem adicionados a qualquer uma das [funções de banco de dados fixas do SQL Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles), existe um problema no qual as permissões de execução explícitas precisam ser concedidas aos procedimentos armazenados mestres para que esses logons funcionem. Se esse problema for encontrado, a mensagem de erro "a permissão de execução foi negada no objeto < object_name > (Microsoft SQL Server, erro: 229) "será mostrado.
+Se os logons não-sysadmin forem adicionados a qualquer uma das [funções de banco de dados fixas do SQL Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles), existe um problema no qual as permissões de execução explícitas precisam ser concedidas aos procedimentos armazenados mestres para que esses logons funcionem. Se esse problema for encontrado, a mensagem de erro "a permissão de execução foi negada no objeto < object_name > (Microsoft SQL Server, erro: 229)" será mostrada.
 
-**Solução alternativa**: Depois de adicionar logons a qualquer uma das funções de banco de dados fixas do SQL Agent: SQLAgentUserRole, SQLAgentReaderRole ou SQLAgentOperatorRole, para cada um dos logons adicionados a essas funções, execute o script T-SQL abaixo para conceder explicitamente permissões de execução aos procedimentos armazenados listados.
+**Solução alternativa**: depois de adicionar logons a uma das funções de banco de dados fixas do SQL Agent: SQLAgentUserRole, SQLAgentReaderRole ou SQLAgentOperatorRole, para cada um dos logons adicionados a essas funções, execute o script T-SQL abaixo para conceder explicitamente permissões de execução aos procedimentos armazenados listados.
 
 ```tsql
 USE [master]
@@ -561,21 +562,21 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
 
 ### <a name="sql-agent-jobs-can-be-interrupted-by-agent-process-restart"></a>Os trabalhos do SQL Agent podem ser interrompidos pela reinicialização do processo do agente
 
-**Date** Dec 2019
+**Data:** Dec 2019
 
 O SQL Agent cria uma nova sessão toda vez que o trabalho é iniciado, aumentando gradualmente o consumo de memória. Para evitar atingir o limite de memória interna que bloquearia a execução de trabalhos agendados, o processo do agente será reiniciado quando seu consumo de memória atingir o limite. Isso pode resultar na interrupção da execução de trabalhos em execução no momento da reinicialização.
 
 ### <a name="in-memory-oltp-memory-limits-are-not-applied"></a>Os limites de memória OLTP na memória não são aplicados
 
-**Date** Outubro de 2019
+**Data:** Outubro de 2019
 
 Comercialmente Crítico camada de serviço não aplicará corretamente [os limites máximos de memória para objetos com otimização de memória](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space) em alguns casos. A instância gerenciada pode permitir que a carga de trabalho use mais memória para operações OLTP na memória, o que pode afetar a disponibilidade e a estabilidade da instância. As consultas OLTP na memória que estão atingindo os limites podem não falhar imediatamente. Esse problema será corrigido em breve. As consultas que usam mais memória OLTP na memória falharão mais cedo se atingirem os [limites](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space).
 
-**Solução alternativa:** [Monitore o uso do armazenamento OLTP na memória](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory-oltp-monitoring) usando [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) para garantir que a carga de trabalho não esteja usando mais do que a memória disponível. Aumente os limites de memória que dependem do número de vCores ou Otimize sua carga de trabalho para usar menos memória.
+**Solução alternativa:** [monitore o uso de armazenamento OLTP na memória](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory-oltp-monitoring) usando [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) para garantir que a carga de trabalho não esteja usando mais do que a memória disponível. Aumente os limites de memória que dependem do número de vCores ou Otimize sua carga de trabalho para usar menos memória.
 
 ### <a name="wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty"></a>Erro incorreto retornado ao tentar remover um arquivo que não está vazio
 
-**Date** Outubro de 2019
+**Data:** Outubro de 2019
 
 SQL Server/Instância Gerenciada [não permitir que o usuário descarte um arquivo que não esteja vazio](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). Se você tentar remover um arquivo de dados não vazio usando a instrução `ALTER DATABASE REMOVE FILE`, o erro `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` não será retornado imediatamente. Instância Gerenciada continuará tentando descartar o arquivo, e a operação falhará após 30 min com `Internal server error`.
 
@@ -583,7 +584,7 @@ SQL Server/Instância Gerenciada [não permitir que o usuário descarte um arqui
 
 ### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore"></a>Alterar a camada de serviço e criar operações de instância são bloqueadas pela restauração de banco de dados em andamento
 
-**Date** Setembro de 2019
+**Data:** Setembro de 2019
 
 A instrução de `RESTORE` contínua, o processo de migração do serviço de migração de dados e a restauração pontual interna bloquearão a atualização da camada de serviço ou o redimensionamento da instância existente e a criação de novas instâncias até que o processo de restauração seja concluído. O processo de restauração bloqueará essas operações nas instâncias gerenciadas e nos pools de instância na mesma sub-rede em que o processo de restauração está em execução. As instâncias em pools de instâncias não são afetadas. Criar ou alterar as operações da camada de serviço não falharão ou tempo limite-eles continuarão quando o processo de restauração for concluído ou cancelado.
 
@@ -591,15 +592,15 @@ A instrução de `RESTORE` contínua, o processo de migração do serviço de mi
 
 ### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>Resource Governor na camada de serviço Comercialmente Crítico talvez precise ser reconfigurada após o failover
 
-**Date** Setembro de 2019
+**Data:** Setembro de 2019
 
 [Resource governor](/sql/relational-databases/resource-governor/resource-governor) recurso que permite limitar os recursos atribuídos à carga de trabalho do usuário pode classificar incorretamente alguma carga de trabalho do usuário após o failover ou a alteração da camada de serviço iniciada pelo usuário (por exemplo, a alteração do tamanho máximo do armazenamento de instância vCore ou máximo).
 
-**Solução alternativa**: Execute `ALTER RESOURCE GOVERNOR RECONFIGURE` periodicamente ou como parte do trabalho do SQL Agent que executa a tarefa SQL quando a instância for iniciada se você estiver usando [resource governor](/sql/relational-databases/resource-governor/resource-governor).
+**Solução alternativa**: execute `ALTER RESOURCE GOVERNOR RECONFIGURE` periodicamente ou como parte do trabalho do SQL Agent que executa a tarefa SQL quando a instância for iniciada se você estiver usando [resource governor](/sql/relational-databases/resource-governor/resource-governor).
 
 ### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>As caixas de diálogo de Service Broker entre bancos de dados devem ser reinicializadas após a atualização da camada de serviço
 
-**Date** 2019 de agosto
+**Data:** 2019 de agosto
 
 As caixas de diálogo de Service Broker de banco de dados cruzado deixarão de entregar as mensagens para os serviços em outros bancos de dados após a operação de alteração da camada de serviço. As mensagens **não são perdidas** e podem ser encontradas na fila do remetente. Qualquer alteração de tamanho de armazenamento de instância ou vCores no Instância Gerenciada fará com que `service_broke_guid` valor na exibição [Sys. databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) seja alterado para todos os bancos de dados. Qualquer `DIALOG` criado usando a instrução [BEGIN DIALOG](/sql/t-sql/statements/begin-dialog-conversation-transact-sql) que referencie os agentes de serviço em outro banco de dados interromperá a entrega de mensagens ao serviço de destino.
 
@@ -607,7 +608,7 @@ As caixas de diálogo de Service Broker de banco de dados cruzado deixarão de e
 
 ### <a name="impersonification-of-azure-ad-login-types-is-not-supported"></a>Não há suporte para a impessoa de tipos de logon do Azure AD
 
-**Date** Julho de 2019
+**Data:** Julho de 2019
 
 Não há suporte para a representação usando `EXECUTE AS USER` ou `EXECUTE AS LOGIN` das seguintes entidades do AAD:
 -   Usuários com alias do AAD. O erro a seguir é retornado neste caso `15517`.
@@ -615,19 +616,19 @@ Não há suporte para a representação usando `EXECUTE AS USER` ou `EXECUTE AS 
 
 ### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@query parâmetro sem suporte no sp_send_db_mail
 
-**Date** Abril de 2019
+**Data:** Abril de 2019
 
 O parâmetro `@query` no procedimento [sp_send_db_mail](/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) não funciona.
 
 ### <a name="transactional-replication-must-be-reconfigured-after-geo-failover"></a>A replicação transacional deve ser reconfigurada após o failover geográfico
 
-**Date** Mar de 2019
+**Data:** Mar de 2019
 
 Se a replicação transacional estiver habilitada em um banco de dados em um grupo de failover automático, o administrador da instância gerenciada deverá limpar todas as publicações no antigo primário e reconfigurá-los no novo primário após a ocorrência de um failover para outra região. Consulte [replicação](#replication) para obter mais detalhes.
 
 ### <a name="aad-logins-and-users-are-not-supported-in-ssdt"></a>Não há suporte para logons e usuários do AAD no SSDT
 
-**Date** 2019 de novembro
+**Data:** 2019 de novembro
 
 SQL Server Data Tools não dão suporte total a logons e usuários do Azure Active Directory.
 
@@ -635,7 +636,7 @@ SQL Server Data Tools não dão suporte total a logons e usuários do Azure Acti
 
 Quando um banco de dados estiver restaurando em Instância Gerenciada, o serviço de restauração criará primeiro um banco de dados vazio com o nome desejado para alocar o nome na instância. Após algum tempo, esse banco de dados será descartado e a restauração do banco de dados real será iniciada. O banco de dados que está no estado de *restauração* temporário terá um valor de GUID aleatório em vez de nome. O nome temporário será alterado para o nome desejado especificado na instrução `RESTORE` depois que o processo de restauração for concluído. Na fase inicial, o usuário pode acessar o banco de dados vazio e, até mesmo, criar tabelas ou carrega-los. Esse banco de dados temporário será Descartado quando o serviço de restauração iniciar a segunda fase.
 
-**Solução alternativa**: Não acesse o banco de dados que você está restaurando até ver que a restauração foi concluída.
+**Solução alternativa**: não acesse o banco de dados que você está restaurando até ver que a restauração foi concluída.
 
 ### <a name="tempdb-structure-and-content-is-re-created"></a>A estrutura TEMPDB e o conteúdo são recriados
 

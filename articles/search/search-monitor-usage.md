@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/15/2020
-ms.openlocfilehash: 5846e9516548032595c1ce072d1dae8dcce9d39e
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
-ms.translationtype: HT
+ms.openlocfilehash: 353e00f902a7314e5e5b7c8ee03e8b925a510b26
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443594"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462319"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Monitorar operações e atividades do Azure Pesquisa Cognitiva
 
@@ -52,7 +52,7 @@ As páginas com guias criadas na página Visão geral relatam sobre o uso de rec
 
 Se estiver decidindo sobre [qual camada usar para cargas de trabalho de produção](search-sku-tier.md), ou se quiser [ajustar o número de partições e réplicas ativas](search-capacity-planning.md), essas métricas podem ajudá-lo nessas decisões ao mostrar o quão rápido os recursos são consumidos e o quão bem a configuração atual lida com a carga existente.
 
-Os alertas relacionados ao armazenamento não estão disponíveis no momento; o consumo de armazenamento não é agregado ou conectado à tabela **AzureMetrics** em Azure monitor. Você precisaria criar uma solução personalizada que emita notificações relacionadas a recursos, em que seu código verifica o tamanho do armazenamento e manipula a resposta. Para obter mais informações sobre métricas de armazenamento, consulte [obter estatísticas de serviço](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics#response).
+Os alertas relacionados ao armazenamento não estão disponíveis no momento; o consumo de armazenamento não é agregado ou conectado à tabela **AzureMetrics** em Azure monitor. Você precisaria [criar uma solução personalizada](https://docs.microsoft.com/azure/azure-monitor/insights/solutions-creating) que emita notificações relacionadas a recursos, em que seu código verifica o tamanho do armazenamento e manipula a resposta. Para obter mais informações sobre métricas de armazenamento, consulte [obter estatísticas de serviço](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics#response).
 
 Para o monitoramento visual no portal, a guia **uso** mostra a disponibilidade de recursos em relação aos [limites](search-limits-quotas-capacity.md) atuais impostos pela camada de serviço. 
 
@@ -63,7 +63,7 @@ A ilustração a seguir aplica-se ao serviço gratuito, que está limitado a tr�
 
 ## <a name="monitor-workloads"></a>Monitorar cargas de trabalho
 
-Os eventos registrados incluem aqueles relacionados à indexação e às consultas. A tabela **AzureDiagnostics** no log Analytics coleta dados operacionais relacionados a consultas e indexação.
+Os eventos registrados em log incluem aqueles relacionados à indexação e às consultas. A tabela **AzureDiagnostics** no log Analytics coleta dados operacionais relacionados a consultas e indexação.
 
 A maioria dos dados registrados em log é para operações somente leitura. Para outras operações de criação-atualização-exclusão não capturadas no log, você pode consultar o serviço de pesquisa para obter informações do sistema.
 

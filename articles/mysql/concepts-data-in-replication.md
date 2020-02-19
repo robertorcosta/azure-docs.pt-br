@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 58882f7569e26ebcba237158db2eb23e76bcd015
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 18c53a53a57b3ddca1168fc1075ae09bcd86f000
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765079"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462489"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replicar dados no Banco de Dados do Azure para MySQL
 
@@ -28,7 +28,7 @@ Para cenários de migração, use o [serviço de migração de banco de dados do
 ## <a name="limitations-and-considerations"></a>Limitações e considerações
 
 ### <a name="data-not-replicated"></a>Dados não replicados
-O [*banco de dados de sistema de mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-database.html) no servidor mestre não é replicado. Alterações nas contas e permissões no servidor mestre não são replicadas. Se você criar uma conta no servidor mestre e essa conta precisar acessar o servidor de réplica, crie manualmente a mesma conta no lado do servidor de réplica. Para entender quais tabelas estão contidas no banco de dados do sistema, confira o [Manual do MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-database.html).
+O [*banco de dados de sistema de mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) no servidor mestre não é replicado. Alterações nas contas e permissões no servidor mestre não são replicadas. Se você criar uma conta no servidor mestre e essa conta precisar acessar o servidor de réplica, crie manualmente a mesma conta no lado do servidor de réplica. Para entender quais tabelas estão contidas no banco de dados do sistema, confira o [Manual do MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html).
 
 ### <a name="requirements"></a>Requisitos
 - A versão do servidor mestre deve ser pelo menos a versão 5.6 do MySQL. 
@@ -41,11 +41,11 @@ O [*banco de dados de sistema de mysql*](https://dev.mysql.com/doc/refman/5.7/en
 - Assegure-se de que o computador que hospeda o servidor mestre permita tráfego de entrada e saída na porta 3306.
 - Verifique se o servidor mestre tem um **endereço IP público**, se o DNS está acessível publicamente ou se tem um FQDN (nome de domínio totalmente qualificado).
 
-### <a name="other"></a>outro
+### <a name="other"></a>Outros
 - A replicação de dados têm suporte apenas em tipos de preços de Uso Geral e Otimizados para Memória.
 - O GTID (identificadores de transação globais) não são compatíveis.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Saiba como [configurar a replicação nos dados](howto-data-in-replication.md)
 - Saiba mais sobre [replicar no Azure com réplicas de leitura](concepts-read-replicas.md)
 - Saiba mais sobre como [migrar dados com tempo de inatividade mínimo usando DMS](howto-migrate-online.md)

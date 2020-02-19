@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: d250cc3c74f27079d633fa24c49eb11b94135ead
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 940ac7b0a2720283b669fc7ea5a9dbc163ddbe64
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200037"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460204"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB cotas de serviço
 
@@ -77,7 +77,8 @@ Cosmos DB automaticamente faz backups de seus dados em intervalos regulares. Par
 | Recurso | Limite padrão |
 | --- | --- |
 | Número máximo de bancos de dados | Ilimitado |
-| Número máximo de contêineres que podem ser provisionados em um banco de dados com taxa de transferência compartilhada |25 |
+| Número máximo de contêineres por banco de dados com taxa de transferência compartilhada |25 |
+| Número máximo de contêineres por banco de dados ou conta com taxa de transferência dedicada  |ilimitado |
 | Número máximo de regiões | Sem limite (todas as regiões do Azure) |
 
 ## <a name="per-container-limits"></a>Limites por contêiner
@@ -103,7 +104,7 @@ Dependendo de qual API você usa, um item Cosmos do Azure pode representar um do
 | --- | --- |
 | Tamanho máximo de um item | 2 MB (comprimento UTF-8 da representação JSON) |
 | Comprimento máximo do valor de chave de partição | 2048 bytes |
-| Comprimento máximo do valor da ID | 1024 bytes |
+| Comprimento máximo do valor da ID | 1023 bytes |
 | Número máximo de propriedades por item | Sem limite prático |
 | Profundidade máxima de aninhamento | Sem limite prático |
 | Comprimento máximo do nome da propriedade | Sem limite prático |

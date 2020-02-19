@@ -323,10 +323,10 @@
       items:
         - name: Conceitos básicos
           href: search-monitor-usage.md
-        - name: Monitorar atividade de consulta
-          href: search-monitor-queries.md
         - name: Registro de diagnóstico
           href: search-monitor-logs.md
+        - name: Monitorar atividade de consulta
+          href: search-monitor-queries.md
         - name: Análise do tráfego de pesquisa
           href: search-traffic-analytics.md
     - name: Solucionar problemas

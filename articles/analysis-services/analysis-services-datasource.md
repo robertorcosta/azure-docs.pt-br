@@ -4,15 +4,15 @@ description: Descreve as fontes de dados e conectores com suporte para os modelo
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/20/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4a99bfe8d8235400f9122423aa4592fc6898abc1
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: f65d8fa2c2e522c718c637e32defc4c56fca8364
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922283"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461650"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
@@ -20,13 +20,13 @@ As fontes de dados e conectores mostrados no Assistente para obter dados ou tabe
 
 ## <a name="azure-data-sources"></a>Fontes de dados do Azure
 
-|Fonte de dados  |Na memória  |DirectQuery  |Observações |
+|Fonte de dados  |Na memória  |DirectQuery  |{1&gt;Observações&lt;1} |
 |---------|---------|---------|---------|
-|Banco de dados SQL do Azure      |   Sim      |    Sim      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
-|Azure SQL Data Warehouse      |   Sim      |   Sim       |<sup>[2](#azprovider)</sup>|
-|Armazenamento de Blobs do Azure      |   Sim       |    Não      | <sup>[1](#tab1400a)</sup> |
+|Banco de Dados SQL do Azure      |   Sim      |    Sim      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
+|Análise Synapse do Azure (SQL Data Warehouse)      |   Sim      |   Sim       |<sup>[2](#azprovider)</sup>|
+|Armazenamento do Blobs do Azure      |   Sim       |    Não      | <sup>[1](#tab1400a)</sup> |
 |Armazenamento de Tabelas do Azure     |   Sim       |    Não      | <sup>[1](#tab1400a)</sup>|
-|BD Cosmos do Azure     |  Sim        |  Não        |<sup>[1](#tab1400a)</sup> |
+|Azure Cosmos DB     |  Sim        |  Não        |<sup>[1](#tab1400a)</sup> |
 |Azure Data Lake Store Gen1      |   Sim       |    Não      |<sup>[1](#tab1400a)</sup> |
 |Azure Data Lake Store Gen2       |   Sim       |    Não      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
 |HDFS do Azure HDInsight    |     Sim     |   Não       |<sup>[1](#tab1400a)</sup> |
@@ -42,37 +42,37 @@ no momento, não há suporte para o conector de <a name="gen2">5</a> ADLS Gen2, 
 
 ## <a name="other-data-sources"></a>Outras fontes de dados
 
-|Fonte de dados | Na memória | DirectQuery |Observações   |
+|Fonte de dados | Na memória | DirectQuery |{1&gt;Observações&lt;1}   |
 |  --- | --- | --- | --- |
 |Banco de dados do Access     |  Sim | Não |  |
-|Active Directory     |  Sim | Não | <sup>[6](#tab1400b)</sup>  |
+|Active Directory     |  Sim | Não | <sup>[152](#tab1400b)</sup>  |
 |Analysis Services     |  Sim | Não |  |
 |Sistema de plataforma de análise     |  Sim | Não |  |
 |Arquivo CSV  |Sim | Não |  |
-|Dynamics 365     |  Sim | Não | <sup>[6](#tab1400b)</sup> |
+|Dynamics 365     |  Sim | Não | <sup>[152](#tab1400b)</sup> |
 |Pasta de trabalho do Excel     |  Sim | Não |  |
-|Exchange      |  Sim | Não | <sup>[6](#tab1400b)</sup> |
-|Pasta      |Sim | Não | <sup>[6](#tab1400b)</sup> |
+|Exchange      |  Sim | Não | <sup>[152](#tab1400b)</sup> |
+|Folder      |Sim | Não | <sup>[152](#tab1400b)</sup> |
 |IBM Informix  |Sim | Não |  |
-|Documento JSON      |  Sim | Não | <sup>[6](#tab1400b)</sup> |
-|Linhas de binário      | Sim | Não | <sup>[6](#tab1400b)</sup> |
+|Documento JSON      |  Sim | Não | <sup>[152](#tab1400b)</sup> |
+|Linhas de binário      | Sim | Não | <sup>[152](#tab1400b)</sup> |
 |Banco de dados MySQL     | Sim | Não |  |
-|Feed OData      |  Sim | Não | <sup>[6](#tab1400b)</sup> |
+|Feed OData      |  Sim | Não | <sup>[152](#tab1400b)</sup> |
 |Consulta ODBC     | Sim | Não |  |
 |OLE DB     |   Sim | Não |  |
-|Oracle  | Sim  |Sim  | <sup>[9](#oracle)</sup> |
-|Banco de dados PostgreSQL   | Sim | Não | <sup>[6](#tab1400b)</sup> |
-|Objetos do Salesforce|  Sim | Não | <sup>[6](#tab1400b)</sup> |
-|Relatórios do Salesforce |Sim | Não | <sup>[6](#tab1400b)</sup> |
+|Oracle  | Sim  |Sim  | <sup>[99](#oracle)</sup> |
+|Banco de dados PostgreSQL   | Sim | Não | <sup>[152](#tab1400b)</sup> |
+|Objetos do Salesforce|  Sim | Não | <sup>[152](#tab1400b)</sup> |
+|Relatórios do Salesforce |Sim | Não | <sup>[152](#tab1400b)</sup> |
 |SAP HANA     |  Sim | Não |  |
-|SAP Business Warehouse    |  Sim | Não | <sup>[6](#tab1400b)</sup> |
+|SAP Business Warehouse    |  Sim | Não | <sup>[152](#tab1400b)</sup> |
 |Lista do SharePoint      |   Sim | Não | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
 |SQL Server |Sim   | Sim  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> | 
 |SQL Server Data Warehouse |Sim   | Sim  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
 |Banco de dados Sybase     |  Sim | Não |  |
-|Teradata | Sim  | Sim  | <sup>[10](#teradata)</sup> |
+|Teradata | Sim  | Sim  | <sup>[254](#teradata)</sup> |
 |Arquivo TXT  |Sim | Não |  |
-|Tabela XML    |  Sim | Não | <sup>[6](#tab1400b)</sup> |
+|Tabela XML    |  Sim | Não | <sup>[152](#tab1400b)</sup> |
 | | | |
 
 **Observações:**    
@@ -120,11 +120,11 @@ Para fontes de dados de nuvem:
 
 ## <a name="oauth-credentials"></a>Credenciais do OAuth
 
-Para modelos de tabela no nível de compatibilidade 1400 e superior usando o modo na memória, o banco de dados SQL do Azure, o Azure SQL Data Warehouse, o Dynamics 365 e a lista do SharePoint dão suporte a credenciais OAuth. Azure Analysis Services gerencia a atualização de token para fontes de dados OAuth para evitar tempos limite para operações de atualização de execução longa. Para gerar tokens válidos, defina as credenciais usando o SSMS.
+Para modelos de tabela no nível de compatibilidade 1400 e superior usando o modo na memória, o banco de dados SQL do Azure, o Azure Synapse Analytics (SQL Data Warehouse), o Dynamics 365 e a lista do SharePoint dão suporte a credenciais OAuth. Azure Analysis Services gerencia a atualização de token para fontes de dados OAuth para evitar tempos limite para operações de atualização de execução longa. Para gerar tokens válidos, defina as credenciais usando o SSMS.
 
 Não há suporte para o modo de consulta direta com credenciais OAuth.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 [Gateway Local](analysis-services-gateway.md)   
 [Gerenciar seu serviço](analysis-services-manage.md)   
 

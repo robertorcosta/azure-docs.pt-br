@@ -6,19 +6,14 @@ ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
 ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
-ms.openlocfilehash: 9238ebd06a4aa532d20a2a98499963a75780f025
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 0cc4309fa57a29997bdd2f650634efd0723e6965
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668426"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77458742"
 ---
-# <a name="offline-data-sync-in-azure-mobile-apps"></a>Sincronização de dados offline nos Aplicativos Móveis do Azure
-
-> [!NOTE]
-> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados essenciais para o desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar os serviços de **Build**, **Teste** e **Distribuição** para configurar o pipeline de integração e entrega contínuas. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso dos respectivos aplicativos usando os serviços de **Análise** e **Diagnóstico** e se envolver com usuários usando o serviço de **Push**. Os desenvolvedores também podem aproveitar o serviço de **Autenticação** para autenticar os respectivos usuários e o serviço de **Dados** para persistir e sincronizar dados de aplicativo na nuvem.
->
-> Se desejar integrar os serviços de nuvem em seu aplicativo móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
+# <a name="offline-data-sync-in-azure-mobile-apps"></a>Sincronização de dados offline em Aplicativos Móveis do Azure
 
 ## <a name="what-is-offline-data-sync"></a>O que é sincronização de dados offline?
 A sincronização de dados offline é um recurso do SDK para cliente e servidor de Aplicativos Móveis do Azure que torna mais fácil para os desenvolvedores criarem aplicativos que funcionem sem uma conexão de rede do servidor.
@@ -87,7 +82,7 @@ Ao usar tabelas de sincronização, o código do cliente controla quando as alte
 
   Como exemplo de dados obsoletos no cliente, suponha que no exemplo "lista de tarefas", Device1 mantém apenas os itens que não foram concluídos. Um todoitem “Comprar leite” é marcado como concluído no servidor por outro dispositivo. No entanto, o Device1 ainda terá o todoitem “Comprar leite” no repositório local, pois ele só está obtendo itens que não foram marcados como concluídos. Uma limpeza limpa esse item obsoleto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [iOS: Habilitar a sincronização offline]
 * [Xamarin iOS: Habilitar a sincronização offline]
 * [Xamarin Android: Habilitar a sincronização offline]

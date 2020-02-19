@@ -8,20 +8,15 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.openlocfilehash: 019979307f6dff1dba2ef5f661a971f330b8a9cd
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: cafb0a7e2bf0fbce82448236a2da98079144121e
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668868"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461531"
 ---
-# <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Trabalhar com o servidor back-end SDK do .NET para os Aplicativos Móveis do Azure
+# <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
-
-> [!NOTE]
-> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados essenciais para o desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar os serviços de **Build**, **Teste** e **Distribuição** para configurar o pipeline de integração e entrega contínuas. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso dos respectivos aplicativos usando os serviços de **Análise** e **Diagnóstico** e se envolver com usuários usando o serviço de **Push**. Os desenvolvedores também podem aproveitar o serviço de **Autenticação** para autenticar os respectivos usuários e o serviço de **Dados** para persistir e sincronizar dados de aplicativo na nuvem.
->
-> Se desejar integrar os serviços de nuvem em seu aplicativo móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
 Este tópico mostra como usar o SDK do servidor de back-end do .NET nos principais cenários dos Aplicativos Móveis do Serviço de Aplicativo do Azure. Os Aplicativos Móveis SDK do Azure ajuda você a trabalhar com clientes móveis de seu aplicativo ASP.NET.
 
@@ -129,12 +124,12 @@ Os métodos de extensão usados são:
 Os seguintes pacotes com base em extensão no NuGet fornecem vários recursos móveis que podem ser usados pelo seu aplicativo. Habilitar extensões durante a inicialização usando o objeto **MobileAppConfiguration** .
 
 * [Microsoft.Azure.Mobile.Server.Quickstart] Dá suporte à configuração básica dos Aplicativos Móveis. Adicionado à configuração chamando o método de extensão **UseDefaultConfiguration** durante a inicialização. Essa extensão inclui as seguintes extensões: Notificações, Autenticação, Entidade, Tabelas, pacotes Crossdomain e Home. Esse pacote é usado pelo Início rápido dos Aplicativos Móveis disponíveis no portal do Azure.
-* [Microsoft.Azure.Mobile.Server.Home](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) implementa a página padrão *este aplicativo móvel está em execução* na raiz do site. Adicione à configuração chamando o método de extensão **AddMobileAppHomeController**.
+* [Microsoft.Azure.Mobile.Server.Home](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) implementa a página padrão *este aplicativo móvel está em execução* na raiz do site. Adicione à configuração chamando o método de extensão **AddMobileAppHomeController** .
 * [Microsoft.Azure.Mobile.Server.Tables](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) inclui classes para trabalhar com dados e define o pipeline de dados. Adicione à configuração chamando o método de extensão **AddTables** .
 * [Microsoft.Azure.Mobile.Server.Entity](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) permite que o Entity Framework acesse dados no Banco de Dados SQL. Adicionar à configuração chamando o método de extensão **AddTablesWithEntityFramework** .
 * [Microsoft.Azure.Mobile.Server.Authentication] Permite a autenticação e define o middleware OWIN usado para validar tokens. Adicionar à configuração chamando os métodos de extensão **AddAppServiceAuthentication** e **IAppBuilder**.**UseAppServiceAuthentication**.
 * [Microsoft.Azure.Mobile.Server.Notifications] permite as notificações por push e define um ponto de extremidade de registro push. Adicionar à configuração chamando o método de extensão **AddPushNotifications** .
-* [Microsoft.Azure.Mobile.Server.CrossDomain](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) Cria um controlador que fornece dados para os navegadores da Web herdados do seu Aplicativo Móvel. Adicione à configuração chamando o método de extensão **MapLegacyCrossDomainController**.
+* [Microsoft.Azure.Mobile.Server.CrossDomain](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) Cria um controlador que fornece dados para os navegadores da Web herdados do seu Aplicativo Móvel. Adicione à configuração chamando o método de extensão **MapLegacyCrossDomainController** .
 * [Microsoft.Azure.Mobile.Server.Login] fornece o método AppServiceLoginHandler.CreateToken(), que é um método estático usado nos cenários de autenticação personalizada.
 
 ## <a name="publish-server-project"></a>Como publicar o projeto do servidor

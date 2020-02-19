@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a088a90642a0394b0ede3c163590f64112799d1a
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: f6f334ed6b84d4688849b6dfd8cb1f79f8db57bf
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425282"
+ms.locfileid: "77443887"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configurar um aplicativo Java do Windows para o serviço Azure App
 
@@ -128,9 +128,9 @@ Aplicativos Java em execução no serviço de aplicativo têm o mesmo conjunto d
 
 Configure a autenticação de aplicativo no portal do Azure com a opção **autenticação e autorização** . Em seguida, será possível habilitar a autenticação usando o Azure Active Directory ou os logons de redes sociais, como Facebook, Google ou GitHub. A configuração do portal do Azure só funciona ao configurar um único provedor de autenticação. Para saber mais, confira [Configurar o aplicativo do Serviço de Aplicativo para usar o logon do Azure Active Directory](configure-authentication-provider-aad.md) e os artigos relacionados para outros provedores de identidade. Se você precisar habilitar vários provedores de entrada, siga as instruções no artigo [Personalizar a autenticação do Serviço de Aplicativo](app-service-authentication-how-to.md).
 
-#### <a name="tomcat-and-wildfly"></a>Tomcat e Wildfly
+#### <a name="tomcat"></a>Tomcat
 
-Seu aplicativo Tomcat ou Wildfly pode acessar as declarações do usuário diretamente do servlet, convertendo o objeto principal em um objeto Map. O objeto MAP mapeará cada tipo de declaração para uma coleção de declarações para esse tipo. No código abaixo, `request` é uma instância de `HttpServletRequest`.
+Seu aplicativo Tomcat pode acessar as declarações do usuário diretamente do servlet, convertendo o objeto principal em um objeto Map. O objeto MAP mapeará cada tipo de declaração para uma coleção de declarações para esse tipo. No código abaixo, `request` é uma instância de `HttpServletRequest`.
 
 ```java
 Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
