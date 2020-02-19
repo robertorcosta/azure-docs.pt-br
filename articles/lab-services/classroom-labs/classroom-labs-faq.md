@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: a0361203f4a8a2e57d179b39ba6da2fb62f68720
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 8d1ed128181d036af0026ae273c2c5bf1d3a066e
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77252052"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443492"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Laboratórios da sala de aula em Azure Lab Services – perguntas frequentes (FAQ)
 Obtenha respostas para algumas das perguntas mais comuns sobre os laboratórios de sala de aula em Azure Lab Services. 
@@ -27,6 +27,9 @@ Obtenha respostas para algumas das perguntas mais comuns sobre os laboratórios 
 
 ### <a name="is-the-quota-per-user-or-per-week-or-per-entire-duration-of-the-lab"></a>A cota por usuário ou por semana ou por toda a duração do laboratório? 
 A cota que você definiu para um laboratório é para cada aluno toda a duração do laboratório. E o [tempo de execução agendado das VMs](how-to-create-schedules.md) não conta com a cota alocada para um usuário. A cota é para o tempo fora dos horários agendados que um aluno passa em VMs.  Para obter mais informações sobre cotas, consulte [definir cotas para usuários](how-to-configure-student-usage.md#set-quotas-for-users).
+
+### <a name="if-professor-turns-on-a-student-vm-does-that-affect-the-student-quota"></a>Se o professor ativar uma VM de aluno, isso afetará a cota do aluno? 
+Não. Isso não é verdade. Quando o professor ativa a VM do aluno, ele não afeta a cota alocada para o aluno. 
 
 ## <a name="schedules"></a>Agendas
 
@@ -42,7 +45,9 @@ Por exemplo, se você tiver um bloco de/19-10.0.0.0/19, esse intervalo de endere
 
 ### <a name="what-port-ranges-should-i-open-on-my-organizations-firewall-setting-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Quais intervalos de porta devo abrir na configuração de firewall da minha organização para se conectar a máquinas virtuais de laboratório via RDP/SSH?
 
-As portas são: 49152 – 65535. Os laboratórios de sala de aula ficam atrás de um balanceador de carga, portanto, todas as máquinas virtuais em um laboratório têm um único endereço IP e cada máquina virtual no laboratório tem uma porta exclusiva. Os números de porta e o endereço IP público podem ser alterados toda vez que o laboratório for republicado.
+As portas são: 49152 – 65535. Os laboratórios de sala de aula ficam atrás de um balanceador de carga. Cada laboratório tem um único endereço IP público e cada máquina virtual no laboratório tem uma porta exclusiva. 
+
+Você também pode ver o endereço IP privado de cada máquina virtual na guia **pool de máquinas virtuais** do Home Page para o laboratório na portal do Azure. Se você republicar um laboratório, o endereço IP público do laboratório não será alterado, mas o IP privado e o número da porta de cada máquina virtual no laboratório poderão mudar. Você pode aprender mais no artigo: [configurações de firewall para Azure Lab Services](how-to-configure-firewall-settings.md).
 
 ### <a name="what-public-ip-address-range-should-i-open-on-my-organizations-firewall-settings-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Qual intervalo de endereços IP públicos devo abrir nas configurações de firewall da minha organização para se conectar às máquinas virtuais do laboratório via RDP/SSH?
 Consulte [intervalos de IP do Azure e marcas de serviço – nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519), que fornece o intervalo de endereços IP públicos para data centers no Azure. Você pode abrir os endereços IP para as regiões nas quais suas contas de laboratório estão.

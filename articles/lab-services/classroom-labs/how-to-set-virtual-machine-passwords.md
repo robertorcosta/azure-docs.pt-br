@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: d89d506d8912706bbdb802801b16d01036ecb8e2
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 99c6ee5d58655350d14add61530fae647a675508
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583601"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443220"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurar e gerenciar o pool de máquinas virtuais 
 Este artigo mostra como realizar as seguintes tarefas:
@@ -76,7 +76,7 @@ Um professor (proprietário do laboratório) pode definir/redefinir a senha para
 ### <a name="set-password-at-the-time-of-lab-creation"></a>Definir a senha no momento da criação do laboratório
 Um professor (proprietário do laboratório) pode definir uma senha para VMs no laboratório na página de **credenciais da máquina virtual** do assistente de criação de laboratório.
 
-![Nova janela de laboratório](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
+![Janela Novo laboratório](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
 
 Ao habilitar/desabilitar a opção **usar a mesma senha para todas as máquinas virtuais** nesta página, um professor pode optar por usar a mesma senha para todas as VMs no laboratório ou permitir que os alunos definam senhas para suas VMs. Por padrão, essa configuração é habilitada para todas as imagens do sistema operacional Windows e Linux, exceto o Ubuntu. Quando essa configuração estiver desabilitada, os alunos serão solicitados a definir uma senha quando tentarem se conectar à VM pela primeira vez. 
 
@@ -96,6 +96,9 @@ O criador de laboratório (instrutor/professor) pode se conectar a uma VM de alu
  Para se conectar à VM do aluno, passe o mouse sobre a VM na lista e selecione o botão computador.  
 
 ![Botão conectar ao aluno da VM](../media/how-to-set-virtual-machine-passwords/connect-student-vm.png)
+
+> [!NOTE]
+> Quando o professor inicia a VM e se conecta a ela, a cota do aluno não é afetada. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre as outras opções de uso do aluno que você (como proprietário do laboratório) podem configurar, consulte o seguinte artigo: [Configurar o uso do aluno](how-to-configure-student-usage.md).

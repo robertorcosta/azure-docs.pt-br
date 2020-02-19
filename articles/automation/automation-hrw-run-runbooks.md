@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: ac31783f0eb270823b71c86cc8d7f0975d3a586a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 29b8a32989b5a1d60792fb5678f7ba8a9f12daba
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452275"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443798"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Executar runbooks em um Hybrid Runbook Worker
 
@@ -86,7 +86,7 @@ Para usar uma identidade gerenciada para recursos do Azure em um Hybrid Runbook 
 1. Criar uma VM do Azure
 2. [Configurar identidades gerenciadas para recursos do Azure em sua VM](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm)
 3. [Conceda à sua VM acesso a um grupo de recursos no Resource Manager](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager) tutorial-Windows-VM-Access-ARM. MD # Get-a-Access-token-usando-The-VMs-System-Assign-Managed-Identity-and-use-it-to-Call-Azure-Resource-Manager)
-4. [Instalar o Windows Hybrid Runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) na máquina virtual.
+4. [Instalar o Windows Hybrid Runbook Worker](automation-windows-hrw-install.md) na máquina virtual.
 
 Depois que as etapas anteriores forem concluídas, você poderá usar `Connect-AzureRmAccount -Identity` no runbook para autenticação nos recursos do Azure. Essa configuração reduz a necessidade de utilizar uma conta Executar como e gerenciar o certificado para a conta Executar como.
 
@@ -305,7 +305,7 @@ O runbook assinado terá o nome `<runbook name>.asc`.
 
 O runbook assinado agora pode ser carregado na Automação do Azure e pode ser executado como um runbook normal.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre os diferentes métodos que podem ser usados para iniciar um runbook, confira [Como iniciar um Runbook na Automação do Azure](automation-starting-a-runbook.md).
 * Para entender as várias maneiras de trabalhar com runbooks do PowerShell na Automação do Azure usando o editor de texto, confira [Editar um runbook na Automação do Azure](automation-edit-textual-runbook.md)

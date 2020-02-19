@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: f1f425a6e3c66a72c7632cfea16d78ea6cc0d319
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 560575ca7f51218e472abecb4319f4a3db69b1ff
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201145"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77431155"
 ---
 # <a name="speech-service-supported-regions"></a>Regiões com suporte do serviço de fala
 
@@ -44,7 +44,7 @@ Se você usar o [SDK de fala](speech-sdk.md), as regiões serão especificadas p
 
 As regiões disponíveis para **reconhecimento de intenção** por meio do SDK de Fala são os seguintes:
 
-| Região global | Região           | Parâmetro do SDK de Fala |
+| Região global | Região           | Identificador de região |
 | ------------- | ---------------- | -------------------- |
 | Ásia          | Leste da Ásia        | `eastasia`           |
 | Ásia          | Sudeste Asiático   | `southeastasia`      |
@@ -65,7 +65,7 @@ Este é um subconjunto das regiões de publicação compatíveis com o [LUIS (Se
 
 O [SDK de fala](speech-sdk.md) dá suporte a recursos do **Assistente de voz** nessas regiões:
 
-| Região         | Parâmetro do SDK de Fala |
+| Região         | Identificador de região |
 | -------------- | -------------------- |
 | Oeste dos EUA        | `westus`             |
 | Oeste dos EUA 2      | `westus2`            |

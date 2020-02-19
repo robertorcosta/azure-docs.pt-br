@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 73a505ce68ed046eba011d3b36991616f441506e
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: bc15ee42fd7ef8e41b332104b28af808c336789f
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77206287"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430401"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Criptografia do lado do servidor de Azure Managed disks
 
@@ -58,7 +58,7 @@ Para revogar o acesso às chaves gerenciadas pelo cliente, consulte [Azure Key V
 
 No momento, há suporte apenas para as seguintes regiões:
 
-- Disponível como uma oferta GA nas regiões leste dos EUA, oeste dos EUA 2 e EUA Central do Sul.
+- Disponível como uma oferta GA nas regiões leste dos EUA, oeste dos EUA 2, Sul EUA Central, Sul do Reino Unido.
 - Disponível como uma visualização pública nas regiões EUA Central ocidental, leste dos EUA 2, Canadá central e Europa Setentrional.
 
 ### <a name="restrictions"></a>Restrições
