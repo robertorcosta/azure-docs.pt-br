@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f6f334ed6b84d4688849b6dfd8cb1f79f8db57bf
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
-ms.translationtype: HT
+ms.openlocfilehash: e5beb60107b3632da336a20f167e1c2f5b53140a
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443887"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461259"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configurar um aplicativo Java do Windows para o serviço Azure App
 
@@ -29,6 +29,7 @@ Você pode usar o [plug-in do aplicativo Web do Azure para Maven](/java/api/over
 Caso contrário, o método de implantação dependerá do tipo de arquivo morto:
 
 - Para implantar arquivos .war para Tomcat, use o ponto de extremidade `/api/wardeploy/` para executar POST de seu arquivo morto. Para obter mais informações sobre essa API, confira [essa documentação](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
+- Para implantar arquivos. jar em Java SE, use o ponto de extremidade `/api/zipdeploy/` do site kudu. Para obter mais informações sobre essa API, confira [essa documentação](https://docs.microsoft.com/azure/app-service/deploy-zip#rest).
 
 Não implante seu. War usando FTP. A ferramenta FTP foi projetada para carregar os scripts de inicialização, dependências ou outros arquivos de runtime. Não é a opção ideal para a implantação de aplicativos Web.
 
@@ -287,6 +288,10 @@ Para editar `server.xml` do Tomcat ou outros arquivos de configuração, primeir
 
 Por fim, reinicie o Serviço de Aplicativo. Suas implantações devem ir para `D:\home\site\wwwroot\webapps` assim como antes.
 
+## <a name="configure-java-se"></a>Configurar Java SE
+
+Ao executar um. Aplicativo JAR em Java SE no Windows, `server.port` é passado como uma opção de linha de comando à medida que seu aplicativo é iniciado. Você pode resolver manualmente a porta HTTP da variável de ambiente, `HTTP_PLATFORM_PORT`. O valor dessa variável de ambiente será a porta HTTP em que seu aplicativo deve escutar. 
+
 ## <a name="java-runtime-statement-of-support"></a>Declaração de suporte do runtime do Java
 
 ### <a name="jdk-versions-and-maintenance"></a>Versões e manutenção do JDK
@@ -300,6 +305,8 @@ Os JDKs com suporte são corrigidos automaticamente a cada trimestre em janeiro,
 ### <a name="security-updates"></a>Atualizações de segurança
 
 Os patches e as correções para grandes vulnerabilidades de segurança serão liberados assim que forem disponibilizados pela Azul Systems. Uma "grande" vulnerabilidade é definida por uma pontuação básica de 9,0 ou mais na [versão 2 do NIST Common Vulnerability Scoring System](https://nvd.nist.gov/cvss.cfm).
+
+O Tomcat 8,0 atingiu [o fim da vida útil (EOL) a partir de 30 de setembro de 2018](https://tomcat.apache.org/tomcat-80-eol.html). Embora o tempo de execução ainda esteja disponíveis no serviço Azure App, o Azure não aplicará atualizações de segurança ao Tomcat 8,0. Se possível, migre seus aplicativos para o Tomcat 8,5 ou 9,0. O Tomcat 8,5 e o 9,0 estão disponíveis no serviço Azure App. Consulte o [site oficial do Tomcat](https://tomcat.apache.org/whichversion.html) para obter mais informações. 
 
 ### <a name="deprecation-and-retirement"></a>Reprovação e desativação
 
