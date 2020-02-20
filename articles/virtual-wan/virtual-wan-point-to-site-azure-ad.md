@@ -5,14 +5,14 @@ services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 12/02/2019
+ms.date: 02/07/2019
 ms.author: alzam
-ms.openlocfilehash: 19aa029311584b5a9762691d24ed10c1666a032c
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: b3508c4c8da5b4987fb5f38cf3bf701f2dda1097
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781723"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122022"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-by-using-azure-virtual-wan"></a>Tutorial: Criar uma conexão de VPN do Usuário usando a WAN Virtual do Azure
 
@@ -59,7 +59,7 @@ Em um navegador, acesse o [Portal do Azure](https://portal.azure.com) e entre co
 
    * **Assinatura**: selecione a assinatura que você quer usar.
    * **Grupo de recursos**: crie um novo ou use um existente.
-   * **Local do grupo de recursos**: escolha uma localização de recursos na lista suspensa. Uma WAN é um recurso global e não pode residir em uma região específica. No entanto, você deve selecionar uma região a fim de gerenciar e localizar o recurso de WAN criado mais facilmente.
+   * **Localização do grupo de recursos**: escolha uma localização de recursos na lista suspensa. Uma WAN é um recurso global e não pode residir em uma região específica. No entanto, você deve selecionar uma região a fim de gerenciar e localizar o recurso de WAN criado mais facilmente.
    * **Nome**: digite o nome que você quer dar à sua WAN.
    * **Tipo:** Standard. Se você criar uma WAN básica, poderá criar apenas um hub básico. Os hubs básicos são capazes somente de conectividade VPN site a site.
 4. Quando terminar de preencher os campos, selecione **Examinar + Criar**.
@@ -86,19 +86,17 @@ Em um navegador, acesse o [Portal do Azure](https://portal.azure.com) e entre co
 
 Uma configuração P2S define os parâmetros para conexão de clientes remotos.
 
-1. Defina as variáveis a seguir, substituindo os valores conforme necessário para o seu ambiente.
+1. Na WAN Virtual, selecione **Configurações de VPN de usuário**.
 
-   ```powershell
-   $aadAudience = "00000000-abcd-abcd-abcd-999999999999"
-   $aadIssuer = "https://sts.windows.net/00000000-abcd-abcd-abcd-999999999999/"
-   $aadTenant = "https://login.microsoftonline.com/00000000-abcd-abcd-abcd-999999999999"    
-   ```
+   ![nova configuração](media/virtual-wan-point-to-site-azure-ad/aadportal1.jpg)
 
-2. Execute os seguintes comandos para criar a configuração:
+2. clique em **+Criar configuração de VPN de usuário**.
 
-   ```powershell
-   $aadConfig = New-AzVpnServerConfiguration -ResourceGroupName <ResourceGroup> -Name newAADConfig -VpnProtocol OpenVPN -VpnAuthenticationType AAD -AadTenant $aadTenant -AadIssuer $aadIssuer -AadAudience $aadAudience -Location westcentralus
-   ```
+   ![nova configuração](media/virtual-wan-point-to-site-azure-ad/aadportal2.jpg)
+
+3. Insira as informações e clique em **Criar**
+
+   ![nova configuração](media/virtual-wan-point-to-site-azure-ad/aadportal3.jpg)
 
 ## <a name="hub"></a>Editar atribuição de hub
 
@@ -125,7 +123,7 @@ Use o perfil VPN para configurar seus clientes.
 
 ## <a name="configure-user-vpn-clients"></a>Configurar clientes VPN do usuário
 
-Para se conectar, você precisa baixar o cliente VPN do Azure (versão prévia) e importar o perfil de cliente VPN que foi baixado nas etapas anteriores em cada computador que deseja se conectar à rede virtual.
+Para se conectar, você precisará baixar o Cliente VPN do Azure e importar o perfil do cliente VPN baixado nas etapas anteriores em cada computador que deseja se conectar à VNet.
 
 > [!NOTE]
 > A Autenticação do Azure AD é compatível apenas com conexões de protocolo OpenVPN®.
@@ -133,7 +131,7 @@ Para se conectar, você precisa baixar o cliente VPN do Azure (versão prévia) 
 
 #### <a name="to-download-the-azure-vpn-client"></a>Para baixar o Cliente VPN do Azure
 
-Use este [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) para baixar o Cliente VPN do Azure (versão prévia).
+Use este [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) para baixar o Cliente VPN do Azure.
 
 #### <a name="import"></a>Para importar um perfil de cliente
 

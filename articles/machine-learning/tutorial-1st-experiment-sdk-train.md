@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 11/04/2019
-ms.openlocfilehash: c38347a03ddc0ef5f6c1bd3118696062db9a8254
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 02/10/2020
+ms.openlocfilehash: aa90655ecb14abe38ec8fdfc6c18e7d292abbef3
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532419"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116544"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Treinar seu primeiro modelo de ML
 
@@ -31,11 +31,11 @@ Neste tutorial, você aprende as seguintes tarefas:
 > * Exibir resultados de treinamento no portal
 > * Recuperar o melhor modelo
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 O único pré-requisito é executar a parte um deste tutorial, [Configurar o ambiente e o workspace](tutorial-1st-experiment-sdk-setup.md).
 
-Nesta parte do tutorial, você executa o código no Jupyter Notebook de exemplo `tutorials/tutorial-1st-experiment-sdk-train.ipynb` aberto no final da parte um. Este artigo percorre o mesmo código que está no notebook.
+Nesta parte do tutorial, você executará o código no Jupyter notebook de exemplo *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* aberto no final da primeira parte. Este artigo percorre o mesmo código que está no notebook.
 
 ## <a name="open-the-notebook"></a>Abrir o notebook
 
@@ -45,7 +45,7 @@ Nesta parte do tutorial, você executa o código no Jupyter Notebook de exemplo 
 
 
 > [!Warning]
-> **Não** *crie* um notebook na interface do Jupyter! O notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` inclui **todo o código e dados necessários** para este tutorial.
+> **Não** *crie* um notebook na interface do Jupyter! O notebook *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* inclui **todo o código e todos os dados necessários** para este tutorial.
 
 ## <a name="connect-workspace-and-create-experiment"></a>Conectar o workspace e criar um experimento
 
