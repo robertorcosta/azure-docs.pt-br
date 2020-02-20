@@ -5,17 +5,17 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: language-understanding
+ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
-ms.date: 01/23/2020
 ms.author: diberry
-ms.openlocfilehash: e4bba00d6506684a3baf345806bdaa340f6970ca
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 070de0f65e890c38acd5075286b349e95cd19f3b
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76909190"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77372348"
 ---
 Use a biblioteca de clientes de criação do LUIS (Reconhecimento vocal) para Node.js com o objetivo de:
 
@@ -27,7 +27,7 @@ Use a biblioteca de clientes de criação do LUIS (Reconhecimento vocal) para No
 
 [Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring) | [Pacote de Criação (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring), [Pacote de Runtime (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_authoring_quickstart.js)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Recurso de criação do Reconhecimento vocal: [Criar um no portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
 * [Node.js](https://nodejs.org)
@@ -47,7 +47,7 @@ Usando a chave e a região da chave, crie duas variáveis de ambiente para auten
 
 Use as instruções para seu sistema operacional.
 
-#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+#### <a name="windows"></a>[Windows](#tab/windows)
 
 ```console
 setx LUIS_AUTHORING_KEY <replace-with-your-luis-authoring-key
@@ -56,7 +56,7 @@ setx LUIS_AUTHORING_ENDPOINT <replace-with-your-luis-authoring-endpoint>
 
 Depois de adicionar a variável de ambiente, reinicie a janela do console.
 
-#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+#### <a name="linux"></a>[Linux](#tab/linux)
 
 ```bash
 export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
@@ -65,7 +65,7 @@ export LUIS_AUTHORING_ENDPOINT=<replace-with-your-luis-authoring-endpoint>
 
 Depois de adicionar a variável de ambiente, execute `source ~/.bashrc` a partir da janela de console para que as alterações entrem em vigor.
 
-#### <a name="macostabunix"></a>[macOS](#tab/unix)
+#### <a name="macos"></a>[macOS](#tab/unix)
 
 Edite seu `.bash_profile` e adicione a variável de ambiente:
 

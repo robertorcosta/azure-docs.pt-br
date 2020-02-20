@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: 056b2d2b1951b6630b61bbd6fd8a8c38b272900a
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: bbb2ae0b10af795d71f0a78c045bec0c216ee378
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76966815"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368435"
 ---
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Reconhecimento vocal do Azure – Criar chave de 32 caracteres do recurso e a URL de ponto de extremidade. Crie com o [portal do Azure](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) ou com a [CLI do Azure](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
 * Importe o aplicativo [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) do repositório GitHub cognitive-services-language-understanding.
@@ -30,8 +30,6 @@ ms.locfileid: "76966815"
 
 
 ## <a name="change-model-programmatically"></a>Alterar o modelo de maneira programática
-
-Use Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entidade aprendida pelo computador ao aplicativo.
 
 1. Crie um arquivo chamado `model.js`. Adicione os códigos a seguir:
 

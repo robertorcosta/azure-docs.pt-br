@@ -5,12 +5,12 @@ author: ColbyTresness
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.reviewer: azfuncdf, cotresne
-ms.openlocfilehash: b0a1d1a9305f6de2a072ee1ded310d8de174436b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 431bd45763cbe24e44d47342b32c5c452a27b0f6
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845715"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210286"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Criar sua primeira função durável em JavaScript
 
@@ -22,7 +22,7 @@ Neste artigo, você aprenderá a usar a extensão do Azure Functions do Visual S
 
 ![Como executar funções duráveis no Azure](./media/quickstart-js-vscode/functions-vs-code-complete.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
@@ -57,7 +57,7 @@ Nesta seção, você usará o Visual Studio Code para criar um projeto local do 
     | Selecione uma versão | Azure Functions v2 | Você verá essa opção somente quando o Core Tools ainda não estiver instalado. Nesse caso, o Core Tools é instalado na primeira vez em que você executa o aplicativo. |
     | Selecione um modelo para a primeira função do projeto | Gatilho HTTP | Crie uma função disparada por HTTP no novo aplicativo de funções. |
     | Forneça um nome de função | HttpTrigger | Pressione Enter para usar o nome padrão. |
-    | Nível de autorização | Função | O nível de autorização `function` exige que você forneça uma chave de acesso ao chamar o ponto de extremidade HTTP da função. Isso dificulta o acesso a um ponto de extremidade desprotegido. Para saber mais, confira [Chaves de autorização](../functions-bindings-http-webhook.md#authorization-keys).  |
+    | Nível de autorização | Função | O nível de autorização `function` exige que você forneça uma chave de acesso ao chamar o ponto de extremidade HTTP da função. Isso dificulta o acesso a um ponto de extremidade desprotegido. Para saber mais, confira [Chaves de autorização](../functions-bindings-http-webhook-trigger.md#authorization-keys).  |
     | Selecione como você gostaria de abrir seu projeto | Adicionar ao workspace | Cria o aplicativo de funções no workspace atual. |
 
 O Visual Studio Code instalará o Azure Functions Core Tools se necessário. Ele também cria o projeto de aplicativo de funções em um novo workspace. Este projeto contém os arquivos de configuração [host.json](../functions-host-json.md) e [local.settings.json](../functions-run-local.md#local-settings-file). Ele também cria uma pasta HttpExample que contém o [arquivo de definição function.json](../functions-reference-node.md#folder-structure) e o [arquivo index.js](../functions-reference-node.md#exporting-a-function), um arquivo Node.js que contém o código de função.

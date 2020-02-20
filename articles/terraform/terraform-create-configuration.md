@@ -3,12 +3,12 @@ title: Início Rápido – Criar uma configuração do Terraform no Azure
 description: Comece a usar o Terraform no Azure implantando um Azure Cosmos DB e Instâncias de Contêiner do Azure.
 ms.topic: quickstart
 ms.date: 10/26/2019
-ms.openlocfilehash: 47eec1f238d3fdff99b75953bc6d7e92137cca2d
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 92f66fcfeac69b66eb8cdb0dc58b7a3171d45e10
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159320"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470014"
 ---
 # <a name="quickstart-create-a-terraform-configuration-for-azure"></a>Início Rápido: Criar uma configuração do Terraform no Azure
 
@@ -23,7 +23,7 @@ Neste início rápido, crie recursos do Azure usando o Terraform. As etapas nest
 
 Nesta seção, crie a configuração para uma instância do Azure Cosmos DB.
 
-1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Abra o Azure Cloud Shell.
 
@@ -160,7 +160,7 @@ Para testar o aplicativo, navegue até o FQDN da instância de contêiner. Você
 
 ![Aplicativo de voto do Azure](media/terraform-quickstart/azure-vote.jpg)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, exclua os recursos criados neste artigo.
 
@@ -173,4 +173,4 @@ terraform destroy -auto-approve
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Instalar e configurar o Terraform para provisionar recursos do Azure](../virtual-machines/linux/terraform-install-configure.md).
+> [Instalar e configurar o Terraform para provisionar recursos do Azure](terraform-install-configure.md).

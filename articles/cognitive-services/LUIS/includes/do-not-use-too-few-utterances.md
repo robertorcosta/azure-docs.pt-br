@@ -1,20 +1,20 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: include file
 ms.service: cognitive-services
-ms.subservice: luis
+ms.date: 02/14/2020
+ms.subservice: language-understanding
 ms.topic: include
-ms.date: 11/05/2019
 ms.author: diberry
-ms.openlocfilehash: de1073f0ec0140d1bf9874ce8d9cf447772d7909
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 3bcb3f7bc7a5f149902577384f4d30b12073ca6b
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73648078"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77279582"
 ---
 Estas declarações são apenas para fins de demonstração. Um aplicativo real deve ter pelo menos 15 enunciados de comprimento, ordem de palavras, tempos verbais, correção gramatical, pontuação e contagem de palavras variados.

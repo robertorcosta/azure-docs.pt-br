@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: cadee1b72c15ded7c29d1eea341c1ea21b346a37
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: df18e721a7400a1e45b7f1fcd74fdafdbfdf026c
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976818"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462251"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Início Rápido: Registrar dispositivo TPM no Serviço de Provisionamento de Dispositivos do Hub IoT usando o SDK do serviço Java
 
@@ -64,7 +64,7 @@ Esta seção mostra como adicionar os detalhes de provisionamento do dispositivo
 
 2. No código-fonte baixado, navegue até a pasta de exemplo **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_** . Abra o arquivo **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentSample.java_** em um editor de sua escolha e adicione os seguintes detalhes:
 
-   1. Adicione o `[Provisioning Connection String]` do serviço de provisionamento do portal desta forma:
+   1. Adicione a `[Provisioning Connection String]` do serviço de provisionamento pelo portal desta forma:
        1. Navegue até seu serviço de provisionamento no [Portal do Azure](https://portal.azure.com). 
        2. Abra as **Políticas de acesso compartilhadas** e selecione uma política que tenha a permissão *EnrollmentWrite*.
        3. Copie a **Cadeia de conexão da chave primária**. 
@@ -124,7 +124,7 @@ Esta seção mostra como adicionar os detalhes de provisionamento do dispositivo
     mvn install -DskipTests
     ```
 
-   Esse comando baixa o pacote do Maven [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) para o seu computador. Esse pacote inclui os binários do SDK do serviço Java, de que o código de exemplo precisa para compilar. 
+   Esse comando baixa o pacote do Maven [`com.microsoft.azure.sdk.iot.provisioning.service`](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) para o seu computador. Esse pacote inclui os binários do SDK do serviço Java, de que o código de exemplo precisa para compilar. 
 
 3. Execute o exemplo usando estes comandos na janela de comando:
 
@@ -139,7 +139,7 @@ Esta seção mostra como adicionar os detalhes de provisionamento do dispositivo
 
     ![Verifique o registro TPM bem-sucedido no portal](./media/quick-enroll-device-tpm-java/verify-tpm-enrollment.png)  
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se planejar explorar o exemplo do serviço Java, não limpe os recursos criados neste início rápido. Caso contrário, use as seguintes etapas para excluir todos os recursos criados por este início rápido.
 
 1. Feche a janela de saída de exemplo do Java no computador.

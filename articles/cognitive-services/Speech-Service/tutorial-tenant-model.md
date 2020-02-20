@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 02ae140568150b0db8ebdea065ee683e4f4eec9c
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: a83ed5c9cec994c1bc4cadd5cf6208c159823658
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189013"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469010"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Tutorial: Criar um modelo de locatário (versão prévia)
 
@@ -81,7 +81,7 @@ Depois que o administrador tiver habilitado o Modelo de Locatário para sua orga
    > Os clientes do Office 365 Enterprise na América do Norte estão qualificados para criar um modelo de locatário (inglês). Se você for um cliente do Sistema de Proteção de Dados do Cliente, da Chave de Cliente ou do Office 365 Government, esse recurso não estará disponível. Para determinar se você é um cliente do Sistema de Proteção de Dados do Cliente ou da Chave do Cliente, confira:
    > * [Sistema de Proteção de Dados do Cliente](/microsoft-365/compliance/customer-lockbox-requests)
    > * [Chave de Cliente](/microsoft-365/compliance/customer-key-overview)
-   > * [Office 365 Government](/microsoft-365/government)
+   > * [Office 365 Government](https://www.microsoft.com/microsoft-365/government)
 
 1. Selecione **Aceitar**.
 
