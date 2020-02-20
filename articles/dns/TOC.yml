@@ -6,7 +6,7 @@
       href: dns-overview.md
     - name: O que é o DNS privado do Azure?
       href: private-dns-overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: DNS público
@@ -113,6 +113,10 @@
           href: dns-sdk.md
         - name: Domínios personalizados para recursos do Azure
           href: dns-custom-domain.md
+    - name: DNS privado
+      items:
+        - name: Proteger zonas DNS e registros privados
+          href: dns-protect-private-zones-recordsets.md
     - name: Solucionar problemas
       items:
         - name: Guia de Solução de Problemas
@@ -163,7 +167,7 @@
       href: /azure/virtual-network/
     - name: Máquina Virtual
       href: /azure/virtual-machines/
-    - name: Balanceador de carga
+    - name: Load Balancer
       href: /azure/load-balancer/
     - name: Gerenciador de Tráfego
       href: /azure/traffic-manager/

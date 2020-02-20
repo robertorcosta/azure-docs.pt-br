@@ -529,6 +529,8 @@
               href: ./hadoop/troubleshoot-lost-key-vault-access.md
             - name: Exceção de armazenamento de WASBS
               href: ./hadoop/troubleshoot-wasbs-storage-exception.md
+            - name: Gerenciar espaço em disco
+              href: ./hadoop/troubleshoot-disk-space.md
 - name: Apache Kafka
   items:
     - name: Visão geral
@@ -884,6 +886,8 @@
           href: ./hdinsight-sync-aad-users-to-cluster.md
         - name: Gerenciar clusters com segurança da empresa
           href: ./domain-joined/apache-domain-joined-manage.md
+        - name: Gerenciar o acesso ao SSH
+          href: ./domain-joined/ssh-domain-accounts.md
         - name: Proteção de dados
           href: ./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
         - name: Solucionar problemas
