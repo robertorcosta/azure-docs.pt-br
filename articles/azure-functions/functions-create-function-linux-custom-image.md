@@ -5,12 +5,12 @@ ms.date: 01/15/2020
 ms.topic: tutorial
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-functions01
-ms.openlocfilehash: 9c97606b21a6e98494fffb689567aaab6e2f0621
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: b714806c163a94bbae7069c357e603b82ba797ba
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210184"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482353"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux usando um contêiner personalizado
 
@@ -919,7 +919,7 @@ Veja a fila no [portal do Azure](../storage/queues/storage-quickstart-queues-por
     
     ---
 
-1. Use o comando [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) para exibir as mensagens nessa fila, que deve ser o primeiro nome usado ao testar a função anteriormente. O comando recupera a primeira mensagem na fila na [codificação de Base64](functions-bindings-storage-queue.md#encoding), de modo que você também precisará decodificar a mensagem para exibi-la como texto.
+1. Use o comando [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) para exibir as mensagens nessa fila, que deve ser o primeiro nome usado ao testar a função anteriormente. O comando recupera a primeira mensagem na fila na [codificação de Base64](functions-bindings-storage-queue-trigger.md#encoding), de modo que você também precisará decodificar a mensagem para exibi-la como texto.
 
     # <a name="bash"></a>[Bash](#tab/bash)
     

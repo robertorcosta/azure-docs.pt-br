@@ -3,12 +3,12 @@ title: Adicionar uma associação de fila do Armazenamento do Azure à sua funç
 description: Integre uma fila do Armazenamento do Azure a uma função do Python usando uma associação de saída.
 ms.date: 01/15/2020
 ms.topic: quickstart
-ms.openlocfilehash: f5527e0e636c3f8c9ee3723570ed9811f0df3641
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 6cea44dca666bbf002de6e2b7dd283f49ac7bd5a
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198472"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485158"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Adicionar uma associação de fila do Armazenamento do Azure à sua função do Python
 
@@ -100,7 +100,7 @@ Para fazer uma gravação em uma fila do Armazenamento do Azure por meio dessa f
 
 Nesse caso, `msg` é fornecido à função como um argumento de saída. Para um tipo `queue`, também é necessário especificar o nome da fila em `queueName` e fornecer o *nome* da conexão do Armazenamento do Azure (por meio de *local.settings.json*) em `connection`.
 
-Para obter mais informações sobre os detalhes das associações, confira [Conceitos de associações e gatilhos do Azure Functions](functions-triggers-bindings.md) e [configuração de saída da fila](functions-bindings-storage-queue.md#output---configuration).
+Para obter mais informações sobre os detalhes das associações, confira [Conceitos de associações e gatilhos do Azure Functions](functions-triggers-bindings.md) e [configuração de saída da fila](functions-bindings-storage-queue-output.md#configuration).
 
 ## <a name="add-code-to-use-the-output-binding"></a>Adicionar código para usar a associação de saída
 
@@ -219,7 +219,7 @@ Quando a função gera uma resposta HTTP para o navegador da Web, ela também ch
     ---
 
 
-1. Use o comando [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) para exibir as mensagens nessa fila, que deve ser o primeiro nome usado ao testar a função anteriormente. O comando recupera a primeira mensagem na fila na [codificação de Base64](functions-bindings-storage-queue.md#encoding), de modo que você também precisará decodificar a mensagem para exibi-la como texto.
+1. Use o comando [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) para exibir as mensagens nessa fila, que deve ser o primeiro nome usado ao testar a função anteriormente. O comando recupera a primeira mensagem na fila na [codificação de Base64](functions-bindings-storage-queue-trigger.md#encoding), de modo que você também precisará decodificar a mensagem para exibi-la como texto.
 
     # <a name="bash"></a>[Bash](#tab/bash)
     

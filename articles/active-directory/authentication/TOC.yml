@@ -11,8 +11,8 @@
       href: tutorial-enable-sspr.md
     - name: Habilitar a Autenticação Multifator do Microsoft Azure
       href: tutorial-enable-azure-mfa.md
-    - name: Habilitar a integração local de SSPR
-      href: tutorial-enable-writeback.md
+    - name: Habilitar o write-back de senha para local
+      href: tutorial-enable-sspr-writeback.md
     - name: Integrar o Azure Identity Protection
       href: tutorial-risk-based-sspr-mfa.md
 - name: Conceitos
@@ -68,8 +68,6 @@
           href: howto-sspr-deployment.md
         - name: Pré-registro dos dados de autenticação
           href: howto-sspr-authenticationdata.md
-        - name: Habilitar o write-back de senha
-          href: howto-sspr-writeback.md
         - name: SSPR para clientes do Windows
           href: howto-sspr-windows.md
     - name: MFA baseado em nuvem
