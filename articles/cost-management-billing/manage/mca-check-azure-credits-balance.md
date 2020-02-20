@@ -2,21 +2,18 @@
 title: Acompanhar o saldo de crédito Azure para um Contrato de Cliente da Microsoft
 description: Saiba como verificar o saldo de crédito Azure para um Contrato de Cliente da Microsoft.
 author: bandersmsft
-manager: amberb
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/13/2019
 ms.author: banders
-ms.openlocfilehash: c8ea083e216331904c9d5741b97f69b7f5a8249a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e65637f20d14b93c212b1af2f20695ff5dfeb350
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75991328"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199680"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Acompanhar o saldo de crédito Azure no Contrato de Cliente da Microsoft
 
@@ -28,7 +25,7 @@ Este artigo aplica-se a uma conta de cobrança para um Contrato de Cliente da Mi
 
 ## <a name="check-your-credit-balance"></a>Verificar seu saldo de crédito
 
-### <a name="azure-portaltabportal"></a>[Azure portal](#tab/portal)
+### <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
@@ -99,7 +96,7 @@ Este artigo aplica-se a uma conta de cobrança para um Contrato de Cliente da Mi
 
     ![Captura de tela da lista de crédito de uma conta de cobrança](./media/mca-check-azure-credits-balance/mca-account-credit-list.png)
 
-### <a name="rest-apitabrest"></a>[REST API](#tab/rest)
+### <a name="rest-api"></a>[REST API](#tab/rest)
 
 Use as APIs de [Cobrança do Azure](https://docs.microsoft.com/rest/api/billing/) e [Consumo](https://docs.microsoft.com/rest/api/consumption/) para obter o saldo de crédito de sua conta de cobrança de forma programática.
 

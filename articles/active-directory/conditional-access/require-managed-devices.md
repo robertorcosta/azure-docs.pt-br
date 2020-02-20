@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb0764b9c2c43faf88db165a11ae963c4f170f01
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 5a16d28f31887c8bedcc95424382e674e037450e
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512582"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468398"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Como: exigir dispositivos gerenciados para acesso ao aplicativo de nuvem com acesso condicional
 
@@ -24,12 +24,16 @@ Em um mundo que prioriza os dispositivos móveis e a nuvem, o Azure AD (Azure Ac
 
 Este artigo explica como você pode configurar políticas de acesso condicional que exigem que dispositivos gerenciados acessem determinados aplicativos de nuvem em seu ambiente. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Exigir dispositivos gerenciados para acesso ao aplicativo de nuvem vincula o **acesso condicional do Azure ad** e o **Gerenciamento de dispositivos do Azure ad** juntos. Caso ainda não esteja familiarizado com uma dessas áreas, você deverá ler os seguintes tópicos primeiro:
 
 - **[Acesso condicional no Azure Active Directory](../active-directory-conditional-access-azure-portal.md)** -este artigo fornece uma visão geral conceitual do acesso condicional e da terminologia relacionada.
 - **[Introduction to device management in Azure Active Directory](../devices/overview.md)** - esse artigo fornece uma visão geral das várias opções para conseguir dispositivos sob controle organizacional. 
+
+>[!IMPORTANT] 
+> É recomendável usar a política de acesso condicional baseada em dispositivo do Azure AD para obter a melhor imposição após a autenticação inicial do dispositivo. Isso inclui sessões de fechamento se o dispositivo ficar sem conformidade e fluxo de código de dispositivo.
+
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -95,6 +99,6 @@ Para um dispositivo que esteja marcado como em conformidade, você pode presumir
 
 No Windows 7, iOS, Android, macOS e alguns navegadores da Web de terceiros, o Azure AD identifica o dispositivo usando um certificado de cliente que é provisionado quando o dispositivo é registrado no Azure AD. Quando um usuário entra pela primeira vez por meio do navegador, é solicitado que o usuário selecione o certificado. O usuário final deve selecionar esse certificado antes que possa continuar a usar o navegador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Antes de configurar uma política de acesso condicional com base no dispositivo em seu ambiente, você deve examinar as [práticas recomendadas para acesso condicional no Azure Active Directory](best-practices.md).

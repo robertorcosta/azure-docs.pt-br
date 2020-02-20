@@ -2,21 +2,18 @@
 title: Examinar sua fatura individual do Azure
 description: Saiba como entender seu uso de recursos e sua fatura e como verificar os encargos de sua assinatura individual do Azure.
 author: bandersmsft
-manager: dougeby
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/20/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 969fbc3fe0aa614d4284e1442f507f263d48b499
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 8ebda9716df2e9e45050760ee8d0434c12838370
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117143"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199119"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Tutorial: Examinar sua fatura individual do Azure
 

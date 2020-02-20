@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
-ms.openlocfilehash: 1f3dd1fa4b70fcdbec7e62c84bbfc1df14d3502e
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: e2b3ceba7a3673caa38e09f6b4dfa296fd063cfe
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425078"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467906"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solução de problemas do Diagnóstico do Azure
 Este artigo descreve informações de solução de problemas relevantes para o uso do Diagnóstico do Azure. Para mais informações sobre o Diagnóstico do Azure, consulte [Visão geral do Diagnóstico do Azure](diagnostics-extension-overview.md).
@@ -297,5 +297,5 @@ A experiência do portal nas máquinas virtuais mostra determinados contadores d
 
 - Se os dados armazenados possuem nomes dos contadores no idioma inglês. Se os nomes dos contadores não estiverem em inglês, o gráfico de métrica do portal não será capaz de reconhecê-los. **Mitigação**: altera o idioma do computador para inglês para as contas do sistema. Para fazes isso, selecione **Painel de Controle** > **Região** > **Administrativo** > **Copiar Configurações**. Em seguida, desmarque **Tela de boas-vindas e contas do sistema** de modo que o idioma personalizado não seja aplicado à conta do sistema.
 
-- Se estiver utilizando caracteres curinga (\*) nos nomes do contador de desempenho, o portal não poderá correlacionar o contador coletado e configurado quando os contadores de desempenho são enviados ao coletor do armazenamento do Azure. **Mitigação**: para garantir que você possa usar curingas e fazer com que o portal de expanda o (\*), encaminhe seus contadores de desempenho para o [coletor "Azure Monitor"](diagnostics-extension-schema.md#diagnostics-extension-111).
+- Se estiver utilizando caracteres curinga (\*) nos nomes do contador de desempenho, o portal não poderá correlacionar o contador coletado e configurado quando os contadores de desempenho são enviados ao coletor do armazenamento do Azure. **Mitigação**: para ter certeza de que você pode usar curingas e fazer com que o portal expanda o (\*), encaminhe seus contadores de desempenho para o coletor de Azure monitor.
 

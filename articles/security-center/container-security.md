@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: ef87d8d02e6d7800435cab207a88197ef7c94b7c
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: c18751d315af6da1a4b2f06aaca28c84746b7be5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77430985"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470761"
 ---
 # <a name="container-security-in-security-center"></a>Segurança do contêiner na central de segurança
 
@@ -41,7 +41,7 @@ Quando forem encontrados problemas – por Qualys ou pela central de segurança 
 ## <a name="environment-hardening"></a>Proteção do ambiente
 
 ### <a name="continuous-monitoring-of-your-docker-configuration"></a>Monitoramento contínuo da configuração do Docker
-A central de segurança do Azure identifica contêineres não gerenciados hospedados em VMs do Linux IaaS ou em outros computadores Linux que executam contêineres do Docker. A central de segurança avalia continuamente as configurações desses contêineres. Em seguida, ele os compara com o [benchmark do Docker do CIS (centro para Internet Security](https://www.cisecurity.org/benchmark/docker/))).
+A central de segurança do Azure identifica contêineres não gerenciados hospedados em VMs do Linux IaaS ou em outros computadores Linux que executam contêineres do Docker. A central de segurança avalia continuamente as configurações desses contêineres. Em seguida, ele os compara com o [benchmark do Docker do CIS (Center for Internet Security)](https://www.cisecurity.org/benchmark/docker/).
 
 A central de segurança inclui o conjunto de regras inteiro do parâmetro de comparação do Docker do CIS e o alerta se os contêineres não atenderem a nenhum dos controles. Quando ele encontra configurações incorretas, a central de segurança gera recomendações de segurança. Use a **página recomendações** para exibir as recomendações e corrigir os problemas. Você também verá as recomendações na guia **contêineres** que exibe todas as máquinas virtuais implantadas com o Docker. 
 
@@ -71,9 +71,9 @@ Detectamos ameaças no nível de cluster host e AKS. Para obter detalhes complet
 ## <a name="container-security-faq"></a>Perguntas frequentes sobre segurança do contêiner
 
 ### <a name="what-types-of-images-can-azure-security-center-scan"></a>Quais tipos de imagens a central de segurança do Azure pode verificar?
-A central de segurança examina as imagens baseadas no SO Linux. 
+A central de segurança examina as imagens baseadas no SO Linux que fornecem acesso ao shell. 
 
-O scanner Qualys não dá suporte a imagens "distroless" que contêm apenas seu aplicativo e suas dependências de tempo de execução.
+O scanner Qualys não dá suporte a imagens de super plataforma, como imagens de [rascunho do Docker](https://hub.docker.com/_/scratch/) ou imagens "Distroless" que contêm apenas seu aplicativo e suas dependências de tempo de execução (sem um Gerenciador de pacotes, Shell ou sistema operacional).
 
 ### <a name="how-does-we-scan-azure-security-center-scan-an-image"></a>Como Digitalizamos a central de segurança do Azure digitalizar uma imagem?
 A imagem é extraída do registro. Em seguida, ele é executado em uma área restrita isolada com o scanner Qualys, que extrai uma lista de vulnerabilidades conhecidas.
@@ -85,7 +85,7 @@ As verificações de imagem são disparadas em cada Push.
 Sim. Os resultados estão sob a [API REST de subavaliações](/rest/api/securitycenter/subassessments/list/). Além disso, você pode usar o grafo de recursos do Azure (ARG), a API do tipo Kusto para todos os seus recursos: uma consulta pode buscar uma verificação específica.
  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para saber mais sobre a segurança de contêiner na central de segurança do Azure, consulte estes artigos relacionados:
 

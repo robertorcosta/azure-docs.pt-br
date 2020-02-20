@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: e534754e46e6f2ad9b99b67d24d9f7da63a51a4f
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: cd30803735c5453c286788b8669a3d2f02c418a5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258373"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468041"
 ---
 # <a name="metrics-in-azure-monitor"></a>Métricas no Azure Monitor
 
 > [!NOTE]
-> A plataforma de dados Azure Monitor baseia-se em dois tipos de dados fundamentais: Métricas e logs. Este artigo descreve as métricas. Consulte [os logs em Azure monitor](data-platform-logs.md) para obter uma descrição detalhada dos Logs e [Azure monitor plataforma de dados](data-platform.md) para uma comparação dos dois.
+> A plataforma de dados Azure Monitor baseia-se em dois tipos de dados fundamentais: métricas e logs. Este artigo descreve as métricas. Consulte [os logs em Azure monitor](data-platform-logs.md) para obter uma descrição detalhada dos Logs e [Azure monitor plataforma de dados](data-platform.md) para uma comparação dos dois.
 
 As métricas no Azure Monitor são leves e capazes de dar suporte a cenários quase em tempo real, tornando-os particularmente úteis para alertas e detecção rápida de problemas. Este artigo descreve como as métricas são estruturadas, o que você pode fazer com elas e identifica diferentes fontes de dados que armazenam dados em métricas.
 
@@ -33,13 +33,13 @@ A tabela a seguir lista as diferentes maneiras que você pode usar dados de mét
 
 |  |  |
 |:---|:---|
-| Analise | Use o [Metrics Explorer](metrics-charts.md) para analisar as métricas coletadas em um gráfico e comparar as métricas de recursos diferentes. |
+| Analisar | Use o [Metrics Explorer](metrics-charts.md) para analisar as métricas coletadas em um gráfico e comparar as métricas de recursos diferentes. |
 | Visualizar | Fixe um gráfico do Metrics Explorer em um [painel do Azure](../learn/tutorial-app-dashboards.md).<br>Crie uma [pasta de trabalho](../app/usage-workbooks.md) para combinar com vários conjuntos de dados em um relatório interativo. Exporte os resultados de uma consulta para [Grafana](grafana-plugin.md) para aproveitar seu painel e combinar com outras fontes de dados. |
 | Alerta | Configurar uma [regra de alerta de métrica](alerts-metric.md) que envia uma notificação ou executa uma [ação automatizada](action-groups.md) quando o valor da métrica ultrapassa um limite. |
 | Automatizar |  Use o [dimensionamento automático](autoscale-overview.md) para aumentar ou diminuir os recursos com base em um valor de métrica que ultrapassa um limite. |
 | Exportação | [Direcione métricas para logs](resource-logs-collect-storage.md) para analisar dados em Azure monitor métricas junto com dados em logs de Azure monitor e para armazenar valores de métrica por mais de 93 dias.<br>Transmita métricas para um [Hub de eventos](stream-monitoring-data-event-hubs.md) para encaminhá-las a sistemas externos. |
 | Recuperar | Acessar valores de métrica de uma linha de comando usando [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Acessar valores de métrica do aplicativo personalizado usando a [API REST](rest-api-walkthrough.md).<br>Acessar valores de métrica de uma linha de comando usando a [CLI](/cli/azure/monitor/metrics). |
-| Arquivo | [Arquive](..//learn/tutorial-archive-data.md) o histórico de desempenho ou integridade do recurso para fins de conformidade, auditoria ou geração de relatórios offline. |
+| Archive | [Arquive](..//learn/tutorial-archive-data.md) o histórico de desempenho ou integridade do recurso para fins de conformidade, auditoria ou geração de relatórios offline. |
 
 ## <a name="how-is-data-in-azure-monitor-metrics-structured"></a>Como os dados no Azure Monitor métricas são estruturados?
 Os dados coletados por métricas de Azure Monitor são armazenados em um banco de dados de série temporal que é otimizado para analisar o data com carimbo de hora. Cada conjunto de valores de métrica é uma série temporal com as seguintes propriedades:
@@ -58,7 +58,7 @@ O exemplo abaixo ilustra dois conjuntos de dados de uma métrica hipotética cha
 
 ### <a name="network-throughput"></a>Taxa de Transferência de Rede
 
-| Carimbo de data/hora     | Valor da Métrica |
+| Timestamp     | Valor da Métrica |
 | ------------- |:-------------|
 | 9/8/2017 8h14 | 1\.331,8 Kbps |
 | 9/8/2017 8h15 | 1\.141,4 Kbps |
@@ -68,7 +68,7 @@ Essa métrica não dimensional pode responder apenas a uma pergunta básica, com
 
 ### <a name="network-throughput--two-dimensions-ip-and-direction"></a>Taxa de Transferência de Rede + duas dimensões (“IP” e “Direção”)
 
-| Carimbo de data/hora     | Dimensão “IP”   | Dimensão “Direção” | Valor da Métrica|
+| Timestamp     | Dimensão “IP”   | Dimensão “Direção” | Valor da Métrica|
 | ------------- |:-----------------|:------------------- |:-----------|
 | 9/8/2017 8h14 | IP="192.168.5.2" | Direction="Send"    | 646,5 Kbps |
 | 9/8/2017 8h14 | IP="192.168.5.2" | Direction="Receive" | 420,1 Kbps |
@@ -102,7 +102,7 @@ Para a maioria dos recursos no Azure, as métricas são armazenadas por 93 dias.
 
 **Métricas do SO convidado**
 -   **Métricas do sistema operacional convidado clássico**. Esses são contadores de desempenho coletados pela [extensão de diagnóstico do Windows (wad)](../platform/diagnostics-extension-overview.md) ou pela [Lad (extensão de diagnóstico do Linux)](../../virtual-machines/extensions/diagnostics-linux.md) e roteados para uma conta de armazenamento do Azure. A retenção para essas métricas é de 14 dias.
--   **Métricas do SO convidado enviadas para Azure monitor métricas**. Esses são contadores de desempenho coletados pela extensão de diagnóstico do Windows (WAD) e enviam para o [coletor de Azure monitor](diagnostics-extension-overview.md#data-storage), ou por meio do [agente Telegraf do InfluxData](https://www.influxdata.com/time-series-platform/telegraf/) em computadores Linux. A retenção para essas métricas é de 93 dias.
+-   **Métricas do SO convidado enviadas para Azure monitor métricas**. Esses são contadores de desempenho coletados pela [wad (extensão de diagnóstico do Windows)](diagnostics-extension-overview.md) e enviados para o [coletor de dados Azure monitor](diagnostics-extension-overview.md#data-destinations)ou por meio do [agente Telegraf InfluxData](https://www.influxdata.com/time-series-platform/telegraf/) em computadores Linux. A retenção para essas métricas é de 93 dias.
 -   **Métricas do SO convidado coletadas pelo agente de log Analytics**. Esses são contadores de desempenho coletados pelo agente de Log Analytics e enviados a um espaço de trabalho do Log Analytics. A retenção para essas métricas é de 31 dias e pode ser estendida até 2 anos.
 
 **Application insights métricas baseadas em log**. 

@@ -1,20 +1,20 @@
 ---
 title: Visão geral | Microsoft Azure Mapas
 description: Conheça os serviços e as funcionalidades do Microsoft Azure Mapas e como usá-los em seus aplicativos.
-author: walsehgal
-ms.author: v-musehg
-ms.date: 02/11/2020
+author: farah-alyasari
+ms.author: v-faalya
+ms.date: 01/15/2020
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e01bfec9edbe1e868a3e3244e3cb6d1e1a46561d
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: b375ea8fdebd876bdc7ecf157a4cebd5e614dfd0
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190346"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443650"
 ---
 # <a name="what-is-azure-maps"></a>O que é o Azure Mapas?
 
@@ -45,13 +45,13 @@ O vídeo a seguir explica os Mapas do Azure com detalhes:
 
 O SDK da Web dos Azure Mapas permite que você personalize mapas interativos com as imagens e o conteúdo próprios. Use esse mapa interativo para seus aplicativos Web ou móveis. Esse controle de mapa utiliza o WebGL, o que permite renderizar grandes conjuntos de dados com alto desempenho. Desenvolva com o SDK usando JavaScript ou TypeScript.
 
-![Exemplo de mapa de mudança populacional](media/about-azure-maps/Introduction_WebMapControl.png)
+![Exemplo de mapa de mudança populacional](media/about-azure-maps/intro_web_map_control.png)
 
 ### <a name="android-sdk"></a>SDK do Android
 
 Use o SDK do Android do Azure Mapas para criar aplicativos de mapeamento móvel. 
 
-![Exemplos de mapa em um dispositivo móvel](media/about-azure-maps/AndroidSDK.png)
+![Exemplos de mapa em um dispositivo móvel](media/about-azure-maps/android_sdk.png)
 
 ## <a name="services-in-azure-maps"></a>Serviços dos Mapas do Azure
 
@@ -73,7 +73,7 @@ Para saber mais sobre o serviço, confira a [documentação da API de Mobilidade
 
 O serviço de renderização ajuda os desenvolvedores a criar aplicativos Web e móveis com recursos de mapeamento. O serviço usa imagens gráficas de varredura de alta qualidade, disponíveis em 19 de níveis de zoom ou imagens de mapa do formato de vetor totalmente personalizável.
 
-![Exemplo de mapa do Serviço de Renderização](media/about-azure-maps/Introduction_Map.png)
+![Exemplo de mapa do Serviço de Renderização](media/about-azure-maps/intro_map.png)
 
 O Serviço de renderização agora oferece APIs para permitir que os desenvolvedores trabalhem com imagens de satélite. Para obter mais detalhes, leia a [documentação da API de renderização](https://docs.microsoft.com/rest/api/maps/render).
 
@@ -81,7 +81,7 @@ O Serviço de renderização agora oferece APIs para permitir que os desenvolved
 
 O Serviço de roteiros contém cálculos robustos de geometria de infraestrutura do mundo real e instruções para vários modos de transporte. Ele permite que os desenvolvedores calculem as instruções entre vários modos de viagem como carro, caminhão, bicicleta ou caminhada. O serviço também considera entradas como condições de tráfego, restrições de peso ou transporte de material perigoso.
 
-![Exemplo de mapa do Serviço de Roteiros](media/about-azure-maps/Introduction_Route.png)
+![Exemplo de mapa do Serviço de Roteiros](media/about-azure-maps/intro_route.png)
 
 O Serviço de Roteiros oferece uma versão prévia de recursos avançados, como: 
 
@@ -95,7 +95,7 @@ Para obter detalhes sobre os recursos de roteiro, leia a [Documentação da API 
 
 O Serviço de pesquisa ajuda os desenvolvedores a procurar por endereços, locais, listagens de negócios por nome ou categoria e outras informações geográficas. O Serviço de pesquisa pode [inverter os endereços código geográfico](https://en.wikipedia.org/wiki/Reverse_geocoding) e fazer o cruzamento de ruas baseado em latitudes e longitudes.
 
-![Exemplo de uma pesquisa em um mapa](media/about-azure-maps/Introduction_Search.png)
+![Exemplo de uma pesquisa em um mapa](media/about-azure-maps/intro_search.png)
 
 O Serviço de pesquisa também fornece recursos avançados, como:
 
@@ -149,7 +149,7 @@ O serviço Tráfego é um conjunto de serviços Web que os desenvolvedores podem
 * Fluxo de tráfego: velocidades observadas em tempo real e tempos de deslocamento para todas as estradas principais na rede.
 * Incidentes de tráfego: uma visão atualizada sobre congestionamento e incidentes na rede rodoviária.
 
-![Exemplo de um mapa com as informações de tráfego](media/about-azure-maps/Introduction_Traffic.png)
+![Exemplo de um mapa com as informações de tráfego](media/about-azure-maps/intro_traffic.png)
 
 Para obter mais informações, confira a [Documentação da API de tráfego](https://docs.microsoft.com/rest/api/maps/traffic).
 

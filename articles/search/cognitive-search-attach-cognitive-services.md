@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 7ec18cab74d683e4547843f965d22026e7ba22aa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 254c912114e3f1c7a495f389bc6a6416cbde7e11
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461149"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472444"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Anexar um recurso de serviços cognitivas a um conconhecimento no Azure Pesquisa Cognitiva 
 
@@ -48,7 +48,7 @@ Não é possível mover um serviço entre regiões. Se você receber esse erro, 
 
 Você pode usar uma opção de processamento gratuito e limitada para concluir o tutorial de enriquecimento de ia e os exercícios de início rápido.
 
-Recursos gratuitos (aprimoramentos limitados) são restritos a 20 documentos por dia, por assinatura.
+Recursos gratuitos (aprimoramentos limitados) são restritos a 20 documentos por dia, por indexador. Você pode excluir e recriar o indexador para redefinir o contador.
 
 1. Abra o assistente de importação de dados:
 
@@ -167,7 +167,7 @@ Os preços mostrados neste artigo são hipotéticos. Eles são usados para ilust
 
 Juntando tudo isso, você pagaria cerca de $57 para ingerir documentos PDF de 1.000 desse tipo com o conjunto de qualificações descrito.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 + [Página de preços do Azure Pesquisa Cognitiva](https://azure.microsoft.com/pricing/details/search/)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
 + [Criar conjunto de qualificações (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)

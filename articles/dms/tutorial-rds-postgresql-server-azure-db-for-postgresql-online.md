@@ -11,15 +11,15 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/08/2020
-ms.openlocfilehash: 0930afeb02c79c9b3cf1da791e8cc5cda83c2820
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 02/17/2020
+ms.openlocfilehash: 1bc3f3d8c0f8992927acc3247e94a984e1653deb
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751276"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471033"
 ---
-# <a name="tutorial-migrate-rds-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Tutorial: migrar o RDS PostgreSQL para o banco de dados do Azure para PostgreSQL online usando DMS
+# <a name="tutorial-migrate-rds-postgresql-to-azure-db-for-postgresql-online-using-dms"></a>Tutorial: migrar o RDS PostgreSQL para o BD do Azure para PostgreSQL online usando DMS
 
 É possível usar o Serviço de Migração de Banco de Dados do Azure para migrar bancos de dados de uma instância PostgreSQL de RDS para o [Banco de Dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/postgresql/) enquanto o banco de dados de origem permanece online durante a migração. Em outras palavras, a migração pode ser feita com o mínimo de tempo de inatividade para o aplicativo. Neste tutorial, você migrará o banco de dados de exemplo **DVD Rental** para uma instância do PostgreSQL 9.6 de RDS para o Banco de Dados do Azure para PostgreSQL, usando a atividade de migração online no Serviço de Migração de Banco de Dados do Azure.
 
@@ -31,6 +31,7 @@ Neste tutorial, você aprenderá como:
 > * Criar um projeto de migração usando o Serviço de Migração de Banco de Dados do Azure.
 > * Executar a migração.
 > * Monitorar a migração.
+> * Execute a transferência de migração.
 
 > [!NOTE]
 > Usar o Serviço de Migração de Banco de Dados do Azure para executar uma migração online exige a criação de uma instância com base no tipo de preço Premium. Para saber mais, confira a página de [preços](https://azure.microsoft.com/pricing/details/database-migration/) do Serviço de Migração de Banco de Dados do Azure.
@@ -42,7 +43,7 @@ Neste tutorial, você aprenderá como:
 
 Este artigo descreve como realizar uma migração online de uma instância local do PostgreSQL para o Banco de Dados do Azure para PostgreSQL.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Para concluir este tutorial, você precisará:
 
@@ -50,7 +51,7 @@ Para concluir este tutorial, você precisará:
 
     Além disso, a versão do PostgreSQL de RDS deve corresponder à versão do Banco de Dados do Azure para PostgreSQL. Por exemplo, só é possível migrar o PostgreSQL 9.5.11.5 de RDS para o Banco de Dados do Azure para PostgreSQL 9.5.11, e não para a versão 9.6.7.
 
-* Criar uma instância do [Banco de Dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal). Veja esta [seção](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal#connect-to-the-postgresql-server-using-pgadmin) do documento para obter detalhes sobre como conectar o Servidor PostgreSQL usando pgAdmin.
+* Crie uma instância do [banco de dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) ou [banco de dados do Azure para PostgreSQL-Citus (hiperescala)](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal). Veja esta [seção](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal#connect-to-the-postgresql-server-using-pgadmin) do documento para obter detalhes sobre como conectar o Servidor PostgreSQL usando pgAdmin.
 * Crie um Rede Virtual do Microsoft Azure para o serviço de migração de banco de dados do Azure usando o modelo de implantação Azure Resource Manager, que fornece conectividade site a site para seus servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Para obter mais informações sobre como criar uma rede virtual, consulte a [documentação da rede virtual](https://docs.microsoft.com/azure/virtual-network/)e especialmente os artigos de início rápido com detalhes passo a passo.
 * Certifique-se de que suas regras de grupo de segurança de rede virtual não bloqueiem as seguintes portas de comunicação de entrada para o serviço de migração de banco de dados do Azure: 443, 53, 9354, 445 e 12000. Para obter mais detalhes sobre a filtragem de tráfego NSG de rede virtual, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Configurar o [Firewall do Windows para acesso ao mecanismo de banco de dados](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
@@ -62,9 +63,14 @@ Para concluir este tutorial, você precisará:
 
 1. Para criar um novo grupo de parâmetros, siga as instruções fornecidas pelo AWS no artigo [Trabalhar com Grupos de Parâmetros de BD](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html).
 2. Use o nome de usuário mestre para conectar a origem do Serviço de Migração de Banco de Dados do Azure. Se você usar uma conta diferente da conta de usuário mestre, a conta deverá ter a função rds_superuser e a função rds_replication. A função rds_replication concede permissões para gerenciar slots lógicos e para transmitir dados usando slots lógicos.
-3. Crie um novo grupo de parâmetros com a seguinte configuração: a. Defina o parâmetro rds.logical_replication no grupo de parâmetros do BD como 1.
+3. Crie um grupo de parâmetros com a seguinte configuração:
+
+    a. Defina o parâmetro rds.logical_replication no grupo de parâmetros do BD como 1.
+
     b. max_wal_senders = [número de tarefas simultâneas] - O parâmetro max_wal_senders define o número de tarefas simultâneas que podem ser executadas, o recomendável são 10 tarefas.
+
     c. max_replication_slots = [número de slots]; é recomendável configurar como cinco slots.
+
 4. Associe o grupo de parâmetros que você criou à instância do PostgreSQL de RDS.
 
 ## <a name="migrate-the-schema"></a>Migrar o esquema
@@ -86,7 +92,7 @@ Para concluir este tutorial, você precisará:
 2. Crie um banco de dados vazio no serviço de destino, que é o Banco de Dados do Azure para PostgreSQL. Para conectar e criar um banco de dados, consulte um dos artigos a seguir:
 
     * [Criar um Banco de Dados do Azure para servidor PostgreSQL usando o portal do Azure](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal)
-    * [Criar um servidor de Banco de Dados do Azure para PostgreSQL usando a CLI Azure](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-azure-cli)
+    * [Criar um servidor de banco de dados do Azure para PostgreSQL-Citus (hiperescala) usando o portal do Azure](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal)
 
 3. Importe o esquema para o serviço de destino, que é o Banco de Dados do Azure para PostgreSQL. Para restaurar o arquivo de despejo de esquema, execute o seguinte comando:
 
@@ -174,7 +180,7 @@ Para concluir este tutorial, você precisará:
 
 6. Selecione um tipo de preço; para esta migração online, certifique-se de selecionar o tipo de preço premium: 4vCores.
 
-    ![Criar uma instância do Serviço de Migração de Banco de Dados do Azure](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-settings4.png)
+    ![Criar uma instância do Serviço de Migração de Banco de Dados do Azure](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-settings5.png)
 
 7. Selecione **Criar** para criar a conta.
 
@@ -186,13 +192,9 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
 
       ![Crie uma instância do Serviço de Migração de Banco de Dados do Azure](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-search.png)
 
-2. Na tela dos **Serviços de Migração de Banco de Dados do Azure**, procure o nome da instância do Serviço de Migração de Banco de Dados do Azure que você criou e, em seguida, selecione a instância.
-
-     ![Crie uma instância do Serviço de Migração de Banco de Dados do Azure](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-instance-search.png)
-
-3. Selecione + **Novo Projeto de Migração**.
-4. Na tela **Novo projeto de migração**, especifique um nome para o projeto, na caixa de texto **Tipo de servidor de origem**, selecione **AWS RDS para PostgreSQL** e, em seguida, na caixa de texto **Tipo de servidor de destino**, selecione **Banco de Dados do Azure para PostgreSQL**.
-5. Na seção **Escolher o tipo de atividade**, selecione **Migração de dados online**.
+2. Na tela **serviços de migração de banco de dados do Azure** , procure o nome da instância do serviço de migração de banco de dados do Azure que você criou, selecione a instância e, em seguida, selecione + **novo projeto de migração**.
+3. Na tela **Novo projeto de migração**, especifique um nome para o projeto, na caixa de texto **Tipo de servidor de origem**, selecione **AWS RDS para PostgreSQL** e, em seguida, na caixa de texto **Tipo de servidor de destino**, selecione **Banco de Dados do Azure para PostgreSQL**.
+4. Na seção **Escolher o tipo de atividade**, selecione **Migração de dados online**.
 
     > [!IMPORTANT]
     > Verifique se você selecionou **Migração de dados online**; não há suporte para migrações offline para esse cenário.
@@ -202,30 +204,30 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
     > [!NOTE]
     > Como alternativa, você pode escolher **Criar somente o projeto** para criar o projeto de migração agora e executar a migração posteriormente.
 
-6. Clique em **Salvar**.
+5. Selecione **Salvar**.
 
-7. Selecione **Criar e executar atividade** para criar o projeto e executar a atividade de migração.
+6. Selecione **Criar e executar atividade** para criar o projeto e executar a atividade de migração.
 
     > [!NOTE]
     > Anote os pré-requisitos necessários para configurar a migração online na folha de criação do projeto.
 
 ## <a name="specify-source-details"></a>Especifique as configurações de origem
 
-* Na tela **Detalhe da origem de migração**, especifique os detalhes da conexão para a instância do PostgreSQL de origem.
+* Na tela **adicionar detalhes de origem** , especifique os detalhes de conexão para a instância PostgreSQL de origem.
 
-   ![Detalhes da origem](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-source-details4.png)
+   ![Detalhes da origem](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-source-details5.png)
 
 ## <a name="specify-target-details"></a>Detalhes do destino favorito
 
 1. Selecione **Salvar** e, em seguida, na tela **Detalhes do destino**, especifique os detalhes da conexão para o Banco de Dados do Azure para servidor PostgreSQL, que é pré-provisionado e tem o esquema **DVD Rentals** implantado usando pg_dump.
 
-    ![Selecionar o destino](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-select-target4.png)
+    ![Detalhes de destino](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-target-details.png)
 
 2. Selecione **Salvar** e, na tela **Mapear para bancos de dados de destino**, mapeie os bancos de dados de origem e de destino para a migração.
 
     Se o banco de dados de destino contiver o mesmo nome de banco de dados do banco de dados de origem, o Serviço de Migração de Banco de Dados do Azure selecionará o banco de dados de destino por padrão.
 
-    ![Mapear para bancos de dados de destino](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-map-targets-activity5.png)
+    ![Mapear para bancos de dados de destino](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-map-target-databases.png)
 
 3. Selecione **Salvar** na tela **Resumo de migração**, na caixa de texto **Nome da atividade**, especifique um nome para a atividade de migração e reveja o resumo para ter certeza de que os detalhes de origem e destino correspondem ao que foi especificado anteriormente.
 
@@ -257,15 +259,15 @@ Após a conclusão do Carregamento completo inicial, os bancos de dados serão m
 
 1. Quando estiver pronto para concluir a migração de banco de dados, selecione **Iniciar substituição**.
 
-    ![Iniciar a substituição](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-inventory-start-cutover.png)
+2. Aguarde até que o contador de **alterações pendentes** mostre **0** para garantir que todas as transações de entrada para o banco de dados de origem sejam interrompidas, marque a caixa de seleção **confirmar** e, em seguida, selecione **aplicar**.
 
-2. Pare todas as transações de entrada para o banco de dados de origem; aguarde até que o contador **Alterações pendentes** contador mostre **0**.
-3. Selecione **Confirmar**e selecione **Aplicar**.
-4. Quando o status de migração do banco de dados mostrar **Concluído**, conecte os aplicativos ao novo Banco de Dados do Azure para banco de dados PostgreSQL de destino.
+    ![Tela concluir a transferência](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-complete-cutover.png)
 
-A migração online de uma instância local do PostgreSQL para Banco de Dados do Azure para PostgreSQL agora está concluída.
+3. Quando o status de migração do banco de dados mostrar **Concluído**, conecte os aplicativos ao novo Banco de Dados do Azure para banco de dados PostgreSQL de destino.
 
-## <a name="next-steps"></a>Próximos passos
+A migração online de uma instância local do RDS PostgreSQL para o banco de dados do Azure para PostgreSQL agora está concluída.
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para obter informações sobre o Serviço de Migração de Banco de Dados do Azure, consulte o artigo [O que é o Serviço de Migração de Banco de Dados do Azure?](https://docs.microsoft.com/azure/dms/dms-overview).
 * Para obter informações sobre o Banco de Dados do Azure para PostgreSQL, consulte o artigo [O que é o Banco de Dados do Azure para PostgreSQL?](https://docs.microsoft.com/azure/postgresql/overview).

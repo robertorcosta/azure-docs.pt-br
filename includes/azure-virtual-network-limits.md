@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 17558b44c91425ce1a06625f8fd5c1806a762ba2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 28724f85ada989cbe3ce754418fb781bb0468de4
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76021221"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77466119"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Limites de rede-Azure Resource Manager os seguintes limites se aplicam somente a recursos de rede gerenciados por meio de **Azure Resource Manager** por região por assinatura. Saiba como [exibir seu uso de recursos atual em relação a seus limites de assinatura](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
 > Recentemente, aumentamos todos os limites padrão para seus limites máximos. Se não houver uma coluna de limite máximo, o recurso não terá limites ajustáveis. Se você tivesse esses limites aumentados pelo suporte no passado e não vir os limites atualizados nas tabelas a seguir, [abra uma solicitação de atendimento ao cliente online sem encargos](../articles/azure-resource-manager/templates/error-resource-quota.md)
 
-| Grupos | Limite máximo/padrão | 
+| Recurso | Limite máximo/padrão | 
 | --- | --- |
 | Redes virtuais |1,000 |
 | Sub-redes por rede virtual |3\.000 |
@@ -35,7 +35,7 @@ ms.locfileid: "76021221"
 | Endereços IP públicos por máquina virtual |256 |
 | [Fluxos TCP ou UDP simultâneos por NIC de uma máquina virtual ou instância de função](../articles/virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) |500.000 |
 | Placas de interface de rede |65.536 |
-| Grupos de Segurança de Rede |5\.000 |
+| Grupos de segurança de rede |5\.000 |
 | Regras de NSG por NSG |1,000 |
 | Endereços e intervalos IP especificados para a origem ou o destino em um grupo de segurança |4\.000 |
 | Grupos de segurança do aplicativo |3\.000 |
@@ -49,19 +49,22 @@ ms.locfileid: "76021221"
 | Configurações de TAP do adaptador de rede por TAP de rede virtual |100 |
 
 #### <a name="publicip-address"></a>Limites do endereço IP público
-| Grupos | Limite padrão | Limite máximo |
+| Recurso | Limite padrão | Limite máximo |
 | --- | --- | --- |
-| Endereços IP públicos - dinâmicos | 1\.000 para Basic. |Entre em contato com o suporte. |
-| Endereços IP públicos - estáticos | 1\.000 para Basic. |Entre em contato com o suporte. |
-| Endereços IP públicos - estáticos | 1\.000 para Standard.|Entre em contato com o suporte. |
+| Endereços IP públicos<sup>1</sup> | 10 para básico. | Entre em contato com o suporte. |
+| Endereços IP públicos estáticos<sup>1</sup> | 10 para básico. | Entre em contato com o suporte. |
+| Endereços IP públicos padrão<sup>1</sup> | 10 | Entre em contato com o suporte. |
+| Prefixos IP públicos | limitado pelo número de IPs públicos padrão em uma assinatura | Entre em contato com o suporte. |
 | Comprimento do prefixo IP público | / 28 | Entre em contato com o suporte. |
+
+<sup>1</sup> Os limites padrão para endereços IP públicos variam por tipo de categoria de oferta, como avaliação gratuita, pré-pago, CSP. Por exemplo, o padrão para assinaturas de Enterprise Agreement é 1000.
 
 #### <a name="load-balancer"></a>Limites de balanceador de carga
 Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure Resource Manager por região e assinatura. Saiba como [exibir seu uso de recursos atual em relação a seus limites de assinatura](../articles/networking/check-usage-against-limits.md).
 
 **Standard Load Balancer**
 
-| Grupos                                | Limite máximo/padrão         |
+| Recurso                                | Limite máximo/padrão         |
 |-----------------------------------------|-------------------------------|
 | Balanceadores de carga                          | 1,000                         |
 | Regras por recurso                      | 1\.500                         |
@@ -74,7 +77,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 
 **Load Balancer básica**
 
-| Grupos                                | Limite máximo/padrão        |
+| Recurso                                | Limite máximo/padrão        |
 |-----------------------------------------|------------------------------|
 | Balanceadores de carga                          | 1,000                        |
 | Regras por recurso                      | 250                          |
@@ -85,7 +88,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 
 #### <a name="virtual-networking-limits-classic"></a>Os limites a seguir se aplicam somente a recursos de rede gerenciados por meio do modelo de implantação **clássico** por assinatura. Saiba como [exibir seu uso de recursos atual em relação a seus limites de assinatura](../articles/networking/check-usage-against-limits.md).
 
-| Grupos | Limite padrão | Limite máximo |
+| Recurso | Limite padrão | Limite máximo |
 | --- | --- | --- |
 | Redes virtuais |100 |100 |
 | Sites de redes locais |20 |50 |
@@ -98,6 +101,6 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Rotas definidas pelo usuário por tabela de rotas |400 |400 |
 | Endereços IP públicos (dinâmicos) |500 |500 |
 | Endereços IP públicos reservados |500 |500 |
-| VIP público por implantação |5 |Entrar em contato com o suporte |
+| VIP público por implantação |5 |Contate o suporte |
 | VIP privado (balanceamento de carga interno) por implantação |1 |1 |
 | Listas de controle de acesso de ponto de extremidade (ACLs) |50 |50 |

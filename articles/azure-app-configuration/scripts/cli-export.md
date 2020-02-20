@@ -15,12 +15,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 0cdefaa60c9e7a1aab418042c037ef76b63e7804
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c4fc8f1cd1159f296d37fd67634d1c3171f7d7a9
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898675"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468228"
 ---
 # <a name="export-from-an-azure-app-configuration-store"></a>Exportação de um repositório de configurações de aplicativo do Azure
 
@@ -31,10 +31,6 @@ Este script de exemplo exporta pares chave-valor de um repositório de configura
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Se você optar por instalar e usar a CLI localmente, este artigo exigirá que seja executada a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
-
-É necessário instalar a extensão da CLI da Configuração de Aplicativo do Azure primeiro executando o seguinte comando:
-
-        az extension add -n appconfig
 
 ## <a name="sample-script"></a>Exemplo de script
 
@@ -53,7 +49,7 @@ Esse script usa os comandos a seguir para exportar de um repositório de Configu
 
 | Comando | Observações |
 |---|---|
-| [az appconfig kv export](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-export) | Exporta de um recurso do repositório de Configuração de Aplicativos. |
+| [az appconfig kv export](/cli/azure/appconfig/kv#az-appconfig-kv-export) | Exporta de um recurso do repositório de Configuração de Aplicativos. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

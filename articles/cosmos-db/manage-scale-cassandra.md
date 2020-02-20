@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: thvankra
-ms.openlocfilehash: 668e9ddadf151a86be0d8c09fc91b4c70db12f3a
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: e2967a6d12fba2d81dad9de31e7476a027a39d1c
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210782"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468823"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Dimensionar de forma elástica uma conta de API do Cassandra de Azure Cosmos DB
 
@@ -23,7 +23,7 @@ Há uma variedade de opções para explorar a natureza elástica da API do Azure
 
 Azure Cosmos DB retornará erros de taxa limitada (429) se os clientes consumirem mais recursos (RU/s) do que o valor que você provisionou. A API do Cassandra do Azure Cosmos DB converte essas exceções em erros de sobrecarga no protocolo nativo do Cassandra. 
 
-Se o sistema não for sensível à latência, poderá ser suficiente para lidar com a limitação da taxa de transferência usando repetições. Consulte o [exemplo de código Java](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) para saber como manipular a limitação de taxa de forma transparente usando a [extensão Azure Cosmos DB](https://github.com/Azure/azure-cosmos-cassandra-extensions) para a [política de repetição Cassandra](https://docs.datastax.com/drivers/java/2.0/com/datastax/driver/core/policies/RetryPolicy.html) em Java. Você também pode usar a [extensão do Spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) para lidar com a limitação de taxa.
+Se o sistema não for sensível à latência, poderá ser suficiente para lidar com a limitação da taxa de transferência usando repetições. Consulte o [exemplo de código Java](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) para saber como manipular a limitação de taxa de forma transparente usando a [extensão Azure Cosmos DB](https://github.com/Azure/azure-cosmos-cassandra-extensions) para a [política de repetição Cassandra](https://docs.datastax.com/en/developer/java-driver/4.4/manual/core/retries/) em Java. Você também pode usar a [extensão do Spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) para lidar com a limitação de taxa.
 
 ## <a name="manage-scaling"></a>Gerenciar o dimensionamento
 

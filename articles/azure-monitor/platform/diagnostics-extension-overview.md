@@ -1,90 +1,113 @@
 ---
-title: Visão geral da extensão do Diagnóstico do Azure
+title: Visão geral da extensão de Diagnóstico do Azure
 description: Usar o diagnóstico do Azure para depurar, medir o desempenho, monitorar e analisar o tráfego em serviços de nuvem, em máquinas virtuais e no Service Fabric
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/13/2019
-ms.openlocfilehash: 1bdefc6b61e4e5cc5b8648880c5fdd8662af1bc1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/14/2020
+ms.openlocfilehash: d9db4b4c8e6d82f29d227b9f8afe528e000c651e
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75395362"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467983"
 ---
-# <a name="what-is-azure-diagnostics-extension"></a>O que é a extensão Diagnóstico do Azure
-A extensão Diagnóstico do Azure é um agente no Azure que permite a coleta de dados de diagnóstico em um aplicativo implantado. Você pode usar a extensão de diagnóstico de várias fontes diferentes. As que têm suporte no momento são as Funções de Trabalho ou Web do Serviço de Nuvem do Azure (clássico), as Máquinas Virtuais, os conjuntos de dimensionamento de Máquinas Virtuais e o Service Fabric. Outros serviços do Azure têm métodos diferentes de diagnósticos. Consulte [Visão geral do monitoramento no Azure](../../azure-monitor/overview.md).
+# <a name="azure-diagnostics-extension-overview"></a>Visão geral da extensão de Diagnóstico do Azure
+Diagnóstico do Azure extensão é um [agente no Azure monitor](agents-overview.md) que coleta dados de monitoramento do sistema operacional convidado dos recursos de computação do Azure, incluindo máquinas virtuais. Este artigo fornece uma visão geral da extensão de Diagnóstico do Azure, incluindo funcionalidades específicas às quais ele dá suporte e opções para instalação e configuração. 
 
-## <a name="linux-agent"></a>Agente do Linux
-Uma [versão do Linux da extensão](../../virtual-machines/extensions/diagnostics-linux.md) está disponível para Máquinas Virtuais que executam o Linux. As estatísticas coletadas e o comportamento variam conforme a versão do Windows.
+> [!NOTE]
+> A extensão de Diagnóstico do Azure é um dos agentes disponíveis para coletar dados de monitoramento do sistema operacional convidado dos recursos de computação. Consulte [visão geral dos agentes de Azure monitor](agents-overview.md) para obter uma descrição dos diferentes agentes e diretrizes sobre como selecionar os agentes apropriados para seus requisitos.
 
-## <a name="data-you-can-collect"></a>Dados que você pode coletar
-A extensão Diagnóstico do Azure pode coletar os seguintes tipos de dados:
+## <a name="comparison-to-log-analytics-agent"></a>Comparação com o agente de Log Analytics
+O agente de Log Analytics no Azure Monitor também pode ser usado para coletar dados de monitoramento do sistema operacional convidado das máquinas virtuais. Você pode optar por usar um ou ambos, dependendo de seus requisitos. Consulte [visão geral dos agentes de Azure monitor](agents-overview.md) para obter uma comparação detalhada dos agentes de Azure monitor. 
 
-| fonte de dados | Description |
-| --- | --- |
-| Métricas do contador de desempenho |Contadores de desempenho personalizados e do Sistema Operacional |
-| Logs de aplicativo |Rastreio de mensagens gravadas pelo seu aplicativo |
-| Logs de Eventos do Windows |Informações enviadas ao sistema de log de eventos do Windows |
-| Logs do .NET EventSource |Eventos de gravação de código usando a classe [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) do .NET |
-| Logs IIS |Informações sobre sites do IIS |
-| [Logs do ETW baseados no manifesto](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) |Rastreamento de Eventos para eventos do Windows gerados por qualquer processo.(1) |
-| Despejos de memória (logs) |Informações sobre o estado do processo se um aplicativo falhar |
-| Logs de erros personalizados |Logs criados por seu aplicativo ou serviço |
-| Logs de infraestrutura do Diagnóstico do Azure |Informações sobre o próprio Diagnóstico do Azure |
+As principais diferenças a serem consideradas são:
 
-(1) para obter uma lista de provedores ETW, execute `c:\Windows\System32\logman.exe query providers` em uma janela de console no computador do qual você gostaria de coletar informações.
-
-## <a name="data-storage"></a>Armazenamento de dados
-A extensão armazena seus dados em uma [conta do Armazenamento do Azure](diagnostics-extension-to-storage.md) especificada.
-
-Você também pode enviá-los para o [Application Insights](../../azure-monitor/app/cloudservices.md). 
-
-Outra opção é transmiti-los para o [Hub de Eventos](../../event-hubs/event-hubs-about.md), que permite o envio dos dados para serviços de monitoramento que não fazem parte do Azure.
-
-Você também tem a opção de envio de dados para o banco de dados de série temporal de métricas do Azure Monitor. Neste momento, esse coletor só é aplicável aos Contadores de Desempenho. Ele permite que você envie os contadores de desempenho como métricas personalizadas. Esse recurso está em Preview. O coletor do Azure Monitor dá suporte a:
-* Recuperação de todos os contadores de desempenho enviados para o Azure Monitor por meio de [APIs de métrica do Azure Monitor.](https://docs.microsoft.com/rest/api/monitor/)
-* Alertas de todos os contadores de desempenho enviados para o Azure Monitor por meio dos [alertas de métrica](../../azure-monitor/platform/alerts-overview.md) no Azure Monitor
-* Tratamento do operador curinga em contadores de desempenho como a dimensão de "Instância" na sua métrica.  Por exemplo, se você tiver coletado o contador “LogicalDisk(\*)/DiskWrites/sec”, seria capaz de filtrar e dividir na dimensão "Instância" para gráfico ou alerta sobre as gravações de disco/s para cada Disco Lógico na VM (C:, por exemplo)
-
-Para saber mais sobre como configurar esse coletor, confira a [documentação do esquema de diagnóstico do Azure.](diagnostics-extension-schema-1dot3.md)
+- A extensão Diagnóstico do Azure pode ser usada somente com máquinas virtuais do Azure. O agente de Log Analytics pode ser usado com máquinas virtuais no Azure, em outras nuvens e no local.
+- A extensão de Diagnóstico do Azure envia dados para o armazenamento do Azure, [métricas de Azure monitor](data-platform-metrics.md) (somente Windows) e hubs de eventos. O agente de Log Analytics coleta dados para [Azure monitor logs](data-platform-logs.md).
+- O agente de Log Analytics é necessário para [soluções](../monitor-reference.md#insights-and-core-solutions), [Azure monitor para VMs](../insights/vminsights-overview.md)e outros serviços, como a [central de segurança do Azure](/azure/security-center/).
 
 ## <a name="costs"></a>Custos
-Cada uma das opções acima pode incorrer em custos. Não se esqueça de Pesquisar para evitar faturas inesperadas.  Application Insights, o Hub de eventos e o armazenamento do Azure têm custos separados associados à ingestão e à hora armazenada. Em particular, o armazenamento do Azure manterá todos os dados para sempre, para que você possa desejar limpar os dados mais antigos após um determinado período de tempo para manter os custos inativos.    
+Não há nenhum custo para a extensão de diagnóstico do Azure, mas você pode incorrer em encargos pelos dados ingeridos. Verifique [Azure monitor preço](https://azure.microsoft.com/pricing/details/monitor/) para o destino em que você está coletando dados.
 
-## <a name="versioning-and-configuration-schema"></a>Controle de versão e esquema de configuração
-Confira [Histórico de versão e esquema do Diagnóstico do Azure](diagnostics-extension-schema.md).
+## <a name="data-collected"></a>Dados coletados
+As tabelas a seguir listam os dados que podem ser coletados pela extensão de diagnóstico do Windows e do Linux.
+
+### <a name="windows-diagnostics-extension-wad"></a>Extensão de diagnóstico do Windows (WAD)
+
+| fonte de dados | DESCRIÇÃO |
+| --- | --- |
+| Logs de Eventos do Windows   | Eventos do log de eventos do Windows. |
+| Contadores de desempenho | Valores numéricos que medem o desempenho de diferentes aspectos do sistema operacional e das cargas de trabalho. |
+| Logs IIS             | Informações de uso para sites do IIS em execução no sistema operacional convidado. |
+| Logs de aplicativo     | Rastrear mensagens gravadas pelo seu aplicativo. |
+| Logs do .NET EventSource |Eventos de gravação de código usando a classe [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) do .NET |
+| [Logs do ETW baseados no manifesto](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) |Rastreamento de eventos para eventos do Windows gerados por qualquer processo. |
+| Despejos de memória (logs)   | Informações sobre o estado do processo se um aplicativo falhar. |
+| Logs baseados em arquivo    | Logs criados por seu aplicativo ou serviço. |
+| Logs de diagnóstico do agente | Informações sobre Diagnóstico do Azure si mesma. |
 
 
-## <a name="next-steps"></a>Próximos passos
-Escolha de qual serviço você está tentando coletar diagnósticos e use os seguintes artigos para começar. Use os links gerais de diagnóstico do Azure para obter referências de tarefas específicas.
+### <a name="linux-diagnostics-extension-lad"></a>Extensão de diagnóstico do Linux (LAD)
 
-## <a name="cloud-services-using-azure-diagnostics"></a>Serviços de Nuvem que usam o Diagnóstico do Azure
-* Se estiver usando o Visual Studio, veja [Usar o Visual Studio para rastrear um aplicativo dos Serviços de Nuvem](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) para começar. Caso contrário, veja
-* [Como monitorar os Serviços de Nuvem que usam o Diagnóstico do Azure](../../cloud-services/cloud-services-how-to-monitor.md)
-* [Configurar o Diagnóstico do Azure em um Aplicativo dos Serviços de Nuvem](../../cloud-services/cloud-services-dotnet-diagnostics.md)
+| fonte de dados | DESCRIÇÃO |
+| --- | --- |
+| syslog | Eventos enviados para o sistema de log de eventos do Linux.   |
+| Contadores de desempenho  | Valores numéricos que medem o desempenho de diferentes aspectos do sistema operacional e das cargas de trabalho. |
+| Arquivos de log | Entradas enviadas a um log baseado em arquivo.  |
 
-Para tópicos mais avançados, veja
+## <a name="data-destinations"></a>Destinos de dados
+A extensão de diagnóstico do Azure para Windows e Linux sempre coleta dados em uma conta de armazenamento do Azure. Consulte [instalar e configurar a extensão de diagnóstico do Windows Azure (wad)](diagnostics-extension-windows-install.md) e [usar a extensão de diagnóstico do Linux para monitorar métricas e logs](../../virtual-machines/extensions/diagnostics-linux.md) para obter uma lista de tabelas e blobs específicos em que esses dados são coletados.
 
-* [Uso dos Diagnósticos do Azure com o Application Insights para Serviços de Nuvem](../../azure-monitor/app/cloudservices.md)
-* [Rastrear o fluxo de um aplicativo de Serviços de Nuvem com o Diagnóstico do Azure](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
-* [Usar o PowerShell para configurar o diagnóstico nos Serviços de Nuvem](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+Configure um ou mais *coletores de dados* para enviar dados a outros destinos adicionais. As seções a seguir listam os coletores disponíveis para a extensão de diagnóstico do Windows e do Linux.
 
-## <a name="virtual-machines"></a>Máquinas virtuais
-* Se estiver usando o Visual Studio, veja [Usar o Visual Studio para rastrear Máquinas Virtuais do Azure](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) para começar. Caso contrário, veja
-* [Configurar o Diagnóstico do Azure em uma Máquina Virtual do Azure](/azure/virtual-machines/extensions/diagnostics-windows)
+### <a name="windows-diagnostics-extension-wad"></a>Extensão de diagnóstico do Windows (WAD)
 
-Para tópicos mais avançados, veja
+| Destino | DESCRIÇÃO |
+|:---|:---|
+| Métricas de Azure Monitor | Coletar dados de desempenho para Azure Monitor métricas. Consulte [Enviar métricas do sistema operacional convidado para o banco de dados de métrica Azure monitor](collect-custom-metrics-guestos-resource-manager-vm.md).  |
+| Hubs de Eventos | Use os hubs de eventos do Azure para enviar dados fora do Azure. Consulte [streaming de dados de diagnóstico do Azure para os hubs de eventos](diagnostics-extension-stream-event-hubs.md) |
+| Blobs do Armazenamento do Azure | Gravar em dados em BLOBs no armazenamento do Azure, além de tabelas. |
+| Application Insights | Coletar dados de aplicativos em execução em sua VM para Application Insights para integrar com outro monitoramento de aplicativo. Consulte [enviar dados de diagnóstico para Application insights](diagnostics-extension-to-application-insights.md). |
 
-* [Usar o PowerShell para configurar o diagnóstico nas Máquinas Virtuais do Azure](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Criar uma máquina virtual do Windows com monitoramento e diagnóstico usando o modelo do Azure Resource Manager](../../virtual-machines/extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+Você também pode coletar dados de WAD do armazenamento em um espaço de trabalho Log Analytics para analisá-los com logs de Azure Monitor, embora o agente de Log Analytics seja normalmente usado para essa funcionalidade. Ele pode enviar dados diretamente para um espaço de trabalho Log Analytics e oferece suporte a soluções e informações que fornecem funcionalidade adicional.  Consulte [coletar logs de diagnóstico do Azure do armazenamento do Azure](diagnostics-extension-logs.md). 
 
-## <a name="service-fabric"></a>Malha de Serviço
-Comece em [Monitorar um aplicativo do Service Fabric](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Muitos outros artigos de diagnóstico do Service Fabric estarão disponíveis na árvore de navegação à esquerda depois que você acessar este artigo.
 
-## <a name="general-articles"></a>Artigos gerais
+### <a name="linux-diagnostics-extension-lad"></a>Extensão de diagnóstico do Linux (LAD)
+LAD grava dados em tabelas no armazenamento do Azure. Ele dá suporte aos coletores na tabela a seguir.
+
+| Destino | DESCRIÇÃO |
+|:---|:---|
+| Hubs de Eventos | Use os hubs de eventos do Azure para enviar dados fora do Azure. |
+| Blobs do Armazenamento do Azure | Gravar em dados em BLOBs no armazenamento do Azure, além de tabelas. |
+| Métricas de Azure Monitor | Instale o agente do Telegraf, além do LAD. Consulte [coletar métricas personalizadas para uma VM Linux com o agente InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md).
+
+
+## <a name="installation-and-configuration"></a>Instalação e configuração
+A extensão de diagnóstico é implementada como uma [extensão de máquina virtual](/virtual-machines/extensions/overview) no Azure, portanto, ela dá suporte às mesmas opções de instalação usando modelos do Resource Manager, PowerShell e CLI. Consulte [extensões e recursos de máquina virtual para Windows](/virtual-machines/extensions/features-windows) e [recursos e extensões de máquina virtual para Linux](/virtual-machines/extensions/features-linux) para obter detalhes gerais sobre como instalar e manter extensões de máquina virtual.
+
+Você também pode instalar e configurar a extensão de diagnóstico do Windows e Linux no portal do Azure em **configurações de diagnóstico** na seção **monitoramento** do menu da máquina virtual.
+
+Consulte os artigos a seguir para obter detalhes sobre como instalar e configurar a extensão de diagnóstico para Windows e Linux.
+
+- [Instalar e configurar a extensão de diagnóstico do Windows Azure (WAD)](diagnostics-extension-windows-install.md)
+- [Usar a extensão de diagnóstico do Linux para monitorar as métricas e os logs](../../virtual-machines/extensions/diagnostics-linux.md)
+
+## <a name="other-documentation"></a>Outra documentação
+
+###  <a name="azure-cloud-service-classic-web-and-worker-roles"></a>Funções Web e de trabalho do serviço de nuvem do Azure (clássico)
+- [Introdução ao monitoramento do serviço de nuvem](../../cloud-services/cloud-services-how-to-monitor.md)
+- [Habilitando Diagnóstico do Azure nos serviços de nuvem do Azure](../../cloud-services/cloud-services-dotnet-diagnostics.md)
+- [Application Insights para serviços de nuvem do Azure](../app/cloudservices.md)<br>[Rastrear o fluxo de um aplicativo de Serviços de Nuvem com o Diagnóstico do Azure](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md) 
+
+### <a name="azure-service-fabric"></a>Azure Service Fabric
+- [Monitorar e diagnosticar serviços em uma configuração de desenvolvimento de computador local](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+
+## <a name="next-steps"></a>Próximas etapas
+
+
 * Saiba como [usar os Contadores de Desempenho no Diagnóstico do Azure](../../cloud-services/diagnostics-performance-counters.md).
 * Caso tenha problemas com o início do diagnóstico ou a localização de seus dados nas tabelas de armazenamento do Azure, confira [Solução de problemas do Diagnóstico do Azure](diagnostics-extension-troubleshooting.md)
 

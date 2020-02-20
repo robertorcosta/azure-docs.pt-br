@@ -1,19 +1,18 @@
 ---
 title: Introdução ao Azure Enterprise Portal
 description: Este artigo explica como os clientes do Azure EA (Contrato Enterprise do Azure) usam o Azure Enterprise Portal.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/04/2020
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: boalcsva
-ms.openlocfilehash: 516b3704daee885541cec49b0ee374e050dd4b22
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.reviewer: boalcsva
+ms.openlocfilehash: e1c6eac81968ef6ecbc12ec52415c2aa9680f3e1
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023337"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200822"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Introdução ao Azure Enterprise Portal
 
@@ -235,7 +234,7 @@ Esteja atento a essas informações importantes ao transferir contas:
   - De uma conta corporativa ou de estudante para outra conta corporativa ou de estudante.
   - De uma conta Microsoft para uma conta corporativa ou de estudante.
   - De uma conta Microsoft para outra conta Microsoft.
-  
+
     A conta de destino deve ser uma conta válida do Azure Commerce para ser um destino válido para transferências. Para novas contas, você será solicitado a criar uma conta do Azure Commerce ao entrar no Azure Enterprise Portal. Para contas existentes, você deve primeiro criar uma nova assinatura do Azure antes que a conta seja considerada qualificada.
 
 - Você não pode fazer uma transferência de uma conta corporativa ou de estudante para uma conta Microsoft.
@@ -285,7 +284,7 @@ Os proprietários da conta podem exibir e gerenciar assinaturas. Você pode usar
 
 Ao criar assinaturas diferentes para cada ambiente de aplicativo, você ajuda a proteger cada ambiente.
 
-- Você também pode atribuir uma conta de administrador de serviços diferente para cada assinatura. 
+- Você também pode atribuir uma conta de administrador de serviços diferente para cada assinatura.
 - Você pode associar assinaturas a qualquer número de serviços.
 - O proprietário da conta cria assinaturas e atribui uma conta de administrador de serviços a cada assinatura na conta dele.
 
@@ -309,7 +308,7 @@ Para adicionar uma assinatura:
 1. Selecione **Assinaturas** e, em seguida, selecione a assinatura que você criou.
 1. Selecione **Editar Detalhes da Assinatura**.
 1. Edite o **Nome da Assinatura** e o **Administrador de Serviços** e, em seguida, selecione a marca de seleção.
-  
+
    O nome da assinatura aparece nos relatórios. É o nome do projeto associado à assinatura no portal de desenvolvimento.
 
 Novas assinaturas podem levar até 24 horas para aparecer na lista de assinaturas. Depois de ter criado uma assinatura, você pode:
@@ -509,14 +508,14 @@ O Azure Enterprise Portal oferece dois tipos de assinaturas para clientes empres
 - Microsoft Azure Enterprise, que é ideal para:
   - Utilização em qualquer tipo de produção
   - Melhores preços com base no gasto da infraestrutura
-  
+
   Para obter mais informações, [entre em contato com o departamento de vendas do Azure](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
 - Desenvolvimento/Teste Enterprise, que é ideal para:
   - Todas as cargas de trabalho de desenvolvimento/teste da equipe
   - Cargas de trabalho de desenvolvimento/teste individual, de média a pesada
   - Acesso a imagens especiais do MSDN e taxas de serviço preferenciais
-  
+
   Para obter mais informações, confira [oferta Desenvolvimento/Teste Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/).
 
 ### <a name="is-it-possible-to-transfer-subscription-ownership-to-another-account"></a>É possível transferir a propriedade de assinatura para outra conta?

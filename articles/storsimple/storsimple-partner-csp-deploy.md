@@ -1,5 +1,5 @@
 ---
-title: Visão geral do Microsoft Azure StorSimple e do programa Cloud Solutions Provider | Microsoft Docs
+title: Implantar o StorSimple Virtual Array para o programa Cloud Solution Provider
 description: Uma visão geral sobre o StorSimple e o CSP para parceiros do StorSimple.
 services: storsimple
 documentationcenter: NA
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 0dac86a696599a391cb243ad11e16931e00b8921
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f1927a67127766c72be463c283225135b2a2aad
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60629825"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77466902"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Implantar o StorSimple Virtual Array para o programa Cloud Solution Provider
 
@@ -29,7 +29,7 @@ Matriz de StorSimple Virtual pode ser implantado pelos parceiros de provedor de 
 
 Este artigo descreve como um parceiro CSP pode adicionar um cliente ou uma nova assinatura para um cliente existente e, em seguida, crie um serviço para implantar uma matriz Virtual StorSimple no CSP.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, verifique se:
 
@@ -44,7 +44,7 @@ Se você adicionar um cliente, uma assinatura é criada automaticamente. Para ad
 
      ![Painel no Partner Center](./media/storsimple-partner-csp-deploy/image1.png)
                               
-2. No painel esquerdo, clique em **Clientes**. No painel direito, clique em **adicionar clientes**. Insira os detalhes do cliente. Clique em **Avançar: Assinaturas** para criar uma assinatura de cliente.
+2. No painel esquerdo, clique em **Clientes**. No painel direito, clique em **adicionar clientes**. Insira os detalhes do cliente. Clique em **próximo: assinaturas** para criar uma assinatura de cliente.
 
     ![Adicionar cliente](./media/storsimple-partner-csp-deploy/image2.png)
 
@@ -103,5 +103,5 @@ Em alguns casos, você pode ter um cliente existente e você precisa adicionar u
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Se você tiver mais dúvidas relacionadas ao StorSimple no CSP, vá para [StorSimple no CSP: Perguntas frequentes](storsimple-partner-csp-faq.md).
+- Se tiver mais dúvidas relacionadas ao StorSimple no CSP, visite [StorSimple for CSP: Frequently asked questions](storsimple-partner-csp-faq.md) (StorSimple no CSP: perguntas frequentes).
 - Se você estiver pronto para implantar seu StorSimple, acesse [Implantar o StorSimple para CSP](storsimple-partner-csp-deploy.md).

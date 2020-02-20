@@ -2,24 +2,21 @@
 title: Organize sua fatura com base em suas necessidades – Azure
 description: Saiba como organizar os custos em sua fatura.
 author: amberbhargava
-manager: amberb
-editor: banders
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 7f3a5232f8c5bfbf3f2e81ba52607406f8a038b4
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c9cb1d7d1dcc6e7872b22d8c58fe44b9bce25f13
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76843881"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200737"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>Organizar os custos personalizando sua conta de cobrança
 
-Sua conta de cobrança do Contrato de Cliente da Microsoft fornece flexibilidade para organizar seus custos com base em suas necessidades, seja por departamento, projeto ou ambiente de desenvolvimento. 
+Sua conta de cobrança do Contrato de Cliente da Microsoft fornece flexibilidade para organizar seus custos com base em suas necessidades, seja por departamento, projeto ou ambiente de desenvolvimento.
 
 Este artigo descreve como usar o portal do Azure para organizar seus custos. Este artigo aplica-se a uma conta de cobrança para um Contrato de Cliente da Microsoft. [Verifique se você tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
@@ -33,7 +30,7 @@ Na conta de cobrança para um Contrato de Cliente da Microsoft, use perfis de co
 
 Um perfil de cobrança representa uma fatura e as informações de cobrança relacionadas, como métodos de pagamento e endereço para cobrança. Uma fatura mensal é gerada no início do mês para cada perfil de cobrança de sua conta. A fatura contém os encargos de uso do Azure e de outras compras do mês anterior.
 
-Um perfil de cobrança é criado automaticamente junto com sua conta de cobrança quando você se inscreve no Azure. Você pode criar perfis de cobrança adicionais para organizar seus custos em várias faturas mensais. 
+Um perfil de cobrança é criado automaticamente junto com sua conta de cobrança quando você se inscreve no Azure. Você pode criar perfis de cobrança adicionais para organizar seus custos em várias faturas mensais.
 
 > [!IMPORTANT]
 >
@@ -41,9 +38,9 @@ Um perfil de cobrança é criado automaticamente junto com sua conta de cobranç
 
 ### <a name="invoice-section"></a>Seção da fatura
 
-Uma seção da fatura representa um agrupamento de custos em sua fatura. Uma seção da fatura é criada automaticamente para cada perfil de cobrança em sua conta. Você pode criar seções adicionais para organizar seus custos com base em suas necessidades. Cada seção da fatura é exibida na fatura com os encargos incorridos no mês. 
+Uma seção da fatura representa um agrupamento de custos em sua fatura. Uma seção da fatura é criada automaticamente para cada perfil de cobrança em sua conta. Você pode criar seções adicionais para organizar seus custos com base em suas necessidades. Cada seção da fatura é exibida na fatura com os encargos incorridos no mês.
 
-A imagem abaixo mostra uma fatura com duas seções de fatura – engenharia e marketing. O resumo e os encargos detalhados de cada seção são exibidos na fatura. Os preços mostrados na imagem são apenas para fins de exemplo e não representam os preços reais dos serviços do Azure. 
+A imagem abaixo mostra uma fatura com duas seções de fatura – engenharia e marketing. O resumo e os encargos detalhados de cada seção são exibidos na fatura. Os preços mostrados na imagem são apenas para fins de exemplo e não representam os preços reais dos serviços do Azure.
 
 ![Imagem mostrando uma fatura com seções](./media/mca-section-invoice/mca-invoice-with-sections.png)
 
@@ -79,7 +76,7 @@ Para criar uma seção da fatura, você precisa ser um **proprietário do perfil
 
    ![Captura de tela que mostra a pesquisa de Gerenciamento de Custos + Cobrança no portal](./media/mca-section-invoice/search-cmb.png)
 
-3. Selecione **Perfis de cobrança** no painel esquerdo. Na lista, selecione um perfil de cobrança. A nova seção será exibida na fatura do perfil de cobrança selecionado. 
+3. Selecione **Perfis de cobrança** no painel esquerdo. Na lista, selecione um perfil de cobrança. A nova seção será exibida na fatura do perfil de cobrança selecionado.
 
    [![Captura de tela que mostra a lista de perfis de cobrança](./media/mca-section-invoice/mca-select-profile.png)](./media/mca-section-invoice/mca-select-profile-zoomed-in.png#lightbox)
 
@@ -87,7 +84,7 @@ Para criar uma seção da fatura, você precisa ser um **proprietário do perfil
 
    [![Captura de tela que mostra a adição de seções da fatura](./media/mca-section-invoice/mca-list-invoice-sections.png)](./media/mca-section-invoice/mca-list-invoice-sections-zoomed-in.png#lightbox)
 
-5. Insira um nome para a seção da fatura. 
+5. Insira um nome para a seção da fatura.
 
    [![Captura de tela que mostra a página de criação da seção da fatura](./media/mca-section-invoice/mca-create-invoice-section.png)](./media/mca-section-invoice/mca-create-invoice-section-zoomed-in.png#lightbox)
 
@@ -152,13 +149,13 @@ Depois de personalizar sua conta de cobrança com base em suas necessidades, voc
 
 6. Selecione a seção Fatura para vincular os encargos da assinatura. Os encargos serão exibidos nesta seção na fatura do perfil de cobrança.
 
-7. Selecione um plano do Azure e insira um nome amigável para sua assinatura. 
+7. Selecione um plano do Azure e insira um nome amigável para sua assinatura.
 
 9. Clique em **Criar**.  
 
 ### <a name="link-existing-subscriptions-and-products"></a>Vincular assinaturas e produtos existentes
 
-Se tiver assinaturas do Azure existentes ou outros produtos, como o Azure Marketplace e os recursos de origem do aplicativo, você poderá movê-los de sua seção da fatura existente para outra seção da fatura para reorganizar os custos. 
+Se tiver assinaturas do Azure existentes ou outros produtos, como o Azure Marketplace e os recursos de origem do aplicativo, você poderá movê-los de sua seção da fatura existente para outra seção da fatura para reorganizar os custos.
 
 > [!IMPORTANT]
 >
@@ -212,7 +209,7 @@ Agora, vamos supor que você criou outro perfil de cobrança e usou 50 GB por me
 |---------|---------|---------|
 |1,84 por TB para os primeiros 50 TB/mês    | 50 TB        | 92,0  |
 |1,77 por TB para os próximos 450 TB/mês    |  0 TB         | 0.0  |
-|Total     |     50 TB  | 92,0 
+|Total     |     50 TB  | 92,0
 
 `Charges for the second billing profile`
 
@@ -220,17 +217,17 @@ Agora, vamos supor que você criou outro perfil de cobrança e usou 50 GB por me
 |---------|---------|---------|
 |1,84 por TB para os primeiros 50 TB/mês    | 50 TB        | 92,0  |
 |1,77 por TB para os próximos 450 TB/mês    |  0 TB         | 0.0  |
-|Total     |     50 TB  | 92,0 
+|Total     |     50 TB  | 92,0
 
 O total de encargos para usar 100 TB de dados neste cenário é de **184,0** (92,0 * 2).
 
 ### <a name="azure-reservation-benefits-might-not-apply-to-all-subscriptions"></a>Os benefícios de reserva do Azure podem não se aplicar a todas as assinaturas
 
-As reservas do Azure com escopo compartilhado são aplicadas a assinaturas em um perfil de cobrança e não são compartilhadas entre os perfis de cobrança. 
+As reservas do Azure com escopo compartilhado são aplicadas a assinaturas em um perfil de cobrança e não são compartilhadas entre os perfis de cobrança.
 
 ![Gráfico de informações para aplicativo de reserva para uma estrutura de conta de cobrança diferente](./media/mca-section-invoice/mca-reservations-benefits-by-bg.png)
 
-Na imagem acima, a Contoso tem duas assinaturas. O benefício de reserva do Azure é aplicado de maneira diferente, dependendo de como a conta de cobrança é estruturada. No cenário à esquerda, o benefício de reserva é aplicado às duas assinaturas que são cobradas no perfil de cobrança de engenharia. No cenário à direita, o benefício de reserva é aplicado à assinatura 1, visto que é a única assinatura que é cobrada no perfil de cobrança de engenharia. 
+Na imagem acima, a Contoso tem duas assinaturas. O benefício de reserva do Azure é aplicado de maneira diferente, dependendo de como a conta de cobrança é estruturada. No cenário à esquerda, o benefício de reserva é aplicado às duas assinaturas que são cobradas no perfil de cobrança de engenharia. No cenário à direita, o benefício de reserva é aplicado à assinatura 1, visto que é a única assinatura que é cobrada no perfil de cobrança de engenharia.
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso ao Contrato de Cliente da Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

@@ -1,23 +1,23 @@
 ---
 title: Implantar a imagem de contêiner do registro de contêiner do Azure
-description: Saiba como implantar contêineres em Instâncias de Contêiner do Azure usando imagens de contêiner em um Registro de Contêiner do Azure.
+description: Saiba como implantar contêineres em instâncias de contêiner do Azure puxando imagens de contêiner de um registro de contêiner do Azure.
 services: container-instances
 ms.topic: article
-ms.date: 12/30/2019
+ms.date: 02/18/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0d39c83646357cf9426239d28e445c4791ddceb0
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bcb1b02b8a2605a42acbe7f33973bef315ca6f54
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981682"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468908"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implantar nas Instâncias de Contêiner do Azure por meio do Registro de Contêiner do Azure
 
-O [Registro de Contêiner do Azure](../container-registry/container-registry-intro.md) é um serviço de registro de contêiner gerenciado, baseado no Azure, usado para armazenar imagens de contêiner de Docker particulares. Este artigo descreve como implantar imagens de contêiner armazenadas em um registro de contêiner do Azure nas Instâncias de Contêiner do Azure.
+O [Registro de Contêiner do Azure](../container-registry/container-registry-intro.md) é um serviço de registro de contêiner gerenciado, baseado no Azure, usado para armazenar imagens de contêiner de Docker particulares. Este artigo descreve como efetuar pull de imagens de contêiner armazenadas em um registro de contêiner do Azure durante a implantação em instâncias de contêiner do Azure. Uma maneira recomendada para configurar o acesso ao registro é criar um Azure Active Directory entidade de serviço e uma senha e armazenar as credenciais de logon em um cofre de chaves do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 **Registro de contêiner do Azure**: você precisa de um registro de contêiner do Azure – e pelo menos uma imagem de contêiner no registro – para concluir as etapas neste artigo. Se você precisar de um registro, consulte [Criar um registro de contêiner usando a CLI do Azure](../container-registry/container-registry-get-started-azure-cli.md).
 
@@ -28,6 +28,9 @@ O [Registro de Contêiner do Azure](../container-registry/container-registry-int
 Em um cenário de produção em que você fornece acesso a aplicativos e serviços "sem periféricos", é recomendável configurar o acesso ao registro usando uma [entidade de serviço](../container-registry/container-registry-auth-service-principal.md). Uma entidade de serviço permite que você forneça [controle de acesso baseado em função](../container-registry/container-registry-roles.md) para suas imagens de contêiner. Por exemplo, é possível configurar uma entidade de serviço com acesso somente pull para um registro.
 
 O registro de contêiner do Azure fornece [Opções de autenticação](../container-registry/container-registry-authentication.md)adicionais.
+
+> [!NOTE]
+> Não é possível autenticar no registro de contêiner do Azure para extrair imagens durante a implantação do grupo de contêineres usando uma [identidade gerenciada](container-instances-managed-identity.md) configurada no mesmo grupo de contêineres.
 
 Na seção a seguir, você cria um cofre de chaves do Azure e uma entidade de serviço e armazena as credenciais da entidade de serviço no cofre. 
 
@@ -78,7 +81,7 @@ az keyvault secret set \
     --value $(az ad sp show --id http://$ACR_NAME-pull --query appId --output tsv)
 ```
 
-Você criou um cofre de chaves do Azure e armazenou dois segredos nele:
+Você criou um Azure Key Vault e armazenou dois segredos nele:
 
 * `$ACR_NAME-pull-usr`: a ID da entidade de serviço, para uso como o **nome de usuário** do registro de contêiner.
 * `$ACR_NAME-pull-pwd`: a senha da entidade de serviço, para uso como a **senha** do registro de contêiner.
@@ -158,7 +161,7 @@ Se você mantiver as imagens de contêiner no Registro de Contêiner do Azure, v
 
     ![Exibição de detalhes de grupo de contêineres das Instâncias de Contêiner do Azure][aci-detailsview]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre a autenticação do Registro de Contêiner do Azure, consulte [Autenticar com um registro de contêiner do Azure](../container-registry/container-registry-authentication.md).
 

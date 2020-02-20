@@ -1,17 +1,17 @@
 ---
-title: Usar scripts de Azure Resource Manager para gerenciar dispositivos StorSimple
+title: Usar scripts do PowerShell do AzureRM para gerenciar dispositivos StorSimple
 description: Saiba como usar scripts do Azure Resource Manager para automatizar trabalhos do StorSimple
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: d1c98aa8c9b635f08bb14db2bde5485640a5d24d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 03a5ef49b2d58d351d882b30b5d11e4a5ba90264
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276640"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471951"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Usar scripts com base no SDK do Azure Resource Manager para gerenciar dispositivos StorSimple
 
@@ -25,7 +25,7 @@ Os scripts de exemplo a seguir estão disponíveis para automatizar vários trab
 
 #### <a name="table-of-azure-resource-manager-sdk-based-sample-scripts"></a>Tabela de scripts de exemplo com base no SDK do Azure Resource Manager
 
-| Script do Azure Resource Manager                    | Description                                                                                                                                                                                                       |
+| Script do Azure Resource Manager                    | DESCRIÇÃO                                                                                                                                                                                                       |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Authorize-ServiceEncryptionRollover.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Authorize-ServiceEncryptionRollover.ps1)          | Esse script permite que você autorize seu dispositivo StorSimple para alterar a chave de criptografia de dados do serviço.                                                                                                           |
 | [Create-StorSimpleCloudAppliance.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Create-StorSimpleCloudAppliance.ps1)              | Esse script cria um Dispositivo de Nuvem StorSimple 8010 ou 8020. O dispositivo de nuvem pode ser configurado e registrado com o serviço StorSimple Data Manager.                                                       |
@@ -49,7 +49,7 @@ Os scripts de exemplo a seguir estão disponíveis para automatizar vários trab
 
 Esta seção usa um script de exemplo e fornece detalhes sobre as várias etapas necessárias para executar o script.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, verifique se você tem:
 
@@ -166,6 +166,6 @@ PS C:\Scripts\StorSimpleSDKTools>
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Usar o serviço do Gerenciador de Dispositivos StorSimple para gerenciar seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

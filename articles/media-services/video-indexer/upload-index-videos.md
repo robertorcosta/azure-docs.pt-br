@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/13/2020
+ms.date: 02/18/2020
 ms.author: juliako
-ms.openlocfilehash: b0a4f390a3a897d14adc2944195b0c51148de495
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 245eabdf4d77682c87062c2581239a554112d748
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209266"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468755"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar seus vídeos  
 
@@ -123,6 +123,10 @@ Use esse parâmetro se gravações brutas ou externas contiverem ruídos de fund
 - `VideoOnly`-indexar e extrair informações usando somente vídeo (ignorando áudio)
 - `Default` – Indexar e extrair insights usando áudio e vídeo
 - `DefaultWithNoiseReduction` – Indexar e extrair insights de áudio e vídeo durante a aplicação de algoritmos de redução de ruído no fluxo de áudio
+
+> [!NOTE]
+> Video Indexer abrange até duas faixas de áudio. Se houver mais faixas de áudio no arquivo, elas serão tratadas como uma faixa.<br/>
+Se você quiser indexar as faixas separadamente, será necessário extrair o arquivo de áudio relevante e indexá-lo como `AudioOnly`.
 
 O preço depende da opção de indexação selecionada.  
 

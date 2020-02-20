@@ -2,20 +2,16 @@
 title: Funções de cobrança para Contrato de Cliente da Microsoft – Azure
 description: Saiba mais sobre as funções de cobrança para contas de cobrança no Azure para Contratos de Cliente da Microsoft.
 author: amberbhargava
-manager: amberbhargava
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: eaec828abe83164d18796cfb2e795a363353fab4
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 1003e26fa670a804328d5e34def7c9d78eced9c0
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75987935"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199493"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Entender as funções administrativas do Contrato de Cliente da Microsoft no Azure
 

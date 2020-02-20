@@ -4,12 +4,12 @@ description: Neste Início Rápido, saiba como realizar várias tarefas do Ansib
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 ms.topic: quickstart
 ms.date: 04/30/2019
-ms.openlocfilehash: d04708be82a704c2ce20a928380fca1d325493da
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 0eb89bcacae1629bdb1f6dcda8f9a25efdb6eedf
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74155961"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193643"
 ---
 # <a name="quickstart-run-ansible-playbooks-via-bash-in-azure-cloud-shell"></a>Início Rápido: Executar guias estratégicos do Ansible por meio do Bash no Azure Cloud Shell
 
@@ -47,4 +47,4 @@ Para verificar a configuração bem-sucedida, use o Ansible para criar um grupo 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"] 
-> [Início Rápido: Configurar uma máquina virtual no Azure usando o Ansible](/azure/virtual-machines/linux/ansible-create-vm)
+> [Início Rápido: Configurar uma máquina virtual no Azure usando o Ansible](./ansible-create-vm.md)

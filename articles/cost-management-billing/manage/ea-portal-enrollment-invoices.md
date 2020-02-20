@@ -1,19 +1,18 @@
 ---
 title: Faturas do Registro Enterprise do Azure
 description: Este artigo explica como gerenciar e usar sua fatura do Azure Enterprise.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/04/2020
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: boalcsva
-ms.openlocfilehash: 2a75972d00733d23df7f4a59b2d5010404df8dc3
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.reviewer: boalcsva
+ms.openlocfilehash: 37af492ae156aa880c55034550d4165ec046e74f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023388"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199748"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faturas do Registro Enterprise do Azure
 
@@ -71,11 +70,11 @@ A data em que você recebe a fatura excedente depende da data de início e da co
   - As cobranças não cobertas pelo seu compromisso monetário são devidas a um pagamento de excedente.  
 
 - **Registros indiretos com um registro iniciado antes de 1º de maio de 2018**:
-  
+
   Se você for um cliente indireto de EA (Contrato Enterprise) com uma data de início antes de 1º de maio de 2018, estará configurado em um ciclo de cobrança trimestral. O CP (parceiro de canal) fatura você diretamente.  
 
 - **Registros indiretos com uma data de início posterior a 1º de maio de 2018**:
-  
+
   Você está em um ciclo de cobrança mensal.  
 
 ### <a name="increase-your-monetary-commitment"></a>Aumentar seu compromisso monetário
@@ -618,7 +617,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 - **Exclusions**:
   - Users already participating in the Extended Power BI Pro trial will continue to qualify under the pre-existing offer and can't enter into the Azure EA Power BI Pro trial offer.
   - Users participating in the Offer can only use Power BI Pro with the Microsoft Azure Enterprise content pack. Any other use of Power BI Pro is prohibited.
-  - Term: The Offer began on June 1, 2017 and ended on May 31, 2018.  Acceptance can occur at any time during the 12-month period, though the offer will terminate on May 31, 2018 for all users regardless of when they accepted the Offer. 
+  - Term: The Offer began on June 1, 2017 and ended on May 31, 2018.  Acceptance can occur at any time during the 12-month period, though the offer will terminate on May 31, 2018 for all users regardless of when they accepted the Offer.
   -->
 
 ### <a name="to-access-microsoft-azure-consumption-insights"></a>Para acessar o Microsoft Azure Consumption Insights:
@@ -631,7 +630,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 1. Depois de concluído, um novo painel, relatório e modelo serão exibidos no painel de navegação. Selecione o painel para exibir os dados importados por você.
 
 > [!TIP]
-> 
+>
 > - Para saber como gerar a chave de API para seu registro, confira o arquivo de ajuda sobre Relatórios de API no [Enterprise Portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
 > - Para obter mais informações sobre como conectar o Power BI ao seu consumo do Azure, confira [Microsoft Azure Consumption Insights](/power-bi/desktop-connect-azure-cost-management).
 

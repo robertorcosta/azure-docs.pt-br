@@ -5,12 +5,12 @@ ms.date: 01/15/2020
 ms.topic: tutorial
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-functions01
-ms.openlocfilehash: edb947f0748c186e146bce5f4dbe9d0b95a2568d
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 9c97606b21a6e98494fffb689567aaab6e2f0621
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846491"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210184"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux usando um contêiner personalizado
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá como:
 
 Você pode seguir este tutorial em qualquer computador que execute o Windows, o Mac OS ou o Linux. A realização do tutorial gerará custos de alguns dólares americanos em sua conta do Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - O [Azure Functions Core Tools](./functions-run-local.md#v2) versão 2.7.1846 ou posterior
@@ -256,7 +256,7 @@ Você pode seguir este tutorial em qualquer computador que execute o Windows, o 
     docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
     ```
     
-1. Quando a imagem estiver em execução em um contêiner local, abra um navegador para `http://localhost:8080`, o que deve exibir a imagem de espaço reservado mostrada abaixo. A imagem aparece neste ponto porque a função está sendo executada no contêiner local, como aconteceria no Azure, o que significa que ela está protegida por uma chave de acesso, conforme definido em *function.json* com a propriedade `"authLevel": "function"`. No entanto, o contêiner ainda não foi publicado em um aplicativo de funções no Azure, de modo que a chave ainda não está disponível. Se quiser testar localmente, pare o Docker, altere a propriedade de autorização para `"authLevel": "anonymous"`, recompile a imagem e reinicie o Docker. Em seguida, redefina `"authLevel": "function"` em *function.json*. Para obter mais informações, confira [chaves de autorização](functions-bindings-http-webhook.md#authorization-keys).
+1. Quando a imagem estiver em execução em um contêiner local, abra um navegador para `http://localhost:8080`, o que deve exibir a imagem de espaço reservado mostrada abaixo. A imagem aparece neste ponto porque a função está sendo executada no contêiner local, como aconteceria no Azure, o que significa que ela está protegida por uma chave de acesso, conforme definido em *function.json* com a propriedade `"authLevel": "function"`. No entanto, o contêiner ainda não foi publicado em um aplicativo de funções no Azure, de modo que a chave ainda não está disponível. Se quiser testar localmente, pare o Docker, altere a propriedade de autorização para `"authLevel": "anonymous"`, recompile a imagem e reinicie o Docker. Em seguida, redefina `"authLevel": "function"` em *function.json*. Para obter mais informações, confira [chaves de autorização](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
     ![Imagem de espaço reservado indicando que o contêiner está sendo executado localmente](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
@@ -370,7 +370,7 @@ Com a imagem implantada no aplicativo de funções no Azure, você pode invocar 
 
 1. Recupere a URL da função com a chave de acesso (função) usando o portal do Azure ou a CLI do Azure, com o comando `az rest`.)
 
-    # <a name="portaltabportal"></a>[Portal](#tab/portal)
+    # <a name="portal"></a>[Portal](#tab/portal)
 
     1. Entre no portal do Azure e, em seguida, localize o aplicativo de funções inserindo o nome dele na caixa **Pesquisar** na parte superior da página. Nos resultados, selecione o recurso **Serviço de Aplicativo**.
 
@@ -387,7 +387,7 @@ Com a imagem implantada no aplicativo de funções no Azure, você pode invocar 
     > [!NOTE]  
     > Já que seu aplicativo de funções é implantado como um contêiner, você não pode fazer alterações no seu código de função no portal. Em vez disso, você precisa atualizar o projeto na imagem local, enviar a imagem por push para o Registro novamente e reimplantar no Azure. Você pode configurar a implantação contínua em uma seção posterior.
     
-    # <a name="azure-clitabazurecli"></a>[CLI do Azure](#tab/azurecli)
+    # <a name="azure-cli"></a>[CLI do Azure](#tab/azurecli)
 
     1. Construa uma cadeia de caracteres de URL no seguinte formato, substituindo `<subscription_id>`, `<resource_group>` e `<app_name>` pela ID de assinatura do Azure, pelo grupo de recursos do aplicativo de funções e pelo nome do aplicativo de funções, respectivamente:
 
@@ -877,19 +877,19 @@ Veja a fila no [portal do Azure](../storage/queues/storage-quickstart-queues-por
 
 1. Abra o arquivo *local.setting.json* do projeto de funções e copie o valor da cadeia de conexão. Em um terminal ou uma janela Comando, execute o comando a seguir para criar uma variável de ambiente chamada `AZURE_STORAGE_CONNECTION_STRING`, colando a cadeia de conexão específica no lugar de `<connection_string>`. (Essa variável de ambiente significa que você não precisa fornecer a cadeia de conexão para cada comando posterior usando o argumento `--connection-string`.)
 
-    # <a name="bashtabbash"></a>[Bash](#tab/bash)
+    # <a name="bash"></a>[Bash](#tab/bash)
     
     ```bash
     AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     $env:AZURE_STORAGE_CONNECTION_STRING = "<connection_string>"
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```cmd
     set AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
@@ -899,19 +899,19 @@ Veja a fila no [portal do Azure](../storage/queues/storage-quickstart-queues-por
     
 1. (Opcional) Use o comando [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) para ver as filas de armazenamento em sua conta. A saída desse comando deve incluir uma fila chamada `outqueue`, que foi criada quando a função gravou a primeira mensagem nessa fila.
     
-    # <a name="bashtabbash"></a>[Bash](#tab/bash)
+    # <a name="bash"></a>[Bash](#tab/bash)
     
     ```azurecli
     az storage queue list --output tsv
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```azurecli
     az storage queue list --output tsv
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```azurecli
     az storage queue list --output tsv
@@ -921,19 +921,19 @@ Veja a fila no [portal do Azure](../storage/queues/storage-quickstart-queues-por
 
 1. Use o comando [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) para exibir as mensagens nessa fila, que deve ser o primeiro nome usado ao testar a função anteriormente. O comando recupera a primeira mensagem na fila na [codificação de Base64](functions-bindings-storage-queue.md#encoding), de modo que você também precisará decodificar a mensagem para exibi-la como texto.
 
-    # <a name="bashtabbash"></a>[Bash](#tab/bash)
+    # <a name="bash"></a>[Bash](#tab/bash)
     
     ```bash
     echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}')))
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     Como você precisa desreferenciar a coleção de mensagens e decodificar da Base64, execute o PowerShell e use o comando do PowerShell.
 

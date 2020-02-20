@@ -1,5 +1,5 @@
 ---
-title: Failover e recuperação de desastre do StorSimple para dispositivos da série 8000 | Microsoft Docs
+title: Failover e recuperação de desastre para o mesmo dispositivo StorSimple 8000
 description: Saiba como fazer failover de seu dispositivo StorSimple para o mesmo dispositivo.
 services: storsimple
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2017
 ms.author: alkohli
-ms.openlocfilehash: dd207eaad1a3e821724d51a890d0882bfffda131
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c8fe2d7ec7649f47f6cb9c8ae2c83f19c15691b6
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60577274"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471798"
 ---
 # <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>Fazer failover de seu dispositivo físico StorSimple para o próprio dispositivo
 
@@ -32,7 +32,7 @@ Para saber mais sobre o failover de dispositivo e como ele é usado para recuper
 Para fazer failover de um dispositivo físico para outro, acesse [Fazer failover para o mesmo dispositivo físico StorSimple](storsimple-8000-device-failover-physical-device.md). Para fazer failover de um dispositivo físico StorSimple para um Dispositivo de Nuvem StorSimple, acesse [Fazer failover para um Dispositivo de Nuvem StorSimple](storsimple-8000-device-failover-cloud-appliance.md).
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Não deixe de revisar as considerações de failover de dispositivo. Para obter mais informações, acesse [Considerações comuns para failover de dispositivo](storsimple-8000-device-failover-disaster-recovery.md).
 
@@ -50,7 +50,7 @@ Execute as etapas a seguir se precisar fazer failover para o mesmo dispositivo.
 4. Configure o seu dispositivo e registre-o novamente no serviço do Gerenciador de Dispositivos do StorSimple. Os dispositivos recém-registrados devem aparecer como **Pronto para ser configurado**. O nome do novo dispositivo é o mesmo que o do dispositivo antigo, porém acrescido com um número para indicar que o dispositivo foi redefinido para o padrão de fábrica e registrado novamente.
 
     ![Dispositivo recém-registrado pronto para ser configurado](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev3.png)
-5. Conclua a configuração do novo dispositivo. Para obter mais informações, acesse [Etapa 4: Instalação mínima do dispositivo concluída](storsimple-8000-deployment-walkthrough-u2.md#step-4-complete-minimum-device-setup). Na folha **Dispositivos**, o status do dispositivo muda para **Online**.
+5. Conclua a configuração do novo dispositivo. Para obter mais informações, acesse [Etapa 4: concluir a configuração mínima de dispositivo](storsimple-8000-deployment-walkthrough-u2.md#step-4-complete-minimum-device-setup). Na folha **Dispositivos**, o status do dispositivo muda para **Online**.
 
    > [!IMPORTANT]
    > **Conclua primeiramente a configuração mínima, caso contrário a recuperação de desastre pode falhar.**

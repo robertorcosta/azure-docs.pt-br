@@ -2,21 +2,18 @@
 title: Tarefas de administrador da conta no portal do Azure
 description: Descreve como executar operações de pagamento no portal do Azure
 author: bandersmsft
-manager: judupont
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 2f858fa7715145d55cf1c978b9c368e1f6586dce
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 5d48f6e02719bbf647cdbf800550d73ce83a018f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132127"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200992"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Tarefas de administrador da conta no portal do Azure
 
@@ -25,35 +22,35 @@ Este artigo explica como executar as seguintes tarefas no portal do Azure:
 - Remover o limite de gastos da sua assinatura
 - Adicionar créditos à sua assinatura Azure via Open
 
-Você deve ser o administrador da conta para executar qualquer uma dessas tarefas. 
+Você deve ser o administrador da conta para executar qualquer uma dessas tarefas.
 
 ## <a name="navigate-to-your-subscriptions-payment-methods"></a>Navegar até os métodos de pagamento da sua assinatura
 
-1. Entre no [Portal do Azure](https://portal.azure.com) como Administrador da Conta. 
+1. Entre no [Portal do Azure](https://portal.azure.com) como Administrador da Conta.
 
 1. Pesquise **Gerenciamento de Custos + Cobrança**.
-    
+
     ![Captura de tela que mostra a pesquisa de gerenciamento de custos + cobrança ](./media/account-admin-tasks/search-bar.png)
 
-1. Na lista **Minhas assinaturas**, selecione a assinatura à qual você deseja adicionar o cartão de crédito. 
-   
+1. Na lista **Minhas assinaturas**, selecione a assinatura à qual você deseja adicionar o cartão de crédito.
+
    ![Captura de tela que mostra a grade de minhas assinaturas em visão geral](./media/account-admin-tasks/cost-management-billing-overview-x.png)
-   
+
    > [!NOTE]
-   > Caso não veja algumas de suas assinaturas aqui, pode ser porque você alterou o diretório de assinatura em algum momento. Para essas assinaturas, você precisa alternar o diretório para o diretório original (o diretório no qual você se inscreveu inicialmente). Em seguida, repita a etapa 2. 
+   > Caso não veja algumas de suas assinaturas aqui, pode ser porque você alterou o diretório de assinatura em algum momento. Para essas assinaturas, você precisa alternar o diretório para o diretório original (o diretório no qual você se inscreveu inicialmente). Em seguida, repita a etapa 2.
 
 1. Selecione **Formas de pagamento**.
 
     ![Captura de tela que mostra a folha das formas de pagamento selecionada.](./media/account-admin-tasks/subscription-payment-methods-blade.png)
 
-Aqui você pode adicionar um novo cartão de crédito, alterar o método de pagamento ativo, editar os detalhes e excluir cartões de crédito. 
+Aqui você pode adicionar um novo cartão de crédito, alterar o método de pagamento ativo, editar os detalhes e excluir cartões de crédito.
 
 ### <a name="change-active-payment-method"></a>Alterar o método de pagamento ativo
 
 É possível alterar o método de pagamento ativo adicionando um novo cartão de crédito ou escolhendo um que já esteja salvo. Para alterar o método de pagamento ativo para um novo cartão de crédito:
 
 1. No canto superior esquerdo, selecione "+" para adicionar um cartão de crédito.
-    
+
     ![Captura de tela que mostra o sinal de mais](./media/account-admin-tasks/subscription-payment-methods-plus.png)
 
 1. Insira os detalhes do cartão de crédito no formulário à direita.
@@ -111,7 +108,7 @@ Se você quiser ser aprovado para pagar por fatura, confira [Saiba como pagar po
 
 ### <a name="edit-invoice-payment-address"></a>Editar o endereço de pagamento da fatura
 
-Para editar o endereço do seu método de pagamento da fatura, clique em **Fatura** na lista de métodos de pagamento da sua assinatura. O formulário de endereço será aberto à direita. 
+Para editar o endereço do seu método de pagamento da fatura, clique em **Fatura** na lista de métodos de pagamento da sua assinatura. O formulário de endereço será aberto à direita.
 
 ## <a name="remove-spending-limit"></a>Remover o limite de gastos
 
@@ -124,15 +121,15 @@ O limite de gastos não está disponível para assinaturas com planos de comprom
 
     ![Captura de tela que mostra a pesquisa de gerenciamento de custos + cobrança ](./media/account-admin-tasks/search-bar.png)
 
-1. Na lista **Minhas assinaturas**, selecione sua assinatura do Visual Studio Enterprise. 
+1. Na lista **Minhas assinaturas**, selecione sua assinatura do Visual Studio Enterprise.
 
    ![Captura de tela que mostra a grade de minhas assinaturas em visão geral](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
 
     > [!NOTE]
     > Caso não veja algumas de suas assinaturas do Visual Studio aqui, pode ser porque você alterou um diretório de assinatura em algum momento. Para essas assinaturas, você precisa alternar o diretório para o diretório original (o diretório no qual você se inscreveu inicialmente). Em seguida, repita a etapa 2.
-    
+
 1. Na visão geral da Assinatura, clique na faixa laranja para remover o limite de gastos.
-    
+
     ![Captura de tela que mostra a faixa remover o limite de gastos](./media/account-admin-tasks/msdn-remove-spending-limit-banner-x.png)
 
 1. Escolha se deseja remover o limite de gastos indefinidamente ou apenas para o período de cobrança atual.
@@ -152,15 +149,15 @@ Se você tiver uma assinatura Azure no Licenciamento Open, poderá adicionar cr�
 
     ![Captura de tela que mostra a pesquisa de gerenciamento de custos + cobrança ](./media/account-admin-tasks/search-bar.png)
 
-1. Na lista **Minha assinaturas**, selecione sua assinatura Azure via Open. 
+1. Na lista **Minha assinaturas**, selecione sua assinatura Azure via Open.
 
     ![Captura de tela que mostra a grade de minhas assinaturas em visão geral](./media/account-admin-tasks/cost-management-overview-aio-x.png)
 
    > [!NOTE]
    > Caso não veja sua assinatura aqui, pode ser porque você alterou o diretório em algum momento. É necessário alternar o diretório da assinatura para o diretório original (o diretório no qual você se inscreveu inicialmente). Em seguida, repita a etapa 2.
-    
+
 1. Selecione **Histórico de crédito**.
-    
+
     ![Captura de tela que mostra o histórico de crédito](./media/account-admin-tasks/aio-credit-history-blade.png)
 
 1. No canto superior esquerdo, selecione "+" para adicionar mais crédito.
@@ -168,7 +165,7 @@ Se você tiver uma assinatura Azure no Licenciamento Open, poderá adicionar cr�
     ![Captura de tela que mostra o botão adicionar créditos](./media/account-admin-tasks/aio-credit-history-plus.png)
 
 1. Selecione um tipo de método de pagamento na lista suspensa. Você pode adicionar uma chave do produto ou comprar créditos com um cartão de crédito.
-    
+
     ![Captura de tela da lista suspensa do método de pagamento na folha adicionar créditos](./media/account-admin-tasks/add-credits-select-payment-method.png)
 
 1. Se você escolheu chave do produto:

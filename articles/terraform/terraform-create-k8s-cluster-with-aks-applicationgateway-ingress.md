@@ -3,12 +3,12 @@ title: Tutorial – Criar um controlador de entrada do Gateway de Aplicativo no 
 description: Tutorial que ilustra como criar um cluster Kubernetes com o Serviço de Kubernetes do Azure usando o Gateway de Aplicativo como controlador de entrada
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: da9768c8b2ad854b116ef1b9eab801661f547bfa
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: b16b0a40d14ecde87b2637976299d05d37d706f3
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772867"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472257"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Tutorial: Criar um controlador de entrada do Gateway de Aplicativo no Serviço de Kubernetes do Azure
 
@@ -25,11 +25,11 @@ Neste tutorial, você aprenderá a fazer as seguintes tarefas:
 > * Usar o Terraform e o AKS para criar um cluster do Kubernetes.
 > * Usar a ferramenta kubectl para testar a disponibilidade de um cluster do Kubernetes.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-- **Configurar o Terraform**: Siga as instruções no artigo [Terraform e configurar o acesso ao Azure](/azure/virtual-machines/linux/terraform-install-configure)
+- **Configurar o Terraform**: Siga as instruções no artigo [Terraform e configurar o acesso ao Azure](terraform-install-configure.md)
 
 - **Grupo de recursos do Azure**: se você não tiver um grupo de recursos do Azure a ser usado para a demonstração, [crie um grupo de recursos do Azure](/azure/azure-resource-manager/manage-resource-groups-portal#create-resource-groups). Anote o nome e o local do grupo de recursos, pois esses valores são usados na demonstração.
 

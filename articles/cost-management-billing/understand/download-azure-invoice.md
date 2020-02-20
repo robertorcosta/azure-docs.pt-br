@@ -3,21 +3,18 @@ title: Exibir e baixar sua fatura do Microsoft Azure
 description: Descreve como exibir e baixar sua fatura do Microsoft Azure.
 keywords: fatura de cobrança, download de fatura, fatura do Azure, uso do Azure
 author: bandersmsft
-manager: jureid
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 0f413d38565202d379c81570b5cb169c2ed8effe
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 691d27acebf238e84265870e8c01976bfc2412b2
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75987818"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200258"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Exibir e baixar sua fatura do Microsoft Azure
 
@@ -87,7 +84,7 @@ Para cancelar o recebimento de sua fatura por email, siga as etapas anteriores e
 <!-- Does following section apply to MPA too? -->
 ## <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Receber as faturas do Contrato de Cliente da Microsoft no email
 
-Se você tiver uma conta de cobrança para o Contrato de Cliente da Microsoft, poderá aceitar receber sua fatura em um email. Todos os usuários com uma função de proprietário, colaborador, leitor ou gerenciador de faturas em um perfil de cobrança receberão as respectivas faturas por email. 
+Se você tiver uma conta de cobrança para o Contrato de Cliente da Microsoft, poderá aceitar receber sua fatura em um email. Todos os usuários com uma função de proprietário, colaborador, leitor ou gerenciador de faturas em um perfil de cobrança receberão as respectivas faturas por email.
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
@@ -109,11 +106,11 @@ Se você tiver uma conta de cobrança para o Contrato de Cliente da Microsoft, p
 
 ## <a name="opt-out-of-getting-your-microsoft-customer-agreement-invoices-in-email"></a>Cancelar o recebimento de suas faturas de Contrato de Cliente da Microsoft no email
 
-Para cancelar o recebimento de sua fatura por email, siga as etapas anteriores e clique em **Recusar**. Todos os usuários com uma função de proprietário, colaborador, leitor ou gerenciador de faturas têm configurada por padrão a recusa do recebimento da fatura por email. 
+Para cancelar o recebimento de sua fatura por email, siga as etapas anteriores e clique em **Recusar**. Todos os usuários com uma função de proprietário, colaborador, leitor ou gerenciador de faturas têm configurada por padrão a recusa do recebimento da fatura por email.
 
 ## <a name="give-others-access-to-your-microsoft-customer-agreement-invoices"></a>Permitir que outras pessoas acessem as suas faturas do Contrato de Cliente da Microsoft
 
-Você pode permitir que outras pessoas tenham acesso para exibir, baixar e pagar faturas atribuindo-lhes a função de gerenciador de faturas para um perfil de cobrança. Se você tiver aceito obter sua fatura por email, esses usuários também receberão as notas fiscais por email. 
+Você pode permitir que outras pessoas tenham acesso para exibir, baixar e pagar faturas atribuindo-lhes a função de gerenciador de faturas para um perfil de cobrança. Se você tiver aceito obter sua fatura por email, esses usuários também receberão as notas fiscais por email.
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 

@@ -4,12 +4,12 @@ description: Introdução ao uso do Ansible para automatizar o provisionamento d
 keywords: ansible, azure, devops, visão geral, provisionamento de nuvem, gerenciamento de configuração, implantação de aplicativo, módulos ansible, manuais do ansible
 ms.topic: overview
 ms.date: 04/30/2019
-ms.openlocfilehash: eab2a44257c6769106124c4c9ab6711ba3be531e
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: e9d5b8858f052083b157c7d4809fe21018518bcd
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74155787"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193558"
 ---
 # <a name="using-ansible-with-azure"></a>Usando Ansible com o Azure
 
@@ -57,4 +57,4 @@ O Ansible inclui um conjunto de módulos para uso no provisionamento e configura
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Início Rápido: Implantar o modelo de solução Ansible para Azure para o CentOS](./ansible-deploy-solution-template.md)
-- [Início Rápido: Configurar máquinas virtuais do Linux no Azure usando o Ansible](/azure/virtual-machines/linux/ansible-install-configure?toc=%2Fazure%2Fansible%2Ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json)
+- [Início Rápido: Configurar máquinas virtuais do Linux no Azure usando o Ansible](./ansible-install-configure.md)

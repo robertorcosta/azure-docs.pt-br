@@ -1,19 +1,18 @@
 ---
 title: Entender como o desconto de reserva é aplicado ao Azure Data Explorer
 description: Entenda como o desconto de reserva é aplicado ao medidor de marcação do Azure Data Explorer.
-services: data-explorer
 author: avneraa
 ms.author: avnera
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 11/03/2019
-ms.openlocfilehash: 88ab9c475d417bc935cf5d2d67f1678794fb74d1
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/12/2020
+ms.openlocfilehash: ab107a0afe8be1d95de8dafb21f239e6da733271
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75995618"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199323"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Entender como o desconto de reserva é aplicado ao Azure Data Explorer
 
@@ -36,23 +35,23 @@ Um desconto de reserva é aplicado ao consumo de marcação do Azure Data Explor
 ## <a name="examples"></a>Exemplos
 
 Os exemplos a seguir mostram como é a aplicação do desconto de capacidade reservada do Azure Data Explorer, dependendo do número de unidades de marcação que você comprou e de quando estão em execução.
-Por exemplo, para o tamanho do cluster do mecanismo: **2 VMs D11_v2**, seu total de encargos sob demanda é para quatro unidades de medidor de marcação do Azure Data Explorer por hora. 
+Por exemplo, para o tamanho do cluster do mecanismo: **2 VMs D11_v2**, seu total de encargos sob demanda é para quatro unidades de medidor de marcação do Azure Data Explorer por hora.
 
-**Cenário 1** 
+**Cenário 1**
 
 Você compra uma capacidade reservada do Azure Data Explorer para oito unidades de marcação do Azure Data Explorer. Você executa um cluster de mecanismos de duas VMs D13_v2 com um total de 16 núcleos, que cobra por 16 unidades de marcação do Azure Data Explorer por hora, e corresponde ao restante dos atributos da reserva. Você é cobrado pelo preço pago conforme o uso por oito núcleos de uso de computação do Azure Data Explorer e obtém o desconto de reserva por uma hora dos oito núcleos de uso de unidade de marcação do Azure Data Explorer.
 
 Para o restante desses exemplos, suponha que a capacidade reservada do Azure Data Explorer comprada por você seja para um cluster do Azure Data Explorer de 16 núcleos, e o restante dos atributos de reserva corresponde ao cluster do Azure Data Explorer em execução.
 
-**Cenário 2** 
+**Cenário 2**
 
 Você executa dois clusters do mecanismo Azure Data Explorer com oito núcleos cada por uma hora em duas regiões diferentes. O desconto de reserva de 16 núcleos é aplicado para o cluster e para as 16 unidades de marcação do Azure Data Explorer que eles consomem.
 
-**Cenário 3** 
+**Cenário 3**
 
 Você executa um cluster de mecanismo do Azure Data Explorer de 16 núcleos das 13h às 13h30. Você executa outro cluster de mecanismo do Azure Data Explorer de 16 núcleos das 13h30 às 14h. Ambos são cobertas pelo desconto de reserva.
 
-**Cenário 4** 
+**Cenário 4**
 
 Você executa um cluster de mecanismo do Azure Data Explorer de 16 núcleos das 13h às 13h45. Você executa outro cluster de mecanismo do Azure Data Explorer de 16 núcleos das 13h30 às 14h. Você é cobrado o preço pago conforme o uso para a sobreposição de 15 minutos. O desconto de reserva se aplica ao uso de marcação do Azure Data Explorer para o restante do tempo.
 

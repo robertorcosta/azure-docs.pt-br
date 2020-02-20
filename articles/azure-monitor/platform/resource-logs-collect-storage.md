@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: e99a0e8e42bcfb5c7967a9cb1c91631bacbea53a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f4109359adaaeae0a1ba027ac04439ff60b5a939
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980066"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467174"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Arquivar logs de recursos do Azure para a conta de armazenamento
 [Os logs de plataforma](platform-logs-overview.md) no Azure, incluindo logs de recursos e log de atividades do Azure, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem.  Este artigo descreve como coletar logs de plataforma para uma conta de armazenamento do Azure para reter dados para arquivamento.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Você precisará [criar uma conta de armazenamento do Azure](../../storage/common/storage-account-create.md) se ainda não tiver uma. A conta de armazenamento não precisa estar na mesma assinatura que o recurso que envia logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
 
 
@@ -33,7 +33,7 @@ Envie logs da plataforma para o armazenamento e outros destinos criando uma conf
 
 
 ## <a name="collect-data-from-compute-resources"></a>Coletar dados de recursos de computação
-As configurações de diagnóstico coletarão logs de recursos para recursos de computação do Azure como qualquer outro recurso, mas não seu sistema operacional convidado ou cargas de trabalho. Para coletar esses dados, instale o [agente de diagnóstico do Azure do Windows](diagnostics-extension-overview.md). Consulte [armazenar e exibir dados de diagnóstico no armazenamento do Azure](diagnostics-extension-to-storage.md) para obter detalhes.
+As configurações de diagnóstico coletarão logs de recursos para recursos de computação do Azure como qualquer outro recurso, mas não seu sistema operacional convidado ou cargas de trabalho. Para coletar esses dados, instale o [agente de diagnóstico do Azure do Windows](diagnostics-extension-overview.md). 
 
 
 ## <a name="schema-of-platform-logs-in-storage-account"></a>Esquema de logs de plataforma na conta de armazenamento
@@ -61,7 +61,7 @@ No arquivo PT1H. JSON, cada evento é armazenado com o formato a seguir. Isso us
 > [!NOTE]
 > Os logs de plataforma são gravados no armazenamento de BLOB usando [linhas JSON](http://jsonlines.org/), em que cada evento é uma linha e o caractere de linha nova indica um novo evento. Esse formato foi implementado em novembro de 2018. Antes dessa data, os logs foram gravados no armazenamento de blob como uma matriz JSON de registros, conforme descrito em [preparar para a alteração de formato para Azure monitor os logs de plataforma arquivados em uma conta de armazenamento](resource-logs-blob-format.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Leia mais sobre os logs de recursos](platform-logs-overview.md).
 * [Crie a configuração de diagnóstico para coletar logs e métricas no Azure](diagnostic-settings.md).

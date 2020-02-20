@@ -5,12 +5,12 @@ ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 07/19/2019
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: 6d09453db0fdf8c09ad6d90c63b27f48508302be
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b343adeed5abeecdf55f71f8bc4298659a106e09
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230703"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198387"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Criar sua primeira função usando o Visual Studio
 
@@ -32,7 +32,7 @@ Para concluir este tutorial, é necessário instalar primeiro o [Visual Studio 2
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-O Visual Studio cria um projeto e uma classe que contém o código clichê do tipo de função do gatilho HTTP. O atributo `FunctionName` no método define o nome da função, que é `HttpTrigger` por padrão. O atributo `HttpTrigger` especifica que a função é disparada por uma solicitação HTTP. O código padronizado envia uma resposta HTTP que inclui um valor do corpo de solicitação ou da cadeia de consulta.
+O Visual Studio cria um projeto e uma classe que contém o código clichê do tipo de função do gatilho HTTP. O atributo `FunctionName` no método define o nome da função, que é `Function1` por padrão. O atributo `HttpTrigger` especifica que a função é disparada por uma solicitação HTTP. O código padronizado envia uma resposta HTTP que inclui um valor do corpo de solicitação ou da cadeia de consulta.
 
 É possível estender as funcionalidades de sua função usando associações de entrada e de saída aplicando os atributos adequados ao método. Para obter mais informações, consulte a seção [Gatilhos e associações](functions-dotnet-class-library.md#triggers-and-bindings) da [referência do desenvolvedor C# do Azure Functions](functions-dotnet-class-library.md).
 

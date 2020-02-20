@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/10/2020
+ms.date: 02/13/2020
 ms.author: dacoulte
-ms.openlocfilehash: 31f91d403da76c5f513f44c609fa12d153700c53
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: ae4b2a434f8f78770ba05bd90610e33b1f3fbf5e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77170024"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77370947"
 ---
-|Nome |Descrição |Efeito(s) |Versão |
+|Nome |Descrição |Efeito(s) |Versão |Fonte |
 |---|---|---|---|
-|[Implantar a Proteção Avançada contra Ameaças em Contas do Cosmos DB](https://github.com/Azure/azure-policy/blob/masterbuilt-in-policies/policyDefinitions/Cosmos%20DB/CosmosDbAdvancedThreatProtection_Deploy.json) |Essa política habilita a Proteção Avançada contra Ameaças em contas do Cosmos DB. |DeployIfNotExists, desabilitado |1.0.0 |
+|[Implantar a Proteção Avançada contra Ameaças em Contas do Cosmos DB](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb5f04e03-92a3-4b09-9410-2cc5e5047656) |Essa política habilita a Proteção Avançada contra Ameaças em contas do Cosmos DB. |DeployIfNotExists, desabilitado |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/CosmosDbAdvancedThreatProtection_Deploy.json)

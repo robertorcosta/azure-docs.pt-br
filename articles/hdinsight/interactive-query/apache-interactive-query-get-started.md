@@ -8,16 +8,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 09/17/2019
-ms.openlocfilehash: 3e0fddc03ad880d36876276827198b0ac180a00d
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: f03797a8c7df1609a32f934bc090c7adc899aa9a
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076370"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198915"
 ---
 # <a name="what-is-interactive-query-in-azure-hdinsight"></a>O que é a Consulta Interativa no HDInsight
 
-Consulta Interativa (também chamado Apache Hive LLAP ou [Processamento Analítico de Baixa Latência](https://cwiki.apache.org/confluence/display/Hive/LLAP)) é um [tipo de cluster do Azure HDInsight](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). A Consulta Interativa dá suporte ao cache na memória, o que torna as consultas do Apache Hive mais rápidas e muito mais interativas. Os clientes usam a consulta interativa para consultar dados armazenados no armazenamento do Azure e no Azure Data Lake Storage de modo extremamente rápido. A consulta interativa torna facilita o trabalho de cientista de dados e desenvolvedores com big data usando as ferramentas de BI que eles mais gostam. A Consulta interativa do HDInsight oferece suporte a várias ferramentas para acessar big data de maneira fácil.
+Consulta Interativa (também chamado Apache Hive LLAP ou [Processamento Analítico de Baixa Latência](https://cwiki.apache.org/confluence/display/Hive/LLAP)) é um [tipo de cluster do Azure HDInsight](../hdinsight-hadoop-provision-linux-clusters.md#cluster-type). A Consulta Interativa dá suporte ao cache na memória, o que torna as consultas do Apache Hive mais rápidas e muito mais interativas. Os clientes usam a consulta interativa para consultar dados armazenados no armazenamento do Azure e no Azure Data Lake Storage de modo extremamente rápido. A consulta interativa torna facilita o trabalho de cientista de dados e desenvolvedores com big data usando as ferramentas de BI que eles mais gostam. A Consulta interativa do HDInsight oferece suporte a várias ferramentas para acessar big data de maneira fácil.
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 

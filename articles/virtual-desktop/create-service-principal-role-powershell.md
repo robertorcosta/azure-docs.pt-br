@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
-ms.openlocfilehash: 1141731697c9f649a4a8d4052cd550605049b52e
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 1e26af6c4bf86cfd412df7435379e610ffd69e85
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606949"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367425"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Tutorial: Criar entidades de serviço e atribuições de função usando o PowerShell
 
@@ -38,7 +38,7 @@ Antes de criar entidades de serviço e atribuições de função, você precisar
     Install-Module AzureAD
     ```
 
-2. [Baixe e importe o módulo do PowerShell da Área de Trabalho Virtual do Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview).
+2. [Baixe e importe o módulo do PowerShell da Área de Trabalho Virtual do Windows](/powershell/windows-virtual-desktop/overview/).
 
 3. Siga todas as instruções deste artigo na mesma sessão do PowerShell. O processo poderá não funcionar se você interromper a sessão do PowerShell fechando a janela e reabrindo-a mais tarde.
 
@@ -80,7 +80,7 @@ Estas são as três credenciais que você deverá anotar e os cmdlets que você 
 
 Em seguida, você precisa criar uma atribuição de função para que a entidade de serviço possa entrar na Área de Trabalho Virtual do Windows. Entre com uma conta que tenha permissões para criar atribuições de função.
 
-Primeiro, [baixe e importe o módulo do PowerShell da Área de Trabalho Virtual do Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) para usá-lo na sessão do PowerShell, caso ainda não tenha feito isso.
+Primeiro, [baixe e importe o módulo do PowerShell da Área de Trabalho Virtual do Windows](/powershell/windows-virtual-desktop/overview/) para usá-lo na sessão do PowerShell, caso ainda não tenha feito isso.
 
 Execute os cmdlets do PowerShell a seguir para se conectar à Área de Trabalho Virtual do Windows e exibir seus locatários.
 

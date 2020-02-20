@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: tagore
-ms.openlocfilehash: 16b0727a78ad8ad582535fa1f5b0e57079cc4c05
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3b4028a09f69acd5d7a6579b4610785ed32e227d
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385579"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469520"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Coletar contadores de desempenho para o Serviço de Nuvem do Azure
 
@@ -76,7 +76,7 @@ Esses caminhos de contador individuais podem ser adicionados à estrutura de dia
 
 Um contador de desempenho pode ser adicionado ao serviço de nuvem para o Diagnóstico do Azure ou Application Insights.
 
-### <a name="application-insights"></a>Percepções sobre o Aplicativo
+### <a name="application-insights"></a>Application Insights
 
 O Azure Application Insights para Serviços de Nuvem permite especificar quais contadores de desempenho deseja coletar. Após [Adicionar o Application Insights ao seu projeto ](../azure-monitor/app/cloudservices.md#sdk), um arquivo de configuração nomeado **ApplicationInsights.config** será adicionado ao seu projeto do Visual Studio. Este arquivo de configuração define o tipo de informação que Application Insights coleta e envia para o Azure.
 
@@ -121,7 +121,7 @@ A extensão do Diagnóstico do Azure para os Serviços de Nuvem permite que voc�
 
 Os contadores de desempenho que deseja coletar estão definidos no arquivo **diagnostics.wadcfgx**. Abra esse arquivo (definido por função) no Visual Studio e localize o elemento **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters**. Adicione um novo elemento **PerformanceCounterConfiguration** como um elemento filho. Esse elemento possui dois atributos: `counterSpecifier` e `sampleRate`. O atributo `counterSpecifier` define qual conjunto de contador de desempenho do sistema (descrito na seção anterior) coletar. O valor `sampleRate` indica a frequência de sondagem desse valor. Como um todo, todos os contadores de desempenho são transferidos para o Azure de acordo com o valor do atributo do `PerformanceCounters` elemento`scheduledTransferPeriod` pai.
 
-Para obter mais informações sobre o elemento de esquema `PerformanceCounters`, consulte o [Esquema do Diagnóstico do Azure](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element).
+Para obter mais informações sobre o elemento de esquema `PerformanceCounters`, consulte o [Esquema do Diagnóstico do Azure](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element).
 
 O período definido pelo atributo `sampleRate` utiliza o tipo de dados de duração XML para indicar a frequência de sondagem do contador de desempenho. No exemplo abaixo, a taxa está definida para `PT3M`, que significa `[P]eriod[T]ime[3][M]inutes`: a cada três minutos.
 
@@ -234,7 +234,7 @@ counterServiceUsed.Increment();
 Agora que o aplicativo utiliza o contador personalizado, será necessário configurar o Diagnóstico do Azure ou o Application Insights para acompanhar o contador.
 
 
-### <a name="application-insights"></a>Percepções sobre o Aplicativo
+### <a name="application-insights"></a>Application Insights
 
 Conforme indicado anteriormente, os contadores de desempenho para o Application Insights são definidos no arquivo **ApplicationInsights.config**. Abra **ApplicationInsights.config** e localize o elemento **ApplicationInsights** > **TelemetryModules** > **Adicionar** > **Contadores**. Crie um elemento-filho `<Add>` e defina o atributo `PerformanceCounter` para a categoria e o nome do contador de desempenho que você criou em seu código. Defina o atributo `ReportAs` como um nome amigável que deseja ver no portal.
 
@@ -291,7 +291,7 @@ Como indicado anteriormente, os contadores de desempenho que você deseja coleta
 - [Application Insights para Serviços de Nuvem do Azure](../azure-monitor/app/cloudservices.md#performance-counters)
 - [Contadores de desempenho do sistema no Application Insights](../azure-monitor/app/performance-counters.md)
 - [Especificar um Caminho do Contador](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
-- [Esquema do Diagnóstico do Azure - Contadores de Desempenho](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)
+- [Esquema do Diagnóstico do Azure - Contadores de Desempenho](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element)
 
 
 

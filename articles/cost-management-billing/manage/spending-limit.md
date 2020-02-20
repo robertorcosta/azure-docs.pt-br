@@ -2,21 +2,18 @@
 title: Limite de gastos do Azure | Microsoft Docs
 description: Este artigo descreve como funciona o limite de gastos do Azure e como removê-lo.
 author: bandersmsft
-manager: judupont
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: bde3c142fa0f4f69948a9ff1df61d77f06d2b430
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: ef1ed399f2ed3401612543b3dcaf94dfbafb6715
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188352"
+ms.locfileid: "77200547"
 ---
 # <a name="azure-spending-limit"></a>Limite de gastos do Azure
 
@@ -47,21 +44,21 @@ Se você tiver uma conta gratuita do Azure, confira [Atualizar sua assinatura do
 
     ![Captura de tela que mostra a pesquisa de gerenciamento de custos + cobrança ](./media/spending-limit/search-bar.png)
 
-1. Na lista **Minhas assinaturas**, selecione sua assinatura. Por exemplo, *Visual Studio Enterprise*. 
+1. Na lista **Minhas assinaturas**, selecione sua assinatura. Por exemplo, *Visual Studio Enterprise*.
 
    ![Captura de tela que mostra a grade de minhas assinaturas em visão geral](./media/spending-limit/cost-management-overview-msdn-x.png)
 
     > [!NOTE]
     > Caso não veja algumas de suas assinaturas do Visual Studio aqui, pode ser porque você alterou um diretório de assinatura em algum momento. Para essas assinaturas, você precisa alternar o diretório para o diretório original (o diretório no qual você se inscreveu inicialmente). Em seguida, repita a etapa 2.
-    
+
 1. Na visão geral da Assinatura, clique na faixa laranja para remover o limite de gastos.
-    
+
     ![Captura de tela que mostra a faixa remover o limite de gastos](./media/spending-limit/msdn-remove-spending-limit-banner-x.png)
 
 1. Escolha se deseja remover o limite de gastos indefinidamente ou apenas para o período de cobrança atual.
-    
+
       ![Captura de tela que mostra a folha remover o limite de gastos](./media/spending-limit/remove-spending-limit-blade-x.png)
-    
+
       | Opção | Efeito |
       | --- | --- |
       | Remover o limite de gastos indefinidamente | O limite de gastos não reativa automaticamente no início do próximo período de cobrança. No entanto, você pode recomeçá-lo a qualquer momento. |
@@ -91,13 +88,13 @@ Esse recurso só está disponível quando o limite de gastos é removido por tem
 
     ![Captura de tela que mostra a pesquisa de gerenciamento de custos + cobrança ](./media/spending-limit/search-bar.png)
 
-1. Na lista **Minhas assinaturas**, selecione sua assinatura. Por exemplo, *Visual Studio Enterprise*. 
+1. Na lista **Minhas assinaturas**, selecione sua assinatura. Por exemplo, *Visual Studio Enterprise*.
 
    ![Captura de tela que mostra a grade de minhas assinaturas em visão geral](./media/spending-limit/cost-management-overview-msdn-x.png)
 
     > [!NOTE]
     > Caso não veja algumas de suas assinaturas do Visual Studio aqui, pode ser porque você alterou um diretório de assinatura em algum momento. Para essas assinaturas, você precisa alternar o diretório para o diretório original (o diretório no qual você se inscreveu inicialmente). Em seguida, repita a etapa 2.
-    
+
 1. Na visão geral da Assinatura, clique na faixa na parte superior da página para reativar o limite de gastos.
 
 ## <a name="custom-spending-limit"></a>Limite de gastos personalizado
