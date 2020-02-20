@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/26/2019
 ms.author: glenga
-ms.openlocfilehash: ca576290ea511dc54b89ecebef72ca2a42e9169f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4fe159660421113e0f0ac0586ae7e4a22d5bcda7
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329585"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77474211"
 ---
 ### <a name="query-the-storage-queue"></a>Consultar a Fila de armazenamento
 
@@ -30,4 +30,4 @@ echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{M
 A cadeia de caracteres retornada deve ser a mesma que a mensagem enviada para testar a função.
 
 > [!NOTE]  
-> O exemplo anterior decodifica a cadeia de caracteres retornada de base64. Isso ocorre porque as associações de Armazenamento de fila gravam e leem do Armazenamento do Azure como [cadeias de caracteres base64](../articles/azure-functions/functions-bindings-storage-queue.md#encoding).
+> O exemplo anterior decodifica a cadeia de caracteres retornada de base64. Isso ocorre porque as associações de Armazenamento de fila gravam e leem do Armazenamento do Azure como [cadeias de caracteres base64](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#encoding).

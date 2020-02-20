@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 11/07/2019
+ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: e9d5a137247c072516c0b25d7f6147ef48fec248
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 1cf4cc9cf4d98dfca59e01cc264549af3a4d5cb4
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839801"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471781"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Use agendas de manutenção para gerenciar atualizações e manutenção de serviços
 
@@ -55,7 +55,7 @@ Por padrão, todas as instâncias do Azure SQL Data Warehouse criadas recentemen
 
 Para exibir o agendamento de manutenção que foi aplicado ao seu data warehouse, conclua as seguintes etapas:
 
-1.  Entre no [Portal do Azure](https://portal.azure.com/).
+1.  Entre no [portal do Azure](https://portal.azure.com/).
 2.  Selecione o data warehouse que você deseja exibir. 
 3.  O data warehouse selecionado abre a folha de visão geral. O agendamento de manutenção que é aplicado ao data warehouse aparece abaixo do **agendamento de manutenção**.
 
@@ -71,9 +71,9 @@ Um agendamento de manutenção pode ser atualizado ou alterado a qualquer moment
 As janelas principais e secundárias devem ter intervalos de dia separados. Um exemplo é uma janela principal de terça-feira – quinta-feira e um secundário da janela de domingo-sábado.
 
 Para alterar o agendamento de manutenção para seu data warehouse, conclua as seguintes etapas:
-1.  Entre no [Portal do Azure](https://portal.azure.com/).
+1.  Entre no [portal do Azure](https://portal.azure.com/).
 2.  Selecione o data warehouse que você deseja atualizar. A página será aberta na folha de visão geral. 
-3.  Abra a página de configurações de agendamento de manutenção, selecionando o link do **Resumo de agendamento de manutenção (visualização)** na folha de visão geral. Ou, selecione a opção **Agendamento de Manutenção** no menu de recursos do lado esquerdo.  
+3.  Abra a página para configurações de agendamento de manutenção selecionando o link de **Resumo do agendamento de manutenção** na folha visão geral. Ou, selecione a opção **Agendamento de Manutenção** no menu de recursos do lado esquerdo.  
 
     ![Opções da folha Visão geral](media/sql-data-warehouse-maintenance-scheduling/maintenance-change-option.png)
 
@@ -88,7 +88,7 @@ Para alterar o agendamento de manutenção para seu data warehouse, conclua as s
 
    A área do **Resumo de agendamento** na parte inferior da folha é atualizada com base nos valores que você selecionou. 
   
-6. Selecione **Salvar**. Será exibida uma mensagem confirmando que seu novo agendamento agora está ativo. 
+6. Clique em **Salvar**. Será exibida uma mensagem confirmando que seu novo agendamento agora está ativo. 
 
    Se você estiver salvando um agendamento em uma região que não dá suporte a agendamento de manutenção, a seguinte mensagem será exibida. As configurações são salvas e se tornam ativas quando o recurso estiver disponível em sua região selecionada.    
 

@@ -1,6 +1,7 @@
 ---
-title: Problemas usando logs de carregar dados de solução de problemas de disco da caixa de dados do Azure | Microsoft Docs
-description: Descreve como usar os logs e solucionar problemas encontrados ao carregar dados para o disco do Azure Data Box.
+title: Solucionar problemas de carregamentos de dados usando logs
+titleSuffix: Azure Data Box Disk
+description: Descreve como usar os logs e solucionar problemas encontrados ao carregar dados no Disco do Azure Data Box.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,44 +9,44 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: alkohli
-ms.openlocfilehash: deaa9a220ee4d765650779b40742225e300ffdb7
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 7c14988706ef193ef5da868c55f6c4f55e7d98f9
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807517"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471968"
 ---
-# <a name="understand-logs-to-troubleshoot-data-upload-issues-in-azure-data-box-disk"></a>Compreender os logs para solucionar problemas de carregamento de dados no disco do Azure Data Box
+# <a name="understand-logs-to-troubleshoot-data-upload-issues-in-azure-data-box-disk"></a>Entenda os logs para solucionar problemas de carregamento de dados no Disco do Azure Data Box
 
-Este artigo se aplica ao disco do Microsoft Azure Data Box e descreve os problemas que você vê quando você carrega dados no Azure.
+Este artigo se aplica a Microsoft Azure Disco do Data Box e descreve os problemas que você vê ao carregar dados no Azure.
 
-## <a name="about-upload-logs"></a>Sobre como carregar logs
+## <a name="about-upload-logs"></a>Sobre os logs de carregamento
 
-Quando os dados são carregados para o Azure no datacenter, `_error.xml` e `_verbose.xml` arquivos são gerados para cada conta de armazenamento. Esses logs são carregados para a mesma conta de armazenamento que foi usada para carregar dados. 
+Quando os dados são carregados no Azure no datacenter, `_error.xml` e `_verbose.xml` arquivos são gerados para cada conta de armazenamento. Esses logs são carregados para a mesma conta de armazenamento que foi usada para carregar dados. 
 
-Os dois os logs estão no mesmo formato e contêm descrições XML dos eventos ocorridos ao copiar os dados do disco para a conta de armazenamento do Azure.
+Ambos os logs estão no mesmo formato e contêm descrições XML dos eventos que ocorreram ao copiar os dados do disco para a conta de armazenamento do Azure.
 
-O log detalhado contém informações completas sobre o status da operação de cópia para cada blob ou arquivo, enquanto que o log de erros contém apenas as informações para blobs ou arquivos que encontraram erros durante o carregamento.
+O log detalhado contém informações completas sobre o status da operação de cópia para cada BLOB ou arquivo, enquanto o log de erros contém apenas as informações de BLOBs ou arquivos que encontraram erros durante o carregamento.
 
-O log de erros tem a mesma estrutura que o log detalhado, mas filtra operações bem-sucedidas.
+O log de erros tem a mesma estrutura que o log detalhado, mas filtra as operações bem-sucedidas.
 
 ## <a name="download-logs"></a>baixar logs
 
-Execute as seguintes etapas para localizar os logs de upload.
+Execute as etapas a seguir para localizar os logs de carregamento.
 
-1. Se houver erros ao carregar os dados para o Azure, o portal exibe um caminho para a pasta onde se encontram os logs de diagnóstico.
+1. Se houver erros ao carregar os dados no Azure, o portal exibirá um caminho para a pasta onde os logs de diagnóstico estão localizados.
 
-    ![Link logs no portal](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs.png)
+    ![Vincular a logs no portal](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs.png)
 
 2. Vá para **waies**.
 
-    ![erro e logs detalhados](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-1.png)
+    ![logs detalhados e de erro](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-1.png)
 
-Em cada caso, você pode ver os logs de erros e os logs detalhados. Selecione cada log e baixe uma cópia local.
+Em cada caso, você vê os logs de erros e os logs detalhados. Selecione cada log e Baixe uma cópia local.
 
-## <a name="sample-upload-logs"></a>Carregar logs de exemplo
+## <a name="sample-upload-logs"></a>Logs de upload de exemplo
 
-Um exemplo da `_verbose.xml` é mostrado abaixo. Nesse caso, o pedido foi concluído com êxito sem erros.
+Um exemplo de `_verbose.xml` é mostrado abaixo. Nesse caso, o pedido foi concluído com êxito sem erros.
 
 ```xml
 
@@ -90,7 +91,7 @@ Um exemplo da `_verbose.xml` é mostrado abaixo. Nesse caso, o pedido foi conclu
 </DriveLog>
 ```
 
-Para a mesma ordem, uma amostra do `_error.xml` é mostrado abaixo.
+Para a mesma ordem, um exemplo de `_error.xml` é mostrado abaixo.
 
 ```xml
 
@@ -109,13 +110,13 @@ Para a mesma ordem, uma amostra do `_error.xml` é mostrado abaixo.
 </DriveLog>
 ```
 
-Um exemplo da `_error.xml` é mostrada abaixo de onde a ordem em que foi concluída com erros. 
+Um exemplo de `_error.xml` é mostrado abaixo onde o pedido foi concluído com erros. 
 
-Neste caso, o arquivo de erro tem um `Summary` erros de nível de seção e outra seção que contém todos os arquivos. 
+Nesse caso, o arquivo de erro tem uma seção `Summary` e outra seção que contém todos os erros de nível de arquivo. 
 
-O `Summary` contém o `ValidationErrors` e o `CopyErrors`. Nesse caso, 8 arquivos ou pastas foram carregadas para o Azure e não há erros de validação. Quando os dados foram copiados para a conta de armazenamento do Azure, 5 pastas ou arquivos carregados com êxito. O restante de 3 arquivos ou pastas foram renomeadas, de acordo com as convenções de nomenclatura do contêiner do Azure e carregadas com êxito no Azure.
+O `Summary` contém o `ValidationErrors` e o `CopyErrors`. Nesse caso, 8 arquivos ou pastas foram carregados no Azure e não houve erros de validação. Quando os dados foram copiados para a conta de armazenamento do Azure, cinco arquivos ou pastas são carregados com êxito. Os três arquivos ou pastas restantes foram renomeados de acordo com as convenções de nomenclatura de contêiner do Azure e, em seguida, foram carregadas com êxito no Azure.
 
-O status do nível de arquivo estão em `BlobStatus` que descreve as ações tomadas para carregar os blobs. Nesse caso, três contêineres são renomeados porque não cumpre as pastas para o qual os dados foram copiados com as convenções de nomenclatura do Azure para contêineres. Para os blobs carregados nesses contêineres, o nome do novo contêiner, caminho do blob no Azure, o caminho de arquivo inválido original e o tamanho do blob são incluídos.
+O status de nível de arquivo está em `BlobStatus` que descreve as ações executadas para carregar os BLOBs. Nesse caso, três contêineres são renomeados porque as pastas nas quais os dados foram copiados não estão em conformidade com as convenções de nomenclatura do Azure para contêineres. Para os BLOBs carregados nesses contêineres, o novo nome do contêiner, o caminho do blob no Azure, o caminho de arquivo original inválido e o tamanho do blob são incluídos.
     
 ```xml
  <?xml version="1.0" encoding="utf-8"?>
@@ -157,29 +158,29 @@ Os erros gerados ao carregar os dados no Azure são resumidos na tabela a seguir
 
 | Código do erro | DESCRIÇÃO                   |
 |-------------|------------------------------|
-|`None` |  Foi concluída com êxito.           |
+|`None` |  Concluído com êxito.           |
 |`Renamed` | O blob foi renomeado com êxito.   |
-|`CompletedWithErrors` | Upload concluído com erros. Os detalhes dos arquivos de erro são incluídos no arquivo de log.  |
-|`Corrupted`|CRC calculado durante a ingestão de dados não corresponde ao CRC calculado durante o carregamento.  |  
+|`CompletedWithErrors` | Carregamento concluído com erros. Os detalhes dos arquivos em erro são incluídos no arquivo de log.  |
+|`Corrupted`|A CRC computada durante a ingestão de dados não corresponde à CRC computada durante o carregamento.  |  
 |`StorageRequestFailed` | Falha na solicitação de armazenamento do Azure.   |     
 |`LeasePresent` | Este item é concedido e está sendo usado por outro usuário. |
 |`StorageRequestForbidden` |Não foi possível carregar devido a problemas de autenticação. |
-|`ManagedDiskCreationTerminalFailure` | Não foi possível carregar como discos gerenciados. Os arquivos estão disponíveis na conta de armazenamento temporário, como blobs de página. Você pode converter manualmente blobs de página em discos gerenciados.  |
-|`DiskConversionNotStartedTierInfoMissing` | Depois que o arquivo VHD foi copiado fora as pastas de camada de pré-criados, um disco gerenciado não tiver sido criado. O arquivo é carregado como um blob de páginas para a conta de armazenamento temporário, conforme especificado durante a criação do pedido. Você pode convertê-la manualmente em um disco gerenciado.|
-|`InvalidWorkitem` | Não foi possível carregar os dados, pois ele não estiver de acordo com a nomenclatura do Azure e limita as convenções.|
-|`InvalidPageBlobUploadAsBlockBlob` | Carregados como blobs de blocos em um contêiner com o prefixo `databoxdisk-invalid-pb-`.|
-|`InvalidAzureFileUploadAsBlockBlob` | Carregados como blobs de blocos em um contêiner com o prefixo `databoxdisk-invalid-af`-.|
-|`InvalidManagedDiskUploadAsBlockBlob` | Carregados como blobs de blocos em um contêiner com o prefixo `databoxdisk-invalid-md`-.|
-|`InvalidManagedDiskUploadAsPageBlob` |Carregados como blobs de página em um contêiner com o prefixo `databoxdisk-invalid-md-`. |
-|`MovedToOverflowShare` |Arquivos carregados para um novo compartilhamento de tamanho do compartilhamento original excederam o limite de tamanho máximo do Azure. O novo nome de compartilhamento de arquivo tem o nome do original com o sufixo `-2`.   |
-|`MovedToDefaultAzureShare` |Arquivos carregados que não estavam uma parte de qualquer pasta em um compartilhamento de padrão. O nome do compartilhamento começa com `databox-`. |
-|`ContainerRenamed` |O contêiner para esses arquivos não estão em conformidade com as convenções de nomenclatura do Azure e é renomeado. O novo nome começa com `databox-` e é sufixado com o hash SHA1 do nome original |
-|`ShareRenamed` |O compartilhamento desses arquivos não estão em conformidade com as convenções de nomenclatura do Azure e é renomeado. O novo nome começa com `databox-` e é sufixado com o hash SHA1 do nome do original. |
-|`BlobRenamed` |Esses arquivos não estão em conformidade com as convenções de nomenclatura do Azure e foram renomeados. Verifique o `BlobPath` campo para o novo nome. |
-|`FileRenamed` |Esses arquivos não estão em conformidade com as convenções de nomenclatura do Azure e foram renomeados. Verifique o `FileStoragePath` campo para o novo nome. |
-|`DiskRenamed` |Esses arquivos não estão em conformidade com as convenções de nomenclatura do Azure e foram renomeados. Verifique o `BlobPath` campo para o novo nome. |
+|`ManagedDiskCreationTerminalFailure` | Não foi possível carregar como discos gerenciados. Os arquivos estão disponíveis na conta de armazenamento de preparo como BLOBs de páginas. Você pode converter manualmente os blobs de página em discos gerenciados.  |
+|`DiskConversionNotStartedTierInfoMissing` | Como o arquivo VHD foi copiado fora das pastas da camada criada, um disco gerenciado não foi criado. O arquivo é carregado como blob de páginas para a conta de armazenamento de preparo conforme especificado durante a criação do pedido. Você pode convertê-lo manualmente em um disco gerenciado.|
+|`InvalidWorkitem` | Não foi possível carregar os dados, pois eles não estão em conformidade com as convenções de nomenclatura e limites do Azure.|
+|`InvalidPageBlobUploadAsBlockBlob` | Carregados como BLOBs de blocos em um contêiner com `databoxdisk-invalid-pb-`de prefixo.|
+|`InvalidAzureFileUploadAsBlockBlob` | Carregados como BLOBs de blocos em um contêiner com o prefixo `databoxdisk-invalid-af`-.|
+|`InvalidManagedDiskUploadAsBlockBlob` | Carregados como BLOBs de blocos em um contêiner com o prefixo `databoxdisk-invalid-md`-.|
+|`InvalidManagedDiskUploadAsPageBlob` |Carregados como BLOBs de páginas em um contêiner com `databoxdisk-invalid-md-`de prefixo. |
+|`MovedToOverflowShare` |Arquivos carregados em um novo compartilhamento, pois o tamanho do compartilhamento original excedeu o limite máximo de tamanho do Azure. O nome do novo compartilhamento de arquivos tem o nome original sufixado com `-2`.   |
+|`MovedToDefaultAzureShare` |Arquivos carregados que não fazem parte de nenhuma pasta para um compartilhamento padrão. O nome do compartilhamento começa com `databox-`. |
+|`ContainerRenamed` |O contêiner para esses arquivos não estava em conformidade com as convenções de nomenclatura do Azure e foi renomeado. O novo nome começa com `databox-` e é sufixado com o hash SHA1 do nome original |
+|`ShareRenamed` |O compartilhamento desses arquivos não estava em conformidade com as convenções de nomenclatura do Azure e foi renomeado. O novo nome começa com `databox-` e é sufixado com o hash SHA1 do nome original. |
+|`BlobRenamed` |Esses arquivos não estavam em conformidade com as convenções de nomenclatura do Azure e foram renomeados. Verifique o novo nome no campo `BlobPath`. |
+|`FileRenamed` |Esses arquivos não estavam em conformidade com as convenções de nomenclatura do Azure e foram renomeados. Verifique o novo nome no campo `FileStoragePath`. |
+|`DiskRenamed` |Esses arquivos não estavam em conformidade com as convenções de nomenclatura do Azure e foram renomeados. Verifique o novo nome no campo `BlobPath`. |
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Abra um tíquete de suporte para problemas de disco Data Box](data-box-disk-contact-microsoft-support.md).
+- [Abra um tíquete de suporte para problemas de disco do data Box](data-box-disk-contact-microsoft-support.md).

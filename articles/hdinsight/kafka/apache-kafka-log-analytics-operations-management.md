@@ -7,19 +7,31 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/04/2019
-ms.openlocfilehash: d4263b8b338f057893c9dfcda1541fc338c2577f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 02/17/2020
+ms.openlocfilehash: 3f8ff3cbc24f6e3a7e0eccf1b18e01941c9584b9
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894269"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471173"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analise logs do Apache Kafka no HDInsight
 
 Saiba como usar os logs de Azure Monitor para analisar os logs gerados pelo Apache Kafka no HDInsight.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+## <a name="logs-location"></a>Local dos logs
+
+Os logs de Apache Kafka no cluster estão localizados em `/var/log/kafka`. Os logs do Kafka não são salvos ou persistidos entre os ciclos de vida do cluster, independentemente de os discos gerenciados serem usados. A tabela a seguir mostra os logs disponíveis.
+
+|Log |Descrição |
+|---|---|
+|Kafka. out|stdout e stderr do processo Kafka. Você encontrará logs de inicialização e desligamento do Kafka neste arquivo.|
+|Server. log|O log principal do servidor do Kafka. Todos os logs do agente do Kafka terminam aqui.|
+|Controller. log|Os logs do controlador se o agente estiver agindo como controlador.|
+|StateChange. log|Todos os eventos de alteração de estado para os agentes são registrados nesse arquivo.|
+|Kafka-GC. log|Estatísticas de coleta de lixo Kafka.|
 
 ## <a name="enable-azure-monitor-logs-for-apache-kafka"></a>Habilitar logs de Azure Monitor para Apache Kafka
 
@@ -90,7 +102,7 @@ As etapas para habilitar os logs de Azure Monitor para o HDInsight são as mesma
 
     ![Uso da CPU do Apache Kafka log Analytics](./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter mais informações sobre Azure Monitor, consulte [Azure monitor visão geral](../../log-analytics/log-analytics-get-started.md)e [consultar logs de Azure monitor para monitorar clusters HDInsight](../hdinsight-hadoop-oms-log-analytics-use-queries.md).
 

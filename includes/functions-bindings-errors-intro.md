@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 8573a915c572885b53437843b114aa987be4c66b
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 629de079f7cc7d95d10f8ff951a47b8b8fc62dad
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198438"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77474217"
 ---
 Os erros gerados em um Azure Functions podem vir de qualquer uma das seguintes origens:
 
@@ -37,6 +37,6 @@ Os seguintes gatilhos têm suporte interno de repetição:
 * [Armazenamento de Filas do Azure](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Barramento de Serviço do Azure (fila/tópico)](../articles/azure-functions/functions-bindings-service-bus.md)
 
-Por padrão, esses gatilhos retentam solicitações até cinco vezes. Após a quinta repetição, o armazenamento de fila do Azure e o barramento de serviço do Azure disparam a gravação de uma mensagem em uma [fila de suspeitas](..\articles\azure-functions\functions-bindings-storage-queue.md#trigger---poison-messages).
+Por padrão, esses gatilhos retentam solicitações até cinco vezes. Após a quinta repetição, o armazenamento de fila do Azure e o barramento de serviço do Azure disparam a gravação de uma mensagem em uma [fila de suspeitas](..\articles\azure-functions\functions-bindings-storage-queue-trigger.md#poison-messages).
 
 Você precisa implementar manualmente as políticas de repetição para quaisquer outros tipos de associações ou disparadores. Implementações manuais podem incluir a gravação de informações de erro em uma [fila de mensagens suspeitas](..\articles\azure-functions\functions-bindings-storage-blob-trigger.md#poison-blobs). Ao gravar em uma fila suspeita, você tem a oportunidade de tentar novamente as operações mais tarde. Essa abordagem é a mesma usada pelo gatilho do armazenamento de BLOBs.

@@ -1,5 +1,5 @@
 ---
-title: Gerenciar contêineres de volume do StorSimple no dispositivo StorSimple da série 8000 | Microsoft Docs
+title: Gerenciar contêineres de volume para dispositivos StorSimple da série 8000
 description: Explica como você pode usar a página de contêineres de volume do serviço do Gerenciador de Dispositivos do StorSimple para adicionar, modificar ou excluir um contêiner de volume.
 services: storsimple
 documentationcenter: NA
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 7e1a5ac2c2b734c77fc3dbe788206f8c75044953
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cbdad3c68848ce552811ee658bb29df74a6fad19
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60724538"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467021"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-volume-containers"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para gerenciar contêineres de volume do StorSimple
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: e12fc5d92cfc850e1d049bc11286c0c863e718b0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bad3be86bd85f7e5cebcf9445d14d836c73a87ef
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459195"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470778"
 ---
 # <a name="export-security-alerts-and-recommendations-preview"></a>Exportar alertas de segurança e recomendações (versão prévia)
 
@@ -41,7 +41,7 @@ Usando essas ferramentas, você pode:
 
 1. Na área "destino de exportação", escolha onde você deseja que os dados sejam salvos. Os dados podem ser salvos em um destino em uma assinatura diferente (por exemplo, em uma instância central de Hub de eventos ou em um espaço de trabalho central Log Analytics).
 
-1. Clique em **Save** (Salvar).
+1. Clique em **Salvar**.
 
 ## <a name="continuous-export-through-azure-event-hubs"></a>Exportação contínua por meio dos hubs de eventos do Azure  
 
@@ -105,14 +105,14 @@ Agora, você verá novos alertas ou recomendações da central de segurança do 
 
 ## <a name="manual-one-time-export-of-security-alerts"></a>Exportação única por vez manual de alertas de segurança
 
-Para baixar um relatório CSV para alertas ou recomendações, abra a página **alertas de segurança** ou **recomendações** e clique no botão **baixar relatório CSV (visualização)** .
+Para baixar um relatório CSV para alertas ou recomendações, abra a página **alertas de segurança** ou **recomendações** e clique no botão **baixar relatório CSV** .
 
 [![baixar dados de alertas como um arquivo CSV](media/continuous-export/download-alerts-csv.png)](media/continuous-export/download-alerts-csv.png#lightbox)
 
 > [!NOTE]
 > Esses relatórios contêm alertas e recomendações para recursos das assinaturas atualmente selecionadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste artigo, você aprendeu a configurar as exportações contínuas de suas recomendações e alertas. Você também aprendeu a baixar seus dados de alertas como um arquivo CSV. 
 

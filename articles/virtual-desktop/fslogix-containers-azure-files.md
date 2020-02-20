@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: d45fa08383d9f61776a739093d78fc033ad54a6b
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 7b67569ee821fee837f4fa63a1d71e622a0370a5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212407"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472461"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contêineres de perfil FSLogix e arquivos do Azure
 
@@ -87,7 +87,7 @@ A área de trabalho virtual do Windows oferece controle total sobre o tamanho, o
 Para garantir que seu ambiente de área de trabalho virtual do Windows siga as práticas recomendadas:
 
 - A conta de armazenamento de arquivos do Azure deve estar na mesma região que as VMs do host de sessão.
-- As permissões dos arquivos do Azure devem corresponder às permissões descritas em [requisitos – contêineres de perfil](/fslogix/overview#requirements/).
+- As permissões dos arquivos do Azure devem corresponder às permissões descritas em [requisitos – contêineres de perfil](/fslogix/overview#requirements).
 - Cada pool de hosts deve ser compilado do mesmo tipo e de uma VM de tamanho com base na mesma imagem mestra.
 - Cada VM do pool de hosts deve estar no mesmo grupo de recursos para ajudar no gerenciamento, no dimensionamento e na atualização.
 - Para obter um desempenho ideal, a solução de armazenamento e o contêiner de perfil FSLogix devem estar no mesmo local de data center.

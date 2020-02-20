@@ -10,12 +10,12 @@ ms.date: 02/10/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 076708cdc32b0547fe34f714798b4a7a963296fe
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 038e53251bd81552fd3379f2d7645570fbcda4ef
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462625"
+ms.locfileid: "77471339"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -66,7 +66,7 @@ A tabela a seguir mostra quais tipos de contas de armazenamento dão suporte a Z
 |    Armazenamento de    | Europa Ocidental<br /> Leste dos EUA    |    Somente arquivos do Azure    |
 
 <sup>1</sup> atualmente, a camada de arquivo morto não tem suporte para contas ZRS.<br />
-<sup>2</sup> discos do Azure para máquinas virtuais, incluindo discos gerenciados e não gerenciados, dão suporte apenas a lRS. Eles não dão suporte a ZRS ou GZRS. Para obter mais informações sobre discos gerenciados, consulte [preços para Azure Managed disks](https://azure.microsoft.com/pricing/details/managed-disks).
+<sup>2</sup> discos do Azure para máquinas virtuais, incluindo discos gerenciados e não gerenciados, dão suporte apenas a lRS. Eles não dão suporte a ZRS ou GZRS. Para obter mais informações sobre discos gerenciados, consulte [preços para Azure Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 Para obter informações sobre quais regiões dão suporte a ZRS, consulte **suporte de serviços por região** em [o que são zonas de disponibilidade do Azure?](../../availability-zones/az-overview.md).
 
@@ -169,7 +169,7 @@ Para obter informações sobre preços para cada opção de redundância, consul
 
 O armazenamento do Azure verifica regularmente a integridade dos dados armazenados usando verificações de redundância cíclica (CRCs). Se a corrupção de dados for detectada, ela será reparada usando dados redundantes. O armazenamento do Azure também calcula somas de verificação em todo o tráfego de rede para detectar corrupção de pacotes de dados ao armazenar ou recuperar dados.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - [Verificar a propriedade hora da última sincronização de uma conta de armazenamento](last-sync-time-get.md)
 - [Alterar a opção de redundância para uma conta de armazenamento](redundancy-migration.md)

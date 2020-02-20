@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 02/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 591233154ab79b9493d77030727462bae68ea7d5
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 39ebbf99ad31cce20eabc20fbdc056c889235713
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152350"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470744"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modelagem de dados na Versão Prévia do Azure Time Series Insights
 
@@ -73,7 +73,7 @@ Para começar, selecione o modo de exibição de **modelo** na exibição de **a
 > [!NOTE]
 > Uma instância do deve passar uma verificação de validação de campo com êxito para ser excluída.
 
-## <a name="hierarchies"></a>Hierarquias
+## <a name="hierarchies"></a>Hierarchies
 
 O Azure Time Series Insights Explorer dá suporte a operações de **criação**, **leitura**, **atualização**e **exclusão** de hierarquia no navegador. 
 
@@ -166,7 +166,7 @@ Para começar, selecione o modo de exibição de **modelo** na exibição de **a
 
 1. Confirme a exclusão selecionando **excluir**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Para obter mais informações sobre o modelo de série temporal, leia [modelagem de dados](./time-series-insights-update-tsm.md).
 

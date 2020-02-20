@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/08/2019
+ms.date: 02/19/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da2d598c7bb6d7b06e57dd497d1e2aebf1b63694
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: cd37374ab6341356d84f205e92c9612d8481818f
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898896"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468840"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro do relatório de atividade de login 
 
@@ -54,10 +54,10 @@ A seleção de um item da lista filtrada abre o bloco **Detalhes da atividade: L
 
 Você também pode acessar programaticamente os dados de login usando a [API de relatórios](concept-reporting-api.md).
 
-## <a name="error-codes"></a>Códigos de erro
+## <a name="error-codes"></a>Códigos do Erro
 
 
-|Erro|Description|
+|Erro|DESCRIÇÃO|
 |---|---|
 |16000|Este é um detalhe de implementação interna e não uma condição de erro. É possível ignorar essa referência com segurança.|
 |20001|Há um problema com seu provedor de identidade federada. Entre em contato com seu IDP para resolver esse problema.|
@@ -112,7 +112,7 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |50128|Nome de domínio inválido - Nenhuma informação de identificação de inquilino encontrada na solicitação ou implícita por qualquer credencial fornecida.|
 |50129|O dispositivo não está associado ao local de trabalho - **A junção no local de trabalho** é necessária para registrar o dispositivo.|
 |50130|O valor da declaração não pode ser interpretado como um método de autenticação conhecido.|
-|50131|Usado em vários erros de acesso condicional. Por exemplo: Estado de dispositivo Windows inválido, solicitação bloqueada devido a atividades suspeitas, decisões de política de acesso e política de segurança.|
+|50131|Usado em vários erros de acesso condicional. Por ex.: Estado de dispositivo Windows inválido, solicitação bloqueada devido a atividades suspeitas, decisões de política de acesso e política de segurança.|
 |50132|As credenciais foram revogadas pelos seguintes motivos:<ul><li>O artefato de SSO é inválido ou expirou</li><li>Sessão não atualizada o suficiente para o aplicativo</li><li>Uma solicitação de entrada silenciosa foi enviada, mas a sessão do usuário com o Azure AD é inválida ou expirou.</li></ul>|
 |50133|A sessão é inválida devido à expiração ou alteração de senha recente.|
 |50135|A alteração da senha é necessária devido ao risco da conta.|
@@ -133,6 +133,7 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |50178|Controle de sessão não é suportado para usuários de passagem.|
 |50180|Necessária a autenticação integrada do Windows. Habilite o locatário para um SSO contínuo.|
 |50181|Falha relacionada à OTP durante a entrada. |
+|50194|O aplicativo ' {appId} ' ({appName}) não está configurado como um aplicativo multilocatário. Não há suporte para o uso do ponto de extremidade/Common para esses aplicativos criados após ' {time} '. Use um ponto de extremidade específico do locatário ou configure o aplicativo para ser multilocatário.|
 |50201|Essa interrupção de prompt de mensagem será mostrada ao usuário durante o logon quando informações adicionais devem ser fornecidas ao usuário.|
 |51001|Dica de Domínio não está presente com o Identificador de Segurança Local - UPN Local.|
 |51004|A conta de usuário não existe no diretório.|
@@ -188,20 +189,26 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |90072| A conta precisa primeiro ser adicionada como um usuário externo no locatário. Saia e entre novamente com outra conta do Azure AD.|
 |90094| O aplicativo solicitou permissões às quais o usuário conectado não tem permissão para consentir e o usuário foi bloqueado. |
 |90095| O aplicativo solicitou permissões às quais o usuário conectado não tem permissão para consentir, e o usuário recebeu o formulário [solicitação de consentimento de administrador](../manage-apps/configure-admin-consent-workflow.md) . |
+|130500|A entrada pelo telefone foi bloqueada devido à política de credenciais do usuário.|
 |500011| A entidade de recurso chamada <site address> não foi encontrada no locatário denominado <tenant ID>. Isso poderá acontecer se o aplicativo não tiver sido instalado pelo administrador do locatário ou aceito por qualquer usuário no locatário. Você pode ter enviado a solicitação de autenticação ao locatário errado.|
+|500014|O recurso ' {identifier} ' está desabilitado.|
 |500021| O locatário é restrito pelo proxy da empresa. Negando o acesso aos recursos.|
 |500121| A autenticação falhou durante uma solicitação de autenticação forte.|
 |500133| A declaração não está dentro de seu intervalo de tempo válido. Certifique-se de que o token de acesso não expirou antes de usá-lo para a declaração de usuário ou antes de solicitar um novo token.|
+|500172|O certificado ' {name} ' emitido por ' {Issuer} ' não é válido. Hora atual: ' {curTime} '. Certificado não anterior: ' {StartTime} '. Certificado não após: ' {endTime} '.|
+|501291|O aplicativo cliente é um aplicativo MAM, o dispositivo não está registrado e a solicitação é enviada usando um agente. O ingresso no local de trabalho precisa ser feito para registrar o dispositivo antes que o aplicativo possa ser acessado.|
+|530003|Seu dispositivo precisa ser gerenciado para acessar esse recurso.|
 |530021|O aplicativo não atende aos requisitos de aplicativo aprovados para acesso condicional.|
 |530032|Bloqueado pela política de segurança.| 
 |700016|O aplicativo com o identificador ' {appIdentifier} ' não foi encontrado no diretório ' {tenantname} '. Isso poderá acontecer se o aplicativo não tiver sido instalado pelo administrador do locatário ou aceito por qualquer usuário no locatário. Você pode ter enviado sua solicitação de autenticação para o locatário incorreto.|
+|700051|Response_type ' token ' não está habilitado para o aplicativo. O aplicativo solicitou um tipo de resposta sem suporte devido aos seguintes motivos: response_type ' token ' não está habilitado para o aplicativo. O proprietário do aplicativo deve ir para o portal do Azure ou chamar o MS Graph para habilitar a concessão de token de acesso implícito.|
 |900432|Não há suporte para o cliente confidencial na solicitação de nuvem cruzada.|
 |5000811|Não é possível verificar a assinatura de token SAML. O identificador de chave de assinatura não corresponde a nenhuma chave registrada válida.|
 |7000215|Foi fornecido um segredo do cliente inválido.|
 |7000218|O corpo da solicitação deve conter o seguinte parâmetro: ' client_assertion ' ou ' client_secret '.|
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Visão geral de relatórios de entradas](concept-sign-ins.md)
 * [Acesso programático aos relatórios do Microsoft Azure Active Directory](concept-reporting-api.md)

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/14/2019
 ms.author: helohr
-ms.openlocfilehash: f6a8e4b9129018686aa5833a2ac260075e5627f9
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 5db60160540fc59465e13bd2e68680f49ee0aa2b
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367619"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470880"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurar anexação de aplicativo MSIX
 
@@ -22,7 +22,7 @@ ms.locfileid: "77367619"
 
 Este tópico explicará como configurar a anexação do aplicativo MSIX em um ambiente de área de trabalho virtual do Windows.
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>{1&gt;{2&gt;Requisitos&lt;2}&lt;1}
 
 Antes de começar, veja o que você precisa para configurar o anexo do aplicativo MSIX:
 
@@ -407,7 +407,7 @@ Para instalar os arquivos de licença, você precisará usar um script do PowerS
 
 Veja como configurar as licenças para uso offline: 
 
-1. Baixe o pacote do aplicativo, as licenças e as estruturas necessárias do Microsoft Store for Business. Você precisa dos arquivos de licença codificados e não codificados. Instruções de download detalhadas podem ser encontradas [aqui](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app/).
+1. Baixe o pacote do aplicativo, as licenças e as estruturas necessárias do Microsoft Store for Business. Você precisa dos arquivos de licença codificados e não codificados. Instruções de download detalhadas podem ser encontradas [aqui](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
 2. Atualize as seguintes variáveis no script para a etapa 3:
       1. `$contentID` é o valor ContentId do arquivo de licença não codificado (. xml). Você pode abrir o arquivo de licença em um editor de texto de sua escolha.
       2. `$licenseBlob` é a cadeia de caracteres inteira para o blob de licença no arquivo de licença codificado (. bin). Você pode abrir o arquivo de licença codificada em um editor de texto de sua escolha. 
@@ -447,7 +447,7 @@ catch [Exception]
 }  
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Atualmente, não há suporte para esse recurso, mas você pode fazer perguntas para a Comunidade na [área de trabalho virtual do Windows TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 

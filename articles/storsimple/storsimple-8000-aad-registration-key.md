@@ -1,23 +1,23 @@
 ---
-title: Usar nova autenticação para o serviço Device Manager do StorSimple 8000 no Azure
+title: Autenticação do Azure AD para o StorSimple 8000 no Device Manager
 description: Explica como usar a autenticação baseada no AAD para o serviço, gerar uma nova chave de registro e realizar o registro manual dos dispositivos.
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 798b3bf054d5ade2a441bbef5875bb014f526aee
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: b16132c24d35ee2c9902fa2b21c44416d8376b4d
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276954"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470897"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Usar a nova autenticação para o StorSimple
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 O serviço Gerenciador de Dispositivo do StorSimple é executado no Microsoft Azure e se conecta a vários dispositivos StorSimple. Até o momento, o serviço Gerenciador de Dispositivos do StorSimple usou um ACS (serviço de Controle de Acesso) para autenticar o serviço no dispositivo StorSimple. O mecanismo do ACS será preterido em breve e substituído por uma autenticação do AAD (Azure Active Directory). Para obter mais informações, acesse os comunicados a seguir sobre a reprovação do ACS e o uso da autenticação do AAD.
 
@@ -55,7 +55,7 @@ Se estiver usando um dispositivo StorSimple da série 8000, use a tabela a segui
 | Se o dispositivo estiver em execução| Realize a seguinte ação                                    |
 |--------------------------|------------------------|
 | Atualização 5 ou posterior e o dispositivo offline. <br> Um alerta é exibido informando que a URL não está na lista de permissões.|1. modifique as regras de firewall para incluir a URL de autenticação. Consulte [URLs de autenticação](#url-changes-for-aad-authentication).<br>2. [obtenha a chave de registro do AAD do serviço](#aad-based-registration-keys).<br>3. [Conecte-se à interface do Windows PowerShell do dispositivo StorSimple 8000 Series](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).<br>4. Use `Redo-DeviceRegistration` cmdlet para registrar o dispositivo por meio do Windows PowerShell. Forneça a chave que você obteve na etapa anterior.|
-| Atualização 5 ou posterior e o dispositivo online.| nenhuma ação será necessária.                                       |
+| Atualização 5 ou posterior e o dispositivo online.| Nenhuma ação é necessária.                                       |
 | Atualização 4 ou anterior e o dispositivo offline. |1. modifique as regras de firewall para incluir a URL de autenticação.<br>2. [Baixe a atualização 5 por meio do servidor de catálogo](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>3. [aplique a atualização 5 por meio do método de hotfix](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix).<br>4. [obtenha a chave de registro do AAD do serviço](#aad-based-registration-keys).<br>5. [Conecte-se à interface do Windows PowerShell do dispositivo StorSimple 8000 Series](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>6. Use `Redo-DeviceRegistration` cmdlet para registrar o dispositivo por meio do Windows PowerShell. Forneça a chave que você obteve na etapa anterior.|
 | Atualização 4 ou anterior e o dispositivo online. |Modifique as regras de firewall para incluir a URL de autenticação.<br> Instale a Atualização 5 por meio do portal do Azure.              |
 | Aplique a redefinição de fábrica para uma versão anterior à Atualização 5.      |O portal mostra uma chave de registro baseada no AAD enquanto o dispositivo está executando o software mais antigo. Siga as etapas no cenário anterior para os casos em que o dispositivo executa a Atualização 4 ou anterior.              |
@@ -88,7 +88,7 @@ Execute as etapas a seguir para gerar uma chave de registro do serviço do AAD.
     > [!NOTE] 
     > Se estiver criando um Dispositivo de Nuvem StorSimple no serviço registrado para o dispositivo StorSimple da série 8000, não gere uma chave de registro enquanto a criação estiver em andamento. Aguarde conclusão da criação e, em seguida, gere a chave de registro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Saiba mais sobre como implantar um [dispositivo StorSimple da série 8000](storsimple-8000-deployment-walkthrough-u2.md).
 

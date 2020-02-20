@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 05/08/2019
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 56e2182b408b4e8b1f89eee7458a27c5dd54bb55
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 9465209467c83f7de075d16e724459c307d55bd3
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562006"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210201"
 ---
 # <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Crie uma definição de OpenAPI para uma API sem servidor usando o Gerenciamento de API do Azure
 
@@ -45,7 +45,7 @@ A função, em seguida, calcula o custo do reparo e o valor da receita que a tur
 
 1. Selecione **Mais modelos...** e, em seguida, **Concluir e exibir modelos**
 
-1. Selecione o acionador HTTP, digite `TurbineRepair` para sua função **Nome**, escolha `Function` para **[Nível de autenticação](functions-bindings-http-webhook.md#http-auth)** e, em seguida, selecione **Criar**.  
+1. Selecione o acionador HTTP, digite `TurbineRepair` para sua função **Nome**, escolha `Function` para **[Nível de autenticação](functions-bindings-http-webhook-trigger.md#http-auth)** e, em seguida, selecione **Criar**.  
 
     ![Criar função HTTP para OpenAPI](media/functions-openapi-definition/select-http-trigger-openapi.png)
 
@@ -135,7 +135,7 @@ Agora você está pronto para gerar a definição de OpenAPI.
 
     ![Criar um novo serviço de Gerenciamento de API](media/functions-openapi-definition/new-apim-service-openapi.png)
 
-    | Configuração      | Valor sugerido  | DESCRIÇÃO                                        |
+    | Configuração      | Valor sugerido  | Descrição                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome** | Nome globalmente exclusivo | Um nome é gerado com base no nome do seu aplicativo de funções. |
     | **Assinatura** | Sua assinatura | A assinatura na qual este novo recurso será criado. |  

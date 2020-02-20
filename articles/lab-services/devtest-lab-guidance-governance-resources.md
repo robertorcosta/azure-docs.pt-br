@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: dc65d368eb4c1beb57099cb6c16fb33bbe5c1f79
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8bb00c770c61a0a5462a01ae552bd7e40a7cdb36
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981500"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470642"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Governança da infraestrutura do Azure DevTest Labs – Recursos
 Este artigo aborda o alinhamento e o gerenciamento de recursos para o DevTest Labs em sua organização. 
@@ -38,7 +38,7 @@ Antes de uma organização começa a usar o Azure para desenvolvimento de aplica
 
 A **primeira prática recomendada** é examinar a taxonomia do Azure das organizações, em que são detalhadas as divisões entre as assinaturas de desenvolvimento e aquelas de produção. No diagrama a seguir, a taxonomia sugerida permite uma separação lógica entre os ambientes de desenvolvimento/teste e os de produção. Com essa abordagem, uma organização pode introduzir códigos de cobrança para acompanhar os custos associados com cada ambiente separadamente. Para obter mais informações, confira [Governança de assinatura prescritiva](/azure/architecture/cloud-adoption/appendix/azure-scaffold). Além disso, você pode usar as [marcas do Azure](../azure-resource-manager/management/tag-resources.md) para organizar os recursos para fins de faturamento e acompanhamento.
 
-A **segunda prática recomendada** é habilitar a assinatura do DevTest no Azure Enterprise Portal. Ele permite que uma organização execute sistemas operacionais cliente que não estão normalmente disponíveis em uma assinatura do Azure Enterprise. Em seguida, use o software empresarial, no qual você paga somente pela computação e não se preocupa com o licenciamento. Ele garante que a cobrança por serviços designados, incluindo imagens da galeria em IaaS como o Microsoft SQL Server, seja baseada somente no consumo. Detalhes sobre a assinatura do Azure DevTest podem ser encontrados [aqui](https://azure.microsoft.com/offers/ms-azr-0148p/) para os clientes do EA (Contrato Enterprise) e [aqui](https://azure.microsoft.com/offers/ms-azr-0023p/) para clientes com pagamento conforme o uso.
+A **segunda prática recomendada** é habilitar a assinatura do DevTest no Azure Enterprise Portal. Ele permite que uma organização execute sistemas operacionais cliente que não estão normalmente disponíveis em uma assinatura do Azure Enterprise. Em seguida, use o software corporativo no qual você paga apenas pela computação e não se preocupe com o licenciamento. Ele garante que a cobrança por serviços designados, incluindo imagens da galeria em IaaS como o Microsoft SQL Server, seja baseada somente no consumo. Detalhes sobre a assinatura do Azure DevTest podem ser encontrados [aqui](https://azure.microsoft.com/offers/ms-azr-0148p/) para os clientes do EA (Contrato Enterprise) e [aqui](https://azure.microsoft.com/offers/ms-azr-0023p/) para clientes com pagamento conforme o uso.
 
 ![Alinhamento de recursos com assinaturas](./media/devtest-lab-guidance-governance/resource-alignment-with-subscriptions.png)
 
@@ -86,5 +86,5 @@ Mover um laboratório para outro grupo de recursos é uma operação compatível
 ### <a name="answer"></a>Resposta
 Sim. Navegue até a página Grupo de Recursos da home page do seu laboratório. Em seguida, selecione **Mover** na barra de ferramentas e selecione o laboratório que você deseja mover para outro grupo de recursos. Quando você cria um laboratório, um grupo de recursos é criado automaticamente para você. No entanto, talvez você queira mover o laboratório para outro grupo de recursos que segue as convenções de nomenclatura empresariais. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Veja [Gerenciar custo e propriedade](devtest-lab-guidance-governance-cost-ownership.md).

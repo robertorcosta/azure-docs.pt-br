@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 01/27/2020
 ms.author: helohr
-ms.openlocfilehash: 168a345427be47dc1c33f43be1af47daa8f638ef
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 6cb8362b2de1f8345f693b00df021afe84f2d5a5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772779"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471764"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é a Área de Trabalho Virtual do Windows? 
 
@@ -72,7 +72,7 @@ Planejamos adicionar suporte aos sistemas operacionais a seguir, então verifiqu
 
 A infraestrutura precisa dos seguintes itens para dar suporte à Área de Trabalho Virtual do Windows:
 
-* Um [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
+* Um [Azure Active Directory](/azure/active-directory/)
 * Um Windows Server Active Directory em sincronia com o Azure Active Directory. Você pode configurar isso com um dos seguintes:
   * Azure AD Connect (para organizações híbridas)
   * Azure AD Domain Services (para organizações híbridas ou na nuvem)
@@ -80,7 +80,7 @@ A infraestrutura precisa dos seguintes itens para dar suporte à Área de Trabal
   
 As máquinas virtuais do Azure criadas para a Área de Trabalho Virtual do Windows precisam ser:
 
-* [Ingressadas no domínio padrão](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) ou [Ingressadas no AD híbridas](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). As máquinas virtuais não podem ser ingressadas no Azure AD.
+* [Ingressadas no domínio padrão](../active-directory-domain-services/active-directory-ds-comparison.md) ou [Ingressadas no AD híbridas](../active-directory/devices/hybrid-azuread-join-plan.md). As máquinas virtuais não podem ser ingressadas no Azure AD.
 * A execução de uma das seguintes [imagens do sistema operacional compatíveis](#supported-virtual-machine-os-images).
 
 >[!NOTE]

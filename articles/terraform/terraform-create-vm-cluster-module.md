@@ -3,12 +3,12 @@ title: Tutorial – Criar um cluster de VM do Azure com o Terraform usando o Reg
 description: Saber como usar os módulos do Terraform para criar um cluster de máquina virtual do Windows no Azure
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 3ddc80e8f5a81e89e4574ff6524055f12a4a618a
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: d17a0d7c26cc1a16ab73350fe6e8c28ba4af6ff2
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185555"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472189"
 ---
 # <a name="tutorial-create-an-azure-vm-cluster-with-terraform-using-the-module-registry"></a>Tutorial: Criar um cluster de VM do Azure com o Terraform usando o Registro do módulo
 
@@ -25,9 +25,9 @@ Para obter mais informações sobre o Terraform, consulte a [documentação do T
 ## <a name="set-up-authentication-with-azure"></a>Configurar a autenticação com o Azure
 
 > [!TIP]
-> Se você [usar variáveis de ambiente do Terraform](/azure/virtual-machines/linux/terraform-install-configure) ou executar este tutorial no [Azure Cloud Shell](/azure/cloud-shell/overview), ignore esta etapa.
+> Se você [usar variáveis de ambiente do Terraform](terraform-install-configure.md) ou executar este tutorial no [Azure Cloud Shell](/azure/cloud-shell/overview), ignore esta etapa.
 
- Examine [Install Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure) (Instalar o Terraform e configurar o acesso ao Azure) para criar uma entidade de serviço do Azure. Use essa entidade de serviço para popular um novo arquivo `azureProviderAndCreds.tf` em um diretório vazio com o código a seguir:
+ Examine [Install Terraform and configure access to Azure](terraform-install-configure.md) (Instalar o Terraform e configurar o acesso ao Azure) para criar uma entidade de serviço do Azure. Use essa entidade de serviço para popular um novo arquivo `azureProviderAndCreds.tf` em um diretório vazio com o código a seguir:
 
 ```hcl
 variable subscription_id {}

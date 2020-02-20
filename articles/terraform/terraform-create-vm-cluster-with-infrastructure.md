@@ -3,12 +3,12 @@ title: Tutorial – Criar um cluster de VM do Azure com o Terraform e HCL
 description: Usar o Terraform e HCL para criar um cluster de máquina virtual Linux com um balanceador de carga no Azure
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 1ff13f05a5be463ed7477b4bbbc3e1f977a04a75
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 39e9857ad0119c08e949bbe5f6accb07432f3469
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665365"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470863"
 ---
 # <a name="tutorial-create-an-azure-vm-cluster-with-terraform-and-hcl"></a>Tutorial: Criar um cluster de VM do Azure com o Terraform e HCL
 
@@ -28,11 +28,11 @@ Você aprenderá a realizar as seguintes tarefas:
 ## <a name="1-set-up-azure-authentication"></a>1. Configurar a autenticação do Azure
 
 > [!NOTE]
-> Se você [usar variáveis de ambiente do Terraform](/azure/virtual-machines/linux/terraform-install-configure) ou executar este tutorial no [Azure Cloud Shell](terraform-cloud-shell.md), ignore esta seção.
+> Se você [usar variáveis de ambiente do Terraform](terraform-install-configure.md) ou executar este tutorial no [Azure Cloud Shell](terraform-cloud-shell.md), ignore esta seção.
 
 Nesta seção, você pode gerar uma entidade de serviço do Azure e dois arquivos de configuração de Terraform que contém as credenciais da entidade de segurança.
 
-1. [Configure uma entidade de serviço do Azure AD](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) para permitir que o Terraform provisione recursos no Azure. Ao criar a entidade de segurança, anote os valores para o ID de assinatura, o locatário, a appId e a senha.
+1. [Configure uma entidade de serviço do Azure AD](terraform-install-configure.md#set-up-terraform-access-to-azure) para permitir que o Terraform provisione recursos no Azure. Ao criar a entidade de segurança, anote os valores para o ID de assinatura, o locatário, a appId e a senha.
 
 2. Abra um prompt de comando.
 
