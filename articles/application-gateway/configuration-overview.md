@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: 146dbdbf2f4e107e81515ce83188fa48c52aef36
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 355909052a711773545114179cd5d1ca01811cec
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714864"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485073"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do gateway de aplicativo
 
@@ -210,7 +210,7 @@ Para uma regra com base em caminho, adicione várias configurações de HTTP de 
 
 Se o redirecionamento estiver configurado para uma regra básica, todas as solicitações no ouvinte associado serão redirecionadas para o destino. Esse é o redirecionamento *global* . Se o redirecionamento estiver configurado para uma regra baseada em caminho, somente as solicitações em uma área específica do site serão redirecionadas. Um exemplo é uma área de carrinho de compras que é denotada por */cart/\** . Esse é o redirecionamento *baseado em caminho* .
 
-Para obter mais informações sobre redirecionamentos, consulte [visão geral do redirecionamento do gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
+Para obter mais informações sobre redirecionamentos, consulte [visão geral do redirecionamento do gateway de aplicativo](redirect-overview.md).
 
 #### <a name="redirection-type"></a>Tipo de redirecionamento
 
@@ -227,24 +227,24 @@ Escolha o ouvinte como o destino de redirecionamento para redirecionar o tráfeg
 ![Caixa de diálogo componentes do gateway de aplicativo](./media/configuration-overview/configure-redirection.png)
 
 Para obter mais informações sobre o redirecionamento de HTTP para HTTPS, consulte:
-- [Redirecionamento de HTTP para HTTPS usando o portal do Azure](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal)
-- [Redirecionamento de HTTP para HTTPS usando o PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell)
-- [Redirecionamento de HTTP para HTTPS usando o CLI do Azure](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
+- [Redirecionamento de HTTP para HTTPS usando o portal do Azure](redirect-http-to-https-portal.md)
+- [Redirecionamento de HTTP para HTTPS usando o PowerShell](redirect-http-to-https-powershell.md)
+- [Redirecionamento de HTTP para HTTPS usando o CLI do Azure](redirect-http-to-https-cli.md)
 
 ##### <a name="external-site"></a>Site externo
 
 Escolha site externo quando desejar redirecionar o tráfego no ouvinte associado a essa regra a um site externo. Você pode optar por incluir a cadeia de caracteres de consulta da solicitação original na solicitação que é encaminhada para o destino de redirecionamento. Não é possível encaminhar o caminho para o site externo que estava na solicitação original.
 
 Para obter mais informações sobre o redirecionamento, consulte:
-- [Redirecionar o tráfego para um site externo usando o PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-external-site-powershell)
-- [Redirecionar o tráfego para um site externo usando a CLI](https://docs.microsoft.com/azure/application-gateway/redirect-external-site-cli)
+- [Redirecionar o tráfego para um site externo usando o PowerShell](redirect-external-site-powershell.md)
+- [Redirecionar o tráfego para um site externo usando a CLI](redirect-external-site-cli.md)
 
 #### <a name="rewrite-the-http-header-setting"></a>Reescrever a configuração do cabeçalho HTTP
 
 Essa configuração adiciona, remove ou atualiza cabeçalhos HTTP de solicitação e resposta, enquanto os pacotes de solicitação e resposta são movidos entre os pools de cliente e de back-end. Para obter mais informações, consulte:
 
- - [Visão geral de reescrever cabeçalhos HTTP](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
- - [Configurar a regravação do cabeçalho HTTP](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+ - [Visão geral de reescrever cabeçalhos HTTP](rewrite-http-headers.md)
+ - [Configurar a regravação do cabeçalho HTTP](rewrite-http-headers-portal.md)
 
 ## <a name="http-settings"></a>Configurações de HTTP
 
@@ -252,7 +252,18 @@ O gateway de aplicativo roteia o tráfego para os servidores back-end usando a c
 
 ### <a name="cookie-based-affinity"></a>Afinidade baseada em cookie
 
-Esse recurso é útil quando você deseja manter uma sessão de usuário no mesmo servidor. Os cookies gerenciados por gateway permitem que o gateway de aplicativo direcione o tráfego subsequente de uma sessão de usuário para o mesmo servidor para processamento. Isso é importante quando o estado da sessão é salvo localmente no servidor para uma sessão de usuário. Se o aplicativo não puder lidar com a afinidade baseada em cookie, você não poderá usar esse recurso. Para usá-lo, verifique se os clientes dão suporte a cookies.
+Aplicativo Azure gateway usa cookies gerenciados de gateway para manter sessões de usuário. Quando um usuário envia a primeira solicitação ao gateway de aplicativo, ele define um cookie de afinidade na resposta com um valor de hash que contém os detalhes da sessão, para que as solicitações subsequentes que tenham o cookie de afinidade sejam roteadas para o mesmo servidor de back-end para mantendo a adesão. 
+
+Esse recurso é útil quando você deseja manter uma sessão de usuário no mesmo servidor e quando o estado da sessão é salvo localmente no servidor para uma sessão de usuário. Se o aplicativo não puder lidar com a afinidade baseada em cookie, você não poderá usar esse recurso. Para usá-lo, verifique se os clientes dão suporte a cookies.
+
+A partir de **17 de fevereiro de 2020**, a atualização do [Chromium](https://www.chromium.org/Home) [V80](https://chromiumdash.appspot.com/schedule) traz um mandato em que os cookies http sem o atributo SameSite sejam tratados como SameSite = LAX. No caso de solicitações CORS (compartilhamento de recursos entre origens), se o cookie tiver que ser enviado em um contexto de terceiros, ele precisará usar "SameSite = None; Proteja os atributos e eles só devem ser enviados por HTTPS. Caso contrário, em um cenário somente HTTP, o navegador não enviará os cookies no contexto de terceiros. O objetivo dessa atualização do Chrome é aprimorar a segurança e evitar ataques CSRF (solicitação entre sites forjada). 
+
+Para dar suporte a essa alteração, o gateway de aplicativo (todos os tipos de SKU) estará injetando outro cookie idêntico, chamado **ApplicationGatewayAffinityCORS** , além do cookie **ApplicationGatewayAffinity** existente, que é semelhante, mas esse cookie agora terá mais dois atributos **"SameSite = None; Seguro "** adicionado a ele para que a sessão adesiva possa ser mantida mesmo para solicitações entre origens.
+
+Observe que o nome do cookie de afinidade padrão é **ApplicationGatewayAffinity** e isso pode ser alterado pelos usuários. Caso você esteja usando um nome de cookie de afinidade personalizado, um cookie adicional será adicionado com CORS como sufixo, por exemplo, **CustomCookieNameCORS**.
+
+> [!NOTE]
+> É obrigatório que, se o atributo **SameSite = None** estiver definido, o cookie também deverá conter o sinalizador de **segurança** e deve ser enviado via **https**. Portanto, se a afinidade de sessão for necessária em CORS, você deverá migrar sua carga de trabalho para HTTPS. Consulte descarregamento SSL e documentação de SSL de ponta a ponta para o gateway de aplicativo aqui – [visão geral](ssl-overview.md), [como configurar o descarregamento de SSL](create-ssl-portal.md), [como configurar o SSL de ponta a ponta](end-to-end-ssl-portal.md).
 
 ### <a name="connection-draining"></a>Descarregamento de conexão
 
@@ -262,7 +273,7 @@ O descarregamento de conexão ajuda você a remover normalmente os membros do po
 
 O gateway de aplicativo dá suporte a HTTP e HTTPS para roteamento de solicitações para os servidores back-end. Se você escolher HTTP, o tráfego para os servidores back-end será descriptografado. Se a comunicação não criptografada não for aceitável, escolha HTTPS.
 
-Essa configuração combinada com HTTPS no ouvinte dá suporte a [SSL de ponta a ponta](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Isso permite que você transmita com segurança dados confidenciais criptografados para o back-end. Cada servidor back-end no pool de back-end que tem o SSL de ponta a ponta habilitado deve ser configurado com um certificado para permitir a comunicação segura.
+Essa configuração combinada com HTTPS no ouvinte dá suporte a [SSL de ponta a ponta](ssl-overview.md). Isso permite que você transmita com segurança dados confidenciais criptografados para o back-end. Cada servidor back-end no pool de back-end que tem o SSL de ponta a ponta habilitado deve ser configurado com um certificado para permitir a comunicação segura.
 
 ### <a name="port"></a>Porta
 
@@ -301,7 +312,7 @@ Esse é apenas um atalho de interface do usuário que seleciona as duas configur
 
 ### <a name="use-custom-probe"></a>Usar investigação personalizada
 
-Essa configuração associa uma [investigação personalizada](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe) a uma configuração de http. Você pode associar apenas uma investigação personalizada a uma configuração de HTTP. Se você não associar explicitamente uma investigação personalizada, a [investigação padrão](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe-settings) será usada para monitorar a integridade do back-end. Recomendamos que você crie uma investigação personalizada para maior controle sobre o monitoramento de integridade de seus back-ends.
+Essa configuração associa uma [investigação personalizada](application-gateway-probe-overview.md#custom-health-probe) a uma configuração de http. Você pode associar apenas uma investigação personalizada a uma configuração de HTTP. Se você não associar explicitamente uma investigação personalizada, a [investigação padrão](application-gateway-probe-overview.md#default-health-probe-settings) será usada para monitorar a integridade do back-end. Recomendamos que você crie uma investigação personalizada para maior controle sobre o monitoramento de integridade de seus back-ends.
 
 > [!NOTE]
 > A investigação personalizada não monitora a integridade do pool de back-end, a menos que a configuração de HTTP correspondente esteja explicitamente associada a um ouvinte.
@@ -335,12 +346,12 @@ Depois de criar um pool de back-end, você deve associá-lo a uma ou mais regras
 
 ## <a name="health-probes"></a>Investigações de integridade
 
-Um gateway de aplicativo monitora a integridade de todos os recursos em seu back-end por padrão. Mas é altamente recomendável que você crie uma investigação personalizada para cada configuração de HTTP de back-end para obter maior controle sobre o monitoramento de integridade. Para saber como configurar uma investigação personalizada, consulte [configurações personalizadas de investigação de integridade](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe-settings).
+Um gateway de aplicativo monitora a integridade de todos os recursos em seu back-end por padrão. Mas é altamente recomendável que você crie uma investigação personalizada para cada configuração de HTTP de back-end para obter maior controle sobre o monitoramento de integridade. Para saber como configurar uma investigação personalizada, consulte [configurações personalizadas de investigação de integridade](application-gateway-probe-overview.md#custom-health-probe-settings).
 
 > [!NOTE]
 > Depois de criar uma investigação de integridade personalizada, você precisa associá-la a uma configuração de HTTP de back-end. Uma investigação personalizada não monitorará a integridade do pool de back-end, a menos que a configuração de HTTP correspondente esteja explicitamente associada a um ouvinte usando uma regra.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você conhece os componentes do gateway de aplicativo, você pode:
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 02/19/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b1489ce6bee2ce25ffb268ef20cc8fa587664619
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f4265659df786cf0a972b6dcf4f122bfc68535c1
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848922"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483254"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada com uma conta Microsoft usando políticas personalizadas no Azure Active Directory B2C
 
@@ -24,12 +24,12 @@ ms.locfileid: "76848922"
 
 Este artigo mostra como habilitar a entrada para usuários de um conta Microsoft usando [políticas personalizadas](custom-policy-overview.md) no Azure Active Directory B2C (Azure ad B2C).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Conclua as etapas em [Introdução às políticas personalizadas no Azure Active Directory B2C](custom-policy-get-started.md).
 - Se você ainda não tiver uma conta Microsoft, crie uma em [https://www.live.com/](https://www.live.com/).
 
-## <a name="add-an-application"></a>Adicionar um aplicativo
+## <a name="register-an-application"></a>Registrar um aplicativo
 
 Para habilitar a entrada para usuários com um conta Microsoft, você precisa registrar um aplicativo no locatário do Azure AD. Locatário do Azure AD não é o mesmo que seu locatário do Azure AD B2C.
 
@@ -46,6 +46,19 @@ Para habilitar a entrada para usuários com um conta Microsoft, você precisa re
 1. Clique em **novo segredo do cliente**
 1. Insira uma **Descrição** para o segredo, por exemplo, *segredo do cliente do aplicativo MSA*e clique em **Adicionar**.
 1. Registre a senha do aplicativo mostrada na coluna **valor** . Você usará esse valor na próxima seção.
+
+## <a name="configuring-optional-claims"></a>Como configurar as declarações opcionais
+
+Se você quiser obter as declarações de `family_name` e `given_name` do Azure AD, poderá configurar declarações opcionais para seu aplicativo na interface do usuário do portal do Azure ou no manifesto do aplicativo. Para obter mais informações, consulte [como fornecer declarações opcionais para seu aplicativo do Azure ad](../active-directory/develop/active-directory-optional-claims.md).
+
+1. Entre no [portal do Azure](https://portal.azure.com). Pesquise **Azure Active Directory** e selecione-o.
+1. Na seção **gerenciar** , selecione **registros de aplicativo**.
+1. Selecione o aplicativo para o qual você deseja configurar declarações opcionais na lista.
+1. Na seção **gerenciar** , selecione **configuração de token (versão prévia)** .
+1. Selecione **Adicionar declaração opcional**.
+1. Selecione o tipo de token que você deseja configurar.
+1. Selecione as declarações opcionais a serem adicionadas.
+1. Clique em **Adicionar**.
 
 ## <a name="create-a-policy-key"></a>Criar uma chave de política
 
@@ -94,10 +107,12 @@ Você pode definir o Azure AD como um provedor de declarações, adicionando o e
             <Key Id="client_secret" StorageReferenceId="B2C_1A_MSASecret" />
           </CryptographicKeys>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" />
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="oid" />
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
+            <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
+            <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" />
             <OutputClaim ClaimTypeReferenceId="email" />
           </OutputClaims>
           <OutputClaimsTransformations>

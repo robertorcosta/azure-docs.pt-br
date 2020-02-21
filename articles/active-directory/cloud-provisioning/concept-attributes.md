@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2019
+ms.date: 02/18/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd013b44454cc0283ef84d6a978b15400eca8786
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 0d6d621646aaa5c8c44a20cf327cd10fa31990b0
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022487"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484529"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Entender o esquema do AD do Azure
 Um objeto no Azure Active Directory (Azure AD), como qualquer diretório, é uma construção de dados de alto nível programática que representa itens como usuários, grupos e contatos. Ao criar um novo usuário ou contato no Azure AD, você está criando uma nova instância desse objeto. Essas instâncias podem ser diferenciadas com base em suas propriedades.
@@ -58,21 +58,24 @@ A tabela a seguir lista os atributos comuns e como eles são sincronizados com o
 
 |Active Directory local|Tipo de mapeamento|AD do Azure|
 |-----|-----|-----|
-|cn|Direct|CommonName
-|countryCode|Direct|countryCode|
-|displayName|Direct|displayName|
+|cn|Direto|CommonName
+|countryCode|Direto|countryCode|
+|displayName|Direto|displayName|
 |givenName|Expression|givenName|
-|objectGUID|Direct|sourceAnchorBinary|  
-|userprincipalName|Direct|userPrincipalName|
-|ProxyAdress|Direct|ProxyAddress|
+|objectGUID|Direto|sourceAnchorBinary|  
+|userprincipalName|Direto|userPrincipalName|
+|ProxyAdress|Direto|ProxyAddress|
 
 ## <a name="view-the-schema"></a>Exibir o esquema
+> [!WARNING]
+> A configuração de provisionamento de nuvem cria uma entidade de serviço. A entidade de serviço está visível no portal do Azure. Você não deve modificar os mapeamentos de atributo usando a experiência de entidade de serviço no portal do Azure.  Isso não tem suporte.
+
 Para exibir o esquema e verificá-lo, siga estas etapas.
 
 1.  Vá para o [Gerenciador de gráficos](https://developer.microsoft.com/graph/graph-explorer).
 1.  Entre com sua conta de administrador global.
 1.  À esquerda, selecione **Modificar permissões** e verifique se **Directory. ReadWrite. All** está *consentido*.
-1.  Execute a consulta https://graph.microsoft.com/beta/serviceprincipals/? $filter = StartsWith (DisplayName, ' active '). Essa consulta retorna uma lista filtrada de entidades de serviço.
+1.  Execute a consulta https://graph.microsoft.com/beta/serviceprincipals/?$filter = StartsWith (DisplayName, ' active '). Essa consulta retorna uma lista filtrada de entidades de serviço.
 1.  Localize `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"` e observe o valor de `"id"`.
     ```
     "value": [
@@ -248,7 +251,7 @@ Para exibir o esquema e verificá-lo, siga estas etapas.
 
    ![Esquema retornado](media/concept-attributes/schema1.png)
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [O que é provisionamento?](what-is-provisioning.md)
 - [O que é o provisionamento em nuvem do Azure AD Connect?](what-is-cloud-provisioning.md)

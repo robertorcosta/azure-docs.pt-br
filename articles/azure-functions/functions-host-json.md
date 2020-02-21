@@ -3,12 +3,12 @@ title: Referência host.json para o Azure Functions 2.x
 description: Documentação de referência do arquivo host.json do Azure Functions com o runtime v2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 9b0d078a8c6df21e8000930e72856e92e2d40af7
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: b9c57378df1510179c5a45b6aa669bab804aca5e
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425197"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484427"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>referência de host. JSON para Azure Functions 2. x e posterior 
 
@@ -341,7 +341,7 @@ A dependência gerenciada é um recurso que atualmente só tem suporte com funç
 
 ## <a name="queues"></a>filas
 
-As definições de configuração podem ser encontradas em [Associações e gatilhos da fila de armazenamento](functions-bindings-storage-queue.md#host-json).  
+As definições de configuração podem ser encontradas em [Associações e gatilhos da fila de armazenamento](functions-bindings-storage-queue-output.md#host-json).  
 
 ## <a name="sendgrid"></a>sendGrid
 
@@ -349,7 +349,7 @@ A definição de configuração pode ser encontrada em [Associações e gatilhos
 
 ## <a name="servicebus"></a>serviceBus
 
-A definição de configuração pode ser encontrada em [Associações e gatilhos do Barramento de Serviço](functions-bindings-service-bus.md#host-json).
+A definição de configuração pode ser encontrada em [Associações e gatilhos do Barramento de Serviço](functions-bindings-service-bus-output.md#host-json).
 
 ## <a name="singleton"></a>singleton
 

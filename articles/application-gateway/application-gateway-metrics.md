@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: 838d215cb49e526251aff9267dbeb0feb6d5f8df
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 2d1e6e484fd704669951bd37b17356fd3689cc91
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425249"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485175"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para o gateway de aplicativo
 
@@ -66,7 +66,7 @@ Por exemplo, se houver um pico na tendência de *tempo de resposta do primeiro b
 
 Se você notar um pico no *tempo de resposta do último byte de back-end* , mas o *tempo de resposta do primeiro byte de back-end* for estável, ele poderá ser deduzido de que o pico é devido a um arquivo maior sendo solicitado.
 
-Da mesma forma, se o *tempo total do gateway de aplicativo* tiver um pico, mas o *tempo de resposta do último byte do back-end* for estável, ele poderá ser um sinal de afunilamento de desempenho no gateway de aplicativo ou um afunilamento na rede entre o cliente e o gateway de aplicativo. Além disso, se o *RTT do cliente* também tiver um pico correspondente, isso indica que a degradação é devido à rede entre o cliente e o gateway de aplicativo.
+Da mesma forma, se o *tempo total do gateway de aplicativo* tiver um pico, mas o *tempo de resposta do último byte do back-end* for estável, ele poderá ser um sinal de afunilamento de desempenho no gateway de aplicativo ou um afunilamento na rede entre o cliente e o gateway de aplicativo. Além disso, se o *RTT do cliente* também tiver um pico correspondente, isso indicará que a degradação é devido à rede entre o cliente e o gateway de aplicativo.
 
 ### <a name="application-gateway-metrics"></a>Métricas do gateway de aplicativo
 
@@ -86,7 +86,7 @@ Para o Gateway de Aplicativo, as seguintes métricas estão disponíveis:
 
 - **Unidades de capacidade atuais**
 
-   Contagem de unidades de capacidade consumidas. As unidades de capacidade medem o custo com base no consumo que é cobrado além do custo fixo. Há três determinantes para unidade de computação de unidade de capacidade, conexões persistentes e taxa de transferência. Cada unidade de capacidade é composta de no máximo: 1 unidade de computação ou 2500 conexões persistentes ou taxa de transferência de 2,22 Mbps.
+   Contagem de unidades de capacidade consumidas para balancear a carga do tráfego. Há três determinantes para unidade de computação de unidade de capacidade, conexões persistentes e taxa de transferência. Cada unidade de capacidade é composta de no máximo: 1 unidade de computação ou 2500 conexões persistentes ou taxa de transferência de 2,22 Mbps.
 
 - **Unidades de computação atuais**
 
@@ -98,13 +98,15 @@ Para o Gateway de Aplicativo, as seguintes métricas estão disponíveis:
    
 - **Unidades de capacidade cobradas estimadas**
 
-  Número de unidades de capacidade usando as quais a cobrança é estimada. Isso é calcutaed como o maior valor entre as *unidades de capacidade atuais* e as *unidades de capacidade Faturável fixas*.  
+  Com a SKU v2, o modelo de preços é acionado pelo consumo. As unidades de capacidade medem o custo com base no consumo que é cobrado além do custo fixo. A *estimativa de unidades de capacidade cobrada* indica o número de unidades de capacidade que usam a cobrança estimada. Isso é calculado como o maior valor entre as *unidades de capacidade atuais* (unidades de capacidade necessárias para balancear a carga do tráfego) e *unidades de capacidade Faturável fixas* (unidades de capacidade mínimas mantidas provisionadas).
 
 - **Solicitações com falha**
 
-   Contagem de solicitações com falha que o gateway de aplicativo serviu. A contagem de solicitações pode ser filtrada para mostrar a contagem por cada/pool de back-end específico-combinação de configurações de http.
+  Contagem de solicitações com falha que o gateway de aplicativo serviu. A contagem de solicitações pode ser filtrada para mostrar a contagem por cada/pool de back-end específico-combinação de configurações de http.
    
-- **Unidades de capacidade Faturável fixas** O número mínimo de unidades de capacidade mantidas provisionadas de acordo com a configuração de *unidades de escala mínimas* na configuração do gateway de aplicativo.
+- **Unidades de capacidade Faturável fixas**
+
+  O número mínimo de unidades de capacidade mantidas provisionadas de acordo com a configuração de *unidades de escala mínimas* (uma instância é convertida em 10 unidades de capacidade) na configuração do gateway de aplicativo.
    
  - **Novas conexões por segundo**
 
@@ -143,7 +145,9 @@ Para o Gateway de Aplicativo, as seguintes métricas estão disponíveis:
 
   O número de back-ends que são determinados não íntegros pela investigação de integridade. Você pode filtrar em uma base de pool por back-end para mostrar o número de hosts não íntegros em um pool de back-end específico.
   
-- **Solicitações por minuto por host íntegro** O número médio de solicitações recebidas por cada membro íntegro em um pool de back-end em um minuto. Você deve especificar o pool de back-end usando a dimensão *HttpSettings do backendpool* .  
+- **Solicitações por minuto por host íntegro**
+
+  O número médio de solicitações recebidas por cada membro íntegro em um pool de back-end em um minuto. Você deve especificar o pool de back-end usando a dimensão *HttpSettings do backendpool* .  
   
 
 ## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Métricas com suporte do SKU do gateway de aplicativo v1

@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: f6819ddce777a5740ef1f5f9ab887a0646c4e464
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: e53db645875646b1e021cc0d3d760677e1128c0c
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122331"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486369"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: gerenciamento de modelos, implantação e monitoramento com Azure Machine Learning
 
@@ -97,7 +97,7 @@ A pontuação de lote tem suporte por meio de pipelines de ML. Para obter mais i
 Você pode usar seus modelos em **Serviços Web** com os seguintes destinos de computação:
 
 * Azure Container Instance
-* Serviço do Kubernetes do Azure
+* Serviço de Kubernetes do Azure
 * Ambiente de desenvolvimento local
 
 Para implantar o modelo como um serviço Web, você deve fornecer os seguintes itens:
@@ -114,13 +114,13 @@ Você pode usar modelos com dispositivos IoT por meio de **módulos Azure IOT Ed
 
 Para obter mais informações, consulte [implantar modelos](how-to-deploy-and-where.md).
 
-### <a name="analytics"></a>Análises
+### <a name="analytics"></a>Análise
 
 O Microsoft Power BI dá suporte ao uso de modelos de aprendizado de máquina para análise de dados. Para obter mais informações, consulte [integração de Azure Machine Learning no Power bi (versão prévia)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
 ## <a name="capture-the-governance-data-required-for-capturing-the-end-to-end-ml-lifecycle"></a>Capturar os dados de governança necessários para capturar o ciclo de vida de ML de ponta a ponta
 
-O Azure ML oferece a capacidade de acompanhar a trilha de auditoria de ponta a ponta de todos os seus ativos de ML. Mais especificamente:
+O Azure ML oferece a capacidade de acompanhar a trilha de auditoria de ponta a ponta de todos os seus ativos de ML. Especificamente:
 
 - O Azure ML [integra-se com o Git](how-to-set-up-training-targets.md#gitintegration) para rastrear informações sobre a qual repositório/Branch/confirmação seu código veio.
 - Os conjuntos de dados [do Azure ml](how-to-create-register-datasets.md) ajudam a acompanhar, criar o perfil e a versão. 
@@ -139,6 +139,19 @@ Essas informações ajudam a entender como seu modelo está sendo usado. Os dado
 
 Para obter mais informações, consulte [Como habilitar a coleta de dados de modelo](how-to-enable-data-collection.md).
 
+## <a name="retrain-your-model-on-new-data"></a>Treinar novamente seu modelo em novos dados
+
+Muitas vezes, você desejará atualizar seu modelo ou até mesmo retreiná-lo do zero, ao receber novas informações. Às vezes, o recebimento de novos dados é uma parte esperada do domínio. Em outras ocasiões, conforme discutido em [detectar descompasso de dados (versão prévia) em DataSets](how-to-monitor-datasets.md), o desempenho do modelo pode ser prejudicado diante de coisas como alterações em um sensor específico, alterações naturais de dados, como efeitos sazonais, ou recursos que se deslocam em sua relação com outros recursos. 
+
+Não há nenhuma resposta universal para "Como fazer saber se devo treinar novamente?" Mas as ferramentas de monitoramento e eventos do Azure ML abordadas anteriormente são bons pontos de partida para a automação. Depois de decidir treinar novamente, você deve: 
+
+- Pré-processar seus dados usando um processo reproduzível e automatizado
+- Treinar seu novo modelo
+- Compare as saídas do seu novo modelo com as de seu modelo antigo
+- Use critérios predefinidos para escolher se deseja substituir o modelo antigo 
+
+Um tema das etapas acima é que o seu novo treinamento deve ser automatizado, não ad hoc. [Azure Machine Learning pipelines](concept-ml-pipelines.md) são uma boa resposta para a criação de fluxos de trabalho relacionados à preparação, ao treinamento, à validação e à implantação de dados. Leia [modelos de readaptação com o designer de Azure Machine Learning (versão prévia)](how-to-retrain-designer.md) para ver como pipelines e o designer de Azure Machine Learning se encaixam em um cenário de novo treinamento. 
+
 ## <a name="automate-the-ml-lifecycle"></a>Automatizar o ciclo de vida do ML 
 
 Você pode usar o GitHub e o Azure Pipelines para criar um processo de integração contínua que treina um modelo. Em um cenário típico, quando um cientista de dados verifica uma alteração no repositório Git para um projeto, o pipeline do Azure iniciará uma execução de treinamento. Os resultados da execução podem ser inspecionados para ver as características de desempenho do modelo treinado. Você também pode criar um pipeline que implanta o modelo como um serviço Web.
@@ -150,7 +163,7 @@ A [extensão Azure Machine Learning](https://marketplace.visualstudio.com/items?
 
 Para obter mais informações sobre como usar Azure Pipelines com Azure Machine Learning, consulte a [integração e a implantação contínuas dos modelos de ml com Azure pipelines](/azure/devops/pipelines/targets/azure-machine-learning) artigo e o repositório [Azure Machine Learning MLOps](https://aka.ms/mlops) .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais lendo e explorando os seguintes recursos:
 

@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 83884447e9856b5e3db26e4829ccbd3ab1baed13
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 715415929afaad36e4854e75a2b7b5360d22a6bf
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549080"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486335"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Como usar o SDK do Azure WebJobs para o processamento em segundo plano controlado por evento
 
@@ -223,7 +223,7 @@ static void Main(string[] args)
 
 ## <a name="input-and-output-bindings"></a>Associações de entrada e saída
 
-As associações de entrada e saída fornecem uma maneira declarativa para criar dados a partir do Azure ou de serviços externos disponíveis para seu código. As associações de saída fornecem uma maneira de atualizar os dados. O artigo de [ introdução](webjobs-sdk-get-started.md) mostra um exemplo de cada um.
+As associações de entrada e saída fornecem uma maneira declarativa para criar dados a partir do Azure ou de serviços externos disponíveis para seu código. As associações de saída fornecem uma maneira de atualizar os dados. O [artigo de introdução mostra](webjobs-sdk-get-started.md) um exemplo de cada um.
 
 Você pode usar um valor de retorno de método para uma associação de saída aplicando o atributo ao valor de retorno do método. Consulte o exemplo em [usando o valor de retorno da função do Azure](../azure-functions/functions-bindings-return-value.md).
 
@@ -279,7 +279,7 @@ Esses tipos de gatilho e de associação estão incluídos na versão 2. *x* do 
 
 * Armazenamento de blob
 * Armazenamento de filas
-* Armazenamento de tabelas
+* Armazenamento de tabela
 
 Para usar outros tipos de associação e gatilho, instale o pacote do NuGet que os contém e chame um método `Use<binding>` no objeto `JobHostConfiguration`. Por exemplo, se você quiser usar um gatilho de temporizador, instale `Microsoft.Azure.WebJobs.Extensions` e chame `UseTimers` no método `Main`, como mostrado aqui:
 
@@ -453,7 +453,7 @@ static async Task Main()
 }
 ```
 
-Para obter mais detalhes, consulte o artigo [Associação de armazenamento de filas](../azure-functions/functions-bindings-storage-queue.md#hostjson-settings) .
+Para obter mais detalhes, consulte o artigo [Associação de armazenamento de filas](../azure-functions/functions-bindings-storage-queue-trigger.md#hostjson-properties) .
 
 #### <a name="version-2x"></a>Versão 2. *x*
 
@@ -524,7 +524,7 @@ static async Task Main()
 }
 ```
 
-Para obter mais detalhes, consulte o artigo [associação do barramento de serviço](../azure-functions/functions-bindings-service-bus.md#hostjson-settings) .
+Para obter mais detalhes, consulte o artigo [associação do barramento de serviço](../azure-functions/functions-bindings-service-bus-output.md#hostjson-settings) .
 
 ### <a name="configuration-for-other-bindings"></a>Configuração de outras associações
 
@@ -680,11 +680,11 @@ Para obter mais informações, consulte [Associação no runtime](../azure-funct
 
 A documentação Azure Functions fornece informações de referência sobre cada tipo de associação. Você encontrará as seguintes informações em cada artigo de referência de associação. (Este exemplo é baseado na fila de armazenamento.)
 
-* [Pacotes](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x). O pacote que você precisa instalar para incluir suporte para a associação em um projeto do SDK de trabalhos Web.
-* [Exemplos](../azure-functions/functions-bindings-storage-queue.md#trigger). Exemplos de código. O C# exemplo de biblioteca de classes se aplica ao SDK de trabalhos Web. Basta omitir o atributo `FunctionName`.
-* [Atributos](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes-and-annotations). Os atributos a serem usados para o tipo de associação.
-* [Configuração](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration). Explicações das propriedades do atributo e dos parâmetros do construtor.
-* [Uso](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Os tipos aos quais você pode associar e informações sobre como a associação funciona. Por exemplo: algoritmo de sondagem, processamento de fila de mensagens suspeita.
+* [Pacotes](../azure-functions/functions-bindings-storage-queue.md). O pacote que você precisa instalar para incluir suporte para a associação em um projeto do SDK de trabalhos Web.
+* [Exemplos](../azure-functions/functions-bindings-storage-queue-trigger.md). Exemplos de código. O C# exemplo de biblioteca de classes se aplica ao SDK de trabalhos Web. Basta omitir o atributo `FunctionName`.
+* [Atributos](../azure-functions/functions-bindings-storage-queue-trigger.md#attributes-and-annotations). Os atributos a serem usados para o tipo de associação.
+* [Configuração](../azure-functions/functions-bindings-storage-queue-trigger.md#configuration). Explicações das propriedades do atributo e dos parâmetros do construtor.
+* [Uso](../azure-functions/functions-bindings-storage-queue-trigger.md#usage). Os tipos aos quais você pode associar e informações sobre como a associação funciona. Por exemplo: algoritmo de sondagem, processamento de fila de mensagens suspeita.
   
 Para obter uma lista de artigos de referência de associação, consulte "associações com suporte" no artigo [gatilhos e associações](../azure-functions/functions-triggers-bindings.md#supported-bindings) para Azure functions. Nessa lista, as associações de grade de eventos, HTTP e WebHooks têm suporte apenas pelo Azure Functions, não pelo SDK de trabalhos Web.
 
@@ -745,7 +745,7 @@ Alguns gatilhos têm suporte interno para gerenciamento de simultaneidade:
 
 * **QueueTrigger**. Defina `JobHostConfiguration.Queues.BatchSize` como `1`.
 * **ServiceBusTrigger**. Defina `ServiceBusConfiguration.MessageOptions.MaxConcurrentCalls` como `1`.
-* **FileTrigger**. Defina `FileProcessor.MaxDegreeOfParallelism` como `1`.
+* **Gatilho de filetrigger**. Defina `FileProcessor.MaxDegreeOfParallelism` como `1`.
 
 Você pode usar essas configurações para garantir que sua função seja executada como um singleton em uma única instância. Para garantir que apenas uma única instância da função esteja em execução quando o aplicativo Web é dimensionado para várias instâncias, aplique um bloqueio singleton no nível do ouvinte na função (`[Singleton(Mode = SingletonMode.Listener)]`). Os bloqueios de ouvinte são adquiridos quando o JobHost é iniciado. Se três instâncias expandidas forem iniciadas ao mesmo tempo, somente uma das instâncias adquirirá o bloqueio e somente um ouvinte será iniciado.
 
@@ -815,16 +815,16 @@ Filtros de função (visualização) fornecem uma maneira de personalizar o pipe
 
 ## <a name="logging-and-monitoring"></a>Log e monitoramento
 
-Recomendamos a estrutura de registro em log desenvolvida para ASP.NET. O artigo de [introdução](webjobs-sdk-get-started.md) mostra como usá-lo. 
+Recomendamos a estrutura de registro em log desenvolvida para ASP.NET. O [artigo de introdução mostra](webjobs-sdk-get-started.md) como usá-lo. 
 
 ### <a name="log-filtering"></a>Filtragem de linha
 
 Cada log criado por uma instância de `ILogger` possui um `Category` e `Level` associados. [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel) é uma enumeração e o código inteiro indica importância relativa:
 
-|LogLevel    |Codificar|
+|LogLevel    |Código|
 |------------|---|
 |Trace       | 0 |
-|Depuração       | 1 |
+|Depurar       | 1 |
 |Informações | 2 |
 |Aviso     | 3 |
 |Erro       | 4 |
@@ -1002,4 +1002,4 @@ Este artigo fornece trechos de código que mostram como lidar com cenários comu
 [`ConfigureServices`]: /dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
 [`ITelemetryInitializer`]: /dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
 [`TelemetryConfiguration`]: /dotnet/api/microsoft.applicationinsights.extensibility.telemetryconfiguration
-[`JobHostConfiguration`]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs
+[JobHostConfiguration]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs

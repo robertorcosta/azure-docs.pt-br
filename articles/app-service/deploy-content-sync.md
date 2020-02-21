@@ -6,17 +6,17 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: c55894bff9501d3ffb9aa843a9eaa240a213180e
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 9f18eef607a5f655aecc0b6ebe1c85a239b34192
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671743"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482965"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Sincronizar o conteúdo de uma pasta de nuvem para o Serviço de Aplicativo do Azure
 Este artigo mostra como sincronizar seu conteúdo do Dropbox e OneDrive com o [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). 
 
-A implantação de sincronização de conteúdo sob demanda é ativada pelo [mecanismo de implantação do Kudu](https://github.com/projectkudu/kudu/wiki) do Serviço de Aplicativo. Você pode trabalhar com o código do aplicativo e o conteúdo em uma pasta de nuvem designada e, em seguida, sincronizar com o Serviço de Aplicativo clicando em um botão. Sincronização de conteúdo usa o servidor de build do Kudu. 
+A implantação de sincronização de conteúdo sob demanda é ativada pelo [mecanismo de implantação do Kudu](https://github.com/projectkudu/kudu/wiki) do Serviço de Aplicativo. Você pode trabalhar com o código e o conteúdo do aplicativo em uma pasta de nuvem designada e, em seguida, sincronizar com o serviço de aplicativo com o clique de um botão. Sincronização de conteúdo usa o servidor de build do Kudu. 
 
 ## <a name="enable-content-sync-deployment"></a>Habilitar a implantação da sincronização de conteúdo
 
@@ -60,7 +60,7 @@ No menu à esquerda, clique em **Central de Implantação** > **Desconectar**.
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Implantar do repositório do Git local](deploy-local-git.md)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: 408f29322af2199259f59be1f2c7e891a80a6b35
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 65838c36cadba580c578677185683e27b57b1e27
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980587"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525491"
 ---
 # <a name="manage-azure-cosmos-db-mongodb-api-resources-using-azure-resource-manager-templates"></a>Gerenciar Azure Cosmos DB recursos de API do MongoDB usando modelos de Azure Resource Manager
 
@@ -24,6 +24,8 @@ Crie Azure Cosmos DB recursos usando um modelo de Azure Resource Manager. Este m
 > [!NOTE]
 > Os nomes de conta devem ser minúsculos e 44 ou menos caracteres.
 > Para atualizar RU/s, envie novamente o modelo com valores de propriedade de produtividade atualizados.
+>
+> No momento, você só pode criar a versão 3,2 (ou seja, contas que usam o ponto de extremidade no formato `*.documents.azure.com`) da API do Azure Cosmos DB para as contas do MongoDB usando o PowerShell, a CLI e os modelos do Resource Manager. Para criar a versão 3,6 de contas, use portal do Azure em vez disso.
 
 [!code-json[create-cosmos-mongo](~/quickstart-templates/101-cosmosdb-mongodb/azuredeploy.json)]
 
@@ -53,7 +55,7 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 
 O comando `az cosmosdb show` mostra a conta recém-criada do Azure Cosmos depois que ela é provisionada. Se você optar por usar uma versão instalada localmente do CLI do Azure em vez de usar Cloud Shell, consulte o artigo [CLI do Azure](/cli/azure/) .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Estes são alguns recursos adicionais:
 

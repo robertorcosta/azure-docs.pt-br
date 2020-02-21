@@ -1,6 +1,6 @@
 ---
-title: Conectar máquinas híbridas ao Azure por meio do portal do Azure
-description: Neste artigo, você aprende a instalar o agente e a conectar computadores ao Azure usando o Azure ARC para servidores (versão prévia) do portal do Azure.
+title: Conectar computadores híbridos ao Azure por meio do portal do Azure
+description: Neste artigo, você aprenderá a instalar o agente e a conectar computadores ao Azure usando o Azure Arc para servidores (versão prévia) no portal do Azure.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
@@ -8,61 +8,61 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 12fc29cf12fba6325af3197e727d94b3073ef2ff
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 3f4954b3a33cdd73c1e004ad1e643f9e24abf1e4
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77192305"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485226"
 ---
-# <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Conectar máquinas híbridas ao Azure por meio do portal do Azure
+# <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Conectar computadores híbridos ao Azure por meio do portal do Azure
 
-Você pode habilitar o Azure ARC para servidores (versão prévia) para um ou um pequeno número de computadores Windows ou Linux em seu ambiente executando um conjunto de etapas manualmente. Ou você pode usar um método automatizado executando um script de modelo que fornecemos. Esse script automatiza o download e a instalação de ambos os agentes.
+Você pode habilitar o Azure Arc para servidores (versão prévia) para um ou um pequeno número de computadores Windows ou Linux em seu ambiente executando um conjunto de etapas manualmente. Ou você pode usar um método automatizado executando um script de modelo que fornecemos. Esse script automatiza o download e a instalação de ambos os agentes.
 
-Esse método requer que você tenha permissões de administrador no computador para instalar e configurar o agente. No Linux, usando a conta raiz e no Windows, você é membro do grupo Administradores local.
+Esse método exige que você tenha permissões de administrador no computador para instalar e configurar o agente. No Linux, usando a conta raiz, e no Windows, você é membro do grupo local de administradores.
 
-Antes de começar, certifique-se de revisar os [pré-requisitos](overview.md#prerequisites) e verificar se sua assinatura e seus recursos atendem aos requisitos.
+Antes de começar, examine os [pré-requisitos](overview.md#prerequisites) e verifique se a sua assinatura e os recursos atendem aos requisitos.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="generate-the-installation-script-from-the-azure-portal"></a>Gerar o script de instalação do portal do Azure
+## <a name="generate-the-installation-script-from-the-azure-portal"></a>Gerar o script de instalação no portal do Azure
 
-O script para automatizar o download e a instalação, e para estabelecer a conexão com o Arc do Azure, está disponível na portal do Azure. Para concluir o processo, faça o seguinte:
+O script usado para automatizar o download e a instalação e para estabelecer a conexão com o Azure Arc está disponível no portal do Azure. Para concluir o processo, faça o seguinte:
 
-1. No navegador, vá para a [portal do Azure](https://aka.ms/hybridmachineportal).
+1. No navegador, acesse o [portal do Azure](https://aka.ms/hybridmachineportal).
 
-1. Na página **computadores – Arc do Azure** , selecione **Adicionar**, na parte superior esquerda ou a opção **criar máquina – arco do Azure** na parte inferior do painel central. 
+1. Na página **Computadores – Azure Arc**, selecione **Adicionar** no canto superior esquerdo ou a opção **Criar computador – Azure Arc** na parte inferior do painel central. 
 
-1. Na página **selecionar um método** , selecione o bloco **Adicionar computadores usando o script interativo** e, em seguida, selecione **gerar script**.
+1. Na página **Selecionar um método**, selecione o bloco **Adicionar computadores usando o script interativo** e, em seguida, selecione **Gerar script**.
 
-1. Na página **gerar script** , selecione a assinatura e o grupo de recursos em que você deseja que o computador seja gerenciado no Azure. Selecione um local do Azure onde os metadados do computador serão armazenados.
+1. Na página **Gerar script**, selecione a assinatura e o grupo de recursos nos quais você deseja que o computador seja gerenciado no Azure. Selecione uma localização do Azure em que os metadados do computador serão armazenados.
 
     >[!NOTE]
-    >O arco do Azure para servidores (visualização) dá suporte apenas às seguintes regiões:
+    >O Azure Arc para servidores (versão prévia) só dá suporte às seguintes regiões:
     >- WestUS2
     >- WestEurope
     >- WestAsia
     >
     >Examine considerações adicionais ao selecionar uma região [aqui](overview.md#supported-regions) no artigo de visão geral.
 
-1. Na página **gerar script** , na lista suspensa **sistema operacional** , selecione o sistema operacional no qual o script será executado.
+1. Na página **Gerar script**, na lista suspensa **Sistema operacional**, selecione o sistema operacional no qual o script será executado.
 
 1. Se a máquina estiver se comunicando por meio de um servidor proxy para se conectar à Internet, selecione **Avançar: servidor proxy**. 
-1. Na guia **servidor proxy** , especifique o endereço IP do servidor proxy ou o nome e o número da porta que o computador usará para se comunicar com o servidor proxy. Digite o valor no formato `http://<proxyURL>:<proxyport>`. 
-1. Selecione **revisão + gerar**.
+1. Na guia **Servidor proxy**, especifique o endereço IP do servidor proxy ou o nome e o número da porta que o computador usará para se comunicar com o servidor proxy. Digite o valor no formato `http://<proxyURL>:<proxyport>`. 
+1. Selecione **Examinar + gerar**.
 
-1. Na guia **revisar + gerar** , examine as informações de resumo e, em seguida, selecione **baixar**. Se você ainda precisar fazer alterações, selecione **anterior**.
+1. Na guia **Examinar + gerar**, examine as informações de resumo e, em seguida, selecione **Baixar**. Se você ainda precisar fazer alterações, selecione **Anterior**.
 
 ## <a name="install-and-validate-the-agent-on-windows"></a>Instalar e validar o agente no Windows
 
 ### <a name="install-manually"></a>Instalar manualmente
-Você pode instalar o agente do computador conectado manualmente executando o pacote de Windows Installer *AzureConnectedMachineAgent. msi*. 
+Instale o agente do Connected Machine manualmente executando o pacote *AzureConnectedMachineAgent.msi* do Windows Installer. 
 
 > [!NOTE]
-> * Para instalar ou desinstalar o agente, você deve ter permissões de *administrador* .
-> * Você deve primeiro baixar e copiar o pacote do instalador para uma pasta no servidor de destino ou de uma pasta de rede compartilhada. Se você executar o pacote do instalador sem nenhuma opção, ele iniciará um assistente de instalação que você pode seguir para instalar o agente interativamente.
+> * Para instalar ou desinstalar o agente, você precisa ter permissões de *Administrador*.
+> * Primeiro, é necessário baixar e copiar o pacote do instalador para uma pasta no servidor de destino ou de uma pasta de rede compartilhada. Se você executar o pacote do instalador sem nenhuma opção, ele iniciará um assistente de instalação que você poderá seguir para instalar o agente de maneira interativa.
 
-Se o computador precisar se comunicar por meio de um servidor proxy para o serviço, depois de instalar o agente, você precisará executar um comando descrito posteriormente neste artigo. Isso define a variável de ambiente do sistema do servidor proxy `https_proxy`.
+Se o computador precisar se comunicar por meio de um servidor proxy com o serviço, depois de instalar o agente, você precisará executar um comando que será descrito mais adiante neste artigo. Isso define a variável de ambiente `https_proxy` do sistema do servidor proxy.
 
 A tabela a seguir destaca os parâmetros compatíveis com a instalação do agente por meio da linha de comando.
 
@@ -73,17 +73,17 @@ A tabela a seguir destaca os parâmetros compatíveis com a instalação do agen
 
 Por exemplo, para executar o programa de instalação com o parâmetro `/?`, insira `msiexec.exe /i AzureConnectedMachineAgent.msi /?`.
 
-Os arquivos para o agente do computador conectado são instalados em *C:\Program Files\AzureConnectedMachineAgent* por padrão. Se o agente não for iniciado após a conclusão da instalação, verifique os logs para obter informações detalhadas sobre o erro. O diretório de log é *%ProgramFiles%\AzureConnectedMachineAgentAgent\logs*.
+Os arquivos do agente do Connected Machine são instalados em *C:\Program Files\AzureConnectedMachineAgent* por padrão. Se o agente não for iniciado após a conclusão da instalação, verifique os logs para obter informações de erro detalhadas. O diretório de log é *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
 
-### <a name="install-with-the-scripted-method"></a>Instalar com o método com script
+### <a name="install-with-the-scripted-method"></a>Instalação com o método com script
 
 1. Faça logon no servidor.
 
-1. Abra um prompt de comando do PowerShell com privilégios elevados.
+1. Abra um prompt de comando com privilégios elevados do PowerShell.
 
-1. Altere para a pasta ou o compartilhamento para o qual você copiou o script e execute-o no servidor executando o script `./OnboardingScript.ps1`.
+1. Vá para a pasta ou o compartilhamento para o qual você copiou o script e execute-o no servidor executando o script `./OnboardingScript.ps1`.
 
-### <a name="configure-the-agent-proxy-setting"></a>Definir a configuração de proxy do agente
+### <a name="configure-the-agent-proxy-setting"></a>Definir a configuração do proxy do agente
 
 Para definir a variável de ambiente do servidor proxy, execute o seguinte comando:
 
@@ -96,27 +96,27 @@ Restart-Service -Name himds
 ```
 
 >[!NOTE]
->O agente não dá suporte à configuração de autenticação de proxy nesta visualização.
+>O agente não dá suporte à definição da autenticação de proxy nesta versão prévia.
 >
 
 ### <a name="configure-agent-communication"></a>Configurar a comunicação do agente
 
-Depois de instalar o agente, você precisa configurar o agente para se comunicar com o serviço de arco do Azure executando o seguinte comando:
+Depois de instalar o agente, você precisará configurá-lo para se comunicar com o serviço Azure Arc executando o seguinte comando:
 
 `%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
 
 ## <a name="install-and-validate-the-agent-on-linux"></a>Instalar e validar o agente no Linux
 
-O agente do computador conectado para Linux é fornecido no formato de pacote preferencial para a distribuição (. RPM ou. DEB) hospedado no [repositório de pacotes](https://packages.microsoft.com/)da Microsoft. O [pacote de script do shell `Install_linux_azcmagent.sh`](https://aka.ms/azcmagent) executa as seguintes ações:
+O agente do Connected Machine para Linux é fornecido no formato de pacote preferencial para a distribuição (.RPM ou .DEB) hospedada no [repositório de pacotes](https://packages.microsoft.com/) da Microsoft. O [pacote de script do shell `Install_linux_azcmagent.sh`](https://aka.ms/azcmagent) executa as seguintes ações:
 
-- Configura o computador host para baixar o pacote do agente do packages.microsoft.com.
+- Configura o computador host para baixar o pacote do agente em packages.microsoft.com.
 - Instala o pacote do provedor de recursos híbrido.
 
-Opcionalmente, você pode configurar o agente com suas informações de proxy, incluindo o parâmetro `--proxy "{proxy-url}:{proxy-port}"`.
+Opcionalmente, você pode configurar o agente com as suas informações de proxy, incluindo o parâmetro `--proxy "{proxy-url}:{proxy-port}"`.
 
 O script também contém a lógica para identificar as distribuições com e sem suporte e verifica as permissões necessárias para executar a instalação. 
 
-O exemplo a seguir baixa o agente e o instala:
+O seguinte exemplo baixa o agente e o instala:
 
 ```bash
 # Download the installation package.
@@ -138,40 +138,40 @@ bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 
 ### <a name="configure-the-agent-communication"></a>Configurar a comunicação do agente
 
-Depois de instalar o agente, configure-o para se comunicar com o serviço Arc do Azure executando o seguinte comando:
+Depois de instalar o agente, configure-o para se comunicar com o serviço Azure Arc executando o seguinte comando:
 
 `/opt/azcmagent/bin/azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
 
-## <a name="verify-the-connection-with-azure-arc"></a>Verificar a conexão com o arco do Azure
+## <a name="verify-the-connection-with-azure-arc"></a>Verificar a conexão com o Azure Arc
 
-Depois de instalar o agente e configurá-lo para se conectar ao arco do Azure para servidores (versão prévia), vá para o portal do Azure para verificar se o servidor foi conectado com êxito. Exiba seus computadores na [portal do Azure](https://aka.ms/hybridmachineportal).
+Depois de instalar o agente e configurá-lo para se conectar ao Azure Arc para servidores (versão prévia), acesse o portal do Azure para verificar se o servidor foi conectado com êxito. Veja seus computadores no [portal do Azure](https://aka.ms/hybridmachineportal).
 
 ![Uma conexão de servidor bem-sucedida](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
 ## <a name="clean-up"></a>Limpar
 
-Para desconectar um computador do arco do Azure para servidores (versão prévia), faça o seguinte:
+Para desconectar um computador do Azure Arc para servidores (versão prévia), faça o seguinte:
 
-1. Abra o arco do Azure para servidores (versão prévia) acessando o [portal do Azure](https://aka.ms/hybridmachineportal).
+1. Abra o Azure Arc para servidores (versão prévia) acessando o [portal do Azure](https://aka.ms/hybridmachineportal).
 
-1. Selecione o computador na lista, selecione as reticências ( **...** ) e, em seguida, selecione **excluir**.
+1. Selecione o computador na lista, selecione as reticências ( **...** ) e, em seguida, selecione **Excluir**.
 
 1. Para desinstalar o agente do Windows do computador, faça o seguinte:
 
     a. Entre no computador com uma conta que tenha permissões de administrador.  
-    b. No **painel de controle**, selecione **programas e recursos**.  
-    c. Em **programas e recursos**, selecione **agente do computador conectado do Azure**, selecione **desinstalar**e, em seguida, selecione **Sim**.  
+    b. No **Painel de Controle**, selecione **Programas e Recursos**.  
+    c. Em **Programas e Recursos**, selecione **Agente do Azure Connected Machine**, **Desinstalar** e, em seguida, **Sim**.  
 
     >[!NOTE]
-    > Você também pode executar o assistente de instalação do agente clicando duas vezes no pacote do instalador **AzureConnectedMachineAgent. msi** .
+    > Execute também o assistente de instalação do agente clicando duas vezes no pacote do instalador **AzureConnectedMachineAgent.msi**.
 
     Se quiser fazer o script de remoção do agente, você pode usar o exemplo a seguir, que recupera o código do produto e desinstala o agente usando a linha de comando msiexec. exe-`msiexec /x {Product Code}`. Para fazer isso:  
     
     a. Abra o Editor do Registro.  
-    b. Em chave do registro `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall`, procure e copie o GUID do código do produto.  
-    c. Em seguida, você pode desinstalar o agente usando o msiexec.
+    b. Na chave do Registro `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall`, procure e copie o GUID do código do produto.  
+    c. Em seguida, você poderá desinstalar o agente usando o Msiexec.
 
-    O exemplo a seguir demonstra como desinstalar o agente:
+    O seguinte exemplo demonstra como desinstalar o agente:
 
     ```powershell
     Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
@@ -183,11 +183,11 @@ Para desconectar um computador do arco do Azure para servidores (versão prévia
 1. Para desinstalar o agente do Linux, execute o seguinte comando:
 
       ```bash
-      sudo apt purge hybridagent
+      sudo apt purge azcmagent
       ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como gerenciar seu computador usando [Azure Policy](../../governance/policy/overview.md), para tarefas como [configuração de convidado](../../governance/policy/concepts/guest-configuration.md)de VM, verificar se o computador está relatando para o espaço de trabalho esperado log Analytics, habilitar o monitoramento com o [Azure monitor com VMs](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md)e muito mais.
 
-- Saiba mais sobre o [agente de log Analytics](../../azure-monitor/platform/log-analytics-agent.md). O agente Log Analytics para Windows e Linux é necessário quando você deseja monitorar proativamente o sistema operacional e as cargas de trabalho em execução no computador, gerenciá-lo usando runbooks de automação ou soluções como Gerenciamento de Atualizações ou usar outros serviços do Azure, como a [central de segurança do Azure](../../security-center/security-center-intro.md).
+- Saiba mais sobre o [agente de log Analytics](../../azure-monitor/platform/log-analytics-agent.md). O agente do Log Analytics para Windows e Linux é necessário quando você deseja monitorar proativamente o sistema operacional e as cargas de trabalho em execução no computador, o gerencia usando os runbooks de automação ou soluções como o Gerenciamento de Atualizações ou usa outros serviços do Azure como a [Central de Segurança do Azure](../../security-center/security-center-intro.md).

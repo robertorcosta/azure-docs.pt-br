@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/23/2020
-ms.openlocfilehash: 9f377f93ab8fef2c1ad713da6fcd6c6f14107c3f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 33af9c8f3fbe4de57d65be432f249d4aeb5d3e27
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986811"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485328"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor perguntas frequentes
 
@@ -90,7 +90,7 @@ O Azure Data Explorer é um serviço de exploração de dados rápido e altament
 ### <a name="how-do-i-retrieve-log-data"></a>Como fazer recuperar dados de log?
 Todos os dados são recuperados de um espaço de trabalho Log Analytics usando uma consulta de log escrita usando a linguagem de consulta Kusto (KQL). Você pode escrever suas próprias consultas ou usar soluções e ideias que incluem consultas de log para um determinado aplicativo ou serviço. Consulte [visão geral das consultas de log no Azure monitor](log-query/log-query-overview.md).
 
-### <a name="what-is-a-log-analytics-workspace"></a>O que é um workspace do Log Analytics?
+### <a name="what-is-a-log-analytics-workspace"></a>O que é um espaço de trabalho Log Analytics?
 Todos os dados de log coletados pelo Azure Monitor são armazenados em um espaço de trabalho do Log Analytics. Um espaço de trabalho é essencialmente um contêiner em que os dados de log são coletados de uma variedade de fontes. Você pode ter um único espaço de trabalho Log Analytics para todos os seus dados de monitoramento ou pode ter requisitos para vários espaços de trabalho. Consulte [projetando sua implantação de logs de Azure monitor](platform/design-logs-deployment.md).
 
 ### <a name="can-you-move-an-existing-log-analytics-workspace-to-another-azure-subscription"></a>Você pode mover um espaço de trabalho Log Analytics existente para outra assinatura do Azure?
@@ -200,7 +200,7 @@ Consulte [requisitos de firewall de rede](platform/log-analytics-agent.md#networ
 O designer de exibição só está disponível para usuários atribuídos com permissões de colaborador ou superior no espaço de trabalho Log Analytics.
 
 
-## <a name="application-insights"></a>Percepções sobre o Aplicativo
+## <a name="application-insights"></a>Application Insights
 
 ### <a name="configuration-problems"></a>Problemas de configuração
 *Estou tendo problemas para configurar:*
@@ -380,7 +380,7 @@ Use um recurso único para todos os componentes ou funções em um único sistem
 | Telemetria de dependência |[Instalar o AI Status Monitor no servidor](app/monitor-performance-live-website-now.md) |Diagnosticar problemas com bancos de dados ou outros componentes externos |
 | Obter rastreamentos de pilha por meio de exceções |[Inserir chamadas TrackException em seu código](app/asp-net-exceptions.md) (mas alguns são informados automaticamente) |Detectar e diagnosticar exceções |
 | Pesquisar rastreamentos de log |[Adicionar um adaptador de registro em log](app/asp-net-trace-logs.md) |Diagnosticar exceções, problemas de desempenho |
-| Noções básicas de uso do cliente: modos de exibição de página, sessões,... |[Inicializador de JavaScript em páginas da Web](app/javascript.md) |Analíticas de uso |
+| Noções básicas de uso do cliente: modos de exibição de página, sessões,... |[Inicializador de JavaScript em páginas da Web](app/javascript.md) |Análise de uso |
 | Métricas de cliente personalizadas |[Rastreando chamadas em páginas da Web](app/api-custom-events-metrics.md) |Aprimorar a experiência do usuário |
 | Métricas de servidor personalizadas |[Rastreando chamadas no servidor](app/api-custom-events-metrics.md) |Business intelligence |
 
@@ -697,7 +697,10 @@ Os limites para os critérios de integridade do Linux a seguir não são modific
 As regras de alerta definidas para cada critério de integridade não são exibidas no portal do Azure. É possível habilitar ou desabilitar uma regra de alerta de integridade somente na [API do Monitor da Carga de Trabalho](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Além disso, não é possível atribuir um [grupo de ações do Azure Monitor](platform/action-groups.md) para alertas de integridade no portal do Azure. Você só pode usar a API de configuração de notificação para configurar um grupo de ação a ser acionado sempre que um alerta de integridade for disparado. No momento, você pode atribuir grupos de ações em uma VM para que todos os *alertas de integridade* disparados na VM disparem os mesmos grupos de ações. Ao contrário dos alertas tradicionais do Azure, não há um conceito de grupo de ações separado para cada regra de alerta de integridade. Além disso, há suporte apenas para os grupos de ações configurados para fornecer notificações por SMS ou email quando os alertas de integridade são disparados. 
 
 ### <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>Não vejo alguns dados ou nenhum dado nos gráficos de desempenho de minha VM
+Nossos gráficos de desempenho foram atualizados para usar dados armazenados na tabela *InsightsMetrics* .  Para ver os dados nesses gráficos, você precisará atualizar para usar a nova solução de informações de VM.  Consulte nossas [perguntas frequentes sobre o GA](insights/vminsights-ga-release-faq.md) para obter informações adicionais.
+
 Se você não vir dados de desempenho na tabela de disco ou em alguns dos gráficos de desempenho, os contadores de desempenho poderão não estar configurados no workspace. Para resolver isso, execute o [script do PowerShell](insights/vminsights-enable-at-scale-powershell.md#enable-with-powershell) a seguir.
+
 
 ### <a name="how-is-azure-monitor-for-vms-map-feature-different-from-service-map"></a>Qual a diferença entre o recurso Mapa do Azure Monitor para VMs e o Mapa do Serviço?
 O recurso Mapa do Azure Monitor para VMs baseia-se no Mapa do Serviço, mas tem as seguintes diferenças:
@@ -746,7 +749,7 @@ Se você configurou o Azure Monitor com um espaço de trabalho do Log Analytics 
 Nessa condição, uma opção **Experimentar Agora** será exibida quando você abrir a VM e selecionar **Insights (versão prévia)** no painel esquerdo, mesmo após já ter sido instalado na VM.  No entanto, não serão exibidas as opções como normalmente ocorreria se essa VM não estivesse incorporada ao Azure Monitor para VMs. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Se sua pergunta não for respondida aqui, você poderá consultar os fóruns a seguir para obter perguntas e respostas adicionais.
 
 - [Log Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)

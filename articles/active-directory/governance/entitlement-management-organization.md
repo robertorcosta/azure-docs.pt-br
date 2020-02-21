@@ -16,12 +16,12 @@ ms.date: 01/22/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c1b6f5ebffa39d3b735e85df794e37329e3aa2e
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 1ecf3a8819518c674a3d8bd7af55d1a3c6393c42
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548893"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483849"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Adicionar uma organização conectada no gerenciamento de direitos do Azure AD
 
@@ -97,6 +97,23 @@ Siga estas etapas para adicionar um diretório ou domínio externo do Azure AD c
 
     ![Pacote de acesso-política-adicionar organização conectada-examinar + guia criar](./media/entitlement-management-organization/organization-review-create.png)
 
+## <a name="update-a-connected-organization"></a>Atualizar uma organização conectada 
+
+Se a organização conectada mudar para um domínio diferente, se você tiver um novo nome para essa organização ou se desejar alterar os patrocinadores, você poderá atualizar a organização conectada.
+
+**Função de pré-requisito:** Administrador global, administrador de usuário ou convite de convidado
+
+1. No portal do Azure, clique em **Azure Active Directory** e, em seguida, em **Governança de Identidade**.
+
+1. No menu à esquerda, clique em **organizações conectadas** e, em seguida, clique para abrir a organização conectada.
+
+1. Na página Visão geral, clique em **Editar** para alterar o nome ou a descrição da organização.  
+
+1. Na página Diretório + domínio, clique em **Atualizar diretório + domínio** para alterar para um diretório ou domínio diferente.
+
+1. Na página patrocinadores, clique em **Adicionar patrocinadores internos** ou **Adicionar patrocinadores externos** para adicionar um usuário como um patrocinador.  Para remover um patrocinador, clique no patrocinador e, no menu à direita, clique em **excluir**.
+
+
 ## <a name="delete-a-connected-organization"></a>Excluir uma organização conectada
 
 Se você não tiver mais uma relação com um diretório ou domínio do Azure AD externo, poderá excluir a organização conectada.
@@ -113,7 +130,7 @@ Se você não tiver mais uma relação com um diretório ou domínio do Azure AD
 
     ![Governança de identidade – organizações conectadas – excluir organização conectada](./media/entitlement-management-organization/organization-delete.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Controlar o acesso para usuários externos](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users)
 - [Para usuários que não estão em seu diretório](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)

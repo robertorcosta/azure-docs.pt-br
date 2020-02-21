@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: dea45cec29101c3b085ab8098c3b05906e1049cd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 88382a5b6e0364145d8504b5e25ef1a9bfd0111a
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449780"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484121"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verificar erros no pool e nos nós
 
@@ -104,7 +104,7 @@ Alguns outros exemplos de causas para nós **inutilizáveis** incluem:
 
 - Uma VM é movida devido a uma falha de infraestrutura ou de uma atualização de nível baixo. O lote recupera o nó.
 
-- Uma imagem de VM foi implantada em hardware que não oferece suporte a ela. Por exemplo, tentar executar uma imagem CentOS HPC em uma VM [Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series) .
+- Uma imagem de VM foi implantada em hardware que não oferece suporte a ela. Por exemplo, tentar executar uma imagem CentOS HPC em uma VM [Standard_D1_v2](../virtual-machines/dv2-dsv2-series.md) .
 
 - As VMs estão em uma [rede virtual do Azure](batch-virtual-network.md)e o tráfego foi bloqueado para as principais portas.
 
@@ -140,6 +140,6 @@ Para arquivos gravados por cada tarefa, um tempo de retenção pode ser especifi
 Se o espaço em disco temporário for preenchido, no momento, o nó interromperá a execução das tarefas. No futuro, um [erro de nó](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) será relatado.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Verifique se definiu seu aplicativo para implementar a verificação de erro abrangente, especialmente para operações assíncronas. Isso pode ser fundamental para detectar e diagnosticar problemas imediatamente.

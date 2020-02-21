@@ -16,12 +16,12 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06dfe1e76682d70170bfea104050b1000269c38f
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 2cfa5e2117b2d6fce525e66b25ec44f696d7d450
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932384"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484410"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação de passagem do Azure Active Directory: perguntas frequentes
 
@@ -35,11 +35,11 @@ Leia [este guia](https://docs.microsoft.com/azure/security/fundamentals/choose-a
 
 A Autenticação de Passagem é um recurso gratuito. Você não precisa de nenhuma edição paga do Azure AD para usá-lo.
 
-## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpswwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>A Autenticação de Passagem está disponível na [nuvem do Microsoft Azure Alemanha](https://www.microsoft.de/cloud-deutschland) e na [nuvem do Microsoft Azure Governamental](https://azure.microsoft.com/features/gov/)?
+## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloud-and-the-microsoft-azure-government-cloud"></a>A Autenticação de Passagem está disponível na [nuvem do Microsoft Azure Alemanha](https://www.microsoft.de/cloud-deutschland) e na [nuvem do Microsoft Azure Governamental](https://azure.microsoft.com/features/gov/)?
 
 Não. A Autenticação de Passagem está disponível apenas na instância mundial do Azure AD.
 
-## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>O [Acesso Condicional](../active-directory-conditional-access-azure-portal.md) funciona com a Autenticação de Passagem?
+## <a name="does-conditional-access-work-with-pass-through-authentication"></a>O [Acesso Condicional](../active-directory-conditional-access-azure-portal.md) funciona com a Autenticação de Passagem?
 
 Sim. Todos os recursos de acesso condicional, incluindo a autenticação multifator do Azure, funcionam com a autenticação de passagem.
 
@@ -54,7 +54,7 @@ Não. A Autenticação de Passagem _não_ realiza o failover automaticamente par
 
 Quando você usa Azure AD Connect para alternar o método de entrada da sincronização de hash de senha para autenticação de passagem, a autenticação de passagem torna-se o método de entrada primário para seus usuários em domínios gerenciados. Observe que os hashes de senha de todos os usuários que foram sincronizados anteriormente pela sincronização de hash de senha permanecem armazenados no Azure AD.
 
-## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Eu posso instalar um conector de [Proxy de Aplicativo Azure AD](../manage-apps/application-proxy.md) no mesmo servidor que um Agente de Autenticação de Passagem?
+## <a name="can-i-install-an-azure-ad-application-proxy-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Eu posso instalar um conector de [Proxy de Aplicativo Azure AD](../manage-apps/application-proxy.md) no mesmo servidor que um Agente de Autenticação de Passagem?
 
 Sim. As versões remodeladas do Agente de Autenticação de passagem, versões 1.5.193.0 ou posteriores, dão suporte a esta configuração.
 
@@ -107,7 +107,7 @@ Não, você só pode instalar um Agente de Autenticação de Passagem em um úni
 
 ## <a name="do-i-have-to-manually-renew-certificates-used-by-pass-through-authentication-agents"></a>Preciso renovar manualmente os certificados usados pelos Agentes de Autenticação de Passagem?
 
-A comunicação entre cada Agente de Autenticação de Passagem e o Azure AD é protegida com a autenticação baseada em certificado. Esses [certificados são renovados automaticamente a cada poucos meses pelo Azure AD](how-to-connect-pta-security-deep-dive.md#operational-security-of -the-authentication-agents). Não é necessário renová-los manualmente. Você pode limpar os certificados expirados mais antigos, conforme o necessário.
+A comunicação entre cada Agente de Autenticação de Passagem e o Azure AD é protegida com a autenticação baseada em certificado. Esses [certificados são renovados automaticamente a cada poucos meses pelo Azure AD](how-to-connect-pta-security-deep-dive.md#operational-security-of-the-authentication-agents). Não é necessário renová-los manualmente. Você pode limpar os certificados expirados mais antigos, conforme o necessário.
 
 ## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Como fazer para remover um Agente de Autenticação de Passagem?
 
@@ -174,7 +174,7 @@ Locatários criados depois de 15 de junho de 2015 têm o comportamento padrão d
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - [Limitações atuais](how-to-connect-pta-current-limitations.md): saiba quais cenários têm suporte e quais não têm.
 - [Início rápido](how-to-connect-pta-quick-start.md): instale e execute a Autenticação de Passagem do Azure AD.
 - [Migrar do AD FS para Autenticação de Passagem](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) – um guia detalhado para migrar do AD FS (ou outras tecnologias de federação) para Autenticação de Passagem.

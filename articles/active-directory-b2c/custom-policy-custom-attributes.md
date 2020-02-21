@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 04cc45956fc5aedc4c14dfb138be5db02ddec500
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c2361192a612cfd92003b1e3c36e85dbbd9090bb
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847050"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482761"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Active Directory B2C: usar atributos personalizados em uma política e edição de perfil personalizado
 
@@ -24,7 +24,7 @@ ms.locfileid: "76847050"
 
 Neste artigo, você cria um atributo personalizado no diretório Azure Active Directory B2C (Azure AD B2C). Você usará esse novo atributo como uma declaração personalizada na jornada de usuário de edição do perfil.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Siga as etapas no artigo [Azure Active Directory B2C: introdução às políticas personalizadas](custom-policy-get-started.md).
 
@@ -34,7 +34,7 @@ Seu diretório do Microsoft Azure Active Directory B2C é fornecido com um conju
 * Um provedor de identidade tem um identificador exclusivo do usuário que deve ser salvo como **uniqueUserGUID**.
 * Um percurso do usuário personalizado precisa manter o estado do usuário, como **migrationStatus**.
 
-O Azure AD B2C estende o conjunto de atributos armazenados em cada conta de usuário. Você também pode ler e gravar esses atributos usando a [API do Graph do Azure AD](manage-user-accounts-graph-api.md).
+O Azure AD B2C estende o conjunto de atributos armazenados em cada conta de usuário. Você também pode ler e gravar esses atributos usando a [API Microsoft Graph](manage-user-accounts-graph-api.md).
 
 Propriedades de extensão estendem o esquema dos objetos de usuário no diretório. Os termos *propriedade de extensão*, *atributo personalizado* e *declaração personalizada*, se referem à mesma coisa no contexto deste artigo. O nome varia dependendo do contexto, como o aplicativo, objeto ou política.
 
@@ -257,7 +257,7 @@ O token de id enviado novamente para o seu aplicativo inclui a propriedade de ex
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 1. Adicione a nova declaração aos fluxos para logons de conta social alterando os **TechnicalProfiles** listados. Contas sociais e federadas usam estes dois **TechnicalProfiles** para entrar. Gravam e leem dados de usuário usando o **alternativeSecurityId** como o localizador do objeto de usuário.
 
@@ -297,7 +297,7 @@ O token de id enviado novamente para o seu aplicativo inclui a propriedade de ex
 
 ## <a name="reference"></a>Referência
 
-Para obter mais informações sobre as propriedades de extensão, consulte o artigo [Extensões de esquema de diretório | Conceitos da API do Graph](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
+Para obter mais informações sobre as propriedades de extensão, consulte o artigo [Adicionar dados personalizados a recursos usando extensões](https://docs.microsoft.com/graph/extensibility-overview).
 
 > [!NOTE]
 > * Um **TechnicalProfile** é um tipo de elemento, ou uma função, que define o nome de um ponto de extremidade, metadados e protocolo. O **TechnicalProfile** detalha a troca de declarações que executa o Identity Experience Framework. Quando essa função é chamada em uma etapa de orquestração ou de outro **TechnicalProfile**, o **InputClaims** e o **OutputClaims** são fornecidos como parâmetros pelo chamador.

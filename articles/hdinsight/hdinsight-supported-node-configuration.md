@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 278639b27d821e8d6440248a1add43bcd9de22c6
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: e75146266568001d8fee7be26898ac8bdfffb7fc
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775218"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484778"
 ---
 # <a name="what-are-the-default-and-recommended-node-configurations-for-azure-hdinsight"></a>Quais são as configurações de nó padrão e recomendadas para o Azure HDInsight?
 
@@ -44,16 +44,16 @@ As especificações de todos os tipos de VM mínimos recomendados usados neste d
 
 Para obter mais detalhes sobre as especificações de cada tipo de VM, consulte os seguintes documentos:
 
-* [Tamanhos de máquina virtual de uso geral: série Dv2 1-5](../virtual-machines/linux/sizes-general.md#dv2-series)
-* [Tamanhos de máquina virtual com otimização de memória: série Dv2 11-15](../virtual-machines/linux/sizes-memory.md#dv2-series-11-15)
-* [Tamanhos de máquina virtual de uso geral: série Av2 1-8](../virtual-machines/linux/sizes-general.md#av2-series)
+* [Tamanhos de máquina virtual de uso geral: série Dv2 1-5](../virtual-machines/dv2-dsv2-series.md)
+* [Tamanhos de máquina virtual com otimização de memória: série Dv2 11-15](../virtual-machines/dv2-dsv2-series-memory.md)
+* [Tamanhos de máquina virtual de uso geral: série Av2 1-8](../virtual-machines/av2-series.md)
 
 ### <a name="all-supported-regions-except-brazil-south-and-japan-west"></a>Todas as regiões com suporte, exceto sul do Brasil e oeste do Japão
 
 > [!Note]
 > Para obter o identificador de SKU para uso no PowerShell e outros scripts, adicione `Standard_` ao início de todas as SKUs de VM nas tabelas abaixo. Por exemplo, `D12_v2` se tornaria `Standard_D12_v2`.
 
-| Tipo de cluster | Hadoop | HBase | Consulta Interativa | Storm | Spark | ML Server | Kafka |
+| Tipo de cluster | O Hadoop | HBase | Consulta Interativa | Storm | Spark | ML Server | Kafka |
 |---|---|---|---|---|---|---|---|
 | Cabeçalho: tamanho padrão da VM | D12_v2 | D12_v2 | D13_v2 | A4_v2 | D12_v2, <br/>D13_v2 * | D12_v2 | D3_v2 |
 | Cabeçalho: tamanhos mínimos de VM recomendados | D5_v2 | D3_v2 | D13_v2 | A4_v2 | D12_v2, <br/>D13_v2 * | D12_v2 | D3_v2 |
@@ -68,7 +68,7 @@ Para obter mais detalhes sobre as especificações de cada tipo de VM, consulte 
 
 ### <a name="brazil-south-and-japan-west-only"></a>Sul do Brasil e oeste do Japão somente
 
-| Tipo de cluster | Hadoop | HBase | Consulta Interativa | Storm | Spark | ML Services |
+| Tipo de cluster | O Hadoop | HBase | Consulta Interativa | Storm | Spark | ML Services |
 |---|---|---|---|---|---|---|
 | Cabeçalho: tamanho padrão da VM | D12 | D12 | D13 | A4_v2 | D12 | D12 |
 | Cabeçalho: tamanhos mínimos de VM recomendados | D5_v2 | D3_v2 | D13_v2 | A4_v2 | D12_v2 | D12_v2 |
@@ -84,6 +84,6 @@ Para obter mais detalhes sobre as especificações de cada tipo de VM, consulte 
 > - A função de trabalho é conhecida como *Supervisor* para o tipo de cluster Storm.
 > - A função de trabalho é conhecida como *Região* para o tipo de cluster HBase.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Quais são os componentes e versões do Apache Hadoop disponíveis com o HDInsight?](hdinsight-component-versioning.md)

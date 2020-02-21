@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ef8f1ef381c86b6eec62c96ff6dcf87522de040
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: f1b7e4716e731e6b73e3ac60b64baa71043906fc
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367971"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483747"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Logon Único Contínuo do Azure Active Directory
 
@@ -36,7 +36,7 @@ O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização 
 ![Logon Único Contínuo](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
->O SSO contínuo precisa que o dispositivo do usuário seja apenas **ingressado no domínio** , mas não é usado no [Azure ad Unido](../active-directory-azureadjoin-overview.md) ou [ingressado no Azure ad híbrido] (.. /active-directory-azureadjoin-overview.md). SSO PN Azure AD ingressado e ingressado no Azure AD híbrido funciona com base no [token de atualização principal] (.. /active-directory/devices/concept-primary-refresh-token.md)
+>O SSO contínuo precisa que o dispositivo do usuário seja apenas **ingressado no domínio** , mas não é usado em dispositivos [ingressados no Azure ad](../devices/concept-azure-ad-join-hybrid.md) ou ingressados no Azure [ad](../devices/concept-azure-ad-join.md) . SSO no Azure AD ingressado e ingressado no Azure AD híbrido funciona com base no [token de atualização primário](../devices/concept-primary-refresh-token.md).
 
 ## <a name="key-benefits"></a>Principais benefícios
 
@@ -78,7 +78,7 @@ O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização 
 \*\*\*Exige [configuração adicional](how-to-connect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
->Para o Windows 10, a recomendação é usar o [Ingresso do Azure AD](../active-directory-azureadjoin-overview.md) para obter a experiência ideal de logon único com o Azure AD.
+>Para o Windows 10, a recomendação é usar o [Ingresso do Azure AD](../devices/concept-azure-ad-join.md) para obter a experiência ideal de logon único com o Azure AD.
 
 ## <a name="next-steps"></a>Próximas etapas
 

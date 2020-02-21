@@ -4,12 +4,12 @@ description: Entenda como desenvolver funções usando o PowerShell.
 author: eamonoreilly
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: 2fa510e447d4d9b054a37f7665d010382a5db819
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 41f977e7e7c23c2f49fd656461b7a3920802997e
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974233"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485124"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia do desenvolvedor do Azure Functions PowerShell
 
@@ -73,13 +73,13 @@ O parâmetro `TriggerMetadata` é usado para fornecer informações adicionais s
 $TriggerMetadata.sys
 ```
 
-| Propriedade   | Descrição                                     | Type     |
+| Propriedade   | DESCRIÇÃO                                     | Type     |
 |------------|-------------------------------------------------|----------|
-| UtcNow     | Quando, em UTC, a função foi disparada        | DateTime |
+| UtcNow     | Quando, em UTC, a função foi disparada        | Datetime |
 | MethodName | O nome da função que foi disparada     | string   |
 | RandGuid   | um GUID exclusivo para esta execução da função | string   |
 
-Cada tipo de gatilho tem um conjunto diferente de metadados. Por exemplo, o `$TriggerMetadata` para `QueueTrigger` contém a `InsertionTime`, `Id`, `DequeueCount`, entre outras coisas. Para obter mais informações sobre os metadados do gatilho de fila, acesse a [documentação oficial para gatilhos de fila](functions-bindings-storage-queue.md#trigger---message-metadata). Verifique a documentação nos [gatilhos](functions-triggers-bindings.md) com os quais você está trabalhando para ver o que acontece nos metadados do gatilho.
+Cada tipo de gatilho tem um conjunto diferente de metadados. Por exemplo, o `$TriggerMetadata` para `QueueTrigger` contém a `InsertionTime`, `Id`, `DequeueCount`, entre outras coisas. Para obter mais informações sobre os metadados do gatilho de fila, acesse a [documentação oficial para gatilhos de fila](functions-bindings-storage-queue-trigger.md#message-metadata). Verifique a documentação nos [gatilhos](functions-triggers-bindings.md) com os quais você está trabalhando para ver o que acontece nos metadados do gatilho.
 
 ## <a name="bindings"></a>Associações
 
@@ -121,13 +121,13 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 * Quando a associação de saída aceita apenas um valor singleton, chamar `Push-OutputBinding` uma segunda vez gera um erro.
 
-#### <a name="push-outputbinding-syntax"></a>Sintaxe do `Push-OutputBinding`
+#### <a name="push-outputbinding-syntax"></a>sintaxe de `Push-OutputBinding`
 
 Veja a seguir os parâmetros válidos para chamar `Push-OutputBinding`:
 
-| name | Type | Position | Descrição |
+| Nome | Type | Posição | DESCRIÇÃO |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | string | 1 | O nome da Associação de saída que você deseja definir. |
+| **`-Name`** | String | 1 | O nome da Associação de saída que você deseja definir. |
 | **`-Value`** | Objeto | 2 | O valor da Associação de saída que você deseja definir, que é aceita do pipeline ByValue. |
 | **`-Clobber`** | SwitchParameter | nomeado | Adicional Quando especificado, força o valor a ser definido para uma associação de saída especificada. | 
 
@@ -175,7 +175,7 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 
 #### <a name="push-outputbinding-example-queue-output-binding"></a>Exemplo de push-OutputBinding: Associação de saída da fila
 
-`Push-OutputBinding` é usado para enviar dados para associações de saída, como uma [Associação de saída do armazenamento de filas do Azure](functions-bindings-storage-queue.md#output). No exemplo a seguir, a mensagem gravada na fila tem um valor de "saída #1":
+`Push-OutputBinding` é usado para enviar dados para associações de saída, como uma [Associação de saída do armazenamento de filas do Azure](functions-bindings-storage-queue-output.md). No exemplo a seguir, a mensagem gravada na fila tem um valor de "saída #1":
 
 ```powershell
 PS >Push-OutputBinding -Name outQueue -Value "output #1"
@@ -195,7 +195,7 @@ PS >Push-OutputBinding -Name outQueue -Value @("output #3", "output #4")
 
 Quando gravado na fila, a mensagem contém estes quatro valores: "saída #1", "saída #2", "saída #3" e "#4 de saída".
 
-#### <a name="get-outputbinding-cmdlet"></a>cmdlet `Get-OutputBinding`
+#### <a name="get-outputbinding-cmdlet"></a>`Get-OutputBinding` cmdlet
 
 Você pode usar o cmdlet `Get-OutputBinding` para recuperar os valores definidos atualmente para suas associações de saída. Esse cmdlet recupera uma tabela de hash que contém os nomes das associações de saída com seus respectivos valores. 
 
@@ -235,8 +235,8 @@ O registro em log nas funções do PowerShell funciona como log normal do PowerS
 | Erro | **`Write-Error`** |
 | Aviso | **`Write-Warning`**  | 
 | Informações | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informações | Grava no log do nível de _informações_ . |
-| Depuração | **`Write-Debug`** |
-| Rastreamento | **`Write-Progress`** <br /> **`Write-Verbose`** |
+| Depurar | **`Write-Debug`** |
+| Trace | **`Write-Progress`** <br /> **`Write-Verbose`** |
 
 Além desses cmdlets, qualquer coisa gravada no pipeline é redirecionada para o nível de log `Information` e exibido com a formatação padrão do PowerShell.
 
@@ -277,8 +277,8 @@ Todos os gatilhos e associações são representados no código como alguns tipo
 * Tabela de hash
 * string
 * byte[]
-* int
-* Duplo
+* INT
+* double
 * HttpRequestContext
 * HttpResponseContext
 
@@ -294,7 +294,7 @@ HTTP e gatilhos de webhook e associações de saída HTTP usam objetos de solici
 
 O objeto de solicitação que é passado para o script é do tipo `HttpRequestContext`, que tem as seguintes propriedades:
 
-| Propriedade  | Descrição                                                    | Type                      |
+| Propriedade  | DESCRIÇÃO                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | Um objeto que contém o corpo da solicitação. `Body` é serializado no melhor tipo com base nos dados. Por exemplo, se os dados forem JSON, eles serão passados como uma tabela de hash. Se os dados forem uma cadeia de caracteres, eles serão passados como uma cadeia de caracteres. | objeto |
 | **`Headers`** | Um dicionário que contém os cabeçalhos de solicitação.                | < De cadeia de caracteres, Cadeia de caracteres > de dicionário<sup>*</sup> |
@@ -309,7 +309,7 @@ O objeto de solicitação que é passado para o script é do tipo `HttpRequestCo
 
 O objeto de resposta que você deve enviar de volta é do tipo `HttpResponseContext`, que tem as seguintes propriedades:
 
-| Propriedade      | Descrição                                                 | Type                      |
+| Propriedade      | DESCRIÇÃO                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | Um objeto que contém o corpo da resposta.           | objeto                    |
 | **`ContentType`** | Uma pequena mão para definir o tipo de conteúdo para a resposta. | string                    |
@@ -420,7 +420,7 @@ Quando você atualiza o arquivo Requirements. psd1, os módulos atualizados são
 
 As configurações de aplicativo a seguir podem ser usadas para alterar a forma como as dependências gerenciadas são baixadas e instaladas. A atualização do aplicativo é iniciada no `MDMaxBackgroundUpgradePeriod`e o processo de atualização é concluído em aproximadamente o `MDNewSnapshotCheckPeriod`.
 
-| Aplicativo de funções configuração              | Valor padrão             | Descrição                                         |
+| Aplicativo de funções configuração              | Valor padrão             | DESCRIÇÃO                                         |
 |   -----------------------------   |   -------------------     |  -----------------------------------------------    |
 | **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00` (7 dias)     | Cada processo de trabalho do PowerShell inicia a verificação de atualizações de módulo no Galeria do PowerShell no início do processo e a cada `MDMaxBackgroundUpgradePeriod` depois disso. Quando uma nova versão de módulo está disponível no Galeria do PowerShell, ela é instalada no sistema de arquivos e disponibilizada para trabalhadores do PowerShell. Diminuir esse valor permite que seu aplicativo de funções obtenha versões mais recentes do módulo mais cedo, mas também aumenta o uso de recursos do aplicativo (e/s de rede, CPU, armazenamento). Aumentar esse valor diminui o uso de recursos do aplicativo, mas também pode atrasar a entrega de novas versões de módulo ao seu aplicativo. | 
 | **`MDNewSnapshotCheckPeriod`**         | `01:00:00` (1 hora)       | Depois que novas versões de módulo são instaladas no sistema de arquivos, todos os processos de trabalho do PowerShell devem ser reiniciados. Reiniciar os trabalhadores do PowerShell afeta a disponibilidade do aplicativo, pois ele pode interromper a execução da função atual. Até que todos os processos de trabalho do PowerShell sejam reiniciados, as invocações de função podem usar as versões de módulo antiga ou nova. A reinicialização de todos os trabalhadores do PowerShell é concluída dentro do `MDNewSnapshotCheckPeriod`. Aumentar esse valor diminui a frequência de interrupções, mas também pode aumentar o período de tempo em que as invocações de função usam as versões de módulo antigo ou novo de forma não determinística. |
@@ -599,7 +599,7 @@ Ao desenvolver Azure Functions no [modelo de hospedagem sem servidor](functions-
 
 O script é executado em cada invocação. Evite usar `Install-Module` em seu script. Em vez disso, use `Save-Module` antes da publicação para que sua função não precise perder tempo baixando o módulo. Se a frio for iniciada, afetando suas funções, considere implantar seu aplicativo de funções em um [plano do serviço de aplicativo](functions-scale.md#app-service-plan) definido como *Always on* ou em um [plano Premium](functions-scale.md#premium-plan).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais, consulte os recursos a seguir:
 

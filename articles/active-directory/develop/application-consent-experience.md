@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
-ms.openlocfilehash: 82d64895f4bf2ef6eb1fdb248f470f981d1cb426
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: c9b449b65a8f8def9dc28a668cd9ee3671124cb0
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698162"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484495"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Noções básicas sobre experiências de consentimento de aplicativo do Microsoft Azure Active Directory
 
@@ -29,7 +29,7 @@ Saiba mais sobre a experiência do usuário de consentimento do aplicativo do Mi
 
 Consentimento é o processo de um usuário conceder autorização a um aplicativo para acessar recursos protegidos em seu nome. Um administrador ou usuário pode ser solicitado consentimento para permitir o acesso aos seus dados da empresa/individuais.
 
-A experiência do usuário real de dar consentimento varia de acordo com as políticas definidas no locatário do usuário, o escopo do usuário da autoridade (ou função) e o tipo de [permissões](https://docs.microsoft.com/azure/active-directory/develop/active-directory-permissions) que está sendo solicitado pelo aplicativo cliente. Isso significa que os desenvolvedores de aplicativos e administradores de locatários têm algum controle sobre a experiência de consentimento. Os administradores têm a flexibilidade de configuração e desabilitar políticas em um locatário ou o aplicativo para controlar a experiência de consentimento em seu locatário. Os desenvolvedores de aplicativos podem determinam quais tipos de permissões estão sendo solicitadas e se desejam orientar os usuários por meio do fluxo de consentimento do usuário ou o fluxo de consentimento do administrador.
+A experiência do usuário real de dar consentimento varia de acordo com as políticas definidas no locatário do usuário, o escopo do usuário da autoridade (ou função) e o tipo de [permissões](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent) que está sendo solicitado pelo aplicativo cliente. Isso significa que os desenvolvedores de aplicativos e administradores de locatários têm algum controle sobre a experiência de consentimento. Os administradores têm a flexibilidade de configuração e desabilitar políticas em um locatário ou o aplicativo para controlar a experiência de consentimento em seu locatário. Os desenvolvedores de aplicativos podem determinam quais tipos de permissões estão sendo solicitadas e se desejam orientar os usuários por meio do fluxo de consentimento do usuário ou o fluxo de consentimento do administrador.
 
 - **Fluxo de consentimento do usuário** é quando um desenvolvedor de aplicativo direciona os usuários para o ponto de extremidade de autorização com a intenção de autorização de registro para apenas o usuário atual.
 - **Fluxo de consentimento do administrador** é quando um desenvolvedor de aplicativo direciona os usuários para o ponto de extremidade de autorização com a intenção registrar o consentimento para o locatário inteiro. Para garantir que o fluxo de consentimento do administrador funcione corretamente, os desenvolvedores de aplicativos devem listar todas as permissões na `RequiredResourceAccess` propriedade no manifesto do aplicativo. Para obter mais informações, veja [Manifesto do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest).
@@ -81,7 +81,7 @@ Aqui estão as experiências de consentimento que um usuário pode ver em cenár
         
     1. Usuários não administradores verão a mesma tela 2.ii exibida acima.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Tenha uma visão geral passo a passo de [como a estrutura de consentimento do Azure AD implementa o consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
 - Para se aprofundar, veja [como um aplicativo multilocatário pode usar a estrutura de consentimento](active-directory-devhowto-multi-tenant-overview.md) para implementar consentimento de "usuário" e "administrador", dando suporte a padrões mais avançados de aplicativos de várias camadas.
 - Saiba [como configurar o domínio do Publicador do aplicativo](howto-configure-publisher-domain.md).

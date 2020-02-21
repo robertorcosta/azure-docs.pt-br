@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 25b61b7e21e70c1cd4d27f88a0f5ce965c01c5a5
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: ab4569860d24a397816aa2e6c92f2e90f9a14ed1
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964644"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526528"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de Metadados de Instância do Azure
 
@@ -38,10 +38,12 @@ Esse serviço está disponível nas regiões do Azure disponíveis para o públi
 
 Regiões                                        | Disponibilidade?                                 | Versões compatíveis
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Todas as regiões globais do Azure disponíveis](https://azure.microsoft.com/regions/)     | Disponível de forma geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
-[Azure Governamental](https://azure.microsoft.com/overview/clouds/government/)              | Disponível de forma geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
-[21Vianet do Azure na China](https://www.azure.cn/)                                            | Disponível de forma geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
-[Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponível de forma geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
+[Todas as regiões globais do Azure disponíveis](https://azure.microsoft.com/regions/)     | Disponível | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
+[Azure Governamental](https://azure.microsoft.com/overview/clouds/government/)              | Disponível | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
+[21Vianet do Azure na China](https://www.azure.cn/)                                            | Disponível | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
+[Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponível | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
+
+A versão 2019-11-01 está sendo implantada no momento e pode não estar disponível em todas as regiões.
 
 Essa tabela é atualizada quando há atualizações de serviço e/ou novas versões com suporte disponíveis.
 
@@ -448,10 +450,10 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 
 As seguintes APIs estão disponíveis por meio do ponto de extremidade de metadados:
 
-Dados | Description | Versão introduzida
+data | DESCRIÇÃO | Versão introduzida
 -----|-------------|-----------------------
 atestados | Confira [Dados Atestados](#attested-data) | 01-10-2018
-identidade | Identidades gerenciadas para recursos do Azure. Veja [adquirir um token de acesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 01-02-2018
+identidade | Identidades gerenciadas para recursos do Azure. Veja [adquirir um token de acesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | {1}01-02-2018{2}
 instance | Consulte [API de instância](#instance-api) | 2017-04-02
 scheduledevents | Consulte [Eventos agendados](scheduled-events.md) | 2017-08-01
 
@@ -462,7 +464,7 @@ As categorias de computação a seguir estão disponíveis por meio da API da in
 > [!NOTE]
 > Por meio do ponto de extremidade de metadados, as categorias a seguir são acessadas por meio de instância/computação
 
-Dados | Description | Versão introduzida
+data | DESCRIÇÃO | Versão introduzida
 -----|-------------|-----------------------
 azEnvironment | Ambiente do Azure em que a VM está sendo executada | 01-10-2018
 customData | Este recurso está desabilitado no momento e atualizaremos esta documentação quando ele se tornar disponível | 2019-02-01
@@ -495,7 +497,7 @@ As seguintes categorias de rede estão disponíveis por meio da API de instânci
 > [!NOTE]
 > Por meio do ponto de extremidade de metadados, as categorias a seguir são acessadas por meio de instância/rede/interface
 
-Dados | Description | Versão introduzida
+data | DESCRIÇÃO | Versão introduzida
 -----|-------------|-----------------------
 IPv4/privateIpAddress | Endereço IPv4 local da máquina virtual | 2017-04-02
 IPv4/privateIpAddress | Endereço IPv4 local da máquina virtual | 2017-04-02
@@ -818,7 +820,7 @@ Verification successful
 }
 ```
 
-Dados | Description
+data | DESCRIÇÃO
 -----|------------
 nonce | Cadeia de caracteres opcional fornecida pelo usuário com a solicitação. Se nenhuma nonce tiver sido fornecida na solicitação, o carimbo de data/hora UTC atual será retornado
 plan | O [Plano](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) de uma VM em uma imagem do Azure Marketplace contém nome, produto e editor
@@ -911,7 +913,7 @@ O perfil de armazenamento de uma VM é dividido em três categorias: referência
 
 O objeto de referência de imagem contém as seguintes informações sobre a imagem do sistema operacional:
 
-Dados    | Description
+data    | DESCRIÇÃO
 --------|-----------------
 id      | ID de Recurso
 oferta   | Oferta da imagem da plataforma ou do Marketplace
@@ -921,9 +923,9 @@ version | Versão da imagem da plataforma ou do Marketplace
 
 O objeto de disco do sistema operacional contém as seguintes informações sobre o disco do sistema operacional usado pela VM:
 
-Dados    | Description
+data    | DESCRIÇÃO
 --------|-----------------
-colocar | Requisitos de cache
+cache | Requisitos de cache
 createOption | Informações sobre como a VM foi criada
 diffDiskSettings | Configurações de disco efêmeras
 diskSizeGB | Tamanho do disco em GB
@@ -936,9 +938,9 @@ writeAcceleratorEnabled | Se writeAccelerator está habilitado ou não no disco
 
 A matriz de discos de dados contém uma lista de discos de dados anexados à VM. Cada objeto de disco de dados contém as seguintes informações:
 
-Dados    | Description
+data    | DESCRIÇÃO
 --------|-----------------
-colocar | Requisitos de cache
+cache | Requisitos de cache
 createOption | Informações sobre como a VM foi criada
 diffDiskSettings | Configurações de disco efêmeras
 diskSizeGB | Tamanho do disco em GB
@@ -1021,7 +1023,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/storageP
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Exemplos de como chamar o serviço de metadados usando diferentes idiomas dentro da VM 
 
-Idioma | Exemplo
+Linguagem | Exemplo
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
 Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
@@ -1031,12 +1033,12 @@ C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
 JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
-PERL       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
+Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
 Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 Puppet | https://github.com/keirans/azuremetadata
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Perguntas frequentes
 
 1. Estou recebendo o erro `400 Bad Request, Required metadata header not specified`. O que isso significa?
    * O serviço de metadados de instância exige que o cabeçalho `Metadata: true` seja passado na solicitação. Passar o cabeçalho na chamada de REST permite acessar o serviço de metadados de instância.
@@ -1061,6 +1063,6 @@ Puppet | https://github.com/keirans/azuremetadata
 
     ![Serviço de Metadados de Instância](./media/instance-metadata-service/InstanceMetadata-support.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [Eventos Agendados](scheduled-events.md)

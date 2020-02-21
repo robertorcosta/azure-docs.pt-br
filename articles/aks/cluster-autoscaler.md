@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: 033cf88e29ba4a9f7ce9397fe216f7380e70be07
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 12e5ee1b5c56e642cef117963d7cd879cf9b0633
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76713390"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524281"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Dimensionar automaticamente um cluster para atender às demandas de aplicativo no AKS (Serviço de Kubernetes do Azure)
 
 Para se manter atualizado com as demandas de aplicativo no AKS (Serviço de Kubernetes do Azure), talvez você precise ajustar o número de nós que executam as cargas de trabalho. O componente de dimensionador automático de cluster pode inspecionar os pods no cluster que não podem ser agendados devido a restrições de recursos. Quando forem detectados problemas, o número de nós em um pool de nós será aumentado para atender à demanda do aplicativo. Os nós também são regularmente verificados quanto à falta de pods em execução, com o número de nós diminuído posteriormente conforme necessário. Essa capacidade de escalar ou reduzir verticalmente o número de nós no cluster do AKS permite a execução de um cluster eficiente e econômico.
 
-Este artigo mostra como habilitar e gerenciar o dimensionador automático de cluster em um cluster do AKS. 
+Este artigo mostra como habilitar e gerenciar o dimensionador automático de cluster em um cluster do AKS.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -106,6 +106,90 @@ O exemplo acima atualiza o conjunto de dimensionamento de clusters em um único 
 
 Monitore o desempenho de seus aplicativos e serviços e ajuste as contagens de nós do dimensionador automático de cluster para que correspondam ao desempenho necessário.
 
+## <a name="using-the-autoscaler-profile"></a>Usando o perfil de dimensionamento de autoescala
+
+Você também pode configurar detalhes mais granulares do dimensionamento dinâmico do cluster alterando os valores padrão no perfil de dimensionamento dinâmico em todo o cluster. Por exemplo, um evento de redução vertical ocorre depois que os nós são subutilizados após 10 minutos. Se você tiver cargas de trabalho que foram executadas a cada 15 minutos, convém alterar o perfil de dimensionamento para reduzir verticalmente em nós subutilizados após 15 ou 20 minutos. Quando você habilita o dimensionador de cluster, um perfil padrão é usado, a menos que você especifique configurações diferentes. O perfil de dimensionamento automática do cluster tem as seguintes configurações que você pode atualizar:
+
+| Configuração                          | DESCRIÇÃO                                                                              | Valor padrão |
+|----------------------------------|------------------------------------------------------------------------------------------|---------------|
+| intervalo de verificação                    | Com que frequência o cluster é reavaliado para escalar ou reduzir verticalmente                                    | 10 segundos    |
+| reduzir verticalmente-atrasar-após-adicionar       | Quanto tempo após a escala vertical da avaliação retomada                               | 10 minutos    |
+| reduzir verticalmente-atrasar-após-excluir    | Quanto tempo após a exclusão de nó que a avaliação reduzirá                          | intervalo de verificação |
+| reduzir verticalmente-atraso-após-falha   | Quanto tempo após a redução da falha na avaliação reduzir                     | 3 minutos     |
+| redução horizontal-tempo desnecessário         | Por quanto tempo um nó deve ser desnecessário antes de ser elegível para reduzir verticalmente                  | 10 minutos    |
+| reduzir horizontalmente-tempo não lido          | Por quanto tempo um nó não lido deve ser desnecessário antes de ser elegível para reduzir verticalmente         | 20 minutos    |
+| reduzir horizontalmente-limite de utilização | Nível de utilização de nó, definido como soma dos recursos solicitados dividido por capacidade, abaixo do qual um nó pode ser considerado para reduzir verticalmente | 0.5 |
+| máximo-normal-término-s     | Número máximo de segundos que o dimensionamento automática do cluster aguarda o encerramento do pod ao tentar reduzir verticalmente um nó. | 600 segundos   |
+
+> [!IMPORTANT]
+> O perfil de autoescalar do cluster afeta todos os pools de nós que usam o dimensionamento de clusters. Não é possível definir um perfil de autoescalar por pool de nós.
+
+### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI aks-preview
+
+Para definir o perfil de configurações de dimensionamento de clusters, você precisa da extensão da CLI *AKs-Preview* versão 0.4.30 ou superior. Instale a extensão de CLI do Azure *de AKs-Preview* usando o comando [AZ Extension Add][az-extension-add] e, em seguida, verifique se há atualizações disponíveis usando o comando [AZ Extension Update][az-extension-update] :
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+### <a name="set-the-cluster-autoscaler-profile-on-an-existing-aks-cluster"></a>Definir o perfil de autoescalar do cluster em um cluster AKS existente
+
+Use o comando [AZ AKs Update][az-aks-update] com o parâmetro *cluster-AutoScaler-Profile* para definir o perfil de dimensionamento automática do cluster em seu cluster. O exemplo a seguir define a configuração do intervalo de verificação como 30s no perfil.
+
+```azurecli-interactive
+az aks update \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --cluster-autoscaler-profile scan-interval=30s
+```
+
+Quando você habilita o autodimensionador de cluster em pools de nós no cluster, esses clusters também usarão o perfil de autoescalar do cluster. Por exemplo:
+
+```azurecli-interactive
+az aks nodepool update \
+  --resource-group myResourceGroup \
+  --cluster-name myAKSCluster \
+  --name mynodepool \
+  --enable-cluster-autoscaler \
+  --min-count 1 \
+  --max-count 3
+```
+
+> [!IMPORTANT]
+> Quando você define o perfil de dimensionamento automática do cluster, todos os pools de nós existentes com o cluster de dimensionamento automática habilitado começarão a usar o perfil imediatamente.
+
+### <a name="set-the-cluster-autoscaler-profile-when-creating-an-aks-cluster"></a>Definir o perfil de autoescalar do cluster ao criar um cluster AKS
+
+Você também pode usar o parâmetro *cluster-AutoScaler-Profile* ao criar o cluster. Por exemplo:
+
+```azurecli-interactive
+az aks create \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --node-count 1 \
+  --enable-cluster-autoscaler \
+  --min-count 1 \
+  --max-count 3 \
+  --cluster-autoscaler-profile scan-interval=30s
+```
+
+O comando acima cria um cluster AKS e define o intervalo de verificação como 30 segundos para o perfil de dimensionamento de todo o cluster. O comando também habilita o conjunto de dimensionamento de clusters no pool de nós inicial, define a contagem mínima de nós como 1 e a contagem máxima de nós como 3.
+
+### <a name="reset-cluster-autoscaler-profile-to-default-values"></a>Redefinir o perfil de autoescalar do cluster para valores padrão
+
+Use o comando [AZ AKs Update][az-aks-update] para redefinir o perfil de dimensionamento automática do cluster em seu cluster.
+
+```azurecli-interactive
+az aks update \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --cluster-autoscaler-profile ""
+```
+
 ## <a name="disable-the-cluster-autoscaler"></a>Desabilitar o dimensionador automático de cluster
 
 Se você não quiser mais usar o dimensionamento automática do cluster, poderá desabilitá-lo usando o comando [AZ AKs Update][az-aks-update] , especificando o parâmetro *--Disable-cluster-AutoScaler* . Os nós não são removidos quando o dimensionador automático de cluster é desabilitado.
@@ -129,9 +213,9 @@ Para diagnosticar e depurar eventos de autoescalar, os logs e o status podem ser
 
 O AKS gerencia o cluster de dimensionamento em seu nome e o executa no plano de controle gerenciado. Os logs do nó mestre devem ser configurados para serem exibidos como resultado.
 
-Para configurar os logs a serem enviados por push do cluster de dimensionamento para Log Analytics siga estas etapas.
+Para configurar os logs a serem enviados por push do cluster de dimensionamento para Log Analytics, siga estas etapas.
 
-1. Configurar uma regra para logs de diagnóstico para envio por push de cluster-logs de dimensionamento de AutoEscala para Log Analytics. [As instruções são detalhadas aqui](https://docs.microsoft.com/azure/aks/view-master-logs#enable-diagnostics-logs), certifique-se de marcar a caixa para `cluster-autoscaler` ao selecionar opções para "logs".
+1. Configure uma regra para logs de diagnóstico para envio por push de cluster – logs de dimensionamento de AutoEscala para Log Analytics. [As instruções são detalhadas aqui](https://docs.microsoft.com/azure/aks/view-master-logs#enable-diagnostics-logs), certifique-se de marcar a caixa para `cluster-autoscaler` ao selecionar opções para "logs".
 1. Clique na seção "logs" no cluster por meio do portal do Azure.
 1. Insira a seguinte consulta de exemplo em Log Analytics:
 
@@ -140,7 +224,7 @@ AzureDiagnostics
 | where Category == "cluster-autoscaler"
 ```
 
-Você deve ver logs semelhantes aos seguintes retornados, desde que haja logs a serem recuperados.
+Você deve ver logs semelhantes ao exemplo a seguir, contanto que haja logs a serem recuperados.
 
 ![Logs de Log Analytics](media/autoscaler/autoscaler-logs.png)
 
@@ -180,25 +264,25 @@ az aks nodepool update \
 
 Se desejar reabilitar o dimensionador automática do cluster em um cluster existente, você poderá habilitá-lo novamente usando o comando [AZ AKs nodepool Update][az-aks-nodepool-update] , especificando os parâmetros *--Enable-cluster-autoscaleer*, *--min-Count*e *--Max-Count* .
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Este artigo mostrou como dimensionar automaticamente o número de nós do AKS. Você também pode usar o dimensionador automático de pod horizontal para ajustar automaticamente o número de pods que executam o aplicativo. Para obter as etapas sobre como usar a escalabilidade horizontal Pod, consulte [dimensionar aplicativos em AKs][aks-scale-apps].
 
 <!-- LINKS - internal -->
+[aks-faq]: faq.md
+[aks-scale-apps]: tutorial-kubernetes-scale.md
+[aks-support-policies]: support-policies.md
 [aks-upgrade]: upgrade-cluster.md
+[autoscaler-profile-properties]: #using-the-autoscaler-profile
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-extension-add]: /cli/azure/extension#az-extension-add
-[aks-scale-apps]: tutorial-kubernetes-scale.md
+[az-extension-update]: /cli/azure/extension#az-extension-update
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
-[aks-support-policies]: support-policies.md
-[aks-faq]: faq.md
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
 
 <!-- LINKS - external -->
 [az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview

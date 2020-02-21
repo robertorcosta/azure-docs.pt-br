@@ -1,5 +1,6 @@
 ---
-title: 'Referência: CentOS DSVM'
+title: 'Referência: CentOS Máquina Virtual de Ciência de Dados'
+titleSuffix: Azure Data Science Virtual Machine
 description: Detalhes sobre as ferramentas incluídas no Máquina Virtual de Ciência de Dados CentOS
 author: gvashishtha
 ms.service: machine-learning
@@ -7,12 +8,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 0f71a8af2f7d2cfbfe43c0cfcc84cc7c08109c32
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: db49a9f5e0e6675d93cb58d6af9c92fac21e8b74
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493714"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525831"
 ---
 # <a name="reference-centos-linux-data-science-virtual-machine"></a>Referência: CentOS (Linux) Máquina Virtual de Ciência de Dados
 
@@ -235,7 +236,7 @@ Para saber mais sobre como implantar modelos em R e Python no Azure Machine Lear
 
 ## <a name="machine-learning-tools"></a>Ferramentas de Machine Learning
 
-A DSVM vem com algumas ferramentas e algoritmos de aprendizado de máquina pré-compiladas e pré-instaladas localmente. Estão incluídas:
+A DSVM vem com algumas ferramentas e algoritmos de aprendizado de máquina pré-compiladas e pré-instaladas localmente. Eles incluem:
 
 * **Microsoft cognitive Toolkit**: um kit de ferramentas de aprendizado profundo.
 * **Vowpal Wabbit**: um algoritmo de aprendizado rápido online.
@@ -308,7 +309,7 @@ Para saber mais sobre o XGBoost, confira a [documentação do XGBoost](https://x
 
 ### <a name="rattle"></a>Rattle
 
-Rattle (*R* *A*nalytical *T*ool *T*o *L*earn *E*asily – Ferramenta Analítica do R para Aprender com Facilidade) usa exploração e modelagem de dados com base em GUI. Rattle:
+Rattle (*R* *A*njunto *t*ool *t*o *L*ganhe *e*Earn) usa modelagem e exploração de dados baseados em GUI. Rattle:
 - Apresenta resumos estatísticos e visuais dos dados.
 - Transforma dados que podem ser modelados prontamente.
 - Compila modelos não supervisionados e supervisionados dos dados.

@@ -5,13 +5,13 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 05/29/2019
-ms.openlocfilehash: 889699ab184b82a7c194043d15358ecdaab5d03d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/20/2020
+ms.openlocfilehash: 96ef09ac081aa328014217592a7fcd3ed6314c0e
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899647"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523757"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Resiliência e recuperação de desastre
 
@@ -27,9 +27,9 @@ O aplicativo carrega sua configuração dos repositórios primário e secundári
 
 ## <a name="failover-between-configuration-stores"></a>Failover entre os repositórios de configuração
 
-Tecnicamente, o aplicativo não está executando um failover. Ele está tentando recuperar o mesmo conjunto de dados de configuração de dois repositórios da Configuração de Aplicativos simultaneamente. Organize seu código de modo que ele seja carregado primeiro do repositório secundário e depois do repositório primário. Essa abordagem garante que os dados de configuração do repositório primário tenham precedência sempre que estiverem disponíveis. O seguinte snippet de código mostra como você pode implementar essa disposição na CLI do .NET Core:
+Tecnicamente, o aplicativo não está executando um failover. Ele está tentando recuperar o mesmo conjunto de dados de configuração de dois repositórios da Configuração de Aplicativos simultaneamente. Organize seu código de modo que ele seja carregado primeiro do repositório secundário e depois do repositório primário. Essa abordagem garante que os dados de configuração do repositório primário tenham precedência sempre que estiverem disponíveis. O trecho de código a seguir mostra como você pode implementar essa disposição no .NET Core:
 
-#### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+#### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -44,7 +44,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
     
 ```
 
-#### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+#### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -70,17 +70,18 @@ No portal do Azure, efetue push de uma alteração para outro repositório de co
 
 1. Acesse a guia **Importação/Exportação** e, em seguida, selecione **Exportar** > **Configuração de Aplicativos** > **Destino** > **Selecionar um recurso**.
 
-2. Na nova folha aberta, especifique a assinatura, o grupo de recursos e o nome do recurso do repositório secundário e, em seguida, selecione **Aplicar**.
+1. Na nova folha que é aberta, especifique a assinatura, o grupo de recursos e o nome do recurso do armazenamento secundário e, em seguida, selecione **aplicar**.
 
-3. A interface do usuário será atualizada para que você possa escolher quais dados de configuração deseja exportar para o repositório secundário. Você pode manter o valor temporal padrão e definir **Do rótulo** e **Para o rótulo** com o mesmo valor. Escolha **Aplicar**.
+1. A interface do usuário será atualizada para que você possa escolher quais dados de configuração deseja exportar para o repositório secundário. Você pode manter o valor temporal padrão e definir **Do rótulo** e **Para o rótulo** com o mesmo valor. Escolha **Aplicar**.
 
-4. Repita as etapas anteriores para todas as alterações de configuração.
+1. Repita as etapas anteriores para todas as alterações de configuração.
 
 Para automatizar esse processo de exportação, use a CLI do Azure. O seguinte comando mostra como exportar uma única alteração de configuração do repositório primário para o secundário:
 
+```azurecli
     az appconfig kv export --destination appconfig --name {PrimaryStore} --label {Label} --dest-name {SecondaryStore} --dest-label {Label}
+```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu como aumentar seu aplicativo para obter a resiliência geográfica durante o runtime da Configuração de Aplicativos. Você também pode inserir dados de configuração da Configuração de Aplicativos no momento do build ou da implantação. Para saber mais, confira [Integrar com o pipeline de CI/CD](./integrate-ci-cd-pipeline.md).
-

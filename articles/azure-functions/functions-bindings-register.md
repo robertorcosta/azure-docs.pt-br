@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 35df4c6c20345053bcc39a267a90a7bb1b227241
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 1688fe848beb62731391bf4399a0dabec5265320
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766239"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484716"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registrar Azure Functions extensões de associação
 
@@ -24,7 +24,7 @@ Considere os seguintes itens relacionados a extensões de associação:
 
 A tabela a seguir indica quando e como você registra as associações.
 
-| Ambiente de desenvolvimento |Inscrição<br/> em funções de 1. x  |Inscrição<br/> em funções 2. x  |
+| Ambiente de desenvolvimento |Registro<br/> em funções de 1. x  |Registro<br/> em funções 2. x  |
 |-------------------------|------------------------------------|------------------------------------|
 |Portal do Azure|Automático|Automático|
 |Idiomas Non-.NET ou desenvolvimento de ferramentas principais do Azure local|Automático|[Usar Azure Functions Core Tools e pacotes de extensão](#extension-bundles)|
@@ -55,7 +55,7 @@ No **Visual Studio**, você pode instalar pacotes do console do Gerenciador de p
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>
 ```
 
-O nome do pacote usado para uma determinada associação é fornecido no artigo de referência para essa associação. Para obter um exemplo, consulte o [pacotes seção do artigo de referência de associação do barramento de serviço](functions-bindings-service-bus.md#packages---functions-1x).
+O nome do pacote usado para uma determinada associação é fornecido no artigo de referência para essa associação. Para obter um exemplo, consulte o [pacotes seção do artigo de referência de associação do barramento de serviço](functions-bindings-service-bus.md#functions-1x).
 
 Substituir `<TARGET_VERSION>` no exemplo com uma versão específica do pacote, como `3.0.0-beta5`. As versões válidas são listadas nas páginas de pacote individuais em [NuGet.org](https://nuget.org). As versões principais que correspondem ao Functions Runtime 1. x ou 2. x são especificadas no artigo de referência para a associação.
 
@@ -75,6 +75,6 @@ Substitua `<BINDING_TYPE_NAME>` pelo nome do pacote que contém a associação d
 
 Substituir `<TARGET_VERSION>` no exemplo com uma versão específica do pacote, como `3.0.0-beta5`. As versões válidas são listadas nas páginas de pacote individuais em [NuGet.org](https://nuget.org). As versões principais que correspondem ao Functions Runtime 1. x ou 2. x são especificadas no artigo de referência para a associação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 > [Exemplo de gatilho e associação do Azure function](./functions-bindings-example.md)

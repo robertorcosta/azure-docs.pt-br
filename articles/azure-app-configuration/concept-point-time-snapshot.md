@@ -1,35 +1,61 @@
 ---
-title: Instantâneo no momento da configuração do Azure App
-description: Uma visão geral de como funciona o instantâneo pontual na Configuração de Aplicativo do Azure
+title: Recuperar pares de chave-valor de um ponto no tempo
+titleSuffix: Azure App Configuration
+description: Recuperar pares de chave-valor antigos usando instantâneos de ponto no tempo na configuração do Azure App
 services: azure-app-configuration
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 02/24/2019
-ms.openlocfilehash: 4a352ba913b6ad4e3c8607677078e21070f294fd
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/20/2020
+ms.openlocfilehash: 1e2a4f7a7bc5db1b6a49f085821f7fa2bde54229
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899580"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523642"
 ---
 # <a name="point-in-time-snapshot"></a>Instantâneo pontual
 
-A Configuração de Aplicativo do Azure manterá os registros de horas precisas quando um novo par chave-valor for criado e, em seguida, modificado. Esses registros formam uma linha do tempo completa nas alterações de pares chave-valor. Um repositório de Configuração de Aplicativos pode reconstruir o histórico de qualquer par chave-valor e reproduzir seu valor anterior em qualquer momento determinado, até o presente. Com esse recurso, é possível “voltar no tempo” e recuperar um par chave-valor antigo. Por exemplo, você pode obter as configurações de ontem, logo antes da implantação mais recente, para recuperar uma configuração anterior e reverter o aplicativo.
+Azure App configuração mantém um registro das alterações feitas em pares chave-valor. Esse registro fornece uma linha do tempo das alterações de chave-valor. Você pode reconstruir o histórico de qualquer valor-chave e fornecer seu valor passado a qualquer momento nos sete dias anteriores. Usando esse recurso, você pode retroceder "tempo-de-viagem" e recuperar um valor de chave antigo. Por exemplo, você pode recuperar as definições de configuração usadas antes da implantação mais recente a fim de reverter o aplicativo para a configuração anterior.
 
 ## <a name="key-value-retrieval"></a>Recuperação de par chave-valor
 
-Para recuperar os pares chave-valor anteriores, especifique um horário no qual os pares chave-valor sejam instantâneos no cabeçalho HTTP de uma chamada à API REST. Por exemplo:
+Você pode usar Azure PowerShell para recuperar valores de chave anteriores.  Use `az appconfig revision list`, adicionando os parâmetros apropriados para recuperar os valores necessários.  Especifique a instância de configuração de Azure App fornecendo o nome do repositório (`--name {app-config-store-name}`) ou usando uma cadeia de conexão (`--connection-string {your-connection-string}`). Restrinja a saída especificando um ponto no tempo (`--datetime`) específico e especificando o número máximo de itens a serem retornados (`--top`).
 
-```rest
-GET /kv HTTP/1.1
-Accept-Datetime: Sat, 1 Jan 2019 02:10:00 GMT
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+Recupere todas as alterações gravadas para seus valores de chave.
+
+```azurepowershell
+az appconfig revision list --name {your-app-config-store-name}.
 ```
 
-Atualmente, a Configuração de Aplicativo mantém sete dias de histórico de alterações.
+Recupere todas as alterações gravadas para a chave `environment` e os rótulos `test` e `prod`.
 
-## <a name="next-steps"></a>Próximos passos
+```azurepowershell
+az appconfig revision list --name {your-app-config-store-name} --key environment --label test,prod
+```
+
+Recupere todas as alterações gravadas no `environment:prod`de espaço de chave hierárquica.
+
+```azurepowershell
+az appconfig revision list --name {your-app-config-store-name} --key environment:prod:* 
+```
+
+Recupere todas as alterações gravadas para a chave `color` em um momento específico.
+
+```azurepowershell
+az appconfig revision list --connection-string {your-app-config-connection-string} --key color --datetime "2019-05-01T11:24:12Z" 
+```
+
+Recupere as 10 últimas alterações gravadas em seus valores de chave e retorne apenas os valores para `key`, `label`e `last-modified` carimbo de data/hora.
+
+```azurepowershell
+az appconfig revision list --name {your-app-config-store-name} --top 10 --fields key,label,last-modified
+```
+
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Criar um aplicativo Web ASP.NET Core](./quickstart-aspnet-core-app.md)  

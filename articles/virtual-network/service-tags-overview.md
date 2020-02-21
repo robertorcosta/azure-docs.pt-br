@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 270b3f0fe7c654d2bf059784e872b7dbe97a6068
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
-ms.translationtype: MT
+ms.openlocfilehash: c93460797fc1cf953d467e2739d71c5a2a9b74ed
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190486"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486161"
 ---
 # <a name="virtual-network-service-tags"></a>Marcas de serviço de rede virtual 
 <a name="network-service-tags"></a>
@@ -52,7 +52,7 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Alg
 | **AzureBackup** |Backup do Azure.<br/><br/>*Observação:* Essa marca tem uma dependência nas marcas de **armazenamento** e **AzureActiveDirectory** . | Saída | Não | Sim |
 | **AzureBotService** | Serviço de bot do Azure. | Saída | Não | Não |
 | **AzureCloud** | Todos os [endereços IP públicos do datacenter](https://www.microsoft.com/download/details.aspx?id=56519). | Saída | Sim | Sim |
-| **AzureCognitiveSearch** | Pesquisa Cognitiva do Azure (se estiver usando indexadores com um qualificable). | Ambos | Não | Não |
+| **AzureCognitiveSearch** | Pesquisa Cognitiva do Azure. <br/><br/>Esta marca ou os endereços IP cobertos por essa marca podem ser usados para conceder aos indexadores acesso seguro a fontes de dados. Consulte a [documentação de conexão do indexador](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting#connection-errors) para obter mais detalhes. | Entrada | Não | Não |
 | **AzureConnectors** | Conectores de aplicativos lógicos do Azure para conexões de investigação/back-end. | Entrada | Sim | Sim |
 | **AzureContainerRegistry** | Registro de contêiner do Azure. | Saída | Sim | Sim |
 | **AzureCosmosDB** | Azure Cosmos DB. | Saída | Sim | Sim |

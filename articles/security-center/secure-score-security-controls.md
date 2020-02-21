@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2019
 ms.author: memildin
-ms.openlocfilehash: 0096bccf76e81f2bca1a449cea2474cb5266fabc
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: f4f6cf01502070ea63eaf0083aba33ff213534a4
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443577"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500239"
 ---
 # <a name="the-enhanced-secure-score-preview"></a>A pontuação segura aprimorada (visualização) 
 
@@ -65,15 +65,15 @@ Por exemplo, o controle de segurança chamado "aplicar atualizações do sistema
 
 O potencial para o controle de segurança "aplicar atualizações do sistema" na captura de tela acima mostra "2% (1 ponto)". Isso significa que, se você corrigir todas as recomendações nesse controle, sua pontuação aumentará em 2% (nesse caso, um ponto). Para simplificar, os valores na coluna "aumento potencial" da lista de recomendações são arredondados para números inteiros. As dicas de ferramenta mostram os valores precisos:
 
+* **Pontuação máxima** – o número máximo de pontos que você pode obter ao concluir todas as recomendações dentro de um controle. A pontuação máxima de um controle indica o significado relativo desse controle. Use os valores máximos de Pontuação para fazer a triagem de quais problemas trabalharem primeiro. 
 * **Possível aumento** -os pontos restantes disponíveis para você dentro do controle. Para obter esses pontos adicionados à sua pontuação segura, corrija todas as recomendações do controle. No exemplo acima, o ponto mostrado para o controle é, na verdade, 0,96 pontos.
 * **Pontuação atual** -a pontuação atual para este controle. Cada controle contribui para a pontuação total. Neste exemplo, o controle está contribuindo com 5, 4 pontos para o total. 
-* **Pontuação máxima** -a soma dos dois valores anteriores.
 
 ### <a name="calculations---understanding-your-score"></a>Cálculos-noções básicas sobre sua pontuação
 
 |Métrica|Fórmula e exemplo|
 |-|-|
-|**Pontuação atual do controle de segurança**|<br>![equação para calcular a pontuação atual de um controle de segurança](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>Cada controle de segurança individual contribui para a pontuação de segurança. Cada recurso afetado por uma recomendação dentro do controle, contribui para a pontuação atual do controle. A pontuação atual de cada controle é uma medida do status dos recursos *dentro* do controle.<br>![dicas de ferramentas mostrando os valores usados ao calcular a pontuação atual do controle de segurança](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>Neste exemplo, a pontuação máxima de 6 seria dividida por 78 porque essa é a soma dos recursos íntegros e não íntegros.<br>6/78 = 0, 769<br>Multiplicar isso pelo número de recursos íntegros (74) resulta na pontuação atual:<br>0, 769 * 74 = **5,69**<br><br>|
+|**Pontuação atual do controle de segurança**|<br>![equação para calcular a pontuação atual de um controle de segurança](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>Cada controle de segurança individual contribui para a pontuação de segurança. Cada recurso afetado por uma recomendação dentro do controle, contribui para a pontuação atual do controle. A pontuação atual de cada controle é uma medida do status dos recursos *dentro* do controle.<br>![dicas de ferramentas mostrando os valores usados ao calcular a pontuação atual do controle de segurança](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>Neste exemplo, a pontuação máxima de 6 seria dividida por 78 porque essa é a soma dos recursos íntegros e não íntegros.<br>6/78 = 0, 769<br>Multiplicar isso pelo número de recursos íntegros (4) resulta na pontuação atual:<br>0, 769 * 4 = **0,31**<br><br>|
 |**Pontuação segura**<br>Assinatura única|<br>![Equação para calcular a pontuação segura atual](media/secure-score-security-controls/secure-score-equation.png)<br><br>![Pontuação segura de assinatura única com todos os controles habilitados](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>Neste exemplo, há uma única assinatura com todos os controles de segurança disponíveis (uma pontuação máxima potencial de 60 pontos). A pontuação mostra 28 pontos de um possível 60 e os 32 pontos restantes são refletidos nas figuras de "aumento da Pontuação potencial" dos controles de segurança.<br>![Lista de controles e o aumento de Pontuação potencial](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
 |**Pontuação segura**<br>Várias assinaturas|<br>A pontuação atual de todos os recursos em todas as assinaturas é adicionada e o cálculo é o mesmo que para uma única assinatura<br><br>Ao exibir várias assinaturas, a pontuação segura avalia todos os recursos em todas as políticas habilitadas e agrupa seu impacto combinado na pontuação máxima de cada controle de segurança.<br>![Pontuação segura para várias assinaturas com todos os controles habilitados](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>A pontuação combinada **não** é uma média; em vez disso, é a postura avaliada do status de todos os recursos em todas as assinaturas.<br>Aqui também, se você for para a página recomendações e adicionar os pontos potenciais disponíveis, verá que é a diferença entre a pontuação atual (24) e a pontuação máxima disponível (60).|
 ||||

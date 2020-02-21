@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: spelluru
-ms.openlocfilehash: 348340516f9332f5492c7ce60c3d164da44a008c
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 15fd3c18d059466c2b2bd5e2431013f393092b4b
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120889"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526222"
 ---
 # <a name="classroom-labs-concepts"></a>Conceitos dos laboratórios de sala de aula
 
@@ -32,7 +32,13 @@ As horas de cota são contadas quando o aluno inicia a própria VM do laboratór
 
 ## <a name="schedules"></a>Agendas
 
-Os agendamentos são os intervalos de tempo (uma vez ou recorrente) que um professor pode criar para a classe. Todas as máquinas virtuais no laboratório são iniciadas automaticamente no início da agenda e são interrompidas no final da agenda. As horas de cota não são usadas quando uma agenda está em execução.
+Agendas são os slots de tempo que um professor pode criar para a classe para que as VMs dos alunos estejam disponíveis para o tempo de aula.  As agendas podem ser uma única vez ou recorrentes.  As horas de cota não são usadas quando uma agenda está em execução.
+
+Há três tipos de agendas: Standard, somente iniciar e somente parar.
+
+- **Standard**.  Essa agenda iniciará todas as VMs de aluno na hora de início especificada e desligará todas as VMs de aluno na hora de parada especificada.
+- **Somente iniciar**.   Essa agenda iniciará todas as VMs de aluno na hora especificada.  As VMs dos alunos não serão interrompidas até que um aluno interrompa a VM por meio do portal de Azure Lab Services ou que ocorra uma agenda somente de interrupção.
+- **Somente parar**.  Essa agenda interromperá todas as VMs de aluno na hora especificada.  
 
 ## <a name="template-virtual-machine"></a>Máquina virtual de modelo
 

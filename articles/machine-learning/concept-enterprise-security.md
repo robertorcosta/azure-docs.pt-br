@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 01/09/2020
-ms.openlocfilehash: 32b3135f805cc6c68d8cd9d6fa2b6f957cd140ad
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 7b6bd33346df9496c4c30353b68c11bdd7fad7a2
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444138"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486386"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança corporativa para Azure Machine Learning
 
@@ -112,6 +112,7 @@ Para obter mais informações, consulte [como executar experimentos e inferênci
 > [!IMPORTANT]
 > Se seu espaço de trabalho contiver dados confidenciais, recomendamos definir o [sinalizador hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) ao criar seu espaço de trabalho. Isso controla a quantidade de dados que a Microsoft coleta para fins de diagnóstico e habilita a criptografia adicional em ambientes gerenciados da Microsoft.
 
+Para obter mais informações sobre como a criptografia em repouso funciona no Azure, consulte [criptografia de dados do Azure em repouso](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
 #### <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
 
@@ -189,7 +190,9 @@ O disco do sistema operacional para cada nó de computação armazenado no armaz
 
 Cada máquina virtual também tem um disco temporário local para operações do sistema operacional. Se desejar, você pode usar o disco para preparar os dados de treinamento. O disco é criptografado por padrão para espaços de trabalho com o parâmetro `hbi_workspace` definido como `TRUE`. Esse ambiente é de curta duração apenas durante a execução, e o suporte à criptografia é limitado apenas a chaves gerenciadas pelo sistema.
 
-Para obter mais informações sobre como a criptografia em repouso funciona no Azure, consulte [criptografia de dados do Azure em repouso](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
+#### <a name="azure-databricks"></a>Azure Databricks
+
+Azure Databricks pode ser usado em pipelines de Azure Machine Learning. Por padrão, o sistema de arquivos do databricks (DBFS) usado pelo Azure Databricks é criptografado usando uma chave gerenciada pela Microsoft. Para configurar Azure Databricks para usar chaves gerenciadas pelo cliente, consulte [Configurar chaves gerenciadas pelo cliente no DBFS padrão (raiz)](/azure/databricks/security/customer-managed-keys-dbfs).
 
 ### <a name="encryption-in-transit"></a>Criptografia em trânsito
 

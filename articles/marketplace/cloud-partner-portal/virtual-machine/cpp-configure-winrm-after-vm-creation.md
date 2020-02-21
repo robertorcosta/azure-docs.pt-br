@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: pabutler
-ms.openlocfilehash: ae5a55c6d640852cbd873bc6b36e502b5fe17165
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7d050b32b212f66623a24bcf87d40111fc5973a5
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73817945"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77481367"
 ---
 # <a name="configure-winrm-after-virtual-machine-creation"></a>Configurar o WinRM após a criação da máquina virtual
 
@@ -25,7 +25,7 @@ Este artigo explica como configurar uma VM (máquina virtual hospedada no Azure)
 
 ## <a name="enabling-port-traffic"></a>Habilitado o tráfego da porta
 
-O WinRM pelo protocolo HTTPS usa a porta 5896, que não está habilitada por padrão nas VMs do Windows pré-configuradas oferecidas no Azure Marketplace. Para habilitar esse protocolo, siga as etapas a seguir para adicionar uma nova regra ao NSG (Grupo de Segurança de Rede) com o [portal do Azure](https://portal.azure.com).  Para obter mais informações sobre os NSGs, confira [Grupos de Segurança](https://docs.microsoft.com/azure/virtual-network/security-overview).
+O protocolo WinRM via HTTPS usa a porta 5986, que não está habilitada por padrão em VMs pré-configuradas do Windows oferecidas no Azure Marketplace. Para habilitar esse protocolo, siga as etapas a seguir para adicionar uma nova regra ao NSG (Grupo de Segurança de Rede) com o [portal do Azure](https://portal.azure.com).  Para obter mais informações sobre os NSGs, confira [Grupos de Segurança](https://docs.microsoft.com/azure/virtual-network/security-overview).
 
 1.  Navegue até a folha **Máquinas virtuais >**   <*nome-da-vm*>   **> Configurações/Rede**.
 2.  Clique no nome do NSG (neste exemplo, **testvm11002**) para exibir suas propriedades:

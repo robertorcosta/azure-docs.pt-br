@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 846819c3a05baf4ef1174d4e086f09893e834b2a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: fdc7d9fce3ebce4603369262f164ba72b1e39499
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847791"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484308"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Fluxos dos usuários no Azure Active Directory B2C
 
@@ -81,10 +81,8 @@ Um endereço de email pode ser exigido como parte de um fluxo de usuário. Se o 
 
 Não há garantia de que o endereço de email seja verificado em nenhum desses casos. Um administrador de locatários pode desabilitar a verificação de email nas políticas básicas para contas locais. Mesmo se a verificação de endereço de email estiver habilitada, endereços não serão verificados se eles vierem de um provedor de identidade social e não tiverem sido alterados.
 
-Somente as propriedades **otherMails** e **signInNames** são expostas por meio da API do Graph do Active Directory. O endereço de email na propriedade de detalhe de autenticação forte não está disponível.
+Somente as propriedades **otherMails** e **signInNames** são expostas por meio da API Microsoft Graph. O endereço de email na propriedade de detalhe de autenticação forte não está disponível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para criar os fluxos de usuário recomendados, siga as instruções em [tutorial: criar um fluxo de usuário](tutorial-create-user-flows.md).
-
-

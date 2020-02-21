@@ -6,16 +6,16 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 11/09/2017
 ms.custom: seodec18
-ms.openlocfilehash: c0b28bd7a854d1b4a8b387e40fb045d47160768d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: f1012f8c00de4b19bbf6206408ec1a806e09e54f
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672275"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482336"
 ---
 # <a name="azure-app-service-plan-overview"></a>Visão geral do plano do Serviço de Aplicativo do Azure
 
-No Serviço de Aplicativo, um aplicativo é executado em um _Plano de Serviço de Aplicativo_. Um plano de serviço de aplicativo define um conjunto de recursos de computação para um aplicativo Web ser executado. Esses recursos de computação são análogos ao [ _farm de servidores_ ](https://wikipedia.org/wiki/Server_farm) na hospedagem na web convencional. Um ou mais aplicativos podem ser configurados para ser executado nos mesmos recursos de computação (ou no mesmo plano de Serviço de Aplicativo).
+No Serviço de Aplicativo, um aplicativo é executado em um _Plano de Serviço de Aplicativo_. Um plano de serviço de aplicativo define um conjunto de recursos de computação para um aplicativo Web ser executado. Esses recursos de computação são análogos ao [_farm de servidores_](https://wikipedia.org/wiki/Server_farm) na hospedagem na web convencional. Um ou mais aplicativos podem ser configurados para ser executado nos mesmos recursos de computação (ou no mesmo plano de Serviço de Aplicativo).
 
 Quando você cria um plano de serviço de aplicativo em uma determinada região (por exemplo, Europa Ocidental), um conjunto de recursos de computação é criado para esse plano nessa região. Quaisquer aplicativos que você coloque nesse plano de serviço de aplicativo é executado nesses recursos de computação conforme definido pelo seu plano de serviço de aplicativo. Cada plano de serviço de aplicativo define:
 
@@ -37,7 +37,7 @@ Cada tipo também fornece um subconjunto específico de recursos do serviço de 
 <a name="new-pricing-tier-premiumv2"></a>
 
 > [!NOTE]
-> O novo tipo de preço **PremiumV2** fornece [VMs de série Dv2](../virtual-machines/windows/sizes-general.md#dv2-series), com processadores mais rápidos, armazenamento SSD e relação memória/núcleo duas vezes maior quando comparado ao tipo de preço **Standard**. O **PremiumV2** também dá suporte a uma escala maior por meio da maior contagem de instâncias e ainda fornece todas as funcionalidades avançadas encontradas no plano Standard. Todos os recursos disponíveis no tipo de preço **Premium** existente estão incluídos no **PremiumV2**.
+> O novo tipo de preço **PremiumV2** fornece [VMs de série Dv2](../virtual-machines/dv2-dsv2-series.md), com processadores mais rápidos, armazenamento SSD e relação memória/núcleo duas vezes maior quando comparado ao tipo de preço **Standard**. O **PremiumV2** também dá suporte a uma escala maior por meio da maior contagem de instâncias e ainda fornece todas as funcionalidades avançadas encontradas no plano Standard. Todos os recursos disponíveis no tipo de preço **Premium** existente estão incluídos no **PremiumV2**.
 >
 > Semelhante a outros tipos de preço dedicados, três tamanhos de VM estão disponíveis para esse tipo de preço:
 >

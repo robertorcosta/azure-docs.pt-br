@@ -2,17 +2,17 @@
 title: Esquema de eventos do Azure Mapas da Grade de Eventos do Azure
 description: Descreve as propriedades e o esquema fornecidos para eventos do Azure Mapas com a Grade de Eventos do Azure
 services: event-grid
-author: walsehgal
+author: femila
 ms.service: event-grid
 ms.topic: reference
 ms.date: 02/08/2019
-ms.author: v-musehg
-ms.openlocfilehash: 74a3674e632f8dc3f0755bc2ad48376708c7966f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: femila
+ms.openlocfilehash: 9acef524521e8fac6ce6f8f61e5ff3fbbb81d18d
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861847"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486352"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-maps"></a>Esquema de eventos da Grade de Eventos do Azure para Azure Mapas
 
@@ -109,7 +109,7 @@ Um evento tem os seguintes dados de nível superior:
 | eventType | string | Um dos tipos de evento registrados para a origem do evento. |
 | eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
 | id | string | Identificador exclusivo do evento. |
-| data | object | Dados de evento de delimitação geográfica. |
+| data | objeto | Dados de evento de delimitação geográfica. |
 | dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
 | metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
@@ -119,21 +119,21 @@ O objeto de dados tem as seguintes propriedades:
 | -------- | ---- | ----------- |
 | apiCategory | string | Categoria da API do evento. |
 | apiName | string | Nome da API do evento. |
-| issues | object | Lista os problemas encontrados durante o processamento. Se algum problema for retornado, não haverá geometrias retornadas com a resposta. |
+| issues | objeto | Lista os problemas encontrados durante o processamento. Se algum problema for retornado, não haverá geometrias retornadas com a resposta. |
 | responseCode | número | Código de resposta HTTP |
-| geometries | object | Lista as geometrias de delimitação que contêm a posição da coordenada ou sobrepõem o searchBuffer em torno da posição. |
+| geometries | objeto | Lista as geometrias de delimitação que contêm a posição da coordenada ou sobrepõem o searchBuffer em torno da posição. |
 
 O objeto de erro é retornado quando ocorre um erro na API de Mapas. O objeto de erro tem as seguintes propriedades:
 
 | Propriedade | Type | DESCRIÇÃO |
 | -------- | ---- | ----------- |
-| error | ErrorDetails |Esse objeto é retornado quando ocorre um erro na API de Mapas  |
+| erro | ErrorDetails |Esse objeto é retornado quando ocorre um erro na API de Mapas  |
 
 O objeto ErrorDetails é retornado quando ocorre um erro na API de Mapas. O ErrorDetails ou objeto tem as seguintes propriedades:
 
 | Propriedade | Type | DESCRIÇÃO |
 | -------- | ---- | ----------- |
-| code | string | O código de status do HTTP. |
+| código | string | O código de status do HTTP. |
 | message | string | Se disponível, uma descrição do erro em formato legível por humanos. |
 | innererror | InnerError | Se disponível, um objeto contendo informações específicas do serviço sobre o erro. |
 
@@ -141,14 +141,14 @@ O InnerError é um objeto que contém informações específicas do serviço sob
 
 | Propriedade | Type | DESCRIÇÃO |
 | -------- | ---- | ----------- |
-| code | string | A mensagem de erro. |
+| código | string | A mensagem de erro. |
 
 O objeto de geometrias lista as IDs de geometria das cercas geográficas que expiraram em relação ao tempo do usuário na solicitação. O objeto de geometrias contém itens de geometria com as seguintes propriedades: 
 
 | Propriedade | Type | DESCRIÇÃO |
 |:-------- |:---- |:----------- |
 | deviceid | string | ID do dispositivo. |
-| distance | string | <p>Distância da coordenada até a borda mais próxima da cerca geográfica. Positivo significa que a coordenada está fora da cerca geográfica. Se a coordenada estiver fora da cerca geográfica, mas for maior que o valor de searchBuffer distante da borda da cerca geográfica mais próxima, o valor será 999. Negativo significa que a coordenada está dentro da cerca geográfica. Se a coordenada estiver dentro do polígono, mas for maior que o valor de searchBuffer distante da borda de delimitação geográfica mais próxima, o valor será -999. Um valor de 999 significa que há grande confiança de que a coordenada esteja bem fora da cerca geográfica. Um valor de -999 significa que há uma grande confiança de que a coordenada esteja bem dentro da cerca geográfica.<p> |
+| distância | string | <p>Distância da coordenada até a borda mais próxima da cerca geográfica. Positivo significa que a coordenada está fora da cerca geográfica. Se a coordenada estiver fora da cerca geográfica, mas for maior que o valor de searchBuffer distante da borda da cerca geográfica mais próxima, o valor será 999. Negativo significa que a coordenada está dentro da cerca geográfica. Se a coordenada estiver dentro do polígono, mas for maior que o valor de searchBuffer distante da borda de delimitação geográfica mais próxima, o valor será -999. Um valor de 999 significa que há grande confiança de que a coordenada esteja bem fora da cerca geográfica. Um valor de -999 significa que há uma grande confiança de que a coordenada esteja bem dentro da cerca geográfica.<p> |
 | geometryid |string | A ID exclusiva identifica a geometria da cerca geográfica. |
 | nearestlat | número | Latitude do ponto mais próximo da geometria. |
 | nearestlon | número | Longitude do ponto mais próximo da geometria. |
@@ -161,7 +161,7 @@ O objeto de dados tem as seguintes propriedades:
 | expiredGeofenceGeometryId | string[] | Listas da ID de geometria da cerca geográfica que é expirada em relação ao tempo do usuário na solicitação. |
 | geometries | geometries[] |Lista as geometrias de delimitação que contêm a posição da coordenada ou sobrepõem o searchBuffer em torno da posição. |
 | invalidPeriodGeofenceGeometryId | string[]  | Listas da ID de geometria da cerca geográfica que está em período inválido em relação ao tempo do usuário na solicitação. |
-| isEventPublished | boolean | True se pelo menos um evento for publicado no assinante de evento do Azure Mapas e false se nenhum evento for publicado no assinante de evento do Azure Mapas. |
+| isEventPublished | booleano | True se pelo menos um evento for publicado no assinante de evento do Azure Mapas e false se nenhum evento for publicado no assinante de evento do Azure Mapas. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

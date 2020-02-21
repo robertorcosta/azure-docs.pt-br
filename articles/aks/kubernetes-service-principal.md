@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mlearned
-ms.openlocfilehash: 1b0d3dec3925518922c5f668560889edd6f5de0b
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 62fc95ed7179dc4188c0c40e4c15aa9940bf2eb5
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867159"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524232"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entidades de serviço com o AKS (Serviço de Kubernetes do Azure)
 
@@ -70,6 +70,9 @@ az aks create \
     --client-secret <password>
 ```
 
+> [!NOTE]
+> Se você estiver usando uma entidade de serviço existente com segredo personalizado, verifique se o segredo não tem mais de 190 bytes.
+
 Se você implantar um cluster do AKS usando o portal do Azure, na página *Autenticação* do diálogo **Criar cluster do Kubernetes**, escolha **Configurar entidade de serviço**. Selecione **Usar existente** e especifique os seguintes valores:
 
 - **ID do cliente da entidade de serviço** é seu *appId*
@@ -102,7 +105,7 @@ Você pode usar os recursos de rede quando rede e a sub-rede virtuais, ou endere
 - Crie uma [função personalizada][rbac-custom-role] e defina as seguintes permissões de função:
   - *Microsoft.Network/virtualNetworks/subnets/join/action*
   - *Microsoft.Network/virtualNetworks/subnets/read*
-  - *Microsoft.Network/virtualNetworks/subnets/write*
+  - *Microsoft. Network/virtualNetworks/sub-redes/gravação*
   - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*
@@ -158,7 +161,7 @@ ls -la $HOME/.azure/aksServicePrincipal.json
 
 O tempo de expiração padrão para as credenciais da entidade de serviço é de um ano. Se o arquivo *aksServicePrincipal. JSON* tiver mais de um ano, exclua o arquivo e tente implantar um cluster AKs novamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre Azure Active Directory entidades de serviço, consulte [objetos de aplicativo e entidade de serviço][service-principal].
 

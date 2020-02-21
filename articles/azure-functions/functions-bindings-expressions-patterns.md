@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 9b9e39776e519a91a4464532e11e85da711087b3
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 2d0cf18de09932c5d66e269a85919f4d85383c5b
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766247"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485498"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Padrões de expressão de associação de Azure Functions
 
@@ -179,7 +179,7 @@ Esses valores de metadados estão acessíveis nas propriedades do arquivo *funct
   ]
 ```
 
-Detalhes de propriedades de metadados para cada gatilho são descritos no artigo de referência correspondente. Para obter um exemplo, consulte [metadados de gatilho de fila](functions-bindings-storage-queue.md#trigger---message-metadata). A documentação também está disponível na guia **Integrar** do portal, na seção **Documentação** abaixo da área de configuração de associação.  
+Detalhes de propriedades de metadados para cada gatilho são descritos no artigo de referência correspondente. Para obter um exemplo, consulte [metadados de gatilho de fila](functions-bindings-storage-queue-trigger.md#message-metadata). A documentação também está disponível na guia **Integrar** do portal, na seção **Documentação** abaixo da área de configuração de associação.  
 
 ## <a name="json-payloads"></a>Cargas JSON
 
@@ -317,6 +317,6 @@ A expressão de associação `DateTime` resolve para `DateTime.UtcNow`. O seguin
 
 No C#, e em outras linguagens .NET, você pode usar um padrão de associação obrigatório, em vez de associações declarativas em *function.json* e atributos. A associação obrigatória é útil quando os parâmetros de associação precisam ser calculado no runtime, em vez do tempo de design. Para obter mais informações, consulte a [referência do desenvolvedor C#](functions-dotnet-class-library.md#binding-at-runtime) ou [referência do desenvolvedor de script C#](functions-reference-csharp.md#binding-at-runtime).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 > [Usando o valor de retorno da função do Azure](./functions-bindings-return-value.md)

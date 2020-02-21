@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: e833ca92004c678808ec5e294de2df7c90121be7
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: ce2b4200496938e6cffb935207df8c7027eaf37a
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75835121"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486127"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Usar CLI do Azure para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2 (versão prévia)
 
@@ -24,7 +24,7 @@ Este artigo mostra como usar a [CLI (interface de linha de comando) do Azure](ht
 > A extensão de `storage-preview` que está em destaque neste artigo está atualmente em visualização pública.
 
 [Exemplo](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#adls-gen2-support) | [Gen1 ao mapeamento Gen2](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2) | [fornecer comentários](https://github.com/Azure/azure-cli-extensions/issues)
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 > [!div class="checklist"]
 > * Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -42,7 +42,7 @@ Este artigo mostra como usar a [CLI (interface de linha de comando) do Azure](ht
    ```
    Se sua versão do CLI do Azure for menor que `2.0.67`, instale uma versão posterior. Consulte [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-3. Instale a extensão `storage-preview`.
+3. Instale a extensão de `storage-preview`.
 
    ```azurecli
    az extension add -n storage-preview
@@ -77,7 +77,7 @@ Um sistema de arquivos atua como um contêiner para seus arquivos. Você pode cr
 Este exemplo cria um sistema de arquivos chamado `my-file-system`.
 
 ```azurecli
-az storage container create --name my-file-system
+az storage container create --name my-file-system --account-name mystorageaccount
 ```
 
 ## <a name="create-a-directory"></a>Criar um diretório
@@ -239,6 +239,12 @@ Este exemplo define a ACL em um diretório para o usuário proprietário, o grup
 az storage blob directory access set -a "user::rw-,group::rw-,other::-wx" -d my-directory -c my-file-system --account-name mystorageaccount
 ```
 
+Este exemplo define a ACL *padrão* em um diretório para o usuário proprietário, o grupo proprietário ou outros usuários e, em seguida, imprime a ACL no console.
+
+```azurecli
+az storage blob directory access set -a "default:user::rw-,group::rw-,other::-wx" -d my-directory -c my-file-system --account-name mystorageaccount
+```
+
 Use o comando `az storage blob access set` para definir a ACL de um **arquivo**. 
 
 Este exemplo define a ACL em um arquivo para o usuário proprietário, o grupo proprietário ou outros usuários e, em seguida, imprime a ACL no console.
@@ -299,7 +305,7 @@ Este exemplo mostra todos os metadados definidos pelo usuário para o diretório
 az storage blob directory metadata show -c my-file-system -d my-directory --account-name mystorageaccount
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Amostra](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview)
 * [Mapeamento de Gen1 para Gen2](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)

@@ -6,12 +6,12 @@ author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 01/29/2020
-ms.openlocfilehash: ac06521df38bdc91ca717d888c73cd541576014d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 73905483850a47a9d036bef1b9e1ee60d3484555
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905457"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484580"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Analisar dados JSON e Avro no Azure Stream Analytics
 
@@ -63,7 +63,7 @@ FROM input
 
 O resultado é:
 
-|DeviceID|Lat|Longo|Temperatura|Versão|
+|DeviceID|Lat|long|Temperatura|Versão|
 |-|-|-|-|-|
 |12345|47|122|80|1.2.45|
 
@@ -80,7 +80,7 @@ FROM input
 
 O resultado é:
 
-|DeviceID|Lat|Longo|
+|DeviceID|Lat|long|
 |-|-|-|
 |12345|47|122|
 
@@ -167,6 +167,38 @@ WITH Stage0 AS
 
 SELECT DeviceID, PropertyValue AS Temperature INTO TemperatureOutput FROM Stage0 WHERE PropertyName = 'Temperature'
 SELECT DeviceID, PropertyValue AS Humidity INTO HumidityOutput FROM Stage0 WHERE PropertyName = 'Humidity'
+```
+
+### <a name="parse-json-record-in-sql-reference-data"></a>Analisar registro JSON nos dados de referência do SQL
+Ao usar o banco de dados SQL do Azure como dado de referência em seu trabalho, é possível ter uma coluna com dados no formato JSON. Um exemplo é mostrado abaixo.
+
+|DeviceID|data|
+|-|-|
+|12345|{"Key": "value1"}|
+|54321|{"chave": "value2"}|
+
+Você pode analisar o registro JSON na coluna de *dados* escrevendo uma função simples definida pelo usuário do JavaScript.
+
+```javascript
+function parseJson(string) {
+return JSON.parse(string);
+}
+```
+
+Em seguida, você pode criar uma etapa na consulta Stream Analytics, conforme mostrado abaixo, para acessar os campos dos seus registros JSON.
+
+ ```SQL
+ WITH parseJson as
+ (
+ SELECT DeviceID, udf.parseJson(sqlRefInput.Data) as metadata,
+ FROM sqlRefInput
+ )
+ 
+ SELECT metadata.key
+ INTO output
+ FROM streamInput
+ JOIN parseJson 
+ ON streamInput.DeviceID = parseJson.DeviceID
 ```
 
 ## <a name="array-data-types"></a>Tipos de dados de matrizes
@@ -291,7 +323,7 @@ LEFT JOIN DynamicCTE M ON M.smKey = 'Manufacturer' and M.DeviceId = i.DeviceId A
 
 O resultado é:
 
-|deviceId|Lat|Longo|smVersion|smManufacturer|
+|deviceId|Lat|long|smVersion|smManufacturer|
 |-|-|-|-|-|
 |12345|47|122|1.2.45|ABC|
 

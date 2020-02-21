@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8cb14c19e8816d53c7d9385563f916bee5d4a6af
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 2cc54077456fce1e7e0f47843a762beee8e715f7
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886545"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526749"
 ---
 # <a name="security-controls-for-azure-storage"></a>Controles de segurança para o armazenamento do Azure
 
@@ -26,11 +26,11 @@ Este artigo documenta os controles de segurança incorporados ao armazenamento d
 
 | Controle de segurança | Sim/Não | Observações |
 |---|---|--|
-| Criptografia no lado do servidor em repouso: Chaves gerenciadas pela Microsoft | Sim |  |
+| Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft | Sim |  |
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Sim | Consulte [criptografia do serviço de armazenamento usando chaves gerenciadas pelo cliente no Azure Key Vault](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
 | Criptografia em nível de coluna (serviços de dados do Azure)| N/D |  |
 | Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | Suporte a mecanismos HTTPS/TLS padrão.  Os usuários também podem criptografar dados antes de serem transmitidos para o serviço. |
-| Chamadas à API criptografadas| Sim |  |
+| Chamadas criptografadas à API| Sim |  |
 
 ## <a name="network"></a>Rede
 
@@ -45,9 +45,9 @@ Este artigo documenta os controles de segurança incorporados ao armazenamento d
 
 | Controle de segurança | Sim/Não | Observações|
 |---|---|--|
-| Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | Azure Monitor métricas disponíveis agora, logs iniciando a visualização |
+| Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | Métricas de Azure Monitor|
 | Registro e auditoria do plano de gerenciamento e controle | Sim | Log de atividades Azure Resource Manager |
-| Log e auditoria do plano de dados| Sim | Logs de diagnóstico de serviço e log de Azure Monitor iniciando a visualização  |
+| Log e auditoria do plano de dados| Sim | Logs de diagnóstico do serviço.|
 
 ## <a name="identity"></a>Identidade
 
