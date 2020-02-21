@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd3ebb40ff101f4d2e3fecd05afed834a9ddc688
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
-ms.translationtype: HT
+ms.openlocfilehash: 327f53fb39e58f7b70040eb41b6cd80aca18e510
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505697"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522026"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Habilitar a entrada de chave de segurança sem senha em dispositivos Windows 10 com Azure Active Directory (versão prévia)
 
@@ -107,7 +107,7 @@ Para direcionar grupos de dispositivos específicos para habilitar o provedor de
 
 ### <a name="enable-with-a-provisioning-package"></a>Habilitar com um pacote de provisionamento
 
-Para dispositivos não gerenciados pelo Intune, um pacote de provisionamento pode ser instalado para habilitar a funcionalidade. O aplicativo do Windows Configuration designer pode ser instalado por meio do [Microsoft Store](https://www.microsoft.com/en-us/p/windows-configuration-designer/9nblggh4tx22). Conclua as seguintes etapas para criar um pacote de provisionamento:
+Para dispositivos não gerenciados pelo Intune, um pacote de provisionamento pode ser instalado para habilitar a funcionalidade. O aplicativo do Windows Configuration designer pode ser instalado por meio do [Microsoft Store](https://www.microsoft.com/p/windows-configuration-designer/9nblggh4tx22). Conclua as seguintes etapas para criar um pacote de provisionamento:
 
 1. Inicie o designer de configuração do Windows.
 1. Selecione **arquivo** > **novo projeto**.

@@ -10,17 +10,57 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 02/07/2020
+ms.date: 02/20/2020
 ms.author: raiye
-ms.openlocfilehash: cca79946c0537b75335eb2e64ae1fa429f2c8d18
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 5411e47494668341a952a97268affe4157e85a9a
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087238"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77506033"
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. As atualizações sempre são postergadas para a [família][family-explain] específica em que foram introduzidas.
+
+## <a name="february-2020-guest-os"></a>SO convidado de fevereiro de 2020
+
+>[!NOTE]
+>Atualmente, o SO convidado de fevereiro está sendo distribuído para VMs de serviço de nuvem configuradas para atualizações automáticas. Quando a distribuição estiver concluída, essa versão será disponibilizada para atualizações manuais por meio do portal do Azure e dos arquivos de configuração. Os patches a seguir estão incluídos no SO convidado de fevereiro. Esta lista está sujeita a alterações.
+
+| Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| --- | --- | --- | --- | --- |
+|  Rel 20-02 |  [4537767]  |  Internet Explorer | 2,85, 3,82, 4,75 | 11 de fevereiro de 2020 |
+|  Rel 20-02 |  [4537813]  |  Segurança do Windows | 2,85 | 11 de fevereiro de 2020 |
+|  Rel 20-02 |  [4537794]  |  Segurança do Windows | 3,82 | 11 de fevereiro de 2020 |
+|  Rel 20-02 |  [4537803]  |  Segurança do Windows | 4,75 | 11 de fevereiro de 2020 |
+|  Rel 20-02 |  [4537764]  |  Atualização cumulativa mais recente (LCU) | 5.4 | 11 de fevereiro de 2020 |
+|  Rel 20-02 |  [4532691]  |  Atualização cumulativa mais recente (LCU) | 6,16 | 11 de fevereiro de 2020 |
+|  Rel 20-02 |  [4534310]  |  ROLLUP mensal | 2,85 | 14 de janeiro de 2020 |
+|  Rel 20-02 |  [4536952]  |  SSU (atualização da pilha de manutenção) | 2,85 | 14 de janeiro de 2020 |
+|  Rel 20-02 |  [4537829]  |  SSU (atualização da pilha de manutenção) | 2,85 | 11 de fevereiro de 2020 |
+|  Rel 20-02 |  [4538483]  |  Atualizações de segurança estendidas (ESU) | 2,85 | 11 de fevereiro de 2020 |
+|  Rel 20-02 |  [4537820]  |  ROLLUP mensal | 2,85 | 11 de fevereiro de 2020 |
+|  Rel 20-02 |  [4537759]  |  Atualização de segurança (flash) | 3,82, 4,75 | 11 de fevereiro de 2020 |
+|  Rel 20-02 |  [4534283]  |  ROLLUP mensal | 3,82 | 14 de janeiro de 2020 |
+|  Rel 20-02 |  [4532920]  |  SSU (atualização da pilha de manutenção) | 3,82 | 10 de dezembro de 2020 |
+|  Rel 20-02 |  [4534297]  |  Não segurança | 4,75 | 14 de janeiro de 2020 |
+
+[4537767]: https://support.microsoft.com/kb/4537767
+[4537813]: https://support.microsoft.com/kb/4537813
+[4537794]: https://support.microsoft.com/kb/4537794
+[4537803]: https://support.microsoft.com/kb/4537803
+[4537764]: https://support.microsoft.com/kb/4537764
+[4532691]: https://support.microsoft.com/kb/4532691
+[4534310]: https://support.microsoft.com/kb/4534310
+[4536952]: https://support.microsoft.com/kb/4536952
+[4537829]: https://support.microsoft.com/kb/4537829
+[4538483]: https://support.microsoft.com/kb/4538483
+[4537820]: https://support.microsoft.com/kb/4537820
+[4537759]: https://support.microsoft.com/kb/4537759
+[4534283]: https://support.microsoft.com/kb/4534283
+[4532920]: https://support.microsoft.com/kb/4532920
+[4534297]: https://support.microsoft.com/kb/4534297
+
 
 ## <a name="january-2020-guest-os"></a>SO convidado de janeiro de 2020
 
