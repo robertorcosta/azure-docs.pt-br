@@ -281,23 +281,23 @@
         - name: Configurar relatórios de Backup do Azure
           items:
             - name: Configurar relatórios de Backup do Azure
-              href: backup-azure-configure-reports.md
-            - name: Modelo de dados para relatórios de Backup do Azure
-              href: backup-azure-reports-data-model.md
-            - name: Modelo de dados do Log Analytics para o Backup do Azure
-              href: backup-azure-log-analytics-data-model.md
+              href: configure-reports.md
         - name: Configurar Eventos de Diagnóstico para Cofres dos Serviços de Recuperação
           items:
             - name: Usar configurações de diagnóstico para os Cofres dos Serviços de Recuperação
               href: backup-azure-diagnostic-events.md
             - name: Modelo de dados de Log Analytics para eventos de diagnóstico específicos a um recurso
-              href: backup-azure-log-analytics-new-data-model.md
+              href: backup-azure-reports-data-model.md
+            - name: Modelo de dados do Log Analytics para o Backup do Azure (modo de Diagnóstico do Azure)
+              href: backup-azure-diagnostics-mode-data-model.md
     - name: Automação
       items:
         - name: Azure Policy interno para o Backup do Azure
           items:
             - name: Habilitar automaticamente o backup na criação da VM usando o Azure Policy
               href: backup-azure-auto-enable-backup.md
+            - name: Definir configurações de diagnóstico de cofre em escala
+              href: azure-policy-configure-diagnostics.md
         - name: PowerShell
           items:
             - name: Restaurar VMs no portal do Azure

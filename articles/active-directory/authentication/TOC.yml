@@ -40,13 +40,13 @@
       items:
         - name: Como funciona o MFA
           href: concept-mfa-howitworks.md
-        - name: Autorize seus usuários
+        - name: Dê uma licença aos seus usuários
           href: concept-mfa-licensing.md
         - name: Gerenciar um Provedor de Autenticação
           href: concept-mfa-authprovider.md
         - name: Diretrizes de segurança
           href: multi-factor-authentication-security-best-practices.md
-        - name: Residência de dadosResidência de dados
+        - name: Residência de dados
           href: concept-mfa-data-residency.md
         - name: MFA para Office 365
           href: 'https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide'
@@ -62,7 +62,7 @@
       href: concept-resilient-controls.md
 - name: Guias de instruções
   items:
-    - name: Redefinição de senha de autoatendimento
+    - name: Redefinição de senha por autoatendimento
       items:
         - name: Guia de implantação
           href: howto-sspr-deployment.md
@@ -90,7 +90,7 @@
               href: howto-mfa-adfs.md
         - name: Integração do RADIUS
           items:
-            - name: Usar servidores de políticas de rede existentes
+            - name: Usar servidores de política de rede existentes
               href: howto-mfa-nps-extension.md
             - name: Configuração avançada de extensão do NPS
               href: howto-mfa-nps-extension-advanced.md
@@ -130,10 +130,14 @@
       items:
         - name: Implantar sem senha
           href: howto-authentication-passwordless-deployment.md
-        - name: Chaves de segurança sem senha
-          href: howto-authentication-passwordless-security-key.md
-        - name: Windows 10 sem senha
-          href: howto-authentication-passwordless-security-key-windows.md
+        - name: Chaves de segurança FIDO2 sem senha
+          items:
+            - name: Habilitar chaves de segurança FIDO2 para o locatário
+              href: howto-authentication-passwordless-security-key.md
+            - name: Entrar em dispositivos Windows 10
+              href: howto-authentication-passwordless-security-key-windows.md
+            - name: Recursos de SSO a locais
+              href: howto-authentication-passwordless-security-key-on-premises.md
         - name: Entrada por telefone sem senha
           href: howto-authentication-passwordless-phone.md
         - name: Windows Hello for Business
@@ -199,7 +203,7 @@
               href: howto-mfa-nps-extension-errors.md
     - name: Solucionar problemas
       items:
-        - name: SSP de solução de problemas
+        - name: Solucionar problemas do SSPR
           href: active-directory-passwords-troubleshoot.md
         - name: PERGUNTAS FREQUENTES SOBRE O SSPR
           href: active-directory-passwords-faq.md

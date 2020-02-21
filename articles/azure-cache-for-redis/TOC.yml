@@ -53,6 +53,8 @@
           href: cache-how-to-premium-vnet.md
         - name: Configurar replicação geográfica
           href: cache-how-to-geo-replication.md
+        - name: Economizar com a capacidade reservada
+          href: cache-reserved-pricing.md
         - name: Migrar do Serviço de Cache Gerenciado
           href: cache-migrate-to-redis.md
     - name: Automatizar

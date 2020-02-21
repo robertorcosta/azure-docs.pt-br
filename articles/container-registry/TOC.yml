@@ -24,11 +24,11 @@
       items:
         - name: Replicação geográfica de um registro
           items:
-            - name: 1 – Preparar o registro de contêiner
+            - name: 1 - Preparar o registro de contêiner
               href: container-registry-tutorial-prepare-registry.md
-            - name: 2 – Implantar aplicativo Web
+            - name: 2 - Implantar aplicativo Web
               href: container-registry-tutorial-deploy-app.md
-            - name: 3 – Atualizar aplicativo Web
+            - name: 3 - Atualizar aplicativo Web
               href: container-registry-tutorial-deploy-update.md
     - name: Conceitos
       expanded: false
@@ -37,7 +37,7 @@
           href: container-registry-skus.md
         - name: 'Registros, repositórios e imagens'
           href: container-registry-concepts.md
-        - name: Armazenamento de imagens
+        - name: Armazenamento de imagem
           href: container-registry-storage.md
         - name: Formatos de conteúdo
           href: container-registry-image-formats.md
@@ -56,6 +56,8 @@
               href: container-registry-get-started-docker-cli.md
             - name: Efetuar push e pull de um artefato do OCI
               href: container-registry-oci-artifacts.md
+            - name: Efetuar push e pull de um gráfico do Helm
+              href: container-registry-helm-repos.md
             - name: Exibir repositórios
               href: container-registry-repositories.md
             - name: Importar imagens de contêiner
@@ -72,8 +74,6 @@
                   href: container-registry-auto-purge.md
             - name: Usar webhooks de ACR
               href: container-registry-webhook.md
-            - name: Repositórios de gráfico do Helm (versão prévia)
-              href: container-registry-helm-repos.md
         - name: Segurança e autenticação
           items:
             - name: Limitar o acesso com a rede virtual (versão prévia)
@@ -213,5 +213,5 @@
       href: 'https://feedback.azure.com/forums/903958-azure-container-registry'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-container-registry'
-    - name: Vídeos
+    - name: vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest'

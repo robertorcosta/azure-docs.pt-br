@@ -2,14 +2,14 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/13/2020
+ms.date: 02/19/2020
 ms.author: dacoulte
-ms.openlocfilehash: 1f949a5c13393758d69223fa49e9e84d91e27310
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 21f4e4234025ab4b9bb14a1e1338aa4b748ef1a6
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77371196"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77495557"
 ---
 |Nome |Descrição |Efeito(s) |Versão |Fonte |
 |---|---|---|---|
@@ -22,6 +22,8 @@ ms.locfileid: "77371196"
 |[Acrescentar a marca e o valor por meio do grupo de recursos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9ea02ca2-71db-412d-8b00-7c7ca9fcd32d) |Acrescenta a marca especificada com seu valor do grupo de recursos quando qualquer recurso que está faltando nessa marca é criado ou atualizado. Não modifica as marcas dos recursos criados antes da aplicação dessa política até que esses recursos sejam alterados. Novas políticas de efeito "modify" estão disponíveis e dão suporte à correção de marcas nos recursos existentes (confira https://aka.ms/modifydoc). |acrescentar |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_Append.json)
 |[Herdar uma marca do grupo de recursos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcd3aa116-8754-49c9-a813-ad46512ece54) |Adiciona ou substitui a marca e o valor especificados do grupo de recursos pai quando qualquer recurso é criado ou atualizado. Os recursos existentes podem ser corrigidos disparando uma tarefa de correção. |modify |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_AddOrReplace_Modify.json)
 |[Herdar uma marca do grupo de recursos, se ela estiver ausente](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea3f2387-9b95-492a-a190-fcdc54f7b070) |Adiciona a marca especificada com seu valor do grupo de recursos pai quando qualquer recurso que falta nessa marca é criado ou atualizado. Os recursos existentes podem ser corrigidos disparando uma tarefa de correção. Se a marca existir com um valor diferente, ela não será alterada. |modify |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_Add_Modify.json)
+|[Herdar uma marca da assinatura](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb27a0cbd-a167-4dfa-ae64-4337be671140) |Adiciona ou substitui a marca e o valor especificados da assinatura que os contém quando algum recurso é criado ou atualizado. Os recursos existentes podem ser corrigidos disparando uma tarefa de correção. |modify |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_AddOrReplace_FromSubscription.json)
+|[Herdar uma marca da assinatura, se ela estiver ausente](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F40df99da-1232-49b1-a39a-6da8d878f469) |Adiciona a marca especificada com o respectivo valor da assinatura que a contém quando algum recurso que não tem essa marca é criado ou atualizado. Os recursos existentes podem ser corrigidos disparando uma tarefa de correção. Se a marca existir com um valor diferente, ela não será alterada. |modify |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_Add_FromSubscription.json)
 |[Exigir a marca especificada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F871b6d14-10aa-478d-b590-94f262ecfa99) |Aplica a existência de uma marca. Não se aplica a grupos de recursos. |deny |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/RequireTag_Deny.json)
 |[Exigir a marca especificada nos grupos de recursos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F96670d01-0a4d-4649-9c89-2d3abc0a5025) |Aplica a existência de uma marca em grupos de recursos. |deny |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/ResourceGroupRequireTag_Deny.json)
 |[Exigir a marca e seu valor](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1e30110a-5ceb-460c-a204-c1c3969c6d62) |Impõe uma marca necessária e seu valor. Não se aplica a grupos de recursos. |deny |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/RequireTagAndValue_Deny.json)

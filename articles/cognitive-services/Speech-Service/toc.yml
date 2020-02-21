@@ -305,46 +305,50 @@
       items:
         - name: O que é um assistente de voz?
           href: voice-assistants.md
-    - name: Como criar seu assistente
+    - name: Comandos personalizados (versão prévia)
       items:
-        - name: Comandos personalizados (versão prévia)
+        - name: O que são comandos personalizados?
           href: custom-commands.md
-        - name: Direct Line Speech
+        - name: Inícios rápidos
+          items:
+            - name: Criar um comando personalizado (versão prévia)
+              href: quickstart-custom-speech-commands-create-new.md
+            - name: Criar um comando personalizado com parâmetros (versão prévia)
+              href: quickstart-custom-speech-commands-create-parameters.md
+            - name: Usar comandos personalizados com Voz Personalizada (versão prévia)
+              href: quickstart-custom-speech-commands-select-custom-voice.md
+            - name: Usar comandos personalizados com o SDK de Fala (versão prévia)
+              href: quickstart-custom-speech-commands-speech-sdk.md
+        - name: Guias de instruções
+          items:
+            - name: Atender a comandos personalizados com o SDK de Fala
+              href: how-to-custom-speech-commands-fulfill-sdk.md
+            - name: Adicionar a validação de parâmetro a um comando personalizado
+              href: how-to-custom-speech-commands-validations.md
+            - name: Adicionar uma confirmação a um Comando Personalizado
+              href: how-to-custom-speech-commands-confirmations.md
+            - name: Adicionar uma correção de uma etapa a um Comando Personalizado
+              href: how-to-custom-speech-commands-one-step-correction.md
+    - name: Direct Line Speech
+      items:
+        - name: O que é o Direct Line Speech?
           href: direct-line-speech.md
-    - name: Inícios rápidos
-      items:
-        - name: 'C# (UWP)'
-          href: quickstart-voice-assistant-csharp-uwp.md
-        - name: 'Java (Windows, macOS, Linux)'
-          href: quickstart-voice-assistant-java-jre.md
-        - name: Java (Android)
-          href: quickstart-voice-assistant-java-android.md
-        - name: Criar um comando personalizado (versão prévia)
-          href: quickstart-custom-speech-commands-create-new.md
-        - name: Criar um comando personalizado com parâmetros (versão prévia)
-          href: quickstart-custom-speech-commands-create-parameters.md
-        - name: Usar comandos personalizados com Voz Personalizada (versão prévia)
-          href: quickstart-custom-speech-commands-select-custom-voice.md
-        - name: Usar comandos personalizados com o SDK de Fala (versão prévia)
-          href: quickstart-custom-speech-commands-speech-sdk.md
-    - name: Guias de instruções
-      items:
-        - name: Atender a comandos personalizados com o SDK de Fala
-          href: how-to-custom-speech-commands-fulfill-sdk.md
-        - name: Adicionar a validação de parâmetro a um comando personalizado
-          href: how-to-custom-speech-commands-validations.md
-        - name: Adicionar uma confirmação a um Comando Personalizado
-          href: how-to-custom-speech-commands-confirmations.md
-        - name: Adicionar uma correção de uma etapa a um Comando Personalizado
-          href: how-to-custom-speech-commands-one-step-correction.md
-    - name: Tutoriais
-      items:
-        - name: Habilitar o bot por voz com o SDK de Fala
-          href: tutorial-voice-enable-your-bot-speech-sdk.md
-    - name: Recursos
-      items:
-        - name: Perguntas frequentes sobre assistentes de voz
-          href: faq-voice-assistants.md
+        - name: Inícios rápidos
+          items:
+            - name: 'C# (UWP)'
+              href: quickstart-voice-assistant-csharp-uwp.md
+            - name: 'Java (Windows, macOS, Linux)'
+              href: quickstart-voice-assistant-java-jre.md
+            - name: Java (Android)
+              href: quickstart-voice-assistant-java-android.md
+        - name: Tutoriais
+          items:
+            - name: Habilitar o bot por voz com o SDK de Fala
+              href: tutorial-voice-enable-your-bot-speech-sdk.md
+        - name: Recursos
+          items:
+            - name: Perguntas frequentes sobre assistentes de voz
+              href: faq-voice-assistants.md
 - name: Personalização
   expanded: false
   items:
