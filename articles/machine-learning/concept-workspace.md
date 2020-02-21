@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
-ms.openlocfilehash: 82ae0cab2d3dd7c65371e7a5bfec506e484fcdd2
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 03bc49c24e3c2d32e97f3e5e03bd39da63428a6e
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169785"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505566"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>O que é um espaço de trabalho Azure Machine Learning?
 
@@ -77,6 +77,9 @@ Você também pode executar as seguintes tarefas de gerenciamento de espaço de 
 | Atualizar para o Enterprise Edition    | **&check;** | **&check;**  | |     |
 | Criar e gerenciar recursos de computação    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
 | Criar uma VM do notebook |   | **&check;** | |     |
+
+> [!WARNING]
+> Não há suporte para mover o espaço de trabalho Azure Machine Learning para uma assinatura diferente ou mover a assinatura proprietária para um novo locatário. Isso pode causar erros.
 
 ## <a name='create-workspace'></a>Criar um espaço de trabalho
 

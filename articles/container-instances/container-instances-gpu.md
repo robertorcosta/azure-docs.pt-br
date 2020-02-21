@@ -2,13 +2,13 @@
 title: Implantar instância de contêiner habilitada para GPU
 description: Saiba como implantar instâncias de contêiner do Azure para executar aplicativos de contêiner de uso intensivo de computação usando recursos de GPU.
 ms.topic: article
-ms.date: 04/17/2019
-ms.openlocfilehash: c3b202d1f35194d59090c3cc310226d6cfc4dfea
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
-ms.translationtype: HT
+ms.date: 02/19/2020
+ms.openlocfilehash: 0f1d21c62be5d7ae099faa2c6fcc440829bb451f
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482948"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525279"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implantar instâncias de contêiner que usam recursos GPU
 
@@ -32,6 +32,9 @@ O suporte será adicionado para regiões adicionais ao longo do tempo.
 **Limitações adicionais**: os recursos de GPU não podem ser usados ao implantar um grupo de contêineres em uma [rede virtual](container-instances-vnet.md).
 
 ## <a name="about-gpu-resources"></a>Sobre os recursos de GPU
+
+> [!IMPORTANT]
+> Os recursos de GPU estão disponíveis somente mediante solicitação. Para solicitar acesso aos recursos de GPU, envie uma [solicitação de suporte do Azure][azure-support].
 
 ### <a name="count-and-sku"></a>Contagem e SKU
 
@@ -230,6 +233,7 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 
 <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

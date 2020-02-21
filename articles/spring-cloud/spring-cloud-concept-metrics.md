@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: brendm
-ms.openlocfilehash: e6517f1a7374b3960c3b749e63a90fe9eb21e7b0
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: bb23afff2b4b449897d8e420934d038938d20205
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277933"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500340"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Entender as métricas para o Azure Spring Cloud
 
@@ -52,16 +52,18 @@ Primeiro, selecione as métricas a serem exibidas:
 
 ![Selecionar exibição de métrica](media/metrics/metrics-4.png)
 
+A opção detalhes de todas as métricas pode ser encontrada na [seção](#user-metrics-options) abaixo.
+
 Em seguida, selecione tipo de agregação para cada métrica:
 
 ![Agregação de métrica](media/metrics/metrics-5.png)
 
-O tipo de agregação indica como agregar tempo. Há um ponto de métrica a cada minuto.
-* Total: soma todas as métricas como saída de destino.
+O tipo de agregação indica como agregar pontos de métricas no gráfico por tempo. Há um ponto de métrica bruto a cada minuto, e o tipo de pré-autenticação em minutos é predefinido pelo tipo de métricas.
+* Sum: soma todos os valores como saída de destino.
 * Média: Use o valor médio no período como saída de destino.
 * Max/min: Use o valor max/min no período como saída de destino.
 
-O intervalo de tempo a ser mostrado também pode ser modificado.  O intervalo de tempo pode ser escolhido nos últimos 30 minutos até os últimos 30 dias ou um intervalo de tempo personalizado.
+O intervalo de tempo a ser mostrado também pode ser modificado. O intervalo de tempo pode ser escolhido nos últimos 30 minutos até os últimos 30 dias ou um intervalo de tempo personalizado.
 
 ![Modificação de métrica](media/metrics/metrics-6.png)
 
@@ -80,41 +82,58 @@ Você também pode usar a opção **aplicar divisão** , que irá desenhar vári
 >[!TIP]
 > Você pode criar seus próprios gráficos na página de métricas e fixá-los em seu **Painel**. Comece nomeando seu gráfico.  Em seguida, selecione **Fixar no painel no canto superior direito**. Agora você pode verificar seu aplicativo no **Painel** do Portal.
 
-## <a name="user-portal-metrics-options"></a>Opções de métricas do portal do usuário
+## <a name="user-metrics-options"></a>Opções de métricas do usuário
 
-A tabela a seguir mostra as métricas e os detalhes disponíveis.
->[!div class="mx-tdBreakAll"]
->| Nome | Nome de exibição | Nome da métrica do atuador Spring | Unidade | Detalhes |
->|----|----|----|----|------------|
->| SystemCpuUsagePercentage | Porcentagem de uso da CPU do sistema | System. CPU. Usage | Porcentagem | Uso recente da CPU para todo o sistema. Esse valor é um duplo no intervalo [0,0, 1,0]. Um valor de 0,0 significa que todas as CPUs estavam ociosas durante o período de tempo recente observado, enquanto um valor de 1,0 significa que todas as CPUs estavam executando ativamente 100% do tempo durante o período recente observado. Todos os valores entre 0,0 e 1,0 são possíveis, dependendo das atividades que estão acontecendo no sistema. Se o uso recente da CPU do sistema não estiver disponível, o método retornará um valor negativo. |
->| AppCpuUsagePercentage | Porcentagem de uso de CPU do aplicativo | Porcentagem de uso de CPU do aplicativo | Porcentagem | Uso recente da CPU para o processo de Máquina Virtual Java. Esse valor é um duplo no intervalo [0,0, 1,0]. Um valor de 0,0 significa que nenhuma das CPUs estavam executando threads do processo JVM durante o período de tempo recente observado, enquanto um valor de 1,0 significa que todas as CPUs estavam ativamente executando threads da JVM 100% do tempo durante o período recente observado. Os threads da JVM incluem os threads do aplicativo, bem como os threads internos da JVM. Todos os valores entre 0,0 e 1,0 são possíveis, dependendo das atividades que estão acontecendo no processo de JVM e do sistema inteiro. Se o Máquina Virtual Java uso recente da CPU não estiver disponível, o método retornará um valor negativo. |
->| AppMemoryCommitted | Memória de aplicativo atribuída | JVM. Memory. Committed | Bytes | Representa a quantidade de memória (em bytes) que tem a garantia de estar disponível para uso pela máquina virtual Java. A quantidade de memória confirmada pode mudar ao longo do tempo (aumentar ou diminuir). A máquina virtual Java pode liberar memória para o sistema e confirmada pode ser menor que init. Commit sempre será maior ou igual a usado. |
->| AppMemoryUsed | Memória usada do aplicativo | JVM. Memory. Used | Bytes | Representa a quantidade de memória usada atualmente em bytes. |
->| AppMemoryMax | Memória máxima do aplicativo | JVM. Memory. Max | Bytes | Representa a quantidade máxima de memória (em bytes) que pode ser usada para gerenciamento de memória. Seu valor pode ser indefinido. A quantidade máxima de memória pode mudar ao longo do tempo, se definido. A quantidade de memória usada e confirmada sempre será menor ou igual ao máximo se a opção máximo for definida. Uma alocação de memória pode falhar se tentar aumentar a memória usada, de modo que usada > confirmada mesmo se usado < = Max ainda seria verdadeiro (por exemplo, quando o sistema está com pouca memória virtual). |
->| MaxOldGenMemoryPoolBytes | Tamanho máximo de dados de geração antiga disponíveis | JVM. GC. Max. Data. Size | Bytes | O pico de uso de memória do pool de memória de geração antiga desde que a máquina virtual Java foi iniciada. |
->| OldGenMemoryPoolBytes | Tamanho de dados de geração antiga | JVM. GC. Live. Data. Size | Bytes | Tamanho do pool de memória de geração antiga após um GC completo. |
->| OldGenPromotedBytes | Promover para tamanho de dados de geração antiga | JVM. GC. Memory. promovida | Bytes | Contagem de aumentos positivos no tamanho do pool de memória de geração antiga antes do GC ser após o GC. |
->| YoungGenPromotedBytes | Promover para tamanho de dados de geração jovem | JVM. GC. Memory. allocated | Bytes | Incrementado para um aumento no tamanho do pool de memória de geração jovem após um GC antes do próximo. |
->| GCPauseTotalCount | Contagem de pausar do GC | JVM. GC. PAUSE (total-contagem) | Contagem | Contagem total de GC após esse JMV iniciado, incluindo GC jovem e antigo. |
->| GCPauseTotalTime | Tempo total de pausa do GC | JVM. GC. PAUSE (tempo total) | Milissegundos | Tempo total de GC consumido após esse JMV iniciado, incluindo o GC jovem e antigo. |
->| TomcatSentBytes | Total de bytes enviados do Tomcat | Tomcat. global. sent | Bytes | Quantidade de dados do servidor Web Tomcat enviados, em bytes |
->| TomcatReceivedBytes | Total de bytes recebidos do Tomcat | Tomcat. global. Received | Bytes | Quantidade de dados do servidor Web Tomcat recebidos, em bytes |
->| TomcatRequestTotalTime | Tempo total da solicitação do Tomcat | Tomcat. global. Request (tempo total) | Milissegundos | Tempo total do servidor Web Tomcat para processar as solicitações. |
->| TomcatRequestTotalCount | Contagem total de solicitações do Tomcat | Tomcat. global. Request (total-contagem) | Contagem | Contagem total de solicitações processadas do servidor Web Tomcat |
->| TomcatRequestMaxTime | Tempo máximo de solicitação do Tomcat | Tomcat. global. Request. Max | Milissegundos | Tempo máximo do servidor Web Tomcat para processar uma solicitação |
->| TomcatErrorCount | Erro global do Tomcat | Tomcat. global. Error | Contagem | Número de erros de solicitações processadas |
->| TomcatSessionActiveMaxCount | Contagem ativa máxima da sessão do Tomcat | Tomcat. Sessions. Active. Max | Contagem | Número máximo de sessões que estão ativas ao mesmo tempo |
->| TomcatSessionAliveMaxTime | Tempo de atividade máx de sessão do Tomcat | Tomcat. Sessions. Alive. Max | Milissegundos | Tempo mais longo (em segundos) que uma sessão expirada esteve ativa |
->| TomcatSessionCreatedCount | Contagem de sessões criadas do Tomcat | Tomcat. Sessions. Created | Contagem | Número de sessões que foram criadas |
->| TomcatSessionExpiredCount | Contagem de sessões expiradas do Tomcat | Tomcat. Sessions. Expired | Contagem | Número de sessões que expiraram |
->| TomcatSessionRejectedCount | Contagem rejeitada da sessão Tomcat | Tomcat. Sessions. Rejected | Contagem | Número de sessões que não foram criadas porque o número máximo de sessões ativas foi atingido. |
+As tabelas a seguir mostram as métricas e os detalhes disponíveis.
 
-## <a name="see-also"></a>Consulte também
+### <a name="error"></a>Erro
+>[!div class="mx-tdCol2BreakAll"]
+>| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>|----|----|----|------------|
+>| Erro global do Tomcat | Tomcat. global. Error | Contagem | Número de erros de solicitações processadas |
+
+### <a name="performance"></a>Desempenho
+>[!div class="mx-tdCol2BreakAll"]
+>| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>|----|----|----|------------|
+>|Porcentagem de uso da CPU do sistema | System. CPU. Usage | Porcentagem | Uso recente da CPU para todo o sistema. Esse valor é um duplo no intervalo [0,0, 1,0]. Um valor de 0,0 significa que todas as CPUs estavam ociosas durante o período de tempo recente observado, enquanto um valor de 1,0 significa que todas as CPUs estavam executando ativamente 100% do tempo durante o período recente observado.|
+>| Porcentagem de uso de CPU do aplicativo | Porcentagem de uso de CPU do aplicativo | Porcentagem | Uso recente da CPU para o processo de Máquina Virtual Java. Esse valor é um duplo no intervalo [0,0, 1,0]. Um valor de 0,0 significa que nenhuma das CPUs estavam executando threads do processo JVM durante o período de tempo recente observado, enquanto um valor de 1,0 significa que todas as CPUs estavam ativamente executando threads da JVM 100% do tempo durante o período recente observado. Os threads da JVM incluem os threads do aplicativo, bem como os threads internos da JVM.|
+>| Memória de aplicativo atribuída | JVM. Memory. Committed | Bytes | Representa a quantidade de memória que tem a garantia de estar disponível para uso pela JVM. A JVM pode liberar memória para o sistema e confirmada pode ser menor que init. Commit sempre será maior ou igual a usado. |
+>| Memória usada do aplicativo | JVM. Memory. Used | Bytes | Representa a quantidade de memória usada atualmente em bytes. |
+>| Memória máxima do aplicativo | JVM. Memory. Max | Bytes | Representa a quantidade máxima de memória que pode ser usada para gerenciamento de memória. A quantidade de memória usada e confirmada sempre será menor ou igual ao máximo se a opção máximo for definida. Uma alocação de memória pode falhar se tentar aumentar a memória usada, de modo que usada > confirmada mesmo se usado < = Max ainda seria verdadeiro (por exemplo, quando o sistema está com pouca memória virtual). |
+>| Tamanho máximo de dados de geração antiga disponíveis | JVM. GC. Max. Data. Size | Bytes | O pico de uso de memória do pool de memória de geração antiga desde que a máquina virtual Java foi iniciada. |
+>| Tamanho de dados de geração antiga | JVM. GC. Live. Data. Size | Bytes | Tamanho do pool de memória de geração antiga após um GC completo. |
+>| Promover para tamanho de dados de geração antiga | JVM. GC. Memory. promovida | Bytes | Contagem de aumentos positivos no tamanho do pool de memória de geração antiga antes do GC ser após o GC. |
+>| Promover para tamanho de dados de geração jovem | JVM. GC. Memory. allocated | Bytes | Incrementado para um aumento no tamanho do pool de memória de geração jovem após um GC antes do próximo. |
+>| Contagem de pausar do GC | JVM. GC. PAUSE (total-contagem) | Contagem | Contagem total de GC após esse JMV iniciado, incluindo GC jovem e antigo. |
+>| Tempo total de pausa do GC | JVM. GC. PAUSE (tempo total) | Milissegundos | Tempo total de GC consumido após esse JMV iniciado, incluindo o GC jovem e antigo. |
+
+### <a name="request"></a>Solicitação
+>[!div class="mx-tdCol2BreakAll"]
+>| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>|----|----|----|------------|
+>| Total de bytes enviados do Tomcat | Tomcat. global. sent | Bytes | Quantidade de dados do servidor Web Tomcat enviados |
+>| Total de bytes recebidos do Tomcat | Tomcat. global. Received | Bytes | Quantidade de dados do servidor Web Tomcat recebidos |
+>| Tempo total da solicitação do Tomcat | Tomcat. global. Request (tempo total) | Milissegundos | Tempo total do servidor Web Tomcat para processar as solicitações |
+>| Contagem total de solicitações do Tomcat | Tomcat. global. Request (total-contagem) | Contagem | Contagem total de solicitações processadas do servidor Web Tomcat |
+>| Tempo máximo de solicitação do Tomcat | Tomcat. global. Request. Max | Milissegundos | Tempo máximo do servidor Web Tomcat para processar uma solicitação |
+
+### <a name="session"></a>Session
+>[!div class="mx-tdCol2BreakAll"]
+>| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>|----|----|----|------------|
+>| Contagem ativa máxima da sessão do Tomcat | Tomcat. Sessions. Active. Max | Contagem | Número máximo de sessões que estão ativas ao mesmo tempo |
+>| Tempo de atividade máx de sessão do Tomcat | Tomcat. Sessions. Alive. Max | Milissegundos | Tempo mais longo (em segundos) que uma sessão expirada esteve ativa |
+>| Contagem de sessões criadas do Tomcat | Tomcat. Sessions. Created | Contagem | Número de sessões que foram criadas |
+>| Contagem de sessões expiradas do Tomcat | Tomcat. Sessions. Expired | Contagem | Número de sessões que expiraram |
+>| Contagem rejeitada da sessão Tomcat | Tomcat. Sessions. Rejected | Contagem | Número de sessões que não foram criadas porque o número máximo de sessões ativas foi atingido. |
+
+## <a name="see-also"></a>Confira também
 * [Introdução ao Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
 
 * [Analisar logs e métricas com configurações de diagnóstico](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Tutorial: monitorar recursos de nuvem Spring usando alertas e grupos de ações](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-alerts-action-groups)
 
 * [Cotas e planos de serviço para o Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quotas)

@@ -6,7 +6,7 @@ documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -15,12 +15,12 @@ ms.date: 11/25/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf2d061d830df9cef305982ff54e91a886d4406d
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 8a24a557cb436f18252abd88a4c82f15004f4390
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066077"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522043"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-active-directory"></a>Automatizar o provisionamento e o desprovisionamento de usuários para aplicativos com Azure Active Directory
 
@@ -98,7 +98,7 @@ Para aplicativos previamente integrados listados na Galeria, a orientação pass
 Para outros aplicativos que dão suporte ao SCIM 2,0, siga as etapas no artigo [criar um ponto de extremidade scim e configurar o provisionamento de usuários](use-scim-to-provision-users-and-groups.md).
 
 
-## <a name="related-articles"></a>{1&gt;{2&gt;Artigos relacionados&lt;2}&lt;1}
+## <a name="related-articles"></a>Artigos relacionados
 
 - [Lista de tutoriais sobre como integrar aplicativos SaaS](../saas-apps/tutorial-list.md)
 - [Personalizando mapeamentos de atributo para provisionamento de usuário](customize-application-attributes.md)

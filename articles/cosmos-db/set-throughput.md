@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: b60b117b10ac9ade6f685acf788e942ff7a2c93c
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 39eacbb9a87fa18cc6ef92e319fbfbd3e415337b
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188763"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525508"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar a taxa de transferência para contêineres e bancos de dados
 
@@ -60,11 +60,10 @@ Todos os contêineres criados dentro de um banco de dados com taxa de transferê
 
 Se a carga de trabalho em uma partição lógica consumir mais do que a taxa de transferência alocada para uma partição lógica específica, suas operações serão limitadas por taxa. Quando a limitação de taxa ocorre, você pode aumentar a taxa de transferência do banco de dados inteiro ou tentar novamente as operações. Para saber mais sobre particionamento, confira [Partições lógicas](partition-data.md).
 
-Os contêineres em um banco de dados de produtividade compartilhado compartilham a taxa de transferência (RU/s) alocada para esse banco de dados. Em um banco de dados de produtividade compartilhado:
+Os contêineres em um banco de dados de produtividade compartilhado compartilham a taxa de transferência (RU/s) alocada para esse banco de dados. Você pode ter até quatro contêineres com um mínimo de 400 RU/s no banco de dados. Cada novo contêiner após os quatro primeiros precisará de mais 100 RU/s no mínimo. Por exemplo, se você tiver um banco de dados de produtividade compartilhado com oito contêineres, o RU/s mínimo no banco de dados será de 800 RU/s.
 
-* Você pode ter até quatro contêineres com um mínimo de 400 RU/s no banco de dados. Cada novo contêiner após os quatro primeiros precisará de mais 100 RU/s no mínimo. Por exemplo, se você tiver um banco de dados de produtividade compartilhado com oito contêineres, o RU/s mínimo no banco de dados será de 800 RU/s.
-
-* Você pode ter um máximo de 25 contêineres no banco de dados. Se você já tiver mais de 25 contêineres em um banco de dados de produtividade compartilhado, não poderá criar contêineres adicionais até que a contagem de contêineres seja menor que 25.
+> [!NOTE]
+> Em um banco de dados de produtividade compartilhado, você pode ter um máximo de 25 contêineres no banco de dados. Se você já tiver mais de 25 contêineres em um banco de dados de produtividade compartilhado, não poderá criar contêineres adicionais até que a contagem de contêineres seja menor que 25.
 
 Se suas cargas de trabalho envolvem excluir e recriar todas as coleções em um banco de dados, é recomendável descartar o banco de dados vazio e recriar um novo banco de dados antes da criação da coleção. A imagem a seguir mostra como uma partição física pode hospedar uma ou mais partições lógicas que pertencem a contêineres diferentes dentro de um banco de dados:
 

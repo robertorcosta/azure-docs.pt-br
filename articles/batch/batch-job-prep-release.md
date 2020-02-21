@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 5163c0cd5584848058620f76f77d9efbb6cef9c1
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 7103daa4a943edfd8d05333f413245cebaf8f4af
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025139"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524249"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Executar tarefas de preparação e liberação do trabalho em nós de computação do Lote
 
@@ -58,7 +58,7 @@ Convém manter uma cópia dos arquivos de log gerados pelas tarefas ou talvez ar
 > 
 
 ## <a name="job-preparation-task"></a>tarefa de preparação de trabalho
-Antes da execução de tarefas de um trabalho, o Lote executa a tarefa de preparação de trabalho em cada nó de computação agendado para executar uma tarefa. Por padrão, o serviço Lote aguarda a conclusão da tarefa de preparação do trabalho antes de executar as tarefas agendadas para execução no nó. No entanto, você pode configurar o serviço para não aguardar. Se o nó for reiniciado, a tarefa de preparação de trabalho será executada novamente, mas você também poderá desativar esse comportamento.
+Antes da execução de tarefas de um trabalho, o Lote executa a tarefa de preparação de trabalho em cada nó de computação agendado para executar uma tarefa. Por padrão, o serviço Lote aguarda a conclusão da tarefa de preparação do trabalho antes de executar as tarefas agendadas para execução no nó. No entanto, você pode configurar o serviço para não aguardar. Se o nó for reiniciado, a tarefa de preparação de trabalho será executada novamente, mas você também poderá desativar esse comportamento. Se você tiver um trabalho com uma tarefa de preparação de trabalho e uma tarefa do Gerenciador de trabalho configurada, a tarefa de preparação do trabalho será executada antes da tarefa do Gerenciador de trabalho, assim como faz para todas as outras tarefas. A tarefa de preparação de trabalho sempre é executada primeiro.
 
 A tarefa de preparação de trabalho é executada apenas em nós programados para executar uma tarefa. Isso impede a execução desnecessária de uma tarefa de preparação em um nó que não recebeu uma tarefa. Isso pode ocorrer quando o número de tarefas de um trabalho é menor do que o número de nós em um pool. Também se aplica quando a [execução de tarefas simultâneas](batch-parallel-node-tasks.md) é habilitada, o que deixará alguns nós ociosos se a contagem de tarefas for inferior ao total de possíveis tarefas simultâneas. A não execução da tarefa de preparação do trabalho em nós ociosos economiza encargos de transferência de dados.
 
@@ -185,8 +185,8 @@ A captura de tela abaixo mostra a **Folha de tarefas de preparação** no portal
 
 ![Propriedades de preparação de trabalho no portal do Azure][1]
 
-## <a name="next-steps"></a>Próximos passos
-### <a name="application-packages"></a>Pacotes de aplicativos
+## <a name="next-steps"></a>Próximas etapas
+### <a name="application-packages"></a>pacotes de aplicativos
 Além da tarefa de preparação de trabalho, você também pode usar o recurso de [pacotes de aplicativos](batch-application-packages.md) do Lote para preparar nós de computação para execução da tarefa. Esse recurso é especialmente útil para implantação de aplicativos que não exigem a execução de um instalados, aplicativos que contêm muitos arquivos (mais de 100) ou aplicativos que exigem um controle de versão estrito.
 
 ### <a name="installing-applications-and-staging-data"></a>Instalação de aplicativos e preparação de dados

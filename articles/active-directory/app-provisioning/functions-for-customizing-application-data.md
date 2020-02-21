@@ -6,7 +6,7 @@ documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a01f7f48dd93983edf4be4b797f62afede273c66
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: dd78c78a711b64c58290f09eb2ee52263375002f
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066662"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522502"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrevendo expressões para mapeamentos de atributo no Active Directory do Azure
 Quando você configura o provisionamento de um aplicativo SaaS, um dos tipos de mapeamentos de atributos que você pode especificar é o mapeamento de expressão. Nesses casos, você deve escrever uma expressão semelhante a script que permite transformar os dados de usuários em formatos que são mais aceitáveis para o aplicativo SaaS.
@@ -41,14 +41,14 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 [Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp;[RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
 
 ---
-### <a name="append"></a>Append
+### <a name="append"></a>Acrescentar
 **Função:**<br> Append(source, suffix)
 
 **Descrição:**<br> seleciona um valor da cadeia de caracteres de source e acrescenta o sufixo ao final dela.
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **origem** |Obrigatório |String |Normalmente o nome do atributo do objeto de source. |
 | **suffix** |Obrigatório |String |A cadeia de caracteres que você deseja acrescentar ao final do valor de source. |
@@ -66,7 +66,7 @@ Em outras palavras, ele retorna 0 em todos os casos, exceto quando os bits corre
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **value1** |Obrigatório |num |Valor numérico que deve ser AND'eddo com value2|
 | **value2** |Obrigatório |num |Valor numérico que deve ser AND'ed com value1|
@@ -83,9 +83,9 @@ BitAnd(&HF, &HF7)
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **expressão** |Obrigatório | expression | Qualquer expressão válida |
+| **expressão** |Obrigatório | expressão | Qualquer expressão válida |
 
 **Exemplo:**<br>
 CBool ([attribute1] = [attribute2])                                                                    
@@ -99,7 +99,7 @@ Retorna True se ambos os atributos têm o mesmo valor.
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **source1  … sourceN** | Obrigatório | String |Obrigatório, número de vezes variável. Normalmente o nome do atributo do objeto de source. |
 | **defaultValue** | Opcional | String | Valor padrão a ser usado quando todos os valores de origem forem nulos. Pode ser uma cadeia de caracteres vazia ("").
@@ -112,7 +112,7 @@ Retorna True se ambos os atributos têm o mesmo valor.
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **origem** |Obrigatório |String |Cadeia de caracteres a ser convertida em base 64|
 
@@ -128,7 +128,7 @@ retorna "SABlAGwAbABvACAAdwBvAHIAbABkACEA"
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **origem** |Obrigatório |String |Cadeia de caracteres a ser convertida em UTF8 hex|
 
@@ -137,14 +137,14 @@ ConvertToUTF8Hex("Hello world!")
 retorna 48656C6C6F20776F726C6421
 
 ---
-### <a name="count"></a>{1&gt;{2&gt;Contagem&lt;2}&lt;1}
+### <a name="count"></a>Contagem
 **Função:**<br> Contagem (atributo)
 
 **Descrição:**<br> a função Count retorna o número de elementos em um atributo de valores múltiplos
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **attribute** |Obrigatório |atributo |Atributo com valores múltiplos que terá elementos contados|
 
@@ -156,9 +156,9 @@ retorna 48656C6C6F20776F726C6421
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **value** |Obrigatório | Numeric, Reference ou Boolean | Pode ser um valor numérico, atributo de referência ou booleano. |
+| **value** |Obrigatório | Numeric, Reference ou Boolean | pode ser um valor numérico, o atributo de referência ou booliano. |
 
 **Exemplo:**<br>
 CStr([dn])                                                            
@@ -172,7 +172,7 @@ Retorna "CN = Joe, DC = contoso, DC = com"
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **value** |Obrigatório | Data | A data do AD a ser convertida no tipo DateTime |
 
@@ -189,14 +189,14 @@ retorna um DateTime que representa 01/01/2012 23:00:00
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **origem** |Obrigatório |String |Normalmente o nome do atributo do objeto de source. |
-| **inputFormat** |Obrigatório |String |Formato esperado do valor de origem. Para formatos com suporte, consulte [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **inputFormat** |Obrigatório |String |Formato esperado do valor de source. Para formatos com suporte, consulte [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Obrigatório |String |Formato da data de saída. |
 
 ---
-### <a name="guid"></a>{1&gt;Guid&lt;1}
+### <a name="guid"></a>Guid
 **Função:**<br> Guid()
 
 **Descrição:**<br> A função GUID gera um novo GUID aleatório
@@ -209,11 +209,11 @@ retorna um DateTime que representa 01/01/2012 23:00:00
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **value1** |Obrigatório |String |Cadeia de caracteres a ser pesquisada |
 | **value2** |Obrigatório |String |Cadeia de caracteres a ser encontrada |
-| **start** |Opcional |Inteiro |Posição inicial para localizar a subcadeia de caracteres|
+| **start** |Opcional |Integer |Posição inicial para localizar a subcadeia de caracteres|
 | **comparetype** |Opcional |Enum |Pode ser vbTextCompare ou vbBinaryCompare |
 
 **Exemplo:**<br>
@@ -231,9 +231,9 @@ InStr("repEated","e",3,vbBinaryCompare)
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **expressão** |Obrigatório |expression |Expressão a ser avaliada |
+| **expressão** |Obrigatório |expressão |Expressão a ser avaliada |
 
 **Exemplo:**<br>
 IsNull([displayName])                                                                                                
@@ -248,9 +248,9 @@ O inverso dessa função é chamado de IsPresent.
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **expressão** |Obrigatório |expression |Expressão a ser avaliada |
+| **expressão** |Obrigatório |expressão |Expressão a ser avaliada |
 
 **Exemplo:**<br>
 IsNullOrEmpty ([displayName])                                               
@@ -264,9 +264,9 @@ Retornará true se o atributo não estiver presente ou for uma cadeia de caracte
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **expressão** |Obrigatório |expression |Expressão a ser avaliada |
+| **expressão** |Obrigatório |expressão |Expressão a ser avaliada |
 
 **Exemplo:**<br>
 Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])
@@ -279,9 +279,9 @@ Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager])
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **expressão** |Obrigatório |expression |Expressão a ser avaliada |
+| **expressão** |Obrigatório |expressão |Expressão a ser avaliada |
 
 ---
 ### <a name="item"></a>Item
@@ -291,10 +291,10 @@ Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager])
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **attribute** |Obrigatório |Atributo |Atributo de valores múltiplos a ser pesquisado |
-| **index** |Obrigatório |Inteiro | Índice para um item na cadeia de caracteres de valores múltiplos|
+| **index** |Obrigatório |Integer | Índice para um item na cadeia de caracteres de valores múltiplos|
 
 **Exemplo:**<br>
 Item ([proxyAddresses], 1)
@@ -303,19 +303,19 @@ Item ([proxyAddresses], 1)
 ### <a name="join"></a>Join
 **Função:**<br> Join(separator, source1, source2, …)
 
-**Descrição:**<br> Join() é semelhante a Append(), exceto que pode combinar vários valores de cadeia de caracteres de **origem** em uma única cadeia de caracteres, e cada valor será separado por uma cadeia de caracteres de **separador**.
+**Descrição:**<br> Join() é semelhante a Append(), exceto por poder combinar diversos valores de cadeia de caracteres **source** em uma única cadeia de caracteres, e cada valor será separado por uma cadeia de caracteres de **separator**.
 
 Se um dos valores de source for um atributo com vários valores, todos os valores nesse atributo serão unidos, separados pelo valor do separador.
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **separator** |Obrigatório |String |Cadeia de caracteres usada para separar os valores de source quando eles são concatenados em uma cadeia de caracteres. Pode ser "" se não for necessário nenhum separador. |
 | **source1  … sourceN** |Obrigatório, número de vezes variável |String |Valores de cadeia de caracteres a serem unidos. |
 
 ---
-### <a name="left"></a>Esquerda
+### <a name="left"></a>Left (à esquerda)
 **Função:**<br> Left (cadeia de caracteres, NumChars)
 
 **Descrição:**<br> a função Left retorna um número especificado de caracteres a partir da esquerda de uma cadeia de caracteres. Se numChars = 0, retorne a cadeia de caracteres vazia.
@@ -325,10 +325,10 @@ Se a cadeia de caracteres contiver menos caracteres que o número especificado e
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **Cadeia de caracteres** |Obrigatório |Atributo | A cadeia de caracteres da qual retornar os caracteres |
-| **NumChars** |Obrigatório |Inteiro | Um número que identifica o número de caracteres a serem retornados do início (à esquerda) da cadeia de caracteres|
+| **NumChars** |Obrigatório |Integer | Um número que identifica o número de caracteres a serem retornados do início (à esquerda) da cadeia de caracteres|
 
 **Exemplo:**<br>
 Esquerda ("João da Silva", 3)                                                            
@@ -342,11 +342,11 @@ Retorna "Joh"
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **origem** |Obrigatório |String |Geralmente o nome do atributo. |
-| **start** |Obrigatório |integer |Índice na cadeia de caracteres de **origem** em que a subcadeia deve iniciar. O primeiro caractere na cadeia de caracteres terá o índice de 1, o segundo caractere terá o índice 2 e assim por diante. |
-| **length** |Obrigatório |integer |Comprimento da subcadeia de caracteres. Se o comprimento terminar fora da cadeia de caracteres **source**, a função retornará uma subcadeia de caracteres do índice **start** até o final da cadeia de caracteres **source**. |
+| **start** |Obrigatório |inteiro |Índice na cadeia de caracteres de **source** em que a subcadeia de caracteres deve começar. O primeiro caractere na cadeia de caracteres terá o índice de 1, o segundo caractere terá o índice 2 e assim por diante. |
+| **length** |Obrigatório |inteiro |Comprimento da subcadeia de caracteres. Se o comprimento terminar fora da cadeia de caracteres **source**, a função retornará uma subcadeia de caracteres do índice **start** até o final da cadeia de caracteres **source**. |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -356,7 +356,7 @@ Retorna "Joh"
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **origem** |Obrigatório |String | Geralmente um atributo de nome ou sobrenome. |
 
@@ -364,13 +364,13 @@ Retorna "Joh"
 ### <a name="not"></a>Not
 **Função:**<br> Not(source)
 
-**Descrição:**<br> Inverte o valor booliano da **origem**. Se o valor da **origem** for "*True*", retorna "*False*". Caso contrário, diferente, retorna "*True*".
+**Descrição:**<br> Inverte o valor booliano de **source**. Se o valor de **source** for "*True*", retorna "*False*". Caso contrário, retorna "*True*".
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **origem** |Obrigatório |Cadeia de caracteres booliana |Valores da **origem** esperados são "True" ou "False". |
+| **origem** |Obrigatório |Cadeia de caracteres booliana |Os valores de **source** esperados são "True" ou "False". |
 
 ---
 ### <a name="numfromdate"></a>NumFromDate
@@ -380,7 +380,7 @@ Retorna "Joh"
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **value** |Obrigatório | String | Cadeia de caracteres de data e hora no formato com suporte. Para formatos com suporte, consulte https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx. |
 
@@ -402,7 +402,7 @@ Retorna "Joh"
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **attribute** |Obrigatório |Atributo de valores múltiplos |Atributo com valores múltiplos que terá duplicatas removidas|
 
@@ -411,7 +411,7 @@ RemoveDuplicates([proxyAddresses])
 Retorna um atributo proxyAddress limpo em que todos os valores duplicados foram removidos
 
 ---
-### <a name="replace"></a>{1&gt;Substituir&lt;1}
+### <a name="replace"></a>Substitua
 **Função:**<br> Substitua(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Descrição:**<br>
@@ -422,7 +422,7 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
   * Substitui todas as ocorrências de **oldValue** em **source** por **replacementValue**
 * Quando **oldValue** e **template** são fornecidos:
   
-  * Substitui todas as ocorrências de **oldValue** no **modelo** pelo valor de **origem**
+  * Substitui todas as ocorrências de **oldValue** em **template** com o valor de **source**
 * Quando **regexPattern** e **replacementValue** são fornecidos:
 
   * A função aplica o **regexPattern** à cadeia de caracteres **source** e você pode usar os nomes de grupo Regex para construir a cadeia de caracteres para **replacementValue**
@@ -436,11 +436,11 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **origem** |Obrigatório |String |Normalmente, o nome do atributo do objeto de **source**. |
 | **oldValue** |Opcional |String |Valor a ser substituído em **source** ou **template**. |
-| **regexPattern** |Opcional |String |Padrão Regex para o valor a ser substituído na **origem**. Ou, quando **replacementPropertyName** for usado, o padrão para extrair o valor de **replacementPropertyName**. |
+| **regexPattern** |Opcional |String |Padrão de Regex para o valor a ser substituído em **source**. Ou, quando **replacementPropertyName** for usado, o padrão para extrair o valor de **replacementPropertyName**. |
 | **regexGroupName** |Opcional |String |Nome do grupo dentro de **regexPattern**. Somente quando **replacementPropertyName** for usado, extrairemos o valor desse grupo como **replacementValue** de **replacementPropertyName**. |
 | **replacementValue** |Opcional |String |Novo valor com o qual substituir um antigo. |
 | **replacementAttributeName** |Opcional |String |Nome do atributo a ser usado para o valor de substituição |
@@ -461,7 +461,7 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **uniqueValueRule1  … uniqueValueRuleN** |Pelo menos 2 são necessários, sem limite superior |String | Lista de regras de geração de valor exclusivo para avaliar. |
 
@@ -474,19 +474,19 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |Obrigatório |String |Objeto **[appRoleAssignments]** . |
 
 ---
-### <a name="split"></a>Split
+### <a name="split"></a>Divisão
 **Função:**<br> Split(source, delimiter)
 
 **Descrição:**<br> Divide uma cadeia de caracteres em uma matriz com vários valores, usando o caractere delimitador especificado.
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **origem** |Obrigatório |String |**fonte** a atualizar. |
 | **delimiter** |Obrigatório |String |Especifica o caractere que será usado para dividir a cadeia de caracteres (exemplo: ",") |
@@ -499,19 +499,19 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **origem** |Obrigatório |String |**fonte** a atualizar. |
 
 ---
-### <a name="switch"></a>Alternar
+### <a name="switch"></a>Opção
 **Função:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
-**Descrição:**<br> Quando o valor da **origem** corresponde a uma **chave**, retorna o **valor** dessa **chave**. Se o valor da **origem** não corresponder a nenhuma chave, retorna **defaultValue**.  Os parâmetros **key** e **value** devem sempre ocorrer em pares. A função sempre espera um número par de parâmetros. A função não deve ser usada para atributos referenciais como Manager. 
+**Descrição:**<br> Quando o valor de **source** corresponde a um parâmetro **key**, retorna **value** para esse parâmetro **key**. Se o valor de **source** não corresponder a nenhum parâmetro key, **defaultValue** será retornado.  Os parâmetros **key** e **value** devem sempre ocorrer em pares. A função sempre espera um número par de parâmetros. A função não deve ser usada para atributos referenciais como Manager. 
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **origem** |Obrigatório |String |**Source** a atualizar. |
 | **defaultValue** |Opcional |String |Valor padrão a ser usado quando source não corresponde a nenhum parâmetro. Pode ser uma cadeia de caracteres vazia (""). |
@@ -526,7 +526,7 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **origem** |Obrigatório |String |Normalmente o nome do atributo do objeto de source |
 | **cultura** |Opcional |String |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
@@ -539,7 +539,7 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **origem** |Obrigatório |String |Normalmente o nome do atributo do objeto de source. |
 | **cultura** |Opcional |String |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
@@ -556,10 +556,10 @@ Se a cadeia de caracteres for menor que o número de palavras ou a cadeia não c
 
 **Parâmetros:**<br> 
 
-| {1&gt;Nome&lt;1} | Obrigatório/repetição | Tipo | {1&gt;Observações&lt;1} |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **Cadeia de caracteres** |Obrigatório |Atributo de valores múltiplos |Cadeia de caracteres da qual retornar uma palavra.|
-| **WordNumber** |Obrigatório | Inteiro | Número que identifica qual número de palavras deve retornar|
+| **WordNumber** |Obrigatório | Integer | Número que identifica qual número de palavras deve retornar|
 | **delimitadores** |Obrigatório |String| Uma cadeia de caracteres que representa os delimitadores que devem ser usados para identificar palavras|
 
 **Exemplo:**<br>
@@ -645,7 +645,7 @@ Por exemplo, você deseja formatar datas para o ServiceNow.
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Substituir um valor com base em um conjunto predefinido de opções
 
 Você precisa definir o fuso horário do usuário com base no código de estado armazenado no AD do Azure. <br>
-Se o código de estado não corresponder a qualquer uma das opções predefinidas, use o valor padrão de “Austrália/Sydney”.
+Se o código de estado não corresponder a nenhuma das opções predefinidas, use o valor padrão de "Australia/Sydney".
 
 **Expressão:** <br>
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`

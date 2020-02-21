@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
-ms.openlocfilehash: abb73f93116fae217f527e0a9faaf61e2b42ba6c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ace953fcb278604cb64eef463753f0f2622d3d24
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433368"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523332"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Solucionar problemas do lado do cliente do cache do Azure para Redis
 
@@ -51,7 +51,7 @@ Na exceção anterior, há vários problemas que são interessantes:
 - Observe que, na seção `IOCP` e na seção `WORKER`, você tem um valor `Busy` que é maior que o valor `Min`. Essa diferença significa que suas configurações de `ThreadPool` precisam ser ajustadas.
 - Você também pode ver `in: 64221`. Esse valor indica que 64.211 bytes foram recebidos na camada de soquete do kernel do cliente, mas que não foram lidos pelo aplicativo. Essa diferença normalmente significa que seu aplicativo (por exemplo, StackExchange. Redis) não está lendo dados da rede tão rapidamente quanto o servidor o está enviando para você.
 
-Você pode [definir suas configurações de `ThreadPool`](https://gist.github.com/JonCole/e65411214030f0d823cb) para garantir que seu pool de threads seja dimensionado rapidamente em cenários de disparo contínuo.
+Você pode [definir suas configurações de `ThreadPool`](cache-faq.md#important-details-about-threadpool-growth) para garantir que seu pool de threads seja dimensionado rapidamente em cenários de disparo contínuo.
 
 ## <a name="high-client-cpu-usage"></a>Alto nível de uso da CPU do cliente
 

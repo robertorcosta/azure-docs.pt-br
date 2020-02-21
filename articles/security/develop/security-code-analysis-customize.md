@@ -1,5 +1,6 @@
 ---
-title: Guia de personalização de tarefas de análise de código de segurança Microsoft Azure
+title: Personalizar tarefas de análise de código de segurança da Microsoft
+titleSuffix: Azure
 description: Este artigo descreve como personalizar as tarefas na extensão de análise de código de segurança da Microsoft
 author: vharindra
 manager: sukhans
@@ -12,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6c88fec4e6bea34dd3cf2e45300ae2c1ac15a1c6
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 6cdf892651407defc21f359a8e3b326b4af63b62
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851529"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500000"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configurar e personalizar as tarefas de compilação
 
@@ -219,7 +220,7 @@ Os detalhes da configuração de tarefa são mostrados na seguinte captura de te
 
 Para obter informações sobre a configuração de YAML para essa tarefa, consulte nossas [Opções de YAML de pós-análise](yaml-configuration.md#post-analysis-task)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter informações sobre a configuração baseada em YAML, consulte nosso [Guia de configuração do YAML](yaml-configuration.md).
 

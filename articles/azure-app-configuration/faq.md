@@ -1,31 +1,26 @@
 ---
-title: Perguntas frequentes sobre configuração do Azure App | Microsoft Docs
+title: Perguntas frequentes sobre configuração do Azure App
 description: Perguntas frequentes sobre a configuração de Azure App
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 02/19/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 4bcd8f042563fa381832fd629061a822f71e844a
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 60ba0a7723861d6e642a23418dda6a1daa57f14e
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467582"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523485"
 ---
 # <a name="azure-app-configuration-faq"></a>Perguntas frequentes sobre configuração do Azure App
 
-Este artigo aborda as perguntas frequentes sobre a configuração do Azure App.
+Este artigo responde às perguntas frequentes sobre a configuração do Azure App.
 
 ## <a name="how-is-app-configuration-different-from-azure-key-vault"></a>Como a configuração do aplicativo é diferente da Azure Key Vault?
 
-A configuração do aplicativo foi projetada para um conjunto distinto de casos de uso: ela ajuda os desenvolvedores a gerenciar configurações de aplicativos e controlar a disponibilidade de recursos. Ele visa simplificar muitas das tarefas de trabalhar com dados de configuração complexos.
+A configuração de aplicativo ajuda os desenvolvedores a gerenciar configurações de aplicativos e controlar a disponibilidade de recursos. Ele visa simplificar muitas das tarefas de trabalhar com dados de configuração complexos.
 
 A configuração do aplicativo dá suporte a:
 
@@ -36,7 +31,7 @@ A configuração do aplicativo dá suporte a:
 - Operações de gerenciamento especializadas
 - Uma interface do usuário de gerenciamento de recursos
 
-A configuração do aplicativo é complementar à Key Vault e as duas devem ser usadas lado a lado na maioria das implantações de aplicativo.
+A configuração do aplicativo complementa Key Vault e os dois devem ser usados lado a lado na maioria das implantações de aplicativo.
 
 ## <a name="should-i-store-secrets-in-app-configuration"></a>Devo armazenar segredos na configuração do aplicativo?
 
@@ -62,7 +57,7 @@ Há um limite de 10 KB para um único item de chave-valor.
 
 ## <a name="how-should-i-store-configurations-for-multiple-environments-test-staging-production-and-so-on"></a>Como devo armazenar configurações para vários ambientes (teste, preparo, produção e assim por diante)?
 
-Atualmente, você controla quem pode acessar a configuração de aplicativo em um nível por loja. Use um armazenamento separado para cada ambiente que exija permissões diferentes. Essa abordagem oferece o melhor isolamento de segurança.
+Você controla quem pode acessar a configuração de aplicativo em um nível por loja. Use um armazenamento separado para cada ambiente que exija permissões diferentes. Essa abordagem fornece o melhor isolamento de segurança.
 
 ## <a name="what-are-the-recommended-ways-to-use-app-configuration"></a>Quais são as maneiras recomendadas de usar a configuração de aplicativo?
 
@@ -70,9 +65,14 @@ Consulte [práticas recomendadas](./howto-best-practices.md).
 
 ## <a name="how-much-does-app-configuration-cost"></a>Quanto custa a configuração do aplicativo?
 
-Há dois tipos de preço: 1) uma camada gratuita e 2) uma camada padrão.
+Há dois tipos de preço: 
 
-Se você criou um repositório antes da introdução da camada Standard, ele será automaticamente movido para a camada gratuita após a disponibilidade geral. Você pode optar por atualizar para a camada Standard ou permanecer na camada gratuita se atender às suas necessidades.
+- Camada gratuita
+- Camada Standard.
+
+Se você criou um repositório antes da introdução da camada Standard, ele será automaticamente movido para a camada gratuita após a disponibilidade geral. Você pode optar por atualizar para a camada Standard ou permanecer na camada gratuita.
+
+Não é possível fazer downgrade de um armazenamento da camada Standard para a camada gratuita. Você pode criar um novo repositório na camada gratuita e, em seguida, importar dados de configuração para esse armazenamento.
 
 ## <a name="which-app-configuration-tier-should-i-use"></a>Qual camada de configuração de aplicativo devo usar?
 

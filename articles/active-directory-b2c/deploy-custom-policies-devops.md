@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 21fde69f404ee535bfe0019a91843297b1752a92
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 8649537a2992ba11a2b664a9b36207e06c8b1274
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77463135"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498546"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Implantar políticas personalizadas com o Azure Pipelines
 
@@ -35,6 +35,7 @@ Há três etapas principais necessárias para habilitar Azure Pipelines gerencia
 
 * [Azure ad B2C locatário](tutorial-create-tenant.md)e credenciais para um usuário no diretório com a função de [administrador da política IEF B2C](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
 * [Políticas personalizadas](custom-policy-get-started.md) carregadas para seu locatário
+* [Aplicativo de gerenciamento](microsoft-graph-get-started.md) registrado em seu locatário com a Microsoft Graph política de permissão de API *. ReadWrite. TrustFramework*
 * [Pipeline do Azure](https://azure.microsoft.com/services/devops/pipelines/)e acesso a um [projeto Azure DevOps Services][devops-create-project]
 
 ## <a name="client-credentials-grant-flow"></a>Fluxo de concessão de credenciais de cliente
@@ -43,47 +44,11 @@ O cenário descrito aqui faz uso de chamadas de serviço a serviço entre Azure 
 
 ## <a name="register-an-application-for-management-tasks"></a>Registrar um aplicativo para tarefas de gerenciamento
 
-Comece criando um registro de aplicativo que os scripts do PowerShell executados pelo Azure Pipelines usarão para se comunicar com Azure AD B2C. Se você já tiver um registro de aplicativo que você usa para tarefas de automação, poderá pular para a seção [conceder permissões](#grant-permissions) .
+Conforme mencionado em [pré-requisitos](#prerequisites), você precisa de um registro de aplicativo que os scripts do PowerShell – executados pelo Azure pipelines--podem usar o para acessar os recursos em seu locatário.
 
-### <a name="register-application"></a>Registrar aplicativo
+Se você já tiver um registro de aplicativo que você usa para tarefas de automação, verifique se recebeu a permissão **Microsoft Graph** > **política** > **política. ReadWrite. TrustFramework** nas **permissões de API** do registro do aplicativo.
 
-[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
-
-### <a name="grant-permissions"></a>Conceder permissões
-
-Em seguida, conceda ao aplicativo a permissão para usar a API Microsoft Graph para ler e gravar políticas personalizadas em seu locatário Azure AD B2C.
-
-#### <a name="applications"></a>[Aplicativos](#tab/applications/)
-
-1. Na página Visão geral do **aplicativo registrado** , selecione **configurações**.
-1. Em **acesso à API**, selecione **permissões necessárias**.
-1. Selecione **Adicionar**e, em seguida, **Selecione uma API**.
-1. Selecione **Microsoft Graph**e, em seguida, **selecione**.
-1. Em **permissões do aplicativo**, selecione **ler e gravar as políticas de estrutura de confiança da sua organização**.
-1. Selecione **selecionar**e, em seguida, **concluído**.
-1. Selecione **Conceder permissões** e, em seguida, selecione **Sim**. Pode levar alguns minutos para que as permissões se propaguem totalmente.
-
-#### <a name="app-registrations-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
-
-1. Selecione **registros de aplicativo (versão prévia)** e, em seguida, selecione o aplicativo Web que deve ter acesso à API do Microsoft Graph. Por exemplo, *managementapp1*.
-1. Em **Gerenciar**, selecione **Permissões de API**.
-1. Em **Permissões Configuradas**, selecione **Adicionar uma permissão**.
-1. Selecione a guia **APIs da Microsoft** e, em seguida, selecione **Microsoft Graph**.
-1. Selecione **Permissões de aplicativo**.
-1. Expanda **política** e selecione **Policy. ReadWrite. TrustFramework**.
-1. Selecione **Adicionar Permissões**. Conforme as instruções, aguarde alguns minutos antes de seguir para a próxima etapa.
-1. Selecione **Fornecer o consentimento do administrador para (nome do seu locatário)** .
-1. Selecione a conta de administrador conectada no momento ou entre com uma conta no seu locatário do Azure AD B2C que tenha recebido, pelo menos, a função *Administrador de aplicativos de nuvem*.
-1. Selecione **Aceitar**.
-1. Selecione **Atualizar**e, em seguida, verifique se "concedido para..." aparece em **status**. Pode levar alguns minutos para que as permissões sejam propagadas.
-
-* * *
-
-### <a name="create-client-secret"></a>Criar segredo do cliente
-
-Para autenticar com Azure AD B2C, o script do PowerShell precisa especificar um segredo do cliente que você cria para o aplicativo.
-
-[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
+Para obter instruções sobre como registrar um aplicativo de gerenciamento, consulte [gerenciar Azure ad B2C com Microsoft Graph](microsoft-graph-get-started.md).
 
 ## <a name="configure-an-azure-repo"></a>Configurar um repositório do Azure
 
@@ -200,7 +165,7 @@ Em seguida, adicione uma tarefa para implantar um arquivo de política.
 
         ```PowerShell
         # After
-        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/contosob2cpolicies/B2CAssets/TrustFrameworkBase.xml
+        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/policyRepo/B2CAssets/TrustFrameworkBase.xml
         ```
 
 1. Selecione **salvar** para salvar o trabalho do agente.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f8c98149d9e9ff65b7b18762f0f17d19053f2f49
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ec97f986c4472f793c2d38ded2a1c6873b1ee08d
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846751"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482778"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicativos que podem ser usados no Active Directory B2C
 
@@ -125,7 +125,7 @@ Para configurar o fluxo de credencial do cliente, consulte [Azure Active Directo
 
 #### <a name="web-api-chains-on-behalf-of-flow"></a>Cadeias de API Web (fluxo Em nome de)
 
-Muitas arquiteturas incluem uma API Web que precisa chamar outra API Web downstream, ambas protegidas pelo AD B2C do Azure. Esse cenário é comum em clientes nativos que têm um back-end da API Web e chama um serviço online da Microsoft, como a API do Microsoft Graph ou o Azure AD API do Graph.
+Muitas arquiteturas incluem uma API Web que precisa chamar outra API Web downstream, ambas protegidas pelo AD B2C do Azure. Esse cenário é comum em clientes nativos que têm um back-end da API Web e chama um serviço online da Microsoft, como a API do Microsoft Graph.
 
 Esse cenário de API Web encadeado pode ter suporte usando a concessão credencial de portador JWT do OAuth 2.0, também conhecida como fluxo Em nome de.  No entanto, o fluxo em nome de não está implementado atualmente no Azure AD B2C.
 
@@ -140,6 +140,6 @@ Se você editar o aplicativo do Azure AD B2C fora do portal do Azure, ele se tor
 
 Para excluir o aplicativo, acesse o [Portal de Registro de Aplicativos](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) e exclua o aplicativo lá. Para que o aplicativo fique visível, você precisa ser o proprietário do aplicativo (e não apenas um administrador do locatário).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as políticas internas fornecidas pelos [fluxos de usuário no Azure Active Directory B2C](user-flow-overview.md).

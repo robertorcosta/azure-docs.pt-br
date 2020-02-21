@@ -1,24 +1,24 @@
 ---
-title: Azure Active Directory conexão sem senha (versão prévia)
+title: Azure Active Directory entrada sem senha (versão prévia)
 description: Saiba mais sobre as opções de entrada sem senha para Azure Active Directory usando as chaves de segurança FIDO2 ou o aplicativo Microsoft Authenticator
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/24/2020
+ms.date: 01/30/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0d426fb743e6b1ce5d279544f12bcb490d529f9
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: ba579d6da8c759a4653b729f1a471efdedc2baa7
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756786"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505759"
 ---
-# <a name="passwordless-authentication-options"></a>Opções de autenticação com senha
+# <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação com senha para Azure Active Directory
 
 A autenticação multifator (MFA) é uma ótima maneira de proteger sua organização, mas os usuários geralmente ficam frustrados com a camada de segurança adicional sobre a existência de lembrar suas senhas. Os métodos de autenticação sem senha são mais convenientes porque a senha é removida e substituída por algo que você tem, além de algo que você conhece ou algo que você sabe.
 
@@ -26,7 +26,7 @@ A autenticação multifator (MFA) é uma ótima maneira de proteger sua organiza
 | --- | --- | --- |
 | Sem senha | Dispositivo, telefone ou chave de segurança do Windows 10 | Biometria ou PIN |
 
-Cada organização tem necessidades diferentes quando se trata de autenticação. A Microsoft oferece três opções de autenticação com senha:
+Cada organização tem necessidades diferentes quando se trata de autenticação. A Microsoft oferece as três seguintes opções de autenticação com senha:
 
 - Windows Hello for Business
 - Aplicativo Microsoft Authenticator
@@ -52,7 +52,7 @@ O aplicativo autenticador transforma qualquer telefone iOS ou Android em uma cre
 
 As chaves de segurança FIDO2 são um método de autenticação de senha com base em padrões não Phish que pode ser fornecido em qualquer fator forma. A FIDO (Fast Identity online) é um padrão aberto para autenticação com senha. O FIDO permite que usuários e organizações aproveitem o padrão para entrar em seus recursos sem nome de usuário ou senha usando uma chave de segurança externa ou uma chave de plataforma incorporada a um dispositivo.
 
-Para a visualização pública, os funcionários podem usar as chaves de segurança para entrar em seus dispositivos Windows 10 ingressados no Azure AD e obter logon único em seus recursos locais e de nuvem. Os usuários também podem entrar em navegadores com suporte. As chaves de segurança do FIDO2 são uma ótima opção para empresas que são muito sensíveis à segurança ou que têm cenários ou funcionários que não estão dispostos ou podem usar seus telefones como um segundo fator.
+Para a visualização pública, os funcionários podem usar as chaves de segurança para entrar em seus dispositivos Windows 10 do Azure AD ou híbridos ingressados no Azure AD e obter logon único em seus recursos locais e de nuvem. Os usuários também podem entrar em navegadores com suporte. As chaves de segurança do FIDO2 são uma ótima opção para empresas que são muito sensíveis à segurança ou que têm cenários ou funcionários que não estão dispostos ou podem usar seus telefones como um segundo fator.
 
 ![Entrar no Microsoft Edge com uma chave de segurança](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -92,7 +92,7 @@ Se você for um fornecedor e quiser obter seu dispositivo na lista de dispositiv
    - Microsoft Authenticator aplicativo: funciona em cenários em que a autenticação do Azure AD é usada, inclusive em todos os navegadores, durante a instalação do OOBE (Windows 10) e com aplicativos móveis integrados em qualquer sistema operacional.
    - Chaves de segurança: trabalhe na tela de bloqueio para o Windows 10 e a Web em navegadores com suporte, como o Microsoft Edge.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Habilitar as opções de passwordlesss de chave de segurança do FIDO2 em sua organização](howto-authentication-passwordless-security-key.md)
 

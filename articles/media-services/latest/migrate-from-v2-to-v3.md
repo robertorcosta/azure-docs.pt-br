@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 10/02/2019
 ms.author: juliako
-ms.openlocfilehash: 3520b7d6b0fd67fdbff3e1dd78d038f36ad5f0af
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: dc3b122ab7f4a243f3a4ecd6f220caa00beb044e
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133431"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505780"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientação de migração para passar dos Serviços de Mídia v2 para v3
 
@@ -79,7 +79,7 @@ E se você tiver um serviço de vídeo desenvolvido hoje em dia sobre as [APIs h
 * Em v2, os arquivos de metadados de [entrada](../previous/media-services-input-metadata-schema.md) e [saída](../previous/media-services-output-metadata-schema.md) XML são gerados como resultado de um trabalho de codificação. Em v3, o formato de metadados mudou de XML para JSON. 
 
 > [!NOTE]
-> Examine as convenções de nomenclatura que são aplicadas aos [recursos dos serviços de mídia v3](media-services-apis-overview.md#naming-conventions). Examine também os [blobs de nomenclatura](assets-concept.md#naming-blobs).
+> Examine as convenções de nomenclatura que são aplicadas aos [recursos dos serviços de mídia v3](media-services-apis-overview.md#naming-conventions). Examine também os [blobs de nomenclatura](assets-concept.md#naming).
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>Falhas de recurso em relação a APIs v2
 
@@ -126,7 +126,7 @@ A tabela a seguir mostra as diferenças de código entre v2 e v3 para cenários 
 
 Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para ver como é fácil começar a codificar e transmitir arquivos de vídeo, confira [Arquivos de transmissão](stream-files-dotnet-quickstart.md). 
 

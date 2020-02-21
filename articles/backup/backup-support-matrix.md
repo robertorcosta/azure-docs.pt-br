@@ -3,12 +3,12 @@ title: Matriz de suporte do Backup do Azure
 description: Fornece um resumo de configurações compatíveis e limitações do serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 37347e6febdfc3500c218238606fc96463da631c
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 15c2fdfbe63dd73e665a4bac01dd2cd1b1144949
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76936245"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505858"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para o backup do Azure
 
@@ -78,8 +78,9 @@ Veja os que têm suporte se você quiser fazer backup de computadores Linux:
 --- | ---
 **Backup direto do computador local que está executando o Linux** | Sem suporte. O agente MARS só pode ser instalado em computadores Windows.
 **Usando a extensão do agente para fazer backup da VM do Azure que está executando o Linux** | Backup consistente com o aplicativo usando [scripts personalizados](backup-azure-linux-app-consistent.md).<br/><br/> Recuperação em nível de arquivo.<br/><br/> Faça a restauração com a criação de uma VM de um ponto de recuperação ou um disco.
-**Usando o DPM para fazer backup do local ou da VM do Azure que executa o Linux** | Backup consistente com o arquivo de VMs de convidado do Linux no Hyper-V e no VMWare.<br/><br/> Restauração de VM de VMs do Hyper-V e do VMWare Linux convidadas.<br/><br/> O backup consistente com o arquivo não está disponível para a VM do Azure.
-**Usando o MABS para fazer backup do computador local ou da VM do Azure que está executando o Linux** | Backup consistente com o arquivo de VMs de convidado do Linux no Hyper-V e no VMWare.<br/><br/> Restauração de VM de VMs do Hyper-V e do VMWare Linux convidadas.<br/><br/> Backup consistente com arquivo não disponível para VMs do Azure.
+**Usando o DPM para fazer backup de computadores locais executando o Linux** | Backup consistente com o arquivo de VMs de convidado do Linux no Hyper-V e no VMWare.<br/><br/> Restauração de VM de VMs do Hyper-V e do VMWare Linux convidadas.
+**Usando o MABS para fazer backup de computadores locais executando o Linux** | Backup consistente com o arquivo de VMs de convidado do Linux no Hyper-V e no VMWare.<br/><br/> Restauração de VM de VMs do Hyper-V e do VMWare Linux convidadas.
+**Usando o MABS ou o DPM para fazer backup de VMs do Linux Azure** | Sem suporte.
 
 ## <a name="daylight-saving-time-support"></a>Suporte ao horário de verão
 
@@ -106,7 +107,7 @@ O backup do Azure dá suporte à criptografia para dados em trânsito e em repou
     > [!WARNING]
     > Depois de configurar o cofre, só você terá acesso à chave de criptografia. A Microsoft nunca mantém uma cópia e não tem acesso à chave. Se a chave for perdida, a Microsoft não poderá recuperar os dados de backup.
 
-### <a name="data-security"></a>Segurança dos dados
+### <a name="data-security"></a>Segurança de dados
 
 - Quando estiver fazendo backup de VMs do Azure, você precisará configurar a criptografia *na* máquina virtual.
 - O Backup do Azure dá suporte a Azure Disk Encryption, que usa o BitLocker em máquinas virtuais Windows e **dm-crypt** em máquinas virtuais Linux.
@@ -128,8 +129,8 @@ O backup dá suporte à compactação de tráfego de backup, conforme resumido n
 
 **Computador** | **Compactar no DPM/MABS (TCP)** | **Compactar para o cofre (HTTPS)**
 --- | --- | ---
-**Backup direto em computadores locais do Windows** | ND | ![Sim][green]
-**Backup de VMs do Azure usando a extensão de VM** | ND | ND
+**Backup direto em computadores locais do Windows** | NA | ![Sim][green]
+**Backup de VMs do Azure usando a extensão de VM** | NA | NA
 **Backup em computadores locais/do Azure usando o MABS/DPM** | ![Sim][green] | ![Sim][green]
 
 ## <a name="retention-limits"></a>Limites de retenção
@@ -148,7 +149,7 @@ O backup dá suporte à compactação de tráfego de backup, conforme resumido n
 
 O backup do Azure adicionou o recurso de restauração entre regiões para reforçar a disponibilidade de dados e a capacidade de resiliência, dando aos clientes controle total para restaurar dados em uma região secundária. Para configurar esse recurso, visite [o artigo definir a restauração entre regiões.](backup-create-rs-vault.md#set-cross-region-restore) Esse recurso tem suporte para os seguintes tipos de gerenciamento:
 
-| Tipo de gerenciamento de backup | Com suporte                                                    | Regiões com Suporte |
+| Tipo de gerenciamento de backup | Suportado                                                    | Regiões com Suporte |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | VM do Azure               | Sim. Versão prévia limitada pública com suporte para VMs criptografadas e VMs com menos de 4 TB de disco | Centro-Oeste dos EUA   |
 | Agente MARS/local | Não                                                           | N/D               |
@@ -157,7 +158,7 @@ O backup do Azure adicionou o recurso de restauração entre regiões para refor
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Examinar matriz de suporte](backup-support-matrix-iaas.md) para backup de VM do Azure.
 

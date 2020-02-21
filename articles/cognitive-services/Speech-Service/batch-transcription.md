@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: panosper
-ms.openlocfilehash: dc473c814cdd69204cddd976bc77f19b5db567b1
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 6d5ec5f798617d03072ec5931b0d1d3623df3d42
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200071"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500009"
 ---
 # <a name="how-to-use-batch-transcription"></a>Como usar a transcrição do lote
 
@@ -87,14 +87,55 @@ Parâmetros de configuração são fornecidos como JSON:
 
 Use essas propriedades opcionais para configurar a transcrição:
 
-| Parâmetro | DESCRIÇÃO |
-|-----------|-------------|
-| `ProfanityFilterMode` | Especifica como lidar com palavrões em resultados de reconhecimento. Os valores aceitos são `None`, o que desativa a filtragem de profanação, `Masked` que substitui a profanidade por asteriscos, `Removed` que remove todos os palavrões do resultado ou `Tags`, que adiciona tags de "profanidade". A configuração padrão é `Masked`. |
-| `PunctuationMode` | Especifica como manipular a pontuação nos resultados do reconhecimento. Os valores aceitos são `None`, o que desativa a pontuação, `Dictated` que implica pontuação explícita, `Automatic` que permite ao decodificador lidar com pontuação ou `DictatedAndAutomatic`, o que implica em sinais de pontuação ditados ou automáticos. |
-| `AddWordLevelTimestamps` | Especifica se os carimbos de data/hora no nível da palavra devem ser adicionados à saída. Os valores aceitos são `true`, o que habilita os carimbos de data/hora no nível da palavra e `false` (o valor padrão) para desabilitá-los. |
-| `AddSentiment` | Especifica um sentimentos que deve ser adicionado ao expressão. Os valores aceitos são `true` que habilita a expressão e a `false` (o valor padrão) para desabilitá-lo. |
-| `AddDiarization` | Especifica que a análise de diarization deve ser executada na entrada que é esperada como canal mono contendo duas vozes. Os valores aceitos são `true` que habilita diarization e `false` (o valor padrão) para desabilitá-lo. Ele também requer que `AddWordLevelTimestamps` seja definido como true.|
-|`TranscriptionResultsContainerUrl`|URL opcional com [SAS de serviço](../../storage/common/storage-sas-overview.md) para um contêiner gravável no Azure. O resultado será armazenado nesse contêiner.
+:::row:::
+   :::column span="1":::
+      **Parâmetro**
+   :::column-end:::
+   :::column span="2":::
+      **Descrição**
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `ProfanityFilterMode`
+   :::column-end:::
+   :::column span="2":::
+      Especifica como lidar com palavrões em resultados de reconhecimento. Os valores aceitos são `None` para desabilitar a filtragem de profanação, `Masked` substituir a profanação por asteriscos, `Removed` remover toda a profanação do resultado ou `Tags` adicionar marcas de "profanação". A configuração padrão é `Masked`.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `PunctuationMode`
+   :::column-end:::
+   :::column span="2":::
+      Especifica como manipular a pontuação nos resultados do reconhecimento. Os valores aceitos são `None` para desabilitar a pontuação, `Dictated` para implicar Pontuação explícita (falada), `Automatic` para permitir que o decodificador lide com pontuação ou `DictatedAndAutomatic` para usar Pontuação ditada e automática. A configuração padrão é `DictatedAndAutomatic`.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `AddWordLevelTimestamps`
+   :::column-end:::
+   :::column span="2":::
+      Especifica se os carimbos de data/hora no nível da palavra devem ser adicionados à saída. Os valores aceitos são `true` para habilitar carimbos de data/hora de nível de palavra e `false` (o valor padrão) para desabilitá-lo.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `AddSentiment`
+   :::column-end:::
+   :::column span="2":::
+      Especifica um sentimentos que deve ser adicionado ao expressão. Os valores aceitos são `true` para habilitar sentimentos por expressão e `false` (o valor padrão) para desabilitá-lo.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `AddDiarization`
+   :::column-end:::
+   :::column span="2":::
+      Especifica que a análise de diarization deve ser executada na entrada que é esperada como canal mono contendo duas vozes. Os valores aceitos são `true` habilitando diarization e `false` (o valor padrão) para desabilitá-lo. Ele também requer que `AddWordLevelTimestamps` seja definido como true.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `TranscriptionResultsContainerUrl`
+   :::column-end:::
+   :::column span="2":::
+      URL opcional com [SAS de serviço](../../storage/common/storage-sas-overview.md) para um contêiner gravável no Azure. O resultado será armazenado nesse contêiner.
+:::row-end:::
 
 ### <a name="storage"></a>Armazenamento
 

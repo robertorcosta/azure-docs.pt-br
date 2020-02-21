@@ -9,18 +9,18 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/31/2020
-ms.openlocfilehash: 6d6e7d564722d1c2ad4713dd1d39e7cba5ed0605
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: e1e19f985c9aa02759c6fff3c634c216c7ef42ef
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964950"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525542"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Criar, executar e excluir recursos do Azure ML usando REST
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Há várias maneiras de gerenciar seus recursos do Azure ML. Você pode usar o [portal](https://portal.azure.com/), a [interface de linha de comando](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)ou o SDK do [python](https://docs.microsoft.com/python/api/overview/azureml-sdk/?view=azure-ml-py). Ou, você pode escolher a API REST. A API REST usa verbos HTTP de uma maneira padrão para criar, recuperar, atualizar e excluir recursos. A API REST funciona com qualquer linguagem ou ferramenta que possa fazer solicitações HTTP. A estrutura direta do REST geralmente o torna uma boa opção nos ambientes de script e na automação de MLOps. 
+Há várias maneiras de gerenciar seus recursos do Azure ML. Você pode usar o [portal](https://portal.azure.com/), a [interface de linha de comando](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)ou o SDK do [python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Ou, você pode escolher a API REST. A API REST usa verbos HTTP de uma maneira padrão para criar, recuperar, atualizar e excluir recursos. A API REST funciona com qualquer linguagem ou ferramenta que possa fazer solicitações HTTP. A estrutura direta do REST geralmente o torna uma boa opção nos ambientes de script e na automação de MLOps. 
 
 Neste artigo, você aprenderá como:
 
@@ -32,7 +32,7 @@ Neste artigo, você aprenderá como:
 > * Usar solicitações de exclusão para limpar recursos 
 > * Usar a autorização baseada em chave para pontuar modelos implantados
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma **assinatura do Azure** para a qual você tem direitos administrativos. Se você não tiver essa assinatura, experimente a [assinatura pessoal gratuita ou paga](https://aka.ms/AMLFree)
 - Um [Workspace do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
@@ -203,7 +203,7 @@ Observe que para listar os experimentos que o caminho começa com `history/v1.0`
 
 |Área|Caminho|Referência|
 |-|-|-|
-|Artifacts|artefato/v 2.0/|[referência da API REST (a página pode estar em inglês)](https://docs.microsoft.com/rest/api/azureml/artifacts)|
+|Artefatos|artefato/v 2.0/|[referência da API REST (a página pode estar em inglês)](https://docs.microsoft.com/rest/api/azureml/artifacts)|
 |Armazenamentos de dados|armazenamento de datastore/v 1.0/|[referência da API REST (a página pode estar em inglês)](https://docs.microsoft.com/rest/api/azureml/datastores)|
 |Ajuste de hiperparâmetro|hyperdrive/v 1.0/|[referência da API REST (a página pode estar em inglês)](https://docs.microsoft.com/rest/api/azureml/hyperparametertuning)|
 |Modelos|modelmanagement/v 1.0/|[referência da API REST (a página pode estar em inglês)](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodels)|
@@ -402,7 +402,7 @@ providers/Microsoft.Storage/storageAccounts/{your-storage-account-name}"
 
 Você deve receber uma resposta `202 Accepted` e, nos cabeçalhos retornados, um URI de `Location`. Você pode obter esse URI para obter informações sobre a implantação, incluindo informações úteis de depuração se houver um problema com um dos seus recursos dependentes (por exemplo, se você se esqueceu de habilitar o acesso de administrador no registro de contêiner). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Explore a [referência da API REST do AzureML](https://docs.microsoft.com/rest/api/azureml/)completa.
 - Saiba como usar o Studio & Designer para [prever o preço do automóvel com o designer (versão prévia)](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score).

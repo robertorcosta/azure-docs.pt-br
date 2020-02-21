@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a16d28f31887c8bedcc95424382e674e037450e
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 66e94393bef942d7bfad41a7dccc8b651696d4af
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468398"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484512"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Como: exigir dispositivos gerenciados para acesso ao aplicativo de nuvem com acesso condicional
 
@@ -31,7 +31,7 @@ Exigir dispositivos gerenciados para acesso ao aplicativo de nuvem vincula o **a
 - **[Acesso condicional no Azure Active Directory](../active-directory-conditional-access-azure-portal.md)** -este artigo fornece uma visão geral conceitual do acesso condicional e da terminologia relacionada.
 - **[Introduction to device management in Azure Active Directory](../devices/overview.md)** - esse artigo fornece uma visão geral das várias opções para conseguir dispositivos sob controle organizacional. 
 
->[!IMPORTANT] 
+>[!NOTE] 
 > É recomendável usar a política de acesso condicional baseada em dispositivo do Azure AD para obter a melhor imposição após a autenticação inicial do dispositivo. Isso inclui sessões de fechamento se o dispositivo ficar sem conformidade e fluxo de código de dispositivo.
 
 

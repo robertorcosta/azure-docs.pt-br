@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
-ms.openlocfilehash: 56cbae7ae56c4b482ac6de201c7a2c8aacb81e59
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 44bbd7eab80ecb1cbfef9738e42b4070dff31180
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048588"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77506053"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configurar chaves gerenciadas pelo cliente para sua conta do Azure cosmos com Azure Key Vault
 
@@ -61,7 +61,7 @@ Para saber como habilitar essas propriedades em uma instância existente do Azur
 
    ![Selecionando as permissões corretas](./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png)
 
-1. Em **selecionar entidade de segurança**, selecione **nenhum selecionado**. Em seguida, pesquise **Azure Cosmos DB** principal e selecione-o. Por fim, escolha **selecionar** na parte inferior. Se a entidade de segurança de **Azure Cosmos DB** não estiver na lista, talvez seja necessário registrar novamente o provedor de recursos **Microsoft. DocumentDB** conforme descrito na seção [registrar o provedor de recursos](#register-resource-provider) deste artigo.
+1. Em **selecionar entidade de segurança**, selecione **nenhum selecionado**. Em seguida, pesquise **Azure Cosmos DB** principal e selecione-o (para facilitar a localização, você também pode pesquisar por ID da entidade: `a232010e-820c-4083-83bb-3ace5fc29d0b` para qualquer região do Azure, exceto regiões do Azure governamental em que a ID da entidade é `57506a73-e302-42a9-b869-6f12d9ec29e9`). Por fim, escolha **selecionar** na parte inferior. Se a entidade de segurança de **Azure Cosmos DB** não estiver na lista, talvez seja necessário registrar novamente o provedor de recursos **Microsoft. DocumentDB** conforme descrito na seção [registrar o provedor de recursos](#register-resource-provider) deste artigo.
 
    ![Selecionar a entidade de Azure Cosmos DB](./media/how-to-setup-cmk/portal-akv-add-ap.png)
 
@@ -233,7 +233,7 @@ Como alternativa, para revogar todas as chaves de uma instância de Azure Key Va
 
 A única operação possível quando a chave de criptografia foi revogada é a exclusão da conta.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre a [criptografia de dados em Azure Cosmos DB](./database-encryption-at-rest.md).
 - Obtenha uma visão geral de [acesso seguro aos dados no cosmos DB](secure-access-to-data.md).

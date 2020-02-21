@@ -4,16 +4,16 @@ description: Monitore as cargas de trabalho de backup do Azure e crie alertas pe
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 4ff51080d675c53e53397a070c1f6f1766aa9e85
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: acdd7ae870334fe3a77a37505fac5e02b3af360d
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989579"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500680"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Monitorar em escala usando Azure Monitor
 
-O backup do Azure fornece [recursos internos de monitoramento e alerta](backup-azure-monitoring-built-in-monitor.md) em um cofre dos serviços de recuperação. Essas funcionalidades estão disponíveis sem nenhuma infraestrutura de gerenciamento adicional. Mas esse serviço interno é limitado nos seguintes cenários:
+O Backup do Azure oferece [funcionalidades internas de monitoramento e alertas](backup-azure-monitoring-built-in-monitor.md) em um cofre dos Serviços de Recuperação. Essas funcionalidades estão disponíveis sem nenhuma infraestrutura de gerenciamento adicional. Mas esse serviço interno é limitado nos seguintes cenários:
 
 - Se você monitorar dados de vários cofres de serviços de recuperação entre assinaturas
 - Se o canal de notificação preferencial *não* for email
@@ -63,64 +63,64 @@ Os grafos padrão fornecem a você Kusto consultas para cenários básicos nos q
 
     ````Kusto
     AddonAzureBackupJobs
-| where JobOperation=="Backup"
-| where JobStatus=="Completed"
+    | where JobOperation=="Backup"
+    | where JobStatus=="Completed"
     ````
 
 - Todos os trabalhos de backup com falha
 
     ````Kusto
     AddonAzureBackupJobs
-| where JobOperation=="Backup"
-| where JobStatus=="Failed"
+    | where JobOperation=="Backup"
+    | where JobStatus=="Failed"
     ````
 
 - Todos os trabalhos de backup de VM do Azure bem-sucedidos
 
     ````Kusto
     AddonAzureBackupJobs
-| where JobOperation=="Backup"
-| where JobStatus=="Completed"
-| join kind=inner
-(
-    CoreAzureBackup
-    | where OperationName == "BackupItem"
-    | where BackupItemType=="VM" and BackupManagementType=="IaaSVM"
-    | distinct BackupItemUniqueId, BackupItemFriendlyName
-)
-on BackupItemUniqueId
+    | where JobOperation=="Backup"
+    | where JobStatus=="Completed"
+    | join kind=inner
+    (
+        CoreAzureBackup
+        | where OperationName == "BackupItem"
+        | where BackupItemType=="VM" and BackupManagementType=="IaaSVM"
+        | distinct BackupItemUniqueId, BackupItemFriendlyName
+    )
+    on BackupItemUniqueId
     ````
 
 - Todos os trabalhos de backup de log SQL bem-sucedidos
 
     ````Kusto
     AddonAzureBackupJobs
-| where JobOperation=="Backup" and JobOperationSubType=="Log"
-| where JobStatus=="Completed"
-| join kind=inner
-(
-    CoreAzureBackup
-    | where OperationName == "BackupItem"
-    | where BackupItemType=="SQLDataBase" and BackupManagementType=="AzureWorkload"
-    | distinct BackupItemUniqueId, BackupItemFriendlyName
-)
-on BackupItemUniqueId
+    | where JobOperation=="Backup" and JobOperationSubType=="Log"
+    | where JobStatus=="Completed"
+    | join kind=inner
+    (
+        CoreAzureBackup
+        | where OperationName == "BackupItem"
+        | where BackupItemType=="SQLDataBase" and BackupManagementType=="AzureWorkload"
+        | distinct BackupItemUniqueId, BackupItemFriendlyName
+    )
+    on BackupItemUniqueId
     ````
 
 - Todos os trabalhos do agente de backup do Azure bem-sucedidos
 
     ````Kusto
     AddonAzureBackupJobs
-| where JobOperation=="Backup"
-| where JobStatus=="Completed"
-| join kind=inner
-(
-    CoreAzureBackup
-    | where OperationName == "BackupItem"
-    | where BackupItemType=="FileFolder" and BackupManagementType=="MAB"
-    | distinct BackupItemUniqueId, BackupItemFriendlyName
-)
-on BackupItemUniqueId
+    | where JobOperation=="Backup"
+    | where JobStatus=="Completed"
+    | join kind=inner
+    (
+        CoreAzureBackup
+        | where OperationName == "BackupItem"
+        | where BackupItemType=="FileFolder" and BackupManagementType=="MAB"
+        | distinct BackupItemUniqueId, BackupItemFriendlyName
+    )
+    on BackupItemUniqueId
     ````
 
 ### <a name="diagnostic-data-update-frequency"></a>Frequência de atualização de dados de diagnóstico
@@ -171,6 +171,6 @@ Embora você possa obter notificações por meio de logs de atividade, é altame
 
 Use um espaço de trabalho Log Analytics para monitoramento e alertas em escala para todas as suas cargas que são protegidas pelo backup do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Para criar consultas personalizadas, consulte [modelo de dados do log Analytics](backup-azure-log-analytics-data-model.md).
+Para criar consultas personalizadas, consulte [modelo de dados do log Analytics](backup-azure-reports-data-model.md).

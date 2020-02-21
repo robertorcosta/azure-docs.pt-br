@@ -6,18 +6,18 @@ author: martincoetzer
 manager: CelesteDG
 tags: azuread
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: martinco
 ms.reviewer: arvindha
-ms.openlocfilehash: 10bd6f1f8582ba048a3f77ff329d90f1b4463675
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 28abe2dfa5a1a13ba09e20202180cb5e47d94072
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066415"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522425"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planejar o aplicativo de RH de nuvem para Azure Active Directory provisionamento de usuário
 
@@ -80,7 +80,7 @@ Para configurar o aplicativo de RH na nuvem para a integração de provisionamen
 
 Você também precisa de uma licença de assinatura Azure AD Premium P1 ou superior válida para cada usuário que será originado do aplicativo de RH na nuvem e provisionado para o Active Directory ou o Azure AD. Qualquer número inadequado de licenças pertencentes ao aplicativo de RH na nuvem pode levar a erros durante o provisionamento do usuário.
 
-### <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+### <a name="prerequisites"></a>Prerequisites
 
 - Acesso de administrador global do Azure AD para configurar o agente de provisionamento do Azure AD Connect.
 - Uma instância de teste e produção do aplicativo de RH de nuvem.
@@ -257,7 +257,7 @@ Por padrão, o aplicativo do conector de provisionamento mapeia o status do perf
 
 Quando você inicia o processo dos emissores-periões, reúna os seguintes requisitos.
 
-| Processo | {1&gt;{2&gt;Requisitos&lt;2}&lt;1} |
+| Processo | Requisitos |
 | - | - |
 | **Entradas** | De uma perspectiva do ciclo de vida da identidade, como lidar com recontratações? As recontratações mantêm suas IDs de funcionário antigas? |
 | | Você processa contratações no futuro e cria Active Directory contas com antecedência? Essas contas são criadas em um estado habilitado ou desabilitado? |
@@ -276,7 +276,7 @@ Cada aplicativo de RH na nuvem é fornecido com o aplicativo de RH de nuvem padr
 
 Ao iniciar o processo de Complementos-movimentadores-periões, reúna os seguintes requisitos.
 
-| Processo | {1&gt;{2&gt;Requisitos&lt;2}&lt;1} |
+| Processo | Requisitos |
 | - | - |
 | **Entradas** | O processo de criação de conta Active Directory manual, automatizado ou parcialmente automatizado? |
 | | Você planeja propagar atributos personalizados do aplicativo de RH de nuvem para Active Directory? |
@@ -396,7 +396,7 @@ O agente de provisionamento do Azure AD Connect instalado no Windows Server cria
 
 O serviço de provisionamento do Azure AD não gera relatórios, executa análises ou fornece informações além de 30 dias, pois o serviço não armazena, processa nem mantém dados além de 30 dias.
 
-### <a name="troubleshoot"></a>Solução de problemas
+### <a name="troubleshoot"></a>Solucionar problemas
 
 Para solucionar quaisquer problemas que possam ser reativados durante o provisionamento, consulte os seguintes artigos:
 
@@ -412,7 +412,7 @@ Para solucionar quaisquer problemas que possam ser reativados durante o provisio
 - [Entender logs para operações de atualização do gerente](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-manager-update-operations)
 - [Resolver erros comumente encontrados](../saas-apps/workday-inbound-tutorial.md#resolving-commonly-encountered-errors)
 
-### <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+### <a name="next-steps"></a>Próximas etapas
 
 - [Gravando expressões para mapeamentos de atributo](functions-for-customizing-application-data.md)
 - [Visão geral da API de sincronização do Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)

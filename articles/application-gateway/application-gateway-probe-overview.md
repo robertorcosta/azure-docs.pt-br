@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 01/28/2020
+ms.date: 02/20/2020
 ms.author: victorh
-ms.openlocfilehash: 5c25f591d1011d2efd66851cafd67ceef8b56637
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a4427c05d16a42879d37fdbd2e8b8be9095fcc9b
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766824"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505899"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Visão geral do monitoramento de integridade do Gateway de Aplicativo
 
@@ -59,7 +59,7 @@ Depois que os critérios de correspondência forem especificados, ele poderá se
 
 ### <a name="default-health-probe-settings"></a>Configurações da investigação de integridade padrão
 
-| Propriedades da investigação | Valor | Description |
+| Propriedades da investigação | Valor | DESCRIÇÃO |
 | --- | --- | --- |
 | URL de investigação |http://127.0.0.1:\<port\>/ |Caminho da URL |
 | Intervalo |30 |A quantidade de tempo em segundos a esperar antes da próxima investigação de integridade é enviada.|
@@ -85,7 +85,7 @@ Investigações personalizadas permitem que você tenha um controle mais granula
 
 A tabela a seguir fornece definições para as propriedades de uma investigação de integridade personalizada.
 
-| Propriedades da investigação | Description |
+| Propriedades da investigação | DESCRIÇÃO |
 | --- | --- |
 | Nome |O nome da investigação. Este é o nome usado para se referir à investigação nas configurações de HTTP de back-end. |
 | Protocolo |O protocolo usado para enviar a investigação. A investigação usa o protocolo definido nas configurações de HTTP do back-end |
@@ -101,11 +101,13 @@ A tabela a seguir fornece definições para as propriedades de uma investigaçã
 
 ## <a name="nsg-considerations"></a>Considerações NSG
 
-Se houver um NSG (grupo de segurança de rede) em uma sub-rede de gateway de aplicativo, os intervalos de porta 65503-65534 devem ser abertos na sub-rede do gateway de aplicativo para o tráfego de entrada. Essas portas são necessárias para que a API de integridade do back-end funcione.
+Você deve permitir o tráfego de entrada na Internet nas portas TCP 65503-65534 para o SKU do gateway de aplicativo v1 e as portas TCP 65200-65535 para a SKU V2 com a sub-rede de destino como qualquer e origem como **uma** marca de serviço do **gatewaymanager** . Esse intervalo de porta é necessário para a comunicação da infraestrutura do Azure.
 
-Além disso, a conectividade de Internet de saída não pode ser bloqueada, e o tráfego de entrada proveniente da marca AzureLoadBalancer deve ser permitido.
+Além disso, a conectividade de Internet de saída não pode ser bloqueada e o tráfego de entrada proveniente da marca **AzureLoadBalancer** deve ser permitido.
 
-## <a name="next-steps"></a>Próximos passos
+Para obter mais informações, consulte [visão geral de configuração do gateway de aplicativo](configuration-overview.md#network-security-groups-on-the-application-gateway-subnet).
+
+## <a name="next-steps"></a>Próximas etapas
 Depois de aprender sobre o monitoramento de integridade do Gateway de Aplicativo, você poderá configurar uma [investigação de integridade personalizada](application-gateway-create-probe-portal.md) no portal do Azure ou uma [investigação de integridade personalizada](application-gateway-create-probe-ps.md) usando o PowerShell e o modelo de implantação do Azure Resource Manager.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png

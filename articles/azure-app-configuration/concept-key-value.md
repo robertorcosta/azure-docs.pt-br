@@ -1,43 +1,27 @@
 ---
-title: Chave de configuração de Azure App-repositório de valor
-description: Uma visão geral de como os dados de configuração são armazenados na configuração do Azure App.
+title: Entender o repositório de valor-chave de configuração Azure App
+description: Entenda como os dados de configuração são armazenados na configuração do Azure App.
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 04/19/2019
-ms.openlocfilehash: 1cd13369f443f91782eef1024003e07435a44a45
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.date: 02/19/2020
+ms.openlocfilehash: 0b83a35d912c97ae25bc2d69d076e8eae8ca490f
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425214"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523597"
 ---
 # <a name="keys-and-values"></a>Chaves e valores
 
-A configuração do Aplicativo Azure AD e armazena dados de configuração como pares chave-valor. Os pares chave-valor são uma maneira simples, porém flexível, de representar vários tipos de configurações de aplicativo com os quais os desenvolvedores estão familiarizados.
+A configuração do Aplicativo Azure AD e armazena dados de configuração como pares chave-valor. Os pares chave-valor são uma representação simples e flexível das configurações do aplicativo usadas pelos desenvolvedores.
 
 ## <a name="keys"></a>simétricas
 
-As chaves servem como o nome de pares chave-valor e são usadas para armazenar e recuperar os valores correspondentes. É uma prática comum organizar chaves em um namespace hierárquico usando um caractere delimitador, como `/` ou `:`. Use uma convenção que é mais adequada para seu aplicativo. A Configuração de Aplicativo trata as chaves como um todo. Ela não analisa as chaves para descobrir como seus nomes são estruturados nem impõem regras a elas.
+As chaves servem como identificadores para pares chave-valor e são usadas para armazenar e recuperar valores correspondentes. É uma prática comum organizar chaves em um namespace hierárquico usando um caractere delimitador, como `/` ou `:`. Use uma convenção mais adequada para seu aplicativo. A Configuração de Aplicativo trata as chaves como um todo. Ela não analisa as chaves para descobrir como seus nomes são estruturados nem impõem regras a elas.
 
-O uso de dados de configuração em estruturas do aplicativo pode exigir esquemas de nomenclatura específicos para valores de chave. Por exemplo, a estrutura Spring Cloud do Java define recursos `Environment` que fornecem configurações a um aplicativo do Spring para que sejam parametrizadas por variáveis, incluindo *nome do aplicativo* e *perfil*. As chaves dos dados de configuração relacionados ao Spring Cloud normalmente começarão com esses dois elementos, separadamente por um delimitador.
-
-As chaves armazenadas na Configuração de Aplicativo são cadeias de caracteres baseadas em Unicode que diferenciam maiúsculas de minúsculas. As chaves *app1* e *App1* são distintas em um repositório de Configuração de Aplicativos. Tenha isso em mente ao usar definições de configuração em um aplicativo, pois algumas estruturas manipulam as chaves de configuração sem diferenciar maiúsculas de minúsculas. Por exemplo, o sistema de configuração do ASP.NET Core trata as chaves como cadeias de caracteres que não diferenciam maiúsculas de minúsculas. Para evitar comportamentos imprevisíveis ao consultar a Configuração de Aplicativo dentro de um aplicativo ASP.NET Core, não use chaves que diferem somente pelo uso de maiúsculas.
-
-Você pode usar qualquer caractere unicode nos nomes de chave inseridos na Configuração de Aplicativo, exceto `*`, `,` e `\`. Esses caracteres são reservados. Caso precise incluir um caractere reservado, você precisará fazer escape dele usando `\{Reserved Character}`. Há um limite de tamanho combinado de 10 KB em um par chave-valor. Esse limite inclui todos os caracteres na chave, seu valor e todos os atributos opcionais associados. Dentro desse limite, você pode ter vários níveis hierárquicos para chaves.
-
-### <a name="design-key-namespaces"></a>Criar namespaces de chave
-
-Há duas abordagens gerais para nomear as chaves usadas para dados de configuração: simples ou hierárquica. Esses métodos são muito semelhantes do ponto de vista do uso de um aplicativo, mas a nomenclatura hierárquica oferece algumas vantagens:
-
-* É mais fácil de ler. Em vez de uma sequência longa de caracteres, os delimitadores em um nome de chave hierárquica funcionam como espaços em uma sentença. Também fornecem quebras naturais entre palavras.
-* É mais fácil de gerenciar. Uma hierarquia de nomes de chave representa grupos lógicos de dados de configuração.
-* É mais fácil de usar. É mais simples escrever uma consulta cujo padrão é correspondente às chaves em uma estrutura hierárquica e recupera apenas uma parte dos dados de configuração. Além disso, muitas estruturas de programação mais recentes têm suporte nativo para dados de configuração hierárquica, de tal modo que o aplicativo pode fazer uso de conjuntos de configuração específicos.
-
-Você pode organizar as chaves na Configuração de Aplicativo hierarquicamente de muitas maneiras. Considere essas chaves como sendo [URIs](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier). Cada chave hierárquica é um *caminho* de recurso formado por um ou mais componentes que são unidos por delimitadores. Escolha qual caractere usar como um delimitador de acordo com as necessidades do aplicativo, da linguagem de programação ou da estrutura. Use vários delimitadores para diferentes chaves na Configuração de Aplicativo.
-
-Estes são vários exemplos de como você pode estruturar os nomes de chave em uma hierarquia:
+Aqui estão dois exemplos de nomes de chave estruturados em uma hierarquia:
 
 * Com base em serviços de componentes
 
@@ -48,6 +32,24 @@ Estes são vários exemplos de como você pode estruturar os nomes de chave em u
 
         AppName:Region1:DbEndpoint
         AppName:Region2:DbEndpoint
+
+O uso de dados de configuração em estruturas de aplicativo pode ditar esquemas de nomenclatura específicos para valores de chave. Por exemplo, a estrutura Spring Cloud do Java define `Environment` recursos que fornecem configurações para um aplicativo Spring.  Eles são parametrizados por variáveis que incluem o *nome do aplicativo* e o *perfil*. As chaves dos dados de configuração relacionados ao Spring Cloud normalmente começarão com esses dois elementos, separadamente por um delimitador.
+
+As chaves armazenadas na Configuração de Aplicativo são cadeias de caracteres baseadas em Unicode que diferenciam maiúsculas de minúsculas. As chaves *app1* e *App1* são distintas em um repositório de Configuração de Aplicativos. Tenha isso em mente ao usar definições de configuração em um aplicativo, pois algumas estruturas manipulam as chaves de configuração sem diferenciar maiúsculas de minúsculas. Não recomendamos o uso de maiúsculas e minúsculas para diferenciar as chaves.
+
+Você pode usar qualquer caractere Unicode em nomes de chave, exceto `*`, `,`e `\`.  Se você precisar incluir um desses caracteres reservados, use `\{Reserved Character}`como escape. 
+
+Há um limite de tamanho combinado de 10 KB em um par chave-valor. Esse limite inclui todos os caracteres na chave, seu valor e todos os atributos opcionais associados. Dentro desse limite, você pode ter vários níveis hierárquicos para chaves.
+
+### <a name="design-key-namespaces"></a>Criar namespaces de chave
+
+Há duas abordagens gerais para nomear as chaves usadas para dados de configuração: simples ou hierárquica. Esses métodos são muito semelhantes do ponto de vista do uso de um aplicativo, mas a nomenclatura hierárquica oferece algumas vantagens:
+
+* É mais fácil de ler. Os delimitadores em um nome de chave hierárquica funcionam como espaços em uma sentença. Também fornecem quebras naturais entre palavras.
+* É mais fácil de gerenciar. Uma hierarquia de nomes de chave representa grupos lógicos de dados de configuração.
+* É mais fácil de usar. É mais simples escrever uma consulta cujo padrão é correspondente às chaves em uma estrutura hierárquica e recupera apenas uma parte dos dados de configuração. Além disso, muitas estruturas de programação mais recentes têm suporte nativo para dados de configuração hierárquica, de tal modo que o aplicativo pode fazer uso de conjuntos de configuração específicos.
+
+Você pode organizar as chaves na Configuração de Aplicativo hierarquicamente de muitas maneiras. Considere essas chaves como sendo [URIs](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier). Cada chave hierárquica é um *caminho* de recurso formado por um ou mais componentes que são unidos por delimitadores. Escolha qual caractere usar como um delimitador de acordo com as necessidades do aplicativo, da linguagem de programação ou da estrutura. Use vários delimitadores para diferentes chaves na Configuração de Aplicativo.
 
 ### <a name="label-keys"></a>Chaves de rótulo
 
@@ -61,7 +63,7 @@ O rótulo fornece uma maneira conveniente de criar variantes de uma chave. Um us
 
 ### <a name="version-key-values"></a>Valores de chave de versão
 
-A Configuração de Aplicativo não faz o controle de versão de valores-chave automaticamente conforme eles são modificados. Use rótulos como uma maneira de criar várias versões de um valor de chave. Por exemplo, você pode inserir um número de versão do aplicativo ou uma ID de confirmação do Git em rótulos para identificar valores de chave associados a um build de software específico.
+A configuração de aplicativo não tem valores de chave de versão automaticamente. Use rótulos como uma maneira de criar várias versões de um valor de chave. Por exemplo, você pode inserir um número de versão do aplicativo ou uma ID de confirmação do Git em rótulos para identificar valores de chave associados a um build de software específico.
 
 Você pode usar qualquer caractere unicode em rótulos, exceto para `*`, `,`, e `\`. Esses caracteres são reservados. Para incluir um caractere reservado, você precisará fazer escape dele usando `\{Reserved Character}`.
 
@@ -74,7 +76,7 @@ Cada valor de chave é identificado exclusivamente pela sua chave, além de um r
 | `key` é omitido ou `key=*` | Corresponde a todas as chaves |
 | `key=abc` | Corresponde exatamente ao nome da chave **abc** |
 | `key=abc*` | Corresponde aos nomes de chave que começam com **abc** |
-| `key=abc,xyz` | Corresponde aos nomes de chave **abc** ou **xyz**, limitado a cinco CSVs |
+| `key=abc,xyz` | Corresponde aos nomes de chave **ABC** ou **XYZ**. Limitado a cinco CSVs |
 
 Inclua também os seguintes padrões de rótulo:
 
@@ -88,9 +90,9 @@ Inclua também os seguintes padrões de rótulo:
 
 ## <a name="values"></a>Valores
 
-Os valores atribuídos às chaves também são cadeias de caracteres Unicode. Use todos os caracteres Unicode para valores. Há um tipo de conteúdo definido pelo usuário opcional associado a cada valor. Use esse atributo para armazenar informações, por exemplo, um esquema de codificação sobre um valor que ajuda o aplicativo para processá-lo corretamente.
+Os valores atribuídos às chaves também são cadeias de caracteres Unicode. Use todos os caracteres Unicode para valores. Há um tipo de conteúdo definido pelo usuário opcional associado a cada valor. Use esse atributo para armazenar informações sobre um valor que ajuda seu aplicativo a processá-lo corretamente.
 
-Os dados de configuração armazenados em um repositório de Configuração de Aplicativos, que inclui todas as chaves e todos os valores, são criptografados em repouso e em trânsito. A Configuração de Aplicativo não é uma solução substituta do Azure Key Vault. Não armazene segredos do aplicativo nele.
+Os dados de configuração armazenados em um repositório de configuração de aplicativo são criptografados em repouso e em trânsito. As chaves não são criptografadas em repouso. A Configuração de Aplicativo não é uma solução substituta do Azure Key Vault. Não armazene segredos do aplicativo nele.
 
 ## <a name="next-steps"></a>Próximas etapas
 

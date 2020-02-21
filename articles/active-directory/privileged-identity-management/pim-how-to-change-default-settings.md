@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/05/2020
+ms.date: 02/07/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a409d71ff3eae3bc62527a0669a74696246a50cd
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 77132ae9a10eda7170ac56f2b7c65a3ebcde8d6d
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048078"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77499020"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Definir as configurações de função do Azure AD no Privileged Identity Management
 
@@ -32,11 +32,11 @@ A partir de novembro de 2019, a parte das funções do Azure AD da Privileged Id
 1. Entre no [portal do Azure](https://portal.azure.com/) com um usuário que esteja na função de [administrador de função com privilégios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
 1. Abra o **Azure AD Privileged Identity Management**. Se você tiver uma faixa na parte superior da página Visão geral, siga as instruções na **nova guia versão** deste artigo. Caso contrário, siga as instruções na guia **versão anterior** .
 
-    ![Nova versão das funções do Azure AD](./media/pim-how-to-add-role-to-user/pim-new-version.png)
+  [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 Siga as etapas neste artigo para aprovar ou negar solicitações para funções do Azure AD.
 
-# <a name="new-versiontabnew"></a>[Nova versão](#tab/new)
+# <a name="new-version"></a>[Nova versão](#tab/new)
 
 ## <a name="open-role-settings"></a>Abrir configurações de função
 
@@ -46,15 +46,15 @@ Siga estas etapas para abrir as configurações de uma função do Azure AD.
 gt
 1. Abra **Azure AD Privileged Identity Management** &gt; **funções do Azure ad** &gt; **configurações de função**.
 
-    ![Página de configurações de função listando funções de recurso do Azure](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
+    ![Página de configurações de função listando funções do Azure AD](./media/pim-how-to-change-default-settings/role-settings.png)
 
 1. Selecione a função cujas configurações você deseja configurar.
 
-    ![Página de detalhes de configuração de função listando várias configurações de atribuição e ativação](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
+    ![Página de detalhes de configuração de função listando várias configurações de atribuição e ativação](./media/pim-how-to-change-default-settings/role-settings-page.png)
 
 1. Selecione **Editar** para abrir a página Configurações de função.
 
-    ![Página Editar configurações de função com opções para atualizar a atribuição e as configurações de ativação](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+    ![Página Editar configurações de função com opções para atualizar a atribuição e as configurações de ativação](./media/pim-how-to-change-default-settings/role-settings-edit.png)
 
     No painel Configurações de função de cada função, há várias configurações que podem ser configuradas.
 
@@ -66,18 +66,18 @@ gt
 
 | | |
 | --- | --- |
-| **Permitir atribuição qualificada permanente** | Os administradores de recursos podem atribuir uma atribuição qualificada permanente. |
-| **Expirar atribuição qualificada após** | Os administradores de recursos podem exigir que todas as atribuições qualificadas tenham uma data de início e de término especificadas. |
+| **Permitir atribuição qualificada permanente** | Administradores globais e administradores de função com privilégios podem atribuir atribuição qualificada permanente. |
+| **Expirar atribuição qualificada após** | Administradores globais e administradores de função com privilégios podem exigir que todas as atribuições qualificadas tenham uma data de início e de término especificada. |
 
 E, você pode escolher uma destas opções de duração da atribuição **ativa**:
 
 | | |
 | --- | --- |
-| **Permitir atribuição ativa permanente** | Os administradores de recursos podem atribuir uma atribuição ativa permanente. |
-| **Expirar atribuição ativa após** | Os administradores de recursos podem exigir que todas as atribuições ativas tenham uma data de início e de término especificadas. |
+| **Permitir atribuição ativa permanente** | Administradores globais e administradores de função com privilégios podem atribuir uma atribuição ativa permanente. |
+| **Expirar atribuição ativa após** | Administradores globais e administradores de função com privilégios podem exigir que todas as atribuições ativas tenham uma data de início e de término especificada. |
 
 > [!NOTE]
-> Todas as atribuições que têm uma data de término especificada poderão ser renovadas por administradores de recursos. Além disso, os usuários podem iniciar solicitações de autoatendimento para [estender ou renovar atribuições de função](pim-resource-roles-renew-extend.md).
+> Todas as atribuições que têm uma data de término especificada podem ser renovadas por administradores globais e administradores de função com privilégios. Além disso, os usuários podem iniciar solicitações de autoatendimento para [estender ou renovar atribuições de função](pim-resource-roles-renew-extend.md).
 
 ## <a name="require-multi-factor-authentication"></a>Exigir autenticação multifator
 
@@ -87,13 +87,13 @@ O Privileged Identity Management fornece imposição opcional da Autenticação 
 
 Em alguns casos, talvez você queira atribuir um usuário a uma função por uma duração curta (um dia, por exemplo). Nesse caso, os usuários atribuídos não precisam solicitar ativação. Nesse cenário, Privileged Identity Management não pode impor a autenticação multifator quando o usuário usa sua atribuição de função porque eles já estão ativos na função a partir do momento em que são atribuídos.
 
-Para garantir que o administrador de recursos que está atendendo à atribuição seja quem eles dizem que eles são, você pode impor a autenticação multifator na atribuição ativa marcando a caixa de **atribuição exigir autenticação multifator no Active** .
+Para garantir que o administrador que está atendendo à atribuição seja quem dizem que eles são, você pode impor a autenticação multifator na atribuição ativa marcando a caixa de **atribuição exigir autenticação multifator no Active** .
 
 ### <a name="require-multi-factor-authentication-on-activation"></a>Exigir a Autenticação Multifator na ativação
 
 Você pode exigir que os usuários qualificados para uma função comprovem quem estão usando a autenticação multifator do Azure antes que possam ser ativados. A autenticação multifator garante que o usuário seja quem dizem que eles estão com certeza razoável. A aplicação dessa opção protege recursos críticos em situações em que a conta do usuário pode ter sido comprometida.
 
-Para exigir a autenticação multifator antes da ativação, marque a caixa de seleção **exigir autenticação multifator no modo de ativação** .
+Para exigir a autenticação multifator antes da ativação, marque a caixa **exigir autenticação multifator no modo de ativação** na guia atribuição da **configuração Editar função**.
 
 Para saber mais, confira [Autenticação multifator e Privileged Identity Management](pim-how-to-require-mfa.md).
 
@@ -121,7 +121,7 @@ Se você quiser exigir aprovação para ativar uma função, siga estas etapas.
 
 1. Depois de especificar todas as suas configurações de função, selecione **Atualizar** para salvar suas alterações.
 
-# <a name="previous-versiontabprevious"></a>[Versão anterior](#tab/previous)
+# <a name="previous-version"></a>[Versão anterior](#tab/previous)
 
 ## <a name="open-role-settings"></a>Abrir configurações de função
 
@@ -131,7 +131,7 @@ Siga estas etapas para abrir as configurações de uma função do Azure AD.
 
 1. Selecione **funções do Azure ad**.
 
-1. Selecione **Configurações**.
+1. Escolha a opção **Configurações**.
 
     ![Funções do Azure AD – configurações](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
 
@@ -163,7 +163,7 @@ Para obter mais informações, consulte [notificações por email em Privileged 
 
 Use a opção de **tíquete de incidente/solicitação** para exigir que os administradores qualificados incluam um número de tíquete quando ativarem sua função. Essa prática pode tornar as auditorias de acesso de função mais eficientes.
 
-## <a name="multi-factor-authentication"></a>Autenticação Multifator do Azure
+## <a name="multi-factor-authentication"></a>Autenticação Multifator
 
 Use a opção **Autenticação Multifator** para especificar se os usuários deverão confirmar a identidade com MFA antes de poderem ativar as funções. Eles só precisam verificar sua identidade uma vez por sessão, nem sempre que ativam uma função. Há duas dicas para ter em mente quando você habilita a MFA:
 
@@ -210,7 +210,7 @@ Se você quiser delegar a aprovação necessária para ativar uma função, siga
 
 ---
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Atribuir funções do Azure AD no Privileged Identity Management](pim-how-to-add-role-to-user.md)
 - [Configurar alertas de segurança para funções do Azure AD no Privileged Identity Management](pim-how-to-configure-security-alerts.md)

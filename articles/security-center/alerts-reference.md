@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: f7d8d28299b662774a8cc0a7d4a28b052a551eab
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 5453793c7e1bb1ef766939d2e7fdf32a1ac1ec72
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906315"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77499938"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de segurança-um guia de referência
 
@@ -35,7 +35,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 [Mais detalhes e observações](security-center-alerts-iaas.md#windows-)
 
-|Alerta|Description|Intenção ([saiba mais](#intentions))|
+|Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
 |**Um logon de um IP mal-intencionado foi detectado**|Ocorreu uma autenticação remota bem-sucedida para a conta ' Mauro. schleining ' e o processo ' Advapi '; no entanto, o endereço IP de logon [endereço IP] foi relatado anteriormente como mal-intencionado ou muito incomum. Um ataque bem-sucedido provavelmente ocorreu.|-|
 |**Um logon de um IP mal-intencionado foi detectado. [visto várias vezes]**|Uma autenticação remota bem-sucedida para a conta ' IUSR_10001 ' e o processo ' Advapi ' ocorreu, no entanto, o endereço IP de logon [endereço IP] foi relatado anteriormente como mal-intencionado ou muito incomum. Um ataque bem-sucedido provavelmente ocorreu. Arquivos com as extensões. scr são arquivos de proteção de tela e, normalmente, residem e são executados a partir do diretório de sistema do Windows.|-|
@@ -126,7 +126,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 [Mais detalhes e observações](security-center-alerts-iaas.md#linux-)
 
-|Alerta|Description|Intenção ([saiba mais](#intentions))|
+|Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
 |**Processo visto acessando o arquivo de chaves autorizadas SSH de maneira incomum**|Um arquivo de chaves autorizadas SSH foi acessado em um método semelhante a campanhas de malware conhecidas. Esse acesso pode indicar que um invasor está tentando obter acesso persistente a um computador.|-|
 |**Tentativa de persistência detectada**|A análise de dados do host detectou que um script de inicialização para o modo de usuário único foi instalado.<br>Como é raro que qualquer processo legítimo seja necessário para ser executado nesse modo, isso pode indicar que um invasor adicionou um processo mal-intencionado a cada nível de execução para garantir a persistência. |Persistência|
@@ -215,23 +215,24 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 [Mais detalhes e observações](security-center-alerts-compute.md#azure-app-service-)
 
-|Alerta|Description|Intenção ([saiba mais](#intentions))|
+|Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
-|**Invocação suspeita de tema do WordPress detectada**|O log de atividades do serviço de aplicativo indica uma possível atividade de injeção de código no recurso do serviço de aplicativo.<br>Essa atividade suspeita se assemelha à atividade que manipula um tema do WordPress para dar suporte à execução do código no lado do servidor, seguida de uma solicitação da Web direta para invocar o arquivo de tema manipulado. Esse tipo de atividade pode fazer parte de uma campanha de ataque sobre o WordPress.|-|
-|**Impressão digital da Web detectada**<br>(Elefante NMAP/cego)|O log de atividades do serviço de aplicativo indica uma possível atividade de impressão digital na Web no recurso do serviço de aplicativo.<br>Essa atividade suspeita está associada a uma ferramenta chamada elefante cego. A ferramenta servidores Web de impressões digitais e tenta detectar os aplicativos instalados e suas versões. Os invasores geralmente usam essa ferramenta para investigar os aplicativos Web para encontrar vulnerabilidades. |-|
-|**Acesso suspeito a uma página da Web possivelmente vulnerável detectada**|O log de atividades do serviço de aplicativo indica que uma página da Web que parece ser confidencial foi acessada.<br>Essa atividade suspeita originada de um endereço de origem cujo padrão de acesso é semelhante ao de um scanner da Web. Esse tipo de atividade geralmente está associado a uma tentativa de um invasor verificar sua rede para tentar obter acesso a páginas da Web sensíveis ou vulneráveis. |-|
-|**Um IP que se conectou à interface de FTP do serviço de Azure App foi encontrado em inteligência contra ameaças**|A análise de logs de FTP do serviço de aplicativo detectou uma conexão de um endereço de origem que foi encontrado no feed de inteligência contra ameaças. Durante essa conexão, um usuário acessou as páginas listadas.|-|
 |**Uma tentativa de executar comandos do Linux em um serviço de aplicativo do Windows**|A análise dos processos do serviço de aplicativo detectou uma tentativa de executar um comando do Linux em um serviço de aplicativo do Windows. Esta ação estava sendo executada pelo aplicativo Web. Esse comportamento geralmente é visto durante as campanhas que exploram uma vulnerabilidade em um aplicativo Web comum.|-|
-|**Execução de PHP suspeita detectada**|Os logs de computador indicam que um processo PHP suspeito está em execução. A ação incluía uma tentativa de executar comandos do sistema operacional ou código PHP da linha de comando, usando o processo PHP. Embora esse comportamento possa ser legítimo, em aplicativos Web esse comportamento pode indicar atividades mal-intencionadas, como tentativas de infectar sites com shells da Web.|Execução|
-|**Tentativa de executar o comando de alto privilégio detectado**|A análise dos processos do serviço de aplicativo detectou uma tentativa de executar um comando que requer privilégios altos. O comando foi executado no contexto do aplicativo Web. Embora esse comportamento possa ser legítimo, em aplicativos Web esse comportamento pode indicar atividades mal-intencionadas.|-|
-|**Salvamento de saída de ondulação em disco detectado**|A análise dos processos do serviço de aplicativo detectou a execução de um comando de ondulação no qual a saída foi salva no disco. Embora esse comportamento possa ser legítimo, em aplicativos Web, esse comportamento também é observado em atividades mal-intencionadas, como tentativas de infectar sites com shells da Web.|-|
-|**Download de dados brutos detectado**|A análise dos processos do serviço de aplicativo detectou uma tentativa de baixar o código de sites de dados brutos, como pastebin. Esta ação foi executada por um processo PHP. Esse comportamento é associado a tentativas de download de shells da Web ou outros componentes mal-intencionados para o serviço de aplicativo.|-|
-|**Verificador de vulnerabilidade detectado**<br>(Joomla/WordPress/CMS)|O Azure App log de atividades do serviço indica que um possível verificador de vulnerabilidade foi usado no recurso do serviço de aplicativo. A atividade suspeita detectada se assemelha a ferramentas de direcionamento de aplicativos Joomla/aplicativos WordPress/um sistema de gerenciamento de conteúdo (CMS).|-|
-|**Referenciador de pasta de spam detectado**|Azure App log de atividades do serviço indica a atividade da Web que foi identificada como proveniente de um site da Web associado à atividade de SPAM. Isso pode ocorrer se seu site estiver comprometido e usado para atividades de spam.|-|
-|**Conexão com a página da Web do endereço IP anômala detectado**|O log de atividades do serviço Azure App indica uma conexão com uma página da Web confidencial de um endereço IP de origem (% {endereço IP de origem}) que nunca se conecta a ele antes. Isso pode indicar que alguém está tentando um ataque de força bruta em suas páginas de administração de aplicativo Web. Também pode ser o resultado de um novo endereço IP que está sendo usado por um usuário legítimo.|-|
-|**Agente de usuário suspeito detectado**|Azure App log de atividades de serviço indica solicitações com um agente de usuário suspeito. Esse comportamento pode indicar em tentativas de exploração de uma vulnerabilidade em seu aplicativo do serviço de aplicativo.|-|
-|**Arquivo PHP na pasta de carregamento**|O log de atividades do serviço Azure App indica um acesso a uma página do PHP suspeita localizada na pasta de carregamento. Esse tipo de pasta geralmente não contém arquivos PHP. A existência desse tipo de arquivo pode indicar uma exploração aproveitando vulnerabilidades de carregamento de arquivo arbitrários.|-|
+|**Um IP que se conectou à interface de FTP do serviço de Azure App foi encontrado em inteligência contra ameaças**|A análise de logs de FTP do serviço de aplicativo detectou uma conexão de um endereço de origem que foi encontrado no feed de inteligência contra ameaças. Durante essa conexão, um usuário acessou as páginas listadas.|-|
 |**Padrão de solicitações anômalas detectado**|O log de atividades do serviço Azure App indica uma atividade HTTP anômala para o serviço de aplicativo de% {Source IP}. Essa atividade é semelhante a um padrão de atividade de força bruta \ difusão.|-|
+|**Tentativa de executar o comando de alto privilégio detectado**|A análise dos processos do serviço de aplicativo detectou uma tentativa de executar um comando que requer privilégios altos. O comando foi executado no contexto do aplicativo Web. Embora esse comportamento possa ser legítimo, em aplicativos Web esse comportamento pode indicar atividades mal-intencionadas.|-|
+|**Conexão com a página da Web do endereço IP anômala detectado**|O log de atividades do serviço Azure App indica uma conexão com uma página da Web confidencial de um endereço IP de origem (% {endereço IP de origem}) que nunca se conectou a ele antes. Isso pode indicar que alguém está tentando um ataque de força bruta em suas páginas de administração de aplicativo Web. Também pode ser o resultado de um novo endereço IP que está sendo usado por um usuário legítimo.|-|
+|**Download de dados brutos detectado**|A análise dos processos do serviço de aplicativo detectou uma tentativa de baixar o código de sites de dados brutos, como pastebin. Esta ação foi executada por um processo PHP. Esse comportamento é associado a tentativas de download de shells da Web ou outros componentes mal-intencionados para o serviço de aplicativo.|-|
+|**Conteúdo de phishing hospedado no Azure webapps**|URL usada para o ataque de phishing encontrada no site do Azure AppServices. Essa URL era parte de um ataque de phishing enviado aos clientes do O365. O conteúdo normalmente atrai os visitantes para inserir suas credenciais corporativas ou informações financeiras em um site de aparência legítimo.|Coleção|
+|**Arquivo PHP na pasta de carregamento**|O log de atividades do serviço Azure App indica um acesso a uma página do PHP suspeita localizada na pasta de carregamento. Esse tipo de pasta geralmente não contém arquivos PHP. A existência desse tipo de arquivo pode indicar uma exploração aproveitando vulnerabilidades de carregamento de arquivo arbitrários.|-|
+|**Salvamento de saída de ondulação em disco detectado**|A análise dos processos do serviço de aplicativo detectou a execução de um comando de ondulação no qual a saída foi salva no disco. Embora esse comportamento possa ser legítimo, em aplicativos Web, esse comportamento também é observado em atividades mal-intencionadas, como tentativas de infectar sites com shells da Web.|-|
+|**Referenciador de pasta de spam detectado**|Azure App log de atividades do serviço indica a atividade da Web que foi identificada como proveniente de um site da Web associado à atividade de SPAM. Isso pode ocorrer se seu site estiver comprometido e usado para atividades de spam.|-|
+|**Acesso suspeito a uma página da Web possivelmente vulnerável detectada**|O log de atividades do serviço de aplicativo indica que uma página da Web que parece ser confidencial foi acessada.<br>Essa atividade suspeita originada de um endereço de origem cujo padrão de acesso é semelhante ao de um scanner da Web. Esse tipo de atividade geralmente está associado a uma tentativa de um invasor verificar sua rede para tentar obter acesso a páginas da Web sensíveis ou vulneráveis. |-|
+|**Execução de PHP suspeita detectada**|Os logs de computador indicam que um processo PHP suspeito está em execução. A ação incluía uma tentativa de executar comandos do sistema operacional ou código PHP da linha de comando, usando o processo PHP. Embora esse comportamento possa ser legítimo, em aplicativos Web esse comportamento pode indicar atividades mal-intencionadas, como tentativas de infectar sites com shells da Web.|Execução|
+|**Agente de usuário suspeito detectado**|Azure App log de atividades de serviço indica solicitações com um agente de usuário suspeito. Esse comportamento pode indicar em tentativas de exploração de uma vulnerabilidade em seu aplicativo do serviço de aplicativo.|-|
+|**Invocação suspeita de tema do WordPress detectada**|O log de atividades do serviço de aplicativo indica uma possível atividade de injeção de código no recurso do serviço de aplicativo.<br>Essa atividade suspeita se assemelha à atividade que manipula um tema do WordPress para dar suporte à execução do código no lado do servidor, seguida de uma solicitação da Web direta para invocar o arquivo de tema manipulado. Esse tipo de atividade pode fazer parte de uma campanha de ataque sobre o WordPress.|-|
+|**Verificador de vulnerabilidade detectado**<br>(Joomla/WordPress/CMS)|O Azure App log de atividades do serviço indica que um possível verificador de vulnerabilidade foi usado no recurso do serviço de aplicativo. A atividade suspeita detectada se assemelha a ferramentas de direcionamento de aplicativos Joomla/aplicativos WordPress/um sistema de gerenciamento de conteúdo (CMS).|-|
+|**Impressão digital da Web detectada**<br>(Elefante NMAP/cego)|O log de atividades do serviço de aplicativo indica uma possível atividade de impressão digital na Web no recurso do serviço de aplicativo.<br>Essa atividade suspeita está associada a uma ferramenta chamada elefante cego. A ferramenta servidores Web de impressões digitais e tenta detectar os aplicativos instalados e suas versões. Os invasores geralmente usam essa ferramenta para investigar os aplicativos Web para encontrar vulnerabilidades. |-|
 ||||
 
 
@@ -239,7 +240,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 [Mais detalhes e observações](security-center-alerts-compute.md#azure-containers-)
 
-|Alerta|Description|Intenção ([saiba mais](#intentions))|
+|Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
 |**VISUALIZAÇÃO – Associação de função ao cluster-função de administrador detectada**|A análise do log de auditoria do kubernetes detectou uma nova associação à função de administrador do cluster, resultando em privilégios de administrador. O fornecimento desnecessariamente de privilégios de administrador pode resultar em problemas de escalonamento de privilégio no cluster.|Persistência|
 |**VISUALIZAÇÃO – painel kubernetes exposto detectado**|A análise do log de auditoria do kubernetes detectou a exposição do painel do kubernetes por um serviço Balancer. Os painéis expostos permitem acesso não autenticado ao gerenciamento de cluster e representam uma ameaça à segurança.|Persistência|
@@ -254,7 +255,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 [Mais detalhes e observações](security-center-alerts-compute.md#azure-containers-)
 
-|Alerta|Description|Intenção ([saiba mais](#intentions))|
+|Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
 |**Contêiner com privilégios detectado**|Os logs de computador indicam que um contêiner do Docker privilegiado está em execução. Um contêiner com privilégios tem acesso completo aos recursos do host. Se comprometido, um invasor pode usar o contêiner privilegiado para obter acesso ao computador host.|PrivilegeEscalation/execução|
 |**Execução de comando privilegiado no contêiner**|Os logs de computador indicam que um comando privilegiado foi executado em um contêiner do Docker. Um comando privilegiado tem privilégios estendidos no computador host.|PrivilegeEscalation|
@@ -270,7 +271,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 [Mais detalhes e observações](security-center-alerts-data-services.md#sql-database-and-sql-data-warehouse-)
 
-|Alerta|Description|Intenção ([saiba mais](#intentions))|
+|Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
 |**Uma possível vulnerabilidade à injeção de SQL**|Um aplicativo gerou uma instrução SQL com falha no banco de dados. Isso pode indicar uma possível vulnerabilidade a ataques de injeção de SQL. Há dois motivos possíveis para uma instrução FAULTED. Um defeito no código do aplicativo pode ter construído a instrução SQL com falha. Ou, o código do aplicativo ou os procedimentos armazenados não corrigiram a entrada do usuário ao construir a instrução SQL com falha, que pode ser explorada para injeção de SQL.|-|
 |**Tentativa de logon por um aplicativo potencialmente prejudicial**|Um aplicativo potencialmente prejudicial foi usado para acessar o banco de dados. Em alguns casos, o alerta detecta um teste de segurança que está sendo executado. Em outros casos, o alerta detecta um ataque que usa ferramentas comuns.|Investigação|
@@ -288,7 +289,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 [Mais detalhes e observações](security-center-alerts-data-services.md#azure-storage-)
 
-|Alerta|Description|Intenção ([saiba mais](#intentions))|
+|Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
 |**VISUALIZAÇÃO – malware potencial carregado para uma conta de armazenamento**|Indica que um blob que contém o malware potencial foi carregado em uma conta de armazenamento. As possíveis causas podem incluir um upload de malware intencional por um invasor ou um upload não intencional, de um blob potencialmente mal-intencionado, por um usuário legítimo.|LateralMovement|
 |**Acesso de um nó de saída do Tor a uma conta de armazenamento**|Indica que essa conta foi acessada com êxito de um endereço IP que é conhecido como um nó de saída ativo de Tor (um proxy de anonimato). A severidade desse alerta considera o tipo de autenticação usado (se houver) e se este é o primeiro caso desse acesso. As possíveis causas podem ser um invasor que tenha acessado sua conta de armazenamento usando o Tor ou um usuário legítimo que tenha acessado sua conta de armazenamento usando o Tor.|Investigação/exploração|
@@ -309,7 +310,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 [Mais detalhes e observações](security-center-alerts-data-services.md#azure-cosmos-db)
 
-|Alerta|Description|Intenção ([saiba mais](#intentions))|
+|Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
 |**Acesso de um local incomum a uma conta de Cosmos DB**|Indica que houve uma alteração no padrão de acesso para uma conta de Azure Cosmos DB. Alguém acessou essa conta a partir de um endereço IP desconhecido, em comparação com a atividade recente. Um invasor acessou a conta ou um usuário legítimo o acessou de uma localização geográfica nova e incomum. Um exemplo do último é a manutenção remota de um novo aplicativo ou desenvolvedor.|Exploração|
 |**Quantidade incomum de dados extraídos de uma conta de Cosmos DB**|Indica que houve uma alteração no padrão de extração de dados de uma conta de Azure Cosmos DB. Alguém extraiu uma quantidade incomum de dados em comparação com a atividade recente. Um invasor pode ter extraído uma grande quantidade de dados de um banco de dado Azure Cosmos DB (por exemplo, vazamento ou vazamento de dados ou uma transferência não autorizada de dados). Ou, um usuário ou aplicativo legítimo pode ter extraído uma quantidade incomum de dados de um contêiner (por exemplo, para a atividade de backup de manutenção).|Vazamento|
@@ -320,7 +321,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 [Mais detalhes e observações](security-center-alerts-service-layer.md#azure-network-layer)
 
-|Alerta|Description|Intenção ([saiba mais](#intentions))|
+|Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
 |**Comunicação de rede com um computador mal-intencionado detectada**|Análise de tráfego de rede indica que o computador (IP% {IP da vítima}) se comunicava com o que é possivelmente um centro de comando e de controle. Quando o recurso comprometido é um balanceador de carga ou um gateway de aplicativo, a atividade suspeita pode indicar que um ou mais dos recursos no pool de back-end (do balanceador de carga ou do gateway de aplicativo) se comunicaram com o que possivelmente é um comando e Centro de controle.|-|
 |**Possível computador comprometido detectado**|A inteligência contra ameaças indica que a sua máquina (no IP% {Machine IP}) pode ter sido comprometida por um malware do tipo Conficker. O Conficker foi um worm computacional que tem como alvo o sistema operacional Microsoft Windows e foi detectado primeiro em novembro de 2008. O Conficker infectou milhões de computadores, incluindo governo, computadores comerciais e domésticos em mais de 200 países, o que o torna a maior infecção de worms de computador conhecida desde o worm 2003 Welchia.|-|
@@ -345,10 +346,11 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 [Mais detalhes e observações](security-center-alerts-service-layer.md#azure-management-layer-azure-resource-manager-preview)
 
-|Alerta|Description|Intenção ([saiba mais](#intentions))|
+|Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
 |**Execução do kit de ferramentas de visualização-azurite detectada**|Foi detectada uma execução conhecida do kit de ferramentas de reconhecimento de ambiente de nuvem em seu ambiente. A ferramenta [azurite](https://github.com/mwrlabs/Azurite) pode ser usada por um invasor (ou testador de penetração) para mapear os recursos de suas assinaturas e identificar configurações inseguras.|-|
-|**VISUALIZAÇÃO – execução da função "Get-AzureDomainInfo" do kit de ferramentas de microburst detectada**|Foi detectada uma execução conhecida do kit de ferramentas de reconhecimento de ambiente de nuvem em seu ambiente. A ferramenta "microburst" (consulte https://github.com/NetSPI/MicroBurst) pode ser usada por um invasor (ou testador de penetração) para mapear seus recursos de assinatura, identificar configurações inseguras e vazar informações confidenciais.|-||**VISUALIZAÇÃO-sessão de gerenciamento suspeito usando uma conta inativa detectada**|A análise de logs de atividade de assinatura detectou um comportamento suspeito. Uma entidade de segurança que não está em uso por um longo período de tempo agora está executando ações que podem proteger a persistência de um invasor.|Persistência|
+|**VISUALIZAÇÃO – execução da função "Get-AzureDomainInfo" do kit de ferramentas de microburst detectada**|Foi detectada uma execução conhecida do kit de ferramentas de reconhecimento de ambiente de nuvem em seu ambiente. A ferramenta "microburst" (consulte https://github.com/NetSPI/MicroBurst) pode ser usada por um invasor (ou testador de penetração) para mapear seus recursos de assinatura, identificar configurações inseguras e vazar informações confidenciais.|-|
+|**VISUALIZAÇÃO-sessão de gerenciamento suspeito usando uma conta inativa detectada**|A análise de logs de atividade de assinatura detectou um comportamento suspeito. Uma entidade de segurança que não está em uso por um longo período de tempo agora está executando ações que podem proteger a persistência de um invasor.|Persistência|
 |**VISUALIZAÇÃO – execução da função "Get-AzurePasswords" do kit de ferramentas de microburst detectada**|Foi detectada uma execução conhecida do kit de ferramentas de reconhecimento de ambiente de nuvem em seu ambiente. A ferramenta "microburst" (consulte https://github.com/NetSPI/MicroBurst) pode ser usada por um invasor (ou testador de penetração) para mapear seus recursos de assinatura, identificar configurações inseguras e vazar informações confidenciais.|-|
 |**VISUALIZAÇÃO – sessão de gerenciamento suspeito usando portal do Azure detectada**|A análise de seus logs de atividades de assinatura detectou um comportamento suspeito. Uma entidade que não usa regularmente o portal do Azure (Ibiza) para gerenciar o ambiente de assinatura (não usado portal do Azure para gerenciar os últimos 45 dias ou uma assinatura que está gerenciando ativamente), agora está usando o portal do Azure e executando ações que pode proteger a persistência de um invasor.|-|
 |**VISUALIZAÇÃO-sessão de gerenciamento suspeito usando o PowerShell detectado**|A análise de logs de atividade de assinatura detectou um comportamento suspeito. Uma entidade que não usa regularmente o PowerShell para gerenciar o ambiente de assinatura agora está usando o PowerShell e executando ações que podem proteger a persistência de um invasor.|Persistência|
@@ -363,7 +365,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 [Mais detalhes e observações](security-center-alerts-service-layer.md#azure-keyvault)
 
-|Alerta|Description|Intenção ([saiba mais](#intentions))|
+|Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
 |**Acesso de um nó de saída do TOR a um Key Vault**|O Key Vault foi acessado por alguém usando o sistema de anonimato de IP TOR para ocultar seu local. Os atores mal-intencionados muitas vezes tentam ocultar seu local ao tentar obter acesso não autorizado a recursos conectados à Internet.|-|
 |**Alto volume de operações em um Key Vault**|Um volume maior de operações de Key Vault foi realizado em comparação com os dados históricos. Key Vault atividade geralmente é a mesma ao longo do tempo. Essa pode ser uma alteração legítima na atividade. Como alternativa, sua infraestrutura pode estar comprometida e investigações adicionais são necessárias.|-|
@@ -381,7 +383,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 [Mais detalhes e observações](security-center-alerts-integration.md#azure-ddos)
 
-|Alerta|Description|Intenção ([saiba mais](#intentions))|
+|Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
 |**Ataque de DDoS detectado para IP público**|Ataque de DDoS detectado para IP público (endereço IP) e mitigado.|Investigação|
 |**Ataque de DDoS mitigado para IP público**|Ataque de DDoS mitigado para IP público (endereço IP).|Investigação|
@@ -393,9 +395,9 @@ Entender a intenção de um ataque pode ajudá-lo a investigar e relatar o event
 
 A série de etapas que descrevem a progressão de um cyberattack de reconhecimento para os dados vazamento é geralmente conhecida como "Kill Chain". 
 
-As tentativas de cadeia de Kill chain com suporte da central de segurança são baseadas na [estrutura Mitre ATT & CK™](https://attack.mitre.org/matrices/enterprise) e descritas na tabela a seguir.
+As tentativas de cadeia de Kill chain com suporte da central de segurança são baseadas na [estrutura Mitre ATT &AMP; CK™](https://attack.mitre.org/matrices/enterprise) e descritas na tabela a seguir.
 
-|Intencional|Description|
+|Intencional|DESCRIÇÃO|
 |------|-------|
 |**Investigação**|A investigação pode ser uma tentativa de acessar um determinado recurso, independentemente de uma intenção mal-intencionada, ou uma tentativa com falha de obter acesso a um sistema de destino para coletar informações antes da exploração. Normalmente, essa etapa é detectada como uma tentativa, proveniente de fora da rede, para verificar o sistema de destino e identificar um ponto de entrada.|
 |**Exploração**|A exploração é o estágio em que um invasor consegue obter um destaque no recurso atacado. Esse estágio é relevante para os hosts de computação e recursos, como contas de usuário, certificados etc. Os atores de ameaça geralmente poderão controlar o recurso após esse estágio.|
@@ -413,7 +415,7 @@ As tentativas de cadeia de Kill chain com suporte da central de segurança são 
 ||||
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre alertas, consulte o seguinte:
 
 * [Alertas na Central de Segurança do Azure](security-center-alerts-overview.md)

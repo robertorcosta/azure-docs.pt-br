@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/14/2020
+ms.date: 02/20/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1f23d3ffa14deccae9825568dee2f3c8b9ac7e7e
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
-ms.translationtype: HT
+ms.openlocfilehash: 5eeae1ab6866435311eeec944b4a51ecf2793dee
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492949"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522961"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Microsoft Graph operações disponíveis para Azure AD B2C
 
@@ -57,7 +57,7 @@ Configure políticas predefinidas para inscrição, entrada, inscrição combina
 
 As operações a seguir permitem que você gerencie suas políticas de estrutura de confiança Azure AD B2C, conhecidas como [políticas personalizadas](custom-policy-overview.md).
 
-- [Listar todas as políticas de estrutura de confiança configuradas em um locatário](https://docs.microsoft.com/graph/api/trustframework-list-trustframeworkpolicies.md)
+- [Listar todas as políticas de estrutura de confiança configuradas em um locatário](https://docs.microsoft.com/graph/api/trustframework-list-trustframeworkpolicies)
 - [Criar política de estrutura confiável](https://docs.microsoft.com/graph/api/trustframework-post-trustframeworkpolicy)
 - [Ler propriedades de uma política de estrutura de confiança existente](https://docs.microsoft.com/graph/api/trustframeworkpolicy-get)
 - [Atualize ou crie a política de estrutura confiável.](https://docs.microsoft.com/graph/api/trustframework-put-trustframeworkpolicy)

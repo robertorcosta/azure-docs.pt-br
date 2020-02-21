@@ -1,5 +1,6 @@
 ---
-title: Recursos de segurança usados com máquinas virtuais do Azure – segurança do Azure | Microsoft Docs
+title: Recursos de segurança usados com VMs do Azure
+titleSuffix: Azure security
 description: Este artigo fornece uma visão geral dos recursos de segurança centrais do Azure que podem ser usados com máquinas virtuais do Azure.
 services: security
 documentationcenter: na
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: 6c01df071f263f7080f6c89b539d9a40aeff282f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 3cbe7788ca7486022513fabdca682cbb78615281
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792630"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500377"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Visão geral de segurança de máquinas virtuais do Azure
 Este artigo fornece uma visão geral dos principais recursos de segurança do Azure que podem ser usados com máquinas virtuais.
@@ -74,7 +75,7 @@ Saiba mais:
 
 A melhoria da segurança das chaves pode aprimorar as proteções de criptografia e de autenticação. Você pode simplificar o gerenciamento e a segurança dos seus principais segredos e chaves armazenando-os no Cofre de Chaves do Azure.
 
-O Key Vault oferece a opção de armazenar as chaves em HSMs (módulos de segurança de hardware) certificados para os padrões FIPS 140-2 nível 2. Suas chaves de criptografia do SQL Server para backup ou [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx) podem ser armazenadas no Cofre de Chaves com quaisquer chaves ou segredos dos seus aplicativos. As permissões e o acesso a esses itens protegidos são gerenciados pelo [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+O Cofre de Chaves oferece a opção de armazenar as chaves em HSMs (módulos de segurança de hardware) certificados para os padrões FIPS 140-2 nível 2. Suas chaves de criptografia do SQL Server para backup ou [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx) podem ser armazenadas no Cofre de Chaves com quaisquer chaves ou segredos dos seus aplicativos. As permissões e o acesso a esses itens protegidos são gerenciados pelo [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 Saiba mais:
 
@@ -92,16 +93,16 @@ Saiba mais:
 * [Azure Disk Encryption para VMs de IaaS](/azure/security/azure-security-disk-encryption-overview)
 * [Guia de início rápido: criptografar uma VM de IaaS do Windows com o Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 
-## <a name="virtual-machine-backup"></a>Backup de máquina virtual
+## <a name="virtual-machine-backup"></a>Backup de máquinas virtuais
 
-O Backup do Azure é uma solução escalonável que ajuda a proteger os dados de seu aplicativo com zero investimento de capital e custos operacionais mínimos. Erros de aplicativo podem corromper seus dados, enquanto erros humanos podem introduzir bugs em seus aplicativos. Com o Backup do Azure, suas máquinas virtuais executando Windows e Linux estão protegidas.
+O Backup do Azure é uma solução escalonável que ajuda a proteger os dados de seu aplicativo com zero investimento de capital e custos operacionais mínimos. Erros de aplicativo podem corromper seus dados e erros humanos podem introduzir bugs em seus aplicativos. Com o Backup do Azure, suas máquinas virtuais executando Windows e Linux estão protegidas.
 
 Saiba mais:
 
 * [O que é o Backup do Azure?](/azure/backup/backup-introduction-to-azure-backup)
 * [Perguntas frequentes sobre o serviço Backup do Azure](/azure/backup/backup-azure-backup-faq)
 
-## <a name="azure-site-recovery"></a>Recuperação de Site do Azure
+## <a name="azure-site-recovery"></a>Azure Site Recovery
 
 Uma parte importante da estratégia de BCDR de sua organização é descobrir como manter cargas de trabalho e aplicativos corporativos em execução durante interrupções planejadas e não planejadas. O Azure Site Recovery ajuda a orquestrar a replicação, o failover e a recuperação de cargas de trabalho e aplicativos, de modo que eles estejam disponíveis em um local secundário, caso o local primário fique inativo.
 
@@ -168,6 +169,6 @@ Saiba mais:
 * [Apresentando a computação confidencial do Azure](https://azure.microsoft.com/blog/introducing-azure-confidential-computing/)  
 * [Computação confidencial do Azure](https://azure.microsoft.com/blog/azure-confidential-computing/)  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre [as práticas recomendadas de segurança](iaas.md) para VMs e sistemas operacionais.

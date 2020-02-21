@@ -6,12 +6,12 @@ author: lisaguthrie
 ms.topic: conceptual
 ms.date: 12/29/2019
 ms.author: lcozzens
-ms.openlocfilehash: f85f63af94beb5c0d99632be69368c0c7c727b7b
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 2cdeb0d513230cac5d03f85f2189f15c818798fd
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212220"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500399"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integração às Identidades Gerenciadas do Azure
 
@@ -78,7 +78,7 @@ Para configurar uma identidade gerenciada no portal, primeiro crie um aplicativo
 1. Adicione uma referência ao pacote *Azure. Identity* :
 
     ```cli
-    dotnet add package Azure.Identity --version 1.1.0
+    dotnet add package Azure.Identity
     ```
 
 1. Localize o ponto de extremidade para seu repositório de configuração de aplicativo. Essa URL é listada na guia **chaves de acesso** para a loja no portal do Azure.
@@ -102,7 +102,7 @@ Para configurar uma identidade gerenciada no portal, primeiro crie um aplicativo
     > [!IMPORTANT]
     > `CreateHostBuilder` substitui `CreateWebHostBuilder` no .NET Core 3.0.  Selecione a sintaxe correta com base em seu ambiente.
 
-    ### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -116,7 +116,7 @@ Para configurar uma identidade gerenciada no portal, primeiro crie um aplicativo
                 .UseStartup<Startup>();
     ```
 
-    ### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    ### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -134,7 +134,7 @@ Para configurar uma identidade gerenciada no portal, primeiro crie um aplicativo
 
 1. Para usar valores de configuração de aplicativo e referências de Key Vault, atualize *Program.cs* , conforme mostrado abaixo. Esse código cria um novo `KeyVaultClient` usando um `AzureServiceTokenProvider` e passa essa referência para uma chamada para o método `UseAzureKeyVault`.
 
-    ### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
             public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -150,7 +150,7 @@ Para configurar uma identidade gerenciada no portal, primeiro crie um aplicativo
                     .UseStartup<Startup>();
     ```
 
-    ### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    ### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
         public static IHostBuilder CreateHostBuilder(string[] args) =>

@@ -4,15 +4,15 @@ description: Este artigo fornece informações sobre limites de tamanho de solic
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/17/2019
+ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: cfde1355ef5e5a2f9033456ac4089ce3ca3f9d72
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 7244788bbc7431c7f26363b2852babb72d5697e9
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839963"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526783"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de tamanho de solicitação de firewall do aplicativo Web e listas de exclusão
 
@@ -26,7 +26,7 @@ As listas de exclusões do WAF permitem a você omitir certos atributos de solic
 
 Os atributos a seguir podem ser adicionados às listas de exclusão por nome. Os valores do campo escolhido não são avaliados em relação às regras WAF, mas seus nomes ainda são (Veja o exemplo 1 abaixo, o valor do cabeçalho User-Agent é excluído da avaliação WAF). As listas de exclusão removem a inspeção do valor do campo.
 
-* Cabeçalhos da solicitação
+* Cabeçalhos de solicitação
 * Cookies de solicitação
 * O nome do atributo de solicitação (args) pode ser adicionado como um elemento de exclusão, como:
 
@@ -91,7 +91,13 @@ Portanto, se a URL `http://www.contoso.com/?user%281%29=fdafdasfda` for passada 
 O firewall do aplicativo Web permite a você configurar limites de tamanho de solicitação dentro de limites inferior e superior. As duas configurações de limites de tamanho a seguir estão disponíveis:
 
 - O campo tamanho máximo do corpo da solicitação é especificado em quilobytes e controla o limite de tamanho de solicitação geral, excluindo todos os carregamentos de arquivo. Este campo pode variar de mínimo de 1 KB para o valor máximo de 128 KB. O valor padrão para o tamanho do corpo da solicitação é 128 KB.
-- O campo de limite de carregamento de arquivo é especificado em MB e controla o tamanho máximo de carregamento de arquivos permitido. Esse campo pode ter um valor mínimo de 1 MB e um máximo de 500 MB para instâncias de SKU grande, enquanto o SKU médio tem um máximo de 100 MB. O valor padrão para o limite de carregamento de arquivos é 100 MB.
+- O campo de limite de carregamento de arquivo é especificado em MB e controla o tamanho máximo de carregamento de arquivos permitido. Esse campo pode ter um valor mínimo de 1 MB e os máximos a seguir:
+
+   - 100 MB para gateways de WAF médio v1
+   - 500 MB para gateways de WAF grande v1
+   - 750 MB para gateways WAF v2 
+
+ O valor padrão para o limite de carregamento de arquivos é 100 MB.
 
 O WAF também oferece um botão configurável para ativar ou desativar a inspeção de corpo da solicitação. Por padrão, a inspeção de corpo da solicitação está habilitada. Se a inspeção do corpo da solicitação for desativada, WAF não avaliará o conteúdo do corpo da mensagem HTTP. Nesses casos, o WAF continua a impor regras de WAF no URI, cookies e cabeçalhos. Se a inspeção do corpo da solicitação estiver desativada, o campo de tamanho máximo do corpo da solicitação não será aplicável e não poderá ser definido. Desativar a inspeção de corpo da solicitação permite que mensagens maiores que 128 KB sejam enviadas ao WAF, mas o corpo da mensagem não é inspecionado quanto a vulnerabilidades.
 

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 02/20/2020
 ms.author: victorh
-ms.openlocfilehash: 39c08a568a60c905394eec23dd27d5dd32ff0112
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: b28d228dd950796265c5412be30e5d7777cf94c6
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77460460"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526505"
 ---
 # <a name="azure-firewall-faq"></a>Perguntas frequentes do Firewall do Azure
 
@@ -117,7 +117,7 @@ Para limites de serviço de firewall do Azure, consulte [assinatura do Azure e l
 
 ## <a name="can-azure-firewall-in-a-hub-virtual-network-forward-and-filter-network-traffic-between-two-spoke-virtual-networks"></a>O Firewall do Azure em uma rede virtual de hub pode encaminhar e filtrar o tráfego de rede entre duas redes virtuais de spoke?
 
-Sim, você pode usar o Firewall do Azure em uma rede virtual de hub para encaminhar e filtrar o tráfego de rede entre duas redes virtuais de spoke. As sub-redes em cada uma das redes virtuais de spoke devem ter uma UDR apontando para o Firewall do Azure como um gateway padrão para que este cenário funcione corretamente.
+Sim, você pode usar o Firewall do Azure em uma rede virtual de hub para encaminhar e filtrar o tráfego de rede entre duas redes virtuais de spoke. As sub-redes em cada uma das redes virtuais spoke devem ter um UDR apontando para o Firewall do Azure como um gateway padrão para que esse cenário funcione corretamente.
 
 ## <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>O Firewall do Azure pode encaminhar e filtrar o tráfego de rede entre sub-redes na mesma rede virtual ou em redes virtuais emparelhadas?
 
@@ -137,7 +137,7 @@ Se a configuração exigir o túnel forçado para uma rede local e você puder d
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Há qualquer firewall restrições no grupo de recursos?
 
-Sim. O firewall, a sub-rede, a rede virtual e o endereço IP público devem estar todos no mesmo grupo de recursos.
+Sim. O firewall, a VNet e o endereço IP público devem estar no mesmo grupo de recursos.
 
 ## <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Ao configurar DNAT para tráfego entrada de rede, também preciso configurar uma regra de rede correspondente para permitir esse tráfego?
 
@@ -168,11 +168,11 @@ Não. O Firewall do Azure não precisa de uma sub-rede maior que/26.
 
 ## <a name="how-can-i-increase-my-firewall-throughput"></a>Como posso aumentar a taxa de transferência do meu firewall?
 
-A capacidade de taxa de transferência inicial do firewall do Azure é de 2,5 a 3 Gbps. Atualmente, a expansão é baseada no uso da CPU e na taxa de transferência. Em alguns casos, um firewall com regras de rede não escalará verticalmente para aumentar a taxa de transferência, pois as regras de rede não afetam significativamente o uso da CPU. Se precisar de uma taxa de transferência maior para o firewall, entre em contato com o suporte para aumentar a capacidade de taxa de transferência inicial do firewall.
+A capacidade de taxa de transferência inicial do firewall do Azure é de 2,5 a 3 Gbps e é dimensionada para 30 Gbps. Ele é dimensionado com base no uso da CPU e na taxa de transferência. Contate o suporte para aumentar a capacidade de taxa de transferência do firewall se o firewall não estiver expandindo para atender às suas necessidades e você precisar de maior capacidade de taxa de transferência.
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Quanto tempo leva para o Firewall do Azure escalar horizontalmente?
 
-Atualmente, leva de cinco a sete minutos para que o Firewall do Azure Escale horizontalmente. Se você tiver intermitências que exigem um dimensionamento automático mais rápido, entre em contato com o suporte para aumentar a capacidade de taxa de transferência inicial do firewall.
+Leva de cinco a sete minutos para que o Firewall do Azure Escale horizontalmente. Entre em contato com o suporte para aumentar a capacidade de taxa de transferência inicial do firewall se você tiver intermitências que exigem um dimensionamento automático mais rápido.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>O Firewall do Azure permite acesso a Active Directory por padrão?
 

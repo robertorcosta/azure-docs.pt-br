@@ -14,12 +14,12 @@ ms.date: 11/13/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a28a4ccbaa256133b785d2238657093ba40ea11f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 530eebea19d9e53f85a0079d6fba91c615ee6dd1
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024187"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498890"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configurar alertas de segurança para funções do Azure AD no Privileged Identity Management
 
@@ -32,11 +32,11 @@ A partir de novembro de 2019, a parte das funções do Azure AD da Privileged Id
 1. Entre no [portal do Azure](https://portal.azure.com/) com um usuário que esteja na função de [administrador de função com privilégios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
 1. Abra o **Azure AD Privileged Identity Management**. Se você tiver uma faixa na parte superior da página Visão geral, siga as instruções na **nova guia versão** deste artigo. Caso contrário, siga as instruções na guia **versão anterior** .
 
-    ![Nova versão das funções do Azure AD](./media/pim-how-to-add-role-to-user/pim-new-version.png)
+  [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 Siga as etapas neste artigo para investigar alertas de segurança para funções do Azure AD.
 
-# <a name="new-versiontabnew"></a>[Nova versão](#tab/new)
+# <a name="new-version"></a>[Nova versão](#tab/new)
 
 ![Funções do Azure AD – painel de alerta listando alertas e a severidade](./media/pim-how-to-configure-security-alerts/view-alerts.png)
 
@@ -82,7 +82,7 @@ Esta seção lista todos os alertas de segurança para funções do Azure AD, ju
 
 | | |
 | --- | --- |
-| **Severity** | Média |
+| **Severity** | Médio |
 | **Por que recebo este alerta?** | As contas em uma função privilegiada não alteraram sua senha nos últimos 90 dias. Essas contas podem ser de serviço ou compartilhadas, que não estejam passando por manutenção e estejam vulneráveis aos invasores. |
 | **Como corrigir?** | Examine as contas na lista. Se eles não precisarem mais de acesso, remova-os de suas funções privilegiadas. |
 | **Prevenção** | Certifique-se de que as contas compartilhadas estejam girando senhas fortes quando houver uma alteração nos usuários que conhecem a senha. </br>Revise regularmente as contas com funções privilegiadas usando [ revisões de acesso ](pim-how-to-start-security-review.md) e remova as atribuições de funções que não são mais necessárias. |
@@ -93,7 +93,7 @@ Esta seção lista todos os alertas de segurança para funções do Azure AD, ju
 
 | | |
 | --- | --- |
-| **Severity** | Alto |
+| **Severity** | Alta |
 | **Por que recebo este alerta?** | As atribuições de função com privilégios feitas fora do Privileged Identity Management não são monitoradas corretamente e podem indicar um ataque ativo. |
 | **Como corrigir?** | Examine os usuários na lista e remova-os das funções privilegiadas atribuídas fora do Privileged Identity Management. |
 | **Prevenção** | Investigue onde os usuários estão sendo atribuídos a funções privilegiadas fora do Privileged Identity Management e proíba as atribuições futuras a partir daí. |
@@ -135,7 +135,7 @@ Personalize configurações nos diferentes alertas para trabalhar com seu ambien
 
 ![Página de configuração de um alerta para habilitar e definir configurações](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
 
-# <a name="previous-versiontabprevious"></a>[Versão anterior](#tab/previous)
+# <a name="previous-version"></a>[Versão anterior](#tab/previous)
 
 ![Funções do Azure AD – painel de alerta listando alertas e a severidade](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
@@ -181,7 +181,7 @@ Esta seção lista todos os alertas de segurança para funções do Azure AD, ju
 
 | | |
 | --- | --- |
-| **Severity** | Média |
+| **Severity** | Médio |
 | **Por que recebo este alerta?** | As contas em uma função privilegiada não alteraram sua senha nos últimos 90 dias. Essas contas podem ser de serviço ou compartilhadas, que não estejam passando por manutenção e estejam vulneráveis aos invasores. |
 | **Como corrigir?** | Examine as contas na lista. Se eles não precisarem mais de acesso, remova-os de suas funções privilegiadas. |
 | **Prevenção** | Certifique-se de que as contas compartilhadas estejam girando senhas fortes quando houver uma alteração nos usuários que conhecem a senha. </br>Revise regularmente as contas com funções privilegiadas usando [ revisões de acesso ](pim-how-to-start-security-review.md) e remova as atribuições de funções que não são mais necessárias. |
@@ -192,7 +192,7 @@ Esta seção lista todos os alertas de segurança para funções do Azure AD, ju
 
 | | |
 | --- | --- |
-| **Severity** | Alto |
+| **Severity** | Alta |
 | **Por que recebo este alerta?** | As atribuições de função com privilégios feitas fora do Privileged Identity Management não são monitoradas corretamente e podem indicar um ataque ativo. |
 | **Como corrigir?** | Examine os usuários na lista e remova-os das funções privilegiadas atribuídas fora do Privileged Identity Management. |
 | **Prevenção** | Investigue onde os usuários estão sendo atribuídos a funções privilegiadas fora do Privileged Identity Management e proíba as atribuições futuras a partir daí. |
@@ -242,6 +242,6 @@ Você pode personalizar alguns dos alertas de segurança no Privileged Identity 
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Definir as configurações de função do Azure AD no Privileged Identity Management](pim-how-to-change-default-settings.md)

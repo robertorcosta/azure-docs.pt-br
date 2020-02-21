@@ -7,7 +7,7 @@ author: msmimart
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 02/21/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43bb3477531724b731f61443667a330737320251
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 3ff80224037001e41daf49cd6fc21439b2cc5cff
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77067273"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522859"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Problema para salvar as credenciais de administrador ao configurar o provisionamento do usuário para um aplicativo de galeria do Azure Active Directory 
 
@@ -45,5 +45,5 @@ Há duas maneiras possíveis de contornar esse problema atualmente:
 
 2. **Reduzir a quantidade de dados de configuração armazenados** - Todos os dados inseridos na seção [Credenciais de administrador](user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) da guia de configuração são armazenados no mesmo local que o certificado SAML. Embora não seja possível reduzir o tamanho de todos esses dados, alguns campos de configuração opcionais, como o **Email de notificação** podem ser removidos.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 [Configurar o provisionamento e cancelamento de usuários para aplicativos SaaS](user-provisioning.md)

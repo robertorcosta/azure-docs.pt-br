@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ab4eebf56abd2d328ccf86929a043d4354ca157c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 3860823787b860f2504d6fb13b9479d1feec9d28
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186324"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505804"
 ---
 # <a name="assets-in-azure-media-services"></a>Ativos nos serviços de mídia do Azure
 
@@ -28,7 +28,13 @@ Um ativo é mapeado para um contêiner de blob na [conta de Armazenamento do Mic
 
 A camada de armazenamento de **Arquivamento** só é recomendada para arquivos de origem muito grandes que já tenham sido codificados e a saída do trabalho de codificação foi colocada em um contêiner de blobs de saída. Os BLOBs no contêiner de saída que você deseja associar a um ativo e usados para transmitir ou analisar seu conteúdo devem existir em uma camada de armazenamento **quente** ou **fria** .
 
-### <a name="naming-blobs"></a>Nomeando BLOBs
+### <a name="naming"></a>Nomenclatura 
+
+#### <a name="assets"></a>Ativos
+
+Os nomes dos ativos devem ser exclusivos. Os nomes de recursos dos serviços de mídia v3 (por exemplo, ativos, trabalhos, transformações) estão sujeitos a Azure Resource Manager restrições de nomenclatura. Para obter mais informações, consulte [convenções de nomenclatura](media-services-apis-overview.md#naming-conventions).
+
+#### <a name="blobs"></a>Blobs
 
 Os nomes de Arquivos/blobs em um ativo devem seguir os [requisitos de nome do blob](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) e os requisitos de nome do [NTFS](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). O motivo para esses requisitos é que os arquivos podem ser copiados do armazenamento de BLOBs para um disco NTFS local para processamento.
 
@@ -127,7 +133,7 @@ Para proteger os Ativos em repouso, os ativos devem ser criptografados pela crip
 
 ## <a name="filtering-ordering-paging"></a>Filtragem, classificação, paginação
 
-Veja [Filtragem, classificação, paginação de entidades dos Serviços de Mídia](entities-overview.md).
+Confira [Filtragem, classificação, paginação de entidades dos Serviços de Mídia](entities-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

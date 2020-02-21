@@ -4,15 +4,15 @@ description: Aprenda a comprar a capacidade reservada do Azure Cosmos DB para ec
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 8e29683b994d66e769a24bb2d386a2120cf8eab9
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 16e8f770445218e10ab7e7645a81325d11be55da
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367660"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505958"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Otimizar o custo com a capacidade reservada no Azure Cosmos DB
 
@@ -30,7 +30,9 @@ Você pode comprar a capacidade reservada do Azure Cosmos DB no [portal do Azure
 
 ## <a name="determine-the-required-throughput-before-purchase"></a>Determinar a taxa de transferência necessária antes da compra
 
-O tamanho da reserva deve ser baseado na quantidade total de taxa de transferência que usará os recursos do Azure Cosmos DB existentes ou a serem implantados em breve. Você pode exibir os tamanhos de reserva recomendados no portal do Azure usando as seguintes etapas:
+O tamanho da compra de capacidade reservada deve ser baseado na quantidade total de produtividade que os recursos de Azure Cosmos DB existentes ou em breve ser implantados serão usados por hora. Por exemplo: comprar a capacidade reservada de 30.000 RU/s se esse for o padrão de uso consistente por hora. Neste exemplo, qualquer taxa de transferência provisionada acima de 30.000 RU/s será cobrada usando sua taxa pré-paga. Se a taxa de transferência provisionada estiver abaixo de 30.000 RU/s em uma hora, a capacidade reservada extra para essa hora será desperdiçada.
+
+Calculamos as recomendações de compra com base em seu padrão de uso por hora. O uso nos últimos 7, 30 e 60 dias é analisado e a aquisição da capacidade reservada que maximiza a economia é recomendada. Você pode exibir os tamanhos de reserva recomendados no portal do Azure usando as seguintes etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com).  
 
@@ -46,7 +48,7 @@ Você pode filtrar as recomendações pelos seguintes atributos:
 - **Frequência de cobrança** (mensal ou antecipada)
 - **Tipo de taxa de transferência** (vs. ru de vários mestres)
 
-Além disso, você pode fazer o escopo de recomendações para estar dentro de um único grupo de recursos, assinatura única ou todo o seu registro do Azure. Você pode mostrar recomendações com base no uso nos últimos 7 dias, 30 dias ou 60 dias.
+Além disso, você pode fazer o escopo de recomendações para estar dentro de um único grupo de recursos, assinatura única ou todo o seu registro do Azure. 
 
 Aqui está um exemplo de recomendação:
 

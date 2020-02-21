@@ -6,21 +6,21 @@ documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: app-mgmt
+ms.tgt_pltfrm: app-provisioning
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/09/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bfbd3aa57f34361323ecbdc78cddc5cf34a1179
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 289347474189d1fb57d95a2f424cf381e1e37875
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066974"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522655"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Relatórios sobre o provisionamento automático de conta de usuário
 
@@ -67,7 +67,7 @@ O **status atual** deve ser o primeiro lugar em que os administradores procuram 
 
 Todas as atividades executadas pelo serviço de provisionamento são registradas nos [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)do Azure AD. Você pode acessar os logs de provisionamento no portal do Azure selecionando **Azure Active Directory** &gt; **aplicativos empresariais** &gt; **Provisionando logs (versão prévia)** na seção **atividade** . Você pode pesquisar os dados de provisionamento com base no nome do usuário ou no identificador no sistema de origem ou no sistema de destino. Para obter detalhes, consulte [Provisionando logs (versão prévia)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Alguns dos tipos de eventos de atividade incluídos no log são:
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 O relatório de Resumo de provisionamento e os logs de provisionamento desempenham uma função importante que ajuda os administradores a solucionar problemas de provisionamento de várias contas de usuário.
 

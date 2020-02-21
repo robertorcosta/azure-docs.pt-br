@@ -5,22 +5,22 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 02/19/2020
 ms.author: helohr
-ms.openlocfilehash: e2fa30772082f4d2f7c02add61412432233e3f04
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 426ca10893e6858722b58422400582e4940287e2
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470565"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484597"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Perguntas frequentes sobre o Windows 10 Enterprise de várias sessões
 
-Este artigo responderá a perguntas frequentes e abordará as práticas recomendadas para o Windows 10 Enterprise Multi-Session.
+Este artigo responde a perguntas frequentes e explica as práticas recomendadas para o Windows 10 Enterprise Multi-Session.
  
-## <a name="what-is-windows-10-enterprise-multi-session"></a>O que é o Windows 10 Enterprise Multi-Session? 
+## <a name="what-is-windows-10-enterprise-multi-session"></a>O que é o Windows 10 Enterprise Multi-Session?
 
-O Windows 10 Enterprise Multi-Session, anteriormente conhecido como Windows 10 Enterprise para áreas de trabalho virtuais (EVD), é um novo Host da Sessão da Área de Trabalho Remota que permite várias sessões interativas simultâneas, que anteriormente apenas o Windows Server poderia fazer. Esse recurso oferece aos usuários uma experiência familiar do Windows 10, enquanto pode se beneficiar das vantagens de custo de várias sessões e usar o licenciamento do Windows por usuário existente em vez de CALs (licenças de acesso para cliente) do RDS. Para obter mais informações sobre licenças e preços, consulte [preços da área de trabalho virtual do Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/). 
+O Windows 10 Enterprise Multi-Session, anteriormente conhecido como Windows 10 Enterprise para desktops virtuais (EVD), é um novo Host da Sessão da Área de Trabalho Remota que permite várias sessões interativas simultâneas. Anteriormente, apenas o Windows Server poderia fazer isso. Esse recurso oferece aos usuários uma experiência familiar do Windows 10, enquanto pode se beneficiar das vantagens de custo de várias sessões e usar o licenciamento do Windows por usuário existente em vez de CALs (licenças de acesso para cliente) do RDS. Para obter mais informações sobre licenças e preços, consulte [preços da área de trabalho virtual do Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/). 
  
 ## <a name="how-many-users-can-simultaneously-have-an-interactive-session-on-windows-10-enterprise-multi-session"></a>Quantos usuários podem simultaneamente ter uma sessão interativa no Windows 10 Enterprise Multi-Session?
 
@@ -71,8 +71,33 @@ Para obter mais informações sobre como configurar um contêiner de perfil do F
 ## <a name="which-license-do-i-need-to-access-windows-10-enterprise-multi-session"></a>Qual licença preciso para acessar várias sessões do Windows 10 Enterprise?
 
 Para obter uma lista completa das licenças aplicáveis, consulte [preços da área de trabalho virtual do Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+
+## <a name="why-do-my-apps-disappear-after-i-sign-out"></a>Por que meus aplicativos desaparecem depois que eu sair?
+
+Isso acontece porque você está usando o Windows 10 Enterprise Multi-Session com uma solução de gerenciamento de perfil como FSLogix. Sua solução de administrador ou perfil configurou seu sistema para excluir perfis de usuário quando os usuários se desconectarem. Essa configuração significa que, quando o sistema exclui seu perfil de usuário depois de sair, ele também remove todos os aplicativos que você instalou durante a sessão. Se você quiser manter os aplicativos instalados, precisará pedir ao administrador para provisionar esses aplicativos para todos os usuários em seu ambiente de área de trabalho virtual do Windows.
+
+## <a name="how-do-i-make-sure-apps-dont-disappear-when-users-sign-out"></a>Como fazer garantir que os aplicativos não desapareçam quando os usuários se desconectarem?
+
+A maioria dos ambientes virtualizados é configurada por padrão para impedir que os usuários instalem aplicativos adicionais em seus perfis. Se você quiser garantir que um aplicativo não desapareça quando o usuário sair da área de trabalho virtual do Windows, será necessário provisionar esse aplicativo para todos os perfis de usuário em seu ambiente. Para obter mais informações sobre como provisionar aplicativos, confira estes recursos:
+
+- [Publicar aplicativos internos na área de trabalho virtual do Windows](publish-apps.md)
+- [Opções de linha de comando de serviço do pacote de aplicativo do DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
+- [Add-AppxProvisionedPackage](https://docs.microsoft.com/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
+
+## <a name="how-do-i-make-sure-users-dont-download-and-install-apps-from-the-microsoft-store"></a>Como fazer garantir que os usuários não baixem e instalem aplicativos do Microsoft Store?
+
+Você pode desabilitar o aplicativo Microsoft Store para garantir que os usuários não baixem aplicativos extras além dos aplicativos que você já provisionou para eles.
+
+Para desabilitar o aplicativo da loja:
+
+1. Crie um novo Política de Grupo.
+2. Selecione **configuração do computador** > modelos administrativos **componentes do Windows** > .
+3. Selecione **Repositório**.
+4. Selecione **armazenar aplicativo**.
+5. Selecione **desabilitado**e selecione **OK**.
+6. Escolha **Aplicar**.
  
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre a área de trabalho virtual do Windows e a várias sessões do Windows 10 Enterprise:
 

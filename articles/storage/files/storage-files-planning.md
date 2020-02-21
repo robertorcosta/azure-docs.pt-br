@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9b71c4a5c0f245d9da97dc8f096d15c5386bf919
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 98965a50037558f512401e09915021234790840d
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368606"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526471"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 
@@ -176,7 +176,7 @@ Esta seção se aplica somente aos compartilhamentos de arquivos padrão. Todos 
 
 Compartilhamentos de arquivos padrão com limite de capacidade de 100 TiB estão disponíveis globalmente em todas as regiões do Azure-
 
-- LRS: todas as regiões, exceto para a África do Sul e oeste da África do Sul.
+- LRS: todas as regiões, exceto o norte da África do Sul, oeste da África do Sul, Centro-oeste da Alemanha e Norte da Alemanha.
 - ZRS: todas as regiões, exceto para o leste do Japão, Europa Setentrional, norte da África do Sul.
 - GRS/GZRS: sem suporte.
 

@@ -8,12 +8,12 @@ ms.date: 01/28/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 00ce40e24a01b765419186a609ecf19ce53c772b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: d2cb40d7510e46539db46bdb61ec2d64c0fd1ec7
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905266"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526488"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e solucionar problemas do AzCopy
 
@@ -121,6 +121,8 @@ O AzCopy cria arquivos de log e de plano para cada trabalho. Você pode usar os 
 Os logs conterão o status de falha (`UPLOADFAILED`, `COPYFAILED`e `DOWNLOADFAILED`), o caminho completo e o motivo da falha.
 
 Por padrão, os arquivos de log e de plano estão localizados no diretório `%USERPROFILE%\.azcopy` no Windows ou no diretório `$HOME$\.azcopy` no Mac e no Linux, mas você pode alterar esse local, se desejar.
+
+O erro relevante não é necessariamente o primeiro erro que aparece no arquivo. Para erros como erros de rede, tempos limite e erros de servidor ocupado, o AzCopy tentará novamente até 20 vezes e, geralmente, o processo de repetição será executado com sucesso.  O primeiro erro que você vê pode ser algo inofensivo que foi repetido com êxito.  Então, em vez de olhar o primeiro erro no arquivo, procure os erros que estão próximos `UPLOADFAILED`, `COPYFAILED`ou `DOWNLOADFAILED`. 
 
 > [!IMPORTANT]
 > Ao enviar uma solicitação para Suporte da Microsoft (ou solucionar o problema que envolve terceiros), compartilhe a versão redação do comando que você deseja executar. Isso garante que a SAS não seja compartilhada acidentalmente com ninguém. Você pode encontrar a versão editada no início do arquivo de log.

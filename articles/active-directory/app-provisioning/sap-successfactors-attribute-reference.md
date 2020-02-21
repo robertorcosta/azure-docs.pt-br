@@ -7,19 +7,19 @@ documentationcenter: na
 manager: jodadzie
 ms.assetid: afb77f2d-5ddd-4c2e-a840-09021b0efef1
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: 6f7497e62be0036c13d5c33fa82301469df16f26
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 00b16f969525e7b802c008ba247ecba015875689
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066181"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522349"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>Referência de atributo SAP SuccessFactors
 
@@ -64,15 +64,15 @@ A tabela a seguir captura a lista de atributos SuccessFactors com suporte nos do
 | 31 | Usuário                                   | empId                        | Ler           |
 | 32 | Usuário                                   | homePhone                    | Ler           |
 | 33 | Usuário                                   | jobFamily                    | Ler           |
-| 34 | Usuário                                   | nickname                     | Ler           |
+| 34 | Usuário                                   | apelido                     | Ler           |
 | 35 | Usuário                                   | state                        | Ler           |
 | 36 | Usuário                                   | timeZone                     | Ler           |
-| 37 | Usuário                                   | username                     | Ler           |
+| 37 | Usuário                                   | Nome de Usuário                     | Ler           |
 | 38 | Usuário                                   | zipCode                      | Ler           |
 | 39 | Por telefone                               | areaCode                     | Ler           |
 | 40 | Por telefone                               | countryCode                  | Ler           |
 | 41 | Por telefone                               | extensão                    | Ler           |
-| 42 | Por telefone                               | PhoneNumber                  | Ler           |
+| 42 | Por telefone                               | phoneNumber                  | Ler           |
 | 43 | Por telefone                               | telefonetype                    | Ler           |
 | 44 | Enviar por email                               | emailAddress                 | Leitura, Gravação    |
 | 45 | Enviar por email                               | emailtype                    | Ler           |
@@ -85,7 +85,7 @@ A tabela a seguir captura a lista de atributos SuccessFactors com suporte nos do
 | 52 | EmpJob                                 | endDate                      | Ler           |
 | 53 | EmpJob                                 | startDate                    | Ler           |
 | 54 | EmpJob                                 | jobTitle                     | Ler           |
-| 55 | EmpJob                                 | posição                     | Ler           |
+| 55 | EmpJob                                 | position                     | Ler           |
 | 65 | EmpJob                                 | customString13               | Ler           |
 | 56 | EmpJob                                 | managerId                    | Ler           |
 | 57 | EmpJob\.BusinessUnit                   | businessUnit                 | Ler           |
@@ -98,7 +98,7 @@ A tabela a seguir captura a lista de atributos SuccessFactors com suporte nos do
 | 64 | EmpJob\.CostCenter                     | costCenterDescription        | Ler           |
 | 65 | Departamento de\.de EmpJob                     | department                   | Ler           |
 | 66 | Departamento de\.de EmpJob                     | departmentId                 | Ler           |
-| 67 | Divisão de\.de EmpJob                       | divisão                     | Ler           |
+| 67 | Divisão de\.de EmpJob                       | division                     | Ler           |
 | 68 | Divisão de\.de EmpJob                       | divisionId                   | Ler           |
 | 69 | EmpJob\.JobCode                        | jobCode                      | Ler           |
 | 70 | EmpJob\.JobCode                        | jobCodeId                    | Ler           |
@@ -127,14 +127,14 @@ A tabela a seguir fornece o mapeamento de atributo padrão entre os atributos Su
 | 7  | Usuário                                   | city                     | l                                       | NA                                                                                           |
 | 8  | Usuário                                   | country                  | co                                      | NA                                                                                           |
 | 9  | Usuário                                   | state                    | st                                      | NA                                                                                           |
-| 10 | Usuário                                   | username                 | samAccountName                          | NA                                                                                           |
+| 10 | Usuário                                   | Nome de Usuário                 | samAccountName                          | NA                                                                                           |
 | 11 | Usuário                                   | zipCode                  | postalCode                              | NA                                                                                           |
-| 12 | Enviar por email                               | emailAddress             | email                                    | NA                                                                                           |
+| 12 | Enviar por email                               | emailAddress             | mail                                    | NA                                                                                           |
 | 13 | EmpJob                                 | jobTitle                 | título                                   | NA                                                                                           |
 | 14 | EmpJob                                 | managerId                | manager                                 | NA                                                                                           |
 | 15 | EmpJob\.empresa\.CountryOfRegistration | twoCharCountryCode       | c                                       | NA                                                                                           |
 | 16 | Departamento de\.de EmpJob                     | department               | department                              | NA                                                                                           |
-| 17 | Divisão de\.de EmpJob                       | divisão                 | company                                 | NA                                                                                           |
+| 17 | Divisão de\.de EmpJob                       | division                 | company                                 | NA                                                                                           |
 | 18 | EmpJob\.local                       | officeLocationAddress    | streetAddress                           | NA                                                                                           |
 | 19 | EmpJob\.local                       | officeLocationZipCode    | postalCode                              | NA                                                                                           |
 | 20 | EmpEmploymentTermination               | activeEmploymentsCount   | accountEnabled                          | se activeEmploymentsCount = 0, desabilite o account\.                                           |

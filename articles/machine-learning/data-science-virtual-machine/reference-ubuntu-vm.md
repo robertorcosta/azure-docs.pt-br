@@ -1,5 +1,6 @@
 ---
-title: 'Referência: Ubuntu DSVM'
+title: 'Referência: Ubuntu Máquina Virtual de Ciência de Dados'
+titleSuffix: Azure Data Science Virtual Machine
 description: Detalhes sobre as ferramentas incluídas no Ubuntu Máquina Virtual de Ciência de Dados
 author: gvashishtha
 ms.service: machine-learning
@@ -7,12 +8,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 97072f1a17f2b0adbe96afae3263dc84aff0f30f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5c184e7f1dc828c3f9ff8d449d29ab3aaa4d1cf6
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497619"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525814"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Referência: Ubuntu (Linux) Máquina Virtual de Ciência de Dados
 
@@ -253,7 +254,7 @@ Para saber mais sobre como implantar modelos em R e Python no Azure Machine Lear
 
 ## <a name="machine-learning-tools"></a>Ferramentas de Machine Learning
 
-A VM vem com ferramentas e algoritmos de aprendizado de máquina que foram pré-compiladas e pré-instaladas localmente. Estão incluídas:
+A VM vem com ferramentas e algoritmos de aprendizado de máquina que foram pré-compiladas e pré-instaladas localmente. Eles incluem:
 
 * **Vowpal Wabbit**: um algoritmo de aprendizado rápido online.
 * **xgboost**: uma ferramenta que fornece algoritmos de árvore aumentados e otimizados.
@@ -280,7 +281,7 @@ vw house_dataset
 
 Há outras demonstrações maiores nesse diretório. Para saber mais sobre Vowpal Wabbit, confira [esta seção do GitHub](https://github.com/JohnLangford/vowpal_wabbit) e o [wiki do Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki).
 
-### <a name="xgboost"></a>XGBoost
+### <a name="xgboost"></a>xgboost
 
 A biblioteca xgboost foi projetada e otimizada para algoritmos aumentados (de árvore). O objetivo dessa biblioteca é estender os limites de computação de máquinas para os extremos necessários de modo a fornecer aumento de árvore de grande escala escalonável, portátil e preciso.
 
@@ -314,7 +315,7 @@ Para saber mais sobre o xgboost, confira a [página de documentação do xgboost
 
 ### <a name="rattle"></a>Rattle
 
-Rattle (the **R** **A**nalytical **T**ool **T**o **L**earn **E**asily – Ferramenta Analítica do R para Aprender com Facilidade) usa exploração e modelagem de dados com base em GUI. Ele apresenta resumos estatísticos e visuais dos dados, transforma os dados que podem ser modelados prontamente, compila modelos de dados supervisionados e sem supervisão, apresenta o desempenho dos modelos graficamente e calcula as pontuações de novos conjuntos de dados. Ele também gera código R, replicando as operações na interface do usuário que pode ser executado diretamente em R ou usado como ponto de partida para análise posterior.
+Rattle (o **R** **a**njunto **t**ool **t**o **L**ganhe **e**Earn) usa modelagem e exploração de dados baseados em GUI. Ele apresenta resumos estatísticos e visuais dos dados, transforma os dados que podem ser modelados prontamente, compila modelos de dados supervisionados e sem supervisão, apresenta o desempenho dos modelos graficamente e calcula as pontuações de novos conjuntos de dados. Ele também gera código R, replicando as operações na interface do usuário que pode ser executado diretamente em R ou usado como ponto de partida para análise posterior.
 
 Para executar o Rattle, você precisa estar em uma sessão de logon da área de trabalho gráfica. No terminal, insira **R** para abrir o ambiente R. No prompt do R, digite os seguintes comandos:
 

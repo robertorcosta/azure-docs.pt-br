@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.openlocfilehash: f86a63315798d982f7e78fd1ff293061daf50132
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e1157a695d34c75b237391427b37365421366ef8
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786768"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523163"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Azure Functions o desenvolvimento e a configuração com o serviço de Signaler do Azure
 
@@ -27,12 +27,12 @@ Na portal do Azure, localize a página *configurações* do recurso de serviço 
 
 ![Modo de Serviço do SignalR](media/signalr-concept-azure-functions/signalr-service-mode.png)
 
-## <a name="azure-functions-development"></a>Desenvolvimento de Azure Functions
+## <a name="azure-functions-development"></a>Desenvolvimento do Azure Functions
 
-Um aplicativo em tempo real sem servidor criado com o Azure Functions e o serviço de Signaler do Azure normalmente requer duas Azure Functions:
+Um aplicativo em tempo real sem servidor criado com o Azure Functions e o serviço do Azure SignalR normalmente requer dois Azure Functions:
 
-* Uma função "Negotiate" que o cliente chama para obter um token de acesso de serviço de sinalização válido e URL de ponto de extremidade de serviço
-* Uma ou mais funções que enviam mensagens ou gerenciam a associação de grupo
+* Uma função "negotiate" que o cliente chama para obter um token de acesso de serviço válido do Serviço do SignalR e a URL do ponto de extremidade de serviço
+* Uma ou mais funções que enviam mensagens ou gerenciam a associação do grupo
 
 ### <a name="negotiate-function"></a>função Negotiate
 
@@ -40,7 +40,7 @@ Um aplicativo cliente requer um token de acesso válido para se conectar ao serv
 
 Use uma função do Azure disparada por HTTP e a associação de entrada *SignalRConnectionInfo* para gerar o objeto de informações de conexão. A função deve ter uma rota HTTP que termine em `/negotiate`.
 
-Para obter mais informações sobre como criar a função Negotiate, consulte a referência de associação de entrada do [ *SignalRConnectionInfo* ](../azure-functions/functions-bindings-signalr-service.md#input).
+Para obter mais informações sobre como criar a função Negotiate, consulte a referência de associação de entrada do [ *SignalRConnectionInfo* ](../azure-functions/functions-bindings-signalr-service-input.md).
 
 Para saber mais sobre como criar um token autenticado, consulte [usando a autenticação do serviço de aplicativo](#using-app-service-authentication).
 
@@ -50,7 +50,7 @@ Use a associação de saída do *signalr* para enviar mensagens aos clientes con
 
 Os usuários podem ser adicionados a um ou mais grupos. Você também pode usar a associação de saída do *signalr* para adicionar ou remover usuários de/para grupos.
 
-Para obter mais informações, consulte a referência de associação de saída do [ *signalr* ](../azure-functions/functions-bindings-signalr-service.md#output).
+Para obter mais informações, consulte a referência de associação de saída do [ *signalr* ](../azure-functions/functions-bindings-signalr-service-output.md).
 
 ### <a name="signalr-hubs"></a>Hubs de sinalização
 
@@ -205,6 +205,6 @@ public static Task SendMessage(
 
 Para obter informações sobre outras linguagens, consulte [associações de serviço do Azure signalr](../azure-functions/functions-bindings-signalr-service.md) para Azure Functions referência.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu a desenvolver e configurar aplicativos de serviço de sinalização sem servidor usando o Azure Functions. Tente criar um aplicativo por conta própria usando um dos tutoriais ou inícios rápidos na [página Visão geral do serviço signalr](index.yml).

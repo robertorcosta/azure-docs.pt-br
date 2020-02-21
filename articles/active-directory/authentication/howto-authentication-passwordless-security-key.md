@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 02/12/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 826b8e923575db3d6c6aee7ead230f87f1efb50e
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 8d5ff722d4a035113af8528ed8adb396b01c81eb
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848435"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77504953"
 ---
-# <a name="enable-passwordless-security-key-sign-in-preview"></a>Habilitar entrada de chave de segurança sem senha (visualização)
+# <a name="enable-passwordless-security-key-sign-in-preview"></a>Habilitar entrada de chave de segurança sem senha (versão prévia)
 
 Para empresas que usam senhas hoje e têm um ambiente de PC compartilhado, as chaves de segurança fornecem uma maneira simples para os trabalhadores autenticarem sem inserir um nome de usuário ou senha. As chaves de segurança fornecem produtividade aprimorada para os trabalhadores e têm mais segurança.
 
@@ -26,7 +26,7 @@ Este documento se concentra na habilitação da autenticação com senha baseada
 
 |     |
 | --- |
-| As chaves de segurança do FIDO2 são um recurso de visualização pública do Azure Active Directory. Para obter mais informações sobre visualizações, consulte [Termos de Uso Suplementares para as Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| As chaves de segurança do FIDO2 são um recurso de visualização pública do Azure Active Directory. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## <a name="requirements"></a>Requisitos
@@ -40,7 +40,9 @@ Para usar as chaves de segurança para fazer logon em serviços e aplicativos We
 
 ## <a name="prepare-devices-for-preview"></a>Preparar dispositivos para visualização
 
-Os dispositivos com os quais você executará o piloto devem estar executando o Windows 10 versão 1809 ou superior. A melhor experiência é no Windows 10 versão 1903 ou superior.
+Dispositivos ingressados no Azure AD com os quais você faz o piloto devem executar o Windows 10 versão 1809 ou superior. A melhor experiência é no Windows 10 versão 1903 ou superior.
+
+Dispositivos ingressados no Azure AD híbrido devem executar o Windows 10 Insider Build 18945 ou mais recente.
 
 ## <a name="enable-passwordless-authentication-method"></a>Habilitar método de autenticação com senha
 
@@ -68,7 +70,7 @@ Os recursos de registro para métodos de autenticação com senha contam com a v
 1. Escolha **dispositivo USB** ou **dispositivo NFC**.
 1. Prepare sua chave e escolha **Avançar**.
 1. Uma caixa será exibida e solicitará que o usuário crie/Insira um PIN para sua chave de segurança e, em seguida, execute o gesto necessário para a chave, biométrica ou toque.
-1. O usuário será devolvido à experiência de registro combinada e será solicitado a fornecer um nome significativo para a chave para que o usuário possa identificar qual delas tem várias. Clique em \\**Próximo**.
+1. O usuário será devolvido à experiência de registro combinada e será solicitado a fornecer um nome significativo para a chave para que o usuário possa identificar qual delas tem várias. Clique em **Próximo**.
 1. Clique em **concluído** para concluir o processo.
 
 ## <a name="sign-in-with-passwordless-credential"></a>Entrar com credencial sem senha
@@ -79,13 +81,13 @@ No exemplo abaixo, um usuário já provisionou sua chave de segurança FIDO2. O 
 
 ## <a name="troubleshooting-and-feedback"></a>Solução de problemas e comentários
 
-Se você quiser compartilhar comentários ou encontrar problemas ao visualizar esse recurso, compartilhe por meio do aplicativo Hub de comentários do Windows.
+Se você quiser compartilhar comentários ou encontrar problemas ao visualizar esse recurso, compartilhe por meio do aplicativo Hub de comentários do Windows usando as seguintes etapas:
 
 1. Inicie o **Hub de comentários** e verifique se você está conectado.
 1. Envie comentários sob a seguinte categorização:
-   1. Categoria: segurança e privacidade
-   1. Subcategoria: FIDO
-1. Para capturar logs, use a opção: **recriar meu problema**
+   - Categoria: segurança e privacidade
+   - Subcategoria: FIDO
+1. Para capturar logs, use a opção para **recriar meu problema**
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -95,9 +97,9 @@ O provisionamento e desprovisionamento de chaves de segurança do administrador 
 
 ### <a name="upn-changes"></a>Alterações de UPN
 
-Se o UPN de um usuário for alterado, você não poderá mais modificar as chaves de segurança FIDO2 para considerar a alteração. A resolução é redefinir o dispositivo e o usuário precisa registrar novamente suas chaves de segurança do FIDO2.
+Estamos trabalhando para dar suporte a um recurso que permita a alteração de UPN em dispositivos ingressados no Azure AD híbrido e no Azure AD. Se o UPN de um usuário for alterado, você não poderá mais modificar as chaves de segurança FIDO2 para considerar a alteração. A resolução é redefinir o dispositivo e o usuário precisa registrá-lo novamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Entrada da chave de segurança do FIDO2 do Windows 10](howto-authentication-passwordless-security-key-windows.md)
 

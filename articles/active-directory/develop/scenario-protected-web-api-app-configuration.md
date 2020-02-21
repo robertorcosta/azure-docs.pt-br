@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 975117ad5c58bed77002a33f0dc5370d0f1c17e2
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: b05eefb2a0e516772390f898c22e723b08973338
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931473"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484444"
 ---
 # <a name="protected-web-api-code-configuration"></a>API Web protegida: configuração de código
 
@@ -108,7 +108,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 O middleware é adicionado à API Web por esta instrução:
 
 ```csharp
- services.AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
+ services.AddAuthentication(AzureADDefaults.JwtBearerAuthenticationScheme)
+         .AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
 ```
 
  Atualmente, os modelos de ASP.NET Core criam APIs da Web do Azure Active Directory (Azure AD) que conectam usuários em sua organização ou em qualquer organização. Eles não entram em usuários com contas pessoais. Mas você pode alterar os modelos para usar o ponto de extremidade da plataforma de identidade da Microsoft adicionando este código a Startup.cs:
@@ -153,7 +154,7 @@ As etapas de validação são capturadas em validadores, que são fornecidas pel
 
 Esta tabela descreve os validadores:
 
-| Validator | Description |
+| Validator | DESCRIÇÃO |
 |---------|---------|
 | **ValidateAudience** | Garante que o token seja para o aplicativo que valida o token para você. |
 | **ValidateIssuer** | Garante que o token foi emitido por um STS confiável, o que significa que ele é de alguém em que você confia. |
@@ -170,7 +171,7 @@ Na maioria dos casos, você não precisa alterar os parâmetros. Aplicativos que
 
 Você também pode validar tokens de acesso de entrada no Azure Functions. Você pode encontrar exemplos de tal validação em [Microsoft .net](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions), [NodeJS](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions)e [python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Verificar escopos e funções de aplicativo em seu código](scenario-protected-web-api-verification-scope-app-roles.md)

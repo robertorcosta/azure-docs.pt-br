@@ -1,30 +1,30 @@
 ---
-title: O que é a pontuação segura de identidade? - Azure Active Directory
-description: Como você pode usar a pontuação segura de identidade para melhorar a postura de segurança do seu diretório
+title: O que é Pontuação segura de identidade? -Azure Active Directory
+description: Como você pode usar a pontuação de segurança de identidade para melhorar a postura de segurança do seu diretório
 services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 02/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cdff2305914ca6e4144f7784d1a60026a1d27c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f75dea2cffbe710bf2778ceab5eacc91ffcca9c
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65988717"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523094"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>O que é a classificação de segurança de identidade no Azure Active Directory?
 
-Quão seguro é seu locatário do Azure AD? Se você não souber como responder a essa pergunta, este artigo explica como a pontuação de identidade seguro ajuda a monitorar e melhorar sua postura de segurança de identidade.
+Quão seguro é seu locatário do Azure AD? Se você não souber como responder a essa pergunta, este artigo explicará como a pontuação segura de identidade ajuda você a monitorar e melhorar sua postura de segurança de identidade.
 
 ## <a name="what-is-an-identity-secure-score"></a>O que é uma classificação de segurança de identidade?
 
-A pontuação segura de identidade é um número entre 1 e 223 que funciona como um indicador de como está alinhado com práticas recomendadas da Microsoft para segurança. Cada ação de melhoria na pontuação de identidade seguro é personalizada para sua configuração específica.  
+A pontuação segura de identidade é o número entre 1 e 223 que funciona como um indicador de quão alinhado você é com as práticas recomendadas da Microsoft para segurança. Cada ação de aprimoramento na pontuação de segurança de identidade é adaptada para sua configuração específica.  
 
 ![Classificação de segurança](./media/identity-secure-score/identity-secure-score-overview.png)
 
@@ -36,27 +36,27 @@ A classificação ajuda você a:
 
 Você pode acessar a classificação e informações relacionadas a no painel de classificação de segurança de identidade. Neste painel, você encontrará:
 
-- Sua pontuação de seguro de identidade
-- Um gráfico de comparação mostrando como sua pontuação de identidade segura se compara a outros locatários no mesmo setor e tamanho semelhante
-- Um gráfico de tendência que mostra como sua pontuação de seguro de identidade foi alterada ao longo do tempo
-- Uma lista de possíveis aprimoramentos
+- Sua pontuação de segurança de identidade
+- Um grafo de comparação que mostra como sua pontuação segura de identidade se compara a outros locatários no mesmo setor e tamanho semelhante
+- Um grafo de tendência mostrando como sua pontuação segura de identidade mudou ao longo do tempo
+- Uma lista de possíveis melhorias
 
 Ao seguir as ações de melhoria, você pode:
 
-- Melhorar sua postura de segurança e sua pontuação
-- Aproveite os recursos disponíveis para sua organização como parte de seus investimentos de identidade
+- Melhore sua postura de segurança e sua pontuação
+- Aproveite os recursos disponíveis para sua organização como parte de seus investimentos em identidade
 
 ## <a name="how-do-i-get-my-secure-score"></a>Como faço para obter minha classificação de segurança?
 
-A pontuação segura de identidade está disponível em todas as edições do AD do Azure. Para acessar sua classificação, vá para o [painel Visão Geral do Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/IdentitySecureScore).
+A pontuação de segurança de identidade está disponível em todas as edições do Azure AD. As organizações podem acessar sua pontuação segura de identidade do **portal do Azure** > **Azure Active Directory** > **segurança** > **Pontuação segura de identidade**.
 
 ## <a name="how-does-it-work"></a>Como ele funciona?
 
-A cada 48 horas, o Azure analisa sua configuração de segurança e compara suas configurações com as práticas recomendadas. Com base no resultado da avaliação, uma nova pontuação é calculada para seu diretório. É possível que sua configuração de segurança não está totalmente alinhada com diretrizes de práticas recomendadas e as ações de melhoria apenas parcialmente forem atendidas. Nesses cenários, você só receberá uma parte da pontuação máxima disponível para o controle.
+A cada 48 horas, o Azure analisa sua configuração de segurança e compara suas configurações com as práticas recomendadas. Com base no resultado dessa avaliação, uma nova pontuação é calculada para seu diretório. É possível que sua configuração de segurança não esteja totalmente alinhada com as diretrizes de práticas recomendadas e as ações de melhoria sejam atendidas apenas parcialmente. Nesses cenários, você receberá apenas uma parte da pontuação máxima disponível para o controle.
 
-Cada recomendação é medida com base na sua configuração do Azure AD. Se você estiver usando os produtos de terceiros para habilitar uma prática recomendada, você pode indicar essa configuração nas configurações de uma ação de melhoria. Você também tem a opção de definir as recomendações a serem ignorados se eles não se aplicam ao seu ambiente. Uma recomendação ignorada não contribui para o cálculo de sua classificação.
+Cada recomendação é medida com base na sua configuração do Azure AD. Se você estiver usando produtos de terceiros para habilitar uma recomendação de prática recomendada, poderá indicar essa configuração nas configurações de uma ação de aperfeiçoamento. Você também tem a opção de definir recomendações a serem ignoradas se elas não se aplicarem ao seu ambiente. Uma recomendação ignorada não contribui para o cálculo de sua classificação.
 
-![Ignorar ou marcar a ação conforme abordado por terceiros](./media/identity-secure-score/identity-secure-score-ignore-or-third-party-reccomendations.png)
+![Ignorar ou marcar a ação como coberta por terceiros](./media/identity-secure-score/identity-secure-score-ignore-or-third-party-reccomendations.png)
 
 ## <a name="how-does-it-help-me"></a>Como isso me ajuda?
 
@@ -78,7 +78,7 @@ A classificação de segurança de identidade pode ser usada pelas funções a s
 
 ### <a name="how-are-controls-scored"></a>Como os controles são pontuados?
 
-Controles podem ser pontuados de duas maneiras. Algumas são pontuadas de forma binária - você tem 100% da pontuação de se você tiver o recurso ou configuração definida com base em nossa recomendação. Outras pontuações são calculadas como uma porcentagem da configuração do total. Por exemplo, se a recomendação de melhoria informa você terá 30 pontos se você proteger todos os seus usuários com o MFA e tiver apenas 5 do total de 100 usuários protegidos, você receberia uma pontuação parcial cerca de 2 pontos (5 protegidos / total de 100 * 30 pts máximo = 2 pontuação parcial de pts) .
+Os controles podem ser classificados de duas maneiras. Algumas são pontuadas de maneira binária – você obtém 100% da Pontuação se tiver o recurso ou a configuração configurada com base em nossa recomendação. Outras pontuações são calculadas como uma porcentagem da configuração total. Por exemplo, se a recomendação de melhoria indicar que você obterá 30 pontos se proteger todos os usuários com MFA e tiver apenas 5 de 100 total de usuários protegidos, você receberia uma pontuação parcial em cerca de 2 pontos (5 protegidos/100 total * 30 máximo de pts = 2 pt de Pontuação parcial).
 
 ### <a name="what-does-not-scored-mean"></a>O que [Não Pontuado] significa?
 
@@ -90,30 +90,30 @@ A classificação é calculada uma vez por dia (aproximadamente à 1h PST). Se v
 
 ### <a name="my-score-changed-how-do-i-figure-out-why"></a>Minha classificação mudou. Como faço para descobrir por quê?
 
-Vá para o [Central de segurança do Microsoft 365](https://security.microsoft.com/), onde você encontrará sua pontuação segura do Microsoft completa. Você pode ver facilmente todas as alterações à sua pontuação segura, revisando as alterações detalhadas na guia Histórico.
+Acesse a [central de segurança do Microsoft 365](https://security.microsoft.com/), onde você encontrará sua pontuação de segurança completa da Microsoft. Você pode ver facilmente todas as alterações na sua pontuação segura revisando as alterações detalhadas na guia histórico.
 
-### <a name="does-the-secure-score-measure-my-risk-of-getting-breached"></a>A pontuação segura medir meu risco de Introdução violado?
+### <a name="does-the-secure-score-measure-my-risk-of-getting-breached"></a>A pontuação segura mede o risco de serem violadas?
 
-Em breve, não. A pontuação segura não expressa uma medida absoluta de como provavelmente você devem obter violado. Expressa a extensão em que você adotou recursos que podem compensar o risco de sofrer uma violação. Nenhum serviço pode garantir que você não será ser violada e a pontuação segura não deve ser interpretada como uma garantia de nenhuma forma.
+Em breve, não. A pontuação segura não expressa uma medida absoluta de quão provável que você tenha sido violada. Expressa a extensão em que você adotou recursos que podem compensar o risco de sofrer uma violação. Nenhum serviço pode garantir que você não será violado e a pontuação segura não deve ser interpretada como uma garantia de qualquer forma.
 
 ### <a name="how-should-i-interpret-my-score"></a>Como devo interpretar a minha classificação?
 
-Você recebe pontos para configuração recursos de segurança recomendados ou realizar tarefas relacionadas a segurança (como a leitura de relatórios). Algumas ações são pontuadas para conclusão parcial, como habilitar MFA (autenticação multifator) para seus usuários. Sua pontuação segura diretamente é representativa dos serviços de segurança da Microsoft que você usa. Lembre-se de que a segurança deve ser equilibrada com facilidade de uso. Todos os controles de segurança têm um componente de impacto ao usuário. Controles com baixo impacto ao usuário devem ter pouco ou nenhum efeito sobre as operações diárias dos usuários.
+Você recebe pontos para configuração recursos de segurança recomendados ou realizar tarefas relacionadas a segurança (como a leitura de relatórios). Algumas ações são pontuadas para conclusão parcial, como habilitar MFA (autenticação multifator) para seus usuários. Sua pontuação segura é um representante direto dos serviços de segurança da Microsoft que você usa. Lembre-se de que a segurança deve ser equilibrada com usabilidade. Todos os controles de segurança têm um componente de impacto ao usuário. Controles com baixo impacto ao usuário devem ter pouco ou nenhum efeito sobre as operações diárias dos usuários.
 
-Para ver o histórico da pontuação, vá para o [Central de segurança do Microsoft 365](https://security.microsoft.com/) e examine sua pontuação geral de seguro de Microsoft. Você pode examinar as alterações para geral pontuação segura estar clicando em Exibir histórico. Escolha uma data específica para ver quais controles foram habilitados para aquele dia e que pontos você ganhou para cada um.
+Para ver seu histórico de pontuação, acesse a [central de segurança do Microsoft 365](https://security.microsoft.com/) e examine sua pontuação de segurança geral da Microsoft. Você pode examinar as alterações em sua pontuação de segurança geral clicando em Exibir histórico. Escolha uma data específica para ver quais controles foram habilitados para aquele dia e que pontos você ganhou para cada um.
 
 ### <a name="how-does-the-identity-secure-score-relate-to-the-office-365-secure-score"></a>Como a classificação de segurança de identidade se relaciona à classificação de segurança do Office 365?
 
-O [Microsoft secure score](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score) contém cinco categorias de pontuação e controle distinto:
+A [Pontuação de segurança da Microsoft](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score) contém cinco categorias de controle distinto e Pontuação:
 
 - Identidade
-- Dados
+- data
 - Dispositivos
 - Infraestrutura
 - Aplicativos
 
-A pontuação de identidade seguro representa a parte de identidade da pontuação de seguro de Microsoft. Essa sobreposição significa que suas recomendações para a identidade do secure score e a pontuação de identidade no Microsoft é os mesmos.
+A pontuação de segurança de identidade representa a parte de identidade da Pontuação segura da Microsoft. Essa sobreposição significa que suas recomendações para a pontuação de segurança de identidade e a pontuação de identidade na Microsoft são as mesmas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Saiba mais sobre a pontuação segura da Microsoft](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score)
+[Saiba mais sobre a pontuação de segurança da Microsoft](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score)

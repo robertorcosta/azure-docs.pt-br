@@ -6,7 +6,7 @@ documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41a4eb565f49b75b64cc072d3017c41000154e2a
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e48388d4e15923c1f3e66321132197670b30c6b9
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066818"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522553"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicativo com base em atributo com filtros de escopo
 O objetivo deste artigo é explicar como usar filtros de escopo para definir regras baseadas em atributo que determinam quais usuários serão provisionados a um aplicativo.
@@ -118,14 +118,14 @@ Os filtros de escopo são configurados como parte dos mapeamentos de atributos p
 
 
 ## <a name="common-scoping-filters"></a>Filtros de escopo comuns
-| Atributo de Destino| Operador | {1&gt;Valor&lt;1} | Descrição|
+| Atributo de Destino| Operador | Valor | DESCRIÇÃO|
 |----|----|----|----|
 |userPrincipalName|CORRESPONDÊNCIA DE REGEX|.\*@domain.com |Todos os usuários com userPrincipal que têm o domínio @domain.com estarão no escopo para provisionamento|
 |userPrincipalName|NÃO CORRESPONDÊNCIA DE REGEX|.\*@domain.com|Todos os usuários com userPrincipal que têm o domínio @domain.com estarão fora do escopo para provisionamento|
 |department|EQUALS|sales|Todos os usuários do departamento de vendas estão no escopo para provisionamento|
 |workerid|CORRESPONDÊNCIA DE REGEX|(1[0-9][0-9][0-9][0-9][0-9][0-9])| Todos os funcionários com workerIDs entre 1 milhão e 2 milhões estão no escopo para provisionamento.|
 
-## <a name="related-articles"></a>{1&gt;{2&gt;Artigos relacionados&lt;2}&lt;1}
+## <a name="related-articles"></a>Artigos relacionados
 * [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS](../app-provisioning/user-provisioning.md)
 * [Personalizar mapeamentos de atributos para provisionamento do usuário](../app-provisioning/customize-application-attributes.md)
 * [Escrever expressões para mapeamentos de atributo](functions-for-customizing-application-data.md)

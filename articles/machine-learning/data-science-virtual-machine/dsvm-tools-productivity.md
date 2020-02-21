@@ -1,5 +1,5 @@
 ---
-title: Ferramentas de produtividade no DSVM
+title: Ferramentas de produtividade
 titleSuffix: Azure Data Science Virtual Machine
 description: Saiba mais sobre as ferramentas de produtividade nas máquinas virtuais de ciência de dados.
 keywords: aprendizado profundo, IA, ferramentas de ciência de dados, máquina virtual de ciência de dados, análise geoespacial, processo de ciência de dados da equipe
@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/20/2019
-ms.openlocfilehash: df415ce06afa8be80c0e0ed4375950e20474bcbb
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: cfafd680e4f4907248d3d79a504aa04696988021
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615470"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526052"
 ---
 # <a name="productivity-tools-on-the-data-science-virtual-machine"></a>Ferramentas de produtividade no Máquina Virtual de Ciência de Dados
 

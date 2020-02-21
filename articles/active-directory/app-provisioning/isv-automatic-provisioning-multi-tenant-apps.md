@@ -6,7 +6,7 @@ documentationcenter: azure
 author: BarbaraSelden
 manager: CelesteDG
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: baselden
 ms.reviewer: zhchia
 ms.collection: active-directory
-ms.openlocfilehash: 963cec069052484362e4eb31eb2479f4a915cae8
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 93e1d879f69a95fe7472ce530e0e9f38f3480f39
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066441"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522386"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Habilitar o provisionamento automático de usuário para seu aplicativo multilocatário
 
@@ -113,7 +113,7 @@ Se você quiser provisionar usuários somente na primeira entrada em seu aplicat
 
 O SAML JIT usa as informações de declarações no token SAML para criar e atualizar as informações do usuário no aplicativo. Os clientes podem configurar essas declarações necessárias no aplicativo do Azure AD, conforme necessário. Às vezes, o provisionamento JIT precisa ser habilitado no lado do aplicativo para que o cliente possa usar esse recurso. O JIT do SAML é útil para criar e atualizar usuários, mas não pode excluir ou desativar os usuários no aplicativo.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Habilitar logon único para seu aplicativo](../manage-apps/isv-sso-content.md)
 

@@ -6,12 +6,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 03/19/2019
-ms.openlocfilehash: 26bd6c8b31bd16c058c5cb35cab086117b9f8cc5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 8559dc357d34d505d45cd0a6491183345ae5cf61
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845805"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526579"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Visão geral de exclusão reversível do Azure Key Vault
 
@@ -34,15 +34,13 @@ Os Azure Key Vaults são recursos controlados, gerenciados pelo Azure Resource M
 
 ### <a name="soft-delete-behavior"></a>Comportamento de exclusão reversível
 
-Com esse recurso, a operação DELETE em um cofre de chaves ou objeto do cofre de chaves é uma exclusão reversível, efetivamente mantendo os recursos por um período de retenção especificado (90 dias), ao mesmo tempo aparentando ter excluído o objeto. Além disso, o serviço fornece um mecanismo para recuperar o objeto excluído, basicamente, desfazendo a exclusão. 
+Quando a exclusão reversível está habilitada, os recursos marcados como recursos excluídos são mantidos por um período especificado (90 dias por padrão). Além disso, o serviço fornece um mecanismo para recuperar o objeto excluído, basicamente, desfazendo a exclusão.
 
-A exclusão reversível agora está ativada por padrão para cofres de chaves recém-criados. Ele pode ser desabilitado por meio do [CLI do Azure](key-vault-soft-delete-cli.md) ou [do Azure PowerShell](key-vault-soft-delete-powershell.md).
+Ao criar um novo cofre de chaves, a exclusão reversível está ativada por padrão. Você pode criar um cofre de chaves sem exclusão reversível por meio do [CLI do Azure](key-vault-soft-delete-cli.md) ou [do Azure PowerShell](key-vault-soft-delete-powershell.md). Quando a exclusão reversível está habilitada em um cofre de chaves, ela não pode ser desabilitada
 
-O período de retenção padrão é de 90 dias, mas é possível definir o intervalo da política de retenção para um valor de 7 a 90 dias por meio da portal do Azure. A política de retenção de proteção de limpeza usa o mesmo intervalo. 
+O período de retenção padrão é de 90 dias, mas durante a criação do Key Vault, é possível definir o intervalo da política de retenção para um valor de 7 a 90 dias por meio da portal do Azure. A política de retenção de proteção de limpeza usa o mesmo intervalo. Uma vez definido, o intervalo da política de retenção não pode ser alterado.
 
-Depois que a exclusão reversível tiver sido definida em um cofre de chaves, ela não poderá ser desabilitada e o intervalo da política de retenção não poderá ser alterado. 
-
-Não é possível reutilizar o nome de um cofre de chaves que foi excluído de forma reversível até que o período de retenção tenha passado. 
+Não é possível reutilizar o nome de um cofre de chaves que foi excluído de forma reversível até que o período de retenção tenha passado.
 
 ### <a name="purge-protection"></a>Limpar proteção 
 
@@ -90,7 +88,7 @@ Em geral, quando um objeto (um cofre de chaves ou uma chave ou um segredo) está
 - Ações “limpar' e “recuperar” contarão até as operações do cofre de chaves normal e serão cobradas.
 - Se o objeto for uma chave de HSM, o encargo”chave Protegida HSM” por versão de chave por encargo mensal será aplicada se uma versão de chave tiver sido usada nos últimos 30 dias. Depois disso, uma vez que o objeto está no estado excluído, nenhuma operação pode ser executada em relação a ela, portanto nenhum encargo será aplicado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 As duas guias a seguir oferecem os cenários de uso primário para usar a exclusão reversível.
 

@@ -1,23 +1,27 @@
 ---
-title: Manual de práticas recomendadas de segurança para o banco de dados SQL do Azure | Microsoft Docs
-description: Este artigo fornece diretrizes gerais para as práticas recomendadas de segurança no banco de dados SQL do Azure.
+title: Guia estratégico para tratar dos requisitos de segurança comuns | Microsoft Docs
+titleSuffix: Azure SQL Database
+description: Este artigo fornece requisitos de segurança e práticas recomendadas comuns no banco de dados SQL do Azure.
 ms.service: sql-database
 ms.subservice: security
 author: VanMSFT
 ms.author: vanto
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 095d435b9a595c420821da0813fdfc0893d70d89
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c18e1b1a1feba5c528a692b7d63287b3751b62cf
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845876"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77506219"
 ---
-# <a name="azure-sql-database-security-best-practices-playbook"></a>Manual de práticas recomendadas de segurança do banco de dados SQL do Azure
+# <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database"></a>Guia estratégico para tratar dos requisitos de segurança comuns com o banco de dados SQL do Azure
 
-## <a name="overview"></a>Visão Geral
+> [!NOTE]
+> Este documento fornece as práticas recomendadas sobre como resolver requisitos comuns de segurança. Nem todos os requisitos são aplicáveis a todos os ambientes, e você deve consultar sua equipe de banco de dados e segurança sobre quais recursos implementar.
+
+## <a name="solving-common-security-requirements"></a>Resolvendo requisitos de segurança comuns
 
 Este documento fornece orientação sobre como resolver requisitos comuns de segurança para aplicativos novos ou existentes usando o banco de dados SQL do Azure. Ele é organizado por áreas de segurança de alto nível. Para lidar com ameaças específicas, consulte a seção [ameaças comuns de segurança e possíveis mitigações](#common-security-threats-and-potential-mitigations) . Embora algumas das recomendações apresentadas sejam aplicáveis ao migrar aplicativos do local para o Azure, os cenários de migração não são o foco deste documento.
 
@@ -28,7 +32,7 @@ Este documento fornece orientação sobre como resolver requisitos comuns de seg
 
 ### <a name="sql-deployment-offers-not-covered-in-this-guide"></a>Ofertas de implantação do SQL não abordadas neste guia
 
-- Azure SQL Data Warehouse
+- SQL Data Warehouse do Azure
 - VMs do SQL do Azure (IaaS)
 - SQL Server local
 
@@ -66,6 +70,9 @@ A autenticação é o processo de provar que o usuário é quem diz ser. O Banco
 - Autenticação SQL
 - Autenticação do Azure Active Directory
 
+> [!NOTE]
+> A autenticação Azure Active Directory pode não ter suporte para todas as ferramentas e aplicativos de terceiros.
+
 ### <a name="central-management-for-identities"></a>Gerenciamento central de identidades
 
 O gerenciamento de identidade central oferece os seguintes benefícios:
@@ -82,7 +89,7 @@ O gerenciamento de identidade central oferece os seguintes benefícios:
 
 - Crie um locatário do Azure AD e [crie usuários](../active-directory/fundamentals/add-users-azure-active-directory.md) para representar usuários humanos e criar [entidades de serviço](../active-directory/develop/app-objects-and-service-principals.md) para representar aplicativos, serviços e ferramentas de automação. As entidades de serviço são equivalentes às contas de serviço no Windows e no Linux. 
 
-- Atribuir direitos de acesso aos recursos para entidades de segurança do Azure AD por meio da atribuição de Grupo: criar grupos do Azure AD, conceder acesso a grupos e adicionar membros individuais aos grupos. Em seu banco de dados, crie usuários de banco de dados independente que mapeiem seus grupos do Azure AD. 
+- Atribuir direitos de acesso aos recursos para entidades de segurança do Azure AD por meio da atribuição de Grupo: criar grupos do Azure AD, conceder acesso a grupos e adicionar membros individuais aos grupos. Em seu banco de dados, crie usuários de banco de dados independente que mapeiem seus grupos do Azure AD. Para atribuir permissões dentro do banco de dados, coloque os usuários nas funções de banco de dados com as permissões apropriadas.
   - Consulte os artigos, [configurar e gerenciar a autenticação de Azure Active Directory com o SQL](sql-database-aad-authentication-configure.md) e [usar o Azure ad para autenticação com o SQL](sql-database-aad-authentication.md).
   > [!NOTE]
   > Em uma instância gerenciada, você também pode criar logons que são mapeados para entidades de segurança do Azure AD no banco de dados mestre. Consulte [Create login (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
@@ -204,11 +211,6 @@ A autenticação do SQL refere-se à autenticação de um usuário ao conectar-s
 - Como administrador do servidor, crie logons e usuários. A menos que o uso de usuários de banco de dados independente tenha senhas, todas as senhas são armazenadas no banco de dados mestre.
   - Consulte o artigo [controlando e concedendo acesso ao banco de dados SQL e SQL data warehouse](sql-database-manage-logins.md).
 
-- Siga as práticas recomendadas de gerenciamento de senhas:
-  - Forneça uma senha complexa, composta por letras maiúsculas e minúsculas latinas, dígitos (0-9) e caracteres não alfanuméricos (como $,!, # ou%).
-  - Use senhas mais longas em vez de caracteres selecionados aleatoriamente mais curtos.
-  - Impor a alteração de senha manual pelo menos a cada 90 dias.
-
 ## <a name="access-management"></a>Gerenciamento de acesso
 
 O gerenciamento de acesso é o processo de controlar e gerenciar o acesso e os privilégios de usuários autorizados ao banco de dados SQL do Azure.
@@ -250,24 +252,25 @@ As práticas recomendadas a seguir são opcionais, mas resultarão em melhor cap
 
 - Evite atribuir permissões a usuários individuais. Use funções (funções de banco de dados ou de servidor) de forma consistente. As funções ajudam muito com as permissões de relatório e solução de problemas. (O RBAC do Azure dá suporte apenas à atribuição de permissão por meio de funções.) 
 
-- Use funções internas quando as permissões das funções corresponderem exatamente às permissões necessárias para o usuário. Você pode atribuir usuários a várias funções. 
-
-- Crie e use funções personalizadas quando as funções internas concederem permissões demais ou insuficientes. Funções típicas que são usadas na prática: 
+- Crie e use funções personalizadas com as permissões exatas necessárias. Funções típicas que são usadas na prática: 
   - Implantação de segurança 
   - Administrador 
-  - Developer 
+  - Desenvolvedor 
   - Equipe de suporte 
   - Auditor 
   - Processos automatizados 
   - Usuário final 
+  
+- Use funções internas somente quando as permissões das funções corresponderem exatamente às permissões necessárias para o usuário. Você pode atribuir usuários a várias funções. 
 
 - Lembre-se de que as permissões no Mecanismo de Banco de Dados de SQL Server podem ser aplicadas nos escopos a seguir. Quanto menor o escopo, menor o impacto das permissões concedidas: 
   - Servidor de banco de dados SQL do Azure (funções especiais no banco de dados mestre) 
   - Banco de dados 
-  - Esquema (consulte também: [Schema-design para SQL Server: recomendações para design de esquema com a segurança em mente](http://andreas-wolter.com/en/schema-design-for-sql-server-recommendations-for-schema-design-with-security-in-mind/))
+  - Esquema
+      - É uma prática recomendada usar esquemas para conceder permissões dentro de um banco de dados. (consulte também: [Schema-design para SQL Server: recomendações para design de esquema com a segurança em mente](http://andreas-wolter.com/en/schema-design-for-sql-server-recommendations-for-schema-design-with-security-in-mind/))
   - Objeto (tabela, exibição, procedimento, etc.) 
   > [!NOTE]
-  > Não é recomendável aplicar permissões no nível de objeto porque esse nível adiciona complexidade desnecessária à implementação geral. Se você decidir usar permissões de nível de objeto, elas deverão ser claramente documentadas. O mesmo se aplica às permissões de nível de coluna, que são ainda menos recomendadas pelos mesmos motivos. As regras padrão para [Deny](https://docs.microsoft.com/sql/t-sql/statements/deny-object-permissions-transact-sql) não se aplicam a colunas.
+  > Não é recomendável aplicar permissões no nível de objeto porque esse nível adiciona complexidade desnecessária à implementação geral. Se você decidir usar permissões de nível de objeto, elas deverão ser claramente documentadas. O mesmo se aplica às permissões de nível de coluna, que são ainda menos recomendadas pelos mesmos motivos. Além disso, lembre-se de que, por padrão, uma [negação](https://docs.microsoft.com/sql/t-sql/statements/deny-object-permissions-transact-sql) em nível de tabela não substitui uma concessão em nível de coluna. Isso exigiria que a [configuração do servidor de conformidade de critérios comuns](https://docs.microsoft.com/sql/database-engine/configure-windows/common-criteria-compliance-enabled-server-configuration-option) fosse ativada.
 
 - Execute verificações regulares usando a [VA (avaliação de vulnerabilidade)](https://docs.microsoft.com/sql/relational-databases/security/sql-vulnerability-assessment) para testar se há muitas permissões.
 
@@ -320,7 +323,7 @@ Separação de tarefas, também chamada de diferenciação de direitos, descreve
 
 - Sempre certifique-se de ter uma trilha de auditoria para ações relacionadas à segurança. 
 
-- Você pode recuperar a definição das funções RBAC internas para ver as permissões usadas e criar uma função personalizada com base em trechos e acumulações delas por meio do PowerShell 
+- Você pode recuperar a definição das funções RBAC internas para ver as permissões usadas e criar uma função personalizada com base em trechos e acumulações delas por meio do PowerShell.
 
 - Como qualquer membro da função de banco de dados db_owner pode alterar configurações de segurança como Transparent Data Encryption (TDE) ou alterar o SLO, essa associação deve ser concedida com cuidado. No entanto, há muitas tarefas que exigem privilégios de db_owner. Tarefa como alterar qualquer configuração de banco de dados, como alterar opções de BD. A auditoria desempenha um papel fundamental em qualquer solução.
 
@@ -409,6 +412,8 @@ A criptografia em repouso é a proteção criptográfica dos dados quando ela é
 
 Os dados em uso são os dados armazenados na memória do sistema de banco de dados durante a execução de consultas SQL. Se o seu banco de dados do armazena um dado confidencial, sua organização pode ser necessária para garantir que usuários com alto privilégio sejam impedidos de exibir dados confidenciais em seu banco de dado. Usuários de alto privilégio, como operadores Microsoft ou DBAs em sua organização, devem ser capazes de gerenciar o banco de dados, mas impedidos de exibir e potencialmente invasão dados confidenciais da memória do processo de SQL Server ou consultando o banco de dado.
 
+As políticas que determinam quais dados são confidenciais e se os dados confidenciais devem ser criptografados na memória e não podem ser acessados por administradores em texto não criptografado, são específicos para sua organização e regulamentos de conformidade que você precisa cumprir. Consulte o requisito relacionado: [identificar e marcar dados confidenciais](#identify-and-tag-sensitive-data).
+
 **Como implementar**:
 
 - Use [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) para garantir que os dados confidenciais não sejam expostos em texto não criptografado no banco de dados SQL do Azure, mesmo na memória/em uso. O Always Encrypted protege os dados de DBAs (administradores de banco de dados) e administradores de nuvem (ou atores ruins que podem representar usuários com alto privilégio, mas não autorizados) e oferece mais controle sobre quem pode acessar seus dados.
@@ -416,6 +421,8 @@ Os dados em uso são os dados armazenados na memória do sistema de banco de dad
 **Práticas recomendadas**:
 
 - Always Encrypted não é um substituto para criptografar dados em repouso (TDE) ou em trânsito (SSL/TLS). Always Encrypted não deve ser usado para dados não confidenciais para minimizar o impacto de desempenho e funcionalidade. Usar Always Encrypted em conjunto com o TDE e o protocolo TLS é recomendado para proteção abrangente de dados em repouso, em trânsito e em uso. 
+
+- Avalie o impacto de criptografar as colunas de dados confidenciais identificadas antes de implantar Always Encrypted em um banco de dado de produção. Em geral, Always Encrypted reduz a funcionalidade de consultas em colunas criptografadas e tem outras limitações, listadas em [detalhes do recurso Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine#feature-details). Portanto, talvez seja necessário rearquitetar seu aplicativo para reimplementar a funcionalidade, uma consulta não oferece suporte ao, no lado do cliente ou/e refatorar seu esquema de banco de dados, incluindo as definições de procedimentos armazenados, funções, exibições e gatilhos. Os aplicativos existentes podem não funcionar com colunas criptografadas se não estiverem de acordo com as restrições e limitações do Always Encrypted. Embora o ecossistema de ferramentas, produtos e serviços da Microsoft que dão suporte a Always Encrypted esteja crescendo, várias delas não funcionam com colunas criptografadas. A criptografia de uma coluna também pode afetar o desempenho da consulta, dependendo das características da carga de trabalho. 
 
 - Gerencie chaves de Always Encrypted com separação de função se você estiver usando Always Encrypted para proteger dados de DBAs mal-intencionados. Com a separação de funções, um administrador de segurança cria as chaves físicas. O DBA cria a chave mestra de coluna e os objetos de metadados de chave de criptografia de coluna, descrevendo as chaves físicas no banco de dados. Durante esse processo, o administrador de segurança não precisa acessar o banco de dados e o DBA não precisa acessar as chaves físicas em texto não criptografado. 
   - Consulte o artigo [Gerenciando chaves com a separação de funções](https://docs.microsoft.com/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted#managing-keys-with-role-separation) para obter detalhes. 
@@ -705,7 +712,7 @@ Aprimore de forma proativa a segurança do banco de dados descobrindo e corrigin
 
 ### <a name="identify-and-tag-sensitive-data"></a>Identificar e marcar dados confidenciais 
 
-Descubra colunas que potencialmente contêm dados confidenciais. Classifique as colunas para usar cenários de proteção e auditoria com base em sensibilidade avançada. 
+Descubra colunas que potencialmente contêm dados confidenciais. O que é considerado dados confidenciais depende muito do cliente, da regulamentação de conformidade, etc., e precisa ser avaliado pelos usuários encarregados desses dados. Classifique as colunas para usar cenários de proteção e auditoria com base em sensibilidade avançada. 
 
 **Como implementar**:
 
@@ -783,6 +790,6 @@ A maioria dos padrões de segurança aborda a disponibilidade de dados em termos
 
 - Recursos adicionais de continuidade de negócios, como grupos de failover automático em diferentes áreas geográficas do Azure, podem ser configurados conforme descrito aqui: [visão geral da continuidade dos negócios com o banco de dados SQL do Azure](sql-database-business-continuity.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Veja [uma visão geral dos recursos de segurança do banco de dados SQL do Azure](sql-database-security-overview.md)

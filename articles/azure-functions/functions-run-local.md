@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: dd36895a34b36bbdf8e796cf629ab031613663cd
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 0b15b35f6fc83097e94f7d69815a163a0e98a228
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208875"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523264"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com o Azure Functions Core Tools
 
@@ -43,6 +43,9 @@ Salvo indicação em contrário, os exemplos neste artigo são para a versão 3.
 
 O [Ferramentas básicas do Azure Functions] é uma versão local do Azure Functions runtime que pode ser executada no computador local de desenvolvimento. Ele também fornece comandos para criar funções, se conectar ao Azure e implantar projetos de função.
 
+>[!IMPORTANT]
+>Você deve ter o [CLI do Azure](/cli/azure/install-azure-cli) instalado localmente para poder publicar no Azure por meio de Azure Functions Core Tools.  
+
 ### <a name="v2"></a>Versão 2. x e 3. x
 
 A versão 2. x/3. x das ferramentas usa o Azure Functions Runtime criado no .NET Core. Esta versão tem suporte em todas as plataformas que o .NET Core dá suporte, incluindo [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [MacOS](/azure/azure-functions/functions-run-local?tabs=macos#v2)e [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2). 
@@ -50,7 +53,7 @@ A versão 2. x/3. x das ferramentas usa o Azure Functions Runtime criado no .NET
 > [!IMPORTANT]
 > Você pode ignorar o requisito de instalação do SDK do .NET Core usando [pacotes de extensão].
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 As etapas a seguir usam npm para instalar ferramentas principais no Windows. Você também pode usar [Chocolatey](https://chocolatey.org/). Para obter mais informações, confira o [arquivo Leiame das Ferramentas Principais](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
@@ -76,7 +79,7 @@ As etapas a seguir usam npm para instalar ferramentas principais no Windows. Voc
 
 1. Se você não planeja usar [pacotes de extensão], instale o [SDK do .NET Core 2. x para Windows](https://www.microsoft.com/net/download/windows).
 
-# <a name="macostabmacos"></a>[MacOS](#tab/macos)
+# <a name="macos"></a>[MacOS](#tab/macos)
 
 As etapas a seguir usam o Homebrew para instalar as ferramentas principais em macOS.
 
@@ -100,7 +103,7 @@ As etapas a seguir usam o Homebrew para instalar as ferramentas principais em ma
     brew link --overwrite azure-functions-core-tools@3
     ```
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 As etapas a seguir usma [APT](https://wiki.debian.org/Apt) para instalar as ferramentas principais em sua distribuição Ubuntu/Debian Linux. Para outras distribuições do Linux, confira o [arquivo Leiame das ferramentas principais](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
@@ -454,6 +457,9 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ## <a name="publish"></a>Publicar no Azure
 
 O Azure Functions Core Tools dá suporte a dois tipos de implantação: Implantando arquivos de projeto de função diretamente em seu aplicativo de funções por meio da [implantação de zip](functions-deployment-technologies.md#zip-deploy) e [implantando um contêiner do Docker personalizado](functions-deployment-technologies.md#docker-container). Você já deve ter [criado um aplicativo de funções em sua assinatura do Azure](functions-cli-samples.md#create), no qual você implantará seu código. Os projetos que exigem build devem ser compilados para que os binários possam ser implantados.
+
+>[!IMPORTANT]
+>Você deve ter o [CLI do Azure](/cli/azure/install-azure-cli) instalado localmente para poder publicar no Azure por meio das ferramentas principais.  
 
 Uma pasta de projeto pode conter arquivos e diretórios específicos do idioma que não devem ser publicados. Itens excluídos são listados em um arquivo. funcignore na pasta raiz do projeto.     
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 02/10/2020
-ms.openlocfilehash: f0c38590b667894dd65d212124ef1d26c7918ff7
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.date: 02/20/2020
+ms.openlocfilehash: 059894d441897bd89be525abcc7e1c7ab6ba23e7
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77366410"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485039"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -155,7 +155,7 @@ Algumas operações de conector fazem chamadas assíncronas ou escutam solicita�
 |------|--------------------|---------------------------------------|-------|
 | Tamanho da mensagem | 100 MB | 200 MB | Para contornar esse limite, consulte [Tratar mensagens grandes com agrupamento](../logic-apps/logic-apps-handle-large-messages.md). No entanto, alguns conectores e APIs podem não oferecer suporte a agrupamento ou até o limite padrão. |
 | Tamanho da mensagem com agrupamento | 1 GB | 5 GB | Esse limite se aplica a ações com compatibilidade nativa com o agrupamento ou que permitem que você habilite o agrupamento na configuração de runtime. <p>Para o ambiente do serviço de integração, o mecanismo dos aplicativos lógicos dá suporte a esse limite, mas os conectores têm seus próprios limites de agrupamento até o limite do mecanismo, por exemplo, consulte a [referência de API do conector de armazenamento de BLOBs do Azure](https://docs.microsoft.com/connectors/azureblob/). Para obter mais informações sobre agrupamento, consulte [tratar mensagens grandes com agrupamento](../logic-apps/logic-apps-handle-large-messages.md). |
-|||||   
+|||||
 
 #### <a name="character-limits"></a>Limites de caracteres
 
@@ -248,12 +248,16 @@ Para obter taxas de preços, consulte [preços dos aplicativos lógicos](https:/
 | Esquema | 8 MB | Para carregar arquivos maiores que 2 MB, use um [contêiner de blob e uma conta de armazenamento do Azure](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 ||||
 
-| Ponto de extremidade de runtime | Limite | Observações |
-|------------------|-------|-------|
-| Chamadas de leitura a cada 5 minutos | 60.000 | Você pode distribuir a carga de trabalho entre mais de uma conta conforme necessário. |
-| Chamadas de invocação a cada 5 minutos | 45,000 | Você pode distribuir a carga de trabalho entre mais de uma conta conforme necessário. |
-| Chamadas de acompanhamento a cada 5 minutos | 45,000 | Você pode distribuir a carga de trabalho entre mais de uma conta conforme necessário. |
-| Chamadas simultâneas de bloqueio | ~1,000 | Você pode reduzir o número de solicitações simultâneas ou reduzir a duração conforme necessário. |
+<a name="integration-account-throughput-limits"></a>
+
+### <a name="throughput-limits"></a>Limites de taxa de transferência
+
+| Ponto de extremidade de runtime | Grátis | Basic | Standard | Observações |
+|------------------|------|-------|----------|-------|
+| Chamadas de leitura a cada 5 minutos | 3\.000 | 30,000 | 60.000 | Você pode distribuir a carga de trabalho entre mais de uma conta conforme necessário. |
+| Chamadas de invocação a cada 5 minutos | 3\.000 | 30,000 | 45,000 | Você pode distribuir a carga de trabalho entre mais de uma conta conforme necessário. |
+| Chamadas de acompanhamento a cada 5 minutos | 3\.000 | 30,000 | 45,000 | Você pode distribuir a carga de trabalho entre mais de uma conta conforme necessário. |
+| Chamadas simultâneas de bloqueio | ~1,000 | ~1,000 | ~1,000 | O mesmo para todos os SKUs. Você pode reduzir o número de solicitações simultâneas ou reduzir a duração conforme necessário. |
 ||||
 
 <a name="b2b-protocol-limits"></a>

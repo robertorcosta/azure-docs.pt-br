@@ -16,16 +16,21 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6251c1576d38b191ca1cba48075cc869c48d004
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 3f087ffe824a198c578f076857cca7fdf0f0a60c
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048120"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498691"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Configurar funções personalizadas do Azure AD no Privileged Identity Management
 
 Um administrador de funções com privilégios pode alterar as configurações de função que se aplicam a um usuário quando eles ativam sua atribuição a uma função personalizada e a outros administradores de aplicativo que estão atribuindo funções personalizadas.
+
+> [!NOTE]
+> As funções personalizadas do Azure AD não são integradas às funções de diretório internas durante a versão prévia. Depois que a funcionalidade estiver em disponibilidade geral, o gerenciamento de função ocorrerá na experiência de funções internas. Se você vir a seguinte faixa, essas funções deverão ser gerenciadas [na experiência de funções internas](pim-how-to-activate-role.md) e este artigo não se aplicará:
+>
+> [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 ## <a name="open-role-settings"></a>Abrir configurações de função
 
@@ -93,9 +98,9 @@ Se você quiser exigir aprovação para ativar uma função, siga estas etapas.
 1. Selecione pelo menos um membro ou grupo e clique em **Selecionar**. É necessário selecionar pelo menos um aprovador. Não há nenhum aprovador padrão. Suas seleções serão exibidas na lista de aprovadores selecionados.
 1. Após especificar as configurações de função, selecione **Atualizar** para salvar suas alterações.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-- [Ativar uma função personalizada do Azure AD](azure-ad-custom-roles-assign.md)
+- [Ativar uma função personalizada do Azure AD](azure-ad-custom-roles-activate.md)
 - [Atribuir uma função personalizada do Azure AD](azure-ad-custom-roles-assign.md)
 - [Remover ou atualizar uma atribuição de função personalizada do Azure AD](azure-ad-custom-roles-update-remove.md)
 - [Definições de função no Azure AD](../users-groups-roles/directory-assign-admin-roles.md)

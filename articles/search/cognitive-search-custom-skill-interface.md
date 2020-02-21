@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: c8f6e36997939be90d74eabad9a4145d2e503521
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.date: 02/20/2020
+ms.openlocfilehash: 78f5f6eda28bed164668445b5671dad92f8dedd7
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045032"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500264"
 ---
 # <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Como adicionar uma habilidade personalizada a um pipeline de enriquecimento de Pesquisa Cognitiva do Azure
 
@@ -33,6 +33,8 @@ Personalize os pontos de extremidade da habilidade da API da Web por tempo limit
         "uri": "https://[your custom skill uri goes here]",
         "timeout": "PT230S",
 ```
+
+Verifique se o URI é seguro (HTTPS).
 
 Atualmente, o único mecanismo para interagir com uma habilidade personalizada é por meio de uma interface da API da Web. A API da Web precisa atender aos requisitos descritos nesta seção.
 
@@ -152,7 +154,7 @@ Ao criar um enriquecedor da API da Web, você pode descrever parâmetros e cabe�
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Este artigo abordou os requisitos de interface necessários para integrar uma habilidade personalizada em um contratador de habilidades. Clique nos links a seguir para saber mais sobre habilidades personalizadas e composição do contratador de habilidades.
 

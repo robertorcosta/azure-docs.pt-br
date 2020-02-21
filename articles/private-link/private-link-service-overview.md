@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: d2313bfc47026ed9655d0ca25f0a0fdf3f86d8a5
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 5db86c09cd104b2a68431ccbe24128a24ebd2ad4
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191078"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500419"
 ---
 # <a name="what-is-azure-private-link-service"></a>O que é o serviço de vínculo privado do Azure?
 
-O serviço de vínculo privado do Azure é a referência para seu próprio serviço que é alimentado pelo link privado do Azure. Seu serviço que está sendo executado por trás [do Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) pode ser habilitado para acesso de link privado para que os consumidores de seu serviço possam acessá-lo de forma privada em seu próprio VNets. Seus clientes podem criar um ponto de extremidade privado dentro de sua VNet e mapeá-lo para esse serviço. Este artigo explica os conceitos relacionados ao lado do provedor de serviço. 
+O serviço de Link Privado do Azure é a referência para seu serviço que é desenvolvido com o Link Privado do Azure. Seu serviço que está sendo executado por trás [do Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) pode ser habilitado para acesso de link privado para que os consumidores de seu serviço possam acessá-lo de forma privada em seu próprio VNets. Seus clientes podem criar um ponto de extremidade privado dentro de sua VNet e mapeá-lo para esse serviço. Este artigo explica os conceitos relacionados ao lado do provedor de serviço. 
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
@@ -98,7 +98,7 @@ A ação de aprovar as conexões pode ser automatizada usando a propriedade apro
 
 ## <a name="getting-connection-information-using-tcp-proxy-v2"></a>Obtendo informações de conexão usando o proxy TCP v2
 
-Ao usar o serviço de vínculo privado, o endereço IP de origem dos pacotes provenientes do ponto de extremidade privado é convertido de endereço de rede (NAT) no lado do provedor de serviço usando o IP de NAT alocado da rede virtual do provedor. Portanto, os aplicativos recebem o endereço IP NAT alocado em vez do endereço IP de origem real dos consumidores de serviço. Se o seu aplicativo precisar de um endereço IP de origem real do lado do consumidor, você poderá habilitar o protocolo de proxy em seu serviço e recuperar as informações do cabeçalho do protocolo de proxy. Além do endereço IP de origem, o cabeçalho do protocolo proxy também carrega a LinkId do ponto de extremidade privado. A combinação de endereço IP de origem e LinkId pode ajudar os provedores de serviços a identificar exclusivamente seus consumidores. Para obter mais informações sobre o protocolo proxy, visite aqui. 
+Ao usar o serviço de vínculo privado, o endereço IP de origem dos pacotes provenientes do ponto de extremidade privado é convertido de endereço de rede (NAT) no lado do provedor de serviço usando o IP de NAT alocado da rede virtual do provedor. Portanto, os aplicativos recebem o endereço IP NAT alocado em vez do endereço IP de origem real dos consumidores de serviço. Se o seu aplicativo precisar de um endereço IP de origem real do lado do consumidor, você poderá habilitar o protocolo de proxy em seu serviço e recuperar as informações do cabeçalho do protocolo de proxy. Além do endereço IP de origem, o cabeçalho do protocolo proxy também carrega a LinkId do ponto de extremidade privado. A combinação de endereço IP de origem e LinkId pode ajudar os provedores de serviços a identificar exclusivamente seus consumidores. Para obter mais informações sobre o protocolo proxy, visite [aqui](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt). 
 
 Essas informações são codificadas usando um vetor TLV (tipo-tamanho-valor) personalizado da seguinte maneira:
 

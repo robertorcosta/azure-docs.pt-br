@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
-ms.openlocfilehash: 9c5534f2df4a375daf355d74f788b7f610f92919
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 15a2d58d2fc14c370c41d5454d62c74a5b66ad42
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162150"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77499971"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Armazenar backups do Banco de Dados SQL do Azure por um período de até 10 anos
 
@@ -28,7 +28,13 @@ Muitos aplicativos têm fins regulamentares, de conformidade ou outros fins come
 
 ## <a name="how-sql-database-long-term-retention-works"></a>Como funciona a retenção de longo prazo do Banco de Dados SQL
 
-A retenção de backup de longo prazo (LTR) aproveita os backups completos do banco de dados [criados automaticamente](sql-database-automated-backups.md) para habilitar a restauração pontual (PITR). Se uma política EPD estiver configurada, esses backups serão copiados para diferentes BLOBs para armazenamento de longo prazo. A operação de cópia é um trabalho em segundo plano que não tem impacto sobre o desempenho na carga de trabalho do banco de dados. Os backups EPD são mantidos por um período de tempo definido pela política EPD. A política EPD para cada banco de dados SQL também pode especificar com que frequência os backups EPD são criados. Para habilitar essa flexibilidade, você pode definir a política usando uma combinação de quatro parâmetros: retenção de backup semanal (W), retenção de backup mensal (M), retenção de backup anual (Y) e semana do ano (WeekOfYear). Se você especificar W, um backup por semana será copiado para o armazenamento de longo prazo. Se você especificar M, um backup durante a primeira semana de cada mês será copiado para o armazenamento de longo prazo. Se você especificar Y, um backup durante a semana especificada por WeekOfYear será copiado para o armazenamento de longo prazo. Cada backup será mantido no armazenamento de longo prazo pelo período especificado por esses parâmetros. Qualquer alteração da política EPD se aplica aos backups futuros. Por exemplo, se o WeekOfYear especificado estiver no passado quando a política estiver configurada, o primeiro backup EPD será criado no próximo ano. 
+A retenção de backup de longo prazo (LTR) aproveita os backups completos do banco de dados [criados automaticamente](sql-database-automated-backups.md) para habilitar a restauração pontual (PITR). Se uma política EPD estiver configurada, esses backups serão copiados para diferentes BLOBs para armazenamento de longo prazo. A cópia é um trabalho em segundo plano que não tem impacto sobre o desempenho na carga de trabalho do banco de dados. A política EPD para cada banco de dados SQL também pode especificar com que frequência os backups EPD são criados.
+
+Para habilitar EPD, você pode definir uma política usando uma combinação de quatro parâmetros: retenção de backup semanal (W), retenção de backup mensal (M), retenção de backup anual (Y) e semana do ano (WeekOfYear). Se você especificar W, um backup por semana será copiado para o armazenamento de longo prazo. Se você especificar M, o primeiro backup de cada mês será copiado para o armazenamento de longo prazo. Se você especificar Y, um backup durante a semana especificada por WeekOfYear será copiado para o armazenamento de longo prazo. Se o WeekOfYear especificado estiver no passado quando a política estiver configurada, o primeiro backup EPD será criado no ano seguinte. Cada backup será mantido no armazenamento de longo prazo de acordo com os parâmetros de política que são configurados quando o backup EPD é criado.
+
+> [!NOTE]
+> Qualquer alteração na política EPD se aplica somente a backups futuros. Por exemplo, se a retenção de backup semanal (W), retenção de backup mensal (M) ou retenção de backup anual (Y) for modificada, a nova configuração de retenção será aplicada somente a novos backups. A retenção de backups existentes não será modificada. Se sua intenção for excluir backups LTR antigos antes de seu período de retenção expirar, você precisará [excluir manualmente os backups](https://docs.microsoft.com/azure/sql-database/sql-database-long-term-backup-retention-configure#delete-ltr-backups).
+> 
 
 Exemplos da política EPD:
 

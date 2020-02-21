@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: e29ac6671d71ea02b432c9843541796984737c8b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 51b9c827d453eef2e2e75e1aa5222204eaa38d0e
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459615"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525525"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Detecção de anomalias no Azure Stream Analytics
 
@@ -21,6 +21,12 @@ Disponível na nuvem e no Azure IoT Edge, o Azure Stream Analytics oferece recur
 Os modelos de machine learning supõem uma série temporal incluída na amostra de maneira uniforme. Se a série temporal não for uniforme, insira uma etapa de agregação com uma janela em cascata antes de chamar a detecção de anomalias.
 
 As operações de Machine Learning não dão suporte a tendências sazonalidade ou correlações entre variate no momento.
+
+## <a name="anomaly-detection-using-machine-learning-in-azure-stream-analytics"></a>Detecção de anomalias usando o aprendizado de máquina no Azure Stream Analytics
+
+O vídeo a seguir demonstra como detectar uma anomalia em tempo real usando funções de aprendizado de máquina no Azure Stream Analytics. 
+
+> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Real-Time-ML-Based-Anomaly-Detection-In-Azure-Stream-Analytics/player]
 
 ## <a name="model-behavior"></a>Comportamento do modelo
 
@@ -120,7 +126,7 @@ windowDuration (em MS) = 1000 * historySize/(total de eventos de entrada por seg
 
 Ao particionar a função por DeviceID, adicione "PARTITION BY DeviceID" à chamada de função de detecção de anomalias.
 
-### <a name="observations"></a>Observações
+### <a name="observations"></a>Amo
 A tabela a seguir inclui as observações de taxa de transferência para um único nó (6 SU) para o caso não particionado:
 
 | Tamanho do histórico (eventos) | Duração da janela (MS) | Total de eventos de entrada por segundo |
@@ -148,13 +154,7 @@ O código de exemplo para executar as configurações não particionadas acima e
 ### <a name="identifying-bottlenecks"></a>Identificando afunilamentos
 Use o painel métricas em seu trabalho de Azure Stream Analytics para identificar afunilamentos em seu pipeline. Examine os **eventos de entrada/saída** para obter a taxa de transferência e o ["atraso da marca d' água"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) ou **eventos de registro** posterior para ver se o trabalho está acompanhando a taxa de entrada. Para as métricas do hub de eventos, procure **solicitações limitadas** e ajuste as unidades de limite de acordo. Para Cosmos DB métricas, examine o **intervalo máximo consumido de ru/s por chave de partição** em taxa de transferência para garantir que os intervalos de chaves de partição sejam consumidos uniformemente. Para o banco de BD SQL do Azure, monitore e **/s de log** e **CPU**.
 
-## <a name="anomaly-detection-using-machine-learning-in-azure-stream-analytics"></a>Detecção de anomalias usando o aprendizado de máquina no Azure Stream Analytics
-
-O vídeo a seguir demonstra como detectar uma anomalia em tempo real usando funções de aprendizado de máquina no Azure Stream Analytics. 
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Anomaly-detection-using-machine-learning-in-Azure-Stream-Analytics/player]
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: b301012425e0a2590fa5ac22985abe9c96fbd419
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: ab9d7128748e99b75b7e1a7187a7958e18300759
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834935"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483475"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Implantar VMs em hosts dedicados usando o CLI do Azure
  
@@ -27,7 +27,7 @@ Certifique-se de ter instalado CLI do Azure versão 2.0.70 ou posterior e conect
 ## <a name="limitations"></a>Limitações
 
 - Atualmente, não há suporte para conjuntos de dimensionamento de máquinas virtuais em hosts dedicados.
-- A versão inicial dá suporte à seguinte série de VMs: DSv3 e ESv3. 
+- A versão inicial dá suporte à seguinte série de VMs: DSv3, ESv3, FSv2, LSv2 e MSv2. 
  
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos 
@@ -271,7 +271,7 @@ Você também pode excluir o grupo de recursos inteiro em um único comando. Iss
 az group delete -n myDHResourceGroup 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter mais informações, consulte a visão geral dos [hosts dedicados](dedicated-hosts.md) .
 

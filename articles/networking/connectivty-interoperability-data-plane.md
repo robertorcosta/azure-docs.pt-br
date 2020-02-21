@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 11c964bedce7a8b979434b888d756c2121d06a60
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 815976c672272270e465610e17fef3aea79387f6
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873821"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526630"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Interoperabilidade em recursos de conectividade de back-end do Azure: análise do plano de dados
 
@@ -171,14 +171,14 @@ Neste rastreamento de rotas, o primeiro salto é o ponto de extremidade do túne
 Mostramos a saída do rastreamento de rotas da VNet do spoke para uma VM na Localização local 2 aqui:
 
 
-    C:\Users\rb>tracert 10.2.30.10
+    C:\Users\rb>tracert 10.1.31.10
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+    Tracing route to 10.1.31.10 over a maximum of 30 hops
 
-      1    24 ms     2 ms     3 ms  10.10.30.132
+      1    76 ms    75 ms    76 ms  10.10.30.134
       2     *        *        *     Request timed out.
       3     *        *        *     Request timed out.
-      4     3 ms     2 ms     2 ms  10.2.30.10
+      4    75 ms    75 ms    75 ms  10.1.31.10
 
     Trace complete.
 
@@ -472,7 +472,7 @@ Mostramos a saída do rastreamento de rotas da VNet remota para uma VM na Locali
     Trace complete.
 
 
-## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>ExpressRoute e conectividade VPN site a site em conjunto
+## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>Conectividade do ExpressRoute e VPN site a site em conjunto
 
 ###  <a name="site-to-site-vpn-over-expressroute"></a>VPN site a site pelo ExpressRoute
 
@@ -490,7 +490,7 @@ Para obter mais informações sobre como configurar conexões coexistentes para 
 
 ### <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Conectividade de VNet do spoke usando emparelhamento VNet
 
-A arquitetura da VNet do hub e do spoke é amplamente usada. O hub é uma VNet no Azure que funciona como um ponto central de conectividade entre as VNets do spoke e a rede local. Os spokes são VNets que emparelham-se com o hub e que podem ser utilizadas para isolar as cargas de trabalho. O tráfego flui entre o datacenter local e o hub por meio de uma conexão ExpressRoute ou VPN. Para obter mais informações sobre a arquitetura, consulte [implementar uma topologia de rede hub-spoke no Azure][Hub-n-Spoke].
+A arquitetura da VNet do hub e do spoke é amplamente usada. O hub é uma VNet no Azure que funciona como um ponto central de conectividade entre as VNets do spoke e a rede local. Os spokes são VNets que emparelham-se com o hub e que podem ser utilizadas para isolar as cargas de trabalho. O tráfego flui entre o datacenter local e o hub por meio de uma conexão de VPN ou ExpressRoute. Para obter mais informações sobre a arquitetura, consulte [implementar uma topologia de rede hub-spoke no Azure][Hub-n-Spoke].
 
 Em emparelhamento VNet dentro de uma região, as VNets do spoke podem usar gateways de VNet do hub (ambos gateways de VPN e ExpressRoute) para comunicarem-se com redes remotas.
 
@@ -501,12 +501,12 @@ Talvez você queira que as VNets de branch, que estão em regiões diferentes, e
 Para obter mais informações, consulte [o que é o gateway de VPN?][VPN] e [implantar um NVA altamente disponível][Deploy-NVA].
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte as [perguntas frequentes sobre o ExpressRoute][ExR-FAQ] para:
 -   Saber quantos circuitos do ExpressRoute podem ser conectados a um gateway do ExpressRoute.
 -   Saiba quantos gateways do ExpressRoute podem ser conectados a um circuito do ExpressRoute.
--   Saiba mais sobre outros limites de escala do ExpressRoute.
+-   Saber mais sobre outros limites de escala do ExpressRoute.
 
 
 <!--Image References-->
