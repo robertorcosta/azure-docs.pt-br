@@ -3,12 +3,12 @@ title: Corrigir recursos sem conformidade
 description: Este guia orienta você pela correção de recursos que não são compatíveis com as políticas no Azure Policy.
 ms.date: 09/09/2019
 ms.topic: how-to
-ms.openlocfilehash: 341a325aa7a82c8b1f6366c3a674848c60a8fb5e
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: e3db0f5f8ae1be4a6ab6eb281801958bfb816228
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873039"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77544174"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corrigir recursos que não estão em conformidade com o Azure Policy
 
@@ -143,7 +143,7 @@ Para criar uma **tarefas de correção**, siga estas etapas:
 
    ![Corrigir-selecione os recursos a serem corrigidos](../media/remediate-resources/select-resources.png)
 
-1. Inicie a tarefa de correção depois que os recursos forem filtrados clicando em **Corrigir**. A página de conformidade de política será aberta na guia **Tarefas de correção** para mostrar o estado do progresso das tarefas.
+1. Inicie a tarefa de correção depois que os recursos forem filtrados clicando em **Corrigir**. A página conformidade da política é aberta na guia **tarefas de correção** para mostrar o estado do progresso das tarefas. Implantações criadas pela tarefa de correção iniciam imediatamente.
 
    ![Corrigir-progresso das tarefas de correção](../media/remediate-resources/task-progress.png)
 
@@ -181,7 +181,7 @@ Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptio
 
 Para obter outros cmdlets de correção e exemplos, consulte o módulo [AZ. PolicyInsights](/powershell/module/az.policyinsights/#policy_insights) .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).

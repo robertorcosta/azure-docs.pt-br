@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 7b67569ee821fee837f4fa63a1d71e622a0370a5
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 49a63be8e8ac3752006d531f4541cb3c2904c3e3
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472461"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539613"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contêineres de perfil FSLogix e arquivos do Azure
 
@@ -46,7 +46,7 @@ As soluções da Microsoft existentes e herdadas para perfis de usuário vêm co
 
 A tabela a seguir mostra os benefícios e as limitações das tecnologias de perfil de usuário anteriores.
 
-| Tecnologia | Configurações modernas | Configurações do Win32 | Configurações do so | Dados do usuário | Com suporte no SKU do servidor | Armazenamento de back-end no Azure | Armazenamento de back-end local | Suporte à versão | Hora de entrada subsequente |Observações|
+| Tecnologia | Configurações modernas | Configurações do Win32 | Configurações do so | Dados do usuário | Com suporte no SKU do servidor | Armazenamento de back-end no Azure | Armazenamento de back-end local | Suporte à versão | Hora de entrada subsequente |{1&gt;Observações&lt;1}|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
 | **Discos de perfil do usuário (UPD)** | Sim | Sim | Sim | Sim | Sim | Não | Sim | Win 7 + | Sim | |
 | **Perfil de usuário de roaming (RUP), modo de manutenção** | Não | Sim | Sim | Sim | Sim| Não | Sim | Win 7 + | Não | |
@@ -87,13 +87,13 @@ A área de trabalho virtual do Windows oferece controle total sobre o tamanho, o
 Para garantir que seu ambiente de área de trabalho virtual do Windows siga as práticas recomendadas:
 
 - A conta de armazenamento de arquivos do Azure deve estar na mesma região que as VMs do host de sessão.
-- As permissões dos arquivos do Azure devem corresponder às permissões descritas em [requisitos – contêineres de perfil](/fslogix/overview#requirements).
+- As permissões dos arquivos do Azure devem corresponder às permissões descritas em [requisitos – contêineres de perfil](/fslogix/fslogix-storage-config-ht).
 - Cada pool de hosts deve ser compilado do mesmo tipo e de uma VM de tamanho com base na mesma imagem mestra.
 - Cada VM do pool de hosts deve estar no mesmo grupo de recursos para ajudar no gerenciamento, no dimensionamento e na atualização.
 - Para obter um desempenho ideal, a solução de armazenamento e o contêiner de perfil FSLogix devem estar no mesmo local de data center.
 - A conta de armazenamento que contém a imagem mestra deve estar na mesma região e assinatura em que as VMs estão sendo provisionadas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Use os guias a seguir para configurar um ambiente de área de trabalho virtual do Windows.
 

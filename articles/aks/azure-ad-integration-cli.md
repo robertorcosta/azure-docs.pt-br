@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: mlearned
-ms.openlocfilehash: 520557c80bf2630a359188dd86ec0987e0d5326b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 32138c228284f9487b816583dd1f701556bbcb95
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77158138"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77544208"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrar Azure Active Directory com o serviço kubernetes do Azure usando o CLI do Azure
 
@@ -123,7 +123,7 @@ oAuthPermissionId=$(az ad app show --id $serverApplicationId --query "oauth2Perm
 Adicione as permissões para o aplicativo cliente e componentes de aplicativo de servidor para usar o fluxo de comunicação oAuth2 usando o comando [AZ ad app Permission Add][az-ad-app-permission-add] . Em seguida, conceda permissões para o aplicativo cliente se comunicar com o aplicativo de servidor usando o comando [AZ ad app Permission Grant][az-ad-app-permission-grant] :
 
 ```azurecli-interactive
-az ad app permission add --id $clientApplicationId --api $serverApplicationId --api-permissions $oAuthPermissionId=Scope
+az ad app permission add --id $clientApplicationId --api $serverApplicationId --api-permissions ${oAuthPermissionId}=Scope
 az ad app permission grant --id $clientApplicationId --api $serverApplicationId
 ```
 
@@ -240,7 +240,7 @@ error: You must be logged in to the server (Unauthorized)
 * O usuário não é um membro de mais de 200 grupos.
 * O segredo definido no registro do aplicativo para o servidor corresponde ao valor configurado usando `--aad-server-app-secret`
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter o script completo que contém os comandos mostrados neste artigo, consulte o [script de integração do Azure AD no repositório de exemplos do AKS][complete-script].
 

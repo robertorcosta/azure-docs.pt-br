@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 80e8bc47f6e6293d70bbc9fae888abdf5527fe93
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 9fda1295bcdcd44b8a92c101c2aa445197ce6d4a
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169218"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539125"
 ---
 # <a name="add-and-manage-lab-users"></a>Adicionar e gerenciar os usuários do laboratório
 Este artigo descreve como adicionar usuários ao laboratório, registrá-los no laboratório, controlar o número de horas que eles podem usar a VM, entre outros. 
@@ -33,9 +33,9 @@ Este artigo descreve como adicionar usuários ao laboratório, registrá-los no 
 1. Na página **Adicionar usuários**, insira endereços de email dos usuários em linhas separadas ou em uma única linha e separados por ponto e vírgula. 
 
     ![Adicionar endereços de email do usuário](../media/how-to-configure-student-usage/add-users-email-addresses.png)
-4. Clique em **Salvar**. Você vê os endereços de email de usuários e seus status (registrados ou não) na lista. 
+4. Selecione **Salvar**. Você vê os endereços de email de usuários e seus status (registrados ou não) na lista. 
 
-    ![Lista de usuários](../media/how-to-configure-student-usage/users-list-new.png)
+    ![Lista de usuários](../media/how-to-configure-student-usage/list-of-added-users.png)
 
     > [!NOTE]
     > Você verá os nomes dos usuários na lista depois que eles forem registrados no laboratório. O nome mostrado na lista é construído usando o primeiro e o último nome do usuário na Azure Active Directory. 
@@ -60,7 +60,7 @@ Você também pode adicionar usuários ao carregar um arquivo CSV com endereços
 ## <a name="send-invitations-to-users"></a>Enviar convites para usuários
 Para enviar o link de registro para os alunos, use um dos métodos a seguir. O primeiro método mostra como enviar emails para alunos com o link de registro e uma mensagem opcional. O segundo método mostra como obter o link de registro que você pode compartilhar com outras pessoas como desejar. 
 
-Se a opção **Restringir o acesso** estiver habilitada para o laboratório, somente os usuários na lista de usuários poderão usar o link de registro para se registrar no laboratório. Por padrão, essa opção é ativada. 
+Se a opção **Restringir o acesso** estiver habilitada para o laboratório, somente os usuários na lista de usuários poderão usar o link de registro para se registrar no laboratório. Essa opção é habilitada por padrão. 
 
 ### <a name="invite-all-users"></a>Convidar todos os usuários
 1. Alterne para a exibição **Usuários**, caso ainda não esteja na página, e selecione **Convidar todos** na barra de ferramentas. 
@@ -101,11 +101,14 @@ Você também pode obter o link de registro no portal e enviá-lo usando seu pr�
 2. Na caixa de diálogo **registro de usuário** , selecione **concluído**. 
 4. Envie o **link de registro** para um aluno para que o aluno possa se registrar para a classe. 
 
-## <a name="view-users-registered-with-the-lab"></a>Exibir usuários registrados no laboratório
+## <a name="view-registered-users"></a>Exibir usuários registrados
 
-Selecione **usuários** no menu à esquerda para ver a lista de usuários registrados com o laboratório. 
+1. Navegue até [Site do Azure Lab Services](https://labs.azure.com). 
+2. Selecione **Iniciar sessão** e insira suas credenciais. O Azure Lab Services oferece suporte a contas organizacionais e contas Microsoft.
+3. Na página **Meus Laboratórios**, selecione o laboratório do qual você deseja acompanhar o uso. 
+4. Selecione **Usuários** no menu à esquerda ou no bloco **Usuários**. Você verá os alunos que foram registrados no laboratório.  
 
-![Lista de usuários registrados no laboratório](../media/how-to-configure-student-usage/students-registered.png)
+    ![Usuários registrados](../media/tutorial-track-usage/registered-users.png)
 
 ## <a name="set-quotas-for-users"></a>Definir cotas para usuários
 Defina cotas por usuário usando as seguintes etapas: 
@@ -115,7 +118,7 @@ Defina cotas por usuário usando as seguintes etapas:
 3. Na página **cota por usuário** , especifique o número de horas que você deseja dar a cada usuário (aluno) fora da hora da classe agendada e, em seguida, selecione **salvar**.
 
     ![Cota por usuário](../media/how-to-configure-student-usage/quota-per-user.png)    
-5. Você verá os valores alterados na barra de ferramentas agora: **cota por usuário: \<número de horas >** . 
+5. Você verá os valores alterados na barra de ferramentas agora: **cota por usuário: \<número de horas >** e também na lista de usuários.
 
     ![Cota por usuário — depois](../media/how-to-configure-student-usage/quot-per-user-after.png)
 
@@ -171,7 +174,7 @@ Na página **Opções de entrada** , selecione **entrar com o GitHub**.
 
 Por fim, eles são solicitados a criar um conta Microsoft que esteja vinculado à sua conta do GitHub. Ele ocorre automaticamente quando o aluno seleciona **Avançar**.  O aluno é imediatamente conectado e conectado ao laboratório da sala de aula.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Veja os artigos a seguir:
 
 - [Como administrador, crie e gerencie contas de laboratório](how-to-manage-lab-accounts.md)

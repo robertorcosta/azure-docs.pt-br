@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 249cf7414143f59540d198bb460d8b215f6a7664
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 5e32c461902c1e340c6cece22669a59847e660cd
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756344"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77538389"
 ---
 # <a name="message-deferral"></a>Adiamento de mensagens
 
@@ -36,12 +36,12 @@ A API é [BrokeredMessage. Defer](/dotnet/api/microsoft.servicebus.messaging.bro
 
 As mensagens adiadas permanecem na fila principal junto com todas as outras mensagens ativas (ao contrário de mensagens mortas que residem em uma subfila), mas elas não podem mais ser recebidas usando as funções Receive/ReceiveAsync regulares. Mensagens adiadas podem ser descobertas por meio da [procura de mensagens](message-browsing.md) se um aplicativo perder o controle delas.
 
-Para recuperar uma mensagem adiada, seu proprietário é responsável por memorizar o [NúmerodeSequência](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) conforme ele a adia. Todo destinatário que souber um número de sequência de uma mensagem adiada pode receber depois a mensagem explicitamente com `Receive(sequenceNumber)`. Para filas, você pode usar o [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient), as assinaturas de tópico usam o [SubscriptionClient](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient).
+Para recuperar uma mensagem adiada, seu proprietário é responsável por memorizar o [NúmerodeSequência](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) conforme ele a adia. Todo destinatário que souber um número de sequência de uma mensagem adiada pode receber depois a mensagem explicitamente com `Receive(sequenceNumber)`.
 
 Se uma mensagem não puder ser processada porque um recurso específico para lidar com essa mensagem está temporariamente indisponível, mas o processamento de mensagem não deve ser suspenso sumariamente, uma maneira de colocar essa mensagem de lado por alguns minutos é lembrar o **NúmerodeSequência** em uma [mensagem agendada](message-sequencing.md) para ser postada em alguns minutos, e recuperar a mensagem adiada novamente quando a mensagem agendada chegar. Se um manipulador de mensagens depender de um banco de dados para todas as operações e o banco de dados estiver temporariamente indisponível, ele não deverá usar o adiamento, mas suspender o recebimento de mensagens completamente até o banco de dados estar disponível novamente.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes tópicos:
 

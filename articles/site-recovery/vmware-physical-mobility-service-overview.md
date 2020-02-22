@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: b2c59fd6ee925d531a5a5ff3bb26fdebea025b83
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: c5acc9637fe5afe8f7dd32d23fbdbb80373b4f61
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513551"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539375"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Sobre o serviço de Mobilidade para VMs do VMware e servidores físicos
 
@@ -21,6 +21,9 @@ Ao configurar a recuperação de desastres para VMs do VMware e servidores físi
 - [Instalação por push](#push-installation): Site Recovery instala o agente de mobilidade no servidor quando a proteção é habilitada via portal do Azure.
 - Instalar manualmente: você pode instalar o serviço de mobilidade manualmente em cada computador por meio [da interface do usuário ou do](#install-mobility-agent-through-ui) [prompt de comando](#install-mobility-agent-through-command-prompt).
 - [Implantação automatizada](vmware-azure-mobility-install-configuration-mgr.md): você pode automatizar a instalação com ferramentas de implantação de software, como Configuration Manager.
+
+> [!NOTE]
+> O agente de mobilidade usa aproximadamente 6% a 10% da memória em computadores de origem para VMs VMware ou máquinas físicas.
 
 ## <a name="anti-virus-on-replicated-machines"></a>Antivírus em computadores replicados
 
@@ -35,7 +38,7 @@ A instalação por push é parte integrante do trabalho de "[habilitar replicaç
 
 Os detalhes do fluxo de trabalho de instalação por push foram descritos nas seções a seguir.
 
-### <a name="from-923-versionhttpssupportmicrosoftcomen-inhelp4494485update-rollup-35-for-azure-site-recovery-onwards"></a>Da [versão 9,23](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery) em diante
+### <a name="from-923-version-onwards"></a>Da [versão 9,23](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery) em diante
 
 Durante a instalação por push do agente de mobilidade, as etapas a seguir são executadas
 
@@ -73,7 +76,7 @@ Durante a instalação por push do agente de mobilidade, as etapas a seguir são
 
     ![Página de registro do Serviço de Mobilidade](./media/vmware-physical-mobility-service-install-manual/mobility3.png)
 
-5. Em **detalhes do servidor de configuração**, especifique o endereço IP e a senha que você configurou.  
+5. Em **detalhes do servidor de configuração**, especifique o endereço IP e a senha que você configurou.
 
     ![Página de registro do Serviço de Mobilidade](./media/vmware-physical-mobility-service-install-manual/mobility4.png)
 
@@ -158,7 +161,7 @@ Uso | ./Install-d \<local de instalação >-r \<MS/MT >-v VmWare-q
 -r | Parâmetro de instalação obrigatório. Especifica se o serviço Mobility (MS) ou o destino mestre (MT) deve ser instalado.
 -d | Parâmetro opcional. Especifica o local de instalação do serviço Mobility: / usr / local / ASR.
 -v | Mandatory. Especifica a plataforma onde o Serviço de Mobilidade está instalado. **VMware** para VMs do Mware/servidores físicos; **Azure** para VMs do Azure.
--Q | Opcional. Especifica se deve executar o instalador no modo silencioso.
+-q | Opcional. Especifica se deve executar o instalador no modo silencioso.
 
 #### <a name="registration-settings"></a>Configurações de registro
 **Configuração** | **Detalhes**
@@ -190,6 +193,6 @@ Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Servidor do Ubuntu Linux 16
 Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7
 Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Configurar instalação do Serviço de Mobilidade por push](vmware-azure-install-mobility-service.md).

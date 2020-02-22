@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cb1a57c5b18f1da25e3843b55e86705d05f43c5
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: d9ebeb0db14a42f090a629e379d88e00867bda65
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522332"
+ms.locfileid: "77538168"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Criar um ponto de extremidade SCIM e configurar o provisionamento de usuário com o Azure Active Directory (Azure AD)
 
@@ -106,7 +106,7 @@ Em seguida, você pode usar a tabela abaixo para entender como os atributos que 
 | Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
 | givenName |name.givenName |
 | jobTitle |título |
-| mail |emails[type eq "work"].value |
+| email |emails[type eq "work"].value |
 | mailNickname |externalId |
 | manager |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Manager |
 | Serviço Móvel |phoneNumbers[type eq "mobile"].value |
@@ -124,7 +124,7 @@ Em seguida, você pode usar a tabela abaixo para entender como os atributos que 
 | Grupo do Active Directory do Azure | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
 | displayName |displayName |
-| mail |emails[type eq "work"].value |
+| email |emails[type eq "work"].value |
 | mailNickname |displayName |
 | membros |membros |
 | objectId |externalId |
@@ -133,7 +133,7 @@ Em seguida, você pode usar a tabela abaixo para entender como os atributos que 
 Há vários pontos de extremidade definidos na RFC SCIM. Você pode começar a usar o ponto de extremidade/User e, em seguida, expandir a partir daí. O ponto de extremidade/schemas é útil ao usar atributos personalizados ou se o esquema for alterado com frequência. Ele permite que um cliente recupere o esquema mais atualizado automaticamente. O ponto de extremidade/Bulk é especialmente útil ao dar suporte a grupos. A tabela a seguir descreve os vários pontos de extremidade definidos no padrão SCIM. O ponto de extremidade/schemas é útil ao usar atributos personalizados ou se o esquema for alterado com frequência. Ele permite que um cliente recupere o esquema mais atualizado automaticamente. O ponto de extremidade/Bulk é especialmente útil ao dar suporte a grupos. A tabela a seguir descreve os vários pontos de extremidade definidos no padrão SCIM. 
  
 ### <a name="table-4-determine-the-endpoints-that-you-would-like-to-develop"></a>Tabela 4: determinar os pontos de extremidade que você deseja desenvolver
-|ENDPOINT|DESCRIPTION|
+|PONTO DE EXTREMIDADE|DESCRIÇÃO|
 |--|--|
 |/|Executar operações CRUD em um objeto de usuário.|
 |/Group|Executar operações CRUD em um objeto de grupo.|
@@ -560,7 +560,7 @@ Esta seção fornece exemplos de solicitações SCIM emitidas pelo cliente SCIM 
 * A atualização para a solicitação de PATCH de grupo deve gerar um *HTTP 204 sem conteúdo* na resposta. O retorno de um corpo com uma lista de todos os membros não é aconselhável.
 * Não é necessário dar suporte ao retorno de todos os membros do grupo.
 
-#### <a name="create-group"></a>Criar Grupo
+#### <a name="create-group"></a>{1&gt;Criar Grupo&lt;1}
 
 ##### <a name="request-7"></a>Quest
 
@@ -712,7 +712,7 @@ Esta seção fornece exemplos de solicitações SCIM emitidas pelo cliente SCIM 
 
 *HTTP/1.1 204 sem conteúdo*
 
-#### <a name="delete-group"></a>Excluir grupo
+#### <a name="delete-group"></a>Excluir Grupo
 
 ##### <a name="request-13"></a>Quest
 
@@ -1448,12 +1448,13 @@ Se você estiver criando um aplicativo que será usado por mais de um locatário
 ### <a name="gallery-onboarding-checklist"></a>Lista de verificação de integração da Galeria
 Siga a lista de verificação abaixo para garantir que seu aplicativo seja integrado de forma rápida e os clientes tenham uma experiência de implantação tranqüila. As informações serão coletadas quando você estiver na integração à galeria. 
 > [!div class="checklist"]
-> * [Suporte a SCIM 2,0](https://tools.ietf.org/html/draft-wahl-scim-profile-00) (obrigatório)
+> * Suporte a um usuário do [SCIM 2,0](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-2-understand-the-azure-ad-scim-implementation) e ponto de extremidade do grupo (apenas um é necessário, mas ambos são recomendados)
 > * Suporte a pelo menos 25 solicitações por segundo por locatário (obrigatório)
-> * Descoberta de esquema de suporte (recomendado)
 > * Suporte à concessão de código de autorização OAuth ou a um token de vida útil longa, conforme descrito abaixo (obrigatório)
-> * Estabelecer uma engenharia e um ponto de suporte de contato para dar suporte à integração da Galeria de postagens do cliente (obrigatório)
+> * Estabelecer uma engenharia e um ponto de suporte de contato para dar suporte aos clientes postando a galeria (obrigatório)
+> * Suporte à atualização de várias associações de grupo com um único PATCH (recomendado) 
 > * Documentar seu ponto de extremidade SCIM publicamente (recomendado) 
+> * [Descoberta de esquema de suporte](https://tools.ietf.org/html/rfc7643#section-6) (recomendado)
 
 
 ### <a name="authorization-for-provisioning-connectors-in-the-application-gallery"></a>Autorização para o provisionamento de conectores na Galeria de aplicativos
@@ -1497,7 +1498,7 @@ Para ajudar a impulsionar o reconhecimento e a demanda de nossa integração con
 
 Determinados aplicativos permitem o tráfego de entrada para seu aplicativo. Para que o serviço de provisionamento do Azure AD funcione conforme o esperado, os endereços IP usados devem ser permitidos. Para obter uma lista de endereços IP para cada tag de serviço/região, confira o arquivo JSON – [Intervalos de IP do Azure e marcas de serviço – nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519). Você pode baixar e programar esses IPs em seu firewall, conforme necessário. Os intervalos de IP reservados para o provisionamento do Azure AD podem ser encontrados em "AzureActiveDirectoryDomainServices".
 
-## <a name="related-articles"></a>Artigos relacionados
+## <a name="related-articles"></a>{1&gt;{2&gt;Artigos relacionados&lt;2}&lt;1}
 
 * [Automatizar o provisionamento e o desprovisionamento de usuários para aplicativos SaaS](user-provisioning.md)
 * [Personalizar mapeamentos de atributos para provisionamento do usuário](customize-application-attributes.md)

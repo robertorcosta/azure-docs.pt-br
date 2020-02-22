@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: manayar
-ms.openlocfilehash: ddebde842b5c63dcd5a46fc13e38f2df710a229e
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 070e2108afb22539501c0e1808593c95a26b4576
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485430"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539307"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Rede para conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -64,8 +64,8 @@ az vmss create \
     --lb mylb \
     --backend-pool-name mybackendpool
 ```
-    >[!NOTE]
-    >After the scale set has been created, the backend port cannot be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again. 
+>[!NOTE]
+> Depois que o conjunto de dimensionamento tiver sido criado, a porta de back-end não poderá ser modificada para uma regra de balanceamento de carga usada por uma investigação de integridade do balanceador de carga. Para alterar a porta, você pode remover a investigação de integridade atualizando o conjunto de dimensionamento de máquinas virtuais do Azure, atualizar a porta e, em seguida, configurar a investigação de integridade novamente. 
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Criar um conjunto de dimensionamento que referencia um Gateway de Aplicativo
 Para criar um conjunto de dimensionamento que usa um gateway de aplicativo, referencie o pool de endereços de back-end do gateway de aplicativo na seção ipConfigurations do conjunto de dimensionamento como nesta configuração de modelo ARM:
@@ -396,5 +396,5 @@ az vmss show \
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Para obter mais informações sobre as redes virtuais do Azure, confira [Visão geral das redes virtuais do Azure](../virtual-network/virtual-networks-overview.md).

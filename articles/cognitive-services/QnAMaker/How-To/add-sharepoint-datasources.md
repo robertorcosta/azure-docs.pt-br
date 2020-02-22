@@ -1,29 +1,26 @@
 ---
 title: Arquivos do SharePoint-QnA Maker
-titleSuffix: Azure Cognitive Services
 description: Adicione fontes de dados do SharePoint protegidas à sua base de conhecimento para enriquecer a base de conhecimento com perguntas e respostas que podem ser protegidas com Active Directory.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/24/2019
-ms.author: diberry
-ms.openlocfilehash: e28f144c33cbdf253603cb38ca56a4d304afd474
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/20/2020
+ms.openlocfilehash: ec77d3ac217991ff191d80249bc86805e7c8ba35
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843285"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77544157"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Adicionar uma fonte de dados protegida do SharePoint à sua base de conhecimento
 
-Adicione fontes de dados do SharePoint protegidas à sua base de conhecimento para enriquecer a base de conhecimento com perguntas e respostas que podem ser protegidas com Active Directory.
+Adicione fontes de dados do SharePoint protegidas baseadas em nuvem à sua base de conhecimento para enriquecer a base de conhecimento com perguntas e respostas que podem ser protegidas com Active Directory.
 
 Ao adicionar um documento protegido do SharePoint à sua base de dados de conhecimento, como o Gerenciador de QnA Maker, você deve solicitar a permissão Active Directory para QnA Maker. Depois que essa permissão for fornecida do Active Directory Manager para QnA Maker para acesso ao SharePoint, ela não precisará ser fornecida novamente. Cada adição de documento subsequente à base de dados de conhecimento não precisará de autorização se estiver no mesmo recurso do SharePoint.
 
 Se o QnA Maker Gerenciador da base de dados de conhecimento não for o Active Directory Manager, você precisará se comunicar com o Gerenciador de Active Directory para concluir esse processo.
+
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+
+QnA Maker usa Microsoft Graph para permissões. Se o seu SharePoint for local, você não poderá extrair do SharePoint porque Microsoft Graph não poderá determinar as permissões.
 
 ## <a name="add-supported-file-types-to-knowledge-base"></a>Adicionar tipos de arquivo com suporte à base de dados de conhecimento
 
@@ -185,7 +182,7 @@ Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileu
 
 -->
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!div class="nextstepaction"]
 > [Colabore em sua base de dados de conhecimento](collaborate-knowledge-base.md)

@@ -3,12 +3,12 @@ title: Entender como funcionam os efeitos
 description: As definições de Azure Policy têm vários efeitos que determinam como a conformidade é gerenciada e relatada.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2b588cfb7c13a63e3fa5d3a65d9ccb24a2e854fd
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 502c8a87c4e915ebd1fd764915daa9c89a307097
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972806"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77544123"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos do Azure Policy
 
@@ -28,7 +28,7 @@ Atualmente, há suporte para esses efeitos em uma definição de política:
 
 ## <a name="order-of-evaluation"></a>Ordem de avaliação
 
-Solicitações para criar ou atualizar um recurso por meio do Azure Resource Manager são avaliadas primeiro pelo Azure Policy. Azure Policy cria uma lista de todas as atribuições que se aplicam ao recurso e, em seguida, avalia o recurso em relação a cada definição. O Azure Policy processa vários dos efeitos antes de entregar a solicitação ao provedor de recursos apropriado. Isso impede o processamento desnecessário por um provedor de recursos quando um recurso não atende aos controles de governança criados de Azure Policy.
+As solicitações para criar ou atualizar um recurso por meio de Azure Resource Manager são avaliadas por Azure Policy primeiro. Azure Policy cria uma lista de todas as atribuições que se aplicam ao recurso e, em seguida, avalia o recurso em relação a cada definição. O Azure Policy processa vários dos efeitos antes de entregar a solicitação ao provedor de recursos apropriado. Isso impede o processamento desnecessário por um provedor de recursos quando um recurso não atende aos controles de governança criados de Azure Policy.
 
 - **Desabilitado** é marcado primeiro para determinar se a regra de política deve ser avaliada.
 - **Acréscimo** e **modificação** são então avaliados. Como o pode alterar a solicitação, uma alteração feita pode impedir o disparo de um efeito de auditoria ou negação.
@@ -46,7 +46,7 @@ Esse efeito é útil para testar situações ou quando a definição de polític
 Uma alternativa ao efeito desabilitado é **imposiçãomode** , que é definida na atribuição de política.
 Quando **imposiçãomode** é _desabilitada_, os recursos ainda são avaliados. Registro em log, como logs de atividade, e o efeito de política não ocorre. Para obter mais informações, consulte [atribuição de política – modo de imposição](./assignment-structure.md#enforcement-mode).
 
-## <a name="append"></a>Acrescentar
+## <a name="append"></a>Append
 
 O efeito acrescentar é usado para adicionar outros campos ao recurso solicitado durante a criação ou atualização. Um exemplo comum é especificar os IPs permitidos para um recurso de armazenamento.
 
@@ -158,7 +158,7 @@ A matriz de propriedades de **operações** torna possível alterar várias marc
 
 A propriedade **Operation** tem as seguintes opções:
 
-|Operação |Description |
+|Operação |Descrição |
 |-|-|
 |addOrReplace |Adiciona a marca e o valor definidos ao recurso, mesmo que a marca já exista com um valor diferente. |
 |Adicionar |Adiciona a marca e o valor definidos ao recurso. |
@@ -331,7 +331,8 @@ Semelhante a AuditIfNotExists, uma definição de política DeployIfNotExists ex
 
 ### <a name="deployifnotexists-evaluation"></a>Avaliação de DeployIfNotExists
 
-DeployIfNotExists é executado depois de um provedor de recursos ter tratado uma solicitação de criação ou atualização de um recurso e ter retornado um código de status de êxito. Uma implantação de modelo ocorre quando não existem recursos relacionados ou se os recursos definidos por **ExistenceCondition** não são avaliados como verdadeiros.
+DeployIfNotExists é executado cerca de 15 minutos depois que um provedor de recursos tratou de uma solicitação de criação ou atualização de recurso e retornou um código de status de êxito. Uma implantação de modelo ocorre quando não existem recursos relacionados ou se os recursos definidos por **ExistenceCondition** não são avaliados como verdadeiros.
+A duração da implantação depende da complexidade dos recursos incluídos no modelo.
 
 Durante um ciclo de avaliação, as definições de política com um efeito DeployIfNotExists que correspondam a recursos são marcadas como não conformes, mas nenhuma ação é realizada no recurso.
 
@@ -566,7 +567,7 @@ Se ambas as políticas 1 e 2 tiveram o efeito negar, a situação será alterada
 
 Cada atribuição é avaliada individualmente. Assim, não existe chance de um recurso passar por uma brecha nas diferenças de escopo. O resultado de políticas em camadas ou sobreposição de políticas é considerado **cumulativo mais restritivo**. Por exemplo, se as políticas 1 e 2 tivessem efeito deny, um recurso seria bloqueado pelas políticas conflitantes e sobrepostas. Caso ainda precise que o recurso seja criado no escopo de destino, revise as exclusões em cada atribuição para validar que as políticas corretas estão afetando os escopos corretos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](definition-structure.md).

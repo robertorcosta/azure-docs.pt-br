@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: aec46a1914fa2361ea15ba34dd1510cfe53a4dc0
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: e7a86f3a709566bcf18241ce3c329c0355be2743
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443832"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539545"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução Gerenciamento de Atualizações no Azure
 
@@ -69,7 +69,7 @@ Não há suporte para um computador registrado para Gerenciamento de Atualizaç�
 
 A tabela a seguir lista os sistemas operacionais com suporte para avaliações de atualização. A aplicação de patch requer um Hybrid Runbook Worker. Para obter informações sobre requisitos de Hybrid Runbook Worker, consulte os guias de instalação para instalar um [Hybrid runbook Worker do Windows](automation-windows-hrw-install.md) e um [Hybrid runbook Worker do Linux](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker).
 
-|Sistema operacional  |Observações  |
+|Sistema operacional  |{1&gt;Observações&lt;1}  |
 |---------|---------|
 |Windows Server 2019 (datacenter/Data Center Core/Standard)<br><br>Windows Server 2016 (datacenter/Data Center Core/Standard)<br><br>Windows Server 2012 R2 (datacenter/padrão)<br><br>Windows Server 2012 || 
 |Windows Server 2008 R2 (RTM e SP1 Standard)| Gerenciamento de Atualizações só dá suporte à execução de Avaliações para este sistema operacional, não há suporte para a aplicação de patches, pois o [Hybrid runbook Worker](automation-windows-hrw-install.md) não tem suporte para o Windows Server 2008 R2. |
@@ -86,17 +86,17 @@ A tabela a seguir lista os sistemas operacionais com suporte para avaliações d
 
 A tabela a seguir lista os sistemas operacionais sem suporte:
 
-|Sistema operacional  |Observações  |
+|Sistema operacional  |{1&gt;Observações&lt;1}  |
 |---------|---------|
 |Windows Client     | Os sistemas operacionais clientes (como Windows 7 e Windows 10) não têm suporte.        |
-|Windows Server 2016 Nano Server     | Sem suporte.       |
-|Nós do serviço kubernetes do Azure | Sem suporte. Use o processo de aplicação de patch descrito em [aplicar segurança e atualizações de kernel a nós do Linux no serviço kubernetes do Azure (AKs)](../aks/node-updates-kured.md)|
+|Windows Server 2016 Nano Server     | {1&gt;Sem suporte.&lt;1}       |
+|Nós do serviço kubernetes do Azure | {1&gt;Sem suporte.&lt;1} Use o processo de aplicação de patch descrito em [aplicar segurança e atualizações de kernel a nós do Linux no serviço kubernetes do Azure (AKs)](../aks/node-updates-kured.md)|
 
 ### <a name="client-requirements"></a>Requisitos do cliente
 
 As informações a seguir descrevem os requisitos de cliente específicos do sistema operacional. Para obter diretrizes adicionais, consulte [planejamento de rede](#ports).
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a>Portal
 
 Os agentes do Windows devem ser configurados para se comunicar com um servidor WSUS ou devem ter acesso ao Microsoft Update.
 
@@ -115,7 +115,7 @@ Para Linux, a máquina deve ter acesso a um repositório de atualização. O rep
 
 Para obter informações sobre como instalar o agente de Log Analytics para Linux e baixar a versão mais recente, consulte [log Analytics Agent para Linux](https://github.com/microsoft/oms-agent-for-linux). Para obter informações sobre como instalar o agente de Log Analytics para Windows, consulte [conectar computadores Windows ao Azure monitor](../log-analytics/log-analytics-windows-agent.md).
 
-As VMs que foram criadas a partir das imagens de Red Hat Enterprise Linux sob demanda (RHEL) que estão disponíveis no Azure Marketplace são registradas para acessar a [RHUI (infraestrutura de atualização do Red Hat)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) implantada no Azure. Qualquer outra distribuição do Linux deve ser atualizada a partir do repositório de arquivos online da distribuição usando os métodos com suporte da distribuição.
+As VMs que foram criadas a partir das imagens de Red Hat Enterprise Linux sob demanda (RHEL) que estão disponíveis no Azure Marketplace são registradas para acessar a [RHUI (infraestrutura de atualização do Red Hat)](../virtual-machines/workloads/redhat/redhat-rhui.md) implantada no Azure. Qualquer outra distribuição do Linux deve ser atualizada a partir do repositório de arquivos online da distribuição usando os métodos com suporte da distribuição.
 
 ## <a name="permissions"></a>Permissões
 
@@ -155,13 +155,13 @@ Para obter mais informações sobre como os pacotes de gerenciamento de soluçã
 
 A tabela a seguir descreve as fontes conectadas às quais essa solução dá suporte:
 
-| Fonte conectada | Suportado | DESCRIÇÃO |
+| Fonte conectada | Suportado | Descrição |
 | --- | --- | --- |
 | Agentes do Windows |Sim |A solução coleta informações sobre atualizações do sistema de agentes do Windows e inicia a instalação de atualizações necessárias. |
 | Agentes do Linux |Sim |A solução coleta informações sobre atualizações do sistema de agentes para Linux e, em seguida, inicia a instalação das atualizações necessárias nas distribuições com suporte. |
 | Grupo de gerenciamento do Operations Manager |Sim |A solução coleta informações sobre atualizações do sistema de agentes em um grupo de gerenciamento conectados.<br/><br/>Não é necessária uma conexão direta do agente de Operations Manager para os logs do Azure Monitor. Os dados são encaminhados do grupo de gerenciamento para o espaço de trabalho do Log Analytics. |
 
-### <a name="collection-frequency"></a>Frequência de coleta
+### <a name="collection-frequency"></a>Frequência da coleta
 
 Uma verificação é executada duas vezes por dia para cada computador Windows gerenciado. A cada 15 minutos, a API do Windows é chamada para consultar a hora da última atualização para determinar se o status foi alterado. Se o status foi alterado, uma verificação de conformidade é iniciada.
 
@@ -184,7 +184,7 @@ Os endereços a seguir são necessários especificamente para gerenciamento de a
 
 Para computadores Windows, você também deve permitir o tráfego para qualquer ponto de extremidade exigido pelo Windows Update. Você pode encontrar uma lista atualizada de pontos de extremidade necessários em [problemas relacionados ao http/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Se você tiver um [servidor de Windows Update](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)local, também deverá permitir o tráfego para o servidor especificado em sua [chave do WSUS](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
-Para computadores Red Hat Linux, consulte [IPS para os servidores de distribuição de conteúdo RHUI](../virtual-machines/linux/update-infrastructure-redhat.md#the-ips-for-the-rhui-content-delivery-servers) para pontos de extremidade necessários. Para outras distribuições do Linux, consulte a documentação do provedor.
+Para computadores Red Hat Linux, consulte [IPS para os servidores de distribuição de conteúdo RHUI](../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers) para pontos de extremidade necessários. Para outras distribuições do Linux, consulte a documentação do provedor.
 
 Para obter mais informações sobre as portas que exige o Hybrid Runbook Worker, consulte [portas de função do Hybrid Worker](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 
@@ -208,13 +208,13 @@ Selecione **Atualizações ausentes** para exibir a lista de atualizações que 
 
 ![Atualizações ausentes](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
-## <a name="update-classifications"></a>Classificações de origem
+## <a name="update-classifications"></a>Classificações de atualizações
 
 As tabelas a seguir listam as classificações de atualização no Gerenciamento de Atualizações, com uma definição de cada classificação.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a>Portal
 
-|classificação  |DESCRIÇÃO  |
+|classificação  |Descrição  |
 |---------|---------|
 |Atualizações críticas     | Uma atualização para um problema específico que aborda um bug crítico não relacionado à segurança.        |
 |Atualizações de segurança     | Uma atualização para um problema específico do produto relacionadas à segurança.        |
@@ -227,7 +227,7 @@ As tabelas a seguir listam as classificações de atualização no Gerenciamento
 
 ### <a name="linux-2"></a>Linux
 
-|classificação  |DESCRIÇÃO  |
+|classificação  |Descrição  |
 |---------|---------|
 |Atualizações críticas ou de segurança     | Atualizações para um problema específico ou um problema relacionado à segurança específico do produto.         |
 |Outras atualizações     | Todas as outras atualizações que não são críticas por natureza ou que não são atualizações de segurança.        |
@@ -298,7 +298,7 @@ Para começar a aplicar patch em sistemas, você precisa habilitar a solução d
 * [Da sua conta de Automação](automation-onboard-solutions-from-automation-account.md)
 * [Com um runbook de Automação do Azure](automation-onboard-solutions.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Use o tutorial a seguir para saber como gerenciar atualizações para suas VMs do Windows:
 

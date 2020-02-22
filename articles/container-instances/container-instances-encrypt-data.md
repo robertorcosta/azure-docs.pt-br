@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: 14a51ce103d831bcf1dfd52c892102f72531a4c8
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 41c7fc7380ca2b58326c4a35a3b5fdab1c64c4a3
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934313"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77544308"
 ---
 # <a name="encrypt-deployment-data"></a>Criptografar dados de implantação
 
@@ -27,7 +27,7 @@ Você pode contar com chaves gerenciadas pela Microsoft para a criptografia de s
 |    |    Chaves gerenciadas pela Microsoft     |     Chaves gerenciadas pelo cliente     |
 |----|----|----|
 |    Operações de criptografia/descriptografia    |    Azure    |    Azure    |
-|    Armazenamento de chaves    |    Repositório de chaves da Microsoft    |    Azure Key Vault    |
+|    Armazenamento de chaves    |    Repositório de chaves da Microsoft    |    Cofre de Chave do Azure    |
 |    Responsabilidade de rotação de chave    |    Microsoft    |    Cliente    |
 |    Acesso à chave    |    Somente Microsoft    |    Microsoft, cliente    |
 
@@ -89,7 +89,7 @@ A política de acesso agora deve aparecer nas políticas de acesso do cofre de c
 > A criptografia de dados de implantação com uma chave gerenciada pelo cliente está disponível na versão mais recente da API (2019-12-01) que está sendo distribuída no momento. Especifique essa versão de API em seu modelo de implantação. Se você tiver problemas com isso, entre em contato com o suporte do Azure.
 
 Depois que a chave do Key Vault e a política de acesso forem configuradas, adicione as propriedades a seguir ao modelo de implantação do ACI. Saiba mais sobre a implantação de recursos do ACI com um modelo no [tutorial: implantar um grupo de vários contêineres usando um modelo do Resource Manager](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
-* Em `resources`, defina `apiVersion` como `2012-12-01`.
+* Em `resources`, defina `apiVersion` como `2019-12-01`.
 * Na seção Propriedades do grupo de contêineres do modelo de implantação, adicione um `encryptionProperties`, que contém os seguintes valores:
   * `vaultBaseUrl`: o nome DNS do cofre de chaves, pode ser encontrado na folha visão geral do recurso do cofre de chaves no portal
   * `keyName`: o nome da chave gerada anteriormente

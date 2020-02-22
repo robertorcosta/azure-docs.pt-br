@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 02/20/2020
 ms.author: cherylmc
-ms.openlocfilehash: e01b311d10dcf4216bfeea77ce8919f64ea2ef28
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: f574576044b7e4ddd34289b5cc45fe5ca353f180
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74080337"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77538497"
 ---
 # <a name="expressroute-global-reach"></a>Alcance Global do ExpressRoute
 O ExpressRoute é uma maneira particular e resiliente de conectar suas redes locais ao Microsoft Cloud. Você pode acessar muitos serviços de nuvem da Microsoft, como o Azure, e o Office 365 de seu data center particular ou sua rede corporativa. Por exemplo, é possível ter uma filial em São Francisco com um circuito ExpressRoute no Vale do Silício e outra filial em Londres com um circuito ExpressRoute na mesma cidade. Ambas as filiais podem ter conectividade de alta velocidade aos recursos do Azure no Oeste dos EUA e no Sul do Reino Unido. No entanto, as filiais não podem trocar dados diretamente entre si. Em outras palavras, 10.0.1.0/24 pode enviar dados para 10.0.3.0/24 e 10.0.4.0/24, mas NÃO para 10.0.2.0/24.
@@ -28,18 +28,19 @@ O Alcance Global do ExpressRoute foi desenvolvido para complementar a implementa
 
 ![caso de uso][3]
 
-## <a name="availability"></a>Disponibilidade 
+## <a name="availability"></a>Availability 
 Atualmente, o Alcance Global do ExpressRoute tem suporte nos seguintes locais.
 
 * Austrália
 * Canadá
-* França
-* Alemanha
+* France
+* Germany
 * RAE de Hong Kong
 * Irlanda
 * Japão
 * Coreia do Sul
 * Países Baixos
+* Nova Zelândia
 * Singapura
 * Suíça
 * Reino Unido
@@ -47,7 +48,7 @@ Atualmente, o Alcance Global do ExpressRoute tem suporte nos seguintes locais.
 
 Os circuitos do ExpressRoute devem ser criados nos [locais de emparelhamento do ExpressRoute](expressroute-locations.md) nos países ou região acima. Para habilitar o Alcance Global do ExpressRoute entre [diferentes regiões geopolíticas](expressroute-locations.md), seus circuitos devem ter o SKU Premium.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 1. [Saiba mais sobre o Alcance Global do ExpressRoute](expressroute-faqs.md)
 2. [Como habilitar o Alcance Global do ExpressRoute](expressroute-howto-set-global-reach.md)
 3. [Vincular circuito do ExpressRoute a uma rede virtual do Azure](expressroute-howto-linkvnet-arm.md)

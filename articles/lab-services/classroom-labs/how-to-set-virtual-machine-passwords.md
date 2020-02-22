@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 99c6ee5d58655350d14add61530fae647a675508
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: c01106bf7288e777e601c06558b1408960f4e49b
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443220"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539426"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurar e gerenciar o pool de máquinas virtuais 
 Este artigo mostra como realizar as seguintes tarefas:
@@ -100,7 +100,7 @@ O criador de laboratório (instrutor/professor) pode se conectar a uma VM de alu
 > [!NOTE]
 > Quando o professor inicia a VM e se conecta a ela, a cota do aluno não é afetada. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Para saber mais sobre as outras opções de uso do aluno que você (como proprietário do laboratório) podem configurar, consulte o seguinte artigo: [Configurar o uso do aluno](how-to-configure-student-usage.md).
 
 Para saber mais sobre como os alunos podem redefinir senhas para suas VMs, consulte [definir ou Redefinir senha para máquinas virtuais em laboratórios de sala de aula (estudantes)](how-to-set-virtual-machine-passwords-student.md).

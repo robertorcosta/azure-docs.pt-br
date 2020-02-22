@@ -6,18 +6,18 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/15/2019
-ms.openlocfilehash: 303f24ef6d934c0382bd8917833e3ec545f2a540
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 559c894a2212466761de820de7486ae203337802
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776476"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77538457"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>CI/CD do Azure Spring Cloud com ações do GitHub
 
 As ações do GitHub dão suporte a um fluxo de trabalho de desenvolvimento de software automatizado. Com as ações do GitHub para o Azure Spring Cloud, você pode criar fluxos de trabalho em seu repositório para compilar, testar, empacotar, liberar e implantar no Azure. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 Este exemplo requer o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="set-up-github-repository-and-authenticate"></a>Configurar repositório do GitHub e autenticar
@@ -79,6 +79,7 @@ Crie o arquivo de `.github/workflow/main.yml` no repositório:
 
 ```
 name: AzureSpringCloud
+on: push
 
 env:
   GROUP: <resource group name>
@@ -125,6 +126,7 @@ O comando AZ `run` usará a versão mais recente do CLI do Azure. Se houver alte
 Crie o arquivo. github/Workflow/Main. yml no repositório:
 ```
 name: AzureSpringCloud
+on: push
 
 jobs:
   build-and-deploy:
@@ -165,6 +167,7 @@ Outra opção é usar o [plug-in do Maven](https://docs.microsoft.com/azure/spri
 
 ```
 name: AzureSpringCloud
+on: push
 
 jobs:
   build-and-deploy:
@@ -205,7 +208,7 @@ Se a ação for executada com erro, por exemplo, se você não tiver definido a 
 
  ![Executar verificações novamente](./media/github-actions/actions4.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * [Key Vault para ações do GitHub do Spring Cloud](./spring-cloud-github-actions-key-vault.md)
 * [Azure Active Directory entidades de serviço](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)
 * [Ações do GitHub para o Azure](https://github.com/Azure/actions/)

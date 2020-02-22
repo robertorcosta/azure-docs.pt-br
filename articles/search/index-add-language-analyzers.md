@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ea7a62210f48b216d3f98f6359447eacf15cf821
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a97bee27b74aa211b4d4d56547726555edefa87a
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460804"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539392"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Adicionar analisadores de idioma a campos de cadeia de caracteres em um índice de Pesquisa Cognitiva do Azure
 
@@ -44,7 +44,7 @@ O analisador padrão é Lucene Standard, que funciona bem para o inglês, mas ta
  
 + O analisador de inglês da Lucene amplia o analisador padrão. Ele remove possessivos (apóstrofos à direita) de palavras, aplica a lematização conforme o algoritmo de lematização de Porter e remove as palavras irrelevantes do inglês.  
 
-+ O analisador de inglês da Microsoft executa a derivação em vez da lematização. Isso significa que ele pode tratar muito melhor as formas irregulares e inflexivas de palavras, o que gera resultados da pesquisa mais relevantes 
++ O analisador de inglês da Microsoft executa a derivação em vez da lematização. Isso significa que ele pode manipular formas flexionadas e formas irregulares de palavras muito melhores, o que resulta em resultados de pesquisa mais relevantes 
 
 ## <a name="configuring-analyzers"></a>Configurar analisadores
 
@@ -62,7 +62,7 @@ Para obter mais informações sobre propriedades de índice, consulte [criar ín
 ## <a name="language-analyzer-list"></a>Lista de analisador de idioma 
  Veja abaixo uma lista de idiomas com suporte juntamente com nomes de analisador da Lucene e da Microsoft.  
 
-|Idioma|Nome do analisador da Microsoft|Nome do analisador da Lucene|  
+|Linguagem|Nome do analisador da Microsoft|Nome do analisador da Lucene|  
 |--------------|-----------------------------|--------------------------|  
 |Árabe|ar.microsoft|ar.lucene|  
 |Armênia||hy.Lucene|  

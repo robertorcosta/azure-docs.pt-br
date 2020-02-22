@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: juliako
-ms.openlocfilehash: a91305f1c5bfb50e0354dc0054d1a149182d921f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c5acda0ccec409ec06d0f3f2226b9819e3f130c7
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888437"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77538406"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>Criar uma entrada de trabalho de um arquivo local
 
@@ -34,7 +34,7 @@ O código a seguir mostra como criar um ativo de entrada e usá-lo como entrada 
 
 O trecho de código a seguir criará um ativo de saída se ele ainda não existir:
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAssetAsync)]
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
 O trecho de código a seguir envia um trabalho de codificação:
 
@@ -44,6 +44,6 @@ O trecho de código a seguir envia um trabalho de codificação:
 
 Confira [Códigos de erro](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Criar uma entrada de trabalho de uma URL HTTPS](job-input-from-http-how-to.md).

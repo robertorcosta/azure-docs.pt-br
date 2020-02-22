@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
-ms.openlocfilehash: 6980518da00e6849c327ca712bbeadaa816ae479
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 35d185a625a81a259c366a45999769ecf76c6a7d
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77056658"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77538151"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Configurar logs de fluxo de NSG de um modelo de Azure Resource Manager
 
@@ -132,9 +132,11 @@ Abaixo estão dois exemplos de modelos completos para configurar os logs de flux
       "storageId": "/subscriptions/56abfbd6-ec72-4ce9-831f-bc2b6f2c5505/resourceGroups/MyCanaryFlowLog/providers/Microsoft.Storage/storageAccounts/storagev2ira",
       "enabled": true,
       "flowAnalyticsConfiguration": {
+        "networkWatcherFlowAnalyticsConfiguration": {
             "enabled": true,
-        "workspaceResourceId": "91a3d1e9-698e-4a49-96dc-f6fc585ae888",
-        "trafficAnalyticsInterval": 10
+            "workspaceResourceId": "/subscriptions/56abfbd6-ec72-4ce9-831f-bc2b6f2c5505/resourceGroups/defaultresourcegroup-wcus/providers/Microsoft.OperationalInsights/workspaces/1c4f42e5-3a02-4146-ac9b-3051d8501db0",
+            "trafficAnalyticsInterval": 10
+                }
       },
       "retentionPolicy": {
         "days": 5,
@@ -142,7 +144,7 @@ Abaixo estão dois exemplos de modelos completos para configurar os logs de flux
       },
       "format": {
         "type": "JSON",
-        "version": 1
+        "version": 2            
       }
     }
 
@@ -168,7 +170,7 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 Há duas maneiras de verificar se sua implantação foi bem-sucedida. O console do PowerShell deve mostrar "ProvisioningState" como "êxito". Além disso, você pode visitar a [página do portal de logs de fluxo do NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) para confirmar suas alterações. Se houver problemas com a implantação, dê uma olhada em [solucionar erros comuns de implantação do Azure com o Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors).
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba como visualizar seus dados de fluxo do NSG usando:
 * [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)

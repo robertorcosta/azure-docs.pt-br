@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: ed477dddeb499023f4803929d9433ed37c302159
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: c3291746558dbec2147ebea24eadd0febd317033
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212477"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539528"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Rastrear mensagens de dispositivo para a nuvem do IoT do Azure com o rastreamento distribuído (versão prévia)
 
@@ -30,7 +30,7 @@ A ativação do rastreamento distribuído para o Hub IoT oferece a capacidade de
 
 Neste artigo, você deve usar o [SDK do dispositivo IoT do Azure para C](iot-hub-device-sdk-c-intro.md) com rastreamento distribuído. O suporte ao rastreamento distribuído ainda está em andamento para os outros SDKs.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 - Atualmente, a versão prévia do rastreamento distribuído só é compatível com os Hubs IoT criados nas seguintes regiões:
 
@@ -178,7 +178,7 @@ Essas instruções servem para compilar o exemplo no Windows. Para outros ambien
 
 Não é **trivial** Visualizar o recurso de rastreamento distribuído sem usar o SDK do C. Portanto, essa abordagem não é recomendada.
 
-Primeiro, você deve implementar todos os primitivos de protocolo do Hub IoT em suas mensagens seguindo o guia de desenvolvimento [criar e ler mensagens do Hub IOT](iot-hub-devguide-messages-construct.md). Em seguida, edite as propriedades de protocolo nas mensagens MQTT/AMQP para adicionar `tracestate` como **Propriedade do sistema**. Especificamente:
+Primeiro, você deve implementar todos os primitivos de protocolo do Hub IoT em suas mensagens seguindo o guia de desenvolvimento [criar e ler mensagens do Hub IOT](iot-hub-devguide-messages-construct.md). Em seguida, edite as propriedades de protocolo nas mensagens MQTT/AMQP para adicionar `tracestate` como **Propriedade do sistema**. Especificamente,
 
 * Para MQTT, adicione `%24.tracestate=timestamp%3d1539243209` ao tópico da mensagem, em que `1539243209` deve ser substituído pela hora de criação da mensagem no formato de carimbo de data/hora do UNIX. Por exemplo, consulte a implementação [no SDK do C](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761)
 * Para AMQP, adicione `key("tracestate")` e `value("timestamp=1539243209")` como anotação de mensagem. Para obter uma implementação de referência, consulte [aqui](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527).
@@ -201,7 +201,7 @@ Para alterar a porcentagem de mensagens que serão rastreadas na nuvem, você de
 
 1. Escolha uma **taxa de amostragem** entre 0% e 100%.
 
-1. Clique em **Save** (Salvar).
+1. Clique em **Salvar**.
 
 1. Aguarde alguns segundos e pressione **Atualizar**, Em seguida, se for confirmado com sucesso pelo dispositivo, um ícone de sincronização com uma marca de seleção será exibido.
 
@@ -244,10 +244,10 @@ Para atualizar a configuração da amostragem do rastreamento distribuído para 
 }
 ```
 
-| Nome do elemento | Obrigatório | Type | DESCRIÇÃO |
+| Nome do elemento | Obrigatório | Tipo | Descrição |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | Sim | Integer | Atualmente, há suporte para dois valores de modo para ativar e desativar a amostragem. `1` está Habilitado e `2` está Desabilitado. |
-| `sampling_rate` | Sim | Integer | Esse valor é uma porcentagem. Somente valores de `0` para `100` (inclusive) são permitidos.  |
+| `sampling_mode` | Sim | Inteiro | Atualmente, há suporte para dois valores de modo para ativar e desativar a amostragem. `1` está Habilitado e `2` está Desabilitado. |
+| `sampling_rate` | Sim | Inteiro | Esse valor é uma porcentagem. Somente valores de `0` para `100` (inclusive) são permitidos.  |
 
 ## <a name="query-and-visualize"></a>Consultar e visualizar
 
@@ -267,7 +267,7 @@ AzureDiagnostics
 
 Os logs de exemplo conforme mostrados pelo Log Analytics:
 
-| TimeGenerated | OperationName | Categoria | Nível | CorrelationId | DurationMs | Propriedades |
+| TimeGenerated | OperationName | Categoria | Nível | CorrelationId | DurationMs | {1&gt;Propriedades&lt;1} |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | Informativo | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
 | 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | Informativo | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |
@@ -308,8 +308,8 @@ Uma vez habilitado, o suporte ao rastreamento distribuído para o Hub IoT seguir
 1. O dispositivo IoT envia a mensagem ao Hub IoT.
 1. As mensagens chega no gateway do Hub IoT.
 1. O Hub IoT procura o `tracestate` nas propriedades do aplicativo de mensagens e verifica se ele tem o formato correto.
-1. Em caso afirmativo, o Hub IoT gera e registra `trace-id` e `span-id` nos logs de diagnóstico do Azure Monitor na categoria `DiagnosticIoTHubD2C`.
-1. Quando o processamento da mensagem for concluído, o Hub IoT gerará outro `span-id` e o registrará juntamente com o `trace-id` existente na categoria `DiagnosticIoTHubIngress`.
+1. Nesse caso, o Hub IoT gera um `trace-id` globalmente exclusivo para a mensagem, um `span-id` para o "salto" e os registra no Azure Monitor logs de diagnóstico na `DiagnosticIoTHubD2C`de operação.
+1. Depois que o processamento da mensagem for concluído, o Hub IoT gerará outro `span-id` e o registrará junto com o `trace-id` existente na `DiagnosticIoTHubIngress`de operação.
 1. Se o roteamento estiver habilitado para a mensagem, o Hub IoT o registrará no ponto de extremidade personalizado e registrará outro `span-id` com o mesmo `trace-id` na categoria `DiagnosticIoTHubEgress`.
 1. As etapas acima são repetidas para cada mensagem gerada.
 
@@ -320,7 +320,7 @@ Uma vez habilitado, o suporte ao rastreamento distribuído para o Hub IoT seguir
 - O recurso gêmeo de nuvem para dispositivo não está disponível para a [camada básica do Hub IoT](iot-hub-scaling.md#basic-and-standard-tiers). No entanto, o Hub IoT ainda realizará o log no Azure Monitor se ele vir um cabeçalho de contexto de rastreamento adequadamente composto.
 - Para garantir uma operação eficiente, o Hub IoT imporá uma aceleração na taxa de registro que poderá ocorrer como parte do rastreamento distribuído.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Para saber mais sobre o padrão geral do rastreamento distribuído em microsserviços, confira [Padrão de arquitetura do microsserviço: rastreamento distribuído](https://microservices.io/patterns/observability/distributed-tracing.html).
 - Para definir a configuração para aplicar configurações de rastreamento distribuído a um grande número de dispositivos, confira [Configurar e monitorar dispositivos IoT em escala](iot-hub-auto-device-config.md).

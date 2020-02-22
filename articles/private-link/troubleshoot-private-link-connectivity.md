@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de conectividade de link privado do Azure
+title: Solucionar problemas de conectividade do Link Privado do Azure
 description: Orientações passo a passo para diagnosticar conectividade de link privado
 services: private-link
 documentationcenter: na
@@ -13,103 +13,103 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: 0d26ad6802e551523875dcad13066fdbdbf39ada
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 1e5253d617c87d5869cebc817da6d265ebfdfa7e
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191049"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539460"
 ---
-# <a name="troubleshoot-private-link-service-connectivity-problems"></a>Solucionar problemas de conectividade do serviço Link Privado
+# <a name="troubleshoot-azure-private-link-connectivity-problems"></a>Solucionar problemas de conectividade do Link Privado do Azure
 
-Este guia fornece orientações passo a passo para validar e diagnosticar a conectividade para a instalação do serviço de vínculo privado. 
+Este artigo fornece orientações passo a passo para validar e diagnosticar a conectividade para a configuração do link privado do Azure.
 
-O link privado do Azure permite que você acesse os serviços de PaaS do Azure (por exemplo, armazenamento do Azure, Azure Cosmos DB e banco de dados SQL) e os serviços hospedados de cliente/parceiro do Azure por meio de um ponto de extremidade privado em sua rede virtual. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Você também pode criar seu próprio serviço de vínculo privado em sua rede virtual (VNet) e fornecê-lo de forma privada aos seus clientes. 
+Com o link privado do Azure, você pode acessar serviços de PaaS (plataforma como serviço) do Azure, como armazenamento do Azure, Azure Cosmos DB e banco de dados SQL do Azure e serviços hospedados de cliente ou parceiro do Azure por meio de um ponto de extremidade privado em sua rede virtual. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, o que elimina a exposição da Internet pública. Você também pode criar seu próprio serviço de vínculo privado em sua rede virtual e fornecê-lo de forma privada aos seus clientes.
 
-Você pode habilitar seu serviço em execução por trás do Azure Standard Load Balancer para acesso de link privado. Os consumidores do seu serviço podem criar um ponto de extremidade privado dentro de sua rede virtual e mapeá-lo para esse serviço para acessá-lo de forma privada.
+Você pode habilitar o serviço que é executado atrás da camada Standard de Azure Load Balancer para acesso de link privado. Os consumidores do seu serviço podem criar um ponto de extremidade privado dentro de sua rede virtual e mapeá-lo para esse serviço para acessá-lo de forma privada.
 
-Aqui estão os cenários de conectividade disponíveis com o serviço de link privado
-- rede virtual da mesma região 
+Aqui estão os cenários de conectividade disponíveis com o link privado:
+
+- rede virtual da mesma região
 - redes virtuais emparelhadas de região
 - redes virtuais emparelhadas globalmente
-- cliente local por meio de circuitos de VPN ou de rota expressa
+- Cliente local sobre VPN ou circuitos do Azure ExpressRoute
 
 ## <a name="deployment-troubleshooting"></a>Solução de problemas de implantação
 
-Examine as informações sobre como [desabilitar as políticas de rede no serviço de vínculo privado](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) para casos de solução de problemas em que não é possível selecionar o endereço IP de origem da sub-rede de sua escolha para seu serviço de link privado.
+Examine as informações sobre como [desabilitar as políticas de rede no serviço de vínculo privado](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) para ver os casos de solução de problemas em que você não pode selecionar o endereço IP de origem da sub-rede de sua escolha para o serviço de link privado.
 
 Verifique se a configuração **privateLinkServiceNetworkPolicies** está desabilitada para a sub-rede da qual você está selecionando o endereço IP de origem.
 
-## <a name="diagnosing-connectivity-problems"></a>Diagnosticando problemas de conectividade
+## <a name="diagnose-connectivity-problems"></a>Diagnosticar problemas de conectividade
 
-Se você estiver tendo problemas de conectividade com a configuração de link privado, vá para as etapas listadas abaixo para verificar se todas as configurações usuais estão conforme o esperado.
+Se você tiver problemas de conectividade com a configuração de link privado, examine estas etapas para verificar se todas as configurações usuais estão conforme o esperado.
 
-1. Examinar a configuração do serviço de vínculo privado navegando no recurso 
+1. Examine a configuração do link privado navegando no recurso.
 
-    a) ir para o **centro de links privado**
+    a. Vá para o **centro de links privado**.
 
       ![Centro de links privado](./media/private-link-tsg/private-link-center.png)
 
-    b) selecione **serviços de vínculo privado** no painel de navegação à esquerda
+    b. No painel esquerdo, selecione **serviços de vínculo privado**.
 
       ![Serviços de vínculo privado](./media/private-link-tsg/private-link-service.png)
 
-    c) filtrar e selecionar o serviço de link privado que você deseja diagnosticar
+    c. Filtre e selecione o serviço de link privado que você deseja diagnosticar.
 
-    d) revisar as conexões de ponto de extremidade privado
-     - Verifique se o ponto de extremidade privado do qual você está procurando conectividade está listado com o estado de conexão **aprovada** . 
-     - Se **pendente**, selecione-o e aprove. 
+    d. Examine as conexões do ponto de extremidade privado.
+     - Verifique se o ponto de extremidade privado do qual você está procurando conectividade está listado com um estado de conexão **aprovado** .
+     - Se o estado estiver **pendente**, selecione-o e aprove-o.
 
        ![Conexões de ponto de extremidade privado](./media/private-link-tsg/pls-private-endpoint-connections.png)
 
-     - Navegue até o ponto de extremidade privado do qual você está se conectando, clicando no nome. Verifique se o status da conexão mostra **aprovado**.
+     - Vá para o ponto de extremidade privado do qual você está se conectando selecionando o nome. Verifique se o status da conexão é mostrado como **aprovado**.
 
        ![Visão geral da conexão de ponto de extremidade particular](./media/private-link-tsg/pls-private-endpoint-overview.png)
 
      - Depois que ambos os lados forem aprovados, tente a conectividade novamente.
 
-    e) revisar o **alias** da guia Visão geral e da **ID do recurso** na guia Propriedades 
-     - Verifique se a **ID do alias/recurso** corresponde à **ID do alias/recurso** que você está usando para criar um ponto de extremidade privado para esse serviço. 
+    e. Examine o **alias** na guia **visão geral** e na **ID do recurso** na guia **Propriedades** .
+     - Verifique se as informações de **ID** do **alias** e do recurso correspondem ao **alias** e à **ID de recurso** que você está usando para criar um ponto de extremidade privado para esse serviço.
 
-       ![Verificar alias](./media/private-link-tsg/pls-overview-pane-alias.png)
+       ![Verificar informações de alias](./media/private-link-tsg/pls-overview-pane-alias.png)
 
-       ![Verificar ID do recurso](./media/private-link-tsg/pls-properties-pane-resourceid.png)
+       ![Verificar informações de ID do recurso](./media/private-link-tsg/pls-properties-pane-resourceid.png)
 
-    f) examinar as informações de visibilidade (seção de visão geral)
-     - Certifique-se de que sua assinatura esteja sob o escopo de **visibilidade**
+    f. Examine as informações de **visibilidade** na guia **visão geral** .
+     - Certifique-se de que sua assinatura esteja sob o escopo de **visibilidade** .
 
-       ![Verificar visibilidade](./media/private-link-tsg/pls-overview-pane-visibility.png)
+       ![Verificar informações de visibilidade](./media/private-link-tsg/pls-overview-pane-visibility.png)
 
-    g) examinar informações de Load Balancer (visão geral)
-     - Você pode navegar até o balanceador de carga clicando no link do balanceador de carga
+    g. Examine as informações do **balanceador de carga** na guia **visão geral** .
+     - Você pode ir para o balanceador de carga selecionando o link do balanceador de carga.
 
-       ![Verificar Load Balancer](./media/private-link-tsg/pls-overview-pane-ilb.png)
+       ![Verificar informações do balanceador de carga](./media/private-link-tsg/pls-overview-pane-ilb.png)
 
-     - Verifique se as configurações de Load Balancer estão definidas de acordo com suas expectativas
-       - Examinar a configuração de IP de front-end
-       - Examinar pools de back-end
-       - Examinar regras de balanceamento de carga
+     - Verifique se as configurações do balanceador de carga estão configuradas de acordo com suas expectativas.
+       - Examine a **configuração de IP de front-end**.
+       - Examine os **pools de back-end**.
+       - Examine **as regras de balanceamento de carga**.
 
-       ![Verificar Load Balancer Propriedades](./media/private-link-tsg/pls-ilb-properties.png)
+       ![Verificar Propriedades do balanceador de carga](./media/private-link-tsg/pls-ilb-properties.png)
 
-     - Verifique se Load Balancer está funcionando de acordo com as configurações acima
-       - Selecione uma VM em qualquer sub-rede que não seja a sub-rede em que Load Balancer pool de back-end está disponível
-       - Tente acessar o front-end do balanceador de carga da VM acima
-       - Se a conexão fizer com o pool de back-end de acordo com as regras de balanceamento de carga, o balanceador de carga estará operacional
-       - Você também pode examinar a métrica de Load Balancer por meio de Azure Monitor para ver se os dados estão fluindo pelo balanceador de carga
+     - Verifique se o balanceador de carga está funcionando de acordo com as configurações anteriores.
+       - Selecione uma VM em qualquer sub-rede que não seja a sub-rede onde o pool de back-end do balanceador de carga está disponível.
+       - Tente acessar o front-end do balanceador de carga da VM anterior.
+       - Se a conexão o fizer para o pool de back-end de acordo com as regras de balanceamento de carga, o balanceador de carga estará operacional.
+       - Você também pode examinar a métrica do balanceador de carga por meio de Azure Monitor para ver se os dados estão fluindo pelo balanceador de carga.
 
-2. Usar [**Azure monitor**](https://docs.microsoft.com/azure/azure-monitor/overview) para examinar os dados estão fluindo
+1. Use [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para ver se os dados estão fluindo.
 
-    a) no recurso de serviço de vínculo privado, selecione **métricas**
-     - Selecionar **bytes-in** ou **bytes-out**
-     - Os dados de revisão estão fluindo ao tentar se conectar ao serviço de vínculo privado. Espere um atraso de aproximadamente 10 minutos.
+    a. No recurso serviço de vínculo privado, selecione **métricas**.
+     - Selecione **bytes** ou **bytes de saída**.
+     - Veja se os dados estão fluindo quando você tenta se conectar ao serviço de link privado. Espere um atraso de aproximadamente 10 minutos.
 
        ![Verificar métricas do serviço de vínculo privado](./media/private-link-tsg/pls-metrics.png)
 
-3. Contate a equipe de [suporte do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) se o problema ainda não estiver resolvido e se o problema de conectividade ainda existir. 
+1. Entre em contato com a equipe de [suporte do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) se seu problema ainda não estiver resolvido e um problema de conectividade ainda existir.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
  * [Criar um serviço de vínculo privado (CLI)](https://docs.microsoft.com/azure/private-link/create-private-link-service-cli)
-
- * [Guia de solução de problemas de ponto de extremidade privado](troubleshoot-private-endpoint-connectivity.md)
+ * [Guia de solução de problemas do ponto de extremidade privado do Azure](troubleshoot-private-endpoint-connectivity.md)

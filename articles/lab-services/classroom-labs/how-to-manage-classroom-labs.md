@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: ad7fd664f0dce08e4482b4fb2cba2831208396fc
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: ac990141ccc694ed7460763e84126d9fefdbb609
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264824"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539443"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerenciar laboratórios de sala de aula no Azure Lab Services 
 Este artigo descreve como criar e excluir um laboratório de sala de aula. Isso também mostra como exibir todos os laboratórios de sala de aula em uma conta de laboratório. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 Para configurar um laboratório de sala de aula em uma conta de laboratório, você deve ser um membro da função **Criador de Laboratório** na conta de laboratório. A conta que você usou para criar uma conta de laboratório é adicionada automaticamente a essa função. Um proprietário de laboratório pode adicionar outros usuários à função de Criador de Laboratório seguindo as etapas neste artigo: [Adicionar um usuário à função de Criador de Laboratório](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 ## <a name="create-a-classroom-lab"></a>Criar um laboratório de sala de aula
@@ -38,9 +38,12 @@ Para configurar um laboratório de sala de aula em uma conta de laboratório, vo
     2. Selecione o **tamanho das máquinas virtuais** que você precisa para a classe. Para obter a lista de tamanhos disponíveis, consulte a seção [tamanhos de VM](#vm-sizes) . 
     3. Selecione a **imagem de máquina virtual** que você deseja usar para o laboratório de sala de aula. Se você selecionar uma imagem do Linux, verá uma opção para habilitar a conexão de área de trabalho remota para ela. Para obter detalhes, veja [Habilitar conexão de área de trabalho remota para Linux](how-to-enable-remote-desktop-linux.md).
     4. Examine o **preço total por hora** exibido na página. 
-    6. Clique em **Salvar**.
+    6. Selecione **Salvar**.
 
         ![Janela Novo laboratório](../media/tutorial-setup-classroom-lab/new-lab-window.png)
+
+        > [!NOTE]
+        > Você verá uma opção para selecionar um local para o laboratório se a conta do laboratório tiver sido configurada para [permitir que o criador do laboratório escolha](allow-lab-creator-pick-lab-location.md) a opção local do laboratório. 
 4. Na página **Credenciais da máquina virtual**, especifique as credenciais padrão para todas as VMs no laboratório.
     1. Especifique o **nome do usuário** para todas as VMs no laboratório.
     2. Especifique a **senha** do usuário. 
@@ -52,12 +55,14 @@ Para configurar um laboratório de sala de aula em uma conta de laboratório, vo
         Um professor pode optar por usar a mesma senha para todas as VMs no laboratório ou permitir que os alunos definam senhas para suas VMs. Por padrão, essa configuração é habilitada para todas as imagens do Windows e do Linux, exceto para Ubuntu. Quando você seleciona VM **Ubuntu** , essa configuração é desabilitada, portanto, os alunos serão solicitados a definir uma senha quando entrarem pela primeira vez.  
 
         ![Janela Novo laboratório](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
-        > [!IMPORTANT]
-        > Anote o nome de usuário e a senha. Eles não serão mostrados novamente.    
     4. Em seguida, selecione **Avançar** na página **credenciais da máquina virtual** . 
-5. Na página **Políticas do laboratório**, insira o número de horas alocadas para cada usuário (**cota para cada usuário**) fora da hora agendada para o laboratório e, em seguida, selecione **Concluir**. 
+5. Na página **políticas de laboratório** , execute as seguintes etapas:
+    1. Insira o número de horas alocadas para cada usuário (**cota para cada usuário**) fora do horário agendado para o laboratório. 
+    2. Para a opção **desligamento automático de máquinas virtuais** , especifique se deseja que a VM seja desligada automaticamente quando o usuário se desconectar. Você também pode especificar quanto tempo a VM deve aguardar até que o usuário se reconecte antes de desligar automaticamente. Para obter mais informações, consulte [habilitar o desligamento automático de VMs na desconexão](how-to-enable-shutdown-disconnect.md).
+    3. Em seguida, selecione **concluir**. 
 
-    ![Cota para cada usuário](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+        ![Cota para cada usuário](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+    
 5. Você deverá ver a tela a seguir que mostra o status da criação da VM de modelo. A criação do modelo no laboratório leva até 20 minutos. 
 
     ![Status da criação da VM de modelo](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
@@ -92,7 +97,7 @@ Para configurar um laboratório de sala de aula em uma conta de laboratório, vo
 
 ### <a name="vm-sizes"></a>Tamanhos de VM  
 
-| Tamanho | Núcleos | RAM | Description | 
+| Size | Núcleos | RAM | Descrição | 
 | ---- | ----- | --- | ----------- | 
 | Pequena | 2 | 3,5 GB | Esse tamanho é mais adequado para linha de comando, abertura de navegador da Web, servidores Web de tráfego baixo, bancos de dados pequenos a médios. |
 | Média | 4 | 7 GB | Esse tamanho é mais adequado para bancos de dados relacionais, cache na memória e análise | 
@@ -131,7 +136,7 @@ Você também pode criar um novo laboratório usando o **novo laboratório** nes
 
 Para alternar para uma conta de laboratório diferente, selecione a lista suspensa ao lado da conta de laboratório e selecione a outra conta de laboratório. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Veja os artigos a seguir:
 
 - [Como um proprietário de laboratório, configure e publique modelos](how-to-create-manage-template.md)

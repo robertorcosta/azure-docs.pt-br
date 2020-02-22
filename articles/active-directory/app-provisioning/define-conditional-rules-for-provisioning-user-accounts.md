@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e48388d4e15923c1f3e66321132197670b30c6b9
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 12ba93a7e3de3c290d5952227b67843c0a9846d3
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522553"
+ms.locfileid: "77544259"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicativo com base em atributo com filtros de escopo
 O objetivo deste artigo é explicar como usar filtros de escopo para definir regras baseadas em atributo que determinam quais usuários serão provisionados a um aplicativo.
@@ -98,10 +98,12 @@ Os filtros de escopo são configurados como parte dos mapeamentos de atributos p
    i. **Greater_Than.** A cláusula retornará "true" se o atributo avaliado for maior que o valor. O valor especificado no filtro de escopo deve ser um inteiro e o atributo no usuário deve ser um inteiro [0, 1, 2,...]. 
    
    j. **Greater_Than_OR_EQUALS.** A cláusula retornará "true" se o atributo avaliado for maior ou igual ao valor. O valor especificado no filtro de escopo deve ser um inteiro e o atributo no usuário deve ser um inteiro [0, 1, 2,...]. 
+   
+   k. **Incluir.** A cláusula retornará "true" se o atributo avaliado contiver o valor da cadeia de caracteres (diferencia maiúsculas de minúsculas), conforme descrito [aqui](https://docs.microsoft.com/dotnet/api/system.string.contains?view=netframework-4.8). 
 
 
 >[!IMPORTANT] 
-> Os filtros includes e IsMemberOf não têm suporte. Em breve, eles serão removidos da interface do usuário.
+> O filtro IsMemberOf não tem suporte no momento.
 
 9. Opcionalmente, repita as etapas 7 e 8 para adicionar mais cláusulas de escopo.
 
@@ -118,14 +120,14 @@ Os filtros de escopo são configurados como parte dos mapeamentos de atributos p
 
 
 ## <a name="common-scoping-filters"></a>Filtros de escopo comuns
-| Atributo de Destino| Operador | Valor | DESCRIÇÃO|
+| Atributo de Destino| Operador | {1&gt;Valor&lt;1} | Descrição|
 |----|----|----|----|
 |userPrincipalName|CORRESPONDÊNCIA DE REGEX|.\*@domain.com |Todos os usuários com userPrincipal que têm o domínio @domain.com estarão no escopo para provisionamento|
 |userPrincipalName|NÃO CORRESPONDÊNCIA DE REGEX|.\*@domain.com|Todos os usuários com userPrincipal que têm o domínio @domain.com estarão fora do escopo para provisionamento|
 |department|EQUALS|sales|Todos os usuários do departamento de vendas estão no escopo para provisionamento|
 |workerid|CORRESPONDÊNCIA DE REGEX|(1[0-9][0-9][0-9][0-9][0-9][0-9])| Todos os funcionários com workerIDs entre 1 milhão e 2 milhões estão no escopo para provisionamento.|
 
-## <a name="related-articles"></a>Artigos relacionados
+## <a name="related-articles"></a>{1&gt;{2&gt;Artigos relacionados&lt;2}&lt;1}
 * [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS](../app-provisioning/user-provisioning.md)
 * [Personalizar mapeamentos de atributos para provisionamento do usuário](../app-provisioning/customize-application-attributes.md)
 * [Escrever expressões para mapeamentos de atributo](functions-for-customizing-application-data.md)

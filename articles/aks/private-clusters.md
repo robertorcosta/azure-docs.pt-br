@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 1/24/2020
+ms.date: 2/21/2020
 ms.author: mlearned
-ms.openlocfilehash: 934dfdb43d6d2e4ccc346b728f0ac4f5febea327
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 08929d5ec05fbeb80eddebfd667fe1e0fde9bff7
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76932586"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77544225"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Criar um cluster privado do serviço kubernetes do Azure (versão prévia)
 
@@ -26,18 +26,38 @@ O plano de controle ou o servidor de API está em uma assinatura do Azure gerenc
 > * [Políticas de suporte do AKS](support-policies.md)
 > * [Perguntas frequentes sobre o suporte do Azure.](faq.md)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * O CLI do Azure versão 2.0.77 ou posterior e a versão de extensão de visualização CLI do Azure AKS 0.4.18
 
 ## <a name="currently-supported-regions"></a>Regiões com suporte no momento
+
+* Leste da Austrália
+* Sudeste da Austrália
+* Sul do Brasil
+* Canadá Central
+* Leste do Canadá
+* Cenral nós
+* Leste da Ásia
+* Leste dos EUA
+* Leste dos EUA 2
+* Leste dos EUA 2 EUAP
+* França Central
+* Norte da Alemanha
+* Leste do Japão
+* Oeste do Japão
+* Coreia Central
+* Sul da Coreia
+* Centro Norte dos EUA
+* Norte da Europa
+* Norte da Europa
+* Centro-Sul dos Estados Unidos
+* Sul do Reino Unido
+* Europa Ocidental
 * Oeste dos EUA
 * Oeste dos EUA 2
 * Leste dos EUA 2
-* Canadá Central
-* Europa Setentrional
-* Oeste da Europa
-* Leste da Austrália
+
 
 ## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Instalar a extensão mais recente do CLI do Azure AKS Preview
 
@@ -106,7 +126,7 @@ O ponto de extremidade do servidor de API não tem nenhum endereço IP público.
    az aks get-credentials --name MyManagedCluster --resource-group MyResourceGroup
    ```
 
-1. Execute um destes procedimentos:
+1. Siga um destes procedimentos:
    * Crie uma VM na mesma rede virtual que o cluster AKS.  
    * Crie uma VM em uma rede virtual diferente e emparelhe essa rede virtual com a rede virtual de cluster AKS.
 

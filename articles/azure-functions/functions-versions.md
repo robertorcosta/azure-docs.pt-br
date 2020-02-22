@@ -3,18 +3,18 @@ title: Visão geral de versões do Azure Functions runtime
 description: O Azure Functions é compatível com várias versões do runtime. Aprenda as diferenças entre elas e como escolher a certa para você.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 0138af15c89a4792b9ccb73a8b761577fad36c5e
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 21722d66129224038df20a0a1ef2bff989221224
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290369"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539494"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Visão geral de versões do Azure Functions runtime
 
 As versões principais do tempo de execução do Azure Functions estão relacionadas à versão do .NET na qual o tempo de execução se baseia. A tabela a seguir indica a versão atual do tempo de execução, o nível de versão e a versão do .NET relacionada. 
 
-| Versão de runtime | Nível de liberação<sup>1</sup> | Versão do .NET | 
+| Versão de tempo de execução | Nível de liberação<sup>1</sup> | Versão do .NET | 
 | --------------- | ------------- | ------------ |
 | 3.x | GA | .NET Core 3,1 | 
 | 2. x | GA | .NET Core 2.2 |
@@ -38,7 +38,7 @@ Para obter mais informações, consulte [Linguagens com suporte](supported-langu
 
 ## <a name="creating-1x-apps"></a>Executar em uma versão específica
 
-Por padrão, os aplicativos de funções criados no portal do Azure e pelo CLI do Azure são definidos como a versão 2. x. Você pode modificar essa versão conforme necessário. Você só pode alterar a versão de tempo de execução para 1. x depois de criar seu aplicativo de funções, mas antes de adicionar qualquer função.  A movimentação entre 2. x e 3. x é permitida mesmo com aplicativos que têm funções, mas ainda é recomendável testar em um novo aplicativo primeiro.
+Por padrão, os aplicativos de funções criados no portal do Azure e pelo CLI do Azure são definidos para a versão 3. x. Você pode modificar essa versão conforme necessário. Você só pode alterar a versão de tempo de execução para 1. x depois de criar seu aplicativo de funções, mas antes de adicionar qualquer função.  A movimentação entre 2. x e 3. x é permitida mesmo com aplicativos que têm funções, mas ainda é recomendável testar em um novo aplicativo primeiro.
 
 ## <a name="migrating-from-1x-to-later-versions"></a>Migrando do 1. x para versões posteriores
 
@@ -104,7 +104,7 @@ A seguir estão as alterações a serem observadas antes de atualizar um aplicat
 
 A versão do runtime do Functions usada por aplicativos publicados no Azure é determinada pela configuração de aplicativo [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version). Há suporte para os seguintes valores de versão de tempo de execução principais:
 
-| Valor | Destino de tempo de execução |
+| {1&gt;Valor&lt;1} | Destino de tempo de execução |
 | ------ | -------- |
 | `~3` | 3.x |
 | `~2` | 2. x |
@@ -200,9 +200,9 @@ A tabela a seguir mostra quais associações são compatíveis em cada versão d
 
 [!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-Para saber mais, consulte os recursos a seguir:
+Para obter mais informações, consulte os seguintes recursos:
 
 * [Codificar e testar o Azure Functions localmente](functions-run-local.md)
 * [Como direcionar para versões do Azure Functions Runtime](set-runtime-version.md)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 7ad10ad2d4393c1d25a835d0ff8cd0b98ed25879
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 6156557d10210535b287aa516070c0b5da416512
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756389"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539358"
 ---
 # <a name="message-browsing"></a>Procura de mensagens
 
@@ -34,7 +34,7 @@ O Peek também retorna mensagens que foram bloqueadas e estão sendo processadas
 
 ## <a name="peek-apis"></a>APIs de Peek
 
-Os métodos [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) e [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) existem em todas as bibliotecas de cliente .NET e Java e em todos os objetos de destinatário: **MessageReceiver**, **MessageSession**, **QueueClient** e **SubscriptionClient**. Peek funciona em todas as filas e assinaturas e suas respectivas filas de mensagens mortas.
+Os métodos [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) e [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) existem em todas as bibliotecas de cliente .net e Java e em todos os objetos receptores: **MessageReceiver**, **MessageSession**. Peek funciona em todas as filas e assinaturas e suas respectivas filas de mensagens mortas.
 
 Quando chamado várias vezes, o método Peek enumera todas as mensagens que existem no log de fila ou assinatura, em ordem de número de sequência, do número de sequência mais baixo disponível para o mais alto. Esta é a ordem na qual as mensagens foram enfileiradas e não é a ordem na qual as mensagens podem ser recuperadas eventualmente.
 
@@ -42,7 +42,7 @@ Quando chamado várias vezes, o método Peek enumera todas as mensagens que exis
 
 Você também pode propagar uma sobrecarga do método com um [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) em que iniciar e, em seguida, chamar a sobrecarga de método sem parâmetros para enumerar ainda mais. **PeekBatch** funciona de forma equivalente, mas recupera um conjunto de mensagens de uma só vez.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes tópicos:
 
