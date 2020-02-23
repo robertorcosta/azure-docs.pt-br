@@ -397,8 +397,6 @@
       items:
         - name: Reproduzir mídia com os players existentes
           href: media-services-playback-content-with-existing-players.md
-        - name: Reproduzir mídia com o Player de Mídia
-          href: media-services-develop-video-players.md
         - name: Outras opções de reprodução
           items:
             - name: Aplicativo de streaming suave da Windows Store
