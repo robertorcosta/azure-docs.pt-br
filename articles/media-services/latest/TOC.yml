@@ -99,6 +99,8 @@
         - name: Ponto de extremidade de streaming
           displayName: 'origin, packager, cdn'
           href: streaming-endpoint-concept.md
+        - name: Dimensionando o streaming com CDN
+          href: scale-streaming-cdn.md
         - name: Localizadores de Streaming
           displayName: URLs
           href: streaming-locators-concept.md
@@ -228,6 +230,8 @@
           href: cli-create-transform.md
         - name: Criar trabalhos – CLI
           href: cli-create-jobs.md
+        - name: Trabalhos com várias saídas de transformação
+          href: job-multiple-transform-outputs.md
     - name: Codificar conteúdo
       items:
         - name: HTTPS como entrada de trabalho – .NET

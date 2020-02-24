@@ -1,0 +1,211 @@
+### YamlMime:Hub
+title: Documentação do serviço de Fala
+summary: Reconhecer a fala, sintetizar a voz, obter traduções em tempo real, transcrever conversas ou integrar a fala às suas experiências de bot.
+brand: azure
+metadata:
+  title: Documentação do serviço de Fala – Tutoriais, Referência de API – Serviços Cognitivos do Azure | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  description: Reconhecer a fala, sintetizar a voz, obter traduções em tempo real, transcrever conversas ou integrar a fala às suas experiências de bot.
+  author: IEvangelist
+  manager: nitinme
+  ms.service: speech-service
+  ms.topic: hub-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+  ms.openlocfilehash: 26979b2d9ffdd80676ca9162b30ae17db20b1129
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77563016"
+highlightedContent:
+  items:
+  - title: O que é Serviço de fala?
+    itemType: overview
+    url: overview.md
+  - title: Notas sobre a versão do SDK de Fala
+    itemType: whats-new
+    url: releasenotes.md
+  - title: Suporte a idiomas em serviços de Fala
+    itemType: reference
+    url: language-support.md
+  - title: Criar um recurso dos serviços de Fala
+    itemType: how-to-guide
+    url: get-started.md
+conceptualContent:
+  items:
+  - title: Conversão de fala em texto
+    links:
+    - itemType: quickstart
+      text: Reconhecer uma fala com a entrada do microfone
+      url: quickstarts/speech-to-text-from-microphone.md
+    - itemType: quickstart
+      text: Reconhecer uma fala de um arquivo de áudio
+      url: quickstarts/speech-to-text-from-file.md
+    - itemType: quickstart
+      text: Reconhecer uma fala armazenada no Armazenamento de Blobs
+      url: quickstarts/from-blob.md
+    footerLink:
+      text: Ver mais
+      url: index-speech-to-text.yml
+  - title: Conversão de texto em fala
+    links:
+    - itemType: quickstart
+      text: Sintetizar uma fala em um alto-falante
+      url: quickstarts/text-to-speech.md
+    - itemType: quickstart
+      text: Sintetizar uma fala em um arquivo de áudio
+      url: quickstarts/text-to-speech-audio-file.md
+    - itemType: quickstart
+      text: Sintetizar uma fala com áudio de formato longo
+      url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
+    footerLink:
+      text: Ver mais
+      url: index-text-to-speech.yml
+  - title: Tradução de fala
+    links:
+    - itemType: quickstart
+      text: Traduzir uma fala em texto
+      url: quickstarts/translate-speech-to-text.md
+    - itemType: quickstart
+      text: Traduzir fala para vários idiomas de destino
+      url: quickstarts/translate-speech-to-text-multiple-languages.md
+    - itemType: quickstart
+      text: Traduzir uma fala em fala
+      url: quickstarts/translate-speech-to-speech.md
+    footerLink:
+      text: Ver mais
+      url: index-speech-translation.yml
+  - title: Reconhecimento de intenção
+    links:
+    - itemType: quickstart
+      text: Reconhecer uma fala, intenções e entidades
+      url: quickstarts/intent-recognition.md
+    - itemType: how-to-guide
+      text: Reconhecer intenções de fala com LUIS e C#
+      url: how-to-recognize-intents-from-speech-csharp.md
+    - itemType: reference
+      text: Portal do LUIS (Reconhecimento vocal)
+      url: https://www.luis.ai
+    footerLink:
+      text: Ver mais
+      url: index-intent-recognition.yml
+  - title: Cenários de conversa
+    links:
+    - itemType: overview
+      text: Sobre a transcrição de conversas
+      url: conversation-transcription.md
+    - itemType: overview
+      text: Sobre conversas em vários dispositivos
+      url: multi-device-conversation.md
+    - itemType: how-to-guide
+      text: Transcrição de call center
+      url: call-center-transcription.md
+    footerLink:
+      text: Ver mais
+      url: index-conversation-scenarios.yml
+  - title: Assistentes de voz
+    links:
+    - itemType: overview
+      text: Sobre os assistentes de voz
+      url: voice-assistants.md
+    - itemType: quickstart
+      text: Criar um assistente de voz usando comandos personalizados
+      url: custom-commands.md
+    - itemType: get-started
+      text: Criar um assistente de voz usando o Bot Framework
+      url: direct-line-speech.md
+    footerLink:
+      text: Ver mais
+      url: index-voice-assistants.yml
+  - title: Hosting
+    links:
+    - itemType: how-to-guide
+      text: Contêineres do serviço de Fala
+      url: speech-container-howto.md
+    - itemType: how-to-guide
+      text: Contêineres do serviço de Fala com Kubernetes
+      url: speech-container-howto-on-premises.md
+    - itemType: how-to-guide
+      text: Contêineres do serviço de Fala em Instâncias de Contêiner do Azure
+      url: deploy-speech-on-container-instances.md
+    footerLink:
+      text: Ver mais
+      url: index-hosting.yml
+  - title: Dispositivos
+    links:
+    - itemType: overview
+      text: Sobre os dispositivos de fala do SDK
+      url: speech-devices-sdk.md
+    - itemType: how-to-guide
+      text: Obter SDK dos dispositivos de fala
+      url: get-speech-devices-sdk.md
+    - itemType: quickstart
+      text: Usar SDK dos dispositivos de fala
+      url: speech-devices-sdk-quickstart.md
+    footerLink:
+      text: Ver mais
+      url: index-devices.yml
+  - title: Migração
+    links:
+    - itemType: how-to-guide
+      text: Migrar da Fala do Bing
+      url: how-to-migrate-from-bing-speech.md
+    - itemType: how-to-guide
+      text: Migrar do Serviço de Fala Personalizado
+      url: how-to-migrate-from-custom-speech-service.md
+    - itemType: how-to-guide
+      text: Migrar da API de Tradução de Fala
+      url: how-to-migrate-from-translator-speech-api.md
+tools:
+  title: SDKs (Software Development Kits)
+  summary: Comece a usar o SDK de Fala em sua linguagem de programação favorita.
+  items:
+  - title: C#
+    imageSrc: https://docs.microsoft.com/media/logos/logo_Csharp.svg
+    url: https://aka.ms/csspeech/csharpref
+  - title: C++
+    imageSrc: https://docs.microsoft.com/media/logos/logo_Cplusplus.svg
+    url: https://aka.ms/csspeech/cppref
+  - title: Java
+    imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
+    url: https://aka.ms/csspeech/javaref
+  - title: JavaScript
+    imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
+    url: https://aka.ms/csspeech/javascriptref
+  - title: Objective-C e Swift
+    imageSrc: https://docs.microsoft.com/media/logos/logo_ios.svg
+    url: https://aka.ms/csspeech/objectivecref
+  - title: Python
+    imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
+    url: https://aka.ms/csspeech/pythonref
+additionalContent:
+  sections:
+  - items:
+    - title: APIs REST
+      links:
+      - text: Conversão de fala em texto
+        url: rest-speech-to-text.md
+      - text: Transcrição de lote
+        url: batch-transcription.md
+      - text: Conversão de texto em fala
+        url: rest-text-to-speech.md
+      - text: Transcrição de conversa
+        url: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
+    - title: Recursos
+      links:
+      - text: Preços
+        url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+      - text: Regiões
+        url: regions.md
+      - text: Saiba mais
+        url: https://docs.microsoft.com/learn/browse/?products=azure-cognitive-services&term=Speech
+    - title: Suporte
+      links:
+      - text: Suporte e ajuda
+        url: support.md
+      - text: Problemas do GitHub
+        url: https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues
+      - text: Stack Overflow
+        url: https://aka.ms/SOspeechquestions

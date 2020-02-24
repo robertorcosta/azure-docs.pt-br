@@ -64,6 +64,8 @@
   items:
     - name: Atualizar um Load Balancer Público Básico para o Load Balancer Público Standard
       href: upgrade-basic-standard.md
+    - name: Atualizar um balanceador de carga interno básico para balanceador de carga interno padrão
+      href: upgrade-basicInternal-standard.md
     - name: Configurar regras de saída
       items:
         - name: CLI do Azure
