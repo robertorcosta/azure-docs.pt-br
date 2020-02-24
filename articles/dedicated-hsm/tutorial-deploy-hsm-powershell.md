@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2f605d5adda913fa465b43a85bd027458959c122
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 63c531cc0e600d82df74154adb212be76ba9b4de
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928104"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368551"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutorial – Implantando HSMs em uma rede virtual existente usando o PowerShell
 
@@ -62,7 +62,7 @@ Conforme mencionado anteriormente, qualquer atividade de provisionamento requer 
 Get-AzProviderFeature -ProviderNamespace Microsoft.HardwareSecurityModules -FeatureName AzureDedicatedHsm
 ```
 
-O comando a seguir verifica os recursos de rede necessários para o serviço HSM Dedicado.
+O comando a seguir verifica os recursos de rede necessários para o serviço HSM dedicado.
 
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowBaremetalServers
@@ -192,7 +192,7 @@ Esse comando deve levar aproximadamente 20 minutos para ser concluído. A opç�
 
 Quando concluído com êxito, mostrado por "provisioningState": "êxito", você pode se conectar à máquina virtual existente e usar o SSH para garantir a disponibilidade do dispositivo HSM.
 
-## <a name="verifying-the-deployment"></a>Verificar a implantação
+## <a name="verifying-the-deployment"></a>Verificando a implantação
 
 Para verificar os dispositivos que foram provisionados e ver os atributos do dispositivo, execute o conjunto de comandos a seguir. Verifique se o grupo de recursos está definido corretamente e se o nome do recurso é exatamente igual ao que você tem no arquivo de parâmetros.
 
@@ -245,17 +245,18 @@ A essa altura, você alocou todos os recursos para ter uma implantação de dois
 
 ## <a name="delete-or-clean-up-resources"></a>Excluir ou limpar recursos
 
-Caso tenha terminado de usar somente o dispositivo HSM, ele poderá ser excluído como um recurso e devolvido ao pool gratuito. O motivo óbvio de preocupação aqui diz respeito a dados confidenciais de clientes que estejam no dispositivo. Para remover os dados confidenciais do cliente, o dispositivo deverá ser redefinido para os padrões de fábrica usando o cliente Gemalto. Consulte o guia dos administradores Gemalto para o dispositivo SafeNet Network Luna 7 e considere os comandos a seguir na ordem apresentada.
-
-1. `hsm factoryReset -f`
-2. `sysconf config factoryReset -f -service all`
-3. `my file clear -f`
-4. `my public-key clear -f`
-5. `syslog rotate`
-
+Caso tenha terminado de usar somente o dispositivo HSM, ele poderá ser excluído como um recurso e devolvido ao pool gratuito. O motivo óbvio de preocupação aqui diz respeito a dados confidenciais de clientes que estejam no dispositivo. A melhor maneira de "zerar" um dispositivo é inserir a senha incorreta do administrador do HSM três vezes (observação: esse não é o administrador do dispositivo, é o administrador real do HSM). Como medida de segurança para proteger o material da chave, o dispositivo não pode ser excluído como um recurso do Azure até que esteja no estado zerado.
 
 > [!NOTE]
 > Caso tenha problema com alguma configuração do dispositivo Gemalto, entre em contato com o [atendimento ao cliente da Gemalto](https://safenet.gemalto.com/technical-support/).
+
+Caso deseje remover apenas o recurso HSM do Azure, use o seguinte comando, substituindo as variáveis "$" pelos parâmetros exclusivos:
+
+```powershel
+
+Remove-AzureRmResource -Resourceid ` /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName
+
+```
 
 Ao concluir o uso dos recursos desse grupo de recursos, remova-os com o seguinte comando:
 
@@ -275,5 +276,5 @@ Depois de concluir as etapas do tutorial, os recursos do HSM Dedicado serão pro
 * [Alta disponibilidade](high-availability.md)
 * [Segurança física](physical-security.md)
 * [Rede](networking.md)
-* [Monitoramento](monitoring.md)
+* [Monitoring](monitoring.md)
 * [Capacidade de suporte](supportability.md)

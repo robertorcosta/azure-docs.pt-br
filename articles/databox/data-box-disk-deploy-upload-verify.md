@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.localizationpriority: high
 ms.date: 09/04/2019
 ms.author: alkohli
-ms.openlocfilehash: e2851f7087151b09b5f859b7142aa28e5b18a4e5
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 3f89d713003f1f4265a7ab7c467454af750fab48
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514078"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200122"
 ---
 ::: zone target="docs"
 
@@ -26,7 +26,7 @@ Este é o último tutorial da série: Implantar o Azure Data Box Disk. Neste tut
 > * Verificar o carregamento de dados para o Azure
 > * Eliminar dados do Data Box Disk
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, verifique se você concluiu o [Tutorial: Devolução do Azure Data Box Disk](data-box-disk-deploy-picked-up.md).
 
@@ -56,7 +56,7 @@ Verifique se seus dados estão nas contas de armazenamento antes de excluí-los 
   - Para blobs de página e blobs de bloco: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
   - Para Arquivos do Azure: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
 
-    Como alternativa, você pode acessar sua conta de Armazenamento do Azure no portal do Azure e navegar de lá.
+    Como alternativa, você pode acessar a sua conta de armazenamento do Azure no portal do Azure e navegar por meio dela.
 
 - Seus grupos de recursos de disco gerenciado. Ao criar discos gerenciados, os VHDs são carregados como blob de páginas e, em seguida, convertidos em discos gerenciados. Os discos gerenciados são anexados aos grupos de recursos especificados no momento da criação do pedido.
 
@@ -100,7 +100,7 @@ Para verificar se os dados foram carregados no Azure, execute as seguintes etapa
 
 ## <a name="erasure-of-data-from-data-box-disk"></a>Eliminar dados do Data Box Disk
 
-Depois que a cópia for concluída e você tiver verificado que os dados estão na conta de armazenamento do Azure, os discos serão apagados com segurança seguindo o padrão do NIST.
+Após a conclusão do upload no Azure, o Data Box Disk apaga os dados nos discos de acordo com o padrão [NIST SP 800-88](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
 
 ::: zone target="docs"
 

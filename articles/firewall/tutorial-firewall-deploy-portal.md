@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/28/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be39449c1c11acdbdc99bd96f917c51eebda44ae
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 38ee180fa59fec6619010a3ded1f6837a5ca5239
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195787"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77371344"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implantar e configurar o Firewall do Azure usando o portal do Azure
 
@@ -70,7 +70,7 @@ Essa VNET conterá três sub-redes.
 > [!NOTE]
 > O tamanho da sub-rede AzureFirewallSubnet é /26. Para obter mais informações sobre o tamanho da sub-rede, confira [Perguntas frequentes sobre o Firewall do Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
-1. No portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
+1. No menu do portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
 1. Selecione **Rede** > **Rede virtual**.
 1. Em **Nome**, digite **Test-FW-VN**.
 1. Em **Espaço de endereço**, digite **10.0.0.0/16**.
@@ -98,7 +98,7 @@ Crie outra sub-rede denominada **Jump-SN**, intervalo de endereços **10.0.3.0/2
 
 Agora crie as máquinas virtuais de jump e carga de trabalho e coloque-as nas sub-redes apropriadas.
 
-1. No portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
+1. No menu do portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
 2. Clique em **Computação** e, em seguida, selecione **Datacenter do Windows Server 2016** na lista em Destaque.
 3. Insira esses valores para a máquina virtual:
 
@@ -126,14 +126,14 @@ Use as informações na tabela a seguir para definir outra máquina virtual cham
 |Configuração  |Valor  |
 |---------|---------|
 |Sub-rede|**Workload-SN**|
-|IP público|**Nenhum**|
-|Porta de entrada públicas|**Nenhum**|
+|IP público|**Nenhuma**|
+|Porta de entrada públicas|**Nenhuma**|
 
 ## <a name="deploy-the-firewall"></a>Implantar o firewall
 
 Implante o firewall na VNET.
 
-1. No portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
+1. No menu do portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
 2. Digite **firewall** na caixa de pesquisa e pressione **Enter**.
 3. Selecione **Firewall** e, em seguida, selecione **Criar**.
 4. Na página **Criar um Firewall**, use a tabela abaixo para configurar o firewall:
@@ -142,10 +142,10 @@ Implante o firewall na VNET.
    |---------|---------|
    |Subscription     |\<sua assinatura\>|
    |Resource group     |**Test-FW-RG** |
-   |NOME     |**Test-FW01**|
+   |Nome     |**Test-FW01**|
    |Location     |Selecionar o mesmo local usado anteriormente|
    |Escolher uma rede virtual     |**Usar existente**: **Test-FW-VN**|
-   |Endereço IP público     |**Criar novo**. O endereço IP público deve ser do tipo SKU Standard.|
+   |Endereço IP público     |**Adicionar nova**. O endereço IP público deve ser do tipo SKU Standard.|
 
 5. Selecione **Examinar + criar**.
 6. Examine o resumo e selecione **Criar** para criar o firewall.
@@ -250,7 +250,7 @@ Agora que você verificou se as regras de firewall estão funcionando:
 * Você pode navegar para o FQDN permitido, mas não para os outros.
 * É possível resolver nomes DNS usando o servidor DNS externo configurado.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Você pode manter seus recursos de firewall para o próximo tutorial ou, se não forem mais necessários, exclua o grupo de recursos **Test-FW-RG** para excluir todos os recursos relacionados ao firewall.
 

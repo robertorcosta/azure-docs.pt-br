@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/18/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: b0847cda78c2e6d1df87eeaedc35850103840151
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: e9ca891d2d92b6760d37108b66afc54c81ac125c
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264722"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77442574"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutorial: Implantar e configurar o Firewall do Azure em uma rede híbrida usando o portal do Azure
 
@@ -45,7 +45,7 @@ Neste tutorial, você aprenderá como:
 
 Caso deseje usar o Azure PowerShell para concluir este procedimento, confira [Implantar e configurar o Firewall do Azure em uma rede híbrida usando o Azure PowerShell](tutorial-hybrid-ps.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Uma rede híbrida usa o modelo de arquitetura hub e spoke para rotear o tráfego entre as VNets do Azure e as redes locais. A arquitetura hub e spoke tem os seguintes requisitos:
 
@@ -62,7 +62,7 @@ Consulte a seção [Criar Rotas](#create-the-routes) deste tutorial para ver com
 >[!NOTE]
 >O Firewall do Azure deve ter conectividade direta com a Internet. Se seu AzureFirewallSubnet aprender uma rota padrão para sua rede local via BGP, você deve substituir isso por um UDR 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta com a Internet.
 >
->No momento, o Firewall do Azure não dá suporte ao túnel forçado. Se a configuração exigir o túnel forçado para uma rede local e você puder determinar os prefixos de IP de destino para os destinos da Internet, você poderá configurar esses intervalos com a rede local como o próximo salto por meio de uma rota definida pelo usuário no AzureFirewallSubnet. Ou você pode usar o BGP para definir essas rotas.
+>O Firewall do Azure pode ser configurado para dar suporte a túnel forçado. Para obter mais informações, confira [Túnel forçado do Firewall do Azure](forced-tunneling.md).
 
 >[!NOTE]
 >O tráfego entre VNETs diretamente emparelhadas é roteado diretamente, mesmo se uma UDR aponta para o Firewall do Azure como o gateway padrão. Para enviar o tráfego de sub-rede para sub-rede para o firewall nesse cenário, uma UDR precisa conter o prefixo de rede da sub-rede de destino explicitamente em ambas as sub-redes.

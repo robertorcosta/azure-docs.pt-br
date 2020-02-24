@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 02/11/2020
 ms.author: aahi
-ms.openlocfilehash: 33ab516b5b501a79ba84c5aba9c3231634f3c662
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a6b62f7ab95f7b2720434c0cf59cce33b0adb1b4
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448706"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201230"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-python"></a>Início Rápido: SDK da Pesquisa de Entidade do Bing com Python
 
 Use este Início Rápido para começar a pesquisar entidades com o SDK da Pesquisa de Entidade do Bing para o Python. Embora a Pesquisa de Entidade do Bing tenha uma API REST compatível com a maioria das linguagens de programação, o SDK fornece uma maneira fácil de integrar o serviço aos seus aplicativos. O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/entity_search_samples.py).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Python [2.x ou 3.x](https://www.python.org/)
 
@@ -47,16 +47,17 @@ python -m pip install azure-cognitiveservices-search-entitysearch
 1. Crie um novo arquivo Python em seu IDE ou o editor favorito e adicione as seguintes instruções de importação. 
 
     ```python
-    from azure.cognitiveservices.search.entitysearch import EntitySearchAPI
+    from azure.cognitiveservices.search.entitysearch import EntitySearchClient
     from azure.cognitiveservices.search.entitysearch.models import Place, ErrorResponseException
     from msrest.authentication import CognitiveServicesCredentials
     ```
 
-2. Crie uma variável para a chave de assinatura e crie uma instância do cliente criando um objeto `CognitiveServicesCredentials` com ela.
+2. Crie uma variável para a chave de assinatura e o ponto de extremidade. Crie uma instância do cliente criando um objeto `CognitiveServicesCredentials` com a chave.
     
     ```python
     subscription_key = "YOUR-SUBSCRIPTION-KEY"
-    client = EntitySearchAPI(CognitiveServicesCredentials(subscription_key))
+    endpoint = "YOUR-ENDPOINT"
+    client = EntitySearchclient(endpoint=endpoint, credentials=CognitiveServicesCredentials(subscription_key))
     ```
 
 ## <a name="send-a-search-request-and-receive-a-response"></a>Enviar uma solicitação de pesquisa e receber uma resposta

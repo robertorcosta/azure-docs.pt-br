@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99b9173c817cc3ecf4b9a34ec6906af0b4de70e6
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: e22bec224d185d0306f2b0032aef929f627c910e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71120766"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367930"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alibaba-cloud-service-role-based-sso"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Alibaba Cloud Service (SSO baseado em função)
 
@@ -165,7 +165,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 7. Associe a função de RAM do Alibaba Cloud (AADrole) ao usuário do Azure AD (u2): Para associar a função de RAM ao usuário do Azure AD, você precisará criar uma função no Azure AD seguindo estas etapas:
 
-    a. Entre no [Explorador do Graph do Azure AD](https://developer.microsoft.com/graph/graph-explorer?spm=a2c63.p38356.879954.9.7d904e167h6Yg9).
+    a. Entre no [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
     b. Clique em **Modificar Permissões** para obter as permissões necessárias para a criação de uma função.
 

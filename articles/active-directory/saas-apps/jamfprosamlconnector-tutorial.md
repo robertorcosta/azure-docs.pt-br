@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 02/11/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc99e23e1b885de25bd2159d7916790cad851108
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 1d83dbe756e8e6acdb58861ac359801bc13a63c4
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77150174"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373219"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>Tutorial: Integração do SSO do Azure Active Directory ao Jamf Pro
 
@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá a integrar o Jamf Pro ao Azure AD (Azure Active
 * Conectar os usuários automaticamente ao Jamf Pro com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [Logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [Logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,7 +42,10 @@ Para começar, você precisará dos seguintes itens:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste. O Jamf Pro dá suporte ao SSO **iniciado por SP** e **IdP**.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste. 
+
+* O Jamf Pro dá suporte ao SSO **iniciado por SP** e **IdP**.
+* Depois de configurar o Jamf Pro, você poderá impor o controle de sessão, que fornece proteção contra exportação e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="add-jamf-pro-from-the-gallery"></a>Adicionar o Jamf Pro por meio da galeria
 
@@ -147,20 +150,20 @@ Nesta seção, você permitirá a B.Fernandes acesso ao Jamf Pro.
 
     ![A página Logon Único no Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 
-  a. Selecione **Editar**.
+    a. Selecione **Editar**.
 
-  b. Marque a caixa de seleção **Habilitar Autenticação de Logon Único**.
+    b. Marque a caixa de seleção **Habilitar Autenticação de Logon Único**.
 
-    c. Selecione **Azure** como uma opção no menu suspenso **Provedor de Identidade**.
+  c. Selecione **Azure** como uma opção no menu suspenso **Provedor de Identidade**.
 
-    d. Copie o valor da **ID DA ENTIDADE** e cole-o no campo **Identificador (ID da Entidade)** na seção **Configuração Básica do SAML** no portal do Azure.
+  d. Copie o valor da **ID DA ENTIDADE** e cole-o no campo **Identificador (ID da Entidade)** na seção **Configuração Básica do SAML** no portal do Azure.
 
-    > [!NOTE]
-    > Use o valor no campo `<SUBDOMAIN>` para completar a URL de logon e a URL de resposta na seção **Configuração Básica do SAML** no portal do Azure.
+> [!NOTE]
+> Use o valor no campo `<SUBDOMAIN>` para completar a URL de logon e a URL de resposta na seção **Configuração Básica do SAML** no portal do Azure.
 
-    e. Selecione **URL de Metadados** no menu suspenso **Fonte de Metadados do Provedor de Identidade**. No campo exibido, cole o valor da **URL de Metadados de Federação do Aplicativo** copiado do portal do Azure.
+  e. Selecione **URL de Metadados** no menu suspenso **Fonte de Metadados do Provedor de Identidade**. No campo exibido, cole o valor da **URL de Metadados de Federação do Aplicativo** copiado do portal do Azure.
 
-    f. (Opcional) Edite o valor de expiração do token ou selecione "Desabilitar expiração do token SAML".
+  f. (Opcional) Edite o valor de expiração do token ou selecione "Desabilitar expiração do token SAML".
 
 7. Na mesma página, role a página para baixo até a seção **Mapeamento de Usuário**. Em seguida, execute as etapas a seguir.
 
@@ -200,7 +203,7 @@ Para provisionar uma conta de usuário, execute as seguintes etapas:
 
     ![A opção Criar Conta Padrão na página Contas de Usuário e Grupos do Jamf Pro](./media/jamfprosamlconnector-tutorial/user3.png)
 
-6. Na caixa de diálogo **Nova Conta**, execute as etapas a seguir.
+6. Na caixa de diálogo **Nova Conta**, execute as seguintes etapas:
 
     ![Opções de configuração da nova conta nas configurações do sistema do Jamf Pro](./media/jamfprosamlconnector-tutorial/user4.png)
 
@@ -228,8 +231,8 @@ Ao selecionar o bloco do Jamf Pro no Painel de Acesso, você deverá ser conecta
 
 - [Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Logon único em aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Logon único em aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 - [Experimentar o Jamf Pro com o Azure AD](https://aad.portal.azure.com/)

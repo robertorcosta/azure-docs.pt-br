@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Criar um aplicativo Java no Windows'
-description: Implante seu primeiro Olá, Mundo em Java no Serviço de Aplicativo do Azure no Windows em minutos. O plug-in do Maven para o Serviço de Aplicativo o torna conveniente para implantar aplicativos Java.
+description: Implante seu primeiro Olá, Mundo em Java no Serviço de Aplicativo do Azure no Windows em minutos. O Plug-in de Aplicativo Web do Azure para Maven torna-o conveniente para implantar aplicativos Java.
 keywords: azure, serviço de aplicativo, aplicativo Web, windows, java, maven, início rápido
 author: msangapu-msft
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: c511ed3f432c8e54a820c01839269712271774bd
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 3cf759294a31fcf90c5a3f4a6cdc68e3c35882e0
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672168"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425337"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Início Rápido: Criar um aplicativo Java no Serviço de Aplicativo do Azure no Windows
 
@@ -22,7 +22,7 @@ ms.locfileid: "74672168"
 > Este artigo implanta um aplicativo no Serviço de Aplicativo no Windows. Para implantar o Serviço de Aplicativo no _Linux_, confira [Criar um aplicativo Web Java no Linux](./containers/quickstart-java.md).
 >
 
-O [Serviço de Aplicativo do Azure](overview.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches.  Este início rápido mostra como usar a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) com o [Plug-in do Maven para o Serviço de Aplicativo do Azure](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) para implantar um arquivo WAR (Arquivo Web) Java.
+O [Serviço de Aplicativo do Azure](overview.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches.  Este início rápido mostra como usar a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) com o [Plug-in de Aplicativo Web do Azure para Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) para implantar um arquivo WAR (Arquivo Web) Java.
 
 > [!NOTE]
 > A mesma coisa também pode ser feita usando IDEs populares, como o IntelliJ e Eclipse. Confira nossos documentos semelhantes em [Início Rápido: Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) ou [Início Rápido: Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
@@ -95,7 +95,7 @@ Em seguida, adicione a seguinte definição de plug-in ao elemento `<build>` do 
 
 Atualize os seguintes espaços reservados na configuração do plug-in:
 
-| Placeholder | DESCRIÇÃO |
+| Espaço reservado | Descrição |
 | ----------- | ----------- |
 | `SUBSCRIPTION_ID` | A ID exclusiva da assinatura em que você deseja implantar seu aplicativo. A ID da assinatura padrão pode ser encontrada no Cloud Shell ou na CLI usando o comando `az account show`. Para todas as assinaturas disponíveis, use o comando `az account list`.|
 | `RESOURCEGROUP_NAME` | Nome do novo grupo de recursos no qual criar o aplicativo. Ao colocar todos os recursos para um aplicativo em um grupo, você pode gerenciá-los juntos. Por exemplo, excluir o grupo de recursos excluiria todos os recursos associados ao aplicativo. Atualize esse valor com um novo nome de grupo de recursos exclusivo, por exemplo, *myResourcesGroup*. Você usará esse nome de grupo de recursos para limpar todos os recursos do Azure em uma seção posterior. |

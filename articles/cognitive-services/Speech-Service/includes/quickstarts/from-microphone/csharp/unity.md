@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: 894c9d34f3e9874a51f5939021f908ac4ecaaaa9
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 531e9dbec55c5a6a305b321df7a11067c0ade92a
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156080"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446780"
 ---
 > [!NOTE]
 > O SDK de Fala para Unity dá suporte à Área de Trabalho do Windows (x86 e x64) ou à Plataforma Universal do Windows (x86, x64, ARM/ARM64), ao Android (x86, ARM32/64) e ao iOS (simulador x64, ARM32 e ARM64)
@@ -90,7 +90,7 @@ Para adicionar o código de script de exemplo ao projeto do Unity, siga estas et
 
 1. Encontre e substitua a cadeia de caracteres `YourSubscriptionKey` pela sua chave de assinatura do serviço de Fala.
 
-1. Localize e substitua a cadeia de caracteres `YourServiceRegion` e substitua-a pelo "parâmetro do SDK de fala" de [região](https://aka.ms/speech/sdkregion) associada à assinatura. Por exemplo, se você estiver usando a versão de avaliação gratuita, a região é `westus`.
+1. Localize e substitua também a cadeia de caracteres `YourServiceRegion` pelo **Identificador de região** da [região](https://aka.ms/speech/sdkregion) associada à assinatura. Por exemplo, se você estiver usando a versão de avaliação gratuita, a região é `westus`.
 
 1. Salve as alterações no script.
 

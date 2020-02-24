@@ -2,20 +2,16 @@
 title: Trocas e reembolsos realizados via autoatendimento nas Reservas do Azure
 description: Saiba como você pode trocar ou reembolsar as Reservas do Azure.
 author: yashesvi
-manager: yashesvi
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 5f0c0c50ffd639109fdbb90c76e4ec036a8bc975
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 393db5d2e14e047ade04e0b688582e272c6ca44f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76773891"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200428"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Trocas e reembolsos realizados via autoatendimento nas Reservas do Azure
 
@@ -72,12 +68,10 @@ O Azure tem as políticas de cancelamento, troca e reembolso a seguir.
 - Não há penalidades ou limites anuais para trocas.
 
 **Políticas de reembolso**
-- Caso cancele uma reserva, pode ser cobrado um valor de 12% pela rescisão antecipada.
-- O reembolso que você recebe por um cancelamento é o saldo proporcional restante, menos o valor de rescisão antecipada de 12%. Para cancelar, acesse a reserva no portal do Azure e selecione **Reembolsar**.
+- Poderá haver um valor de rescisão antecipado de 12% para cancelamentos no futuro. No momento, não estamos cobrando essa penalidade.
 - O valor total de reembolso não pode exceder US$ 50.000 em uma janela de 12 meses consecutivos.
 - O cálculo dos reembolsos é baseado no valor mais baixo entre o preço de compra e o preço atual da reserva.
-- Somente os proprietários de reserva podem processar um reembolso. [Saiba como adicionar ou alterar os usuários que podem gerenciar uma reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
-- A Microsoft reserva a si o direito de cobrar uma penalidade de 12% por qualquer devolução realizada. A penalidade não está sendo aplicada no momento, mas será cobrada no futuro.
+- Somente os proprietários de pedidos de reserva podem processar um reembolso. [Saiba como adicionar ou alterar os usuários que podem gerenciar uma reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>Trocar armazenamento não Premium por armazenamento Premium
 

@@ -11,12 +11,12 @@ ms.date: 07/31/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4d32522ef88504b96d262c654dac7c08c292761
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: dd7b412e99526935738c2494d31a16fded7101a6
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76897463"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368041"
 ---
 # <a name="what-is-azure-active-directory"></a>O que é o Active Directory do Azure?
 
@@ -77,7 +77,7 @@ Para entender melhor o Azure AD e sua documentação, recomendamos ler os termos
 |Administrador de conta|Essa função clássica de administrador de assinatura é, conceitualmente, o proprietário para cobrança de uma assinatura. Essa função tem acesso ao [Centro de Contas do Azure](https://account.azure.com/Subscriptions) e permite que você gerencie todas as assinaturas em uma conta. Para obter mais informações, confira [Funções clássicas de administrador da assinatura, funções RBAC (controle de acesso baseado em função) do Azure e funções de administrador do Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Administrador de serviços|Essa função clássica de administrador de assinatura permite que você gerencie todos os recursos do Azure, incluindo o acesso. Essa função tem o acesso equivalente ao de um usuário que recebe a função de Proprietário no escopo da assinatura. Para saber mais, confira [Funções clássicas de administrador da assinatura, funções RBAC do Azure e funções de administrador do Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Proprietário|Essa função ajuda você a gerenciar todos os recursos do Azure, incluindo o acesso. Essa função está inserida em um sistema de autorização mais recente, chamado de RBAC (controle de acesso baseado em função), que fornece gerenciamento de acesso refinado aos recursos do Azure. Para saber mais, confira [Funções clássicas de administrador da assinatura, funções RBAC do Azure e funções de administrador do Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Administrador Global do Azure AD|Essa função de administrador é automaticamente atribuída a quem criou o locatário do Azure AD. Os Administradores globais podem executar todas as funções administrativas do Azure AD e de todos serviços federados ao Azure AD, como o Exchange Online, o SharePoint Online e o Skype for Business Online. Você pode ter vários administradores globais, mas somente os administradores globais podem atribuir funções de administrador (incluindo a atribuição de outros administradores globais) aos usuários.<br><br>**Observação**<br>Essa função de administrador é chamada de Administrador Global no portal do Azure, mas tem o nome de **Administrador da empresa** na API do Microsoft Graph, na API do Graph do Azure AD e no PowerShell do Azure AD.<br><br>Para saber mais sobre as várias funções de administrador, confira [Permissões da função de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).|
+|Administrador Global do Azure AD|Essa função de administrador é automaticamente atribuída a quem criou o locatário do Azure AD. Os Administradores globais podem executar todas as funções administrativas do Azure AD e de todos serviços federados ao Azure AD, como o Exchange Online, o SharePoint Online e o Skype for Business Online. Você pode ter vários administradores globais, mas somente os administradores globais podem atribuir funções de administrador (incluindo a atribuição de outros administradores globais) aos usuários.<br><br>**Observação**<br>Essa função de administrador é chamada de Administrador global no portal do Azure, mas tem o nome de **Administrador da empresa** na API do Microsoft Graph e no Azure AD PowerShell.<br><br>Para saber mais sobre as várias funções de administrador, confira [Permissões da função de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).|
 |Conta da Microsoft (também chamada de MSA)|Contas pessoais que fornecem acesso aos produtos da Microsoft e serviços de nuvem voltados ao consumidor, como o Outlook, o OneDrive, o Xbox LIVE ou o Office 365. Sua conta da Microsoft é criada e armazenada no sistema de contas de identidade de consumidor da Microsoft executado pela Microsoft.|
 
 ## <a name="which-features-work-in-azure-ad"></a>Quais recursos funcionam no Azure AD?

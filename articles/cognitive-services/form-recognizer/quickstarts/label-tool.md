@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 11/14/2019
+ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 8ab673c1a268f5ab663e8f423dd9b60cdfde14ab
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 812680e587ac5c5c8b3d949199a615fcd85fa610
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118378"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485345"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treinar um modelo de Reconhecimento de Formulários com rótulos usando a ferramenta de rotulagem de exemplo
 
@@ -28,10 +28,14 @@ Para concluir este início rápido, é necessário ter:
 
 - Um conjunto com pelo menos seis formulários do mesmo tipo. Você usará esses dados para treinar o modelo e testar um formulário. Você pode usar um [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) para este início rápido. Faça upload dos arquivos de treinamento na raiz de um contêiner de Armazenamento de Blobs em uma conta do Armazenamento do Azure.
 
+## <a name="create-a-form-recognizer-resource"></a>Criar um recurso do Reconhecimento de Formulários
+
+[!INCLUDE [create resource](../includes/create-resource.md)]
+
 ## <a name="set-up-the-sample-labeling-tool"></a>Configurar a ferramenta de rotulagem de exemplo
 
 Você usará o mecanismo do Docker para executar a ferramenta de rotulagem de exemplo. Siga as etapas a seguir para configurar o contêiner do Docker. Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).
-1. Primeiro, instale o Docker em um computador host. O computador host pode ser o seu computador local ([Windows](https://docs.docker.com/docker-for-windows/), [MacOS](https://docs.docker.com/docker-for-mac/)ou [Linux](https://docs.docker.com/install/)). Ou você pode usar um serviço de hospedagem do Docker no Azure, como o [Serviço de Kubernetes do Azure](https://docs.microsoft.com/azure/aks/index), as [Instâncias de Contêiner do Azure](https://docs.microsoft.com/azure/container-instances/index) ou um cluster do Kubernetes [implantado em um Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910). O computador host deve atender aos seguintes requisitos de hardware:
+1. Primeiro, instale o Docker em um computador host. O computador host pode ser o seu computador local ([Windows](https://docs.docker.com/docker-for-windows/), [macOS](https://docs.docker.com/docker-for-mac/)ou [Linux](https://docs.docker.com/install/)). Ou você pode usar um serviço de hospedagem do Docker no Azure, como o [Serviço de Kubernetes do Azure](https://docs.microsoft.com/azure/aks/index), as [Instâncias de Contêiner do Azure](https://docs.microsoft.com/azure/container-instances/index) ou um cluster do Kubernetes [implantado em um Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910). O computador host deve atender aos seguintes requisitos de hardware:
 
     | Contêiner | Mínimo | Recomendadas|
     |:--|:--|:--|
@@ -70,7 +74,7 @@ Habilite o CORS em sua conta de armazenamento. Selecione a sua conta de armazena
 
 ## <a name="connect-to-the-sample-labeling-tool"></a>Conectar à ferramenta de rotulagem de exemplo
 
-A ferramenta de rotulagem de exemplo conecta-se a uma origem (em que os formulários originais estão) e a um destino (o local em que ela exporta os rótulos criados e os dados de saída).
+A ferramenta de rotulagem de exemplo conecta-se a uma origem (em que os formulários originais estão) e a um destino (em que ela exporta os rótulos criados e os dados de saída).
 
 As conexões podem ser configuradas e compartilhadas entre projetos. Eles usam um modelo de provedor extensível para que você possa adicionar facilmente novos provedores de origem/destino.
 
@@ -165,7 +169,7 @@ Para retomar seu projeto em outro momento ou em outro navegador, você precisa s
 Vá para a página de configurações do projeto (ícone do controle deslizante) e anote o nome do token de segurança. Em seguida, vá para as configurações do aplicativo (ícone de engrenagem), que mostra todos os tokens de segurança em sua instância atual do navegador. Localize o token de segurança do seu projeto e copie seu nome e valor de chave para um local seguro.
 
 ### <a name="restore-project-credentials"></a>Restaurar credenciais do projeto
-Quando desejar retomar seu projeto, primeiro você precisará criar uma conexão com o mesmo contêiner de armazenamento de blobs. Siga as etapas acima para fazer isso. Em seguida, vá para a página de configurações do aplicativo (ícone de engrenagem) e veja se o token de segurança do seu projeto está lá. Se não estiver, adicione um novo token de segurança e copie a chave e o nome do token da etapa anterior. Em seguida, clique em Salvar alterações. 
+Quando desejar retomar seu projeto, primeiro você precisará criar uma conexão com o mesmo contêiner de armazenamento de blobs. Repita as etapas acima para fazer isso. Em seguida, vá para a página de configurações do aplicativo (ícone de engrenagem) e veja se o token de segurança do seu projeto está lá. Se não estiver, adicione um novo token de segurança e copie a chave e o nome do token da etapa anterior. Em seguida, clique em Salvar alterações. 
 
 ### <a name="resume-a-project"></a>Retomar um projeto
 Por fim, vá para a página principal (ícone da casa) e clique em Abrir Projeto de Nuvem. Em seguida, selecione a conexão de armazenamento de blobs e selecione o arquivo *.vott* do seu projeto. O aplicativo carregará todas as configurações do projeto, porque ele tem o token de segurança.

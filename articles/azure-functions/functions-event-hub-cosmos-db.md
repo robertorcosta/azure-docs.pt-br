@@ -5,12 +5,12 @@ author: KarlErickson
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
-ms.openlocfilehash: cef1d09f3365350240cb2ed879e4d41edec74aef
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b6d7b2c60e777266b1cab578b8970c1fa1c6bc50
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849829"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425299"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>Tutorial: Criar uma função em Java com um gatilho do Hub de Eventos e uma associação de saída do Azure Cosmos DB
 
@@ -37,6 +37,8 @@ Para concluir este tutorial, você precisará ter os seguintes itens instalados:
 > [!IMPORTANT]
 > A variável de ambiente `JAVA_HOME` deve ser definida como a localização de instalação do JDK para concluir este tutorial.
 
+Se você preferir usar o código para este tutorial diretamente, confira o repositório de exemplo [java-functions-eventhub-cosmosdb](https://github.com/Azure-Samples/java-functions-eventhub-cosmosdb).
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-azure-resources"></a>Criar recursos do Azure
@@ -54,7 +56,7 @@ As seções a seguir mostram como criar esses recursos usando a CLI do Azure.
 
 Se você não estiver usando o Cloud Shell, precisará usar a CLI do Azure localmente para acessar sua conta. Use o comando `az login` do prompt do Bash para iniciar a experiência de logon baseada em navegador. Se você tiver acesso a mais de uma assinatura do Azure, defina a assinatura padrão como `az account set --subscription` seguido da ID da assinatura.
 
-### <a name="set-environment-variables"></a>Configurar variáveis de ambiente
+### <a name="set-environment-variables"></a>Definir variáveis de ambiente
 
 Em seguida, crie algumas variáveis de ambiente para os nomes e a localização dos recursos que você criará. Use os comandos a seguir, substituindo os espaços reservados `<value>` por valores de sua escolha. Os valores devem estar em conformidade com as [regras de nomenclatura e restrições para recursos do Azure](/azure/architecture/best-practices/resource-naming). Para a variável `LOCATION`, use um dos valores produzidos pelo comando `az functionapp list-consumption-locations`.
 
@@ -201,7 +203,7 @@ Os recursos do Azure agora foram criados e configurados para funcionar corretame
 
 ## <a name="create-and-test-your-functions"></a>Criar e testar suas funções
 
-Em seguida, você criará um projeto no computador local, adicionará código Java a ele e o testará. Você usará comandos que funcionam com o plug-in do Maven para Azure Functions e o Azure Functions Core Tools. Suas funções serão executadas localmente, mas usarão os recursos baseados em nuvem que você criou. Depois que você conseguir que as funções funcionem localmente, poderá usar o Maven para implantá-las na nuvem e então ver seus dados e análises se acumularem.
+Em seguida, você criará um projeto no computador local, adicionará código Java a ele e o testará. Você usará comandos que funcionam com o Plug-in do Azure Functions para Maven e o Azure Functions Core Tools. Suas funções serão executadas localmente, mas usarão os recursos baseados em nuvem que você criou. Depois que você conseguir que as funções funcionem localmente, poderá usar o Maven para implantá-las na nuvem e então ver seus dados e análises se acumularem.
 
 Se tiver usado o Cloud Shell para criar seus recursos, você não ficará conectado ao Azure localmente. Nesse caso, use o comando `az login` para iniciar o processo de logon baseado em navegador. Em seguida, se necessário, defina a assinatura padrão com `az account set --subscription` seguido pela ID da assinatura. Por fim, execute os comandos a seguir para recriar algumas variáveis de ambiente em seu computador local. Substitua os espaços reservados `<value>` pelos mesmos valores que você usou anteriormente.
 
@@ -433,7 +435,7 @@ Suas funções agora são executadas no Azure e continuam a acumular dados em se
 
 ![Folha Desempenho do Application Insights](media/functions-event-hub-cosmos-db/application-insights-performance.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando tiver terminado de usar os recursos do Azure criados neste tutorial, será possível excluí-los usando o seguinte comando:
 

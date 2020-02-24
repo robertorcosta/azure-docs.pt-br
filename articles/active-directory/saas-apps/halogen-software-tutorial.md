@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Halogen Software | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Active Directory do Azure e o Halogen Software.
+title: 'Tutorial: Integração do Azure Active Directory ao Saba TalentSpace | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Saba TalentSpace.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,143 +11,137 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/15/2019
+ms.date: 02/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 220fa6bf16bf92f1907002100dc46895a9807251
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 6ef7d5ec33786c3c4c38525cd5ab15bee53b3493
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159148"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373269"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-halogen-software"></a>Tutorial: Integração do Azure Active Directory com o Halogen Software
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-saba-talentspace"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Saba TalentSpace
 
-Neste tutorial, você aprenderá a integrar o Halogen Software ao Azure AD (Azure Active Directory).
-A integração do Halogen Software ao Azure AD oferece os seguintes benefícios:
+Neste tutorial, você aprenderá a integrar o Saba TalentSpace ao Azure AD (Azure Active Directory). Ao integrar o Saba TalentSpace ao Azure AD, você pode:
 
-* Você pode controlar no Azure AD quem terá acesso ao Halogen Software.
-* Você pode permitir que os usuários sejam conectados automaticamente ao Halogen Software (logon único) com suas contas do Azure AD.
-* Você pode gerenciar suas contas em um único local central – o portal do Azure.
+* Controlar no Azure AD quem tem acesso ao Saba TalentSpace.
+* Permitir que os usuários sejam conectados automaticamente ao Saba TalentSpace com as respectivas contas do Azure AD.
+* Gerenciar suas contas em um local central: o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com o Halogen Software, você precisa dos seguintes itens:
+Para começar, você precisará dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Assinatura habilitada para logon único do Halogen Software
+* Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura habilitada para SSO (logon único) do Saba TalentSpace.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* O Halogen Software dá suporte ao SSO iniciado por **SP**
+* O Saba TalentSpace dá suporte ao SSO iniciado por **SP**
+* Depois de configurar o Saba TalentSpace, você poderá impor controles de sessão, que fornecem proteção contra exportação e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-halogen-software-from-the-gallery"></a>Adicionar o Halogen Software por meio da galeria
+## <a name="adding-saba-talentspace-from-the-gallery"></a>Adicionar o Saba TalentSpace por meio da galeria
 
-Para configurar a integração do Halogen Software com o Azure AD, você precisa adicionar o Halogen Software, por meio da galeria, à sua lista de aplicativos de SaaS gerenciados.
+Para configurar a integração do Saba TalentSpace ao Azure AD, você precisará adicionar o Saba TalentSpace por meio da galeria à lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Halogen Software por meio da galeria, execute as seguintes etapas:**
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Na seção **Adicionar por meio da galeria**, digite **Saba TalentSpace** na caixa de pesquisa.
+1. Selecione **Saba TalentSpace** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+## <a name="configure-and-test-azure-ad-single-sign-on-for-saba-talentspace"></a>Configurar e testar o logon único do Azure AD para o Saba TalentSpace
 
-    ![O botão Azure Active Directory](common/select-azuread.png)
+Configure e teste o SSO do Azure AD com o Saba TalentSpace usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Saba TalentSpace.
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
+Para configurar e testar o SSO do Azure AD com o Saba TalentSpace, conclua os seguintes blocos de construção:
 
-    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
+1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    * **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
+    * **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
+1. **[Configurar o SSO do Saba TalentSpace](#configure-saba-talentspace-sso)** : para definir as configurações de logon único no lado do aplicativo.
+    * **[Criar um usuário de teste do Saba TalentSpace](#create-saba-talentspace-test-user)** : para ter um equivalente de B.Fernandes no Saba TalentSpace que esteja vinculado à representação de usuário do Azure AD.
+1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-    ![O botão Novo aplicativo](common/add-new-app.png)
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-4. Na caixa de pesquisa, digite **Halogen Software**, selecione **Halogen Software** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Saba TalentSpace**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
-     ![Halogen Software na lista de resultados](common/search-new-app.png)
+   ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
+1. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Halogen Software, com base em um usuário de teste chamado **Brenda Fernandes**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Halogen Software.
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://global.hgncloud.com/[companyname]/saml/login`
 
-Para configurar e testar o logon único do Azure AD com o Halogen Software, você precisa concluir os seguintes blocos de construção:
-
-1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o logon único do Halogen Software](#configure-halogen-software-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar um usuário de teste do Halogen Software](#create-halogen-software-test-user)** – para ter um equivalente de Brenda Fernandes no Halogen Software que esteja vinculado à representação de usuário do Azure AD.
-6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
-
-Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
-
-Para configurar o logon único do Azure AD com o Halogen Software, execute as seguintes etapas:
-
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Halogen Software**, selecione **Logon único**.
-
-    ![Link Configurar logon único](common/select-sso.png)
-
-2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
-
-    ![Modo de seleção de logon único](common/select-saml-option.png)
-
-3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
-
-    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
-
-4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
-
-    ![Informações de logon único de Domínio e URLs do Halogen Software](common/sp-identifier.png)
-
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://global.hgncloud.com/<companyname>`
-
-    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão:
-
-    | |
-    |--|
-    | `https://global.halogensoftware.com/<companyname>`|
-    | `https://global.hgncloud.com/<companyname>`|
-    | |
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://global.hgncloud.com/[companyname]/saml/metadata`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de suporte ao Cliente do Halogen Software](https://support.halogensoftware.com/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do Saba TalentSpace](https://support.halogensoftware.com/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-4. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+1. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-6. Na seção **Configurar o Halogen Software**, copie as URLs apropriadas de acordo com suas necessidades.
+1. Na seção **Configurar o Saba TalentSpace**, copie as URLs apropriadas de acordo com as suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de logon
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
-    b. Identificador do Azure Ad
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-    c. URL de logoff
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. Selecione **Novo usuário** na parte superior da tela.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Clique em **Criar**.
 
-### <a name="configure-halogen-software-single-sign-on"></a>Configurar o logon único do Halogen Software
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-1. Em uma janela diferente do navegador, faça logon no aplicativo **Halogen Software** como administrador.
+Nesta seção, você permitirá que B.Fernandes use o logon único do Azure permitindo acesso ao Saba TalentSpace.
+
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **Saba TalentSpace**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
+
+   ![O link “Usuários e grupos”](common/users-groups-blade.png)
+
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+
+    ![O link Adicionar Usuário](common/add-assign-user.png)
+
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+
+## <a name="configure-saba-talentspace-sso"></a>Configurar o SSO do Saba TalentSpace
+
+1. Em outra janela do navegador, faça logon no aplicativo **Saba TalentSpace** como administrador.
 
 2. Clique na guia **Opções** .
   
-    ![O que é o Azure AD Connect](./media/halogen-software-tutorial/tutorial_halogen_12.png)
+    ![O que é o Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-12.png)
 
 3. No painel de navegação esquerdo, clique em **Configuração do SAML**.
   
-    ![O que é o Azure AD Connect](./media/halogen-software-tutorial/tutorial_halogen_13.png)
+    ![O que é o Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-13.png)
 
 4. Na página **Configuração do SAML** , realize as seguintes etapas:
 
-    ![O que é o Azure AD Connect](./media/halogen-software-tutorial/tutorial_halogen_14.png)
+    ![O que é o Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-14.png)
 
     a. Como **Identificador exclusivo**, selecione **NameID**.
 
@@ -164,93 +158,46 @@ Para configurar o logon único do Azure AD com o Halogen Software, execute as se
 
     f. Clique em **Salvar Alterações**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+### <a name="create-saba-talentspace-test-user"></a>Criar um usuário de teste do Saba TalentSpace
 
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Saba TalentSpace.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
+**Para criar um usuário chamado Brenda Fernandes no Saba TalentSpace, execute as seguintes etapas:**
 
-    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
-
-2. Selecione **Novo usuário** na parte superior da tela.
-
-    ![Botão Novo usuário](common/new-user.png)
-
-3. Nas Propriedades do usuário, execute as etapas a seguir.
-
-    ![A caixa de diálogo Usuário](common/user-properties.png)
-
-    a. No campo **Nome**, insira **BrendaFernandes**.
-  
-    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
-
-    d. Clique em **Criar**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
-
-Nesta seção, você habilita Brenda Fernandes a usar o logon único do Azure concedendo acesso ao Halogen Software.
-
-1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Halogen Software**.
-
-    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
-
-2. Na lista de aplicativos, selecione **Halogen Software**.
-
-    ![O link do Halogen Software na lista Aplicativos](common/all-applications.png)
-
-3. No menu à esquerda, selecione **Usuários e grupos**.
-
-    ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
-
-    ![O painel Adicionar Atribuição](common/add-assign-user.png)
-
-5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
-
-7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
-
-### <a name="create-halogen-software-test-user"></a>Criar um usuário de teste do Halogen Software
-
-O objetivo desta seção é criar um usuário chamado Britta Simon no Halogen Software.
-
-**Para criar um usuário chamado Britta Simon no Halogen Software, execute as seguintes etapas:**
-
-1. Faça logon no aplicativo **Halogen Software** como administrador.
+1. Faça logon em seu aplicativo **Saba TalentSpace** como administrador.
 
 2. Clique na guia **Central do Usuário** e clique em **Criar Usuário**.
 
-    ![O que é o Azure AD Connect](./media/halogen-software-tutorial/tutorial_halogen_300.png)  
+    ![O que é o Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-300.png)  
 
 3. Na página do diálogo **Novo Usuário** , realize as seguintes etapas:
 
-    ![O que é o Azure AD Connect](./media/halogen-software-tutorial/tutorial_halogen_301.png)
+    ![O que é o Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-301.png)
 
-    a. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
+    a. Na caixa de texto **Nome**, digite o nome do usuário, como **B**.
 
     b. Na caixa de texto **Sobrenome**, digite o sobrenome do usuário, como **Fernandes**.
 
-    c. Na caixa de texto **Nome de Usuário**, digite **Brenda Fernandes**, o nome de usuário como no portal do Azure.
+    c. Na caixa de texto **Nome de usuário**, digite **B.Fernandes**, o nome de usuário como mostrado no portal do Azure.
 
-    d. Na caixa de texto **Senha** , digite uma senha para Britta.
+    d. Na caixa de texto **Senha**, digite uma senha para B.Fernandes.
 
     e. Clique em **Save** (Salvar).
 
-### <a name="test-single-sign-on"></a>Testar logon único
+## <a name="test-sso"></a>Testar o SSO
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Halogen Software no Painel de Acesso, você deverá ser conectado automaticamente ao Halogen Software, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Saba TalentSpace no Painel de Acesso, você deverá ser conectado automaticamente ao Saba TalentSpace, para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Experimentar o Saba TalentSpace com o Azure AD](https://aad.portal.azure.com/)
+
+- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

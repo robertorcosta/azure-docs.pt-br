@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 11/13/2019
+ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 476763e1cb354edb8cdc4cbbae0d3aa7017faa16
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 342ae7e42c85ad661c04ba4ebb6629673f4af4dc
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118751"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482268"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Início Rápido: Extrair informações de texto e de layout usando a API REST do Reconhecimento de Formulários com Python
 
@@ -85,7 +85,7 @@ https://cognitiveservice/formrecognizer/v2.0-preview/layout/operations/54f0b076-
 
 ## <a name="get-the-layout-results"></a>Obter os resultados do layout
 
-Depois de ter chamado a API **Analisar Layout**, você chama a API **[Obter Resultados da Análise de Layout](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** para obter o status da operação e os dados extraídos. Adicione o código a seguir à parte inferior do script Python. Isso usa o valor da ID da operação em uma nova chamada à API. Esse script chama a API em intervalos regulares, até que os resultados estejam disponíveis. É recomendável fazer um intervalo de um segundo ou mais.
+Depois de ter chamado a API **Analisar Layout**, você chama a API **[Obter Resultados da Análise de Layout](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** para obter o status da operação e os dados extraídos. Adicione o código a seguir à parte inferior do script Python. Este código usa o valor da ID da operação em uma nova chamada à API. Esse script chama a API em intervalos regulares, até que os resultados estejam disponíveis. É recomendável fazer um intervalo de um segundo ou mais.
 
 ```python
 n_tries = 10

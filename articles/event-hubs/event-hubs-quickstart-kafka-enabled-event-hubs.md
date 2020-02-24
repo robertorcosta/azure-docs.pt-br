@@ -7,13 +7,13 @@ ms.author: shvija
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 11/05/2019
-ms.openlocfilehash: 2222345054982799f9f9e0b84961271a3cc04ddf
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 02/12/2020
+ms.openlocfilehash: 25c1cf00a418767209467c973b7a4755f62eb16f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717813"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368366"
 ---
 # <a name="quickstart-data-streaming-with-event-hubs-using-the-kafka-protocol"></a>Início Rápido: Fluxo de dados com os Hubs de Eventos usando o protocolo Kafka
 Este guia de início rápido mostra como transmitir para o Kafka habilitado dos Hubs de Eventos sem alterar seus clientes de protocolo ou seus próprio clusters em execução. Você aprenderá a usar seu produtores e os consumidores para se comunicar com os Hubs de Eventos habilitados com Kafka com apenas uma alteração de configuração nos seus aplicativos. Hubs de Eventos do Azure dá suporte para [Apache Kafka versão 1.0.](https://kafka.apache.org/10/documentation.html)
@@ -33,28 +33,7 @@ Para concluir este início rápido, você precisa atender aos seguinte pré-requ
 * [Namespace de Hubs de Evento habilitado com Kafka](event-hubs-create.md)
 
 ## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Criar um Kafka habilitado com o namespace dos Hubs de Evento
-
-1. Entre no [portal do Azure](https://portal.azure.com) e clique em **Criar um recurso** no canto superior esquerdo da tela.
-
-2. Pesquisar os Hubs de eventos e selecionar as opções mostradas aqui:
-    
-    ![Exportar para Hubs de Eventos no portal](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
- 
-3. Forneça um nome exclusivo e habilite o Kafka no namespace. Clique em **Criar**. Observação: Só há suporte para os Hubs de Eventos para Kafka nos Hubs de Eventos das camadas Standard e Dedicado. Os Hubs de Eventos da camada Básica retornarão um Erro de Autorização do Tópico em resposta a todas as operações do Kafka.
-    
-    ![Criar um namespace](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
- 
-4. Depois que o namespace foi criado, na guia **Configurações**, clique em **Políticas de acesso compartilhado** para obter a cadeia de conexão.
-
-    ![Clique em Políticas de acesso compartilhado](./media/event-hubs-create/create-event-hub7.png)
-
-5. Você pode escolher o padrão **RootManageSharedAccessKey**, ou adicionar uma nova política. Clique no nome da política e copie a cadeia de conexão. 
-    
-    ![Selecione uma política](./media/event-hubs-create/create-event-hub8.png)
- 
-6. Adiciona esta cadeia de conexão à sua configuração de aplicativo Kafka.
-
-Agora você pode transmitir eventos de aplicativos que usam o protocolo Kafka nos Hubs de eventos.
+Quando você cria um namespace dos Hubs de Eventos do nível Standard, o ponto de extremidade do Kafka para o namespace é habilitado automaticamente. Você pode transmitir eventos dos seus aplicativos que usam o protocolo Kafka para Hubs de Eventos do nível Standard. Ele não está habilitado para o namespace dos Hubs de Eventos da camada básica. 
 
 ## <a name="send-and-receive-messages-with-kafka-in-event-hubs"></a>Enviar e receber mensagens com Kafka no Hubs de Evento
 
@@ -64,14 +43,26 @@ Agora você pode transmitir eventos de aplicativos que usam o protocolo Kafka no
 
 3. Atualize os detalhes de configuração para o produtor no `src/main/resources/producer.config` da seguinte maneira:
 
+    **SSL:**
+
     ```xml
-    bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
+    bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
     security.protocol=SASL_SSL
     sasl.mechanism=PLAIN
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
     ```
-    
-4. Execute o código de produtor e fluxo nos Hubs de Eventos habilitado com Kafka:
+    **OAuth:**
+
+    ```xml
+    bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
+    security.protocol=SASL_SSL
+    sasl.mechanism=OAUTHBEARER
+    sasl.jaas.config=org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required;
+    sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
+    ```    
+
+    Encontre o código-fonte da classe de manipulador de exemplo CustomAuthenticateCallbackHandler no GitHub [aqui](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/producer/src/main/java).
+4. Execute o código do produtor e transmita eventos para os Hubs de Eventos habilitados para o Kafka:
    
     ```shell
     mvn clean package
@@ -82,13 +73,28 @@ Agora você pode transmitir eventos de aplicativos que usam o protocolo Kafka no
 
 6. Atualize os detalhes de configuração para o consumidor no `src/main/resources/consumer.config` da seguinte maneira:
    
+    **SSL:**
+
     ```xml
-    bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
+    bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
     security.protocol=SASL_SSL
     sasl.mechanism=PLAIN
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
     ```
 
+    **OAuth:**
+
+    ```xml
+    bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
+    security.protocol=SASL_SSL
+    sasl.mechanism=OAUTHBEARER
+    sasl.jaas.config=org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required;
+    sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
+    ``` 
+
+    Encontre o código-fonte da classe de manipulador de exemplo CustomAuthenticateCallbackHandler no GitHub [aqui](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/consumer/src/main/java).
+
+    Encontre todas as amostras do OAuth para os Hubs de Eventos para o Kafka [aqui](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
 7. Execute o código do consumidor e processo a partir do Hubs de Eventos habilitados com Kafka usando seus clientes Kafka:
 
     ```java
@@ -99,10 +105,10 @@ Agora você pode transmitir eventos de aplicativos que usam o protocolo Kafka no
 Se seu cluster Kafka de Hubs de Eventos tiver eventos, inicie agora recebendo-os do consumidor.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você aprendeu como transmitir para os Hubs de Eventos com Kafka habilitado sem alterar seus clientes de protocolo ou seus próprios clusters em execução. Para saber mais, continue com o tutorial a seguir:
+Neste artigo, você aprendeu como transmitir para os Hubs de Eventos com Kafka habilitado sem alterar seus clientes de protocolo ou seus próprios clusters em execução. Para saber mais, confira os seguintes artigos e as seguintes amostras:
 
-* [Saiba sobre os Hubs de Evento](event-hubs-what-is-event-hubs.md)
-* [Saiba mais sobre os Hubs de Eventos para o Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-* [Explore mais exemplos nos Hubs de Eventos do Kafka GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
-* Use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) para [transmitir eventos do Kafka local para Hubs de Eventos habilitados para Kafka na nuvem.](event-hubs-kafka-mirror-maker-tutorial.md)
-* Saiba como transmitir em Hubs de Eventos habilitados para Kafka usando [Apache Flink](event-hubs-kafka-flink-tutorial.md) ou [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)
+- [Saiba mais sobre os Hubs de Eventos para o Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+- [Inícios rápidos dos Hubs de Eventos para o Kafka no GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart)
+- [Tutoriais dos Hubs de Eventos para o Kafka no GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials)
+- Use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) para [transmitir eventos do Kafka local para Hubs de Eventos habilitados para Kafka na nuvem.](event-hubs-kafka-mirror-maker-tutorial.md)
+- Saiba como transmitir em Hubs de Eventos habilitados para Kafka usando [Apache Flink](event-hubs-kafka-flink-tutorial.md) ou [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)

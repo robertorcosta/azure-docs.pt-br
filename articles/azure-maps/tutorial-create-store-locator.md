@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Criar um aplicativo de localizador de repositório usando o Azure Mapas | Microsoft Azure Mapas'
-description: Neste tutorial, você aprenderá a criar um aplicativo Web do localizador de lojas usando o SDK da Web do Microsoft Azure Mapas.
-author: walsehgal
-ms.author: v-musehg
+description: Neste tutorial, você aprenderá a criar um aplicativo Web do localizador de lojas usando o SDK da Web dos Microsoft Azure Mapas.
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 063f085de875272a7b1ba4f52aeceb8f36114cca
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 5621ed8f9e5d7990ca7b522d6388f855db81618e
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986998"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209555"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: Criar um localizador de lojas usando o Azure Mapas
 
@@ -33,7 +33,7 @@ Este tutorial orienta você pelo processo de criação de um localizador de loja
 
 Vá diretamente para o [exemplo de localizador de lojas ativo](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) ou para o [código-fonte](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator). 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir as etapas neste tutorial, é necessário primeiro criar uma conta do Azure Mapas e obter a chave primária (chave da assinatura). Siga as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma assinatura de conta do Azure Mapas com tipo de preço S1 e siga as etapas em [obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária para sua conta. Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](how-to-manage-authentication.md).
 
@@ -381,7 +381,7 @@ Execute o aplicativo agora; você verá o cabeçalho, a caixa de pesquisa e o bo
 
 Tudo agora está configurado na interface do usuário. Ainda precisamos adicionar o JavaScript para carregar e analisar os dados e, em seguida, renderizar os dados no mapa. Para começar, abra *index.js* e adicione código a ele conforme descrito nas etapas a seguir.
 
-1. Adicione opções globais para facilitar a atualização das configurações. Defina as variáveis para o mapa, uma janela pop-up, uma fonte de dados, uma camada de ícone, um marcador HTML que exibe o centro de uma área de pesquisa e uma instância do cliente do serviço de pesquisa dos Azure Mapas.
+1. Adicione opções globais para facilitar a atualização das configurações. Defina as variáveis para o mapa, a janela pop-up, a fonte de dados, a camada de ícone e o marcador HTML. Defina o marcador HTML para indicar o centro de uma área de pesquisa. Defina também uma instância do cliente do serviço de pesquisa dos Azure Mapas.
 
     ```JavaScript
     //The maximum zoom level to cluster data point data on the map.
@@ -397,9 +397,9 @@ Tudo agora está configurado na interface do usuário. Ainda precisamos adiciona
 
 1. Adicione código ao *index.js*. O código a seguir inicializa o mapa. Adicionamos um [ouvinte de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para aguardar até que a página termine de ser carregada. Em seguida, conectamos eventos para monitorar o carregamento do mapa e fornecemos funcionalidade aos botões Pesquisar e Minha localização.
 
-   Quando o usuário seleciona o botão de pesquisa, ou quando ele pressiona Enter depois de inserir um lugar na caixa de pesquisa, uma pesquisa difusa é iniciada em relação à consulta do usuário. Transmita uma matriz de valores de país ISO 2 para a opção `countrySet` a fim de limitar os resultados da pesquisa a esses países/regiões. Limitar os países/regiões a serem pesquisados ajuda a aumentar a precisão dos resultados retornados. 
+   Quando o usuário seleciona o botão de pesquisa ou digita uma localização na caixa de pesquisa e, em seguida, seleciona ENTER, uma pesquisa difusa é iniciada na consulta do usuário. Transmita uma matriz de valores de país ISO 2 para a opção `countrySet` a fim de limitar os resultados da pesquisa a esses países/regiões. Limitar os países/regiões a serem pesquisados ajuda a aumentar a precisão dos resultados retornados. 
   
-   Quando a pesquisa for concluída, use o primeiro resultado e defina a câmera do mapa sobre essa área. Quando o usuário seleciona o botão Minha Localização, use a API de Localização Geográfica HTML5 que está incorporada no navegador para recuperar a localização do usuário e centralizar o mapa sobre ela.  
+   Depois que a pesquisa for concluída, use o primeiro resultado e defina a câmera do mapa sobre essa área. Quando o usuário selecionar o botão Minha Localização, recupere a localização do usuário usando a API de Geolocalização do HTML5. Essa API é interna do navegador. Em seguida, centralize o mapa sobre a localização.  
 
    > [!Tip]
    > Quando você usa janelas pop-up, é melhor criar uma instância de `Popup` única e reutilizá-la atualizando seu conteúdo e posição. Para cada instância de `Popup` que você adicionar ao seu código, vários elementos de DOM serão adicionados à página. Quanto mais elementos de DOM houver em uma página, mais itens o navegador terá que controlar. Se houver muitos itens, o navegador poderá ficar lento.
@@ -527,7 +527,7 @@ Tudo agora está configurado na interface do usuário. Ainda precisamos adiciona
     map.markers.add(centerMarker);
     ```
 
-1. No ouvinte de evento `ready` do mapa, adicione uma fonte de dados. Em seguida, faça uma chamada de carregamento e analise o conjunto de dados. Habilite o clustering na fonte de dados. Clustering dos pontos sobrepostos dos grupos da fonte de dados em um cluster. Os clusters se dividem em pontos individuais quando o usuário amplia o mapa. Isso torna a experiência do usuário mais fluida e melhora o desempenho.
+1. No ouvinte de evento `ready` do mapa, adicione uma fonte de dados. Em seguida, faça uma chamada de carregamento e analise o conjunto de dados. Habilite o clustering na fonte de dados. Clustering dos pontos sobrepostos dos grupos da fonte de dados em um cluster. Os clusters se dividem em pontos individuais quando o usuário amplia o mapa. Esse comportamento fornece uma experiência do usuário melhor e aprimora o desempenho.
 
     ```JavaScript
     //Create a data source, add it to the map, and then enable clustering.
@@ -928,7 +928,7 @@ Na primeira vez em que um usuário seleciona o botão Minha Localização, o nav
 
 ![Captura de tela da solicitação do navegador para acessar o local do usuário](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
 
-Quando você ampliar o suficiente em uma área com cafeterias, os clusters se dividem em lugares individuais. Selecione um dos ícones no mapa ou selecione um item no painel lateral para ver uma janela pop-up que mostra informações sobre esse lugar.
+Quando você ampliar o suficiente em uma área com cafeterias, os clusters se dividem em lugares individuais. Selecione um dos ícones no mapa ou um item no painel lateral para ver uma janela pop-up. O pop-up mostra informações para a localização selecionada.
 
 <center>
 

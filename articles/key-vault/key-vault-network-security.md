@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 60378632a55fe4578bb376a3a00de5efffc5d275
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 870064406c86e9cef6a45dfbe47c61cdaa9ecab0
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976947"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426302"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Azure Key Vault
 
@@ -27,7 +27,7 @@ Este guia fornece instruções passo a passo para configurar redes virtuais e fi
 Segue como configurar redes virtuais e firewalls do Key Vault usando o portal do Azure:
 
 1. Navegue até o cofre de chaves que você quer proteger.
-2. Selecione **Firewalls e redes virtuais**.
+2. Selecione **Rede** e, em seguida, a guia **Firewalls e redes virtuais**.
 3. Em **Permitir acesso de**, clique em **Redes selecionadas**.
 4. Para adicionar redes virtuais existentes a firewalls e regras da rede virtual, selecione **+ Adicionar redes virtuais existentes**.
 5. Na nova folha que é aberta, selecione a assinatura, as redes virtuais e as sub-redes que você quer permitir acesso a esse cofre de chaves. Se as redes virtuais e sub-redes que você selecionar não tiverem pontos de extremidade de serviço habilitados, confirme que você quer habilitar pontos de extremidade de serviço e, em seguida, selecione **Habilitar**. Pode demorar até 15 minutos para entrar em vigor.

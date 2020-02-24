@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 51e3bddef75bcf41b8c7a4d9693b622429130217
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 4750673eb60529d812e4df71de9203d4d59a0cc9
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930464"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212265"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Tutorial: Implantar HSMs em uma rede virtual existente usando a CLI
 
@@ -179,7 +179,7 @@ Essa implantação deve levar aproximadamente de 25 a 30 minutos para ser conclu
 
 Quando a implantação for concluída com êxito, "provisioningState": "êxito" será exibido. Você pode se conectar à máquina virtual existente e usar o SSH para garantir a disponibilidade do dispositivo HSM.
 
-## <a name="verifying-the-deployment"></a>Verificar a implantação
+## <a name="verifying-the-deployment"></a>Verificando a implantação
 
 Para verificar os dispositivos que foram provisionados e ver os atributos do dispositivo, execute o conjunto de comandos a seguir. Verifique se o grupo de recursos está definido corretamente e se o nome do recurso é exatamente igual ao que você tem no arquivo de parâmetros.
 
@@ -232,20 +232,13 @@ A essa altura, você alocou todos os recursos para ter uma implantação de dois
 
 ## <a name="delete-or-clean-up-resources"></a>Excluir ou limpar recursos
 
-Caso tenha terminado de usar somente o dispositivo HSM, ele poderá ser excluído como um recurso e devolvido ao pool gratuito. O motivo óbvio de preocupação aqui diz respeito a dados confidenciais de clientes que estejam no dispositivo. Para remover os dados confidenciais do cliente, o dispositivo deverá ser redefinido para os padrões de fábrica usando o cliente Gemalto. Consulte o guia dos administradores Gemalto para o dispositivo SafeNet Network Luna 7 e considere os comandos a seguir na ordem apresentada.
-
-1. `hsm factoryReset -f`
-2. `sysconf config factoryReset -f -service all`
-3. `my file clear -f`
-4. `my public-key clear -f`
-5. `syslog rotate`
-
+Caso tenha terminado de usar somente o dispositivo HSM, ele poderá ser excluído como um recurso e devolvido ao pool gratuito. O motivo óbvio de preocupação aqui diz respeito a dados confidenciais de clientes que estejam no dispositivo. A melhor maneira de "zerar" um dispositivo é inserir a senha incorreta do administrador do HSM três vezes (observação: esse não é o administrador do dispositivo, é o administrador real do HSM). Como medida de segurança para proteger o material da chave, o dispositivo não pode ser excluído como um recurso do Azure até que esteja no estado zerado.
 
 > [!NOTE]
 > Caso tenha problema com alguma configuração do dispositivo Gemalto, entre em contato com o [atendimento ao cliente da Gemalto](https://safenet.gemalto.com/technical-support/).
 
 
-Ao concluir o uso dos recursos desse grupo de recursos, remova-os com o seguinte comando:
+Ao concluir o uso de todos os recursos desse grupo de recursos, remova-os com o seguinte comando:
 
 ```azurecli
 az group deployment delete \
@@ -264,4 +257,4 @@ Recomendamos o uso de um design com dois HSMs em uma região primária abordando
 * [Segurança física](physical-security.md)
 * [Rede](networking.md)
 * [Capacidade de suporte](supportability.md)
-* [Monitoramento](monitoring.md)
+* [Monitoring](monitoring.md)

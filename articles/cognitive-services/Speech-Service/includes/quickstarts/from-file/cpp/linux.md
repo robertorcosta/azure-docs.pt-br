@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/14/2020
 ms.author: erhopf
-ms.openlocfilehash: ea219937fc765abd05e3ff438c0a48eb76a298b8
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: dcd34170668230b1e1a3224844d8779b8f51d1db
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156713"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446442"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,7 +35,7 @@ Antes de começar, é preciso:
 
 1. Nesse novo arquivo, substitua a cadeia de caracteres `YourSubscriptionKey` pela sua chave de assinatura do serviço de Fala.
 
-1. Substitua a cadeia de caracteres `YourServiceRegion` pelo "parâmetro do SDK de fala" da [região](https://aka.ms/speech/sdkregion) associada à sua assinatura (por exemplo, `westus` para a assinatura de avaliação gratuita).
+1. Substitua a cadeia de caracteres `YourServiceRegion` pelo **Identificador de região** da [região](https://aka.ms/speech/sdkregion) associada à assinatura (por exemplo, `westus` para a assinatura de avaliação gratuita).
 
 1. Substitua a cadeia de caracteres `whatstheweatherlike.wav` pelo nome do seu arquivo.
 

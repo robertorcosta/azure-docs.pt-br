@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 12/20/2019
-ms.openlocfilehash: a994a72ae57b39dba8025e7636e0f822f483bc8c
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: e2e17ba6af60fa495a03e7d46a07cfe6b66f4e68
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720666"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472410"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Início Rápido: Criar um conjunto de habilidades cognitivas da Pesquisa Cognitiva do Azure no portal do Azure
 
@@ -27,7 +27,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Este início rápido usa o Azure Cognitive Search, o [Armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/blobs/) e os [Serviços Cognitivos do Azure](https://azure.microsoft.com/services/cognitive-services/) para a IA. 
 
-Como a carga de trabalho é muito pequena, os Serviços Cognitivos são acionados nos bastidores para fornecer processamento gratuito para até 20 transações diárias por indexador quando invocados pelo Azure Cognitive Search. Desde que use os dados de exemplo que fornecemos, você pode ignorar a criação ou anexação de um recurso dos Serviços Cognitivas.
+Como a carga de trabalho é muito pequena, os Serviços Cognitivos são acionados nos bastidores para fornecer processamento gratuito para até 20 transações quando invocados pela Pesquisa Cognitiva do Azure. Para um conjunto de dados tão pequeno, você pode ignorar a criação ou anexação de um recurso dos Serviços Cognitivos.
 
 1. [Fazer o download de dados de exemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consiste em um conjunto de pequenos arquivos de tipos diferentes. Descompacte os arquivos.
 
@@ -170,12 +170,12 @@ Você pode localizar e gerenciar recursos no portal usando o link **Todos os rec
 
 Se você estiver usando um serviço gratuito, estará limitado a três índices, indexadores e fontes de dados. Você pode excluir itens individuais no portal para permanecer abaixo do limite. 
 
-> [!Tip]
-> Se desejar repetir esse exercício ou experimentar um passo a passo de enriquecimento de IA diferente, exclua o indexador no portal. A exclusão do indexador redefine o contador de transações diárias gratuito para zero para o processamento dos Serviços Cognitivos.
-
 ## <a name="next-steps"></a>Próximas etapas
 
 Você pode criar conjuntos de habilidades usando o portal, o SDK do .NET ou a API REST. Para expandir ainda mais seus conhecimentos, experimente a API REST usando o Postman e mais dados de exemplo.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Extrair o texto e a estrutura de blobs JSON usando APIs REST ](cognitive-search-tutorial-blob.md)
+
+> [!Tip]
+> Se desejar repetir esse exercício ou experimentar um passo a passo de enriquecimento de IA diferente, exclua o indexador no portal. A exclusão do indexador redefine o contador de transações diárias gratuito para zero para o processamento dos Serviços Cognitivos.

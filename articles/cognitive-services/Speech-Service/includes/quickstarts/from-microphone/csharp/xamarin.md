@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 3f315f29eab107c9e0e145bd25db71a8cb8b2ace
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: ed37e4f5b84431355b63b3d59b0e49b78eaeed86
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156534"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446456"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,7 +48,7 @@ O projeto helloworld comum contém implementações independentes de plataforma 
 1. No manipulador `OnRecognitionButtonClicked` do arquivo de origem, localize a cadeia de caracteres `YourSubscriptionKey` e substitua-a por sua chave de assinatura.
 
 
-1. No manipulador `OnRecognitionButtonClicked`, localize a cadeia de caracteres `YourServiceregion` e substitua-a pelo "parâmetro do SDK de fala" de [região](https://aka.ms/speech/sdkregion) associada à assinatura. (Por exemplo, use `westus` para a assinatura de avaliação gratuita.)
+1. No manipulador `OnRecognitionButtonClicked`, localize a cadeia de caracteres `YourServiceregion` e substitua-a pelo **Identificador de região** da [região](https://aka.ms/speech/sdkregion) associada à assinatura. (Por exemplo, use `westus` para a assinatura de avaliação gratuita.)
 
 1. Em seguida, você precisará criar um [Serviço do Xamarin](https://docs.microsoft.com/xamarin/android/app-fundamentals/services/creating-a-service/), que é usado para consultar permissões do microfone de projetos de diferentes plataformas, como UWP, Android e iOS. Para fazer isso, adicione uma nova pasta chamada *Serviços* ao projeto helloworld e crie um arquivo de origem C# nele. Clique com o botão direito do mouse na pasta *Serviços* e selecione **Adicionar** > **Novo Item** > **Arquivo de Código**. Renomeie o arquivo `IMicrophoneService.cs` e coloque todo o código do seguinte snippet nesse arquivo:
 

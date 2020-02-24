@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 10/25/2019
+ms.date: 02/18/2020
 ms.author: victorh
-ms.openlocfilehash: df87e652d2969d4ae12e97a2b455648cf39382c3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c3a94cea838609f65511a21ee2f64e8782a6adea
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488252"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443118"
 ---
 # <a name="azure-firewall-manager-preview-deployment-overview"></a>Visão geral da implantação da Versão Prévia do Gerenciador de Firewall do Azure
 
@@ -20,23 +20,32 @@ ms.locfileid: "73488252"
 
 Há mais de uma maneira de implantar a versão prévia do Gerenciador de firewall do Azure, mas o processo geral a seguir é recomendado.
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-> [!IMPORTANT]
-> A Versão prévia do Gerenciador de Firewall do Azure deve ser habilitada explicitamente usando o comando `Register-AzProviderFeature` do PowerShell.
->Em um prompt de comando do PowerShell, execute os seguintes comandos:
->
->```azure-powershell
->connect-azaccount
->Register-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network
->```
->A conclusão do registro do recurso demora até 30 minutos. Execute o seguinte comando para verificar o >status do registro:
->
->`Get-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network`
-
-
-
 ## <a name="general-deployment-process"></a>Processo de implantação geral
+
+### <a name="hub-virtual-networks"></a>Redes virtuais de hub
+
+1.  Criar uma política de firewall
+
+    - Criar uma nova política
+<br>*or*<br>
+    - Derivar uma política de base e personalizar uma política local
+<br>*or*<br>
+    - Importar regras de um Firewall do Azure existente. Verifique se você removeu as regras NAT de políticas que devem ser aplicadas a vários firewalls
+1. Criar sua arquitetura de hub e spoke
+   - Criar uma rede virtual de hub usando o Gerenciador de Firewall do Azure e redes virtuais spoke emparelhadas usando o emparelhamento de rede virtual
+<br>*or*<br>
+    - Criar uma rede virtual e adicionar conexões de rede virtual e redes virtuais spoke emparelhadas a ela usando o emparelhamento de rede virtual
+
+3. Selecione provedores de segurança e associe uma política de firewall. Atualmente, somente o Firewall do Azure é um provedor compatível.
+
+   - Isso é feito enquanto você cria uma rede virtual de hub
+<br>*or*<br>
+    - Converta uma rede virtual existente em uma rede virtual de hub. Também é possível converter várias redes virtuais.
+
+4. Configure as Rotas Definidas Pelo Usuário para rotear o tráfego para o firewall de rede virtual de hub.
+
+
+### <a name="secured-virtual-hubs"></a>Hubs virtuais seguros
 
 1. Criar sua arquitetura de hub e spoke
 

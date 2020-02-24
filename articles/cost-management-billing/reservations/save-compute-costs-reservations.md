@@ -2,17 +2,17 @@
 title: O que são Reservas do Azure?
 description: Saiba mais sobre as Reservas do Azure e sobre os preços para economizar nos custos de máquinas virtuais, de bancos de dados SQL, do Azure Cosmos DB e de outros recursos.
 author: yashesvi
-manager: yashar
+ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 02/18/2020
 ms.author: banders
-ms.openlocfilehash: 10cf5b5a0ec4edda3d3c868cda34352e827604b0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c6a8547235c302f52aacd0e6ae4a8fbf08b538b8
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76841873"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443628"
 ---
 # <a name="what-are-azure-reservations"></a>O que são Reservas do Azure?
 
@@ -31,17 +31,25 @@ Se você tem máquinas virtuais, dados de armazenamento de blobs, o Azure Cosmos
 Planos de serviço:
 
 - **Instância de Máquina Virtual Reservada** – uma reserva apenas abrange os custos de computação de máquina virtual. Não cobre encargos adicionais de software, rede e armazenamento.
-- **Capacidade reservada de Armazenamento do Azure**: uma reserva abrange a capacidade de contas de armazenamento padrão para armazenamento de blobs ou do Azure Data Lake Storage Gen2. A reserva não abrange a largura de banda ou as taxas de transação.
+- **Capacidade reservada de Armazenamento do Azure**: uma reserva abrange a capacidade de contas de armazenamento padrão para armazenamento de blobs ou do Azure Data Lake Storage Gen2. A reserva não abrange a largura de banda nem as taxas de transação.
 - **Reservas do Armazenamento em Disco do Azure** – uma reserva cobre apenas SSDs Premium de tamanho P30 ou superior. Ela não cobre nenhum outro tipo de disco ou tamanhos menores que P30.
 - **Capacidade reservada do Azure Cosmos DB** – cobre a taxa de transferência provisionada para seus recursos. Ela não cobre encargos de armazenamento e rede.
 - **vCore reservado do Banco de Dados SQL** – apenas os custos de computação são incluídos com uma reserva. A licença é cobrada separadamente.
 - **SQL Data Warehouse** – uma reserva cobre o uso de cDWU. Ela não cobre encargos de armazenamento ou rede associados ao uso do SQL Data Warehouse.
 - **Imposto de selo do Serviço de Aplicativo** – uma reserva cobre o uso do imposto de selo. Ela não se aplica a funções de trabalho, de forma que todos os outros recursos associados ao selo são cobrados separadamente.
-- Banco de Dados do Azure para MySQL
-- Banco de Dados do Azure para PostgreSQL
-- Banco de Dados do Azure para MariaDB
-- Azure Data Explorer
+- **Azure Databricks** – uma reserva abrange apenas o uso de DBU. Outros encargos, como computação, armazenamento e rede, são aplicados separadamente.
+- **Banco de Dados do Azure para MySQL** – apenas os custos de computação são incluídos com uma reserva. Uma reserva não cobre custos de software, rede ou armazenamento associados à instância do servidor de Banco de Dados MySQL.
+- **Banco de Dados do Azure para PostgreSQL** – apenas os custos de computação são incluídos com uma reserva. Uma reserva não cobre custos de software, rede ou armazenamento associados à instância dos servidores de Banco de Dados PostgreSQL.
+- **Banco de Dados do Azure para MariaDB** – apenas os custos de computação são incluídos com uma reserva. Uma reserva não cobre custos de software, rede ou armazenamento associados à instância do servidor de banco de dados MariaDB.
+- **Azure Data Explorer** – uma reserva abrange os encargos de marcação. Uma reserva não abrange os encargos de computação, rede ou armazenamento associados aos clusters.
+- **Managed Disks SSD Premium** – uma reserva é feita para um SKU de disco especificado. 
 
+Planos de software:
+
+- **SUSE Linux** – uma reserva abrange os custos do plano de software. Os descontos aplicam-se apenas aos medidores do SUSE e não ao uso da máquina virtual.
+- **Planos do Red Hat** – uma reserva abrange os custos do plano de software. Os descontos aplicam-se apenas aos medidores Red Hat e não ao uso da máquina virtual.
+- **Solução VMware da CloudSimple no Azure** – uma reserva abrange os nós VMWare da CloudSimple. Os custos de software adicionais ainda se aplicam.
+- **Red Hat OpenShift no Azure** – uma reserva se aplica aos custos do OpenShift, mas não aos custos de infraestrutura do Azure.
 
 Para as máquinas virtuais do Windows e banco de Dados SQL, você pode cobrir os custos de licenciamento com o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 

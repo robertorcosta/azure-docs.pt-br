@@ -5,30 +5,30 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: sample
-ms.date: 05/08/2018
+ms.date: 02/12/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 794a13a3f863c732d4e7ed8cedcbd73f7cbc0d0b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: cfa67f529408efcc2a703a4f80b15143c774f0b9
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74272100"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77195786"
 ---
-# <a name="self-service-portal-for-azure-ad-b2b-collaboration-sign-up"></a>Portal de autoatendimento para inscrição na colaboração B2B do Azure AD
+# <a name="self-service-for-azure-ad-b2b-collaboration-sign-up"></a>Autoatendimento para inscrição na colaboração B2B do Azure AD
 
-Os clientes podem fazer muito com os recursos internos expostos por meio do [Portal do Azure](https://portal.azure.com) e o [Painel de Acesso de Aplicativos](https://myapps.microsoft.com) para usuários finais. Porém, você pode precisar personalizar o fluxo de trabalho de integração para usuários B2B para se adequar às necessidades da sua organização. Você pode fazer isso com [a API de convite](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
+Os clientes podem fazer muito com os recursos internos expostos por meio do [Portal do Azure](https://portal.azure.com) e o [Painel de Acesso de Aplicativos](https://myapps.microsoft.com) para usuários finais. Porém, você pode precisar personalizar o fluxo de trabalho de integração para usuários B2B para se adequar às necessidades da sua organização.
 
-Como uma organização que está convidando pode não saber antecipadamente quem são os colaboradores externos individuais que precisam de acesso aos seus recursos. Você precisará de uma maneira para os usuários de empresas parceiras inscreverem-se com um conjunto de políticas que você, como organização convidando, controla. Este cenário é possível por meio de APIs. Há um [projeto de exemplo no GitHub](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web) que faz exatamente isso.
+## <a name="azure-ad-entitlement-management-for-b2b-guest-user-sign-up"></a>Gerenciamento de direitos do Azure AD para inscrição de usuário convidado B2B
 
-Esse projeto no Github mostra como as organizações podem usar as APIs e fornecer uma capacidade de inscrição para autoatendimento baseada em política para seus parceiros confiáveis, com regras que determinam os aplicativos que podem acessar. Os usuários do parceiro podem obter acesso aos recursos quando necessário. Podem fazer isso com segurança, sem a necessidade de convidar a organização para convidá-los manualmente. É possível implantar facilmente o projeto em uma assinatura do Azure de sua escolha.
+Como uma organização que faz o convite, talvez você não saiba com antecedência quem são os colaboradores externos individuais que precisam de acesso aos seus recursos. Você precisa encontrar uma maneira para os usuários de empresas parceiras se inscreverem com as políticas que você controla. Caso deseje permitir que os usuários de outras organizações solicitem o acesso e que, após a aprovação, eles sejam provisionados com as contas de convidado e atribuídos a grupos, aplicativos e sites do SharePoint Online, use o [gerenciamento de direitos do Azure AD](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) para configurar políticas que [gerenciam o acesso de usuários externos](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users).
 
-## <a name="as-is-code"></a>Código no estado em que se encontra
+## <a name="azure-active-directory-b2b-invitation-api"></a>API de convite do Azure Active Directory B2B
 
-Esse código é disponibilizado como um exemplo para demonstrar o uso da API de convite do Azure Active Directory B2B. Ele deve ser personalizado por sua equipe de desenvolvimento ou um parceiro e deverá ser revisado antes de você implantar em um cenário de produção.
+As organizações podem usar a [API do gerenciador de convites do Microsoft Graph](https://docs.microsoft.com/graph/api/resources/invitation?view=graph-rest-1.0) para criar as próprias experiências de integração para os usuários convidados B2B. Quando você desejar oferecer a inscrição para autoatendimento de usuário convidado B2B, recomendaremos usar o [gerenciamento de direitos do Azure AD](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview). Mas se desejar criar a própria experiência, use a [API de criação de convite](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0&tabs=http) para enviar de modo automático seu email de convite personalizado diretamente ao usuário B2B, por exemplo. Ou então seu aplicativo pode usar a inviteRedeemUrl retornada na resposta de criação para criar o próprio convite (por meio do mecanismo de comunicação de sua escolha) para o usuário convidado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

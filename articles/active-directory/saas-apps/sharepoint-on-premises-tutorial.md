@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 7feb62bb3e38452a441c505107569457d7c90a3f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 60ff8769192191ba112008e7baee23740147dfe9
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233457"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367024"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutorial: Integração do Azure Active Directory com o SharePoint no local
 
@@ -330,7 +330,7 @@ Agora, os usuários podem fazer logon no SharePoint 2016 usando identidades do M
 
 Não há validação nos valores que você pesquisa, o que pode levar a erros de ortografia ou a usuários que escolherem acidentalmente o tipo de declaração errado para atribuir, como a reivindicação de **SurName**. Isso pode impedir que os usuários acessem recursos com êxito.
 
-Para ajudar nesse cenário, há uma solução de código aberto chamada [ AzureCP ](https://yvand.github.io/AzureCP/) que fornece um provedor de declarações personalizado para o SharePoint 2016. Ele usará o Gráfico do Azure AD para resolver o que os usuários inserem e realizam a validação. Saiba mais em [ AzureCP ](https://yvand.github.io/AzureCP/).
+Para ajudar nesse cenário, há uma solução de código aberto chamada [ AzureCP ](https://yvand.github.io/AzureCP/) que fornece um provedor de declarações personalizado para o SharePoint 2016. Ele usará a API do Microsoft Graph para resolver o que os usuários inserem e realizará a validação. Saiba mais em [ AzureCP ](https://yvand.github.io/AzureCP/).
 
 ### <a name="assign-the-azure-ad-security-group-in-the-azure-portal"></a>Atribuir o grupo de segurança do Microsoft Azure Active Directory no portal do Azure
 

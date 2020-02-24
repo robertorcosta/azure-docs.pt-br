@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Unir dados de sensor com os dados de previsão do tempo usando o Azure Notebooks (Python) | Microsoft Azure Mapas'
 description: Este tutorial mostra como unir dados de sensor aos dados de previsão do tempo do Serviço de Clima dos Microsoft Azure Mapas usando o Azure Notebooks (Python).
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/29/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 6d49a305a9b2e02d9e9d743ff8f076f453a08fcb
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: d6b82ec0662745fd9c9a05db28595ff84f57f330
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989613"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208022"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Tutorial: Unir dados de sensor com os dados de previsão do tempo usando o Azure Notebooks (Python)
 
@@ -31,7 +31,7 @@ Neste tutorial, você irá:
 > * Plotar dados de previsão em gráficos.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, primeiro você precisará:
 
@@ -68,7 +68,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 ## <a name="request-daily-forecast-data"></a>Solicitar dados de previsão diária
 
-Em nosso cenário, desejamos solicitar uma previsão diária para cada localização de sensor. O script a seguir chama a [API de previsão diária](https://aka.ms/AzureMapsWeatherDailyForecast) do serviço meteorológico do Azure Mapas para obter a previsão do tempo diária para cada turbina eólica para os próximos 15 dias, a partir da data atual.
+Em nosso cenário, desejamos solicitar uma previsão diária para cada localização de sensor. O script a seguir chama a [API de Previsão Diária](https://aka.ms/AzureMapsWeatherDailyForecast) do serviço Clima dos Azure Mapas. Essa API retorna a previsão do tempo para cada turbina eólica, para os próximos 15 dias a contar da data atual.
 
 
 ```python
@@ -129,7 +129,7 @@ display(Image(poi_range_map))
 ![Locais de turbina](./media/weather-service-tutorial/location-map.png)
 
 
-Agruparemos os dados de previsão com os dados de demonstração de acordo com a ID da estação do data center meteorológico. Esse agrupamento aumenta os dados de demonstração com os dados de previsão. 
+Agruparemos os dados de previsão com os dados de demonstração de acordo com a ID da estação. A ID da estação destina-se ao data center meteorológico. Esse agrupamento aumenta os dados de demonstração com os dados de previsão.
 
 ```python
 # Group forecasted data for all locations

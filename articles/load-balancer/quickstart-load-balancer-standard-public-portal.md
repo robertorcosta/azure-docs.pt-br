@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 4a5775be66f95fb69db761c2356a61f80068bc75
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: eab8298362bfb3ad790d13fcbf47e0fe624ed3fd
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843864"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470183"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início Rápido: Criar um Load Balancer para balancear a carga de VMs usando o portal do Azure
 
@@ -46,10 +46,14 @@ Nesta seção, você criará um Load Balancer que ajuda a balancear a carga de m
     | Nome                   | *myLoadBalancer*                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Type          | Selecione **Público**.                                        |
-    | SKU           | Selecione **Standard** ou **Básico**. A Microsoft recomenda o Standard para cargas de trabalho de produção.  |
+    | SKU           | Selecione **Standard** ou **Básico**. A Microsoft recomenda o Standard para cargas de trabalho de produção. |
     | Endereço IP público | Selecione **Criar novo**. Se você tiver um IP público existente que deseja usar, selecione **Usar existente** |
-    | Nome do endereço IP público              | Digite *myPublicIP* na caixa de texto.   |
+    | Nome do endereço IP público              | Digite *myPublicIP* na caixa de texto.   Use ```-SKU Basic``` para criar um IP Público Básico. Os IPs públicos Básicos não são compatíveis com o **Standard** Load Balancer. A Microsoft recomenda usar o **Standard** para cargas de trabalho de produção.|
     | Zona de disponibilidade | Digite *Com redundância de zona* para criar uma Load Balancer resiliente. Para criar um Load Balancer zonal, selecione uma zona específica de 1, 2 ou 3 |
+
+> [!IMPORTANT]
+> O restante deste início rápido pressupõe que o SKU **Standard** é escolhido durante o processo de seleção de SKU acima.
+
 
 3. Na guia **Examinar + criar**, selecione **Criar**.   
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 8ef24630d255876c45d9cbc072fc989288f2ac5f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: fdbd002ac946f3ac3a1a67980905d4ed6f5510c5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76837163"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470336"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Início Rápido: Criar um Standard Load Balancer para balancear a carga de VM usando a CLI do Azure
 
@@ -58,7 +58,10 @@ Para criar um endereço IP Público zonal no uso da Zona 1:
   az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard --zone 1
 ```
 
- Use ```--sku basic``` para criar um IP Público Básico. A versão Básica não é compatível com Zonas de Disponibilidade. A Microsoft recomenda o SKU Standard para cargas de trabalho de produção.
+Use ```-SKU Basic``` para criar um IP Público Básico. Os IPs públicos Básicos não são compatíveis com o **Standard** Load Balancer. A Microsoft recomenda usar o **Standard** para cargas de trabalho de produção.
+
+> [!IMPORTANT]
+> O restante deste início rápido pressupõe que o SKU **Standard** é escolhido durante o processo de seleção de SKU acima.
 
 ## <a name="create-azure-load-balancer"></a>Criar o Azure Load Balancer
 
@@ -81,6 +84,9 @@ Criar um Azure Load Balancer com [az network lb create](https://docs.microsoft.c
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool       
   ```
+
+> [!IMPORTANT]
+> O restante deste início rápido pressupõe que o SKU **Standard** é escolhido durante o processo de seleção de SKU acima.
 
 ### <a name="create-the-health-probe"></a>Criar a investigação de integridade
 

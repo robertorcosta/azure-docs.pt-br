@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: wolfma
-ms.openlocfilehash: cc349c2d5e43946648533d546398e95d4fa98382
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 5cb7cfc0b4d888406f8574ab620667f160bfa118
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156518"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77445353"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,7 +37,7 @@ Antes de começar:
 
 1. No mesmo arquivo, substitua a cadeia de caracteres `YourSubscriptionKey` por sua chave de assinatura.
 
-1. Substitua a cadeia de caracteres `YourServiceRegion` pelo "parâmetro do SDK de fala" da [região](https://aka.ms/speech/sdkregion) associada à sua assinatura (por exemplo, `westus` para a assinatura de avaliação gratuita).
+1. Substitua a cadeia de caracteres `YourServiceRegion` pelo **Identificador de região** da [região](https://aka.ms/speech/sdkregion) associada à assinatura (por exemplo, `westus` para a assinatura de avaliação gratuita).
 
 1. Na barra de menus, escolha **Arquivo** > **Salvar tudo**.
 

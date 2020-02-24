@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 855036a5a8e87bd10e9a4d524a1e8ea8bcdccf50
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 9514398ec6a84becd1283e4b0975804101b64086
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086305"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209725"
 ---
 # <a name="migrate-an-android-app-from-google-maps"></a>Migrar um aplicativo Android do Google Maps
 
@@ -725,7 +725,7 @@ public void onMapReady(GoogleMap googleMap) {
 Uma camada de peça pode ser adicionada ao mapa de maneira semelhante a qualquer outra camada. Uma URL formatada que tem os espaços reservados x, y e de zoom (`{x}`, `{y}` e `{z}`, respectivamente) é usada para informar à camada onde acessar as peças. Além disso, as camadas de peças nos Azure Mapas dão suporte aos espaços reservados `{quadkey}`, `{bbox-epsg-3857}` e `{subdomain}`. Para tornar a camada de peça semitransparente, é usado um valor de opacidade de 0,8. A opacidade e a transparência, embora semelhantes, usam valores invertidos. Para fazer a conversão entre as duas opções, subtraia o valor do número um.
 
 > [!TIP]
-> Nos Azure Mapas, é conveniente renderizar camadas abaixo de outras camadas, incluindo camadas do mapa base. Geralmente, é desejável renderizar camadas de peça abaixo dos rótulos de mapa para que elas sejam fáceis de ler. O método `map.layers.add` usa um segundo parâmetro que é a ID da camada na qual a nova camada abaixo será inserida. Para inserir uma camada de peça abaixo dos rótulos de mapa, o seguinte código pode ser usado: `map.layers.add(myTileLayer, "labels");`
+> Nos Azure Mapas, é conveniente renderizar camadas abaixo de outras camadas, incluindo camadas do mapa base. Além disso, geralmente, é desejável renderizar camadas de peça abaixo dos rótulos de mapa para que elas sejam fáceis de serem lidas. O método `map.layers.add` usa um segundo parâmetro que é a ID da camada na qual a nova camada abaixo será inserida. Para inserir uma camada de peça abaixo dos rótulos de mapa, o seguinte código pode ser usado: `map.layers.add(myTileLayer, "labels");`
 
 ```java
 mapControl.onReady(map -> {

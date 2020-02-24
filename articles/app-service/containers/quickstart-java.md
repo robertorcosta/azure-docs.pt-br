@@ -8,16 +8,16 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 1efbe9121fa4d4462f6cb50586143d0752b91cd9
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: f07c4d8b440216cb676484ae2f510b2736b7d17c
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294313"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443883"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Início Rápido: Criar um aplicativo Java no Serviço de Aplicativo do Azure no Linux
 
-O [Serviço de Aplicativo no Linux](app-service-linux-intro.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches usando o sistema operacional Linux. Este início rápido mostra como usar a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) com o [Plug-in do Maven para o Serviço de Aplicativo do Azure](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) para implantar um arquivo WAR (Arquivo Web) Java no sistema operacional Linux.
+O [Serviço de Aplicativo no Linux](app-service-linux-intro.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches usando o sistema operacional Linux. Este início rápido mostra como usar a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) com o [Plug-in de Aplicativo Web do Azure para Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) para implantar um arquivo WAR (Arquivo Web) Java no sistema operacional Linux.
 
 > [!NOTE]
 >
@@ -78,7 +78,6 @@ Enter index to use:
 Define value for runtimeStack(Default: TOMCAT 8.5):
 1. TOMCAT 9.0
 2. TOMCAT 8.5 [*]
-3. WILDFLY 14
 Enter index to use:
 Please confirm webapp properties
 AppName : helloworld-1558400876966
@@ -137,9 +136,6 @@ az group delete --name <your resource group name; for example: helloworld-155840
 Esse comando pode demorar um pouco para ser executado.
 
 ## <a name="next-steps"></a>Próximas etapas
-
-> [!div class="nextstepaction"]
-> [Tutorial: Aplicativo Java Enterprise com o PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
 
 > [!div class="nextstepaction"]
 > [Configurar o aplicativo Java](configure-custom-container.md)

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: e26ae4d384b1718b1cdb12abbda82aad22afde4d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0c18c39ced40505a87af8907a65aa16aae978838
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462582"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471866"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Tutorial: Azure Data Lake Storage Gen2, Azure Databricks e Spark
 
@@ -28,7 +28,7 @@ Neste tutorial, você irá:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Criar uma conta do Azure Data Lake Storage Gen2.
 
@@ -71,7 +71,7 @@ Nesta seção, você criará um serviço do Azure Databricks usando o portal do 
 
 2. Em **Serviço do Azure Databricks**, forneça os seguintes valores para criar um serviço do Databricks:
 
-    |Propriedade  |DESCRIÇÃO  |
+    |Propriedade  |Descrição  |
     |---------|---------|
     |**Nome do workspace**     | Forneça um nome para o seu workspace do Databricks.  |
     |**Assinatura**     | Na lista suspensa, selecione sua assinatura do Azure.        |
@@ -129,7 +129,7 @@ Use o AzCopy para copiar dados do arquivo *.csv* para sua conta do Data Lake Sto
 
    * Substitua o valor de espaço reservado `<storage-account-name>` pelo nome da sua conta de armazenamento.
 
-   * Substitua o espaço reservado `<container-name>` por qualquer nome que deseje fornecer ao contêiner.
+   * Substitua o espaço reservado `<container-name>` pelo nome de um contêiner na sua conta de armazenamento.
 
 ## <a name="create-a-container-and-mount-it"></a>Criar um contêiner e montá-lo
 
@@ -161,20 +161,7 @@ Nesta seção, você criará um contêiner e uma pasta em sua conta de armazenam
     extra_configs = configs)
     ```
 
-18. Neste bloco de código, substitua os valores de espaço reservado `appId`, `password`, `tenant` e `storage-account-name` pelos valores coletados ao concluir os pré-requisitos deste tutorial. Substitua o valor de espaço reservado `container-name` pelo nome que você deu ao contêiner na etapa anterior.
-
-Use esses valores para substituir os espaços reservados mencionados.
-
-   * A `appId` e a `password` são provenientes do aplicativo que você registrou no Active Directory como parte da criação de uma entidade de serviço.
-
-   * A `tenant-id` é proveniente de sua assinatura.
-
-   * O `storage-account-name` é o nome de sua conta de armazenamento do Azure Data Lake Storage Gen2.
-
-   * Substitua o espaço reservado `container-name` por qualquer nome que deseje fornecer ao contêiner.
-
-   > [!NOTE]
-   > Em uma configuração de produção, considere armazenar sua senha no Azure Databricks. Em seguida, adicione uma chave de pesquisa ao bloco de código em vez da senha. Depois de concluir este início rápido, consulte o artigo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) no site Azure Databricks para ver exemplos dessa abordagem.
+18. Neste bloco de código, substitua os valores de espaço reservado `appId`, `password`, `tenant` e `storage-account-name` pelos valores coletados ao concluir os pré-requisitos deste tutorial. Substitua o valor de espaço reservado `container-name` pelo nome do contêiner.
 
 19. Pressione as teclas **SHIFT+ENTER** para executar o código nesse bloco.
 

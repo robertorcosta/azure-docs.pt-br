@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 10/03/2019
-ms.openlocfilehash: 8c5fe1970857a04c7b237a101ac228dea024815b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive,mvc
+ms.date: 02/12/2020
+ms.openlocfilehash: 5eb6788a558e4429296731f1693edd18bf92f98f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494487"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198881"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutorial: Carregar dados e executar consultas em um cluster Apache Spark no Azure HDInsight
 
@@ -60,7 +60,9 @@ Os aplicativos podem criar dataframes diretamente de arquivos ou pastas no armaz
 
     ![Status de consulta SQL interativa do Spark](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Status de consulta SQL interativa do Spark")
 
-2. Execute o seguinte código para criar um dataframe e uma tabela temporária (**hvac**) executando o código a seguir.
+1. Anote a ID da sessão retornada. Na imagem acima, a ID da sessão é 0. Se desejar, você poderá recuperar os detalhes da sessão navegando até `https://CLUSTERNAME.azurehdinsight.net/livy/sessions/ID/statements`, em que CLUSTERNAME é o nome do cluster Spark e ID é o número da ID da sessão.
+
+1. Execute o seguinte código para criar um dataframe e uma tabela temporária (**hvac**) executando o código a seguir.
 
     ```python
     # Create a dataframe and table from sample data
@@ -91,7 +93,7 @@ Depois que a tabela for criada, você poderá executar uma consulta interativa n
 
 4. Se você estiver começando o [próximo tutorial](apache-spark-use-bi-tools.md) agora, deixe o bloco de anotações aberto. Se não estiver, desligue o notebook para lançar os recursos de cluster: na barra de menus do notebook, navegue até **Arquivo** >  **Fechar e Interromper**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Com o HDInsight, seus dados e seus Jupyter notebooks são armazenados no Armazenamento do Azure ou no Azure Data Lake Storage, de modo que você possa excluir com segurança um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso. Se você planeja trabalhar no próximo tutorial imediatamente, convém manter o cluster.
 

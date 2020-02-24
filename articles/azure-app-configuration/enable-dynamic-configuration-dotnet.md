@@ -1,24 +1,19 @@
 ---
-title: Tutorial para usar a configuração dinâmica da Configuração de Aplicativos do Azure em um aplicativo do .NET Framework | Microsoft Docs
-description: Neste tutorial, você aprenderá a atualizar dinamicamente os dados de configuração de aplicativos .NET Framework
+title: 'Tutorial do .NET Framework: configuração dinâmica na Configuração de Aplicativos do Azure'
+description: Neste tutorial, você aprenderá a atualizar dinamicamente os dados de configuração de aplicativos .NET Framework usando a Configuração de Aplicativos do Azure.
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
-ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7cb76d5836055ce352373fa13449e27d81e84022
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 7ba3eae4ea5557b4bb1b1be4e2c79eab8f6e7988
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185244"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484869"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Tutorial: Usar configuração dinâmica em um aplicativo .NET Framework
 
@@ -134,7 +129,7 @@ Neste tutorial, você aprenderá como:
 
     ![Local de inicialização do aplicativo](./media/dotnet-app-run.png)
 
-1. Entre no [Portal do Azure](https://portal.azure.com). Escolha **Todos os recursos** e escolha a instância do repositório de Configuração de Aplicativos que você criou no início rápido.
+1. Entre no [portal do Azure](https://portal.azure.com). Escolha **Todos os recursos** e escolha a instância do repositório de Configuração de Aplicativos que você criou no início rápido.
 
 1. Selecione **Gerenciador de Configurações** e atualize os valores das seguintes chaves:
 
@@ -149,7 +144,7 @@ Neste tutorial, você aprenderá como:
     > [!NOTE]
     > Uma vez que o tempo de expiração do cache foi definido como 10 segundos usando o método `SetCacheExpiration` ao especificar a configuração para a operação de atualização, o valor para a definição de configuração será atualizado apenas se pelo menos 10 segundos tiverem se passado desde a última atualização para essa configuração.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

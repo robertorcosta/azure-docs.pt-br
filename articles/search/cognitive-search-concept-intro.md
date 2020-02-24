@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: e6ee75f4a7e00e8c21079e1336756db20221750f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 6d75e48443fd8622ca2ae7ff05fe81184c4b2b16
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76837996"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472427"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Introdução à IA na Pesquisa Cognitiva do Azure
 
@@ -131,7 +131,7 @@ Os índice são gerados por meio de um esquema de índice que define os campos, 
 + [Tutorial (solicitações HTTP)](cognitive-search-tutorial-blob.md)
 + [Exemplo: Como criar uma habilidade personalizada para o enriquecimento de IA (C#)](cognitive-search-create-custom-skill-example.md)
 
-Recomendamos o serviço Gratuito para fins de aprendizado. Contudo, o número de transações gratuitas é limitado a 20 documentos por dia. Para executar o início rápido e o tutorial em um só dia, use um conjunto de arquivos menor (10 documentos) para encaixar ambos os exercícios ou exclua o indexador usado no início rápido para redefinir o contador para zero.
+Recomendamos o serviço Gratuito para fins de aprendizado. Contudo, o número de transações gratuitas é limitado a 20 documentos por dia. Para executar as lições várias vezes, exclua e recrie o indexador para redefinir o contador para zero.
 
 **Etapa 3: Analisar a API**
 

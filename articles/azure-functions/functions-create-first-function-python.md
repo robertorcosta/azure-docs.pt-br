@@ -4,12 +4,12 @@ description: Crie e implante código Python sem servidor na nuvem usando o Azure
 ms.date: 02/11/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: a781e10cee4cf433de5e837490d901020a875205
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 16d4d5627ea297d825092009511915f5b6e734b6
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157883"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212428"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-that-responds-to-http-requests"></a>Início Rápido: Criar uma função do Python no Azure que responde a solicitações HTTP
 
@@ -97,7 +97,7 @@ No Azure Functions, um projeto de função é um contêiner para uma ou mais fun
     cd LocalFunctionProj
     ```
     
-1. Adicione uma função ao projeto usando o comando a seguir, em que o argumento `--name` é o nome exclusivo da função e o argumento `--template` especifica o gatilho da função. `func new` cria uma subpasta correspondente ao nome da função que contém um arquivo de código apropriado para a linguagem escolhida do projeto, bem como um arquivo de configuração chamado *function.json*.
+1. Adicione uma função ao projeto usando o comando a seguir, em que o argumento `--name` especifica o nome exclusivo da função (HttpExample, nesse caso) e o argumento `--template` especifica o gatilho da função (gatilho HTTP). Esse comando `func new` cria uma subpasta correspondente ao nome da função que contém um arquivo de código apropriado para a linguagem escolhida do projeto e um arquivo de configuração chamado *function.json*.
 
     ```
     func new --name HttpExample --template "HTTP trigger"
@@ -167,7 +167,7 @@ Para o gatilho HTTP, a função recebe dados de solicitação na variável `req`
 }
 ```
 
-Cada associação exige uma direção, um tipo e um nome exclusivo. O gatilho HTTP tem uma associação de entrada do tipo [`httpTrigger`](functions-bindings-http-webhook.md#trigger) e uma associação de saída do tipo [`http`](functions-bindings-http-webhook.md#output).
+Cada associação exige uma direção, um tipo e um nome exclusivo. O gatilho HTTP tem uma associação de entrada do tipo [`httpTrigger`](functions-bindings-http-webhook-trigger.md) e uma associação de saída do tipo [`http`](functions-bindings-http-webhook-output.md).
 
 
 ## <a name="run-the-function-locally"></a>Executar a função localmente

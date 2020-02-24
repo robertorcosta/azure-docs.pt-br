@@ -8,16 +8,16 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/10/2020
-ms.openlocfilehash: bd4798ba4faa1808ecafb6d09eee09ba734c293d
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 3bc3edcd0e75d8f6e3e4d6f9b200032909318040
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121713"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209351"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Início Rápido: Criar um serviço da Pesquisa Cognitiva do Azure no portal
 
-A Pesquisa Cognitiva do Azure é um recurso independente usado para conectar uma experiência de pesquisa a aplicativos personalizados. Embora a Pesquisa Cognitiva do Azure seja integrada com facilidade a outros serviços do Azure, você também poderá usá-lo como um componente autônomo ou integrá-lo a aplicativos em servidores de rede ou a um software em execução em outras plataformas de nuvem.
+O Azure Cognitive Search é um recurso autônomo usado para conectar uma experiência de pesquisa a aplicativos personalizados. O Azure Cognitive Search é integrado com facilidade a outros serviços do Azure, a aplicativos em servidores de rede ou ao software em execução em outras plataformas de nuvem.
 
 Neste artigo, saiba como criar um recurso no [portal do Azure](https://portal.azure.com/).
 
@@ -45,18 +45,18 @@ Se você tiver mais de uma assinatura, escolha uma para o serviço de pesquisa.
 
 ## <a name="set-a-resource-group"></a>Definir um grupo de recursos
 
-Um grupo de recursos é necessário e útil para gerenciar todos os recursos, incluindo os custos. Um grupo de recursos pode consistir em um ou em vários serviços usados juntos. Por exemplo, se estiver usando a Pesquisa Cognitiva do Azure para indexar um banco de dados do Azure Cosmos DB, você poderá fazer com que ambos os serviços façam parte do mesmo grupo de recursos para fins de gerenciamento. 
+Um grupo de recursos é um contêiner que mantém os recursos relacionados da sua solução do Azure. Ele é necessário para o serviço de pesquisa. Também é útil para gerenciar recursos por completo, incluindo os custos. Um grupo de recursos pode consistir em um ou em vários serviços usados juntos. Por exemplo, se estiver usando a Pesquisa Cognitiva do Azure para indexar um banco de dados do Azure Cosmos DB, você poderá fazer com que ambos os serviços façam parte do mesmo grupo de recursos para fins de gerenciamento. 
 
 Se você não estiver combinando recursos em um único grupo ou se os grupos de recursos existentes estiverem preenchidos com recursos usados em soluções não relacionadas, crie um grupo de recursos apenas para o recurso da Pesquisa Cognitiva do Azure. 
 
 ![Criar um novo grupo de recursos](./media/search-create-service-portal/new-resource-group.png "Criar um novo grupo de recursos")
 
-Com o tempo, você pode acompanhar todos os custos atuais e projetados (conforme mostrado na captura de tela) ou rolar para baixo para exibir os encargos de recursos individuais. A captura de tela a seguir mostra o tipo de informação de custo que você pode ver ao combinar vários recursos em um grupo.
+Ao longo do tempo, você pode acompanhar os custos atuais e projetados por completo ou ver os preços de recursos individuais. A captura de tela a seguir mostra o tipo de informação de custo que você pode esperar ver ao combinar vários recursos em um grupo.
 
 ![Gerenciar custos no nível do grupo de recursos](./media/search-create-service-portal/resource-group-cost-management.png "Gerenciar custos no nível do grupo de recursos")
 
 > [!TIP]
-> Os grupos de recursos simplificam a limpeza porque a exclusão de um grupo também exclui os serviços dentro dele. Para projetos de protótipo utilizando vários serviços, colocar todos eles no mesmo grupo de recursos facilita a limpeza depois da conclusão do projeto.
+> Os grupos de recursos simplificam a limpeza, porque a exclusão de um grupo exclui todos os serviços dentro dele. Para projetos de protótipo utilizando vários serviços, colocar todos eles no mesmo grupo de recursos facilita a limpeza depois da conclusão do projeto.
 
 ## <a name="name-the-service"></a>Dê um nome ao serviço
 
@@ -65,10 +65,10 @@ Em Detalhes da Instância, dê um nome ao serviço no campo **URL**. O nome faz 
 Requisitos de nome de serviço:
 
 * Ele deve ser exclusivo dentro do namespace search.windows.net
-* Dois a 60 caracteres de comprimento
+* Ele precisa ter entre 2 e 60 caracteres
 * Use letras minúsculas, dígitos ou traços ("-")
-* Evite traços ("-") nos 2 primeiros caracteres ou o último caractere
-* Sem traços consecutivos ("--") em nenhum lugar
+* Não use traços ("-") nos dois primeiros caracteres ou como o último caractere
+* Você não deve usar traços consecutivos ("--") em nenhum lugar
 
 > [!TIP]
 > Se você acredita que vai usar vários serviços, recomendamos incluir a região (ou o local) no nome do serviço como uma convenção de nomenclatura. Os serviços na mesma região podem trocar dados sem custos, portanto, se a Pesquisa Cognitiva do Azure estiver no Oeste dos EUA e tiver outros serviços também no Leste dos EUA, um nome como `mysearchservice-westus` poderá poupar uma viagem à página de propriedades ao decidir como combinar ou anexar recursos.
@@ -79,7 +79,7 @@ Como um serviço do Azure, a Pesquisa Cognitiva do Azure pode ser hospedada em d
 
 Você pode minimizar ou evitar encargos de largura de banda escolhendo o mesmo local para vários serviços. Por exemplo, se você estiver indexando os dados fornecidos por outro serviço do Azure (armazenamento do Azure, Azure Cosmos DB, Banco de Dados SQL do Azure), a criação de seu serviço da Pesquisa Cognitiva do Azure na mesma região evitará cobranças de largura de banda (não há encargos para dados de saída quando os serviços estão na mesma região).
 
-Além disso, se você estiver usando o enriquecimento da IA, crie seu serviço na mesma região que os Serviços Cognitivos. *A colocalização da Pesquisa Cognitiva do Azure e dos Serviços Cognitivos na mesma região é um requisito do enriquecimento de IA*.
+Se estiver usando o enriquecimento de IA, crie o serviço de pesquisa na mesma região dos Serviços Cognitivos. *A colocalização da Pesquisa Cognitiva do Azure e dos Serviços Cognitivos na mesma região é um requisito do enriquecimento de IA*.
 
 > [!Note]
 > A Índia Central não está disponível atualmente para novos serviços. Para os serviços que já estão na Índia Central, você pode escalar verticalmente sem restrições, e seu serviço tem suporte total nessa região. A restrição nessa região é temporária e limitada apenas a novos serviços. Removeremos essa observação quando a restrição deixar de ser aplicável.
@@ -90,7 +90,7 @@ Além disso, se você estiver usando o enriquecimento da IA, crie seu serviço n
 
 Básico e Standard são as opções mais comuns para cargas de trabalho de produção, mas a maioria dos clientes começa com o serviço Gratuito. As principais diferenças entre as camadas são o tamanho e a velocidade da partição e os limites do número de objetos que você pode criar.
 
-Lembre-se de que o tipo de preço não pode ser alterado depois da criação do serviço. Se você precisar de um nível superior ou inferior mais tarde, você precisa recriar o serviço.
+Lembre-se de que o tipo de preço não pode ser alterado após a criação do serviço. Caso você precise de um nível superior ou inferior, precisará recriar o serviço.
 
 ## <a name="create-your-service"></a>Criar seu serviço
 
@@ -98,7 +98,7 @@ Depois de fornecer as entradas necessárias, crie o serviço.
 
 ![Revisar e criar o serviço](./media/search-create-service-portal/new-service3.png "Revisar e criar o serviço")
 
-O serviço é implantado em minutos, o que pode ser monitorado por meio das notificações do Azure. Considere a possibilidade de fixar o serviço no painel para facilitar o acesso no futuro.
+O serviço é implantado em minutos. Monitore o progresso por meio de notificações do Azure. Considere a possibilidade de fixar o serviço no painel para facilitar o acesso no futuro.
 
 ![Monitorar e fixar o serviço](./media/search-create-service-portal/monitor-notifications.png "Monitorar e fixar o serviço")
 

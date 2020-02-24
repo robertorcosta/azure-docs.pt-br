@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: a3e9c05fbe68bf1b03f45d045afd8754753fecd3
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 5109c33acf4a92a3227fe79d6d2c997a54adec08
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688822"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425248"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Tutorial: Compilar um aplicativo Web do Spring Boot Java com o Serviço de Aplicativo do Azure no Linux e o Azure Cosmos DB
 
@@ -173,7 +173,7 @@ Se você vir exceções em vez da mensagem "TodoApplication iniciado", verifique
 
 ## <a name="configure-azure-deployment"></a>Configurar a implantação do Azure
 
-Abra o arquivo `pom.xml` no diretório `initial/spring-boot-todo` e adicione a seguinte configuração de [Plug-in do Maven para Serviço de Aplicativo do Azure](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
+Abra o arquivo `pom.xml` no diretório `initial/spring-boot-todo` e adicione a configuração a seguir do [Plug-in do Aplicativo Web do Azure para Maven](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
 
 ```xml    
 <plugins> 
@@ -295,7 +295,7 @@ az appservice plan update --number-of-workers 2 \
    --resource-group <your-azure-group-name>
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não precisar desses recursos para outro tutorial (consulte [Próximas etapas](#next)), você poderá excluí-los executando o seguinte comando no Cloud Shell: 
   

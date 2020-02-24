@@ -6,12 +6,12 @@ ms.date: 01/27/2020
 ms.topic: include
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 6bd276f07f75ecad21ffb0bf19150f6158eb7b7c
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: bd15a19a352120e01da04aeca0f3b27d3fce092f
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156625"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77445680"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,7 +42,7 @@ Antes de inicializar um objeto `IntentRecognizer`, é preciso criar uma configur
 Inserir este código no bloco try/catch no `main()`. Atualize estes valores:
 
 * Substitua `"YourLanguageUnderstandingSubscriptionKey"` pela sua chave de previsão do LUIS.
-* Substitua `"YourLanguageUnderstandingServiceRegion"` pelo seu local do LUIS. Use o "parâmetro do SDK de fala" de [região](https://aka.ms/speech/sdkregion)
+* Substitua `"YourLanguageUnderstandingServiceRegion"` pelo seu local do LUIS. Use o **Identificador de região** da [região](https://aka.ms/speech/sdkregion) correta
 
 >[!TIP]
 > Se precisar de ajuda para encontrar esses valores, confira [Criar um aplicativo LUIS para reconhecimento de intenção](#create-a-luis-app-for-intent-recognition).

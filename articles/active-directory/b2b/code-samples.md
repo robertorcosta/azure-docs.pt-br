@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3a43ce4c560e89d88594d173aae7b2ad2db99ee
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 03a7a9c0c9ed308944b57e7659fefa81178af78b
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74273105"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368135"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Exemplos de código e do PowerShell para colaboração B2B do Azure Active Directory
 
@@ -26,7 +26,7 @@ ms.locfileid: "74273105"
 
 1. Prepare o arquivo .CSV, crie um novo arquivo .CSV e nomeie-o invitations.csv. Neste exemplo, o arquivo é salvo em C:\data e contém as seguintes informações:
   
-   NOME                  |  InvitedUserEmailAddress
+   Nome                  |  InvitedUserEmailAddress
    --------------------- | --------------------------
    Convidado Gmail B2B     | b2binvitee@gmail.com
    Convidado Outlook B2B   | b2binvitee@outlook.com
@@ -56,7 +56,7 @@ Esse cmdlet envia um convite para os endereços de email em invitations.csv. Os 
 - Envio de mensagens para CCs ou supressão completa de mensagens de email
 
 ## <a name="code-sample"></a>Exemplo de código
-Aqui, ilustramos como chamar a API de convite, no modo “somente do aplicativo”, para obter a URL de resgate do recurso ao qual você está convidando o usuário B2B. O objetivo é enviar um email de convite personalizado. O email pode ser composto com um cliente HTTP, para que seja possível personalizar a aparência e enviá-lo por meio da API do Graph.
+Aqui, ilustramos como chamar a API de convite, no modo “somente do aplicativo”, para obter a URL de resgate do recurso ao qual você está convidando o usuário B2B. O objetivo é enviar um email de convite personalizado. O email pode ser composto com um cliente HTTP, de modo que seja possível personalizar a aparência dele e enviá-lo por meio da API do Microsoft Graph.
 
 ```csharp
 namespace SampleInviteApp
@@ -70,12 +70,12 @@ namespace SampleInviteApp
     class Program
     {
         /// <summary>
-        /// Microsoft graph resource.
+        /// Microsoft Graph resource.
         /// </summary>
         static readonly string GraphResource = "https://graph.microsoft.com";
  
         /// <summary>
-        /// Microsoft graph invite endpoint.
+        /// Microsoft Graph invite endpoint.
         /// </summary>
         static readonly string InviteEndPoint = "https://graph.microsoft.com/v1.0/invitations";
  
@@ -173,14 +173,14 @@ namespace SampleInviteApp
         }
  
         /// <summary>
-        /// Get the access token for our application to talk to microsoft graph.
+        /// Get the access token for our application to talk to Microsoft Graph.
         /// </summary>
-        /// <returns>Returns the access token for our application to talk to microsoft graph.</returns>
+        /// <returns>Returns the access token for our application to talk to Microsoft Graph.</returns>
         private static string GetAccessToken()
         {
             string accessToken = null;
  
-            // Get the access token for our application to talk to microsoft graph.
+            // Get the access token for our application to talk to Microsoft Graph.
             try
             {
                 AuthenticationContext testAuthContext =

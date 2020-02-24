@@ -2,18 +2,18 @@
 title: Preparar computadores para migração com as Migrações para Azure
 description: Saiba como preparar computadores locais para migração com as Migrações para Azure.
 ms.topic: tutorial
-ms.date: 12/10/2019
+ms.date: 02/17/2020
 ms.custom: MVC
-ms.openlocfilehash: c3c10321e8d49ac6ecfe80024d23f24711298651
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: adbe9e4b30bf57e8a2038b970306c126035abbe1
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028758"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426241"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparar computadores locais para migração para Azure
 
-Este artigo descreve como preparar computadores locais antes de começar a migrá-los para o Azure com a [Migração de Servidor de Migrações para Azure](migrate-services-overview.md#azure-migrate-server-migration-tool).
+Este artigo descreve como preparar computadores locais antes de começar a migrá-los para o Azure com as [Migrações para Azure: Migração de Servidor](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 
 Neste artigo você:
@@ -40,7 +40,7 @@ Neste artigo você:
 
 ## <a name="check-whats-supported"></a>Verifique o que tem suporte
 
-- Para VMs VMware, a Migração de Servidor de Migrações para Azure dá suporte à [migração sem agente ou baseada em agente](server-migrate-overview.md). Verifique os [requisitos de migração e suporte](migrate-support-matrix-vmware-migration.md) para VMs VMware.
+- Para VMs do VMware, a Migração de Servidor dá suporte à [migração sem agente ou baseada em agente](server-migrate-overview.md). Verifique os [requisitos de migração e suporte](migrate-support-matrix-vmware-migration.md) para VMs VMware.
 - Verifique os [requisitos de migração e suporte](migrate-support-matrix-hyper-v-migration.md) para o Hyper-V.
 - Verifique [requisitos de migração e suporte](migrate-support-matrix-physical-migration.md) for computadores físicos locais ou servidores virtualizados. 
 

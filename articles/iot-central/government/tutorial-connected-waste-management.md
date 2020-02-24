@@ -7,12 +7,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 6b8458ce41a1bdacddc4102e8282bbc638d4c01c
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 274d725a0e7987c8cb15363ba276aec7ebc541d5
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016486"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426353"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Tutorial: Criar um aplicativo de gestão de resíduos conectada no IoT Central
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá a:
 > * Configurar trabalhos
 > * Personalizar a identidade visual do aplicativo usando white labeling
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará:
 -  Uma assinatura do Azure é recomendada. Opcionalmente, você pode usar uma avaliação gratuita de sete dias. Se você não tiver uma assinatura do Azure, poderá criar uma na [página de entrada do Azure](https://aka.ms/createazuresubscription).
@@ -129,7 +129,7 @@ O aplicativo de **Gestão de resíduos conectada** tem um exemplo de modelo de d
 
 Para exibir do modelo de dispositivo:
 
-1. Clique em **Modelos de dispositivo** no painel de navegação esquerdo de seu aplicativo no IoT Central. 
+1. Clique em **Modelos de dispositivo** no painel esquerdo do aplicativo no IoT Central. 
 
     ![Modelo de dispositivo](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
 
@@ -177,7 +177,7 @@ O aplicativo de **Gestão de resíduos conectada** tem dois dispositivos simulad
 
 ### <a name="to-view-the-devices"></a>Para exibir os dispositivos:
 
-1. Navegue até **Dispositivo** do painel de navegação esquerdo do IoT Central. 
+1. Navegue até **Dispositivo** do painel esquerdo do IoT Central. 
 
    ![Dispositivos](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices.png)
 
@@ -202,7 +202,7 @@ No Azure IoT Central, você pode criar regras para monitorar automaticamente a t
 O aplicativo de **Gestão de resíduos conectada** tem quatro regras de exemplo.
 
 ### <a name="to-view-rules"></a>Para exibir as regras:
-1. Navegue até **Regras** do painel de navegação esquerdo do IoT Central
+1. Navegue até **Regras** do painel esquerdo do IoT Central
 
    ![Regras](./media/tutorial-connectedwastemanagement/connectedwastemanagement-rules.png)
 
@@ -231,13 +231,13 @@ Você deverá receber um email quando a **condição** configurada for atendida.
 > O aplicativo enviará um email sempre que uma condição for atendida. **Desabilite** a regra para parar de receber emails da regra automatizada. 
   
 Para criar uma nova regra: 
-1. Selecione **+Novo** nas **Regras** do painel de navegação esquerdo.
+1. Selecione **+Novo** em **Regras** no painel esquerdo.
 
 ## <a name="configure-jobs"></a>Configurar trabalhos
 
 No IoT Central, você pode disparar atualizações de propriedades do dispositivo ou da nuvem em vários dispositivos. Além das propriedades, você também pode usar trabalhos para disparar comandos de dispositivo em vários dispositivos. O IoT Central automatiza o fluxo de trabalho para você. 
 
-1. Vá até **Trabalhos no painel** de navegação esquerdo. 
+1. Acesse **Trabalhos** no painel esquerdo. 
 2. Clique em **+Novo** e configure um ou mais trabalhos. 
 
 

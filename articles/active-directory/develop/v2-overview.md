@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 8bf4039ac968883628a72974b64d90faf707c9af
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 6280f3784247b671521a4994be1f233d4913d90c
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76700287"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77194493"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Visão geral da plataforma de identidade da Microsoft (v2.0)
 
@@ -42,7 +42,11 @@ Com a plataforma de identidade da Microsoft, você pode escrever código uma vez
 
 ## <a name="getting-started"></a>Introdução
 
-Trabalhar com identidade não precisa ser difícil. Escolha um [cenário](authentication-flows-app-scenarios.md) que se aplique a você – o caminho de cada cenário conta com um Início Rápido e uma página de visão geral para ajudá-lo a colocar tudo em funcionamento em minutos:
+Trabalhar com identidade não precisa ser difícil. 
+
+Assista a um [vídeo da plataforma de identidade da Microsoft](identity-videos.md) para aprender os conceitos básicos. 
+
+Escolha um [cenário](authentication-flows-app-scenarios.md) que se aplique a você – o caminho de cada cenário conta com um Início Rápido e uma página de visão geral para ajudá-lo a colocar tudo em funcionamento em minutos:
 
 - [Crie um aplicativo de página única](scenario-spa-overview.md)
 - [Crie um aplicativo Web que conecte os usuários](scenario-web-app-sign-user-overview.md)

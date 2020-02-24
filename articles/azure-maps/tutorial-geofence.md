@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Criar uma cerca geográfica e controlar dispositivos em um mapa | Microsoft Azure Mapas'
 description: Saiba como configurar um limite geográfico e acompanhar os dispositivos em relação ao limite geográfico usando o Serviço Espacial dos Microsoft Azure Mapas.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 932dfb9624177c299997c4f9f184dc5c973d0fa0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e0e918a2508bb65de176b030a73598e221aff676
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899219"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370209"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: Configurar um limite geográfico usando o Azure Mapas
 
@@ -32,7 +32,7 @@ Neste tutorial, abordaremos como:
 > *   Use APIs do serviço do limite geográfico do Azure Mapas para controlar se um ativo de construção está ou não dentro do local de construção.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="create-an-azure-maps-account"></a>Criar uma conta dos Mapas do Azure 
 
@@ -176,7 +176,7 @@ Nesta seção, criaremos um manipulador de eventos que recebe notificações. Es
 
 Criamos dois serviços de [Aplicativos Lógicos](https://docs.microsoft.com/azure/event-grid/event-handlers#logic-apps) para manipular eventos de entrada e de saída. Quando os eventos nos Aplicativos Lógicos forem disparados, mais eventos serão disparados em sequência. A ideia é enviar alertas, nesse caso, emails para o Operations Manager. A figura a seguir ilustra a criação de um Aplicativo Lógico para o evento de entrada no limite geográfico. Da mesma forma, você pode criar outro para o evento de saída. Você pode ver todos os [manipuladores de eventos com suporte](https://docs.microsoft.com/azure/event-grid/event-handlers) para obter mais informações.
 
-1. Criar um aplicativo lógico no portal do Azure
+1. Crie um aplicativo lógico no portal do Azure. Selecione o aplicativo lógico no Azure Marketplace. Em seguida, selecione o botão **Criar**.
 
    ![Criar Aplicativos Lógicos do Azure para manipular eventos de cerca geográfica](./media/tutorial-geofence/logic-app.png)
 

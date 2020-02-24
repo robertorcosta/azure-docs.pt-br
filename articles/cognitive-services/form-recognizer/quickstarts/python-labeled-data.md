@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 94fafd8b0411c1c7a4032769eec0eb5818844648
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 5469c2512e133d17e4d18cebb64ab9e2a21b1f83
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118151"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482286"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Treinar um modelo do Reconhecimento de Formulários com rótulos usando a API REST e o Python
 
@@ -28,9 +28,13 @@ Para concluir este início rápido, é necessário ter:
 - [Python](https://www.python.org/downloads/) instalado (se quiser executar o exemplo localmente).
 - Um conjunto com pelo menos seis formulários do mesmo tipo. Você usará esses dados para treinar o modelo e testar um formulário. Você pode usar um [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) para este início rápido. Faça upload dos arquivos de treinamento na raiz de um contêiner de Armazenamento de Blobs em uma conta do Armazenamento do Azure.
 
+## <a name="create-a-form-recognizer-resource"></a>Criar um recurso do Reconhecimento de Formulários
+
+[!INCLUDE [create resource](../includes/create-resource.md)]
+
 ## <a name="set-up-training-data"></a>Configurar dados de treinamento
 
-Primeiro, você precisará configurar os dados de entrada necessários. O recurso de dados rotulados tem requisitos de entrada especiais além daqueles necessários para treinar um modelo personalizado. 
+Em seguida, você precisará configurar os dados de entrada necessários. O recurso de dados rotulados tem requisitos de entrada especiais além daqueles necessários para treinar um modelo personalizado. 
 
 Verifique se todos os documentos de treinamento têm o mesmo formato. Se você tiver formulários em vários formatos, organize-os em subpastas com base no formato comum. Ao treinar, você precisará direcionar a API para uma subpasta.
 

@@ -4,12 +4,12 @@ ms.service: service-bus-messaging
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: spelluru
-ms.openlocfilehash: 3cd5f59a3dcf3afcd26d16874e7dc77ca0a7e844
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
-ms.translationtype: MT
+ms.openlocfilehash: 5e3c4622131528fc2c40a1510aeea3092018d182
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71841682"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77474274"
 ---
 ### <a name="install-via-composer"></a>Instalar por meio do Composer
 1. Crie um arquivo chamado **composer.json** na raiz do seu projeto e adicione o seguinte código a ele:
@@ -17,18 +17,18 @@ ms.locfileid: "71841682"
     ```json
     {
       "require": {
-        "microsoft/azure-storage": "*"
+        "microsoft/windowsazure": "*"
       }
     }
     ```
-2. Baixe o **[Composer. Phar][composer-phar]** na raiz do projeto.
+2. Baixe **[composer.phar][composer-phar]** na raiz do projeto.
 3. Abra um prompt de comando e execute o seguinte comando na raiz do projeto
    
     ```
     php composer.phar install
     ```
 
-Como alternativa, vá para a [biblioteca de cliente php do armazenamento do Azure][php-sdk-github] no GitHub para clonar o código-fonte.
+Como alternativa acesse a [biblioteca de clientes PHP do Armazenamento do Azure][php-sdk-github] no GitHub para clonar o código-fonte.
 
 [php-sdk-github]: https://github.com/Azure/azure-storage-php
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git

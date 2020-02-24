@@ -1,35 +1,31 @@
 ---
 title: Entenda as funções de administrador do Enterprise no Azure | Microsoft Docs
 description: Aprenda sobre as funções de administrador corporativo no Azure.
-services: billing
-documentationcenter: ''
-author: adpick
-manager: adpick
-editor: ''
+author: bandersmsft
+ms.reviewer: adwise
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/04/2020
+ms.date: 02/14/2020
 ms.author: banders
-ms.openlocfilehash: ee918f0f49acf85486999fe9314758286bb57126
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 9fab4d8ba0cf2e6f684a1b9de177084f8ce31604
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023320"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462183"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Entenda as funções administrativas do Contrato Azure Enterprise no Azure
 
 Para ajudar a gerenciar o uso e o gasto de sua organização, os clientes do Azure com um Contrato Enterprise (EA) podem atribuir cinco funções administrativas distintas:
 
 - Administrador corporativo
-- Administrador da empresa (somente leitura)
+- Administrador corporativo (somente leitura)<sup>1</sup>
 - Administrador de departamento
 - Administrador de departamento (somente leitura)
 - Proprietário da conta
- 
+
+<sup>1</sup> O contato de cobrança do contrato EA estará sob essa função.
+
 Essas funções são específicas para gerenciar os Contratos Enterprise do Azure e são complementares às funções internas que o Azure controla para acessar os recursos. Para obter mais informações, consulte [Funções internas dos recursos do Azure](../../role-based-access-control/built-in-roles.md).
 
 As seções a seguir descrevem as limitações e os recursos de cada função.
@@ -42,9 +38,9 @@ As seções a seguir descrevem as limitações e os recursos de cada função.
 |Administrador da empresa (somente leitura)|Ilimitado|
 |Administrador de departamento|Ilimitado|
 |Administrador de departamento (somente leitura)|Ilimitado|
-|Proprietário da conta|1 por conta<sup>1</sup>|
+|Proprietário da conta|Uma por conta<sup>2</sup>|
 
-<sup>1</sup> Cada conta requer uma conta exclusiva da Microsoft ou uma conta de trabalho ou escola.
+<sup>2</sup> Cada conta requer uma conta Microsoft exclusiva ou uma conta corporativa ou de estudante.
 
 ## <a name="organization-structure-and-permissions-by-role"></a>Estrutura de organização e permissões por função
 
@@ -52,17 +48,17 @@ As seções a seguir descrevem as limitações e os recursos de cada função.
 |---|---|---|---|---|---|
 |Exibir administradores de empresa|✔|✔|✘|✘|✘|
 |Administradores da Empresa|✔|✘|✘|✘|✘|
-|Exibir contatos de notificação<sup>2</sup> |✔|✔|✘|✘|✘|
-|Adicionar ou remover contatos de notificação <sup>2</sup> |✔|✘|✘|✘|✘|
+|Exibir contatos de notificação<sup>3</sup> |✔|✔|✘|✘|✘|
+|Adicionar ou remover contatos de notificação<sup>3</sup> |✔|✘|✘|✘|✘|
 |Criar e gerenciar os departamentos |✔|✘|✘|✘|✘|
 |Administradores de departamento do modo de exibição|✔|✔|✔|✔|✘|
 |Adicionar ou remover administradores de departamento|✔|✘|✔|✘|✘|
-|Exibir contas na inscrição |✔|✔|✔<sup>3</sup>|✔<sup>3</sup>|✘|
-|Adicione contas para o registro e alterar o proprietário da conta|✔|✘|✔<sup>3</sup>|✘|✘|
+|Exibir contas na inscrição |✔|✔|✔<sup>4</sup>|✔<sup>4</sup>|✘|
+|Adicione contas para o registro e alterar o proprietário da conta|✔|✘|✔<sup>4</sup>|✘|✘|
 |Criar e gerenciar assinaturas e permissões de assinatura|✘|✘|✘|✘|✔|
 
-- <sup>2</sup> Os contatos de notificação recebem comunicações por e-mail sobre o Contrato do Azure Enterprise.
-- <sup>3</sup> tarefa é limitada às contas em seu departamento.
+- <sup>3</sup> Os contatos de notificação recebem comunicações por email sobre o Contrato Enterprise do Azure.
+- <sup>4</sup> A tarefa é limitada às contas em seu departamento.
 
 
 ## <a name="usage-and-costs-access-by-role"></a>Acesso de uso e os custos por função
@@ -73,11 +69,11 @@ As seções a seguir descrevem as limitações e os recursos de cada função.
 |Cotas de gastos do departamento de exibição|✔|✔|✘|✘|✘|
 |Definir cotas de gastos do departamento|✔|✘|✘|✘|✘|
 |Exibir a folha de preços EA da organização|✔|✔|✘|✘|✘|
-|Exibir detalhes de uso e custo|✔|✔|✔<sup>4</sup>|✔<sup>4</sup>|✔<sup>5</sup>|
+|Exibir detalhes de uso e custo|✔|✔|✔<sup>5</sup>|✔<sup>5</sup>|✔<sup>6</sup>|
 |Gerenciar recursos no portal do Azure|✘|✘|✘|✘|✔|
 
-- <sup>4</sup> Requer que o administrador corporativo habilite a política de **custos de exibição de DA** no portal da empresa. O Administrador do Departamento pode, então, ver os detalhes do custo para o departamento.
-- <sup>5</sup> Requer que o administrador corporativo ative a política de **custos de exibição AO** no portal da empresa. O proprietário da conta pode ver detalhes do custo da conta.
+- <sup>5</sup> Requer que o administrador corporativo habilite a política de **Encargos de visualização DA** no Enterprise Portal. O Administrador do Departamento pode, então, ver os detalhes do custo para o departamento.
+- <sup>6</sup> Requer que o administrador corporativo habilite a política de **Encargos de visualização AO** no Enterprise Portal. O proprietário da conta pode ver detalhes do custo da conta.
 
 
 ## <a name="pricing-in-azure-portal"></a>Preço no portal do Azure

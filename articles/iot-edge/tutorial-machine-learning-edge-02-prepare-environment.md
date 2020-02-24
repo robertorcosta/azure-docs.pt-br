@@ -8,12 +8,12 @@ ms.date: 1/23/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a36427616691b0a0d400dadb4e35c2f7fbf23b22
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 572441fe13dfeff550e2e541c3d775bd4c3d433e
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722265"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482897"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Tutorial: Configurar um ambiente para aprendizado de máquina no IoT Edge
 
@@ -26,7 +26,7 @@ Este artigo ajuda você a preparar seu ambiente para desenvolvimento e implanta�
 
 Esta etapa normalmente é executada por um desenvolvedor de nuvem. Alguns dos softwares também podem ser úteis para um cientista de dados.
 
-Criamos um script do PowerShell que cria uma máquina virtual do Azure com muitos dos pré-requisitos já configurados. A VM criada precisa ser capaz de lidar com a [virtualização aninhada](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization), que é o motivo de termos escolhido o tamanho [Standard_D8s_v3](../virtual-machines/windows/sizes-general.md#dsv3-series-1).
+Criamos um script do PowerShell que cria uma máquina virtual do Azure com muitos dos pré-requisitos já configurados. A VM criada precisa ser capaz de lidar com a [virtualização aninhada](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization), que é o motivo de termos escolhido o tamanho [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md).
 
 A VM de desenvolvimento será configurada com:
 
@@ -35,7 +35,7 @@ A VM de desenvolvimento será configurada com:
 * [Docker Desktop para Windows](https://www.docker.com/products/docker-desktop)
 * [Git para Windows](https://gitforwindows.org/)
 * [Gerenciador de credenciais do Git para Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)
-* [SDK do .Net Core](https://dotnet.microsoft.com/)
+* [SDK do .NET Core](https://dotnet.microsoft.com/)
 * [Python 3](https://www.python.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [PowerShell do Azure](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0)

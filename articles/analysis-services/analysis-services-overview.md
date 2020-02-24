@@ -4,15 +4,15 @@ description: Saiba mais sobre o Azure Analysis Services, uma PaaS (plataforma co
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 01/17/2020
+ms.date: 02/20/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f72da87ae53039e825f2102bebb12e59821706f8
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: a61bc852d3042d0bd8828bf89dce6ab6b760d092
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274784"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459677"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -112,7 +112,7 @@ O Azure Analysis Services tem suporte em regiões do mundo todo. Os planos com s
 |Sudeste da Austrália     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Leste do Japão     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Sudeste Asiático     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
-|Índia Ocidental     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|Oeste da Índia     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>Escalar de acordo com suas necessidades
 
@@ -138,7 +138,7 @@ O Azure Analysis Services é compatível com os mesmos recursos incríveis já p
 
 Há suporte para ambos os modos DirectQuery e in-memory. No modo in-memory (padrão), os modelos tabulares dão suporte a várias fontes de dados. Como os dados do modelo são altamente compactados e armazenados em cache in-memory, esse modo fornece a resposta de consulta mais rápida em grandes quantidades de dados. Ele também fornece a maior flexibilidade para consultas e conjuntos de dados complexos. O particionamento habilita cargas incrementais, aumenta a paralelização e reduz o consumo de memória. Outros recursos avançados de modelagem de dados, como tabelas calculadas e todas as funções do DAX têm suporte. Os modelos in-memory devem ser atualizados (processados) para atualizar os dados armazenados em cache das fontes de dados. Com o suporte à entidade de serviço do Azure, as operações de atualização autônoma usando PowerShell, TOM, TMSL e REST oferecem flexibilidade para garantir que os dados do modelo estejam sempre atualizados. 
 
-O modo DirectQuery* aproveita o banco de dados relacional back-end para armazenamento e execução de consultas. Há suporte para conjuntos de dados extremamente grandes em um único SQL Server, SQL Server Data Warehouse, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, Oracle e fontes de dados Teradata. Os conjuntos de dados de back-end podem exceder a memória de recursos do servidor disponível. Cenários de atualização de modelo de dados complexos não são necessários. Há também algumas restrições, por exemplo, tipos limitados de fonte de dados, limitações de fórmula do DAX e alguns recursos avançados de modelagem de dados não são compatíveis. Antes de determinar o melhor modo para as suas necessidades, consulte o [Modo de Consulta Direta](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular).
+O modo DirectQuery* aproveita o banco de dados relacional back-end para armazenamento e execução de consultas. Há suporte para conjuntos de dados extremamente grandes em um SQL Server, SQL Server Data Warehouse, Banco de Dados SQL do Azure, Azure Synapse Analytics (SQL Data Warehouse), Oracle e fontes de dados Teradata. Os conjuntos de dados de back-end podem exceder a memória de recursos do servidor disponível. Cenários de atualização de modelo de dados complexos não são necessários. Há também algumas restrições, por exemplo, tipos limitados de fonte de dados, limitações de fórmula do DAX e alguns recursos avançados de modelagem de dados não são compatíveis. Antes de determinar o melhor modo para as suas necessidades, consulte o [Modo de Consulta Direta](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular).
 
 \* A disponibilidade de recursos depende da camada.
 

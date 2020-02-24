@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: 4b8f58fbfa9de929139646ad267a433645e2db35
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 9c16e2e1726fcbf1e0b55ee0e9808a607b611ea6
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156629"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77445613"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +40,7 @@ Vamos adicionar um código que funciona como um esqueleto para o projeto. Lembre
 
 ## <a name="create-a-speech-configuration"></a>Criar uma configuração de Fala
 
-Antes de inicializar um objeto `SpeechRecognizer`, é preciso criar uma configuração que use a região e a chave de assinatura (escolha o "parâmetro do SDK de fala" de [região](https://aka.ms/speech/sdkregion)). Insira esse código no método `RecognizeSpeechAsync()`.
+Antes de inicializar um objeto `SpeechRecognizer`, é preciso criar uma configuração que use a região e a chave da assinatura (escolha o **Identificador de região** da [região](https://aka.ms/speech/sdkregion)). Insira esse código no método `RecognizeSpeechAsync()`.
 
 > [!NOTE]
 > Esta amostra usa o método `FromSubscription()` para criar o `SpeechConfig`. Para ver uma lista completa dos métodos disponíveis, confira a [Classe SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).

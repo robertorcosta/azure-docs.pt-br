@@ -1,24 +1,24 @@
 ---
 title: 'Tutorial: Rotear veículos elétricos usando o Azure Notebooks (Python) | Microsoft Azure Mapas'
 description: Roteie veículos elétricos usando as APIs de roteiros dos Microsoft Azure Mapas e do Azure Notebooks.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: dfc9c045af5347ebd3f15df48d5a5756dd2a9e05
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 22a8561d69dd0eeb22f9fe025f5b792422db2c17
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844744"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208158"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: Rotear veículos elétricos usando o Azure Notebooks (Python)
 
-Os Azure Mapas são um portfólio de APIs de serviço geoespacial que são nativamente integradas ao Azure. Com essas APIs, os desenvolvedores, as empresas e os ISVs podem criar aplicativos com reconhecimento de localização e soluções de IoT, mobilidade, logística e acompanhamento de ativos. 
+Os Azure Mapas são um portfólio de APIs de serviço geoespacial que são nativamente integradas ao Azure. Essas APIs permitem que desenvolvedores, empresas e ISVs desenvolvam aplicativos com reconhecimento de localização e soluções de IoT, mobilidade, logística e acompanhamento de ativos. 
 
 As APIs REST dos Azure Mapas podem ser chamadas em linguagens como Python e R para habilitar a análise de dados geoespaciais e cenários de machine learning. Os Azure Mapas oferecem um conjunto robusto de [APIs de roteamento](https://docs.microsoft.com/rest/api/maps/route) que permitem aos usuários calcular rotas entre vários pontos de dados. Os cálculos se baseiam em várias condições, como tipo de veículo ou área acessível. 
 
@@ -35,7 +35,7 @@ Neste tutorial, você irá:
 > * Localizar e visualizar uma rota para o posto de recarga de veículos elétricos mais próximo de acordo com o tempo de condução.
 
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Pré-requisitos 
 
 Para concluir este tutorial, primeiro, é necessário criar uma conta dos Azure Mapas e obter a chave primária (chave de assinatura). 
 
@@ -74,7 +74,7 @@ Para acompanhar este tutorial, você precisará criar um projeto do Azure Notebo
 
 1. Depois que o upload for concluído com êxito, o arquivo será exibido na página do projeto. Clique duas vezes no arquivo para abri-lo como um Jupyter Notebook.
 
-Para ajudar você a entender melhor a funcionalidade implementada no arquivo de notebook, execute o código no notebook uma célula por vez. Execute o código em cada célula selecionando o botão **Executar** na parte superior do aplicativo do notebook.
+Tente entender a funcionalidade implementada no arquivo de notebook. Execute o código, no arquivo de notebook, uma célula por vez. Execute o código em cada célula selecionando o botão **Executar** na parte superior do aplicativo do notebook.
 
   ![O botão Executar](./media/tutorial-ev-routing/run.png)
 
@@ -156,7 +156,7 @@ boundsData = {
 
 Depois de determinar o intervalo acessível (isócrono) para o veículo elétrico, pesquise os postos de recarga nesse intervalo. 
 
-O script a seguir chama a [API Pós-pesquisa dentro da Geometria](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry) dos Azure Mapas. Ela pesquisa os postos de recarga de veículos elétricos dentro dos limites do intervalo máximo acessível do carro e, em seguida, analisa a resposta para uma matriz de localizações acessíveis.
+O script a seguir chama a [API Pós-pesquisa dentro da Geometria](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry) dos Azure Mapas. Ele pesquisa estações de recarga para o veículo elétrico, dentro dos limites do intervalo máximo alcançável do carro. Em seguida, o script analisa a resposta em uma matriz de localizações acessíveis.
 
 Para pesquisar os postos de recarga de veículos elétricos dentro do intervalo acessível, execute o seguinte script:
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f015b1568098b506abc847608a1fca91ef72b6e9
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 74da278dbbc0ac32407c345524e224ca5f7616da
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76761285"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77194566"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coda"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Coda
 
@@ -32,12 +32,12 @@ Neste tutorial, você aprenderá a integrar o Coda ao Azure AD (Azure Active Dir
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
 * Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
-* Assinatura habilitada para SSO (logon único) do Coda.
+* Assinatura (Enterprise) habilitada para SSO (logon único) do Coda com a integração do GDrive desabilitada. Contate a [equipe de suporte do Coda](mailto:support@coda.io) para desabilitar a integração do GDrive para a sua organização se ela estiver habilitada no momento.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -47,7 +47,7 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 * O Coda dá suporte ao provisionamento de usuário **Just-In-Time**
 
-* Depois que configurar o Coda, você poderá impor controles de sessão, que protegem contra a exportação e a infiltração dos dados confidenciais da sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Depois de configurar o Coda, você poderá impor controles de sessão, que fornecem proteção contra exportação e infiltração dos dados confidenciais da sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-coda-from-the-gallery"></a>Como adicionar o Coda por meio da galeria
 
@@ -67,12 +67,33 @@ Configure e teste o SSO do Azure AD com o Coda usando um usuário de teste chama
 
 Para configurar e testar o SSO do Azure AD com o Coda, conclua os seguintes blocos de construção:
 
+1. **[Iniciar a configuração do SSO do Coda](#begin-configuration-of-coda-sso)** : para iniciar a configuração do SSO no Coda.
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-    * **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
-    * **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
-1. **[Configurar o SSO do Coda](#configure-coda-sso)** : para definir as configurações de logon único no lado do aplicativo.
-    * **[Criar um usuário de teste do Coda](#create-coda-test-user)** : para ter um equivalente de B.Fernandes no Coda que esteja vinculado à representação de usuário do Azure AD.
+   * **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
+   * **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
+1. **[Configurar o SSO do Coda](#configure-coda-sso)** : para concluir a configuração das definições de logon único no Coda.
+   * **[Criar um usuário de teste do Coda](#create-coda-test-user)** : para ter um equivalente de B.Fernandes no Coda que esteja vinculado à representação de usuário do Azure AD.
 1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
+
+## <a name="begin-configuration-of-coda-sso"></a>Iniciar a configuração do SSO do Coda
+
+Siga estas etapas no Coda como introdução.
+
+1. No Coda, abra o painel **Configurações da organização**.
+
+   ![Abrir as configurações da organização](media/coda-tutorial/org-settings.png)
+
+1. Verifique se a sua organização tem a integração do GDrive desativada. Se ela estiver habilitada no momento, contate a [equipe de suporte do Coda](mailto:support@coda.io) para ajudar você a fazer a migração do GDrive.
+
+   ![GDrive desabilitado](media/coda-tutorial/gdrive-off.png)
+
+1. Em **Autenticar com o SSO (SAML)** , selecione a opção **Configurar SAML**.
+
+   ![Configurações do SAML](media/coda-tutorial/saml-settings-link.png)
+
+1. Anote os valores da **ID da Entidade** e da **URL de Resposta SAML**, as quais você precisará nas etapas seguintes.
+
+   ![ID da Entidade e URL de Resposta SAML a serem usadas no Azure](media/coda-tutorial/azure-settings.png)
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
@@ -86,20 +107,20 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na página **Configurar logon único com SAML**, insira os valores para os seguintes campos:
 
-    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://coda.io/samlId/<CUSTOMID>`
+   a. Na caixa de texto **Identificador**, insira a "ID da Entidade" indicada acima. Ela deverá seguir o padrão: `https://coda.io/samlId/<CUSTOMID>`
 
-    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://coda.io/samlId/<CUSTOMID>/consume`
+   b. Na caixa de texto **URL de Resposta**, insira a "URL de Resposta SAML" indicada acima. Ela deverá seguir o padrão: `https://coda.io/login/sso/saml/<CUSTOMID>/consume`
 
-    > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Contate a [equipe de suporte ao cliente do Coda](mailto:support@coda.io) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+   > [!NOTE]
+   > Seus valores serão diferentes dos mostrados acima; encontre os valores no console "Configurar SAML" do Coda. Atualize esses valores com o Identificador e a URL de Resposta reais.
 
-1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e escolha **Baixar** para baixar o certificado e salvá-lo no computador.
 
-    ![O link de download do Certificado](common/certificatebase64.png)
+   ![O link de download do Certificado](common/certificatebase64.png)
 
 1. Na seção **Configurar o Coda**, copie as URLs apropriadas de acordo com as suas necessidades.
 
-    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+   ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -108,7 +129,7 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B.F
 1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
 1. Nas propriedades do **Usuário**, siga estas etapas:
-   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome**, insira `B.Simon`.
    1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
@@ -125,7 +146,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
-    ![O link Adicionar Usuário](common/add-assign-user.png)
+   ![O link Adicionar Usuário](common/add-assign-user.png)
 
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
@@ -133,13 +154,23 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 ## <a name="configure-coda-sso"></a>Configurar o SSO do Coda
 
-Para configurar o logon único no lado do **Coda**, é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Coda](mailto:support@coda.io). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para concluir a instalação, você inserirá valores do Azure Active Directory no painel **Configurar SAML** do Coda.
+
+1. No Coda, abra o painel **Configurações da organização**.
+1. Em **Autenticar com o SSO (SAML)** , selecione a opção **Configurar SAML**.
+1. Defina **Provedor SAML** como **Azure Active Directory**.
+1. Em **URL de Logon do Provedor de Identidade**, cole a **URL de Logon** do console do Azure.
+1. Em **Emissor do Provedor de Identidade**, cole o **Identificador do Azure AD** do console do Azure.
+1. Em **Certificado Público do Provedor de Identidade**, selecione a opção **Carregar Certificado** e selecione o arquivo de certificado baixado anteriormente.
+1. Clique em **Salvar**.
+
+Isso conclui o trabalho necessário para a configuração da conexão SSO do SAML.
 
 ### <a name="create-coda-test-user"></a>Criar um usuário de teste do Coda
 
 Nesta seção, um usuário chamado B.Fernandes será criado no Coda. O Coda dá suporte ao provisionamento de usuário Just-In-Time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Se um usuário ainda não existir no Coda, será criado um após a autenticação.
 
-## <a name="test-sso"></a>Testar o SSO 
+## <a name="test-sso"></a>Testar o SSO
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 

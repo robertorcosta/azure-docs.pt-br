@@ -1,41 +1,38 @@
 ---
-title: 'Tutorial: Usar a Versão prévia do Gerenciador de Firewall do Azure para proteger sua rede na nuvem usando o portal do Azure'
-description: Neste tutorial, você aprenderá a proteger sua rede na nuvem com o Gerenciador de Firewall do Azure usando o portal do Azure.
+title: 'Tutorial: Proteger sua WAN Virtual usando a versão prévia do Gerenciador de Firewall do Azure'
+description: Neste tutorial, você aprenderá a proteger sua WAN Virtual com o Gerenciador de Firewall do Azure usando o portal do Azure.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 10/27/2019
+ms.date: 02/18/2020
 ms.author: victorh
-ms.openlocfilehash: d2ebfd6003c0bc2b47636be1e38f47e554cc6988
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3dc94a8be265682fbe2128f2e5870dfdf5850a2d
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510030"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443050"
 ---
-# <a name="tutorial-secure-your-cloud-network-with-azure-firewall-manager-preview-using-the-azure-portal"></a>Tutorial: Proteja sua rede na nuvem com a Versão prévia do Gerenciador de Firewall do Azure usando o portal do Azure
+# <a name="tutorial-secure-your-virtual-wan-using-azure-firewall-manager-preview"></a>Tutorial: Proteger sua WAN Virtual usando a versão prévia do Gerenciador de Firewall do Azure 
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-Com a Versão prévia do Gerenciador de Firewall do Azure, é possível criar hubs seguros para proteger o tráfego de rede na nuvem destinado a endereços IP privados, PaaS do Azure e à Internet. O roteamento de tráfego para o firewall é automatizado, portanto, não é necessário criar UDRs (rotas definidas pelo usuário).
+Com a versão prévia do Gerenciador de Firewall do Azure, é possível criar hubs virtuais seguros para proteger o tráfego de rede na nuvem destinado a endereços IP privados, PaaS do Azure e à Internet. O roteamento de tráfego para o firewall é automatizado, portanto, não é necessário criar UDRs (rotas definidas pelo usuário).
 
 ![proteger a rede na nuvem](media/secure-cloud-network/secure-cloud-network.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+O Gerenciador de Firewall também dá suporte à arquitetura de rede virtual de um hub. Para obter uma comparação dos tipos de arquitetura de rede virtual de hub e hub virtual seguro, confira [quais são as opções de arquitetura do Gerenciador de Firewall do Azure?](vhubs-and-vnets.md)
 
-> [!IMPORTANT]
-> A Versão prévia do Gerenciador de Firewall do Azure deve ser habilitada explicitamente usando o comando `Register-AzProviderFeature` do PowerShell.
+Neste tutorial, você aprenderá como:
 
-Em um prompt de comando do PowerShell, execute os seguintes comandos:
-
-```azure-powershell
-connect-azaccount
-Register-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network
-```
-A conclusão do registro do recurso demora até 30 minutos. Execute o seguinte comando para verificar o status do registro:
-
-`Get-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network`
+> [!div class="checklist"]
+> * Criar a rede virtual spoke
+> * Criar um hub virtual seguro
+> * Conectar as VNets de hub e spoke
+> * Criar uma política de firewall e proteger seu hub
+> * Rotear o tráfego para o seu hub
+> * Testar o firewall
 
 ## <a name="create-a-hub-and-spoke-architecture"></a>Criar uma arquitetura de hub e spoke
 
@@ -151,7 +148,7 @@ Para testar suas regras de firewall, você precisará implantar alguns servidore
    |Nome da máquina virtual     |**Jump-Srv**|
    |Região     |**(EUA) Leste dos EUA**|
    |Nome de usuário administrador     |**azureuser**|
-   |Senha     |**Azure123456!**|
+   |Senha     |digite sua senha|
 
 4. Em **Regras de porta de entrada**, para **Portas de entrada públicas**, selecione **Permitir portas selecionadas**.
 5. Em **Selecionar portas de entrada**, selecione **RDP (3389)** .
@@ -169,8 +166,8 @@ Use as informações na tabela a seguir para definir outra máquina virtual cham
 |Configuração  |Valor  |
 |---------|---------|
 |Sub-rede|**Workload-SN**|
-|IP público|**Nenhum**|
-|Porta de entrada públicas|**Nenhum**|
+|IP público|**Nenhuma**|
+|Porta de entrada públicas|**Nenhuma**|
 
 ### <a name="add-a-route-table-and-default-route"></a>Adicionar uma tabela de rotas e uma rota padrão
 
