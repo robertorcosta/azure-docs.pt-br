@@ -6,17 +6,19 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 02/18/2020
+ms.date: 02/19/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 6a045a55772d1d9266663571fc2ecc6911aa5125
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 2d931ed61cc3880a6158fd82f015e663ddb669c3
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77442881"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485277"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Firewall do Azure?
+
+![Certificação ICSA](media/overview/icsa-cert-firewall-small.png)
 
 Firewall do Azure é um serviço de segurança de rede gerenciado e baseado em nuvem que protege seus recursos de Rede Virtual do Azure. É um firewall como serviço totalmente com estado com alta disponibilidade interna e escalabilidade de nuvem irrestrita.
 
@@ -92,9 +94,9 @@ Isso permite os seguintes cenários:
 
 Todos os eventos são integrados ao Azure Monitor, permitindo que você arquive logs em uma conta de armazenamento, transmita eventos ao Hub de Eventos ou envie-os aos logs do Azure Monitor.
 
-## <a name="compliance-certifications"></a>Certificações de conformidade
+## <a name="certifications"></a>Certificações
 
-O Firewall do Azure está em conformidade com PCI (Payment Card Industry), SOC (Service Organization Controls) e ISO (International Organization for Standardization). Para obter mais informações, confira [Certificações de conformidade do Firewall do Azure](compliance-certifications.md).
+O Firewall do Azure está em conformidade com PCI (Payment Card Industry), SOC (Service Organization Controls), ISO (Organização Internacional de Normalização) e com a ICSA Labs. Para obter mais informações, confira [Certificações de conformidade do Firewall do Azure](compliance-certifications.md).
 
 
 ## <a name="known-issues"></a>Problemas conhecidos
@@ -113,8 +115,8 @@ As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) 
 |Não é possível remover a primeira configuração de IP público|Cada endereço IP público do Firewall do Azure é atribuído a uma *configuração de IP*.  A primeira configuração de IP é atribuída durante a implantação do firewall e geralmente também contém uma referência à sub-rede do firewall (a menos que configurado de maneira explicitamente diferente por meio de uma implantação de modelo). Não é possível excluir essa configuração de IP, pois ele desalocaria o firewall. Você ainda poderá alterar ou remover o endereço IP público associado a essa configuração de IP se o firewall tiver pelo menos um outro endereço IP público disponível para uso.|Isso ocorre por design.|
 |As Zonas de disponibilidade só podem ser configuradas durante a implantação.|As Zonas de disponibilidade só podem ser configuradas durante a implantação. Você não pode configurar Zonas de Disponibilidade após a implantação de um firewall.|Isso ocorre por design.|
 |SNAT em conexões de entrada|Além de DNAT, as conexões via o endereço IP público do firewall (entrada) estão no modo SNAT para um dos IPs privados do firewall. Esse requisito hoje (e também para NVAs ativa/ativa) garante o roteamento simétrico.|Para preservar a fonte original para HTTP/S, use os cabeçalhos [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For). Por exemplo, use um serviço como o [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-service-to-backend) ou o [Gateway de Aplicativo do Azure](../application-gateway/rewrite-http-headers.md) na frente do firewall. Você também pode adicionar o WAF como parte Porta da frente do Azure e encadear ao firewall.
-|Suporte para filtragem de FQDN do SQL apenas no modo de proxy (porta 1433)|Para o Banco de Dados SQL do Azure, o SQL Data Warehouse do Azure e a Instância Gerenciada do SQL do Azure:<br><br>Durante a versão prévia, a filtragem de FQDN do SQL tem suporte apenas no modo de proxy (a porta 1433).<br><br>Para IaaS do SQL do Azure:<br><br>Se estiver usando portas não padrão, você poderá especificar as portas nas regras do aplicativo.|Para o SQL no modo de redirecionamento, que é o padrão ao se conectar de dentro do Azure, você pode filtrar o acesso usando a tag de serviço do SQL como parte das regras de rede do Firewall do Azure.
-|O tráfego de saída na porta TCP 25 não é permitido| As conexões SMTP de saída que usam a porta TCP 25 foram bloqueadas. A porta 25 é usada principalmente para entrega de email não autenticado. Esse é o comportamento de plataforma padrão para máquinas virtuais. Para saber mais, confira [Solucionar problemas de conectividade de SMTP de saída no Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). No entanto, ao contrário de máquinas virtuais, no momento, não é possível habilitar essa funcionalidade no Firewall do Azure.|Siga o método recomendado para enviar email conforme documentado no artigo de solução de problemas de SMTP. Como alternativa, exclua a máquina virtual que precisa de acesso SMTP de saída da rota padrão para o firewall e, em vez disso, configure o acesso de saída diretamente à Internet.
+|Suporte para filtragem de FQDN do SQL apenas no modo de proxy (porta 1433)|Para o Banco de Dados SQL do Azure, o SQL Data Warehouse do Azure e a Instância Gerenciada do SQL do Azure:<br><br>Durante a versão prévia, a filtragem de FQDN do SQL tem suporte apenas no modo de proxy (a porta 1433).<br><br>Para IaaS do SQL do Azure:<br><br>Se estiver usando portas não padrão, você poderá especificar essas portas nas regras do aplicativo.|Para o SQL no modo de redirecionamento, que é o padrão ao se conectar de dentro do Azure, você pode filtrar o acesso usando a tag de serviço do SQL como parte das regras de rede do Firewall do Azure.
+|O tráfego de saída na porta TCP 25 não é permitido| As conexões SMTP de saída que usam a porta TCP 25 foram bloqueadas. A porta 25 é usada principalmente para entrega de email não autenticado. Esse é o comportamento de plataforma padrão para máquinas virtuais. Para saber mais, confira [Solucionar problemas de conectividade de SMTP de saída no Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). No entanto, ao contrário de máquinas virtuais, no momento, não é possível habilitar essa funcionalidade no Firewall do Azure.|Siga o método recomendado para enviar email conforme documentado no artigo de solução de problemas de SMTP. Ou exclua a máquina virtual que precisa de acesso SMTP de saída da rota padrão para o firewall e, em vez disso, configure o acesso de saída diretamente à Internet.
 |Não há suporte para FTP Ativo|O FTP Ativo é desabilitado no Firewall do Azure para se proteger contra ataques de retorno de FTP usando o comando FTP PORT.|Em vez disso, você pode usar o FTP Passivo. Você ainda deve abrir explicitamente as portas TCP 20 e 21 no firewall.
 
 ## <a name="next-steps"></a>Próximas etapas
