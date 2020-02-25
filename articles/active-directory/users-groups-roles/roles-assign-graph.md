@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f5be5829843e9857239ca5ea9a7395f569f563a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 3632f8a360df8837569104232b7380fdc8383953
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74025334"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77559140"
 ---
-# <a name="assign-custom-admin-roles-using-graph-api-in-azure-active-directory"></a>Atribuir funções de administrador personalizadas usando API do Graph no Azure Active Directory 
+# <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Atribuir funções de administrador personalizadas usando a API de Microsoft Graph no Azure Active Directory 
 
-Você pode automatizar a forma como atribui funções a contas de usuário Microsoft Graph API. Este artigo aborda as operações POST, GET e DELETE no roleAssignments.
+Você pode automatizar a forma como atribui funções a contas de usuário usando a API Microsoft Graph. Este artigo aborda as operações POST, GET e DELETE no roleAssignments.
 
 ## <a name="required-permissions"></a>Permissões necessárias
 
@@ -35,10 +35,11 @@ Solicitação HTTP para criar uma atribuição de função entre um usuário e u
 POST
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+Content-type: application/json
 ```
 
-corpo
+Corpo
 
 ``` HTTP
 {
@@ -48,7 +49,7 @@ corpo
 }
 ```
 
-resposta
+Resposta
 
 ``` HTTP
 HTTP/1.1 201 Created
@@ -59,10 +60,10 @@ Solicitação HTTP para criar uma atribuição de função na qual a definição
 POST
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal
+https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 
-corpo
+Corpo
 
 ``` HTTP
 {
@@ -72,7 +73,7 @@ corpo
 }
 ```
 
-resposta
+Resposta
 
 ``` HTTP
 HTTP/1.1 404 Not Found
@@ -86,10 +87,10 @@ Solicitação HTTP para criar uma atribuição de função com escopo de recurso
 POST
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal
+https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 
-corpo
+Corpo
 
 ``` HTTP
 {
@@ -99,7 +100,7 @@ corpo
 }
 ```
 
-resposta
+Resposta
 
 ``` HTTP
 HTTP/1.1 400 Bad Request
@@ -130,10 +131,10 @@ Solicitação HTTP para obter uma atribuição de função para uma determinada 
 GET
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal&$filter=principalId eq ‘<object-id-of-principal>’
+https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments&$filter=principalId eq ‘<object-id-of-principal>’
 ```
 
-resposta
+Resposta
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -156,10 +157,10 @@ Solicitação HTTP para obter uma atribuição de função para uma determinada 
 GET
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal&$filter=roleDefinitionId eq ‘<object-id-or-template-id-of-role-definition>’
+https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments&$filter=roleDefinitionId eq ‘<object-id-or-template-id-of-role-definition>’
 ```
 
-resposta
+Resposta
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -176,15 +177,15 @@ Solicitação HTTP para obter uma atribuição de função por ID.
 GET
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
 ```
 
-resposta
+Resposta
 
 ``` HTTP
 HTTP/1.1 200 OK
 { 
-    "id":"mhxJMipY4UanIzy2yE-r7JIiSDKQoTVJrLE9etXyrY0-1"
+    "id":"mhxJMipY4UanIzy2yE-r7JIiSDKQoTVJrLE9etXyrY0-1",
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"10dae51f-b6af-4016-8d66-8c2a99b929b3",
     "resourceScopes":["/"]
@@ -195,26 +196,26 @@ HTTP/1.1 200 OK
 
 Solicitação HTTP para excluir uma atribuição de função entre um usuário e uma definição de função.
 
-EXCLUIR
+Delete (excluir)
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
 ```
 
-resposta
+Resposta
 ``` HTTP
 HTTP/1.1 204 No Content
 ```
 
 Solicitação HTTP para excluir uma atribuição de função que não existe mais
 
-EXCLUIR
+Delete (excluir)
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
 ```
 
-resposta
+Resposta
 
 ``` HTTP
 HTTP/1.1 404 Not Found
@@ -222,13 +223,13 @@ HTTP/1.1 404 Not Found
 
 Solicitação HTTP para excluir uma atribuição de função entre a definição de função própria e interna
 
-EXCLUIR
+Delete (excluir)
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
 ```
 
-resposta
+Resposta
 
 ``` HTTP
 HTTP/1.1 400 Bad Request

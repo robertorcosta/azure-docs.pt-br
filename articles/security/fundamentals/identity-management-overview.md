@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: cdf07c6a4cb98f17a9bc15934a7be42ba70810f6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f61b6193a0d2082296a17128b41d7220f9b7e05f
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840444"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565886"
 ---
 # <a name="azure-identity-management-security-overview"></a>Visão geral da segurança de gerenciamento de identidade do Azure
 
@@ -43,10 +43,10 @@ O artigo se concentra nas seguintes funcionalidades de gerenciamento de identida
 * Autenticação Multifator
 * RBAC (Controle de Acesso Baseado em Função)
 * Relatórios baseados em aprendizado de máquina, alertas e monitoramento de segurança
-* Gerenciamento de acesso e identidade do cliente
-* Registro do dispositivo
+* Gerenciamento de acesso e identidade do consumidor
+* Registro de dispositivos
 * Privileged Identity Management
-* Proteção de identidade
+* Identity Protection
 * Gerenciamento de identidade híbrida/conectar Azure Active Directory
 * Revisões de acesso do Azure AD
 
@@ -64,7 +64,7 @@ Saiba mais:
 
 * [Visão geral do logon único](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../../active-directory/manage-apps/what-is-single-sign-on.md)
-* [Integrar o logon único do Azure AD com aplicativos de SaaS](../../active-directory/manage-apps/configure-single-sign-on-portal.md)
+* [Integrar o logon único do Azure AD com aplicativos de SaaS](../../active-directory/manage-apps/configure-single-sign-on-non-gallery-applications.md)
 
 ## <a name="reverse-proxy"></a>Proxy reverso
 
@@ -114,7 +114,7 @@ Saiba mais:
 * [Introdução aos relatórios do Azure Active Directory](/azure/active-directory/active-directory-reporting-getting-started)
 * [Guia de relatórios do Azure Active Directory](/azure/active-directory/active-directory-reporting-guide)
 
-## <a name="consumer-identity-and-access-management"></a>Gerenciamento de acesso e identidade do cliente
+## <a name="consumer-identity-and-access-management"></a>Gerenciamento de acesso e identidade do consumidor
 
 O Azure AD B2C é um serviço de gerenciamento de identidade global e altamente disponível para aplicativos voltados para o consumidor que pode ser dimensionado para centenas de milhões de identidades. Ele pode ser integrado a plataformas móveis e da Web. Seus clientes podem fazer logon em todos os seus aplicativos por meio de experiências personalizáveis usando suas contas sociais existentes ou criando novas credenciais.
 
@@ -128,7 +128,7 @@ Saiba mais:
 * [Visualização do Active Directory B2C do Azure: inscrever e conectar consumidores em seus aplicativos](../../active-directory-b2c/overview.md)
 * [Versão prévia do Azure Active Directory B2C: tipos de aplicativos](../../active-directory-b2c/application-types.md)
 
-## <a name="device-registration"></a>Registro do dispositivo
+## <a name="device-registration"></a>Registro de dispositivos
 
 O registro de dispositivos do Azure AD é a base para cenários de [acesso condicional](/azure/active-directory/active-directory-conditional-access-device-registration-overview) com base em dispositivo. Quando um dispositivo é registrado, o registro de dispositivos do Azure AD fornece ao dispositivo uma identidade que ele usa para autenticar o dispositivo quando um usuário entra. O dispositivo autenticado e os atributos do dispositivo podem ser usados para impor políticas de acesso condicional para aplicativos hospedados na nuvem e localmente.
 
@@ -158,7 +158,7 @@ Saiba mais:
 * [O que é o Azure AD Privileged Identity Management?](../../active-directory/privileged-identity-management/pim-configure.md)
 * [Atribuir funções de diretório do Azure AD no PIM](../../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
-## <a name="identity-protection"></a>Proteção de identidade
+## <a name="identity-protection"></a>Identity Protection
 
 Azure AD Identity Protection é um serviço de segurança que fornece uma visão consolidada das detecções de risco e das possíveis vulnerabilidades que afetam as identidades da sua organização. O Identity Protection tira proveito das funcionalidades de detecção de anomalias existentes do Azure AD, que estão disponíveis por meio dos Relatórios de atividades anômalas do Azure AD. A proteção de identidade também apresenta novos tipos de detecção de riscos que podem detectar anomalias em tempo real.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d19cc39147608dafc4576f4c8bad0533ad1b32d
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 90d958d2adc8920e4e6ccbccef20acf20aedca4c
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77521907"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561605"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Acesso condicional: exigir dispositivos em conformidade
 
@@ -29,7 +29,7 @@ As organizações que implantaram Microsoft Intune podem usar as informações r
 
 Essas informações de conformidade de política são encaminhadas ao Azure AD, em que o acesso condicional pode tomar decisões para conceder ou bloquear o acesso a recursos. Mais informações sobre as políticas de conformidade do dispositivo podem ser encontradas no artigo [definir regras em dispositivos para permitir o acesso a recursos em sua organização usando o Intune](/intune/protect/device-compliance-get-started)
 
-## <a name="create-a-conditional-access-policy"></a>Criar uma política de acesso condicional
+## <a name="create-a-conditional-access-policy"></a>Criar uma política de Acesso Condicional
 
 As etapas a seguir ajudarão a criar uma política de acesso condicional para exigir que os dispositivos que acessam os recursos sejam marcados como em conformidade com as políticas de conformidade do Intune da sua organização.
 
@@ -48,6 +48,9 @@ As etapas a seguir ajudarão a criar uma política de acesso condicional para ex
    1. Selecione **Selecionar**.
 1. Confirme suas configurações e defina **habilitar política** como **ativado**.
 1. Selecione **criar** para criar para habilitar a política.
+
+> [!NOTE]
+> Você pode registrar seus novos dispositivos no Intune mesmo se selecionar exigir que o **dispositivo seja marcado como compatível** para **todos os usuários** e **todos os aplicativos de nuvem** usando as etapas acima. **Exigir que o dispositivo seja marcado como controle em conformidade** não bloqueie o registro do Intune. 
 
 ### <a name="known-behavior"></a>Comportamento conhecido
 

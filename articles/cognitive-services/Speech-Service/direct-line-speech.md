@@ -3,27 +3,27 @@ title: Fala de linha direta-serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Uma visão geral dos recursos, funcionalidades e restrições para assistentes de voz usando a Direct line Speech com o kit de desenvolvimento de software de fala (SDK).
 services: cognitive-services
-author: trrwilson
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/05/2019
-ms.author: travisw
-ms.openlocfilehash: cec3131d791d591375fd87d1c080294c9034a815
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 01/31/2020
+ms.author: dapine
+ms.openlocfilehash: 230fbd14ce33b52b1e7a1f9cc9cd530ccdec169a
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806195"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562523"
 ---
 # <a name="about-direct-line-speech"></a>Sobre a Direct line Speech
 
-Os [assistentes de voz](voice-assistants.md) ouvem os usuários e tomam uma ação em resposta, geralmente falando de volta. Eles usam a [fala para o texto](speech-to-text.md) para transcrever a fala do usuário e, em seguida, tomar medidas sobre a compreensão do idioma natural do texto. Essa ação geralmente inclui a saída falada do Assistente gerado com [conversão de texto em fala](text-to-speech.md). Os dispositivos se conectam aos assistentes com o objeto `DialogServiceConnector` do SDK de fala.
+A **Direct line Speech** é uma solução robusta e de ponta a ponta para a criação de um assistente de voz flexível e extensível. Ele é equipado com a estrutura de bot e seu canal de fala de linha direta, que é otimizado para a interação de voz para voz e saída com bots.
 
-A **Direct line Speech** é uma solução robusta de ponta a ponta para criar um assistente de voz flexível e extensível, equipado com o bot Framework e seu canal de fala de linha direta, que é otimizado para a interação de voz para voz e saída com bots.
+Os [assistentes de voz](voice-assistants.md) ouvem os usuários e tomam uma ação em resposta, geralmente falando de volta. Eles usam a [fala para o texto](speech-to-text.md) para transcrever a fala do usuário e, em seguida, tomar medidas sobre a compreensão do idioma natural do texto. Essa ação geralmente inclui a saída falada do Assistente gerado com [conversão de texto em fala](text-to-speech.md).
 
-A Direct line Speech oferece os mais altos níveis de personalização e sofisticação para assistentes de voz. Ele é adequado para cenários de conversação que são abertos, naturais ou híbridos com conclusão de tarefas ou uso de comando e controle. Esse alto grau de flexibilidade vem com uma maior complexidade, e os cenários que têm como escopo tarefas bem definidas usando a entrada de idioma natural podem querer considerar [comandos personalizados (versão prévia)](custom-commands.md) para uma experiência de solução simplificada.
+A Direct line Speech oferece os mais altos níveis de personalização e sofisticação para assistentes de voz. Ele foi projetado para cenários de conversação que são abertos, naturais ou híbridos dos dois com conclusão de tarefa ou uso de comando e controle. Esse alto grau de flexibilidade vem com uma maior complexidade, e os cenários que têm como escopo tarefas bem definidas usando a entrada de idioma natural podem querer considerar [comandos personalizados (versão prévia)](custom-commands.md) para uma experiência de solução simplificada.
 
 ## <a name="getting-started-with-direct-line-speech"></a>Introdução à fala de linha direta
 
@@ -31,15 +31,15 @@ As primeiras etapas para criar um assistente de voz usando a Direct line Speech 
 
    ![Diagrama conceitual do fluxo do serviço de orquestração de fala de linha direta](media/voice-assistants/overview-directlinespeech.png "O fluxo do canal de fala")
 
-Para obter um guia passo a passo completo sobre como criar um assistente de voz simples usando a Direct line Speech, consulte [o tutorial para habilitar o bot para fala com o SDK de fala e o canal de fala de linha direta](tutorial-voice-enable-your-bot-speech-sdk.md).
+Para obter um guia passo a passo completo sobre como criar um assistente de voz simples usando a Direct line Speech, consulte [o tutorial para habilitar a fala de seu bot com o SDK de fala e o canal de fala de linha direta](tutorial-voice-enable-your-bot-speech-sdk.md).
 
-Também oferecemos guias de início rápido projetados para que você execute códigos em menos de 10 minutos. Esta tabela inclui uma lista de guias de início rápido do assistente de voz organizados por idioma.
+Também oferecemos guias de início rápido projetados para que você esteja executando código e aprendendo as APIs rapidamente. Esta tabela inclui uma lista de guias de início rápido do assistente de voz organizadas por linguagem e plataforma.
 
-| Início Rápido | Plataforma | Referência da API |
+| Guia de Início Rápido | Plataforma | Referência de API |
 |------------|----------|---------------|
-| C#, UWP | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| Java | Windows, macOS, Linux | [Browse](https://aka.ms/csspeech/javaref) |
-| Java | Android | [Browse](https://aka.ms/csspeech/javaref) |
+| C#, UWP | Windows | [Procurar](https://aka.ms/csspeech/csharpref) |
+| Java | Windows, macOS, Linux | [Procurar](https://aka.ms/csspeech/javaref) |
+| Java | Android | [Procurar](https://aka.ms/csspeech/javaref) |
 
 ## <a name="sample-code"></a>Código de exemplo
 
@@ -57,12 +57,12 @@ Os assistentes de voz criados com o uso do serviço de fala podem usar a gama co
 
 A Direct line Speech e sua funcionalidade associada para assistentes de voz são um complemento ideal para a [solução de assistente virtual e Enterprise template](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Embora a Direct line Speech possa funcionar com qualquer bot compatível, esses recursos fornecem uma linha de base reutilizável para experiências de conversa de alta qualidade, bem como habilidades e modelos de suporte comuns para a introdução rápida.
 
-## <a name="reference-docs"></a>Documentos de referência
+## <a name="reference-docs"></a>Documentos de Referência
 
 * [SDK da fala](speech-sdk-reference.md)
 * [Serviço de Bot do Azure](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](get-started.md)
 * [Obtenha o SDK de fala](speech-sdk.md)

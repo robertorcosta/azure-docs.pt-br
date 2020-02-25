@@ -1,5 +1,5 @@
 ---
-title: Conectar e gerenciar Microsoft Azure dispositivo de Gateway do Data Box por meio da interface do Windows PowerShell | Microsoft Docs
+title: Usar o Windows PowerShell para se conectar e gerenciar Gateway do Azure Data Box dispositivo
 description: Descreve como se conectar ao e gerenciar o Gateway do Data Box por meio da interface do Windows PowerShell.
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 08/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 650777d849e172686e8b46502a84db8c519174e7
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 6c9f3455a07001a8d1b9b8a1e84f2af3392b5690
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775193"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561860"
 ---
 # <a name="manage-an-azure-data-box-gateway-device-via-windows-powershell"></a>Gerenciar um dispositivo Gateway do Azure Data Box por meio do Windows PowerShell
 
@@ -25,7 +25,7 @@ Este artigo inclui os seguintes procedimentos:
 
 - Conectar-se à interface do PowerShell
 - Criar um pacote de suporte
-- Carregar certificado
+- Carregar um certificado
 - Inicializar em um ambiente não-DHCP
 - Exibir informações do dispositivo
 
@@ -37,7 +37,7 @@ Este artigo inclui os seguintes procedimentos:
 
 [!INCLUDE [Create a support package](../../includes/data-box-edge-gateway-create-support-package.md)]
 
-## <a name="upload-certificate"></a>Carregar certificado
+## <a name="upload-certificate"></a>Carregar um certificado
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 

@@ -4,15 +4,15 @@ description: Saiba como integrar com o Firewall do Azure para proteger o tráfeg
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 01/14/2020
+ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6b9633e8a37e665577f1e69e8008a64b7e139c1c
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: f24a984a4b3e13039f1f9dcf0be459425c048c41
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513330"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565716"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueando um Ambiente do Serviço de Aplicativo
 
@@ -41,9 +41,11 @@ O tráfego de e para um ASE deve obedecer às convenções a seguir
 
 ## <a name="locking-down-inbound-management-traffic"></a>Bloqueando o tráfego de gerenciamento de entrada
 
-Se sua sub-rede do ASE ainda não tiver um NSG atribuído a ele, crie um. Dentro do NSG, defina a primeira regra para permitir o tráfego da marca de serviço chamada AppServiceManagement nas portas 454, 455. Isso é tudo o que é necessário para que os IPs públicos gerenciem seu ASE. Os endereços que estão atrás dessa marca de serviço são usados apenas para administrar o serviço de Azure App. O tráfego de gerenciamento que flui por essas conexões é criptografado e protegido com certificados de autenticação. O tráfego típico nesse canal inclui itens como os comandos iniciados pelo cliente e as investigações de integridade. 
+Se sua sub-rede do ASE ainda não tiver um NSG atribuído a ele, crie um. Dentro do NSG, defina a primeira regra para permitir o tráfego da marca de serviço denominada AppServiceManagement nas portas 454, 455. A regra para permitir o acesso da marca AppServiceManagement é a única coisa que é necessária para que os IPs públicos gerenciem seu ASE. Os endereços que estão atrás dessa marca de serviço são usados apenas para administrar o serviço de Azure App. O tráfego de gerenciamento que flui por essas conexões é criptografado e protegido com certificados de autenticação. O tráfego típico nesse canal inclui itens como os comandos iniciados pelo cliente e as investigações de integridade. 
 
 ASEs que são feitas por meio do portal com uma nova sub-rede são feitas com um NSG que contém a regra de permissão para a marca AppServiceManagement.  
+
+O ASE também deve permitir solicitações de entrada da marca Load Balancer na porta 16001. As solicitações do Load Balancer na porta 16001 são verificações Keep Alive entre o Load Balancer e os front-ends do ASE. Se a porta 16001 estiver bloqueada, seu ASE entrará em estado não íntegro.
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>Como configurar o Firewall do Azure com seu ASE 
 
@@ -273,6 +275,21 @@ O Linux não está disponível em regiões US Gov e, portanto, não está listad
 | SQL do Azure |
 | Armazenamento do Azure |
 | Hub de Eventos do Azure |
+
+#### <a name="ip-address-dependencies"></a>Dependências de endereço IP
+
+| Ponto de extremidade | Detalhes |
+|----------| ----- |
+| \*:123 | Verificação do relógio do NTP. O tráfego é verificado em vários pontos de extremidade na porta 123 |
+| \*:12000 | Essa porta é usada para alguns tipos de monitoramento do sistema. Se bloqueado, alguns problemas serão mais difíceis de fazer a triagem, mas seu ASE continuará a operar |
+| 40.77.24.27:80 | Necessário para monitorar e alertar sobre problemas do ASE |
+| 40.77.24.27:443 | Necessário para monitorar e alertar sobre problemas do ASE |
+| 13.90.249.229:80 | Necessário para monitorar e alertar sobre problemas do ASE |
+| 13.90.249.229:443 | Necessário para monitorar e alertar sobre problemas do ASE |
+| 104.45.230.69:80 | Necessário para monitorar e alertar sobre problemas do ASE |
+| 104.45.230.69:443 | Necessário para monitorar e alertar sobre problemas do ASE |
+| 13.82.184.151:80 | Necessário para monitorar e alertar sobre problemas do ASE |
+| 13.82.184.151:443 | Necessário para monitorar e alertar sobre problemas do ASE |
 
 #### <a name="dependencies"></a>Dependências ####
 

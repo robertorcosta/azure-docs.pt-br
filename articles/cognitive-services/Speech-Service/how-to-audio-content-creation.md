@@ -3,27 +3,27 @@ title: Criação de conteúdo de áudio-serviço de fala
 titleSuffix: Azure Cognitive Services
 description: A criação de conteúdo de áudio é uma ferramenta online que permite que você personalize e ajuste a saída de conversão de texto em fala da Microsoft para seus aplicativos e produtos.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: erhopf
-ms.openlocfilehash: b65a39489f0823a411a9dddf79ec3abd1e5ee20d
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 01/31/2020
+ms.author: dapine
+ms.openlocfilehash: aed9c0a72af063c84c0744757772e11c689ac14c
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806194"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561027"
 ---
-# <a name="audio-content-creation"></a>Criação de Conteúdo de Áudio
+# <a name="improve-synthesis-with-audio-content-creation"></a>Melhorar a síntese com a criação de conteúdo de áudio
 
 A [criação de conteúdo de áudio](https://aka.ms/audiocontentcreation) é uma ferramenta online que permite que você personalize e ajuste a saída de conversão de texto em fala da Microsoft para seus aplicativos e produtos. Você pode usar essa ferramenta para ajustar as vozes pública e personalizada para expressões naturais mais precisas e gerenciar sua saída na nuvem.
 
 A ferramenta de criação de conteúdo de áudio baseia-se na [SSML (linguagem de marcação de síntese de fala)](speech-synthesis-markup.md). Para simplificar a personalização e o ajuste, a criação de conteúdo de áudio permite que você inspecione visualmente suas saídas de texto em fala em tempo real.
 
-## <a name="how-does-it-work"></a>Como funciona?
+## <a name="how-does-it-work"></a>Como ele funciona?
 
 Este diagrama mostra as etapas necessárias para ajustar e exportar saídas de fala para texto personalizadas. Use os links abaixo para saber mais sobre cada etapa.
 
@@ -104,11 +104,11 @@ Depois de revisar sua saída de áudio e ficar satisfeito com seu ajuste e ajust
 | WAV | riff-16kHz-16 bits-mono-PCM | riff-24kHz-16 bits-mono-PCM |
 | mp3 | Audio-16kHz-128kbitrate-mono-mp3 | Audio-24kHz-160kbitrate-mono-mp3 |
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Confira também
 
 * [API de áudio longo](https://aka.ms/long-audio-api)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Estúdio de Fala](https://speech.microsoft.com)

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a01ebde09517cbe7f093dd56a8a4116e76e64e38
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 987c3ee7c90eb0bb793b96eb2771efbb258f16a4
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736767"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565495"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Compartilhar contas com o AD do Azure
 
@@ -51,7 +51,7 @@ Os usuários entram uma vez com sua conta institucional. Essa conta é a mesma u
 
 As contas compartilhadas não apenas aumentam a supervisão e melhoram a utilização, como também aumentam a segurança. Os usuários com permissões para usar as credenciais não vejam a senha compartilhada, mas em vez disso, obtém as permissões para usar a senha como parte de um fluxo de autenticação orquestrado. Além disso, alguns aplicativos de SSO de senha oferecem a opção de usar o Azure Active Directory para substituir (atualizar) periodicamente as senhas. O sistema usa senhas grandes e complexas, o que aumenta a segurança da conta. O administrador pode conceder ou revogar o acesso a um aplicativo facilmente, e também sabe quem tem acesso à conta e quem a acessou no passado.
 
-O Azure AD dá suporte a contas compartilhadas para qualquer plano de licença ou Azure AD Premium do Enterprise Mobility Suite, em todos os tipos de aplicativos de logon único com senha. Você pode compartilhar as contas para qualquer um dos milhares de aplicativos previamente integrados na galeria de aplicativos e pode adicionar seu próprio aplicativo de autenticação de senha com os [aplicativos personalizados de SSO](../manage-apps/configure-single-sign-on-portal.md).
+O Azure AD dá suporte a contas compartilhadas para qualquer plano de licença ou Azure AD Premium do Enterprise Mobility Suite, em todos os tipos de aplicativos de logon único com senha. Você pode compartilhar as contas para qualquer um dos milhares de aplicativos previamente integrados na galeria de aplicativos e pode adicionar seu próprio aplicativo de autenticação de senha com os [aplicativos personalizados de SSO](../manage-apps/configure-single-sign-on-non-gallery-applications.md).
 
 Recursos do AD do Azure que permitem o compartilhamento de contas incluem:
 
@@ -62,7 +62,7 @@ Recursos do AD do Azure que permitem o compartilhamento de contas incluem:
 * [Painel/relatórios de uso de aplicativo](../active-directory-passwords-get-insights.md)
 * Portais de acesso do usuário final
 * [Proxy do aplicativo](../manage-apps/application-proxy.md)
-* [Marketplace o Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/)
+* [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## <a name="sharing-an-account"></a>Compartilhamento de uma conta
 

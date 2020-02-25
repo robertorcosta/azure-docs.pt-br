@@ -1,0 +1,53 @@
+### YamlMime:Landing
+title: Documentação de dispositivos de fala
+summary: O SDK de Dispositivos de Fala é uma biblioteca pré-ajustada emparelhada com kits de desenvolvimento de matriz de microfone criados para um fim específico.
+metadata:
+  title: Documentação dos dispositivos de fala-tutoriais, referência de API-serviços cognitivas do Azure | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: IEvangelist
+  manager: nitinme
+  layout: LandingPage
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+  ms.openlocfilehash: f7105a4f0330c61ee10d8dee00d40ce17bc40188
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.translationtype: MT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77562851"
+landingContent:
+- title: Introdução
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Sobre os dispositivos de fala do SDK
+      url: speech-devices-sdk.md
+  - linkListType: quickstart
+    links:
+    - text: Usar o SDK do dispositivo de fala (Windows)
+      url: speech-devices-sdk-quickstart.md?pivots=platform-windows
+    - text: Usar o SDK do dispositivo de fala (Linux)
+      url: speech-devices-sdk-quickstart.md?pivots=platform-linux
+    - text: Usar o SDK do dispositivo de fala (Android)
+      url: speech-devices-sdk-quickstart.md?pivots=platform-android
+- title: Guias passo a passo
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Criar uma matriz de microfone
+      url: speech-devices-sdk-microphone.md
+    - text: Configurar o kit Roobo v1
+      url: speech-devices-sdk-roobo-v1.md
+- title: Referência
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Notas de versão
+      url: devices-sdk-release-notes.md
+  - linkListType: reference
+    links:
+    - text: Solucionar problemas
+      url: speech-devices-sdk-troubleshooting.md

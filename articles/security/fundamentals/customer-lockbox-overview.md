@@ -1,19 +1,19 @@
 ---
 title: Sistema de Proteção de Dados do Cliente para Microsoft Azure
 description: Visão geral técnica do Sistema de Proteção de Dados do Cliente para Microsoft Azure, que fornece controle sobre o acesso do provedor de nuvem quando a Microsoft pode precisar acessar os dados do cliente.
-author: cabailey
+author: TerryLanfear
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.author: cabailey
-manager: barbkess
+ms.author: terrylan
+manager: rkarlin
 ms.date: 11/04/2019
-ms.openlocfilehash: 7c0409d48876a0f830366381c2a46821c4aa03a0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: abc16ae7f7ab8bf15173248a6e7668e689e127de
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466413"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561962"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Sistema de Proteção de Dados do Cliente para Microsoft Azure
 
@@ -42,37 +42,37 @@ As etapas a seguir descrevem um fluxo de trabalho típico para uma solicitação
     - O escopo do recurso
     - Se o solicitante é uma identidade isolada ou usando a autenticação multifator
     - Níveis de permissões
-    
+
     Com base na regra JIT, essa solicitação também pode incluir uma aprovação de aprovadores internos da Microsoft. Por exemplo, o aprovador pode ser o líder de atendimento ao cliente ou o gerente DevOps.
 
 6. Quando a solicitação requer acesso direto aos dados do cliente, uma solicitação de Sistema de Proteção de Dados do Cliente é iniciada. Por exemplo, acesso à área de trabalho remota à máquina virtual de um cliente.
-    
+
     A solicitação está agora em um estado **notificado do cliente** , aguardando a aprovação do cliente antes de conceder acesso.
 
 7. Na organização do cliente, o usuário que tem a [função proprietário](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles) para a assinatura do Azure recebe um email da Microsoft para notificá-los sobre a solicitação de acesso pendente. Para solicitações de Sistema de Proteção de Dados do Cliente, essa pessoa é o aprovador designado.
-    
+
     Email de exemplo:
-    
+
     ![Sistema de Proteção de Dados do Cliente do Azure-notificação por email](./media/customer-lockbox-overview/customer-lockbox-email-notification.png)
 
 8. A notificação por email fornece um link para a folha **sistema de proteção de dados do cliente** na portal do Azure. Usando esse link, o aprovador designado entra no portal do Azure para exibir as solicitações pendentes que sua organização tem para Sistema de Proteção de Dados do Cliente:
-    
+
     ![Sistema de Proteção de Dados do Cliente do Azure – página inicial](./media/customer-lockbox-overview/customer-lockbox-landing-page.png)
-    
+
    A solicitação permanece na fila de clientes por quatro dias. Após esse período, a solicitação de acesso expira automaticamente e nenhum acesso é concedido aos engenheiros da Microsoft.
 
 9. Para obter os detalhes da solicitação pendente, o aprovador designado pode selecionar a solicitação de lockbox de **solicitações pendentes**:
-    
+
     ![Sistema de Proteção de Dados do Cliente do Azure – exibir a solicitação pendente](./media/customer-lockbox-overview/customer-lockbox-pending-requests.png)
 
 10. O aprovador designado também pode selecionar a **ID de solicitação de serviço** para exibir a solicitação de tíquete de suporte que foi criada pelo usuário original. Essas informações fornecem contexto sobre por que Suporte da Microsoft está envolvido e o histórico do problema relatado. Por exemplo:
-    
+
     ![Sistema de Proteção de Dados do Cliente do Azure – exibir a solicitação de tíquete de suporte](./media/customer-lockbox-overview/customer-lockbox-support-ticket.png)
 
 11. Depois de revisar a solicitação, o aprovador designado seleciona **aprovar** ou **negar**:
-    
+
     ![Sistema de Proteção de Dados do Cliente do Azure – selecione aprovar ou negar](./media/customer-lockbox-overview/customer-lockbox-approval.png)
-    
+
     Como resultado da seleção:
     - **Aprovar**: o acesso é concedido ao engenheiro da Microsoft. O acesso é concedido por um período padrão de oito horas.
     - **Deny**: a solicitação de acesso elevado pelo engenheiro da Microsoft é rejeitada e nenhuma ação adicional é executada.
@@ -113,13 +113,13 @@ Para cenários que envolvem acesso à área de trabalho remota, você pode usar 
 
 Os serviços a seguir agora estão atualmente em visualização para Sistema de Proteção de Dados do Cliente:
 
-- Armazenamento do Azure 
+- Armazenamento do Azure
 
-- BD SQL do Azure 
+- BD SQL do Azure
 
-- Azure Data Explorer 
+- Azure Data Explorer
 
-- Máquinas virtuais (agora também abrangendo o acesso a despejos de memória e discos gerenciados) 
+- Máquinas virtuais (agora também abrangendo o acesso a despejos de memória e discos gerenciados)
 
 - Transferências de assinatura do Azure
 

@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: c1e9be605a6f01695f2472ae76a9e5a786388aa0
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 849d1187d6b854d48ad75ab1e55f600407420346
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77206099"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562353"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Pontos de extremidade de streaming (origem) nos serviços de mídia do Azure
 
@@ -73,7 +73,7 @@ Uso recomendado |Recomendado para a grande maioria dos cenários de streaming.|U
 
 <sup>1</sup> é usado somente diretamente no ponto de extremidade de streaming quando a CDN não está habilitada no ponto de extremidade.<br/>
 
-## <a name="properties"></a>Propriedades
+## <a name="streaming-endpoint-properties"></a>Propriedades de ponto de extremidade de streaming
 
 Esta seção fornece detalhes sobre algumas das propriedades do ponto de extremidade de streaming. Para exemplos de como criar um novo ponto de extremidade de streaming e descrições de todas as propriedades, consulte [Ponto de Extremidade de Streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints/create).
 
@@ -130,50 +130,36 @@ Esta seção fornece detalhes sobre algumas das propriedades do ponto de extremi
 
 - `scaleUnits`: forneça a capacidade de egresso dedicada que pode ser comprada em incrementos de 200 Mbps. Se você precisar mudar para um tipo **Premium**, ajuste `scaleUnits`.
 
-## <a name="working-with-cdn"></a>Trabalhando com CDN
+## <a name="why-use-multiple-streaming-endpoints"></a>Por que usar vários pontos de extremidade de streaming?
 
-Na maioria dos casos, é necessário ter a CDN habilitada. No entanto, se você estiver prevendo a simultaneidade máxima inferior a 500 visualizadores, é recomendável desabilitar a CDN, uma vez que a CDN é dimensionada melhor com simultaneidade.
+Um único ponto de extremidade de streaming pode transmitir vídeos ao vivo e sob demanda e a maioria dos clientes usa apenas um ponto de extremidade de streaming. Esta seção fornece alguns exemplos de por que você pode precisar usar vários pontos de extremidade de streaming.
 
-### <a name="considerations"></a>Considerações
+* Cada unidade reservada permite 200 Mbps de largura de banda. Se você precisar de mais de 2.000 Mbps (2 Gbps) de largura de banda, poderá usar o segundo ponto de extremidade de streaming e balancear a carga para fornecer largura de banda adicional.
 
-* O ponto de extremidade de streaming `hostname` e a URL de streaming permanecem os mesmos, independentemente de você habilitar ou não a CDN.
-* Se você precisar da capacidade de testar seu conteúdo com ou sem CDN, crie outro ponto de extremidade de streaming que não esteja habilitado para CDN.
+    No entanto, a CDN é a melhor maneira de alcançar o dimensionamento para conteúdo de streaming, mas se você estiver entregando tanto conteúdo que a CDN está recebendo mais de 2 Gbps, você pode adicionar outros pontos de extremidade de streaming (origens). Nesse caso, você precisaria distribuir as URLs de conteúdo que são balanceadas entre os dois pontos de extremidade de streaming. Essa abordagem fornece um melhor cache do que tentar enviar solicitações para cada origem aleatoriamente (por exemplo, por meio de um Gerenciador de tráfego). 
+    
+    > [!TIP]
+    > Geralmente, se a CDN estiver recebendo mais de 2 Gbps, algo poderá ser configurado incorretamente (por exemplo, sem blindagem de origem).
+    
+* Balanceamento de carga de diferentes provedores de CDN. Por exemplo, você pode configurar o ponto de extremidade de streaming padrão para usar a CDN da Verizon e criar uma segunda para usar a Akamai. Em seguida, adicione um balanceamento de carga entre os dois para alcançar o balanceamento de múltiplas CDN. 
 
-### <a name="detailed-explanation-of-how-caching-works"></a>Explicação detalhada de como o armazenamento em cache funciona
+    No entanto, o cliente geralmente faz o balanceamento de carga entre vários provedores de CDN usando uma única origem.
+* Transmissão de conteúdo misto: ao vivo e ao vídeo sob demanda. 
 
-Não há nenhum valor de largura de banda específico ao adicionar a CDN porque a quantidade de largura de banda necessária para um ponto de extremidade de streaming habilitado para CDN varia. Muito depende do tipo de conteúdo, do quão popular é, das taxas de bits e dos protocolos. A CDN está armazenando em cache apenas o que está sendo solicitado. Isso significa que o conteúdo popular será servido diretamente da CDN, desde que o fragmento de vídeo seja armazenado em cache. É provável que o conteúdo ao vivo seja armazenado em cache, porque normalmente há muitas pessoas assistindo exatamente o mesmo conteúdo. O conteúdo sob demanda pode ser um pouco mais complicado porque você pode ter algum conteúdo que seja popular e outros não. Se você tem milhões de ativos de vídeo em que nenhum deles é popular (apenas um ou dois visualizadores por semana), mas você tem milhares de pessoas assistindo a todos os vídeos diferentes, a CDN se torna muito menos eficiente. Com essa perda no cache, você aumenta a carga no ponto de extremidade de streaming.
+    Os padrões de acesso para conteúdo ao vivo e sob demanda são muito diferentes. O conteúdo ao vivo tende a receber muita demanda pelo mesmo conteúdo de uma só vez. O conteúdo de vídeo por demanda (conteúdo de arquivo de cauda longa para instância) tem baixo uso no mesmo conteúdo. Portanto, o cache funciona muito bem no conteúdo ao vivo, mas não também no conteúdo de cauda longa.
 
-Também é necessário considerar como o streaming adaptável funciona. Cada fragmento de vídeo individual é armazenado em cache como sua própria entidade. Por exemplo, imagine a primeira vez que um determinado vídeo é observado. Se o visualizador ignorar apenas alguns segundos aqui e houver, somente os fragmentos de vídeo associados ao que a pessoa observou serão armazenados em cache na CDN. Com o streaming adaptável, você normalmente tem de 5 a 7 taxas de bits diferentes de vídeo. Se uma pessoa estiver assistindo a uma taxa de bits e outra pessoa estiver assistindo a uma taxa de bits diferente, ela será cada uma armazenada em cache separadamente na CDN. Mesmo que duas pessoas estejam assistindo a mesma taxa de bits, elas podem ser transmitidas por protocolos diferentes. Cada protocolo (HLS, MPEG-DASH, Smooth Streaming) é armazenado em cache separadamente. Portanto, cada taxa de bits e protocolo são armazenados em cache separadamente e apenas os fragmentos de vídeo que foram solicitados são armazenados em cache.
+    Considere um cenário no qual os clientes estão principalmente assistindo ao conteúdo ao vivo, mas estão apenas observando o conteúdo sob demanda e são servidos do mesmo ponto de extremidade de streaming. O baixo uso do conteúdo sob demanda ocuparia o espaço em cache que seria melhor salvo para o conteúdo ao vivo. Nesse cenário, recomendamos fornecer o conteúdo ao vivo de um ponto de extremidade de streaming e o conteúdo de cauda longa de outro ponto de extremidade de streaming. Isso melhorará o desempenho do conteúdo do evento ao vivo.
+    
+## <a name="scaling-streaming-with-cdn"></a>Dimensionamento de streaming com CDN
 
-### <a name="enable-azure-cdn-integration"></a>Habilitar a integração da CDN do Azure
+Veja os artigos a seguir:
 
-> [!IMPORTANT]
-> Não é possível habilitar a CDN para contas de avaliação ou de aluno do Azure.
->
-> A integração da CDN é habilitada em todos os data centers do Azure, exceto nas regiões federais governamentais e China.
-
-Depois que um ponto de extremidade de streaming é provisionado com a CDN habilitada, há um tempo de espera definido nos serviços de mídia antes que a atualização de DNS seja feita para mapear o ponto de extremidade de streaming para o ponto de extremidade CDN.
-
-Se quiser desabilitar/habilitar a CDN depois, o ponto de extremidade de streaming deverá estar no estado **interrompido**. Para que a integração da CDN do Azure seja habilitada e as alterações estejam ativas em todos os POPs da CDN talvez sejam necessárias até duas horas. No entanto, você pode iniciar seu ponto de extremidade de streaming e transmitir sem interrupções do ponto de extremidade de streaming e depois que a integração for concluída, o fluxo será entregue da CDN. Durante o período de provisionamento, o ponto de extremidade de streaming estará no estado **inicial** e você poderá observar o desempenho degradado.
-
-Quando o ponto de extremidade de streaming padrão é criado, ele é configurado por padrão com a Verizon padrão. Você pode configurar provedores da Verizon Premium ou Standard Akamai usando APIs REST.
-
-A integração dos Serviços de Mídia do Azure à CDN do Azure é implementada da **Verizon na CDN do Azure** para pontos de extremidade de streaming padrão. Os pontos de extremidade de streaming Premium podem ser configurados usando todos os **tipos de preço e provedores da CDN do Azure**. 
-
-> [!NOTE]
-> Para obter detalhes sobre a CDN do Azure, consulte a [visão geral da CDN](../../cdn/cdn-overview.md).
-
-### <a name="determine-if-dns-change-was-made"></a>Determinar se a alteração de DNS foi feita
-
-Você pode determinar se a alteração de DNS foi feita em um ponto de extremidade de streaming (o tráfego está sendo direcionado para a CDN do Azure) usando https://www.digwebinterface.com. Se os resultados tiverem nomes de domínio azureedge.net nos resultados, o tráfego agora estará sendo apontado para a CDN.
+- [Visão geral da CDN](../../cdn/cdn-overview.md)
+- [Dimensionamento de streaming com CDN](scale-streaming-cdn.md)
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Fazer perguntas, comentar, obter atualizações
 
 Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
-
-## <a name="see-also"></a>Confira também
-
-[Visão geral da CDN](../../cdn/cdn-overview.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

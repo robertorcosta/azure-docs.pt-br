@@ -1,5 +1,5 @@
 ---
-title: Falha ao criar ou excluir um banco de dados ou uma tabela no Azure Data Explorer
+title: Falha ao criar ou excluir o banco de BD ou a tabela no Azure Data Explorer
 description: Este artigo descreve etapas de solução de problemas para criar e excluir bancos de dados e tabelas no Azure Data Explorer.
 author: orspod
 ms.author: orspodek
@@ -7,14 +7,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0d221138914230d5455dc0addbe08cdaaed36a0b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67e4c33498b05884fe667a7977ddb40e647ab4c8
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60826247"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562387"
 ---
-# <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>Solucionar problemas: Falha ao criar ou excluir um banco de dados ou uma tabela no Azure Data Explorer
+# <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>Solução de problema: falha ao criar ou excluir um banco de dados ou uma tabela no Azure Data Explorer
 
 No Azure Data Explorer, você trabalha regularmente com bancos de dados e tabelas. Este artigo fornece as etapas de solução de problemas para os problemas que possam surgir.
 
@@ -36,7 +36,7 @@ Certifique-se de ter as permissões adequadas. Para criar ou renomear um banco d
 
     Para obter mais informações sobre permissões, consulte [Gerenciar permissões de banco de dados](manage-database-permissions.md).
 
-1. Certifique-se de que já não exista uma tabela com o mesmo nome. Se ele existir, então, você pode: Criar uma tabela com um nome diferente. Renomeie a tabela existente (requer *tabela admin* função); ou remova a tabela existente (requer *administrador de banco de dados* função). Use os seguintes comandos.
+1. Certifique-se de que já não exista uma tabela com o mesmo nome. Se existir, é possível: criar uma tabela com um nome diferente. renomear a tabela existente (requer a função *administrador de tabelas*); ou remover a tabela existente (requer a função *administrador de banco de dados*). Use os seguintes comandos.
 
     ```Kusto
     .drop table <TableName>

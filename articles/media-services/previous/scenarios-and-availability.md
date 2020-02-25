@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ef8596d8dcc9502f590c55223f207e71f5b91cf6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 4766f22cd84b2aab00f6dcc4064dbeea8018f694
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843932"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77564944"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade de recursos dos Serviços de Mídia em datacenters
 
@@ -31,9 +31,9 @@ O AMS opera em vários datacenters no mundo inteiro. Esses datacenters estão ag
 
 Este tópico mostra os cenários comuns de entrega de conteúdo [ao vivo](#live_scenarios) ou sob demanda. O tópico também fornece detalhes sobre a disponibilidade dos recursos de mídia e serviços nos datacenters.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 Para começar a usar o Azure Media Services, você deve possuir o seguinte:
 
@@ -137,7 +137,7 @@ Para obter informações sobre a disponibilidade nos datacenters, consulte a se�
 
 ## <a name="consuming-content"></a>Consumo de conteúdo
 
-Os Serviços de Mídia do Azure fornecem as ferramentas necessárias para criar aplicativos de player do cliente sofisticados e dinâmicos para a maioria das plataformas, incluindo: dispositivos iOS, dispositivos Android, Windows, Windows Phone, Xbox e decodificadores de sinais. O tópico a seguir fornece links para SDKs e estruturas de Player que você pode usar para desenvolver seus próprios aplicativos de cliente que podem consumir mídia de streaming dos Serviços de Mídia. Para obter mais informações, consulte [Desenvolvendo aplicativos do cliente de vídeo](media-services-develop-video-players.md)
+Os Serviços de Mídia do Azure fornecem as ferramentas necessárias para criar aplicativos de player do cliente sofisticados e dinâmicos para a maioria das plataformas, incluindo: dispositivos iOS, dispositivos Android, Windows, Windows Phone, Xbox e decodificadores de sinais. 
 
 ## <a name="enabling-azure-cdn"></a>Habilitando o CDN do Azure
 
@@ -179,8 +179,8 @@ Os clientes dos Serviços de Mídia podem escolher um ponto de extremidade de st
 
 |Nome|Status|Datacenters
 |---|---|---|
-|Padrão|GA|Tudo|
-|Premium|GA|Tudo|
+|Standard|GA|Todos|
+|Premium|GA|Todos|
 
 ### <a name="live-encoding"></a>Codificação ativa
 
@@ -196,7 +196,7 @@ A AMS oferece dois codificadores de sob demanda **Media Encoder Standard** e **F
 
 |Nome do processador de mídia|Status|Datacenters
 |---|---|---|
-|Media Encoder Standard|GA|Tudo|
+|Media Encoder Standard|GA|Todos|
 |Fluxo de trabalho do Media Encoder Premium|GA|Todos, exceto China|
 
 ### <a name="analytics-media-processors"></a>Processadores de mídia da Análise
@@ -207,12 +207,12 @@ A Análise de Mídia é uma coleção de componentes de fala e pesquisa visual q
 
 |Nome do processador de mídia|Status|Datacenters
 |---|---|---|
-|Detector de Rostos em Mídias do Azure|Versão prévia|Tudo|
-|Indexador de Mídia do Azure|GA|Tudo|
-|Detector de Movimento em Mídias do Azure|Versão prévia|Tudo|
-|OCR de Mídia do Azure|Versão prévia|Tudo|
-|Azure Media Redactor|GA|Tudo|
-|Miniaturas de Vídeo de Mídia do Azure|Versão prévia|Tudo|
+|Detector de Rostos em Mídias do Azure|Visualização|Todos|
+|Indexador de Mídia do Azure|GA|Todos|
+|Detector de Movimento em Mídias do Azure|Visualização|Todos|
+|OCR de Mídia do Azure|Visualização|Todos|
+|Azure Media Redactor|GA|Todos|
+|Miniaturas de Vídeo de Mídia do Azure|Visualização|Todos|
 
 ### <a name="protection"></a>Proteção
 
@@ -222,10 +222,10 @@ Os Serviços de Mídia do Microsoft Azure permitem proteger a mídia desde o mom
 
 |Criptografia|Status|Datacenters|
 |---|---|---| 
-|Armazenamento|GA|Tudo|
-|Chaves AES-128|GA|Tudo|
-|FairPlay|GA|Tudo|
-|PlayReady|GA|Tudo|
+|Armazenamento|GA|Todos|
+|Chaves AES-128|GA|Todos|
+|FairPlay|GA|Todos|
+|PlayReady|GA|Todos|
 |Widevine|GA|Todos, exceto Alemanha, Governo Federal e China.
 
 ### <a name="reserved-units-rus"></a>Unidades Reservadas (URs)
@@ -248,7 +248,7 @@ Para obter mais informações, consulte a seção sobre [dimensionamento](#scali
 
 |Nome do tipo de UR|Status|Datacenters
 |---|---|---|
-|S1|GA|Tudo|
+|S1|GA|Todos|
 |S2|GA|Todos, exceto sul do Brasil e Oeste da Índia|
 |S3|GA|Todos, exceto Oeste da Índia|
 
@@ -256,7 +256,7 @@ Para obter mais informações, consulte a seção sobre [dimensionamento](#scali
 
 * O Widevine é um serviço fornecido pela Google Inc. e está sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Examine os roteiros de aprendizagem dos Serviços de Mídia.
 

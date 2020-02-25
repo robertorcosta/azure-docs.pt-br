@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: 548a578365b03162396fb8618718ab1e7ce5b081
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 28b7a2b95e8ad23226f92f2b6fba085cc0fa1bfd
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75400791"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565546"
 ---
 # <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Como atualizar o Azure Monitor para VMs agente de dependência
 
 Após a implantação inicial do Azure Monitor para VMs agente de dependência, são lançadas atualizações que incluem correções de bugs ou suporte a novos recursos ou funcionalidades.  Este artigo ajuda você a entender os métodos disponíveis e como executar a atualização manualmente ou por meio da automação.
 
-## <a name="upgrade-options"></a>Opções de upgrade 
+## <a name="upgrade-options"></a>Opções de atualização 
 
 O Dependency Agent para Windows e Linux pode ser atualizado para a versão mais recente manualmente ou automaticamente, dependendo do cenário de implantação e do ambiente no qual o computador está sendo executado. Os métodos a seguir podem ser usados para atualizar o agente.
 
@@ -39,16 +39,9 @@ Você pode baixar a versão mais recente do agente do Windows [aqui](https://aka
 1. Faça logon no computador com uma conta que tenha direitos administrativos.
 
 2. Execute **installdependencyagent-Windows. exe** para iniciar o assistente de instalação.
+   
+3. Siga o assistente de **instalação do Dependency Agent** para desinstalar a versão anterior do agente de dependência e, em seguida, instale a versão mais recente.
 
-3. Na caixa de diálogo **configuração do Dependency Agent 9.9.1** , clique em **concordo** para aceitar o contrato de licença.
-
-5. Na caixa de diálogo **Dependency Agent desinstalação do 9.9.0** , clique em **Avançar**. A página de status exibe o progresso da desinstalação da versão anterior.
-
-6. Na caixa de diálogo **Dependency Agent desinstalação do 9.9.0** , clique em **desinstalar** para continuar com a desinstalação da versão anterior do caminho especificado na caixa de diálogo. 
-
-7. Na caixa de diálogo **desinstalação do Dependency Agent 9.9.0** , o progresso da desinstalação é mostrado e, quando concluído, a página **concluindo Dependency Agent desinstalação** é exibida. Clique em **Concluir**.
-
-8. Na caixa de diálogo **Dependency Agent configuração do 9.9.1** , o progresso da instalação é mostrado. Quando a página **concluindo Dependency Agent desinstalar** for exibida, clique em **concluir**. 
 
 ### <a name="from-the-command-line"></a>Na linha de comando
 
@@ -76,6 +69,6 @@ Você pode baixar a versão mais recente do agente do Windows [aqui](https://aka
 
 Se o Agente de Dependência não for iniciado, verifique os logs para obter informações de erro detalhadas. Em agentes do Linux, o diretório de log é */var/opt/microsoft/dependency-agent/log*. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se você quiser interromper o monitoramento de suas VMs por um período de tempo ou remover totalmente Azure Monitor para VMs, consulte [desabilitar o monitoramento de suas VMs no Azure monitor para VMs](vminsights-optout.md).

@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12803e2f65e17155e8bbcaf4842789adc101b0dd
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7acd76ff45f783f614b2a1d3f0d5c10d800a1ea9
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024401"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77559038"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Início rápido: conceder permissão para criar registros de aplicativo ilimitados
 
-Neste guia de início rápido, você criará uma função personalizada com permissão para criar um número ilimitado de registros de aplicativo e, em seguida, atribuir essa função a um usuário. O usuário atribuído pode usar o portal do Azure AD, o Azure AD PowerShell, o Azure AD API do Graph ou a API Microsoft Graph para criar registros de aplicativos. Diferentemente da função de desenvolvedor de aplicativo interna, essa função personalizada concede a capacidade de criar um número ilimitado de registros de aplicativo. A função de desenvolvedor de aplicativos concede a capacidade, mas o número total de objetos criados é limitado a 250 para evitar atingir [a cota de objetos de todo o diretório](directory-service-limits-restrictions.md).
+Neste guia de início rápido, você criará uma função personalizada com permissão para criar um número ilimitado de registros de aplicativo e, em seguida, atribuir essa função a um usuário. O usuário atribuído pode usar o portal do Azure AD, o PowerShell do Azure AD ou a API Microsoft Graph para criar registros de aplicativo. Diferentemente da função de desenvolvedor de aplicativo interna, essa função personalizada concede a capacidade de criar um número ilimitado de registros de aplicativo. A função de desenvolvedor de aplicativos concede a capacidade, mas o número total de objetos criados é limitado a 250 para evitar atingir [a cota de objetos de todo o diretório](directory-service-limits-restrictions.md).
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -141,7 +141,7 @@ POST
 https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
 ```
 
-corpo
+Corpo
 
 ```HTTP
 {
@@ -178,7 +178,7 @@ POST
 https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 
-corpo
+Corpo
 
 ``` HTTP
 {

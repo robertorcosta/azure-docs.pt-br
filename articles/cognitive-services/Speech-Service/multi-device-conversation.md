@@ -1,23 +1,23 @@
 ---
-title: O que é conversa com vários dispositivos (visualização)-serviço de fala
+title: Sobre a conversa com vários dispositivos (visualização) – serviço de fala
 titleSuffix: Azure Cognitive Services
 description: ''
 services: cognitive-services
-author: ralphe
-manager: cpoulain
+author: IEvangelist
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 1/15/2020
-ms.author: ralphe
-ms.openlocfilehash: 8d73c896f784507c2336a79130ff5f35aa61d30f
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.date: 01/31/2020
+ms.author: dapine
+ms.openlocfilehash: d94b3392d6bd5ab539d49c8a4cfdd568fbbb1cd0
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76268070"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560806"
 ---
-# <a name="what-is-multi-device-conversation-preview"></a>O que é conversa com vários dispositivos (versão prévia)?
+# <a name="about-multi-device-conversation-preview"></a>Sobre a conversa com vários dispositivos (visualização)
 
 A **conversa de vários dispositivos** facilita a criação de uma conversa de fala ou de texto entre vários clientes e coordena as mensagens enviadas entre eles.
 
@@ -43,7 +43,7 @@ Enquanto a [**transcrição de conversa**](conversation-transcription.md) funcio
 - **Retransmissão de mensagens** – o serviço de conversa de vários dispositivos distribuirá mensagens enviadas por um cliente para todos os outros, nos idiomas de sua escolha.
 - **Identificação de mensagem** – cada mensagem que os usuários recebem na conversa será marcada com o apelido do usuário que o enviou.
 
-## <a name="use-cases"></a>Use casos
+## <a name="use-cases"></a>Casos de uso
 
 ### <a name="lightweight-conversations"></a>Conversas leves
 
@@ -62,7 +62,7 @@ Você também pode fornecer legendas para apresentações e palestras na tela e 
 > [!NOTE]
 > Para ver um exemplo, confira o [conversor de apresentação](https://www.microsoft.com/translator/apps/presentation-translator/), um suplemento do PowerPoint que usa o serviço de conversa de vários dispositivos. Você pode baixá-lo [aqui](https://www.microsoft.com/download/details.aspx?id=55024).
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 Todos os clientes usarão o SDK de fala para criar ou ingressar em uma conversa. O SDK de fala interage com o serviço de conversa de vários dispositivos, que gerencia o tempo de vida de uma conversa, incluindo a lista de participantes, as linguagens escolhidas por cada cliente e as mensagens enviadas.  
 
@@ -98,7 +98,7 @@ Um **participante** é um usuário que ingressa em uma conversa.
 > [!NOTE]
 > Cada conversa pode ter até 100 participantes, dos quais 10 pode estar falando simultaneamente em um determinado momento.
 
-## <a name="language-support"></a>Suporte de idiomas
+## <a name="language-support"></a>Suporte ao idioma
 
 Ao criar ou ingressar em uma conversa, cada usuário deve escolher um **idioma principal**: o idioma em que eles irão falar e enviar mensagens instantâneas e também o idioma em que eles verão as mensagens de outros usuários.
 
@@ -123,7 +123,7 @@ Abaixo está um resumo do que o usuário poderá fazer em uma conversa com vári
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Traduza conversas em tempo real](quickstarts/multi-device-conversation.md)

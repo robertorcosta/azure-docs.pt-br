@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4db758ce0710f5b8b122feaadaa8b97a90dcb7cb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e3cdf44c2fc4c16bba283b6f884078dd947b1f34
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846855"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77564766"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modelo de cobrança para Azure Active Directory B2C
 
@@ -82,7 +82,7 @@ O link de assinatura é obtido criando um *recurso* de Azure ad B2C dentro da as
 
 Uma assinatura vinculada a um locatário Azure AD B2C pode ser usada para a cobrança de Azure AD B2C uso ou outros recursos do Azure, incluindo recursos de Azure AD B2C adicionais. A assinatura não pode ser usada para adicionar outros serviços baseados em licença do Azure ou licenças do Office 365 no locatário do Azure AD B2C.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 * [Assinatura do Azure](https://azure.microsoft.com/free/)
 * [Azure ad B2C locatário](tutorial-create-tenant.md) que você deseja vincular a uma assinatura
@@ -113,7 +113,7 @@ Você pode usar esse recurso para:
 * Navegue até a assinatura para examinar as informações de cobrança
 * Obter a ID do locatário do Azure AD B2C locatário no formato GUID
 * Ir até seu locatário do Azure AD B2C
-* Envie uma solicitação de suporte
+* Enviar uma solicitação de suporte
 * Mover seu Azure AD B2C recurso de locatário para outra assinatura do Azure ou grupo de recursos
 
 ![Página de configurações de recursos do B2C no portal do Azure](./media/billing/portal-02-b2c-resource-overview.png)
@@ -138,6 +138,6 @@ Para saber como mover os recursos do Azure como seu locatário de Azure AD B2C p
 
 Antes de iniciar a movimentação, lembre-se de ler todo o artigo para entender totalmente as limitações e os requisitos para tal movimentação. Além de instruções para mover recursos, ele inclui informações críticas, como uma lista de verificação de pré-movimentação e como validar a operação de movimentação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Além de examinar os detalhes de uso e cobrança em uma assinatura do Azure selecionada, você pode examinar relatórios de uso diário detalhados usando a API de [relatório de uso](view-usage-reports.md).
+Para obter as informações de preços mais recentes, consulte [preços de Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).

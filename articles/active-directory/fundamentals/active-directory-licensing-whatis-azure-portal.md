@@ -14,14 +14,14 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a455f0e1959ad496a04f531cc0c3ece240c757ad
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 9eec896e6cccaf58c83820161c54c4f10cfadadd
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987156"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561554"
 ---
-# <a name="what-is-group-based-licensing-in-azure-active-directory"></a>O que é o licenciamento baseado em grupos no Azure Active Directory?
+# <a name="what-is-group-based-licensing-in-azure-active-directory"></a>O que é o licenciamento baseado em grupo no Azure Active Directory?
 
 Os serviços de nuvem pagos da Microsoft, como Office 365, Enterprise Mobility + Security, Dynamics 365 e outros produtos similares, exigem licenças. Essas licenças são atribuídas a cada usuário que precisa acessar esses serviços. Para gerenciar licenças, os administradores usam um dos portais de gerenciamento (Office ou Azure) e cmdlets do PowerShell. O Azure AD (Azure Active Directory) é a infraestrutura subjacente que dá suporte ao gerenciamento de identidade para todos os serviços de nuvem da Microsoft. O Azure AD armazena informações sobre estados de atribuição de licença para usuários.
 
@@ -34,7 +34,7 @@ Para enfrentar esses desafios, o Azure AD agora inclui licenciamento baseado em 
 
 - Assinatura paga ou de avaliação para Azure AD Premium P1 e superior
 
-- Edição paga ou de avaliação do Office 365 Enterprise E3 ou Office 365 a3 ou Office 365 GCC G3 e superior
+- Edição paga ou de avaliação do Office 365 Enterprise E3 ou Office 365 a3 ou Office 365 GCC G3 ou Office 365 E3 para GCCH ou Office 365 E3 para DOD e superior
 
 ### <a name="required-number-of-licenses"></a>Número necessário de licenças
 Para os grupos com uma licença atribuída, também é necessário ter uma licença para cada membro exclusivo. Embora você não precise atribuir uma licença a cada membro do grupo, você deve ter, pelo menos, licenças suficientes para incluir todos os membros. Por exemplo, se você tiver 1.000 membros exclusivos que façam parte de grupos licenciados em seu locatário, deverá ter, pelo menos, 1.000 licenças para cumprir o contrato de licenciamento.

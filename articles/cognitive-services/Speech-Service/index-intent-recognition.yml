@@ -1,0 +1,45 @@
+### YamlMime:Landing
+title: Documentação do reconhecimento de intenção
+summary: O reconhecimento de intenções com os serviços de fala e Reconhecimento vocal (LUIS) permite a transcrição em tempo real de fluxos de áudio em texto, ao mesmo tempo que identifica a intenção e as entidades.
+metadata:
+  title: Documentação do reconhecimento de intenção-tutoriais, referência de API-serviços cognitivas do Azure | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: IEvangelist
+  manager: nitinme
+  layout: LandingPage
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+  ms.openlocfilehash: 278dc182b682615d621bfd8a891cc77591a511f1
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.translationtype: MT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77562840"
+landingContent:
+- title: Introdução
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Reconhecer uma fala, intenções e entidades
+      url: quickstarts/intent-recognition.md
+- title: Guias passo a passo
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Reconhecer tentativas de fala com LUIS eC#
+      url: how-to-recognize-intents-from-speech-csharp.md
+- title: Referência
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Portal do LUIS (Reconhecimento vocal)
+      url: https://www.luis.ai
+    - text: Recursos para desenvolvedores do LUIS
+      url: ../luis/developer-reference-resource.md
+    - text: Suporte ao idioma
+      url: ../luis/luis-language-support.md#languages-supported
+    - text: Preços
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services

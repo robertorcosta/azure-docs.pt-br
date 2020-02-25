@@ -1,0 +1,83 @@
+### YamlMime:Landing
+title: Documentação de conversão de fala em texto
+summary: A conversão de fala em texto do serviço de fala, também conhecida como reconhecimento de fala, permite a transcrição em tempo real de fluxos de áudio em texto.
+metadata:
+  title: Documentação de fala em texto-tutoriais, referência de API-serviços cognitivas do Azure | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: IEvangelist
+  manager: nitinme
+  layout: LandingPage
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+  ms.openlocfilehash: 2dd9fa8c9af53c69a1790dd890b48a7092f5a5da
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.translationtype: MT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77562928"
+landingContent:
+- title: Introdução
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é conversão de fala em texto?
+      url: speech-to-text.md
+  - linkListType: quickstart
+    links:
+    - text: Reconhecer uma fala com a entrada do microfone
+      url: quickstarts/speech-to-text-from-microphone.md
+    - text: Reconhecer uma fala de um arquivo de áudio
+      url: quickstarts/speech-to-text-from-file.md
+    - text: Reconhecer uma fala armazenada no Armazenamento de Blobs
+      url: quickstarts/from-blob.md
+- title: Guias passo a passo
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Alterar o idioma de origem do reconhecimento de fala
+      url: how-to-specify-source-language.md
+    - text: Escolher o modo de reconhecimento de fala
+      url: how-to-choose-recognition-mode.md
+    - text: Melhorar a precisão com listas de frases
+      url: how-to-phrase-lists.md
+    - text: Melhorar a precisão com modelos de locatário
+      url: tutorial-tenant-model.md
+    - text: Melhorar a precisão com a Fala Personalizada
+      url: how-to-custom-speech.md
+    - text: Selecionar um dispositivo de entrada de microfone específico
+      url: how-to-select-audio-input-devices.md
+    - text: Usar a detecção automática de idioma de origem
+      url: how-to-automatic-language-detection.md
+    - text: Usar formatos de entrada de áudio compactados
+      url: how-to-use-codec-compressed-audio-input-streams.md
+    - text: Usar formatos de entrada de áudio compactados (iOS)
+      url: how-to-use-codec-compressed-audio-input-streams-ios.md
+    - text: Usar formatos de entrada de áudio compactados (Android)
+      url: how-to-use-codec-compressed-audio-input-streams-android.md
+  - linkListType: concept
+    links:
+    - text: Preparar dados de Fala Personalizada
+      url: how-to-custom-speech-test-data.md
+    - text: Inspecionar dados de Fala Personalizada
+      url: how-to-custom-speech-inspect-data.md
+    - text: Avaliar a precisão de Fala Personalizada
+      url: how-to-custom-speech-evaluate-data.md
+    - text: Treinar um modelo personalizado
+      url: how-to-custom-speech-train-model.md
+    - text: Implantar um modelo personalizado
+      url: how-to-custom-speech-deploy-model.md
+    - text: Criar transcrições rotuladas por humanos
+      url: how-to-custom-speech-human-labeled-transcriptions.md
+- title: Referência
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Suporte ao idioma
+      url: language-support.md#speech-to-text
+    - text: Preços
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+    - text: Perguntas frequentes sobre conversão de fala em texto
+      url: faq-stt.md

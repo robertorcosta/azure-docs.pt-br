@@ -1,5 +1,5 @@
 ---
-title: Usar um endereço IP estático com o balanceador de carga do Serviço do Kubernetes do Azure (AKS)
+title: Usar um endereço IP estático e um rótulo DNS com o balanceador de carga do AKS (serviço kubernetes do Azure)
 description: Saiba como criar e usar um endereço IP estático com o balanceador de carga do AKS (Serviço de Kubernetes do Azure).
 services: container-service
 author: mlearned
@@ -7,14 +7,14 @@ ms.service: container-service
 ms.topic: article
 ms.date: 11/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 8457f1c0c5b6107c4b44f6f00236a33f7c67452a
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 5e1f88e82d994c7f912b21781271448d35b5d726
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325438"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77558898"
 ---
-# <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Usar um endereço IP público estático com o balanceador de carga do AKS (Serviço de Kubernetes do Azure)
+# <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Usar um endereço IP público estático e um rótulo DNS com o balanceador de carga do AKS (serviço de kubernetes do Azure)
 
 Por padrão, o endereço IP público atribuído a um recurso de balanceador de carga criado por um cluster do AKS só é válido durante o tempo de vida do recurso. Se você excluir o serviço de Kubernetes, o balanceador de carga e o endereço IP associados também serão excluídos. Se você quiser atribuir um endereço IP específico ou manter um endereço IP para serviços de Kubernetes reimplantados, crie e use um endereço IP público estático.
 
@@ -98,6 +98,30 @@ Crie o serviço e a implantação com o comando `kubectl apply`.
 kubectl apply -f load-balancer-service.yaml
 ```
 
+## <a name="apply-a-dns-label-to-the-service"></a>Aplicar um rótulo DNS ao serviço
+
+Se o serviço estiver usando um endereço IP público dinâmico ou estático, você poderá usar a anotação de serviço `service.beta.kubernetes.io/azure-dns-label-name` para definir um rótulo DNS voltado ao público. Isso publica um nome de domínio totalmente qualificado para seu serviço usando os servidores DNS públicos do Azure e o domínio de nível superior. O valor da anotação deve ser exclusivo no local do Azure, portanto, é recomendável usar um rótulo suficientemente qualificado.   
+
+Em seguida, o Azure acrescentará automaticamente uma sub-rede padrão, como `<location>.cloudapp.azure.com` (onde Location é a região que você selecionou), para o nome que você fornecer, para criar o nome DNS totalmente qualificado. Por exemplo:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    service.beta.kubernetes.io/azure-dns-label-name: myserviceuniquelabel
+  name: azure-load-balancer
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: azure-load-balancer
+```
+
+> [!NOTE] 
+> Para publicar o serviço em seu próprio domínio, consulte [Azure DNS][azure-dns-zone] e o projeto [external-DNS][external-dns] .
+
 ## <a name="troubleshoot"></a>Solucionar problemas
 
 Se o endereço IP estático definido na propriedade *loadBalancerIP* do manifesto do serviço kubernetes não existir ou não tiver sido criado no grupo de recursos do nó e nenhuma delegação adicional configurada, a criação do serviço do balanceador de carga falhará. Para solucionar problemas, examine os eventos de criação de serviço com o comando [kubectl descrevem][kubectl-describe] . Forneça o nome do serviço, conforme especificado no manifesto do YAML, como é mostrado no exemplo a seguir:
@@ -136,6 +160,8 @@ Para obter controle adicional sobre o tráfego de rede para seus aplicativos, ta
 
 <!-- LINKS - External -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+[azure-dns-zone]: https://azure.microsoft.com/services/dns/
+[external-dns]: https://github.com/kubernetes-sigs/external-dns
 
 <!-- LINKS - Internal -->
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks

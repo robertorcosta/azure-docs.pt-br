@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 5db86c09cd104b2a68431ccbe24128a24ebd2ad4
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 1ac1feb5e3b179ded5fd8dae47e1859f082ad827
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500419"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565779"
 ---
 # <a name="what-is-azure-private-link-service"></a>O que é o serviço de vínculo privado do Azure?
 
@@ -111,6 +111,8 @@ Detalhes do TLV personalizado:
 |Valor  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
 |  |4        |UINT32 (4 bytes) que representa a LINKID do ponto de extremidade privado. Codificado no formato little endian.|
 
+ > [!NOTE]
+ > O provedor de serviços é responsável por verificar se o serviço por trás do balanceador de carga padrão está configurado para analisar o cabeçalho do protocolo de proxy de acordo com a [especificação](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) quando o protocolo de proxy está habilitado no serviço de vínculo privado. A solicitação falhará se a configuração do protocolo de proxy estiver habilitada no serviço de vínculo privado e o serviço não estiver configurado para analisar o cabeçalho. Da mesma forma, a solicitação falhará se o serviço estiver esperando um cabeçalho de protocolo de proxy enquanto a configuração não estiver habilitada no serviço de vínculo privado. Depois que a configuração de protocolo de proxy estiver habilitada, o cabeçalho do protocolo proxy também será incluído em investigações de integridade HTTP/TCP do host para as máquinas virtuais de back-end, mesmo que não haja nenhuma informação do cliente no cabeçalho. 
 
 ## <a name="limitations"></a>Limitações
 

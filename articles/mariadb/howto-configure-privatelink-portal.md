@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 67b045ff0661e8d0f8e20656a012e85d01e83d7b
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: a9b3ae1ed28fc22d91760a4af3832a604a419a30
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425911"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561724"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-preview-using-portal"></a>Criar e gerenciar o link privado para o banco de dados do Azure para MariaDB (versão prévia) usando o portal
 
@@ -170,6 +170,9 @@ Nesta seção, você criará um ponto de extremidade privado para o servidor Mar
 2. Quando vir a mensagem **Validação aprovada**, selecione **Criar**. 
 
     ![Link privado criado](media/concepts-data-access-and-security-private-link/show-mariadb-private-link.png)
+
+    > [!NOTE] 
+    > O FQDN na configuração de DNS do cliente não é resolvido para o IP privado configurado. Você precisará configurar uma zona DNS para o FQDN configurado, conforme mostrado [aqui](../dns/dns-operations-recordsets-portal.md).
 
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Conectar-se a uma VM usando a RDP (Área de Trabalho Remota)
 

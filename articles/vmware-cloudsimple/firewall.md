@@ -1,6 +1,6 @@
 ---
-title: Soluções VMware do Azure (AVS)-configurar regras e tabelas de firewall
-description: Descreve como configurar as tabelas e regras de firewall de nuvem privada da AVS para restringir o tráfego em sub-redes e VLANs.
+title: Solução do Azure VMware por CloudSimple-configure as tabelas e regras de firewall
+description: Descreve como configurar tabelas e regras de firewall de nuvem privada para restringir o tráfego em sub-redes e VLANs.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -8,14 +8,14 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d133f4d0ac8cc8b70060563ad07da35e9fdf2d37
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 986f4b0da7254ebac3725a704f32af785c72fbcc
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025275"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565019"
 ---
-# <a name="set-up-firewall-tables-and-rules-for-avs-private-clouds"></a>Configurar tabelas e regras de firewall para nuvens privadas da AVS
+# <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Configurar tabelas e regras de firewall para nuvens privadas
 
 As tabelas de firewall e as regras associadas permitem que você especifique as restrições de tráfego a serem aplicadas a sub-redes e VLANs específicas.
 
@@ -24,7 +24,7 @@ As tabelas de firewall e as regras associadas permitem que você especifique as 
 
 ## <a name="add-a-new-firewall-table"></a>Adicionar uma nova tabela de firewall
 
-1. [Acesse o portal da AVS](access-cloudsimple-portal.md) e selecione **rede** no menu lateral.
+1. [Acesse o portal do CloudSimple](access-cloudsimple-portal.md) e selecione **rede** no menu lateral.
 2. Selecione **tabelas de firewall**.
 3. Selecione **criar tabela de firewall**.
 
@@ -68,12 +68,12 @@ As regras de firewall determinam como o firewall trata tipos específicos de tr�
 > [!IMPORTANT]
 > Cada tabela de firewall pode ter até 10 regras de entrada e 20 regras de saída. Esses limites podem ser aumentados [entrando em contato com o suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="attach-vlanssubnets"></a>Anexar VLANs/sub-redes
+## <a name="attach-vlans-subnet"></a>Anexar VLANs/sub-redes
 
 Depois de definir uma tabela de firewall, você pode especificar as sub-redes que estão sujeitas às regras na tabela.
 
 1. Na página tabelas de **Firewall** de > de **rede** , selecione uma tabela de firewall.
 2. Abra a guia **VLANs/sub-rede anexadas** .
 3. Clique em **anexar a uma VLAN/sub-rede**.
-4. Selecione a nuvem privada e a VLAN de sincronização automática. O nome de sub-rede e o bloco CIDR associados são mostrados.
+4. Selecione a nuvem privada e a VLAN. O nome de sub-rede e o bloco CIDR associados são mostrados.
 5. Clique em **Enviar**.

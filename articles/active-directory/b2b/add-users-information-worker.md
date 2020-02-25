@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37dc4a618f01022f4963a14aba921edcce9f4b60
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: abb5c6939d8c88db35a776aa8f2c075a4bdcc609
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74268847"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565410"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Como usuários na organização podem convidar usuários convidados para um aplicativo
 
@@ -73,7 +73,7 @@ Depois que um aplicativo é configurado para autoatendimento, os proprietários 
 7. Selecione **Adicionar** para enviar automaticamente o convite ao usuário convidado. Depois de enviar o convite, a conta de usuário é automaticamente adicionada ao diretório como convidado.
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 O gerenciamento de aplicativos de autoatendimento exige alguma configuração inicial por um administrador global e um administrador do Azure AD. Como parte dessa configuração, você configurará o aplicativo para autoatendimento e atribuirá um grupo ao aplicativo que o proprietário do aplicativo poderá gerenciar. Também é possível configurar o grupo para permitir que alguém solicite a associação, mas isso exige a aprovação de um proprietário do grupo. (Saiba mais sobre [gerenciamento de grupos de autoatendimento](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management).) 
 
@@ -86,7 +86,7 @@ O gerenciamento de aplicativos de autoatendimento exige alguma configuração in
 3. Selecione **Grupos**.
 4. Em **Configurações**, selecione **Geral**.
 5. Em **Gerenciamento de Grupos de Autoatendimento**, próximo a **Proprietários podem gerenciar solicitações de associação ao grupo no Painel de Acesso**, selecione **Sim**.
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 ### <a name="create-a-group-to-assign-to-the-app-and-make-the-user-an-owner"></a>Criar um grupo para atribuir ao aplicativo e tornar o usuário um proprietário
 1. Entre no [portal do Azure](https://portal.azure.com) como um administrador do Azure AD ou Administrador Global.
@@ -105,7 +105,7 @@ O gerenciamento de aplicativos de autoatendimento exige alguma configuração in
 2. No painel de navegação, selecione **Azure Active Directory**.
 3. Em **Gerenciar**, selecione **Aplicativos empresariais** > **Todos aplicativos**.
 4. Na lista de aplicativos, localize e abra o aplicativo.
-5. Em **Gerenciar**, selecione **Logon único**, e configure o aplicativo para logon único. (Para detalhes, consulte [como gerenciar logon único para aplicativos empresariais](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal).)
+5. Em **Gerenciar**, selecione **Logon único**, e configure o aplicativo para logon único. (Para detalhes, consulte [como gerenciar logon único para aplicativos empresariais](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications).)
 6. Em **Gerenciar**, selecione **Autoatendimento** e configure o acesso ao aplicativo de autoatendimento. (Para detalhes, consulte [como usar o acesso ao aplicativo de autoatendimento](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to).) 
 
     > [!NOTE]

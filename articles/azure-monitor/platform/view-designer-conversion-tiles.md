@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: 5bb02edce4a3aef30f8f9528a846c99d6d8d3b39
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: b1cce6d1aafabda62b71ecd38ff5ac7df1033b26
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77170858"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561979"
 ---
 # <a name="azure-monitor-view-designer-tile-conversions"></a>Azure Monitor conversões de bloco do designer de exibição
 O [Designer de exibição](view-designer.md) é um recurso do Azure monitor que permite que você crie modos de exibição personalizados para ajudá-lo a Visualizar dados em seu espaço de trabalho do log Analytics, com gráficos, listas e linhas do tempo. Eles estão sendo desativados e substituídos por pastas de trabalho que fornecem funcionalidade adicional. Este artigo fornece detalhes para converter blocos diferentes em pastas de trabalho.
@@ -62,8 +62,9 @@ Consulta original
 ```KQL
 search * 
 | summarize AggregatedValue = count() by Type
+```
 
-Updated query
+Consulta atualizada
 ```KQL
 search * 
 | make-series Count = count() default=0 on TimeGenerated from {TimeRange:start} to {TimeRange:end} step {TimeRange:grain} by Type

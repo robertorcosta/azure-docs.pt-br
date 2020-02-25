@@ -1,19 +1,19 @@
 ---
 title: Integrar Insights do Time Series com o Monitoramento Remoto - Azure | Microsoft Docs
 description: Neste tutorial, você aprenderá a configurar o recurso Time Series Insights para uma solução de monitoramento remoto existente que ainda não inclui Insights de Séries Temporais.
-author: aditidugar
+author: Philmea
 manager: timlt
-ms.author: adugar
+ms.author: philmea
 ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 4cc9b0051eaa12eee07f067352126ad159107a83
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 752529454a5b6293d9cbfdf8378b46947aed5a0e
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61442824"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77564637"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrar o Azure Time Series Insights com o Monitoramento Remoto
 
@@ -22,9 +22,9 @@ O Azure Time Series Insights é um serviço totalmente gerenciado de análise, a
 O acelerador de solução de monitoramento remoto agora fornece implantação e integração automáticas com o recurso Time Series Insights. Neste tutorial, você aprenderá a configurar o recurso Time Series Insights para uma solução de monitoramento remoto existente que ainda não inclui Insights de Séries Temporais.
 
 > [!NOTE]
-> Os Insights de Séries Temporais não estão disponíveis atualmente na nuvem do Azure China. As novas implantações do acelerador de solução de monitoramento remoto na nuvem do Azure China usam o Cosmos DB para todo o armazenamento.
+> Os Time Series Insights não estão disponíveis atualmente na nuvem do Azure China. As novas implantações do acelerador de solução de monitoramento remoto na nuvem do Azure China usam o Cosmos DB para todo o armazenamento.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisa já ter implantado uma solução de monitoramento remoto:
 
@@ -49,7 +49,7 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
 Em seguida, implante os Insights do Time Series como um recurso adicional em sua solução de monitoramento remoto e conecte-o ao hub da IoT.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 1. Selecione **Criar um recurso** > **Internet das Coisas** > **Time Series Insights**.
 
@@ -60,9 +60,9 @@ Em seguida, implante os Insights do Time Series como um recurso adicional em sua
     | Configuração | Valor |
     | ------- | ----- |
     | Nome do ambiente | A captura de tela a seguir usa o nome **contorosrmtsi**. Ao concluir esta etapa, escolha seu próprio nome exclusivo. |
-    | Assinatura | Na lista suspensa, selecione sua assinatura do Azure. |
-    | Grupo de recursos | **Usar existente**. Selecione o nome do seu grupo de recursos existente de Monitoramento Remoto. |
-    | Local padrão | Estamos usando **Leste dos EUA**. Crie seu ambiente na mesma região da sua solução de monitoramento remoto, se possível. |
+    | Subscription | Na lista suspensa, selecione sua assinatura do Azure. |
+    | Resource group | **Usar existente**. Selecione o nome do seu grupo de recursos existente de Monitoramento Remoto. |
+    | Location | Estamos usando **Leste dos EUA**. Crie seu ambiente na mesma região da sua solução de monitoramento remoto, se possível. |
     | Sku |**S1** |
     | Capacity | **1** |
 
@@ -238,7 +238,7 @@ Configure o ambiente da implementação de `basic` para os microsserviços atual
 1. Reinicie os contêineres docker usando `sudo ./start.sh` da VM.
 
 > [!NOTE]
-> A configuração acima de variáveis de ambiente é válida para as versões de monitoramento remoto antes de 1.0.2
+> A configuração acima de variáveis de ambiente é válida para versões de monitoramento remoto antes de 1.0.2
 
 ### <a name="standard-deployments"></a>Implantações padrão
 

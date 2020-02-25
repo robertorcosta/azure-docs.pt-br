@@ -10,18 +10,18 @@ ms.date: 07/25/2018
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: a65bb119994e8bb56eecc730774535d7c0a4d8b6
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2399849b87e44c5cb70d2db987ae18d8d2d9c552
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928437"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77564033"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorar um runtime de integração no Azure Data Factory  
 O **runtime de integração** é a infraestrutura de computação usada pelo Azure Data Factory para fornecer diversas funcionalidades de integração de dados entre diferentes ambientes de rede. São oferecidos três tipos de runtimes de integração pelo Data Factory:
 
-- Integration Runtime do Azure
-- Integration Runtime auto-hospedado
+- Azure Integration runtime
+- runtime de integração auto-hospedada
 - runtime de integração do Azure-SSIS
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -34,20 +34,20 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGr
 
 O cmdlet retorna diferentes informações para diferentes tipos de runtime de integração. Este artigo explica as propriedades e os status para cada tipo de runtime de integração.  
 
-## <a name="azure-integration-runtime"></a>Integration Runtime do Azure
+## <a name="azure-integration-runtime"></a>Azure Integration runtime
 O recurso de computação para um Azure Integration runtime é totalmente gerenciado com elasticidade no Azure. A tabela a seguir fornece descrições das propriedades retornadas pelo comando **Get-AzDataFactoryV2IntegrationRuntime** :
 
-### <a name="properties"></a>propriedades
+### <a name="properties"></a>Propriedades
 A tabela a seguir fornece descrições de propriedades retornadas pelo cmdlet para um Azure Integration runtime:
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 -------- | ------------- | 
-| name | Nome do Azure Integration runtime. |  
+| Nome | Nome do Azure Integration runtime. |  
 | Estado | Status do Azure Integration runtime. | 
 | Location | Local do Azure Integration runtime. Para obter detalhes sobre o local de Azure Integration runtime, consulte [Introdução ao runtime de integração](concepts-integration-runtime.md). |
 | DataFactoryName | Nome do Data Factory ao qual o Azure Integration runtime pertence. | 
 | ResourceGroupName | Nome do grupo de recursos ao qual o data factory pertence.  |
-| Descrição | Descrição do runtime de integração.  |
+| DESCRIÇÃO | Descrição do runtime de integração.  |
 
 ### <a name="status"></a>Status
 A tabela a seguir fornece os possíveis status do Azure Integration runtime:
@@ -55,21 +55,21 @@ A tabela a seguir fornece os possíveis status do Azure Integration runtime:
 | Status | Comentários/Cenários | 
 | ------ | ------------------ |
 | Online | O Azure Integration runtime está online e pronto para ser usado. | 
-| Off-line | O Azure Integration runtime está offline devido a um erro interno. |
+| Offline | O Azure Integration runtime está offline devido a um erro interno. |
 
-## <a name="self-hosted-integration-runtime"></a>Integration Runtime auto-hospedado
+## <a name="self-hosted-integration-runtime"></a>runtime de integração auto-hospedada
 Esta seção fornece descrições para propriedades retornadas pelo cmdlet Get-AzDataFactoryV2IntegrationRuntime. 
 
 > [!NOTE] 
 > As propriedades retornadas e o status contêm informações sobre o runtime de integração auto-hospedada geral e cada nó no runtime.  
 
-### <a name="properties"></a>propriedades
+### <a name="properties"></a>Propriedades
 
 A tabela a seguir apresenta descrições das Propriedades de monitoramento para **cada nó**:
 
-| Propriedade | Descrição | 
+| Propriedade | DESCRIÇÃO | 
 | -------- | ----------- | 
-| name | Nome do runtime de integração auto-hospedada e nós associados a ele. O nó é um computador local do Windows em que o runtime de integração auto-hospedada está instalado. |  
+| Nome | Nome do runtime de integração auto-hospedada e nós associados a ele. O nó é um computador local do Windows em que o runtime de integração auto-hospedada está instalado. |  
 | Status | O status do runtime de integração auto-hospedada geral e de cada nó. Exemplo: online/offline/Limited/etc. Para obter informações sobre esses status, consulte a próxima seção. | 
 | Versão | A versão do runtime de integração auto-hospedada geral e de cada nó. A versão do runtime de integração auto-hospedada é determinada com base na versão da maioria dos nós no grupo. Se há nós com versões diferentes na configuração do runtime de integração auto-hospedada, somente os nós com o mesmo número de versão que o runtime de integração auto-hospedada funcionam corretamente. Os outros estão no modo limitado e precisam ser atualizados manualmente (somente caso a atualização automática falhe). | 
 | Memória disponível | Memória disponível em um nó de runtime de integração auto-hospedada. Esse valor é um instantâneo quase em tempo real. | 
@@ -91,10 +91,10 @@ Você pode substituir o valor padrão calculado no portal do Azure. Selecione Au
 ### <a name="status-per-node"></a>Status (por nó)
 A tabela a seguir fornece os possíveis status de um nó de runtime de integração auto-hospedada:
 
-| Status | Descrição |
+| Status | DESCRIÇÃO |
 | ------ | ------------------ | 
 | Online | O nó está conectado ao serviço Data Factory. |
-| Off-line | O nó está offline. |
+| Offline | O nó está offline. |
 | Atualizando | O nó está sendo atualizado automaticamente. |
 | Limitado | Devido a um problema de conectividade. Pode ser devido a um problema de HTTP da porta 8050, problema de conectividade do barramento de serviço ou problema de sincronização de credenciais. |
 | Inativo | O nó está em uma configuração diferente da configuração de outros nós de maioria. |
@@ -104,17 +104,17 @@ Um nó pode ficar inativo quando ele não pode se conectar a outros nós.
 ### <a name="status-overall-self-hosted-integration-runtime"></a>Status (runtime de integração auto-hospedada geral)
 A tabela a seguir fornece os possíveis status de um runtime de integração auto-hospedada. Esse status depende dos status de todos os nós que pertencem ao runtime. 
 
-| Status | Descrição |
+| Status | DESCRIÇÃO |
 | ------ | ----------- | 
 | Precisa de registro | Nenhum nó está registrado a esse runtime de integração auto-hospedada. |
 | Online | Todos os nós estão online. |
-| Off-line | Nenhum nó está online. |
+| Offline | Nenhum nó está online. |
 | Limitado | Nem todos os nós no runtime de integração auto-hospedada estão em um estado íntegro. Esse status é um aviso de que alguns nós podem estar inativos. Esse status pode ser devido a um problema de sincronização de credenciais no nó dispatcher/de trabalho. |
 
 Use o cmdlet **Get-AzDataFactoryV2IntegrationRuntimeMetric** para buscar o conteúdo JSON que contém as propriedades detalhadas do tempo de execução de integração auto-hospedado e seus valores de instantâneo durante o tempo de execução do cmdlet.
 
 ```powershell
-Get-AzDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName  | | ConvertTo-Json 
+Get-AzDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName | ConvertTo-Json 
 ```
 
 Exemplo de saída (supõe que há dois nós associados a esse runtime de integração auto-hospedada):
@@ -154,9 +154,9 @@ Exemplo de saída (supõe que há dois nós associados a esse runtime de integra
 ## <a name="azure-ssis-integration-runtime"></a>runtime de integração do Azure-SSIS
 O runtime de integração do SSIS do Azure é um cluster totalmente gerenciado das máquinas virtuais (ou nós) do Azure dedicado a executar os pacotes de SSIS. Ele não executa nenhuma outra atividade do Azure Data Factory. Depois de provisionado, você pode consultar suas propriedades e monitorar os status geral/de nós específicos.
 
-### <a name="properties"></a>propriedades
+### <a name="properties"></a>Propriedades
 
-| Propriedade/Status | Descrição |
+| Propriedade/Status | DESCRIÇÃO |
 | --------------- | ----------- |
 | CreateTime | A hora UTC em que o runtime de integração do Azure-SSIS foi criado. |
 | Nós | Os nós alocados/disponíveis de seu runtime de integração do Azure-SSIS com status específicos dos nós (iniciando/disponível/reciclando/indisponível) e erros acionáveis. |
@@ -177,13 +177,13 @@ O runtime de integração do SSIS do Azure é um cluster totalmente gerenciado d
 | Type | O tipo (Gerenciado/Auto-hospedado) de seu runtime de integração do Azure-SSIS. |
 | ResourceGroupName | O nome do seu grupo de recursos do Azure, no qual seu data factory e o runtime de integração do Azure-SSIS foram criados. |
 | DataFactoryName | O nome de seu data factory do Azure. |
-| name | O nome do seu runtime de integração do Azure-SSIS. |
-| Descrição | A descrição do seu runtime de integração do Azure-SSIS. |
+| Nome | O nome do seu runtime de integração do Azure-SSIS. |
+| DESCRIÇÃO | A descrição do seu runtime de integração do Azure-SSIS. |
 
   
 ### <a name="status-per-node"></a>Status (por nó)
 
-| Status | Descrição |
+| Status | DESCRIÇÃO |
 | ------ | ----------- | 
 | Iniciando | Este nó está sendo preparado. |
 | Disponível | Este nó está pronto para implantar/executar pacotes do SSIS. |
@@ -192,12 +192,12 @@ O runtime de integração do SSIS do Azure é um cluster totalmente gerenciado d
 
 ### <a name="status-overall-azure-ssis-integration-runtime"></a>Status (runtime de integração do Azure-SSIS geral)
 
-| Status geral | Descrição | 
+| Status geral | DESCRIÇÃO | 
 | -------------- | ----------- | 
 | Inicial | Os nós de seu runtime de integração do Azure-SSIS não foram alocados/preparados. | 
 | Iniciando | Os nós de seu runtime de integração do Azure-SSIS estão sendo alocados/preparados e a cobrança foi iniciada. |
-| Iniciado | Os nós de seu runtime de integração do Azure-SSIS foram alocados/preparados e estão prontos para implantar/executar pacotes do SSIS. |
-| Interrompendo  | Os nós de seu runtime de integração do Azure-SSIS estão sendo liberados. |
+| Started (iniciado) | Os nós de seu runtime de integração do Azure-SSIS foram alocados/preparados e estão prontos para implantar/executar pacotes do SSIS. |
+| Parando  | Os nós de seu runtime de integração do Azure-SSIS estão sendo liberados. |
 | Parado | Os nós de seu runtime de integração do Azure-SSIS foram liberados e a cobrança parou. |
 
 ### <a name="monitor-the-azure-ssis-integration-runtime-in-the-azure-portal"></a>Monitorar o runtime de integração do Azure-SSIS no portal do Azure
@@ -226,7 +226,7 @@ Consulte os artigos a seguir para saber mais sobre o runtime de integração do 
 - [Gerencie um IR do Azure-SSIS](manage-azure-ssis-integration-runtime.md). Este artigo mostra como parar, iniciar ou remover um IR do Azure-SSIS. Ele também mostra como expandir o IR do Azure-SSIS adicionando mais nós ao IR. 
 - [Unir um IR do Azure-SSIS a uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md). Este artigo fornece informações conceituais sobre como unir um IR do Azure-SSIS a uma rede virtual do Azure. Ele também apresenta as etapas para usar o portal do Azure para configurar a rede virtual para que o IR do Azure-SSIS possa se unir à rede virtual. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Consulte os artigos a seguir para monitorar os pipelines de maneiras diferentes: 
 
 - [Início rápido: criar um data factory](quickstart-create-data-factory-dot-net.md).

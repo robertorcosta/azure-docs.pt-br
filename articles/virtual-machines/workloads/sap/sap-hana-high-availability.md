@@ -1,23 +1,23 @@
 ---
-title: Alta disponibilidade do SAP HANA nas VMs do Azure no SUSE Linux Enterprise Server | Microsoft Docs
+title: Alta disponibilidade de SAP HANA em VMs do Azure no SLES | Microsoft Docs
 description: Alta disponibilidade do SAP HANA nas VMs do Azure no SUSE Linux Enterprise Server
 services: virtual-machines-linux
 documentationcenter: ''
-author: MSSedusch
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/06/2019
-ms.author: sedusch
-ms.openlocfilehash: ffa2f937a14aa14750480d1c45498fb4c49fcc30
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.author: radeltch
+ms.openlocfilehash: 65ba7c0d8115e7125f1318e7fdca979cfab02474
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721506"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565835"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade do SAP HANA nas VMs do Azure no SUSE Linux Enterprise Server
 
@@ -69,7 +69,7 @@ Primeiro, leia os seguintes documentos e Notas SAP:
 * A Nota SAP [1999351] tem informações de solução de problemas adicionais para a Extensão de Monitoramento Avançado do Azure para SAP.
 * A Nota SAP [401162] contém informações sobre como evitar o "endereço já em uso" ao configurar a Replicação do Sistema HANA.
 * [WIKI da comunidade do SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as Notas SAP necessárias para Linux.
-* [Plataformas IaaS certificadas pela SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
+* [SAP HANA certificada IaaS plataformas](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 * [Planejamento e implementação de máquinas virtuais do Azure para SAP no][planning-guide] guia do Linux.
 * [Implantação de máquinas virtuais do Azure para SAP no Linux][deployment-guide] (este artigo).
 * [Implantação de DBMS de máquinas virtuais do Azure para SAP no][dbms-guide] guia do Linux.

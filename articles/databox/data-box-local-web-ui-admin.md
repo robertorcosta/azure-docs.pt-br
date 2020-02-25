@@ -1,6 +1,6 @@
 ---
-title: Local da web administração de interface do usuário no Azure Data Box, pesada de caixa de dados do Azure | Microsoft Docs
-description: Descreve como usar a interface do usuário da web local para administrar seus dispositivos e pesada de caixa de dados do Data Box
+title: Administrar Azure Data Box/Azure Data Box Heavy usando a interface do usuário da Web local
+description: Descreve como usar a interface do usuário da Web local para administrar seus dispositivos Data Box e Data Box Heavy
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: bf8af37b0caf51966e336bcb4cea0c4ece5ca9c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf7cf0a7aa2812d7a93c282cbda5f82dd83aac29
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66496257"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560177"
 ---
-# <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Usar a interface do usuário da web local para administrar o Data Box e a caixa de dados pesados
+# <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Use a interface do usuário da Web local para administrar seu Data Box e Data Box Heavy
 
-Este artigo descreve algumas das tarefas de configuração e gerenciamento que podem ser executadas nos dispositivos Data Box e pesada de caixa de dados. Você pode gerenciar os dispositivos de caixa de dados e dados de caixa pesada por meio da interface do usuário do portal do Azure e a IU da web local para o dispositivo. Este artigo concentra-se nas tarefas que você pode executar usando a interface do usuário da Web local.
+Este artigo descreve algumas das tarefas de configuração e gerenciamento que podem ser executadas nos dispositivos Data Box e Data Box Heavy. Você pode gerenciar os dispositivos Data Box e Data Box Heavy por meio da interface do usuário do portal do Azure e da interface do usuário da Web local do dispositivo. Este artigo concentra-se nas tarefas que você pode executar usando a interface do usuário da Web local.
 
-Web local da interface do usuário para o Data Box e pesada de caixa de dados é usada para a configuração inicial do dispositivo. Você também pode usar a interface do usuário da web local para desligar ou reiniciar o dispositivo, execute testes de diagnóstico, atualização de software, exibir logs de cópia e gerar um pacote de log para o Microsoft Support. Em um dispositivo pesada de caixa de dados com dois nós independentes, você pode acessar duas interfaces do usuário web local separada correspondente a cada nó do dispositivo.
+A interface do usuário da Web local para o Data Box e Data Box Heavy é usada para a configuração inicial do dispositivo. Você também pode usar a interface do usuário da Web local para desligar ou reiniciar o dispositivo, executar testes de diagnóstico, atualizar software, exibir logs de cópia e gerar um pacote de log para Suporte da Microsoft. Em um dispositivo Data Box Heavy com dois nós independentes, você pode acessar duas interfaces do site locais separadas correspondentes a cada nó do dispositivo.
 
 Este artigo inclui os seguintes tutoriais:
 
@@ -52,9 +52,9 @@ Se você enfrentar problemas no dispositivo, crie um pacote de suporte com os lo
 
 ## <a name="shut-down-or-restart-your-device"></a>Desligar ou reiniciar seu dispositivo
 
-Você pode desligar ou reiniciar seu dispositivo usando o interface do usuário da web local. Nós recomendamos que antes de reiniciar, você coloque os compartilhamentos offline no host e, em seguida, no dispositivo. Isso minimiza a possibilidade de dados corrompidos. Verifique se a cópia de dados não está em andamento quando você desligar o dispositivo.
+Você pode desligar ou reiniciar o dispositivo usando a interface do usuário da Web local. Nós recomendamos que antes de reiniciar, você coloque os compartilhamentos offline no host e, em seguida, no dispositivo. Isso minimiza a possibilidade de dados corrompidos. Verifique se a cópia de dados não está em andamento quando você desligar o dispositivo.
 
-Para desligar seu dispositivo, execute as seguintes etapas.
+Para desligar o dispositivo, execute as etapas a seguir.
 
 1. Na interface do usuário da Web local, acesse **Desligar ou reiniciar**.
 2. Clique em **Desligar**.
@@ -80,11 +80,11 @@ Para reiniciar o Data Box, execute as seguintes etapas.
 
 ## <a name="download-bom-or-manifest-files"></a>Baixar arquivos de manifesto ou BOM
 
-A fatura de materiais (BOM) ou os arquivos de manifesto contém a lista dos arquivos que são copiados para a caixa de dados ou a caixa de dados pesados. Esses arquivos são gerados quando você prepara o dispositivo para o envio.
+A BOM (lista de materiais) ou os arquivos de manifesto contêm a lista dos arquivos que são copiados para o Data Box ou Data Box Heavy. Esses arquivos são gerados quando você prepara o dispositivo para envio.
 
-Antes de começar, certifique-se de que o dispositivo foi concluída **preparar para o envio** etapa. Siga estas etapas para baixar a BOM ou os arquivos de manifesto:
+Antes de começar, verifique se o dispositivo foi concluído **preparação para o envio** etapa. Siga estas etapas para baixar a BOM ou os arquivos de manifesto:
 
-1. Vá para a IU da web local para seu dispositivo. Você verá que o dispositivo foi concluída a preparação para o envio. Quando a preparação do dispositivo for concluída, o status do dispositivo será exibido como **Pronto para envio**.
+1. Vá para a interface do usuário da Web local do seu dispositivo. Você verá que o dispositivo concluiu a preparação para o envio. Quando a preparação do dispositivo for concluída, o status do dispositivo será exibido como **Pronto para envio**.
 
     ![O dispositivo está pronto para envio](media/data-box-portal-admin/ready-to-ship.png)
 
@@ -111,7 +111,7 @@ Antes de começar, certifique-se de que o dispositivo foi concluída **preparar 
 Você usa esta lista para verificar os arquivos carregados na conta de Armazenamento do Azure depois que o Data Box retorna para o datacenter do Azure. Abaixo é mostrado um exemplo de arquivo de manifesto.
 
 > [!NOTE]
-> Em uma pesada de caixa de dados, dois conjuntos de lista de arquivos (BOM) são presentes correspondente para os dois nós no dispositivo.
+> Em um Data Box Heavy, dois conjuntos de arquivos (arquivos da BOM) estão presentes correspondentes aos dois nós no dispositivo.
 
 ```xml
 <file size="52689" crc64="0x95a62e3f2095181e">\databox\media\data-box-deploy-copy-data\prepare-to-ship2.png</file>
@@ -153,7 +153,7 @@ Você usa esta lista para verificar os arquivos carregados na conta de Armazenam
 <file size="3603" crc64="0x7e34c25d5606693f">\databox\TOC.yml</file>
 ```
 
-Esse arquivo contém a lista de todos os arquivos que foram copiados na caixa de dados ou dados caixa pesada. Nesse arquivo, o valor *crc64* se relaciona à soma de verificação gerada para o arquivo correspondente.
+Esse arquivo contém a lista de todos os arquivos que foram copiados no Data Box ou Data Box Heavy. Nesse arquivo, o valor *crc64* se relaciona à soma de verificação gerada para o arquivo correspondente.
 
 ## <a name="view-available-capacity-of-the-device"></a>Exibir a capacidade disponível no dispositivo
 
@@ -170,7 +170,7 @@ As somas de verificação são geradas para os seus dados por padrão quando voc
 
 É altamente recomendado que você não desabilite a soma de verificação, a menos que o desempenho seja gravemente afetado.
 
-1. No canto superior direito da web local da interface do usuário do seu dispositivo, acesse **configurações**.
+1. No canto superior direito da interface do usuário da Web local do seu dispositivo, vá para **configurações**.
 
     ![Desabilitar a soma de verificação](media/data-box-local-web-ui-admin/disable-checksum.png)
 
@@ -179,5 +179,5 @@ As somas de verificação são geradas para os seus dados por padrão quando voc
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [gerenciar o Data Box e pesada de caixa de dados por meio do portal do Azure](data-box-portal-admin.md).
+- Saiba como [gerenciar o data box e data Box Heavy por meio do portal do Azure](data-box-portal-admin.md).
 

@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 02/13/2020
+ms.date: 02/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 9858f7ac25f2063e62dce0322f1859a0a7fcf83b
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 63b1adc7b25b732cda147c5c1d11cc37e7b39248
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198659"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562013"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções internas para recursos do Azure
 
@@ -115,6 +115,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | [Leitor do Log Analytics](#log-analytics-reader) | Um Leitor do Log Analytics pode exibir e pesquisar todos os dados de monitoramento além de exibir as configurações de monitoramento, incluindo a exibição da configuração do diagnóstico do Azure em todos os recursos do Azure. | 73c42c96-874c-492b-b04d-ab87d138a893 |
 > | [Colaborador de Aplicativo Lógico](#logic-app-contributor) | Permite que você gerencie aplicativos lógicos, mas não altere o acesso a eles. | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
 > | [Operador de Aplicativo Lógico](#logic-app-operator) | Permite ler, habilitar e desabilitar aplicativos lógicos, mas não editá-los ou atualizá-los. | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
+> | [Função colaborador de aplicativo gerenciado](#managed-application-contributor-role) | Permite a criação de recursos de aplicativos gerenciados. | 641177b8-a67a-45b9-a033-47bc880bb21e |
 > | [Função do Operador de Aplicativos Gerenciado](#managed-application-operator-role) | Permite que você leia e execute as ações nos recursos de aplicativo gerenciado | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | [Leitor de aplicativos gerenciados](#managed-applications-reader) | Permite ler os recursos de um aplicativo gerenciado e solicitar acesso JIT. | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
 > | [Colaborador de Identidade Gerenciada](#managed-identity-contributor) | Criar, ler, atualizar e excluir a identidade atribuída pelo usuário | e40ec5ca-96e0-45a2-b4ff-59039f2c2b59 |
@@ -133,9 +134,10 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | [Colaborador de política de recursos](#resource-policy-contributor) | Usuários com direitos para criar/modificar a política de recursos, criar tíquete de suporte e ler recursos/hierarquia. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | [Colaborador de Coleções de Trabalho do Agendador](#scheduler-job-collections-contributor) | Permite gerenciar as coleções de trabalhos do Agendador, mas não acessá-las. | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
 > | [Colaborador do Serviço de Pesquisa](#search-service-contributor) | Permite gerenciar serviços de pesquisa, mas não acessá-las. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
-> | [Administrador de Segurança](#security-admin) | Na Central de Segurança somente: Pode visualizar as políticas de segurança, estados de segurança, editar políticas de segurança, visualizar alertas e recomendações, ignorar alertas e recomendações | fb1c8493-542b-48eb-b624-b4c8fea62acd |
-> | [Gerenciador de Segurança (Herdado)](#security-manager-legacy) | Esta é uma função herdada. Em vez disso, use o Administrador de Segurança | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
-> | [Leitor de Segurança](#security-reader) | Na Central de Segurança somente: Pode visualizar recomendações e alertas, visualizar políticas de segurança, visualizar estados de segurança, mas não pode fazer alterações | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
+> | [Administrador de Segurança](#security-admin) | pode exibir políticas de segurança, estados de segurança, editar políticas de segurança, exibir alertas e recomendações, ignorar alertas e recomendações. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
+> | [Colaborador de avaliação de segurança](#security-assessment-contributor) | Permite enviar avaliações por push para a central de segurança | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
+> | [Gerenciador de Segurança (Herdado)](#security-manager-legacy) | Esta é uma função herdada. Em vez disso, use o administrador de segurança. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
+> | [Leitor de Segurança](#security-reader) | Pode exibir recomendações e alertas, exibir políticas de segurança, exibir Estados de segurança, mas não pode fazer alterações. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | [Colaborador do Site Recovery](#site-recovery-contributor) | Permite gerenciar o serviço do Azure Site Recovery, exceto a criação de cofre e atribuição de função | 6670b86e-a3f7-4917-ac9b-5d6ab1be4567 |
 > | [Operador do Site Recovery](#site-recovery-operator) | Permite failover e failback, mas não executa outras operações de gerenciamento do Azure Site Recovery | 494ae006-db33-4328-bf46-533a6560a3ca |
 > | [Leitor do Site Recovery](#site-recovery-reader) | Permite visualizar o status do Azure Site Recovery, mas não executar outras operações de gerenciamento | dbaa88c4-0c30-4179-9fb3-46319faa6149 |
@@ -167,6 +169,8 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | [Logon de usuário da Máquina Virtual](#virtual-machine-user-login) | Visualize as Máquinas Virtuais do Microsoft Azure no portal e faça logon como usuário. | fb879df8-f326-4884-b1cf-06f3ad86be52 |
 > | [Colaborador do Plano de Web](#web-plan-contributor) | Permite gerenciar os planos da Web para sites, mas não o acesso a eles. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 > | [Colaborador do Site](#website-contributor) | Permite gerenciar sites (não planos da Web), mas não acessá-los. | de139f84-1756-47ae-9be6-808fbbe84772 |
+> | [Colaborador da pasta de trabalho](#workbook-contributor) | Pode salvar pastas de trabalho compartilhadas. | e8ddcd69-c73f-4f9f-9844-4100522f16ad |
+> | [Leitor de pasta de trabalho](#workbook-reader) | Pode ler pastas de trabalho. | b279062a-9be3-42a0-92ae-8b3cf002ec4d |
 
 
 ## <a name="owner"></a>Proprietário
@@ -346,7 +350,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.ApiManagement/service/restore/action | Restaurar o Serviço de Gerenciamento de API do contêiner especificado em uma conta de armazenamento fornecida pelo usuário |
 > | Microsoft.ApiManagement/service/updatecertificate/action | Carregar certificado SSL para um Serviço de Gerenciamento de API |
 > | Microsoft.ApiManagement/service/updatehostname/action | Configurar, atualizar ou remover nomes de domínio personalizado para um Serviço de Gerenciamento de API |
-> | Microsoft.ApiManagement/service/write | Criar uma nova instância do Serviço de Gerenciamento de API |
+> | Microsoft.ApiManagement/service/write | Criar ou atualizar a instância do serviço de gerenciamento de API |
 > | Microsoft.Authorization/*/read | Ler autorização |
 > | Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
@@ -609,7 +613,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Id** | b64e21ea-ac4e-4cdf-9dc9-5b892992bee7 |
 > | **Ações** |  |
 > | Microsoft. HybridCompute/computadores/ler | Ler qualquer computador do Arc do Azure |
-> | Microsoft. HybridCompute/Machines/Write | Escrever um computador do Arc do Azure |
+> | Microsoft. HybridCompute/Machines/Write | Grava um computador do Arc do Azure |
 > | Microsoft.GuestConfiguration/guestConfigurationAssignments/read | Obter atribuição de configuração de convidado. |
 > | **NotActions** |  |
 > | *nenhum* |  |
@@ -626,9 +630,9 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Id** | cd570a14-e51a-42ad-bac8-bafd67325302 |
 > | **Ações** |  |
 > | Microsoft. HybridCompute/computadores/ler | Ler qualquer computador do Arc do Azure |
-> | Microsoft. HybridCompute/Machines/Write | Escrever um computador do Arc do Azure |
-> | Microsoft. HybridCompute/Machines/Delete | Excluir computadores do Arc do Azure |
-> | Microsoft. HybridCompute/Machines/reconnect/ação | Reconectar um computador de arco do Azure |
+> | Microsoft. HybridCompute/Machines/Write | Grava um computador do Arc do Azure |
+> | Microsoft. HybridCompute/Machines/Delete | Excluir um computador do Arc do Azure |
+> | Microsoft. HybridCompute/Machines/reconnect/ação | Reconecta um computador de arco do Azure |
 > | Microsoft. HybridCompute/*/Read |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
@@ -690,6 +694,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Id** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | **Ações** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Listar a credencial clusterAdmin de um cluster gerenciado |
+> | Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action | Obtém um perfil de acesso do cluster gerenciado por nome de função usando a credencial de lista |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -1540,6 +1545,8 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Databox/jobs/listsecrets/action |  |
 > | Microsoft.Databox/jobs/listcredentials/action | Lista as credenciais não criptografadas relacionadas ao pedido. |
 > | Microsoft.Databox/locations/availableSkus/action | Este método retorna a lista de SKUs disponíveis. |
+> | Microsoft. Data Box/Locations/validateInputs/Action | Esse método faz todo o tipo de validações. |
+> | Microsoft. Data Box/Locations/regionConfiguration/Action | Esse método retorna as configurações para a região. |
 > | Microsoft.Databox/locations/validateAddress/action | Validará o endereço de entrega e fornecerá endereços alternativos, se houver algum. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
@@ -1565,6 +1572,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
+> | Microsoft.EventGrid/eventSubscriptions/write | Criar ou atualizar um eventSubscription |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -1851,6 +1859,8 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.LabServices/labAccounts/createLab/action | Criar um laboratório em uma conta de laboratório. |
 > | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action |  |
 > | Microsoft.LabServices/labAccounts/getRegionalAvailability/action | Obter informações sobre disponibilidade regional para cada categoria de tamanho configurado em uma conta de laboratório |
+> | Microsoft. LabServices/labAccounts/getPricingAndAvailability/Action | Obtenha o preço e a disponibilidade de combinações de tamanhos, geografias e sistemas operacionais para a conta de laboratório. |
+> | Microsoft. LabServices/labAccounts/getRestrictionsAndUsage/Action | Obter restrições e uso de núcleo para esta assinatura |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
@@ -1964,6 +1974,25 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Web/connections/*/read | Ler conexões. |
 > | Microsoft.Web/customApis/*/read | Ler API personalizada. |
 > | Microsoft.Web/serverFarms/read | Obter as propriedades em um Plano do Serviço de Aplicativo |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+## <a name="managed-application-contributor-role"></a>Função colaborador de aplicativo gerenciado
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Permite a criação de recursos de aplicativos gerenciados. |
+> | **Id** | 641177b8-a67a-45b9-a033-47bc880bb21e |
+> | **Ações** |  |
+> | */leitura | Ler recursos de todos os tipos, exceto segredos. |
+> | Microsoft. Solutions/Applications/* |  |
+> | Microsoft.Solutions/register/action | Registrar para Soluções. |
+> | Microsoft. Resources/subscriptions/resourceGroups/* |  |
+> | Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -2337,7 +2366,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Na Central de Segurança somente: Pode visualizar as políticas de segurança, estados de segurança, editar políticas de segurança, visualizar alertas e recomendações, ignorar alertas e recomendações |
+> | **Descrição** | pode exibir políticas de segurança, estados de segurança, editar políticas de segurança, exibir alertas e recomendações, ignorar alertas e recomendações. |
 > | **Id** | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
@@ -2358,11 +2387,26 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
+## <a name="security-assessment-contributor"></a>Colaborador de avaliação de segurança
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Permite enviar avaliações por push para a central de segurança |
+> | **Id** | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
+> | **Ações** |  |
+> | Microsoft. Security/avaliações/gravação | Criar ou atualizar avaliações de segurança em sua assinatura |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
 ## <a name="security-manager-legacy"></a>Gerenciador de Segurança (Herdado)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Esta é uma função herdada. Em vez disso, use o Administrador de Segurança |
+> | **Descrição** | Esta é uma função herdada. Em vez disso, use o administrador de segurança. |
 > | **Id** | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
@@ -2386,7 +2430,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Na Central de Segurança somente: Pode visualizar recomendações e alertas, visualizar políticas de segurança, visualizar estados de segurança, mas não pode fazer alterações |
+> | **Descrição** | Pode exibir recomendações e alertas, exibir políticas de segurança, exibir Estados de segurança, mas não pode fazer alterações. |
 > | **Id** | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
@@ -3114,6 +3158,9 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Compute/locations/* | Criar e gerenciar locais de computação |
 > | Microsoft.Compute/virtualMachines/* | Criar e gerenciar máquinas virtuais |
 > | Microsoft.Compute/virtualMachineScaleSets/* | Criar e gerenciar conjuntos de escala de máquina virtual |
+> | Microsoft.Compute/disks/write | Criar um novo disco ou atualizar um existente |
+> | Microsoft.Compute/disks/read | Obter as propriedades de um disco |
+> | Microsoft.Compute/disks/delete | Excluir o disco |
 > | Microsoft.DevTestLab/schedules/* |  |
 > | Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta do Insights |
 > | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Une um pool de endereços de back-end do gateway de aplicativo. Não é possível alertá-lo. |
@@ -3214,6 +3261,38 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Web/serverFarms/join/action |  |
 > | Microsoft.Web/serverFarms/read | Obter as propriedades em um Plano do Serviço de Aplicativo |
 > | Microsoft.Web/sites/* | Criar e gerenciar sites (a criação de sites também requer permissões de gravação para o Plano do Serviço de Aplicativo associado) |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+## <a name="workbook-contributor"></a>Colaborador da pasta de trabalho
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Pode salvar pastas de trabalho compartilhadas. |
+> | **Id** | e8ddcd69-c73f-4f9f-9844-4100522f16ad |
+> | **Ações** |  |
+> | Microsoft. insights/pastas de trabalho/gravação | Criar ou atualizar uma pasta de trabalho |
+> | Microsoft. insights/pastas de trabalho/exclusão | Excluir uma pasta de trabalho |
+> | Microsoft. insights/pastas de trabalho/leitura | Ler uma pasta de trabalho |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+## <a name="workbook-reader"></a>Leitor de pasta de trabalho
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Pode ler pastas de trabalho. |
+> | **Id** | b279062a-9be3-42a0-92ae-8b3cf002ec4d |
+> | **Ações** |  |
+> | Microsoft. insights/pastas de trabalho/leitura | Ler uma pasta de trabalho |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |

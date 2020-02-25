@@ -1,6 +1,6 @@
 ---
-title: Uso do Azure Data Box, pesada de caixa de dados do Azure para enviar dados para quente, frio, arquivar a camada de blob | Microsoft Docs nos dados
-description: Descreve como usar o Azure Data Box ou pesada de caixa de dados do Azure para enviar dados para uma camada de armazenamento de blob de bloco apropriado, como quente, frio ou de arquivo
+title: Enviar dados para a camada de BLOBs quente, frio e arquivo por meio de Azure Data Box/Azure Data Box Heavy
+description: Descreve como usar Azure Data Box ou Azure Data Box Heavy para enviar dados a uma camada de armazenamento de blobs de blocos apropriada, como quente, frio ou arquivo morto
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: ea208c395e2ef69ce8f28052351643e963cceb05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 31178284313ad7dafb094b109a75d4550cabd39c
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427882"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560364"
 ---
-# <a name="use-azure-data-box-or-azure-data-box-heavy-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Usar o Azure Data Box ou pesada de caixa de dados do Azure para enviar dados ao nível adequado de blob de armazenamento do Azure
+# <a name="use-azure-data-box-or-azure-data-box-heavy-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Usar Azure Data Box ou Azure Data Box Heavy para enviar dados para a camada de blob de armazenamento do Azure apropriada
 
 O Azure Data Box move grandes quantidades de dados para o Azure enviando a você um dispositivo de armazenamento proprietário. Você preenche o dispositivo com os dados e retorna-o. Os dados do Data Box são carregados para uma camada padrão associada à conta de armazenamento. Então você pode mover os dados para outra camada de armazenamento.
 
-Este artigo descreve como os dados são carregados pelo Data Box podem ser movidos para uma camada de blob quente, fria ou de arquivos. Este artigo se aplica ao Azure Data Box e pesada de caixa de dados do Azure.
+Este artigo descreve como os dados são carregados pelo Data Box podem ser movidos para uma camada de blob quente, fria ou de arquivos. Este artigo se aplica a Azure Data Box e Azure Data Box Heavy.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -31,21 +31,21 @@ A camada de armazenamento frio é para dados acessados com pouca frequência que
 
 A camada de Arquivos do Azure fica offline e oferece os custos de armazenamento mais baixos, mas também os custos de acesso mais altos. Essa camada destina-se a dados que permanecem no armazenamento de arquivos por pelo menos 180 dias. Para obter detalhes sobre cada uma dessas camadas e o modelo de preços, acesse [Comparação das camadas de armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
 
-Os dados da caixa de dados ou dados caixa pesado é carregado em uma camada de armazenamento que está associada com a conta de armazenamento. Quando você cria uma conta de armazenamento, pode especificar a camada de acesso como quente ou fria. Dependendo do padrão de acesso de sua carga de trabalho e do custo, você poderá mover esses dados da camada padrão para outra camada de armazenamento.
+Os dados do Data Box ou Data Box Heavy são carregados em uma camada de armazenamento associada à conta de armazenamento. Quando você cria uma conta de armazenamento, pode especificar a camada de acesso como quente ou fria. Dependendo do padrão de acesso de sua carga de trabalho e do custo, você poderá mover esses dados da camada padrão para outra camada de armazenamento.
 
-Você só pode ordenar os dados de armazenamento de objetos nas contas de Armazenamento de Blobs ou GPv2 (Uso Geral v2). Contas de Uso geral v1 (GPv1) não dão suporte a camadas. Para escolher a camada de armazenamento correta para seus dados, examine as considerações detalhadas em [Armazenamento de Blobs do Azure: camadas de armazenamento Premium, quente, fria e de arquivos](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
+Você só pode ordenar os dados de armazenamento de objetos nas contas de Armazenamento de Blobs ou GPv2 (Uso Geral v2). Contas de Uso geral v1 (GPv1) não dão suporte a camadas. Para escolher a camada de armazenamento correta para seus dados, examine as considerações detalhadas no [armazenamento de BLOBs do Azure: camadas de armazenamento Premium, quentes, frias e de arquivo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
 
 ## <a name="set-a-default-blob-tier"></a>Defina uma camada de blob padrão
 
 A camada de blob padrão é especificada quando a conta de armazenamento é criada no portal do Azure. Depois que um tipo de armazenamento é selecionado como o Armazenamento de Blobs ou GPv2, o atributo da camada de acesso pode ser especificado. Por padrão, a camada Quente é selecionada.
 
-As camadas não podem ser especificado se você está tentando criar uma nova conta ao ordenar uma caixa de dados ou dados caixa pesada. Depois que a conta for criada, você poderá modificar a conta no portal para definir a camada de acesso padrão.
+As camadas não poderão ser especificadas se você estiver tentando criar uma nova conta ao ordenar uma Data Box ou Data Box Heavy. Depois que a conta for criada, você poderá modificar a conta no portal para definir a camada de acesso padrão.
 
-Como alternativa, você cria uma conta de armazenamento primeiro com o atributo da camada de acesso especificado. Ao criar a ordem de caixa de dados ou dados caixa pesada, selecione a conta de armazenamento existente. Para obter mais informações sobre como definir a camada de blob padrão durante a criação da conta de armazenamento, confira [Criar uma conta de armazenamento no portal do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal).
+Como alternativa, você cria uma conta de armazenamento primeiro com o atributo da camada de acesso especificado. Ao criar o Data Box ou Data Box Heavy ordem, selecione a conta de armazenamento existente. Para obter mais informações sobre como definir a camada de blob padrão durante a criação da conta de armazenamento, confira [Criar uma conta de armazenamento no portal do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal).
 
 ## <a name="move-data-to-a-non-default-tier"></a>Mover dados para uma camada não padrão
 
-Depois que os dados do dispositivo Data Box são carregados para a camada padrão, você talvez queira mover os dados para uma camada diferente do padrão. Há duas maneiras de mover esses dados para uma camada não padrão.
+Depois que os dados do dispositivo Data Box forem carregados para a camada padrão, talvez você queira mover os dados para uma camada não padrão. Há duas maneiras de mover esses dados para uma camada não padrão.
 
 - **Gerenciamento de ciclo de vida do Armazenamento de Blobs do Azure** – você pode usar uma abordagem baseada em política para automaticamente colocar dados em camadas ou expirá-los no final do ciclo de vida. Para obter mais informações, confira [Gerenciando o ciclo de vida do Armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts).
 - **Script** – você pode usar uma abordagem com script por meio do Azure PowerShell para habilitar a camada no nível do blob. Você pode chamar a operação `SetBlobTier` para definir a camada no blob.
@@ -54,7 +54,7 @@ Depois que os dados do dispositivo Data Box são carregados para a camada padrã
 
 As etapas a seguir descrevem como você pode definir a camada de blob como Arquivos usando um script do Azure PowerShell.
 
-1. Abra uma sessão elevada do Windows PowerShell. Verifique se você está executando o PowerShell 5.0 ou posterior. Digite:
+1. Abra uma sessão elevada do Windows PowerShell. Verifique se você está executando o PowerShell 5.0 ou posterior. Tipo:
 
    `$PSVersionTable.PSVersion`     
 

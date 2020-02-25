@@ -1,28 +1,28 @@
 ---
-title: 'Visualizar dados no Azure Data Explorer usando uma consulta importada no Power BI '
-description: 'Neste artigo, você aprenderá a usar uma das três opções para visualizar dados no Power BI: importando uma consulta de Data Explorer do Azure.'
+title: Visualizar dados do Data Explorer do Azure com uma consulta Power BI importada
+description: 'Neste artigo, você aprenderá a usar uma das três opções para visualizar dados no Power BI: importando uma consulta do Data Explorer do Azure.'
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 6c2c8457cee004bf1288656ec9746b703d41aee1
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: ff156ab3fe74115bce8f7d6bdd3ba47b514f5ff5
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806416"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562472"
 ---
 # <a name="visualize-data-using-a-query-imported-into-power-bi"></a>Visualizar dados usando uma consulta importada ao Power BI
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. Power BI é uma solução de análise de negócios que permite que você visualize os dados e compartilhar os resultados na sua organização.
 
-O Azure Data Explorer fornece três opções para se conectar a dados no Power BI: usar o conector interno, importar uma consulta do Azure Data Explorer ou usar uma consulta SQL. Este artigo mostra como importar uma consulta para que você possa obter dados e visualizá-los em um relatório do Power BI.
+O Azure Data Explorer fornece três opções para se conectar a dados no Power BI: usar o conector interno, importar uma consulta do Azure Data Explorer ou usar uma consulta SQL. Este artigo mostra como importar uma consulta para que você possa obter dados e visualizá-los em um relatório Power BI.
 
 Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Você precisará do seguinte para concluir este artigo:
 
@@ -76,10 +76,10 @@ Primeiro, crie uma consulta no aplicativo de área de trabalho do Azure Data Exp
 
 [!INCLUDE [data-explorer-power-bi-visualize-basic](../../includes/data-explorer-power-bi-visualize-basic.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se você não precisa mais o relatório que você criou para este artigo, exclua o arquivo do Power BI Desktop (. pbix).
+Se você não precisar mais do relatório criado para este artigo, exclua o arquivo Power BI Desktop (. pbix).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Visualizar dados usando o conector do Gerenciador de dados do Azure para o Power BI](power-bi-connector.md)
+[Visualizar dados usando o conector de Data Explorer do Azure para Power BI](power-bi-connector.md)

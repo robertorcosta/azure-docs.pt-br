@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de instalação do SAP HANA 2.0 expansão HSR Pacemaker com SLES 12 SP3 em máquinas virtuais do Azure | Microsoft Docs
+title: SAP HANA escalar horizontalmente HSR-pacemaker com SLES em solução de problemas de VMs do Azure | Microsoft Docs
 description: Guia para verificar e solucionar problemas de uma configuração de expansão de alta disponibilidade do SAP HANA com base no SAP HANA System Replication (HSR) e no Pacemaker no SLES 12 SP3 em execução nas máquinas virtuais do Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 299fba8a082f19f17ab581a6ac2bfac9fd3f8cf1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fb90bfff72f41d8d7ccc34d3ad6dd0e9206bb88e
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099656"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566226"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verificar e solucionar problemas de instalação de alta disponibilidade de expansão do SAP HANA no SLES 12 SP3 
 
@@ -457,14 +457,14 @@ Durante os testes e verificações, após o reinício de uma VM, o dispositivo S
 5. Acima do nome do iniciador, verifique se o valor **Service Start** está definido como **Ao inicializar**.
 6. Se não estiver, defina-o como **inicializar quando** em vez de **manualmente**.
 7. Em seguida, mude a guia superior para **Targets conectados**.
-8. Na tela **Destinos Conectados**, você deve ver uma entrada para o dispositivo SBD como este exemplo: **10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**.
+8. Na tela **Targets Conectados**, você deve ver uma entrada para o dispositivo SBD como este exemplo: **10.0.0.19:3260 iqn.2006-04.dbhso.local: dbhso**.
 9. Verifique se o valor **Start-Up** está definido como **na inicialização**.
 10. Se não, escolha **editar** e alterá-lo.
 11. Salve as alterações e sair do YaST2.
 
 
 
-## <a name="pacemaker"></a>Marca-Passo
+## <a name="pacemaker"></a>Pacemaker
 
 Depois que tudo estiver configurado corretamente, você poderá executar o seguinte comando em cada nó para verificar o status do serviço Pacemaker:
 
@@ -725,7 +725,7 @@ Transition Summary:
 ## <a name="planned-maintenance"></a>Manutenção planejada 
 
 Há diferentes casos de uso que dizem respeito à manutenção planejada. Uma questão é se é apenas manutenção de infraestrutura, como alterações no nível do sistema operacional e na configuração do disco ou uma atualização do HANA.
-Você pode encontrar informações adicionais em documentos do SUSE, como em [direção a zero tempo][sles-zero-downtime-paper] de inatividade ou [SAP Hana cenário otimizado para desempenho Sr][sles-12-for-sap]. Esses documentos também incluem amostras que mostram como migrar manualmente um primário.
+Você pode encontrar informações adicionais em documentos do SUSE, como em [direção a zero tempo de inatividade][sles-zero-downtime-paper] ou [SAP Hana cenário otimizado para desempenho Sr][sles-12-for-sap]. Esses documentos também incluem amostras que mostram como migrar manualmente um primário.
 
 Intensos testes internos foram feitos para verificar o caso de uso de manutenção de infraestrutura. Para evitar problemas relacionados à migração do primário, decidimos sempre migrar um primário antes de colocar um cluster no modo de manutenção. Dessa forma, não é necessário fazer com que o cluster esqueça a situação anterior: qual lado era primário e qual era secundário.
 

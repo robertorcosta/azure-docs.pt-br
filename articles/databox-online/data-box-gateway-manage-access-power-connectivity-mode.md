@@ -1,5 +1,5 @@
 ---
-title: O acesso ao dispositivo Microsoft Azure Data Box Gateway, energia e acesso ao modo conectividade | Microsoft Docs
+title: Gateway do Azure Data Box o acesso ao dispositivo, a energia e o modo de conectividade
 description: Descreve como gerenciar o acesso, a potência e o modo de conectividade para o dispositivo de Azure Data Box Gateway que ajuda a transferir dados para o Azure
 services: databox
 author: alkohli
@@ -8,18 +8,18 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 38662fc8dda935d5f000aee6609fd9b2e42de17f
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: e2e82c551117f2ae96e026b39c08ccf56e7ce8e2
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68253164"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561809"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Gerenciar o acesso, a energia e o modo de conectividade para seu Gateway do Azure Data Box
 
 Este artigo descreve como gerenciar o modo de acesso, energia e conectividade para o Azure Data Box Gateway. Essas operações são executadas por meio da interface do usuário da web local ou o portal do Azure.
 
-Neste artigo, você aprenderá a:
+Neste artigo, você aprenderá como:
 
 > [!div class="checklist"]
 > * Gerenciar o acesso de dispositivo
@@ -65,7 +65,7 @@ Ao gerar a chave de ativação para o dispositivo Data Box Edge ou executar qual
 -  Criando um compartilhamento com uma conta de armazenamento associada.
 -  Criar um usuário que pode acessar os compartilhamentos no dispositivo.
 
-Você deve ter `User` acesso ao Active Directory locatário, pois precisa ser capaz de `Read all directory objects`fazer isso. Você não pode ser um usuário convidado, pois não tem permissões `Read all directory objects`para. Se você for um convidado, as operações como geração de uma chave de ativação, criação de um compartilhamento em seu dispositivo do Data Box Edge, a criação de um usuário falhará.
+Você deve ter um acesso `User` no locatário Active Directory, pois precisa ser capaz de `Read all directory objects`. Você não pode ser um usuário convidado, pois não tem permissões para `Read all directory objects`. Se você for um convidado, as operações como geração de uma chave de ativação, criação de um compartilhamento em seu dispositivo do Data Box Edge, a criação de um usuário falhará.
 
 Para obter mais informações sobre como fornecer acesso a usuários para Azure Active Directory API do Graph, consulte [acesso padrão para administradores, usuários e usuários convidados](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 
@@ -79,7 +79,7 @@ Você não precisa conceder permissões de acesso ao nível de assinatura para q
 
 Antes de tentar criar qualquer recurso, verifique se o provedor de recursos está registrado na assinatura. Se o provedor de recursos não estiver registrado, você precisará certificar-se de que o usuário que está criando o novo recurso tenha direitos suficientes para registrar o provedor de recursos necessário no nível de assinatura. Se você ainda não fez isso, verá o seguinte erro:
 
-*O nome \<da assinatura de assinatura > não tem permissões para registrar o (s) provedor (es) de recursos: Microsoft.DataBoxEdge.*
+*A assinatura \<nome da assinatura > não tem permissões para registrar o (s) provedor (es) de recursos: Microsoft. DataBoxEdge.*
 
 
 Para obter uma lista de provedores de recursos registrados na assinatura atual, execute o seguinte comando:
@@ -88,7 +88,7 @@ Para obter uma lista de provedores de recursos registrados na assinatura atual, 
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-Para data Box Edge dispositivo, `Microsoft.DataBoxEdge` deve ser registrado. Para se `Microsoft.DataBoxEdge`registrar, o administrador de assinatura deve executar o seguinte comando:
+Para Data Box Edge dispositivo, `Microsoft.DataBoxEdge` deve ser registrado. Para registrar `Microsoft.DataBoxEdge`, o administrador da assinatura deve executar o seguinte comando:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa25a1b1d24c034a92a94ac9378bc4bff3947348
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 19afaf743cc594ab17776b990687a442c339ed92
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639914"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77559004"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador por tarefa de administrador no Azure Active Directory
 
@@ -72,7 +72,7 @@ Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Configurar propriedades da empresa | Administrador global | 
 
-## <a name="connect"></a>Conecte-se
+## <a name="connect"></a>Conectar
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
@@ -126,8 +126,8 @@ Ler as chaves do BitLocker | Leitor de segurança | Administrador de senhas, Adm
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Consentimento para quaisquer permissões delegadas | Administrador de aplicativos de nuvem | Administrador de aplicativos
-Autorização para permissões de aplicativos que não incluem Microsoft Graph ou Microsoft Azure AD Graph | Administrador de aplicativos de nuvem | Administrador de aplicativos
-Consentimento de permissões de aplicativos para Microsoft Graph ou Microsoft Azure AD Graph | Administrador global | 
+Consentimento para permissões de aplicativo que não incluem Microsoft Graph | Administrador de aplicativos de nuvem | Administrador de aplicativos
+Consentimento para permissões de aplicativo para Microsoft Graph | Administrador global | 
 Consentimento para aplicativos acessando dados próprios | Função de usuário padrão ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 Criar aplicativos empresariais | Administrador de aplicativos de nuvem | Administrador de aplicativos
 Gerenciar proxy de aplicativo | Administrador de aplicativos | 
@@ -165,7 +165,7 @@ Atualizar associação de grupo | Proprietário do grupo ([consulte a documenta�
 Atualizar proprietários do grupo | Proprietário do grupo ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de usuários
 Atualizar propriedades do grupo | Proprietário do grupo ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de usuários
 
-## <a name="identity-protection"></a>Proteção de identidade
+## <a name="identity-protection"></a>Identity Protection
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
@@ -348,7 +348,7 @@ Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Enviar tíquete de suporte | Administrador de serviços | Administrador de aplicativos, administrador da proteção de informações do Azure, administrador de cobrança, administrador de aplicativos de nuvem, administrador de conformidade, administrador do Dynamics 365, administrador de análise de desktop, administrador do Exchange, senha Administrador, administrador do Intune, administrador do Skype for Business, administrador de Power BI, administrador de autenticação privilegiada, administrador do SharePoint, administrador de comunicações de equipes, administrador de equipes, administrador de usuários, Administrador do workplace Analytics
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Como atribuir ou remover funções de administrador do Azure AD](directory-manage-roles-portal.md)
 * [Referência das funções de administrador do Azure AD](directory-assign-admin-roles.md)

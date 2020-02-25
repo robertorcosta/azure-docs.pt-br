@@ -1,5 +1,5 @@
 ---
-title: Visualize dados usando o conector do Azure Data Explorer para Power BI
+title: Visualizar dados com o conector de Data Explorer do Azure para Power BI
 description: 'Neste artigo, você aprenderá a usar uma das três opções para visualizar dados no Power BI: o conector do Power BI para o Data Explorer do Azure.'
 author: orspod
 ms.author: orspodek
@@ -7,18 +7,18 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 361ea6ed76207e8e9721f64df61738b6cd9631dc
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a95d45481bed17e46429e3a22dff4b8cc62354a9
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024225"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560483"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Visualize dados usando o conector do Azure Data Explorer para Power BI
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. Power BI é uma solução de análise de negócios que permite que você visualize os dados e compartilhar os resultados na sua organização. O Azure Data Explorer fornece três opções para se conectar a dados no Power BI: usar o conector interno, importar uma consulta do Azure Data Explorer ou usar uma consulta SQL. Este artigo mostra como usar o conector interno para obter dados e visualizá-los em um relatório Power BI. Usar o conector nativo do Azure Data Explorer para criar painéis de Power BI é simples. O conector de Power BI dá suporte aos [modos de conectividade de importação e consulta direta](https://docs.microsoft.com/power-bi/desktop-directquery-about). Você pode criar painéis usando o modo de **importação** ou **DirectQuery** dependendo do cenário, da escala e dos requisitos de desempenho. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Você precisará do seguinte para concluir este artigo:
 
@@ -44,7 +44,7 @@ Primeiro, conecte-se ao cluster de ajuda do Azure Data Explorer, depois use um s
 
     **Configuração** | **Valor** | **Descrição do campo**
     |---|---|---|
-    | HDInsight | *https://help.kusto.windows.net* | A URL do cluster de ajuda. Para outros clusters, a URL está no formato *https://\<NomeCluster\>.\<Região\>.kusto.windows.net*. |
+    | Cluster | *https://help.kusto.windows.net* | A URL do cluster de ajuda. Para outros clusters, a URL está no formato *https://\<NomeCluster\>.\<Região\>.kusto.windows.net*. |
     | Banco de dados | Deixar em branco | Um banco de dados que está hospedado no cluster ao qual você está se conectando. Vamos selecioná-lo em uma etapa posterior. |
     | Nome da tabela | Deixar em branco | Uma das tabelas no banco de dados, ou uma consulta como <code>StormEvents \| take 1000</code>. Vamos selecioná-lo em uma etapa posterior. |
     | Opções Avançadas | Deixar em branco | Opções para suas consultas, como tamanho de conjunto de resultados. |
@@ -89,7 +89,7 @@ Primeiro, conecte-se ao cluster de ajuda do Azure Data Explorer, depois use um s
 
 [!INCLUDE [data-explorer-power-bi-visualize-basic](../../includes/data-explorer-power-bi-visualize-basic.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não precisar mais do relatório criado para este artigo, exclua o arquivo Power BI Desktop (. pbix).
 

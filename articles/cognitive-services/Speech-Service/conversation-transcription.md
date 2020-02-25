@@ -1,23 +1,23 @@
 ---
-title: O que é a transcrição de conversa (versão prévia)? -Serviço de fala
+title: Sobre a transcrição de conversa (versão prévia) – serviço de fala
 titleSuffix: Azure Cognitive Services
-description: A transcrição de conversa é uma solução de fala para texto que combina reconhecimento de fala, identificação do orador e atribuição de frase a cada palestrante (também conhecido como diarization) para fornecer transcrição em tempo real e/ou assíncrona de qualquer escreve.
+description: A transcrição de conversa é uma solução de fala para texto que combina o reconhecimento de fala, a identificação do orador e a atribuição de frase a cada palestrante (também conhecido como diarization) para fornecer transcrição em tempo real e/ou assíncrona de qualquer conversa.
 services: cognitive-services
-author: markamos
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 07e3e498a3bd2693b72079a8a731c3d139414c90
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 01/31/2020
+ms.author: dapine
+ms.openlocfilehash: 8e36a5c4d9ce2bc38565d6c9c256ed2cc7efe357
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806279"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561061"
 ---
-# <a name="what-is-conversation-transcription-preview"></a>O que é a transcrição de conversa (versão prévia)?
+# <a name="about-conversation-transcription-preview"></a>Sobre a transcrição de conversa (versão prévia)
 
 A transcrição de conversa é uma solução de [fala para texto](speech-to-text.md) que combina o reconhecimento de fala, a identificação do orador e a atribuição de frase a cada palestrante (também conhecido como _diarization_) para fornecer transcrição em tempo real e/ou assíncrona de qualquer conversa. A transcrição de conversa distingue os alto-falantes em uma conversa para determinar quem disse o que e quando, e torna mais fácil para os desenvolvedores adicionar a conversão de texto em seus aplicativos que executam diarization de vários palestrantes.
 
@@ -34,7 +34,7 @@ A transcrição de conversa é uma solução de [fala para texto](speech-to-text
 > [!NOTE]
 > Embora a transcrição de conversa não coloque um limite no número de palestrantes na sala, ela é otimizada para 2-10 alto-falantes por sessão.
 
-## <a name="use-cases"></a>Use casos
+## <a name="use-cases"></a>Casos de uso
 
 ### <a name="inclusive-meetings"></a>Reuniões inclusivas
 
@@ -44,7 +44,7 @@ Para tornar as reuniões inclusivas para todos, como participantes que são surd
 
 Os participantes da reunião podem se concentrar na reunião e deixar de fazer anotações para a transcrição da conversa. Os participantes podem envolver ativamente a reunião e acompanhar rapidamente as próximas etapas, usando a transcrição em vez de fazer anotações e possivelmente perder alguma coisa durante a reunião.
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 Esta é uma visão geral de alto nível de como funciona a transcrição de conversa.
 
@@ -63,7 +63,7 @@ A transcrição de conversa oferece três modos de transcrição:
 
 Os dados de áudio são processados ao vivo para retornar o identificador do orador + transcrição. Selecione esse modo se seu requisito de solução de transcrição for fornecer aos participantes da conversa uma exibição dinâmica de sua conversa em andamento. Por exemplo, criar um aplicativo para tornar as reuniões mais acessíveis os participantes surdos e difíceis de ouvir são um caso de uso ideal para a transcrição em tempo real.
 
-### <a name="asynchronous"></a>Assíncrono
+### <a name="asynchronous"></a>Assíncrona
 
 Os dados de áudio são processados em lote para retornar o identificador do orador e a transcrição. Selecione este modo se seu requisito de solução de transcrição for fornecer maior precisão sem a exibição dinâmica de transcrição. Por exemplo, se você quiser criar um aplicativo para permitir que os participantes da reunião se acompanhem facilmente em reuniões perdidas, use o modo de transcrição assíncrona para obter resultados de transcrição de alta precisão.
 
@@ -71,11 +71,11 @@ Os dados de áudio são processados em lote para retornar o identificador do ora
 
 Os dados de áudio são processados ao vivo para retornar o identificador do orador + transcrição e, além disso, uma solicitação é criada para também obter uma transcrição de alta precisão por meio do processamento assíncrono. Selecione esse modo se seu aplicativo tiver uma necessidade de transcrição em tempo real, mas também exigir uma transcrição de precisão maior para uso depois que a conversa ou a reunião tiver ocorrido.
 
-## <a name="language-support"></a>Suporte de idiomas
+## <a name="language-support"></a>Suporte ao idioma
 
 Atualmente, a transcrição de conversa dá suporte a "en-US" e a "zh-CN" nas seguintes regiões: *centralus* e *eastasia*. Se precisar de suporte de localidade adicional, contate a [equipe de recursos de transcrição de conversa](mailto:CTSFeatureCrew@microsoft.com).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Transcrever conversas em tempo real](how-to-use-conversation-transcription-service.md)

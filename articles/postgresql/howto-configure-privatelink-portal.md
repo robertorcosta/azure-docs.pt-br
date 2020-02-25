@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: e73f5e578ef498d3c6be8422fbbcfa7ac8856adf
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 187fa7cf52193d94b932d9021749917fa4f9b1dc
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425809"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562591"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-preview-using-portal"></a>Criar e gerenciar o link privado para o banco de dados do Azure para PostgreSQL-servidor único (visualização) usando o portal
 
@@ -170,6 +170,9 @@ Nesta seção, você criará um servidor PostgreSQL e adicionará um ponto de ex
 2. Quando vir a mensagem **Validação aprovada**, selecione **Criar**. 
 
     ![Link privado criado](media/concepts-data-access-and-security-private-link/show-postgres-private-link.png)
+
+    > [!NOTE] 
+    > O FQDN na configuração de DNS do cliente não é resolvido para o IP privado configurado. Você precisará configurar uma zona DNS para o FQDN configurado, conforme mostrado [aqui](../dns/dns-operations-recordsets-portal.md).
 
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Conectar-se a uma VM usando a RDP (Área de Trabalho Remota)
 

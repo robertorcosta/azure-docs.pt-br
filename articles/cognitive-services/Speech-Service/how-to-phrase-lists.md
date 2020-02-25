@@ -3,20 +3,20 @@ title: Listas de frases-serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Saiba como fornecer o serviço de fala com uma lista de frases usando o objeto `PhraseListGrammar` para melhorar os resultados de reconhecimento de fala em texto.
 services: cognitive-services
-author: rhurey
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
-ms.author: rhurey
+ms.date: 02/04/2020
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 2ceb53b50810aef501278710ae990c57fc45030c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f84ea6b2b0f1e8246e1d765e54f663cd01f29b1d
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74971665"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560840"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>Listas de frases para conversão de fala em texto
 
@@ -136,6 +136,6 @@ phraseListGrammar.clear();
 > [!NOTE]
 > As alterações em um objeto `PhraseListGrammar` entram em vigor no próximo reconhecimento ou após uma reconexão com o serviço de fala.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Documentação de referência do SDK de fala](speech-sdk.md)

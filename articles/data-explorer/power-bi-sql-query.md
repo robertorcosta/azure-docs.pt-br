@@ -1,5 +1,5 @@
 ---
-title: Visualizar dados no Azure Data Explorer usando uma consulta SQL no Power BI
+title: Visualizar dados do Azure Data Explorer com uma consulta SQL Power BI
 description: 'Neste artigo, você aprenderá a usar uma das três opções para visualizar dados no Power BI: uma consulta SQL em um cluster de Data Explorer do Azure.'
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: e4e7858a54f3002a511269a2519135d5ac24ed68
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d402d4c1ee77d0f97d2a5c3bdf43d0cc62aac096
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024076"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560466"
 ---
 # <a name="visualize-data-from-azure-data-explorer-using-a-sql-query-in-power-bi"></a>Visualizar dados no Azure Data Explorer usando uma consulta SQL no Power BI
 
@@ -22,7 +22,7 @@ O Azure Data Explorer fornece três opções para se conectar a dados no Power B
 
 Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Você precisará do seguinte para concluir este artigo:
 
@@ -51,7 +51,7 @@ Geralmente, você usa a linguagem de consulta nativa com o Azure Data Explorer, 
     **Configuração** | **Valor** | **Descrição do campo**
     |---|---|---|
     | Servidor | *help.kusto.windows.net* | A URL para o cluster de ajuda (sem *https://* ). Para outros clusters, a URL está no formato *\<NomeCluster\>.\<Região\>.kusto.windows.net*. |
-    | Banco de dados | *Exemplos* | O banco de dados de exemplo está hospedado no cluster ao qual você está se conectando. |
+    | Banco de dados | *Amostras* | O banco de dados de exemplo está hospedado no cluster ao qual você está se conectando. |
     | Modo de conectividade de dados | *Importaçãoação* | Determina se o Power BI importa os dados ou se conecta diretamente à fonte de dados. Você pode usar uma das opções com esse conector. |
     | Tempo limite do comando | Deixar em branco | Por quanto tempo a consulta é executada antes de gerar um erro de tempo limite. |
     | Instrução SQL | Copie a consulta abaixo desta tabela | A instrução SQL que o Azure Data Explorer se traduz em uma consulta nativa. |
@@ -78,7 +78,7 @@ Geralmente, você usa a linguagem de consulta nativa com o Azure Data Explorer, 
 
 [!INCLUDE [data-explorer-power-bi-visualize-basic](../../includes/data-explorer-power-bi-visualize-basic.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não precisar mais do relatório criado para este artigo, exclua o arquivo Power BI Desktop (. pbix).
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
-ms.openlocfilehash: 3ee7a2ffed9c2c50829f237fdf4c8d3b5a6f1531
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: d88c76afb3426dce8c68ae4bcda366fe17700aa7
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77538765"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566039"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais com GPU otimizadas
 
@@ -31,7 +31,7 @@ Os tamanhos de VM otimizados para GPU são máquinas virtuais especializadas dis
 
 - Os tamanhos da série [NV](nv-series.md) e da [série NVv3](nvv3-series.md) são otimizados e desenvolvidos para cenários de visualização remota, streaming, jogos, codificação e VDI usando estruturas como OpenGL e DirectX. Essas VMs são apoiadas pela GPU Tesla M60 da NVIDIA.
 
-- [Série NVv4](nvv4-series.md) Tamanhos de VM otimizados e projetados para VDI e visualização remota. Com GPUs particionadas, o NVv4 oferece o tamanho certo para cargas de trabalho que exigem recursos menores de GPU. Essas VMs são apoiadas pela GPU AMD Radeon instinto MI25.
+- [Série NVv4](nvv4-series.md) Tamanhos de VM otimizados e projetados para VDI e visualização remota. Com GPUs particionadas, o NVv4 oferece o tamanho certo para cargas de trabalho que exigem recursos menores de GPU. Essas VMs são apoiadas pela GPU AMD Radeon instinto MI25. Atualmente, as VMs NVv4 dão suporte apenas ao sistema operacional convidado do Windows.
 
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operacionais e drivers com suporte
 
@@ -62,6 +62,6 @@ Se você optar por instalar manualmente os drivers NVIDIA GPU, consulte [configu
 - [Armazenamento otimizado](sizes-storage.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre como as [ACUs (unidade de computação do Azure)](acu.md) podem ajudar você a comparar o desempenho de computação entre SKUs do Azure.

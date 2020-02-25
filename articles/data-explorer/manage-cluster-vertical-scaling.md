@@ -1,5 +1,5 @@
 ---
-title: Gerenciar o dimensionamento vertical do cluster (Scale up) no Azure Data Explorer para acomodar a demanda em alteração
+title: Gerenciar o dimensionamento vertical do cluster (Scale up) para corresponder à demanda no Azure Data Explorer
 description: Este artigo descreve as etapas para escalar verticalmente e reduzir um cluster de Data Explorer do Azure com base na demanda em alteração.
 author: radennis
 ms.author: radennis
@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/14/2019
-ms.openlocfilehash: 80bbdf3a5d936719b06782cd78d56088b36cb21d
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 95275598febae2b6b0355a7bc3e512490dae500d
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67985473"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560432"
 ---
 # <a name="manage-cluster-vertical-scaling-scale-up-in-azure-data-explorer-to-accommodate-changing-demand"></a>Gerenciar o dimensionamento vertical do cluster (Scale up) no Azure Data Explorer para acomodar a demanda em alteração
 
@@ -42,7 +42,7 @@ Este artigo explica o fluxo de trabalho de dimensionamento vertical:
 > [!NOTE]
 > * O processo de dimensionamento vertical pode levar alguns minutos e, durante esse tempo, o cluster será suspenso. 
 > * Reduzir verticalmente pode prejudicar o desempenho do cluster.
-> * O preço é uma estimativa das máquinas virtuais do cluster e dos custos do serviço Data Explorer do Azure. Outros custos não são incluídos. Confira a página estimador de [custo](https://dataexplorer.azure.com/AzureDataExplorerCostEstimator.html) de data Explorer do Azure para obter uma estimativa e a [página de preços](https://azure.microsoft.com/pricing/details/data-explorer/) do Azure data Explorer para obter informações de preços completas.
+> * O preço é uma estimativa das máquinas virtuais do cluster e dos custos do serviço Data Explorer do Azure. Outros custos não são incluídos. Confira a página [estimador de custo](https://dataexplorer.azure.com/AzureDataExplorerCostEstimator.html) de data Explorer do Azure para obter uma estimativa e a [página de preços](https://azure.microsoft.com/pricing/details/data-explorer/) do Azure data Explorer para obter informações de preços completas.
 
 Agora você configurou o dimensionamento vertical para o cluster de Data Explorer do Azure. Adicione outra regra para um dimensionamento horizontal. Se você precisar de assistência com problemas de dimensionamento de cluster, [abra uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) no portal do Azure.
 
@@ -50,5 +50,5 @@ Agora você configurou o dimensionamento vertical para o cluster de Data Explore
 
 * [Gerencie o dimensionamento horizontal do cluster](manage-cluster-horizontal-scaling.md) para expandir dinamicamente a contagem de instâncias com base nas métricas que você especificar.
 
-* Monitore o uso de recursos seguindo este artigo: [Monitore o desempenho, a integridade e o uso do Azure data Explorer com métricas](using-metrics.md).
+* Monitore o uso de recursos seguindo este artigo: [monitorar o desempenho de data Explorer do Azure, a integridade e o uso com métricas](using-metrics.md).
 

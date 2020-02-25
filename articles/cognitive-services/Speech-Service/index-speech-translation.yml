@@ -1,0 +1,55 @@
+### YamlMime:Landing
+title: Documentação de tradução de fala
+summary: A tradução de fala do serviço de fala permite a tradução de fala em tempo real, de voz a fala e de fala a texto de fluxos de áudio
+metadata:
+  title: Documentação de tradução de fala-tutoriais, referência de API-serviços cognitivas do Azure | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: IEvangelist
+  manager: nitinme
+  layout: LandingPage
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+  ms.openlocfilehash: c45c16b4421bf48e5728f95e7043ef7ffc109c3a
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.translationtype: MT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77562917"
+landingContent:
+- title: Introdução
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é tradução de fala?
+      url: speech-translation.md
+  - linkListType: quickstart
+    links:
+    - text: Traduzir uma fala em texto
+      url: quickstarts/translate-speech-to-text.md
+    - text: Traduza a fala em várias linguagens de destino
+      url: quickstarts/translate-speech-to-text-multiple-languages.md
+    - text: Traduzir uma fala em fala
+      url: quickstarts/translate-speech-to-speech.md
+- title: Guias passo a passo
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Traduza a fala em tempo real
+      url: https://docs.microsoft.com/learn/modules/convert-speech-to-text
+  - linkListType: tutorial
+    links:
+    - text: Traduzir e sintetizar texto com APIs REST
+      url: ../translator/tutorial-build-flask-app-translation-synthesis.md
+- title: Referência
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Suporte ao idioma
+      url: language-support.md#speech-translation
+    - text: Preços
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+    - text: Perguntas frequentes sobre tradução de fala
+      url: https://www.microsoft.com/translator/business/faq/

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e37b4c02692575f76582e8f62c3aff00b57424ed
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: a4c90ed12c8023e0b9ebc509b20d8d9224b49f1b
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946294"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566243"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Reconhecer texto impresso e manuscrito
 
@@ -26,10 +26,10 @@ O Pesquisa Visual Computacional fornece vários serviços que detectam e extraem
 
 A API de leitura detecta o conteúdo de texto em uma imagem usando nossos modelos de reconhecimento mais recentes e converte o texto identificado em um fluxo de caracteres legível por máquina. Ele é otimizado para imagens com texto pesado (como documentos que foram digitalizados digitalmente) e para imagens com muitos ruídos visuais. Ele determinará qual modelo de reconhecimento usar para cada linha de texto, dando suporte a imagens com texto impresso e manuscrito. A API de leitura é executada de forma assíncrona porque documentos maiores podem levar vários minutos para retornar um resultado.
 
-A operação de leitura mantém os agrupamentos de linhas originais de palavras reconhecidas em sua saída. Cada linha vem com coordenadas de caixa delimitadora, e cada palavra dentro da linha também tem suas próprias coordenadas. Se uma palavra tiver sido reconhecida com baixa confiança, essas informações também serão transmitidas. Consulte os [documentos de referência da API de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) para saber mais.
+A operação de leitura mantém os agrupamentos de linhas originais de palavras reconhecidas em sua saída. Cada linha vem com coordenadas de caixa delimitadora, e cada palavra dentro da linha também tem suas próprias coordenadas. Se uma palavra tiver sido reconhecida com baixa confiança, essas informações também serão transmitidas. Consulte a [ler](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) documentos de referência de API de leitura e [ler sobre API de leitura](https://go.microsoft.com/fwlink/?linkid=2118322) para saber mais.
 
 > [!NOTE]
-> Este recurso só está disponível para texto em inglês.
+> Esse recurso só está disponível para texto em inglês e espanhol (versão prévia).
 
 ### <a name="image-requirements"></a>Requisitos de imagem
 
@@ -94,4 +94,4 @@ A precisão das operações de reconhecimento de texto depende da qualidade das 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Siga o guia de início rápido de [OCR (extrair texto impresso)](./quickstarts/csharp-print-text.md) para implementar o C# reconhecimento de texto em um aplicativo simples.
+Siga o início rápido [extrair texto (ler)](./QuickStarts/CSharp-hand-text.md) para implementar o reconhecimento de texto C# em um aplicativo simples.

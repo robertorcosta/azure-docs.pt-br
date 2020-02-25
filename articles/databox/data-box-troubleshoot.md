@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas na sua Azure Data Box, Azure Data Box Heavy | Microsoft Docs
+title: Solucionar problemas em seu Azure Data Box, Azure Data Box Heavy
 description: Descreve como solucionar problemas vistos em Azure Data Box e Azure Data Box Heavy ao copiar dados para esses dispositivos.
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 83f6f7c7f8cd5155669f12fd6e426f86ef1c7baa
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 51935516e26f263e44a926bf9b7d7ec24a5eeb9e
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848506"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560058"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Solucionar problemas relacionados a Azure Data Box e Azure Data Box Heavy
 
@@ -23,7 +23,7 @@ Este artigo fornece informações detalhadas sobre como solucionar problemas que
 
 Os erros em Data Box e Data Box Heavy são resumidos da seguinte maneira:
 
-| Categoria do erro *        | Descrição        | Ação recomendada    |
+| Categoria do erro *        | DESCRIÇÃO        | Ação recomendada    |
 |----------------------------------------------|---------|--------------------------------------|
 | Nomes de contêiner ou compartilhamento | Os nomes de contêiner ou compartilhamento não seguem as regras de nomenclatura do Azure.  |Baixe as listas de erros. <br> Renomeie os contêineres ou compartilhamentos. [Saiba mais](#container-or-share-name-errors).  |
 | Limite de tamanho de contêiner ou de compartilhamento | O total de dados em contêineres ou compartilhamentos excede o limite do Azure.   |Baixe as listas de erros. <br> Reduza os dados gerais no contêiner ou compartilhamento. [Saiba mais](#container-or-share-size-limit-errors).|
@@ -31,7 +31,7 @@ Os erros em Data Box e Data Box Heavy são resumidos da seguinte maneira:
 | Tipo de dados ou arquivo | Não há suporte para o formato de dados ou o tipo de arquivo. |Baixe as listas de erros. <br> Para BLOBs de página ou Managed disks, verifique se os dados são 512-bytes alinhados e copiados para as pastas criadas previamente. [Saiba mais](#data-or-file-type-errors). |
 | Erros não críticos de BLOB ou arquivo  | Os nomes de BLOB ou arquivo não seguem as regras de nomenclatura do Azure ou o tipo de arquivo não tem suporte. | Esses arquivos ou BLOB podem não ser copiados ou os nomes podem ser alterados. [Saiba como corrigir esses erros](#non-critical-blob-or-file-errors). |
 
-\*As quatro primeiras categorias de erro são erros críticos e devem ser corrigidas para que você possa continuar a preparação para o envio.
+\* as quatro primeiras categorias de erro são erros críticos e devem ser corrigidas para que você possa continuar a se preparar para o envio.
 
 
 ## <a name="container-or-share-name-errors"></a>Erros de nome de contêiner ou compartilhamento
@@ -40,7 +40,7 @@ Esses são erros relacionados a nomes de contêiner e compartilhamento.
 
 ### <a name="error_container_or_share_name_length"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH     
 
-**Descrição do erro:** O nome do compartilhamento ou do contêiner deve ter entre 3 e 63 caracteres. 
+**Descrição do erro:** O nome do contêiner ou do compartilhamento deve ter entre 3 e 63 caracteres. 
 
 **Resolução sugerida:** A pasta no Data Box ou no compartilhamento de Data Box Heavy (SMB/NFS) para o qual você copiou dados se torna um contêiner do Azure em sua conta de armazenamento. 
 
@@ -51,15 +51,15 @@ Esses são erros relacionados a nomes de contêiner e compartilhamento.
     - Os nomes só podem ter letras, números e hifens.
     - Os nomes não podem começar nem terminar com hifens.
     - Os nomes não podem ter hifens consecutivos.
-    - Exemplos de nomes válidos: `my-folder-1`,`my-really-extra-long-folder-111`
-    - Exemplos de nomes que não são válidos `my-folder_1`: `my` `--myfolder`, `myfolder--`,,,`myfolder!`
+    - Exemplos de nomes válidos: `my-folder-1`, `my-really-extra-long-folder-111`
+    - Exemplos de nomes que não são válidos: `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
 
     Para obter mais informações, consulte Convenções de nomenclatura do Azure para nomes de [contêiner](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e [nomes de compartilhamento](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
 
 ### <a name="error_container_or_share_name_alpha_numeric_dash"></a>ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH
 
-**Descrição do erro:** O nome do compartilhamento ou do contêiner deve consistir apenas em letras, números ou hifens.
+**Descrição do erro:** O nome do contêiner ou do compartilhamento deve consistir apenas em letras, números ou hifens.
 
 **Resolução sugerida:** A pasta no Data Box ou no compartilhamento de Data Box Heavy (SMB/NFS) para o qual você copiou dados se torna um contêiner do Azure em sua conta de armazenamento. 
 
@@ -70,8 +70,8 @@ Esses são erros relacionados a nomes de contêiner e compartilhamento.
     - Os nomes só podem ter letras, números e hifens.
     - Os nomes não podem começar nem terminar com hifens.
     - Os nomes não podem ter hifens consecutivos.
-    - Exemplos de nomes válidos: `my-folder-1`,`my-really-extra-long-folder-111`
-    - Exemplos de nomes que não são válidos `my-folder_1`: `my` `--myfolder`, `myfolder--`,,,`myfolder!`
+    - Exemplos de nomes válidos: `my-folder-1`, `my-really-extra-long-folder-111`
+    - Exemplos de nomes que não são válidos: `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
 
     Para obter mais informações, consulte Convenções de nomenclatura do Azure para nomes de [contêiner](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e [nomes de compartilhamento](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
@@ -88,8 +88,8 @@ Esses são erros relacionados a nomes de contêiner e compartilhamento.
     - Os nomes só podem ter letras, números e hifens.
     - Os nomes não podem começar nem terminar com hifens.
     - Os nomes não podem ter hifens consecutivos.
-    - Exemplos de nomes válidos: `my-folder-1`,`my-really-extra-long-folder-111`
-    - Exemplos de nomes que não são válidos `my-folder_1`: `my` `--myfolder`, `myfolder--`,,,`myfolder!`
+    - Exemplos de nomes válidos: `my-folder-1`, `my-really-extra-long-folder-111`
+    - Exemplos de nomes que não são válidos: `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
 
     Para obter mais informações, consulte Convenções de nomenclatura do Azure para nomes de [contêiner](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e [nomes de compartilhamento](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
@@ -112,7 +112,7 @@ Estes são erros relacionados a dados que excedem o tamanho máximo do objeto ou
 
 ### <a name="error_blob_or_file_size_limit"></a>ERROR_BLOB_OR_FILE_SIZE_LIMIT
 
-**Descrição do erro:** O tamanho do arquivo excede o tamanho máximo do arquivo para upload.
+**Descrição do erro:** O tamanho do arquivo excede o tamanho máximo do arquivo para carregamento.
 
 **Resolução sugerida:** O BLOB ou os tamanhos de arquivo excedem o limite máximo permitido para upload.
 
@@ -125,7 +125,7 @@ Estes são erros relacionados ao tipo de arquivo ou tipo de dados sem suporte en
 
 ### <a name="error_blob_or_file_size_alignment"></a>ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT
 
-**Descrição do erro:** O blob ou arquivo está alinhado incorretamente.
+**Descrição do erro:** O BLOB ou arquivo está alinhado incorretamente.
 
 **Resolução sugerida:** O compartilhamento de blob de página no Data Box ou Data Box Heavy dá suporte apenas a arquivos que são 512 bytes alinhados (por exemplo, VHD/VHDX). Todos os dados copiados para o compartilhamento de blobs de páginas são carregados no Azure como BLOBs de páginas.
 
@@ -140,7 +140,7 @@ Para obter mais informações, consulte [visão geral dos BLOBs de página](../s
 **Resolução sugerida:**
 
 - Certifique-se de carregar somente os VHDs fixos para criar discos gerenciados.
-- Não há suporte para arquivos VHDX ou VHDs dinâmicos e **diferenciais** .
+- Não há suporte para arquivos VHDX ou VHDs **dinâmicos** e **diferenciais** .
 
 ### <a name="error_directory_disallowed_for_type"></a>ERROR_DIRECTORY_DISALLOWED_FOR_TYPE
 
@@ -210,7 +210,7 @@ Para obter mais informações, consulte Convenções de nomenclatura do Azure pa
 
 ### <a name="error_blob_or_file_name_aggregate_length"></a>ERROR_BLOB_OR_FILE_NAME_AGGREGATE_LENGTH
 
-**Descrição do erro:** O nome de blob ou do arquivo é muito longo.
+**Descrição do erro:** O nome do BLOB ou do arquivo é muito longo.
 
 **Resolução sugerida:** O BLOB ou os nomes de arquivo excedem o comprimento máximo.
 
@@ -222,7 +222,7 @@ Para obter mais informações, consulte Convenções de nomenclatura do Azure pa
 
 ### <a name="error_blob_or_file_name_component_length"></a>ERROR_BLOB_OR_FILE_NAME_COMPONENT_LENGTH
 
-**Descrição do erro:** Um dos segmentos no nome do blob ou do arquivo é muito longo.
+**Descrição do erro:** Um dos segmentos no nome do BLOB ou do arquivo é muito longo.
 
 **Resolução sugerida:** Um dos segmentos de caminho no BLOB ou nome de arquivo excede o número máximo de caracteres. Um segmento de caminho é a cadeia entre caracteres delimitadores consecutivos, por exemplo, a barra/.
 

@@ -1,5 +1,5 @@
 ---
-title: Monitorar o desempenho, a integridade e o uso do Data Explorer do Azure com métricas
+title: Monitorar o desempenho de Data Explorer do Azure, integridade & uso com métricas
 description: Saiba como usar as métricas de Data Explorer do Azure para monitorar o desempenho, a integridade e o uso do cluster.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/19/2020
-ms.openlocfilehash: f8078d8bae00ac4789a679be4d7a1944c749cce6
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 1319b8cd6ac8a0eb83381c24bcde9996458e47a7
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77423837"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560297"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>Monitorar o desempenho, a integridade e o uso do Data Explorer do Azure com métricas
 
