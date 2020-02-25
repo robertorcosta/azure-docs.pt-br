@@ -145,7 +145,7 @@ A lista a seguir descreve as palavras comuns usadas com os serviços do Azure Ma
 
 <a name="find-along-route"></a>**Localizar ao longo da rota**: uma consulta espacial que procura dados que estão dentro de uma hora ou distância de desvio especificada de um caminho de rota.
 
-<a name="find-nearby"></a>**Localizar próximo**: uma consulta espacial que pesquisa uma distância de linha reta fixa (à medida que as galinha surge) de um ponto.
+<a name="find-nearby"></a>**Localizar próximo**: uma consulta espacial que pesquisa uma distância de linha reta fixa (à medida que o corvo voa) de um ponto.
 
 <a name="fleet-management"></a>**Gerenciamento de frota**: o gerenciamento de veículos comerciais, como carros, caminhões, veículos e aviões. A gestão de frotas pode incluir uma variedade de funções, como financiamento de veículo, manutenção, telemática (rastreamento e diagnóstico) bem como driver, velocidade, combustível, gerenciamento de segurança e integridade. O gerenciamento de frota é um processo usado por empresas que dependem de transporte em seus negócios. As empresas desejam minimizar os riscos e reduzir os custos gerais com o transporte e a equipe, garantindo, ao mesmo tempo, a conformidade com a legislação governamental.
 
@@ -257,7 +257,7 @@ A lista a seguir descreve as palavras comuns usadas com os serviços do Azure Ma
 
 <a name="navigation-bar"></a>**Barra de navegação**: o conjunto de controles em um mapa usado para ajustar o nível de zoom, a densidade, a rotação e a alternância da camada do mapa base.
 
-<a name="nearby-search"></a>**Pesquisa próxima**: uma consulta espacial que pesquisa uma distância de linha reta fixa (à medida que as galinha surge) de um ponto.
+<a name="nearby-search"></a>**Pesquisa próxima**: uma consulta espacial que pesquisa uma distância de linha reta fixa (à medida que o corvo voa) de um ponto.
 
 <a name="neutral-ground-truth"></a>Linguagem de **aterramento neutra**: um mapa que renderiza rótulos no idioma oficial da região que ele representa e em scripts locais, se disponíveis.
 
@@ -305,7 +305,7 @@ A lista a seguir descreve as palavras comuns usadas com os serviços do Azure Ma
 
 ## <a name="r"></a>R
 
-<a name="radial-search"></a>**Pesquisa radial**: uma consulta espacial que pesquisa uma distância de linha reta fixa (à medida que as galinha surge) de um ponto. 
+<a name="radial-search"></a>**Pesquisa radial**: uma consulta espacial que pesquisa uma distância de linha reta fixa (à medida que o corvo voa) de um ponto. 
 
 <a name="raster-data"></a>**Dados de varredura**: uma matriz de células (ou pixels) organizada em linhas e colunas (ou em uma grade) em que cada célula contém um valor que representa informações, como temperatura. Varredura inclui fotografias aéreas digitais, imagens de satélites, imagens digitais e mapas digitalizados.
 

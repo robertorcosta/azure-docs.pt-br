@@ -88,7 +88,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)** |Suportado |Suportado |Amsterdã, RAE de Hong Kong, Joanesburgo, Londres, Newport (Gales), são Paulo, vale do silício, Cingapura, Sydney, Tóquio, Washington, D.c. |
 | **[C3ntro](https://www.c3ntro.com/data1/express-route1.php)** |Suportado |Suportado |Miami |
 | **CDC** | Suportado | Suportado | Canberra, Canberra2 |
-| **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Suportado |Suportado |Amsterdam2, Chicago, Hong Kong, Las Vegas, London2, Nova York, Paris, San Antonio, vale do silício, Tóquio, Toronto, Washington, D.c., Washington DC2 |
+| **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Suportado |Suportado |Amsterdam2, Chicago, RAE de Hong Kong, Las Vegas, London2, Nova York, Paris, San Antonio, vale do silício, Tóquio, Toronto, Washington, D.c., Washington DC2 |
 | **[Diretor de telecomunicações](https://www.chief.com.tw/dispPageBox/ct.aspx?ddsPageID=ENCLOUDSERVICE&dbid=4852937342)** |Suportado |Suportado |Hong Kong, Taipé |
 | **China Mobile International** |Suportado |Suportado | Singapura |
 | **China Telecom Global** |Suportado |Suportado |RAE de Hong Kong |
@@ -109,7 +109,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **GÉANT** |Suportado |Suportado |Amsterdã, Frankfurt, Marselha |
 | **[Global Cloud Exchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Suportado| Suportado | Chennai, Mumbai |
 | **Intelsat** | Suportado | Suportado | São Paulo DC2 |
-| **[InterCloud](https://www.intercloud.com/)** |Suportado |Suportado |Amsterdã, Chicago, Hong Kong, Londres, Nova York, Paris, vale do silício, Cingapura, Washington, D.c., Zurique |
+| **[InterCloud](https://www.intercloud.com/)** |Suportado |Suportado |Amsterdã, Chicago, RAE de Hong Kong, Londres, Nova York, Paris, vale do silício, Cingapura, Washington, D.c., Zurique |
 | **[Internet2](https://www.internet2.edu/products-services/cloud-services-applications/microsoft-azure/#service-cloud-connect)** |Suportado |Suportado |Chicago, Dallas, vale do silício, Washington, D.c. |
 | **[Internet Initiative Japan Inc. - IIJ](https://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Suportado |Suportado |Osaka, Tóquio |
 | **[Internet Solutions - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |Suportado |Suportado |Cidade do Cabo, Joanesburgo, Londres |
@@ -124,7 +124,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **[Comunicações de Nível 3](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Suportado |Suportado |Amsterdã, Chicago, Dallas, Londres, Newport (País de Gales), São Paulo, Seattle, Vale do Silício, Singapura, Washington D.C. |
 | **LG CNS** |Suportado |Suportado |Busan, Seul |
 | **[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/cloud.html)** |Suportado |Suportado |Cidade do Cabo, Joanesburgo |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado |Suportado |Amsterdã, Atlanta, Auckland, Chicago, Dallas, Denver, Dubai2, Dublin, Frankfurt, Geneva, Hong Kong SAR, Las Vegas, Londres, London2, Los Angeles, Melbourne, Miami, Montreal, Nova York, Oslo, Perth, cidade de Quebec, San Antonio, Seattle, vale do silício, Cingapura, Cingapura2, Sydney, Sydney2, Tóquio, Toronto, Washington, D.c., Zurique |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado |Suportado |Amsterdã, Atlanta, Auckland, Chicago, Dallas, Denver, Dubai2, Dublin, Frankfurt, Geneva, RAE de Hong Kong, Las Vegas, Londres, London2, Los Angeles, Melbourne, Miami, Montreal, Nova York, Oslo, Perth, cidade de Quebec, San Antonio, Seattle, vale do silício, Cingapura, Cingapura2, Sydney, Sydney2, Tóquio, Toronto, Washington, D.c., Zurique |
 | **[MTN](https://www.mtnbusiness.com/en/enterprise/Pages/microsoft-express-route.aspx)** |Suportado |Suportado |London |
 | **[Neutrona Networks](https://www.neutrona.com/index.php/azure-expressroute/)** |Suportado |Suportado |Dallas, Los Angeles, Miami, são Paulo, Washington, D.c. |
 | **[Dados da Próxima Geração](https://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Suportado |Suportado |Newport (País de Gales) |
@@ -145,11 +145,11 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **[NZ do Spark](https://www.sparkdigital.co.nz/solutions/connectivity/cloud-connect/)** |Suportado |Suportado |Auckland, Sydney |
 | **[Sprint](https://business.sprint.com/solutions/cloud-networking/)** |Suportado |Suportado |Chicago, Vale do Silício, Washington D.C. |
 | **[Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/cloud-data-center/microsoft-cloud-services/microsoft-azure-von-swisscom.html)** | Suportado | Suportado | Zurique |
-| **[Tata Communications](https://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Suportado |Suportado |Amsterdã, Chennai, Hong Kong SAR, Londres, Mumbai, são Paulo, vale do silício, Cingapura, Washington, D.c. |
+| **[Tata Communications](https://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Suportado |Suportado |Amsterdã, Chennai, RAE de Hong Kong, Londres, Mumbai, são Paulo, vale do silício, Cingapura, Washington, D.c. |
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Suportado |Suportado |Amsterdã, São Paulo |
 | **[Telehouse - KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)** |Suportado |Suportado |Londres, London2 |
 | **Telenor** |Suportado |Suportado |Amsterdã, Londres, Oslo |
-| **[Telia Carrier](https://www.teliacarrier.com/)** | Suportado | Suportado |Amsterdã, Chicago, Dallas, Frankfurt, Hong Kong, Londres, Oslo, Paris, vale do silício, Estocolmo, Washington, D.c. |
+| **[Telia Carrier](https://www.teliacarrier.com/)** | Suportado | Suportado |Amsterdã, Chicago, Dallas, Frankfurt, RAE de Hong Kong, Londres, Oslo, Paris, vale do silício, Estocolmo, Washington, D.c. |
 | **Telmex Uninet**| Suportado | Suportado | Dallas |
 | **[Telstra Corporation](https://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Suportado |Suportado |Melbourne, Singapura, Sydney |
 | **[Telus](https://www.telus.com)** |Suportado |Suportado |Montreal, Seattle, Toronto |

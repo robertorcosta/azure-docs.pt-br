@@ -204,12 +204,12 @@ Os dispositivos multipath-supported podem ser automaticamente descobertos e conf
         }
 
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Etapa 2: Configurar vários caminhos para volumes StorSimple
-Por padrão, todos os dispositivos estão na lista negra no arquivo multipath.conf e serão ignorados. Será necessário criar exceções de lista negra para permitir vários caminhos para volumes desde dispositivos StorSimple.
+Por padrão, todos os dispositivos estão na lista de bloqueios no arquivo multipath.conf e serão ignorados. Será necessário criar exceções de lista de bloqueios para permitir vários caminhos para volumes desde dispositivos StorSimple.
 
 1. Edite o arquivo `/etc/mulitpath.conf` . Tipo:
    
     `vi /etc/multipath.conf`
-1. Localize a seção blacklist_exceptions no arquivo multipath.conf. Seu dispositivo StorSimple precisa estar relacionado como uma exceção de lista negra nesta seção. Você pode retirar o comentário de linhas relevantes neste arquivo para modificá-lo como mostrado abaixo (use somente o modelo específico do dispositivo que você estiver usando):
+1. Localize a seção blacklist_exceptions no arquivo multipath.conf. Seu dispositivo StorSimple precisa estar relacionado como uma exceção de lista de bloqueios nesta seção. Você pode retirar o comentário de linhas relevantes neste arquivo para modificá-lo como mostrado abaixo (use somente o modelo específico do dispositivo que você estiver usando):
    
         blacklist_exceptions {
             device {
@@ -369,9 +369,9 @@ Repita esse comando para todas as interfaces de rede conectadas no destino iSCSI
     iscsiadm -m node --login -T <TARGET_IQN>
 
 
-Q. Não sei se meu dispositivo está na lista branca.
+Q. Não sei se meu dispositivo está na lista de permissões.
 
-a. Para verificar se seu dispositivo está na lista branca, use o seguinte comando interativo de solução de problemas:
+a. Para verificar se seu dispositivo está na lista de permissões, use o seguinte comando interativo de solução de problemas:
 
     multipathd -k
     multipathd> show devices

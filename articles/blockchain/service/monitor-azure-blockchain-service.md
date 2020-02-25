@@ -89,7 +89,7 @@ A tabela a seguir lista as propriedades dos logs do proxy Blockchain do Azure qu
 | NodeLocation  | Região do Azure onde o membro blockchain é implantado.  |
 | BlockchainNodeName  | O nome do nó do membro do serviço Blockchain do Azure no qual a operação é executada.   |
 | EthMethod  | O método, que é chamado pelo protocolo blockchain subjacente, no quorum, pode ser eth_sendTransactions, eth_getBlockByNumber etc.  |
-| Agente  | O agente do usuário que está agindo em nome de um usuário, como o navegador da Web Mozilla, Edge etc. Exemplos dos valores são: "Mozilla/5.0 (Linux x64) node. js/8.16.0 V8/6.2.414.77"  |
+| Agente  | O agente do usuário que está agindo em nome de um usuário, como o navegador da Web Mozilla, Microsoft Edge etc. Exemplos dos valores são: "Mozilla/5.0 (Linux x64) node. js/8.16.0 V8/6.2.414.77"  |
 | Código   | Códigos de erro HTTP. Geralmente, 4XX e 5XX são condições de erro.  |
 | NodeHost  | O nome DNS do nó.   |
 | RequestMethodName | O método HTTP chamado, os valores possíveis aqui são colocados para criar membro, obter para obter detalhes do membro existente, excluir para membro de exclusão, PATCH para atualizar o membro.   |

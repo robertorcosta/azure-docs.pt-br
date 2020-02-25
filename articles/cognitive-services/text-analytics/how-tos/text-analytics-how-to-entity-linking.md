@@ -23,7 +23,7 @@ O API de Análise de Texto permite que você assuma o texto não estruturado e r
 
 ### <a name="entity-linking"></a>Vinculação de Identidade
 
-A vinculação de entidades é a capacidade de identificar e desambiguar a identidade de uma entidade encontrada em texto (por exemplo, determinar se uma ocorrência da palavra `Mars` refere-se ao planeta ou ao Deus romano de guerra). Esse processo requer a presença de uma base de dados de conhecimento em um idioma apropriado para vincular entidades reconhecidas em texto. A vinculação de entidades usa a [Wikipédia](https://www.wikipedia.org/) como esta base de dados de conhecimento.
+A vinculação de entidades é a capacidade de identificar e desambiguar a identidade de uma entidade encontrada em texto (por exemplo, determinar se uma ocorrência da palavra `Mars` refere-se ao planeta ou ao deus romano da guerra). Esse processo requer a presença de uma base de dados de conhecimento em um idioma apropriado para vincular entidades reconhecidas em texto. A vinculação de entidades usa a [Wikipédia](https://www.wikipedia.org/) como esta base de dados de conhecimento.
 
 
 ### <a name="named-entity-recognition-ner"></a>NER (Reconhecimento de Entidade Nomeada)
@@ -47,7 +47,7 @@ O API de Análise de Texto oferece duas versões do reconhecimento de entidade n
 Consulte [suporte a idiomas](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) para obter informações.
 
 
-#### <a name="version-30-previewtabversion-3"></a>[Versão prévia 3.0](#tab/version-3)
+#### <a name="version-30-preview"></a>[Versão prévia 3.0](#tab/version-3)
 
 ### <a name="entity-types"></a>Tipos de entidade
 
@@ -74,7 +74,7 @@ Vinculação de entidade
 
 [!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
 
-#### <a name="version-21tabversion-2"></a>[Versão 2.1](#tab/version-2)
+#### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
 ### <a name="entity-types"></a>Tipos de entidade
 
@@ -130,7 +130,7 @@ Crie uma solicitação POST. Você pode [usar o postmaster](text-analytics-how-t
 > [!NOTE]
 > Você pode encontrar sua chave e ponto de extremidade para seu recurso de Análise de Texto no portal do Azure. Eles estarão localizados na página de **Início rápido** do recurso, em **Gerenciamento de recursos**. 
 
-#### <a name="version-30-previewtabversion-3"></a>[Versão prévia 3.0](#tab/version-3)
+#### <a name="version-30-preview"></a>[Versão prévia 3.0](#tab/version-3)
 
 [Referência v3 de reconhecimento de entidade nomeada](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)
 
@@ -144,7 +144,7 @@ NER
 Vinculação de entidade
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
 
-#### <a name="version-21tabversion-2"></a>[Versão 2.1](#tab/version-2)
+#### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
 [Referência v2 de reconhecimento de entidade nomeada (NER)](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
@@ -185,7 +185,7 @@ Todas as solicitações POST retornam uma resposta formatada em JSON com as IDs 
 A saída é retornada imediatamente. Você pode transmitir os resultados para um aplicativo que aceita JSON ou salvar a saída em um arquivo no sistema local e, em seguida, importá-lo para um aplicativo que permite que você classifique, pesquise e manipule os dados.
 
 
-#### <a name="version-30-previewtabversion-3"></a>[Versão 3,0-Preview)](#tab/version-3)
+#### <a name="version-30-preview"></a>[Versão 3,0-Preview)](#tab/version-3)
 
 ### <a name="example-v3-responses"></a>Exemplo de respostas v3
 
@@ -242,7 +242,7 @@ A versão 3 fornece pontos de extremidade separados para NER e vinculação de e
 }
 ```
 
-#### <a name="version-21tabversion-2"></a>[Versão 2.1](#tab/version-2)
+#### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
 ### <a name="example-ner-v2-response"></a>Exemplo de resposta do NER v2
 ```json
