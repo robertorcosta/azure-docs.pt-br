@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 98d77f43c990dd00dd5e5d616b2fdee44fb8a2f6
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 1bdd6552c3d418d761ffaf1df4ebb769421693f5
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77431410"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484988"
 ---
 # <a name="what-is-virtual-network-nat-public-preview"></a>O que é NAT de Rede Virtual (versão prévia pública)?
 
@@ -199,7 +199,6 @@ Desejamos saber como podemos aprimorar o serviço. Compartilhe conosco seus [com
 - A família de endereços IPv4 é compatível.  A NAT não interage com a família de endereços IPv6.
 - O NSG em uma sub-rede ou adaptador de rede não é respeitado para fluxos de saída para pontos de extremidade públicos usando a NAT.
 - O registro em log de fluxo do NSG não é compatível com o uso de NAT.
-- Quando uma rede virtual tem várias sub-redes, cada uma delas pode ter uma NAT diferente configurada.
 - A NAT não pode abranger várias redes virtuais.
 
 ## <a name="next-steps"></a>Próximas etapas
