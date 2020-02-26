@@ -10,12 +10,12 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: gwallace
-ms.openlocfilehash: 33f18722c26decb117a476a9d3adb562a7a726ed
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 4f4849139f0e5c5a8672b9364f7acc03cff6c948
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610458"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605576"
 ---
 <div class="content">
    <h1>Docker no Azure</h1>   
@@ -25,15 +25,15 @@ ms.locfileid: "68610458"
 O Docker é uma plataforma popular de geração de imagens e gerenciamento de contêineres que permite que você trabalhe rapidamente com contêineres no Linux e também no Windows.  Saiba como aproveitar o Docker no Azure com nossos guias de início rápido e tutoriais.
     </div>
     </div>
-<h2>Guia de início rápido de 5 minutos</h2>
+<h2>Guias de início rápido de 5 minutos</h2>
 <p>Saiba como implantar o Docker no Azure:</p>
 <a href="https://azure.microsoft.com/resources/templates/docker-simple-on-ubuntu/">Implantar o Docker no modelo de Início rápido do Ubuntu</a><br/>
-<h2>Tutoriais Passo a Passo</h2>
+<h2>Tutoriais passo a passo</h2>
 <p>Saiba como usar o Docker em seu aplicativo e como parte de seu pipeline de CI/CD:</p>
 <ol>
   <li><a href="/azure/app-service/containers/tutorial-python-postgresql-app">Criar Python e PostgreSQL com o Docker</a></li>
   <li><a href="/azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine">CI/CD com Docker Swarm e Azure DevOps Services</a></li>
-  <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Integração de máquinas virtuais do Docker, Jenkins e Linux</a></li>
+  <li><a href="/azure/jenkins/tutorial-jenkins-github-docker-cicd">Integração de máquinas virtuais do Docker, Jenkins e Linux</a></li>
 </ol>
 <h2>Recursos</h2>
 <p>Confira os seguintes links para ver mais materiais de referência e ferramentas para trabalhar com o Docker no Azure.</p>
