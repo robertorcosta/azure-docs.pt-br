@@ -2,17 +2,14 @@
 title: Usar uma chave gerenciada pelo cliente para criptografar discos do Azure no serviço kubernetes do Azure (AKS)
 description: Traga suas próprias chaves (BYOK) para criptografar o sistema operacional AKS e OS discos de dados.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 01/12/2020
-ms.author: mlearned
-ms.openlocfilehash: 1852ba059d13a8886b739cac439798b4d031a531
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: bb6ba5e6dd4ace9e33043079c0f435c10baf5cb2
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76932629"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596497"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Traga suas próprias chaves (BYOK) com discos do Azure no serviço kubernetes do Azure (AKS)
 
@@ -178,7 +175,7 @@ kubectl apply -f byok-azure-disk.yaml
 * O cluster AKS usando conjuntos de dimensionamento de máquinas virtuais é necessário, não há suporte para conjuntos de disponibilidade de máquina virtual
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Examinar [as práticas recomendadas para segurança de cluster AKs][best-practices-security]
 

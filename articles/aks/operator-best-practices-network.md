@@ -2,17 +2,14 @@
 title: Melhores práticas do operador - Conectividade de rede nos Serviço de Kubernetes do Azure (AKS)
 description: Aprenda as práticas recomendadas do operador de cluster para rede virtual e conectividade no Serviço de Kubernetes do Azure (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.author: mlearned
-ms.openlocfilehash: 5b138849538cb9bbd6af6cbcf3e7a11b0cf66395
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 93659a0891b09c83db9f63fe0756fcf4d7e87f6a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549114"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594678"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para conectividade de rede e segurança no Serviço de Kubernetes do Azure (AKS)
 
@@ -160,7 +157,7 @@ A maioria das operações no AKS pode ser concluída usando as ferramentas de ge
 
 A rede de gerenciamento para o host bastião deve ser segura também. Use um [Gateway de VPN][vpn-gateway] ou [ExpressRoute do Azure][expressroute] para se conectar a uma rede local e controlar o acesso usando grupos de segurança de rede.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Este artigo se concentra na conectividade de rede e segurança. Para obter mais informações sobre noções básicas de rede no kubernetes, consulte [conceitos de rede para aplicativos no serviço kubernetes do Azure (AKs)][aks-concepts-network]
 

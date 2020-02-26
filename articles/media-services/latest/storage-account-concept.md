@@ -1,5 +1,5 @@
 ---
-title: Contas de armazenamento do Azure com as contas de serviços de mídia do Azure | Microsoft Docs
+title: Contas de armazenamento do Azure com contas dos serviços de mídia do Azure | Microsoft Docs
 description: Ao criar uma conta dos Serviços de Mídia, você precisa fornecer o nome de um recurso de conta de Armazenamento do Azure. A conta de armazenamento especificada está conectada à sua conta de Serviços de Mídia.
 services: media-services
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: juliako
-ms.openlocfilehash: 5c5bfa224b87040f5142663e6adab01072c6e6ba
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 4bbadd7e10f0fd6896932dd79a5ca42d9906d2a2
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619290"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602140"
 ---
-# <a name="azure-storage-accounts"></a>Contas de Armazenamento do Microsoft Azure
+# <a name="azure-storage-accounts"></a>Contas de armazenamento do Azure
 
 Para iniciar o gerenciamento, a criptografia, a codificação, a análise e a transmissão de conteúdo de mídia no Azure, você precisa criar uma conta nos Serviços de Mídia. Ao criar uma conta dos Serviços de Mídia, você precisa fornecer o nome de um recurso de conta de Armazenamento do Azure. A conta de armazenamento especificada está conectada à sua conta de Serviços de Mídia. 
 
@@ -26,16 +26,16 @@ A conta dos Serviços de Mídia e todas as contas de armazenamento associadas pr
 
 Você deve ter uma conta de armazenamento **Primária**, e pode ter quantas contas de armazenamento **Secundárias** você quiser associadas à sua conta dos Serviços de Mídia. Os Serviços de Mídia oferecem suporte a contas **v2 para fins gerais** (GPv2) ou contas **v1 para fins gerais** (GPv1). <br/>As contas somente blob não são permitidas como **Primárias**. 
 
-É recomendável que você use o GPv2, portanto, você pode tirar proveito dos recursos e desempenho mais recentes. Para saber mais sobre as contas de armazenamento, consulte [Visão geral da conta de Armazenamento do Microsoft Azure](../../storage/common/storage-account-overview.md).
+Recomendamos que você use o GPv2, para que você possa aproveitar os recursos e o desempenho mais recentes. Para saber mais sobre as contas de armazenamento, consulte [Visão geral da conta de Armazenamento do Microsoft Azure](../../storage/common/storage-account-overview.md).
 
 > [!NOTE]
-> Apenas a camada de acesso quente tem suporte para uso com serviços de mídia do Azure, embora outras camadas de acesso podem ser usadas para reduzir os custos de armazenamento no conteúdo que não está sendo usado ativamente.
+> Somente a camada de acesso quente tem suporte para uso com os serviços de mídia do Azure, embora as outras camadas de acesso possam ser usadas para reduzir os custos de armazenamento no conteúdo que não está sendo usado ativamente.
 
-Há diferentes SKUs que você pode escolher para sua conta de armazenamento. Para obter mais informações, confira [Contas de armazenamento](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Caso deseje fazer experimentos com contas de armazenamento, use `--sku Standard_LRS`. No entanto, ao escolher um SKU para produção, você deverá considerar `--sku Standard_RAGRS`, que fornece replicação geográfica para a continuidade dos negócios. 
+Há SKUs diferentes que você pode escolher para sua conta de armazenamento. Para obter mais informações, confira [Contas de armazenamento](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Caso deseje fazer experimentos com contas de armazenamento, use `--sku Standard_LRS`. No entanto, ao escolher um SKU para produção, você deverá considerar `--sku Standard_RAGRS`, que fornece replicação geográfica para a continuidade dos negócios. 
 
 ## <a name="assets-in-a-storage-account"></a>Ativos em uma conta de armazenamento
 
-Em serviços de mídia v3, as APIs de armazenamento são usadas para carregar arquivos em ativos. Para obter mais informações, consulte [conceito de ativos](assets-concept.md).
+Nos serviços de mídia v3, as APIs de armazenamento são usadas para carregar arquivos em ativos. Para obter mais informações, consulte [conceito de ativos](assets-concept.md).
 
 > [!Note]
 > Você não deve tentar alterar o conteúdo de contêineres de blob que foram gerados pelo SDK dos Serviços de Mídia sem o uso de APIs de Serviços de Mídia.
@@ -47,7 +47,7 @@ Para proteger os Ativos em repouso, os ativos devem ser criptografados pela crip
 |Opção de criptografia|DESCRIÇÃO|Serviços de Mídia v3|
 |---|---|---|
 |Criptografia do Armazenamento dos Serviços de Mídia| Criptografia AES-256, chave gerenciada pelos Serviços de Mídia|Não é compatível<sup>(1)</sup>|
-|[Criptografia do Serviço de Armazenamento para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Criptografia do servidor oferecida pelo Armazenamento do Microsoft Azure, chave gerenciada pelo Azure ou pelo cliente|Com suporte|
+|[Criptografia do Serviço de Armazenamento para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Criptografia do servidor oferecida pelo Armazenamento do Microsoft Azure, chave gerenciada pelo Azure ou pelo cliente|Suportado|
 |[Criptografia do cliente de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Criptografia do cliente oferecida pelo armazenamento do Azure, chave gerenciada pelo cliente no Key Vault|Sem suporte|
 
 <sup>1</sup> Nos Serviços de Mídia v3, a criptografia de armazenamento (criptografia AES-256) somente terá suporte para compatibilidade com versões anteriores quando os Ativos tiverem sido criados com os Serviços de Mídia v2. Isso significa que o v3 funciona com recursos criptografados de armazenamento existentes, mas não permite a criação de novos recursos.
@@ -62,6 +62,10 @@ Veja a seguir os principais cenários que fariam com que a conta de Serviços de
 |---|---|
 |A conta de Serviços de Mídia ou as contas de armazenamento anexadas foram migradas para assinaturas separadas. |Migre as contas de armazenamento ou a conta de Serviços de Mídia de modo que elas fiquem na mesma assinatura. |
 |A conta de Serviços de Mídia está usando uma conta de armazenamento anexada em uma assinatura diferente, já que ela era uma conta Serviços de Mídia inicial compatível com este cenário. Todas as contas de Serviços de Mídia iniciais foram convertidas em contas modernas baseadas no Azure Resource Manager e terão o estado de Desconectadas. |Migre a conta de armazenamento ou a conta de Serviços de Mídia de modo que elas fiquem na mesma assinatura.|
+
+## <a name="azure-storage-firewall"></a>Firewall do armazenamento do Azure
+
+Os serviços de mídia do Azure não dão suporte a contas de armazenamento com o Firewall do armazenamento do Azure ou [pontos de extremidade privados](https://docs.microsoft.com/azure/storage/common/storage-network-security) habilitados.
 
 ## <a name="next-steps"></a>Próximas etapas
 

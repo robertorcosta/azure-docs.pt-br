@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 01/09/2020
-ms.openlocfilehash: 7b6bd33346df9496c4c30353b68c11bdd7fad7a2
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: b37b386273947f8c39fe182e4f29b7b080addf7b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486386"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605632"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança corporativa para Azure Machine Learning
 
@@ -37,7 +37,6 @@ A autenticação multifator terá suporte se o Azure Active Directory (Azure AD)
 [![autenticação no Azure Machine Learning](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication-expanded.png#lightbox)
 
 Para obter mais informações, consulte [Configurar a autenticação para Azure Machine Learning recursos e fluxos de trabalho](how-to-setup-authentication.md). Este artigo fornece informações e exemplos de autenticação, incluindo o uso de entidades de serviço e fluxos de trabalho automatizados.
-
 
 ### <a name="authentication-for-web-service-deployment"></a>Autenticação para implantação de serviço Web
 
@@ -77,6 +76,9 @@ A tabela a seguir lista algumas das principais operações de Azure Machine Lear
 | Chamar serviço Web | ✓ | ✓ | ✓ |
 
 Se as funções internas não atenderem às suas necessidades, você poderá criar funções personalizadas. As funções personalizadas têm suporte apenas para operações no espaço de trabalho e Computação do Machine Learning. As funções personalizadas podem ter permissões de leitura, gravação ou exclusão no espaço de trabalho e no recurso de computação nesse espaço de trabalho. Você pode tornar a função disponível em um nível de espaço de trabalho específico, um nível de grupo de recursos específico ou um nível de assinatura específico. Para obter mais informações, consulte [gerenciar usuários e funções em um espaço de trabalho Azure Machine Learning](how-to-assign-roles.md).
+
+> [!WARNING]
+> No momento, não há suporte para Azure Machine Learning com Azure Active Directory colaboração entre empresas.
 
 ### <a name="securing-compute-targets-and-data"></a>Protegendo dados e destinos de computação
 

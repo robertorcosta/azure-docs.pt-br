@@ -2,17 +2,14 @@
 title: Conceitos - Princípios básicos do Kubernetes para o Azure Kubernetes Services (AKS)
 description: Conheça os cluster básico e os componentes de carga de trabalho do Kubernetes e como elas se relacionam aos recursos no serviço de Kubernetes do Azure (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: mlearned
-ms.openlocfilehash: 9efd053bde11a29c37e3ff6afb7c6fc4492338db
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bcf56aa89a42d65fdb7bf03696faad13c64cbc8a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967547"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596225"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos de Kubernetes para o serviço de Kubernetes do Azure (AKS)
 
@@ -20,7 +17,7 @@ ms.locfileid: "75967547"
 
 Este artigo apresenta os principais componentes da infraestrutura kubernetes, como o *plano de controle*, *nós*e *pools de nós*. Recursos de carga de trabalho, como *pods*, *implantações* e *conjuntos*, também são apresentados, além de como agrupar recursos em *namespaces*.
 
-## <a name="what-is-kubernetes"></a>O que é o Kubernetes?
+## <a name="what-is-kubernetes"></a>O que é Kubernetes?
 
 O Kubernetes é uma plataforma em rápida evolução que gerencia aplicativos baseados em contêiner e seus componentes de rede e armazenamento associados. O foco está nas cargas de trabalho de aplicativos, não nos componentes de infraestrutura subjacentes. O Kubernetes fornece uma abordagem declarativa para implementações, apoiada por um conjunto robusto de APIs para operações de gerenciamento.
 
@@ -106,7 +103,7 @@ Para manter o desempenho e a funcionalidade do nó, os recursos são reservados 
     - 6% dos próximos 112 GB de memória (até 128 GB)
     - 2% de qualquer memória acima de 128 GB
 
-As regras acima para alocação de memória e CPU são usadas para manter os nós de agente íntegros, alguns pods de sistema de hospedagem críticos para a integridade do cluster. Essas regras de alocação também fazem com que o nó relate menos memória e CPU do que seria se não fosse parte de um cluster kubernetes. As reservas de recursos acima não podem ser alteradas.
+As regras acima para a alocação de memória e CPU são usadas para manter os nós de agente íntegros, incluindo alguns pods de sistema de hospedagem que são essenciais para a integridade do cluster. Essas regras de alocação também fazem com que o nó relate menos memória e CPU do que seria se não fosse parte de um cluster kubernetes. As reservas de recursos acima não podem ser alteradas.
 
 Por exemplo, se um nó oferecer 7 GB, ele relatará 34% de memória não alocável sobre o limite de remoção de hardware 750Mi.
 
@@ -224,7 +221,7 @@ Existem dois recursos do Kubernetes que permitem gerenciar esses tipos de aplica
 
 ### <a name="statefulsets"></a>StatefulSets
 
-O desenvolvimento moderno de aplicativos geralmente visa aplicativos sem estado, mas os *StatefulSets* podem ser usados para aplicativos com estado, como aplicativos que incluem componentes de banco de dados. Um StatefulSet é semelhante a uma implantação em que um ou mais pods idênticos são criados e gerenciados. As réplicas em um StatefulSet seguem uma abordagem detalhada e sequencial para implantação, dimensionamento, upgrades e terminações. Com um StatefulSet, a convenção de nomenclatura, os nomes de rede e o armazenamento persistem à medida que as réplicas são reprogramadas.
+O desenvolvimento moderno de aplicativos geralmente visa aplicativos sem estado, mas os *StatefulSets* podem ser usados para aplicativos com estado, como aplicativos que incluem componentes de banco de dados. Um StatefulSet é semelhante a uma implantação em que um ou mais pods idênticos são criados e gerenciados. As réplicas em um StatefulSet seguem uma abordagem detalhada e sequencial para implantação, dimensionamento, upgrades e terminações. Com com estado (como as réplicas são reagendadas), a Convenção de nomenclatura, os nomes de rede e o armazenamento persistem.
 
 Você define o aplicativo no formato YAML usando `kind: StatefulSet` e o StatefulSet Controller manipula a implementação e o gerenciamento das réplicas necessárias. Os dados são gravados no armazenamento persistente, fornecido pelos discos gerenciados do Azure ou pelos arquivos do Azure. Com StatefulSets, o armazenamento persistente subjacente permanece mesmo quando o StatefulSet é excluído.
 
@@ -259,7 +256,7 @@ Quando você cria um cluster do AKS, os namespaces a seguir estão disponíveis:
 
 Para obter mais informações, consulte [namespaces do kubernetes][kubernetes-namespaces].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Este artigo aborda alguns dos componentes principais do Kubernetes e como elas se aplicam aos clusters AKS. Para obter informações adicionais sobre os principais conceitos do Kubernetes e do AKS, consulte os seguintes artigos:
 

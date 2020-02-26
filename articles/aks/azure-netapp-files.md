@@ -3,16 +3,15 @@ title: Integrar Azure NetApp Files com o serviço kubernetes do Azure
 description: Saiba como integrar o Azure NetApp Files com o serviço kubernetes do Azure
 services: container-service
 author: zr-msft
-ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2019
 ms.author: zarhoads
-ms.openlocfilehash: 84192a831e3b1f24e20eb07a6c8695516c28970f
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 42985e57d63c01553532928b2ba04ed5ee3dd8fb
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329325"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596633"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Integrar Azure NetApp Files com o serviço kubernetes do Azure
 
@@ -33,7 +32,8 @@ As seguintes limitações se aplicam quando você usa Azure NetApp Files:
 * Azure NetApp Files só está disponível [em regiões do Azure selecionadas][anf-regions].
 * Para poder usar Azure NetApp Files, você deve ter acesso ao serviço Azure NetApp Files. Para se candidatar ao acesso, você pode usar o [formulário de envio Azure NetApp files Waitlist][anf-waitlist]. Você não pode acessar o serviço de Azure NetApp Files até receber o email de confirmação oficial da equipe de Azure NetApp Files.
 * Seu serviço de Azure NetApp Files deve ser criado na mesma rede virtual que o cluster AKS.
-* Somente o provisionamento estático para Azure NetApp Files tem suporte em AKS.
+* Após a implantação inicial de um cluster AKS, há suporte apenas para o provisionamento estático para Azure NetApp Files.
+* Para usar o provisionamento dinâmico com o Azure NetApp Files, instale e configure o [NetApp Trident](https://netapp-trident.readthedocs.io/) versão 19, 7 ou posterior.
 
 ## <a name="configure-azure-netapp-files"></a>Configurar Azure NetApp Files
 
@@ -143,7 +143,7 @@ $ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $AN
 }
 ```
 
-Crie um `pv-nfs.yaml` definindo um PersistentVolume. Substitua `path` por *creationToken* e `server` por *ipAddress* do comando anterior. Por exemplo:
+Crie um `pv-nfs.yaml` definindo um PersistentVolume. Substitua `path` pelo *creationToken* e `server` com *ipAddress* do comando anterior. Por exemplo:
 
 ```yaml
 ---

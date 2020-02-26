@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 099cf74dd27f39a4289397d5178511125d9ebf6f
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 63aef8d2036e442659145e031d384e9677c779a1
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720686"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598061"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Listar atribuições de função usando o RBAC do Azure e o portal do Azure
 
@@ -116,7 +116,7 @@ Para listar o acesso de um usuário, grupo, entidade de serviço ou identidade g
 
 ## <a name="list-role-assignments-for-a-user-assigned-managed-identity"></a>Listar atribuições de função para uma identidade gerenciada atribuída pelo usuário
 
-1. No portal do Azure, abra uma identidade gerenciada atribuída pelo sistema.
+1. No portal do Azure, abra uma identidade gerenciada atribuída pelo usuário.
 
 1. Clique em **Recursos do Azure**.
 
@@ -136,7 +136,7 @@ Se estiver ficando próximo do número máximo e tentar adicionar mais atribuiç
 
 ![Controle de acesso-Adicionar aviso de atribuição de função](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Adicionar ou remover atribuições de função usando o RBAC do Azure e o portal do Azure](role-assignments-portal.md)
 - [Solução de problemas com o RBAC para recursos do Azure](troubleshooting.md)

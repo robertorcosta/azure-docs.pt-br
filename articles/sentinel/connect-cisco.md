@@ -3,7 +3,7 @@ title: Conectar dados Cisco ao Azure Sentinel | Microsoft Docs
 description: Saiba como conectar dados Cisco ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 62029b5c-29d3-4336-8a22-a9db8214eb7e
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: 67a76f1fcd4cfcdd372407ae62eb03d5905cda68
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: 264dab4fabc890ffe03d911f8ee3c08ef51375d8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610651"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588392"
 ---
 # <a name="connect-cisco-asa-to-azure-sentinel"></a>Conectar o Cisco ASA ao Azure Sentinel
 
@@ -45,7 +45,7 @@ O Cisco ASA não dá suporte a CEF, portanto, os logs são enviados como syslog 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a conectar os appliances Cisco ASA ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).

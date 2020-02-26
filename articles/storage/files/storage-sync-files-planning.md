@@ -7,66 +7,99 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 483603b8ff2f4b51f85d21d6ff4f02ad6f8a8272
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 0684f626553946619a0db2cd895df39576bd17b9
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162082"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598248"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
-Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
+Os [arquivos do Azure](storage-files-introduction.md) podem ser implantados de duas maneiras principais: montando diretamente os compartilhamentos de arquivos do Azure sem servidor ou armazenando em cache os compartilhamentos de arquivos do Azure no local usando sincronização de arquivos do Azure. A opção de implantação escolhida altera as coisas que você precisa considerar ao planejar sua implantação. 
 
-Este artigo descreve as considerações importantes para uma implantação da Sincronização de Arquivos do Azure. Recomendamos ler também [Planejando uma implantação dos Arquivos do Azure](storage-files-planning.md). 
+- **Montagem direta de um compartilhamento de arquivos do Azure**: como os arquivos do Azure fornecem acesso SMB, você pode montar compartilhamentos de arquivos do Azure localmente ou na nuvem usando o cliente SMB padrão disponível no Windows, no MacOS e no Linux. Como os compartilhamentos de arquivos do Azure são sem servidor, a implantação para cenários de produção não requer o gerenciamento de um servidor de arquivos ou dispositivo NAS. Isso significa que você não precisa aplicar patches de software nem trocar discos físicos. 
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+- **Armazenar em cache o compartilhamento de arquivos do Azure local com o sincronização de arquivos do Azure**: sincronização de arquivos do Azure permite centralizar os compartilhamentos de arquivos da sua organização em arquivos do Azure, mantendo, ao mesmo tempo, a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. Sincronização de Arquivos do Azure transforma um Windows Server local (ou de nuvem) em um cache rápido do seu compartilhamento de arquivos do Azure. 
 
-## <a name="azure-file-sync-terminology"></a>Terminologia da Sincronização de Arquivos do Azure
-Antes de entrar nos detalhes do planejamento de uma implantação da Sincronização de Arquivos do Azure, é importante entender a terminologia.
+Este artigo aborda principalmente as considerações de implantação para a implantação de Sincronização de Arquivos do Azure. Para planejar uma implantação de compartilhamentos de arquivos do Azure para ser diretamente montado por um cliente local ou em nuvem, consulte [planejando uma implantação de arquivos do Azure](storage-files-planning.md).
 
-### <a name="storage-sync-service"></a>Serviço de Sincronização de Armazenamento
-O serviço de sincronização de armazenamento é o recurso de nível superior do Azure para Sincronização de Arquivos do Azure. O recurso de serviço de sincronização de armazenamento é um par do recurso de conta de armazenamento e pode ser implantado da mesma forma em grupos de recursos do Azure. Um recurso de nível superior distinto do recurso de conta de armazenamento é necessário porque o Serviço de Sincronização de Armazenamento pode criar relações de sincronização com várias contas de armazenamento por meio de vários grupos de sincronização. Uma assinatura pode ter vários recursos de Serviço de Sincronização de Armazenamento implantados.
+## <a name="management-concepts"></a>Conceitos de gerenciamento
+Uma implantação de Sincronização de Arquivos do Azure tem três objetos de gerenciamento fundamentais:
 
-### <a name="sync-group"></a>Grupo de sincronização
-Um grupo de sincronização define a topologia de sincronização para um conjunto de arquivos. Os pontos de extremidade em um grupo de sincronização são mantidos em sincronização entre si. Se, por exemplo, você tiver dois conjuntos distintos de arquivos que deseja gerenciar com Sincronização de Arquivos do Azure, você criaria dois grupos de sincronização e adicionará pontos de extremidade diferentes a cada grupo de sincronização. Um Serviço de Sincronização de Armazenamento pode hospedar quantos grupos de sincronização forem necessários.  
+- **Compartilhamento de arquivos do Azure**: um compartilhamento de arquivos do Azure é um compartilhamento de arquivos de nuvem sem servidor, que fornece o *ponto de extremidade de nuvem* de uma relação de sincronização de sincronização de arquivos do Azure. Os arquivos em um compartilhamento de arquivos do Azure podem ser acessados diretamente com o protocolo SMB ou filerest, Embora recomendemos que você acesse principalmente os arquivos por meio do cache do Windows Server quando o compartilhamento de arquivos do Azure está sendo usado com Sincronização de Arquivos do Azure. Isso ocorre porque os arquivos do Azure atualmente não têm um mecanismo de detecção de alteração eficiente, como o Windows Server, portanto, as alterações feitas diretamente no compartilhamento de arquivos do Azure levarão tempo para serem propagadas de volta para os pontos de extremidade do servidor.
+- **Ponto de extremidade do servidor**: o caminho no Windows Server que está sendo sincronizado com um compartilhamento de arquivos do Azure. Isso pode ser uma pasta específica em um volume ou a raiz do volume. Vários pontos de extremidade de servidor podem existir no mesmo volume se seus namespaces não se sobrepõem.
+- **Grupo de sincronização**: o objeto que define a relação de sincronização entre um **ponto de extremidade de nuvem**, o compartilhamento de arquivos do Azure e um ponto de extremidade do servidor. Os pontos de extremidade em um grupo de sincronização são mantidos em sincronização entre si. Se, por exemplo, você tiver dois conjuntos distintos de arquivos que deseja gerenciar com Sincronização de Arquivos do Azure, você criaria dois grupos de sincronização e adicionará pontos de extremidade diferentes a cada grupo de sincronização.
 
-### <a name="registered-server"></a>Servidor registrado
-O objeto de servidor registrado representa uma relação de confiança entre seu servidor (ou cluster) e o Serviço de Sincronização de Armazenamento. Você pode registrar quantos servidores desejar em uma instância do Serviço de Sincronização de Armazenamento. No entanto, um servidor (ou cluster) pode ser registrado apenas em um Serviço de Sincronização de Armazenamento por vez.
+### <a name="azure-file-share-management-concepts"></a>Conceitos de gerenciamento de compartilhamento de arquivos do Azure
+[!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 
-### <a name="azure-file-sync-agent"></a>Agente de Sincronização de Arquivo do Azure
-O agente de Sincronização de arquivos do Azure é um pacote baixável que permite que o Windows Server seja sincronizado com um compartilhamento de arquivos do Azure. O agente de Sincronização de Arquivos do Azure contém três componentes principais: 
-- **FileSyncSvc. exe**: o serviço em segundo plano que é responsável por monitorar alterações nos pontos de extremidade do servidor e para iniciar sessões de sincronização para o Azure.
-- **StorageSync.sys**: o filtro do sistema de arquivos da Sincronização de Arquivos do Azure, responsável por dispor os arquivos em camadas para os Arquivos do Azure (quando as camadas de nuvem estão habilitadas).
-- **Cmdlets de gerenciamento do PowerShell**: cmdlets do PowerShell usados para interagir com o provedor de recursos do Azure Microsoft.StorageSync. Encontre esses cmdlets nos seguintes locais (padrão):
-    - C:\Arquivos de Programas\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
-    - C:\Arquivos de Programas\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
+### <a name="azure-file-sync-management-concepts"></a>Conceitos de gerenciamento de Sincronização de Arquivos do Azure
+Os grupos de sincronização são implantados nos **serviços de sincronização de armazenamento**, que são objetos de nível superior que registram servidores para uso com sincronização de arquivos do Azure e contêm as relações do grupo de sincronização. O recurso Serviço de Sincronização de Armazenamento é um par do recurso de conta de armazenamento e pode, de maneira semelhante, ser implantado em grupos de recursos do Azure. Um serviço de sincronização de armazenamento pode criar grupos de sincronização que contêm compartilhamentos de arquivos do Azure entre várias contas de armazenamento e vários servidores Windows registrados.
 
-### <a name="server-endpoint"></a>Ponto de extremidade do servidor
-Um ponto de extremidade do servidor representa um local específico em um servidor registrado, como uma pasta em um volume do servidor. Vários pontos de extremidade do servidor podem existir no mesmo volume se seus namespaces não forem sobrepostos (por exemplo, `F:\sync1` e `F:\sync2`). Você pode configurar políticas de disposição em camada de nuvem individualmente para cada ponto de extremidade de servidor. 
+Antes de criar um grupo de sincronização em um serviço de sincronização de armazenamento, primeiro você deve registrar um Windows Server com o serviço de sincronização de armazenamento. Isso cria um objeto de **servidor registrado** , que representa uma relação de confiança entre o servidor ou o cluster e o serviço de sincronização de armazenamento. Para registrar um serviço de sincronização de armazenamento, você deve primeiro instalar o agente de Sincronização de Arquivos do Azure no servidor. Um servidor ou cluster individual pode ser registrado com apenas um serviço de sincronização de armazenamento por vez.
 
-Você pode criar um ponto de extremidade do servidor por meio de um ponto de montagem. Observe que os pontos de montagem no ponto de extremidade do servidor são ignorados.  
+Um grupo de sincronização contém um ponto de extremidade de nuvem, ou compartilhamento de arquivos do Azure, e pelo menos um ponto de extremidade do servidor. O objeto de ponto de extremidade do servidor contém as configurações que configuram o recurso de **camadas de nuvem** , que fornece o recurso de cache do sincronização de arquivos do Azure. Para sincronizar com um compartilhamento de arquivos do Azure, a conta de armazenamento que contém o compartilhamento de arquivos do Azure deve estar na mesma região do Azure que o serviço de sincronização de armazenamento.
 
-Você pode criar um ponto de extremidade do servidor no volume do sistema, mas haverá duas limitações, se você fizer isso:
-* A disposição em camadas de nuvem não pode ser habilitada.
-* A restauração rápida de namespace (em que o sistema rapidamente desativa o namespace inteiro e, em seguida, começa a recuperar o conteúdo) não é executada.
+### <a name="management-guidance"></a>Diretrizes de gerenciamento
+Ao implantar Sincronização de Arquivos do Azure, recomendamos:
 
+- Implantação de compartilhamentos de arquivos do Azure 1:1 com compartilhamentos de arquivos do Windows. O objeto de ponto de extremidade do servidor oferece um grande grau de flexibilidade na forma como você configura a topologia de sincronização no lado do servidor da relação de sincronização. Para simplificar o gerenciamento, faça com que o caminho do ponto de extremidade do servidor corresponda ao caminho do compartilhamento de arquivos do Windows. 
 
-> [!Note]  
-> Apenas volumes não removíveis são compatíveis.  Não há suporte para unidades mapeadas de um compartilhamento remoto para um caminho de ponto de extremidade do servidor.  Além disso, um ponto de extremidade do servidor pode estar localizado no volume do sistema do Windows, embora a disposição em camadas de nuvem não seja compatível com o volume do sistema.
+- Use o mínimo possível de serviços de sincronização de armazenamento. Isso simplificará o gerenciamento quando você tiver grupos de sincronização que contêm vários pontos de extremidade de servidor, já que um servidor Windows só pode ser registrado em um serviço de sincronização de armazenamento por vez. 
 
-Se você adicionar uma localização de servidor que tem um conjunto existente de arquivos como um ponto de extremidade de servidor a um grupo de sincronização, esses arquivos serão mesclados com os outros arquivos que já estão em outros pontos de extremidade no grupo de sincronização.
+- Prestar atenção às limitações de IOPS de uma conta de armazenamento ao implantar compartilhamentos de arquivos do Azure. O ideal é que você mapeie os compartilhamentos de arquivos 1:1 com contas de armazenamento. no entanto, isso nem sempre pode ser possível devido a vários limites e restrições, tanto da sua organização quanto do Azure. Quando não for possível ter apenas um compartilhamento de arquivos implantado em uma conta de armazenamento, considere quais compartilhamentos serão altamente ativos e quais compartilhamentos serão menos ativas para garantir que os compartilhamentos de arquivos mais interessantes não sejam colocados na mesma conta de armazenamento.
 
-### <a name="cloud-endpoint"></a>Ponto de extremidade da nuvem
-Um ponto de extremidade da nuvem é um compartilhamento de arquivos do Azure que faz parte de um grupo de sincronização. Todo o compartilhamento de arquivos do Azure é sincronizado e um compartilhamento de arquivos do Azure pode ser membro de apenas um ponto de extremidade da nuvem. Portanto, um compartilhamento de arquivos do Azure pode ser membro de apenas um grupo de sincronização. Se você adicionar um compartilhamento de arquivos do Azure que tem um conjunto existente de arquivos como um ponto de extremidade da nuvem a um grupo de sincronização, os arquivos existentes serão mesclados com os outros arquivos que já estão em outros pontos de extremidade no grupo de sincronização.
+## <a name="windows-file-server-considerations"></a>Considerações sobre o servidor de arquivos do Windows
+Para habilitar o recurso de sincronização no Windows Server, você deve instalar o Sincronização de Arquivos do Azure agente baixável. O agente de Sincronização de Arquivos do Azure fornece dois componentes principais: `FileSyncSvc.exe`, o serviço Windows em segundo plano que é responsável por monitorar alterações nos pontos de extremidade do servidor e iniciar sessões de sincronização, e `StorageSync.sys`, um filtro do sistema de arquivos que habilita a camada de nuvem e a recuperação rápida de desastres.  
+
+### <a name="operating-system-requirements"></a>Requisitos do sistema operacional
+Há suporte para Sincronização de Arquivos do Azure com as seguintes versões do Windows Server:
+
+| Versão | SKUs com suporte | Opções de implantação com suporte |
+|---------|----------------|------------------------------|
+| Windows Server 2019 | Datacenter, padrão e IoT | Completo e central |
+| Windows Server 2016 | Datacenter, padrão e servidor de armazenamento | Completo e central |
+| Windows Server 2012 R2 | Datacenter, padrão e servidor de armazenamento | Completo e central |
+
+Versões futuras do Windows Server serão adicionadas à medida que forem liberadas.
 
 > [!Important]  
-> A Sincronização de Arquivos do Azure dá suporte a alterações diretamente no compartilhamento de arquivos do Azure. No entanto, as alterações feitas no compartilhamento de arquivos do Azure precisam primeiro ser descobertas por um trabalho de detecção de alteração da Sincronização de Arquivos do Azure. Um trabalho de detecção de alteração é iniciado para um ponto de extremidade da nuvem apenas uma vez a cada 24 horas. Além disso, as alterações feitas em um compartilhamento de arquivos do Azure no protocolo REST não atualizarão a hora da última modificação do SMB e não serão vistas como uma alteração por sincronização. Para obter mais informações, consulte [perguntas frequentes sobre os arquivos do Azure](storage-files-faq.md#afs-change-detection).
+> Recomendamos manter todos os servidores usados com a Sincronização de Arquivos do Azure atualizados com as últimas atualizações do Windows Update. 
 
-### <a name="cloud-tiering"></a>Disposição em camadas de nuvem 
-A camada de nuvem é um recurso opcional da Sincronização de Arquivos do Azure em que arquivos acessados frequentemente são armazenados em cache localmente no servidor, enquanto todos os outros arquivos são organizados em camadas para Arquivos do Azure com base nas configurações de política. Confira mais informações em [Noções básicas sobre camadas de nuvem](storage-sync-cloud-tiering.md).
+### <a name="minimum-system-resources"></a>Recursos mínimos do sistema
+O Sincronização de Arquivos do Azure requer um servidor, físico ou virtual, com pelo menos uma CPU e um mínimo de 2 GiB de memória.
 
-## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Requisitos de sistema e interoperabilidade da Sincronização de Arquivos do Azure 
-Esta seção aborda os requisitos de sistema e a interoperabilidade do agente de Sincronização de Arquivos do Azure com soluções de terceiros, funções e recursos do Windows Server.
+> [!Important]  
+> Se o servidor estiver sendo executado em uma máquina virtual com memória dinâmica habilitada, a VM deverá ser configurada com um mínimo de 2048 MiB de memória.
+
+Para a maioria das cargas de trabalho de produção, não recomendamos configurar um servidor de sincronização de Sincronização de Arquivos do Azure com apenas os requisitos mínimos. Consulte [recursos do sistema recomendados](#recommended-system-resources) para obter mais informações.
+
+### <a name="recommended-system-resources"></a>Recursos de sistema recomendados
+Assim como qualquer recurso de servidor ou aplicativo, os requisitos de recursos do sistema para Sincronização de Arquivos do Azure são determinados pela escala da implantação; implantações maiores em um servidor exigem mais recursos do sistema. Por Sincronização de Arquivos do Azure, a escala é determinada pelo número de objetos entre os pontos de extremidade do servidor e a rotatividade no conjunto de um. Um único servidor pode ter pontos de extremidade de servidor em vários grupos de sincronização e o número de objetos listados nas contas de tabela a seguir para o namespace completo ao qual um servidor está anexado. 
+
+Por exemplo, ponto de extremidade do servidor A com 10 milhões objetos + ponto de extremidade do servidor B com 10 milhões objetos = 20 milhões objetos. Para essa implantação de exemplo, recomendamos 8 CPUs, 16 GiB de memória para o estado Steady e (se possível) 48 GiB de memória para a migração inicial.
+ 
+Os dados de namespace são armazenados na memória por motivos de desempenho. Por causa disso, namespaces maiores exigem mais memória para manter o bom desempenho e mais rotatividade requer mais CPU para processar. 
+ 
+Na tabela a seguir, fornecemos o tamanho do namespace, bem como uma conversão para capacidade para compartilhamentos de arquivos de uso geral típicos, em que o tamanho médio do arquivo é 512 KiB. Se os tamanhos de arquivo forem menores, considere adicionar memória adicional para a mesma quantidade de capacidade. Baseie sua configuração de memória no tamanho do namespace.
+
+| Tamanho do namespace-arquivos & diretórios (milhões)  | Capacidade típica (TiB)  | Núcleos de CPU  | Memória recomendada (GiB) |
+|---------|---------|---------|---------|
+| 3        | 1.4     | 2        | 8 (sincronização inicial)/2 (variação típica)      |
+| 5        | 2.3     | 2        | 16 (sincronização inicial)/4 (rotatividade típica)    |
+| 10       | 4.7     | 4        | 32 (sincronização inicial)/8 (variação típica)   |
+| 30       | 14.0    | 8        | 48 (sincronização inicial)/16 (variação típica)   |
+| 50       | 23,3    | 16       | 64 (sincronização inicial)/32 (variação típica)  |
+| 100*     | 46,6    | 32       | 128 (sincronização inicial)/32 (variação típica)  |
+
+\*a sincronização de mais de 100 milhões arquivos & diretórios não é recomendável no momento. Esse é um limite flexível com base em nossos limites testados. Para obter mais informações, consulte [escalabilidade e metas de desempenho dos arquivos do Azure](storage-files-scale-targets.md#azure-file-sync-scale-targets).
+
+> [!TIP]
+> A sincronização inicial de um namespace é uma operação intensiva e é recomendável alocar mais memória até que a sincronização inicial seja concluída. Isso não é necessário, mas pode acelerar a sincronização inicial. 
+> 
+> A rotatividade típica é de 0,5% da alteração do namespace por dia. Para níveis mais altos de variação, considere adicionar mais CPU. 
+
+- Um volume anexado localmente formatado com o sistema de arquivos NTFS.
 
 ### <a name="evaluation-cmdlet"></a>Cmdlet de avaliação
 Antes de implantar Sincronização de Arquivos do Azure, você deve avaliar se ele é compatível com seu sistema usando o cmdlet de avaliação Sincronização de Arquivos do Azure. Esse cmdlet verifica possíveis problemas com o seu sistema de arquivos e conjunto de banco de arquivo, como caracteres sem suporte ou uma versão do sistema operacional sem suporte. Suas verificações abordam a maioria dos recursos mencionados abaixo, mas não todos eles. Recomendamos que você leia o restante desta seção com cuidado para garantir que sua implantação seja tranqüila. 
@@ -77,54 +110,35 @@ O cmdlet Evaluation pode ser instalado instalando o módulo AZ PowerShell, que p
 Você pode invocar a ferramenta de avaliação de algumas maneiras diferentes: você pode executar verificações de sistema, verificações de conjunto de dados ou ambas. Para executar verificações de sistema e de conjunto de dados: 
 
 ```powershell
-    Invoke-AzStorageSyncCompatibilityCheck -Path <path>
+Invoke-AzStorageSyncCompatibilityCheck -Path <path>
 ```
 
 Para testar apenas o conjunto de dados:
 ```powershell
-    Invoke-AzStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
+Invoke-AzStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
 ```
  
 Para testar somente os requisitos do sistema:
 ```powershell
-    Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name>
+Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name>
 ```
  
 Para exibir os resultados em CSV:
 ```powershell
-    $errors = Invoke-AzStorageSyncCompatibilityCheck […]
-    $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
+$errors = Invoke-AzStorageSyncCompatibilityCheck […]
+$errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
 ```
 
-### <a name="system-requirements"></a>Requisitos do Sistema
-- Um servidor que executa uma das seguintes versões de sistema operacional:
+### <a name="file-system-compatibility"></a>Compatibilidade do sistema de arquivos
+Só há suporte para Sincronização de Arquivos do Azure em volumes NTFS anexados diretamente. O armazenamento com conexão direta, ou DAS, no Windows Server significa que o sistema operacional do Windows Server possui o sistema de arquivos. O DAS pode ser fornecido por meio da anexação física de discos ao servidor de arquivos, anexando discos virtuais a uma VM de servidor de arquivos (como uma VM hospedada pelo Hyper-V) ou até mesmo por meio de ISCSI.
 
-    | Versão | SKUs com suporte | Opções de implantação com suporte |
-    |---------|----------------|------------------------------|
-    | Windows Server 2019 | Datacenter e Standard | Completo e central |
-    | Windows Server 2016 | Datacenter e Standard | Completo e central |
-    | Windows Server 2012 R2 | Datacenter e Standard | Completo e central |
-    | Windows Server IoT 2019 para armazenamento| Datacenter e Standard | Completo e central |
-    | Windows Storage Server 2016| Datacenter e Standard | Completo e central |
-    | Windows Storage Server 2012 R2| Datacenter e Standard | Completo e central |
+Somente volumes NTFS têm suporte; Não há suporte para ReFS, FAT, FAT32 e outros sistemas de arquivos.
 
-    Versões futuras do Windows Server serão adicionadas à medida que forem liberadas.
-
-    > [!Important]  
-    > Recomendamos manter todos os servidores usados com a Sincronização de Arquivos do Azure atualizados com as últimas atualizações do Windows Update. 
-
-- Um servidor com um mínimo de 2 GiB de memória.
-
-    > [!Important]  
-    > Se o servidor estiver sendo executado em uma máquina virtual com memória dinâmica ativada, a VM deverá ser configurada com um mínimo de 2048 MiB de memória.
-    
-- Um volume anexado localmente formatado com o sistema de arquivos NTFS.
-
-### <a name="file-system-features"></a>Recursos do sistema de arquivos
+A tabela a seguir mostra o estado de interoperabilidade dos recursos do sistema de arquivos NTFS: 
 
 | Recurso | Status de suporte | Observações |
 |---------|----------------|-------|
-| ACLs (listas de controle de acesso) | suporte completo | As ACLs do Windows são preservadas pela Sincronização de arquivos do Azure e são impostas pelo Windows Server nos pontos de extremidade do servidor. Não há suporte (ainda) para as ACLs do Windows nos Arquivos do Azure, caso os arquivos sejam acessados diretamente na nuvem. |
+| ACLs (listas de controle de acesso) | suporte completo | As listas de controle de acesso condicional de estilo do Windows são preservadas por Sincronização de Arquivos do Azure e são impostas pelo Windows Server em pontos de extremidade de servidor. As ACLs também podem ser impostas ao montar diretamente o compartilhamento de arquivos do Azure, no entanto, isso requer configuração adicional. Consulte a [seção identidade](#identity) para obter mais informações. |
 | Links físicos | Ignorado | |
 | Links simbólicos | Ignorado | |
 | Pontos de montagem | Suporte parcial | Pontos de montagem podem ser a raiz de um Ponto de Extremidade de Servidor, mas serão ignorados se estiverem contidos no namespace de um ponto de extremidade de servidor. |
@@ -134,10 +148,7 @@ Para exibir os resultados em CSV:
 | Arquivos esparsos | suporte completo | Os arquivos esparsos são sincronizados (não são bloqueados), mas são sincronizados com a nuvem como um arquivo completo. Se o conteúdo do arquivo for alterado na nuvem (ou em outro servidor), o arquivo não será mais esparso quando a alteração for baixada. |
 | ADS (Fluxos de Dados Alternativos) | Preservados, mas não sincronizados | Por exemplo, as marcas de classificação criadas pela Infraestrutura de classificação de arquivos não são sincronizadas. As marcas de classificação em arquivos existentes em cada um dos pontos de extremidade do servidor são mantidas. |
 
-> [!Note]  
-> Há suporte para apenas os volumes NTFS. ReFS, FAT, FAT32 e outros sistemas de arquivos não têm suporte.
-
-### <a name="files-skipped"></a>Arquivos ignorados
+<a id="files-skipped"></a>Sincronização de Arquivos do Azure também irá ignorar determinados arquivos temporários e pastas do sistema:
 
 | Arquivo/pasta | Observação |
 |-|-|
@@ -212,7 +223,130 @@ Não há suporte para o uso do Sysprep em um servidor com o agente de Sincroniza
 ### <a name="windows-search"></a>Windows Search
 Se a opção de camadas em nuvem estiver habilitada em um ponto de extremidade do servidor, os arquivos que estão em camadas serão ignorados e não serão indexados pelo Windows Search. Arquivos sem camadas são indexados corretamente.
 
-### <a name="antivirus-solutions"></a>Soluções de antivírus
+### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Outras soluções de HSM (Gerenciamento de Armazenamento Hierárquico)
+Nenhuma outra solução de HSM deve ser usada com a Sincronização de Arquivos do Azure.
+
+## <a name="identity"></a>Identidade
+Sincronização de Arquivos do Azure trabalha com sua identidade padrão baseada em AD sem qualquer configuração especial além de configurar a sincronização. Quando você está usando Sincronização de Arquivos do Azure, a expectativa geral é que a maioria dos acessos percorra os servidores de cache Sincronização de Arquivos do Azure, em vez de usar o compartilhamento de arquivos do Azure. Como os pontos de extremidade do servidor estão localizados no Windows Server, e o Windows Server tem suporte para ACLs de estilo do AD e do Windows há muito tempo, nada é necessário além de garantir que os servidores de arquivos do Windows registrados com o serviço de sincronização de armazenamento estejam ingressados no domínio. Sincronização de Arquivos do Azure armazenará ACLs nos arquivos no compartilhamento de arquivos do Azure e os replicará para todos os pontos de extremidade do servidor.
+
+Embora as alterações feitas diretamente no compartilhamento de arquivos do Azure demorem mais para serem sincronizadas com os pontos de extremidade do servidor no grupo de sincronização, você também pode querer garantir que você possa impor suas permissões do AD em seu compartilhamento de arquivos diretamente na nuvem. Para fazer isso, você deve ingressar o domínio em sua conta de armazenamento no AD local, assim como os servidores de arquivos do Windows são ingressados no domínio. Para saber mais sobre o ingresso no domínio de sua conta de armazenamento para um Active Directory de Propriedade do cliente, consulte [visão geral dos arquivos do Azure Active Directory](storage-files-active-directory-overview.md).
+
+> [!Important]  
+> Não é necessário ingressar no domínio em sua conta de armazenamento no Active Directory para implantar Sincronização de Arquivos do Azure com êxito. Essa é uma etapa estritamente opcional que permite que o compartilhamento de arquivos do Azure imponha ACLs locais quando os usuários montam o compartilhamento de arquivos do Azure diretamente.
+
+## <a name="networking"></a>Rede
+O agente de Sincronização de Arquivos do Azure se comunica com o serviço de sincronização de armazenamento e o compartilhamento de arquivos do Azure usando o protocolo REST Sincronização de Arquivos do Azure e o protocolo filerest, ambos sempre usam HTTPS pela porta 443. O SMB nunca é usado para carregar ou baixar dados entre o Windows Server e o compartilhamento de arquivos do Azure. Como a maioria das organizações permite o tráfego HTTPS pela porta 443, como um requisito para visitar a maioria dos sites, normalmente a configuração de rede especial não é necessária para implantar Sincronização de Arquivos do Azure.
+
+Com base na política da sua organização ou em requisitos regulatórios exclusivos, você pode exigir comunicação mais restritiva com o Azure e, portanto, Sincronização de Arquivos do Azure fornece vários mecanismos para você configurar a rede. Com base em seus requisitos, você pode:
+
+- Túnel de sincronização e carregamento de arquivos/download por meio de seu ExpressRoute ou VPN do Azure. 
+- Faça uso de arquivos do Azure e recursos de rede do Azure, como pontos de extremidade de serviço e pontos de extremidade privados.
+- Configure Sincronização de Arquivos do Azure para dar suporte ao seu proxy em seu ambiente.
+- Limitar a atividade de rede de Sincronização de Arquivos do Azure.
+
+Para saber mais sobre como configurar a funcionalidade de rede do Sincronização de Arquivos do Azure, consulte:
+- [Configurações de proxy e firewall da Sincronização de Arquivos do Azure](storage-sync-files-firewall-and-proxy.md)
+- [Garantindo Sincronização de Arquivos do Azure é um bom vizinho em seu datacenter](storage-sync-files-server-registration.md)
+
+## <a name="encryption"></a>Criptografia
+Ao usar Sincronização de Arquivos do Azure, há três camadas diferentes de criptografia a serem consideradas: criptografia no armazenamento em repouso do Windows Server, criptografia em trânsito entre o agente de Sincronização de Arquivos do Azure e o Azure, e a criptografia em repouso em seus dados no compartilhamento de arquivos do Azure. 
+
+### <a name="windows-server-encryption-at-rest"></a>Criptografia em repouso do Windows Server 
+Há duas estratégias para criptografar dados no Windows Server que funcionam geralmente com Sincronização de Arquivos do Azure: criptografia abaixo do sistema de arquivos, de modo que o sistema de arquivos e todos os dados gravados nele sejam criptografados e criptografia no próprio formato de arquivo. Esses métodos não são mutuamente exclusivos; Eles podem ser usados juntos, se desejado, uma vez que a finalidade da criptografia é diferente.
+
+Para fornecer criptografia sob o sistema de arquivos, o Windows Server fornece a caixa de entrada do BitLocker. O BitLocker é totalmente transparente para Sincronização de Arquivos do Azure. O principal motivo para usar um mecanismo de criptografia como o BitLocker é impedir a vazamento física de dados do seu datacenter local por alguém roubar os discos e impedir o Sideload de um sistema operacional não autorizado para executar leituras/gravações não autorizadas em seus dados. Para saber mais sobre o BitLocker, confira [visão geral do BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview).
+
+Os produtos de terceiros que funcionam de forma semelhante ao BitLocker, no que ficam sob o volume NTFS, devem funcionar de forma totalmente transparente com Sincronização de Arquivos do Azure. 
+
+O outro método principal para criptografar dados é criptografar o fluxo de dados do arquivo quando o aplicativo salvar o arquivo. Alguns aplicativos podem fazer isso nativamente, no entanto, geralmente esse não é o caso. Um exemplo de um método para criptografar o fluxo de dados do arquivo é o Azure Information Protection (AIP)/Azure Rights Management Services (Azure RMS)/Active Directory RMS. O principal motivo para usar um mecanismo de criptografia como o AIP/RMS é impedir vazamento de dados de dados do seu compartilhamento de arquivos por pessoas que os copiam para locais alternativos, como em uma unidade flash ou enviá-los por email para uma pessoa não autorizada. Quando o fluxo de dados de um arquivo é criptografado como parte do formato de arquivo, esse arquivo continuará a ser criptografado no compartilhamento de arquivos do Azure. 
+
+O Sincronização de Arquivos do Azure não interopera com o sistema de arquivos criptografados NTFS (NTFS) ou com soluções de criptografia de terceiros que ficam acima do sistema de arquivos, mas abaixo do fluxo de dados do arquivo. 
+
+### <a name="encryption-in-transit"></a>Criptografia em trânsito
+Sincronização de Arquivos do Azure agente se comunica com o serviço de sincronização de armazenamento e o compartilhamento de arquivos do Azure usando o protocolo REST Sincronização de Arquivos do Azure e o protocolo filerest, ambos sempre usam HTTPS pela porta 443. Sincronização de Arquivos do Azure não envia solicitações não criptografadas por HTTP. 
+
+As contas de armazenamento do Azure contêm uma opção para exigir criptografia em trânsito, que é habilitada por padrão. Mesmo que a opção no nível da conta de armazenamento esteja desabilitada, o que significa que as conexões não criptografadas com seus compartilhamentos de arquivos do Azure são possíveis, Sincronização de Arquivos do Azure ainda usará canais criptografados para acessar o compartilhamento de arquivos.
+
+O principal motivo para desabilitar a criptografia em trânsito para a conta de armazenamento é dar suporte a um aplicativo herdado que deve ser executado em um sistema operacional mais antigo, como o Windows Server 2008 R2 ou a distribuição mais antiga do Linux, conversando diretamente com um compartilhamento de arquivos do Azure. Se o aplicativo herdado se comunica com o cache do Windows Server do compartilhamento de arquivos, alternar essa configuração não terá nenhum efeito. 
+
+É altamente recomendável garantir que a criptografia de dados em trânsito esteja habilitada.
+
+Para obter mais informações sobre criptografia em trânsito, consulte [Exigir transferência segura no armazenamento do Azure](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+
+### <a name="azure-file-share-encryption-at-rest"></a>Criptografia de compartilhamento de arquivos do Azure em repouso
+[!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
+
+## <a name="storage-tiers"></a>Camadas de armazenamento
+[!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
+
+### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Habilitar compartilhamentos de arquivos padrão para abranger até 100 TiB
+[!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]
+
+#### <a name="regional-availability"></a>Disponibilidade regional
+[!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
+
+## <a name="azure-file-sync-region-availability"></a>Disponibilidade da região de sincronização de arquivos do Azure
+Sincronização de Arquivos do Azure está disponível nas seguintes regiões:
+
+| Nuvem do Azure | Região geográfica | Região do Azure | Código de região |
+|-------------|-------------------|--------------|-------------|
+| Público | Ásia | Leste da Ásia | `eastasia` |
+| Público | Ásia | Sudeste Asiático | `southeastasia` |
+| Público | Austrália | Leste da Austrália | `australiaeast` |
+| Público | Austrália | Sudeste da Austrália | `australiasoutheast` |
+| Público | Brasil | Sul do Brasil | `brazilsouth` |
+| Público | Canada | Canadá Central | `canadacentral` |
+| Público | Canada | Leste do Canadá | `canadaeast` |
+| Público | Europa | Norte da Europa | `northeurope` |
+| Público | Europa | Europa Ocidental | `westeurope` |
+| Público | França | França Central | `francecentral` |
+| Público | França | Sul da França * | `francesouth` |
+| Público | Índia | Índia Central | `centralindia` |
+| Público | Índia | Sul da Índia | `southindia` |
+| Público | Japão | Leste do Japão | `japaneast` |
+| Público | Japão | Oeste do Japão | `japanwest` |
+| Público | Coreia do Sul | Coreia Central | `koreacentral` |
+| Público | Coreia do Sul | Sul da Coreia | `koreasouth` |
+| Público | África do Sul | Norte da África do Sul | `southafricanorth` |
+| Público | África do Sul | Oeste da África do Sul * | `southafricawest` |
+| Público | EAU | EAU Central * | `uaecentral` |
+| Público | EAU | Norte dos EAU | `uaenorth` |
+| Público | Reino Unido | Sul do Reino Unido | `uksouth` |
+| Público | Reino Unido | Oeste do Reino Unido | `ukwest` |
+| Público | EUA | Centro dos EUA | `centralus` |
+| Público | EUA | Leste dos EUA | `eastus` |
+| Público | EUA | Leste dos EUA 2 | `eastus2` |
+| Público | EUA | Centro-Norte dos EUA | `northcentralus` |
+| Público | EUA | Centro-Sul dos Estados Unidos | `southcentralus` |
+| Público | EUA | Centro-Oeste dos EUA | `westcentralus` |
+| Público | EUA | Oeste dos EUA | `westus` |
+| Público | EUA | Oeste dos EUA 2 | `westus2` |
+| Gov dos EUA | EUA | Governo dos EUA do Arizona | `usgovarizona` |
+| Gov dos EUA | EUA | Governo dos EUA do Texas | `usgovtexas` |
+| Gov dos EUA | EUA | Gov. dos EUA – Virgínia | `usgovvirginia` |
+
+A Sincronização de Arquivos do Azure é compatível apenas com um compartilhamento de arquivo do Azure que esteja na mesma região que o Serviço de Sincronização de Armazenamento.
+
+Para as regiões marcadas com asteriscos, você deve contatar o suporte do Azure para solicitar acesso ao armazenamento do Azure nessas regiões. O processo é descrito neste [documento](https://azure.microsoft.com/global-infrastructure/geographies/).
+
+## <a name="redundancy"></a>Redundância
+[!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
+
+> [!Important]  
+> O armazenamento com redundância geográfica e de zona geográfica tem a capacidade de fazer failover manual do armazenamento para a região secundária. É recomendável que você não faça isso fora de um desastre quando estiver usando Sincronização de Arquivos do Azure devido à maior probabilidade de perda de dados. No caso de um desastre em que você gostaria de iniciar um failover manual de armazenamento, será necessário abrir um caso de suporte com a Microsoft para obter Sincronização de Arquivos do Azure para retomar a sincronização com o ponto de extremidade secundário.
+
+## <a name="migration"></a>Migração
+Se você tiver um servidor de arquivos do Windows existente, Sincronização de Arquivos do Azure poderá ser instalado diretamente no local, sem a necessidade de mover dados para um novo servidor. Se você estiver planejando migrar para um novo servidor de arquivos do Windows como parte da adoção de Sincronização de Arquivos do Azure, há várias abordagens possíveis para mover dados:
+
+- Crie pontos de extremidade do servidor para o compartilhamento de arquivos antigo e o novo compartilhamento de arquivos e permita que Sincronização de Arquivos do Azure sincronize os dados entre os pontos de extremidade do servidor. A vantagem dessa abordagem é que ela facilita muito a assinatura do armazenamento em seu novo servidor de arquivos, pois Sincronização de Arquivos do Azure é um reconhecimento em camadas de nuvem. Quando estiver pronto, você poderá recortar os usuários finais para o compartilhamento de arquivos no novo servidor e remover o ponto de extremidade do servidor do compartilhamento de arquivos antigo.
+
+- Crie um ponto de extremidade do servidor somente no novo servidor de arquivos e copie dados para o compartilhamento de arquivos antigo usando `robocopy`. Dependendo da topologia dos compartilhamentos de arquivos no novo servidor (Quantos compartilhamentos você tem em cada volume, como a liberação de cada volume é, etc.), talvez seja necessário provisionar temporariamente o armazenamento adicional, pois espera-se que `robocopy` de seu servidor antigo para o novo servidor no datacenter local será concluída mais rápido do que Sincronização de Arquivos do Azure moverá os dados para o Azure.
+
+Também é possível usar Data Box para migrar dados para uma implantação Sincronização de Arquivos do Azure. Na maioria das vezes, quando os clientes desejam usar Data Box para ingerir dados, eles fazem isso porque acham que aumentarão a velocidade de sua implantação ou, pois isso ajudará com cenários de largura de banda restritas. Embora seja verdade que usar um Data Box para ingerir dados em sua implantação de Sincronização de Arquivos do Azure diminuirá a utilização da largura de banda, provavelmente será mais rápido para a maioria dos cenários buscar um carregamento de dados online por meio de um dos métodos descritos acima. Para saber mais sobre como usar Data Box para ingerir dados em sua implantação de Sincronização de Arquivos do Azure, consulte [migrar dados para sincronização de arquivos do Azure com Azure data Box](storage-sync-offline-data-transfer.md).
+
+Um erro comum que os clientes fazem ao migrar dados para sua nova implantação de Sincronização de Arquivos do Azure é copiar dados diretamente para o compartilhamento de arquivos do Azure, em vez de em seus servidores de arquivos do Windows. Embora Sincronização de Arquivos do Azure identifique todos os novos arquivos no compartilhamento de arquivos do Azure e sincronize-os de volta para seus compartilhamentos de arquivos do Windows, isso geralmente é consideravelmente mais lento do que carregar dados por meio do servidor de arquivos do Windows. Muitas ferramentas de cópia do Azure, como AzCopy, têm a desvantagem adicional de não copiar todos os metadados importantes de um arquivo, como carimbos de data/hora e ACLs.
+
+## <a name="antivirus"></a>Antivírus
 Como os antivírus funcionam com o exame de arquivos em busca de códigos mal-intencionados conhecidos, um antivírus pode causar o recall de arquivos em camadas. Nas versões 4.0 e acima do agente de Sincronização de Arquivo do Azure, arquivos em camadas têm o conjunto FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS de atributo seguro do Windows. Recomendamos consultar o fornecedor do software para saber como configurar a solução para ignorar a leitura de arquivos com esse conjunto de atributos (muitos fazem isso automaticamente). 
 
 As soluções antivírus internas da Microsoft, o Windows Defender e o System Center Endpoint Protection (SCEP), ignoram automaticamente a leitura de arquivos que possuem esse atributo definido. Nós os testamos e identificamos um problema menor: quando você adiciona um servidor a um grupo de sincronização existente, os arquivos com menos de 800 bytes são recuperados (feitos o download) no novo servidor. Esses arquivos permanecerão no novo servidor e não serão colocados em camadas, pois não atendem ao requisito de tamanho em camadas (> 64kb).
@@ -220,7 +354,7 @@ As soluções antivírus internas da Microsoft, o Windows Defender e o System Ce
 > [!Note]  
 > Os fornecedores de antivírus podem verificar a compatibilidade entre seus produtos e Sincronização de Arquivos do Azure usando o [sincronização de arquivos do Azure antivírus Compatibility Suite](https://www.microsoft.com/download/details.aspx?id=58322), que está disponível para download no centro de download da Microsoft.
 
-### <a name="backup-solutions"></a>Soluções de backup
+## <a name="backup"></a>Backup 
 Como as soluções de antivírus, as soluções de backup podem causar o recall de arquivos em camadas. Recomendamos o uso de uma solução de backup de nuvem para fazer backup do compartilhamento do arquivos do Azure, em vez de um produto de backup local.
 
 Se você estiver usando uma solução de backup local, os backups devem ser executados em um servidor no grupo de sincronização que tem a camada de nuvem desabilitada. Ao executar uma restauração, use as opções de restauração no nível do volume ou no nível do arquivo. Os arquivos restaurados usando a opção de restauração no nível do arquivo serão sincronizados com todos os pontos de extremidade no grupo de sincronização e os arquivos existentes serão substituídos pela versão restaurada do backup.  As restaurações no nível de volume não substituirão as versões de arquivo mais recentes no compartilhamento de arquivos do Azure ou em outros pontos de extremidade do servidor.
@@ -231,134 +365,8 @@ Se você estiver usando uma solução de backup local, os backups devem ser exec
 > [!Note]  
 > Com a versão 9 do agente de Sincronização de Arquivos do Azure, os instantâneos do VSS (incluindo a guia versões anteriores) agora têm suporte em volumes que têm a camada de nuvem habilitada. No entanto, você deve habilitar a compatibilidade de versão anterior por meio do PowerShell. [Saiba como](storage-files-deployment-guide.md).
 
-### <a name="encryption-solutions"></a>Soluções de criptografia
-O suporte para soluções de criptografia depende de como elas são implementadas. A Sincronização de Arquivo do Azure é conhecida por funcionar com:
-
-- Criptografia de BitLocker
-- Proteção de Informações do Azure, Azure Rights Management Services (Azure RMS) e Active Directory RMS
-
-A Sincronização de Arquivo do Azure é conhecida por não funcionar com:
-
-- EFS (Sistema de Arquivos com Criptografia) NTFS
-
-Em geral, a Sincronização de Arquivos do Azure deve dar suporte à interoperabilidade com soluções de criptografia que ficam abaixo do sistema de arquivos, como o BitLocker, e com soluções implementadas no formato de arquivo, como a Proteção de Informações do Azure. Não foi feita nenhuma interoperabilidade especial para soluções que ficam acima do sistema de arquivos (como NTFS EFS).
-
-### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Outras soluções de HSM (Gerenciamento de Armazenamento Hierárquico)
-Nenhuma outra solução de HSM deve ser usada com a Sincronização de Arquivos do Azure.
-
-## <a name="region-availability"></a>Disponibilidade de região
-A Sincronização de Arquivos do Azure está disponível apenas nas seguintes regiões:
-
-| Região | Localização do Datacenter |
-|--------|---------------------|
-| Leste da Austrália | Nova Gales do Sul |
-| Sudeste da Austrália | Vitória |
-| Sul do Brasil | Estado de São Paulo |
-| Canadá Central | Toronto |
-| Leste do Canadá | Cidade de Quebec |
-| Índia Central | Pune |
-| Centro dos EUA | Iowa |
-| Leste da Ásia | RAE de Hong Kong |
-| Leste dos EUA | Virgínia |
-| Leste dos EUA 2 | Virgínia |
-| França Central | Paris |
-| Sul da França * | Marselha |
-| Coreia Central | Seul |
-| Sul da Coreia | Busan |
-| Leste do Japão | Tóquio, Saitama |
-| Oeste do Japão | Osaka |
-| Centro-Norte dos EUA | Illinois |
-| Norte da Europa | Irlanda |
-| Norte da África do Sul | Joanesburgo |
-| Oeste da África do Sul * | Cidade do cabo |
-| Centro-Sul dos Estados Unidos | Texas |
-| Sul da Índia | Chennai |
-| Sudeste Asiático | Singapura |
-| Sul do Reino Unido | London |
-| Oeste do Reino Unido | Cardiff |
-| Governo dos EUA do Arizona | Arizona |
-| Governo dos EUA do Texas | Texas |
-| Gov. dos EUA – Virgínia | Virgínia |
-| Norte dos EAU | Dubai |
-| EAU Central * | Abu Dhabi |
-| Europa Ocidental | Países Baixos |
-| Centro-Oeste dos EUA | Wyoming |
-| Oeste dos EUA | Califórnia |
-| Oeste dos EUA 2 | Washington |
-
-A Sincronização de Arquivos do Azure é compatível apenas com um compartilhamento de arquivo do Azure que esteja na mesma região que o Serviço de Sincronização de Armazenamento.
-
-Para as regiões marcadas com asteriscos, você deve contatar o suporte do Azure para solicitar acesso ao armazenamento do Azure nessas regiões. O processo é descrito neste [documento](https://azure.microsoft.com/global-infrastructure/geographies/).
-
-### <a name="azure-disaster-recovery"></a>Recuperação de desastre do Azure
-Para proteger contra a perda de uma região do Azure, Sincronização de Arquivos do Azure integra-se ao [armazenamento com redundância geográfica](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). O armazenamento GRS funciona usando a replicação de bloco assíncrono entre o armazenamento na região primária, com o qual você normalmente interage, e o armazenamento na região secundária emparelhada. No caso de um desastre que faz com que uma região do Azure fique temporariamente ou permanentemente offline, a Microsoft fará o failover do armazenamento para a região emparelhada. 
-
-> [!Warning]  
-> Se estiver usando o compartilhamento de arquivos do Azure como um ponto de extremidade de nuvem em uma conta de armazenamento GRS, você não deve iniciar o failover da conta de armazenamento. Se isso for feito, a sincronização deixará de funcionar e poderá causar a perda inesperada de dados no caso de arquivos recentes em camadas. No caso de perda de uma região do Azure, a Microsoft disparará o failover da conta de armazenamento de modo que seja compatível com a Sincronização de Arquivos do Azure.
-
-Para dar suporte à integração de failover entre o armazenamento com redundância geográfica e Sincronização de Arquivos do Azure, todas as regiões de Sincronização de Arquivos do Azure são emparelhadas com uma região secundária que corresponde à região secundária usada pelo armazenamento. Esses pares são os seguintes:
-
-| Região primária      | Região emparelhada      |
-|---------------------|--------------------|
-| Leste da Austrália      | Sudeste da Austrália|
-| Sudeste da Austrália | Leste da Austrália     |
-| Sul do Brasil        | Centro-Sul dos Estados Unidos   |
-| Canadá Central      | Leste do Canadá        |
-| Leste do Canadá         | Canadá Central     |
-| Índia Central       | Sul da Índia        |
-| Centro dos EUA          | Leste dos EUA 2          |
-| Leste da Ásia           | Sudeste Asiático     |
-| Leste dos EUA             | Oeste dos EUA            |
-| Leste dos EUA 2           | Centro dos EUA         |
-| França Central      | Sul da França       |
-| Sul da França        | França Central     |
-| Leste do Japão          | Oeste do Japão         |
-| Oeste do Japão          | Leste do Japão         |
-| Coreia Central       | Sul da Coreia        |
-| Sul da Coreia         | Coreia Central      |
-| Norte da Europa        | Europa Ocidental        |
-| Centro-Norte dos EUA    | Centro-Sul dos Estados Unidos   |
-| Norte da África do Sul  | Oeste da África do Sul  |
-| Oeste da África do Sul   | Norte da África do Sul |
-| Centro-Sul dos Estados Unidos    | Centro-Norte dos EUA   |
-| Sul da Índia         | Índia Central      |
-| Sudeste Asiático      | Leste da Ásia          |
-| Sul do Reino Unido            | Oeste do Reino Unido            |
-| Oeste do Reino Unido             | Sul do Reino Unido           |
-| Governo dos EUA do Arizona      | Governo dos EUA do Texas       |
-| US Gov Iowa         | Gov. dos EUA – Virgínia    |
-| Gov. dos EUA – Virgínia      | Governo dos EUA do Texas       |
-| Europa Ocidental         | Norte da Europa       |
-| Centro-Oeste dos EUA     | Oeste dos EUA 2          |
-| Oeste dos EUA             | Leste dos EUA            |
-| Oeste dos EUA 2           | Centro-Oeste dos EUA    |
-
 ## <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente de Sincronização de Arquivo do Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
-
-## <a name="recommended-azure-file-sync-machine-configuration"></a>Configuração de máquina Sincronização de Arquivos do Azure recomendada
-
-Sincronização de Arquivos do Azure requisitos de máquina são determinados pelo número de objetos no namespace e pela rotatividade no conjunto de espaço. Um único servidor pode ser anexado a vários grupos de sincronização e o número de objetos listados nas contas de tabela a seguir para o namespace completo ao qual um servidor está anexado. Por exemplo, ponto de extremidade do servidor A com 10 milhões objetos + ponto de extremidade do servidor B com 10 milhões objetos = 20 milhões objetos. Para essa implantação de exemplo, recomendamos 8CPU, 16GiB de memória para o estado estável e (se possível) 48GiB de memória para a migração inicial.
- 
-Os dados de namespace são armazenados na memória por motivos de desempenho. Por causa disso, namespaces maiores exigem mais memória para manter o bom desempenho e mais rotatividade requer mais CPU para processar. 
- 
-Na tabela a seguir, fornecemos o tamanho do namespace, bem como uma conversão para capacidade para compartilhamentos de arquivos de uso geral típicos, em que o tamanho médio do arquivo é 512KiB. Se os tamanhos de arquivo forem menores, considere adicionar memória adicional para a mesma quantidade de capacidade. Baseie sua configuração de memória no tamanho do namespace.
-
-| Tamanho do namespace-arquivos & diretórios (milhões)  | Capacidade típica (TiB)  | Núcleos de CPU  | Memória recomendada (GiB) |
-|---------|---------|---------|---------|
-| 3        | 1.4     | 2        | 8 (sincronização inicial)/2 (variação típica)      |
-| 5        | 2.4     | 2        | 16 (sincronização inicial)/4 (rotatividade típica)    |
-| 10       | 4.8     | 4        | 32 (sincronização inicial)/8 (variação típica)   |
-| 30       | 14,3    | 8        | 48 (sincronização inicial)/16 (variação típica)   |
-| 50       | 23,8    | 16       | 64 (sincronização inicial)/32 (variação típica)  |
-| 100*     | 47,7   | 32       | 128 (sincronização inicial)/32 (variação típica)  |
-
-\*mais de 100 milhões arquivos & diretórios não foram testados. Esse é um limite flexível.
-
-> [!TIP]
-> A sincronização inicial de um namespace é uma operação intensiva e é recomendável alocar mais memória até que a sincronização inicial seja concluída. Isso não é necessário, mas pode acelerar a sincronização inicial. 
-> 
-> A rotatividade típica é de 0,5% da alteração do namespace por dia. Para níveis mais altos de variação, considere adicionar mais CPU. 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Considere as configurações de firewall e proxy](storage-sync-files-firewall-and-proxy.md)

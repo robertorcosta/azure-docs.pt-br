@@ -2,17 +2,14 @@
 title: Melhores práticas do operador – segurança de cluster no AKS (Serviço de Kubernetes do Azure)
 description: Aprender as práticas recomendadas do operador de cluster sobre como gerenciar as atualizações e a segurança de clusters no AKS (Serviço de Kubernetes do Azure)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: mlearned
-ms.openlocfilehash: 2377cc2e0824911217fbc2783fdf8e86fd7b9405
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: f02f6588946e2b63a1a092aba15603d1685e8207
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549194"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594797"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para atualizações e segurança de clusters no AKS (Serviço de Kubernetes do Azure)
 
@@ -209,7 +206,7 @@ Se você quer um melhor controle do intervalo de agregação quando as reinicial
 
 Para obter mais informações sobre como lidar com reinicializações de nó, consulte [aplicar segurança e atualizações de kernel a nós no AKs][aks-kured].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Este artigo se concentrou em como proteger seu cluster do AKS. Para implementar algumas dessas áreas, confira os seguintes artigos:
 

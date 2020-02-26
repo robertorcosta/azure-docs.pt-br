@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: aschhab
-ms.openlocfilehash: 21a3bfd09e83571e489e15e9351e12220a99e563
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f852ad70b2eb97e2b8b3e40d086e98b3836c3592
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301250"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598282"
 ---
 # <a name="throttling-operations-on-azure-service-bus"></a>Operações de limitação no barramento de serviço do Azure
 
@@ -55,6 +55,11 @@ Nem todas as operações são criadas de forma igual. Aqui estão os custos de c
 |-----------|-----------|
 | Operações de dados (Send, SendAsync, Receive, ReceiveAsync, Peek) |1 crédito por mensagem |
 | Operações de gerenciamento (criar, ler, atualizar, excluir em filas, tópicos, assinaturas, filtros) | 10 créditos |
+
+> [!NOTE]
+> Observe que, ao enviar para um tópico, cada mensagem é avaliada em relação aos filtros antes de ser disponibilizada na assinatura.
+> Cada avaliação de filtro também conta com relação ao limite de crédito (ou seja, 1 crédito por avaliação de filtro).
+>
 
 ### <a name="how-will-i-know-that-im-being-throttled"></a>Como saber que estou sendo limitado?
 
@@ -122,6 +127,6 @@ No entanto, quando uma solicitação é limitada, o serviço está implicando qu
 Para obter mais informações e exemplos de uso do sistema de mensagens do Barramento de Serviço, consulte os tópicos avançados a seguir:
 
 * [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
-* [Início Rápido: Enviar e receber mensagens usando o portal do Azure e o .NET](service-bus-quickstart-portal.md)
-* [Tutorial: Atualizar o estoque usando o portal do Azure e tópicos/assinaturas](service-bus-tutorial-topics-subscriptions-portal.md)
+* [Início rápido: Enviar e receber mensagens usando o portal do Azure e .NET](service-bus-quickstart-portal.md)
+* [Tutorial: Atualizar estoque usando o portal do Azure e tópicos/assinaturas](service-bus-tutorial-topics-subscriptions-portal.md)
 

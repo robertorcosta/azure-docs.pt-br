@@ -3,12 +3,12 @@ title: Gerenciar servidores e cofres dos Serviços de Recuperação do Microsoft
 description: Neste artigo, saiba como usar o painel Visão geral do cofre dos serviços de recuperação para monitorar e gerenciar seus cofres dos serviços de recuperação.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: f043d50a2b0e4efbda957a9c4ccb8f1d472dce15
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 5ae875b2e767768e90a9fbc6ff4ecfc6efb239c5
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173036"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586437"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorar e gerenciar cofres dos Serviços de Recuperação
 
@@ -95,7 +95,7 @@ Por padrão, todos os detalhes, exceto **Última hora da ocorrência**, são exi
 * Item de backup
 * Servidor protegido
 * Severity
-* Duração
+* Duration
 * Hora de criação
 * Status
 * Última hora da ocorrência
@@ -229,8 +229,8 @@ O Tipo de Item é o tipo de gerenciamento de backup da instância protegida. Há
 * Todos os status
 * Concluído
 * Em andamento
-* Falha
-* Cancelado
+* Falhou
+* Canceled
 * Concluído com avisos
 
 #### <a name="start-time"></a>Hora de início
@@ -272,4 +272,4 @@ O bloco Armazenamento de Backup no painel mostra o armazenamento consumido no Az
 
 * [Restaurar o Windows Server ou o Windows Client do Azure](backup-azure-restore-windows-server.md)
 * Para saber mais sobre o Backup do Azure, confira [Visão geral do backup do Azure](backup-introduction-to-azure-backup.md)
-* Visite o [Fórum de backup do Azure](https://go.microsoft.com/fwlink/p/?LinkId=290933)
+

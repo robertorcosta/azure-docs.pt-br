@@ -3,16 +3,16 @@ title: Perguntas frequentes sobre o Azure Files| Microsoft Docs
 description: Encontre respostas para perguntas frequentes sobre o Arquivos do Azure.
 author: roygara
 ms.service: storage
-ms.date: 02/19/2020
+ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: c6503f2782832b7155c0c081aab9769296e08a8e
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 5cbb819ef1300f16a40dbdd0da52a35bdf578e59
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77565053"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598180"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas frequentes sobre o Azure Files
 [ Os arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do {SM} protocolo [de padrão do setor](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, do Linux e do macOS. Também é possível armazenar em cache os compartilhamentos de arquivos do Azure em computadores Windows Server usando a Sincronização de Arquivos do Azure para acesso rápido próximo ao local em que os dados são usados.
@@ -85,7 +85,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 
 * <a id="afs-region-availability"></a>
   **Quais regiões têm suporte para Sincronização de Arquivos do Azure?**  
-    A lista de regiões disponíveis pode ser encontrada na seção [Disponibilidade de região](storage-sync-files-planning.md#region-availability) da guia de planejamento da Sincronização de Arquivos do Azure. Adicionaremos suporte continuamente para outras regiões, incluindo regiões não públicas.
+    A lista de regiões disponíveis pode ser encontrada na seção [Disponibilidade de região](storage-sync-files-planning.md#azure-file-sync-region-availability) da guia de planejamento da Sincronização de Arquivos do Azure. Adicionaremos suporte continuamente para outras regiões, incluindo regiões não públicas.
 
 * <a id="cross-domain-sync"></a>
   **É possível ter servidores ingressados e não ingressados no domínio no mesmo grupo de sincronização?**  
@@ -161,7 +161,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 * <a id="ad-support"></a>
 **é um controle de acesso e autenticação baseada em identidade com suporte dos arquivos do Azure?**  
     
-    Sim, os arquivos do Azure oferecem suporte à autenticação baseada em identidade e ao controle de acesso. Você pode escolher uma das duas maneiras de usar o controle de acesso baseado em identidade: Azure Active Directory Domain Services (Azure AD DS) (GA) ou Active Directory (versão prévia). A autenticação do Azure AD DS sobre o SMB para arquivos do Azure permite que o Azure AD DS VMs do Windows ingressadas no domínio acessem compartilhamentos, diretórios e arquivos usando as credenciais do Azure AD. O AD dá suporte à autenticação usando computadores ingressados no domínio do AD, no local ou no Azure, para acessar compartilhamentos de arquivos do Azure via SMB. Para obter mais detalhes, consulte [visão geral do suporte à autenticação baseada em identidade de arquivos do Azure para acesso SMB](storage-files-active-directory-overview.md). 
+    Sim, os arquivos do Azure oferecem suporte à autenticação baseada em identidade e ao controle de acesso. Você pode escolher uma das duas maneiras de usar o controle de acesso baseado em identidade: Active Directory (AD) (visualização) ou Azure Active Directory Domain Services (Azure AD DS) (GA). O AD dá suporte à autenticação usando computadores ingressados no domínio do AD, no local ou no Azure, para acessar compartilhamentos de arquivos do Azure via SMB. A autenticação do Azure AD DS sobre o SMB para arquivos do Azure permite que o Azure AD DS VMs do Windows ingressadas no domínio acessem compartilhamentos, diretórios e arquivos usando as credenciais do Azure AD. Para obter mais detalhes, consulte [visão geral do suporte à autenticação baseada em identidade de arquivos do Azure para acesso SMB](storage-files-active-directory-overview.md). 
 
     O Azure Files oferece duas maneiras adicionais de gerenciar o controle de acesso:
 
@@ -199,14 +199,12 @@ posso **habilitar os arquivos do azure AD DS ou a autenticação do AD com um lo
 * <a id="ad-multiple-forest"></a>
 **a autenticação do AD do Azure files dá suporte à integração com um ambiente do AD usando várias florestas?**    
 
-    A autenticação do AD dos arquivos do Azure se integra apenas à floresta do serviço de domínio do AD em que a conta de armazenamento está registrada. Para dar suporte à autenticação de outra floresta do AD, seu ambiente deve ter a relação de confiança de floresta configurada corretamente. O registro de arquivos do Azure para um serviço de domínio do AD é praticamente o mesmo que um servidor de arquivos normal, em que ele cria uma conta no AD para autenticação. A única diferença é que o SPN registrado da conta de armazenamento termina com "file.core.windows.net", que não corresponde ao sufixo do domínio.
-
-    Consulte o administrador de domínio para ver se alguma atualização para sua política de roteamento DNS é necessária para habilitar a autenticação de várias florestas.
+    A autenticação do AD dos arquivos do Azure se integra apenas à floresta do serviço de domínio do AD em que a conta de armazenamento está registrada. Para dar suporte à autenticação de outra floresta do AD, seu ambiente deve ter a relação de confiança de floresta configurada corretamente. A maneira como os arquivos do Azure se registram em um serviço de domínio do AD é, na maioria das vezes, o mesmo que um servidor de arquivos normal, em que ele cria uma identidade (conta de logon do computador ou serviço) no AD para autenticação. A única diferença é que o SPN registrado da conta de armazenamento termina com "file.core.windows.net", que não corresponde ao sufixo do domínio. Consulte o administrador de domínio para ver se alguma atualização para sua política de roteamento DNS é necessária para habilitar a autenticação de várias florestas devido ao sufixo de domínio diferente.
 
 * <a id=""></a>
 **quais regiões estão disponíveis para a autenticação do AD do Azure Files (versão prévia)?**
 
-    Consulte [disponibilidade regional do AD](storage-files-active-directory-domain-services-enable.md#regional-availability) para obter detalhes.
+    Consulte [disponibilidade regional do AD](storage-files-identity-auth-active-directory-enable.md#regional-availability) para obter detalhes.
 
 * <a id="ad-aad-smb-afs"></a>
 posso **aproveitar os arquivos do azure AD DS autenticação do Azure ou autenticação Active Directory (versão prévia) em compartilhamentos de arquivos gerenciados pelo sincronização de arquivos do Azure?**
@@ -347,7 +345,7 @@ posso **aproveitar os arquivos do azure AD DS autenticação do Azure ou autenti
 
 * <a id="need-larger-share"></a>
 **quais tamanhos estão disponíveis para compartilhamentos de arquivos do Azure?**  
-    Os tamanhos de compartilhamento de arquivos do Azure (Premium e Standard) podem ser escalados verticalmente para 100 TiB. Consulte a seção [integração a compartilhamentos de arquivos maiores (camada Standard)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) do guia de planejamento para obter instruções de integração para os compartilhamentos de arquivos maiores para a camada Standard.
+    Os tamanhos de compartilhamento de arquivos do Azure (Premium e Standard) podem ser escalados verticalmente para 100 TiB. Consulte a seção [integração a compartilhamentos de arquivos maiores (camada Standard)](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) do guia de planejamento para obter instruções de integração para os compartilhamentos de arquivos maiores para a camada Standard.
 
 * <a id="lfs-performance-impact"></a>
 **a expansão da minha cota de compartilhamento de arquivos afeta minhas cargas de trabalho ou sincronização de arquivos do Azure?**

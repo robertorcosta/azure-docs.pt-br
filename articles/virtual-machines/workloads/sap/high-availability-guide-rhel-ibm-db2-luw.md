@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/10/2019
+ms.date: 02/13/2020
 ms.author: juergent
-ms.openlocfilehash: 5487b90172788c08a4383a32462ea5a85c1763ee
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c6a230f6abeab45c56aab2db40b8b1defcc06d90
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099674"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598690"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -146,7 +146,7 @@ Conclua o processo de planejamento antes de executar a implantação. O planejam
 | Definir grupos de recursos do Azure | Grupos de recursos em que você implanta VM, VNet, Azure Load Balancer e outros recursos. Pode ser existente ou novo. |
 | Definição de rede virtual/sub-rede | Onde as VMs para IBM DB2 e Azure Load Balancer estão sendo implantadas. Pode ser existente ou criado recentemente. |
 | Máquinas virtuais que hospedam o IBM DB2 LUW | Tamanho da VM, armazenamento, rede, endereço IP. |
-| Nome de host virtual e IP virtual para banco de dados IBM DB2| O IP virtual ou o nome do host que é usado para conexão de servidores de aplicativos SAP. **db-virt-hostname**, **db-virt-ip**. |
+| Nome de host virtual e IP virtual para banco de dados IBM DB2| O IP virtual ou o nome do host que é usado para conexão de servidores de aplicativos SAP. **DB-virt-hostname**, **DB-virt-IP**. |
 | Isolamento do Azure | O método para evitar situações de divisão Brain é impedido. |
 | Azure Load Balancer | Uso de básico ou padrão (recomendado), porta de investigação para banco de dados DB2 (nossa recomendação 62500) **porta-investigação**. |
 | Resolução de nomes| Como a resolução de nomes funciona no ambiente. O serviço DNS é altamente recomendado. O arquivo de hosts local pode ser usado. |
@@ -177,7 +177,7 @@ Verifique se o sistema operacional selecionado tem suporte do IBM/SAP para IBM D
     + Selecione o conjunto de disponibilidade do Azure que você criou na etapa 3 ou selecione zona de disponibilidade (não a mesma zona que na etapa 3).
 1. Adicione discos de dados às VMs e, em seguida, verifique a recomendação de uma configuração do sistema de arquivos no artigo [implantação de DBMS de máquinas virtuais do Azure DB2 para carga de trabalho do SAP][dbms-db2].
 
-## <a name="create-the-pacemaker-cluster"></a>Criar o cluster pacemaker
+## <a name="create-the-pacemaker-cluster"></a>Criar o cluster do Pacemaker
     
 Para criar um cluster pacemaker básico para este servidor IBM DB2, consulte [Configurando o pacemaker no Red Hat Enterprise Linux no Azure][rhel-pcs-azr]. 
 
@@ -370,7 +370,7 @@ Os seguintes itens são prefixados com um:
 - **[1]** : aplicável somente ao nó 1 
 - **[2]** : aplicável somente ao nó 2
 
-**[A]** pré-requisitos para a configuração do pacemaker:
+**[A]** pré-requisito para a configuração do pacemaker:
 1. Desligue os servidores de banco de dados com o usuário DB2\<Sid > com db2stop.
 1. Altere o ambiente do Shell para DB2\<Sid > usuário para */bin/ksh*:
 <pre><code># Install korn shell:
@@ -423,7 +423,7 @@ Online: [AZ-idb01 AZ-idb02]
 
 Lista completa de recursos:
 
- rsc_st_azure (stonith: fence_azure_arm): iniciado AZ-idb01 Master/subordinado set: Db2_HADR_ID2-Master [Db2_HADR_ID2] mestres: [AZ-idb01] servidores subordinados: [AZ-idb02] grupo de recursos: g_ipnc_db2id2_ID2 vip_db2id2_ID2 (OCF:: Heartbeat: IPaddr2): Started AZ-idb01 nc_db2id2_ID2 (OCF:: Heartbeat: Azure-lb): iniciado AZ-idb01
+ rsc_st_azure (stonith: fence_azure_arm): iniciado AZ-idb01 Master/escravo set: Db2_HADR_ID2-Master [Db2_HADR_ID2] mestres: [AZ-idb01] servidores subordinados: [AZ-idb02] grupo de recursos: g_ipnc_db2id2_ID2 vip_db2id2_ID2 (OCF:: Heartbeat: IPaddr2): Started AZ-idb01 nc_db2id2_ID2 (OCF:: Heartbeat: Azure-lb): iniciado AZ-idb01
 
 Status do daemon: corosync: ativo/desabilitado pacemaker: ativo/desabilitado PCSD: ativo/habilitado
 </pre>
@@ -434,6 +434,11 @@ Status do daemon: corosync: ativo/desabilitado pacemaker: ativo/desabilitado PCS
 
 ### <a name="configure-azure-load-balancer"></a>Configurar o Azure Load Balancer
 Para configurar Azure Load Balancer, recomendamos que você use o [SKU de Standard Load Balancer do Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) e, em seguida, faça o seguinte;
+
+> [!NOTE]
+> O Standard Load Balancer SKU tem restrições para acessar endereços IP públicos dos nós sob a Load Balancer. O artigo [conectividade de ponto de extremidade público para máquinas virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) está descrevendo maneiras de habilitar esses nós para acessar endereços IP públicos
+
+
 
 1. Criar um pool de IPS de front-end:
 

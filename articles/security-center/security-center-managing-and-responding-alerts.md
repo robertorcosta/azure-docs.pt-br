@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/27/2019
 ms.author: memildin
-ms.openlocfilehash: 46ed2af51f34a25c1cdc1abb6152169feedd989e
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 203e3718cedca693dc029a4ba20a86ca50ab3e32
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666288"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603852"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gerenciar e responder a alertas de segurança na central de segurança do Azure
 
@@ -65,7 +65,7 @@ A Central de segurança coleta, analisa e integra automaticamente os dados de re
     > [!NOTE]
     >Em alguns casos, o endereço IP de origem não está disponível, alguns logs de eventos de segurança do Windows não incluem o endereço IP.
 
-1. As etapas de correção sugeridas pela Central de Segurança variam de acordo com o alerta de segurança. Siga-os para cada alerta. Em alguns casos, para atenuar um alerta de detecção de ameaças, talvez seja necessário usar outros controles ou serviços do Azure para implementar a correção recomendada. 
+1. As etapas de correção sugeridas pela central de segurança variam de acordo com o alerta de segurança. Siga-os para cada alerta. Em alguns casos, para atenuar um alerta de detecção de ameaças, talvez seja necessário usar outros controles ou serviços do Azure para implementar a correção recomendada. 
 
     Os tópicos a seguir orientam você pelos diferentes alertas, de acordo com os tipos de recursos:
     
@@ -78,12 +78,10 @@ A Central de segurança coleta, analisa e integra automaticamente os dados de re
     * [Alertas da camada de serviço](security-center-alerts-service-layer.md)
     * [Detecção de ameaças para o Azure WAF e a proteção contra DDoS do Azure](security-center-alerts-integration.md)
     
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 Neste documento, você aprendeu a configurar políticas de segurança na Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 * [Alertas de segurança na central de segurança do Azure](security-center-alerts-overview.md).
 * [Lidando com incidentes de segurança](security-center-incident.md)
 * [Guia de planejamento e operações da Central de Segurança do Azure](security-center-planning-and-operations-guide.md)
-* [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço.
-* [Blog de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) : encontre postagens no blog sobre conformidade e segurança do Azure.

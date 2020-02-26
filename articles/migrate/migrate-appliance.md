@@ -3,12 +3,12 @@ title: Dispositivo de Migrações para Azure
 description: Fornece uma visão geral do dispositivo de migrações para Azure usado em avaliação e migração de servidor.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: d02227747be4bc7d994e2ea84cd74e7f2fd2531f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 1b1e35c3b7a9d98e57ec4261f6f913c370bbb365
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425452"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597534"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo de Migrações para Azure
 
@@ -34,7 +34,7 @@ Computador físico |  Migrações para Azure: avaliação do servidor |  Descobr
 **Licença** | O modelo de dispositivo baixado vem com uma licença de avaliação do Windows Server 2016, que é válida por 180 dias. Se o período de avaliação estiver próximo da expiração, recomendamos que você baixe e implante um novo dispositivo ou ative a licença do sistema operacional da VM do dispositivo.
 **Implantação** | Você implanta o dispositivo como uma VM VMware. Você precisa de recursos suficientes no vCenter Server para alocar uma VM com 32 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento em disco e um comutador virtual externo.<br/> O dispositivo requer acesso à Internet, seja diretamente ou por meio de um proxy.<br/> O dispositivo pode se conectar a um único vCenter Server.
 **Hardware** | Recursos no vCenter para alocar uma VM com 32 GB de RAM 8 vCPUs, cerca de 80 GB de armazenamento em disco e um comutador virtual externo. 
-**Valor de hash** | MD5: c06ac2a2c0f870d3b274a0b7a73b78b1<br/><br/> SHA256:4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
+**Valor de hash** | Verificar [aqui](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware#verify-security)
 **servidor/host do vCenter** | A VM do dispositivo deve ser implantada em um host ESXi executando a versão 5,5 ou posterior.<br/><br/> vCenter Server executando 5,5, 6,0, 6,5 ou 6,7.
 **Projeto de migrações para Azure** | Um dispositivo pode ser associado a um único projeto. <br/> Qualquer número de dispositivos pode ser associado a um único projeto.<br/> 
 **Descoberta** | Um dispositivo pode descobrir até 10.000 VMs VMware em um vCenter Server.<br/> Um dispositivo pode se conectar a um único vCenter Server.
@@ -52,7 +52,7 @@ Computador físico |  Migrações para Azure: avaliação do servidor |  Descobr
 **Licença** | O modelo de dispositivo baixado vem com uma licença de avaliação do Windows Server 2016, que é válida por 180 dias. Se o período de avaliação estiver próximo da expiração, recomendamos que você baixe e implante um novo dispositivo ou ative a licença do sistema operacional da VM do dispositivo.
 **Implantação de dispositivo**   |  Você implanta o dispositivo como uma VM do Hyper-V.<br/> A VM do dispositivo fornecida pela migração do Azure é a VM Hyper-V versão 5,0.<br/> O host Hyper-V deve estar executando o Windows Server 2012 R2 ou posterior.<br/> O host precisa de espaço suficiente para alocar 16 GB de RAM, 8 vCPUs, cerca de 80 GB de espaço de armazenamento e um comutador externo para a VM do dispositivo.<br/> O dispositivo precisa de um endereço IP estático ou dinâmico e acesso à Internet.
 **Hardware** | Recursos no host Hyper-V para alocar 16 GB de RAM, 8 vCPUs, cerca de 80 GB de espaço de armazenamento e um comutador externo para a VM do dispositivo.
-**Valor de hash** | MD5:29a7531f32bcf69f32d964fa5ae950bc<br/><br/> SHA256:37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
+**Valor de hash** | Verificar [aqui](https://docs.microsoft.com/azure/migrate/tutorial-assess-hyper-v#verify-security)
 **Host Hyper-V** | Executando o Windows Server 2012 R2 ou posterior.
 **Projeto de migrações para Azure** | Um dispositivo pode ser associado a um único projeto. <br/> Qualquer número de dispositivos pode ser associado a um único projeto.<br/> 
 **Descoberta** | Um dispositivo pode descobrir até 5000 VMs do Hyper-V.<br/> Um dispositivo pode se conectar a até 300 hosts Hyper-V.
@@ -67,7 +67,7 @@ Computador físico |  Migrações para Azure: avaliação do servidor |  Descobr
 **Link de download** | [Link de download](https://go.microsoft.com/fwlink/?linkid=2105112)
 **Tamanho do download** | 59,7 MB
 **Hardware** | Máquina física dedicada ou usar uma máquina virtual. A máquina que executa o dispositivo precisa de 16 GB de RAM, 8 vCPUs, cerca de 80 GB de espaço de armazenamento e um comutador externo.<br/> O dispositivo precisa de um endereço IP estático ou dinâmico e acesso à Internet.
-**Valor de hash** | MD5:1e92ede3e87c03bd148e56a708cdd33f<br/><br/> SHA256: a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+**Valor de hash** | Verificar [aqui](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical#verify-security)
 **Sistema operacional** | O computador do dispositivo deve estar executando o Windows Server 2016. 
 **Implantação de dispositivo**   |  O script do instalador do dispositivo é baixado do portal (em uma pasta compactada). <br/> Descompacte a pasta e execute o script do PowerShell (AzureMigrateInstaller. ps1).
 **Descoberta** | Um dispositivo pode descobrir até 250 servidores físicos.

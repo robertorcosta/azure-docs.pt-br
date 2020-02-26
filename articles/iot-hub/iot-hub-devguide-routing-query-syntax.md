@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: e95a0b4b9f071a0fd3949d50eeee17b811dfb8ea
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e01be0442f6d968613ffd800f076705d33e3e16e
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064811"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598197"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxe de consulta do roteamento de mensagens do Hub IoT
 
@@ -88,7 +88,7 @@ $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 
 Uma lista completa de operadores e funções com suporte é mostrada em [expressão e condições](iot-hub-devguide-query-language.md#expressions-and-conditions).
 
-## <a name="message-routing-query-based-on-message-body"></a>Consulta de roteamento de mensagens com base no corpo da mensagem 
+## <a name="message-routing-query-based-on-message-body"></a>Consulta de roteamento de mensagens com base no corpo da mensagem
 
 Para habilitar a consulta no corpo da mensagem, a mensagem deve estar em um JSON codificado em UTF-8, UTF-16 ou UTF-32. `contentType` deve ser definida como `application/JSON` e `contentEncoding` para uma das codificações UTF com suporte na propriedade do sistema. Se essas propriedades não forem especificadas, o Hub IoT não avaliará a expressão de consulta no corpo da mensagem. 
 
@@ -140,6 +140,10 @@ deviceClient.sendEvent(message, (err, res) => {
     if (res) console.log('status: ' + res.constructor.name);
 });
 ```
+
+> [!NOTE] 
+> Isso mostra como lidar com a codificação do corpo em JavaScript. Se você quiser ver um exemplo no C#, baixe os exemplos de IOT [ C# do Azure](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Descompacte o arquivo master.zip. O arquivo Program.cs da solução do Visual Studio *SimulatedDevice*mostra como codificar e enviar mensagens para um hub IOT. Esse é o mesmo exemplo usado para testar o roteamento de mensagens, conforme explicado no [tutorial roteamento de mensagens](tutorial-routing.md). Na parte inferior do Program.cs, ele também tem um método para ler um dos arquivos codificados, decodificá-lo e escrevê-lo novamente como ASCII para que você possa lê-lo. 
+
 
 ### <a name="query-expressions"></a>Expressões de consulta
 

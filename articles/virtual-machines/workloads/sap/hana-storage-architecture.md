@@ -10,15 +10,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/04/2019
+ms.date: 02/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 256aaf94175394fd737e53c6281f2d8b45e8af41
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1d25201c8195fa6c4c36e159904b5b71a20a45ea
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099637"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598486"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Arquitetura de armazenamento do SAP HANA (Instâncias Grandes)
 
@@ -36,6 +36,8 @@ Consulte a tabela a seguir em termos de alocação de armazenamento. A tabela li
 | S192 | 4\.608 GB | 1\.024 GB | 1\.536 GB | 1\.024 GB |
 | S192m | 11.520 GB | 1\.536 GB | 1\.792 GB | 1\.536 GB |
 | S192xm |  11.520 GB |  1\.536 GB |  1\.792 GB |  1\.536 GB |
+| S224 |  4\.224 GB |  512 GB |  1\.024 GB |  512 GB |
+| S224m |  8\.448 GB |  512 GB |  1\.024 GB |  512 GB |
 | S384 | 11.520 GB | 1\.536 GB | 1\.792 GB | 1\.536 GB |
 | S384m | 12.000 GB | 2\.050 GB | 2\.050 GB | 2\.040 GB |
 | S384xm | 16.000 GB | 2\.050 GB | 2\.050 GB | 2\.040 GB |
@@ -72,13 +74,13 @@ Consulte os [cenários suportados pela HLI](hana-supported-scenario.md) para obt
 
 É possível hospedar mais de uma instância ativa do SAP HANA das unidades do SAP HANA em Instâncias Grandes. Para fornecer os recursos de instantâneos de armazenamento e recuperação de desastre, essa configuração requer um conjunto de volumes por instância. Atualmente, as unidades do SAP HANA em Instâncias Grandes podem ser subdivididas da seguinte maneira:
 
-- **S72, S72m, S96, S144, S192**: Em incrementos de 256 GB, com 256 GB a menor unidade de inicialização. Diferentes incrementos, como 256 GB e 512 GB, podem ser combinados ao máximo da memória da unidade.
-- **S144m e S192m**: Em incrementos de 256 GB, com 512 GB a menor unidade. Diferentes incrementos, como 512 GB e 768 GB, podem ser combinados ao máximo da memória da unidade.
-- **Classe do tipo II**: Em incrementos de 512 GB, com a menor unidade inicial de 2 TB. Diferentes incrementos, como 512 GB, 1 TB e 1,5 TB, podem ser combinados ao máximo da memória da unidade.
+- **S72, S72m, S96, S144, S192**: em incrementos de 256 GB, com 256 GB, a menor unidade inicial. Diferentes incrementos, como 256 GB e 512 GB, podem ser combinados ao máximo da memória da unidade.
+- **S144m e S192m**: em incrementos de 256 GB, com 512 GB, a menor unidade. Diferentes incrementos, como 512 GB e 768 GB, podem ser combinados ao máximo da memória da unidade.
+- **Classe do Tipo II**: em incrementos de 512 GB, com a menor unidade inicial de 2 TB. Diferentes incrementos, como 512 GB, 1 TB e 1,5 TB, podem ser combinados ao máximo da memória da unidade.
 
 Alguns exemplos de execução de várias instâncias do SAP HANA podem ser semelhantes aos seguintes.
 
-| SKU | Tamanho da memória | Tamanho do armazenamento | Tamanhos com vários bancos de dados |
+| SKU | Tamanho da memória | Tamanho de armazenamento | Tamanhos com vários bancos de dados |
 | --- | --- | --- | --- |
 | S72 | 768 GB | 3 TB | Instância do HANA 1x768-GB<br /> ou instância de 1x512 GB + instância de 1x256 GB<br /> ou instâncias de 3x256 GB | 
 | S72m | 1,5 TB | 6 TB | 3x instâncias do HANA de 512GB<br />ou a instância de 1 x 512 GB + a instância de 1 x 1 TB<br />ou instâncias de 6 x 256 GB<br />ou instância 1x1.5 TB | 

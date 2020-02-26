@@ -2,20 +2,19 @@
 title: Visão geral do İSTİO
 description: Obtenha uma visão geral do İSTİO
 author: paulbouwer
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
-ms.openlocfilehash: 3db2a3d75df08e7c668b1983ad9b4493446475df
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 8518e30a54c2486abf84cd9ac026cc4dccb3fa84
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530505"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593893"
 ---
 # <a name="istio"></a>İSTİO
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 O [İSTİO][istio] é uma malha de serviço completa em destaque, personalizável e extensível.
 
@@ -44,7 +43,7 @@ O diagrama de arquitetura a seguir demonstra como os vários componentes dentro 
 É importante entender e considerar as seguintes áreas ao avaliar İSTİO para suas cargas de trabalho:
 
 - [Metas de design](#design-goals)
-- [Técnicas](#capabilities)
+- [Funcionalidades](#capabilities)
 - [Cenários](#scenarios)
 
 
@@ -85,7 +84,7 @@ O İSTİO é adequado e sugerido para os seguintes cenários:
 
 - Malha de serviço de vários clusters
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 A documentação a seguir descreve como você pode instalar o İSTİO no AKS (serviço kubernetes do Azure):
 

@@ -3,12 +3,12 @@ title: Habilitar automaticamente o backup na criação da VM usando o Azure Poli
 description: Um artigo que descreve como usar Azure Policy para habilitar o backup automaticamente para todas as VMs criadas em um determinado escopo
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 7a3b526d654936d4e7ec89127a9074146c1b0179
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1d423371788f87155328e8f5c9334e47349a68e8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450128"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77584261"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Habilitar automaticamente o backup na criação da VM usando o Azure Policy
 
@@ -16,9 +16,9 @@ Uma das principais responsabilidades de um administrador de backup ou conformida
 
 Hoje, o backup do Azure fornece uma política interna (usando Azure Policy) que pode ser atribuída a **todas as VMs do Azure em um local especificado dentro de uma assinatura ou grupo de recursos**. Quando essa política é atribuída a um determinado escopo, todas as novas VMs criadas nesse escopo são automaticamente configuradas para backup em um **cofre existente no mesmo local e assinatura**. O usuário pode especificar o cofre e a política de retenção à qual as VMs de backup devem ser associadas.
 
-## <a name="supported-scenarios"></a>Cenários com suporte 
+## <a name="supported-scenarios"></a>Cenários com suporte
 
-* Atualmente, a política interna tem suporte apenas para VMs do Azure. Os usuários devem tomar cuidado para garantir que a política de retenção especificada durante a atribuição seja uma política de retenção de VM. Consulte [este](https://aka.ms/PolicySupportedSKUs) documento para ver todos os SKUs de VM com suporte nesta política.
+* Atualmente, a política interna tem suporte apenas para VMs do Azure. Os usuários devem tomar cuidado para garantir que a política de retenção especificada durante a atribuição seja uma política de retenção de VM. Consulte [este](https://docs.microsoft.com/azure/backup/backup-azure-policy-supported-skus) documento para ver todos os SKUs de VM com suporte nesta política.
 
 * A política pode ser atribuída a um único local e assinatura de cada vez. Para habilitar o backup para VMs em locais e assinaturas, várias instâncias da atribuição de política precisam ser criadas, uma para cada combinação de localização e assinatura.
 

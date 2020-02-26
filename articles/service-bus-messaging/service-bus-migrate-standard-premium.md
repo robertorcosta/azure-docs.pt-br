@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 610c3aa486b48b2d29df48d98e93b37cfec4854c
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 548163f4c86f4df4d858b31afd95e0e4615f1696
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790371"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587491"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrar namespaces padrão do barramento de serviço do Azure para a camada Premium
 Anteriormente, o barramento de serviço do Azure ofereceu namespaces apenas na camada Standard. Os namespaces são configurações de vários locatários que são otimizadas para baixo rendimento e ambientes de desenvolvimento. A camada Premium oferece recursos dedicados por namespace para latência previsível e maior taxa de transferência a um preço fixo. A camada Premium é otimizada para ambientes de produção e alta taxa de transferência que exigem recursos empresariais adicionais.
@@ -32,7 +32,7 @@ Alguns dos pontos a serem observados:
 - O namespace **Premium** não deve ter **nenhuma entidade** para que a migração tenha sucesso. 
 - Todas as **entidades** no namespace padrão são **copiadas** para o namespace Premium durante o processo de migração. 
 - A migração dá suporte a **1.000 entidades por unidade de mensagens** na camada Premium. Para identificar quantas unidades de mensagens você precisa, comece com o número de entidades que você tem em seu namespace padrão atual. 
-- Não é possível migrar diretamente da **camada básica** para a **camada Premier**, mas você pode fazê-lo indiretamente migrando do Basic para o Standard primeiro e depois do Standard para o Premium na próxima etapa.
+- Não é possível migrar diretamente da **camada básica** para a **camada Premium**, mas você pode fazê-lo indiretamente migrando do básico para o Standard primeiro e, em seguida, do Standard para o Premium na próxima etapa.
 
 ## <a name="migration-steps"></a>Etapas da migração
 Algumas condições estão associadas ao processo de migração. Familiarize-se com as etapas a seguir para reduzir a possibilidade de erros. Essas etapas descrevem o processo de migração e os detalhes passo a passo são listados nas seções a seguir.
@@ -62,7 +62,7 @@ Para migrar seu namespace standard do barramento de serviço para Premium usando
    ```
 
     >[!IMPORTANT]
-    > O alias/nome (post_migration_dns_name) de pós-migração será usado para acessar o namespace padrão antigo após a migração. Use isso para drenar as filas e as assinaturas e, em seguida, excluir o namespace.
+    > O alias/nome (post_migration_dns_name) pós-migração será usado para acessar o namespace padrão antigo após a migração. Use isso para drenar as filas e as assinaturas e, em seguida, excluir o namespace.
 
 1. Emparelhe os namespaces padrão e Premium e inicie a sincronização usando o seguinte comando:
 
@@ -118,7 +118,7 @@ A migração usando o portal do Azure tem o mesmo fluxo lógico que a migração
     A página confirmação é exibida quando a migração é concluída.
     namespace do comutador de ![-êxito][]
 
-## <a name="caveats"></a>Limitações
+## <a name="caveats"></a>Advertências
 
 Alguns dos recursos fornecidos pela camada standard do barramento de serviço do Azure não são suportados pela camada Premium do barramento de serviço do Azure. Eles são por design, uma vez que a camada Premium oferece recursos dedicados para taxa de transferência e latência previsíveis.
 
@@ -170,7 +170,7 @@ Não, não há nenhuma alteração de código ou configuração necessária para
 ### <a name="what-happens-when-i-abort-the-migration"></a>O que acontece quando eu cancelo a migração?
 A migração pode ser anulada usando o comando `Abort` ou usando o portal do Azure. 
 
-#### <a name="azure-cli"></a>Azure CLI
+#### <a name="azure-cli"></a>CLI do Azure
 
 ```azurecli
 az servicebus migration abort --resource-group $resourceGroup --name $standardNamespace
@@ -208,7 +208,7 @@ No entanto, se você puder migrar durante uma janela de manutenção planejada/m
     >
     > Depois que a migração for concluída, os aplicativos receptores serão desconectados do namespace padrão e se conectarão automaticamente ao namespace Premium.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre as [diferenças entre as mensagens Standard e Premium](./service-bus-premium-messaging.md).
 * Saiba mais sobre os [aspectos de alta disponibilidade e recuperação de desastres geográficos para o barramento de serviço Premium](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium).

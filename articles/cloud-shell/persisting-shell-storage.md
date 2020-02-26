@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2019
+ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: 0b3b0b2cc97c86fefe37055e0744b747d4f31687
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 15a5770eb2964f0f2039fe93de904af65d4c81ed
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385549"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598741"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Persistir arquivos no Azure Cloud Shell
 O Cloud Shell utiliza o armazenamento dos Arquivos do Azure para persistir os arquivos entre as sessões. No primeiro início, o Cloud Shell solicita a associação de um compartilhamento de arquivos novo ou existente para persistir arquivos entre as sessões.
@@ -62,15 +62,25 @@ Cloud Shell usa um compartilhamento de arquivos do Azure em uma conta de armazen
 Os usuários devem bloquear o acesso aos seus arquivos definindo as permissões na conta de armazenamento ou no nível de assinatura.
 
 ## <a name="supported-storage-regions"></a>Regiões de armazenamento com suporte
-As contas de armazenamento do Azure associadas devem residir na mesma região que o computador do Cloud Shell em que você estiver montando. Para localizar sua região atual, você poderá executar `env` em Bash e localizar a variável `ACC_LOCATION`. Os compartilhamentos de arquivos recebem uma imagem de 5 GB criada para você manter o diretório `$Home`.
+Para localizar sua região atual, você pode executar `env` em bash e localizar a variável `ACC_LOCATION`ou da execução do PowerShell `$env:ACC_LOCATION`. Os compartilhamentos de arquivos recebem uma imagem de 5 GB criada para você manter o diretório `$Home`.
 
 Há computadores do Cloud Shell nas regiões a seguir:
 
 |Área|Região|
 |---|---|
 |Américas|Leste dos EUA, Centro-Sul dos EUA, Oeste dos EUA|
-|Europa|Europa do Norte, Europa Ocidental|
+|Europa|Norte da Europa, Europa Ocidental|
 |Pacífico Asiático|Índia Central, Sudeste Asiático|
+
+Os clientes devem escolher uma região primária, a menos que tenham um requisito de que seus dados em repouso sejam armazenados em uma região específica. Se eles tiverem esse requisito, uma região de armazenamento secundária deverá ser usada.
+
+### <a name="secondary-storage-regions"></a>Regiões de armazenamento secundárias
+Se uma região de armazenamento secundária for usada, a conta de armazenamento do Azure associada residirá em uma região diferente da máquina Cloud Shell na qual você está montando. Por exemplo, Jane pode definir sua conta de armazenamento a ser localizada no leste do Canadá, uma região secundária, mas a máquina na qual ela está montada ainda está localizada em uma região primária. Seus dados em repouso estão localizados no Canadá, mas são processados no Estados Unidos.
+
+> [!NOTE]
+> Se uma região secundária for usada, o acesso a arquivos e o tempo de inicialização para Cloud Shell poderão ser mais lentos.
+
+Um usuário pode executar `(Get-CloudDrive | Get-AzStorageAccount).Location` no PowerShell para ver o local de seu compartilhamento de arquivos.
 
 ## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Restringir a criação de recursos com uma política de recursos do Azure
 As contas de armazenamento criadas no Cloud Shell são marcadas com `ms-resource-usage:azure-cloud-shell`. Se você deseja impedir que os usuários criem contas de armazenamento no Cloud Shell, crie uma [Política de recursos do Azure para marcas](../azure-policy/json-samples.md) que seja disparada por essa marca específica.
@@ -156,7 +166,7 @@ O cmdlet `Dismount-CloudDrive` desmonta um compartilhamento de arquivos do Azure
 
 Observação: se você precisar definir uma função em um arquivo e chamá-la dos cmdlets do PowerShell, o operador de ponto deverá ser incluído. Por exemplo: . .\MyFunctions.ps1
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Início rápido do Cloud Shell](quickstart.md) <br>
 [Saiba mais sobre armazenamento de Arquivos do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
 [Saiba mais sobre marcas de armazenamento](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

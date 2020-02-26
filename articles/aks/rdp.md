@@ -2,17 +2,14 @@
 title: RDP nos nós de cluster do Windows Server do AKS (serviço de kubernetes do Azure)
 description: Saiba como criar uma conexão RDP com os nós do Windows Server do cluster do serviço de kubernetes do Azure (AKS) para tarefas de solução de problemas e manutenção.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 06/04/2019
-ms.author: mlearned
-ms.openlocfilehash: e3a4ea2e81e6c428b51d164336282f8f929d414b
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 897504aa9902d0feaf4245c719d3a4a3c6fd2241
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639802"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594474"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Conectar-se ao RDP para os nós do Windows Server do cluster do AKS (serviço de kubernetes do Azure) para manutenção ou solução de problemas
 
@@ -32,7 +29,7 @@ Você também precisa do CLI do Azure versão 2.0.61 ou posterior instalada e co
 
 Os nós do Windows Server do cluster AKS não têm endereços IP acessíveis externamente. Para fazer uma conexão RDP, você pode implantar uma máquina virtual com um endereço IP acessível publicamente para a mesma sub-rede que os nós do Windows Server.
 
-O exemplo a seguir cria uma máquina virtual chamada *myVM* no grupo de recursos MyResource Group.
+O exemplo a seguir cria uma máquina virtual chamada *myVM* no grupo de recursos *MyResource* Group.
 
 Primeiro, obtenha a sub-rede usada pelo pool de nós do Windows Server. Para obter a ID de sub-rede, você precisa do nome da sub-rede. Para obter o nome da sub-rede, você precisa do nome da vnet. Obtenha o nome da vnet consultando seu cluster para sua lista de redes. Para consultar o cluster, você precisa de seu nome. Você pode obter tudo isso executando o seguinte no Azure Cloud Shell:
 

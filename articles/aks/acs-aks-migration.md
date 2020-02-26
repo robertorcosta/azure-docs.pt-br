@@ -2,18 +2,15 @@
 title: Migrar para o serviço kubernetes do Azure (AKS)
 description: Migre para o serviço kubernetes do Azure (AKS).
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 11/07/2018
-ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: c4ed78dc9fd277fc61a923364519e338a9f720c2
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: bc96d3e8e5a595c80822065801873a44642be078
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290386"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596837"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrar para o serviço kubernetes do Azure (AKS)
 
@@ -35,7 +32,7 @@ Várias ferramentas de código-fonte aberto podem ajudar com sua migração, dep
 
 * [Velero](https://velero.io/) (requer kubernetes 1.7 +)
 * [Extensão da CLI do Azure Kube](https://github.com/yaron2/azure-kube-cli)
-* [ReShifter](https://github.com/mhausenblas/reshifter)
+* [Returno](https://github.com/mhausenblas/reshifter)
 
 Neste artigo, resumiremos os detalhes de migração para:
 
@@ -80,7 +77,7 @@ Ao migrar clusters, você pode ter anexado serviços externos do Azure. Eles nã
 
 * Registro de Contêiner do Azure
 * Log Analytics
-* Percepções sobre o Aplicativo
+* Application Insights
 * Gerenciador de Tráfego
 * Conta de Armazenamento
 * Bancos de dados externos

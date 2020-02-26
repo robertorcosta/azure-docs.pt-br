@@ -3,17 +3,16 @@ title: Proteção de segurança em hosts de máquina virtual AKS
 description: Saiba mais sobre a proteção de segurança no sistema operacional host de VM AKS
 services: container-service
 author: saudas
-ms.service: container-service
 ms.topic: article
 ms.date: 09/11/2019
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 8b7e50fdc02ab47c50cecb95073f1b51393db898
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d4105a9fba3c40c563198040afb811625727ead0
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885641"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594373"
 ---
 # <a name="security-hardening-in-aks-virtual-machine-hosts"></a>Proteção de segurança em hosts de máquina virtual AKS 
 
@@ -57,7 +56,7 @@ O AKS-Engine não promove ou adere a nenhum padrão de segurança específico no
 |3.2.3 |Verifique se os redirecionamentos ICMP seguros não são aceitos |
 |3.2.4 |Garantir que os pacotes suspeitos sejam registrados |
 |3.3.1 |Verifique se os anúncios do roteador IPv6 não são aceitos |
-|3.0 |Verifique se o DCCP está desabilitado |
+|3.5.1 |Verifique se o DCCP está desabilitado |
 |3.5.2 |Verifique se SCTP está desabilitado |
 |3.5.3 |Garantir que o RDS esteja desabilitado |
 |3.5.4 |Verifique se o TIPC está desabilitado |

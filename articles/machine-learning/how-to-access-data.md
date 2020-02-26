@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6d68599af644e5bb03fc850a880b07c6a4d262a9
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 54ad9109a23b0fb25470987c2bc863934864b83f
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77370474"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77580661"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Acessar dados nos serviços de armazenamento do Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -57,10 +57,10 @@ Atualmente, os armazenamentos de dados dão suporte ao armazenamento de informa�
 [Azure&nbsp;Data Lake&nbsp;Storage Gen&nbsp;2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)| Entidade de serviço| ✓ | ✓ | ✓ |✓
 Banco de dados SQL&nbsp;do Azure&nbsp;| Autenticação SQL <br>Entidade de serviço| ✓ | ✓ | ✓ |✓
 PostgreSQL&nbsp;do Azure | Autenticação SQL| ✓ | ✓ | ✓ |✓
-&nbsp;do banco de dados&nbsp;do Azure para&nbsp;MySQL | Autenticação SQL|  | ✓ | ✓ |✓
-Databricks&nbsp;sistema de&nbsp;de arquivos| Sem autenticação | | ✓* | ✓ * |✓* 
+&nbsp;do banco de dados&nbsp;do Azure para&nbsp;MySQL | Autenticação SQL|  | ✓* | ✓* |✓*
+Databricks&nbsp;sistema de&nbsp;de arquivos| Sem autenticação | | ✓** | ✓ ** |✓** 
 
-\* somente com suporte em cenários de destino de computação local
+*Só há suporte para MySQL no pipeline [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py). <br> \** Só há suporte para databricks para [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py) de pipeline
 
 ### <a name="storage-guidance"></a>Orientação de armazenamento
 
@@ -77,7 +77,7 @@ Ao registrar uma solução de armazenamento do Azure como um repositório de arm
 
 >[!IMPORTANT]
 > Como parte do processo de criação e registro do repositório de armazenamento atual, o Azure Machine Learning valida que a entidade de segurança fornecida pelo usuário (nome de usuário, entidade de serviço ou token SAS) tem acesso ao serviço de armazenamento subjacente. 
-<br>
+<br><br>
 No entanto, para Azure Data Lake Storage armazenamentos de dados Gen 1 e 2, essa validação ocorrerá mais tarde quando métodos de acesso a data como [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py) ou [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-) forem chamados. 
 
 ### <a name="python-sdk"></a>SDK do Python
@@ -87,10 +87,13 @@ Todos os métodos de registro estão na classe [`Datastore`](https://docs.micros
 Você pode encontrar as informações necessárias para preencher o método `register()` usando o [portal do Azure](https://portal.azure.com):
 
 1. Selecione **contas de armazenamento** no painel esquerdo e escolha a conta de armazenamento que você deseja registrar. 
-2. Para obter informações como o nome da conta, o contêiner e o nome do compartilhamento de arquivos, vá para a página **visão geral** . Para obter informações de autenticação, como chave de conta ou token SAS, acesse **chaves de acesso** no painel **configurações** . 
+2. Para obter informações como o nome da conta, o contêiner e o nome do compartilhamento de arquivos, vá para a página **visão geral** . 
+3. Para obter informações de autenticação, como chave de conta ou token SAS, acesse **chaves de acesso** no painel **configurações** . 
+
+4. Para itens de entidade de serviço como, ID do locatário e ID do cliente, vá para a página **visão geral** do seu **registros de aplicativo**. 
 
 > [!IMPORTANT]
-> Se sua conta de armazenamento estiver em uma rede virtual, haverá suporte apenas para a criação de um armazenamento de BLOBs do Azure. Para conceder ao seu espaço de trabalho acesso à sua conta de armazenamento, defina o parâmetro `grant_workspace_access` como `True`.
+> Se sua conta de armazenamento estiver em uma rede virtual, haverá suporte para a criação de BLOB, compartilhamento de arquivos, ADLS Gen 1 e ADLS de armazenamento Gen 2 **por meio do SDK** . Para conceder ao seu espaço de trabalho acesso à sua conta de armazenamento, defina o parâmetro `grant_workspace_access` como `True`.
 
 Os exemplos a seguir mostram como registrar um contêiner de blob do Azure, um compartilhamento de arquivos do Azure e Azure Data Lake Storage a geração 2 como um repositório de armazenamento. Para outros serviços de armazenamento, consulte a [documentação de referência para os métodos de `register_azure_*`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods).
 
@@ -134,7 +137,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 #### <a name="azure-data-lake-storage-generation-2"></a>Azure Data Lake Storage geração 2
 
-Para um repositório de armazenamento de Azure Data Lake Storage geração 2 (ADLS Gen 2), use [register_azure_data_lake_gen2 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) para registrar um repositório de armazenamento de credenciais conectado a um armazenamento do Azure datalake Gen 2 com [permissões de entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Saiba mais sobre o [controle de acesso configurado para o ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
+Para um repositório de armazenamento de Azure Data Lake Storage geração 2 (ADLS Gen 2), use [register_azure_data_lake_gen2 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) para registrar um repositório de armazenamento de credenciais conectado a um armazenamento do Azure datalake Gen 2 com [permissões de entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Para utilizar sua entidade de serviço, você precisa [registrar seu aplicativo](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). Saiba mais sobre o [controle de acesso configurado para o ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
 O código a seguir cria e registra o repositório de armazenamento de `adlsgen2_datastore_name` no espaço de trabalho `ws`. Esse repositório de armazenamento acessa o sistema de arquivos `test` na conta de armazenamento de `account_name`, usando as credenciais de entidade de serviço fornecidas.
 
@@ -162,12 +165,19 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 
 Crie um novo repositório de armazenamento em algumas etapas no Azure Machine Learning Studio:
 
+> [!IMPORTANT]
+> Se sua conta de armazenamento estiver em uma rede virtual, haverá suporte para a criação somente de repositórios de armazenamento [por meio do SDK](#python-sdk) . 
+
 1. Entre no [Estúdio do Azure Machine Learning](https://ml.azure.com/).
 1. Selecione **repositórios de armazenamento** no painel esquerdo em **gerenciar**.
 1. Selecione **+ novo repositório de armazenamento**.
 1. Preencha o formulário para um novo repositório de armazenamento. O formulário se atualiza de forma inteligente com base em suas seleções para tipo de armazenamento e tipo de autenticação do Azure.
   
-Você pode encontrar as informações necessárias para preencher o formulário na [portal do Azure](https://portal.azure.com). Selecione **contas de armazenamento** no painel esquerdo e escolha a conta de armazenamento que você deseja registrar. A página **visão geral** fornece informações como o nome da conta, o contêiner e o nome do compartilhamento de arquivos. Para itens de autenticação, como chave de conta ou token SAS, vá para **chaves de conta** no painel **configurações** .
+Você pode encontrar as informações necessárias para preencher o formulário na [portal do Azure](https://portal.azure.com). Selecione **contas de armazenamento** no painel esquerdo e escolha a conta de armazenamento que você deseja registrar. A página **visão geral** fornece informações como o nome da conta, o contêiner e o nome do compartilhamento de arquivos. 
+
+* Para itens de autenticação, como chave de conta ou token SAS, vá para **chaves de conta** no painel **configurações** . 
+
+* Para itens de entidade de serviço como, ID do locatário e ID do cliente, vá para a página **visão geral** do seu **registros de aplicativo**. 
 
 O exemplo a seguir demonstra a aparência do formulário quando você cria um repositório de armazenamento de BLOBs do Azure: 
     

@@ -3,12 +3,12 @@ title: Configurar um dispositivo de migrações para Azure para VMware
 description: Saiba como configurar um dispositivo de migrações para Azure para avaliar e migrar VMs VMware.
 ms.topic: article
 ms.date: 11/18/2019
-ms.openlocfilehash: 139b694bafb9d67192e6f182ff879e86e2b73ce4
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: e331d45d3e87f8007642675a0349839e7494958c
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291933"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598146"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurar um dispositivo para VMs VMware
 
@@ -35,7 +35,7 @@ Para configurar o dispositivo:
 2. Em **Descobrir computadores** > **Os computadores estão virtualizados?** , clique em **Sim, com o hipervisor do VMware vSphere**.
 3. Clique em **Baixar** para baixar o arquivo de modelo .OVA.
 
-
+  ![Seleções para baixar um arquivo OVA](./media/tutorial-assess-vmware/download-ova.png)
 
 ### <a name="verify-security"></a>Verificar a segurança
 
@@ -45,12 +45,8 @@ Verifique se o arquivo OVA é seguro antes de implantá-lo.
 2. Execute o comando a seguir para gerar o hash para o OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. Para a versão mais recente do dispositivo, o hash gerado deve corresponder a essas configurações.
+3. Para a versão mais recente do dispositivo, o hash gerado deve corresponder a essas [configurações](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware#verify-security).
 
-  **Algoritmo** | **Valor de hash**
-  --- | ---
-  MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
-  SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 
 
 ## <a name="create-the-appliance-vm"></a>Criar a VM do dispositivo
@@ -58,6 +54,8 @@ Verifique se o arquivo OVA é seguro antes de implantá-lo.
 Importe o arquivo baixado e crie uma VM.
 
 1. No console do cliente do vSphere, clique em **Arquivo** > **Implantar o Modelo de OVF**.
+![comando de menu para implantar um modelo OVF](./media/tutorial-assess-vmware/deploy-ovf.png)
+
 2. No Assistente do Modelo de Implantação de OVF > **Origem**, especifique o local do arquivo OVA.
 3. Em **Nome** e **Local**, especifique um nome amigável para a VM. Selecione o objeto de inventário no qual a VM será hospedada.
 5. Em **Host/Cluster**, especifique o host ou o cluster no qual a VM será executada.
@@ -130,6 +128,6 @@ Depois de especificar o vCenter Server e as credenciais da VM (opcional), clique
 
 São necessários cerca de 15 minutos para que os metadados das VMs descobertas sejam exibidos no portal. A descoberta de aplicativos, funções e recursos instalados leva algum tempo, a duração depende do número de VMs que estão sendo descobertas. Para as VMs 500, leva aproximadamente 1 hora para o inventário de aplicativos aparecer no portal de Migrações para Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Examine os tutoriais para [avaliação do VMware](tutorial-assess-vmware.md) e [migração sem agente](tutorial-migrate-vmware.md).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 7ffab200b50a7c4d1af60a230f237b18e8afc621
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 8700421551af227f158abaa38d5f96c8e2987ba3
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754215"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603397"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Recursos com suporte disponíveis na central de segurança do Azure
 
@@ -33,56 +33,56 @@ As seções a seguir mostram os recursos da central de segurança que estão dis
 
 ## Recursos com suporte para máquina virtual/servidor<a name="vm-server-features"></a>
 
-### <a name="windowstabfeatures-windows"></a>[Windows](#tab/features-windows)
+### <a name="windows"></a>[Windows](#tab/features-windows)
 
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-||**Máquinas Virtuais do Azure**|**Conjuntos de Dimensionamento de Máquinas Virtuais do Azure**|**Computadores não Azure**|**Preços**
-|[Integração do Microsoft defender ATP](security-center-wdatp.md)|✔ (em versões compatíveis)|✔ (em versões compatíveis)|✔|Padrão|
+||**Máquinas Virtuais do Azure**|**Conjuntos de dimensionamento de máquinas virtuais do Azure**|**Computadores não Azure**|**Preços**
+|[Integração do Microsoft defender ATP](security-center-wdatp.md)|✔ (em versões compatíveis)|✔ (em versões compatíveis)|✔|Standard|
 |[Alertas de detecção de ameaças de análise comportamental de máquina virtual](security-center-alerts-iaas.md)|✔|✔|✔|Recomendações (gratuito) detecção de ameaças (padrão)|
-|[Alertas de detecção de ameaças com arquivo](alerts-reference.md#alerts-windows)|✔|✔|✔|Padrão|
-|[Alertas de detecção de ameaças baseados em rede](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Padrão|
-|[Acesso à VM just-in-time](security-center-just-in-time.md)|✔|-|-|Padrão|
-|[Avaliação de vulnerabilidades nativas](built-in-vulnerability-assessment.md)|✔|-|-|Padrão|
-|[Monitoramento de integridade de arquivo](security-center-file-integrity-monitoring.md)|✔|✔|✔|Padrão|
-|[Controles de aplicativo adaptável](security-center-adaptive-application.md)|✔|-|✔|Padrão|
-|[Mapa de rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Padrão|
-|[Proteção de rede adaptável](security-center-adaptive-network-hardening.md)|✔|-|-|Padrão|
-|Controles de rede adaptável|✔|✔|-|Padrão|
-|[Painel de conformidade regulatória & relatórios](security-center-compliance-dashboard.md)|✔|✔|✔|Padrão|
-|Recomendações e detecção de ameaças em contêineres de IaaS hospedados pelo Docker|-|-|-|Padrão|
-|Avaliação de patches do sistema operacional ausente|✔|✔|✔|Gratuito|
-|Avaliação de incorretas de segurança|✔|✔|✔|Gratuito|
-|[Avaliação do Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Gratuito|
-|Avaliação de criptografia de disco|✔|✔|-|Gratuito|
-|Avaliação de vulnerabilidade de terceiros|✔|-|-|Gratuito|
-|[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Gratuito|
+|[Alertas de detecção de ameaças com arquivo](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
+|[Alertas de detecção de ameaças baseados em rede](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Standard|
+|[Acesso à VM just-in-time](security-center-just-in-time.md)|✔|-|-|Standard|
+|[Avaliação de vulnerabilidades nativas](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
+|[Monitoramento de integridade de arquivo](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
+|[Controles de aplicativo adaptável](security-center-adaptive-application.md)|✔|-|✔|Standard|
+|[Mapa de rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
+|[Proteção de rede adaptável](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
+|Controles de rede adaptável|✔|✔|-|Standard|
+|[Painel de conformidade regulatória & relatórios](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
+|Recomendações e detecção de ameaças em contêineres de IaaS hospedados pelo Docker|-|-|-|Standard|
+|Avaliação de patches do sistema operacional ausente|✔|✔|✔|Grátis|
+|Avaliação de incorretas de segurança|✔|✔|✔|Grátis|
+|[Avaliação do Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Grátis|
+|Avaliação de criptografia de disco|✔|✔|-|Grátis|
+|Avaliação de vulnerabilidade de terceiros|✔|-|-|Grátis|
+|[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Grátis|
 
 
-### <a name="linuxtabfeatures-linux"></a>[Linux](#tab/features-linux)
+### <a name="linux"></a>[Linux](#tab/features-linux)
 
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-||**Máquinas Virtuais do Azure**|**Conjuntos de Dimensionamento de Máquinas Virtuais do Azure**|**Computadores não Azure**|**Preços**
-|[Integração do Microsoft defender ATP](security-center-wdatp.md)|-|-|-|Padrão|
+||**Máquinas Virtuais do Azure**|**Conjuntos de dimensionamento de máquinas virtuais do Azure**|**Computadores não Azure**|**Preços**
+|[Integração do Microsoft defender ATP](security-center-wdatp.md)|-|-|-|Standard|
 |[Alertas de detecção de ameaças de análise comportamental de máquina virtual](security-center-alerts-iaas.md)|✔ (em versões compatíveis)|✔ (em versões compatíveis)|✔|Recomendações (gratuito) detecção de ameaças (padrão)|
-|[Alertas de detecção de ameaças com arquivo](alerts-reference.md#alerts-windows)|-|-|-|Padrão|
-|[Alertas de detecção de ameaças baseados em rede](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Padrão|
-|[Acesso à VM just-in-time](security-center-just-in-time.md)|✔|-|-|Padrão|
-|[Avaliação de vulnerabilidades nativas](built-in-vulnerability-assessment.md)|✔|-|-|Padrão|
-|[Monitoramento de integridade de arquivo](security-center-file-integrity-monitoring.md)|✔|✔|✔|Padrão|
-|[Controles de aplicativo adaptável](security-center-adaptive-application.md)|✔|-|✔|Padrão|
-|[Mapa de rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Padrão|
-|[Proteção de rede adaptável](security-center-adaptive-network-hardening.md)|✔|-|-|Padrão|
-|Controles de rede adaptável|✔|✔|-|Padrão|
-|[Painel de conformidade regulatória & relatórios](security-center-compliance-dashboard.md)|✔|✔|✔|Padrão|
-|Recomendações e detecção de ameaças em contêineres de IaaS hospedados pelo Docker|✔|✔|✔|Padrão|
-|Avaliação de patches do sistema operacional ausente|✔|✔|✔|Gratuito|
-|Avaliação de incorretas de segurança|✔|✔|✔|Gratuito|
-|[Avaliação do Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Gratuito|
-|Avaliação de criptografia de disco|✔|✔|-|Gratuito|
-|Avaliação de vulnerabilidade de terceiros|✔|-|-|Gratuito|
-|[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Gratuito|
+|[Alertas de detecção de ameaças com arquivo](alerts-reference.md#alerts-windows)|-|-|-|Standard|
+|[Alertas de detecção de ameaças baseados em rede](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Standard|
+|[Acesso à VM just-in-time](security-center-just-in-time.md)|✔|-|-|Standard|
+|[Avaliação de vulnerabilidades nativas](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
+|[Monitoramento de integridade de arquivo](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
+|[Controles de aplicativo adaptável](security-center-adaptive-application.md)|✔|-|✔|Standard|
+|[Mapa de rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
+|[Proteção de rede adaptável](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
+|Controles de rede adaptável|✔|✔|-|Standard|
+|[Painel de conformidade regulatória & relatórios](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
+|Recomendações e detecção de ameaças em contêineres de IaaS hospedados pelo Docker|✔|✔|✔|Standard|
+|Avaliação de patches do sistema operacional ausente|✔|✔|✔|Grátis|
+|Avaliação de incorretas de segurança|✔|✔|✔|Grátis|
+|[Avaliação do Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Grátis|
+|Avaliação de criptografia de disco|✔|✔|-|Grátis|
+|Avaliação de vulnerabilidade de terceiros|✔|-|-|Grátis|
+|[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Grátis|
 
 --- 
 
@@ -95,7 +95,7 @@ A tabela a seguir fornece uma matriz de:
 
 Para obter informações sobre quando as recomendações são geradas para cada uma dessas proteções, consulte [Endpoint Protection avaliação e recomendações](security-center-endpoint-protection.md).
 
-| Endpoint Protection| Plataformas | Instalação da Central de Segurança | Descoberta da Central de Segurança |
+| Proteção do ponto de extremidade| Plataformas | Instalação da Central de Segurança | Descoberta da Central de Segurança |
 |------|------|-----|-----|
 | Windows Defender (Microsoft Antimalware)| Windows Server 2016| Não, Integrado no SO| Sim |
 | System Center Endpoint Protection (antimalware da Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 (consulte a observação abaixo) | Via extensão | Sim |
@@ -118,21 +118,21 @@ Os recursos de PaaS a seguir têm suporte na central de segurança do Azure:
 
 |Serviço|Recomendações (gratuito)|Alertas de detecção de ameaças (Standard)|Avaliação de vulnerabilidade (padrão)|
 |----|:----:|:----:|:----:|
-|Bancos de dados SQL|✔|✔|✔|
+|BANCOS DE DADOS SQL|✔|✔|✔|
 |Registro de Contêiner do Azure|-|-|✔|
-|Serviço do Kubernetes do Azure|✔|✔|-|
+|Serviço de Kubernetes do Azure|✔|✔|-|
 |Banco de dados do Azure para PostgreSQL *|✔|✔|-|
 |Banco de dados do Azure para MySQL *|✔|✔|-|
 |CosmosDB do Azure *|-|✔|-|
 |Contas de armazenamento|✔|-|-|
-|Armazenamento de Blob|✔|✔|-|
-|Serviço de aplicativo|✔|✔|-|
+|Armazenamento de Blobs|✔|✔|-|
+|Serviço de Aplicativo|✔|✔|-|
 |Aplicativo de funções|✔|-|-|
-|Serviços em Nuvem|✔|-|-|
-|Rede virtual|✔|-|-|
+|Serviços de Nuvem|✔|-|-|
+|Rede Virtual|✔|-|-|
 |Sub-rede|✔|-|-|
 |NIC|✔|-|-|
-|Grupos de Segurança de Rede|✔|-|-|
+|Grupos de segurança de rede|✔|-|-|
 |Subscription|✔ **|✔|-|
 |Conta do Batch|✔|-|-|
 |Conta de Service Fabric|✔|-|-|
@@ -145,19 +145,19 @@ Os recursos de PaaS a seguir têm suporte na central de segurança do Azure:
 |Aplicativos lógicos|✔|-|-|
 |Cache para Redis|✔|-|-|
 |Data Lake Analytics|✔|-|-|
-|Azure Data Lake Store|✔|-|-|
+|Armazenamento do Azure Data Lake|✔|-|-|
 |Key Vault|✔|✔ *|-|
 
 \* esses recursos têm suporte no momento na versão prévia.
 
 as recomendações do \*\* Azure Active Directory (AD do Azure) estão disponíveis somente para assinaturas padrão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [a central de segurança coleta dados e o agente de log Analytics](security-center-enable-data-collection.md).
 - Saiba como a [central de segurança gerencia e protege os dados](security-center-data-security.md).
 - Saiba como [planejar e entender as considerações de design para adotar a Central de Segurança do Azure](security-center-planning-and-operations-guide.md).
 - Examine as [plataformas que dão suporte à central de segurança](security-center-os-coverage.md).
 - Saiba mais sobre [a detecção de ameaças para VMs & servidores na central de segurança do Azure](security-center-alerts-iaas.md).
-- Encontre [perguntas frequentes sobre como usar a Central de Segurança do Azure](security-center-faq.md).
+- Encontre [perguntas frequentes sobre a central de segurança do Azure](faq-general.md).
 - Encontre [postagens no blog sobre a conformidade e segurança do Azure](https://blogs.msdn.com/b/azuresecurity/).

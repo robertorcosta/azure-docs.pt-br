@@ -2,17 +2,14 @@
 title: Melhores práticas do operador - Armazenamento nos Serviços do Kubernetes do Azure (AKS)
 description: Aprenda as práticas recomendadas do operador de cluster para armazenamento, criptografia de dados e backups no Serviço de Kubernetes do Azure (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.author: mlearned
-ms.openlocfilehash: 8e5f394987de06feaeb9a635face643eecc97cb9
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 6521655ded45f0a1d15c3ec40a44993d757b8854
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174217"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594661"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para armazenamento e backups no Serviço de Kubernetes do Azure (AKS)
 
@@ -38,7 +35,7 @@ A tabela a seguir descreve os tipos de armazenamento disponíveis e suas funcion
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
 | Configuração compartilhada       | Arquivos do Azure   | Sim | Sim | Sim | Sim |
 | Dados de aplicativo estruturados        | Discos do Azure   | Sim | Não  | Não  | Sim |
-| Dados não estruturados, operações do sistema de arquivos | [BlobFuse (visualização)][blobfuse] | Sim | Sim | sim | Não |
+| Dados não estruturados, operações do sistema de arquivos | [BlobFuse (visualização)][blobfuse] | Sim | Sim | Sim | Não |
 
 Os dois principais tipos de armazenamento fornecidos para volumes no AKS são apoiados pelos Discos do Azure ou Arquivos do Azure. Para melhorar a segurança, os dois tipos de armazenamento usam a Criptografia do Serviço de Armazenamento do Azure (SSE) por padrão, que criptografa os dados em repouso. No momento, os discos não podem ser criptografados usando a Criptografia de Disco do Azure no nível do nó do AKS.
 

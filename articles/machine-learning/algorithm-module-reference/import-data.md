@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: e7aa19c1d189eb19237ea85aae1ad2441d7e98b9
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 8b1e4c60e6054141e71d2509fe34c7ca9baf9ca6
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163187"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598452"
 ---
 # <a name="import-data-module"></a>Importar módulo de dados
 
@@ -48,9 +48,7 @@ Se os dados de origem forem alterados, você poderá atualizar o conjunto de dad
 
 1. Adicione o módulo **importar dados** ao seu pipeline. Você pode encontrar esse módulo na categoria **entrada e saída de dados** no designer.
 
-1. Clique em **iniciar o assistente de importação de dados** para configurar a fonte de dados usando um assistente.
-
-    O assistente Obtém o nome e as credenciais da conta e ajuda você a configurar outras opções. Se você estiver editando uma configuração existente, ela carregará os valores atuais primeiro.
+1. Selecione o módulo para abrir o painel direito.
 
 1. Selecione **fonte de dados**e escolha o tipo de fonte de dados. Pode ser HTTP ou datastore.
 
@@ -60,6 +58,11 @@ Se os dados de origem forem alterados, você poderá atualizar o conjunto de dad
 
     ![importação-dados-visualização](media/module/import-data.png)
 
+1. A caixa de seleção, **regenerar saída**, decide se o módulo deve ser executado para regenerar a saída em tempo de execução. 
+
+    Ele é, por padrão, desmarcado, o que significa que, se o módulo tiver sido executado com os mesmos parâmetros anteriormente, o sistema reutilizará a saída da última execução para reduzir o tempo de execução. 
+
+    Se estiver selecionado, o sistema executará o módulo novamente para regenerar a saída. Portanto, selecione essa opção quando os dados subjacentes no armazenamento forem atualizados, ele poderá ajudar a obter os dados mais recentes.
 
 
 1. Execute o pipeline.

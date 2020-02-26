@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/01/2020
-ms.openlocfilehash: aa7197dc631ea281bd5616b572f4ca01aeb9d45c
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 0b2eafeec27cb92ccb191ec902e8bf1d581a3b4a
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964763"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587287"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Escolha entre os modelos vCore e compra de DTU
 
@@ -77,7 +77,7 @@ O modelo de compra baseado em vCore permite que você escolha independentemente 
 
 > [!IMPORTANT]
 > Os recursos de computação, a e/s e O armazenamento de dados e de log são cobrados por Database ou pool elástico. O armazenamento de backup é cobrado por cada banco de dados. Para obter mais informações sobre encargos de instância gerenciada, confira [instâncias gerenciadas](sql-database-managed-instance.md).
-> **Limitações de região:** Para obter a lista atual de regiões com suporte, consulte [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Para criar uma instância gerenciada em uma região que não tem suporte atualmente, [envie uma solicitação de suporte por meio do portal do Azure](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
+> **Limitações de região:** Para obter a lista atual de regiões com suporte, consulte [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Para criar uma instância gerenciada em uma região que não tem suporte atualmente, [envie uma solicitação de suporte por meio do portal do Azure](quota-increase-request.md).
 
 Se seu banco de dados individual ou pool elástico consumir mais de 300 DTUs, a conversão para o modelo de compra baseado em vCore pode reduzir os custos. Você pode converter usando a API de sua escolha ou usando o portal do Azure, sem tempo de inatividade. No entanto, a conversão não é necessária e não é feita automaticamente. Se o modelo de compra baseado em DTU atender aos seus requisitos de desempenho e de negócios, você deverá continuar utilizando-o.
 
@@ -153,7 +153,7 @@ Não. Você não precisa colocar o aplicativo offline. As novas camadas de servi
 
 Sim, você pode facilmente converter seu banco de dados para qualquer objetivo de desempenho com suporte usando o portal do Azure, o PowerShell, o CLI do Azure, o T-SQL ou a API REST. Consulte [Gerenciar bancos de dados individuais](sql-database-single-database-scale.md) e [Gerenciar pools elásticos](sql-database-elastic-pool.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter mais informações sobre o modelo de compra baseado em vCore, consulte [modelo de compra baseado em VCORE](sql-database-service-tiers-vcore.md).
 - Para obter mais informações sobre o modelo de compra baseado em DTU, consulte [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md).

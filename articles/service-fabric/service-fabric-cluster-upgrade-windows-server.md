@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: f8c146d1a82fd745e6641ac2aea91aa34539d6f0
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 489a90180454e2b4a9dad34730fbd3c4f235a2ad
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610022"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598095"
 ---
 # <a name="upgrade-the-service-fabric-version-that-runs-on-your-cluster"></a>Atualize a versão do Service Fabric que é executada em seu cluster 
 
@@ -139,7 +139,7 @@ Para obter detalhes de uso, consulte o [Start-ServiceFabricClusterConfigurationU
     Register-ServiceFabricClusterPackage -Code -CodePackagePath <name of the .cab file>
 
     ###### Here is a filled-out example
-    Register-ServiceFabricClusterPackage -Code -CodePackagePath .\MicrosoftAzureServiceFabric.5.3.301.9590.cab
+    Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
     ```
 6. Inicie uma atualização do cluster para uma versão disponível.
 
@@ -159,7 +159,7 @@ Para obter detalhes de uso, consulte o [Start-ServiceFabricClusterConfigurationU
 
     Depois de corrigir os problemas que resultaram na reversão, você precisará iniciar a atualização novamente, seguindo as mesmas etapas descritas anteriormente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Atualize a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md)
 * Personalize algumas configurações de cluster do [Service Fabric](service-fabric-cluster-fabric-settings.md).
 * [Dimensionar o cluster e escalar horizontalmente](service-fabric-cluster-scale-up-down.md).

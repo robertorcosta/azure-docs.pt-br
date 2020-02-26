@@ -3,12 +3,12 @@ title: Configurar relatórios de Backup do Azure
 description: Configurar e exibir relatórios para o backup do Azure usando Log Analytics e pastas de trabalho do Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 5c43efc8d61d7aa6c8fc94c6c39294d744cd6b87
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: cefe81e53e89b8d7903469e836f3c5d2665febea
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77501115"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582697"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
 
@@ -41,11 +41,11 @@ Por padrão, os dados em um espaço de trabalho LA são mantidos por 30 dias. Pa
 
 Azure Resource Manager recursos, como cofres dos serviços de recuperação, registram informações sobre operações agendadas e operações disparadas pelo usuário como dados de diagnóstico. 
 
-Na seção monitoramento do cofre dos serviços de recuperação, selecione **configurações de diagnóstico** e especifique o destino para os dados de diagnóstico do cofre dos serviços de recuperação. [Saiba mais sobre como usar eventos de diagnóstico](https://aka.ms/AzureBackupDiagnosticDocs).
+Na seção monitoramento do cofre dos serviços de recuperação, selecione **configurações de diagnóstico** e especifique o destino para os dados de diagnóstico do cofre dos serviços de recuperação. [Saiba mais sobre como usar eventos de diagnóstico](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events).
 
 ![Folha configurações de diagnóstico](./media/backup-azure-configure-backup-reports/resource-specific-blade.png)
 
-O backup do Azure também fornece um Azure Policy interno, que automatiza a configuração de configurações de diagnóstico para todos os cofres em um determinado escopo. Consulte o seguinte artigo para saber como usar essa política: [definir configurações de diagnóstico de cofre em escala](https://aka.ms/AzureBackupDiagnosticsPolicyDocs)
+O backup do Azure também fornece um Azure Policy interno, que automatiza a configuração de configurações de diagnóstico para todos os cofres em um determinado escopo. Consulte o seguinte artigo para saber como usar essa política: [definir configurações de diagnóstico de cofre em escala](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics)
 
 3. **Exibir relatórios no portal do Azure:**
 
@@ -53,7 +53,7 @@ Depois de configurar seus cofres para enviar dados para LA, exiba seus relatóri
 
 ![Painel do cofre](./media/backup-azure-configure-backup-reports/vault-dashboard.png)
 
-Clicar nesse link abre a pasta de trabalho de relatório de backup. 
+Clicar nesse link abre a pasta de trabalho de relatório de backup.
 
 > [!NOTE]
 > Atualmente, a carga inicial do relatório pode levar até 1 minuto.

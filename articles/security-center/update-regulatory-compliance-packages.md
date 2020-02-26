@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: f76b5443d6c1e3fd2cebf87cba39ba0a6bbdeaee
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: cfa39799e44cee0a2d36efccd454ccf8ca15157f
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521781"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603232"
 ---
 # <a name="update-to-dynamic-compliance-packages-in-your-regulatory-compliance-dashboard-preview"></a>Atualizar para pacotes de conformidade dinâmica em seu painel de conformidade regulatória (versão prévia)
 
@@ -75,6 +75,5 @@ Neste artigo, você aprendeu que:
 Para obter outros materiais relacionados, consulte os seguintes artigos: 
 
 - [Painel de conformidade regulatória da central de segurança](security-center-compliance-dashboard.md)
-- [Trabalhando com políticas de segurança](tutorial-security-policy.md)
-- [Gerenciando recomendações de segurança na central de segurança do Azure](security-center-recommendations.md) -saiba como usar as recomendações na central de segurança do Azure para ajudar a proteger os recursos do Azure.
-- [Perguntas frequentes da central de segurança do Azure](security-center-faq.md) -Obtenha respostas para perguntas frequentes sobre como usar a central de segurança.
+- [Trabalhar com políticas de segurança](tutorial-security-policy.md)
+- [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) – saiba como usar as recomendações da Central de Segurança do Azure para ajudar a proteger seus recursos do Azure.

@@ -6,19 +6,16 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 99ccd00dbcea7f8eaed2e8e51a64b89c1e0b42a2
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: b60a30e5e30ee81cbaca7d5e4691ccedac2462b6
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028842"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598163"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurar um dispositivo para servidores físicos
 
 Este artigo descreve como configurar o dispositivo de migrações para Azure se você estiver avaliando servidores físicos com a ferramenta migrações para Azure: Server Assessment.
-
-> [!NOTE]
-> Se os recursos forem mencionados aqui que você ainda não vê no portal de migrações para Azure, aguarde. Eles aparecerão na semana seguinte ou em breve.
 
 O dispositivo de migrações para Azure é um dispositivo leve, usado pela avaliação de servidor de migrações para Azure para fazer o seguinte:
 
@@ -44,7 +41,7 @@ Baixe o arquivo compactado para o dispositivo.
 2. Em **Descobrir computadores** > **São seus computadores virtualizados?** , clique em **Não virtualizado/outro.**
 3. Clique em **Download** para baixar o arquivo compactado.
 
-    ![Baixar VM](./media/how-to-set-up-appliance-hyper-v/download-appliance-hyperv.png)
+    ![Baixar VM](./media/tutorial-assess-physical/download-appliance.png)
 
 
 ### <a name="verify-security"></a>Verificar a segurança
@@ -55,17 +52,12 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 2. Execute o seguinte comando para gerar o hash para o VHD
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  Para a versão mais recente do dispositivo, o hash gerado deve corresponder a essas configurações.
-
-  **Algoritmo** | **Valor de hash**
-  --- | ---
-  MD5 | 96fd99581072c400aa605ab036a0a7c0
-  SHA256 | f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
+3.  Para a versão mais recente do dispositivo, o hash gerado deve corresponder a essas [configurações](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical#verify-security).
 
 
 
 ## <a name="run-the-azure-migrate-installer-script"></a>Executar o script de instalador de Migrações para Azure
-= Esse script do instalador faz o seguinte:
+O script do instalador faz o seguinte:
 
 - Instala agentes e um aplicativo Web para avaliação e descoberta de servidor físico.
 - Instala as funções do Windows, incluindo o serviço de ativação do Windows, o IIS e o ISE do PowerShell.
@@ -80,13 +72,16 @@ Crie o script da seguinte maneira:
 1. Extraia o arquivo compactado para uma pasta no servidor que hospedará o dispositivo.
 2. Inicie o PowerShell no servidor acima com privilégio administrativo (elevado).
 3. Altere o diretório do PowerShell para a pasta em que o conteúdo foi extraído do arquivo compactado baixado.
-4. Execute o script, executando o seguinte comando:
+4. Execute o script chamado **AzureMigrateInstaller.ps1** executando o seguinte comando:
     ```
-    AzureMigrateInstaller.ps1
+    PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
     ```
 O script iniciará o aplicativo Web do dispositivo quando ele for concluído com êxito.
 
+Caso haja algum problema, você poderá acessar os logs do script em C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Carimbo de data/hora</em>.log para solucionar problemas.
 
+> [!NOTE]
+> Não execute o script do instalador das Migrações para Azure em um dispositivo existente das Migrações para Azure.
 
 ### <a name="verify-appliance-access-to-azure"></a>Verificar o acesso do dispositivo ao Azure
 
@@ -143,6 +138,6 @@ Após a conclusão da descoberta, você pode verificar se os servidores aparecem
 2. Na página **migrações para Azure – servidores** > **migrações para Azure: avaliação do servidor** , clique no ícone que exibe a contagem de **servidores descobertos**.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Experimente a [avaliação de servidores físicos](tutorial-assess-physical.md) com a avaliação de servidor de migrações para Azure.

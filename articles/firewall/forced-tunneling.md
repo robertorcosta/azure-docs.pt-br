@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 02/24/2020
 ms.author: victorh
-ms.openlocfilehash: 4093f91e55272a32ce7df4a78e2ee8b3ebed5fde
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: e51f6de370a5340082f64a0ca15c61583f75962b
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444466"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597262"
 ---
 # <a name="azure-firewall-forced-tunneling-preview"></a>Túnel forçado do firewall do Azure (visualização)
 
@@ -27,11 +27,15 @@ Por padrão, o túnel forçado não é permitido no firewall do Azure para garan
 
 ## <a name="forced-tunneling-configuration"></a>Configuração de túnel forçado
 
-Para dar suporte ao túnel forçado, o tráfego de gerenciamento de serviços é separado do tráfego do cliente. Uma sub-rede dedicada adicional denominada *AzureFirewallManagementSubnet* é necessária com seu próprio endereço IP público associado. A única rota permitida nessa sub-rede é uma rota padrão para a Internet, e a propagação de rota BGP deve ser desabilitada.
+Para dar suporte ao túnel forçado, o tráfego de gerenciamento de serviços é separado do tráfego do cliente. Uma sub-rede adicional dedicada denominada *AzureFirewallManagementSubnet* (tamanho mínimo da sub-rede/26) é necessária com seu próprio endereço IP público associado. A única rota permitida nessa sub-rede é uma rota padrão para a Internet, e a propagação de rota BGP deve ser desabilitada.
 
-Se você tiver uma rota padrão anunciada via BGP para forçar o tráfego para o local, deverá criar o *AzureFirewallSubnet* e o *AzureFirewallManagementSubnet* antes de implantar o firewall e ter um UDR com uma rota padrão para a Internet e a propagação de rota do gateway de rede virtual desabilitada.
+Se você tiver uma rota padrão anunciada via BGP para forçar o tráfego para o local, deverá criar o *AzureFirewallSubnet* e o *AzureFirewallManagementSubnet* antes de implantar o firewall e ter um UDR com uma rota padrão para a Internet e a **propagação de rota do gateway de rede virtual** desabilitada.
 
-Nessa configuração, o *AzureFirewallSubnet* agora pode incluir rotas para qualquer firewall local ou NVA para processar o tráfego antes que ele seja passado para a Internet. Você também pode publicar essas rotas via BGP para *AzureFirewallSubnet* se a propagação de rota de gateway de rede virtual estiver habilitada nesta sub-rede.
+Nessa configuração, o *AzureFirewallSubnet* agora pode incluir rotas para qualquer firewall local ou NVA para processar o tráfego antes que ele seja passado para a Internet. Você também pode publicar essas rotas via BGP para *AzureFirewallSubnet* se a **propagação de rota de gateway de rede virtual** estiver habilitada nesta sub-rede.
+
+Por exemplo, você pode criar uma rota padrão no *AzureFirewallSubnet* com seu gateway de VPN como o próximo salto para chegar ao dispositivo local. Ou você pode habilitar a **propagação de rota de gateway de rede virtual** para obter as rotas apropriadas para a rede local.
+
+![Propagação de rota de gateway de rede virtual](media/forced-tunneling/route-propagation.png)
 
 Depois de configurar o Firewall do Azure para dar suporte ao túnel forçado, não é possível desfazer a configuração. Se você remover todas as outras configurações de IP em seu firewall, a configuração de IP de gerenciamento também será removida e o firewall será desalocado. O endereço IP público atribuído à configuração de IP de gerenciamento não pode ser removido, mas você pode atribuir um endereço IP público diferente.
 

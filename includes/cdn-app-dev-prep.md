@@ -4,14 +4,14 @@ ms.service: azure-cdn
 ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
-ms.openlocfilehash: f21a768733456a6c00e5a87612f3055dd76d416c
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 41f2d4540f665137d34d262546cdc1a2edfbae3a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594134"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77608721"
 ---
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Antes de gravar o código de gerenciamento da CDN, é necessário fazer algumas preparações para habilitar o código a interagir com o Azure Resource Manager. Para fazer essas preparações, é necessário:
 
 * Crie um grupo de recursos para conter o perfil CDN criada neste tutorial
@@ -32,7 +32,7 @@ Antes de gravar o código de gerenciamento da CDN, é necessário fazer algumas 
     ![Nomeando o grupo de recursos](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
 
 ### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Criar o aplicativo do Azure AD e aplicar permissões
-Há duas abordagens de autenticação de aplicativo com o Azure Active Directory: Usuários individuais ou uma entidade de serviço. Uma entidade de serviço é semelhante a uma conta de serviço do Windows.  Em vez de conceder permissões particulares de um usuário para interagir com os perfis CDN, as permissões são concedidas à entidade de serviço.  As entidades de serviço, geralmente são utilizadas para processos automatizados não interativos.  Embora este tutorial esteja gravando um aplicativo de console interativo, nos concentraremos na abordagem da entidade de serviço.
+Há duas abordagens para autenticação de aplicativo com o Azure Active Directory: usuários individuais ou uma entidade de serviço. Uma entidade de serviço é semelhante a uma conta de serviço do Windows.  Em vez de conceder permissões particulares de um usuário para interagir com os perfis CDN, as permissões são concedidas à entidade de serviço.  As entidades de serviço, geralmente são utilizadas para processos automatizados não interativos.  Embora este tutorial esteja gravando um aplicativo de console interativo, nos concentraremos na abordagem da entidade de serviço.
 
 A criação de uma entidade de serviço abarca várias etapas, incluindo o desenvolvimento de um aplicativo do Azure Active Directory.  Para criá-lo, vamos [seguir este tutorial](../articles/active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -41,7 +41,7 @@ A criação de uma entidade de serviço abarca várias etapas, incluindo o desen
 >
 > Quando chegar à etapa chamada Configurar aplicativo multilocatário, selecione **Não**.
 >
-> Quando você chegar à etapa [Atribua o aplicativo a uma função](../articles/active-directory/develop/howto-create-service-principal-portal.md#assign-the-application-to-a-role), use o grupo de recursos criado anteriormente, *CdnConsoleTutorial*, mas, em vez da função **Reader**, atribua a função **CDN Profile Contributor**.  Depois de atribuir a função **Colaborador do Perfil CDN** ao aplicativo em seu grupo de recursos, volte para este tutorial. 
+> Quando você chegar à etapa [Atribua o aplicativo a uma função](../articles/active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application), use o grupo de recursos criado anteriormente, *CdnConsoleTutorial*, mas, em vez da função **Reader**, atribua a função **CDN Profile Contributor**.  Depois de atribuir a função **Colaborador do Perfil CDN** ao aplicativo em seu grupo de recursos, volte para este tutorial. 
 >
 >
 

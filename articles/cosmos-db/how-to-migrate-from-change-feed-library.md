@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 9570a8512e3437b12ecce2ef0c708a74a8806482
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: f651beb181430f65d0b4c86f285e74958f8366eb
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077549"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588876"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>Migrar da biblioteca do processador do feed de alterações para o SDK Azure Cosmos DB .NET v3
 
@@ -21,23 +21,23 @@ Este artigo descreve as etapas necessárias para migrar um código de aplicativo
 
 O SDK do .NET v3 tem várias alterações significativas, as seguintes são as principais etapas para migrar seu aplicativo:
 
-1. Converta `DocumentCollectionInfo` as instâncias `Container` em referências para os contêineres monitorado e concessões.
-1. As personalizações que `WithProcessorOptions` usam devem ser atualizadas `WithLeaseConfiguration` para `WithPollInterval` usar e para `WithStartTime` intervalos, [para hora de início](how-to-configure-change-feed-start-time.md)e `WithMaxItems` para definir a contagem máxima de itens.
-1. `ChangeFeedProcessorOptions.LeasePrefix` `string.Empty` Defina ativado para`GetChangeFeedProcessorBuilder` corresponder ao valor configurado em ou use o contrário. `processorName`
-1. As alterações não são mais entregues como um `IReadOnlyList<Document>`, em vez disso, é `IReadOnlyCollection<T>` um `T` onde é um tipo que você precisa definir, não há mais nenhuma classe de item base.
+1. Converta as instâncias de `DocumentCollectionInfo` em referências `Container` para os contêineres monitorado e concessões.
+1. As personalizações que usam `WithProcessorOptions` devem ser atualizadas para usar `WithLeaseConfiguration` e `WithPollInterval` para intervalos, `WithStartTime` [para hora de início](how-to-configure-change-feed-start-time.md)e `WithMaxItems` para definir a contagem máxima de itens.
+1. Defina o `processorName` em `GetChangeFeedProcessorBuilder` para corresponder ao valor configurado em `ChangeFeedProcessorOptions.LeasePrefix`ou use `string.Empty` de outra forma.
+1. As alterações não são mais entregues como um `IReadOnlyList<Document>`, em vez disso, é uma `IReadOnlyCollection<T>` em que `T` é um tipo que você precisa definir, não há mais nenhuma classe de item base.
 1. Para lidar com as alterações, você não precisa mais de uma implementação, em vez disso, precisa [definir um delegado](change-feed-processor.md#implementing-the-change-feed-processor). O delegado pode ser uma função estática ou, se você precisar manter o estado entre execuções, poderá criar sua própria classe e passar um método de instância como delegado.
 
 Por exemplo, se o código original para criar o processador do feed de alterações for semelhante ao seguinte:
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=ChangeFeedProcessorLibrary)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="ChangeFeedProcessorLibrary":::
 
 O código migrado terá a seguinte aparência:
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=ChangeFeedProcessorMigrated)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="ChangeFeedProcessorMigrated":::
 
 E o delegado, pode ser um método estático:
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=Delegate)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="Delegate":::
 
 ## <a name="state-and-lease-container"></a>Contêiner de estado e concessão
 

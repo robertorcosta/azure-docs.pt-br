@@ -2,17 +2,16 @@
 title: Tutorial - Implemente do GitHub para o Azure Kubernetes Service (AKS) com o Jenkins
 description: Configurar o Jenkins para integração contínua (CI) do GitHub e da implantação contínua (CD) para o Serviço de Kubernetes do Azure (AKS)
 services: container-service
-ms.service: container-service
 author: zr-msft
 ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
-ms.openlocfilehash: e46e2c2933ee9afda860b68b10c135ac75a5d247
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: fd754b539a9b0ba3d47ddd2228365dbd09d6e6df
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263935"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595477"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implante do GitHub para o Azure Kubernetes Service (AKS) com a integração e implantação contínuas do Jenkins
 
@@ -27,7 +26,7 @@ Neste tutorial, você concluirá estas tarefas:
 > * Crie um trabalho de build do Jenkins e o webhook do GitHub para compilações automatizadas.
 > * Teste o pipeline de CI/CD para atualizar um aplicativo no AKS com base nas confirmações de código do GitHub.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará destes itens:
 

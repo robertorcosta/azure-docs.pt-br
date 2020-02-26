@@ -2,17 +2,14 @@
 title: Criar um cluster particular do serviço kubernetes do Azure
 description: Saiba como criar um cluster do AKS (serviço de kubernetes do Azure) privado
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.author: mlearned
-ms.openlocfilehash: 08929d5ec05fbeb80eddebfd667fe1e0fde9bff7
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
+ms.openlocfilehash: e59dccbcc7514f12e148bfb2f771593a53e85dc5
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544225"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594559"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Criar um cluster privado do serviço kubernetes do Azure (versão prévia)
 
@@ -26,7 +23,7 @@ O plano de controle ou o servidor de API está em uma assinatura do Azure gerenc
 > * [Políticas de suporte do AKS](support-policies.md)
 > * [Perguntas frequentes sobre o suporte do Azure.](faq.md)
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 * O CLI do Azure versão 2.0.77 ou posterior e a versão de extensão de visualização CLI do Azure AKS 0.4.18
 
@@ -48,7 +45,7 @@ O plano de controle ou o servidor de API está em uma assinatura do Azure gerenc
 * Oeste do Japão
 * Coreia Central
 * Sul da Coreia
-* Centro Norte dos EUA
+* Centro-Norte dos EUA
 * Norte da Europa
 * Norte da Europa
 * Centro-Sul dos Estados Unidos
@@ -126,7 +123,7 @@ O ponto de extremidade do servidor de API não tem nenhum endereço IP público.
    az aks get-credentials --name MyManagedCluster --resource-group MyResourceGroup
    ```
 
-1. Siga um destes procedimentos:
+1. Execute um destes procedimentos:
    * Crie uma VM na mesma rede virtual que o cluster AKS.  
    * Crie uma VM em uma rede virtual diferente e emparelhe essa rede virtual com a rede virtual de cluster AKS.
 

@@ -3,12 +3,12 @@ title: Restaurar compartilhamentos de arquivos do Azure
 description: Saiba como usar o portal do Azure para restaurar um compartilhamento de arquivos inteiro ou arquivos específicos de um ponto de restauração criado pelo backup do Azure.
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.openlocfilehash: 8ecb5850c90e5a92e59d17f7949bd5b6cd6205f5
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: c22078ebd89f5f6f8299e1424d4d9e21edce8b92
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76930901"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586802"
 ---
 # <a name="restore-azure-file-shares"></a>Restaurar compartilhamentos de arquivos do Azure
 
@@ -21,6 +21,7 @@ Neste artigo, você aprenderá a:
 * Acompanhe o status da operação de restauração.
 
 ## <a name="steps-to-perform-a-restore-operation"></a>Etapas para executar uma operação de restauração
+
 Para executar uma operação de restauração, siga estas etapas.
 
 ### <a name="select-the-file-share-to-restore"></a>Selecione o compartilhamento de arquivos a ser restaurado
@@ -110,7 +111,7 @@ Você pode usar essa opção de restauração para restaurar arquivos ou pastas 
 
     ![Local original para recuperação em nível de item](./media/restore-afs/original-location-item-level.png)
 
-2. Escolha **Selecionar arquivo** para selecionar os arquivos ou as pastas que você deseja restaurar.
+1. Escolha **Selecionar arquivo** para selecionar os arquivos ou as pastas que você deseja restaurar.
 
     ![Escolha Selecionar arquivo](./media/restore-afs/select-file.png)
 
@@ -169,6 +170,6 @@ Você também pode monitorar o progresso da restauração no cofre dos serviços
 
     ![Consulte os detalhes restaurados](./media/restore-afs/restore-details.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba como [gerenciar backups de compartilhamento de arquivos do Azure](manage-afs-backup.md).

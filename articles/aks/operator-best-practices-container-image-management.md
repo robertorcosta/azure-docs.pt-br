@@ -2,17 +2,14 @@
 title: Práticas recomendadas do operador – Gerenciamento de imagem do contêiner nos Serviços de Kubernetes do Azure (AKS)
 description: Conheça as práticas recomendadas de operador do cluster para saber como gerenciar e proteger imagens de contêiner no serviço de Kubernetes do Azure (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: mlearned
-ms.openlocfilehash: cd859a4009782ca39732ec004a3d3e05edd377b0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: efe72157f598c336248e407c57bce92fe87da23a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442909"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594730"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para gerenciamento de imagens de contêiner e a segurança no Serviço de Kubernetes do Azure (AKS)
 
@@ -48,7 +45,7 @@ Tarefas do Registro de Contêiner do Azure também atualizam automaticamente as 
 
 Para obter mais informações sobre atualizações de imagem de base, consulte [automatizar compilações de imagem na atualização da imagem de base com as tarefas do registro de contêiner do Azure][acr-base-image-update].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Este artigo se concentrou em como proteger seus contêineres. Para implementar algumas dessas áreas, confira os seguintes artigos:
 

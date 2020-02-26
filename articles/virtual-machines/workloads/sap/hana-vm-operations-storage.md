@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/27/2019
+ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26994c3488feb5f2c1522960ba4d2664bdbc80f4
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 4cc4db9ffcb700d4b65a7f5c21d258e9af52d164
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707466"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598520"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento de máquina virtual do SAP HANA no Azure
 
@@ -54,8 +54,11 @@ Uma vez que a baixa latência de armazenamento é crítica aos sistemas DBMS, me
 
 **Recomendação: como tamanhos de distribuição para o RAID 0, a recomendação é usar:**
 
-- 64 KB ou 128 KB para **hana/data**
+- 256 KB para **/Hana/data**
 - 32KB para **hana/log**
+
+> [!IMPORTANT]
+> O tamanho de distribuição para/Hana/data foi alterado de recomendações anteriores chamando 64 KB ou 128 KB para 256 KB com base nas experiências do cliente com versões mais recentes do Linux. O tamanho de 256 KB fornece um desempenho ligeiramente melhor
 
 > [!NOTE]
 > Não é necessário configurar nenhum nível de redundância usando volumes RAID, pois o armazenamento Premium e Standard do Azure mantém três imagens de um VHD. O uso de um volume RAID é puramente para configurar volumes que fornecem rendimento de E/S suficiente.
@@ -65,7 +68,7 @@ A acumulação de vários VHDs do Azure sob um RAID é cumulativa de um lado de 
 Considere a taxa de transferência de E/S geral ao dimensionar ou escolher uma VM. A taxa de transferência de armazenamento de VM geral está documentada no artigo [Tamanhos da máquina virtual otimizada para memória](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory).
 
 ## <a name="linux-io-scheduler-mode"></a>Modo Agendador de E/S do Linux
-O Linux possui vários modos de agendamento de E/S diferentes. A recomendação comum por meio de fornecedores do Linux e do SAP é reconfigurar o modo do Agendador de e/s para volumes de disco do modo **CFQ** para o modo **NOOP** . Os detalhes são referenciados no [SAP Note #1984787](https://launchpad.support.sap.com/#/notes/1984787). 
+O Linux possui vários modos de agendamento de E/S diferentes. A recomendação comum por meio de fornecedores do Linux e do SAP é reconfigurar o modo do Agendador de e/s para volumes de disco do modo **CFQ** para o modo **NOOP** (não-multifila) ou **nenhum** para (Multiqueue). Os detalhes são referenciados no [SAP Note #1984787](https://launchpad.support.sap.com/#/notes/1984787). 
 
 
 ## <a name="solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Soluções com armazenamento Premium e Acelerador de Gravação do Azure para máquinas virtuais da série M do Azure
@@ -109,7 +112,7 @@ As recomendações geralmente estão excedendo os requisitos mínimos do SAP, co
 | M64ms | 1750 GiB | 1000 MB/s | 3 x P30 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 | 3 x P30 |
 | M128s | 2000 GiB | 2000 MB/s |3 x P30 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 2 x P40 |
 | M128ms | 3800 GiB | 2000 MB/s | 5 x P30 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 4 x P40 |
-| M208s_v2 | 2850 GiB | 1000 MB/s | 4 x p30 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 3 x P40 |
+| M208s_v2 | 2850 GiB | 1000 MB/s | 4 x P30 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 3 x P40 |
 | M208ms_v2 | 5700 GiB | 1000 MB/s | 4 x P40 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 3 x P50 |
 | M416s_v2 | 5700 GiB | 2000 MB/s | 4 x P40 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 3 x P50 |
 | M416ms_v2 | 11400 GiB | 2000 MB/s | 8 x P40 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 4 x P50 |
@@ -156,7 +159,7 @@ As recomendações geralmente estão excedendo os requisitos mínimos do SAP, co
 | M64ms | 1\.750 GiB | 1\.000 MB/s | 3 x P30 | 1 x E30 | 1 x E6 | 1 x E6 | 3 x E30 |
 | M128s | 2\.000 GiB | 2\.000 MB/s |3 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | 2 x E40 |
 | M128ms | 3\.800 GiB | 2\.000 MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | 2 x E50 |
-| M208s_v2 | 2\.850 GiB | 1\.000 MB/s | 4 x p30 | 1 x E30 | 1 x E10 | 1 x E6 |  3 x E40 |
+| M208s_v2 | 2\.850 GiB | 1\.000 MB/s | 4 x P30 | 1 x E30 | 1 x E10 | 1 x E6 |  3 x E40 |
 | M208ms_v2 | 5\.700 GiB | 1\.000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E40 |
 | M416s_v2 | 5\.700 GiB | 2\.000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E40 |
 | M416ms_v2 | 11400 GiB | 2\.000 MB/s | 8 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E50 |
@@ -192,7 +195,7 @@ Nessa configuração, você mantém os volumes/Hana/data e/Hana/log separadament
 
 As recomendações geralmente estão excedendo os requisitos mínimos do SAP, conforme mencionado anteriormente neste artigo. As recomendações listadas são um comprometimento entre as recomendações de tamanho pelo SAP e a taxa de transferência máxima de armazenamento que os diferentes tipos de VM fornecem.
 
-| SKU da VM | RAM | Máx. VM E/S<br /> Produtividade | volume/Hana/data | taxa de transferência de e/s de/Hana/data | IOPS de/Hana/data | volume/Hana/log | taxa de transferência de e/s de/Hana/log | IOPS de/Hana/log |
+| SKU da VM | RAM | Máx. VM E/S<br /> Produtividade | volume/Hana/data | taxa de transferência de e/s de/Hana/data | /hana/data IOPS | volume/Hana/log | taxa de transferência de e/s de/Hana/log | IOPS de/Hana/log |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
 | E64s_v3 | 432 GiB | 1\.200 MB/s | 600 GB | 700 MBps | 7\.500 | 512 GB | 500 MBps  | 2\.000 |
 | M32ts | 192 GiB | 500 MB/s | 250 GB | 400 MBps | 7\.500 | 256 GB | 250 MBps  | 2\.000 |
@@ -293,7 +296,7 @@ Portanto, você pode considerar implantar uma taxa de transferência semelhante 
 A documentação sobre como implantar uma configuração de expansão SAP HANA com o nó em espera usando volumes NFS v 4.1 hospedados em seja é publicada em [SAP Hana expansão com o nó em espera em VMs do Azure com Azure NetApp files em SuSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse).
 
 
-## <a name="next-steps"></a>Próximos passos
-Para obter mais informações, veja:
+## <a name="next-steps"></a>Próximas etapas
+Para obter mais informações, consulte:
 
 - [SAP Hana guia de alta disponibilidade para máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).

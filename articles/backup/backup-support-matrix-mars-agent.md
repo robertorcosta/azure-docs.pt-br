@@ -3,12 +3,12 @@ title: Matriz de suporte para o agente MARS
 description: Este artigo resume o suporte ao backup do Azure ao fazer backup de computadores que executam o agente de Serviços de Recuperação do Microsoft Azure (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8f5ce33b5057b11caa33c0ae80cf72e1b13da5d0
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: ef57688dd7b5ccee4e71ac0a54138ac567320aa2
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425010"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582629"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para backup com o agente MARS (Serviços de Recuperação do Microsoft Azure)
 
@@ -66,6 +66,29 @@ E para estes endereços IP:
 - 40.126.0.0/18
 
 O acesso a todas as URLs e endereços IP listados acima usa o protocolo HTTPS na porta 443.
+
+### <a name="azure-expressroute-support"></a>Suporte do Azure ExpressRoute
+
+Você pode fazer backup dos dados por meio do Azure ExpressRoute com o emparelhamento público (disponível para circuitos antigos) e o emparelhamento da Microsoft. Não há suporte para backup em emparelhamento privado.
+
+Com o emparelhamento público: Verifique o acesso aos seguintes domínios/endereços:
+
+- `http://www.msftncsi.com/ncsi.txt`
+- `microsoft.com`
+- `.WindowsAzure.com`
+- `.microsoftonline.com`
+- `.windows.net`
+
+Com o emparelhamento da Microsoft, selecione os seguintes serviços/regiões e os valores de comunidade relevantes:
+
+- Azure Active Directory (12076:5060)
+- Região Microsoft Azure (de acordo com o local do cofre dos serviços de recuperação)
+- Armazenamento do Azure (de acordo com o local do cofre dos serviços de recuperação)
+
+Para obter mais detalhes, consulte os [requisitos de roteamento do ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+
+>[!NOTE]
+>O emparelhamento público foi preterido para novos circuitos.
 
 ### <a name="throttling-support"></a>Suporte de limitação
 

@@ -3,12 +3,12 @@ title: Modelo de dados para eventos de diagnóstico de backup do Azure
 description: Esse modelo de dados está em referência ao modo específico de recurso de envio de eventos de diagnóstico para Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: d38c9dedba7111923fa4f823d348d0783ac36681
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 267753ee1647739e36d92b64f50d8a8be87537d9
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500614"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583377"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Modelo de dados para eventos de diagnóstico de backup do Azure
 
@@ -220,5 +220,5 @@ Esta tabela fornece detalhes sobre campos relacionados ao armazenamento.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Saiba como enviar dados de diagnóstico para Log Analytics](https://aka.ms/AzureBackupDiagnosticsDocs)
+- [Saiba como enviar dados de diagnóstico para Log Analytics](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events)
 - [Saiba como escrever consultas em tabelas específicas de recursos](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries)

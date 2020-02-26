@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: cd45d38759bcf41307ba42d68d504266719579d2
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 2d54c39577a359499cf6dc3aca84cebc4fa6e206
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493417"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598010"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Gerações anteriores de tamanhos de máquinas virtuais
 
@@ -210,6 +210,24 @@ Armazenamento em cache Premium: sem suporte
 <sup>1</sup> a família de VMs pode ser executada em uma das seguintes cpus: 2,2 GHz intel xeon® E5-2660 v2, 2,4 GHz intel xeon® E5-2673 v3 (Haswell) ou 2,3 GHz intel xeon® E5-2673 V4 (Broadwell)  
 
 <br>
+
+## <a name="preview-dc-series"></a>Visualização: série CC
+
+Armazenamento Premium: com suporte
+
+Cache de armazenamento Premium: com suporte
+
+A série DC usa a última geração de processador E-2176G Intel XEON de 3.7 GHz com tecnologia de SGX e, com a tecnologia Intel Turbo Boost, pode chegar a até 4,7 GHz. 
+
+| Tamanho          | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
+|---------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|-------------------------------------------|----------------------------------------------|
+| Standard_DC2s | 2    | 8           | 100                    | 2              | 4000 / 32 (43)                                                          | 3200 /48                                  | 2 / 1500                                     |
+| Standard_DC4s | 4    | 16          | 200                    | 4              | 8000 / 64 (86)                                                          | 6400 /96                                  | 2 / 3000                                     |
+
+> [!IMPORTANT]
+>
+> As VMs da série DC são [VMs de geração 2](./linux/generation-2.md#creating-a-generation-2-vm) e só oferecem suporte a imagens `Gen2`.
+
 
 ### <a name="ds-series"></a>Série DS  
 

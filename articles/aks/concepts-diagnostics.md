@@ -3,16 +3,15 @@ title: Visão geral de diagnóstico do AKS (serviço kubernetes do Azure)
 description: Saiba mais sobre clusters de diagnóstico automático no serviço kubernetes do Azure.
 services: container-service
 author: yunjchoi
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: yunjchoi
-ms.openlocfilehash: 2148c6c8c9d78355847b3240b54349f1e7789921
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 11b469425a80d588462e0332c973260cc3b56992
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291372"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596174"
 ---
 # <a name="azure-kubernetes-service-aks-diagnostics-overview"></a>Visão geral de diagnóstico do AKS (serviço kubernetes do Azure)
 
@@ -78,7 +77,7 @@ O gerenciamento de identidades e segurança detecta erros de autenticação e au
 - erros 401
 - erros 403
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Colete logs para ajudá-lo a solucionar ainda mais os problemas de cluster usando o [AKs Periscope](https://aka.ms/aksperiscope).
 

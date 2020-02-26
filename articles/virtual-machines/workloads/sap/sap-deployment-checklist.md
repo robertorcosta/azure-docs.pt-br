@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/21/2020
+ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 56b78f4296709206cefb762c87d4d1471bff2df7
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 2c3c52fc85e6c915587db27a3f5ce247fd05ea51
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291508"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598316"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Cargas de trabalho do SAP no Azure: lista de verificação de planejamento e implantação
 
@@ -48,10 +48,13 @@ Durante essa fase, você planeja a migração da carga de trabalho do SAP para a
     - Continuidade dos negócios e arquitetura de recuperação de desastres.
     - Informações detalhadas sobre as versões do sistema operacional, DB, kernel e do pacote de suporte do SAP. Não é necessariamente verdade que todas as versões do sistema operacional com suporte do SAP NetWeaver ou S/4HANA têm suporte em VMs do Azure. O mesmo vale para as versões do DBMS. Verifique as seguintes fontes para alinhar e, se necessário, atualizar as versões do SAP, as versões do DBMS e as versões do sistema operacional para garantir o suporte do SAP e do Azure. Você precisa ter combinações de versão com suporte do SAP e do Azure para obter suporte completo da SAP e da Microsoft. Se necessário, você precisa planejar a atualização de alguns componentes de software. Mais detalhes sobre o software SAP, so e DBMS com suporte estão documentados aqui:
         - [#1928533 de observação de suporte SAP](https://launchpad.support.sap.com/#/notes/1928533). Esta observação define as versões mínimas do sistema operacional com suporte em VMs do Azure. Ele também define as versões mínimas do banco de dados necessárias para a maioria dos bancos de dados não HANA. Por fim, ele fornece o dimensionamento SAP para tipos de VM do Azure com suporte SAP.
+        - [#2015553 de observação de suporte SAP](https://launchpad.support.sap.com/#/notes/2015553). Esta observação define as políticas de suporte ao armazenamento do Azure e à relação de suporte necessárias com a Microsoft.
         - [#2039619 de observação de suporte SAP](https://launchpad.support.sap.com/#/notes/2039619). Esta observação define a matriz de suporte Oracle para o Azure. O Oracle dá suporte apenas ao Windows e Oracle Linux como sistemas operacionais convidados no Azure para cargas de trabalho do SAP. Essa instrução de suporte também se aplica à camada de aplicativo SAP que executa instâncias SAP. No entanto, a Oracle não dá suporte à alta disponibilidade para os serviços centrais do SAP no Oracle Linux por meio do pacemaker. Se precisar de alta disponibilidade para ASCS em Oracle Linux, você precisará usar o SIOS Protection Suite para Linux. Para obter dados de certificação SAP detalhados, consulte Nota [de suporte da sap #1662610-detalhes de suporte para o sios Protection Suite para Linux](https://launchpad.support.sap.com/#/notes/1662610). Para o Windows, a solução de clustering de failover do Windows Server com suporte SAP para serviços centrais do SAP tem suporte em conjunto com a Oracle como a camada do DBMS.
         - [#2235581 de observação de suporte SAP](https://launchpad.support.sap.com/#/notes/2235581). Esta observação fornece a matriz de suporte para SAP HANA em diferentes versões do sistema operacional.
         - As VMs do Azure com suporte SAP HANA e as [instâncias grandes do Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) são listadas no [site do SAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure).
         - [Matriz de disponibilidade de produto SAP](https://support.sap.com/en/).
+        - [Nota de suporte da SAP #2555629-SAP HANA 2,0 camadas dinâmicas – suporte a hipervisor e nuvem](https://launchpad.support.sap.com/#/notes/2555629)
+        - [Nota de suporte da SAP #1662610-detalhes de suporte para o SIOS Protection Suite para Linux](https://launchpad.support.sap.com/#/notes/1662610)
         - Notas SAP para outros produtos específicos do SAP.     
     - Recomendamos designs de três camadas estritos para sistemas de produção SAP. Não recomendamos a combinação de ASCS e/ou DBMS e/ou servidores de aplicativos em uma VM. O uso de configurações de cluster de vários SID para serviços centrais do SAP tem suporte em sistemas operacionais convidados do Windows no Azure. Mas essa configuração não tem suporte para serviços centrais do SAP em sistemas operacionais Linux no Azure. Você pode encontrar a documentação para o cenário do sistema operacional convidado do Windows nestes artigos:
         - [Alta disponibilidade de vários SIDs da instância do SAP ASCS/SCS com clustering de failover do Windows Server e disco compartilhado no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk)
@@ -60,7 +63,7 @@ Durante essa fase, você planeja a migração da carga de trabalho do SAP para a
         - Com base no RTO e no RPO, defina o que a arquitetura de alta disponibilidade e recuperação de desastre precisará ser parecida.
         - Para alta disponibilidade em uma zona, verifique o que o DBMS desejado tem a oferecer no Azure. A maioria dos pacotes DBMS oferece métodos síncronos de uma espera ativa síncrona, que é recomendável para sistemas de produção. Verifique também a documentação relacionada ao SAP para bancos de dados diferentes, começando com [considerações para implantação de DBMS de máquinas virtuais do Azure para cargas de trabalho do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) e documentos relacionados.
            O uso do clustering de failover do Windows Server com uma configuração de disco compartilhado para a camada DBMS como, por exemplo, [descrito para SQL Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017), não tem suporte. Em vez disso, use soluções como:
-           - [AlwaysOn do SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
+           - [SQL Server Always On](https://docs.microsoft.com/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
            - [Oracle Data Guard](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
            - [Replicação de Sistema do HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
         - Para a recuperação de desastres em regiões do Azure, examine as soluções oferecidas por diferentes fornecedores de DBMS. A maioria deles oferece suporte à replicação assíncrona ou ao envio de logs.
@@ -102,7 +105,7 @@ Recomendamos que você configure e valide uma solução HADR completa e um desig
         - Avalie e teste o dimensionamento de suas VMs do Azure em relação à taxa de transferência máxima de armazenamento e à taxa de transferência de rede dos tipos de VM que você escolheu durante a fase de planejamento. Você pode encontrar os dados aqui:
            -  [Tamanhos das Máquinas Virtuais do Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). É importante considerar a taxa de *transferência máxima do disco não armazenado em cache* para o dimensionamento.
            -  [Tamanhos das máquinas virtuais do Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). É importante considerar a taxa de *transferência máxima do disco não armazenado em cache* para o dimensionamento.
-   2. O armazenamento.
+   2. Repositório.
         - No mínimo, use o [armazenamento de SSD standard do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd) para VMs que representam as camadas do aplicativo SAP e para a implantação de DBMSs que não são sensíveis ao desempenho.
         - Em geral, não recomendamos o uso de [discos HDD standard do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-hdd).
         - Use o [armazenamento Premium do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) para qualquer VM DBMS que seja sensível ao desempenho remotamente.
@@ -148,6 +151,21 @@ Recomendamos que você configure e valide uma solução HADR completa e um desig
             - SameSubNetDelay = 2000
             - SameSubNetThreshold = 15
             - RoutingHistorylength = 30
+    6. Configurações ou patches do sistema operacional
+        - Para executar o HANA no SAP, leia estas notas e documentações:
+            -   [Nota de suporte da SAP #2814271 SAP HANA falha no backup no Azure com erro de soma de verificação](https://launchpad.support.sap.com/#/notes/2814271)
+            -   [Nota de suporte SAP #2753418-degradação do desempenho potencial devido ao fallback do timer](https://launchpad.support.sap.com/#/notes/2753418)
+            -   [Nota de suporte da SAP #2791572 degradação do desempenho devido ao VDSO ausente para Hyper-V no Azure](https://launchpad.support.sap.com/#/notes/2791572)
+            -   [Nota de suporte da SAP #2382421-otimizando a configuração de rede no HANA e no nível do sistema operacional](https://launchpad.support.sap.com/#/notes/2382421)
+            -   [Nota de suporte da SAP #2694118-Red Hat Enterprise Linux o complemento de alta disponibilidade no Azure](https://launchpad.support.sap.com/#/notes/2694118)
+            -   [Nota de suporte SAP #1984787-SUSE LINUX Enterprise Server 12: notas de instalação](https://launchpad.support.sap.com/#/notes/1984787)
+            -   [Nota de suporte SAP #2002167-Red Hat Enterprise Linux 7. x: instalação e atualização](https://launchpad.support.sap.com/#/notes/0002002167)
+            -   [Nota de suporte SAP n° 2292690 – Banco de dados SAP HANA: configurações de sistema operacional recomendadas para RHEL 7](https://launchpad.support.sap.com/#/notes/0002292690)
+            -   [Nota de suporte SAP #2772999-Red Hat Enterprise Linux 8. x: instalação e configuração](https://launchpad.support.sap.com/#/notes/2772999)
+            -   [Nota de suporte da SAP #2777782-SAP HANA DB: configurações de so recomendadas para RHEL 8](https://launchpad.support.sap.com/#/notes/2777782)
+            -   [Nota de suporte SAP #2578899-SUSE Linux Enterprise Server 15: Nota de instalação](https://launchpad.support.sap.com/#/notes/2578899)
+            -   [Nota de suporte SAP n º https://launchpad.support.sap.com/#/notes/0002455582)(https://launchpad.support.sap.com/#/notes/0002455582)
+            -    [Nota de suporte SAP #2729475-HWCCT falhou com o erro "o hipervisor não tem suporte" em VMs do Azure certificadas para SAP HANA](https://launchpad.support.sap.com/#/notes/2729475)
 1. Teste seus procedimentos de alta disponibilidade e recuperação de desastres.
    1. Simule situações de failover desligando VMs (sistemas operacionais convidados do Windows) ou colocando sistemas operacionais em modo de pane (sistemas operacionais convidados do Linux). Esta etapa ajudará você a descobrir se suas configurações de failover funcionam conforme projetado.
    1. Meça quanto tempo leva para executar um failover. Se os tempos forem muito longos, considere:
@@ -188,7 +206,7 @@ Durante essa fase, normalmente você implanta sistemas de desenvolvimento, siste
 10. Após a implantação da infraestrutura, teste e avalie a latência de rede entre as VMs da camada de aplicativo SAP e as VMs do DBMS, de acordo com as notas de suporte do SAP [#500235](https://launchpad.support.sap.com/#/notes/500235) e [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Avalie os resultados em relação às diretrizes de latência de rede no [#1100926 de observação de suporte SAP](https://launchpad.support.sap.com/#/notes/1100926/E). A latência de rede deve estar no intervalo moderado ou bom. As exceções se aplicam ao tráfego entre as VMs e as unidades de instância grande do HANA, conforme documentado neste [artigo](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance). Certifique-se de que nenhuma das restrições mencionadas em [considerações para a implantação de DBMS de máquinas virtuais do Azure para cargas de trabalho do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#azure-network-considerations) e [SAP Hana configurações de infraestrutura e operações no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations) se aplicam à sua implantação.
 11. Verifique se suas VMs estão implantadas no [grupo correto de posicionamento de proximidade do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location), conforme descrito em [grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP](sap-proximity-placement-scenarios.md).
 11. Execute todas as outras verificações listadas para a fase de prova de conceito antes de aplicar a carga de trabalho.
-12. À medida que a carga de trabalho se aplica, registre o consumo de recursos dos sistemas no Azure. Compare esse consumo com registros de sua plataforma antiga. Ajuste o dimensionamento de VM de implantações futuras se você vir que tem grandes diferenças. Tenha em mente que, quando você diminuir, as larguras de banda de armazenamento e de rede das VMs também serão reduzidas.
+12. À medida que a carga de trabalho se aplica, registre o consumo de recursos dos sistemas no Azure. Compare esse consumo com registros de sua plataforma antiga. Ajuste o dimensionamento de VM de implantações futuras se você vir que tem grandes diferenças. Tenha em mente que, quando você diminuir, o armazenamento e as larguras de banda de rede das VMs também serão reduzidas.
     - [Tamanhos das máquinas virtuais do Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json)
     - [Tamanhos das máquinas virtuais do Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) 
 13. Experimente a funcionalidade de cópia do sistema e os processos. O objetivo é facilitar a cópia de um sistema de desenvolvimento ou de um sistema de teste, portanto, as equipes de projeto podem obter novos sistemas rapidamente. Considere o uso do [SAP lama](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+Landscape+Management+%28SAP+LaMa%29+at+a+Glance) para essas tarefas.
@@ -209,7 +227,7 @@ Nesta fase, colete o que você experimentou e aprendeu durante suas implantaçõ
     - Use o processo do [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) se você precisar combinar sua migração com uma atualização de versão do SAP. Tenha em mente que nem todas as combinações de DBMS de origem e DBMS de destino têm suporte. Você pode encontrar mais informações nas notas de suporte específicas do SAP para as diferentes versões do DMO. Por exemplo, a [opção de migração de banco de dados (DMO) de SUM 2,0 SP04](https://launchpad.support.sap.com/#/notes/2644872).
     - Teste se a taxa de transferência de dados é melhor através da Internet ou do ExpressRoute, caso você precise mover backups ou arquivos de exportação do SAP. Se estiver movendo dados pela Internet, talvez seja necessário alterar algumas das regras do grupo de segurança de aplicativo/grupo de segurança de rede que você precisará ter em vigor para sistemas de produção futuros.
 1.  Antes de mover os sistemas de sua plataforma antiga para o Azure, colete os dados de consumo de recursos. Dados úteis incluem uso de CPU, taxa de transferência de armazenamento e dados de IOPS. Especialmente colete esses dados das unidades de camada DBMS, mas também colete-os das unidades de camada de aplicativo. Também meça a latência de rede e de armazenamento.
-1.  Verifique novamente as notas de suporte do SAP, o SAP HANA o diretório de hardware e o PAM do SAP. Certifique-se de que não houve nenhuma alteração nas VMs com suporte para o Azure, as versões de sistema operacional com suporte nessas VMs e as versões de SAP e DBMS com suporte.
+1.  Verifique novamente as notas de suporte do SAP e as configurações necessárias do sistema operacional, o SAP HANA o diretório de hardware e o PAM do SAP. Certifique-se de que não houve nenhuma alteração nas VMs com suporte para o Azure, as versões de sistema operacional com suporte nessas VMs e as versões de SAP e DBMS com suporte.
 1.  Atualize os scripts de implantação para levar em conta as decisões mais recentes que você fez nos tipos de VM e na funcionalidade do Azure.
 1.  Depois de implantar a infraestrutura e os aplicativos, valide isso:
     - Os tipos corretos de VM foram implantados, com os atributos corretos e os tamanhos de armazenamento.
@@ -219,7 +237,7 @@ Nesta fase, colete o que você experimentou e aprendeu durante suas implantaçõ
     - As VMs foram implantadas em conjuntos de disponibilidade do Azure como planejadas.
     - O armazenamento Premium do Azure é usado para discos sensíveis à latência ou onde o [SLA de uma única VM de 99,9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) é necessário.
     - O Acelerador de Gravação do Azure está implantado corretamente.
-        - Certifique-se de que, nas VMs, espaços de armazenamento ou conjuntos de distribuição foram criados corretamente em discos que precisam de Acelerador de Gravação.
+        - Certifique-se de que, dentro das VMs, espaços de armazenamento ou conjuntos de distribuição foram criados corretamente em discos que precisam de Acelerador de Gravação.
         - Verifique a [configuração do RAID de software no Linux](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid).
         - Verifique a [configuração do LVM em VMs do Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm).
     - Os [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/) são usados exclusivamente.
@@ -276,7 +294,7 @@ Esta fase trata do monitoramento, da operação e da administração do sistema.
 3. Otimize os horários em que você pode desligar os sistemas.  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Consulte estes artigos:
 
 - [Planejamento e implementação de Máquinas Virtuais do Azure para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)

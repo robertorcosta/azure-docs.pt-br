@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fc01bd5c868cddd448e3a262960af64f50b78d74
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: 2861b882d9b4c00a1c4db87b2dd49d49dfeb53a6
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77372982"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77581099"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -175,6 +175,8 @@ O elemento **Restriction** contém os seguintes elementos:
 
 #### <a name="enumeration"></a>Enumeração
 
+O elemento **Enumeration** define as opções disponíveis para o usuário selecionar para uma declaração na interface do usuário, como um valor em um `CheckboxMultiSelect`, `DropdownSingleSelect`ou `RadioSingleSelect`. Como alternativa, você pode definir e localizar as opções disponíveis com o elemento [LocalizedCollections](localization.md#localizedcollections) . Para pesquisar um item de uma coleção de **Enumeração** de declaração, use [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection) Claims Transformation.
+
 O elemento **Enumeration** contém os seguintes atributos:
 
 | Atributo | Obrigatório | DESCRIÇÃO |
@@ -209,7 +211,7 @@ O elemento **Pattern** pode conter os seguintes atributos:
 | Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | RegularExpression | Sim | A expressão regular a que declarações desse tipo devem corresponder para que sejam válidas. |
-| HelpText | Não | O padrão ou expressão regular para esta declaração. |
+| HelpText | Não | Uma mensagem de erro para os usuários se a verificação de expressão regular falhar. |
 
 O exemplo a seguir configura uma declaração **email** com o texto de ajuda e a validação de entrada de expressão regular:
 
@@ -407,5 +409,3 @@ O tipo de entrada do usuário **Paragraph** é usado para fornecer um campo que 
   </Restriction>
 </ClaimType>
 ```
-
-Para exibir um dos valores de **Enumeration** em uma declaração **responseMsg**, use a transformação de declarações `GetMappedValueFromLocalizedCollection` ou `CreateStringClaim`. Para obter mais informações, confira [Transformações de declarações](string-transformations.md)

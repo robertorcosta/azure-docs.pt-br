@@ -1,29 +1,31 @@
 ---
-title: Mover aplicativos lógicos entre assinaturas, grupos de recursos ou regiões
+title: Migrar aplicativos lógicos entre assinaturas, grupos de recursos ou regiões
 description: Migrar aplicativos lógicos ou contas de integração para outras assinaturas do Azure, grupos de recursos ou locais (regiões)
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: d6250238edd15126e7a56bd821fbd1c736ebda07
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f5944accb185f1311c811cf65a8ea8348fd569db
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965883"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605614"
 ---
 # <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Mover recursos do aplicativo lógico para outras assinaturas, grupos de recursos ou regiões do Azure
 
-Para mover seu aplicativo lógico ou recursos relacionados para outra assinatura, grupo de recursos ou região do Azure, você tem várias maneiras de concluir essas tarefas, como o portal do Azure, Azure PowerShell, CLI do Azure e a API REST. Antes de mover os recursos, examine estas considerações: 
+Para migrar seu aplicativo lógico ou recursos relacionados para outra assinatura, grupo de recursos ou região do Azure, você tem várias maneiras de concluir essas tarefas, como o portal do Azure, Azure PowerShell, CLI do Azure e a API REST. Antes de mover os recursos, examine estas considerações: 
 
 * Você pode mover apenas [tipos de recursos de aplicativo lógico específicos](../azure-resource-manager/management/move-support-resources.md#microsoftlogic) entre assinaturas ou grupos de recursos do Azure.
 
 * Verifique os [limites](../logic-apps/logic-apps-limits-and-config.md) no número de recursos do aplicativo lógico que você pode ter em sua assinatura do Azure e em cada região do Azure. Esses limites afetam se você pode mover tipos de recursos específicos quando a região permanece a mesma em assinaturas ou grupos de recursos. Por exemplo, você pode ter apenas uma conta de integração de camada gratuita para cada região do Azure em cada assinatura do Azure.
 
-* Quando você move recursos, o Azure cria novas IDs de recurso. Portanto, certifique-se de usar as novas IDs em vez disso e atualizar quaisquer scripts ou ferramentas associadas aos recursos movidos. Depois de mover os aplicativos lógicos entre assinaturas, grupos de recursos ou regiões, você deve recriar ou reautorizar quaisquer conexões baseadas em OAuth.
+* Depois de migrar aplicativos lógicos entre assinaturas, grupos de recursos ou regiões, você deve recriar ou autorizar quaisquer conexões que exijam autenticação aberta (OAuth).
 
-## <a name="prerequisites"></a>Pré-requisitos
+* Sempre que você mover recursos, o Azure criará novas IDs de recurso. Portanto, certifique-se de usar as novas IDs em vez disso e atualizar quaisquer scripts ou ferramentas associadas aos recursos movidos.
+
+## <a name="prerequisites"></a>Prerequisites
 
 * A mesma assinatura do Azure que foi usada para criar o aplicativo lógico ou a conta de integração que você deseja mover
 
@@ -104,6 +106,6 @@ O modelo obtido do Visual Studio inclui apenas as definições de recurso para s
 
 1. Abra e edite o modelo para parametrizar os valores necessários para a implantação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Mover recursos do Azure para novos grupos de recursos ou assinaturas](../azure-resource-manager/management/move-resource-group-and-subscription.md)

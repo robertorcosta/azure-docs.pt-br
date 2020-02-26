@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19afaf743cc594ab17776b990687a442c339ed92
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: f07b37fffe61a6be62a72a0281e701b69167e95b
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77559004"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596752"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador por tarefa de administrador no Azure Active Directory
 
@@ -45,14 +45,14 @@ Tarefa | Função com privilégios mínimos | Funções adicionais
 Criar diretórios do Azure AD B2C | Todos os usuários não convidados ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 Criar aplicativos B2C | Administrador global | 
 Criar aplicativos corporativos | Administrador de Aplicativos de Nuvem | Administrador de aplicativos
-Criar, ler, atualizar e excluir políticas de B2C | Administrador global | 
-Criar, ler, atualizar e excluir provedores de identidade | Administrador global | 
-Criar, ler, atualizar e excluir fluxos de usuários de redefinição de senha | Administrador global | 
-Criar, ler, atualizar e excluir fluxos de usuários de edição de perfil | Administrador global | 
-Criar, ler, atualizar e excluir fluxos de usuários de entrada | Administrador global | 
-Criar, ler, atualizar e excluir fluxo de usuários de entrada |Administrador global | 
-Criar, ler, atualizar e excluir atributos de usuário | Administrador global | 
-Criar, ler, atualizar e excluir usuários | Administrador global ([consulte a documentação](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs))
+Criar, ler, atualizar e excluir políticas de B2C | Administrador da política IEF B2C | 
+Criar, ler, atualizar e excluir provedores de identidade | Administrador do provedor de identidade externo | 
+Criar, ler, atualizar e excluir fluxos de usuários de redefinição de senha | Administrador de fluxo de usuário B2C | 
+Criar, ler, atualizar e excluir fluxos de usuários de edição de perfil | Administrador de fluxo de usuário B2C | 
+Criar, ler, atualizar e excluir fluxos de usuários de entrada | Administrador de fluxo de usuário B2C | 
+Criar, ler, atualizar e excluir fluxo de usuários de entrada |Administrador de fluxo de usuário B2C | 
+Criar, ler, atualizar e excluir atributos de usuário | Administrador de atributos de fluxo de usuário B2C | 
+Criar, ler, atualizar e excluir usuários | Administrador de usuários
 Ler todas as configurações | Leitor global | 
 Ler os logs de auditoria do B2C | Leitor global ([consulte a documentação](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
 
@@ -127,7 +127,7 @@ Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Consentimento para quaisquer permissões delegadas | Administrador de aplicativos de nuvem | Administrador de aplicativos
 Consentimento para permissões de aplicativo que não incluem Microsoft Graph | Administrador de aplicativos de nuvem | Administrador de aplicativos
-Consentimento para permissões de aplicativo para Microsoft Graph | Administrador global | 
+Consentimento para permissões de aplicativo para Microsoft Graph | Administrador de função com privilégios | 
 Consentimento para aplicativos acessando dados próprios | Função de usuário padrão ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 Criar aplicativos empresariais | Administrador de aplicativos de nuvem | Administrador de aplicativos
 Gerenciar proxy de aplicativo | Administrador de aplicativos | 
@@ -156,7 +156,7 @@ Atribuir licença | Administrador de usuários |
 Criar grupo | Administrador de usuários | 
 Criar, atualizar ou excluir a revisão de acesso de um grupo ou de um aplicativo | Administrador de usuários | 
 Gerenciar expiração de grupo | Administrador de usuários | 
-Gerenciar configurações de grupo | Administrador global | 
+Gerenciar configurações de grupo | Administrador de grupos | Administrador de usuários | 
 Ler todas as configurações (exceto associação oculta) | Leitores de diretórios | Função de usuário padrão ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 Ler associação oculta | Membro do grupo | Proprietário do grupo, administrador de senhas, administrador do Exchange, administrador do SharePoint, administrador de equipes, administrador de usuários
 Ler membros de grupos com membros ocultos | Administrador de assistência técnica | Administrador de usuários, administrador de equipes
@@ -234,7 +234,7 @@ Ler o status do servidor | Leitor global |
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
-Gerenciar provedores de identidade | Administrador global | 
+Gerenciar provedores de identidade | Administrador do provedor de identidade externo | 
 Gerenciar configurações | Administrador global | 
 Gerenciar termos de uso | Administrador global | 
 Ler todas as configurações | Leitor global | 
@@ -330,11 +330,11 @@ Criar usuário | Administrador de usuários |
 Excluir usuários | Administrador de usuários | 
 Invalidar tokens de atualização de administradores limitados (consulte a documentação) | Administrador de usuários | 
 Invalidar tokens de atualização de não administradores (consulte a documentação) | Administrador de senha | Administrador de usuários
-Invalidar tokens de atualização de administradores com privilégios (consulte a documentação) | Administrador global | 
+Invalidar tokens de atualização de administradores com privilégios (consulte a documentação) | Administrador de autenticação privilegiada | 
 Ler a configuração básica | Função de usuário padrão ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
 Redefinir senha para administradores limitados (consulte a documentação) | Administrador de usuários | 
 Redefinir senha de não administradores (consulte a documentação) | Administrador de senha | Administrador de usuários
-Redefinir senha de administradores com privilégios | Administrador global | 
+Redefinir senha de administradores com privilégios | Administrador de autenticação privilegiada | 
 Revogar licença | Administrador de licenças | Administrador de usuários
 Atualizar todas as propriedades, exceto Nome UPN | Administrador de usuários | 
 Atualizar nome UPN para administradores limitados (consulte a documentação) | Administrador de usuários | 
