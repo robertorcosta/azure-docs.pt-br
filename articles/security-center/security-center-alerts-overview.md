@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 6fc4b40e9b65f17b0af61b601826279e99410ed1
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 826cc155bae037121ddc303a6e1bf300e2d50a27
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75920750"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589293"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de segurança na Central de Segurança do Azure
 
@@ -35,7 +35,7 @@ Além disso, os invasores evoluíram seus métodos para subverter muitas defesas
 
 ## <a name="what-are-security-alerts"></a>O que são alertas de segurança?
 
-Alertas são as notificações que a Central de Segurança gera quando detecta ameaças em seus recursos. A central de segurança prioriza e lista os alertas, juntamente com as informações necessárias para que você investigue rapidamente o problema. A Central de Segurança também fornece recomendações sobre como corrigir um ataque.
+Alertas são as notificações que a central de segurança gera quando detecta ameaças em seus recursos. A central de segurança prioriza e lista os alertas, juntamente com as informações necessárias para que você investigue rapidamente o problema. A central de segurança também fornece recomendações sobre como você pode corrigir um ataque.
 
 ## Como a central de segurança detecta ameaças? <a name="detect-threats"> </a>
 
@@ -72,15 +72,15 @@ A Central de Segurança do Azure também usa detecção de anomalias para identi
 A central de segurança atribui uma severidade aos alertas, para ajudá-lo a priorizar a ordem em que você participa de cada alerta, para que, quando um recurso for comprometido, você possa acessá-lo imediatamente. A gravidade se baseia em quão confiante a central de segurança está na localização ou análise usada para emitir o alerta, bem como o nível de confiança de que houve uma intenção mal-intencionada por trás da atividade que levou ao alerta.
 
 > [!NOTE]
-> A severidade do alerta é exibida diferente no portal e a API REST, as diferenças são indicadas na lista abaixo.
+> A severidade do alerta é exibida de forma diferente no portal e nas versões da API REST que são anteriores à 01-01-2019. Se você estiver usando uma versão mais antiga da API, atualize para a experiência consistente descrita abaixo.
 
-* **Alta:** Há uma alta probabilidade de o recurso ser comprometido. Você deve analisá-lo imediatamente. A Central de Segurança tem alta confiança em ambas as más intenções e em descobertas usadas para emitir o alerta. Por exemplo, um alerta que detecta a execução de uma ferramenta mal-intencionada conhecida como Mimikatz, uma ferramenta comum usada para roubo de credenciais.
-* **Média (baixa na API REST)** : provavelmente, uma atividade suspeita pode indicar que um recurso está comprometido.
+- **Alta:** Há uma alta probabilidade de o recurso ser comprometido. Você deve analisá-lo imediatamente. A Central de Segurança tem alta confiança em ambas as más intenções e em descobertas usadas para emitir o alerta. Por exemplo, um alerta que detecta a execução de uma ferramenta mal-intencionada conhecida como Mimikatz, uma ferramenta comum usada para roubo de credenciais.
+- **Médio:** Isso é provavelmente uma atividade suspeita pode indicar que um recurso está comprometido.
 Confiança da Central de Segurança na análise ou localizar é médio e a confiança de más intenções é médio a alto. Normalmente, elas seriam aprendizado de máquina ou detecções baseadas em anomalias. Por exemplo, uma tentativa de entrada de um local anormal.
-* **Baixa (informações na API REST)** : isso pode ser um positivo benigno ou um ataque bloqueado.
+- **Baixo:** Isso pode ser um ataque benigno positivo ou bloqueado.
    * A Central de Segurança não está confiante o suficiente para que a intenção seja mal-intencionada e a atividade possa ser inocente. Por exemplo, limpar log é uma ação que pode acontecer quando um invasor tenta ocultar seus rastros, mas em muitos casos é uma operação de rotina executada por administradores.
    * A Central de Segurança geralmente não informa quando ataques foram bloqueados, a menos que seja um caso interessante que sugerimos que você examine. 
-* **Informativo (silencioso na API REST)** : você só verá alertas informativos ao fazer uma busca detalhada em um incidente de segurança ou se você usar a API REST com uma determinada ID de alerta. Um incidente geralmente é composto de um número de alertas, alguns dos quais podem aparecer por conta própria e são apenas informativo, mas no contexto de outros alertas podem ser dignos de uma análise mais detalhada. 
+- **Informação:** Você só verá alertas informativos quando fizer uma busca detalhada em um incidente de segurança ou se usar a API REST com uma ID de alerta específica. Um incidente geralmente é composto de um número de alertas, alguns dos quais podem aparecer por conta própria e são apenas informativo, mas no contexto de outros alertas podem ser dignos de uma análise mais detalhada. 
  
 
 ## <a name="continuous-monitoring-and-assessments"></a>Monitoramento e avaliações contínuos
@@ -117,7 +117,7 @@ Usando incidentes, a central de segurança fornece uma única exibição de uma 
 
 Além de estar disponível no portal do Azure ou programaticamente, os alertas de segurança e os incidentes são auditados como eventos no [log de atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). Para obter mais informações sobre o esquema de eventos, consulte [alertas de segurança no log de atividades do Azure](https://go.microsoft.com/fwlink/?linkid=2114113).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu sobre os diferentes tipos de alertas disponíveis na central de segurança. Para obter mais informações, consulte:
 

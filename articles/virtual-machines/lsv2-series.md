@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 226611bde6024f98ce6d3660fe18e66dba9a420c
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: b10433190ccc7703938bed2a75a5d816f073295e
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493690"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587253"
 ---
 # <a name="lsv2-series"></a>Série Lsv2
 
@@ -23,7 +23,7 @@ A série Lsv2 apresenta alta taxa de transferência, baixa latência, armazename
 >
 > A alta taxa de transferência e o IOPs do disco local tornam as VMs da série Lsv2 ideais para os repositórios NoSQL, como o Apache Cassandra e o MongoDB, que replicam dados em várias VMs para alcançar a persistência em caso de falha de uma única VM.
 >
-> Para saber mais, consulte [otimizar o desempenho nas máquinas virtuais da série Lsv2](/linux/storage-performance.md).  
+> Para saber mais, consulte otimizar o desempenho nas máquinas virtuais da série Lsv2 para [Windows](../virtual-machines/windows/storage-performance.md) ou [Linux](../virtual-machines/linux/storage-performance.md).  
 
 ACU: 150-175
 

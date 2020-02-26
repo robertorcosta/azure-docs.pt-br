@@ -3,7 +3,7 @@ title: Conectar dados do syslog ao Azure Sentinel | Microsoft Docs
 description: Saiba como conectar dados do syslog ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: d5f3d24d10262f28023523668c22f4571799cff9
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: 73fd55fc24fd94dc88bba2f591c32480f77c7d5d
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610464"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588069"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Conectar sua solução externa usando o syslog
 
@@ -28,7 +28,7 @@ Você pode conectar qualquer dispositivo local que dê suporte a syslog para o A
 > [!NOTE]
 > Se o seu dispositivo der suporte ao syslog CEF, a conexão será mais completa e você deverá escolher essa opção e seguir as instruções em [conectando dados do CEF](connect-common-event-format.md).
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 O Syslog é um protocolo de registro de eventos em log que é comum para o Linux. Os aplicativos enviarão mensagens que podem ser armazenadas no computador local ou entregues a um coletor de Syslog. Quando o agente do Log Analytics para Linux é instalado, ele configura o daemon do Syslog local para encaminhar mensagens para o agente. O agente envia a mensagem ao Azure Monitor, onde um registro correspondente é criado.
 
@@ -102,7 +102,7 @@ Essa detecção requer uma configuração específica do conector de dados syslo
     
     Se a contagem resultante for maior que zero, os dados do syslog serão adequados para a detecção de logon de SSH anormal. Você habilita essa detecção do **Analytics** >  **modelos de regra** >  **(visualização) detecção de logon SSH anômala**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a conectar os dispositivos locais do syslog ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).

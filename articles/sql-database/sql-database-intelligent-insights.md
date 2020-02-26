@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 20c30a77201c4f728013bdd204eef81294eefb73
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: d32ce79d0c8b26e0e78e2bae0f0335315c1a3a40
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76545153"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587321"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Intelligent Insights usando o ia para monitorar e solucionar problemas de desempenho do banco de dados (visualização)
 
@@ -113,7 +113,7 @@ Para usar os Hubs de Eventos para configurar o monitoramento e alertas personali
 
 ### <a name="set-up-with-azure-storage"></a>Configuração com o Armazenamento do Microsoft Azure
 
-Para usar o Intelligent Insights com o armazenamento, configure os dados de log do Intelligent Insights para serem transmitidos para o armazenamento; consulte [Transmitir para o armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-into-storage).
+Para usar o Intelligent Insights com o armazenamento, configure os dados de log do Intelligent Insights para serem transmitidos para o armazenamento; consulte [Transmitir para o armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-diagnostic-telemetry-into-azure-storage).
 
 ### <a name="custom-integrations-of-intelligent-insights-log"></a>Integrações personalizadas de log do Insights inteligentes
 
@@ -185,7 +185,7 @@ O log do Intelligent Insights gera a contagem de solicitações com erros. Indic
 
 Se qualquer uma das exceções críticas monitoradas cruzar os limites absolutos gerenciados pelo sistema, um insight inteligente será gerado com detalhes da exceção crítica.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [Solucionar problemas de desempenho do Banco de Dados SQL com Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Use o [log de diagnóstico de desempenho do Banco de dados SQL com Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).

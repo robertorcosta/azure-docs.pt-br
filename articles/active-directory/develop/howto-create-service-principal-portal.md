@@ -12,12 +12,12 @@ ms.date: 10/14/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 0d3e1e10120dce404f0fdfe781661c4c169ae00a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 2283f4f3cf1d31f0d67e01e1a63ee20557ef5633
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697210"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591567"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos
 
@@ -40,9 +40,9 @@ Vamos diretamente para a criação da identidade. Se você encontrar um problema
 
 Você criou o aplicativo e a entidade de serviço do Azure AD.
 
-## <a name="assign-the-application-to-a-role"></a>Atribuir o aplicativo a uma função
+## <a name="assign-a-role-to-the-application"></a>Atribuir uma função ao aplicativo
 
-Para acessar recursos em sua assinatura, você deve atribuir o aplicativo a uma função. Decida qual função oferece as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, consulte [RBAC: funções internas](../../role-based-access-control/built-in-roles.md).
+Para acessar recursos em sua assinatura, você deve atribuir uma função ao aplicativo. Decida qual função oferece as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, consulte [RBAC: funções internas](../../role-based-access-control/built-in-roles.md).
 
 Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do recurso. As permissão são herdadas para níveis inferiores do escopo. Por exemplo, adicionar um aplicativo à função Leitor de um grupo de recursos significa que ele pode ler o grupo de recursos e todos os recursos que ele contiver.
 
@@ -62,7 +62,7 @@ Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do 
 
    ![Selecione a função a ser atribuída ao aplicativo](./media/howto-create-service-principal-portal/select-role.png)
 
-1. Selecione **Salvar** para finalizar a atribuição da função. Agora você vê o aplicativo na lista de usuários atribuídos a uma função para esse escopo.
+1. Selecione **Salvar** para finalizar a atribuição da função. Você vê seu aplicativo na lista de usuários com uma função para esse escopo.
 
 A entidade de serviço está configurada. Você pode começar a usá-lo para executar seus scripts ou aplicativos. A próxima seção mostra como obter valores necessários ao entrar de modo programático.
 
@@ -112,7 +112,7 @@ Se você optar por não usar um certificado, poderá criar um novo segredo do ap
 1. Selecione **Segredos do cliente > Novo segredo do cliente**.
 1. Forneça uma descrição do segredo e uma duração. Ao terminar, selecione **Adicionar**.
 
-   Depois de salvar o segredo do cliente, o valor do segredo do cliente é exibido. Copie este valor, pois não é possível recuperar a chave posteriormente. Forneça o valor da chave com a ID do aplicativo para fazer logon como o aplicativo. Armazene o valor da chave onde seu aplicativo possa recuperá-lo.
+   Depois de salvar o segredo do cliente, o valor do segredo do cliente é exibido. Copie esse valor porque você não poderá recuperar a chave posteriormente. Você fornecerá o valor da chave com a ID do aplicativo para entrar como o aplicativo. Armazene o valor da chave onde seu aplicativo possa recuperá-lo.
 
    ![Copiar o valor do segredo porque você não pode recuperá-lo mais tarde](./media/howto-create-service-principal-portal/copy-secret.png)
 
@@ -126,7 +126,7 @@ Tenha em mente que talvez seja necessário configurar permissões de adição em
 
 ## <a name="required-permissions"></a>Permissões necessárias
 
-Você deve ter permissões suficientes para registrar um aplicativo com o locatário do Azure AD e atribuir o aplicativo a uma função em sua assinatura do Azure.
+Você deve ter permissões suficientes para registrar um aplicativo com seu locatário do Azure AD e atribuir ao aplicativo uma função em sua assinatura do Azure.
 
 ### <a name="check-azure-ad-permissions"></a>Verifique as permissões do Azure AD
 
@@ -138,11 +138,11 @@ Você deve ter permissões suficientes para registrar um aplicativo com o locat�
 1. No painel esquerdo, selecione **configurações de usuário**.
 1. Verifique a configuração **Registros do Aplicativo**. Esse valor só pode ser definido por um administrador. Se for definido como **Sim**, qualquer usuário no locatário do Azure AD poderá registrar um aplicativo.
 
-Se a configuração de registros de aplicativo está definida como **Não**, somente os usuários com uma função de administrador podem registrar esses tipos de aplicativos. Confira as [funções disponíveis](../users-groups-roles/directory-assign-admin-roles.md#available-roles) e as [permissões de função](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) para saber mais sobre as funções de administrador disponíveis e as permissões específicas no Azure AD fornecidas para cada função. Se sua conta está atribuída à função Usuário, mas a configuração de registro de aplicativo está limitada a usuários administradores, peça a seu administrador para atribuir a você uma das funções de administrador que podem criar e gerenciar todos os aspectos de registros do aplicativo ou para permitir que os usuários registrem aplicativos.
+Se a configuração de registros de aplicativo está definida como **Não**, somente os usuários com uma função de administrador podem registrar esses tipos de aplicativos. Confira as [funções disponíveis](../users-groups-roles/directory-assign-admin-roles.md#available-roles) e as [permissões de função](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) para saber mais sobre as funções de administrador disponíveis e as permissões específicas no Azure AD fornecidas para cada função. Se sua conta for atribuída à função de usuário, mas a configuração de registro do aplicativo estiver limitada a usuários administradores, peça ao administrador para atribuir a você uma das funções de administrador que podem criar e gerenciar todos os aspectos dos registros do aplicativo ou para permitir que os usuários se registrem os.
 
 ### <a name="check-azure-subscription-permissions"></a>Verificar permissões de assinatura do Azure
 
-Em sua assinatura do Azure, sua conta deve ter acesso de `Microsoft.Authorization/*/Write` para atribuir um aplicativo do AD a uma função. Esta ação deve ser concedida pela função [Proprietário](../../role-based-access-control/built-in-roles.md#owner) ou pela função [Administrador de Acesso do Usuário](../../role-based-access-control/built-in-roles.md#user-access-administrator). Se sua conta tiver a função **Colaborador**, você não terá a permissão adequada. Você verá um erro ao tentar atribuir a entidade de serviço a uma função.
+Em sua assinatura do Azure, sua conta deve ter `Microsoft.Authorization/*/Write` acesso para atribuir uma função a um aplicativo do AD. Esta ação deve ser concedida pela função [Proprietário](../../role-based-access-control/built-in-roles.md#owner) ou pela função [Administrador de Acesso do Usuário](../../role-based-access-control/built-in-roles.md#user-access-administrator). Se sua conta for atribuída à função **colaborador** , você não terá a permissão adequada. Você receberá um erro ao tentar atribuir a entidade de serviço a uma função.
 
 Para verificar suas permissões de assinatura:
 
@@ -154,11 +154,11 @@ Para verificar suas permissões de assinatura:
 
    ![Selecione a assinatura na qual você deseja criar a entidade de serviço](./media/howto-create-service-principal-portal/view-details.png)
 
-1. Selecione **atribuições de função** para exibir suas funções atribuídas e determine se você tem permissões adequadas para atribuir um aplicativo do AD a uma função. Caso contrário, peça ao administrador da assinatura para adicioná-lo à função Administrador de Acesso do Usuário. Na imagem a seguir, o usuário é atribuído à função Proprietário, o que significa que o usuário tem as permissões adequadas.
+1. Selecione **atribuições de função** para exibir suas funções atribuídas e determine se você tem permissões adequadas para atribuir uma função a um aplicativo do AD. Caso contrário, peça ao administrador da assinatura para adicioná-lo à função Administrador de Acesso do Usuário. Na imagem a seguir, o usuário recebe a função proprietário, o que significa que o usuário tem as permissões adequadas.
 
-   ![Este exemplo mostra que o usuário está atribuído à função de proprietário](./media/howto-create-service-principal-portal/view-user-role.png)
+   ![Este exemplo mostra ao usuário a função de proprietário atribuída](./media/howto-create-service-principal-portal/view-user-role.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para aprender a especificar as políticas de segurança, consulte [Controle de Acesso baseado nas Funções do Azure](../../role-based-access-control/role-assignments-portal.md).  
 * Para obter uma lista de ações disponíveis que podem ser concedidas ou negadas a usuários, consulte [Operações do Provedor de Recursos do Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md).

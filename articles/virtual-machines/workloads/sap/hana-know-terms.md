@@ -10,15 +10,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/03/2019
+ms.date: 02/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ea6a8963d0905036f759fbab792492cc63d551c
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e9719f1a081da688501e6dbea0fc1b865168077c
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806738"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591210"
 ---
 # <a name="know-the-terms"></a>Conhecer os termos
 
@@ -38,7 +38,7 @@ Várias definições comuns são amplamente usadas no guia de implantação téc
    Os usuários de domínio do domínio local podem acessar os servidores e executar serviços nessas VMs (como serviços de DBMS). A comunicação e a resolução de nomes entre VMs implantadas no local e VMs implantadas no Azure são possíveis. Esse cenário é típico da maneira como a maioria dos ativos do SAP é implantada. Para obter mais informações, consulte [Gateway de VPN do Azure](../../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e [criar uma rede virtual com uma conexão site a site usando o portal do Azure](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 - **Locatário**: um cliente implantado no carimbo do SAP HANA em Instâncias Grandes é isolado em um *locatário.* Um locatário é isolado de outros locatários na camada de rede, de armazenamento e de computação. As unidades de computação e armazenamento atribuídas aos diferentes locatários não podem visualizar umas às outras nem comunicarem entre si no nível de carimbo do SAP HANA em Instâncias Grandes. Um cliente pode escolher ter implantações em diferentes locatários. Mesmo assim, não há nenhuma comunicação entre locatários no nível de selo de Instância Grande do HANA.
 - **Categoria de SKU**: para o SAP HANA em Instâncias Grandes, são oferecidas as duas categorias de SKUs a seguir:
-    - **Classe tipo I**: s72, S72m, S96, S144, S144m, S192, S192m, S192xm e S224
+    - **Classe tipo I**: s72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224 e S224m
     - **Classe do tipo II**: S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm e S960m
 - **Stamp**: define o tamanho da implantação interna da Microsoft de instâncias grandes do Hana. Antes que as unidades de instância grande do HANA possam ser implantadas, um carimbo de instância grande do HANA que consiste em racks de computação, rede e armazenamento precisa ser implantado em um local de datacenter. Essa implantação é chamada de carimbo de instância grande do HANA ou da revisão 4 (veja abaixo) em nós usamos a alternativa do termo da **linha de instância grande**
 - **Revisão**: há duas revisões de carimbo diferentes para carimbos de instância grande do Hana. Eles diferem na arquitetura e na proximidade com os hosts da máquina virtual do Azure

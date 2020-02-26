@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: c01106bf7288e777e601c06558b1408960f4e49b
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: 0af2b5f7d756060d463d2b4f3ef71bdd135710ee
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539426"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591516"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurar e gerenciar o pool de máquinas virtuais 
 Este artigo mostra como realizar as seguintes tarefas:
@@ -58,6 +58,9 @@ A segunda maneira é selecionar uma ou mais VMs na lista e alternar o botão na 
 ![Iniciar VMs selecionadas](../media/how-to-set-virtual-machine-passwords/start-selected-vms.png)
 
 Da mesma forma, você pode interromper uma ou mais VMs alternando o botão na coluna **estado** ou selecionando **parar** na barra de ferramentas. 
+
+> [!NOTE]
+> Quando um professor acende uma VM de aluno, a cota para o aluno não é afetada. A cota de um usuário especifica o número de horas de laboratório disponíveis para o usuário fora da hora da classe agendada. Para obter mais informações sobre cotas, consulte [definir cotas para usuários](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## <a name="reset-vms"></a>Redefinir VMs
 Para redefinir uma ou mais VMs, selecione-as na lista e, em seguida, selecione **Redefinir** na barra de ferramentas. 
@@ -100,7 +103,7 @@ O criador de laboratório (instrutor/professor) pode se conectar a uma VM de alu
 > [!NOTE]
 > Quando o professor inicia a VM e se conecta a ela, a cota do aluno não é afetada. 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre as outras opções de uso do aluno que você (como proprietário do laboratório) podem configurar, consulte o seguinte artigo: [Configurar o uso do aluno](how-to-configure-student-usage.md).
 
 Para saber mais sobre como os alunos podem redefinir senhas para suas VMs, consulte [definir ou Redefinir senha para máquinas virtuais em laboratórios de sala de aula (estudantes)](how-to-set-virtual-machine-passwords-student.md).

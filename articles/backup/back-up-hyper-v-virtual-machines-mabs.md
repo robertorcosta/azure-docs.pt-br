@@ -3,12 +3,12 @@ title: Fazer backup de máquinas virtuais do Hyper-V com MABS
 description: Este artigo contém os procedimentos para fazer backup e recuperação de máquinas virtuais usando o Backup do Microsoft Azure Server (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: 69e415b5aef179c2b64bb04e933593010c8b47d3
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: e23a3a5ad57e07f95958d8a21e091d663a5c1185
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444053"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586505"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Fazer backup de máquinas virtuais do Hyper-V com Servidor de Backup do Azure
 
@@ -145,7 +145,7 @@ Para configurar a proteção para migração dinâmica:
 
 3. Atribua a conta MABSMachineName $ como uma conta de administrador somente leitura no servidor de gerenciamento do VMM.
 
-4. Conecte todos os servidores de host Hyper-V a todos os servidores MABS com o cmdlet `Set-DPMGlobalProperty` PowerShell. O cmdlet aceita vários nomes de servidor MABS. Use o formato: `Set-DPMGlobalProperty -dpmservername <MABSservername> -knownvmmservers <vmmservername>`. Para obter mais informações, consulte [set-DPMGlobalProperty](https://technet.microsoft.com/library/hh881752.aspx).
+4. Conecte todos os servidores de host Hyper-V a todos os servidores MABS com o cmdlet `Set-DPMGlobalProperty` PowerShell. O cmdlet aceita vários nomes de servidor MABS. Use o formato: `Set-DPMGlobalProperty -dpmservername <MABSservername> -knownvmmservers <vmmservername>`. Para obter mais informações, consulte [set-DPMGlobalProperty](https://docs.microsoft.com/powershell/module/dataprotectionmanager/set-dpmglobalproperty?view=systemcenter-ps-2019).
 
 5. Depois que todas as máquinas virtuais em execução nos hosts do Hyper-V nas nuvens do VMM forem descobertas no VMM, configure um grupo de proteção e adicione as máquinas virtuais que deseja proteger. As verificações de consistência automáticas devem ser habilitadas no nível do grupo de proteção para proteção em cenários de mobilidade de máquina virtual.
 

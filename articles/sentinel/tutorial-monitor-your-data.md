@@ -3,7 +3,7 @@ title: Visualize seus dados usando painéis com base em pastas de trabalho Azure
 description: Use este tutorial para aprender a visualizar seus dados usando painéis baseados em pastas de trabalho no Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/01/2020
-ms.author: rkarlin
-ms.openlocfilehash: 7baf8cf2e954d773376b7c3c989bce01f60ae0a6
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: b4461ac43e9356536914b345ef28f5de62fc9f82
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610447"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585213"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Tutorial: Visualizar e monitorar seus dados
 
@@ -33,7 +33,7 @@ Este tutorial ajuda você a visualizar seus dados no Azure Sentinel.
 > * Usar pastas de trabalho internas
 > * Criar pastas de trabalho
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Você deve ter pelo menos as permissões de colaborador ou leitor de pasta de trabalho no grupo de recursos do espaço de trabalho do Azure Sentinel.
 
@@ -86,7 +86,7 @@ Para excluir uma pasta de trabalho personalizada, na página pastas de trabalho,
 > [!NOTE]
 > Isso remove o recurso, bem como as alterações feitas no modelo. O modelo original permanecerá disponível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu a exibir seus dados no Azure Sentinel.
 

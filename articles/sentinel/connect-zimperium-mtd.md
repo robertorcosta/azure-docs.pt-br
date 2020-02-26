@@ -2,7 +2,7 @@
 title: Conectar a defesa contra ameaças móveis do Zimperium ao Azure sentinela | Microsoft Docs
 description: Saiba como conectar a defesa contra ameaças móveis do Zimperium ao Azure Sentinel.
 services: sentinel
-author: rkarlin
+author: yelevin
 editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2020
-ms.author: rkarlin
-ms.openlocfilehash: a11d4602882973a24e09c62c12a9dc1dcdc8246d
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.author: yelevin
+ms.openlocfilehash: 86854fa22a49f09e5d3d2fc5fdb53c245850fbac
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77501245"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587933"
 ---
 # <a name="connect-your-zimperium-mobile-threat-defense-to-azure-sentinel"></a>Conecte sua defesa contra ameaças móveis do Zimperium ao Azure Sentinel
 

@@ -3,12 +3,12 @@ title: Excluir um cofre de Serviços de Recuperação do Microsoft Azure
 description: Neste artigo, saiba como remover dependências e, em seguida, excluir um cofre MARS (serviços de recuperação de Backup do Microsoft Azure).
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 23e0d2874229616037c44800639411f66bc4d1b6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 172c632ae27c789f96e2e5cc1bdef492ef09f667
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173182"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586454"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Excluir um cofre dos serviços de recuperação de backup do Azure
 
@@ -28,7 +28,7 @@ Você não pode excluir um cofre dos serviços de recuperação que tem dependê
 
   ![Exclua o erro do servidor protegido.](./media/backup-azure-delete-vault/error-message.jpg)
 
-- Se itens de backup estiverem em estado de exclusão reversível abaixo, a mensagem de aviso será exibida e você precisará aguardar até que eles sejam excluídos permanentemente. Para obter mais informações, veja este [artigo](https://aka.ms/SoftDeleteCloudWorkloads).
+- Se itens de backup estiverem em estado de exclusão reversível abaixo, a mensagem de aviso será exibida e você precisará aguardar até que eles sejam excluídos permanentemente. Para obter mais informações, veja este [artigo](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
 
    ![Exclua o erro do cofre.](./media/backup-azure-delete-vault/error-message-soft-delete.png)
   

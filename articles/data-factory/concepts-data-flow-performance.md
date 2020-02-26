@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 01/25/2020
-ms.openlocfilehash: ff128d148abb87959894aee94d257ae71a3ca65e
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 02/24/2020
+ms.openlocfilehash: 9236fab332758308ceb8bde1f83a9f3ac8ee6789
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773858"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587576"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeando o guia de desempenho e ajuste do fluxo de dados
 
@@ -35,8 +35,8 @@ Ao criar fluxos de dados de mapeamento, você pode testar cada transformação c
 ## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Aumentando o tamanho da computação no Azure Integration Runtime
 
 Um Integration Runtime com mais núcleos aumenta o número de nós nos ambientes de computação do Spark e fornece mais capacidade de processamento para ler, gravar e transformar seus dados.
-* Experimente um cluster **otimizado para computação** se você quiser que sua taxa de processamento seja maior do que a sua taxa de entrada
-* Experimente um cluster com **otimização de memória** se você quiser armazenar em cache mais dados na memória.
+* Tente um cluster **otimizado para computação** se desejar que sua taxa de processamento seja maior que a sua taxa de entrada.
+* Experimente um cluster com **otimização de memória** se você quiser armazenar em cache mais dados na memória. A memória otimizada tem um ponto de preço mais alto por núcleo do que a computação otimizada, mas provavelmente resultará em velocidades de transformação mais rápidas.
 
 ![Novo IR](media/data-flow/ir-new.png "Novo IR")
 
@@ -67,7 +67,7 @@ Em **Opções de origem** na transformação origem, as configurações a seguir
 * A definição de uma consulta pode permitir que você filtre linhas na origem antes que elas cheguem ao fluxo de dados para processamento. Isso pode tornar a aquisição de dados inicial mais rápida. Se você usar uma consulta, poderá adicionar dicas de consulta opcionais para seu banco de BD SQL do Azure, como leitura não confirmada.
 * A leitura não confirmada fornecerá resultados de consulta mais rápidos na transformação de origem
 
-![Origem](media/data-flow/source4.png "Origem")
+![Origem](media/data-flow/source4.png "Fonte")
 
 ### <a name="sink-batch-size"></a>Tamanho do lote do coletor
 
@@ -87,17 +87,24 @@ Em seu pipeline, adicione uma [atividade de procedimento armazenado](transform-d
 
 Agende um redimensionamento da origem e do coletor do banco de BD SQL do Azure e do DW antes de executar o pipeline para aumentar a taxa de transferência e minimizar a limitação do Azure depois de atingir os limites de DTU. Depois que a execução do pipeline for concluída, redimensione os bancos de dados de volta à sua taxa de execução normal.
 
-### <a name="azure-sql-dw-only-use-staging-to-load-data-in-bulk-via-polybase"></a>[Somente SQL DW do Azure] Usar preparo para carregar dados em massa por meio do polybase
+* A tabela de origem do banco de BD SQL com linhas 887k e 74 colunas para uma tabela do banco de BD SQL com uma única transformação de coluna derivada leva cerca de 3 minutos de ponta a ponta usando a depuração de central de memória otimizada 80-Core da administração do Azure.
+
+### <a name="azure-synapse-sql-dw-only-use-staging-to-load-data-in-bulk-via-polybase"></a>[Somente SQL DW do Azure Synapse] Usar preparo para carregar dados em massa por meio do polybase
 
 Para evitar inserções de linha por linha em seu DW, marque **habilitar o preparo** nas configurações do coletor para que o ADF possa usar o [polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide). O polybase permite que o ADF carregue os dados em massa.
 * Ao executar a atividade de fluxo de dados de um pipeline, você precisará selecionar um BLOB ou ADLS Gen2 local de armazenamento para preparar seus dados durante o carregamento em massa.
 
+* A fonte de arquivo do arquivo 421Mb com 74 colunas para uma tabela Synapse e uma única transformação de coluna derivada leva cerca de 4 minutos de ponta a ponta usando a depuração de núcleo de 80-core com otimização de memória.
+
 ## <a name="optimizing-for-files"></a>Otimizando para arquivos
 
-Em cada transformação, você pode definir o esquema de particionamento que deseja que data factory use na guia otimizar.
+Em cada transformação, você pode definir o esquema de particionamento que deseja que data factory use na guia otimizar. É uma prática recomendada testar primeiro os coletores baseados em arquivo, mantendo o particionamento e as otimizações padrão.
+
 * Para arquivos menores, você pode achar que selecionar *uma única partição* pode, às vezes, funcionar melhor e mais rápido do que pedir ao Spark para particionar seus arquivos pequenos.
 * Se você não tiver informações suficientes sobre seus dados de origem, escolha particionamento *Round Robin* e defina o número de partições.
 * Se seus dados tiverem colunas que podem ser boas chaves de hash, escolha *particionamento de hash*.
+
+* A origem do arquivo com o coletor de arquivos de um arquivo 421Mb com 74 colunas e uma única transformação de coluna derivada leva cerca de 2 minutos de ponta a ponta usando a depuração de núcleo de 80-core com otimização de memória.
 
 Durante a depuração na visualização de dados e na depuração de pipeline, os tamanhos de limite e amostragem para DataSets de origem baseados em arquivo se aplicam apenas ao número de linhas retornadas, e não ao número de linhas lidas. Isso pode afetar o desempenho de suas execuções de depuração e possivelmente causar falha no fluxo.
 * Os clusters de depuração são pequenos clusters de nó único por padrão e recomendamos o uso de arquivos pequenos de exemplo para depuração. Vá para configurações de depuração e aponte para um pequeno subconjunto de dados usando um arquivo temporário.
@@ -136,7 +143,7 @@ O gerenciamento do desempenho de junções em seu fluxo de dados é uma operaç�
 
 Outra otimização de junção é criar suas junções de forma que evite a tendência do Spark de implementar Junções cruzadas. Por exemplo, quando você inclui valores literais em suas condições de junção, o Spark pode ver que, como um requisito para executar um produto cartesiano completo primeiro, filtre os valores associados. Mas se você tiver certeza de que tem valores de coluna em ambos os lados da sua condição de junção, poderá evitar esse produto cartesiano induzido ao Spark e melhorar o desempenho de suas junções e fluxos de dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte outros artigos de fluxo de dados relacionados ao desempenho:
 

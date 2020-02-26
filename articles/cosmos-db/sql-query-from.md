@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: 4f6d7580ea7ff0e8968c0c3ce4b3ca6111c86ac8
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 3939594064b63c567720378b9d316acca64d3266
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873362"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587678"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Cláusula FROM em Azure Cosmos DB
 
@@ -79,9 +79,9 @@ FROM <from_specification>
   
   Especifica que documento deve ser recuperado de outra fonte definida pelo alias fornecido.  
   
-- `<container_expression> '.' property_`  
+- `<container_expression> '.' property_name`  
   
-  Especifica que documento deve ser recuperado acessando a propriedade `property_name` ou o elemento de matriz array_index para todos os documentos recuperados pela expressão de contêiner especificada.  
+  Especifica que o documento deve ser recuperado acessando a propriedade `property_name`.  
   
 - `<container_expression> '[' "property_name" | array_index ']'`  
   
@@ -163,8 +163,8 @@ Os resultados são:
     ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-- [Introdução](sql-query-getting-started.md)
+- [Guia de Introdução](sql-query-getting-started.md)
 - [Cláusula SELECT](sql-query-select.md)
 - [Cláusula WHERE](sql-query-where.md)

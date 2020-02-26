@@ -3,22 +3,22 @@ title: Definir configurações de diagnóstico de cofre em escala
 description: Definir Log Analytics configurações de diagnóstico para todos os cofres em um determinado escopo usando Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: bdc3dd1da9d3ddc966b664f8bec479f5a8ff10f2
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: c92957cab3e1ed745e7031e3c6f32e7ecda550a5
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77501076"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77584499"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Definir configurações de diagnóstico de cofre em escala
 
-A solução de relatórios fornecida pelo backup do Azure aproveita Log Analytics (LA). Para que os dados de qualquer cofre fornecido sejam enviados à LA, uma [configuração de diagnóstico](https://aka.ms/AzureBackupDiagnosticsDocs) precisa ser criada para esse cofre.
+A solução de relatórios fornecida pelo backup do Azure aproveita Log Analytics (LA). Para que os dados de qualquer cofre fornecido sejam enviados à LA, uma [configuração de diagnóstico](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events) precisa ser criada para esse cofre.
 
 Muitas vezes, adicionar uma configuração de diagnóstico manualmente por cofre pode ser uma tarefa complicada. Além disso, qualquer novo cofre criado também precisa ter as configurações de diagnóstico habilitadas para poder exibir relatórios para este cofre. 
 
 Para simplificar a criação de configurações de diagnóstico em escala (com LA como o destino), o backup do Azure fornece um [Azure Policy](https://docs.microsoft.com/azure/governance/policy/)interno. Essa política adiciona uma configuração de diagnóstico LA a todos os cofres em uma determinada assinatura ou grupo de recursos. As seções a seguir fornecem instruções sobre como usar essa política.
 
-## <a name="supported-scenarios"></a>Cenários com suporte 
+## <a name="supported-scenarios"></a>Cenários com suporte
 
 * A política pode ser aplicada de uma vez a todos os cofres dos serviços de recuperação em uma determinada assinatura (ou a um grupo de recursos dentro da assinatura). O usuário que atribui a política precisa ter acesso de ' proprietário ' à assinatura à qual a política está atribuída.
 
@@ -49,6 +49,7 @@ Para atribuir a política para cofres no escopo necessário, siga as etapas abai
 ![Noções básicas de atribuição de política](./media/backup-azure-policy-configure-diagnostics/policy-assignment-basics.png)
 
 7. Em **parâmetros**, insira as seguintes informações:
+
 * **Nome do perfil** -o nome que será atribuído às configurações de diagnóstico criadas pela política.
 * **Espaço de trabalho log Analytics** -o espaço de trabalho log Analytics ao qual a configuração de diagnóstico deve ser associada. Os dados de diagnóstico de todos os cofres no escopo da atribuição de política serão enviados para o espaço de trabalho especificado.
 
@@ -69,7 +70,7 @@ A tarefa de correção é aplicada aos cofres que não são compatíveis, de aco
 * Nenhuma configuração de diagnóstico está presente para o cofre.
 * As configurações de diagnóstico estão presentes para o cofre, mas nenhuma das configurações tem **todos** os eventos específicos do recurso habilitados com la como destino e o **recurso específico** selecionado na alternância. 
 
-Portanto, mesmo que um usuário tenha um cofre com o evento AzureBackupReport habilitado no modo AzureDiagnostics (que tem suporte nos relatórios de backup), a tarefa de correção ainda se aplicará a esse cofre, pois o modo específico do recurso é a maneira recomendada de criar configurações de diagnóstico, no [futuro](https://aka.ms/AzureBackupDiagnosticsDocs#legacy-event). 
+Portanto, mesmo que um usuário tenha um cofre com o evento AzureBackupReport habilitado no modo AzureDiagnostics (que tem suporte nos relatórios de backup), a tarefa de correção ainda se aplicará a esse cofre, pois o modo específico do recurso é a maneira recomendada de criar configurações de diagnóstico, no [futuro](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event).
 
 Além disso, se um usuário tiver um cofre com apenas um subconjunto dos seis eventos específicos do recurso habilitado, a tarefa de correção será aplicada a esse cofre, já que os relatórios de backup funcionarão como esperado somente se todos os seis eventos específicos do recurso estiverem habilitados.
 
@@ -82,6 +83,7 @@ Além disso, se um usuário tiver um cofre com apenas um subconjunto dos seis ev
 > Observe que a tarefa de correção **não** falhará se a configuração de diagnóstico existente for apenas AzureBackupReport habilitada com o espaço de trabalho X como o destino, já que, nesse caso, não haverá nenhuma sobreposição entre os eventos habilitados pela configuração existente e os eventos habilitados pela configuração criada pela tarefa de correção.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Saiba como usar relatórios de backup](https://aka.ms/AzureBackupReportDocs)
-- [Saiba mais sobre o Azure Policy](https://docs.microsoft.com/azure/governance/policy/)
-- [Usar Azure Policy para habilitar o backup automaticamente para todas as VMs em um escopo de atribuições](https://docs.microsoft.com/azure/backup/backup-azure-auto-enable-backup)
+
+* [Saiba como usar relatórios de backup](https://docs.microsoft.com/azure/backup/configure-reports)
+* [Saiba mais sobre o Azure Policy](https://docs.microsoft.com/azure/governance/policy/)
+* [Usar Azure Policy para habilitar o backup automaticamente para todas as VMs em um escopo de atribuições](https://docs.microsoft.com/azure/backup/backup-azure-auto-enable-backup)

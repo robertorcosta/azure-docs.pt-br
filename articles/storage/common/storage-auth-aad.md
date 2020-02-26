@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 2/23/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 820e7187332b02993d3d8bcba9c01958cfbdd61d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b8a42723a9b56665160e660c0ea1451253c3d185
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965828"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588970"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Autorizar o acesso a BLOBs e filas usando Azure Active Directory
 
@@ -27,7 +27,7 @@ A autorização com o Azure AD está disponível para todas as contas de armazen
 
 O armazenamento de BLOBs também dá suporte à criação de assinaturas de acesso compartilhado (SAS) que são assinadas com as credenciais do Azure AD. Para obter mais informações, consulte [conceder acesso limitado a dados com assinaturas de acesso compartilhado](storage-sas-overview.md).
 
-Os arquivos do Azure dão suporte à autorização com o Azure AD sobre SMB somente para VMs ingressadas no domínio. Para saber mais sobre como usar o Azure AD sobre SMB para arquivos do Azure, consulte [visão geral da autorização de Azure Active Directory sobre SMB para arquivos do Azure](../files/storage-files-active-directory-overview.md).
+Os arquivos do Azure dão suporte à autorização com AD (visualização) ou AD DS do Azure (GA) sobre SMB apenas para VMs ingressadas no domínio. Para saber mais sobre como usar o AD (versão prévia) ou o Azure AD DS (GA) sobre o SMB para arquivos do Azure, confira [visão geral do suporte à autenticação baseada em identidade de arquivos do Azure para acesso SMB](../files/storage-files-active-directory-overview.md).
 
 Não há suporte para a autorização com o Azure AD no armazenamento de tabelas do Azure. Use a chave compartilhada para autorizar solicitações ao armazenamento de tabelas.
 
@@ -85,7 +85,7 @@ O portal do Azure indica qual esquema de autorização está em uso quando você
 
 O CLI do Azure e o PowerShell dão suporte à entrada com as credenciais do Azure AD. Depois de entrar, sua sessão é executada sob essas credenciais. Para saber mais, confira [executar comandos do CLI do Azure ou do PowerShell com as credenciais do Azure ad para acessar dados de BLOB ou fila](authorize-active-directory-powershell.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Autorizar o acesso a BLOBs e filas com Azure Active Directory e identidades gerenciadas para recursos do Azure](storage-auth-aad-msi.md)
 - [Autorizar com Azure Active Directory de um aplicativo para acesso a BLOBs e filas](storage-auth-aad-app.md)

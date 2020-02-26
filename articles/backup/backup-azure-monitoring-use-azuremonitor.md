@@ -4,12 +4,12 @@ description: Monitore as cargas de trabalho de backup do Azure e crie alertas pe
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: acdd7ae870334fe3a77a37505fac5e02b3af360d
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 0673291ac6bd1692c6ebe07540e05077e3025d55
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500680"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583854"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Monitorar em escala usando Azure Monitor
 
@@ -29,11 +29,11 @@ No Azure Monitor, você pode criar seus próprios alertas em um espaço de traba
 > [!IMPORTANT]
 > Para obter informações sobre o custo de criação dessa consulta, consulte [preços de Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
-Selecione qualquer um dos grafos para abrir a seção **logs** do espaço de trabalho log Analytics. Na seção **logs** , edite as consultas e crie alertas nelas.
+Abra a seção **logs** do espaço de trabalho log Analytics e grave uma consulta nos seus próprios logs. Quando você seleciona **nova regra de alerta**, a página Azure monitor criação de alertas é aberta, conforme mostrado na imagem a seguir.
 
-![Criar um alerta em um espaço de trabalho Log Analytics](media/backup-azure-monitoring-laworkspace/la-azurebackup-customalerts.png)
+![Criar um alerta em um espaço de trabalho Log Analytics](media/backup-azure-monitoring-laworkspace/custom-alert.png)
 
-Quando você seleciona **nova regra de alerta**, a página Azure monitor criação de alertas é aberta, conforme mostrado na imagem a seguir. Aqui, o recurso já está marcado como o espaço de trabalho Log Analytics e a integração do grupo de ações é fornecida.
+Aqui, o recurso já está marcado como o espaço de trabalho Log Analytics e a integração do grupo de ações é fornecida.
 
 ![A página de criação de alertas de Log Analytics](media/backup-azure-monitoring-laworkspace/inkedla-azurebackup-createalert.jpg)
 
@@ -122,6 +122,26 @@ Os grafos padrão fornecem a você Kusto consultas para cenários básicos nos q
     )
     on BackupItemUniqueId
     ````
+
+- Armazenamento de backup consumido por item de backup
+
+    ````Kusto
+    CoreAzureBackup
+    //Get all Backup Items
+    | where OperationName == "BackupItem"
+    //Get distinct Backup Items
+    | distinct BackupItemUniqueId, BackupItemFriendlyName
+    | join kind=leftouter
+    (AddonAzureBackupStorage
+    | where OperationName == "StorageAssociation"
+    //Get latest record for each Backup Item
+    | summarize arg_max(TimeGenerated, *) by BackupItemUniqueId 
+    | project BackupItemUniqueId , StorageConsumedInMBs)
+    on BackupItemUniqueId
+    | project BackupItemUniqueId , BackupItemFriendlyName , StorageConsumedInMBs 
+    | sort by StorageConsumedInMBs desc
+    ````
+
 
 ### <a name="diagnostic-data-update-frequency"></a>Frequência de atualização de dados de diagnóstico
 

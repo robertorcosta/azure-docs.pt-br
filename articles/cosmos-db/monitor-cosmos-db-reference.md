@@ -9,15 +9,15 @@ ms.date: 11/11/2019
 ms.author: bwren
 ms.custom: subject-monitoring
 ms.subservice: logs
-ms.openlocfilehash: d131523e3031f55a818bb1919f39119bf073cb75
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: d243224192b5761af45d387690f5fb41b84481e6
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456534"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588715"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Azure Cosmos DB referência de dados de monitoramento
-Este artigo fornece uma referência de dados de log e métricas coletados para analisar o desempenho e a disponibilidade de Azure Cosmos DB. Consulte [monitoramento Cosmos DB](monitor-cosmos-db.md) para obter detalhes sobre como coletar e analisar dados de monitoramento para Azure Cosmos DB.
+Este artigo apresenta uma referência de dados de log e métricas coletados para analisar o desempenho e a disponibilidade do Azure Cosmos DB. Consulte [monitoramento Cosmos DB](monitor-cosmos-db.md) para obter detalhes sobre como coletar e analisar dados de monitoramento para Azure Cosmos DB.
 
 
 ## <a name="resource-logs"></a>Logs de recursos
@@ -81,6 +81,8 @@ Para obter uma lista de todas as métricas de suporte de Azure Monitor (incluind
 |Métrica (nome para exibição da métrica)|Unidade (tipo de agregação)|DESCRIÇÃO|Dimensões| Granularidades de tempo| Uso |
 |---|---|---|---| ---| ---|
 | ReplicationLatency (latência de replicação)| Milissegundos (mínimo, máximo, média) | Latência de replicação P99 nas regiões de origem e de destino para conta habilitada geograficamente| SourceRegion, TargetRegion| Todos | Usada para monitorar a latência de replicação P99 entre quaisquer duas regiões para uma conta com replicação geográfica. |
+| Latência do lado do servidor| Milissegundos (média) | Tempo gasto pelo servidor para processar a solicitação. | CollectionName, ConnectionMode, DatabaseName, OperationType, PublicAPIType, região | Todos | Usado para monitorar a latência de solicitação no servidor de Azure Cosmos DB. |
+
 
 
 #### <a name="availability-metrics"></a>Métricas de disponibilidade
@@ -98,7 +100,7 @@ Para obter uma lista de todas as métricas de suporte de Azure Monitor (incluind
 | CassandraRequestCharges (encargos de solicitação do Cassandra) | Contagem (Sum, min, Max, AVG) | Unidades de solicitação consumidas pelas solicitações de API do Cassandra| DatabaseName, CollectionName, Region, OperationType, ResourceType| Todos| Usada para monitorar as RUs usadas por minuto por uma conta de API do Cassandra.|
 | CassandraConnectionClosures (fechamentos de conexão do Cassandra) |Contagem (contagem) |Número de conexões do Cassandra fechadas| ClosureReason, Region| Todos | Usada para monitorar a conectividade entre os clientes e a API do Cassandra do Azure Cosmos DB.|
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte Também
 
 - Consulte [monitoramento Azure Cosmos DB](monitor-cosmos-db.md) para obter uma descrição do Azure Cosmos DB de monitoramento.
 - Consulte [monitorando recursos do Azure com Azure monitor](../azure-monitor/insights/monitor-azure-resource.md) para obter detalhes sobre como monitorar recursos do Azure.

@@ -4,14 +4,14 @@ ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 87dd3680aae3e87f78ab2dbe70c44b2008706747
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 09fa612e7e5c681da16bf19e94c626ae14a3b8a1
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171943"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77590763"
 ---
-Ao adicionar discos de dados a uma VM Linux, você poderá encontrar erros se não existir um disco no LUN 0. Se você estiver adicionando um disco manualmente usando o comando `azure vm disk attach-new` e especificar um LUN (`--lun`) em vez de deixar que a plataforma Azure determine o LUN apropriado, verifique com atenção se já existe (ou existirá) um disco no LUN 0. 
+Ao adicionar discos de dados a uma VM Linux, você poderá encontrar erros se não existir um disco no LUN 0. Se você estiver adicionando um disco manualmente usando o comando `az vm disk attach -new` e especificar um LUN (`--lun`) em vez de deixar que a plataforma Azure determine o LUN apropriado, verifique com atenção se já existe (ou existirá) um disco no LUN 0. 
 
 Considere o exemplo a seguir que mostra um snippet da saída do `lsscsi`:
 
@@ -20,7 +20,7 @@ Considere o exemplo a seguir que mostra um snippet da saída do `lsscsi`:
 [5:0:0:1]    disk    Msft     Virtual Disk     1.0   /dev/sdd 
 ```
 
-Os dois discos de dados existem no LUN 0 e no LUN 1 (a primeira coluna nos detalhes da saída de `lsscsi` `[host:channel:target:lun]`). Ambos os discos devem estar acessíveis na VM. Se você tivesse especificado manualmente o primeiro disco para ser adicionado ao LUN 1 e o segundo disco ao LUN 2, os discos não apareceriam corretamente para a VM.
+Os dois discos de dados existem no LUN 0 e no LUN 1 (a primeira coluna nos detalhes da saída de `lsscsi``[host:channel:target:lun]`). Ambos os discos devem estar acessíveis na VM. Se você tivesse especificado manualmente o primeiro disco para ser adicionado ao LUN 1 e o segundo disco ao LUN 2, os discos não apareceriam corretamente para a VM.
 
 > [!NOTE]
 > O valor de `host` do Azure é 5 nestes exemplos, mas ele poderá variar dependendo do tipo de armazenamento selecionado.

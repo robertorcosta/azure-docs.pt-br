@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8daa87eca74570f5b1fdf1537b83dae60d292128
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c4898ba62abdc42d95b77b9a77387bfe71fb4771
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849455"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592196"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Agendando um runbook na Automação do Azure
 
@@ -27,7 +27,7 @@ Para agendar um runbook na Automação do Azure para iniciar em um horário espe
 
 Os cmdlets na tabela a seguir são usados para criar e gerenciar agendas com o PowerShell na automação do Azure. Eles são enviados como parte do [módulo do PowerShell do Azure](/powershell/azure/overview).
 
-| Cmdlets | Descrição |
+| Cmdlets | DESCRIÇÃO |
 |:--- |:--- |
 | [Get-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/get-azurermautomationschedule) |Recupera uma agenda. |
 | [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) |Cria uma nova agenda. |
@@ -143,7 +143,7 @@ Register-AzureRmAutomationScheduledRunbook –AutomationAccountName $automationA
 
 O intervalo mais frequente que a Automação do Azure pode ser configurada é uma hora. Se você precisar de agendas para executar com mais frequência que isso, há duas opções:
 
-* Criar um [webhook](../automation-webhooks.md) para o runbook e usar o [Agendador do Azure](../../scheduler/scheduler-get-started-portal.md) para chamar o webhook. O Agendador do Azure fornece granularidade mais refinada ao definir uma agenda.
+* Crie um [webhook](../automation-webhooks.md) para o runbook e use o [aplicativo lógico do Azure](../../logic-apps/logic-apps-overview.md) para chamar o webhook. O aplicativo lógico do Azure fornece granularidade mais refinada ao definir uma agenda.
 
 * Crie quatro agendas todas iniciando dentro de 15 minutos entre si em execução uma vez a cada hora. Este cenário permite que o runbook seja executado a cada 15 minutos com as diferentes agendas.
 
@@ -173,7 +173,7 @@ Set-AzureRmAutomationSchedule –AutomationAccountName $automationAccountName `
 –Name $scheduleName –IsEnabled $false -ResourceGroupName "ResourceGroup01"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para começar a usar runbooks na Automação do Azure, confira [Iniciar um Runbook na Automação do Azure](../automation-starting-a-runbook.md)
 

@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5a1d3753dfec673338bdde67656afd9c5f413ef0
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 4f31c5583671ed3441e1a3f0f53c8518e550080a
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137599"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77580705"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Criar e gerenciar espaços de trabalho de Azure Machine Learning no portal do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -40,12 +40,12 @@ Para criar um workspace, você precisa de uma assinatura do Azure. Se você não
 
 1. Forneça as informações a seguir para configurar o novo workspace:
 
-   Campo|Descrição 
+   Campo|DESCRIÇÃO 
    ---|---
    Nome do workspace |Insira um nome único que identifique seu workspace. Para este exemplo, usamos **docs-ws**. Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de lembrar e diferenciar de workspaces criados por outras pessoas. O nome do espaço de trabalho não diferencia maiúsculas de minúsculas.
-   Assinatura |Selecione a assinatura do Azure que você deseja usar.
-   Grupo de recursos | Use um grupo de recursos existente na sua assinatura ou insira um nome para criar um grupo de recursos. Um grupo de recursos mantém os recursos relacionados a uma solução do Azure. Para este exemplo, usamos **docs-aml**. 
-   Local | Selecione a localização mais próxima aos usuários e recursos de dados para criar o workspace.
+   Subscription |Selecione a assinatura do Azure que você deseja usar.
+   Resource group | Use um grupo de recursos existente na sua assinatura ou insira um nome para criar um grupo de recursos. Um grupo de recursos mantém os recursos relacionados a uma solução do Azure. Para este exemplo, usamos **docs-aml**. 
+   Location | Selecione a localização mais próxima aos usuários e recursos de dados para criar o workspace.
    Edição do Workspace | Selecione **básico** ou **Enterprise**.  Essa edição de espaço de trabalho determina os recursos aos quais você terá acesso e preços. Saiba mais sobre as [ofertas Basic e Enterprise Edition](overview-what-is-azure-ml.md#sku). 
 
     ![Configurar seu novo workspace](./media/how-to-manage-workspace/select-edition.png)
@@ -105,11 +105,11 @@ Use o botão Excluir na parte superior do workspace que você deseja excluir.
 
   ![Botão Excluir](./media/how-to-manage-workspace/delete-workspace.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 ### <a name="resource-provider-errors"></a>Erros do provedor de recursos
 
@@ -120,7 +120,13 @@ Use o botão Excluir na parte superior do workspace que você deseja excluir.
 > [!WARNING]
 > Não há suporte para mover o espaço de trabalho Azure Machine Learning para uma assinatura diferente ou mover a assinatura proprietária para um novo locatário. Isso pode causar erros.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+### <a name="deleting-the-azure-container-registry"></a>Excluindo o registro de contêiner do Azure
+
+O espaço de trabalho Azure Machine Learning usa o ACR (registro de contêiner do Azure) para algumas operações. Ele criará automaticamente uma instância de ACR quando precisar primeiro de uma.
+
+[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
+
+## <a name="next-steps"></a>Próximas etapas
 
 Siga o tutorial de tamanho completo para aprender a usar um espaço de trabalho para criar, treinar e implantar modelos com o Azure Machine Learning.
 

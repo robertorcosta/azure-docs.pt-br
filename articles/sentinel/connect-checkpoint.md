@@ -3,7 +3,7 @@ title: Conectar dados do Check Point ao Azure Sentinel | Microsoft Docs
 description: Saiba como conectar dados do Check Point ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: 94658e34679a4cf99ad0e1ad02e60c6a1d190361
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: 70836ec557eff1be035d92e8e7db30a882e05fc6
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610668"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588409"
 ---
 # <a name="connect-check-point-to-azure-sentinel"></a>Conectar ponto de verificação ao Azure Sentinel
 
@@ -40,7 +40,7 @@ Configure seu dispositivo de verificação de ponto para encaminhar mensagens de
 1. Continue na [etapa 3: validar a conectividade](connect-cef-verify.md).
  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a conectar dispositivos do Check Point ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - [Valide a conectividade](connect-cef-verify.md).
 - Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).

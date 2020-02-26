@@ -3,12 +3,12 @@ title: Funções de modelo – matrizes e objetos
 description: Descreve as funções a serem usadas em um modelo do Azure Resource Manager para trabalhar com matrizes e objetos.
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: a38ab0fb2ddb15c3e853ae1b249df9a8364c6910
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 1359951c00ba04e641ae84636459a8836924c729
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207359"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591176"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funções de matriz e objeto para modelos do Azure Resource Manager
 
@@ -1067,7 +1067,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ## <a name="range"></a>range
 
-`range(startingInteger, numberOfElements)`
+`range(startIndex, count)`
 
 Cria uma matriz de inteiros a partir de um inteiro inicial e contendo um número de itens.
 
@@ -1075,8 +1075,8 @@ Cria uma matriz de inteiros a partir de um inteiro inicial e contendo um número
 
 | Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| startingInteger |Sim |INT |O primeiro inteiro na matriz. |
-| numberofElements |Sim |INT |O número de inteiros na matriz. |
+| startIndex |Sim |INT |O primeiro inteiro na matriz. A soma de startIndex e Count não deve ser maior que 2147483647. |
+| count |Sim |INT |O número de inteiros na matriz. Deve ser um inteiro não negativo de até 10000. |
 
 ### <a name="return-value"></a>Valor retornado
 

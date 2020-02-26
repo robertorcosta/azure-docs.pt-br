@@ -4,12 +4,12 @@ description: Este artigo fornece uma visão geral da proteção do servidor do D
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 1750270b3383e815b9255273923b50d2879fdba6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b766c0401dde10fdc257044e004de3dbf8a7b84c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173329"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586471"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Fazer backup de um farm do SharePoint no Azure com o DPM
 
@@ -27,13 +27,13 @@ O Backup do Azure para DPM dá suporte aos seguintes cenários:
 
 Há alguns elementos que você precisa confirmar antes de fazer o backup de um farm do SharePoint para o Azure.
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 Antes de prosseguir, verifique se você atende a todos os [pré-requisitos para usar o Backup do Microsoft Azure](backup-azure-dpm-introduction.md#prerequisites-and-limitations) para proteger as cargas de trabalho. Algumas tarefas para os pré-requisitos incluem: criar um cofre de backup, baixar as credenciais do cofre, instalar o Agente de Backup do Azure e registrar o DPM/Servidor de Backup do Azure com o cofre.
 
 ### <a name="dpm-agent"></a>Agente do DPM
 
-O agente do DPM deve ser instalado no servidor que executa o SharePoint, os servidores que executam o SQL Server e todos os outros servidores que fazem parte do farm do SharePoint. Para saber m ais sobre como configurar o agente de proteção, confira [Configurar o Agente de Proteção](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  A única exceção é que você instala o agente apenas em um único servidor WFE (Front-end da Web). O DPM precisa do agente em um servidor WFE apenas para atuar como o ponto de entrada para proteção.
+O agente do DPM deve ser instalado no servidor que executa o SharePoint, os servidores que executam o SQL Server e todos os outros servidores que fazem parte do farm do SharePoint. Para saber m ais sobre como configurar o agente de proteção, confira [Configurar o Agente de Proteção](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019).  A única exceção é que você instala o agente apenas em um único servidor WFE (Front-end da Web). O DPM precisa do agente em um servidor WFE apenas para atuar como o ponto de entrada para proteção.
 
 ### <a name="sharepoint-farm"></a>Farm do SharePoint
 
@@ -85,7 +85,7 @@ Depois de configurar o DPM e o farm do SharePoint conforme explicado anteriormen
 ### <a name="to-protect-a-sharepoint-farm"></a>Para proteger um farm do SharePoint
 
 1. Na guia **Proteção** do Console do Administrador do DPM, clique em **Novo**.
-    ![Novo Guia Proteção](./media/backup-azure-backup-sharepoint/dpm-new-protection-tab.png)
+    ![Guia Nova Proteção](./media/backup-azure-backup-sharepoint/dpm-new-protection-tab.png)
 2. Na página **Selecionar Tipo do Grupo de Proteção** do assistente **Criar Novo Grupo de Proteção**, selecione **Servidores** e clique em **Avançar**.
 
     ![Selecionar o tipo de Grupo de Proteção](./media/backup-azure-backup-sharepoint/select-protection-group-type.png)
@@ -97,12 +97,12 @@ Depois de configurar o DPM e o farm do SharePoint conforme explicado anteriormen
    > Com o agente do DPM instalado, você pode ver o servidor no assistente. O DPM também mostra sua estrutura. Como você executou o ConfigureSharePoint.exe, o DPM se comunica com o serviço do Gravador VSS do SharePoint e seus bancos de dados do SQL Server correspondentes e reconhece a estrutura de farm do SharePoint, os bancos de dados de conteúdo associados e todos os itens correspondentes.
    >
    >
-4. Na página **Selecionar Método de Proteção de Dados**, insira o nome do **Grupo de Proteção** e selecione seus *métodos de proteção* preferenciais. Clique em **Avançar**.
+4. Na página **Selecionar Método de Proteção de Dados**, insira o nome do **Grupo de Proteção** e selecione seus *métodos de proteção* preferenciais. Clique em **Próximo**.
 
     ![Selecionar método de proteção de dados](./media/backup-azure-backup-sharepoint/select-data-protection-method1.png)
 
    > [!NOTE]
-   > O método de proteção de disco ajuda a atender os objetivos de tempo de recuperação breves. O Azure é um destino de proteção econômico e de longo prazo em comparação com as fitas. Para obter mais informações, consulte [Usar o Backup do Azure para substituir a infraestrutura de fita](https://azure.microsoft.com/documentation/articles/backup-azure-backup-cloud-as-tape/)
+   > O método de proteção de disco ajuda a atender os objetivos de tempo de recuperação breves. O Azure é um destino de proteção econômico e de longo prazo em comparação com as fitas. Para obter mais informações, consulte [Usar o Backup do Azure para substituir a infraestrutura de fita](./backup-azure-backup-cloud-as-tape.md)
    >
    >
 5. Na tela **Especificar Objetivos de Curto Prazo**, selecione seu **Período de retenção** preferencial e identifique quando você deseja que os backups ocorram.
@@ -169,7 +169,7 @@ No exemplo a seguir, o *item Recuperando SharePoint* foi excluído acidentalment
 5. Você também pode navegar pelos diversos pontos de recuperação e selecionar um banco de dados ou item para recuperar. Selecione **Data > Hora da recuperação** e escolha o **Banco de Dados > Farm do SharePoint > Ponto de recuperação > Item** correto.
 
     ![Proteção do SharePoint do DPM7](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection8.png)
-6. Clique com o botão direito do mouse no item e selecione **Recuperar** para abrir o **Assistente de Recuperação**. Clique em **Avançar**.
+6. Clique com o botão direito do mouse no item e selecione **Recuperar** para abrir o **Assistente de Recuperação**. Clique em **Próximo**.
 
     ![Rever Seleção de Recuperação](./media/backup-azure-backup-sharepoint/review-recovery-selection.png)
 7. Selecione o tipo de recuperação que você deseja executar e clique em **Avançar**.
@@ -193,7 +193,7 @@ No exemplo a seguir, o *item Recuperando SharePoint* foi excluído acidentalment
     O DPM anexa o banco de dados de conteúdo que está hospedando o item do SharePoint à instância temporário do SQL Server. Do banco de dados de conteúdo, o servidor DPM recupera o item e o coloca no local do arquivo de preparo no servidor DPM. O item recuperado no local de preparo do servidor DPM agora precisa ser exportado para o local de preparo no farm do SharePoint.
 
     ![Local de Preparo2](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. Selecione **Especificar opções de recuperação**e aplique as configurações de segurança ao farm do SharePoint ou aplique as configurações de segurança do ponto de recuperação. Clique em **Avançar**.
+10. Selecione **Especificar opções de recuperação**e aplique as configurações de segurança ao farm do SharePoint ou aplique as configurações de segurança do ponto de recuperação. Clique em **Próximo**.
 
     ![Opções de Recuperação](./media/backup-azure-backup-sharepoint/recovery-options.png)
 
@@ -243,5 +243,5 @@ No exemplo a seguir, o *item Recuperando SharePoint* foi excluído acidentalment
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre a Proteção do DPM do SharePoint: veja a [Série de vídeos - Proteção do DPM do SharePoint](https://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)
-* Examine as [Notas de versão do System Center 2012 – Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
-* Examine as [Notas de versão do Data Protection Manager no System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)
+* Examine as [Notas de versão do System Center 2012 – Data Protection Manager](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj860415(v=sc.12)?redirectedfrom=MSDN)
+* Examine as [Notas de versão do Data Protection Manager no System Center 2012 SP1](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj860394(v=sc.12)?redirectedfrom=MSDN)

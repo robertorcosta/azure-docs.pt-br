@@ -4,7 +4,7 @@ description: Este artigo explica como o Azure Sentinel usa o controle de acesso 
 services: sentinel
 cloud: na
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: angrobe
 ms.assetid: ''
 ms.service: azure-sentinel
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.author: rkarlin
-ms.openlocfilehash: 0479eba13fd747ea1bcab2672fce1df2156802e8
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.author: yelevin
+ms.openlocfilehash: e7629a53190433c6c331ce372476b0ed768fc5eb
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74947579"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587168"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permissões no Azure Sentinel
 
@@ -76,7 +76,7 @@ Além de, ou em vez de, usando funções RBAC internas, você pode criar funçõ
   
 Você pode usar o Log Analytics controle de acesso baseado em função avançado nos dados em seu espaço de trabalho do Azure Sentinel. Isso inclui o controle de acesso baseado em função por tipo de dados e controle de acesso baseado em função centrado em recursos. Para obter mais informações sobre Log Analytics funções, consulte [gerenciar dados de log e espaços de trabalho no Azure monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a trabalhar com funções para usuários do Azure Sentinel e o que cada função permite que os usuários façam.
 
 * [Blog do Azure Sentinel](https://aka.ms/azuresentinelblog). Encontre postagens no blog sobre a conformidade e segurança do Azure.

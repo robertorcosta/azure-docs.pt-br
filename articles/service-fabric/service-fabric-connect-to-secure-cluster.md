@@ -3,14 +3,14 @@ title: Conectar-se com segurança a um cluster de Service Fabric do Azure
 description: Descreve como autenticar o acesso do cliente a um cluster do Service Fabric e como proteger a comunicação entre clientes e um cluster.
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 89d9f67ba1a202b3830df7a5b960c6ef01091bf2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a1f4abbabe428a09492efefca4a8da9801b9f68d
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458261"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587049"
 ---
-# <a name="connect-to-a-secure-cluster"></a>Conectar-se a um cluster seguro
+# <a name="connect-to-a-secure-cluster"></a>Conectar a um cluster seguro
 
 Quando um cliente se conecta a um nó de cluster do Service Fabric, ele pode ser autenticado e uma comunicação segura pode ser estabelecida com a segurança de certificado ou o AAD (Azure Active Directory). Essa autenticação garante que somente usuários autorizados possam acessar o cluster e os aplicativos implantados e executar tarefas de gerenciamento.  A segurança de certificado ou do AAD deve ter sido previamente habilitada no cluster quando o cluster foi criado.  Para obter mais informações sobre cenários de segurança de cluster, consulte [Segurança de cluster](service-fabric-cluster-security.md). Se você estiver se conectando a um cluster protegido com certificados, [configure o certificado do cliente](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) no computador que se conecta ao cluster. 
 
@@ -24,7 +24,7 @@ Você pode se conectar a um cluster usando o comando `sfctl cluster select`.
 
 Certificados de cliente podem ser especificados em dois modos diferentes, como um par de certificados e chaves ou como um arquivo PFX individual. Para arquivos PEM protegidos por senha, você será solicitado automaticamente a inserir a senha. Se você obtiver o certificado do cliente como um arquivo PFX, primeiro converta o arquivo PFX em PEM usando o comando a seguir. 
 
-```bash
+```shell
 openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pass:your-pfx-password
 ```
 
@@ -32,7 +32,7 @@ Se o arquivo .pfx não for protegido por senha, use -passin pass: para o último
 
 Para especificar o certificado do cliente como um arquivo pem, especifique o caminho do arquivo no argumento `--pem`. Por exemplo:
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
 ```
 
@@ -40,7 +40,7 @@ Arquivos pem protegidos por senha solicitarão a senha antes da execução de qu
 
 Para especificar um certificado, o par de chaves usa os argumentos `--cert` e `--key` para especificar os caminhos de arquivo para cada arquivo respectivo.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
@@ -49,13 +49,13 @@ sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./cli
 > [!WARNING]
 > Não use a opção `no-verify` ao se conectar aos clusters de produção do Service Fabric.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
 Além disso, você pode especificar caminhos para diretórios de certificados de CA confiáveis ou certificados individuais. Para especificar esses caminhos, use o argumento `--ca`. Por exemplo:
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
 ```
 
@@ -378,7 +378,7 @@ Pelo menos dois certificados devem ser usados para proteger o cluster, um para o
 
 * No Mac: clique duas vezes no arquivo PFX e siga os prompts para instalar o certificado no conjunto de chaves.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Processo de atualização de Cluster de Malha do Serviço e as suas expectativas](service-fabric-cluster-upgrade.md)
 * [Gerenciando aplicativos da Malha do Serviço no Visual Studio](service-fabric-manage-application-in-visual-studio.md)

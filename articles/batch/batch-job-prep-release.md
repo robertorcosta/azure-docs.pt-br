@@ -11,15 +11,15 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 02/17/2020
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 7103daa4a943edfd8d05333f413245cebaf8f4af
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: d9f6f015c210592d5d8053b1b34d5357bb357629
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524249"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586777"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Executar tarefas de preparação e liberação do trabalho em nós de computação do Lote
 
@@ -54,20 +54,23 @@ Convém manter uma cópia dos arquivos de log gerados pelas tarefas ou talvez ar
 
 > [!TIP]
 > Outra maneira de manter os logs e outros trabalhos e tarefas de saída de dados é usar a biblioteca [Convenções de arquivo do Lote do Azure](batch-task-output.md) .
-> 
-> 
+>
+>
 
 ## <a name="job-preparation-task"></a>tarefa de preparação de trabalho
-Antes da execução de tarefas de um trabalho, o Lote executa a tarefa de preparação de trabalho em cada nó de computação agendado para executar uma tarefa. Por padrão, o serviço Lote aguarda a conclusão da tarefa de preparação do trabalho antes de executar as tarefas agendadas para execução no nó. No entanto, você pode configurar o serviço para não aguardar. Se o nó for reiniciado, a tarefa de preparação de trabalho será executada novamente, mas você também poderá desativar esse comportamento. Se você tiver um trabalho com uma tarefa de preparação de trabalho e uma tarefa do Gerenciador de trabalho configurada, a tarefa de preparação do trabalho será executada antes da tarefa do Gerenciador de trabalho, assim como faz para todas as outras tarefas. A tarefa de preparação de trabalho sempre é executada primeiro.
+
+
+Antes da execução das tarefas de um trabalho, o lote executa a tarefa de preparação de trabalho em cada nó de computação agendado para executar uma tarefa. Por padrão, o lote aguarda a conclusão da tarefa de preparação do trabalho antes de executar as tarefas agendadas para execução no nó. No entanto, você pode configurar o serviço para não aguardar. Se o nó for reiniciado, a tarefa de preparação do trabalho será executada novamente. Você também pode desabilitar esse comportamento. Se você tiver um trabalho com uma tarefa de preparação de trabalho e uma tarefa do Gerenciador de trabalho configurada, a tarefa de preparação do trabalho será executada antes da tarefa do Gerenciador de trabalho, assim como faz para todas as outras tarefas. A tarefa de preparação de trabalho sempre é executada primeiro.
 
 A tarefa de preparação de trabalho é executada apenas em nós programados para executar uma tarefa. Isso impede a execução desnecessária de uma tarefa de preparação em um nó que não recebeu uma tarefa. Isso pode ocorrer quando o número de tarefas de um trabalho é menor do que o número de nós em um pool. Também se aplica quando a [execução de tarefas simultâneas](batch-parallel-node-tasks.md) é habilitada, o que deixará alguns nós ociosos se a contagem de tarefas for inferior ao total de possíveis tarefas simultâneas. A não execução da tarefa de preparação do trabalho em nós ociosos economiza encargos de transferência de dados.
 
 > [!NOTE]
 > O [JobPreparationTask][net_job_prep_cloudjob] é diferente de [CloudPool. StartTask][pool_starttask] , pois o JobPreparationTask é executado no início de cada trabalho, enquanto o StartTask é executado somente quando um nó de computação ingressa primeiro em um pool ou é reiniciado.
-> 
-> 
+>
 
-## <a name="job-release-task"></a>tarefa de liberação de trabalho
+
+>## <a name="job-release-task"></a>tarefa de liberação de trabalho
+
 Quando um trabalho é marcado como concluído, a tarefa de liberação do trabalho é executada em cada nó no pool que executou pelo menos uma tarefa. Marcar uma tarefa como concluída emitindo uma solicitação de encerramento. Em seguida, o serviço do Lote define o estado do trabalho como *encerrando*, encerra quaisquer tarefas em execução ou ativas associadas ao trabalho e executa a tarefa de liberação do trabalho. Em seguida, o trabalho é movido para o estado *concluído* .
 
 > [!NOTE]

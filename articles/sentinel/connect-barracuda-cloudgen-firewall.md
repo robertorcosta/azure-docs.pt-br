@@ -3,7 +3,7 @@ title: Conectar o firewall CloudGen do Barracuda ao Azure Sentinel | Microsoft D
 description: Saiba como conectar o firewall CloudGen do Barracuda ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: cabailey
-ms.openlocfilehash: f7d5531c8aba3e2e7abb56d82342bfda79dbc71b
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: aaedbfdd3b1bbbc653756d74ee86fc277b21caec
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610719"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588494"
 ---
 # <a name="connect-barracuda-cloudgen-firewall"></a>Conectar Firewall do Barracuda CloudGen
 
@@ -28,7 +28,7 @@ O conector CGFW (Barracuda CloudGen firewall) permite que você conecte facilmen
 
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Permissões de leitura e gravação para o espaço de trabalho do Azure Sentinel.
 
@@ -43,7 +43,7 @@ O conector CGFW (Barracuda CloudGen firewall) permite que você conecte facilmen
 3. Siga as instruções na página do **Firewall do Barracuda CloudGen** .
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a conectar o firewall CloudGen do Barracuda ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).

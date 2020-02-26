@@ -3,12 +3,12 @@ title: Perguntas comuns – descoberta, avaliação e análise de dependência e
 description: Obtenha respostas para perguntas comuns sobre descoberta, avaliação e análise de dependência em migrações para Azure.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 2ae534e50cbee3ebd17d703f957aa7200460dbfe
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 179be4f5b39806c717e94789c9fe52842d2a07d8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77426285"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589225"
 ---
 # <a name="common-questions-about-discovery-assessment-and-dependency-analysis"></a>Perguntas comuns sobre descoberta, avaliação e análise de dependência
 
@@ -92,7 +92,7 @@ Você não precisa desses agentes, a menos que esteja usando a visualização de
 
 ## <a name="can-i-use-an-existing-workspace"></a>Posso usar um workspace existente?
 
-Sim, você pode anexar um espaço de trabalho existente ao projeto de migração e usá-lo para a visualização de dependência. [Saiba mais](concepts-dependency-visualization.md#how-does-it-work).
+Sim, você pode anexar um espaço de trabalho existente ao projeto de migração e usá-lo para a visualização de dependência. 
 
 ## <a name="can-i-export-the-dependency-visualization-report"></a>Posso exportar o relatório de visualização de dependência?
 

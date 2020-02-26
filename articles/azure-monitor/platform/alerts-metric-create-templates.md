@@ -5,15 +5,15 @@ author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 2/17/2020
+ms.date: 2/24/2020
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: f402effe40042740e74220d177c54963f6c45916
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 2f2940496682372b0d00d2b419aa941dcedd533c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444002"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586522"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
 
@@ -1251,7 +1251,7 @@ Você pode usar o modelo a seguir para criar uma regra de alerta de métrica de 
 
 Para saber mais sobre métricas personalizadas no Azure Monitor, consulte [métricas personalizadas em Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
 
-Ao criar uma regra de alerta em uma métrica personalizada, você precisa especificar o nome da métrica e o namespace da métrica.
+Ao criar uma regra de alerta em uma métrica personalizada, você precisa especificar o nome da métrica e o namespace da métrica. Você também deve certificar-se de que a métrica personalizada já está sendo relatada, pois não é possível criar uma regra de alerta em uma métrica personalizada que ainda não existe.
 
 Salve o JSON abaixo como customstaticmetricalert. JSON para fins deste passo a passos.
 

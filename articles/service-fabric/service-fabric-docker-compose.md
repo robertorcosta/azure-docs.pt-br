@@ -3,12 +3,12 @@ title: Versão prévia da implantação do Docker Compose no Azure Service Fabri
 description: O Azure Service Fabric aceita o formato do Docker Compose para facilitar a orquestração dos contêineres existentes usando o Service Fabric. No momento, esse suporte está na versão prévia.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 6dd45e81a0db06cbaa75da3f94b9e7624b0acd69
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f84dd0ecb7a4002182c8455bfd86354d794a6f7c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458054"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589327"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Suporte à implantação do Docker Compose no Azure Service Fabric (Versão prévia)
 
@@ -27,7 +27,7 @@ Para usar essa versão prévia, crie o cluster com a versão 5.7 ou superior do 
 Os seguintes comandos criam um aplicativo do Service Fabric (nomeado `fabric:/TestContainerApp`), que você poderá monitorar e gerenciar, como qualquer outro aplicativo do Service Fabric. Você pode usar o nome do aplicativo especificado para consultas de integridade.
 O Service Fabric reconhece "DeploymentName" como o identificador da implantação do Compose.
 
-### <a name="use-powershell"></a>Use o PowerShell
+### <a name="use-powershell"></a>Usar o PowerShell
 
 Criar uma implantação do Compose do Service Fabric a partir de um arquivo docker-compose.yml executando o seguinte comando no PowerShell:
 
@@ -69,37 +69,37 @@ Get-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp
 
 Como alternativa, você pode usar o seguinte comando da CLI do Service Fabric:
 
-```azurecli
+```shell
 sfctl compose create --deployment-name TestContainerApp --file-path docker-compose.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [ --timeout ]
 ```
 
 Após ter criado a implantação, será possível verificar seu status usando o comando a seguir:
 
-```azurecli
+```shell
 sfctl compose status --deployment-name TestContainerApp [ --timeout ]
 ```
 
 Para excluir a implantação do Compose, use o comando a seguir:
 
-```azurecli
+```shell
 sfctl compose remove  --deployment-name TestContainerApp [ --timeout ]
 ```
 
 Para iniciar uma atualização de implantação do Compose, use o seguinte comando:
 
-```azurecli
+```shell
 sfctl compose upgrade --deployment-name TestContainerApp --file-path docker-compose-v2.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [--upgrade-mode Monitored] [--failure-action Rollback] [ --timeout ]
 ```
 
 Para reverter uma atualização da implantação do Compose, utilize o seguinte comando:
 
-```azurecli
+```shell
 sfctl compose upgrade-rollback --deployment-name TestContainerApp [ --timeout ]
 ```
 
 Depois que a atualização é aceita, o andamento da atualização pode ser controlado usando o seguinte comando:
 
-```azurecli
+```shell
 sfctl compose upgrade-status --deployment-name TestContainerApp
 ```
 
@@ -150,7 +150,7 @@ Por exemplo, o cliente A pode ter um aplicativo instanciado com tipo 1.0 do AppT
 
 Embora esse modelo ofereça flexibilidade, também estamos planejando dar suporte a um modelo de implantação baseado em instâncias mais simples em que os tipos são implícitos no arquivo de manifesto. Nesse modelo, cada aplicativo obtém seu próprio manifesto independente. Estamos fazendo a versão prévia desse esforço adicionando suporte para o docker-compose.yml, que é um formato de implantação baseado em instância.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Leia sobre o [modelo de aplicativo do Service Fabric](service-fabric-application-model.md)
 * [Introdução à CLI do Service Fabric](service-fabric-cli.md)

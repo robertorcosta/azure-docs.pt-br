@@ -3,7 +3,7 @@ title: Use transmissão ao vivo de busca no Azure Sentinel para detectar ameaça
 description: Este artigo descreve como usar o transmissão ao vivo de busca no Azure Sentinel para manter o controle dos dados.
 services: sentinel
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -14,13 +14,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2019
-ms.author: cabailey
-ms.openlocfilehash: 5b347848c9c6a58a70ab1093a6f9c70b62f3f769
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.author: yelevin
+ms.openlocfilehash: b392644e504fa8187e637278bef8718c9c2caa3f
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900451"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582119"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Use transmissão ao vivo de caça no Azure Sentinel para detectar ameaças
 
@@ -107,7 +107,7 @@ Você pode promover uma sessão transmissão ao vivo para um novo alerta selecio
 
 Essa ação abre o assistente de criação de regras, que é preenchido previamente com a consulta associada à sessão transmissão ao vivo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu a usar o transmissão ao vivo de busca no Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 

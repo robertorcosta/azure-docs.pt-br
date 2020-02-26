@@ -3,12 +3,12 @@ title: O que há de novo no Servidor de Backup do Azure
 description: O Servidor de Backup do Azure oferece recursos avançados de backup para proteger VMs, arquivos e pastas, cargas de trabalho e muito mais. Aprenda a instalar ou atualizar o Servidor de Backup do Azure V3.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 564b11ebf14652166733c226485dfab94e69dfbb
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 61430ce06d3e441fcfe0443eaaf5de3755b04624
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172232"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582799"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>O que há de novo no Servidor de Backup do Azure
 
@@ -18,7 +18,7 @@ Os seguintes recursos estão incluídos no MABS V3:
 
 ## <a name="volume-to-volume-migration"></a>Migração para o Volume
 
-Com o Armazenamento de Backup Moderno (MBS) no MABS V2, anunciamos o armazenamento com capacidade de carga de trabalho, em que você configura determinadas cargas de trabalho para backup em armazenamento específico, com base nas propriedades de armazenamento. No entanto, após a configuração, você pode achar necessário mover backups de determinadas fontes de dados para outro armazenamento para utilização otimizada de recursos. O MABS v3 oferece a capacidade de migrar seus backups e configurá-los para serem armazenados em um volume diferente em [três etapas](https://blogs.technet.microsoft.com/dpm/2017/10/24/storage-migration-with-dpm-2016-mbs/).
+Com o Armazenamento de Backup Moderno (MBS) no MABS V2, anunciamos o armazenamento com capacidade de carga de trabalho, em que você configura determinadas cargas de trabalho para backup em armazenamento específico, com base nas propriedades de armazenamento. No entanto, após a configuração, você pode achar necessário mover backups de determinadas fontes de dados para outro armazenamento para utilização otimizada de recursos. O MABS v3 oferece a capacidade de migrar seus backups e configurá-los para serem armazenados em um volume diferente em [três etapas](https://techcommunity.microsoft.com/t5/system-center-blog/sc-2016-dpm-ur4-migrate-backup-storage-in-3-simple-steps/ba-p/351842).
 
 ## <a name="prevent-unexpected-data-loss"></a>Evitar a perda de dados inesperados
 
@@ -66,5 +66,5 @@ Saiba como preparar seu servidor, ou começar a proteger uma carga de trabalho:
 - [Problemas conhecidos no MABS V3](backup-mabs-release-notes-v3.md)
 - [Preparar as cargas de trabalho do Servidor de Backup](backup-azure-microsoft-azure-backup.md)
 - [Usar o Servidor de Backup para fazer backup de um Servidor do VMware](backup-azure-backup-server-vmware.md)
-- [Usar o Servidor de Backup para fazer backup de um SQL Server](backup-azure-sql-mabs.md)
+- [Usar o Servidor de Backup para fazer backup de SQL Server](backup-azure-sql-mabs.md)
 - [Usar o Armazenamento de Backup Moderno com o Servidor de Backup](backup-mabs-add-storage.md)

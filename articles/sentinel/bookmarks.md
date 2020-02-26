@@ -1,8 +1,8 @@
 ---
 title: Usar indicadores de busca para investigações de dados no Azure Sentinel
 description: Este artigo descreve como usar os indicadores de busca do Azure Sentinel para manter o controle dos dados.
-author: cabailey
-ms.author: cabailey
+author: yelevin
+ms.author: yelevin
 manager: rkarlin
 ms.assetid: 320ccdad-8767-41f3-b083-0bc48f1eeb37
 ms.service: azure-sentinel
@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/24/2019
-ms.openlocfilehash: 457898e257aa7a347ff99d0987c5ad594637b5f4
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: eacc104bf7157732f91507f631bcda2cd166bfb3
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563727"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588681"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Manter o controle dos dados durante a busca com o Azure Sentinel
 
@@ -147,7 +147,7 @@ Esta exibição mostra todos os indicadores com metadados associados. Você pode
 A exclusão do indicador remove o indicador da lista na guia **indicador** . A tabela **HuntingBookmark** para seu espaço de trabalho log Analytics continuará a conter entradas de indicador anteriores, mas a entrada mais recente alterará o valor de **SoftDelete** para true, facilitando o filtro de indicadores antigos. A exclusão de um indicador não remove nenhuma entidade da experiência de investigação associada a outros indicadores ou alertas. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu a executar uma investigação de busca usando indicadores no Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 

@@ -3,7 +3,7 @@ title: Conectar dados do Symantec ICDx ao Azure Sentinel | Microsoft Docs
 description: Saiba como conectar dados do Symantec ICDx ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: d068223f-395e-46d6-bb94-7ca1afd3503c
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: 111bc7cd0439eee2026a6a980e9e126b63ac58c6
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: cac63aee5f9ebf3859b138e6444e40b1e2dd30f7
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610481"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588086"
 ---
 # <a name="connect-your-symantec-icdx-appliance"></a>Conecte seu dispositivo Symantec ICDx 
 
@@ -74,7 +74,7 @@ Pode levar até 20 minutos até que os logs comecem a aparecer na Log Analytics.
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a conectar o Symantec ICDx ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).

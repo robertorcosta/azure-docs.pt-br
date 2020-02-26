@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: ce9ca202ee57fe9c42906ebeb62a44c724bd1a52
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 72a87c3b23e0eed6cfbf1614388702443f4e99d0
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978721"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588780"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-with-azure-resource-manager-templates"></a>Gerenciar recursos de API do Azure Cosmos DB SQL (núcleo) com modelos de Azure Resource Manager
 
-Neste artigo, você aprenderá a usar os modelos de Azure Resource Manager para ajudar a automatizar o gerenciamento de suas contas de Azure Cosmos DB, bancos de dados e contêineres.
+Neste artigo, você aprenderá a usar os modelos do Azure Resource Manager para ajudar a automatizar o gerenciamento de suas contas, bancos de dados e contêineres do Azure Cosmos DB.
 
 Este artigo mostra apenas Azure Resource Manager exemplos de modelo para contas da API do SQL. Você também pode encontrar exemplos de modelo para [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md)e APIs de [tabela](manage-table-with-resource-manager.md) .
 
@@ -39,7 +39,7 @@ Para criar os recursos de Azure Cosmos DB, copie o modelo de exemplo a seguir e 
 > * Os nomes de conta são limitados a 44 caracteres, tudo em minúsculas.
 > * Para alterar os valores de taxa de transferência, envie novamente o modelo com RU/s atualizado.
 
-[!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json":::
 
 > [!NOTE]
 > Para criar um contêiner com chave de partição grande, modifique o modelo anterior para incluir a propriedade `"version":2` dentro do objeto `partitionKey`.
@@ -136,7 +136,7 @@ Copie o modelo de exemplo a seguir e implante-o conforme descrito, seja com o [P
 * Opcionalmente, você pode visitar a [Galeria de início rápido do Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-sprocs/) e implantar o modelo do portal do Azure.
 * Você também pode baixar o modelo em seu computador local ou criar um novo modelo e especificar o caminho local com o parâmetro `--template-file`.
 
-[!code-json[create-cosmosdb-sql-sprocs](~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json":::
 
 ### <a name="deploy-with-powershell"></a>Implantar com o PowerShell
 
@@ -172,7 +172,7 @@ New-AzResourceGroupDeployment `
 
 Você pode optar por implantar o modelo com uma versão instalada localmente do PowerShell em vez de Azure Cloud Shell. Você precisará [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps). Execute `Get-Module -ListAvailable Az` para localizar a versão necessária.
 
-### <a name="deploy-with-azure-cli"></a>Implantar com o Azure CLI
+### <a name="deploy-with-azure-cli"></a>Implantar com a CLI do Azure
 
 Para usar CLI do Azure para implantar o modelo de Azure Resource Manager:
 
@@ -198,7 +198,7 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Estes são alguns recursos adicionais:
 

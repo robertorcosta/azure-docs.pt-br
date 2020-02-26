@@ -2,14 +2,14 @@
 title: Usando o Chef com o Azure
 description: Introdução para usar o Chef para configurar e testar sua infraestrutura do Azure
 keywords: azure, chef, devops, máquinas virtuais, visão geral, automatizar
-ms.date: 05/15/2018
+ms.date: 02/22/2020
 ms.topic: article
-ms.openlocfilehash: 4ad8b79b42c9d8d7942f391223c052f63579b11b
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: c22faa69bf8f42111d328a9c156dc1a2432731b2
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158013"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586335"
 ---
 # <a name="using-chef-with-azure"></a>Usando o Chef com o Azure
 [Chef](https://www.chef.io) é uma plataforma de automação avançada que transforma a infraestrutura da máquina virtual no Azure no código. O Chef automatiza como a infraestrutura é configurada, implantada e gerenciada em sua rede, independentemente de seu tamanho.
@@ -17,7 +17,7 @@ ms.locfileid: "74158013"
 Este artigo descreve os benefícios de usar o Chef para gerenciar a infraestrutura do Azure.
 
 ## <a name="chef-extension-on-azure"></a>Extensão da Chef no Azure
-Provisione uma máquina virtual com o cliente da Chef em execução como um serviço em segundo plano com a [extensão da Chef](https://docs.microsoft.com/azure/chef/chef-extension-portal) no portal do Azure. Depois de provisionadas, essas máquinas virtuais estão prontas para serem gerenciadas por um servidor da Chef.
+Provisione uma máquina virtual com o cliente chefe em execução como um serviço em segundo plano com a [extensão chefe](https://docs.microsoft.com/azure/chef/chef-extension-portal) no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040). Depois de provisionadas, essas máquinas virtuais estão prontas para serem gerenciadas por um servidor da Chef.
 
 ## <a name="chef-cloud-shell"></a>Cloud Shell da Chef
 Use uma estação de trabalho da Chef diretamente no Azure Cloud Shell! Execute todos os seus utilitários da Chef e o InSpec diretamente do Cloud Shell. Você pode utilizar os comandos da Chef de:
@@ -27,7 +27,6 @@ Use uma estação de trabalho da Chef diretamente no Azure Cloud Shell! Execute 
 * [inspec](https://www.inspec.io/docs/reference/cli/)
 * [knife](https://docs.chef.io/knife.html)
 * [cookstyle](https://docs.chef.io/cookstyle.html)
-* [foodcritic](https://docs.chef.io/foodcritic.html)
 * [chef-run](https://www.chef.sh/docs/chef-workstation/getting-started/)
 
 Combine nossos utilitários de comando com as ferramentas disponíveis no Cloud Shell, tais como `git`, `az-cli`, e `terraform`, e escreva sua automação de infraestrutura e de conformidade por meio do navegador.
@@ -40,4 +39,4 @@ Suportado pelo Chef, a [solução Chef Automate Azure Marketplace](https://azure
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Criar uma Máquina Virtual do Windows no Azure usando o Chef](/azure/virtual-machines/windows/chef-automation)
+* [Criar uma Máquina Virtual do Windows no Azure usando o Chef](chef-automation.md)

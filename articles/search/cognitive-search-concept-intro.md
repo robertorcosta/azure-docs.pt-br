@@ -6,14 +6,14 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6d75e48443fd8622ca2ae7ff05fe81184c4b2b16
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
-ms.translationtype: HT
+ms.openlocfilehash: 14c120af69a94331586f9264a12f5d2333a5d87d
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472427"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586743"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Introdução à IA na Pesquisa Cognitiva do Azure
 
@@ -25,7 +25,7 @@ O enriquecimento de IA é uma funcionalidade da indexação da Pesquisa Cognitiv
 
 ![Diagrama do pipeline de enriquecimento](./media/cognitive-search-intro/cogsearch-architecture.png "visão geral do pipeline de enriquecimento")
 
-As habilidades cognitivas na Pesquisa Cognitiva do Azure são baseadas nos modelos de machine learning pré-treinados na API de Serviços Cognitivos: [Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) e [Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
+As habilidades cognitivas no Azure Pesquisa Cognitiva se baseiam em modelos de aprendizado de máquina pré-treinados no API de Serviços Cognitivos: [Pesquisa Visual computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) e [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
 
 O processamento de imagens e em idioma natural é aplicada durante a fase de ingestão de dados, com os resultados se tornando parte da composição de um documento em um índice pesquisável na Pesquisa Cognitiva do Azure. Os dados são originados como um conjunto de dados do Azure e, em seguida, enviados por meio de um pipeline de indexação usando o que ocorrer [habilidades internas](cognitive-search-predefined-skills.md) que você precisa. A arquitetura é extensível, portanto, se as habilidades internas não forem suficientes, você pode criar e anexar [habilidades personalizadas](cognitive-search-create-custom-skill-example.md) a integrar o processamento personalizado. Exemplos podem ser um módulo de entidade personalizada ou um classificador de documento direcionado a um domínio específico, como finanças, publicações científicas ou medicina.
 
@@ -65,15 +65,15 @@ As habilidades personalizadas podem dar suporte a cenários mais complexos, como
 
 Um pipeline de enriquecimento baseia-se em [*indexadores*](search-indexer-overview.md) que rastreiam fontes de dados e fornecem processamento de índice de ponta a ponta. Agora, as habilidades são anexadas aos indexadores, interceptando e enriquecendo documentos de acordo com o conjunto de habilidades que você define. Após a indexação, você pode acessar o conteúdo por meio de solicitações de pesquisa em todos os [tipos de consulta compatíveis com a Pesquisa Cognitiva do Azure](search-query-overview.md).  Se você estiver começando a usar indexadores, esta seção o orientará pelas etapas.
 
-### <a name="step-1-connection-and-document-cracking-phase"></a>Etapa 1: Fase de conexão e desbloqueio de documento
+### <a name="step-1-connection-and-document-cracking-phase"></a>Etapa 1: fase de violação de conexão e documento
 
 No início do pipeline, há texto não estruturado ou conteúdo que não é de texto (como imagens e arquivos JPEG de documentos digitalizados). Os dados precisam existir em um serviço de armazenamento de dados do Azure que possa ser acessado por um indexador. Os indexadores podem "desbloquear" documentos de origem para extrair o texto da fonte de dados.
 
 ![Fase de quebra de documento](./media/cognitive-search-intro/document-cracking-phase-blowup.png "quebra de documento")
 
- As fontes com suporte incluem o Armazenamento de Blobs do Azure, o Armazenamento de Tabelas do Azure, o Banco de Dados SQL do Azure e o Azure Cosmos DB. O conteúdo baseado em texto pode ser extraído dos seguintes tipos de arquivo: arquivos PDFs, Word, PowerPoint e CSV. Para obter a lista completa, confira [Formatos com suporte](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
+ As fontes com suporte incluem o Armazenamento de Blobs do Azure, o Armazenamento de Tabelas do Azure, o Banco de Dados SQL do Azure e o Azure Cosmos DB. O conteúdo baseado em texto pode ser extraído dos seguintes tipos de arquivo: arquivos PDF, do Word, do PowerPoint e CSV. Para obter a lista completa, confira [Formatos com suporte](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
 
-### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>Etapa 2: Fase de enriquecimento e habilidades cognitivas
+### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>Etapa 2: fase de enriquecimento e habilidades cognitivas
 
 O enriquecimento ocorre por meio de *habilidades cognitivas* que executam operações atômicas. Por exemplo, quando há conteúdo de texto de um PDF, você pode aplicar a Detecção de Idioma de reconhecimento de entidade ou a extração de frase-chave para produzir novos campos no índice que não estão disponíveis nativamente na fonte. A coleção de habilidades usada em seu pipeline é chamada de *conjunto de habilidades*.  
 
@@ -89,7 +89,7 @@ A [REST de Pesquisa api-version=2019-05-06-Preview](search-api-preview.md) esten
 
 Adicionar um repositório de dados de conhecimento a uma habilidade fornece a capacidade de projetar uma representação de seus enriquecimentos para cenários diferentes da pesquisa de texto completo. Para obter mais informações, confira [Repositório de conhecimento (versão prévia)](knowledge-store-concept-intro.md).
 
-### <a name="step-3-search-index-and-query-based-access"></a>Etapa 3: Índice de pesquisa e acesso baseado em consulta
+### <a name="step-3-search-index-and-query-based-access"></a>Etapa 3: Pesquisar índice e acesso baseado em consulta
 
 Quando o processamento é concluído, você tem um índice de pesquisa que consiste em documentos enriquecidos, com texto totalmente pesquisável na Pesquisa Cognitiva do Azure. [Consultando o índice](search-query-overview.md) é como os desenvolvedores e usuários acessam conteúdo enriquecido gerado pelo pipeline. 
 
@@ -103,7 +103,7 @@ Os índice são gerados por meio de um esquema de índice que define os campos, 
 
 ## <a name="key-features-and-concepts"></a>Principais recursos e conceitos
 
-| Conceito | Descrição| Links |
+| Conceito | DESCRIÇÃO| Links |
 |---------|------------|-------|
 | Conjunto de habilidades | Um recurso nomeado de nível superior que contém uma coleção de habilidades. Um conjunto de habilidades é o pipeline de enriquecimento. Ele é invocado durante a indexação por um indexador. | Confira [Definir um conjunto de habilidades](cognitive-search-defining-skillset.md) |
 | Habilidades cognitivas | Uma transformação atômica em um pipeline de enriquecimento. Geralmente, é um componente que extrai ou infere a estrutura e, portanto, aumenta o seu entendimento sobre os dados de entrada. Quase sempre, a saída é baseada em texto e o processamento é de idioma natural ou de imagem que extrai ou gera o texto usando entradas de imagem. A saída de uma habilidade pode ser mapeada para um campo em um índice ou usada como entrada para um enriquecimento de downstream. Uma habilidade é predefinida e fornecida pela Microsoft ou personalizada, ou seja, criada e implantada por você. | [Habilidades cognitivas internas](cognitive-search-predefined-skills.md) |
@@ -123,30 +123,30 @@ Os índice são gerados por meio de um esquema de índice que define os campos, 
 
 ## <a name="where-do-i-start"></a>Por onde começo?
 
-**Etapa 1: [Criar um recurso da Pesquisa Cognitiva do Azure](search-create-service-portal.md)** 
+**Etapa 1: [criar um recurso de pesquisa cognitiva do Azure](search-create-service-portal.md)** 
 
-**Etapa 2: Tente alguns guias de início rápido e exemplos para experiência prática**
+**Etapa 2: Experimente alguns guias de início rápido e exemplos para experiência prática**
 
 + [Início Rápido (portal)](cognitive-search-quickstart-blob.md)
 + [Tutorial (solicitações HTTP)](cognitive-search-tutorial-blob.md)
-+ [Exemplo: Como criar uma habilidade personalizada para o enriquecimento de IA (C#)](cognitive-search-create-custom-skill-example.md)
++ [Exemplo: criando uma habilidade personalizada para o enriquecimento do ia (C#)](cognitive-search-create-custom-skill-example.md)
 
 Recomendamos o serviço Gratuito para fins de aprendizado. Contudo, o número de transações gratuitas é limitado a 20 documentos por dia. Para executar as lições várias vezes, exclua e recrie o indexador para redefinir o contador para zero.
 
-**Etapa 3: Analisar a API**
+**Etapa 3: examinar a API**
 
 Você pode usar a `api-version=2019-05-06` REST ou o SDK .NET. Se estiver explorando o repositório de conhecimento, use a API REST de versão prévia (`api-version=2019-05-06-Preview`).
 
 Esta etapa usa as APIs REST para criar uma solução de enriquecimento de IA. Apenas duas APIs são adicionadas ou estendidas para o enriquecimento de IA. As outras APIs têm a mesma sintaxe que as versões disponíveis ao público.
 
-| API REST | Descrição |
+| API REST | DESCRIÇÃO |
 |-----|-------------|
 | [Criar Fonte de Dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Um recurso que identifica uma fonte de dados externa, fornecendo os dados de origem usados para criar documentos enriquecidos.  |
 | [Criar Conjunto de Qualificações (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Essa API é específica do enriquecimento de IA. Trata-se de um recurso que coordena o uso de [habilidades internas](cognitive-search-predefined-skills.md) e [habilidades cognitivas personalizadas](cognitive-search-custom-skill-interface.md) em um pipeline de enriquecimento durante a indexação. |
 | [Criar o índice](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Um esquema que expressa um índice da Pesquisa Cognitiva do Azure. Os campos no índice são mapeados para os campos na fonte de dados ou para os campos fabricados durante a fase de enriquecimento (por exemplo, um campo para os nomes de organização criados pelo reconhecimento de entidade). |
 | [Criar Indexador (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso que define os componentes usados durante a indexação: incluindo uma fonte de dados, um conjunto de habilidades, associações de campo de origem e estruturas de dados intermediárias para o índice de destino e o próprio índice. Executar o indexador é o gatilho para a ingestão de dados e o enriquecimento. A saída é um índice de pesquisa com base no esquema de índice, preenchido com os dados de origem, enriquecidos por conjuntos de qualificações. Essa API existente é estendida para cenários de pesquisa cognitiva com a inclusão de uma propriedade de conjunto de habilidades. |
 
-**Lista de verificação: Um fluxo de trabalho típico**
+**Lista de verificação: um fluxo de trabalho típico**
 
 1. Subconjunto de dados de origem do Azure em uma amostra representativa. A indexação é um processo demorado, portanto, comece com um conjunto de dados representativo pequeno e, em seguida, compile incrementalmente à medida que sua solução amadurecer.
 
@@ -171,7 +171,7 @@ Para obter mais informações sobre problemas ou dúvidas específicas, confira 
 ## <a name="next-steps"></a>Próximas etapas
 
 + [Links de documentação do enriquecimento de IA](cognitive-search-resources-documentation.md)
-+ [Início Rápido: Experimentar o enriquecimento de IA em um passo a passo no portal](cognitive-search-quickstart-blob.md)
-+ [Tutorial: Aprender a usar as APIs de enriquecimento de IA](cognitive-search-tutorial-blob.md)
++ [Início rápido: Experimente a enriquecimento de ia em um portal](cognitive-search-quickstart-blob.md)
++ [Tutorial: Saiba mais sobre as APIs de enriquecimento do ia](cognitive-search-tutorial-blob.md)
 + [Repositório de conhecimento (versão prévia)](knowledge-store-concept-intro.md)
 + [Criar um repositório de conhecimento no REST](knowledge-store-create-rest.md)

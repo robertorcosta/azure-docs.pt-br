@@ -1,10 +1,10 @@
 ---
-title: Preparação da infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP | Microsoft Docs
+title: Infraestrutura do Azure para SAP ASCS/SCS HA com compartilhamento de arquivos & WSFC | Microsoft Docs
 description: Preparação da infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
-ms.author: rclaus
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cc2295f6151b3cde81c27c8ed1116013e1a3f9a9
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 4abae94ded92aca075fcb41a7cd42491e92d41d6
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647536"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591533"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP
 
@@ -222,8 +222,8 @@ Antes de iniciar a instalação, leia este artigo:
 | --- | --- | --- | --- |
 | Primeiro cluster ASCS/SCS do nó de cluster | ascs-1 | 10.0.6.4 | ascs-as |
 | Segundo cluster ASCS/SCS do nó de cluster | ascs-2 | 10.0.6.5 | ascs-as |
-| Nome da rede de clusters |ascs-cl | 10.0.6.6 | N/D |
-| Nome da rede de clusters SAP PR1 ASCS |pr1-ascs | 10.0.6.7 | N/D |
+| Nome da rede de clusters |ascs-cl | 10.0.6.6 | n/d |
+| Nome da rede de clusters SAP PR1 ASCS |pr1-ascs | 10.0.6.7 | n/d |
 
 
 **Tabela 1**: Cluster do ASCS/SCS
@@ -240,8 +240,8 @@ Antes de iniciar a instalação, leia este artigo:
 | Primeiro nó de cluster | sofs-1 | 10.0.6.10 | sofs-as |
 | Segundo nó de cluster | sofs-2 | 10.0.6.11 | sofs-as |
 | Terceiro nó de cluster | sofs-3 | 10.0.6.12 | sofs-as |
-| Nome da rede de clusters | sofs-cl | 10.0.6.13 | N/D |
-| Nome de host global do SAP | sapglobal | Usar IPs de todos os nós de cluster | N/D |
+| Nome da rede de clusters | sofs-cl | 10.0.6.13 | n/d |
+| Nome de host global do SAP | sapglobal | Usar IPs de todos os nós de cluster | n/d |
 
 **Tabela 3**: Cluster de Servidor de Arquivos de Escalabilidade Horizontal
 
@@ -352,6 +352,6 @@ Depois de instalar com êxito o cluster do Windows Servidor de Arquivos de Escal
 
 Essas configurações foram testadas com clientes e oferecem um boa comprometimento. Eles são resistentes o suficiente, mas também fornecem um failover suficientemente rápido em condições de erro reais ou falha de VM.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Instalar a alta disponibilidade do SAP NetWeaver em um cluster de failover do Windows e compartilhamento de arquivos para instâncias do SAP ASCS/SCS][sap-high-availability-installation-wsfc-file-share]

@@ -3,12 +3,12 @@ title: Usando configurações de diagnóstico para cofres dos serviços de recup
 description: Um artigo que descreve como usar os eventos de diagnóstico novos e antigos para o backup do Azure
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 875adb82aeeb56b378a84ca01e716c7189abc64f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7abf8873aafeb996476d818376057bfd8732d906
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74281097"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583938"
 ---
 # <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>Usar configurações de diagnóstico para os Cofres dos Serviços de Recuperação
 
@@ -21,14 +21,15 @@ Você pode definir as configurações de diagnóstico para um cofre dos serviço
 ## <a name="diagnostics-events-available-for-azure-backup-users"></a>Eventos de diagnóstico disponíveis para usuários de backup do Azure
 
 O backup do Azure fornece os seguintes eventos de diagnóstico, cada um dos quais fornece dados detalhados sobre um conjunto específico de artefatos relacionados ao backup:
+
 * CoreAzureBackup
 * AddonAzureBackupAlerts
 * AddonAzureBackupProtectedInstance
 * AddonAzureBackupJobs
 * AddonAzureBackupPolicy
-* AddonAzureBackupStorage 
+* AddonAzureBackupStorage
 
-[Modelo de dados para eventos de diagnóstico de backup do Azure](https://aka.ms/diagnosticsdatamodel)
+[Modelo de dados para eventos de diagnóstico de backup do Azure](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)
 
 Os dados desses eventos podem ser enviados para uma conta de armazenamento, LA espaço de trabalho ou um hub de eventos. Se você estiver enviando esses dados para um espaço de trabalho LA, precisará selecionar a opção de alternância **específica do recurso** na tela de **configuração de diagnóstico** (veja mais informações nas seções abaixo).
 
@@ -37,6 +38,7 @@ Os dados desses eventos podem ser enviados para uma conta de armazenamento, LA e
 Alinhando com o roteiro de Log Analytics do Azure, o backup do Azure agora permite que você envie dados de diagnóstico de cofre para tabelas de LA dedicada para backup. Eles são chamados de [tabelas específicas de recursos](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#resource-specific).
 
 Para enviar os dados de diagnóstico do cofre para a LA:
+
 1.  Navegue até seu cofre e clique em **configurações de diagnóstico**. Clique em **+ Adicionar configuração de diagnóstico**.
 2.  Dê um nome para a configuração de diagnóstico.
 3.  Marque a caixa **Enviar para log Analytics** e selecione um espaço de trabalho log Analytics.
@@ -84,4 +86,4 @@ A imagem abaixo mostra um exemplo de um usuário que tem três configurações d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Aprenda o modelo de dados de Log Analytics para os eventos de diagnóstico](https://aka.ms/diagnosticsdatamodel)
+[Aprenda o modelo de dados de Log Analytics para os eventos de diagnóstico](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 023a52f373844e026de0e588e9cd46323abdcf34
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 73de446513915bbc5cba9d8b9cf23d08d18cc362
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77149823"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585978"
 ---
 # <a name="what-are-security-defaults"></a>O que são os padrões de segurança?
 
@@ -95,7 +95,8 @@ Depois de habilitar os padrões de segurança em seu locatário, qualquer usuár
 
 Se o usuário não estiver registrado para autenticação multifator, o usuário será solicitado a se registrar usando o aplicativo Microsoft Authenticator para continuar. Nenhum período de registro de autenticação multifator de 14 dias será fornecido.
 
-Os locatários anteriores à 2017 do Exchange Online têm autenticação moderna desabilitada por padrão. Para evitar a possibilidade de um loop de logon durante a autenticação por meio desses locatários, você deve [habilitar a autenticação moderna](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
+> [!NOTE]
+> Os locatários anteriores à 2017 do Exchange Online têm autenticação moderna desabilitada por padrão. Para evitar a possibilidade de um loop de logon durante a autenticação por meio desses locatários, você deve [habilitar a autenticação moderna](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
 > [!NOTE]
 > A conta de sincronização de Azure AD Connect é excluída dos padrões de segurança e não será solicitado a se registrar ou executar a autenticação multifator. As organizações não devem usar essa conta para outros fins.

@@ -2,7 +2,7 @@
 title: Conectar dados de inteligência contra ameaças ao Azure Sentinel | Microsoft Docs
 description: Saiba mais sobre como conectar dados de inteligência contra ameaças ao Azure Sentinel.
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: security-center
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
-ms.author: cabailey
-ms.openlocfilehash: 33edeb04e88a01efafaf69b850ed87120671ed11
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.author: yelevin
+ms.openlocfilehash: 5c79642d287224cd15531701d7cc87ebfd72eb69
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384130"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588035"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Conectar dados de provedores de inteligência contra ameaças
 
@@ -54,7 +54,7 @@ Você pode transmitir indicadores de ameaça para o Azure Sentinel usando um dos
 
 ## <a name="connect-azure-sentinel-to-your-threat-intelligence-platform"></a>Conecte o Azure Sentinel à sua plataforma de inteligência contra ameaças
 
-## <a name="prerequisites"></a>pré-requisitos  
+## <a name="prerequisites"></a>Prerequisites  
 
 - Função do Azure AD de administrador global ou administrador de segurança para conceder permissões ao seu produto TIP ou aplicativo personalizado que usa a integração direta com a API do Microsoft Graph Security tiIndicators.
 
@@ -84,7 +84,7 @@ Você pode transmitir indicadores de ameaça para o Azure Sentinel usando um dos
 
 ## <a name="connect-azure-sentinel-to-taxii-servers"></a>Conectar o Azure Sentinel a servidores TÁXIi
 
-## <a name="prerequisites"></a>pré-requisitos  
+## <a name="prerequisites"></a>Prerequisites  
 
 - Permissões de leitura e gravação para o espaço de trabalho do Azure Sentinel para armazenar seus indicadores de ameaça.
 
@@ -108,5 +108,5 @@ Você pode transmitir indicadores de ameaça para o Azure Sentinel usando um dos
 
 Neste documento, você aprendeu a conectar seu provedor de inteligência contra ameaças ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os artigos a seguir.
 
-- Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
-- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).
+- Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
+- Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).

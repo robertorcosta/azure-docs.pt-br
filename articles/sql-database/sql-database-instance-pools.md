@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 98757677eae6d21b02d6b0b2a3abade453b5dfed
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: c1e740fbfa4bf1e8a77a2d9d6060ab39dba7ae7b
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552773"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587389"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>O que são os pools de instâncias do banco de dados SQL (versão prévia)?
 
@@ -108,7 +108,7 @@ Cada instância gerenciada implantada em um pool tem uma instância separada do 
 
 Recursos opcionais ou recursos que exigem a escolha de valores específicos (como agrupamento em nível de instância, fuso horário, ponto de extremidade público para tráfego de dados, grupos de failover) são configurados em nível de instância e podem ser diferentes para cada instância em um pool.
 
-## <a name="performance-considerations"></a>Considerações de desempenho
+## <a name="performance-considerations"></a>Considerações sobre o desempenho
 
 Embora as instâncias gerenciadas nos pools tenham vCore e RAM dedicados, elas compartilham o disco local (para uso de tempdb) e os recursos de rede. Não é provável, mas é possível experimentar o efeito *vizinho ruidosa* se várias instâncias no pool tiverem alto consumo de recursos ao mesmo tempo. Se você observar esse comportamento, considere implantar essas instâncias em um pool maior ou como instâncias únicas.
 
@@ -126,7 +126,7 @@ Se você estiver tendo problemas relacionados à implantação do pool de instâ
 
 Se você estiver tendo problemas relacionados a instâncias ou bancos de dados individuais em um pool, deverá criar um tíquete de suporte regular para instâncias gerenciadas do banco de dados SQL do Azure.
 
-Para criar implantações de instância gerenciada maiores (com ou sem pools de instância), talvez seja necessário obter uma cota regional maior. Use o [procedimento de instância gerenciada padrão para solicitar uma cota maior](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance), mas observe que, se você estiver usando pools de instância, a lógica de implantação compara o consumo de vCore total *no nível do pool* em relação à sua cota para determinar se você tem permissão para criar novos recursos sem aumentar ainda mais sua cota.
+Para criar implantações de instância gerenciada maiores (com ou sem pools de instância), talvez seja necessário obter uma cota regional maior. Para obter mais informações, consulte [aumentos de cota de solicitação para o banco de dados SQL do Azure](quota-increase-request.md). Observe que, se você estiver usando pools de instância, a lógica de implantação compara o consumo vCore total *no nível do pool* em relação à sua cota para determinar se você tem permissão para criar novos recursos sem aumentar ainda mais sua cota.
 
 ## <a name="instance-pool-billing"></a>Cobrança do pool de instâncias
 
@@ -148,7 +148,7 @@ Se você criar pools de instância em [assinaturas qualificadas para o benefíci
 
 Para obter detalhes completos sobre o preço do pool de instâncias, consulte a seção *pools de instâncias* na [página de preços da instância gerenciada](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para começar a usar os pools de instância, consulte [Guia de instruções de pool de instâncias do banco de dados SQL](sql-database-instance-pools-how-to.md).
 - Para saber como criar sua primeira instância gerenciada, confira o [Guia de início rápido](sql-database-managed-instance-get-started.md).

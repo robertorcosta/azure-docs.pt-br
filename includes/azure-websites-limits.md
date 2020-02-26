@@ -4,14 +4,14 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 08/09/2019
 ms.author: jroth
-ms.openlocfilehash: 17d6947efcbaf8a01aeca70bf7a88dcc7b65cd0a
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 83bf357fff8fd3cfb8c0e69af92b36710287898f
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548182"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586693"
 ---
-| Grupos | Gratuito | Compartilhado | Básico | Padrão | Premium (v2) | Isolado </th> |
+| Recurso | Grátis | Compartilhado | Basic | Standard | Premium (v2) | Isolado </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Aplicativos Web, móveis ou de API](https://azure.microsoft.com/services/app-service/) por [Azure app plano de serviço](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup>|
 | [Plano do Serviço de Aplicativo](../articles/app-service/overview-hosting-plans.md) |10 por região |10 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos|
@@ -35,10 +35,9 @@ ms.locfileid: "76548182"
 | [Backups agendados](../articles/app-service/manage-backup.md) | | | | Backups agendados a cada 2 horas, no máximo 12 backups por dia (manual + agendado) | Backups agendados a cada hora, um máximo de 50 backups por dia (manual + agendado) | Backups agendados a cada hora, um máximo de 50 backups por dia (manual + agendado) |
 | [Autoescala](../articles/app-service/manage-scale-up.md) | | | |X |X |X |
 | [Trabalhos](../articles/app-service/webjobs-create.md)Web<sup>11</sup> |X |X |X |X |X |X |
-| [Agendador do Azure](https://azure.microsoft.com/services/scheduler/) | |X |X |X |X |X |
 | [Monitoramento do ponto de extremidade](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
 | [Slots de preparo](../articles/app-service/deploy-staging-slots.md) | | | |5 |20 |20 |
-| SLA | |  |99,95 %|99,95 %|99,95 %|99,95 %|  
+| Contrato de Nível de Serviço | |  |99,95%|99,95%|99,95%|99,95%|  
 
 <sup>1</sup>Aplicativos e cotas de armazenamento são oferecidos por plano de Serviço de Aplicativo, a menos que haja indicação contrária.  
 <sup>2</sup>O número real de aplicativos que podem ser hospedados nesses computadores depende da atividade dos aplicativos, do tamanho das instâncias do computador e da utilização do recurso correspondente.  
@@ -50,4 +49,4 @@ ms.locfileid: "76548182"
 <sup>8</sup> As conexões IP máximas são por instância e dependem do tamanho da instância: 1.920 por instância B1/S1/P1V2, 3.968 por instância B2/S2/P2V2, 8.064 por instância B3/S3/P3V2.  
 <sup>9</sup> O limite de cota de Certificado do Serviço de Aplicativo por assinatura pode ser aumentado por meio de uma solicitação de suporte para um limite máximo de 200.  
 <sup>10</sup> Serviço do Aplicativo Isolado SKUs podem ter balanceamento de carga internamente (ILB) com Azure Load Balancer, portanto, não há conectividade pública da Internet. Como resultado, alguns recursos do Serviço de Aplicativo Isolado de ILB devem ser usados de computadores com acesso direto ao ponto de extremidade de rede de ILB.  
-<sup>11</sup> Execute executáveis personalizados e/ou scripts sob demanda, em um agendamento ou continuamente como uma tarefa em segundo plano em sua instância do serviço de aplicativo. Sempre Ativo é exigido para a execução contínua de Trabalhos Web. O Agendador do Azure Gratuito ou Padrão é necessário para os Trabalhos Web agendados. Não há nenhum limite predefinido para o número de trabalhos Web que podem ser executados em uma instância do serviço de aplicativo. Há limites práticos que dependem do que o código do aplicativo está tentando fazer.  
+<sup>11</sup> Execute executáveis personalizados e/ou scripts sob demanda, em um agendamento ou continuamente como uma tarefa em segundo plano em sua instância do serviço de aplicativo. Para a execução contínua de Trabalhos Web, a opção Sempre Ativado é obrigatória. Não há nenhum limite predefinido para o número de trabalhos Web que podem ser executados em uma instância do serviço de aplicativo. Há limites práticos que dependem do que o código do aplicativo está tentando fazer.  

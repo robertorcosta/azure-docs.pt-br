@@ -3,7 +3,7 @@ title: Conectar dados do Barracuda ao Azure Sentinel | Microsoft Docs
 description: Saiba como conectar dados do Barracuda ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 3b33b4aa-7286-4d79-b461-8e1812edc2e1
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: 97f10058038e3bf4fbcca2cf86d074869ffefed4
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: 4e87bb57e6bdfea6307a166383da9dea187eea4f
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610685"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588477"
 ---
 # <a name="connect-your-barracuda-appliance"></a>Conectar seu dispositivo Barracuda 
 
@@ -46,7 +46,7 @@ Pode levar até 20 minutos até que os logs comecem a aparecer na Log Analytics.
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a conectar os dispositivos Barracuda ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).

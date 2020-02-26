@@ -5,12 +5,12 @@ author: markfussell
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: mfussell
-ms.openlocfilehash: 755e3c1eb649bc6c8ecc084d18e9904cc90b1282
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 876980bd6a59bace9ab4e490358964d19fa52c7e
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551838"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586080"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>Práticas recomendadas de design do aplicativo Service Fabric do Azure
 
@@ -30,7 +30,7 @@ Familiarize-se com a [arquitetura geral](https://docs.microsoft.com/azure/archit
 Use um serviço de gateway de API que se comunica com serviços de back-end que podem ser escalados horizontalmente. Os serviços de gateway de API mais comuns usados são:
 
 - [Gerenciamento de API do Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-api-management-overview), que é [integrado com Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-api-management).
-- [Hub IOT do Azure](https://docs.microsoft.com/azure/iot-hub/) ou [hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/), usando o [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor) para ler as partições do hub de eventos.
+- [Hub IOT do Azure](https://docs.microsoft.com/azure/iot-hub/) ou [hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/), usando o [ServiceFabricProcessor](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.EventHubs.ServiceFabricProcessor) para ler as partições do hub de eventos.
 - [Træfik proxy reverso](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/), usando o [provedor de Service Fabric do Azure](https://docs.traefik.io/v1.6/configuration/backends/servicefabric/).
 - [Gateway de Aplicativo do Azure](https://docs.microsoft.com/azure/application-gateway/).
 

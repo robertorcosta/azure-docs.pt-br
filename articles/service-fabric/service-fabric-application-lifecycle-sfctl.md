@@ -5,24 +5,24 @@ author: Christina-Kang
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: db271d479fd84e5338d53cc25ecc0122d856c442
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 7d361d44c349bc7a6e3c041f78d00ad66182fa15
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610226"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589140"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Gerenciar um aplicativo do Azure Service Fabric usando a CLI do Azure Service Fabric (sfctl)
 
 Saiba como criar e excluir os aplicativos que estão em execução em um cluster do Azure Service Fabric.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Implantar a CLI do Service Fabric. Em seguida, selecione o cluster do Service Fabric. Para obter mais informações, consulte [Introdução à CLI do Service Fabric](service-fabric-cli.md).
 
 * Tenha um pacote de aplicativos do Service Fabric pronto para ser implantado. Para obter mais informações sobre como criar e empacotar um aplicativo, leia sobre o [modelo de aplicativo do Service Fabric](service-fabric-application-model.md).
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Para implantar um novo aplicativo, execute estas etapas:
 
@@ -47,7 +47,7 @@ Antes de criar um aplicativo, carregue o pacote de aplicativos no repositório d
 
 Por exemplo, se o seu pacote de aplicativos está no diretório `app_package_dir`, use os seguintes comandos para carregar o diretório:
 
-```azurecli
+```shell
 sfctl application upload --path ~/app_package_dir
 ```
 
@@ -57,7 +57,7 @@ Para pacotes de aplicativos grandes, especifique a opção `--show-progress` par
 
 Quando o upload for concluído, provisione o aplicativo. Para provisionar o aplicativo, use o seguinte comando:
 
-```azurecli
+```shell
 sfctl application provision --application-type-build-path app_package_dir
 ```
 
@@ -69,7 +69,7 @@ O valor de `application-type-build-path` é o nome do diretório em que você ca
 
 Para excluir o pacote de aplicativos do repositório de imagens, use o seguinte comando:
 
-```azurecli
+```shell
 sfctl store delete --content-path app_package_dir
 ```
 
@@ -79,7 +79,7 @@ sfctl store delete --content-path app_package_dir
 
 Depois de provisionar o aplicativo, use o seguinte comando para nomear e criar seu aplicativo:
 
-```azurecli
+```shell
 sfctl application create --app-name fabric:/TestApp --app-type TestAppType --app-version 1.0
 ```
 
@@ -91,7 +91,7 @@ O nome do aplicativo deve começar com o prefixo `fabric:/`.
 
 Depois de criar um aplicativo, crie serviços com base no aplicativo. No exemplo a seguir, criamos um novo serviço sem estado com base em nosso aplicativo. Os serviços que podem ser criados por meio de um aplicativo estão definidos em um manifesto do serviço dentro do pacote de aplicativos provisionado anteriormente.
 
-```azurecli
+```shell
 sfctl service create --app-id TestApp --name fabric:/TestApp/TestSvc --service-type TestServiceType \
 --stateless --instance-count 1 --singleton-scheme
 ```
@@ -100,14 +100,14 @@ sfctl service create --app-id TestApp --name fabric:/TestApp/TestSvc --service-t
 
 Para verificar a integridade de todos os componentes, use os seguintes comandos de integridade:
 
-```azurecli
+```shell
 sfctl application list
 sfctl service list --application-id TestApp
 ```
 
 Para verificar se o serviço está íntegro, use comandos semelhantes para recuperar a integridade do serviço e do aplicativo:
 
-```azurecli
+```shell
 sfctl application health --application-id TestApp
 sfctl service health --service-id TestApp/TestSvc
 ```
@@ -122,7 +122,7 @@ Para remover um aplicativo, execute as seguintes tarefas:
 
 Para excluir o aplicativo, use o seguinte comando:
 
-```azurecli
+```shell
 sfctl application delete --application-id TestEdApp
 ```
 
@@ -130,7 +130,7 @@ sfctl application delete --application-id TestEdApp
 
 Depois de excluir o aplicativo, você pode desprovisionar o tipo de aplicativo se ele não for mais necessário. Para desprovisionar o tipo de aplicativo, use o seguinte comando:
 
-```azurecli
+```shell
 sfctl application unprovision --application-type-name TestAppType --application-type-version 1.0
 ```
 
@@ -142,7 +142,7 @@ Após criar seu aplicativo, você pode repetir o mesmo conjunto de etapas para p
 
 Para realizar uma atualização, primeiro provisione a próxima versão do aplicativo usando os mesmos comandos que antes:
 
-```azurecli
+```shell
 sfctl application upload --path ~/app_package_dir_2
 sfctl application provision --application-type-build-path app_package_dir_2
 sfctl store delete --content-path app_package_dir_2
@@ -150,7 +150,7 @@ sfctl store delete --content-path app_package_dir_2
 
 Em seguida, é recomendável realizar uma atualização automática monitorada. Inicie a atualização executando o seguinte comando:
 
-```azurecli
+```shell
 sfctl application upgrade --app-id TestApp --app-version 2.0.0 --parameters "{\"test\":\"value\"}" --mode Monitored
 ```
 
@@ -162,7 +162,7 @@ Quando uma atualização de aplicativo estiver em andamento, o status poderá se
 
 Por fim, se uma atualização estiver em andamento e precisar ser cancelada, você poderá usar `sfctl application upgrade-rollback` para reverter a atualização.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Noções básicas do Service Fabric](service-fabric-cli.md)
 * [Introdução ao Service Fabric no Linux](service-fabric-get-started-linux.md)

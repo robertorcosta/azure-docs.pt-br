@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: b-juche
-ms.openlocfilehash: c65da771dd483b3a79785d4bec2b89cbeefca5c4
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 7affd408ce2471f34a8362ba32101b639aafc514
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049881"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586591"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
@@ -40,7 +40,7 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
 * As portas adequadas devem estar abertas no servidor Windows Active Directory (AD) aplicável.  
     As portas necessárias são as seguintes: 
 
-    |     Service           |     Porta     |     Protocolo     |
+    |     Serviço           |     Porta     |     Protocolo     |
     |-----------------------|--------------|------------------|
     |    Serviços Web do AD    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
@@ -70,7 +70,7 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
 
 * O Azure NetApp Files sub-rede delegada deve ser capaz de alcançar todos os controladores de domínio de Active Directory Domain Services (ADDS) no domínio, incluindo todos os controladores de domínio locais e remotos. Caso contrário, pode ocorrer interrupção do serviço.  
 
-    Se você tiver controladores de domínio inacessíveis por meio da sub-rede Azure NetApp Files delegada, poderá enviar uma solicitação de suporte do Azure para alterar o escopo de **global** (padrão) para o **site**.  Azure NetApp Files precisa se comunicar somente com controladores de domínio no site em que reside o espaço de endereço de sub-rede delegado Azure NetApp Files.
+    Se você tiver controladores de domínio inacessíveis por meio da sub-rede Azure NetApp Files delegada, poderá especificar um site de Active Directory durante a criação da conexão de Active Directory.  Azure NetApp Files precisa se comunicar somente com controladores de domínio no site em que reside o espaço de endereço de sub-rede delegado Azure NetApp Files.
 
     Consulte [projetando a topologia do site](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) sobre serviços e sites do AD. 
     
@@ -88,8 +88,10 @@ Consulte Azure NetApp Files [FAQs do SMB](https://docs.microsoft.com/azure/azure
         Esse é o DNS necessário para as operações de autenticação SMB e de ingresso no domínio do Active Directory. 
     *   de **DNS secundário**  
         Esse é o servidor DNS secundário para garantir que os serviços de nome redundantes. 
-    * **Domínio**  
+    * **Nome de domínio DNS do AD**  
         Esse é o nome de domínio de seu Active Directory Domain Services que você deseja unir.
+    * **Nome do site do AD**  
+        Esse é o nome do site ao qual a descoberta do controlador de domínio será limitada.
     * **Prefixo do servidor SMB (conta do computador)**  
         Esse é o prefixo de nomenclatura para a conta do computador no Active Directory que Azure NetApp Files será usado para a criação de novas contas.
 
@@ -168,7 +170,7 @@ Consulte Azure NetApp Files [FAQs do SMB](https://docs.microsoft.com/azure/azure
  
     Um volume herda a assinatura, grupo de recursos, atributos de localização de seu pool de capacidade. Para monitorar o status de implantação do volume, você pode usar a guia Notificações.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}  
+## <a name="next-steps"></a>Próximas etapas  
 
 * [Montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Limites de recursos do Azure NetApp Files](azure-netapp-files-resource-limits.md)

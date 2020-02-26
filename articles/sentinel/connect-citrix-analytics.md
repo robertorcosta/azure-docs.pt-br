@@ -3,7 +3,7 @@ title: Conectar o Citrix Analytics (segurança) ao Azure Sentinel | Microsoft Do
 description: Saiba como conectar o Citrix Analytics (segurança) ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: cabailey
-ms.openlocfilehash: b4a720702cdadf641665c4c8dc3754edd1c42361
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: bbc77340375b22f137045d68b7449dd1e8adc4b7
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610617"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588375"
 ---
 # <a name="connect-citrix-analytics-security"></a>Conectar o Citrix Analytics (Segurança) 
 
@@ -27,7 +27,7 @@ A integração do Citrix Analytics (segurança) com o Azure Sentinel ajuda a exp
 
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Permissões de leitura e gravação para o espaço de trabalho do Azure Sentinel.
 
@@ -42,7 +42,7 @@ A integração do Citrix Analytics (segurança) com o Azure Sentinel ajuda a exp
 
 3. Siga as instruções na página do **Citrix Analytics (segurança)** .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a conectar o Citrix Analytics (segurança) ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).

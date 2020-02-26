@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2019
 ms.author: damendo
-ms.openlocfilehash: 6898bed0645146af9c0131307459e31bad661329
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 6d535bcc2e0831baae658796f76c8087d74c6a85
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036307"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587202"
 ---
 # <a name="delete-network-security-group-flow-log-storage-blobs-in-network-watcher"></a>Excluir blobs de armazenamento de log de fluxo do grupo de segurança de rede no observador de rede
 
@@ -125,9 +125,9 @@ Write-Output ('Retention policy for all NSGs evaluated and completed successfull
 ```
 
 1. Insira os seguintes parâmetros no script, conforme necessário:
-   - **SubscriptionId** [Obrigatório]: A ID da assinatura de onde você gostaria de excluir blobs de log de fluxo NSG.
-   - **Local** do [Obrigatório]: A _cadeia de caracteres de localização_ da região do NSGs para o qual você gostaria de excluir blobs de log de fluxo do NSG. Você pode exibir essas informações no portal do Azure ou no [GitHub](https://github.com/Azure/azure-extensions-cli/blob/beb3d3fe984cfa9c7798cb11a274c5337968cbc5/regions.go#L23).
-   - **Confirmar** [Opcional]: Passe o sinalizador Confirm se quiser confirmar manualmente a exclusão de cada blob de armazenamento.
+   - **SubscriptionId** [obrigatório]: a ID da assinatura de onde você deseja excluir blobs de log de fluxo NSG.
+   - **Local** [obrigatório]: a _cadeia de caracteres do local_ da região do NSGs para o qual você gostaria de excluir blobs de log de fluxo do NSG. Você pode exibir essas informações no portal do Azure ou no [GitHub](https://github.com/Azure/azure-extensions-cli/blob/beb3d3fe984cfa9c7798cb11a274c5337968cbc5/regions.go#L23).
+   - **Confirmar** [opcional]: passe o sinalizador de confirmação se desejar confirmar manualmente a exclusão de cada blob de armazenamento.
 
 1. Execute o script salvo, conforme mostrado no exemplo a seguir, em que o arquivo de script foi salvo como **delete-NsgFlowLogsBlobs. ps1**:
    ```
@@ -135,6 +135,6 @@ Write-Output ('Retention policy for all NSGs evaluated and completed successfull
    ```
     
 ## <a name="next-steps"></a>Próximas etapas
-- Os clientes podem automatizar a execução do script usando o [Agendador do Azure](https://azure.microsoft.com/services/scheduler/) ou a [automação do Azure](https://azure.microsoft.com/services/automation/)
+- Os clientes podem automatizar a execução do script usando os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) ou a [automação do Azure](https://azure.microsoft.com/services/automation/)
 - Para saber mais sobre o log de NSG, consulte [logs de Azure monitor para grupos de segurança de rede (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 

@@ -12,12 +12,12 @@ ms.date: 12/08/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 1bc2c3a17aef232df184926dca5f70eac61b03ac
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 23433c816fc7b002c3426a0aac7c0aade8cdb338
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698757"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585842"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Como: fornecer declarações opcionais para seu aplicativo do Azure AD
 
@@ -37,8 +37,8 @@ Embora as declarações opcionais tenham suporte nos tokens de formato v 1.0 e v
 
 | Tipo de Conta | Tokens v1.0 | Tokens v2.0  |
 |--------------|---------------|----------------|
-| Conta pessoal da Microsoft  | N/D  | Com suporte |
-| Conta do AD do Azure      | Com suporte | Com suporte |
+| Conta pessoal da Microsoft  | N/D  | Suportado |
+| Conta do AD do Azure      | Suportado | Suportado |
 
 ## <a name="v10-and-v20-optional-claims-set"></a>conjunto de declarações opcionais v 1.0 e v 2.0
 
@@ -49,7 +49,7 @@ O conjunto de declarações opcionais disponíveis por padrão para uso pelos ap
 
 **Tabela 2: conjunto de declarações opcionais v 1.0 e v 2.0**
 
-| Nome                       |  Description   | Tipo de token | Tipo de Usuário | Observações  |
+| Nome                       |  DESCRIÇÃO   | Tipo de token | Tipo de Usuário | Observações  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Hora em que o usuário foi autenticado pela última vez. Confira especificações de OpenID Connect.| JWT        |           |  |
 | `tenant_region_scope`      | Região do locatário do recurso | JWT        |           | |
@@ -78,7 +78,7 @@ Essas declarações são sempre incluídas em tokens do Azure AD v 1.0, mas não
 
 **Tabela 3: v 2.0-apenas declarações opcionais**
 
-| Declaração JWT     | Nome                            | Description                                | Observações |
+| Declaração JWT     | Nome                            | DESCRIÇÃO                                | Observações |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | Endereço IP                      | O endereço IP com o qual o cliente se conectou.   |       |
 | `onprem_sid`  | Identificador de Segurança Local |                                             |       |
@@ -96,7 +96,7 @@ Algumas declarações opcionais podem ser configuradas para alterar o modo como 
 
 **Tabela 4: valores para configurar declarações opcionais**
 
-| Nome da propriedade  | Nome de Propriedade Adicional | Description |
+| Nome da propriedade  | Nome de Propriedade Adicional | DESCRIÇÃO |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Pode ser usada para respostas SAML e JWT e para tokens v1.0 e v2.0. |
 |                | `include_externally_authenticated_upn`  | Inclui o UPN de convidado conforme armazenado no locatário do recurso. Por exemplo, `foo_hometenant.com#EXT#@resourcetenant.com` |             
@@ -186,7 +186,7 @@ Declara as declarações opcionais solicitadas por um aplicativo. Um aplicativo 
 
 **Tabela 5: propriedades do tipo OptionalClaims**
 
-| Nome        | Tipo                       | Description                                           |
+| Nome        | Type                       | DESCRIÇÃO                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Coleção (OptionalClaim) | As declarações opcionais retornadas no token de ID JWT. |
 | `accessToken` | Coleção (OptionalClaim) | As declarações opcionais retornadas no token de acesso JWT. |
@@ -199,7 +199,7 @@ Caso haja suporte por uma declaração específica, você também poderá modifi
 
 **Tabela 6: propriedades do tipo OptionalClaim**
 
-| Nome                 | Tipo                    | Description                                                                                                                                                                                                                                                                                                   |
+| Nome                 | Type                    | DESCRIÇÃO                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | O nome da declaração opcional.                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | A origem (objeto de diretório) da declaração. Há declarações predefinidas e definidas pelo usuário de propriedades de extensão. Se o valor de origem for nulo, a declaração será uma declaração opcional predefinida. Se o valor de origem for um usuário, o valor na propriedade name será a propriedade de extensão do objeto de usuário. |
@@ -207,7 +207,7 @@ Caso haja suporte por uma declaração específica, você também poderá modifi
 | `additionalProperties` | Coleção (Edm.String) | Propriedades adicionais da declaração. Se uma propriedade existir na coleção, ela modificará o comportamento da declaração opcional especificado na propriedade name.                                                                                                                                               |
 ## <a name="configuring-directory-extension-optional-claims"></a>Configurando declarações opcionais de extensão de diretório
 
-Além do conjunto de declarações opcionais padrão, você também pode configurar tokens para incluir extensões. Para obter mais informações, consulte [Adicionar dados personalizados a recursos usando extensões](https://docs.microsoft.com/graph/extensibility-overview). Esse recurso é útil para anexar informações adicionais do usuário que o aplicativo pode usar; por exemplo, um identificador adicional ou uma opção de configuração importante que o usuário configurou. Consulte a parte inferior desta página para obter um exemplo.
+Além do conjunto de declarações opcionais padrão, você também pode configurar tokens para incluir extensões. Esse recurso é útil para anexar informações adicionais do usuário que o aplicativo pode usar; por exemplo, um identificador adicional ou uma opção de configuração importante que o usuário configurou. Consulte a parte inferior desta página para obter um exemplo.
 
 > [!NOTE]
 > - As extensões de esquema de diretório são um recurso somente do Azure AD, portanto, se o manifesto do aplicativo solicitar uma extensão personalizada e um usuário da MSA fizer logon em seu aplicativo, essas extensões não serão retornadas.
@@ -288,10 +288,10 @@ Esta seção aborda as opções de configuração em declarações opcionais par
 
    | Esquema de declarações opcional | Valor |
    |----------|-------------|
-   | **name:** | Deve ser "grupos" |
+   | **nomes** | Deve ser "grupos" |
    | **original** | Não usado. Omitir ou especificar nulo |
-   | **essential:** | Não usado. Omitir ou especificar false |
-   | **additionalProperties:** | Lista de propriedades adicionais.  As opções válidas são "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
+   | **importante** | Não usado. Omitir ou especificar false |
+   | **AdditionalProperties** | Lista de propriedades adicionais.  As opções válidas são "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
 
    Somente um de "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name" é necessário em um adicional.  Se mais de um estiver presente, o primeiro será usado e todos os outros serão ignorados.
 

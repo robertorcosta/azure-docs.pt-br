@@ -9,27 +9,36 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: jpe316
 ms.author: jordane
-ms.date: 11/22/2019
+ms.date: 02/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: e53db645875646b1e021cc0d3d760677e1128c0c
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 11a6a668b1028ba1640ef076606d4aeb4c3aae6e
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486369"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589361"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: gerenciamento de modelos, implantação e monitoramento com Azure Machine Learning
 
 Neste artigo, saiba mais sobre como usar Azure Machine Learning para gerenciar o ciclo de vida de seus modelos. Azure Machine Learning usa uma abordagem de MLOps (operações de Machine Learning). O MLOps melhora a qualidade e a consistência de suas soluções de aprendizado de máquina. 
 
+## <a name="what-is-mlops"></a>O que é MLOps?
+
+As operações de Machine Learning (MLOps) baseiam-se em princípios e práticas do [DevOps](https://azure.microsoft.com/overview/what-is-devops/) que aumentam a eficiência dos fluxos de trabalho. Por exemplo, integração, entrega e implantação contínuas. O MLOps aplica essas entidades ao processo de aprendizado de máquina, com o objetivo de:
+
+* Experimentação e desenvolvimento mais rápidos de modelos
+* Implantação mais rápida de modelos na produção
+* Garantia de qualidade
+
 Azure Machine Learning fornece os seguintes recursos de MLOps:
 
-- **Crie pipelines ml reproduzíveis**. Os pipelines permitem que você defina etapas reproduzíveis e reutilizáveis para seus processos de preparação, treinamento e pontuação de dados.
-- **Registre, empacote e implante modelos de qualquer lugar** e acompanhe os metadados associados necessários para usar o modelo.
-- **Capture os dados de governança necessários para capturar o ciclo de vida de ml de ponta a ponta**, incluindo quem está publicando modelos, por que as alterações estão sendo feitas e quando os modelos foram implantados ou usados na produção.
-- **Notifique e alerte eventos no ciclo de vida do ml** , como a conclusão do experimento, o registro do modelo, a implantação do modelo e a detecção de descompasso de dados.
+- **Crie pipelines ml reproduzíveis**. Machine Learning pipelines permitem que você defina etapas reproduzíveis e reutilizáveis para seus processos de preparação, treinamento e pontuação de dados.
+- **Crie ambientes de software reutilizáveis** para treinamento e implantação de modelos.
+- **Registre, empacote e implante modelos de qualquer lugar**. Você também pode rastrear os metadados associados necessários para usar o modelo.
+- **Capture os dados de governança para o ciclo de vida de ml de ponta a ponta**. As informações registradas podem incluir quem está publicando modelos, por que as alterações foram feitas e quando os modelos foram implantados ou usados na produção.
+- **Notificar e alertar sobre eventos no ciclo de vida am**. Por exemplo, a conclusão do experimento, o registro do modelo, a implantação do modelo e a detecção de descompasso de dados.
 - **Monitore aplicativos ml para problemas operacionais e relacionados ao ml**. Compare as entradas de modelo entre treinamento e inferência, explore métricas específicas de modelo e forneça monitoramento e alertas em sua infraestrutura de ML.
-- **Automatize o ciclo de vida de ml de ponta a ponta com Azure Machine Learning e o Azure DevOps** para atualizar modelos com frequência, testar novos modelos e distribuir continuamente novos modelos de ml junto com seus outros aplicativos e serviços.
+- **Automatize o ciclo de vida de ml de ponta a ponta com Azure Machine Learning e Azure pipelines**. O uso de pipelines permite atualizar modelos com frequência, testar novos modelos e distribuir continuamente novos modelos de ML junto com seus outros aplicativos e serviços.
 
 ## <a name="create-reproducible-ml-pipelines"></a>Criar pipelines ML reproduzíveis
 
@@ -38,6 +47,12 @@ Use pipelines ML do Azure Machine Learning para unir todas as etapas envolvidas 
 Um pipeline ML pode conter etapas de preparação de dados para extração de recursos para ajuste de hiperparâmetro para avaliação de modelo. Para obter mais informações, consulte [pipelines do ml](concept-ml-pipelines.md).
 
 Se você usar o [Designer](concept-designer.md) para criar seus pipelines de ml, você poderá, a qualquer momento, clicar em **"..."** na parte superior direita da página do designer e, em seguida, selecionar **clonar**. Clonar seu pipeline permite que você itere seu design de pipeline sem perder suas versões antigas.  
+
+## <a name="create-reusable-software-environments"></a>Criar ambientes de software reutilizáveis
+
+Os ambientes de Azure Machine Learning permitem que você acompanhe e reproduza as dependências de software de seus projetos à medida que eles evoluem. Os ambientes permitem garantir que as compilações sejam reproduzíveis sem configurações manuais de software.
+
+Os ambientes descrevem as dependências Pip e Conda para seus projetos e podem ser usados tanto para treinamento quanto para implantação de modelos. Para obter mais informações, consulte [o que são ambientes de Azure Machine Learning](concept-environments.md).
 
 ## <a name="register-package-and-deploy-models-from-anywhere"></a>Registre, empacote e implante modelos de qualquer lugar
 
@@ -82,7 +97,7 @@ Ao usar um modelo como um serviço Web ou IoT Edge dispositivo, você fornece os
 
 * Os modelos que são usados para pontuar os dados enviados para o serviço/dispositivo.
 * Um script de entrada. Esse script aceita solicitações, usa os modelos para pontuar os dados e retornar uma resposta.
-* Um arquivo de ambiente Conda que descreve as dependências exigidas pelos modelos e o script de entrada.
+* Um ambiente Azure Machine Learning que descreve as dependências Pip e Conda exigidas pelos modelos e pelo script de entrada.
 * Quaisquer ativos adicionais, como texto, dados etc., que são necessários para o (s) modelos e o script de entrada.
 
 Você também fornece a configuração da plataforma de implantação de destino. Por exemplo, o tipo de família de VMs, a memória disponível e o número de núcleos durante a implantação no serviço kubernetes do Azure.
@@ -124,7 +139,7 @@ O Azure ML oferece a capacidade de acompanhar a trilha de auditoria de ponta a p
 
 - O Azure ML [integra-se com o Git](how-to-set-up-training-targets.md#gitintegration) para rastrear informações sobre a qual repositório/Branch/confirmação seu código veio.
 - Os conjuntos de dados [do Azure ml](how-to-create-register-datasets.md) ajudam a acompanhar, criar o perfil e a versão. 
-- O histórico de execuções do Azure ML armazena um instantâneo do código, dos dados e da computação usados para treinar um modelo.
+- O histórico de execuções do Azure ML armazena um instantâneo do código, dos dados e das computações usados para treinar um modelo.
 - O registro de modelo do Azure ML captura todos os metadados associados ao seu modelo (que experimento o treina, onde ele está sendo implantado, se suas implantações estiverem íntegras).
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Notificar, automatizar e alertar sobre eventos no ciclo de vida am
@@ -162,6 +177,8 @@ A [extensão Azure Machine Learning](https://marketplace.visualstudio.com/items?
 * Permite que os pipelines de versão sejam disparados por modelos treinados criados em um pipeline de treinamento.
 
 Para obter mais informações sobre como usar Azure Pipelines com Azure Machine Learning, consulte a [integração e a implantação contínuas dos modelos de ml com Azure pipelines](/azure/devops/pipelines/targets/azure-machine-learning) artigo e o repositório [Azure Machine Learning MLOps](https://aka.ms/mlops) .
+
+Você também pode usar Azure Data Factory para criar um pipeline de ingestão de dados que prepara os dados para uso com treinamento. Para obter mais informações, consulte [pipeline de ingestão de dados](how-to-cicd-data-ingestion.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

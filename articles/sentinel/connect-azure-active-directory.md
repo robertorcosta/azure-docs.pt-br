@@ -3,7 +3,7 @@ title: Conectar dados do Azure AD ao Azure Sentinel | Microsoft Docs
 description: Saiba como conectar Azure Active Directory dados ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 0a8f4a58-e96a-4883-adf3-6b8b49208e6a
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: f08cd731e40b204d042e5df418b03626b9082c3b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.author: yelevin
+ms.openlocfilehash: be9241a6156621d3f90dbab2da5bebeb463b4232
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894650"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588613"
 ---
 # <a name="connect-data-from-azure-active-directory"></a>Conectar dados de Azure Active Directory
 
@@ -28,7 +28,7 @@ ms.locfileid: "74894650"
 
 O Azure Sentinel permite coletar dados de [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) e transmiti-los para o Azure Sentinel. Você pode optar por transmitir [logs de entrada](../active-directory/reports-monitoring/concept-sign-ins.md) e [logs de auditoria](../active-directory/reports-monitoring/concept-audit-logs.md) .
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Se você quiser exportar dados de entrada do Active Directory, deverá ter uma licença do Azure AD P1 ou P2.
 
@@ -50,7 +50,7 @@ O Azure Sentinel permite coletar dados de [Azure Active Directory](../active-dir
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a conectar o Azure AD ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
