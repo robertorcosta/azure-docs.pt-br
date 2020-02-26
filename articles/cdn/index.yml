@@ -1,78 +1,68 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentação da CDN do Azure
+summary: A Rede de Distribuição de Conteúdo (CDN) do Azure é uma solução global de CDN para o fornecimento de conteúdo de alta largura de banda. Ela pode ser hospedada no Azure ou em outro local. Com a CDN do Azure, você pode armazenar em cache objetos estáticos carregados de um armazenamento de Blobs do Azure, um aplicativo Web ou de qualquer servidor Web acessível publicamente, usando o servidor de ponto de presença (POP) mais próximo. A CDN do Azure também pode acelerar o conteúdo dinâmico, que não pode ser armazenado em cache, aproveitando várias otimizações de rede e roteamento.
 metadata:
-  title: 'Documentação da CDN do Azure - Tutoriais, Referência de API | Microsoft Docs'
-  description: 'A Rede de Distribuição de Conteúdo (CDN) do Azure é uma solução global de CDN para o fornecimento de conteúdo de alta largura de banda. Ela pode ser hospedada no Azure ou em outro local. Com a CDN do Azure, você pode armazenar em cache objetos estáticos carregados de um armazenamento de Blobs do Azure, um aplicativo Web ou de qualquer servidor Web acessível publicamente, usando o servidor de ponto de presença (POP) mais próximo. A CDN do Azure também pode acelerar o conteúdo dinâmico, que não pode ser armazenado em cache, aproveitando várias otimizações de rede e roteamento.'
-  services: cdn
-  author: twooley
-  manager: twooley
+  title: Documentação da CDN do Azure – Tutoriais, Referência de API
+  description: A Rede de Distribuição de Conteúdo (CDN) do Azure é uma solução global de CDN para o fornecimento de conteúdo de alta largura de banda. Ela pode ser hospedada no Azure ou em outro local. Com a CDN do Azure, você pode armazenar em cache objetos estáticos carregados de um armazenamento de Blobs do Azure, um aplicativo Web ou de qualquer servidor Web acessível publicamente, usando o servidor de ponto de presença (POP) mais próximo. A CDN do Azure também pode acelerar o conteúdo dinâmico, que não pode ser armazenado em cache, aproveitando várias otimizações de rede e roteamento.
   ms.service: azure-cdn
   ms.topic: landing-page
-  ms.date: 06/08/2018
-  ms.author: twooley
-abstract:
-  description: 'A Rede de Distribuição de Conteúdo (CDN) do Azure é uma solução global de CDN para o fornecimento de conteúdo de alta largura de banda. Ela pode ser hospedada no Azure ou em outro local. Com a CDN do Azure, você pode armazenar em cache objetos estáticos carregados de um armazenamento de Blobs do Azure, um aplicativo Web ou de qualquer servidor Web acessível publicamente, usando o servidor de ponto de presença (POP) mais próximo. A CDN do Azure também pode acelerar o conteúdo dinâmico, que não pode ser armazenado em cache, aproveitando várias otimizações de rede e roteamento.'
-sections:
-  - title: null
-    items:
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/cdn.svg
-            text: Saiba mais sobre a CDN do Azure
-            href: /azure/cdn/cdn-overview
-  - title: Guia de início rápido de 5 minutos
-    items:
-      - type: paragraph
-        text: Saiba como habilitar a CDN do Azure criando um novo ponto de extremidade e um perfil de CDN.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/get-started.svg
-            text: Introdução à CDN do Azure
-            href: /azure/cdn/cdn-create-new-endpoint
-  - title: Tutoriais Passo a Passo
-    items:
-      - type: paragraph
-        text: Saiba como configurar a CDN do Azure para suas necessidades.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/cdn/cdn-map-content-to-custom-domain">Adicionar um domínio personalizado ao seu ponto de extremidade CDN</a>
-          - html: <a href="/azure/cdn/cdn-custom-ssl">Configurar HTTPS em um domínio personalizado</a>
-          - html: <a href="/azure/cdn/cdn-caching-rules-tutorial">Definir regras de cache</a>
-  - title: vídeos
-    items:
-      - type: paragraph
-        text: Assista a vídeos que mostram como funciona a CDN do Azure.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/video-library.svg
-            text: Biblioteca de vídeos da CDN do Azure
-            href: 'https://azure.microsoft.com/documentation/videos/index/?services=cdn'
-  - title: Exemplos
-    items:
-      - type: paragraph
-        text: Encontre scripts para gerenciar tarefas comuns.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: '<a href="https://azure.microsoft.com/resources/samples/?service=cdn">Exemplos de código</a>'
-  - title: Referência
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Linha de comando
-            html: <p><a href="/powershell/module/az.cdn">PowerShell</a></p>
-          - title: Languages
-            html: <p><a href="/dotnet/api/microsoft.azure.management.cdn">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.cdn">Java</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/cdn/">Referência da API REST</a></p>
+  author: asudbring
+  ms.author: allensu
+  ms.date: 02/24/2020
+  ms.openlocfilehash: 7244b5f70468735a0dcced4d9cc9e71c1194350e
+  ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 02/25/2020
+  ms.locfileid: "77582561"
+landingContent:
+- title: Sobre a CDN do Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é uma rede de distribuição de conteúdo no Azure?
+      url: cdn-overview.md
+  - linkListType: video
+    links:
+    - text: Biblioteca de vídeos da CDN do Azure
+      url: https://azure.microsoft.com/documentation/videos/index/?services=cdn
+- title: Introdução
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Criar um perfil e um ponto de extremidade da CDN do Azure
+      url: cdn-create-new-endpoint.md
+    - text: Integrar uma conta de armazenamento do Azure com a CDN do Azure
+      url: cdn-create-a-storage-account-with-cdn.md
+  - linkListType: tutorial
+    links:
+    - text: Adicionar um domínio personalizado ao seu ponto de extremidade da CDN do Azure
+      url: cdn-map-content-to-custom-domain.md
+    - text: Configurar HTTPS em um domínio personalizado da CDN do Azure
+      url: cdn-custom-ssl.md
+    - text: Adicionar o CDN do Azure para um aplicativo Web do Serviço de Aplicativo do Azure
+      url: cdn-add-to-web-app.md
+  - linkListType: learn
+    links:
+    - text: Criar uma Rede de Distribuição de Conteúdo para seu site com os Serviços de blob e a CDN do Azure
+      url: https://docs.microsoft.com/learn/modules/create-cdn-static-resources-blob-storage/
+- title: Monitoramento
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Monitorar a integridade dos recursos da CDN do Azure
+      url: cdn-resource-health.md
+    - text: Logs de diagnóstico do Azure – CDN do Azure
+      url: cdn-azure-diagnostic-logs.md
+- title: Relatório
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Analisar os padrões de uso da CDN do Azure
+      url: cdn-log-analysis.md
+    - text: Relatórios de núcleo da Verizon
+      url: cdn-analyze-usage-patterns.md
+    - text: Relatórios personalizados da Verizon
+      url: cdn-verizon-custom-reports.md
+    - text: Analisar estatísticas de uso com os relatórios HTTP avançados da CDN do Azure
+      url: cdn-advanced-http-reports.md

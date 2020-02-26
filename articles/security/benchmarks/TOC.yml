@@ -28,3 +28,15 @@
       href: security-control-incident-response.md
     - name: Testes de penetração e exercícios de Red Team
       href: security-control-penetration-tests-red-team-exercises.md
+- name: Linhas de base de segurança
+  items:
+    - name: Visão geral das linhas de base de segurança do Azure
+      href: security-baselines-overview.md
+    - name: Linha de base de segurança do Lote
+      href: ../../batch/security-baseline.md
+    - name: Linha de base de segurança do Key Vault
+      href: ../../key-vault/security-baseline.md
+    - name: Linha de base de segurança do HDInsight
+      href: ../../hdinsight/security-baseline.md
+    - name: Linha de base de segurança do Banco de Dados SQL
+      href: ../../sql-database/security-baseline.md
