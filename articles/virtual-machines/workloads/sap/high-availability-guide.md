@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9fb093312365ce965c6baf3c9f50d74359cec0a7
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 7eb064762824c23f33f5df2a80320651de6d5af2
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647689"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598758"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Alta disponibilidade do SAP NetWeaver em VMs do Azure
 
@@ -721,7 +721,7 @@ _**Figura 11:** definir os parâmetros de SAP de alta disponibilidade do Azure R
 >
 
 ### <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Implantar máquinas virtuais com conectividade de rede corporativa (entre locais) para uso na produção
-Para sistemas SAP de produção, implante máquinas virtuais do Azure com [conectividade de rede corporativa (entre instalações)][planning-guide-2.2] usando a VPN site a site do Azure ou o Azure ExpressRoute.
+Para sistemas SAP de produção, implante máquinas virtuais do Azure com conectividade de rede corporativa usando a VPN site a site do Azure ou o Azure ExpressRoute.
 
 > [!NOTE]
 > Você pode usar a instância da Rede Virtual do Azure. A rede virtual e a sub-rede já foram criadas e preparadas.
@@ -865,7 +865,7 @@ Para definir os endereços IP de DNS necessários, execute as seguintes etapas.
 
 1. No Portal do Azure, na folha de **Servidores DNS**, verifique se sua opção de rede virtual **Servidores DNS** está definida para **DNS Personalizado**.
 2. Selecione suas configurações com base no seu tipo de rede. Para saber mais, consulte os recursos a seguir:
-   * [Conectividade de rede corporativa (entre instalações)][planning-guide-2.2]: Adicione os endereços IP dos servidores DNS locais.  
+   * adicione os endereços IP dos servidores DNS locais.  
    Você pode estender os servidores DNS locais às máquinas virtuais que estão em execução no Azure. Nesse cenário, você pode adicionar os endereços IP das máquinas virtuais do Azure nos quais executa o serviço DNS.
    * Para implantações isoladas no Azure: implante uma máquina virtual adicional na mesma instância de rede virtual que serve como um servidor DNS. Adicione os endereços IP das máquinas virtuais do Azure que você configurou para executar o serviço DNS.
 
@@ -1017,7 +1017,7 @@ Se você quiser usar números diferentes para as instâncias SAP ASCS ou SCS, pr
 2. Para todas as regras de balanceamento de carga que pertencem à instância do SAP ASCS ou SCS, altere estes valores:
 
    * Nome
-   * Port
+   * Porta
    * Porta de back-end
 
    Por exemplo, se você quer alterar o número de instância do ASCS padrão de 00 para 31, precisa fazer as alterações em todas as portas listadas na Tabela 1.

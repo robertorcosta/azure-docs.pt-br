@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: maquaran
-ms.openlocfilehash: 600556a06d3f58c4d2ec79a49fdee5e8e04d4036
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8a5507d11c9545e4053dde832b7305f9bf35e39e
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093640"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586267"
 ---
 # <a name="how-to-configure-the-change-feed-processor-start-time"></a>Como configurar a hora de início do processador do feed de alterações
 
@@ -25,7 +25,7 @@ Quando um processador do feed de alterações é iniciado pela primeira vez, ele
 
 É possível inicializar o processador do feed de alterações para ler as alterações de uma **data e hora específicas**, passando uma instância de um `DateTime` para a extensão do construtor `WithStartTime`:
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=TimeInitialization)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="TimeInitialization":::
 
 O processador do feed de alterações será inicializado para essa data e hora específicas e começará a ler as alterações ocorridas após isso.
 
@@ -33,7 +33,7 @@ O processador do feed de alterações será inicializado para essa data e hora e
 
 Em outros cenários como a migração de dados ou a análise de todo o histórico de um contêiner, precisamos ler o feed de alterações desde **o início do tempo de vida desse contêiner**. Para fazer isso, podemos usar `WithStartTime` na extensão do construtor, mas passando `DateTime.MinValue.ToUniversalTime()`, o que geraria a representação UTC do valor mínimo `DateTime`, desta forma:
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartFromBeginningInitialization)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="StartFromBeginningInitialization":::
 
 O processador do feed de alterações será inicializado e começará a ler as alterações desde o início do tempo de vida do contêiner.
 

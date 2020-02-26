@@ -6,19 +6,19 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/21/2020
 ms.author: rogarana
-ms.openlocfilehash: 3a9a2a903bd9979cd0f9a09b7589edc6d4fd8962
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 673bf3be59d72b2cc62b9f92af353fee235c5ddc
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77565070"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598809"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-support-for-smb-access"></a>Visão geral do suporte de autenticação baseada em identidade de arquivos do Azure para acesso SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
-Para saber como habilitar a autenticação do AD para compartilhamentos de arquivos do Azure, consulte [habilitar a autenticação de Active Directory sobre SMB para compartilhamentos de arquivos do Azure](storage-files-active-directory-domain-services-enable.md).
+Para saber como habilitar a autenticação do AD para compartilhamentos de arquivos do Azure, consulte [habilitar a autenticação de Active Directory sobre SMB para compartilhamentos de arquivos do Azure](storage-files-identity-auth-active-directory-enable.md).
 
-Para saber como habilitar a autenticação de AD DS do Azure para compartilhamentos de arquivos do Azure, confira [habilitar a autenticação do serviço de domínio Azure Active Directory sobre SMB para arquivos do Azure](storage-files-active-directory-enable.md).
+Para saber como habilitar a autenticação de AD DS do Azure para compartilhamentos de arquivos do Azure, consulte [habilitar a autenticação de Azure Active Directory Domain Services em arquivos do Azure](storage-files-identity-auth-active-directory-domain-service-enable.md).
 
 ## <a name="glossary"></a>Glossário 
 É útil entender alguns termos-chave relacionados à autenticação do serviço de domínio do Azure AD sobre SMB para compartilhamentos de arquivos do Azure:
@@ -98,7 +98,7 @@ Quando uma identidade associada a um aplicativo em execução em uma VM tenta ac
 
 ### <a name="enable-identity-based-authentication"></a>Habilitar a autenticação baseada em identidade
 
-Você pode habilitar a autenticação baseada em identidade com o Azure AD DS (GA) ou o AD (versão prévia) para compartilhamentos de arquivos do Azure em suas contas de armazenamento novas e existentes. Somente um serviço de domínio pode ser usado para autenticação de acesso a arquivos na conta de armazenamento, que se aplica a todos os compartilhamentos de arquivos na conta. Diretrizes passo a passo detalhadas sobre como configurar os compartilhamentos de arquivos para autenticação com o Azure AD DS (GA) em nosso artigo [habilitar a autenticação Azure Active Directory Domain Services sobre SMB para arquivos do Azure](storage-files-active-directory-enable.md) e orientação para AD (versão prévia) em nosso outro artigo, [habilite Active Directory sobre SMB para compartilhamentos de arquivos do Azure](storage-files-active-directory-domain-services-enable.md).
+Você pode habilitar a autenticação baseada em identidade com o Azure AD DS (GA) ou o AD (versão prévia) para compartilhamentos de arquivos do Azure em suas contas de armazenamento novas e existentes. Somente um serviço de domínio pode ser usado para autenticação de acesso a arquivos na conta de armazenamento, que se aplica a todos os compartilhamentos de arquivos na conta. Orientações passo a passo detalhadas sobre como configurar os compartilhamentos de arquivos para autenticação com o Azure AD DS (GA) em nosso artigo [habilitar a autenticação Azure Active Directory Domain Services em arquivos do Azure](storage-files-identity-auth-active-directory-domain-service-enable.md) e orientação para AD (versão prévia) em nosso outro artigo, [habilitar a autenticação Active Directory sobre SMB para compartilhamentos de arquivos do Azure](storage-files-identity-auth-active-directory-enable.md).
 
 ### <a name="configure-share-level-permissions-for-azure-files"></a>Configurar permissões no nível de compartilhamento para Arquivos do Azure
 
@@ -126,6 +126,6 @@ Não há nenhum encargo de serviço adicional para habilitar a autenticação ba
 Para obter mais informações sobre os arquivos do Azure e a autenticação baseada em identidade sobre o SMB, consulte estes recursos:
 
 - [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md)
-- [Habilitar a autenticação de Active Directory sobre SMB para compartilhamentos de arquivos do Azure](storage-files-active-directory-domain-services-enable.md)
-- [Habilitar a autenticação de Azure Active Directory Domain Services nos arquivos do Azure](storage-files-active-directory-enable.md)
+- [Habilitar a autenticação de Active Directory sobre SMB para compartilhamentos de arquivos do Azure](storage-files-identity-auth-active-directory-enable.md)
+- [Habilitar a autenticação de Azure Active Directory Domain Services nos arquivos do Azure](storage-files-identity-auth-active-directory-domain-service-enable.md)
 - [perguntas frequentes](storage-files-faq.md)

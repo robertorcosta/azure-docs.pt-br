@@ -7,26 +7,26 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3ce754a67643f4506fa825f0780969dc4a06f826
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 38339defc9d06f3e809bc24f957ebbb30abb46d3
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299591"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598775"
 ---
 # <a name="how-to-deploy-azure-files"></a>Como implantar Arquivos do Azure
 O [Arquivos do Azure](storage-files-introduction.md) oferece compartilhamentos de arquivos totalmente gerenciados na nuvem, acessíveis por meio do protocolo SMB padrão no setor. Este artigo mostra como implantar Arquivos do Azure de maneira prática dentro de sua organização.
 
 É altamente recomendável ler [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md) antes de seguir as etapas neste artigo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Este artigo pressupõe que você tenha completado as seguintes etapas:
 
 - Criado uma conta de Armazenamento do Azure com as opções de resiliência e de criptografia desejadas, na região desejada. Para orientações passo a passo sobre como criar uma conta de armazenamento, consulte [Criar uma conta de armazenamento](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 - Criado um compartilhamento de arquivos do Azure com sua cota desejada na sua conta de armazenamento. Consulte [Criar um compartilhamento de arquivos](storage-how-to-create-file-share.md) para obter instruções passo a passo sobre como criar um compartilhamento de arquivos.
 
 ## <a name="transfer-data-into-azure-files"></a>Transferir dados para Arquivos do Azure
-Talvez você queira migrar compartilhamentos de arquivos existentes, tais como aqueles armazenados localmente, para o novo compartilhamento de Arquivos do Azure. Esta seção mostrará como mover dados em um arquivo do Azure por meio de vários métodos populares detalhados no [guia de planejamento](storage-files-planning.md#data-transfer-method)
+Talvez você queira migrar compartilhamentos de arquivos existentes, tais como aqueles armazenados localmente, para o novo compartilhamento de Arquivos do Azure. Esta seção mostrará como mover dados em um arquivo do Azure por meio de vários métodos populares detalhados no [guia de planejamento](storage-files-planning.md#migration)
 
 ### <a name="azure-file-sync"></a>Sincronização de Arquivos do Azure
 A Sincronização de Arquivos do Azure permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter todos os caches de que precisar ao redor do mundo.

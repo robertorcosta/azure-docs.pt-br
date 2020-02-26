@@ -7,19 +7,16 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 0321d253eb1db414dff2acbb704d3d36726010d9
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 207a3a6c59012154d547bbd224782b90e1046c6a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544949"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597959"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucionar problemas de Arquivos do Azure no Windows
 
 Este artigo lista os problemas comuns relacionados aos Arquivos do Microsoft Azure quando você se conecta de clientes Windows. Também fornece as possíveis causas e resoluções para esses problemas. Além das etapas de solução de problemas neste artigo, você também pode usar o [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) para garantir que o ambiente de cliente do Windows tenha os pré-requisitos corretos. O AzFileDiagnostics automatiza a detecção da maioria dos sintomas mencionados neste artigo e ajuda a configurar seu ambiente para obter um desempenho ideal. Também é possível encontrar essas informações na [solução de problemas de compartilhamentos de Arquivos do Azure](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) que fornece etapas para ajudá-lo a resolver problemas de conexão/mapeamento/montagem de compartilhamentos de Arquivos do Azure.
-
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 <a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Erro 5 ao montar um compartilhamento de arquivos do Azure
@@ -250,7 +247,7 @@ use uma das seguintes soluções:
 
 -   Monte a unidade a partir da mesma conta de usuário que contém o aplicativo. Você pode usar uma ferramenta como o PsExec.
 - Passe o nome da conta de armazenamento e a chave nos parâmetros de nome do usuário e senha do comando net use.
-- Use o comando cmdkey para adicionar as credenciais no Gerenciador de Credenciais. Execute isso em uma linha de comando no contexto de conta de serviço, por meio de um logon interativo ou usando Executar como.
+- Use o comando cmdkey para adicionar as credenciais no Gerenciador de Credenciais. Execute-o em uma linha de comando no contexto da conta de serviço, seja por meio de um logon interativo ou usando `runas`.
   
   `cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>`
 - Mapeie o compartilhamento diretamente sem usar uma letra de unidade mapeada. Alguns aplicativos podem não se reconectar à letra da unidade corretamente, portanto, usar o caminho UNC completo pode ser mais confiável. 
@@ -300,7 +297,7 @@ Por exemplo, você pode defini-lo como 0x100000 e ver se o desempenho se torna m
 
 ### <a name="cause"></a>Causa
 
-O erro AadDsTenantNotFound ocorre quando você tenta [habilitar a autenticação do AAD DS (serviço de domínio Azure Active Directory) para arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable) em uma conta de armazenamento em que o [AAD DS (serviço de domínio do AAD)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) não é criado no locatário do AAD da assinatura associada.  
+O erro AadDsTenantNotFound ocorre quando você tenta [habilitar a autenticação Azure Active Directory Domain Services (Azure AD DS) em arquivos do Azure](storage-files-identity-auth-active-directory-domain-service-enable.md) em uma conta de armazenamento em que o [AAD DS (serviço de domínio do AAD)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) não é criado no locatário do AAD da assinatura associada.  
 
 ### <a name="solution"></a>Solução
 

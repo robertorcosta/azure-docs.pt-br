@@ -3,7 +3,7 @@ title: Conectar dados de Cloud App Security ao Azure Sentinel | Microsoft Docs
 description: Saiba como conectar Cloud App Security dados ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: 32e7e79465b68caca9a636019f65b9f08284fc72
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.author: yelevin
+ms.openlocfilehash: 348576fbbdd1037f9e2e792218b96bbbecf36668
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928210"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588358"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Conectar dados de Microsoft Cloud App Security 
 
@@ -27,7 +27,7 @@ ms.locfileid: "73928210"
 
 Você pode transmitir logs de [Cloud app Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) para o Azure Sentinel com um único clique. Essa conexão permite transmitir os alertas de Cloud App Security para o Azure Sentinel. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Usuário com permissões de administrador global ou administrador de segurança
 - Para transmitir Cloud Discovery logs para o Azure Sentinel, [habilite o Azure Sentinel como seu Siem no Microsoft Cloud app Security](https://aka.ms/AzureSentinelMCAS).
@@ -56,5 +56,5 @@ Se Cloud App Security for implantado e ingerir seus dados, os dados de alerta po
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a conectar Microsoft Cloud App Security ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
-- Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
-- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).
+- Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
+- Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).

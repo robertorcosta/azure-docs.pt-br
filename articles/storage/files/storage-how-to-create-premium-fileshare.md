@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4b3e51b5e8d0ee9b62a7e7bc39955396f327c7e7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 237846ec3adda208126aeb22e7900cbf5118ee95
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209547"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598656"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Como criar um compartilhamento de arquivos premium do Azure
 Os compartilhamentos de arquivos Premium são oferecidos na mídia de armazenamento de SSD (disco de estado sólido) e são úteis para cargas de trabalho com uso intensivo de e/s, incluindo bancos de dados de hospedagem e HPC (computação de alto desempenho). Os compartilhamentos de arquivos Premium são hospedados em um tipo de conta de armazenamento de finalidade especial, chamado de conta de armazenamento de arquivo. Os compartilhamentos de arquivos Premium são projetados para aplicativos de alto desempenho e escala empresarial, fornecendo compartilhamentos de baixa latência, IOPS e alta taxa de transferência consistentes.
 
 Este artigo mostra como criar esse novo tipo de conta usando [portal do Azure](https://portal.azure.com/), Azure PowerShell e CLI do Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para acessar os recursos do Azure, incluindo compartilhamentos de arquivos premium do Azure, você precisará de uma assinatura do Azure. Se você ainda não tiver uma assinatura, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -27,7 +27,7 @@ Para acessar os recursos do Azure, incluindo compartilhamentos de arquivos premi
 
 ### <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ### <a name="create-a-filestorage-storage-account"></a>Criar uma conta de armazenamento do FileStorage
 
@@ -67,7 +67,7 @@ Depois que o recurso da conta de armazenamento tiver sido criado, navegue até e
 
    ![Criar um compartilhamento de arquivo premium](media/storage-how-to-create-premium-fileshare/create-premium-file-share.png)
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você quiser limpar os recursos criados neste artigo, bastará excluir o grupo de recursos. Excluir o grupo de recursos também exclui a conta de armazenamento associada, bem como quaisquer outros recursos associados ao grupo de recursos.
 
@@ -77,7 +77,7 @@ Se você quiser limpar os recursos criados neste artigo, bastará excluir o grup
 
 Primeiro, instale a última versão do módulo [PowerShellGet](/powershell/scripting/gallery/installing-psget) do PowerShell.
 
-Em seguida, atualize seu módulo PowerShell, entre em sua assinatura do Azure, crie um grupo de recursos e, em seguida, crie uma conta de armazenamento.
+Em seguida, atualize seu módulo do PowerShell, entre na sua assinatura do Azure, crie um grupo de recursos e, em seguida, crie uma conta de armazenamento.
 
 ### <a name="upgrade-your-powershell-module"></a>Atualizar seu módulo do PowerShell
 
@@ -132,7 +132,7 @@ New-AzStorageShare `
    -Context $storageAcct.Context
 ```
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover o grupo de recursos e seus recursos associados, incluindo a nova conta de armazenamento, use o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup): 
 
@@ -198,7 +198,7 @@ az storage share create \
     --name "myshare" 
 ```
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover o grupo de recursos e seus recursos associados, incluindo a nova conta de armazenamento, use o comando [az group delete](/cli/azure/group).
 
@@ -211,4 +211,4 @@ az group delete --name myResourceGroup
 Neste artigo, você criou um compartilhamento de arquivos premium. Para saber mais sobre o desempenho oferecido por essa conta, continue na seção nível de desempenho do guia de planejamento.
 
 > [!div class="nextstepaction"]
-> [Níveis de desempenho de compartilhamento de arquivos](storage-files-planning.md#file-share-performance-tiers)
+> [Camadas de compartilhamento de arquivos](storage-files-planning.md#storage-tiers)

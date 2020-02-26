@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b05eefb2a0e516772390f898c22e723b08973338
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 3f07105c14d4dafeb689eaaf7d679f93e5f235fe
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484444"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605337"
 ---
 # <a name="protected-web-api-code-configuration"></a>API Web protegida: configuração de código
 
@@ -109,7 +109,7 @@ O middleware é adicionado à API Web por esta instrução:
 
 ```csharp
  services.AddAuthentication(AzureADDefaults.JwtBearerAuthenticationScheme)
-         .AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
+         .AddAzureADBearer(options => Configuration.Bind("AzureAd", options));
 ```
 
  Atualmente, os modelos de ASP.NET Core criam APIs da Web do Azure Active Directory (Azure AD) que conectam usuários em sua organização ou em qualquer organização. Eles não entram em usuários com contas pessoais. Mas você pode alterar os modelos para usar o ponto de extremidade da plataforma de identidade da Microsoft adicionando este código a Startup.cs:

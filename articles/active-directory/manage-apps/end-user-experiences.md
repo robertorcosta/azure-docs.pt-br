@@ -12,12 +12,12 @@ ms.date: 09/27/2019
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f9ff446bae0a010b12e84172d5af60c6ca81c0e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 72b3e37a423442194b81e3d10ecc7157201ff8be
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896908"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586046"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiências do usuário final para aplicativos no Active Directory Domain Services do Azure
 
@@ -32,7 +32,7 @@ A escolha dos métodos para implantação de sua organização fica seu critéri
 
 ## <a name="azure-ad-access-panel"></a>Painel de acesso do AD do Azure
 
-O Painel de Acesso em https://myapps.microsoft.com é um portal baseado na Web que permite a um usuário final com conta organizacional no Azure Active Directory exibir e inicializar aplicativos baseados em nuvem aos quais tenham recebido acesso pelo administrador do Microsoft Azure AD. Se for um usuário final com o [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), você também poderá utilizar recursos de gerenciamento do grupo de autoatendimento por meio do Painel de acesso.
+O painel de acesso em https://myapps.microsoft.com é um portal baseado na Web que permite que um usuário final com uma conta institucional no Azure Active Directory exiba e inicie aplicativos aos quais eles receberam acesso pelo administrador do Azure AD. Se for um usuário final com o [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), você também poderá utilizar recursos de gerenciamento do grupo de autoatendimento por meio do Painel de acesso.
 
 ![Captura de tela mostra o portal do painel de acesso do Azure AD](media/what-is-single-sign-on/azure-ad-access-panel.png)
 
@@ -76,6 +76,6 @@ Quando um usuário autorizado clica em um desses links específicos do aplicativ
 
 Esses links usam os mesmos mecanismos de controle de acesso que o painel de acesso e o Office 365, e apenas esses usuários ou grupos que foram atribuídos ao aplicativo no portal do Azure serão capazes de autenticar com êxito. No entanto, todos os usuários não autorizados receberão uma mensagem explicando que não foi concedido acesso e receberão um link para carregar o painel de acesso para exibir os aplicativos disponíveis para os quais têm acesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para planos de implantação, consulte [planos de implantação do Azure Active Directory Domain Services](../fundamentals/active-directory-deployment-plans.md)

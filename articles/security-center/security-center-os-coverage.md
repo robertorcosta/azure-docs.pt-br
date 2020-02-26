@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 6ec818ff77664fcc038412f79fffc1e3e05b82f0
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 089fcc89f330e47a09187b5338176bf23fd801bb
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294245"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603760"
 ---
 # <a name="supported-platforms"></a>Plataformas compatíveis 
 
@@ -41,7 +41,7 @@ As seções a seguir listam os sistemas operacionais de servidor com suporte nos
 
 ### Sistemas operacionais Windows Server<a name="os-windows"></a>
 
-|SISTEMA OPERACIONAL|Com suporte na central de segurança do Azure|Suporte para integração com o Microsoft defender ATP|
+|Sistema operacional|Com suporte na central de segurança do Azure|Suporte para integração com o Microsoft defender ATP|
 |:---|:-:|:-:|
 |Windows Server 2019|✔|X|
 |Windows Server 2016|✔|✔|
@@ -105,27 +105,25 @@ Os seguintes recursos de PaaS do Azure têm suporte na central de segurança do 
 * Conta do Batch
 * Conta do Service Fabric
 * Conta de automação
-* Load Balancer
-* Pesquisa
+* Balanceador de carga
+* Search
 * Namespace do Barramento de Serviço
 * Stream Analytics
 * Namespace do Hub de Eventos
 * Aplicativos lógicos
 * Redis
 * Data Lake Analytics
-* Repositório Data Lake
-* Key Vault
+* Data Lake Store
+* Cofre de chaves
 
 Para saber mais sobre os recursos com suporte para a lista acima de recursos de PaaS, consulte [recursos compatíveis com serviços de PaaS](security-center-services.md#paas-services).
 
 Também há suporte para a proteção para máquinas virtuais que residem no Azure Stack. Para obter mais informações sobre a integração da central de segurança com o Azure Stack, consulte integrar [suas máquinas virtuais Azure Stack à central de segurança](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [a central de segurança coleta dados e o agente de log Analytics](security-center-enable-data-collection.md).
 - Saiba como a [central de segurança gerencia e protege os dados](security-center-data-security.md).
 - Saiba como [planejar e entender as considerações de design para adotar a Central de Segurança do Azure](security-center-planning-and-operations-guide.md).
 - Saiba mais sobre [os recursos disponíveis para os diferentes ambientes de nuvem](security-center-services.md).
 - Saiba mais sobre [a detecção de ameaças para VMs & servidores na central de segurança do Azure](security-center-alerts-iaas.md).
-- Encontre [perguntas frequentes sobre como usar a Central de Segurança do Azure](security-center-faq.md).
-- Encontre [postagens no blog sobre a conformidade e segurança do Azure](https://blogs.msdn.com/b/azuresecurity/).

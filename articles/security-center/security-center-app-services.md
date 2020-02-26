@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/27/2019
 ms.author: memildin
-ms.openlocfilehash: 81ef598c846d98548be2d3e7647166d655398921
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: c286efcfad78a8f7acf9974605d53ed3cc06a09e
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75912805"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604542"
 ---
 # <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Proteger seus aplicativos Web e APIs do serviço de Azure App
 
@@ -57,12 +57,11 @@ Para desativar o monitoramento e as recomendações do seu serviço de aplicativ
 
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 Neste artigo, você aprendeu como usar os recursos de monitoramento na Central de segurança do Azure. Para saber mais sobre a Central de Segurança do Azure, leia os seguintes artigos:
 
 * [Configurando políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md): saiba como configurar políticas de segurança na Central de Segurança do Azure.
 * [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e responder aos alertas de segurança.
 * [Serviços de aplicativos](security-center-virtual-machine-protection.md#app-services): exiba uma lista de seus ambientes de serviço de aplicativo com resumos de integridade.
 * [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md): saiba como monitorar o status de integridade de suas soluções de parceiros.
-* [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md): encontre as perguntas frequentes sobre como usar o serviço.
 * [Blog de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/): encontre postagens no blog sobre conformidade e segurança do Azure.

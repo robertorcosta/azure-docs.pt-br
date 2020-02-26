@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f3af350c96d1dd9eaf4773db503acb10d8a08a8f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f382406d164aa7378631753c2cfc85bc69003a4f
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441113"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605079"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnosticar e solucionar problemas ao usar o gatilho de Azure Functions para Cosmos DB
 
@@ -66,7 +66,7 @@ Esse cenário pode ter várias causas e todas elas devem ser verificadas:
 
 1. O seu Azure Function está sendo implantado na mesma região da sua conta Azure Cosmos? Para melhor latência de rede, o Azure Function e sua conta Azure Cosmos devem ser colocados na mesma região do Azure.
 2. As alterações que estão ocorrendo em seu contêiner Azure Cosmos são contínuas ou esporádicas?
-Se for a última opção, pode haver algum atraso entre as alterações sendo armazenadas e o Azure Function pegando-as. Isso acontece porque internamente, quando o gatilho verifica as alterações em seu contêiner Azure Cosmos e não encontra nada pendente para ser lido, suspenderá por uma quantidade de tempo configurável (5 segundos, por padrão) antes de verificar novas alterações (para evitar alto consumo da RU). Você pode configurar este tempo de suspensão ao `FeedPollDelay/feedPollDelay`fazer as [configurações](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) do seu gatilho (o valor é esperado em milissegundos).
+Se for a última opção, pode haver algum atraso entre as alterações sendo armazenadas e o Azure Function pegando-as. Isso acontece porque internamente, quando o gatilho verifica as alterações em seu contêiner Azure Cosmos e não encontra nada pendente para ser lido, suspenderá por uma quantidade de tempo configurável (5 segundos, por padrão) antes de verificar novas alterações (para evitar alto consumo da RU). Você pode configurar este tempo de suspensão ao `FeedPollDelay/feedPollDelay`fazer as [configurações](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) do seu gatilho (o valor é esperado em milissegundos).
 3. O contêiner Cosmos do Azure pode ser [limitado por taxa](./request-units.md).
 4. Você pode usar o atributo `PreferredLocations` em seu gatilho para especificar uma lista separada por vírgulas de regiões do Azure para definir uma ordem de conexão preferencial personalizada.
 
@@ -93,10 +93,10 @@ Uma maneira fácil de solucionar essa situação é aplicar um `LeaseCollectionP
 Para processar novamente todos os itens em um contêiner desde o início:
 1. Pare sua função do Azure se ela estiver em execução no momento. 
 1. Excluir os documentos na coleção de concessão (ou excluir e recriar a coleção de concessão para que ela fique vazia)
-1. Defina o atributo [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) CosmosDBTrigger em sua função como true. 
+1. Defina o atributo [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) CosmosDBTrigger em sua função como true. 
 1. Reinicie o Azure function. Agora, ele lerá e processará todas as alterações desde o início. 
 
-Definir [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) como true instruirá a função do Azure a começar a ler as alterações desde o início do histórico da coleção, em vez da hora atual. Isso só funciona quando não há concessões já criadas (ou seja, documentos na coleção de concessões). Definir essa propriedade como true quando houver concessões já criadas não tem efeito; Nesse cenário, quando uma função é interrompida e reiniciada, ela começa a ler do último ponto de verificação, conforme definido na coleção de concessões. Para reprocessar desde o início, siga as etapas acima de 1-4.  
+Definir [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) como true instruirá a função do Azure a começar a ler as alterações desde o início do histórico da coleção, em vez da hora atual. Isso só funciona quando não há concessões já criadas (ou seja, documentos na coleção de concessões). Definir essa propriedade como true quando houver concessões já criadas não tem efeito; Nesse cenário, quando uma função é interrompida e reiniciada, ela começa a ler do último ponto de verificação, conforme definido na coleção de concessões. Para reprocessar desde o início, siga as etapas acima de 1-4.  
 
 ### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>A associação só pode ser feita com IReadOnlyList\<documento > ou JArray
 
@@ -106,9 +106,9 @@ Para solucionar essa situação, remova a referência manual do NuGet que foi ad
 
 ### <a name="changing-azure-functions-polling-interval-for-the-detecting-changes"></a>Alterando o intervalo de sondagem da função do Azure para a detecção de alterações
 
-Conforme explicado anteriormente para [que minhas alterações demore muito para serem recebidas, a](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-to-be-received)função do Azure entrará em suspensão por um período configurável (5 segundos, por padrão) antes de verificar se há novas alterações (para evitar o alto consumo de ru). Você pode configurar este tempo de suspensão ao `FeedPollDelay/feedPollDelay`fazer as [configurações](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) do seu gatilho (o valor é esperado em milissegundos).
+Conforme explicado anteriormente para [que minhas alterações demore muito para serem recebidas, a](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-to-be-received)função do Azure entrará em suspensão por um período configurável (5 segundos, por padrão) antes de verificar se há novas alterações (para evitar o alto consumo de ru). Você pode configurar este tempo de suspensão ao `FeedPollDelay/feedPollDelay`fazer as [configurações](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) do seu gatilho (o valor é esperado em milissegundos).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Habilitar o monitoramento para seu Azure Functions](../azure-functions/functions-monitoring.md)
 * [Solução de problemas do SDK do .NET Azure Cosmos DB](./troubleshoot-dot-net-sdk.md)

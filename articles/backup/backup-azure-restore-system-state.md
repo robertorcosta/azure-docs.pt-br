@@ -4,12 +4,12 @@ description: Explicação passo a passo para restaurar o estado do sistema do Wi
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 08/18/2017
-ms.openlocfilehash: 8e256fbac0651b4c237c540151b3377927989d36
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 6d46a091a4e620e26d05735f12a201009663e65d
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172824"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602455"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar o Estado do Sistema para Windows Server
 
@@ -89,7 +89,7 @@ A terminologia usada nessas etapas inclui:
 6. No painel Selecionar Servidor de Backup, selecione o *Computador de origem* na lista de computadores exibidos.
 7. No painel Selecionar Modo de Recuperação, escolha **Estado do Sistema** e clique em **Avançar**.
 
-    ![Pesquisar](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. No Calendário no painel **Selecionar Volume e Data**, selecione um ponto de recuperação. Você pode restaurar de qualquer ponto de recuperação. As datas em **negrito** indicam a disponibilidade de pelo menos um ponto de recuperação. Depois de selecionar uma data, se houver vários pontos de recuperação disponíveis, escolha o ponto de recuperação específico no menu suspenso **Hora**.
 
@@ -159,7 +159,7 @@ Uma vez você tiver recuperado o estado do sistema como arquivos usando o agente
 O backup de estado do sistema inclui dados do Active Directory. Use as etapas a seguir para restaurar o Serviço de Domínio do Active Directory (AD DS) de seu estado atual para um estado anterior.
 
 1. Reinicie o controlador de domínio no Modo de Restauração dos Serviços de Diretório (DSRM).
-2. Siga as etapas [aqui](https://technet.microsoft.com/library/cc794755(v=ws.10).aspx) para usar cmdlets do Backup do Windows Server para recuperar o AD DS.
+2. Siga as etapas [aqui](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) para usar cmdlets do Backup do Windows Server para recuperar o AD DS.
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Solucionar problemas de restauração de estado do sistema com falha
 

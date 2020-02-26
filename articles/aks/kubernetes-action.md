@@ -3,16 +3,15 @@ title: Compilar, testar e implantar contêineres no serviço kubernetes do Azure
 description: Saiba como usar as ações do GitHub para implantar seu contêiner no kubernetes
 services: container-service
 author: azooinmyluggage
-ms.service: container-service
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: atulmal
-ms.openlocfilehash: 62fcdf01250728cf84726db7e9b39452a4d4e5ff
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 5ee8ee4d2c9e225d82e58daffeef9e5f09e43e6b
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77046356"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595358"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>Ações do GitHub para implantação no serviço kubernetes
 
@@ -130,7 +129,7 @@ jobs:
           demo-k8s-secret
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Você pode encontrar nosso conjunto de ações em repositórios diferentes no GitHub, cada um contendo documentação e exemplos para ajudá-lo a usar o GitHub para CI/CD e implantar seus aplicativos no Azure.
 

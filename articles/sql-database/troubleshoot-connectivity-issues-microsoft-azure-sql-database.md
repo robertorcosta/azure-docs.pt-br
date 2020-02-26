@@ -9,12 +9,12 @@ author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: carlrab,vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 9ee43533532f51f6f0d2aa9d0d4e8d3993ccadb4
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 6baf9d4edba9ba8db008c5c6a8d7af6832ba3273
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027740"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591227"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-microsoft-azure-sql-database"></a>Solucionar problemas de conectividade e outros erros com o Banco de Dados SQL do Microsoft Azure
 
@@ -27,7 +27,7 @@ O sistema Azure tem a capacidade de reconfigurar dinamicamente os servidores qua
 ### <a name="list-of-transient-fault-error-codes"></a>Lista de códigos de erro transitórios
 
 
-| Código do erro | Gravidade | Description |
+| Código do erro | Severity | DESCRIÇÃO |
 | ---:| ---:|:--- |
 | 4060 |16 |Não é possível abrir o banco de dados "%.&#x2a;ls" solicitado pelo logon. Falha no logon. Para obter mais informações, consulte [erros 4000 a 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
 | 40197 |17 |O serviço encontrou um erro ao processar sua solicitação. Tente novamente. Código de erro %d.<br/><br/>Você recebe este erro quando o serviço fica inativo devido a upgrades de software ou hardware, falhas de hardware ou outros problemas de failover. O código de erro (% d) incorporado na mensagem de erro 40197] fornece informações adicionais sobre o tipo de falha ou failover ocorrido. Alguns exemplos de códigos que são inseridos na mensagem de erro 40197 são 40020, 40143, 40166 e 40540.<br/><br/>A reconexão ao servidor do Banco de Dados SQL conecta você automaticamente a uma cópia íntegra do banco de dados. Seu aplicativo deve capturar o erro 40197, registrar o código de erro inserido (%d) na mensagem para solução do problema e tentar se reconectar ao Banco de Dados SQL até que os recursos estejam disponíveis e a conexão seja restabelecida. Para obter mais informações, consulte [erros transitórios](sql-database-connectivity-issues.md#transient-errors-transient-faults).|
@@ -230,8 +230,8 @@ As etapas a seguir podem ajudá-lo a solucionar o problema ou fornecer opções 
 
    ```sql
    SELECT o.name,
-    a.SUM(p.row_count) AS 'Row Count',
-    b.SUM(p.reserved_page_count) * 8.0 / 1024 AS 'Table Size (MB)'
+    SUM(p.row_count) AS 'Row Count',
+    SUM(p.reserved_page_count) * 8.0 / 1024 AS 'Table Size (MB)'
    FROM sys.objects o
    JOIN sys.dm_db_partition_stats p on p.object_id = o.object_id
    GROUP BY o.name
@@ -297,7 +297,7 @@ Para obter um procedimento detalhado de solução de problemas, consulte a [minh
 
 ### <a name="table-of-additional-resource-governance-error-messages"></a>Tabela de mensagens de erro adicionais de governança de recursos
 
-| Código do erro | Gravidade | Description |
+| Código do erro | Severity | DESCRIÇÃO |
 | ---:| ---:|:--- |
 | 10928 |20 |ID do recurso: %d. O limite de %s para o banco de dados é %d e foi atingido. Para saber mais, confira [Limites de recursos do Banco de Dados SQL para bancos de dados individuais em pool](sql-database-resource-limits-database-server.md).<br/><br/>A ID do recurso indica qual dos recursos atingiu o limite. Para threads de trabalho, a ID do recurso é igual a 1. Para sessões, a ID do recurso é igual a 2.<br/><br/>Para obter mais informações sobre esse erro e como resolvê-lo, consulte: <br/>limites de [recursos de servidor de banco de dados](sql-database-resource-limits-database-server.md) &bull; &nbsp;<br/>&bull; &nbsp;[limites com base em DTU para bancos de dados individuais](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[limites com base em DTU para pools elásticos](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[limites baseados em vCore para bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[limites baseados em vCore para pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[limites de recursos de instância gerenciada](sql-database-managed-instance-resource-limits.md). |
 | 10929 |20 |ID do recurso: %d. A garantia mínima de %s é %d, o limite máximo é %d e o uso atual do banco de dados é %d. No entanto, o servidor está muito ocupado para dar suporte a solicitações maiores que %d para este banco de dados. A ID do recurso indica qual dos recursos atingiu o limite. Para threads de trabalho, a ID do recurso é igual a 1. Para sessões, a ID do recurso é igual a 2. Para obter mais informações, consulte: <br/>limites de [recursos de servidor de banco de dados](sql-database-resource-limits-database-server.md) &bull; &nbsp;<br/>&bull; &nbsp;[limites com base em DTU para bancos de dados individuais](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[limites com base em DTU para pools elásticos](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[limites baseados em vCore para bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[limites baseados em vCore para pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[limites de recursos de instância gerenciada](sql-database-managed-instance-resource-limits.md). <br/>Caso contrário, tente novamente mais tarde. |
@@ -312,7 +312,7 @@ Para obter um procedimento detalhado de solução de problemas, consulte a [minh
 
 Os seguintes erros estão relacionados à criação e ao uso de pools elásticos:
 
-| Código do erro | Gravidade | Description | Ação Corretiva |
+| Código do erro | Severity | DESCRIÇÃO | Ação Corretiva |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |O pool elástico atingiu seu limite de armazenamento. O uso do armazenamento do pool elástico não pode exceder (%d) MB. Tentando gravar dados em um banco de dados quando o limite de armazenamento do pool elástico foi atingido. Para obter informações sobre limites de recursos, consulte: <br/>&bull; &nbsp;[limites com base em DTU para pools elásticos](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[limites baseados em vCore para pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md). <br/> |Considere a possibilidade de aumentar as DTUs e/ou adicionar armazenamento ao pool elástico, se possível, para aumentar seu limite de armazenamento, reduzir o armazenamento usado por bancos de dados individuais dentro do pool elástico ou remover bancos de dados do pool elástico. Para o dimensionamento do pool elástico, consulte [dimensionar recursos do pool elástico](sql-database-elastic-pool-scale.md).|
 | 10929 | 16 |A garantia mínima de %s é %d, o limite máximo é %d e o uso atual do banco de dados é %d. No entanto, o servidor está muito ocupado para dar suporte a solicitações maiores que %d para este banco de dados. Para obter informações sobre limites de recursos, consulte: <br/>&bull; &nbsp;[limites com base em DTU para pools elásticos](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[limites baseados em vCore para pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md). <br/> Caso contrário, tente novamente mais tarde. DTU / vCore min por banco de dados; DTU / vCore max por banco de dados. O número total de trabalhos simultâneos (solicitações) em todos os bancos de dados no pool elástico tentou exceder o limite do pool. |Considere a possibilidade de aumentar as DTUs ou vCores do pool elástico, se possível, para aumentar o limite de funções de trabalho ou remover bancos de dados do pool elástico. |
@@ -333,7 +333,7 @@ Os seguintes erros estão relacionados à criação e ao uso de pools elásticos
 | 40881 | 16 |O pool elástico '%.*ls' atingiu o limite de banco de dados.  O limite de bancos de dados para o pool elástico não pode exceder (%d) para um pool elástico com (%d) DTUs. Tentando criar ou adicionar um banco de dados ao pool elástico quando o limite de bancos de dados do pool elástico foi atingido. | Considere a possibilidade de aumentar as DTUs do pool elástico, se possível, para aumentar o limite de bancos de dados ou remover bancos de dados do pool elástico. |
 | 40889 | 16 |O limite de DTUs ou de armazenamento para o pool elástico '%.*ls' não pode ser reduzido, pois não haveria espaço de armazenamento suficiente para seus bancos de dados. Tentando reduzir o limite de armazenamento do pool elástico abaixo do seu uso de armazenamento. | Considere a possibilidade de reduzir o uso do armazenamento de bancos de dados individuais no pool elástico ou remover bancos de dados do pool para reduzir seu limite de DTUs ou de armazenamento. |
 | 40891 | 16 |O mínimo de DTUs por banco de dados (%d) não pode ser superior ao máximo de DTUs por banco de dados (%d). Tentando definir o mínimo de DTUs por banco de dados acima do máximo de DTUs por banco de dados. |Verifique se o mínimo de DTUs por bancos de dados não excede o máximo de DTUs por banco de dados. |
-| A ser definido | 16 |O tamanho do armazenamento de um banco de dados individual em um pool elástico não pode exceder o tamanho máximo permitido pelo pool elástico da camada de serviço “%.*ls”. O tamanho máximo do banco de dados excede o tamanho máximo permitido pela camada de serviço do pool elástico. |Defina o tamanho máximo do banco de dados dentro dos limites do tamanho máximo permitido pela camada de serviço do pool elástico. |
+| TBD | 16 |O tamanho do armazenamento de um banco de dados individual em um pool elástico não pode exceder o tamanho máximo permitido pelo pool elástico da camada de serviço “%.*ls”. O tamanho máximo do banco de dados excede o tamanho máximo permitido pela camada de serviço do pool elástico. |Defina o tamanho máximo do banco de dados dentro dos limites do tamanho máximo permitido pela camada de serviço do pool elástico. |
 
 ## <a name="cannot-open-database-master-requested-by-the-login-the-login-failed"></a>Não é possível abrir o banco de dados "mestre" solicitado pelo logon. Falha no logon
 
@@ -389,7 +389,7 @@ Se essas etapas não resolverem o problema, tente coletar mais dados e entre em 
 
 Para obter mais informações sobre como habilitar o registro em log, consulte [habilitar o log de diagnóstico para aplicativos no serviço Azure app](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Arquitetura de conectividade do SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture)
 * [Controles de acesso à rede do banco de dados SQL do Azure e do data warehouse](https://docs.microsoft.com/azure/sql-database/sql-database-networkaccess-overview)

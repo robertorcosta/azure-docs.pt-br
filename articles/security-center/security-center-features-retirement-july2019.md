@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: bb8cfae73d84135858733899e6441f564106e9d1
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 456f379e2b3c2ff411b196d45aef4663fddb0fe6
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997217"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604337"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Aposentadoria dos recursos da central de segurança (julho de 2019)
 
@@ -105,7 +105,7 @@ Removemos o botão **ir para mapa de eventos de segurança** e o painel por espa
 
 Quando você seleciona o botão **ir para mapa de eventos de segurança** , ele abriu o painel de inteligência contra ameaças (agora desativado).
 
-![Painel Inteligência Contra Ameaças][11]
+![Painel Inteligência contra ameaças][11]
 
 Ao escolher um espaço de trabalho para exibir seu painel de inteligência contra ameaças, você abriu a tela (visualização) mapa de alertas de segurança (versão prévia) no Log Analytics.
 
@@ -189,7 +189,7 @@ Aconselhamos que você alterne para a central de segurança do Azure. Ele fornec
 
 Você pode obter as consultas de Log Analytics originais que preenchem o painel segurança e auditoria no [repositório GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards) para a central de segurança.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre a [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/).
 - Saiba mais sobre o [Azure Sentinel](https://docs.microsoft.com/azure/sentinel).

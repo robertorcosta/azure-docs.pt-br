@@ -1,10 +1,10 @@
 ---
-title: Preparação da infraestrutura do Azure para alta disponibilidade do SAP usando o cluster de failover do Windows e o disco compartilhado para a instância SAP ASCS/SCS | Microsoft Docs
+title: Infraestrutura do Azure para SAP ASCS/SCS com WSFC & disco compartilhado | Microsoft Docs
 description: Aprenda a preparação da infraestrutura do Azure para alta disponibilidade do SAP usando o cluster de failover do Windows e o disco compartilhado para a instância SAP ASCS/SCS.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
-ms.author: rclaus
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4de954d55725f36d48d09ac46ef3700787d937b
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 8a49bc979923bf52d099e30615910c5bdb0601b6
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647638"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591924"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Prepare a infraestrutura do Azure para alta disponibilidade do SAP usando o cluster de failover do Windows e o disco compartilhado para a instância SAP ASCS/SCS
 
@@ -164,7 +164,7 @@ ms.locfileid: "75647638"
 
 Este artigo descreve as etapas para preparar a infraestrutura do Azure para instalar e configurar um sistema SAP de alta disponibilidade em um cluster de failover do Windows usando um *disco compartilhado de cluster* como uma opção para clustering de um Instância SAP ASCS.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar a instalação, analise este artigo:
 
@@ -223,7 +223,7 @@ _**Figura 1:** Definir os parâmetros de SAP de alta disponibilidade do Azure Re
 >
 
 ## <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Implantar máquinas virtuais com conectividade de rede corporativa (entre locais) para uso na produção
-Para sistemas SAP de produção, implante máquinas virtuais do Azure com [conectividade de rede corporativa (entre instalações)][planning-guide-2.2] usando o gateway de VPN do Azure ou o Azure ExpressRoute.
+Para sistemas SAP de produção, implante máquinas virtuais do Azure com conectividade de rede corporativa usando o gateway de VPN do Azure ou o Azure ExpressRoute.
 
 > [!NOTE]
 > Você pode usar a instância da Rede Virtual do Azure. A rede virtual e a sub-rede já foram criadas e preparadas.
@@ -332,7 +332,7 @@ O balanceador de carga será configurado para usar as seguintes portas de invest
 
 O modelo de banco de dados implanta uma ou duas máquinas virtuais que você pode usar para instalar o RDBMS (sistema de gerenciamento de banco de dados relacional) para um sistema SAP. Se, por exemplo, você implantou um modelo ASCS/SCS para cinco sistemas SAP, precisará implantar esse modelo cinco vezes.
 
-Para configurar o modelo de vários Sid de banco de dados, no [modelo de vários Sid de banco de dados][sap-templates-3-tier-multisid-db-marketplace-image] ou [modelo de vários Sid de banco de dados usando Managed disks][sap-templates-3-tier-multisid-db-marketplace-image-md], insira valores para os seguintes parâmetros:
+Para configurar o modelo de vários Sid de banco de dados, no modelo de vários SID [de banco de dados ou][sap-templates-3-tier-multisid-db-marketplace-image] [modelo de vários Sid][sap-templates-3-tier-multisid-db-marketplace-image-md]de banco de dados usando Managed disks, insira valores para os seguintes parâmetros:
 
 - Insira a ID do sistema SAP do sistema SAP, que você deseja instalar. A ID é usada como um prefixo para os recursos que serão implantados.
 - Selecione o sistema operacional das máquinas virtuais.
@@ -373,7 +373,7 @@ Para definir os endereços IP de DNS necessários, execute as seguintes etapas:
 
 1. No Portal do Azure, na folha de **Servidores DNS**, verifique se sua opção de rede virtual **Servidores DNS** está definida para **DNS Personalizado**.
 2. Selecione suas configurações com base no seu tipo de rede. Para saber mais, consulte os recursos a seguir:
-   * [Conectividade de rede corporativa (entre instalações)][planning-guide-2.2]: Adicione os endereços IP dos servidores DNS locais.  
+   * adicione os endereços IP dos servidores DNS locais.  
    Você pode estender os servidores DNS locais às máquinas virtuais que estão em execução no Azure. Nesse cenário, você pode adicionar os endereços IP das máquinas virtuais do Azure nos quais executa o serviço DNS.
    * Para implantações de VM isoladas no Azure: implante uma máquina virtual adicional na mesma instância de rede virtual que serve como um servidor DNS. Adicione os endereços IP das máquinas virtuais do Azure que você configurou para executar o serviço DNS.
 
@@ -525,7 +525,7 @@ Se você quiser usar números diferentes para as instâncias SAP ASCS ou SCS, pr
 2. Para todas as regras de balanceamento de carga que pertencem à instância do SAP ASCS ou SCS, altere estes valores:
 
    * Nome
-   * Port
+   * Porta
    * Porta de back-end
 
    Por exemplo, se você quer alterar o número de instância do ASCS padrão de 00 para 31, precisa fazer as alterações em todas as portas listadas na Tabela 1.
@@ -888,6 +888,6 @@ Depois de instalar o SIOS DataKeeper em ambos os nós, você precisará iniciar 
 
    _**Figura 45:** O Gerenciador de Cluster de Failover mostra o disco do DataKeeper replicado_
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Instalar o SAP NetWeaver HA usando um cluster de failover do Windows e um disco compartilhado para uma instância do SAP ASCS/SCS][sap-high-availability-installation-wsfc-shared-disk]

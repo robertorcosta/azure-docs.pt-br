@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 11/19/2019
-ms.openlocfilehash: da8c194b7911d2eeda8e0c903cb7412186aacfcb
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: fa41649e002bd4845b95e787c1d0589ed1987588
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638248"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587236"
 ---
 # <a name="sql-database-resource-limits-and-resource-governance"></a>Limites de recursos do banco de dados SQL e governança de recursos
 
@@ -27,7 +27,7 @@ Este artigo fornece uma visão geral dos limites de recursos do Banco de Dados S
 
 ## <a name="maximum-resource-limits"></a>Limites máximos de recursos
 
-| Grupos | Limite |
+| Recurso | Limite |
 | :--- | :--- |
 | Bancos de dados por servidor | 5\.000 |
 | Número padrão de servidores por assinatura por região | 20 |
@@ -37,14 +37,14 @@ Este artigo fornece uma visão geral dos limites de recursos do Banco de Dados S
 | Pools de máx por servidor | Limitado pelo número de DTUs ou vCores. Por exemplo, se cada pool tiver 1.000 DTUs, um servidor poderá dar suporte a 54 pools.|
 |||
 
-> [!NOTE]
-> Para obter mais cota de DTU/eDTU, cota de vCore ou mais servidores do que o valor padrão, uma nova solicitação de suporte pode ser enviada no portal do Azure para a assinatura com o tipo de problema "cota". A cota de DTU/eDTU e o limite de banco de dados por servidor restringem o número de pools elásticos por servidor.
-
 > [!IMPORTANT]
 > Conforme o número de bancos de dados vai se aproximando do limite por servidor do Banco de Dados SQL, pode ocorrer o seguinte:
 >
 > - Aumento de latência nas consultas em execução no banco de dados mestre.  Isso inclui modos de exibição de estatísticas de utilização de recursos, como sys.resource_stats.
 > - Aumento de latência nas operações de gerenciamento e pontos de vista do portais de renderização que envolvem a enumeração de bancos de dados no servidor.
+
+> [!NOTE]
+> Para obter mais cota de DTU/eDTU, cota de vCore ou mais servidores do que o valor padrão, envie uma nova solicitação de suporte no portal do Azure. Para obter mais informações, consulte [aumentos de cota de solicitação para o banco de dados SQL do Azure](quota-increase-request.md).
 
 ### <a name="storage-size"></a>Tamanho de armazenamento
 
@@ -132,7 +132,7 @@ Ao encontrar um limite de taxa de log que está atrasando a escalabilidade desej
 - Se os dados que estão sendo carregados forem transitórios, como dados de preparo em um processo de ETL, eles poderão ser carregados em tempdb (que é minimamente registrado). 
 - Para cenários analíticos, carregue em uma tabela coberta por columnstore clusterizado. Isso reduz a taxa de log necessária devido à compactação. Essa técnica aumenta a utilização da CPU e só é aplicável a conjuntos de dados que se beneficiam de índices columnstore clusterizados. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre limites gerais do Azure, confira [Assinatura do Azure e limites de serviço, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Para saber mais sobre DTUs e eDTUs, confira [DTUs e eDTUs](sql-database-purchase-models.md#dtu-based-purchasing-model).

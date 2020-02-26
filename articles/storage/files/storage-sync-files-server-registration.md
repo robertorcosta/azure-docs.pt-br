@@ -7,27 +7,25 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9bbeda33f25aec15124bacb605513a3c52c3f07e
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 2656716560b981481273c3032fc0c7b1a06be8a2
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699263"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597636"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gerenciar servidores registrados com a Sincronização de Arquivos do Azure
 A Sincronização de Arquivos do Azure permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter todos os caches de que precisar ao redor do mundo.
 
 O artigo a seguir ilustra como registrar e gerenciar um servidor com um Serviço de Sincronização de Armazenamento. Consulte [Como implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md) para obter informações sobre como implantar a Sincronização de Arquivos do Azure de ponta a ponta.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Registrar/cancelar o registro de um servidor no Serviço de Sincronização de Armazenamento
 Registrar um servidor na Sincronização de arquivos do Azure estabelece uma relação de confiança entre o Windows Server e o Azure. Essa relação pode ser usada para criar *pontos de extremidade do servidor* no servidor, que representam as pastas específicas que devem ser sincronizadas com um compartilhamento de arquivos do Azure (também conhecidas como *pontos de extremidade de nuvem*). 
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 Para registrar um servidor em um Serviço de Sincronização de Armazenamento, primeiro você deve preparar o servidor com os pré-requisitos necessários:
 
-* O servidor deve estar executando uma versão do Windows Server compatível. Para obter mais informações, veja [Requisitos de sistema da Sincronização de Arquivos do Azure e interoperabilidade](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
+* O servidor deve estar executando uma versão do Windows Server compatível. Para obter mais informações, veja [Requisitos de sistema da Sincronização de Arquivos do Azure e interoperabilidade](storage-sync-files-planning.md#windows-file-server-considerations).
 * Certifique-se de que um Serviço de Sincronização de Armazenamento foi implantado. Para obter mais informações sobre como implantar um Serviço de Sincronização de Armazenamento, consulte [Como implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md).
 * Certifique-se de que o servidor está conectado à Internet e que o Azure está acessível.
 * Desabilite a Configuração de Segurança Reforçada do IE para administradores com a interface do usuário do Gerenciador do Servidor.
@@ -151,7 +149,7 @@ Agora que todos os dados foram recuperados e o servidor foi removido de todos os
 1. No portal do Azure, navegue até a seção *Servidores registrados* do Serviço de Sincronização de Armazenamento.
 2. Clique com botão direito do mouse no servidor do qual deseja cancelar o registro e clique em “Cancelar Registro do Servidor”.
 
-    ![Cancelar registro do servidor](media/storage-sync-files-server-registration/unregister-server-1.png)
+    ![Cancelar o registro do servidor](media/storage-sync-files-server-registration/unregister-server-1.png)
 
 ## <a name="ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter"></a>Garantindo que a Sincronização de arquivos do Azure seja uma boa vizinha no seu data center 
 Como a Sincronização de arquivos do Azure raramente será o único serviço em execução em seu data center, é interessante limitar o uso de rede e de armazenamento da Sincronização de arquivos do Azure.
@@ -187,7 +185,7 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 ### <a name="use-windows-server-storage-qos"></a>Usar a QoS de armazenamento do Windows Server 
 Quando a Sincronização de arquivos do Azure estiver hospedada em uma máquina virtual em execução em um host de virtualização do Windows Server, você poderá usar a QoS de armazenamento (qualidade de serviço de armazenamento) para regular o consumo de E/S do armazenamento. A política de QoS de armazenamento pode ser definida como um nível máximo (ou um limite, da mesma forma em que o limite de StorageSyncNetwork é imposto acima) ou como um nível mínimo (ou uma reserva). Definir um nível mínimo em vez de um máximo permite que a Sincronização de arquivos do Azure seja disparada para usar a largura de banda de armazenamento disponível se outras cargas de trabalho não a estiverem usando. Para obter mais informações, consulte [Qualidade de serviço do armazenamento](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 - [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
 - [Implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md)
 - [Monitorar a Sincronização de Arquivos do Azure](storage-sync-files-monitoring.md)

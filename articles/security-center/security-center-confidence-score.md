@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: memildin
-ms.openlocfilehash: ca2afaa9f4e01ac56657681ce71e32e3c5375fdf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8aa17f473c550c99d91862754e6a746575aca202
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355639"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604374"
 ---
 # <a name="alert-confidence-score-preview"></a>Pontuação de confiança de alerta (visualização)
 
@@ -47,14 +47,6 @@ Para exibir os dados que contribuíram para a confiança da Central de Seguranç
   ![Pontuação de confiança suspeita][2]
 
 Use a pontuação de confiança da Central de Segurança para priorizar a triagem de alertas em seu ambiente. A pontuação de confiança economiza tempo e esforço por investigar automaticamente os alertas, aplicando as práticas recomendadas do setor e algoritmos inteligentes e atuando como um analista virtual para determinar quais ameaças são reais e onde você precisa concentrar sua atenção.
-
-
-## <a name="next-steps"></a>Próximos passos
-Este artigo explicou como usar a pontuação de confiança para priorizar a investigação de alertas. Para saber mais sobre a Central de Segurança, confira o seguinte:
-
-* [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre perguntas frequentes sobre como usar o serviço.
-* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md)– saiba como monitorar a integridade dos recursos do Azure.
-
 
 
 <!--Image references-->

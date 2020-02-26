@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: cfa767a42800ceaf78fe007a8468fe9113a2d412
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 4d65ca8d97e1cca81886259d4f15cc880e45be9c
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558778"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604279"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoramento de integridade de arquivo na Central de Segurança do Azure
 Saiba como configurar o FIM (Monitoramento de Integridade de Arquivo) na Central de Segurança do Azure usando este passo a passo.
@@ -198,7 +198,7 @@ Você pode desabilitar o FIM. O FIM usa a solução de Controle de Alterações 
 
 4. Selecione **Remover** para desabilitar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu a usar o FIM (monitoramento de integridade de arquivo) na central de segurança. Para saber mais sobre a central de segurança, consulte as seguintes páginas:
 
 * [Configurando políticas de segurança](tutorial-security-policy.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
@@ -206,7 +206,6 @@ Neste artigo, você aprendeu a usar o FIM (monitoramento de integridade de arqui
 * [Monitoramento da integridade da segurança](security-center-monitoring.md): saiba como monitorar a integridade dos seus recursos do Azure.
 * [Gerenciar e responder aos alertas de segurança](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e responder aos alertas de segurança.
 * [Monitorar as soluções de parceiros](security-center-partner-solutions.md): saiba como monitorar o status da integridade de suas soluções de parceiros.
-* [Perguntas frequentes da Central de Segurança](security-center-faq.md): encontre as perguntas frequentes sobre como usar o serviço.
 * [Blog de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/): obtenha as últimas notícias de segurança e informações do Azure.
 
 <!--Image references-->

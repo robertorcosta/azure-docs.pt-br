@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 02/18/2020
-ms.openlocfilehash: 6e6d4ea6c96949a60677bcf3bf40a53ec3a251c7
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.date: 02/25/2020
+ms.openlocfilehash: 12d457d8d5e57dc4db16d9a191c7795a5f013574
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526851"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605020"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Visão geral dos limites de recursos de instância gerenciada do banco de dados SQL
 
@@ -74,7 +74,7 @@ A instância gerenciada tem duas camadas de serviço: [uso geral](sql-database-s
 | Número máximo de arquivos de banco de dados por instância | Até 280, a menos que o limite de tamanho do armazenamento de instância ou [do espaço de alocação do armazenamento em disco Premium do Azure](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) tenha sido atingido. | 32.767 arquivos por banco de dados, a menos que o limite de tamanho do armazenamento de instância tenha sido atingido. |
 | Tamanho máximo do arquivo de dados | Limitado ao tamanho de armazenamento da instância disponível no momento (máx. 2 TB-8 TB) e ao [espaço de alocação do armazenamento em disco Premium do Azure](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Limitado ao tamanho de armazenamento de instância disponível no momento (até 1 TB-4 TB). |
 | Tamanho máximo do arquivo de log | Limitado a 2 TB e tamanho de armazenamento de instância disponível no momento. | Limitado a 2 TB e tamanho de armazenamento de instância disponível no momento. |
-| Dados/Log IOPS (aproximado) | Até 30-40 K IOPS por instância *, 500-7500 por arquivo<br/>\*[aumentar o tamanho do arquivo para obter mais IOPS](#file-io-characteristics-in-general-purpose-tier)| 5,5 k-110 K (1375 IOPS/vCore)<br/>Adicione mais vCores para obter melhor desempenho de e/s. |
+| Dados/Log IOPS (aproximado) | Até 30-40 K IOPS por instância *, 500-7500 por arquivo<br/>\*[aumentar o tamanho do arquivo para obter mais IOPS](#file-io-characteristics-in-general-purpose-tier)| 10 k-200 K (2500 IOPS/vCore)<br/>Adicione mais vCores para obter melhor desempenho de e/s. |
 | Limite de taxa de transferência de gravação de log (por instância) | 3 MB/s por vCore<br/>Máximo de 22 MB/s | 4 MB/s por vCore<br/>Máx. de 48 MB/s |
 | Taxa de transferência de dados (aproximada) | 100 – 250 MB/s por arquivo<br/>\*[aumentar o tamanho do arquivo para obter melhor desempenho de e/s](#file-io-characteristics-in-general-purpose-tier) | Não limitado. |
 | Latência de e/s de armazenamento (aproximada) | 5-10 ms | 1-2 ms |
@@ -107,7 +107,7 @@ Também há limites no nível da instância, como taxa de transferência máxima
 
 ## <a name="supported-regions"></a>Regiões com suporte
 
-As instâncias gerenciadas podem ser criadas somente em [regiões com suporte](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Para criar uma instância gerenciada em uma região que não tem suporte no momento, você pode [Enviar uma solicitação de suporte por meio do portal do Azure](#obtaining-a-larger-quota-for-sql-managed-instance).
+As instâncias gerenciadas podem ser criadas somente em [regiões com suporte](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Para criar uma instância gerenciada em uma região que não tem suporte no momento, você pode [Enviar uma solicitação de suporte por meio do portal do Azure](quota-increase-request.md).
 
 ## <a name="supported-subscription-types"></a>Tipos de assinatura com suporte
 
@@ -122,13 +122,13 @@ Atualmente, a instância gerenciada dá suporte à implantação somente nos seg
 
 ## <a name="regional-resource-limitations"></a>Limitações de recursos regionais
 
-Os tipos de assinatura suportados podem conter um número limitado de recursos por região. A instância gerenciada tem dois limites padrão por região do Azure (que podem ser aumentadas sob demanda por meio da criação de uma [solicitação de suporte especial no portal do Azure](#obtaining-a-larger-quota-for-sql-managed-instance)), dependendo de um tipo de assinatura:
+Os tipos de assinatura suportados podem conter um número limitado de recursos por região. A instância gerenciada tem dois limites padrão por região do Azure (que podem ser aumentadas sob demanda criando uma [solicitação de suporte especial no portal do Azure](quota-increase-request.md) dependendo de um tipo de assinatura:
 
 - **Limite de sub-rede**: o número máximo de sub-redes nas quais as instâncias gerenciadas são implantadas em uma única região.
 - **limite de unidade VCORE**: o número máximo de unidades VCORE que podem ser implantadas em todas as instâncias em uma única região. Um vCore da GP usa uma unidade vCore e um vCore de BC usa 4 unidades vCore. O número total de instâncias não é limitado, desde que esteja dentro do limite da unidade vCore.
 
 > [!Note]
-> Esses limites são configurações padrão e não limitações técnicas. Os limites podem ser aumentados sob demanda criando uma solicitação especial [de suporte no portal do Azure](#obtaining-a-larger-quota-for-sql-managed-instance) se você precisar de mais instâncias gerenciadas na região atual. Como alternativa, você pode criar novas instâncias gerenciadas em outra região do Azure sem enviar solicitações de suporte.
+> Esses limites são configurações padrão e não limitações técnicas. Os limites podem ser aumentados sob demanda criando uma solicitação especial [de suporte no portal do Azure](quota-increase-request.md) se você precisar de mais instâncias gerenciadas na região atual. Como alternativa, você pode criar novas instâncias gerenciadas em outra região do Azure sem enviar solicitações de suporte.
 
 A tabela a seguir mostra os **limites regionais padrão** para os tipos de assinatura com suporte (os limites padrão podem ser estendidos usando a solicitação de suporte descrita abaixo):
 
@@ -146,39 +146,9 @@ A tabela a seguir mostra os **limites regionais padrão** para os tipos de assin
 
 \*\* maiores limites de sub-rede e vCore estão disponíveis nas seguintes regiões: leste da Austrália, leste dos EUA, leste dos EUA 2, Europa Setentrional, Sul EUA Central, Sudeste Asiático, Sul do Reino Unido, Europa Ocidental, oeste dos EUA 2.
 
-## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Obtendo uma cota maior para a instância gerenciada do SQL
+## <a name="request-a-quota-increase-for-sql-managed-instance"></a>Solicitar um aumento de cota para instância gerenciada do SQL
 
-Se você precisar de mais instâncias gerenciadas em suas regiões atuais, envie uma solicitação de suporte para estender a cota usando o portal do Azure.
-Para iniciar o processo de obtenção de uma cota maior:
-
-1. Abra **ajuda + suporte**e clique em **nova solicitação de suporte**.
-
-   ![Ajuda e Suporte](media/sql-database-managed-instance-resource-limits/help-and-support.png)
-2. Na guia Básico da nova solicitação de suporte:
-   - Para **tipo de problema**, selecione **Limites de serviço e assinatura (cotas)** .
-   - Em **Assinatura**, selecione sua assinatura.
-   - Para **tipo de cota**, selecione **instância gerenciada do banco de dados do SQL**.
-   - Para **plano de suporte**, selecione o plano de suporte.
-
-     ![Cota de tipo de problema](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
-
-3. Clique em **Próximo**.
-4. Na **guia problema** da nova solicitação de suporte:
-   - Para **Gravidade**, selecione o nível de gravidade do problema.
-   - Para **Detalhes**, forneça informações adicionais sobre o seu problema, incluindo mensagens de erro.
-   - Para **Upload de arquivo**, anexe um arquivo com mais informações (até 4 MB).
-
-     ![Detalhes do problema](media/sql-database-managed-instance-resource-limits/problem-details.png)
-
-     > [!IMPORTANT]
-     > Uma solicitação válida deve incluir:
-     > - Região na qual o limite de assinatura precisa ser aumentado.
-     > - Número necessário de vCores, por camada de serviço em sub-redes existentes após o aumento da cota (se qualquer uma das sub-redes existentes precisar ser expandida.
-     > - Número necessário de novas sub-redes e número total de vCores por camada de serviço nas novas sub-redes (se você precisar implantar instâncias gerenciadas em novas sub-redes).
-
-5. Clique em **Próximo**.
-6. Na guia Informações de contato da nova solicitação de suporte, insira o método de contato preferencial (email ou telefone) e os detalhes de contato.
-7. Clique em **Criar**.
+Se você precisar de mais instâncias gerenciadas em suas regiões atuais, envie uma solicitação de suporte para estender a cota usando o portal do Azure. Para obter mais informações, consulte [aumentos de cota de solicitação para o banco de dados SQL do Azure](quota-increase-request.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

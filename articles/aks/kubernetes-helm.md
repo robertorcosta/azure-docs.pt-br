@@ -3,16 +3,15 @@ title: Implantar contêineres com Helm no Kubernetes no Azure
 description: Saiba como usar a ferramenta de empacotamento Helm para implantar contêineres em um cluster do AKS (serviço kubernetes do Azure)
 services: container-service
 author: zr-msft
-ms.service: container-service
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: zarhoads
-ms.openlocfilehash: 849f4e182d4bd9255ca8e60b69b6ad6c8a8e0fc7
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 4a9ccaff0e3425c365a64ecb4fbadf3c7aa8dcfb
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74869367"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595171"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Instalar aplicativos com o Helm no AKS (Serviço de Kubernetes do Azure)
 
@@ -181,7 +180,7 @@ NAME                NAMESPACE   REVISION    UPDATED                             
 my-nginx-ingress    default     1           2019-11-22 10:08:06.048477 -0600 CST    deployed    nginx-ingress-1.25.0    0.26.1 
 ```
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando você implanta um gráfico Helm, vários recursos do Kubernetes são criados. Esses recursos incluem pods, implantações e serviços. Para limpar esses recursos, use o comando [Helm Uninstall][helm-cleanup] e especifique o nome da versão, conforme encontrado no comando `helm list` anterior.
 
@@ -366,7 +365,7 @@ NAME                REVISION    UPDATED                     STATUS      CHART   
 flailing-alpaca   1         Thu May 23 12:55:21 2019    DEPLOYED    nginx-ingress-1.6.13    0.24.1      default
 ```
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando você implanta um gráfico Helm, vários recursos do Kubernetes são criados. Esses recursos incluem pods, implantações e serviços. Para limpar esses recursos, use o comando `helm delete` e especifique o nome do release, conforme encontrado no comando `helm list` anterior. O exemplo a seguir exclui a versão chamada *flailing-alpaca*:
 
@@ -376,7 +375,7 @@ $ helm delete flailing-alpaca
 release "flailing-alpaca" deleted
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre como gerenciar implantações de aplicativo do Kubernetes usando o Helm, consulte a documentação do Helm.
 

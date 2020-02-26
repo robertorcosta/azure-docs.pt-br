@@ -2,21 +2,18 @@
 title: Exibir logs do controlador de serviço de Kubernetes do Azure (AKS)
 description: Saiba como ativar e visualizar os logs do nó mestre do Kubernetes no Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.author: mlearned
-ms.openlocfilehash: dc72a8d448a189918def35da0250d83c81da7fa0
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: f759f15cf98546cb95ba0adb5890885f85ca6aa1
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812821"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592781"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Habilitar e revisar os logs do nó mestre do Kubernetes no Azure Kubernetes Service (AKS)
 
-Com o Serviço Azerbas do Kubernetes (AKS), os componentes principais, como o *kube-apiserver* e o *kube-controller-manager*, são fornecidos como um serviço gerenciado. Você cria e gerencia os nós que executam o *kubelet* e o tempo de execução do contêiner e implementa seus aplicativos por meio do servidor gerenciado do Kubernetes API. Para ajudar a solucionar problemas de seu aplicativo e serviços, talvez seja necessário visualizar os logs gerados por esses componentes principais. Este artigo mostra como usar os logs do Azure Monitor para ativar e consultar os logs dos componentes principais do Kubernetes.
+Com o Serviço Azerbas do Kubernetes (AKS), os componentes principais, como o *kube-apiserver* e o *kube-controller-manager*, são fornecidos como um serviço gerenciado. Você cria e gerencia os nós que executam o *kubelet* e o runtime do contêiner e implementa seus aplicativos por meio do servidor gerenciado do Kubernetes API. Para ajudar a solucionar problemas de seu aplicativo e serviços, talvez seja necessário visualizar os logs gerados por esses componentes principais. Este artigo mostra como usar os logs do Azure Monitor para ativar e consultar os logs dos componentes principais do Kubernetes.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -74,7 +71,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Exibir logs coletados
 
-Pode levar alguns minutos para que os registros de diagnósticos sejam habilitados e apareçam no espaço de trabalho do Log Analyics. No portal do Azure, selecione o grupo de recursos para seu espaço de trabalho do Log Analytics, como MyResource Group, em seguida, escolha o recurso do log Analytics, como *myAKSLogs*.
+Pode levar alguns minutos para que os registros de diagnósticos sejam habilitados e apareçam no espaço de trabalho do Log Analyics. No portal do Azure, selecione o grupo de recursos para seu espaço de trabalho do Log Analytics, como *MyResource*Group, em seguida, escolha o recurso do log Analytics, como *myAKSLogs*.
 
 ![Selecione o espaço de trabalho do Log Analytics para seu cluster AKS](media/view-master-logs/select-log-analytics-workspace.png)
 
@@ -107,7 +104,7 @@ Para obter mais informações sobre como consultar e filtrar os dados de log, co
 
 Para ajudar a analisar os dados de log, a tabela a seguir fornece detalhes sobre o esquema usado para cada evento:
 
-| Nome do campo               | Descrição |
+| Nome do campo               | DESCRIÇÃO |
 |--------------------------|-------------|
 | *resourceId*             | Recursos do Azure que produziu o log |
 | *time*                   | Carimbo de data / hora de quando o log foi carregado |
@@ -120,7 +117,7 @@ Para ajudar a analisar os dados de log, a tabela a seguir fornece detalhes sobre
 
 ## <a name="log-roles"></a>Funções de log
 
-| Role                     | Descrição |
+| Função                     | DESCRIÇÃO |
 |--------------------------|-------------|
 | *aksService*             | O nome de exibição no log de auditoria para a operação do plano de controle (do hcpService) |
 | *masterclient*           | O nome de exibição no log de auditoria para MasterClientCertificate, o certificado obtido de AZ AKs Get-Credentials |

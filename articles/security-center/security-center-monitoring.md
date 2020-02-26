@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: 57d47712fe20fac0bf370a9a100a07a37d7aa753
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 40352b7ae1f3fb6b1178f2dfe70cdca9871c76b7
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996675"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603778"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Fortaleça sua postura de segurança com a Central de Segurança do Azure
 Este artigo ajuda você a fortalecer sua postura de segurança. Use os recursos de monitoramento da Central de Segurança do Azure para garantir que a segurança do recurso seja a mais justa possível e monitorar a conformidade com as políticas.
@@ -45,11 +45,9 @@ Para obter mais informações sobre como aplicar recomendações, leia [Implemen
 
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 Neste artigo, você aprendeu como usar os recursos de monitoramento na Central de segurança do Azure. Para saber mais sobre a Central de Segurança do Azure, veja o seguinte:
 
-* [Configurando políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md): Saiba como configurar as configurações de segurança na Central de Segurança do Azure.
-* [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): Saiba como gerenciar e responder aos alertas de segurança.
-* [Monitorando as soluções de parceiros na Central de Segurança do Azure](security-center-partner-solutions.md): Saiba como monitorar o status da integridade das soluções dos parceiros.
-* [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md): Encontre as perguntas frequentes sobre como usar o serviço.
-* [Blog de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/): Encontre postagens no blog sobre a conformidade e segurança do Azure.
+* [Configurando políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md): saiba como configurar políticas de segurança na Central de Segurança do Azure.
+* [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e responder aos alertas de segurança.
+* [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md): saiba como monitorar o status de integridade de suas soluções de parceiros.

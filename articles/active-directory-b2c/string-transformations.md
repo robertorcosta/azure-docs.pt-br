@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/20/2020
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: df0bd87fffba8ed70c60da358b38079d3d017c76
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: e220009ec04ce732d99a53432077d681707e28d1
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505648"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585723"
 ---
 # <a name="string-claims-transformations"></a>Transformações de declarações de cadeias de caracteres
 
@@ -127,7 +127,7 @@ Cria uma declaração de cadeia de caracteres do parâmetro de entrada fornecido
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | value | string | A cadeia de caracteres a ser definida |
+| InputParameter | value | string | A cadeia de caracteres a ser definida. Esse parâmetro de entrada suporta [expressões de transformação de declarações de cadeia de caracteres](string-transformations.md#string-claim-transformations-expressions). |
 | OutputClaim | createdClaim | string | O ClaimType que é produzido depois de invocar esta transformação de declaração, com o valor especificado no parâmetro de entrada. |
 
 Use essa transformação de declarações para definir um valor de ClaimType de cadeia de caracteres.
@@ -297,7 +297,7 @@ Formate uma declaração de acordo com a cadeia de caracteres de formato forneci
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | InputClaim |string |O ClaimType que atua como o parâmetro {0} do formato da cadeia de caracteres. |
-| InputParameter | stringFormat | string | O formato da cadeia de caracteres, incluindo o parâmetro {0}. |
+| InputParameter | stringFormat | string | O formato da cadeia de caracteres, incluindo o parâmetro {0}. Esse parâmetro de entrada suporta [expressões de transformação de declarações de cadeia de caracteres](string-transformations.md#string-claim-transformations-expressions).  |
 | OutputClaim | outputClaim | string | O ClaimType que é produzido depois de invocar esta transformação de declarações. |
 
 Use essa transformação de declarações para formatar qualquer cadeia de caracteres com um parâmetro {0}. O exemplo a seguir cria um **userPrincipalName**. Todos os perfis técnicos do provedor de identidade social, como `Facebook-OAUTH` chama **CreateUserPrincipalName** para gerar um **userPrincipalName**.
@@ -333,7 +333,7 @@ Formate duas declarações de acordo com a cadeia de caracteres de formato forne
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | InputClaim |string | O ClaimType que atua como o parâmetro {0} do formato da cadeia de caracteres. |
 | InputClaim | InputClaim | string | O ClaimType que atua como o parâmetro {1} do formato da cadeia de caracteres. |
-| InputParameter | stringFormat | string | O formato da cadeia de caracteres, incluindo os parâmetros {0} e {1}. |
+| InputParameter | stringFormat | string | O formato da cadeia de caracteres, incluindo os parâmetros {0} e {1}. Esse parâmetro de entrada suporta [expressões de transformação de declarações de cadeia de caracteres](string-transformations.md#string-claim-transformations-expressions).   |
 | OutputClaim | outputClaim | string | O ClaimType que é produzido depois de invocar esta transformação de declarações. |
 
 Use essa transformação de declarações para formatar qualquer cadeia de caracteres com dois parâmetros, {0} e {1}. O exemplo a seguir cria um **displayName** com o formato especificado:
@@ -925,3 +925,12 @@ O exemplo a seguir usa uma cadeia de caracteres delimitadores de vírgula de fun
   - **delimitador**: ","
 - Declarações de saída:
   - **outputClaim**: ["admin", "autor", "leitor"]
+  
+## <a name="string-claim-transformations-expressions"></a>Expressões de transformações de declaração de cadeia de caracteres
+Expressões de transformações de declaração em Azure AD B2C políticas personalizadas fornecem informações de contexto sobre a ID do locatário e a ID do perfil técnico.
+
+  | Expression | DESCRIÇÃO | Exemplo |
+ | ----- | ----------- | --------|
+ | `{TechnicalProfileId}` | O nome de ProfileId técnico. | Facebook – OAUTH |
+ | `{RelyingPartyTenantId}` | A ID do locatário da política de terceira parte confiável. | your-tenant.onmicrosoft.com |
+ | `{TrustFrameworkTenantId}` | A ID do locatário e da estrutura de confiança. | your-tenant.onmicrosoft.com |

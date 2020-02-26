@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 239438133dc16630852626c49e8ffda08590976b
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 039a30d23c45471d88132f544c11df813fb4b8e6
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280995"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603745"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guia de planejamento e operações da Central de Segurança do Azure
 Este guia é para profissionais de ti (tecnologia da informação), arquitetos de ti, analistas de segurança de informações e administradores de nuvem para usar a central de segurança do Azure.
@@ -33,8 +33,7 @@ Na próxima seção, você aprenderá a planejar cada uma dessas áreas e aplica
 
 
 > [!NOTE]
-> Leia as [Perguntas frequentes (FAQ) da Central de Segurança do Azure](security-center-faq.md) para obter uma lista das perguntas comuns que também podem ser úteis durante as fases de design e planejamento.
->
+> Leia as [Perguntas frequentes (FAQ) da Central de Segurança do Azure](faq-general.md) para obter uma lista das perguntas comuns que também podem ser úteis durante as fases de design e planejamento.
 
 ## <a name="security-roles-and-access-controls"></a>Funções de segurança e controles de acesso
 Dependendo do tamanho e da estrutura de sua organização, vários indivíduos e equipes podem usar a Central de Segurança para executar tarefas variadas relacionadas à segurança. No diagrama a seguir, você tem um exemplo de pessoas fictícias e suas respectivas funções e responsabilidades de segurança:
@@ -143,8 +142,7 @@ O Microsoft Monitoring Agent para Windows exige o uso da porta TCP 443. Confira 
 Se em algum momento você quiser desabilitar a Coleta de dados, desative-a na política de segurança. No entanto, como o Microsoft Monitoring Agent pode ser usado por outros serviços de gerenciamento e monitoramento do Azure, o agente não será desinstalado automaticamente quando você desativar a coleta de dados na central de segurança. Você pode desinstalar o agente manualmente, se necessário.
 
 > [!NOTE]
-> Para obter uma lista das VMs com suporte, leia as [Perguntas frequentes (FAQ) da Central de Segurança do Azure](security-center-faq.md).
->
+> Para obter uma lista das VMs com suporte, leia as [Perguntas frequentes (FAQ) da Central de Segurança do Azure](faq-vms.md).
 
 ### <a name="workspace"></a>Workspace
 
@@ -199,7 +197,7 @@ Quando você adiciona novos recursos (VMs, Bancos de Dados SQL) ao seu Ambiente 
 
 Você também deve monitorar regularmente os recursos existentes para as alterações de configuração que poderiam ter criado riscos de segurança, descompasso das linhas de base recomendadas e alertas de segurança. Inicie no painel da Central de Segurança. A partir daí, você tem três áreas principais para examinar de forma consistente.
 
-![Operations](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4-newUI.png)
+![Operações](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4-newUI.png)
 
 1. O painel da seção **Prevenção** fornece acesso rápido aos recursos chave. Use esta opção para monitorar Computação, Rede, Armazenamento e dados e Aplicativos.
 2. O painel **Recomendações** permite que você examine as recomendações da Central de Segurança. Durante o monitoramento contínuo, você pode achar que não tem recomendações diariamente, o que é normal, já que você solucionou todas as recomendações sobre a configuração inicial da central de segurança. Por esse motivo, talvez você não tenha novas informações nesta seção diariamente e precisará acessá-la apenas de acordo com a necessidade.
@@ -248,11 +246,11 @@ No [como aproveitar a central de segurança do Azure & Microsoft Operations Mana
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a planejar a adoção da Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 * [Gerenciando e respondendo a alertas de segurança na Central de segurança do Azure](security-center-managing-and-responding-alerts.md)
 * [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) : saiba como monitorar a integridade dos recursos do Azure.
 * [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiros.
-* [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço.
+* [Perguntas frequentes da Central de Segurança do Azure](faq-general.md) : encontre as perguntas frequentes sobre como usar o serviço.
 * [Blog de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) : encontre postagens no blog sobre conformidade e segurança do Azure.

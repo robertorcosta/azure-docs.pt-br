@@ -1,10 +1,10 @@
 ---
-title: Clustering de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando o arquivo compartilhado de cluster no Azure | Microsoft Docs
+title: Cluster SAP ASCS/SCS no WSFC usando o compartilhamento de arquivos no Azure | Microsoft Docs
 description: Aprenda o Clustering de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando o arquivo compartilhado de cluster no Azure.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/24/2019
-ms.author: rclaus
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f42713eb579da34ad4b150eec2c89b9645315d0b
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 2930badf90afc7d3822ff1a3bf1a65ec68438a4d
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638061"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598350"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -212,7 +212,7 @@ O Windows Server Failover Clustering é a base de uma instalação do SAP ASCS/S
 
 Um cluster de failover é um grupo servidores 1+n independentes (nós) que trabalham juntos para aumentar a disponibilidade de aplicativos e serviços. Se ocorrer uma falha de nó, o clustering de failover do Windows Server calculará o número de falhas que podem ocorrer e manterá um cluster íntegro para fornecer serviços e aplicativos. Você pode escolher dentre diferentes modos de quorum para obter o clustering de failover.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Antes de iniciar as tarefas descritas neste artigo, complete os seguintes pré-requisitos:
 
 * [Arquitetura e cenários de alta disponibilidade de máquinas virtuais do Azure para SAP NetWeaver][sap-high-availability-architecture-scenarios]
@@ -348,7 +348,7 @@ O Compartilhamento de Arquivos Genérico é outra opção para alcançar o compa
 
 Aqui, como o disco compartilhado de um cluster, você pode usar solução do SIOS de terceiros.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e um compartilhamento de arquivos para uma instância do SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-file-share]
 * [Instalar a alta disponibilidade do SAP NetWeaver em um cluster de failover do Windows e um compartilhamento de arquivos para uma instância do SAP ASCS/SCS][sap-high-availability-installation-wsfc-shared-disk]

@@ -11,16 +11,16 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 9ed2cc8bfb10d916218417a7dd27010638d2a927
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8272867f5b6144b92dbffcf96cc539eb82f75801
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810279"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587344"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Use o log de diagnóstico de desempenho do Banco de Dados SQL do Azure com Intelligent Insights
 
-Esta página apresenta informações sobre como usar o log de diagnóstico de desempenho do Banco de Dados SQL do Azure gerado pelo [Intelligent Insights](sql-database-intelligent-insights.md), seu formato e os dados que ele contém para suas necessidades desenvolvimento personalizadas. Você pode enviar esse log de diagnóstico para [Azure monitor logs](../azure-monitor/insights/azure-sql.md), [hubs de eventos do Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-into-storage)ou uma solução de terceiros para recursos personalizados de alertas e relatórios de DevOps.
+Esta página apresenta informações sobre como usar o log de diagnóstico de desempenho do Banco de Dados SQL do Azure gerado pelo [Intelligent Insights](sql-database-intelligent-insights.md), seu formato e os dados que ele contém para suas necessidades desenvolvimento personalizadas. Você pode enviar esse log de diagnóstico para [Azure monitor logs](../azure-monitor/insights/azure-sql.md), [hubs de eventos do Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-diagnostic-telemetry-into-azure-storage)ou uma solução de terceiros para recursos personalizados de alertas e relatórios de DevOps.
 
 ## <a name="log-header"></a>Cabeçalho do log
 

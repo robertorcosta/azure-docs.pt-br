@@ -3,12 +3,12 @@ title: Referência host.json para o Azure Functions 2.x
 description: Documentação de referência do arquivo host.json do Azure Functions com o runtime v2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: b9c57378df1510179c5a45b6aa669bab804aca5e
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 949d4f2c5d8c1d8034ccc392915bc40f1f2fddda
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484427"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605127"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>referência de host. JSON para Azure Functions 2. x e posterior 
 
@@ -208,7 +208,7 @@ Para obter mais informações sobre instantâneos, consulte [depurar instantâne
 
 ## <a name="cosmosdb"></a>cosmosDb
 
-A definição de configuração pode ser encontrada em [Associações e gatilhos do Cosmos DB](functions-bindings-cosmosdb-v2.md#host-json).
+A definição de configuração pode ser encontrada em [Associações e gatilhos do Cosmos DB](functions-bindings-cosmosdb-v2-output.md#host-json).
 
 ## <a name="durabletask"></a>durableTask
 
@@ -216,7 +216,7 @@ A definição de configuração pode ser encontrada em [Associações para Durab
 
 ## <a name="eventhub"></a>eventHub
 
-As definições de configuração podem ser encontradas em [Associações e gatilhos do Hub de Eventos](functions-bindings-event-hubs.md#host-json). 
+As definições de configuração podem ser encontradas em [Associações e gatilhos do Hub de Eventos](functions-bindings-event-hubs-output.md#host-json). 
 
 ## <a name="extensions"></a>extensions
 

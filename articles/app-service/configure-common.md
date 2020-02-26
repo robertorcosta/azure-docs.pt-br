@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 021941339bbbf72112628c54f5b05d5fd305bd0f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: ce0a170a629f347e2687a2e9f63fb3438fe2bd2f
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198574"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592519"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar um aplicativo do serviço de aplicativo no portal do Azure
 
@@ -168,6 +168,8 @@ Aqui, você pode definir algumas configurações comuns para o aplicativo. Algum
     - Bit de **bits: 32**bits ou 64 bits.
     - **Protocolo WebSocket**: para [ASP.net signalr] ou [Socket.Io](https://socket.io/), por exemplo.
     - **Always on**: Mantenha o aplicativo carregado mesmo quando não houver tráfego. Ele é necessário para trabalhos Web contínuos ou para trabalhos Web que são disparados usando uma expressão CRON.
+      > [!NOTE]
+      > Com o recurso Always On, não é possível controlar o ponto de extremidade. Ele sempre envia uma solicitação para a raiz do aplicativo.
     - **Versão do pipeline gerenciado**: o [modo de pipeline]do IIS. Defina-o como **clássico** se você tiver um aplicativo herdado que exija uma versão mais antiga do IIS.
     - **Versão de http**: defina como **2,0** para habilitar o suporte para o protocolo [https/2](https://wikipedia.org/wiki/HTTP/2) .
     > [!NOTE]

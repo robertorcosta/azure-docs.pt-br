@@ -3,13 +3,13 @@ title: Limites e cotas de assinatura do Azure
 description: Fornece uma lista de assinaturas comuns do Azure e limites de serviço, cotas e restrições. Este artigo inclui informações sobre como aumentar os limites juntamente com os valores máximos.
 tags: billing
 ms.topic: conceptual
-ms.date: 02/11/2020
-ms.openlocfilehash: 4b36fcf8d3630ffd9008ad9deee8d0945f901f9b
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/24/2020
+ms.openlocfilehash: 1987d444c49bb5e53950c26c43c1607c8a87be6d
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153886"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592400"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
 
@@ -263,7 +263,7 @@ A tabela a seguir se aplica aos SKUs v1, v2, Standard e WAF, salvo indicação e
 
 [!INCLUDE [network-watcher-limits](../../../includes/network-watcher-limits.md)]
 
-### <a name="private-link-limits"></a>Limites de link privado
+### <a name="private-link-limits"></a>Limites de Link Privado
 
 [!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
 
@@ -294,10 +294,6 @@ A tabela a seguir se aplica aos SKUs v1, v2, Standard e WAF, salvo indicação e
 ## <a name="role-based-access-control-limits"></a>Limites de controle de acesso baseado em função
 
 [!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control-limits.md)]
-
-## <a name="scheduler-limits"></a>Limites do Agendador
-
-[!INCLUDE [scheduler-limits-table](../../../includes/scheduler-limits-table.md)]
 
 ## <a name="service-bus-limits"></a>Limites de Barramento de Serviço
 

@@ -2,17 +2,14 @@
 title: Práticas recomendadas para o Serviço de Kubernetes do Azure (AKS)
 description: Coleção de práticas recomendadas para o operador e o desenvolvedor do cluster para criar e gerenciar aplicativos no Serviço de Kubernetes do Azure (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 12/07/2018
-ms.author: mlearned
-ms.openlocfilehash: 7127894b364ac8f0fe1d87e13150d5522f5473e2
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 627eeffd18a479486e5a682da06bf89cd5f8f0e1
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67615956"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596310"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Práticas recomendadas para o operador e o desenvolvedor do cluster para criar e gerenciar aplicativos no Serviço de Kubernetes do Azure (AKS)
 
@@ -40,7 +37,7 @@ Como um operador de cluster, trabalhe junto com os proprietários e desenvolvedo
 * [Práticas recomendadas para atualizações e segurança de cluster](operator-best-practices-cluster-security.md)
     * Inclui a proteção de acesso ao servidor de API, limitando o acesso do contêiner e o gerenciamento de atualizações e reinicializações de nó.
 * [Práticas recomendadas para gerenciamento e segurança de imagens de contêiner](operator-best-practices-container-image-management.md).
-    * Inclui proteção a imagem e tempos de execução e compilações automatizadas nas atualizações da imagem base.
+    * Inclui proteger a imagem e os tempos de execução e compilações automatizadas em atualizações de imagem de base.
 * [Práticas recomendadas para segurança do pod](developer-best-practices-pod-security.md)
     * Inclui acesso seguro aos recursos, limitando a exposição de credencial e usando as identidades de pod e cofres de chaves digitais.
 

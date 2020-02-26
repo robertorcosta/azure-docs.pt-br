@@ -4,12 +4,12 @@ description: Saiba como usar os recursos de segurança no Backup do Azure para t
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: c3c62f8ea7813c14fa6e19d825a5253de18f6639
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 7213f26493a118c2cb32f8f9935b4954176b99a2
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172691"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586386"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Recursos de segurança para ajudar a proteger backups híbridos usando o Backup do Azure
 
@@ -88,7 +88,7 @@ Como parte da adição de uma camada extra de autenticação para operações cr
 
 Para receber esse PIN:
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 2. Navegue até **Cofre dos Serviços de Recuperação** > **Configurações** > **Propriedades**.
 3. Em **PIN de Segurança**, clique em **Gerar**. Isso abre uma folha que contém o PIN a ser inserido na interface do usuário agente dos Serviços de Recuperação do Azure.
     Esse PIN é válido somente por cinco minutos e é gerado automaticamente após esse período.
@@ -108,7 +108,7 @@ Normalmente, quando uma operação crítica for executada, o administrador de as
 
 Os recursos de Segurança mencionados neste artigo fornecem mecanismos de defesa contra ataques direcionados. Mais importante, se ocorrer um ataque, esses recursos oferecerão a capacidade de recuperar seus dados.
 
-## <a name="troubleshooting-errors"></a>Solucionar erros
+## <a name="troubleshooting-errors"></a>Solucionando erros
 
 | Operação | Detalhes do erro | Resolução |
 | --- | --- | --- |
@@ -120,5 +120,5 @@ Os recursos de Segurança mencionados neste artigo fornecem mecanismos de defesa
 
 - [Introdução ao cofre dos Serviços de Recuperação do Azure](backup-azure-vms-first-look-arm.md) para habilitar esses recursos.
 - [Baixe o agente dos Serviços de Recuperação do Azure mais recente](https://aka.ms/azurebackup_agent) para ajudar a proteger computadores com Windows e proteger seus dados de backup contra ataques.
-- [Baixe o Servidor de Backup do Azure mais recente](https://aka.ms/latest_azurebackupserver) para ajudar a proteger as cargas de trabalho e proteger seus dados de backup contra ataques.
+- [Baixe o Servidor de Backup do Azure mais recente](https://support.microsoft.com/help/4457852/microsoft-azure-backup-server-v3) para ajudar a proteger as cargas de trabalho e proteger seus dados de backup contra ataques.
 - [Baixar UR12 para o System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) ou [Baixar UR2 para System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) para ajudar a proteger as cargas de trabalho e seus dados de backup contra ataques.

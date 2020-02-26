@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: b20b3c1e4216fe8065fbc8ac24c7d8097903fc5a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5aaaf539c07a7ba2c2463d5bfd1f452853f52379
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686375"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603680"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizar integração da Central de Segurança do Azure usando o PowerShell
 
@@ -41,7 +41,7 @@ Neste exemplo, habilitaremos a Central de Segurança em uma assinatura com a ID:
 
 6. Atribua as [políticas de segurança padrão da](tutorial-security-policy.md) Central de Segurança.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Essas etapas devem ser realizadas antes de executar os cmdlets da Central de Segurança:
 
@@ -104,6 +104,5 @@ Para saber mais sobre como você pode usar o PowerShell para automatizar a integ
 
 Para saber mais sobre a Central de Segurança, confira o seguinte artigo:
 
-* [Configurando políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+* [Configurando políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 * [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e a responder a alertas de segurança.
-* [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço.

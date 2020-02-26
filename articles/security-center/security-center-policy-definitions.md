@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/15/2020
 ms.author: memildin
-ms.openlocfilehash: 0bc03385cda8752571482cc3d74c0f3887b4656a
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 72f16463c7dfcd3d76db2d99e1805b0159261a55
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77506189"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603706"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Políticas de segurança do Azure monitoradas pela central de segurança
 
@@ -33,14 +33,10 @@ Para saber mais sobre as iniciativas internas que são monitoradas pela central 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu sobre as definições de política de segurança Azure Policy na central de segurança. Para saber mais sobre a central de segurança, consulte os artigos a seguir.
+Neste artigo, você aprendeu sobre as definições de política de segurança Azure Policy na central de segurança. Para saber mais, consulte os artigos a seguir.
 
 * [Guia de planejamento e operações da central de segurança do Azure](security-center-planning-and-operations-guide.md): saiba como planejar e entender as considerações de design na central de segurança do Azure.
 * [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.
 * [Gerenciar e responder aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): saiba como gerenciar e responder aos alertas de segurança.
 * [Monitorar as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md): saiba como monitorar o status de integridade de suas soluções de parceiros.
-* [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre as respostas para as perguntas frequentes sobre como usar o serviço.
-* [Blog de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/): encontre postagens no blog sobre conformidade e segurança do Azure.
 * [Azure Policy](../governance/policy/overview.md): Aprenda a auditar e governar os recursos do Azure.
-
-Para saber mais sobre Azure Policy, confira [o que é Azure Policy?](../governance/policy/overview.md).

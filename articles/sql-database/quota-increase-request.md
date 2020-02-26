@@ -8,12 +8,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
 ms.date: 02/04/2020
-ms.openlocfilehash: fb576b81adeec99e4080c744749097390d1add1d
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: ff2be6972bb4e8af266d0aa8a56d1879bc1b8b78
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77111092"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586148"
 ---
 # <a name="request-quota-increases-for-azure-sql-database"></a>Aumentos de cota de solicitação para o banco de dados SQL do Azure
 
@@ -90,7 +90,7 @@ Use as etapas a seguir para solicitar um aumento no número de servidores por as
 
 Para obter mais informações, consulte [limites de recursos do banco de dados SQL e governança de recursos](sql-database-resource-limits-database-server.md).
 
-### <a name="enable-subscription-access-to-a-region"></a>Habilitar o acesso à assinatura para uma região
+### <a id="other"></a>Habilitar o acesso à assinatura para uma região
 
 Alguns tipos de oferta não estão disponíveis em todas as regiões. Você pode ver um erro como o seguinte:
 
@@ -116,7 +116,7 @@ Para obter mais informações, consulte [visão geral limites de recursos de ins
 
 A etapa final é preencher os detalhes restantes de sua solicitação de cota do banco de dados SQL. Em seguida, selecione **Avançar: revisar + criar > >** e, depois de examinar os detalhes da solicitação, clique em **criar** para enviar a solicitação.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Depois de enviar sua solicitação, ela será revisada. Você será contatado com uma resposta com base nas informações fornecidas no formulário.
 

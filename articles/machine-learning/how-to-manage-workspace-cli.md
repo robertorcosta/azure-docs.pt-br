@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
 ms.date: 11/05/2019
-ms.openlocfilehash: 715ea6239e070fe5ebb78c2e2766aabf1f491fcc
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 06b890a9186ec38ce3f851c9f36b778ec7549f76
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988134"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77580489"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Criar um espaço de trabalho para Azure Machine Learning com CLI do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, você aprenderá a criar um espaço de trabalho do Azure Machine Learning usando o CLI do Azure. O CLI do Azure fornece comandos para gerenciar recursos do Azure. A extensão de aprendizado de máquina para a CLI fornece comandos para trabalhar com Azure Machine Learning recursos.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma **assinatura do Azure**. Se você não tiver uma, experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -52,7 +52,7 @@ Para instalar a extensão de Machine Learning, use o seguinte comando:
 az extension add -n azure-cli-ml
 ```
 
-## <a name="create-a-workspace"></a>Crie um workspace
+## <a name="create-a-workspace"></a>Criar um workspace
 
 O espaço de trabalho Azure Machine Learning se baseia nos seguintes serviços ou entidades do Azure:
 
@@ -344,12 +344,23 @@ az group delete -g <resource-group-name>
 
 Para obter mais informações, consulte a documentação [AZ ml Workspace Delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-delete) .
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 ### <a name="resource-provider-errors"></a>Erros do provedor de recursos
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
 
-## <a name="next-steps"></a>Próximos passos
+### <a name="moving-the-workspace"></a>Movendo o espaço de trabalho
+
+> [!WARNING]
+> Não há suporte para mover o espaço de trabalho Azure Machine Learning para uma assinatura diferente ou mover a assinatura proprietária para um novo locatário. Isso pode causar erros.
+
+### <a name="deleting-the-azure-container-registry"></a>Excluindo o registro de contêiner do Azure
+
+O espaço de trabalho Azure Machine Learning usa o ACR (registro de contêiner do Azure) para algumas operações. Ele criará automaticamente uma instância de ACR quando precisar primeiro de uma.
+
+[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
+
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre a extensão de CLI do Azure para aprendizado de máquina, consulte a documentação [AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest) .

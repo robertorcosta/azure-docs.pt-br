@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: memildin
-ms.openlocfilehash: 70b7f511c32013a5dbc9369a2dfba2b8cd5f9145
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: e1ed403babe66b465fb1800dc8c5a90c7a8f1a08
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558620"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604121"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gerenciar problemas de proteção de ponto de extremidade com a Central de Segurança do Azure
 A central de segurança do Azure monitora o status da proteção antimalware e relata isso na página problemas do Endpoint Protection. A Central de Segurança realça os problemas, como ameaças detectadas e proteção insuficiente, que podem tornar seus computadores e VMs (máquinas virtuais) vulneráveis a ameaças de antimalware. Ao usar as informações em **Problemas de proteção de ponto de extremidade**, você pode identificar um plano para solucionar os problemas identificados.
@@ -75,7 +75,7 @@ Neste exemplo, usaremos **Computação**.  Examinaremos como instalar antimalwar
 
 4. Em **Proteção de ponto de extremidade não instalada nas VMs do Azure** está uma lista de VMs do Azure que não têm um antimalware instalado.  Você pode optar por instalar antimalware em todas as VMs da lista ou selecionar VMs individuais nas quais instalar antimalware, clicando na VM específica.
 5. Em **Selecionar proteção de ponto de extremidade**, selecione a solução de proteção de ponto de extremidade que você deseja usar. Neste exemplo, selecione **Microsoft Antimalware**.
-6. Informações adicionais sobre a solução de proteção de ponto de extremidade são exibidas. Clique em **Criar**.
+6. Informações adicionais sobre a solução de proteção de ponto de extremidade são exibidas. Selecione **Criar**.
 
 ## <a name="install-antimalware-on-non-azure-computers"></a>Instalar antimalware em computadores não Azure
 
@@ -96,7 +96,7 @@ Outro resultado da pesquisa é aberto com informações filtradas para esse comp
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Este artigo mostrou como implementar a recomendação da Central de Segurança "Instalar Endpoint Protection". Para saber mais sobre como habilitar o Microsoft Antimalware no Azure, consulte o seguinte documento:
 
 * [Microsoft Antimalware para Serviços de Nuvem e Máquinas Virtuais](../security/fundamentals/antimalware.md) – saiba como implantar o Microsoft Antimalware.
@@ -106,10 +106,8 @@ Para saber mais sobre a Central de Segurança, confira os seguintes documentos:
 * [Configuração de políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md) – saiba como definir as políticas de segurança.
 * [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) – saiba como as recomendações ajudam a proteger os recursos do Azure.
 * [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) : saiba como monitorar a integridade dos recursos do Azure.
-* [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança.
+* [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e a responder a alertas de segurança.
 * [Monitoramento de soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiro.
-* [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço de localização.
-* [Blog de segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure.
 
 <!--Image references-->
 [1]:./media/security-center-install-endpoint-protection/compute.png

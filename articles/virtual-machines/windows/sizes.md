@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
-ms.openlocfilehash: 990cb2eef7e0f575de3e510abc38bcc2e3172477
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 755ea3ea3c246a1fa9fb7d514569c6fcecc0c04c
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485379"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598707"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Tamanhos das máquinas virtuais do Windows no Azure
 
-Este artigo descreve os tamanhos e as opções disponíveis de máquinas virtuais do Azure que você pode usar para executar seus aplicativos Windows e cargas de trabalho. Ele também fornece considerações de implantação a serem observadas ao planejar o uso desses recursos.  Este artigo também está disponível para [máquinas virtuais Linux](/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Este artigo descreve os tamanhos e as opções disponíveis de máquinas virtuais do Azure que você pode usar para executar seus aplicativos Windows e cargas de trabalho. Ele também fornece considerações de implantação a serem observadas ao planejar o uso desses recursos.  Este artigo também está disponível para [máquinas virtuais Linux](../linux/sizes.md).
 
 | Type | Tamanhos | DESCRIÇÃO |
 |------|-------|-------------|

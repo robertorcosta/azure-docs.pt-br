@@ -3,12 +3,12 @@ title: Solucionar problemas SQL Server backup de banco de dados
 description: Informações de solução de problemas para fazer backup de bancos de dados do SQL Server em execução em VMs do Azure com o Backup do Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 57630749b53224032c763481d12e33366274f13f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 69cae196e7fad70d75fb12709e5bf0d618bbc81c
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978781"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602331"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solucionar problemas SQL Server backup de banco de dados usando o backup do Azure
 
@@ -43,7 +43,7 @@ Se a VM do SQL precisar ser registrada no novo cofre, ele deverá ter o registro
 
 ### <a name="backup-type-unsupported"></a>Tipo de backup sem suporte
 
-| Gravidade | Description | Possíveis causas | Ação recomendada |
+| Severity | DESCRIÇÃO | Possíveis causas | Ação recomendada |
 |---|---|---|---|
 | Aviso | As configurações atuais deste banco de dados não dão suporte a determinados tipos de backup presentes na política associada. | <li>Somente uma operação de backup de banco de dados completa pode ser executada no banco de dados mestre. Nenhum backup diferencial nem backup de log de transações é possível. </li> <li>Qualquer banco de dados no modelo de recuperação simples não permite o backup de logs de transações.</li> | Modifica as configurações de banco de dados, de modo que todos os tipos na política de backup têm suporte. Ou altere a política atual para incluir apenas os tipos de backup com suporte. Caso contrário, os tipos de backup sem suporte serão ignorados durante o backup agendado ou o trabalho de backup falhará para o backup sob demanda.
 
@@ -70,7 +70,7 @@ Se a VM do SQL precisar ser registrada no novo cofre, ele deverá ter o registro
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-| O Backup do Azure não pode conectar a instância do SQL. | O backup do Azure não pode se conectar à instância de SQL Server. | Use os detalhes adicionais no menu portal do Azure erro para restringir as causas raiz. Consulte [Solucionar problemas de backup do SQL](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) para corrigir o erro.<br/><ul><li>Se as configurações padrão do SQL não permitirem conexões remotas, altere as configurações. Consulte os seguintes artigos para obter informações sobre como alterar as configurações:<ul><li>[MSSQLSERVER_-1](/previous-versions/sql/sql-server-2016/bb326495(v=sql.130))</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>Se houver problemas de logon, use estes links para corrigi-los:<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
+| O Backup do Azure não pode conectar a instância do SQL. | O backup do Azure não pode se conectar à instância de SQL Server. | Use os detalhes adicionais no menu portal do Azure erro para restringir as causas raiz. Consulte [Solucionar problemas de backup do SQL](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) para corrigir o erro.<br/><ul><li>Se as configurações padrão do SQL não permitirem conexões remotas, altere as configurações. Consulte os seguintes artigos para obter informações sobre como alterar as configurações:<ul><li>[MSSQLSERVER_-1](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-1-database-engine-error?view=sql-server-ver15)</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>Se houver problemas de logon, use estes links para corrigi-los:<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
 
 ### <a name="usererrorparentfullbackupmissing"></a>UserErrorParentFullBackupMissing
 
@@ -106,7 +106,7 @@ Se a VM do SQL precisar ser registrada no novo cofre, ele deverá ter o registro
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-| O backup de log usado para a recuperação contém alterações bulk-logged. Ele não pode ser usado para parar em um ponto arbitrário de acordo com as diretrizes do SQL. | Quando um banco de dados está no modo de recuperação bulk-logged, os dados entre uma transação bulk-logged e a próxima transação de log não podem ser recuperados. | Escolha um ponto diferente no tempo para a recuperação. [Saiba mais](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105)).
+| O backup de log usado para a recuperação contém alterações bulk-logged. Ele não pode ser usado para parar em um ponto arbitrário de acordo com as diretrizes do SQL. | Quando um banco de dados está no modo de recuperação bulk-logged, os dados entre uma transação bulk-logged e a próxima transação de log não podem ser recuperados. | Escolha um ponto diferente no tempo para a recuperação. [Saiba mais](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -251,6 +251,6 @@ SELECT mf.name AS LogicalName FROM sys.master_files mf
 
 Esse arquivo deve ser colocado antes de você disparar a operação de restauração.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre o backup do Azure para VMs SQL Server (visualização pública), consulte [backup do Azure para VMs do SQL](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md#azbackup).

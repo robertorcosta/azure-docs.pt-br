@@ -2,17 +2,14 @@
 title: Proteger os pods com políticas de rede no Serviço de Kubernetes do Azure (AKS)
 description: Saiba como proteger o tráfego que flui para dentro e fora do pods usando as políticas de rede kubernetes no serviço kubernetes do Azure (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: mlearned
-ms.openlocfilehash: 350e553563aa152c61c922727fb87937bedd14b5
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 92e726529f2c81b169dc5ad485148ad8118bbc81
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72928491"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592859"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteger o tráfego entre os pods usando as políticas de rede no Serviço de Kubernetes do Azure (AKS)
 
@@ -52,10 +49,10 @@ Ambas as implementações usam *iptables* do Linux para impor as políticas espe
 
 ### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Diferenças entre as políticas do Azure e do Calico e seus recursos
 
-| Capacidade                               | Azure                      | Calico                      |
+| Recurso                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
-| Plataformas com suporte                      | Linux                      | Linux                       |
-| Opções de rede com suporte             | CNI do Azure                  | CNI e kubenet do Azure       |
+| Plataformas compatíveis                      | Linux                      | Linux                       |
+| Opções de rede com suporte             | Azure CNI                  | CNI e kubenet do Azure       |
 | Conformidade com a especificação kubernetes | Todos os tipos de política com suporte |  Todos os tipos de política com suporte |
 | Recursos adicionais                      | Nenhum                       | Modelo de política estendida que consiste em política de rede global, conjunto de rede global e ponto de extremidade do host. Para obter mais informações sobre como usar a CLI `calicoctl` para gerenciar esses recursos estendidos, consulte [calicoctl User Reference][calicoctl]. |
 | Suporte                                  | Suporte da equipe de suporte e engenharia do Azure | Suporte da Comunidade Calico. Para obter mais informações sobre suporte pago adicional, consulte [Opções de suporte do Project Calico][calico-support]. |
@@ -73,7 +70,7 @@ Primeiro, vamos criar um cluster AKS que dê suporte à política de rede.
 
 > [!IMPORTANT]
 >
-> O recurso de política de rede só pode ser habilitado quando o cluster é criado. Você não pode habilitar a política de rede em um cluster existente do AKS.
+> O recurso de política de rede só pode ser habilitado quando o cluster é criado. Não é possível habilitar a política de rede em um cluster AKS existente.
 
 Para usar a política de rede do Azure, você deve usar o [plug-in do CNI do Azure][azure-cni] e definir sua própria rede virtual e sub-redes. Para obter informações mais detalhadas sobre como planejar os intervalos de sub-rede necessários, consulte [Configurar a rede avançada][use-advanced-networking]. A política de rede Calico pode ser usada com esse mesmo plug-in do Azure CNI ou com o plug-in Kubenet CNI.
 
@@ -444,7 +441,7 @@ Saia da sessão de terminal anexada. O pod de teste é excluído automaticamente
 exit
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Neste artigo, criamos dois namespaces e aplicamos uma diretiva de rede. Para limpar esses recursos, use o comando [kubectl Delete][kubectl-delete] e especifique os nomes dos recursos:
 
@@ -453,7 +450,7 @@ kubectl delete namespace production
 kubectl delete namespace development
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre os recursos de rede, consulte [conceitos de rede para aplicativos no serviço de kubernetes do Azure (AKs)][concepts-network].
 

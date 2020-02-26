@@ -2,18 +2,19 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 08/19/2019
+ms.date: 02/24/2020
 ms.author: tomfitz
-ms.openlocfilehash: b4338560d515289d3e9aedfa716ec7c3ace51131
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c1a52e1bc2dde74289cb270fcae832be24de5a06
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75392405"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592402"
 ---
-| Grupos | Limite padrão | Limite máximo |
+| Recurso | Limite padrão | Limite máximo |
 | --- | --- | --- |
-| Recursos por [grupo de recursos](../articles/azure-resource-manager/management/overview.md#resource-groups), por tipo de recurso |800 |Alguns tipos de recursos podem exceder o limite de 800. Consulte [recursos não limitados a 800 instâncias por grupo de recursos](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md). |
+| Recursos por [grupo de recursos](../articles/azure-resource-manager/management/overview.md#resource-groups) | N/D | Os recursos não são limitados pelo grupo de recursos. Em vez disso, eles são limitados pelo tipo de recurso em um grupo de recursos. Consulte a próxima linha. | 
+| Recursos por grupo de recursos, por tipo de recurso |800 |Alguns tipos de recursos podem exceder o limite de 800. Consulte [recursos não limitados a 800 instâncias por grupo de recursos](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md). |
 | Implantações por grupo de recursos no histórico de implantações |800<sup>1</sup> |800 |
 | Recursos por implantação |800 |800 |
 | Bloqueios de gerenciamento por escopo exclusivo |20 |20 |
@@ -27,8 +28,8 @@ ms.locfileid: "75392405"
 
 | Valor | Limite padrão | Limite máximo |
 | --- | --- | --- |
-| Parâmetros |256 |256 |
-| Variáveis |256 |256 |
+| parâmetros |256 |256 |
+| variáveis |256 |256 |
 | Recursos (incluindo a contagem de cópias) |800 |800 |
 | outputs |64 |64 |
 | Expressão de modelo |24.576 caracteres |24.576 caracteres |

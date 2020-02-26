@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 00187051eec27ee7b6b2d4927510a2ab9dee442e
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 09e55abcd97317b87f8a272afa51c6b4ace572e8
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708250"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598078"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Solucionar problemas de desempenho de arquivos do Azure
 
@@ -22,7 +22,7 @@ Este artigo lista alguns problemas comuns relacionados aos compartilhamentos de 
 
 ### <a name="cause-1-share-experiencing-throttling"></a>Causa 1: compartilhamento com limitação
 
-A cota padrão em um compartilhamento Premium é 100 GiB, que fornece um IOPS de linha de base 100 (com um potencial de disparo de até 300 por uma hora). Para obter mais informações sobre o provisionamento e sua relação com o IOPS, consulte a seção [compartilhamentos provisionados](storage-files-planning.md#provisioned-shares) do guia de planejamento.
+A cota padrão em um compartilhamento Premium é 100 GiB, que fornece um IOPS de linha de base 100 (com um potencial de disparo de até 300 por uma hora). Para obter mais informações sobre o provisionamento e sua relação com o IOPS, consulte a seção [compartilhamentos provisionados](storage-files-planning.md#understanding-provisioning-for-premium-file-shares) do guia de planejamento.
 
 Para confirmar se o compartilhamento está sendo limitado, você pode aproveitar as métricas do Azure no Portal.
 
@@ -102,7 +102,7 @@ Esse é um problema conhecido com a implementação do cliente SMB no Linux.
 
 - Espalhe a carga entre várias VMs.
 - Na mesma VM, use vários pontos de montagem com a opção **nosharesock** e espalhe a carga entre esses pontos de montagem.
-- No Linux, tente montar com a opção **nostrictsync** para evitar forçar a liberação SMB em cada chamada fsync. Para arquivos do Azure, essa opção não interfere em consistentcy de dados, mas pode resultar em metadados de arquivo obsoletos na listagem de diretório (comando**ls-l** ). Consultar diretamente os metadados do arquivo (comando**stat** ) retornará os metadados de arquivo mais atualizados.
+- No Linux, tente montar com a opção **nostrictsync** para evitar forçar a liberação SMB em cada chamada **fsync** . Para arquivos do Azure, essa opção não interfere na consistência dos dados, mas pode resultar em metadados de arquivo obsoletos na listagem de diretório (comando**ls-l** ). Consultar diretamente os metadados do arquivo (comando**stat** ) retornará os metadados de arquivo mais atualizados.
 
 ## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Altas latências de metadados cargas de trabalho pesadas envolvendo operações de abertura/fechamento extensivas.
 
@@ -194,7 +194,7 @@ Maior que a latência esperada Acessando arquivos do Azure para cargas de trabal
   > [!NOTE]
   > Se o compartilhamento de arquivos for um compartilhamento de arquivos padrão, a lista suspensa valores de dimensão ficará em branco porque as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão. Os alertas de limitação para compartilhamentos de arquivos padrão serão disparados se algum compartilhamento de arquivos dentro da conta de armazenamento for limitado e o alerta não identificar qual compartilhamento de arquivos foi limitado. Como as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão, a recomendação é ter um compartilhamento de arquivos por conta de armazenamento. 
 
-8. Defina os **parâmetros de alerta** (limite, operador, granularidade e frequência de agregação) que são usados para avaliar a regra de alerta de métrica e clique em **concluído**.
+8. Defina os **parâmetros de alerta** (limite, operador, granularidade de agregação e frequência) que são usados para avaliar a regra de alerta de métrica e clique em **concluído**.
 
   > [!TIP]
   > Se você estiver usando um limite estático, o gráfico de métrica poderá ajudar a determinar um limite razoável se o compartilhamento de arquivos estiver sendo limitado no momento. Se você estiver usando um limite dinâmico, o gráfico de métrica exibirá os limites calculados com base nos dados recentes.

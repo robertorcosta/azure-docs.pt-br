@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/23/2019
 ms.author: memildin
-ms.openlocfilehash: 862fb4f8a9dcd357148f73a729ffc7e92ba0083a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1dc94c5ec08cc27fb1819ccc16fd766c62aad796
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75353434"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604680"
 ---
-# <a name="adaptive-application-controls"></a>Controles de aplicativo adaptativo
+# <a name="adaptive-application-controls"></a>Controles de aplicativo adaptáveis
 Saiba como configurar o controle de aplicativo na Central de Segurança do Azure usando este passo a passo.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>O que são controles de aplicativo adaptáveis na Central de Segurança?
@@ -65,7 +65,7 @@ A seção **Grupos de VMs** contém três guias:
 
 1. Selecione a guia **recomendado** para obter uma lista de grupos com recomendações de controle de aplicativo:
 
-   ![Recomendado](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
+   ![Recomendadas](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
    A lista inclui:
 
@@ -132,7 +132,7 @@ A seção **Grupos de VMs** contém três guias:
    - **Alertas**: quaisquer violações registradas.
    - **Nº de VMs**: o número de máquinas virtuais com este tipo de alerta.
 
-6. Em **Regras da lista de permissões de editores**, **Regras da lista de permissões de editores** e **Regras de lista de permissões em hash**, você pode ver quais regras de lista de permissões estão configuradas nas VMs de um grupo, de acordo com o tipo de coleção de regras. Para cada regra, você pode ver:
+6. Em **Regras de lista branca de editores**, **Regras de lista branca de editores** e **Regras de lista de permissões em hash**, você pode ver quais regras de lista de permissões estão configuradas nas VMs de um grupo, de acordo com o tipo de coleção de regras. Para cada regra, você pode ver:
 
    - **Regra**: os parâmetros específicos de acordo com os quais um aplicativo é examinado pelo AppLocker para determinar se um aplicativo pode ser executado.
    - **Tipo de arquivo**: os tipos de arquivo que são cobertos por uma regra específica. Isso pode ser qualquer um dos seguintes: EXE, Script, MSI ou qualquer permutação desses tipos de arquivo.
@@ -146,7 +146,7 @@ A seção **Grupos de VMs** contém três guias:
 
 ### <a name="not-recommended-list"></a>Lista de não recomendados
 
-O Security Center recomenda apenas políticas de lista de permissões de aplicativos para máquinas virtuais que executam um conjunto estável de aplicativos. As recomendações não serão criadas se os aplicativos nas VMs associadas sofrerem mudança.
+O Security Center recomenda apenas políticas de lista branca de aplicativos para máquinas virtuais que executam um conjunto estável de aplicativos. As recomendações não serão criadas se os aplicativos nas VMs associadas sofrerem mudança.
 
 ![Recomendação](./media/security-center-adaptive-application/security-center-adaptive-application-fig11.png)
 
@@ -154,7 +154,7 @@ A lista contém:
 - **Nome do grupo**: o nome da assinatura e do grupo
 - **VMs e computadores**: o número de máquinas virtuais no grupo
 
-A Central de Segurança do Azure permite definir uma política de lista de permissões de aplicativos em grupos de VMs não recomendados também. Siga os mesmos princípios descritos anteriormente para configurar também uma política de lista de permissões de aplicativos nesses grupos.
+A Central de Segurança do Azure permite definir uma política de lista branca de aplicativos em grupos de VMs não recomendados também. Siga os mesmos princípios descritos anteriormente para configurar também uma política de lista de permissões de aplicativos nesses grupos.
 
 ## <a name="move-a-vm-from-one-group-to-another"></a>Mover uma VM de um grupo para outro
 
@@ -173,12 +173,11 @@ A Central de Segurança do Azure permite definir uma política de lista de permi
  > [!NOTE]
 > Certifique-se de clicar em **salvar** depois de clicar em **mover computador**. Se você não clicar em **salvar**, o computador não será movido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a usar o controle de aplicativo adaptável na central de segurança do Azure para aplicativos de lista de permissões em execução no Azure e em VMs não Azure. Para saber mais sobre a Central de Segurança do Azure, veja o seguinte:
 
 * [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Saiba como gerenciar alertas e responder a incidentes de segurança na Central de Segurança.
 * [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md). Saiba como monitorar a integridade dos recursos do Azure.
 * [Noções básicas de alertas de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Saiba mais sobre os diferentes tipos de alertas de segurança.
 * [Guia de solução de problemas da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Saiba como solucionar problemas comuns na Central de Segurança.
-* [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md). Encontre as perguntas frequentes sobre como usar o serviço.
 * [Blog de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/). Encontre postagens no blog sobre a conformidade e segurança do Azure.

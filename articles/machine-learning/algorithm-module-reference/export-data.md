@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 11f5bd7f01e142273509ae59ddc19a2557464bde
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 40d8e298237b6110fee04aefbb7b79c5f3bac6f0
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152305"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598605"
 ---
 # <a name="export-data-module"></a>Exportar módulo de dados
 
 Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
-Use este módulo para salvar os resultados, dados intermediários e dados de trabalho de seus pipelines em destinos de armazenamento em nuvem fora Azure Machine Learning. 
+Use este módulo para salvar os resultados, dados intermediários e dados de trabalho de seus pipelines em destinos de armazenamento em nuvem. 
 
 Este módulo dá suporte à exportação de dados para os seguintes serviços de dados de nuvem:
 
@@ -29,7 +29,7 @@ Este módulo dá suporte à exportação de dados para os seguintes serviços de
 - Azure Data Lake
 - Azure Data Lake Gen2
 
-Antes de exportar seus dados, primeiro você precisa registrar um armazenamento de um datastore em seu espaço de trabalho Azure Machine Learning. Para obter mais informações, consulte [acessar dados nos serviços de armazenamento do Azure](../how-to-access-data.md).
+Antes de exportar seus dados, você precisa primeiro registrar um repositório de armazenamento em seu espaço de trabalho Azure Machine Learning. Para obter mais informações, consulte [acessar dados nos serviços de armazenamento do Azure](../how-to-access-data.md).
 
 ## <a name="how-to-configure-export-data"></a>Como configurar dados de exportação
 
@@ -41,7 +41,13 @@ Antes de exportar seus dados, primeiro você precisa registrar um armazenamento 
 
 1. Para o **repositório de armazenamento**, selecione um repositório de armazenamento existente na lista suspensa. Você também pode criar um novo repositório de armazenamento. Verifique como [acessar dados do Access nos serviços de armazenamento do Azure](../how-to-access-data.md).
 
-1. Defina o caminho no repositório de dados no qual gravar o dado. 
+1. A caixa de seleção, **regenerar saída**, decide se o módulo deve ser executado para regenerar a saída em tempo de execução. 
+
+    Ele é, por padrão, desmarcado, o que significa que, se o módulo tiver sido executado com os mesmos parâmetros anteriormente, o sistema reutilizará a saída da última execução para reduzir o tempo de execução. 
+
+    Se estiver selecionado, o sistema executará o módulo novamente para regenerar a saída.
+
+1. Defina o caminho no repositório de dados onde estão os dados. O caminho é um caminho relativo. Não são permitidos caminhos vazios ou caminhos de URL.
 
 
 1. Para **formato de arquivo**, selecione o formato no qual os dados devem ser armazenados.

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 1d82261d4b5c1a66498c33610670d7a38acbb197
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 91480b3ba0a2bbd3e8c31adb931f5baabe1b07ce
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152322"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605586"
 ---
 # <a name="execute-python-script-module"></a>Executar módulo de script Python
 
@@ -91,7 +91,7 @@ O módulo **Executar script Python** contém o código Python de exemplo que voc
 
     ![Executar o mapa de entrada do Python](media/module/python-module.png)
 
-4. Para incluir novos pacotes ou códigos do Python, adicione o arquivo compactado que contém esses recursos personalizados no **pacote de script**. A entrada para o **grupo de scripts** deve ser um arquivo compactado já carregado em seu espaço de trabalho. 
+4. Para incluir novos pacotes ou códigos do Python, adicione o arquivo compactado que contém esses recursos personalizados no **pacote de script**. A entrada para o **grupo de script** deve ser um arquivo compactado carregado em seu espaço de trabalho como um tipo de arquivo de conjunto de dados. 
 
     Qualquer arquivo contido no arquivo compactado carregado pode ser usado durante a execução do pipeline. Se o arquivo incluir uma estrutura de diretório, a estrutura será preservada, mas você deverá preceder um diretório chamado **src** para o caminho.
 

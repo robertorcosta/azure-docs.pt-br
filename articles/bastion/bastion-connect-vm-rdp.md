@@ -1,31 +1,32 @@
 ---
-title: Conectar-se a uma VM do Windows usando a bastiões do Azure | Microsoft Docs
+title: Conectar-se a uma VM do Windows usando a bastiões do Azure
 description: Neste artigo, saiba como se conectar a uma máquina virtual do Azure que executa o Windows usando a bastiões do Azure.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 02/24/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7dad6a517341f83f693e1e7e1f7d27e899e00f7e
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 6ec60dc313c8a4374637adf38ea0e5a7d4ed964b
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990480"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597330"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion"></a>Conectar-se a uma máquina virtual do Windows usando a bastiões do Azure
 
-Este artigo mostra como usar o RDP de forma segura e direta para suas VMs do Windows em uma rede virtual do Azure usando a bastiões do Azure. É possível se conectar a uma VM diretamente do portal do Azure. Usando o Azure Bastion, as VMs não precisam de um cliente, de um agente nem de software adicional. Para obter mais informações sobre a bastiões do Azure, consulte a [visão geral](bastion-overview.md).
+Usando a bastiões do Azure, você pode se conectar de forma segura e direta às suas máquinas virtuais por SSL diretamente no portal do Azure. Quando você usa a bastiões do Azure, suas VMs não exigem um cliente, agente ou software adicional. Este artigo mostra como se conectar às suas VMs do Windows. Para obter informações sobre como se conectar a uma VM do Linux, consulte [conectar-se a uma VM usando o Azure bastião-Linux](bastion-connect-vm-ssh.md).
+
+A bastiões do Azure fornece conectividade segura para todas as VMs na rede virtual em que ela é provisionada. O uso do Azure Bastion protege suas máquinas virtuais contra a exposição das portas RDP/SSH ao mundo externo, fornecendo acesso seguro usando o RDP/o SSH. Para obter mais informações, confira a [Visão geral](bastion-overview.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Verifique se você configurou um host de bastiões do Azure para a rede virtual na qual a VM reside. Para obter mais informações, consulte [criar um host de bastiões do Azure](bastion-create-host-portal.md). Depois que o serviço de bastiões for provisionado e implantado em sua rede virtual, você poderá usá-lo para se conectar a qualquer VM nessa rede virtual.
-
-A bastiões pressupõe que você esteja usando o RDP para se conectar a uma VM do Windows e o SSH para se conectar às suas VMs do Linux. Para obter informações sobre a conexão a uma VM do Linux, consulte [conectar-se a uma VM-Linux](bastion-connect-vm-ssh.md).
+Verifique se você configurou um host de bastiões do Azure para a rede virtual na qual a VM está localizada. Depois que o serviço de bastiões for provisionado e implantado em sua rede virtual, você poderá usá-lo para se conectar a qualquer VM na rede virtual. Para configurar um host de bastiões do Azure, consulte [criar um host de bastiões do Azure](bastion-create-host-portal.md).
 
 ### <a name="required-roles"></a>Funções necessárias
-Para fazer uma conexão, são necessárias as seguintes funções:
+
+Para fazer uma conexão, as seguintes funções são necessárias:
 
 * Função de leitor na máquina virtual
 * Função de leitor na placa de interface de rede com endereço IP privado da máquina virtual
@@ -33,22 +34,22 @@ Para fazer uma conexão, são necessárias as seguintes funções:
 
 ### <a name="ports"></a>Portas
 
-Para se conectar à VM do Windows via RDP, você deve ter as seguintes portas abertas na sua VM do Windows:
+Para se conectar à VM do Windows, você deve ter as seguintes portas abertas na sua VM do Windows:
 
 * Portas de entrada: RDP (3389)
 
-## <a name="rdp"></a>Conectar usando RDP
+## <a name="rdp"></a>Connect
 
-1. Abra o [Portal do Azure](https://portal.azure.com). Navegue até a máquina virtual à qual você deseja se conectar e clique em **conectar**. A VM deve ser uma máquina virtual do Windows ao usar uma conexão RDP.
+1. Abra o [Portal do Azure](https://portal.azure.com). Navegue até a máquina virtual à qual você deseja se conectar e clique em **conectar** e selecione **bastiões** na lista suspensa.
 
    ![Conexão de VM](./media/bastion-connect-vm-rdp/connect.png)
-1. Depois de clicar em conectar, uma barra lateral é exibida com três guias – RDP, SSH e bastiões. Se a bastiões tiver sido provisionada para a rede virtual, a guia de bastiões estará ativa por padrão. Se você não provisionar a bastiões para a rede virtual, poderá clicar no link para configurar a bastiões. Para obter instruções de configuração, consulte [Configurar a bastiões](bastion-create-host-portal.md).
+1. Depois de clicar em bastiões, uma barra lateral aparece com três guias – RDP, SSH e bastiões. Se a bastiões tiver sido provisionada para a rede virtual, a guia de bastiões estará ativa por padrão. Se você não provisionar a bastiões para a rede virtual, poderá clicar no link para configurar a bastiões. Para obter instruções de configuração, consulte [Configurar a bastiões](bastion-create-host-portal.md).
 
-   ![Conexão de VM](./media/bastion-connect-vm-rdp/bastion.png)
-1. Na guia bastião, o nome de usuário e a senha para sua máquina virtual e clique em **conectar**. A conexão RDP com essa máquina virtual via bastiões será aberta diretamente no portal do Azure (sobre o HTML5) usando a porta 443 e o serviço de bastiões.
+   ![Guia de bastiões](./media/bastion-connect-vm-rdp/bastion.png)
+1. Na guia bastião, insira o nome de usuário e a senha para sua máquina virtual e clique em **conectar**. A conexão RDP com essa máquina virtual via bastiões será aberta diretamente no portal do Azure (sobre o HTML5) usando a porta 443 e o serviço de bastiões.
 
-   ![Conexão de VM](./media/bastion-connect-vm-rdp/443rdp.png)
+   ![Conexão RDP](./media/bastion-connect-vm-rdp/443rdp.png)
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Leia as [perguntas frequentes de bastiões](bastion-faq.md)

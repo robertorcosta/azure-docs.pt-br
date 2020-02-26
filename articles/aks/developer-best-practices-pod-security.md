@@ -3,16 +3,15 @@ title: Melhores práticas do desenvolvedor - Segurança do Pod no Azure Kubernet
 description: Conheça as práticas recomendadas do desenvolvedor para saber como proteger os pods no serviço de Kubernetes do Azure (AKS)
 services: container-service
 author: zr-msft
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: zarhoads
-ms.openlocfilehash: 17f281aeb2ef3f1f32f3e13fe66fe8b74b1d9116
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: eaeb81d7f93124f1f3dedf9676314b1b786d8571
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547669"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595834"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Práticas recomendadas de segurança do pod no Serviço de Kubernetes do Azure (AKS)
 
@@ -101,7 +100,7 @@ Com o Azure Key Vault, você pode armazenar e regularmente girar segredos, como 
 
 Azure Key Vault com FlexVol destina-se ao uso com aplicativos e serviços em execução em pods e nós do Linux.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Este artigo se concentrou em como proteger seus pods. Para implementar algumas dessas áreas, confira os seguintes artigos:
 

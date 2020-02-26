@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2019
 ms.author: memildin
-ms.openlocfilehash: 1a66ea200082f60a3a763c6a4e2bdea62ec473d8
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 15029c3e0bd3959000786af484a42691f00bb704
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75920995"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603573"
 ---
-# <a name="provide-security-contact-details-in-azure-security-center"></a>Forneça detalhes de contato de segurança na Central de Segurança do Azure
+# <a name="provide-security-contact-details-in-azure-security-center"></a>Fornecer detalhes de contato de segurança na Central de segurança do Azure
 A Central de Segurança do Azure recomendará que você forneça detalhes de contato de segurança para sua assinatura do Azure se ainda não fez isso. Essas informações serão usadas pela Microsoft para contatá-lo se o MSRC (Microsoft Security Response Center) descobrir que os dados do cliente têm sido acessados por uma pessoa não autorizada ou ilegal. O MSRC executa determinado monitoramento de segurança da rede e da infraestrutura do Azure e recebe reclamações de inteligência e abuso de ameaça de terceiros.
 
 Uma notificação por email é enviada na primeira ocorrência diária de um alerta e apenas para alertas de gravidade alta. As preferências de email só podem ser configuradas para políticas de assinatura. Grupos de recursos dentro de uma assinatura herdarão essas configurações. Os alertas estão disponíveis apenas na camada Standard da central de segurança do Azure.
@@ -53,7 +53,7 @@ Por exemplo, se uma mensagem de email já foi enviada para alertá-lo sobre um a
    * Você tem a opção de enviar notificações por email para proprietários de assinatura (administrador de serviço clássico e coadministradores, além da função de proprietário RBAC no escopo da assinatura).
    * Selecione **Salvar** para aplicar as informações de contato de segurança à sua assinatura.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 * [Configurando políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
@@ -61,8 +61,6 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 * [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) : saiba como monitorar a integridade dos recursos do Azure.
 * [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e a responder a alertas de segurança.
 * [Monitoramento de soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiro.
-* [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço.
-* [Blog de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) : obtenha as últimas notícias de segurança e informações do Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-provide-security-contacts/provide-contacts.png

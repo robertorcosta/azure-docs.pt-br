@@ -2,17 +2,14 @@
 title: Criar nós virtuais usando o portal no AKS (Serviços de Kubernetes do Azure)
 description: Saiba como usar o portal do Azure para criar um cluster do AKS (Serviços de Kubernetes do Azure) que usa nós virtuais para executar pods.
 services: container-service
-author: mlearned
 ms.topic: conceptual
-ms.service: container-service
 ms.date: 05/06/2019
-ms.author: mlearned
-ms.openlocfilehash: 6a50663fd0cc907e0dc97b50decd8b6edbaa42cb
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 664bbdc94963b84e4fed6845dfd23d2407ca3898
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76713214"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592553"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Criar e configurar um cluster do AKS (Serviços de Kubernetes do Azure) para usar nós virtuais no portal do Azure
 
@@ -217,7 +214,7 @@ $ curl -L 10.241.0.4
 
 Feche a sessão de terminal do pod de teste com `exit`. Quando a sessão for encerrada, o pod será excluído.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, agendamos um pod no nó virtual e atribuímos a um endereço IP privado interno. Ao invés disso, você pode criar uma implantação de serviço e direcionar o tráfego para o pod por meio de um balanceador de carga ou controlador de entrada. Para obter mais informações, consulte [criar um controlador de entrada básico em AKs][aks-basic-ingress].
 

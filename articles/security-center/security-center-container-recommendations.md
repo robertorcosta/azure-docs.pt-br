@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: memildin
-ms.openlocfilehash: 96efe5271b91f87e30ba26aabe69a0de76e1a791
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b8b8b05f703a3eb05936ca95e2047a13650914cf
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202401"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604273"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Entenda as recomendações do contêiner da Central de Segurança do Azure
 
@@ -42,9 +42,9 @@ A Central de Segurança do Azure oferece os recursos a seguir para ajudá-lo a p
 ## <a name="recommendations"></a>Recomendações
 Use as tabelas abaixo como referência para ajudá-lo a entender os contêineres disponíveis hospedados em máquinas IaaS Linux e a avaliação de segurança de suas configurações do Docker.
 
-| Recomendação | Descrição | Correção |
+| Recomendação | DESCRIÇÃO | Correção |
 | --- | --- | --- |
-|Corrigir as vulnerabilidades em configurações de segurança de contêiner |Corrigi as vulnerabilidades em configurações de segurança de contêiner com base em práticas recomendadas de configuração.| Para corrigir as vulnerabilidades nas configurações de segurança de contêiner:<br>1. Examine a lista de regras com falha.<br>2. Corrigi cada regra de acordo com as instruções especificadas.|
+|Corrigir as vulnerabilidades em configurações de segurança de contêiner |Corrigi as vulnerabilidades em configurações de segurança de contêiner com base em práticas recomendadas de configuração.| Para corrigir as vulnerabilidades nas configurações de segurança de contêiner:<br>1. Examine a lista de regras com falha.<br>2. corrija cada regra de acordo com as instruções especificadas.|
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -59,5 +59,3 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 * [Protegendo suas máquinas e aplicativos na Central de segurança do Azure](security-center-virtual-machine-protection.md)
 * [Configurando políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 * [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e a responder a alertas de segurança.
-* [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço.
-

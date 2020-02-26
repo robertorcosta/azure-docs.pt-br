@@ -3,7 +3,7 @@ title: Conectar dados de BIG-IP do F5 ao Azure Sentinel | Microsoft Docs
 description: Saiba como conectar dados de BIG-IP F5 ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: d068223f-395e-46d6-bb94-7ca1afd3503c
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: 273bea7fa8629dd907c228416d06dac087b0ec85
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: ae361c74b261bdd6a5673040f868392282b573ef
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610566"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588273"
 ---
 # <a name="connect-your-f5-big-ip-appliance"></a>Conectar seu dispositivo de BIG-IP F5 
 
@@ -51,7 +51,7 @@ Pode levar até 20 minutos até que os logs comecem a aparecer na Log Analytics.
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a conectar F5 BIG-IP ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).

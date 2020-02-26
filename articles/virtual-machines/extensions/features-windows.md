@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 69d08af9fd34728860343db3578f7283802f1611
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 4eb212cb6122803f78b13e6c17a55bac5bc48286
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544745"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587865"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
 
@@ -36,13 +36,13 @@ Há várias extensões de VM do Azure diferentes disponíveis, cada uma com um c
 
 - Aplique as configurações de Estado Desejado do PowerShell a uma VM usando a extensão de DSC para Windows. Para saber mais, confira [Extensão de configuração de Estado Desejado do Azure](dsc-overview.md).
 - Configure o monitoramento de uma VM com a extensão de VM do agente de Log Analytics. Para obter mais informações, consulte [conectar VMs do Azure a logs de Azure monitor](../../log-analytics/log-analytics-azure-vm-extension.md).
-- Configure uma VM do Azure ao usar o Chef. Para obter mais informações, consulte [Automatizar a implantação de VM do Azure com o Chef](../windows/chef-automation.md).
+- Configure uma VM do Azure ao usar o Chef. Para obter mais informações, consulte [Automatizar a implantação de VM do Azure com o Chef](../../chef/chef-automation.md).
 - Configure o monitoramento de sua infraestrutura do Azure com a extensão Datadog. Para saber mais, confira [blog Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 
 Além de extensões específicas ao processo, uma extensão de Script Personalizado está disponível para máquinas virtuais Windows e Linux. A extensão de Script personalizado para Windows permite a execução de qualquer script do PowerShell em uma VM. Scripts personalizados são úteis para a criação de implantações do Azure que exigem uma configuração que vai além da capacidade das ferramentas nativas do Azure. Para saber mais, veja [Extensão de Script personalizado de VM do Windows](custom-script-windows.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para lidar com a extensão na VM, você precisa ter o agente do Windows Azure instalado. Algumas extensões individuais têm pré-requisitos, como acesso a recursos ou dependências.
 
@@ -421,13 +421,13 @@ Você também pode remover uma extensão no portal do Azure da seguinte maneira:
 4. Escolha **Desinstalar**.
 
 ## <a name="common-vm-extensions-reference"></a>Referência a extensões de VM comuns
-| Nome da extensão | Description | Mais informações |
+| Nome da extensão | DESCRIÇÃO | Mais informações |
 | --- | --- | --- |
 | Extensão de script personalizado para o Windows |Executar scripts em uma máquina virtual do Azure |[Extensão de script personalizado para o Windows](custom-script-windows.md) |
 | Extensão de DSC para o Windows |Extensão PowerShell DSC (Configuração de Estado Desejado) |[Extensão DSC para Windows](dsc-overview.md) |
 | Extensão de Diagnóstico do Azure |Gerenciar Diagnóstico do Azure |[Extensão de Diagnóstico do Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Extensão de acesso à VM do Azure |Gerenciar usuários e credenciais |[Extensão de Acesso à VM para Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre extensões de VM, consulte [Visão geral de recursos e extensões de máquina virtual do Azure](overview.md).

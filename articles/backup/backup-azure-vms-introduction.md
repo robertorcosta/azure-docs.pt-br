@@ -3,12 +3,12 @@ title: Sobre o backup de VM do Azure
 description: Neste artigo, saiba como o serviço de backup do Azure faz backup de máquinas virtuais do Azure e como seguir as práticas recomendadas.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: b38c61adaf334eacb7d85292d4174189d6fddc46
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8ffbf0d0164cbf6f085518d57566b0befde6e124
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75391892"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597245"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Uma visão geral do backup de VM do Azure
 
@@ -58,12 +58,7 @@ Também é feito backup de BEKs. Portanto, se os BEKs forem perdidos, os usuári
 
 O backup do Azure faz instantâneos de acordo com o agendamento de backup.
 
-- **VMs do Windows:** Para VMs do Windows, o serviço de backup coordena com o VSS para obter um instantâneo consistente com o aplicativo dos discos de VM.
-
-  - Por padrão, o Backup do Azure usa backups completos de VSS. [Saiba mais](https://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
-  - Para alterar a configuração de modo que o backup do Azure faça backups de cópia VSS, defina a seguinte chave do registro em um prompt de comando:
-
-    **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f**
+- **VMs do Windows:** Para VMs do Windows, o serviço de backup coordena com o VSS para obter um instantâneo consistente com o aplicativo dos discos de VM.  Por padrão, o backup do Azure faz um backup completo do VSS (ele trunca os logs do aplicativo, como SQL Server no momento do backup para obter o backup consistente no nível do aplicativo).  Se você estiver usando um banco de dados SQL Server no backup de VM do Azure, poderá modificar a configuração para fazer um backup de cópia do VSS (para preservar os logs). Para obter mais informações, consulte [este artigo](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#troubleshoot-vm-snapshot-issues).
 
 - **VMs do Linux:** Para obter instantâneos consistentes com o aplicativo de VMs do Linux, use a estrutura de pré e pós-script do Linux para escrever seus próprios scripts personalizados para garantir a consistência.
 
@@ -134,6 +129,6 @@ Disco de dados 2 | 32 TB | 0 GB
 
 O tamanho real da VM neste caso é de 17 GB + 30 GB + 0 GB = 47 GB. Esse tamanho de instância protegida (47 GB) se torna a base para a fatura mensal. À medida que aumenta a quantidade de dados na VM, o tamanho da instância protegida usada para correspondência de alterações de cobrança.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora, [Prepare-se para o backup de VM do Azure](backup-azure-arm-vms-prepare.md).
