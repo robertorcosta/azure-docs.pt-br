@@ -3,12 +3,12 @@ title: Usar o PowerShell para fazer backup de cargas de trabalho do DPM
 description: Saiba como implantar e gerenciar o backup do Azure para o Data Protection Manager (DPM) usando o PowerShell
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: cd735406a19ca1e03f520f75a7d2f39322725b8d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 06c138a4015a0b730369e091fc57a34d2190051d
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77583065"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616729"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implantar e gerenciar o backup do Azure para servidores do Data Protection Manager (DPM) usando o PowerShell
 
@@ -234,7 +234,7 @@ Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSett
 
 Nesta seção, você adicionará um servidor de produção ao DPM, protegerá os dados primeiro no armazenamento local do DPM e, em seguida, no Backup do Azure. Nos exemplos, demonstraremos como fazer backup de arquivos e pastas. A lógica pode ser facilmente estendida para fazer backup de qualquer fonte de dados para a qual há suporte no DPM. Todos os backups do DPM são regidos por um GP (Grupo de Proteção) com quatro partes:
 
-1. **Membros do grupo** é uma lista de todos os objetos protegíveis (também conhecidos como *Fontes de dados* no DPM) que você deseja proteger no mesmo grupo de proteção. Por exemplo, convém proteger as VMs de produção em um grupo de proteção e os bancos de dados do SQL Server em outro grupo de proteção, pois eles podem ter requisitos de backup diferentes. Antes de poder fazer backup de qualquer fonte de dados em um servidor de produção, é necessário verificar se o agente do DPM está instalado no servidor e é gerenciado pelo DPM. Siga as etapas para a [instalação do Agente do DPM](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2007/bb870935(v=technet.10)) e vincule-o ao Servidor DPM apropriado.
+1. **Membros do grupo** é uma lista de todos os objetos protegíveis (também conhecidos como *Fontes de dados* no DPM) que você deseja proteger no mesmo grupo de proteção. Por exemplo, convém proteger as VMs de produção em um grupo de proteção e os bancos de dados do SQL Server em outro grupo de proteção, pois eles podem ter requisitos de backup diferentes. Antes de poder fazer backup de qualquer fonte de dados em um servidor de produção, é necessário verificar se o agente do DPM está instalado no servidor e é gerenciado pelo DPM. Siga as etapas para a [instalação do Agente do DPM](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) e vincule-o ao Servidor DPM apropriado.
 2. **Método de proteção de dados** especifica os locais de destino de backup – fita, disco e nuvem. Em nosso exemplo, protegeremos os dados no disco local e na nuvem.
 3. Um **agendamento de backup** que especifica quando os backups precisam ser executados e a frequência com que os dados devem ser sincronizados entre o servidor DPM e o servidor de produção.
 4. Um **cronograma de retenção** que especifica quanto tempo deve-se manter os pontos de recuperação no Azure.

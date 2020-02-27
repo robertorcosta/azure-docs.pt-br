@@ -2,18 +2,15 @@
 title: Tutorial do Kubernetes no Azure - Dimensionar Aplicativo
 description: Neste tutorial do AKS (Serviço de Kubernetes do Azure), você aprenderá a dimensionar nós e pods no Kubernetes e a implementar o dimensionamento automático horizontal de pods.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: tutorial
 ms.date: 01/14/2019
-ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: b668d2bfecfba53c2a1b0904a8b6b77805ad965b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7db80e9bf0bd864762a88680132d77a3c5d21f19
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967412"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621086"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Dimensionar aplicativos no AKS (Serviço de Kubernetes do Azure)
 
@@ -57,7 +54,7 @@ kubectl scale --replicas=5 deployment/azure-vote-front
 Execute [kubectl get pods][kubectl-get] novamente para verificar se o AKS cria os pods adicionais. Após aproximadamente um minuto, os pods adicionais estão disponíveis em seu cluster:
 
 ```console
-$ kubectl get pods
+kubectl get pods
 
                                     READY     STATUS    RESTARTS   AGE
 azure-vote-back-2606967446-nmpcf    1/1       Running   0          15m
@@ -134,13 +131,13 @@ spec:
 Use `kubectl apply` para aplicar o dimensionador automático definido no arquivo de manifesto `azure-vote-hpa.yaml`.
 
 ```
-$ kubectl apply -f azure-vote-hpa.yaml
+kubectl apply -f azure-vote-hpa.yaml
 ```
 
 Para ver o status do dimensionador automático, use o comando `kubectl get hpa` da seguinte forma:
 
 ```
-$ kubectl get hpa
+kubectl get hpa
 
 NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
 azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        3          2m

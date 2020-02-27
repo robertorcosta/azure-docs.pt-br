@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: 39eacbb9a87fa18cc6ef92e319fbfbd3e415337b
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 236ae017832d5d613d0bf9fc948d16a7218d2269
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77525508"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621940"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar a taxa de transferência para contêineres e bancos de dados
 
@@ -108,7 +108,7 @@ Você pode dimensionar a taxa de transferência provisionada de um contêiner ou
 |RUs atribuídas ou disponíveis para um contêiner específico|Sem garantias. RUs atribuídas a um determinado contêiner dependem das propriedades. As propriedades podem ser a escolha de chaves de partição de contêineres que compartilham a taxa de transferência, a distribuição da carga de trabalho e o número de contêineres. |Todas as RUs configuradas no contêiner são reservadas exclusivamente ao contêiner.|
 |Armazenamento máximo para um contêiner|Ilimitado.|Ilimitado.|
 |Taxa de transferência máxima por partição lógica de um contêiner|10 mil RUs|10 mil RUs|
-|Taxa de transferência máxima (dados + índice) por partição lógica de um contêiner|10 GB|10 GB|
+|Taxa de transferência máxima (dados + índice) por partição lógica de um contêiner|20 GB|20 GB|
 
 ## <a name="next-steps"></a>Próximas etapas
 

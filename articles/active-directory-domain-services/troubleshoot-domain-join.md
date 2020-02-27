@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: 73a76c4442bb8af70168e54a294f2cb100ff653c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 286e2ad460e98cfeceab52a3ac21bcba8da2cc7f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703665"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612815"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-ad-domain-services-managed-domain"></a>Solucionar problemas de ingresso no domínio com um Azure AD Domain Services domínio gerenciado
 
@@ -32,7 +32,7 @@ Se a VM não conseguir localizar o domínio gerenciado AD DS do Azure, normalmen
 
 1. Verifique se a VM está conectada à mesma rede virtual, ou emparelhada, que está habilitada para o Azure AD DS. Caso contrário, a VM não poderá localizar e se conectar ao domínio para ingressar.
     * Se a VM não estiver conectada à mesma rede virtual, confirme se o emparelhamento de rede virtual ou a conexão VPN está *ativa* ou *conectada* para permitir que o tráfego flua corretamente.
-1. Tente executar o ping no domínio usando o nome de domínio do domínio gerenciado AD DS do Azure, como `ping aadds.contoso.com`.
+1. Tente executar o ping no domínio usando o nome de domínio do domínio gerenciado AD DS do Azure, como `ping aaddscontoso.com`.
     * Se a resposta de ping falhar, tente executar ping nos endereços IP para o domínio exibido na página Visão geral no portal para seu domínio gerenciado AD DS do Azure, como `ping 10.0.0.4`.
     * Se você puder executar o ping com êxito no endereço IP, mas não no domínio, o DNS poderá estar configurado incorretamente. Verifique se você configurou os servidores DNS de domínio gerenciado AD DS do Azure para a rede virtual.
 1. Tente liberar o cache do resolvedor de DNS na máquina virtual, como `ipconfig /flushdns`.
@@ -53,12 +53,12 @@ Se você receber uma caixa de diálogo que solicita credenciais para ingressar n
 
 Para solucionar problemas relacionados a credenciais, examine as seguintes etapas de solução de problemas:
 
-1. Tente usar o formato UPN para especificar as credenciais, como `dee@contoso.onmicrosoft.com`. Verifique se esse UPN está configurado corretamente no Azure AD.
+1. Tente usar o formato UPN para especificar as credenciais, como `dee@aaddscontoso.onmicrosoft.com`. Verifique se esse UPN está configurado corretamente no Azure AD.
     * O *sAMAccountName* para sua conta pode ser gerado automaticamente se houver vários usuários com o mesmo prefixo UPN em seu locatário ou se o prefixo UPN for muito longo. Portanto, o formato *sAMAccountName* para sua conta pode ser diferente do que você espera ou usa em seu domínio local.
 1. Tente usar as credenciais de uma conta de usuário que pertença ao grupo de *Administradores de DC do AAD* para ingressar VMs no domínio gerenciado AD DS do Azure.
 1. Certifique-se de que você [habilitou a sincronização de senha][enable-password-sync] e esperou tempo suficiente para a conclusão da sincronização de senha inicial.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter uma compreensão mais profunda dos processos de Active Directory como parte da operação de ingresso no domínio, consulte [problemas de ingresso e autenticação][join-authentication-issues].
 

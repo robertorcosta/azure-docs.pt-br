@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: 234c4b0493a4f03ed89162318090d57621740cb0
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6662f109f9a8227ec45d44a730abc91ebcd8dd70
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036700"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650837"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Pontuações de parâmetro de comparação de computação de VMs do Linux
 As pontuações de parâmetro de comparação CoreMark a seguir mostram o desempenho de computação de uma lista organizada de VMs de alto desempenho do Azure que executam o Ubuntu. As pontuações de parâmetro de comparação de computação também estão disponíveis para [VMs do Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -52,6 +52,8 @@ As pontuações de parâmetro de comparação CoreMark a seguir mostram o desemp
 | Standard_A8m_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 8 | 1 | 62,9 | 49.838 | 633 | 1,27% | 182 |
 | Standard_A8m_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 8 | 1 | 62,9 | 49.123 | 2\.483 | 5, 5% | 259 |
 
+Observação: as VMs da série Av2 podem ser implantadas em uma variedade de tipos de hardware e processadores (como visto acima). As VMs da série Av2 têm configurações de desempenho e memória de CPU mais adequadas para cargas de trabalho de nível de entrada, como desenvolvimento e teste. O tamanho é limitado para oferecer desempenho de processador relativamente consistente para a instância em execução, independentemente do hardware no qual ele está implantado; no entanto, o software que aproveita as mais novas otimizações de processador podem ver uma variação mais significativa nos tipos de processador.
+
 ## <a name="b---burstable"></a>B-expansível
 (3/15/2019 12:27:08 AM PBI 3897709)
 
@@ -70,6 +72,10 @@ As pontuações de parâmetro de comparação CoreMark a seguir mostram o desemp
 | Standard_B8ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 8 | 1 | 31,4 | 111.929 | 1\.562 | 1,40% | 35 |
 | Standard_B8ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 8 | 1 | 31,4 | 109.537 | 1\.354 | 1,24% | 665 |
 
+Observação: as VMs da série B são para cargas de trabalho com requisitos de desempenho intermitentes. As instâncias de VM acumulam créditos ao usar menos de sua linha de base. Quando a VM acumula o crédito, a VM pode ultrapassar a linha de base usando até 100% para atender aos requisitos curtos de intermitência de CPU. O tempo de intermitência depende dos créditos disponíveis, que é uma função de tamanho e tempo da VM.  
+
+O Comark é um teste de execução curta que normalmente é concluído nos créditos de intermitência disponíveis.  Portanto, os números acima normalmente representam o desempenho de intermitência da VM, refletindo o que a curta, a intermitência, as cargas de trabalho (típicas no desempenho da série B) normalmente verão.
+
 ## <a name="dsv3---general-compute--premium-storage"></a>DSv3 - Computação Geral + Armazenamento Premium
 (3/12/2019 6:52:03 PM PBI 3897709)
 
@@ -84,7 +90,7 @@ As pontuações de parâmetro de comparação CoreMark a seguir mostram o desemp
 | Standard_D16s_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 16 | 1 | 62,9 | 160.319 | 1\.213 | 0,76% | 105 |
 | Standard_D16s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 16 | 1 | 62,9 | 156.325 | 2\.176 | 1,39% | 588 |
 | Standard_D32s_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 32 | 2 | 125,9 | 315.457 | 2\.647 | 0,84% | 105 |
-| Standard_D32s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 32 | 1 | 125,9 | 312.058 | 1\.661 | 0,53% | 595 |
+| Standard_D32s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 32 | 1 | 125,9 | 312.058 | 1\.661 | 0.53% | 595 |
 | Standard_D64s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 64 | 2 | 251,9 | 627.378 | 4\.447 | 0,71% | 700 |
 
 ## <a name="dv3---general-compute"></a>Dv3 - Computação Geral
@@ -331,7 +337,7 @@ As pontuações de parâmetro de comparação CoreMark a seguir mostram o desemp
 
 | Tamanho da VM | CPU | vCPUs | Nós NUMA | Memória (GiB) | Pontuação Média | StdDev | StdDev% | #Execuções |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standard_M8-2ms | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2,50 GHz | 2 | 1 | 215,2 | 22.605 | 29 | 0,13% | 42 |
+| Standard_M8-2ms | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2,50 GHz | 2 | 1 | 215,2 | 22.605 | 29 | 0.13% | 42 |
 | Standard_M8-4ms | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2,50 GHz | 4 | 1 | 215,2 | 44.488 | 183 | 0,41% | 42 |
 | Standard_M16-4ms | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2,50 GHz | 4 | 1 | 430,6 | 44.451 | 269 | 0,61% | 42 |
 | Standard_M16-8ms | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2,50 GHz | 8 | 1 | 430,6 | 88.238 | 1\.243 | 1,41% | 42 |

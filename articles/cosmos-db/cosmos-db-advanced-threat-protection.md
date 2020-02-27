@@ -8,12 +8,12 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: 5cea2f1dac50744c974917347b4428bc39aa737d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bcc1c6ffe7cdec4aed325a67969235ae993a5109
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445540"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614843"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Proteção avançada contra ameaças para Azure Cosmos DB (versão prévia)
 
@@ -105,9 +105,9 @@ Uma notificação por email também é enviada com os detalhes do alerta e as a�
 
 ## <a name="cosmos-db-atp-alerts"></a>Cosmos DB alertas ATP
 
- Para ver uma lista dos alertas gerados durante o monitoramento de contas Azure Cosmos DB, consulte a seção [alertas de Cosmos DB](../security-center/security-center-alerts-data-services.md#cosmos-db) na documentação da central de segurança.
+ Para ver uma lista dos alertas gerados durante o monitoramento de contas Azure Cosmos DB, consulte a seção [alertas de Cosmos DB](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurecosmos) na documentação da central de segurança do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre o [log de diagnóstico no Azure Cosmos DB](cosmosdb-monitor-resource-logs.md)
 * Saiba mais sobre a [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)

@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 940ac7b0a2720283b669fc7ea5a9dbc163ddbe64
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 5681efc202df511745532e4a314e88b319e9880a
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77460204"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623398"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB cotas de serviço
 
@@ -26,7 +26,7 @@ Depois de criar uma conta do Azure Cosmos em sua assinatura, você pode gerencia
 | RUs máxima por contêiner ([modo de taxa de transferência dedicada](databases-containers-items.md#azure-cosmos-containers)) | 1 milhão por padrão. Você pode aumentá-lo ao [arquivar um tíquete de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
 | RUs máxima por banco de dados ([modo provisionado de taxa de transferência compartilhada](databases-containers-items.md#azure-cosmos-containers)) | 1 milhão por padrão. Você pode aumentá-lo ao [arquivar um tíquete de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
 | RUs máxima por chave de partição (lógica) | 10.000 |
-| Armazenamento máximo em todos os itens por chave de partição (lógica)| 10 GB |
+| Armazenamento máximo em todos os itens por chave de partição (lógica)| 20 GB |
 | Número máximo de chaves de partição (lógica) distintas | Ilimitado |
 | Armazenamento máximo por contêiner | Ilimitado |
 | Armazenamento máximo por banco de dados | Ilimitado |

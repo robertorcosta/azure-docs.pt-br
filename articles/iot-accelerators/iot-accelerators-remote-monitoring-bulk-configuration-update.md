@@ -1,19 +1,19 @@
 ---
 title: Gerenciar dispositivos conectados ao Monitoramento Remoto em massa – Azure | Microsoft Docs
 description: Neste tutorial, você aprenderá a gerenciar os dispositivos conectados a uma solução de Monitoramento Remoto em massa.
-author: aditidugar
+author: Philmea
 manager: philmea
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
-ms.author: adugar
-ms.openlocfilehash: 8ba2d4eca3287efc746c0d4902b6bcc4bd0c796e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.author: philmea
+ms.openlocfilehash: eaca93ac8a4e8c660be9618aefb27921a4e0a2eb
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980541"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565571"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Tutorial: Gerenciar dispositivos conectados em massa
 
@@ -39,7 +39,7 @@ If this is going to be a tutorial - we need to split this include into two so th
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 -->
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para seguir este tutorial, você precisará de uma instância implantada do acelerador de solução de Monitoramento Remoto em sua assinatura do Azure.
 

@@ -3,22 +3,22 @@ title: Requisitos de rede adicionais para SAP HANA no Azure (instâncias grandes
 description: Requisitos de rede adicionais para SAP HANA no Azure (instâncias grandes).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
-ms.author: rclaus
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6fc4e797bd74c28fc741bf2a3928b46f0984b1b9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 66bbd8b462ac35756be0fae6eba940ba0aba6c4b
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099936"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614576"
 ---
 # <a name="additional-network-requirements-for-large-instances"></a>Requisitos de rede adicionais para instâncias grandes
 
@@ -38,7 +38,7 @@ Depois de conectar inicialmente uma ou mais redes virtuais do Azure, talvez voc�
 
 ## <a name="increase-expressroute-circuit-bandwidth"></a>Aumentar a largura de banda do circuito de ExpressRoute
 
-Consulte com o SAP HANA no Gerenciamento de Serviço da Microsoft. Se você for aconselhado a aumentar a largura de banda do SAP HANA no circuito de ExpressRoute do Azure (instâncias grandes), crie uma solicitação de suporte do Azure. (Você pode solicitar um aumento para uma largura de banda do circuito único até um máximo de 10 Gbps). Em seguida, você recebe uma notificação após a operação ter sido concluída. Você não precisa fazer mais nada para habilitar essa velocidade superior no Azure.
+Consulte com o SAP HANA no Gerenciamento de Serviço da Microsoft. Se você for aconselhado a aumentar a largura de banda do SAP HANA no circuito de ExpressRoute do Azure (instâncias grandes), crie uma solicitação de suporte do Azure. (Você pode solicitar um aumento para uma largura de banda de circuito único até um máximo de 10 Gbps.) Em seguida, você receberá uma notificação depois que a operação for concluída; Você não precisa fazer mais nada para habilitar essa velocidade mais alta no Azure.
 
 ## <a name="add-an-additional-expressroute-circuit"></a>Adicionar um circuito de ExpressRoute adicional
 
@@ -48,7 +48,7 @@ Quando o novo circuito for criado e o SAP HANA na configuração de Gerenciament
 
 ## <a name="delete-a-subnet"></a>Excluir uma sub-rede
 
-Para remover uma sub-rede da rede virtual, você pode usar o portal do Azure, o PowerShell ou a CLI do Azure. Se o espaço de endereços ou intervalo de endereços IP de rede virtual do Azure estiver em um intervalo agregado, não haverá nenhum acompanhamento para você com a Microsoft. (Observe, entretanto, que a rede virtual ainda está propagando o espaço de endereços de rota BGP que inclui a sub-rede excluída.) Você pode ter definido o espaço de endereços ou o intervalo de endereços de rede virtual do Azure como vários intervalos de endereços IP dos quais um foi atribuído à sua sub-rede excluída. Exclua esses elementos de seu espaço de endereço de rede virtual. Em seguida, informe o SAP HANA no Gerenciamento de Serviços da Microsoft para removê-lo dos intervalos com que o SAP HANA no Azure (instâncias grandes) tem permissão para se comunicar.
+Para remover uma sub-rede da rede virtual, você pode usar o portal do Azure, o PowerShell ou a CLI do Azure. Se o espaço de endereços ou intervalo de endereços IP de rede virtual do Azure estiver em um intervalo agregado, não haverá nenhum acompanhamento para você com a Microsoft. (No entanto, observe que a rede virtual ainda está propagando o espaço de endereço de rota BGP que inclui a sub-rede excluída.) Você pode ter definido o intervalo de endereços da rede virtual do Azure ou o espaço de endereço como vários intervalos de endereços IP, dos quais um foi atribuído à sua sub-rede excluída. Exclua esses elementos de seu espaço de endereço de rede virtual. Em seguida, informe o SAP HANA no Gerenciamento de Serviços da Microsoft para removê-lo dos intervalos com que o SAP HANA no Azure (instâncias grandes) tem permissão para se comunicar.
 
 Para obter informações, confira [Excluir uma sub-rede](../../../virtual-network/virtual-network-manage-subnet.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet).
 

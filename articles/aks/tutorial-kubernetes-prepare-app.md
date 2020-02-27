@@ -2,18 +2,15 @@
 title: Tutorial do Kubernetes no Azure - Preparar um aplicativo
 description: Neste tutorial do AKS (Serviço de Kubernetes do Azure), você aprenderá como preparar e criar um aplicativo de vários contêineres com o Docker Compose que poderá ser implantado no AKS.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 3ff93d006b7599eaa3f97c33efb047ce480c301c
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: feab8495536b3306fd96793323d51644570b401b
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71264465"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593153"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Tutorial: Preparar um aplicativo para o AKS (Serviço de Kubernetes do Azure)
 
@@ -93,7 +90,7 @@ Para ver o aplicativo em execução, insira `http://localhost:8080` em um navega
 
 ![Imagem do cluster Kubernetes no Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Agora que a funcionalidade do aplicativo foi validada, os contêineres em execução podem ser interrompidos e removidos. Não exclua as imagens do contêiner. No próximo tutorial, a imagem *azure-vote-front* será carregada em uma instância do Registro de Contêiner do Azure.
 
@@ -107,7 +104,7 @@ Quando o aplicativo local tiver sido removido, você terá uma imagem do Docker 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, um aplicativo foi testado e imagens de contêiner foram criadas para o aplicativo. Você aprendeu como:
+Neste tutorial, um aplicativo foi testado e imagens de contêiner foram criadas para o aplicativo. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Clonar a origem do aplicativo de exemplo do GitHub

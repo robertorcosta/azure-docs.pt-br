@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b2a5a66f2801804b354dd8945ea7d8eb565e82cb
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 2ba69e6447c686230412c33e74196c4bb594e0de
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702208"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77611817"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>Aplicativo de área de trabalho que chama APIs da Web: configuração de código
 
@@ -29,7 +29,7 @@ Agora que você criou seu aplicativo, você aprenderá a configurar o código co
 
 As seguintes MSALs (bibliotecas de autenticação da Microsoft) oferecem suporte a aplicativos de área de trabalho.
 
-  Biblioteca de Autenticação da Microsoft | Description
+  Biblioteca de Autenticação da Microsoft | DESCRIÇÃO
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Dá suporte à criação de um aplicativo de área de trabalho em várias plataformas, como Linux, Windows e macOS.
   ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Dá suporte à criação de um aplicativo de área de trabalho em várias plataformas.
@@ -40,7 +40,7 @@ As seguintes MSALs (bibliotecas de autenticação da Microsoft) oferecem suporte
 
 De um ponto de vista de código, os aplicativos de área de trabalho são aplicativos cliente públicos. A configuração será um pouco diferente se você usar a autenticação interativa ou não.
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 Você precisará criar e manipular MSAL.NET `IPublicClientApplication`.
 
@@ -185,17 +185,17 @@ var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.Pub
 
 Antes da chamada para o método `.Build()`, você pode substituir sua configuração por chamadas para métodos `.WithXXX`, como visto anteriormente.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Aqui está a classe usada em exemplos de desenvolvimento do MSAL Java para configurar os exemplos: [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
 
 ```Java
-PublicClientApplication app = PublicClientApplication.builder(TestData.PUBLIC_CLIENT_ID)
-        .authority(TestData.AUTHORITY_COMMON)
+PublicClientApplication pca = PublicClientApplication.builder(CLIENT_ID)
+        .authority(AUTHORITY)
         .build();
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 ```Python
 config = json.load(open(sys.argv[1]))
@@ -208,7 +208,7 @@ app = msal.PublicClientApplication(
     )
 ```
 
-# <a name="macostabmacos"></a>[MacOS](#tab/macOS)
+# <a name="macos"></a>[MacOS](#tab/macOS)
 
 O código a seguir cria uma instância de um aplicativo cliente público e entra em usuários na nuvem pública Microsoft Azure com uma conta corporativa ou de estudante ou uma conta Microsoft pessoal.
 
@@ -262,7 +262,7 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 ```
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Adquirir um token para um aplicativo de área de trabalho](scenario-desktop-acquire-token.md)

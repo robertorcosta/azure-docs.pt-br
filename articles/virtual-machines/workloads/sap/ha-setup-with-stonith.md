@@ -4,7 +4,7 @@ description: Estabelecer alta disponibilidade para o SAP HANA no Azure (Instânc
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: gwallace
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0f23fe2aa17934b967e7aecf41687cc555b9552c
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 4060dbe936af8ff1f9dd8c958f64834cb06525de
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71212537"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615077"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configuração de alta disponibilidade no SUSE usando o STONITH
 Este documento fornece instruções passo a passo detalhadas para configurar a Alta Disponibilidade no sistema operacional SUSE usando o dispositivo STONITH.
@@ -422,7 +422,7 @@ Usando Yast2>Software>Gerenciamento de software, selecione os padrões a seguir
 
 - Base do servidor do SAP HANA
 - Compilador e ferramentas C/C++
-- alta disponibilidade
+- Alta disponibilidade
 - Base do servidor de aplicativos SAP
 
 A tela a seguir mostra as etapas para instalar os padrões.

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 02/20/2020
 ms.author: diberry
-ms.openlocfilehash: dec6faab0dfc7f073639186429767bbf653ceda1
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: f8ceef5e80bf15f0ba52a9c289e617018febfb5c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513602"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623599"
 ---
 # <a name="offline-evaluation"></a>Avaliação offline
 
@@ -49,6 +49,16 @@ Os seguintes aspectos são considerações importantes para uma avaliação offl
 O Personalizador pode usar o processo de avaliação offline para descobrir uma política de aprendizado mais ideal automaticamente.
 
 Depois de executar a avaliação offline, você poderá ver a eficácia comparativa do Personalizador com essa nova política em comparação com a atual política online. Em seguida, você pode aplicar essa política de aprendizado para torná-la eficaz imediatamente no Personalizador, baixando-a e carregando-a no painel modelos e políticas. Você também pode baixá-lo para análise ou uso futuro.
+
+Políticas atuais incluídas na avaliação:
+
+| Configurações de aprendizado | Finalidade|
+|--|--|
+|**Política online**| A Política de Aprendizado atual usada no Personalizador |
+|**Base**|O padrão do aplicativo (conforme determinado pela primeira ação enviada em chamadas de classificação)|
+|**Política aleatória**|Um comportamento de Classificação imaginário que sempre retorna uma escolha aleatória de ações daquelas fornecidas.|
+|**Políticas personalizadas**|Políticas de Aprendizado adicionais carregadas ao iniciar a avaliação.|
+|**Política otimizada**|Se a avaliação tiver sido iniciada com a opção para descobrir uma política otimizada, ela também será comparada, e você poderá baixá-la ou torná-la a política de aprendizado online, substituindo a atual.|
 
 ## <a name="understanding-the-relevance-of-offline-evaluation-results"></a>Como entender a relevância dos resultados da avaliação offline
 
@@ -92,11 +102,11 @@ Recomendamos examinar as avaliações de recurso e fazer as seguintes perguntas:
 
 * Quais outros recursos adicionais o aplicativo ou o sistema pode fornecer semelhantes àqueles que são mais eficazes?
 * Quais recursos podem ser removidos devido à baixa eficácia? Recursos de baixa eficácia adicionam _ruído_ ao aprendizado de máquina.
-* Há algum recurso incluído acidentalmente? Exemplos disso são: PII (informações de identificação pessoal), IDs duplicadas etc.
+* Há algum recurso incluído acidentalmente? Exemplos são: informações de identificação do usuário, IDs duplicadas, etc.
 * Há algum recurso indesejável que não deve ser usado para personalização devido a considerações regulamentares ou referentes a uso responsável? Há algum recurso que pode representar (ou seja, estar correlacionado ou espelhar de maneira aproximada) recursos indesejáveis?
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Configurar o personalizador](how-to-settings.md)
 [executar avaliações offline](how-to-offline-evaluation.md) entender [como o personalizador funciona](how-personalizer-works.md)

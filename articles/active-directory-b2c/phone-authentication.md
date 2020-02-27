@@ -1,24 +1,24 @@
 ---
-title: Inscrição e entrada do telefone com políticas personalizadas
+title: Inscrição e entrada do telefone com políticas personalizadas (versão prévia)
 titleSuffix: Azure AD B2C
-description: Saiba como enviar senhas de uso único em mensagens de texto para os telefones dos usuários de seu aplicativo com políticas personalizadas no Azure Active Directory B2C.
+description: Envie uma OTP (senha de uso único) em mensagens de texto para os telefones dos usuários do aplicativo com políticas personalizadas no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 02/25/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8cb0340d9e04db2bfbf088bce9505351d7588cd9
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 50e7d66fef67e2728c95790947393de8d58398c2
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840325"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647522"
 ---
-# <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Configurar a inscrição e a entrada do telefone com políticas personalizadas no Azure AD B2C
+# <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c-preview"></a>Configurar a inscrição e a entrada do telefone com políticas personalizadas no Azure AD B2C (versão prévia)
 
 A inscrição e a entrada do telefone no Azure Active Directory B2C (Azure AD B2C) permite que os usuários se inscrevam e entrem em seus aplicativos usando uma senha de uso único (OTP) enviada em uma mensagem de texto para seu telefone. As senhas de uso único podem ajudar a minimizar o risco de seus usuários esquecerem ou tiverem suas senhas comprometidas.
 
@@ -26,7 +26,13 @@ Siga as etapas neste artigo para usar as políticas personalizadas para permitir
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="pricing"></a>Preços
+
+As senhas de uso único são enviadas aos usuários usando mensagens de texto SMS, e você pode ser cobrado por cada mensagem enviada. Para obter informações sobre preços, consulte a seção **encargos separados** de [preços Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+
+## <a name="prerequisites"></a>Prerequisites
+
+Você precisa dos seguintes recursos em vigor antes de configurar a OTP.
 
 * [Locatário do Azure AD B2C](tutorial-create-tenant.md)
 * [Aplicativo Web registrado](tutorial-register-applications.md) em seu locatário
@@ -70,7 +76,23 @@ As etapas a seguir pressupõem que você concluiu os [pré-requisitos](#prerequi
 1. Selecione **executar agora** e se inscrever usando um endereço de email ou um número de telefone.
 1. Selecione **executar agora** novamente e entre com a mesma conta para confirmar que você tem a configuração correta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="get-user-account-by-phone-number"></a>Obter conta de usuário por número de telefone
+
+Um usuário que se inscreve com um número de telefone, mas não fornece um endereço de email de recuperação, é registrado no diretório Azure AD B2C com seu número de telefone como o nome de entrada. Se o usuário quiser alterar seu número de telefone, sua equipe de suporte ou assistência técnica deverá primeiro localizar sua conta e, em seguida, atualizar seu número de telefone.
+
+Você pode encontrar um usuário pelo número de telefone (nome de entrada) usando [Microsoft Graph](manage-user-accounts-graph-api.md):
+
+```http
+GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+{phone number}' and c/issuer eq '{tenant name}.onmicrosoft.com')
+```
+
+Por exemplo:
+
+```http
+GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+450334567890' and c/issuer eq 'contosob2c.onmicrosoft.com')
+```
+
+## <a name="next-steps"></a>Próximas etapas
 
 Você pode encontrar o pacote de início de política personalizada de inscrição e entrada do telefone (e outros pacotes de início) no GitHub:
 

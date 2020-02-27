@@ -5,12 +5,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 description: Saiba como configurar Azure Dev Spaces para usar um controlador de entrada do NGINX personalizado e configurar o HTTPS usando esse controlador de entrada
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: 39f17636779c4160867311af67ebc621b685f2d3
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 9c3598ea39dd7b48c622126a9adbaa75d4c9d934
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486195"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622412"
 ---
 # <a name="use-a-custom-nginx-ingress-controller-and-configure-https"></a>Usar um controlador de entrada do NGINX personalizado e configurar o HTTPS
 
@@ -96,7 +96,11 @@ git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/BikeSharingApp/charts
 ```
 
-Abra [Values. YAML][values-yaml] e substitua todas as instâncias de *< REPLACE_ME_WITH_HOST_SUFFIX >* com *nginx. MY_CUSTOM_DOMAIN* usando seu domínio para *MY_CUSTOM_DOMAIN*. Substitua também *kubernetes.Io/ingress.class: Nginx-azds # dev Spaces – specific* com *kubernetes.Io/ingress.class: Nginx # entrada personalizada*. Abaixo está um exemplo de um arquivo de `values.yaml` atualizado:
+Abra [Values. YAML][values-yaml] e faça as seguintes atualizações:
+* Substitua todas as instâncias de *< REPLACE_ME_WITH_HOST_SUFFIX >* com *nginx. MY_CUSTOM_DOMAIN* usando seu domínio para *MY_CUSTOM_DOMAIN*. 
+* Substitua *kubernetes.Io/ingress.class: traefik-azds # dev Spaces – specific* com *kubernetes.Io/ingress.class: Nginx # entrada personalizada*. 
+
+Abaixo está um exemplo de um arquivo de `values.yaml` atualizado:
 
 ```yaml
 # This is a YAML-formatted file.
@@ -149,6 +153,9 @@ http://dev.gateway.nginx.MY_CUSTOM_DOMAIN/         Available
 ```
 
 Navegue até o serviço *bikesharingweb* abrindo a URL pública com o comando `azds list-uris`. No exemplo acima, a URL pública para o serviço *bikesharingweb* é `http://dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/`.
+
+> [!NOTE]
+> Se você vir uma página de erro em vez do serviço *bikesharingweb* , verifique se **você atualizou** a anotação *kubernetes.Io/ingress.Class* e o host no arquivo *Values. YAML* .
 
 Use o comando `azds space select` para criar um espaço filho em *dev* e listar as URLs para acessar o espaço de desenvolvimento filho.
 

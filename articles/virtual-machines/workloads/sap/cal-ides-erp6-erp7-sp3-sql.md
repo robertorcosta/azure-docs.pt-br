@@ -4,7 +4,7 @@ description: Implantar SAP IDES EHP7 SP3 para SAP ERP 6.0 no Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.openlocfilehash: 66921280403027d1723b27f104b42d2c83271213
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3efd92226b7c69590f3960458ffec49b63b8364f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100076"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616700"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Implantar SAP IDES EHP7 SP3 para SAP ERP 6.0 no Azure
 Este artigo descreve como implantar o sistema SAP IDES em execução com o SQL Server e o sistema operacional Windows no Azure via SAP Cloud Appliance Library (SAP CAL) 3.0. As capturas de tela mostram o processo passo a passo. Para implantar uma solução diferente, siga as mesmas etapas.
@@ -95,7 +95,7 @@ Você criou com êxito uma conta da SAP CAL que é capaz de:
 ### <a name="deploy-a-solution"></a>Implantar uma solução
 1. Depois de configurar uma conta da SAP CAL, selecione a solução **A solução SAP IDES no Windows e no SQL Server**. Clique em **Criar instância** e confirme as condições de uso e termos. 
 
-1. No **Modo Básico: Criar Instância**, é necessário:
+1. Na página **Modo básico: criar instância**, você precisa:
 
     a. Inserir um **Nome** para a instância.
 
@@ -103,7 +103,7 @@ Você criou com êxito uma conta da SAP CAL que é capaz de:
 
     c.  Inserir a **Senha** mestre para a solução, conforme mostrado:
 
-    ![Modo Básico SAP CAL: Criar Instância](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
+    ![Modo básico da SAP CAL: criar instância](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
 
 1. Clique em **Criar**. Após algum tempo, dependendo do tamanho e da complexidade da solução (uma estimativa é fornecida pela SAP CAL), o status é mostrado como ativo e pronto para uso: 
 

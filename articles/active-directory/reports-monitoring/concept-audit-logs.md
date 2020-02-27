@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49b49949c1765c3cb1598d728e21479c65037930
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: ad399fc24b2cdfbdc51e7feccba2c05786216b19
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714481"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648418"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de auditoria no portal do Azure Active Directory 
 
@@ -41,11 +41,11 @@ Este artigo fornece uma visão geral do relatório de auditoria.
  
 ## <a name="who-can-access-the-data"></a>Quem pode acessar os dados?
 
-* Usuários nas funções **administrador de segurança**, **leitor de segurança**, leitor de **relatório** ou **administrador global**
+* Usuários nas funções **administrador de segurança**, **leitor de segurança**, leitor de **relatório** , **leitor global** ou **administrador global**
 
 ## <a name="audit-logs"></a>Logs de auditoria
 
-Os logs de auditoria do Azure AD fornecem registros das atividades do sistema para fins de conformidade. Para acessar o relatório de auditoria, selecione **Logs de auditoria** na seção **Atividade** do **Azure Active Directory**. Observe que os logs de auditoria podem ter uma latência de até uma hora, portanto, pode levar tanto tempo para que os dados da atividade de auditoria apareçam no portal depois que você concluir a tarefa.
+Os logs de auditoria do Azure AD fornecem registros das atividades do sistema para fins de conformidade. Para acessar o relatório de auditoria, selecione **logs de auditoria** na seção **monitoramento** de **Azure Active Directory**. Observe que os logs de auditoria podem ter uma latência de até uma hora, portanto, pode levar tanto tempo para que os dados da atividade de auditoria apareçam no portal depois que você concluir a tarefa.
 
 
 
@@ -90,20 +90,24 @@ Selecione um item na exibição de lista para obter informações mais detalhada
 O filtro de **serviço** permite que você selecione em uma lista suspensa dos seguintes serviços:
 
 - Todos
+- UX de gerenciamento do AAD
 - Revisões de acesso
-- Provisionamento de conta de usuário 
-- SSO de aplicativo
+- Provisionamento de conta de usuário
+- Proxy do Aplicativo
 - Métodos de autenticação
 - B2C
 - Acesso Condicional
 - Diretório principal
 - Gerenciamento de direitos
+- Autenticação híbrida
 - Identity Protection
 - Usuários Convidados
+- Serviço MIM
+- MyApps
 - PIM
 - Gerenciamento de grupos de autoatendimento
 - Gerenciamento de senhas de auto-atendimento
-- Termos de uso
+- Termos de Uso
 
 O filtro **categoria** permite que você selecione um dos seguintes filtros:
 
@@ -118,7 +122,11 @@ O filtro **categoria** permite que você selecione um dos seguintes filtros:
 - DirectoryManagement
 - EntitlementManagement
 - GroupManagement
+- KerberosDomain
+- KeyManagement
+- Rótulo
 - Outros
+- PermissionGrantPolicy
 - Política
 - ResourceManagement
 - RoleManagement
@@ -134,14 +142,13 @@ O filtro de **status** permite filtrar com base no status de uma operação de a
 - Sucesso
 - Falha
 
-O filtro de **destino** permite que você pesquise um destino específico por nome ou nome principal do usuário (UPN). O nome de destino e o UPN diferenciam maiúsculas de minúsculas. 
+O filtro de **destino** permite que você procure um destino específico pelo início do nome ou UPN (nome principal do usuário). O nome de destino e o UPN diferenciam maiúsculas de minúsculas. 
 
-O filtro **iniciado por** permite que você defina o nome de um ator ou um nome de entidade universal (UPN). O nome e o UPN diferenciam maiúsculas de minúsculas.
+O filtro **iniciado por** permite que você defina o que o nome de um ator ou um nome de entidade universal (UPN) começa com. O nome e o UPN diferenciam maiúsculas de minúsculas.
 
 O filtro de **intervalo de datas** permite que você defina um período de tempo para os dados retornados.  
 Os valores possíveis são:
 
-- 1 mês
 - 7 dias
 - 24 horas
 - Personalizado
@@ -179,11 +186,11 @@ Com relatórios de auditoria baseados em grupos e usuários, você pode obter re
 
 - Quais licenças foram atribuídas a um grupo ou a um usuário?
 
-Se você quiser revisar apenas os dados de auditoria relacionados aos usuários, poderá encontrar uma exibição filtrada em **logs de auditoria** na seção **atividade** da guia **usuários** . Este ponto de entrada tem **usermanagement** como categoria preselecionada.
+Se você quiser revisar apenas os dados de auditoria relacionados aos usuários, poderá encontrar uma exibição filtrada em **logs de auditoria** na seção **monitoramento** da guia **usuários** . Este ponto de entrada tem **usermanagement** como categoria preselecionada.
 
 ![Logs de auditoria](./media/concept-audit-logs/users.png "Logs de auditoria")
 
-Se você quiser revisar apenas os dados de auditoria relacionados a grupos, poderá encontrar uma exibição filtrada em **logs de auditoria** na seção **atividade** da guia **grupos** . Este ponto de entrada tem **GroupManagement** como categoria preselecionada.
+Se você quiser revisar apenas os dados de auditoria relacionados a grupos, poderá encontrar uma exibição filtrada em **logs de auditoria** na seção **monitoramento** da guia **grupos** . Este ponto de entrada tem **GroupManagement** como categoria preselecionada.
 
 ![Logs de auditoria](./media/concept-audit-logs/groups.png "Logs de auditoria")
 
@@ -207,7 +214,7 @@ Você pode exibir os logs de atividade do Office 365 no [centro de administraç�
 
 Você também pode acessar os logs de atividade do Office 365 programaticamente usando as [APIs de gerenciamento do office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Referência das atividades de auditoria do Azure AD](reference-audit-activities.md)
 - [Referência de retenção de relatórios do Azure AD](reference-reports-data-retention.md)

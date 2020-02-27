@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: f0719542eb693e52f9a7996e28699b7425b0e0fe
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: fa1cba2d791cd40a46f8ad182c123a726143faec
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509131"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614258"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Verificar a integridade de um domínio gerenciado Azure Active Directory Domain Services
 
@@ -29,7 +29,7 @@ Este artigo mostra como exibir o status de integridade do AD DS do Azure e enten
 O status de integridade de um domínio gerenciado do Azure AD DS é exibido usando o portal do Azure. As informações sobre o último backup e a sincronização com o Azure AD podem ser vistas, junto com todos os alertas que indicam um problema com a integridade do domínio gerenciado. Para exibir o status de integridade de um domínio gerenciado AD DS do Azure, conclua as seguintes etapas:
 
 1. Na portal do Azure, procure e selecione **Azure AD Domain Services**.
-1. Selecione seu domínio gerenciado AD DS do Azure, como *aadds.contoso.com*.
+1. Selecione seu domínio gerenciado AD DS do Azure, como *aaddscontoso.com*.
 1. No lado esquerdo da janela de recursos do AD DS do Azure, selecione **integridade**. A captura de tela de exemplo a seguir mostra um domínio gerenciado AD DS do Azure íntegro e o status do último backup e a sincronização do AD do Azure:
 
     ![Visão geral da página de integridade no portal do Azure mostrando o status de Azure Active Directory Domain Services](./media/check-health/health-page.png)
@@ -80,7 +80,7 @@ Os alertas de status de integridade são categorizados nos seguintes níveis de 
  * **Alertas de aviso** notificam sobre problemas que podem afetar as operações de domínio gerenciado AD DS do Azure se o problema persistir. Esses alertas também oferecem recomendações para proteger o domínio gerenciado.
  * **Alertas informativos** são notificações que não afetam negativamente o domínio gerenciado AD DS do Azure. Os alertas informativos fornecem informações sobre o que está acontecendo no domínio gerenciado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre alertas mostrados na página status de integridade, consulte [resolver alertas em seu domínio gerenciado][troubleshoot-alerts]
 

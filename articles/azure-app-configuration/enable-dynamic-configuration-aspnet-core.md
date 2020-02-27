@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 8032a9b206be4a5eb70a1f40fd33667a1dbdfaa7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 3c461e543e3b01501ec47589a9eab3d74820491a
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714722"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500228"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Usar a configuração dinâmica em um aplicativo ASP.NET Core
 
@@ -40,7 +40,7 @@ Neste tutorial, você aprenderá como:
 > * Configurar seu aplicativo para atualizar a configuração em resposta a alterações em um repositório de Configuração de Aplicativos.
 > * Injetar a configuração mais recente nos controladores do aplicativo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para realizar este tutorial, instale o [SDK do .NET Core](https://dotnet.microsoft.com/download).
 
@@ -53,12 +53,12 @@ Antes de continuar, conclua [Criar um aplicativo ASP.NET Core com a Configuraç�
 1. Adicione uma referência ao pacote NuGet `Microsoft.Azure.AppConfiguration.AspNetCore`, executando o seguinte comando:
 
     ```CLI
-    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 3.0.0-preview-011100002-1192
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
     ```
 
 1. Abra *Program.cs* e atualize o método `CreateWebHostBuilder` para adicionar o método `config.AddAzureAppConfiguration()`.
 
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -81,7 +81,7 @@ Antes de continuar, conclua [Criar um aplicativo ASP.NET Core com a Configuraç�
             .UseStartup<Startup>();
     ```
 
-    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -124,7 +124,7 @@ Antes de continuar, conclua [Criar um aplicativo ASP.NET Core com a Configuraç�
 
 3. Abra *Startup.cs* e use `IServiceCollection.Configure<T>` no método `ConfigureServices` para associar os dados de configuração à classe `Settings`.
 
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -134,7 +134,7 @@ Antes de continuar, conclua [Criar um aplicativo ASP.NET Core com a Configuraç�
     }
     ```
 
-    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -148,7 +148,7 @@ Antes de continuar, conclua [Criar um aplicativo ASP.NET Core com a Configuraç�
 4. Atualize o método `Configure`, adicionando o middleware `UseAzureAppConfiguration` para permitir que as definições de configuração registradas para atualização sejam atualizadas enquanto o aplicativo Web ASP.NET Core continua a receber solicitações.
 
 
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -165,7 +165,7 @@ Antes de continuar, conclua [Criar um aplicativo ASP.NET Core com a Configuraç�
     }
     ```
 
-    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -217,7 +217,7 @@ Antes de continuar, conclua [Criar um aplicativo ASP.NET Core com a Configuraç�
 
 2. Atualize a classe `HomeController` para receber `Settings` por meio de injeção de dependência e faça uso de seus valores.
 
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public class HomeController : Controller
@@ -240,7 +240,7 @@ Antes de continuar, conclua [Criar um aplicativo ASP.NET Core com a Configuraç�
     }
     ```
 
-    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
     public class HomeController : Controller

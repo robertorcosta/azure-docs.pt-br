@@ -11,15 +11,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/31/2020
+ms.date: 02/24/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: e74e470ec1f3e26ca6e55e74f20030efdc47f971
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 22f50a6d5136eaff457c24864dae71261a20e13e
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77525244"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615609"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de Metadados de Instância do Azure
 
@@ -134,6 +134,7 @@ Código de status HTTP | Motivo
 400 Solicitação Inválida | Cabeçalho de `Metadata: true` ausente ou formato ausente ao consultar um nó folha
 404 Não Encontrado | O elemento solicitado não existe
 405 método não permitido | Há suporte apenas para `GET` solicitações
+410 Passado | Tente novamente após um período máximo de 70 segundos
 429 Número excessivo de solicitações | A API atualmente suporta um máximo de 5 consultas por segundo
 500 Erro do serviço     | Aguarde um pouco e tente novamente
 
@@ -457,7 +458,7 @@ identidade | Identidades gerenciadas para recursos do Azure. Veja [adquirir um t
 instance | Consulte [API de instância](#instance-api) | 2017-04-02
 scheduledevents | Consulte [Eventos agendados](scheduled-events.md) | 2017-08-01
 
-#### <a name="instance-api"></a>API de instância
+### <a name="instance-api"></a>API de instância
 
 As categorias de computação a seguir estão disponíveis por meio da API da instância do:
 
@@ -569,7 +570,6 @@ Nonce é uma cadeia de caracteres de 10 dígitos opcional. Se não for fornecido
 ```
 
 O blob de assinatura é uma versão assinada do [pkcs7](https://aka.ms/pkcs7) do documento. Ele contém o certificado usado para assinar junto com os detalhes da VM, como vmId, SKU, nonce, SubscriptionId, carimbo de data/hora para a criação e a expiração do documento e as informações do plano sobre a imagem. As informações do plano são preenchidas apenas para as imagens do Azure Marketplace. O certificado pode ser extraído da resposta e usado para validar que a resposta é válida e proveniente do Azure.
-
 
 ## <a name="example-scenarios-for-usage"></a>Cenários de exemplo para uso  
 
@@ -717,9 +717,11 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnviro
 ```
 
 **Resposta**
+
 ```bash
 AzurePublicCloud
 ```
+
 A nuvem e os valores do ambiente do Azure estão listados abaixo.
 
  Nuvem   | Azure Environment
@@ -838,10 +840,12 @@ Depois de obter a assinatura acima, você pode verificar se a assinatura é da M
 
  Nuvem | Certificado
 ---------|-----------------
-[Todas as regiões globais do Azure disponíveis](https://azure.microsoft.com/regions/)     | metadata.azure.com
-[Azure Governamental](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
-[21Vianet do Azure na China](https://azure.microsoft.com/global-infrastructure/china/)         | metadata.azure.cn
-[Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/)                    | metadata.microsoftazure.de
+[Todas as regiões globais do Azure disponíveis](https://azure.microsoft.com/regions/)     | *. metadata.azure.com
+[Azure Governamental](https://azure.microsoft.com/overview/clouds/government/)              | *. metadata.azure.us
+[21Vianet do Azure na China](https://azure.microsoft.com/global-infrastructure/china/)         | *. metadata.azure.cn
+[Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/)                    | *. metadata.microsoftazure.de
+
+Há um problema conhecido em relação ao certificado usado para assinatura. Os certificados podem não ter uma correspondência exata de `metadata.azure.com` para a nuvem pública. Portanto, a validação de certificação deve permitir um nome comum de qualquer subdomínio `.metadata.azure.com`.
 
 ```bash
 
@@ -871,7 +875,7 @@ Para determinados cenários, ao consultar o Serviço de Metadados de Instância 
 route print
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > A seguinte saída de exemplo de uma VM do Windows Server com o cluster de failover habilitado contém apenas a tabela de rotas IPv4 para manter a simplicidade.
 
 ```bat

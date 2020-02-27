@@ -7,23 +7,18 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 49129bede62e456cf2807cc879b7fc5e1793b65b
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 4a0593ccd6bdf37520e73ba8ed421ec4b10ea52c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77424942"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623298"
 ---
 # <a name="streaming-ingestion-preview"></a>Ingestão de streaming (visualização)
 
 A ingestão de streaming é destinada a cenários que exigem baixa latência com um tempo de ingestão de menos de 10 segundos para dados de volume variados. Ele é usado para otimizar o processamento operacional de muitas tabelas, em um ou mais bancos de dados, em que o fluxo de dado em cada tabela é relativamente pequeno (poucos registros por segundo), mas o volume de ingestão de dados geral é alto (milhares de registros por segundo).
 
 Use a ingestão clássica (em massa) em vez da ingestão de streaming quando a quantidade de dados aumentar para mais de 1 MB por segundo por tabela. Leia [visão geral de ingestão de dados](/azure/data-explorer/ingest-data-overview) para saber mais sobre os vários métodos de ingestão.
-
-> [!NOTE]
-> A ingestão de streaming não dá suporte aos seguintes recursos:
-> * [Cursores de banco de dados](/azure/kusto/management/databasecursor).
-> * [Mapeamento de dados](/azure/kusto/management/mappings). Somente o mapeamento [de dados pré-criado](/azure/kusto/management/tables#create-ingestion-mapping) tem suporte. 
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -32,6 +27,9 @@ Use a ingestão clássica (em massa) em vez da ingestão de streaming quando a q
 * Criar [um cluster de data Explorer do Azure e um banco de dados](create-cluster-database-portal.md)
 
 ## <a name="enable-streaming-ingestion-on-your-cluster"></a>Habilitar a ingestão de streaming no cluster
+
+> [!WARNING]
+> Examine as [limitações](#limitations) antes de habilitar a ingestão de fluxo.
 
 1. No portal do Azure, acesse o cluster do Azure Data Explorer. Em **configurações**, selecione **configurações**. 
 1. No painel **configurações** , selecione **ativado** para habilitar a **ingestão de streaming**.
@@ -49,8 +47,9 @@ Use a ingestão clássica (em massa) em vez da ingestão de streaming quando a q
 
 Há dois tipos de ingestão de streaming com suporte:
 
-* [Hub de eventos](/azure/data-explorer/ingest-data-event-hub) usado como uma fonte de dados
-* A ingestão personalizada exige que você escreva um aplicativo que usa uma das bibliotecas de cliente do Azure Data Explorer. Consulte [exemplo de ingestão de streaming](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/client/StreamingIngestionSample) para um aplicativo de exemplo.
+
+* [**Hub de eventos**](/azure/data-explorer/ingest-data-event-hub) usado como uma fonte de dados
+* A **ingestão personalizada** exige que você escreva um aplicativo que usa uma das bibliotecas de cliente do Azure data Explorer. Consulte [exemplo de ingestão de streaming](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/client/StreamingIngestionSample) para um aplicativo de exemplo.
 
 ### <a name="choose-the-appropriate-streaming-ingestion-type"></a>Escolha o tipo de ingestão de streaming apropriado
 
@@ -78,6 +77,10 @@ Há dois tipos de ingestão de streaming com suporte:
 * As atualizações de esquema, como criação e modificação de tabelas e mapeamentos de ingestão, podem levar até 5 minutos para o serviço de ingestão de streaming.
 * Habilitar a ingestão de streaming em um cluster, mesmo quando os dados não são ingeridos via streaming, o usa parte do disco SSD local das máquinas de cluster para dados de ingestão de streaming e reduz o armazenamento disponível para cache ativo.
 * As [marcas de extensão](/azure/kusto/management/extents-overview.md#extent-tagging) não podem ser definidas nos dados de ingestão de streaming.
+
+A ingestão de streaming não dá suporte aos seguintes recursos:
+* [Cursores de banco de dados](/azure/kusto/management/databasecursor).
+* [Mapeamento de dados](/azure/kusto/management/mappings). Somente o mapeamento [de dados pré-criado](/azure/kusto/management/tables#create-ingestion-mapping) tem suporte. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

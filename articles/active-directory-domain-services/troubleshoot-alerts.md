@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 0bb02e6436bf9c9ebb9e54efa73aeed03ab44f3e
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: c83caf31e25ae2212ed120e77e017ac3849898e8
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512657"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612904"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Problemas conhecidos: alertas e resoluções comuns no Azure Active Directory Domain Services
 
@@ -133,7 +133,7 @@ O Azure AD DS cria recursos adicionais para funcionar corretamente, como endere�
 
 Esse alerta é gerado quando um desses recursos necessários é excluído. Se o recurso foi excluído há menos de 4 horas, há uma chance de que a plataforma do Azure possa recriar automaticamente o recurso excluído. As etapas a seguir descrevem como verificar o status de integridade e o carimbo de data/hora para a exclusão de recursos:
 
-1. Na portal do Azure, procure e selecione serviços de **domínio**. Escolha seu domínio gerenciado AD DS do Azure, como *aadds.contoso.com*.
+1. Na portal do Azure, procure e selecione serviços de **domínio**. Escolha seu domínio gerenciado AD DS do Azure, como *aaddscontoso.com*.
 1. No painel de navegação à esquerda, selecione **integridade**.
 1. Na página integridade, selecione o alerta com a ID *AADDS109*.
 1. O alerta tem um carimbo de data/hora para quando ele foi encontrado pela primeira vez. Se esse carimbo de data/hora for inferior a 4 horas, a plataforma do Azure poderá ser capaz de recriar automaticamente o recurso e resolver o alerta por si só.
@@ -294,7 +294,7 @@ Quando o domínio gerenciado é habilitado novamente, a integridade do domínio 
 
 [Verifique a integridade de AD DS do Azure](check-health.md) em busca de alertas que indicam problemas na configuração do domínio gerenciado. Se você conseguir resolver alertas que indicam um problema de configuração, aguarde duas horas e verifique novamente se a sincronização foi concluída. Quando estiver pronto, [abra uma solicitação de suporte do Azure][azure-support] para reabilitar o domínio gerenciado AD DS do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se você ainda tiver problemas, [abra uma solicitação de suporte do Azure][azure-support] para obter assistência de solução de problemas adicional.
 

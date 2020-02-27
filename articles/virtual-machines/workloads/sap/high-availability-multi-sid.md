@@ -3,8 +3,8 @@ title: Criar uma configuração multi-SID do SAP no Azure | Microsoft Docs
 description: Guia para configuração multi-SID do SAP NetWeaver de alta disponibilidade em máquinas virtuais do Windows
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/09/2016
-ms.author: goraco
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2726e9e5de53607d6bb766bf1506d6a09d714701
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 8c7c6b797605da2884c6bffc47e593ffc9a3faca
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647587"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615130"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Criar uma configuração multi-SID do SAP NetWeaver
 
@@ -455,7 +455,7 @@ Este artigo aborda como mudar de uma instalação ASCS/SCS única para uma confi
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Você já configurou um Cluster WSFC que é usado para uma instância do SAP ASCS/SCS, conforme discutido no [guia para SAP NetWeaver de alta disponibilidade em VMs do Windows][sap-ha-guide] e conforme mostrado neste diagrama.
 
 ![Instância do SAP ASCS/SCS de alta disponibilidade][sap-ha-guide-figure-6001]
@@ -667,7 +667,7 @@ O procedimento de alto nível é o seguinte:
 
 10. [Teste o failover da instância do SAP ASCS/SCS e a replicação sios][sap-ha-guide-10].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Limites de rede: Azure Resource Manager][networking-limits-azure-resource-manager]
 - [Vários VIPs para Azure Load Balancer][load-balancer-multivip-overview]

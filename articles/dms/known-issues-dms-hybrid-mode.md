@@ -2,21 +2,21 @@
 title: Problemas conhecidos/limitações de migração com o uso do modo híbrido
 description: Saiba mais sobre problemas conhecidos/limitações de migração com o uso do serviço de migração de banco de dados do Azure no modo híbrido.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/19/2019
-ms.openlocfilehash: 60d1fc46ada70dc67c161f048a0206e7081ba591
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/20/2020
+ms.openlocfilehash: aedc7ea3d778d52f6f348837430987568af188ef
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483109"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649595"
 ---
 # <a name="known-issuesmigration-limitations-with-using-hybrid-mode"></a>Problemas conhecidos/limitações de migração com o uso do modo híbrido
 

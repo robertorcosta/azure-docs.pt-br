@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 46557d802222190c0ed82f6243dd2a9b997ecaa5
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 18395f2b839aef88491f71aeed660eb2ce011e2c
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76960562"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614232"
 ---
 # <a name="change-the-sku-for-an-existing-azure-ad-domain-services-managed-domain"></a>Alterar a SKU de um domínio gerenciado Azure AD Domain Services existente
 
@@ -46,7 +46,7 @@ Para obter mais informações sobre esses limites, consulte [recursos e limites 
 
 Para alterar a SKU de um domínio gerenciado AD DS do Azure usando o portal do Azure, conclua as seguintes etapas:
 
-1. Na parte superior da portal do Azure, procure e selecione **Azure AD Domain Services**. Escolha o domínio gerenciado na lista, como *aadds.contoso.com*.
+1. Na parte superior da portal do Azure, procure e selecione **Azure AD Domain Services**. Escolha o domínio gerenciado na lista, como *aaddscontoso.com*.
 1. No menu no lado esquerdo da página AD DS do Azure, selecione **configurações > SKU**.
 
     ![Selecione a opção de menu SKU para seu domínio gerenciado AD DS do Azure no portal do Azure](media/change-sku/overview-change-sku.png)
@@ -59,7 +59,7 @@ Para alterar a SKU de um domínio gerenciado AD DS do Azure usando o portal do A
 
 Pode levar um minuto ou dois para alterar o tipo de SKU.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se você tiver uma floresta de recursos e quiser criar relações de confiança adicionais após a alteração de SKU, consulte [criar uma relação de confiança de floresta de saída para um domínio local no Azure AD DS (versão prévia)][create-trust].
 

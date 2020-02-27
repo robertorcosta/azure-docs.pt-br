@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 1c06c1d0403e526e1ed58a193cfe9b57bb9fe561
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 0a7012d9daa808933a51ac05862a8a9aa4cfcf77
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780225"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614794"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Dados de blob reidratar da camada de arquivo
 
@@ -51,7 +51,7 @@ Os BLOBs na camada de arquivo devem ser armazenados por um mínimo de 180 dias. 
 ## <a name="quickstart-scenarios"></a>Cenários de início rápido
 
 ### <a name="rehydrate-an-archive-blob-to-an-online-tier"></a>Reidratar um blob de arquivo para uma camada online
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. Na portal do Azure, procure e selecione **todos os recursos**.
@@ -70,14 +70,14 @@ Os BLOBs na camada de arquivo devem ser armazenados por um mínimo de 180 dias. 
 
 ![Alterar a camada da conta de armazenamento](media/storage-tiers/blob-access-tier.png)
 
-# <a name="powershelltabazure-powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 O script do PowerShell a seguir pode ser usado para alterar a camada de blob de um blob de arquivo morto. A variável `$rgName` deve ser inicializada com o nome do grupo de recursos. A variável `$accountName` deve ser inicializada com o nome da conta de armazenamento. A variável `$containerName` deve ser inicializada com o nome do contêiner. A variável `$blobName` deve ser inicializada com o nome do blob. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names
 $rgName = ""
 $accountName = ""
 $containerName = ""
-$blobName == ""
+$blobName = ""
 
 #Select the storage account and get the context
 $storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
@@ -99,8 +99,8 @@ $rgName = ""
 $accountName = ""
 $srcContainerName = ""
 $destContainerName = ""
-$srcBlobName == ""
-$destBlobName == ""
+$srcBlobName = ""
+$destBlobName = ""
 
 #Select the storage account and get the context
 $storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName

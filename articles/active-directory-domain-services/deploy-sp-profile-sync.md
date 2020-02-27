@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: f51744d79d34b734c9cc24cf72785a076a91a4f5
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 9d983015927d2635f69a327a9c5b168056542519
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509046"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613860"
 ---
 # <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>Configurar Azure Active Directory Domain Services para dar suporte à sincronização de perfil de usuário para o SharePoint Server
 
@@ -62,14 +62,14 @@ Em sua VM de gerenciamento de AD DS do Azure, conclua as seguintes etapas:
 
 1. Na tela iniciar, selecione **Ferramentas administrativas**. É mostrada uma lista de ferramentas de gerenciamento disponíveis que foram instaladas no tutorial para [criar uma VM de gerenciamento][tutorial-create-management-vm].
 1. Para gerenciar a associação de grupo, selecione **centro administrativo do Active Directory** na lista de ferramentas administrativas.
-1. No painel esquerdo, escolha seu domínio gerenciado AD DS do Azure, como *aadds.contoso.com*. Uma lista de UOs e recursos existentes é mostrada.
+1. No painel esquerdo, escolha seu domínio gerenciado AD DS do Azure, como *aaddscontoso.com*. Uma lista de UOs e recursos existentes é mostrada.
 1. Selecione a UO **usuários** e, em seguida, escolha o grupo de segurança *contas de serviço do AAD DC* .
 1. Selecione **Membros**e, em seguida, escolha **Adicionar...** .
 1. Insira o nome da conta de serviço do SharePoint e, em seguida, selecione **OK**. No exemplo a seguir, a conta de serviço do SharePoint é chamada de *admin*:
 
     ![Adicionar a conta de serviço do SharePoint ao grupo de segurança contas de serviço de DC do AAD](./media/deploy-sp-profile-sync/add-member-to-aad-dc-service-accounts-group.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações, consulte [conceder permissões de Active Directory Domain Services para a sincronização de perfil no SharePoint Server](https://technet.microsoft.com/library/hh296982.aspx)
 

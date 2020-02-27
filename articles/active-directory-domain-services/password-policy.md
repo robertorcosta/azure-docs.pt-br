@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: b08c3854ef330081b4c55331cb410c5925f00dec
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: c4402c1ce2f051c8d1911e7c0332d4cac787ce1d
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512752"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613204"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Políticas de senha e de bloqueio de conta em domínios gerenciados
 
@@ -87,7 +87,7 @@ Para criar uma política de senha personalizada, use as ferramentas administrati
 
 1. Na tela iniciar, selecione **Ferramentas administrativas**. É mostrada uma lista de ferramentas de gerenciamento disponíveis que foram instaladas no tutorial para [criar uma VM de gerenciamento][tutorial-create-management-vm].
 1. Para criar e gerenciar UOs, selecione **centro administrativo do Active Directory** na lista de ferramentas administrativas.
-1. No painel esquerdo, escolha seu domínio gerenciado AD DS do Azure, como *aadds.contoso.com*.
+1. No painel esquerdo, escolha seu domínio gerenciado AD DS do Azure, como *aaddscontoso.com*.
 1. Abra o contêiner do **sistema** e, em seguida, o **contêiner de configuração de senha**.
 
     Uma política de senha interna para o domínio gerenciado do Azure AD DS é mostrada. Você não pode modificar essa política interna. Em vez disso, crie uma política de senha personalizada para substituir a política padrão.
@@ -112,7 +112,7 @@ Para criar uma política de senha personalizada, use as ferramentas administrati
 
     ![Selecione os usuários e grupos aos quais aplicar a política de senha](./media/how-to/fgpp-applies-to.png)
 
-1. As políticas de senha só podem ser aplicadas a grupos. Na caixa de diálogo **locais** , expanda o nome de domínio, como *aadds.contoso.com*, e selecione uma UO, como **usuários do AADDC**. Se você tiver uma UO personalizada que contenha um grupo de usuários que deseja aplicar, selecione essa UO.
+1. As políticas de senha só podem ser aplicadas a grupos. Na caixa de diálogo **locais** , expanda o nome de domínio, como *aaddscontoso.com*, e selecione uma UO, como **usuários do AADDC**. Se você tiver uma UO personalizada que contenha um grupo de usuários que deseja aplicar, selecione essa UO.
 
     ![Selecione a UO à qual o grupo pertence](./media/how-to/fgpp-container.png)
 
@@ -122,7 +122,7 @@ Para criar uma política de senha personalizada, use as ferramentas administrati
 
 1. Com o nome do grupo selecionado agora exibido na seção **aplica-se diretamente a** , selecione **OK** para salvar sua política de senha personalizada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre políticas de senha e usar o centro de administração do Active Directory, consulte os seguintes artigos:
 

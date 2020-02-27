@@ -3,21 +3,21 @@ title: 'PowerShell: migrar SQL Server para o banco de dados SQL'
 titleSuffix: Azure Database Migration Service
 description: Saiba como migrar do SQL Server local para o banco de dados SQL do Azure usando Azure PowerShell com o serviço de migração de banco de dados do Azure.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/08/2020
-ms.openlocfilehash: f67572adc3b40115b2c6d4618718867eacf8c95e
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 02/20/2020
+ms.openlocfilehash: f63f79402b457017257f1762c6ddc7e04c0ee1af
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746307"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650683"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-using-azure-powershell"></a>Migrar o SQL Server local para o Banco de Dados SQL do Azure usando o Azure PowerShell
 
@@ -31,7 +31,7 @@ Neste artigo, você aprenderá como:
 > * Crie um projeto de migração em uma instância do Serviço de Migração de Banco de Dados do Azure.
 > * Executar a migração.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir essas etapas, você precisa:
 

@@ -2,18 +2,15 @@
 title: Tutorial do Kubernetes no Azure – Implantar um aplicativo
 description: Neste tutorial do Serviço de Kubernetes do Azure (AKS), você deve implantar um aplicativo de vários contêineres em seu cluster usando uma imagem personalizada armazenada no Registro de Contêiner do Azure.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: cc01b12e493f3e0d3cd63786c27819d4704f97f4
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 3b614fcb6692f35884af2fc4e19210267ab8ab04
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263884"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593267"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Execute aplicativos no AKS (Serviço de Kubernetes do Azure)
 
@@ -119,7 +116,7 @@ Se o aplicativo não foi carregado, isso poderá ser devido a um problema de aut
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, o aplicativo Azure vote de exemplo foi implantado em um cluster Kubernetes no AKS. Você aprendeu como:
+Neste tutorial, o aplicativo Azure vote de exemplo foi implantado em um cluster Kubernetes no AKS. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Atualizar os arquivos de manifesto do Kubernetes

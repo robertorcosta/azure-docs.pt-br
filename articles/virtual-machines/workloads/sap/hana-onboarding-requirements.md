@@ -3,22 +3,22 @@ title: Requisitos de integração do SAP HANA no Azure (Instâncias Grandes) | M
 description: Requisitos de integração do SAP HANA no Azure (Instâncias Grandes).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/31/2019
-ms.author: saghorpa
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 99ad334a526b269879034dcc0e1cd0b1b22f1f7f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 141a75a75a214ff4a6f136df7570d6e81f7f4e82
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101189"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617014"
 ---
 # <a name="onboarding-requirements"></a>Requisitos de integração
 
@@ -27,12 +27,12 @@ Estes são os requisitos para execução SAP HANA no Azure (Instâncias Grandes)
 **Microsoft Azure**
 
 - Uma assinatura do Azure que pode ser vinculada ao SAP HANA no Azure (Instâncias Grandes).
-- Contrato do Suporte Premier do Microsoft Azure. Para obter informações específicas relacionadas à execução do SAP no Azure, confira [Nota de Suporte SAP nº 2015553 – SAP no Microsoft Azure: Pré-requisitos de suporte](https://launchpad.support.sap.com/#/notes/2015553). Se você usar unidades do HANA em Instâncias Grandes com 384 ou mais CPUs, também será necessário estender o contrato de suporte Premier para incluir o Azure Rapid Response.
+- Contrato do Suporte Premier do Microsoft Azure. Para obter informações específicas relacionadas à execução do SAP no Azure, consulte [Nota de Suporte SAP nº2 015553 – SAP no Microsoft Azure: Pré-requisitos de suporte](https://launchpad.support.sap.com/#/notes/2015553). Se você usar unidades do HANA em Instâncias Grandes com 384 ou mais CPUs, também será necessário estender o contrato de suporte Premier para incluir o Azure Rapid Response.
 - O reconhecimento das SKUs do HANA em Instâncias Grandes será necessário após executar um exercício de dimensionamento com o SAP.
 
 **Conectividade de rede**
 
-- ExpressRoute entre o local e o Azure: Para conectar o data center local ao Azure, não deixe de solicitar pelo menos uma conexão de 1 Gbps do seu ISP. A conectividade entre unidades de instância grande do HANA e o Azure também está usando a tecnologia do ExpressRoute. Essa conexão ExpressRoute entre as unidades de instância grande do HANA e o Azure está incluída no preço das unidades de instância grande do HANA, incluindo todos os encargos de entrada e saída de dados desse circuito específico do ExpressRoute. Portanto, você como cliente não encontra custos adicionais além do link do ExpressRoute entre o local e o Azure.
+- ExpressRoute entre local para Azure: para conectar o data center local ao Azure, certifique-se de solicitar pelo menos uma conexão de 1 Gbps do ISP. A conectividade entre unidades de instância grande do HANA e o Azure também está usando a tecnologia do ExpressRoute. Essa conexão ExpressRoute entre as unidades de instância grande do HANA e o Azure está incluída no preço das unidades de instância grande do HANA, incluindo todos os encargos de entrada e saída de dados desse circuito específico do ExpressRoute. Portanto, você como cliente não encontra custos adicionais além do link do ExpressRoute entre o local e o Azure.
 
 **Sistema operacional**
 
@@ -49,7 +49,7 @@ Estes são os requisitos para execução SAP HANA no Azure (Instâncias Grandes)
 
 - Gerenciador de Assinaturas do Red Hat implantado no Azure em uma VM. O Gerenciador de Assinaturas do Red Hat permite que o SAP HANA do Azure (Instâncias Grandes) seja registrado e atualizado pelo Red Hat. (Não há acesso direto à Internet de dentro do locatário implantado no carimbo da Instância Grande do Azure.)
 - A SAP também exige que você tenha um contrato de suporte com seu provedor do Linux. Esse requisito não é removido pela solução do HANA em Instâncias Grandes ou por executar o Linux no Azure. Ao contrário de algumas das imagens da galeria do Linux Azure, a taxa de serviço *não* é incluída na oferta de solução do SAP HANA em Instâncias Grandes. É sua responsabilidade cumprir os requisitos do SAP em relação aos contratos de suporte com o distribuidor do Linux. 
-   - Para o SUSE Linux, procure os requisitos do contrato de suporte em [Observação SAP n º 1984787 – SUSE Linux Enterprise Server 12: Notas de instalação](https://launchpad.support.sap.com/#/notes/1984787) e [Observação SAP n º 1056161 – suporte prioritário SUSE para aplicativos SAP](https://launchpad.support.sap.com/#/notes/1056161).
+   - Para o SUSE Linux, procure os requisitos do contrato de suporte em [Nota SAP nº 1984787 – SUSE Linux Enterprise Server 12: Notas de instalação](https://launchpad.support.sap.com/#/notes/1984787) e [Nota SAP n. 1056161 – Suporte de prioridade do SUSE para aplicativos do SAP](https://launchpad.support.sap.com/#/notes/1056161).
    - Para o Red Hat Linux, é necessário ter os níveis de assinatura corretos que incluem atualizações de suporte e serviço para os sistemas operacionais do SAP HANA em Instâncias Grandes. A Red Hat recomenda o Red Hat Enterprise Linux para a assinatura para a solução SAP. Veja https://access.redhat.com/solutions/3082481. 
 
 Para a matriz de suporte das diferentes versões do SAP HANA com as diferentes versões do Linux, consulte [Nota SAP nº 2235581](https://launchpad.support.sap.com/#/notes/2235581).
@@ -61,7 +61,7 @@ Para a matriz de compatibilidade do sistema operacional e as versões de firmwar
 > Para unidades do tipo II, somente a versão SLES 12 SP2 do sistema operacional tem suporte atualmente. 
 
 
-**Banco de dados**
+**Backup de banco de dados**
 
 - As licenças e os componentes de instalação de software para SAP HANA (plataforma ou enterprise edition).
 

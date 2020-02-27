@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 3637a11724c1f0bab049077c5abbd817e168bd44
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 5620d1cdc7dc71bdac17057b9a13a74150b12d5c
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931224"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612521"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Tutorial: criar uma relação de confiança de floresta de saída para um domínio local no Azure Active Directory Domain Services (versão prévia)
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará dos seguintes recursos e privilégios:
 
@@ -89,7 +89,7 @@ Para configurar a relação de confiança de entrada no domínio AD DS local, co
    > [!NOTE]
    > Se você não vir a opção de menu **relações de confiança** , verifique em **Propriedades** para o *tipo de floresta*. Somente as florestas de *recursos* podem criar relações de confiança. Se o tipo de floresta for *usuário*, você não poderá criar relações de confiança. Atualmente, não há como alterar o tipo de floresta de um domínio gerenciado AD DS do Azure. Você precisa excluir e recriar o domínio gerenciado como uma floresta de recursos.
 
-1. Insira o nome no Azure AD DS nome de domínio, como *aadds.contoso.com*, em seguida, selecione **Avançar**
+1. Insira o nome no Azure AD DS nome de domínio, como *aaddscontoso.com*, em seguida, selecione **Avançar**
 1. Selecione a opção para criar uma **relação de confiança de floresta**e, em seguida, criar uma **forma:** confiança de entrada.
 1. Opte por criar a relação de confiança **somente para este domínio**. Na próxima etapa, você criará a relação de confiança no portal do Azure para o domínio gerenciado do AD DS do Azure.
 1. Escolha usar **autenticação em toda a floresta**e, em seguida, insira e confirme uma senha de confiança. Essa mesma senha também é inserida no portal do Azure na próxima seção.
@@ -102,7 +102,7 @@ Com o domínio AD DS local configurado para resolver o domínio gerenciado do Az
 
 Para criar a relação de confiança de saída para o domínio gerenciado AD DS do Azure no portal do Azure, conclua as seguintes etapas:
 
-1. Na portal do Azure, procure e selecione **Azure AD Domain Services**e, em seguida, selecione seu domínio gerenciado, como *aadds.contoso.com*
+1. Na portal do Azure, procure e selecione **Azure AD Domain Services**e, em seguida, selecione seu domínio gerenciado, como *aaddscontoso.com*
 1. No menu no lado esquerdo do domínio gerenciado AD DS do Azure, selecione **relações de confiança**e, em seguida, escolha **+ Adicionar** uma relação de confiança.
 1. Insira um nome de exibição que identifique sua relação de confiança e, em seguida, o nome DNS da floresta confiável local, como *OnPrem.contoso.com*
 1. Forneça a mesma senha de confiança que foi usada ao configurar a relação de confiança de floresta de entrada para o domínio AD DS local na seção anterior.
@@ -194,7 +194,7 @@ Usando a VM do Windows Server unida à floresta de recursos do Azure AD DS, voc�
 #### <a name="validate-cross-forest-authentication-to-a-resource"></a>Validar a autenticação entre florestas para um recurso
 
 1. Conecte-se a um computador Windows ingressado em seu Active Directory local usando uma conta de usuário do Active Directory local.
-1. Usando o **Windows Explorer**, conecte-se ao compartilhamento que você criou usando o nome de host totalmente qualificado e o compartilhamento, como `\\fs1.aadds.contoso.com\CrossforestShare`.
+1. Usando o **Windows Explorer**, conecte-se ao compartilhamento que você criou usando o nome de host totalmente qualificado e o compartilhamento, como `\\fs1.aaddscontoso.com\CrossforestShare`.
 1. Para validar a permissão de gravação, selecione o botão direito do mouse na pasta, escolha **novo**e, em seguida, selecione **documento de texto**. Use o **novo documento de texto**nome padrão.
 
     Se as permissões de gravação estiverem definidas corretamente, um novo documento de texto será criado. As etapas a seguir abrirão, editarão e excluirão o arquivo conforme apropriado.
@@ -202,7 +202,7 @@ Usando a VM do Windows Server unida à floresta de recursos do Azure AD DS, voc�
 1. Para validar a permissão Modificar, adicione texto ao arquivo e feche o **bloco de notas**. Quando for solicitado a salvar as alterações, escolha **salvar**.
 1. Para validar a permissão de exclusão, selecione **novo documento de texto** e escolha **excluir**. Escolha **Sim** para confirmar a exclusão do arquivo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu a:
 

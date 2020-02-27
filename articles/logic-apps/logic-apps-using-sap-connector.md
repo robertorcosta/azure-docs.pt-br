@@ -9,17 +9,17 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/30/2019
 tags: connectors
-ms.openlocfilehash: 3990a9d53a8e53ddd29683440917031bc1bb6448
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 39ab222f64d964e95b16e043c9cdeccd8170ace3
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904661"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651008"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Conectar aos sistemas SAP a partir do Aplicativos Lógicos do Azure
 
 > [!IMPORTANT]
-> Os conectores anteriores do servidor de aplicativos SAP e do SAP Message Server estão agendados para substituição em 29 de fevereiro de 2020. O conector SAP atual consolida esses conectores do SAP anteriores para que você não precise alterar o tipo de conexão, é totalmente compatível com conectores anteriores, fornece muitos recursos adicionais e continua a usar a biblioteca de conectores do SAP .net ( SAP NCo).
+> Os conectores anteriores do servidor de aplicativos SAP e do SAP Message Server foram preteridos em 29 de fevereiro de 2020. O conector SAP atual consolida esses conectores do SAP anteriores para que você não precise alterar o tipo de conexão, é totalmente compatível com conectores anteriores, fornece muitos recursos adicionais e continua a usar a biblioteca de conectores do SAP .net ( SAP NCo).
 >
 > Para aplicativos lógicos que usam os conectores mais antigos, [migre para o conector mais recente](#migrate) antes da data de reprovação. Caso contrário, esses aplicativos lógicos sofrerão falhas de execução e não poderão enviar mensagens para o sistema SAP.
 
@@ -39,7 +39,7 @@ Este artigo mostra como criar aplicativos lógicos de exemplo que se integram ao
 
 <a name="pre-reqs"></a>
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir com este artigo, são necessário esses itens:
 
@@ -464,7 +464,7 @@ Antes de começar, certifique-se de que você atende aos [pré-requisitos](#pre-
 
    ![Configurar o SAP SNC na conexão](media/logic-apps-using-sap-connector/configure-sapsnc.png)
 
-   | Propriedade | Description |
+   | Propriedade | DESCRIÇÃO |
    |----------| ------------|
    | **Caminho da biblioteca SNC** | O nome ou caminho da biblioteca SNC relativo ao local de instalação do NCo ou ao caminho absoluto. Os exemplos são `sapsnc.dll` ou `.\security\sapsnc.dll` ou `c:\security\sapsnc.dll`. |
    | **SSO DO SNC** | Quando você se conecta por meio do SNC, a identidade da SNC normalmente é usada para autenticar o chamador. Outra opção é substituir para que as informações de usuário e senha possam ser usadas para autenticar o chamador, mas a linha ainda está criptografada. |
@@ -556,9 +556,12 @@ Veja os problemas e limitações atualmente conhecidos para o conector do SAP:
 
 ## <a name="connector-reference"></a>Referência de conector
 
-Para obter detalhes técnicos sobre gatilhos, ações e limites, que são descritos pela descrição de OpenAPI (anteriormente, Swagger) do conector, examine a [página de referência do conector](/connectors/sap/).
+Para obter mais detalhes técnicos sobre esse conector, como gatilhos, ações e limites, conforme descrito pelo arquivo Swagger do conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/sap/).
 
-## <a name="next-steps"></a>Próximos passos
+> [!NOTE]
+> Para aplicativos lógicos em um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), a versão rotulada do ISE do conector usa os [limites de mensagem do ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) em vez disso.
+
+## <a name="next-steps"></a>Próximas etapas
 
 * [Conecte-se a sistemas locais](../logic-apps/logic-apps-gateway-connection.md) de aplicativos lógicos do Azure.
 * Saiba como validar, transformar e usar outras operações de mensagem com o [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).
