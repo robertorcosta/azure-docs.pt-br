@@ -7,14 +7,14 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 02/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 543227ac9c07207112177dfaccbd00723b61a314
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 8d3f4294a5c8b09a132d56cd72ccb36ce766e0dd
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566394"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616712"
 ---
-# <a name="upgrade-azure-internal-load-balancer-from-basic-sku-to-standard-sku"></a>Atualizar Load Balancer internos do Azure do SKU básico para o SKU Standard
+# <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Atualizar o Load Balancer interno do Azure-nenhuma conexão de saída é necessária
 O [Azure Standard Load Balancer](load-balancer-overview.md) oferece um conjunto avançado de funcionalidades e alta disponibilidade por meio de redundância de zona. Para saber mais sobre Load Balancer SKU, confira [tabela de comparação](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
 
 Há dois estágios em uma atualização:
@@ -28,12 +28,12 @@ Este artigo aborda a migração de configuração. A adição de VMs a pools de 
 
 Há um script de Azure PowerShell disponível que faz o seguinte:
 
-* Cria um Load Balancer SKU interno padrão no grupo de recursos e no local que você especificar.
-* Copia diretamente as configurações do Load Balancer interno do SKU básico para criar recentemente Load Balancer internos padrão.
+* Cria um Load Balancer SKU interno padrão no local que você especificar. Observe que nenhuma [conexão de saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) não será fornecida pelo Load balancer interno padrão.
+* Copia diretamente as configurações do Load Balancer SKU básico para o recém-criado Standard Load Balancer.
 
 ### <a name="caveatslimitations"></a>Caveats\Limitations
 
-* O script só dá suporte à atualização de Load Balancer interno. Para a atualização de Load Balancer básica interna, crie um Load Balancer interno padrão se a conectividade de saída não for desejada e crie um Load Balancer interno padrão e um Load Balancer interno padrão se a conectividade de saída for necessária.
+* O script só dá suporte à atualização de Load Balancer interno, em que nenhuma conexão de saída é necessária. Se você precisar de [conexão de saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) para algumas de suas VMs, consulte esta [página](upgrade-InternalBasic-To-PublicStandard.md) para obter instruções. 
 * O Standard Load Balancer tem novos endereços públicos. É impossível mover os endereços IP associados a Load Balancer básica existentes diretamente para Standard Load Balancer, já que eles têm SKUs diferentes.
 * Se o balanceador de carga padrão for criado em uma região diferente, você não poderá associar as VMs existentes na região antiga ao Standard Load Balancer recém-criado. Para contornar essa limitação, certifique-se de criar uma nova VM na nova região.
 * Se seu Load Balancer não tiver nenhuma configuração de IP de front-end ou pool de back-ends, provavelmente você encontrará um erro ao executar o script. Verifique se eles não estão vazios.

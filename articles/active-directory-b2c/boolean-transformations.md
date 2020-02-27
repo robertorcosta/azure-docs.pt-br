@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f0d6d74271cc4ff0be4a653b389cc70ad5c56ef9
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 130fca4d5894316e7684270ff9d6361e9d9f9dd3
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983071"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620832"
 ---
 # <a name="boolean-claims-transformations"></a>Transformações de declarações boolianas
 
@@ -122,7 +122,7 @@ Verifica se o valor booliano de uma declaração é igual a `true` ou `false`e r
 | ---- | ------------------------ | ---------- | ----- |
 | InputClaim | InputClaim | booleano | O ClaimType a ser declarado. |
 | InputParameter |valueToCompareTo | booleano | O valor a ser comparado (true ou false). |
-| OutputClaim | InputClaim | booleano | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
+| OutputClaim | compareResult | booleano | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
 
 
 A transformação de declarações a seguir demonstra como verificar o valor de um ClaimType booliano com um valor `true`. Se o valor de `IsAgeOver21Years` ClaimType for igual a `true`, a transformação declarações retornará `true`, caso contrário, `false`.

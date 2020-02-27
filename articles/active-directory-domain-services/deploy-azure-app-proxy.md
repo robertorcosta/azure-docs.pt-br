@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/6/2019
 ms.author: iainfou
-ms.openlocfilehash: c0fcb8c2c5f9afa7fabe2ffa63a715ec24aa4a26
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c6e4e6a45fbbeab64184d8ae4b0684ba055d7735
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720514"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613972"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-ad-domain-services-managed-domain"></a>Implantar Proxy de Aplicativo do AD do Azure para acesso seguro a aplicativos internos em um domínio Azure AD Domain Services gerenciado
 
@@ -74,7 +74,7 @@ Com uma VM pronta para ser usada como o conector de Proxy de Aplicativo do AD do
         > [!NOTE]
         > A conta de administrador global usada para registrar o conector deve pertencer ao mesmo diretório em que você habilita o serviço de proxy de aplicativo.
         >
-        > Por exemplo, se o domínio do Azure AD for *contoso.com*, o administrador global deverá ser `admin@contoso.com` ou outro alias válido nesse domínio.
+        > Por exemplo, se o domínio do Azure AD for *aaddscontoso.com*, o administrador global deverá ser `admin@aaddscontoso.com` ou outro alias válido nesse domínio.
 
    * Se a configuração de segurança reforçada do Internet Explorer estiver ativada para a VM na qual você instala o conector, a tela de registro poderá ser bloqueada. Para permitir o acesso, siga as instruções na mensagem de erro ou desative a segurança aprimorada do Internet Explorer durante o processo de instalação.
    * Se o registro do conector falhar, consulte [solucionar problemas do Application Proxy](../active-directory/manage-apps/application-proxy-troubleshoot.md).
@@ -99,16 +99,16 @@ Para obter mais informações, consulte [Configurar a delegação restrita de Ke
 
 Use o [Get-ADComputer][Get-ADComputer] para recuperar as configurações do computador no qual o conector do proxy de aplicativo do AD do Azure está instalado. Em sua VM de gerenciamento ingressado no domínio e conectada como uma conta de usuário que seja membro do grupo de *Administradores de DC do Azure ad* , execute os cmdlets a seguir.
 
-O exemplo a seguir obtém informações sobre a conta de computador chamada *appproxy.contoso.com*. Forneça seu próprio nome de computador para a VM de Proxy de Aplicativo do AD do Azure configurada nas etapas anteriores.
+O exemplo a seguir obtém informações sobre a conta de computador chamada *appproxy.aaddscontoso.com*. Forneça seu próprio nome de computador para a VM de Proxy de Aplicativo do AD do Azure configurada nas etapas anteriores.
 
 ```powershell
-$ImpersonatingAccount = Get-ADComputer -Identity appproxy.contoso.com
+$ImpersonatingAccount = Get-ADComputer -Identity appproxy.aaddscontoso.com
 ```
 
-Para cada servidor de aplicativos que executa os aplicativos por trás do Azure Proxy de Aplicativo do AD use o cmdlet [set-ADComputer][Set-ADComputer] do PowerShell para configurar o KCD baseado em recursos. No exemplo a seguir, o conector de Proxy de Aplicativo do AD do Azure recebe permissões para usar o computador *AppServer.contoso.com* :
+Para cada servidor de aplicativos que executa os aplicativos por trás do Azure Proxy de Aplicativo do AD use o cmdlet [set-ADComputer][Set-ADComputer] do PowerShell para configurar o KCD baseado em recursos. No exemplo a seguir, o conector de Proxy de Aplicativo do AD do Azure recebe permissões para usar o computador *AppServer.aaddscontoso.com* :
 
 ```powershell
-Set-ADComputer appserver.contoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
+Set-ADComputer appserver.aaddscontoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
 ```
 
 Se você implantar vários conectores de Proxy de Aplicativo do AD do Azure, deverá configurar o KCD baseado em recursos para cada instância de conector.

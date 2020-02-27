@@ -1,28 +1,24 @@
 ---
-title: 'Tutorial: Usar a Configuração de Aplicativos do Azure para enviar eventos a um ponto de extremidade da Web'
-titleSuffix: Azure App Configuration
-description: Neste tutorial, você aprenderá a configurar assinaturas de eventos da Configuração de Aplicativos do Azure para enviar eventos de modificação de chave-valor para um ponto de extremidade da Web.
+title: Enviar eventos para um ponto de extremidade da Web usando a configuração Azure App
+description: Aprenda a usar as assinaturas de evento de configuração Azure App para enviar eventos de modificação de chave-valor para um ponto de extremidade da Web
 services: azure-app-configuration
-documentationcenter: ''
-author: jimmyca
-editor: ''
+author: lisaguthrie
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.topic: tutorial
-ms.date: 05/30/2019
+ms.topic: how-to
+ms.date: 02/25/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 2a80f931f2060d421483b9e26940985091c9bb5c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
-ms.translationtype: HT
+ms.openlocfilehash: 93700af5e7fb3a4a1253424996ed04532c01f88c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899688"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619601"
 ---
-# <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Início Rápido: Rotear eventos da Configuração de Aplicativos do Azure para um ponto de extremidade da Web com a CLI do Azure
+# <a name="route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Rotear eventos da Configuração de Aplicativos do Azure para um ponto de extremidade da Web com a CLI do Azure
 
-Neste início rápido, você aprenderá a configurar assinaturas de eventos da Configuração de Aplicativos do Azure para enviar eventos de modificação de chave-valor a um ponto de extremidade da Web. Os usuários da Configuração de Aplicativos do Azure podem assinar eventos que são emitidos sempre que os pares chave-valor são modificados. Esses eventos podem disparar webhooks, Azure Functions, Filas de Armazenamento do Azure ou qualquer outro manipulador de eventos que seja compatível com a Grade de Eventos do Azure. Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. No entanto, para simplificar este artigo, você enviará os eventos para um aplicativo Web que coleta e exibe as mensagens.
+Neste artigo, você aprende a configurar Azure App assinaturas de evento de configuração para enviar eventos de modificação de chave-valor para um ponto de extremidade da Web. Azure App configuração os usuários podem assinar eventos emitidos sempre que os valores de chave são modificados. Esses eventos podem disparar ganchos da Web, Azure Functions, filas do armazenamento do Azure ou qualquer outro manipulador de eventos que tenha suporte da grade de eventos do Azure. Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. No entanto, para simplificar este artigo, você enviará os eventos para um aplicativo Web que coleta e exibe as mensagens.
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -46,15 +42,16 @@ O exemplo a seguir cria um grupo de recursos chamado `<resource_group_name>` na 
 az group create --name <resource_group_name> --location westus
 ```
 
-## <a name="create-an-app-configuration"></a>Criar uma Configuração de Aplicativos
+## <a name="create-an-app-configuration-store"></a>Criar um repositório de Configuração de Aplicativos
 
-Substitua `<appconfig_name>` por um nome exclusivo para a Configuração de Aplicativos e `<resource_group_name>` pelo grupo de recursos criado anteriormente. O nome precisa ser exclusivo porque ele é usado como um nome DNS.
+Substitua `<appconfig_name>` por um nome exclusivo para seu repositório de configuração e `<resource_group_name>` com o grupo de recursos que você criou anteriormente. O nome precisa ser exclusivo porque ele é usado como um nome DNS.
 
 ```azurecli-interactive
 az appconfig create \
   --name <appconfig_name> \
   --location westus \
-  --resource-group <resource_group_name>
+  --resource-group <resource_group_name> \
+  --sku free
 ```
 
 ## <a name="create-a-message-endpoint"></a>Criar um ponto de extremidade de mensagem
@@ -78,7 +75,7 @@ Você deve ver o site sem mensagens exibidas no momento.
 
 [!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
 
-## <a name="subscribe-to-your-app-configuration"></a>Assinar a Configuração de Aplicativos
+## <a name="subscribe-to-your-app-configuration-store"></a>Assinar seu repositório de configuração de aplicativo
 
 Assine um tópico para indicar à Grade de Eventos quais eventos você deseja acompanhar e para onde enviar esses eventos. O exemplo a seguir assina a Configuração de Aplicativos criada e passa a URL do aplicativo Web como o ponto de extremidade para a notificação de eventos. Substitua `<event_subscription_name>` por um nome para a assinatura de evento. Em `<resource_group_name>` e `<appconfig_name>`, use os valores criados anteriormente.
 
@@ -122,7 +119,6 @@ Você disparou o evento, e a Grade de Eventos enviou a mensagem para o ponto de 
   "dataVersion": "1",
   "metadataVersion": "1"
 }]
-
 ```
 
 ## <a name="clean-up-resources"></a>Limpar os recursos

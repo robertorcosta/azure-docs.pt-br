@@ -8,17 +8,17 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 50d12a0aba9018b1ecb30c018249e8f94ebe6d95
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 43e626355feaf1e51fc840f82506c559a1859b84
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903280"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622002"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados de hubs de eventos do Azure em repouso usando o portal do Azure
 Os hubs de eventos do Azure fornecem criptografia de dados em repouso com o Criptografia do Serviço de Armazenamento do Azure (Azure SSE). Os hubs de eventos dependem do armazenamento do Azure para armazenar os dados e, por padrão, todos os dados armazenados com o armazenamento do Azure são criptografados usando chaves gerenciadas pela Microsoft. 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Os hubs de eventos do Azure agora dão suporte à opção de criptografar dados em repouso com chaves gerenciadas pela Microsoft ou chaves gerenciadas pelo cliente (Bring Your Own Key – BYOK). Esse recurso permite que você crie, gire, desabilite e revogue o acesso às chaves gerenciadas pelo cliente que são usadas para criptografar dados de hubs de eventos do Azure em repouso.
 
 Habilitar o recurso BYOK é um processo de instalação única em seu namespace.
@@ -99,7 +99,7 @@ Siga estas etapas para habilitar logs para chaves gerenciadas pelo cliente.
 ## <a name="log-schema"></a>Esquema do log 
 Todos os logs são armazenados no formato JSON (JavaScript Object Notation). Cada entrada tem campos de cadeia de caracteres que usam o formato descrito na tabela a seguir. 
 
-| Nome | Description |
+| Nome | DESCRIÇÃO |
 | ---- | ----------- | 
 | TaskName | Descrição da tarefa que falhou. |
 | ActivityId | ID interna que é usada para acompanhamento. |
@@ -144,6 +144,262 @@ Aqui está um exemplo do log para uma chave gerenciada pelo cliente:
 }
 ```
 
+## <a name="use-resource-manager-template-to-enable-encryption"></a>Usar o modelo do Resource Manager para habilitar a criptografia
+Esta seção mostra como realizar as tarefas a seguir usando **modelos de Azure Resource Manager**. 
+
+1. Crie um **namespace de hubs de eventos** com uma identidade de serviço gerenciada.
+2. Crie um **cofre de chaves** e conceda o acesso de identidade de serviço ao cofre de chaves. 
+3. Atualize o namespace de hubs de eventos com as informações do cofre de chaves (chave/valor). 
+
+
+### <a name="create-an-event-hubs-cluster-and-namespace-with-managed-service-identity"></a>Criar um cluster de hubs de eventos e um namespace com a identidade de serviço gerenciada
+Esta seção mostra como criar um namespace de hubs de eventos do Azure com a identidade de serviço gerenciada usando um modelo de Azure Resource Manager e o PowerShell. 
+
+1. Crie um modelo de Azure Resource Manager para criar um namespace de hubs de eventos com uma identidade de serviço gerenciada. Nomeie o arquivo: **CreateEventHubClusterAndNamespace. JSON**: 
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "clusterName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Event Hub cluster."
+             }
+          },
+          "namespaceName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Namespace to be created in cluster."
+             }
+          },
+          "location":{
+             "type":"string",
+             "defaultValue":"[resourceGroup().location]",
+             "metadata":{
+                "description":"Specifies the Azure location for all resources."
+             }
+          }
+       },
+       "resources":[
+          {
+             "type":"Microsoft.EventHub/clusters",
+             "apiVersion":"2018-01-01-preview",
+             "name":"[parameters('clusterName')]",
+             "location":"[parameters('location')]",
+             "sku":{
+                "name":"Dedicated",
+                "capacity":1
+             }
+          },
+          {
+             "type":"Microsoft.EventHub/namespaces",
+             "apiVersion":"2018-01-01-preview",
+             "name":"[parameters('namespaceName')]",
+             "location":"[parameters('location')]",
+             "identity":{
+                "type":"SystemAssigned"
+             },
+             "sku":{
+                "name":"Standard",
+                "tier":"Standard",
+                "capacity":1
+             },
+             "properties":{
+                "isAutoInflateEnabled":false,
+                "maximumThroughputUnits":0,
+                "clusterArmId":"[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]"
+             },
+             "dependsOn":[
+                "[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]"
+             ]
+          }
+       ],
+       "outputs":{
+          "EventHubNamespaceId":{
+             "type":"string",
+             "value":"[resourceId('Microsoft.EventHub/namespaces',parameters('namespaceName'))]"
+          }
+       }
+    }
+    ```
+2. Crie um arquivo de parâmetro de modelo chamado: **CreateEventHubClusterAndNamespaceParams. JSON**. 
+
+    > [!NOTE]
+    > Substitua os seguintes valores: 
+    > - `<EventHubsClusterName>`-nome do seu cluster de hubs de eventos    
+    > - `<EventHubsNamespaceName>`-nome do seu namespace de hubs de eventos
+    > - `<Location>`-local do seu namespace de hubs de eventos
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "clusterName":{
+             "value":"<EventHubsClusterName>"
+          },
+          "namespaceName":{
+             "value":"<EventHubsNamespaceName>"
+          },
+          "location":{
+             "value":"<Location>"
+          }
+       }
+    }
+    
+    ```
+3. Execute o seguinte comando do PowerShell para implantar o modelo para criar um namespace de hubs de eventos. Em seguida, recupere a ID do namespace de hubs de eventos para usá-lo mais tarde. Substitua `{MyRG}` pelo nome do grupo de recursos antes de executar o comando.  
+
+    ```powershell
+    $outputs = New-AzResourceGroupDeployment -Name CreateEventHubClusterAndNamespace -ResourceGroupName {MyRG} -TemplateFile ./CreateEventHubClusterAndNamespace.json -TemplateParameterFile ./CreateEventHubClusterAndNamespaceParams.json
+
+    $EventHubNamespaceId = $outputs.Outputs["eventHubNamespaceId"].value
+    ```
+ 
+### <a name="grant-event-hubs-namespace-identity-access-to-key-vault"></a>Conceder acesso de identidade ao namespace de hubs de eventos ao key Vault
+
+1. Execute o comando a seguir para criar um cofre de chaves com **proteção de limpeza** e **exclusão reversível** habilitada. 
+
+    ```powershell
+    New-AzureRmKeyVault -Name {keyVaultName} -ResourceGroupName {RGName}  -Location {location} -EnableSoftDelete -EnablePurgeProtection    
+    ```     
+    
+    (OU)    
+    
+    Execute o comando a seguir para atualizar um **cofre de chaves existente**. Especifique os valores para o grupo de recursos e os nomes do cofre de chaves antes de executar o comando. 
+    
+    ```powershell
+    ($updatedKeyVault = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -ResourceGroupName {RGName} -VaultName {keyVaultName}).ResourceId).Properties| Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"-Force | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true" -Force
+    ``` 
+2. Defina a política de acesso do cofre de chaves para que a identidade gerenciada do namespace de hubs de eventos possa acessar o valor de chave no cofre de chaves. Use a ID do namespace de hubs de eventos da seção anterior. 
+
+    ```powershell
+    $identity = (Get-AzureRmResource -ResourceId $EventHubNamespaceId -ExpandProperties).Identity
+    
+    Set-AzureRmKeyVaultAccessPolicy -VaultName {keyVaultName} -ResourceGroupName {RGName} -ObjectId $identity.PrincipalId -PermissionsToKeys get,wrapKey,unwrapKey,list
+    ```
+
+### <a name="encrypt-data-in-event-hubs-namespace-with-customer-managed-key-from-key-vault"></a>Criptografar dados no namespace dos hubs de eventos com a chave gerenciada pelo cliente do Key Vault
+Você concluiu as seguintes etapas até agora: 
+
+1. Criou um namespace Premium com uma identidade gerenciada.
+2. Crie um cofre de chaves e receba o acesso de identidade gerenciada ao cofre de chaves. 
+
+Nesta etapa, você atualizará o namespace de hubs de eventos com informações do Key Vault. 
+
+1. Crie um arquivo JSON chamado **CreateEventHubClusterAndNamespace. JSON** com o seguinte conteúdo: 
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "clusterName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Event Hub cluster."
+             }
+          },
+          "namespaceName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Namespace to be created in cluster."
+             }
+          },
+          "location":{
+             "type":"string",
+             "defaultValue":"[resourceGroup().location]",
+             "metadata":{
+                "description":"Specifies the Azure location for all resources."
+             }
+          },
+          "keyVaultUri":{
+             "type":"string",
+             "metadata":{
+                "description":"URI of the KeyVault."
+             }
+          },
+          "keyName":{
+             "type":"string",
+             "metadata":{
+                "description":"KeyName."
+             }
+          }
+       },
+       "resources":[
+          {
+             "type":"Microsoft.EventHub/namespaces",
+             "apiVersion":"2018-01-01-preview",
+             "name":"[parameters('namespaceName')]",
+             "location":"[parameters('location')]",
+             "identity":{
+                "type":"SystemAssigned"
+             },
+             "sku":{
+                "name":"Standard",
+                "tier":"Standard",
+                "capacity":1
+             },
+             "properties":{
+                "isAutoInflateEnabled":false,
+                "maximumThroughputUnits":0,
+                "clusterArmId":"[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]",
+                "encryption":{
+                   "keySource":"Microsoft.KeyVault",
+                   "keyVaultProperties":[
+                      {
+                         "keyName":"[parameters('keyName')]",
+                         "keyVaultUri":"[parameters('keyVaultUri')]"
+                      }
+                   ]
+                }
+             }
+          }
+       ]
+    }
+    ``` 
+
+2. Crie um arquivo de parâmetro de modelo: **UpdateEventHubClusterAndNamespaceParams. JSON**. 
+
+    > [!NOTE]
+    > Substitua os seguintes valores: 
+    > - `<EventHubsClusterName>`-nome do seu cluster de hubs de eventos.        
+    > - `<EventHubsNamespaceName>`-nome do seu namespace de hubs de eventos
+    > - `<Location>`-local do seu namespace de hubs de eventos
+    > - `<KeyVaultName>`-nome do seu cofre de chaves
+    > - `<KeyName>`-nome da chave no cofre de chaves
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "clusterName":{
+             "value":"<EventHubsClusterName>"
+          },
+          "namespaceName":{
+             "value":"<EventHubsNamespaceName>"
+          },
+          "location":{
+             "value":"<Location>"
+          },
+          "keyName":{
+             "value":"<KeyName>"
+          },
+          "keyVaultUri":{
+             "value":"https://<KeyVaultName>.vault.azure.net"
+          }
+       }
+    }
+    ```             
+3. Execute o seguinte comando do PowerShell para implantar o modelo do Resource Manager. Substitua `{MyRG}` pelo nome do seu grupo de recursos antes de executar o comando. 
+
+    ```powershell
+    New-AzResourceGroupDeployment -Name UpdateEventHubNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateEventHubClusterAndNamespace.json -TemplateParameterFile ./UpdateEventHubClusterAndNamespaceParams.json 
+    ```
+
 ## <a name="troubleshoot"></a>Solucionar problemas
 Como prática recomendada, sempre habilite logs como mostrado na seção anterior. Ele ajuda a controlar as atividades quando a criptografia BYOK está habilitada. Ele também ajuda a definir o escopo dos problemas.
 
@@ -164,7 +420,7 @@ Veja a seguir os códigos de erros comuns a serem procurados quando a criptograf
 > [!IMPORTANT]
 > Para habilitar o geo-DR em um namespace que está usando a criptografia BYOK, o namespace secundário para emparelhamento deve estar em um cluster dedicado e deve ter uma identidade gerenciada atribuída ao sistema habilitada nele. Para saber mais, confira [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Veja os artigos a seguir:
 - [Visão geral de Hubs de Eventos](event-hubs-about.md)
 - [Visão geral de Key Vault](../key-vault/key-vault-overview.md)

@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 826cc155bae037121ddc303a6e1bf300e2d50a27
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 514de1435519282335124bfd67bac82669240b78
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589293"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616509"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de segurança na Central de Segurança do Azure
 
@@ -98,14 +98,20 @@ Esses esforços combinados culminam em detecções novas e aprimoradas de que vo
 
 Os tópicos a seguir orientam você pelos diferentes alertas, de acordo com os tipos de recursos:
 
-* [Alertas de VMs e servidores IaaS](security-center-alerts-iaas.md)
-* [Alertas de computação nativos](security-center-alerts-compute.md)
-* [Alertas de serviços de dados](security-center-alerts-data-services.md)
+* [Alertas para computadores IaaS Windows](threat-protection.md#windows-machines)
+* [Alertas para computadores IaaS Linux](threat-protection.md#linux-machines)
+* [Alertas para o serviço Azure App](threat-protection.md#app-services)
+* [Alertas para contêineres do Azure](threat-protection.md#azure-containers)
+* [Alertas para o banco de dados SQL e SQL Data Warehouse](threat-protection.md#data-sql)
+* [Alertas para o armazenamento do Azure](threat-protection.md#azure-storage)
+* [Alertas para Cosmos DB](threat-protection.md#cosmos-db)
 
 Os tópicos a seguir explicam como a central de segurança usa a telemetria diferente que ela coleta da integração com a infraestrutura do Azure, para aplicar camadas de proteção adicionais para recursos implantados no Azure:
 
-* [Alertas da camada de serviço](security-center-alerts-service-layer.md)
-* [Detecção de ameaças para o Azure WAF e a proteção contra DDoS do Azure](security-center-alerts-integration.md)
+* [Alertas para a camada de gerenciamento do Azure (Azure Resource Manager) (visualização)](threat-protection.md#management-layer)
+* [Alertas para Azure Key Vault (versão prévia)](threat-protection.md#azure-keyvault)
+* [Alertas da camada de rede do Azure](threat-protection.md#network-layer)
+* [Alertas de outros serviços](threat-protection.md#alerts-other)
 
 ## <a name="what-are-security-incidents"></a>O que são incidentes de segurança?
 

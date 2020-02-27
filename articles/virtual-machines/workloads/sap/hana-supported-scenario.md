@@ -4,7 +4,7 @@ description: Cenários suportados e seus detalhes de arquitetura para o SAP HANA
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: gwallace
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 11/26/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eb8278b053ef52f43171137b02e729bfed085e67
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 019f462d4264d19bcc4806d91223029a95f9d819
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894710"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617174"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Cenários suportados para instâncias grandes do HANA
 Este artigo descreve os cenários com suporte e os detalhes de arquitetura para o HLI (HANA Large instances).
@@ -39,7 +39,7 @@ Vamos entender os termos e as definições que são usados neste artigo:
 - **Multi-Sid**: um sistema com várias instâncias configuradas; também chamado de ambiente MCOS
 - **HSR**: replicação de sistema de SAP Hana
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 O HANA em instâncias grandes dá suporte a uma variedade de arquiteturas para ajudá-lo a atingir seus requisitos de negócios. As seções a seguir abrangem os cenários arquitetônicos e seus detalhes de configuração. 
 
 O design de arquitetura derivada é puramente de uma perspectiva de infraestrutura e você deve consultar o SAP ou seus parceiros de implementação para a implantação do HANA. Se seus cenários não estiverem listados neste artigo, entre em contato com a equipe de conta Microsoft para examinar a arquitetura e derivar uma solução para você.
@@ -63,11 +63,11 @@ Cada servidor provisionado vem pré-configurado com conjuntos de interfaces Ethe
 
 | Interface lógica NIC | Tipo de SKU | Nome com SUSE OS | Nome com RHEL OS | Caso de uso|
 | --- | --- | --- | --- | --- |
-| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
+| Um | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Nó para nó|
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | STONITH |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| Um | TIPO II | > de\<de VLAN tenantNo | team0.tenant | Cliente a HLI |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Nó para nó|
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó para armazenamento |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | STONITH |
@@ -135,11 +135,11 @@ As seguintes interfaces de rede são pré-configuradas:
 
 | Interface lógica NIC | Tipo de SKU | Nome com SUSE OS | Nome com RHEL OS | Caso de uso|
 | --- | --- | --- | --- | --- |
-| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
+| Um | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| Um | TIPO II | > de\<de VLAN tenantNo | team0.tenant | Cliente a HLI |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em uso |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó para armazenamento |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em uso |
@@ -170,11 +170,11 @@ As seguintes interfaces de rede são pré-configuradas:
 
 | Interface lógica NIC | Tipo de SKU | Nome com SUSE OS | Nome com RHEL OS | Caso de uso|
 | --- | --- | --- | --- | --- |
-| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
+| Um | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| Um | TIPO II | > de\<de VLAN tenantNo | team0.tenant | Cliente a HLI |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em uso |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó para armazenamento |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em uso |
@@ -210,11 +210,11 @@ As seguintes interfaces de rede são pré-configuradas:
 
 | Interface lógica NIC | Tipo de SKU | Nome com SUSE OS | Nome com RHEL OS | Caso de uso|
 | --- | --- | --- | --- | --- |
-| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
+| Um | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| Um | TIPO II | > de\<de VLAN tenantNo | team0.tenant | Cliente a HLI |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em uso |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó para armazenamento |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em uso |
@@ -251,11 +251,11 @@ As seguintes interfaces de rede são pré-configuradas:
 
 | Interface lógica NIC | Tipo de SKU | Nome com SUSE OS | Nome com RHEL OS | Caso de uso|
 | --- | --- | --- | --- | --- |
-| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
+| Um | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| Um | TIPO II | > de\<de VLAN tenantNo | team0.tenant | Cliente a HLI |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em uso |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó para armazenamento |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em uso |
@@ -306,11 +306,11 @@ As seguintes interfaces de rede são pré-configuradas:
 
 | Interface lógica NIC | Tipo de SKU | Nome com SUSE OS | Nome com RHEL OS | Caso de uso|
 | --- | --- | --- | --- | --- |
-| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
+| Um | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Used for STONITH |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| Um | TIPO II | > de\<de VLAN tenantNo | team0.tenant | Cliente a HLI |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em uso |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó para armazenamento |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Used for STONITH |
@@ -352,11 +352,11 @@ As seguintes interfaces de rede são pré-configuradas:
 
 | Interface lógica NIC | Tipo de SKU | Nome com SUSE OS | Nome com RHEL OS | Caso de uso|
 | --- | --- | --- | --- | --- |
-| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
+| Um | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Used for STONITH |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| Um | TIPO II | > de\<de VLAN tenantNo | team0.tenant | Cliente a HLI |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em uso |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó para armazenamento |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Used for STONITH |
@@ -411,11 +411,11 @@ As seguintes interfaces de rede são pré-configuradas:
 
 | Interface lógica NIC | Tipo de SKU | Nome com SUSE OS | Nome com RHEL OS | Caso de uso|
 | --- | --- | --- | --- | --- |
-| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
+| Um | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Comunicação de nó para nó |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| Um | TIPO II | > de\<de VLAN tenantNo | team0.tenant | Cliente a HLI |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Comunicação de nó para nó |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó para armazenamento |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em uso |
@@ -452,11 +452,11 @@ As seguintes interfaces de rede são pré-configuradas:
 
 | Interface lógica NIC | Tipo de SKU | Nome com SUSE OS | Nome com RHEL OS | Caso de uso|
 | --- | --- | --- | --- | --- |
-| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
+| Um | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Comunicação de nó para nó |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| Um | TIPO II | > de\<de VLAN tenantNo | team0.tenant | Cliente a HLI |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Comunicação de nó para nó |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó para armazenamento |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em uso |
@@ -488,11 +488,11 @@ As seguintes interfaces de rede são pré-configuradas:
 
 | Interface lógica NIC | Tipo de SKU | Nome com SUSE OS | Nome com RHEL OS | Caso de uso|
 | --- | --- | --- | --- | --- |
-| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
+| Um | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Comunicação de nó para nó |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| Um | TIPO II | > de\<de VLAN tenantNo | team0.tenant | Cliente a HLI |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Comunicação de nó para nó |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó para armazenamento |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em uso |
@@ -527,11 +527,11 @@ As seguintes interfaces de rede são pré-configuradas:
 
 | Interface lógica NIC | Tipo de SKU | Nome com SUSE OS | Nome com RHEL OS | Caso de uso|
 | --- | --- | --- | --- | --- |
-| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
+| Um | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Comunicação de nó para nó |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| Um | TIPO II | > de\<de VLAN tenantNo | team0.tenant | Cliente a HLI |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Comunicação de nó para nó |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó para armazenamento |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em uso |
@@ -572,11 +572,11 @@ As seguintes interfaces de rede são pré-configuradas:
 
 | Interface lógica NIC | Tipo de SKU | Nome com SUSE OS | Nome com RHEL OS | Caso de uso|
 | --- | --- | --- | --- | --- |
-| A | TIPO I | eth0.tenant | eno1.tenant | Cliente para HLI/HSR |
+| Um | TIPO I | eth0.tenant | eno1.tenant | Cliente para HLI/HSR |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente para HLI/HSR |
+| Um | TIPO II | > de\<de VLAN tenantNo | team0.tenant | Cliente para HLI/HSR |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em uso |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó para armazenamento |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em uso |
@@ -613,11 +613,11 @@ As seguintes interfaces de rede são pré-configuradas:
 
 | Interface lógica NIC | Tipo de SKU | Nome com SUSE OS | Nome com RHEL OS | Caso de uso|
 | --- | --- | --- | --- | --- |
-| A | TIPO I | eth0.tenant | eno1.tenant | Cliente para HLI/HSR |
+| Um | TIPO I | eth0.tenant | eno1.tenant | Cliente para HLI/HSR |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente para HLI/HSR |
+| Um | TIPO II | > de\<de VLAN tenantNo | team0.tenant | Cliente para HLI/HSR |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em uso |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó para armazenamento |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em uso |
@@ -663,11 +663,11 @@ As seguintes interfaces de rede são pré-configuradas:
 
 | Interface lógica NIC | Tipo de SKU | Nome com SUSE OS | Nome com RHEL OS | Caso de uso|
 | --- | --- | --- | --- | --- |
-| A | TIPO I | eth0.tenant | eno1.tenant | Cliente para HLI/HSR |
+| Um | TIPO I | eth0.tenant | eno1.tenant | Cliente para HLI/HSR |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente para HLI/HSR |
+| Um | TIPO II | > de\<de VLAN tenantNo | team0.tenant | Cliente para HLI/HSR |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em uso |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó para armazenamento |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em uso |
@@ -708,11 +708,11 @@ As seguintes interfaces de rede são pré-configuradas:
 
 | Interface lógica NIC | Tipo de SKU | Nome com SUSE OS | Nome com RHEL OS | Caso de uso|
 | --- | --- | --- | --- | --- |
-| A | TIPO I | eth0.tenant | eno1.tenant | Cliente para HLI/HSR |
+| Um | TIPO I | eth0.tenant | eno1.tenant | Cliente para HLI/HSR |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente para HLI/HSR |
+| Um | TIPO II | > de\<de VLAN tenantNo | team0.tenant | Cliente para HLI/HSR |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em uso |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó para armazenamento |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em uso |
@@ -759,11 +759,11 @@ As seguintes interfaces de rede são pré-configuradas:
 
 | Interface lógica NIC | Tipo de SKU | Nome com SUSE OS | Nome com RHEL OS | Caso de uso|
 | --- | --- | --- | --- | --- |
-| A | TIPO I | eth0.tenant | eno1.tenant | Cliente para HLI/HSR |
+| Um | TIPO I | eth0.tenant | eno1.tenant | Cliente para HLI/HSR |
 | B | TIPO I | eth2.tenant | eno3.tenant | Comunicação de nó para nó |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó para armazenamento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente para HLI/HSR |
+| Um | TIPO II | > de\<de VLAN tenantNo | team0.tenant | Cliente para HLI/HSR |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Comunicação de nó para nó |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nó para armazenamento |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em uso |
@@ -792,6 +792,6 @@ Os seguintes pontos de montagem são pré-configurados:
 - [Alcance global](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) é usado para vincular os circuitos do ExpressRoute em conjunto para fazer uma rede privada entre suas redes regionais.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - [Infraestrutura e conectividade](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity) para instâncias grandes do Hana
 - [Alta disponibilidade e recuperação de desastre](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) para instâncias grandes do Hana

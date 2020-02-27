@@ -1,5 +1,5 @@
 ---
-title: Versões de layout de página
+title: Versões do layout da página
 titleSuffix: Azure AD B2C
 description: Histórico de versão de layout de página para personalização de interface do usuário em políticas personalizadas.
 services: active-directory-b2c
@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 02/26/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2a0a786d3e2135467c7279c76bae273bff0ba2d0
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: b24e8cc5f6bb6213bf021362c5654afd4d5266fb
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77149500"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620608"
 ---
-# <a name="page-layout-versions"></a>Versões de layout de página
+# <a name="page-layout-versions"></a>Versões do layout da página
 
 Os pacotes de layout de página são atualizados periodicamente para incluir correções e aprimoramentos em seus elementos de página. O log de alterações a seguir especifica as alterações introduzidas em cada versão.
 
@@ -33,7 +33,7 @@ Os pacotes de layout de página são atualizados periodicamente para incluir cor
 
 - Todas as páginas
   - Correções de acessibilidade
-  - Agora você pode adicionar o atributo `data-preload="true"` em suas marcas HTML para controlar a ordem de carregamento para CSS e JavaScript.
+  - Agora você pode adicionar o atributo `data-preload="true"` [em suas marcas HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) para controlar a ordem de carregamento para CSS e JavaScript.
     - Carregue arquivos CSS vinculados ao mesmo tempo que o modelo HTML para que ele não fique piscando entre o carregamento dos arquivos.
     - Controle a ordem na qual suas marcas de `script` são buscadas e executadas antes do carregamento da página.
   - O campo de email agora é `type=email` e teclados móveis fornecerão as sugestões corretas

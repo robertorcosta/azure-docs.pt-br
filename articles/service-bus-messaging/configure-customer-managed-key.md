@@ -6,19 +6,19 @@ ms.service: service-bus
 documentationcenter: ''
 author: axisc
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 02/25/2020
 ms.author: aschhab
-ms.openlocfilehash: 6d20d4031f0ed4d1be4dddf9e33946251d6dd523
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: aeb9a9730ddc61793e49c9e042906457e0068d9a
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903313"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624081"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados do barramento de serviço do Azure em repouso usando o portal do Azure
 O barramento de serviço Premium do Azure fornece criptografia de dados em repouso com Criptografia do Serviço de Armazenamento do Azure (Azure SSE). O barramento de serviço Premium depende do armazenamento do Azure para armazenar os dados e, por padrão, todos os dados armazenados com o armazenamento do Azure são criptografados usando chaves gerenciadas pela Microsoft. 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 O barramento de serviço do Azure agora dá suporte à opção de criptografar dados em repouso com chaves gerenciadas pela Microsoft ou chaves gerenciadas pelo cliente (Bring Your Own Key-BYOK). Esse recurso permite que você crie, gire, desabilite e revogue o acesso às chaves gerenciadas pelo cliente que são usadas para criptografar o barramento de serviço do Azure em repouso.
 
 Habilitar o recurso BYOK é um processo de instalação única em seu namespace.
@@ -78,22 +78,22 @@ Depois de habilitar as chaves gerenciadas pelo cliente, você precisa associar a
     1. Preencha os detalhes da chave e clique em **selecionar**. Isso habilitará a criptografia de dados em repouso no namespace com uma chave gerenciada pelo cliente. 
 
 
-> [!IMPORTANT]
-> Se você pretende usar a chave gerenciada pelo cliente juntamente com a recuperação de desastres geográficos, leia o abaixo- 
->
-> Para habilitar a criptografia em repouso com a chave gerenciada pelo cliente, uma [política de acesso](../key-vault/key-vault-secure-your-key-vault.md) é configurada para a identidade gerenciada do barramento de serviço no Azure keyvault especificado. Isso garante o acesso controlado ao Azure keyvault do namespace do barramento de serviço do Azure.
->
-> Devido a isso:
-> 
->   * Se a [recuperação de desastre geográfica](service-bus-geo-dr.md) já estiver habilitada para o namespace do barramento de serviço e você estiver procurando habilitar a chave gerenciada pelo cliente, então 
->     * Interromper o emparelhamento
->     * [Configure a política de acesso](../key-vault/managed-identity.md) para a identidade gerenciada para os namespaces primário e secundário para o cofre de chaves.
->     * Configure a criptografia no namespace primário.
->     * Emparelhe novamente os namespaces primário e secundário.
-> 
->   * Se você estiver procurando habilitar a DR geográfica em um namespace do barramento de serviço em que a chave gerenciada pelo cliente já está configurada,
->     * [Configure a política de acesso](../key-vault/managed-identity.md) para a identidade gerenciada para o namespace secundário para o cofre de chaves.
->     * Emparelhe os namespaces primários e secundários.
+    > [!IMPORTANT]
+    > Se você pretende usar a chave gerenciada pelo cliente juntamente com a recuperação de desastres geográficos, leia o abaixo- 
+    >
+    > Para habilitar a criptografia em repouso com a chave gerenciada pelo cliente, uma [política de acesso](../key-vault/key-vault-secure-your-key-vault.md) é configurada para a identidade gerenciada do barramento de serviço no Azure keyvault especificado. Isso garante o acesso controlado ao Azure keyvault do namespace do barramento de serviço do Azure.
+    >
+    > Devido a isso:
+    > 
+    >   * Se a [recuperação de desastre geográfica](service-bus-geo-dr.md) já estiver habilitada para o namespace do barramento de serviço e você estiver procurando habilitar a chave gerenciada pelo cliente, então 
+    >     * Interromper o emparelhamento
+    >     * [Configure a política de acesso](../key-vault/managed-identity.md) para a identidade gerenciada para os namespaces primário e secundário para o cofre de chaves.
+    >     * Configure a criptografia no namespace primário.
+    >     * Emparelhe novamente os namespaces primário e secundário.
+    > 
+    >   * Se você estiver procurando habilitar a DR geográfica em um namespace do barramento de serviço em que a chave gerenciada pelo cliente já está configurada,
+    >     * [Configure a política de acesso](../key-vault/managed-identity.md) para a identidade gerenciada para o namespace secundário para o cofre de chaves.
+    >     * Emparelhe os namespaces primários e secundários.
 
 
 ## <a name="rotate-your-encryption-keys"></a>Girar suas chaves de criptografia
@@ -106,7 +106,225 @@ Revogar o acesso às chaves de criptografia não limpará os dados do barramento
 
 Depois que a chave de criptografia for revogada, o serviço do barramento de serviço no namespace criptografado se tornará inoperável. Se o acesso à chave estiver habilitado ou a chave excluída for restaurada, o serviço do barramento de serviço escolherá a chave para que você possa acessar os dados do namespace do barramento de serviço criptografado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="use-resource-manager-template-to-enable-encryption"></a>Usar o modelo do Resource Manager para habilitar a criptografia
+Esta seção mostra como realizar as tarefas a seguir usando **modelos de Azure Resource Manager**. 
+
+1. Crie um namespace do barramento de serviço **Premium** com uma **identidade de serviço gerenciada**.
+2. Crie um **cofre de chaves** e conceda o acesso de identidade de serviço ao cofre de chaves. 
+3. Atualize o namespace do barramento de serviço com as informações do cofre de chaves (chave/valor). 
+
+
+### <a name="create-a-premium-service-bus-namespace-with-managed-service-identity"></a>Criar um namespace do barramento de serviço Premium com identidade de serviço gerenciada
+Esta seção mostra como criar um namespace do barramento de serviço do Azure com a identidade de serviço gerenciada usando um modelo de Azure Resource Manager e o PowerShell. 
+
+1. Crie um modelo de Azure Resource Manager para criar um namespace da camada Premium do barramento de serviço com uma identidade de serviço gerenciada. Nomeie o arquivo: **CreateServiceBusPremiumNamespace. JSON**: 
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "namespaceName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Namespace."
+             }
+          },
+          "location":{
+             "type":"string",
+             "defaultValue":"[resourceGroup().location]",
+             "metadata":{
+                "description":"Specifies the Azure location for all resources."
+             }
+          }
+       },
+       "resources":[
+          {
+             "type":"Microsoft.ServiceBus/namespaces",
+             "apiVersion":"2018-01-01-preview",
+             "name":"[parameters('namespaceName')]",
+             "location":"[parameters('location')]",
+             "identity":{
+                "type":"SystemAssigned"
+             },
+             "sku":{
+                "name":"Premium",
+                "tier":"Premium",
+                "capacity":1
+             },
+             "properties":{
+    
+             }
+          }
+       ],
+       "outputs":{
+          "ServiceBusNamespaceId":{
+             "type":"string",
+             "value":"[resourceId('Microsoft.ServiceBus/namespaces',parameters('namespaceName'))]"
+          }
+       }
+    }
+    ```
+2. Crie um arquivo de parâmetro de modelo chamado: **CreateServiceBusPremiumNamespaceParams. JSON**. 
+
+    > [!NOTE]
+    > Substitua os seguintes valores: 
+    > - `<ServiceBusNamespaceName>`-nome do namespace do barramento de serviço
+    > - `<Location>`-local do seu namespace do barramento de serviço
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "namespaceName":{
+             "value":"<ServiceBusNamespaceName>"
+          },
+          "location":{
+             "value":"<Location>"
+          }
+       }
+    }
+    ```
+3. Execute o seguinte comando do PowerShell para implantar o modelo para criar um namespace Premium do barramento de serviço. Em seguida, recupere a ID do namespace do barramento de serviço para usá-lo mais tarde. Substitua `{MyRG}` pelo nome do grupo de recursos antes de executar o comando.  
+
+    ```powershell
+    $outputs = New-AzResourceGroupDeployment -Name CreateServiceBusPremiumNamespace -ResourceGroupName {MyRG} -TemplateFile ./CreateServiceBusPremiumNamespace.json -TemplateParameterFile ./CreateServiceBusPremiumNamespaceParams.json
+    
+    $ServiceBusNamespaceId = $outputs.Outputs["serviceBusNamespaceId"].value
+    ```
+ 
+### <a name="grant-service-bus-namespace-identity-access-to-key-vault"></a>Conceder acesso de identidade do namespace do barramento de serviço ao cofre de chaves
+
+1. Execute o comando a seguir para criar um cofre de chaves com **proteção de limpeza** e **exclusão reversível** habilitada. 
+
+    ```powershell
+    New-AzureRmKeyVault -Name "{keyVaultName}" -ResourceGroupName {RGName}  -Location "{location}" -EnableSoftDelete -EnablePurgeProtection    
+    ```
+    
+    (OU)
+    
+    Execute o comando a seguir para atualizar um **cofre de chaves existente**. Especifique os valores para o grupo de recursos e os nomes do cofre de chaves antes de executar o comando. 
+    
+    ```powershell
+    ($updatedKeyVault = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -ResourceGroupName {RGName} -VaultName {keyVaultName}).ResourceId).Properties| Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"-Force | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true" -Force
+    ``` 
+2. Defina a política de acesso do cofre de chaves para que a identidade gerenciada do namespace do barramento de serviço possa acessar o valor de chave no cofre de chaves. Use a ID do namespace do barramento de serviço da seção anterior. 
+
+    ```powershell
+    $identity = (Get-AzureRmResource -ResourceId $ServiceBusNamespaceId -ExpandProperties).Identity
+    
+    Set-AzureRmKeyVaultAccessPolicy -VaultName {keyVaultName} -ResourceGroupName {RGName} -ObjectId $identity.PrincipalId -PermissionsToKeys get,wrapKey,unwrapKey,list
+    ```
+
+### <a name="encrypt-data-in-service-bus-namespace-with-customer-managed-key-from-key-vault"></a>Criptografar dados no namespace do barramento de serviço com a chave gerenciada pelo cliente do Key Vault
+Você concluiu as seguintes etapas até agora: 
+
+1. Criou um namespace Premium com uma identidade gerenciada.
+2. Crie um cofre de chaves e receba o acesso de identidade gerenciada ao cofre de chaves. 
+
+Nesta etapa, você atualizará o namespace do barramento de serviço com informações do Key Vault. 
+
+1. Crie um arquivo JSON chamado **UpdateServiceBusNamespaceWithEncryption. JSON** com o seguinte conteúdo: 
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "namespaceName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Namespace to be created in cluster."
+             }
+          },
+          "location":{
+             "type":"string",
+             "defaultValue":"[resourceGroup().location]",
+             "metadata":{
+                "description":"Specifies the Azure location for all resources."
+             }
+          },
+          "keyVaultUri":{
+             "type":"string",
+             "metadata":{
+                "description":"URI of the KeyVault."
+             }
+          },
+          "keyName":{
+             "type":"string",
+             "metadata":{
+                "description":"KeyName."
+             }
+          }
+       },
+       "resources":[
+          {
+             "type":"Microsoft.ServiceBus/namespaces",
+             "apiVersion":"2018-01-01-preview",
+             "name":"[parameters('namespaceName')]",
+             "location":"[parameters('location')]",
+             "identity":{
+                "type":"SystemAssigned"
+             },
+             "sku":{
+                "name":"Premium",
+                "tier":"Premium",
+                "capacity":1
+             },
+             "properties":{
+                "encryption":{
+                   "keySource":"Microsoft.KeyVault",
+                   "keyVaultProperties":[
+                      {
+                         "keyName":"[parameters('keyName')]",
+                         "keyVaultUri":"[parameters('keyVaultUri')]"
+                      }
+                   ]
+                }
+             }
+          }
+       ]
+    }
+    ``` 
+
+2. Crie um arquivo de parâmetro de modelo: **UpdateServiceBusNamespaceWithEncryptionParams. JSON**.
+
+    > [!NOTE]
+    > Substitua os seguintes valores: 
+    > - `<ServiceBusNamespaceName>`-nome do namespace do barramento de serviço
+    > - `<Location>`-local do seu namespace do barramento de serviço
+    > - `<KeyVaultName>`-nome do seu cofre de chaves
+    > - `<KeyName>`-nome da chave no cofre de chaves  
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "namespaceName":{
+             "value":"<ServiceBusNamespaceName>"
+          },
+          "location":{
+             "value":"<Location>"
+          },
+          "keyName":{
+             "value":"<KeyName>"
+          },
+          "keyVaultUri":{
+             "value":"https://<KeyVaultName>.vault.azure.net"
+          }
+       }
+    }
+    ```             
+3. Execute o seguinte comando do PowerShell para implantar o modelo do Resource Manager. Substitua `{MyRG}` pelo nome do seu grupo de recursos antes de executar o comando. 
+
+    ```powershell
+    New-AzResourceGroupDeployment -Name UpdateServiceBusNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateServiceBusNamespaceWithEncryption.json -TemplateParameterFile ./UpdateServiceBusNamespaceWithEncryptionParams.json
+    ```
+    
+
+## <a name="next-steps"></a>Próximas etapas
 Veja os artigos a seguir:
 - [Visão geral do Barramento de Serviço](service-bus-messaging-overview.md)
 - [Visão geral de Key Vault](../key-vault/key-vault-overview.md)

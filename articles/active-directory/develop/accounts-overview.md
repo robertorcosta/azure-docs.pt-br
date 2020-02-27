@@ -13,12 +13,12 @@ ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: a0f0f3be1647c820591923a094ef7fce86ab9672
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d0497ad68e7b29e6d8c83dd860ba8f509e229579
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76699437"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77611865"
 ---
 # <a name="accounts--tenant-profiles-android"></a>Contas e perfis de locatário (Android)
 
@@ -52,7 +52,7 @@ Uma conta na plataforma Microsoft Identity consiste em:
 
 ## <a name="account-overview-diagram"></a>Diagrama de visão geral da conta
 
-![Diagrama de visão geral da conta](./media/accounts-overview/accounts-overview.png)
+![Diagrama de visão geral da conta](./media/accounts-overview/accounts-overview.svg)
 
 No diagrama acima:
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4046aac5e8362bf315eca11d9cd96a6e862e2c55
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 5c5a8bc06c676121c20f6e1f83a26dd9343e6847
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034600"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605528"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Tutorial: Usar a Central de Segurança do Azure para monitorar máquinas virtuais do Linux
 
@@ -123,7 +123,7 @@ Selecione um alerta para exibir informações. Por exemplo, você pode ver uma d
 ![Ataque de RDP](./media/tutorial-azure-security/rdp-attack.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Nesse tutorial, você configurou a Central de Segurança do Azure e, em seguida, analisou VMs na Central de Segurança. Você aprendeu como:
+Nesse tutorial, você configurou a Central de Segurança do Azure e, em seguida, analisou VMs na Central de Segurança. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Configurar a coleta de dados
@@ -134,5 +134,5 @@ Nesse tutorial, você configurou a Central de Segurança do Azure e, em seguida,
 Avance para o próximo tutorial para saber mais sobre como criar um pipeline de CI/CD com Jenkins, GitHub e Docker.
 
 > [!div class="nextstepaction"]
-> [Criar uma infra-estrutura de CI/CD com Jenkins, GitHub e Docker](tutorial-jenkins-github-docker-cicd.md)
+> [Criar uma infra-estrutura de CI/CD com Jenkins, GitHub e Docker](../../jenkins/tutorial-jenkins-github-docker-cicd.md)
 

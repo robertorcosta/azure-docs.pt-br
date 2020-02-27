@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 106cd870a8ba52917ecabe6266bbb2c376296d79
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 8a82d2ad3e79633bb930348c6162996e961c4306
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704266"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612973"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Entender os Estados de integridade e resolver domínios suspensos no Azure Active Directory Domain Services
 
@@ -96,7 +96,7 @@ Você verá um [alerta][resolve-alerts] na página do Azure AD DS Health no port
 Para restaurar a integridade de um domínio gerenciado AD DS do Azure que está no estado *suspenso* , conclua as seguintes etapas:
 
 1. Na portal do Azure, procure e selecione serviços de **domínio**.
-1. Escolha o domínio gerenciado AD DS do Azure na lista, como *aadds.contoso.com*, e selecione **integridade**.
+1. Escolha o domínio gerenciado AD DS do Azure na lista, como *aaddscontoso.com*, e selecione **integridade**.
 1. Selecione o alerta, como *AADDS503* ou *AADDS504*, dependendo da causa da suspensão.
 1. Escolha o link de resolução fornecido no alerta e siga as etapas para resolvê-lo.
 
@@ -116,7 +116,7 @@ Quando um domínio gerenciado do Azure AD DS entra no estado *excluído* , o seg
 * Você não pode restaurar o domínio gerenciado e precisa criar um domínio gerenciado de substituição para reutilizar o AD DS do Azure.
 * Depois que ele for excluído, não são cobrados para o domínio gerenciado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para manter a integridade do domínio gerenciado do Azure AD DS e minimizar o risco de ele se tornar suspenso, saiba como [resolver alertas para seu domínio gerenciado][resolve-alerts].
 

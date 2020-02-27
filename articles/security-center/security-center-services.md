@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 8700421551af227f158abaa38d5f96c8e2987ba3
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 8d905da733ea0573b91b289da43684ed8083c804
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603397"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616378"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Recursos com suporte disponíveis na central de segurança do Azure
 
@@ -39,9 +39,9 @@ As seções a seguir mostram os recursos da central de segurança que estão dis
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 ||**Máquinas Virtuais do Azure**|**Conjuntos de dimensionamento de máquinas virtuais do Azure**|**Computadores não Azure**|**Preços**
 |[Integração do Microsoft defender ATP](security-center-wdatp.md)|✔ (em versões compatíveis)|✔ (em versões compatíveis)|✔|Standard|
-|[Alertas de detecção de ameaças de análise comportamental de máquina virtual](security-center-alerts-iaas.md)|✔|✔|✔|Recomendações (gratuito) detecção de ameaças (padrão)|
+|[Alertas de detecção de ameaças de análise comportamental de máquina virtual](threat-protection.md)|✔|✔|✔|Recomendações (gratuito) detecção de ameaças (padrão)|
 |[Alertas de detecção de ameaças com arquivo](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
-|[Alertas de detecção de ameaças baseados em rede](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Standard|
+|[Alertas de detecção de ameaças baseados em rede](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Acesso à VM just-in-time](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Avaliação de vulnerabilidades nativas](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
 |[Monitoramento de integridade de arquivo](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
@@ -67,7 +67,7 @@ As seções a seguir mostram os recursos da central de segurança que estão dis
 |[Integração do Microsoft defender ATP](security-center-wdatp.md)|-|-|-|Standard|
 |[Alertas de detecção de ameaças de análise comportamental de máquina virtual](security-center-alerts-iaas.md)|✔ (em versões compatíveis)|✔ (em versões compatíveis)|✔|Recomendações (gratuito) detecção de ameaças (padrão)|
 |[Alertas de detecção de ameaças com arquivo](alerts-reference.md#alerts-windows)|-|-|-|Standard|
-|[Alertas de detecção de ameaças baseados em rede](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Standard|
+|[Alertas de detecção de ameaças baseados em rede](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Acesso à VM just-in-time](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Avaliação de vulnerabilidades nativas](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
 |[Monitoramento de integridade de arquivo](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|

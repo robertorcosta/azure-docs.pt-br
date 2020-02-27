@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 03171e395bb23da05ee5420f60abca9a16ffb774
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 395210c582ba7f5e8170a96a46e2816336e33b2d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72600287"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624026"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Gerenciar Propriedades de BLOB e metadados com o .NET
 
@@ -21,7 +21,7 @@ Além dos dados que eles contêm, os BLOBs dão suporte a propriedades do sistem
 
 ## <a name="about-properties-and-metadata"></a>Sobre propriedades e metadados
 
-- **Propriedades do sistema**: existem propriedades do sistema em cada recurso de armazenamento de BLOBs. Algumas podem ser lidas ou definidas, enquanto outras são de somente leitura. Nos bastidores, algumas propriedades do sistema correspondem a determinados cabeçalhos HTTP padrão. A biblioteca de cliente de armazenamento do Azure para .NET mantém essas propriedades para você.
+- **Propriedades do sistema**: existem propriedades do sistema em cada recurso de armazenamento de BLOBs. Algumas podem ser lidas ou definidas, enquanto outras são de somente leitura. Internamente, algumas propriedades do sistema correspondem a certos cabeçalhos HTTP padrão. A biblioteca de cliente de armazenamento do Azure para .NET mantém essas propriedades para você.
 
 - **Metadados definidos pelo usuário**: os metadados definidos pelo usuário consistem em um ou mais pares de nome-valor que você especifica para um recurso de armazenamento de BLOBs. Você pode usar metadados para armazenar valores adicionais com o recurso. Os valores de metadados são apenas para suas próprias finalidades e não afetam a forma como o recurso se comporta.
 
@@ -89,7 +89,7 @@ private static async Task GetBlobPropertiesAsync(CloudBlob blob)
 
 ## <a name="set-and-retrieve-metadata"></a>Definir e recuperar metadados
 
-Você pode especificar metadados como um ou mais pares de nome-valor em um recurso de contêiner ou BLOB. Para definir metadados, adicione pares de nome-valor à coleção de `Metadata` no recurso. Em seguida, chame um dos seguintes métodos para gravar os valores:
+Você pode especificar os metadados como um ou mais pares de nome-valor em um recurso de contêiner ou blob. Para definir metadados, adicione pares de nome-valor à coleção de `Metadata` no recurso. Em seguida, chame um dos seguintes métodos para gravar os valores:
 
 - [SetMetadata](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadata)
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadataasync)
@@ -98,7 +98,7 @@ Os pares de nome/valor de metadados são cabeçalhos HTTP válidos e devem aderi
 
 O nome dos metadados deve estar em conformidade com as convenções de nomenclatura para os identificadores de C#. Os nomes de metadados mantêm o caso usado quando eles foram criados, mas não diferenciam maiúsculas de minúsculas quando definidos ou lidos. Se dois ou mais cabeçalhos de metadados que usam o mesmo nome forem enviados para um recurso, o armazenamento de BLOBs do Azure retornará o código de erro HTTP 400 (solicitação inadequada).
 
-O exemplo de código a seguir define os metadados em um blob. Um valor é definido usando o método de `Add` da coleção. O outro valor é definido usando a sintaxe de chave/valor implícita.
+O exemplo de código a seguir define os metadados em um blob. Um valor é definido usando o método de `Add` da coleção. O outro valor é definido usando a sintaxe implícita de chave/valor.
 
 ```csharp
 public static async Task AddBlobMetadataAsync(CloudBlob blob)
@@ -158,9 +158,9 @@ public static async Task ReadBlobMetadataAsync(CloudBlob blob)
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - [Definir operação de propriedades de BLOB](/rest/api/storageservices/set-blob-properties)
 - [Operação de obtenção de propriedades de BLOB](/rest/api/storageservices/get-blob-properties)
 - [Operação de definição de metadados de BLOB](/rest/api/storageservices/set-blob-metadata)
-- [Operação de obtenção de metadados de BLOB](/rest/api/storageservices/set-blob-metadata)
+- [Operação de obtenção de metadados de BLOB](/rest/api/storageservices/get-blob-metadata)

@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9220d3adb31005551b6358034207f1071065b1a7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: da06112b0990898227191c919b209c8a95d15197
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692390"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616527"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Criação de tabelas no SQL Data Warehouse do Azure
 
@@ -44,7 +44,7 @@ Para mostrar a organização das tabelas no SQL Data Warehouse, você pode usar 
 | WideWorldImportersDW table  | Tipo de tabela | SQL Data Warehouse |
 |:-----|:-----|:------|:-----|
 | City | Dimensão | wwi.DimCity |
-| Classificar | Fato | wwi.FactOrder |
+| Order | Fato | wwi.FactOrder |
 
 
 ## <a name="table-persistence"></a>Persistência da tabela 
@@ -102,7 +102,7 @@ Uma tabela particionada armazena e executa operações nas linhas da tabela de a
 ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION 256 WITH (TRUNCATE_TARGET = ON);  
 ```
 
-## <a name="columnstore-indexes"></a>Índices ColumnStore
+## <a name="columnstore-indexes"></a>Índices columnstore
 Por padrão, o SQL Data Warehouse armazena uma tabela como um índice columnstore clusterizado. Essa forma de armazenamento de dados atinge a alta compactação de dados e o desempenho de consultas em tabelas grandes.  Normalmente, o índice columnstore clusterizado é a melhor opção, mas existem alguns casos onde um índice clusterizado ou um heap são estruturas de armazenamento mais adequadas.  Uma tabela de heap pode ser especialmente útil para carregar dados transitórios, como uma tabela de preparo que é transformada em uma tabela final.
 
 Para obter uma lista de recursos columnstore, confira [Quais são as novidades dos índices columnstores](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). Para melhorar o desempenho do índice columnstore, confira [Como maximizar a qualidade do rowgroup para índices columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
@@ -116,7 +116,7 @@ Só há suporte para a chave primária quando não CLUSTERIZAdo e não imposto s
 ## <a name="commands-for-creating-tables"></a>Comandos para a criação de tabelas
 Você pode criar uma tabela como uma nova tabela vazia. Você também pode criar e popular uma tabela com os resultados de uma instrução de seleção. A seguir estão os comandos T-SQL para criar uma tabela.
 
-| Instruções T-SQL | DESCRIÇÃO |
+| Instrução T-SQL | DESCRIÇÃO |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | Cria uma tabela vazia com a definição de todas as opções e colunas da tabela. |
 | [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) | Cria uma tabela externa. A definição da tabela é armazenada no SQL Data Warehouse. Os dados da tabela são armazenados no Armazenamento de Blobs do Azure ou do Azure Data Lake Store. |
@@ -134,9 +134,9 @@ O SQL Data Warehouse oferece suporte a muitos, mas não a todos, os recursos de 
 
 - Chave estrangeira, verificar [restrições de tabela](/sql/t-sql/statements/alter-table-table-constraint-transact-sql)
 - [Colunas Computadas](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql)
-- [Exibições Indexadas](/sql/relational-databases/views/create-indexed-views)
+- [Exibições indexadas](/sql/relational-databases/views/create-indexed-views)
 - [Sequência](/sql/t-sql/statements/create-sequence-transact-sql)
-- [Colunas Esparsas](/sql/relational-databases/tables/use-sparse-columns)
+- [Colunas esparsas](/sql/relational-databases/tables/use-sparse-columns)
 - Chaves substitutas. Implementar com [identidade](sql-data-warehouse-tables-identity.md).
 - [Sinônimos](/sql/t-sql/statements/create-synonym-transact-sql)
 - [Gatilhos](/sql/t-sql/statements/create-trigger-transact-sql)
@@ -213,6 +213,7 @@ LEFT OUTER JOIN (select * from sys.pdw_column_distribution_properties where dist
 LEFT OUTER JOIN sys.columns c
     ON cdp.[object_id] = c.[object_id]
     AND cdp.[column_id] = c.[column_id]
+WHERE pn.[type] = 'COMPUTE'
 )
 , size
 AS

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/26/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c5beef98f03c52ca022a7ab8047d3b392755c0bf
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 34a6d15090cd13a775ad3faa694718ec58738471
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212198"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620642"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definir transformações de declarações de número de telefone no Azure AD B2C
 
@@ -26,9 +26,39 @@ Este artigo fornece referência e exemplos para usar as transformações de decl
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
+## <a name="convertphonenumberclaimtostring"></a>ConvertPhoneNumberClaimToString
+
+Converte um tipo de dados `phoneNumber` em um tipo de dados `string`.
+
+| Item | TransformationClaimType | Tipo de Dados | Observações |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | phoneNumber | phoneNumber |  O ClaimType para converter em uma cadeia de caracteres. |
+| OutputClaim | phoneNumberString | string | O ClaimType que é produzido depois de invocar esta transformação de declarações. |
+
+Neste exemplo, a declaração cellPhoneNumber com um tipo de valor de `phoneNumber` é convertida em uma declaração de celular com um tipo de valor de `string`.
+
+```XML
+<ClaimsTransformation Id="PhoneNumberToString" TransformationMethod="ConvertPhoneNumberClaimToString">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="cellPhoneNumber" TransformationClaimType="phoneNumber" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="cellPhone" TransformationClaimType="phoneNumberString" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exemplo
+
+- Declarações de entrada:
+  - **PhoneNumber**: + 11234567890 (PhoneNumber)
+- Declarações de saída:
+  - **phoneNumberString**: + 11234567890 (cadeia de caracteres)
+
+
 ## <a name="convertstringtophonenumberclaim"></a>ConvertStringToPhoneNumberClaim
 
-Essa declaração valida o formato do número de telefone. Se ele estiver em um formato válido, altere-o para um formato padrão usado pelo Azure AD B2C. Se o número de telefone fornecido não estiver em um formato válido, uma mensagem de erro será retornada.
+Essa transformação de declaração valida o formato do número de telefone. Se ele estiver em um formato válido, altere-o para um formato padrão usado pelo Azure AD B2C. Se o número de telefone fornecido não estiver em um formato válido, uma mensagem de erro será retornada.
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
@@ -68,10 +98,10 @@ O perfil técnico autodeclarado que chama o perfil técnico de validação que c
 ### <a name="example-1"></a>Exemplo 1
 
 - Declarações de entrada:
-  - **phoneNumberString**: 045 456-7890
+  - **phoneNumberString**: 033 456-7890
   - **país**: DK
 - Declarações de saída:
-  - **outputClaim**: + 450546148120
+  - **outputClaim**: + 450334567890
 
 ### <a name="example-2"></a>Exemplo 2
 
@@ -79,6 +109,7 @@ O perfil técnico autodeclarado que chama o perfil técnico de validação que c
   - **phoneNumberString**: + 1 (123) 456-7890
 - Declarações de saída: 
   - **outputClaim**: + 11234567890
+
 
 ## <a name="getnationalnumberandcountrycodefromphonenumberstring"></a>GetNationalNumberAndCountryCodeFromPhoneNumberString
 

@@ -2,18 +2,15 @@
 title: Tutorial do Kubernetes no Azure - Atualizar um aplicativo
 description: Neste tutorial do Serviço de Kubernetes do Azure (AKS), você aprenderá como atualizar uma implantação existente do aplicativo para AKS com uma nova versão do código do aplicativo.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: b645fc9f67229d087a5d1655f733e2f3e50d4471
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: d5457d790cd3c95bb23ec0c517097b443a2389ed
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614386"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593369"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Tutorial: Atualizar um aplicativo no AKS (Serviço de Kubernetes do Azure)
 
@@ -152,7 +149,7 @@ Agora abra um navegador da Web local no endereço IP do serviço:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você atualizou um aplicativo e distribuiu essa atualização para um cluster do AKS. Você aprendeu como:
+Neste tutorial, você atualizou um aplicativo e distribuiu essa atualização para um cluster do AKS. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Atualizar o código do aplicativo front-end

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/25/2020
 ms.author: rajanaki
-ms.openlocfilehash: 29a939452d9b90bd8afda7db4e115d10956ee5e5
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 68d975a1b8bb8d47011bb292d3cf897956b31712
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77606627"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623611"
 ---
 # <a name="deprecation-of-disaster-recovery-between-customer-managed-sites-with-vmm-using-azure-site-recovery"></a>Substituição da recuperação de desastre entre sites gerenciados pelo cliente (com o VMM) usando Azure Site Recovery
 
@@ -26,9 +26,9 @@ DR entre sites de Propriedade do cliente gerenciados pelo System Center Virtual 
 
 ## <a name="what-changes-should-you-expect"></a>Quais alterações você deve esperar?
 
-- A partir de novembro de 2019, nenhum novo usuário integrado será permitido para esses cenários. **As operações de gerenciamento e as replicações existentes** , incluindo failover, failover de teste, monitoramento etc., **não serão afetadas**.
+- A partir de 2020 de março, você receberá portal do Azure notificações & comunicações por email com a futura substituição de replicação site a site de VMs do Hyper-V. A substituição está planejada para março de 2023.
 
-- Se você tiver uma configuração existente, não poderá registrar novos VMMs.
+- Se você tiver uma configuração existente, não haverá nenhum impacto na instalação.
 
 - Depois que os cenários forem preteridos, a menos que o cliente siga as abordagens alternativas, as replicações existentes poderão ser interrompidas. Os clientes não poderão exibir, gerenciar ou executar qualquer operação relacionada à recuperação de desastre por meio da experiência de Azure Site Recovery no portal do Azure.
  

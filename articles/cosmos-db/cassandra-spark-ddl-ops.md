@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 5c12787cd6e0df19fd842dd44da49aa5ea97aa05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0df05eff5dc84ef24e1ed5afcaf705d99f447ef
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60898875"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622567"
 ---
 # <a name="ddl-operations-in-azure-cosmos-db-cassandra-api-from-spark"></a>Operações de DDL na API do Cassandra do Azure Cosmos DB do Spark
 
@@ -85,7 +85,7 @@ DESCRIBE keyspaces;
 **Considerações:**  
 
 - A taxa de transferência pode ser atribuída no nível de tabela usando a instrução create table.  
-- Uma chave de partição pode armazenar 10 GB de dados.  
+- Uma chave de partição pode armazenar 20 GB de dados.  
 - Um registro pode armazenar um máximo de 2 MB de dados.  
 - Um intervalo de chaves de partição pode armazenar várias chaves de partição.
 
@@ -142,7 +142,7 @@ Depois de criar o keyspace e a tabela, prossiga para os artigos a seguir para op
  
 * [Operações de criação/inserção](cassandra-spark-create-ops.md)  
 * [Operações de leitura](cassandra-spark-read-ops.md)  
-* [Operações de upsert](cassandra-spark-upsert-ops.md)  
+* [Operações de Upsert](cassandra-spark-upsert-ops.md)  
 * [Excluir operações](cassandra-spark-delete-ops.md)  
 * [Aggregation operations](cassandra-spark-aggregation-ops.md)  
 * [Operações de cópia de tabela](cassandra-spark-table-copy-ops.md)  
