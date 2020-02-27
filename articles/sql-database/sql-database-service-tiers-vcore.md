@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: 7c4d6a01ccaeffb4042753dc0a904d970631383f
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 9b156193035d87472c462bae37e405e0317d8402
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045185"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650292"
 ---
 # <a name="vcore-model-overview"></a>Visão geral do modelo vCore
 
@@ -31,12 +31,12 @@ As opções da camada de serviço no modelo vCore incluem Uso Geral, Comercialme
 
 ||**Propósito geral**|**Comercialmente crítico**|**Em hiperescala**|
 |---|---|---|---|
-|Melhor para|A maioria das cargas de trabalho comerciais. Oferece opções de armazenamento e de computação voltadas para o orçamento, equilibradas e escalonáveis. |Oferece aos aplicativos de negócios a resiliência mais alta para falhas usando várias réplicas isoladas e fornece o desempenho de e/s mais alto por réplica de banco de dados.|A maioria das cargas de trabalho de negócios com requisitos de armazenamento e escala de leitura altamente escalonáveis.  Oferece maior resiliência a falhas, permitindo a configuração de mais de uma réplica de banco de dados isolada. |
+|Mais adequado para|A maioria das cargas de trabalho comerciais. Oferece opções de armazenamento e de computação voltadas para o orçamento, equilibradas e escalonáveis. |Oferece aos aplicativos de negócios a resiliência mais alta para falhas usando várias réplicas isoladas e fornece o desempenho de e/s mais alto por réplica de banco de dados.|A maioria das cargas de trabalho de negócios com requisitos de armazenamento e escala de leitura altamente escalonáveis.  Oferece maior resiliência a falhas, permitindo a configuração de mais de uma réplica de banco de dados isolada. |
 |Armazenamento|Usa o armazenamento remoto.<br/>**Computação provisionada de bancos de dados individuais e pools elásticos**:<br/>5 GB – 4 TB<br/>**Computação sem servidor**:<br/>5 GB-3 TB<br/>**Instância gerenciada**: 32 GB-8 TB |Usa o armazenamento SSD local.<br/>**Computação provisionada de bancos de dados individuais e pools elásticos**:<br/>5 GB – 4 TB<br/>**Instância gerenciada**:<br/>32 GB - 4 TB |Crescimento automático flexível do armazenamento, conforme necessário. Dá suporte a até 100 TB de armazenamento. Usa o armazenamento SSD local para o cache do pool de buffers local e o armazenamento de dados local. Usa o armazenamento remoto do Azure como armazenamento de dados de longo prazo final. |
 |IOPS e taxa de transferência (aproximado)|**Bancos de dados individuais e pools elásticos**: consulte limites de recursos para [bancos de dados individuais](../sql-database/sql-database-vcore-resource-limits-single-databases.md) e [pools elásticos](../sql-database/sql-database-vcore-resource-limits-elastic-pools.md).<br/>**Instância gerenciada**: consulte [visão geral limites de recursos de instância gerenciada do banco de dados SQL do Azure](../sql-database/sql-database-managed-instance-resource-limits.md#service-tier-characteristics).|Consulte limites de recursos para [bancos de dados individuais](../sql-database/sql-database-vcore-resource-limits-single-databases.md) e [pools elásticos](../sql-database/sql-database-vcore-resource-limits-elastic-pools.md).|O hiperscale é uma arquitetura de várias camadas com cache em vários níveis. O IOPS e a taxa de transferência efetivos dependerão da carga de trabalho.|
 |Disponibilidade|1 réplica, sem réplicas de escala de leitura|3 réplicas, 1 [réplica em escala de leitura](sql-database-read-scale-out.md),<br/>alta disponibilidade com redundância de zona (HA)|1 réplica de leitura/gravação, além [de 0-4 réplicas de escala de leitura](sql-database-read-scale-out.md)|
 |Backups|[Armazenamento com redundância geográfica com acesso de leitura (ra-grs)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por padrão)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por padrão)|Backups baseados em instantâneo no armazenamento remoto do Azure. As restaurações usam esses instantâneos para recuperação rápida. Os backups são instantâneos e não afetam O desempenho de e/s de computação. As restaurações são rápidas e não são uma operação de tamanho de dados (levando minutos em vez de horas ou dias).|
-|Na memória|Sem suporte|Com suporte|Sem suporte|
+|Na memória|Sem suporte|Suportado|Sem suporte|
 |||
 
 
@@ -89,7 +89,7 @@ Para regiões em que a Fsv2-Series está disponível, consulte [disponibilidade 
 - A série M é uma opção de hardware com otimização de memória para cargas de trabalho que exigem mais memória e limites de computação mais altos do que o fornecido pelo Gen5.
 - A série M fornece 29 GB por vCore e 128 vCores, o que aumenta o limite de memória em relação ao Gen5 por 8x a quase 4 TB.
 
-Para habilitar o hardware da série M para uma assinatura e uma região, uma solicitação de suporte deve ser aberta. Se a solicitação de suporte for aprovada, a experiência de seleção e provisionamento da série M segue o mesmo padrão que para outras gerações de hardware. Para regiões em que a série M está disponível, consulte [disponibilidade da série m](#m-series).
+Para habilitar o hardware da série M para uma assinatura e uma região, uma solicitação de suporte deve ser aberta. A assinatura deve ser um tipo de oferta paga, incluindo pré-pago ou Enterprise Agreement (EA).  Se a solicitação de suporte for aprovada, a experiência de seleção e provisionamento da série M segue o mesmo padrão que para outras gerações de hardware. Para regiões em que a série M está disponível, consulte [disponibilidade da série m](#m-series).
 
 
 ### <a name="compute-and-memory-specifications"></a>Especificações de memória e computação
@@ -142,7 +142,7 @@ Na guia **noções básicas** , selecione o link **configurar banco de dados** n
   
 **Para alterar a geração de hardware de uma instância gerenciada existente**
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Na página instância gerenciada, selecione o link do **tipo de preço** posicionado na seção Configurações
 
@@ -150,43 +150,25 @@ Na página instância gerenciada, selecione o link do **tipo de preço** posicio
 
 Na página **tipo de preço** , você poderá alterar a geração de hardware conforme descrito nas etapas anteriores.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Use o seguinte script do PowerShell:
 
 ```powershell-interactive
-$subscriptionId = "**************"
-Select-AzSubscription -Subscription $subscriptionId
-
-$instanceName = "********"
-$resourceGroup = "****"
-
-# THIS IS IMPORTANT PARAMETER:
-$sku = @{name = "GP_Gen5" }
-
-# NOTE: These properties are not necessary, but it would be good to set them to the current values:
-# You might want to change vCores or storage with hardware generation
-# $admin_login = "******"
-# $admin_pass = "******"
-# $location = "***** # for example: ""northeurope"
-# $vCores = 8
-# $maxStorage = 1024
-# $license = "BasePrice"
-# $subnetId = "/subscriptions/****/subnets/*******"
-
-## NOTE: Uncomment some of the properties below if you have set them.
-$properties = New-Object System.Object
-# $properties | Add-Member -type NoteProperty -name subnetId -Value $subnetId
-# $properties | Add-Member -type NoteProperty -name administratorLogin -Value $admin_login
-# $properties | Add-Member -type NoteProperty -name administratorLoginPassword -Value $admin_pass
-# $properties | Add-Member -type NoteProperty -name vCores -Value $vCores
-# $properties | Add-Member -type NoteProperty -name storageSizeInGB -Value $maxStorage
-# $properties | Add-Member -type NoteProperty -name licenseType -Value $license
-
-Set-AzResource -Properties $properties -ResourceName $instanceName -ResourceType "Microsoft.SQL/managedInstances" -Sku $sku -ResourceGroupName $resourceGroup -Force -ApiVersion "2015-05-01-preview"
+Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" -ComputeGeneration Gen5
 ```
 
-Certifique-se de inserir a ID da assinatura, o nome e o grupo de recursos da instância gerenciada.
+Para obter mais detalhes, verifique o comando [set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance) .
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Use o seguinte comando da CLI:
+
+```azurecli-interactive
+az sql mi update -g mygroup -n myinstance --family Gen5
+```
+
+Para obter mais detalhes, consulte [AZ SQL Mi Update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update) Command.
 
 ---
 
@@ -194,7 +176,7 @@ Certifique-se de inserir a ID da assinatura, o nome e o grupo de recursos da ins
 
 #### <a name="gen4gen5-1"></a>Gen4/Gen5
 
-Novos bancos de dados Gen4 não têm mais suporte nas regiões leste da Austrália ou sul do Brasil. 
+O hardware Gen4 está [sendo](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) descontinuado e não está mais disponível para as novas implantações. Todos os novos bancos de dados devem ser implantados em hardware Gen5.
 
 O Gen5 está disponível na maioria das regiões em todo o mundo.
 
@@ -233,7 +215,7 @@ Na página **detalhes** , forneça o seguinte:
 Solicitações de suporte aprovadas normalmente são atendidas dentro de 5 dias úteis.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para criar um banco de dados SQL, consulte [criando um banco de dados SQL usando o portal do Azure](sql-database-single-database-get-started.md).
 - Para obter os tamanhos de computação específicos e as opções de tamanho de armazenamento disponíveis para bancos de dados individuais, consulte [limites de recursos baseados em vCore do banco de dados SQL para bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md).

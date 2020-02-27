@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 57dc7bb98bf4c2f733be0f2c94e17481a429be6d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: b2d49eeadf068cbaacaa5e147f38025c55f33ff4
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906791"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651354"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurar uma instância de cluster de failover SQL Server com compartilhamento de arquivos Premium em máquinas virtuais do Azure
 
@@ -71,7 +71,7 @@ Para obter informações completas sobre o licenciamento do SQL Server, consulte
 
 FILESTREAM não tem suporte para um cluster de failover com um compartilhamento de arquivos premium. Para usar o FileStream, implante o cluster usando [espaços de armazenamento diretos](virtual-machines-windows-portal-sql-create-failover-cluster.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de concluir as etapas neste artigo, você já deve ter:
 
@@ -149,7 +149,7 @@ Com esses pré-requisitos em vigor, você pode começar a criar seu cluster de f
 
    1. Selecione **Avançar**e, em seguida, selecione **remover**.
 
-1. <a name="ports"></a>Abra as portas do firewall.
+1. <span id="ports"></span> Abra as portas do firewall.  
 
    Em cada máquina virtual, abra essas portas no firewall do Windows:
 
@@ -157,7 +157,7 @@ Com esses pré-requisitos em vigor, você pode começar a criar seu cluster de f
    | ------ | ------ | ------
    | SQL Server | 1433 | Porta normal para instâncias padrão do SQL Server. Se você tiver usado uma imagem da galeria, essa porta será aberta automaticamente.
    | Investigação de integridade | 59999 | Qualquer porta TCP aberta. Em uma etapa posterior, configure a [investigação de integridade](#probe) do balanceador de carga e o cluster para usar essa porta.
-   | Compartilhamento de arquivos | 445 | Porta usada pelo serviço de compartilhamento de arquivos.
+   | Compartilhamento de arquivo | 445 | Porta usada pelo serviço de compartilhamento de arquivos.
 
 1. [Adicione as máquinas virtuais ao domínio pré-existente](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
 
@@ -369,7 +369,7 @@ Para criar o balanceador de carga:
 
 1. Selecione **Adicionar**.
 
-1. Na folha **Adicionar investigação de integridade** , <a name="probe"> </a>defina os parâmetros de investigação de integridade a seguir.
+1. Na folha **Adicionar investigação de integridade** , <span id="probe"></span> defina os parâmetros de investigação de integridade a seguir.
 
    - **Nome**: um nome para a investigação de integridade.
    - **Protocolo**: TCP.
@@ -465,7 +465,7 @@ Em máquinas virtuais do Azure, o MSDTC não tem suporte no Windows Server 2016 
 - O recurso MSDTC clusterizado não pode ser configurado para usar o armazenamento compartilhado. No Windows Server 2016, se você criar um recurso MSDTC, ele não mostrará nenhum armazenamento compartilhado disponível para uso, mesmo que o armazenamento esteja disponível. Esse problema foi corrigido no Windows Server 2019.
 - O balanceador de carga básico não lida com portas RPC.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - [Tecnologias de cluster do Windows](/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server instâncias de cluster de failover](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

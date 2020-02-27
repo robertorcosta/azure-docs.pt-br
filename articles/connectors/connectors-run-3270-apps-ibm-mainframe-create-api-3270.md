@@ -9,12 +9,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: 309cf59c4b27c2a5906acfc519edd5306dece2d5
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a9d3d0287e7839d6396553d532ba6f293fb19b68
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789232"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647658"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integre aplicativos baseados na tela 3270 em mainframes IBM com o Azure usando o aplicativo lógico do Azure e o conector IBM 3270
 
@@ -39,9 +39,9 @@ Para estender esses cenários, o conector IBM 3270 nos aplicativos lógicos do A
 
 Depois de gerar o arquivo de metadados da ferramenta de design, você adiciona esse arquivo a uma conta de integração no Azure. Dessa forma, seu aplicativo lógico pode acessar os metadados do seu aplicativo quando você adiciona uma ação de conector 3270. O conector lê o arquivo de metadados de sua conta de integração, manipula a navegação pelas telas 3270 e apresenta dinamicamente os parâmetros para a ação do conector 3270. Em seguida, você pode fornecer dados para o aplicativo host e o conector retorna os resultados para seu aplicativo lógico. Dessa forma, você pode integrar seus aplicativos herdados ao Azure, à Microsoft e a outros aplicativos, serviços e sistemas aos quais o aplicativo lógico do Azure dá suporte.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
-* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -182,11 +182,11 @@ Nesse modo, você define o fluxo ou as etapas para navegar pelas telas de seu ap
 
 1. Em **escolher novo nome do plano**, insira um nome para seu plano. Na lista **tipo** , selecione o tipo de plano:
 
-   | Tipo de plano | Descrição |
+   | Tipo de plano | DESCRIÇÃO |
    |-----------|-------------|
    | **Processo** | Para planos autônomos ou combinados |
-   | **Conectar** | Para planos do Connect |
-   | **Desligar** | Para planos de desconexão |
+   | **Connect** | Para planos do Connect |
+   | **Desconectar** | Para planos de desconexão |
    |||
 
 1. No painel de **telas do host** , arraste as miniaturas capturadas para a superfície do plano de navegação no painel de **navegação** .
@@ -290,7 +290,7 @@ Nesse modo, você define um método que está associado ao seu plano de navegaç
 
    | Nome da propriedade | Valores possíveis | 
    |---------------|-----------------|
-   | **Tipo de dados** | Byte, data e hora, Decimal, int, longo, curto, Cadeia de caracteres |
+   | **Tipo de Dados** | Byte, data e hora, Decimal, int, longo, curto, Cadeia de caracteres |
    | **Técnica de preenchimento de campo** | Os parâmetros dão suporte a esses tipos de preenchimento, preenchendo com espaços em branco, se necessário: <p><p>**tipo**de - : Insira os caracteres sequencialmente no campo. <p>**preenchimento**de - : substitua o conteúdo do campo por caracteres, preenchendo com espaços em branco, se necessário. <p>- **EraseEofType**: Limpe o campo e, em seguida, insira os caracteres sequencialmente no campo. |
    | **Cadeia de formato** | Alguns tipos de dados de parâmetro usam uma cadeia de caracteres de formato, que informa ao conector 3270 como converter o texto da tela em um tipo de dados .NET: <p><p>- **DateTime**: a cadeia de formato DateTime segue as cadeias de caracteres de [formato de data e hora personalizadas do .net](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Por exemplo, a data `06/30/2019` usa a cadeia de caracteres de formato `MM/dd/yyyy`. <p>- **decimal**: a cadeia de caracteres de formato decimal usa a [cláusula de imagem COBOL](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). Por exemplo, o número `100.35` usa a cadeia de caracteres de formato `999V99`. |
    |||
@@ -358,15 +358,15 @@ Ao concluir todas essas etapas, você pode usar a ação que você cria em seu a
 
 1. Se nenhuma conexão ainda existir, forneça as informações necessárias para sua conexão e escolha **criar**.
 
-   | Propriedade | obrigatórios | Value | Descrição |
+   | Propriedade | Obrigatório | Valor | DESCRIÇÃO |
    |----------|----------|-------|-------------|
-   | **Nome da Conexão** | SIM | <*connection-name*> | O nome para a sua conexão |
-   | **ID da conta de integração** | SIM | <*integration-account-name*> | O nome da sua conta de integração |
-   | **URL SAS da conta de integração** | SIM | *integração de <-Account-SAS-URL*> | A URL da assinatura de acesso compartilhado (SAS) da sua conta de integração, que pode ser gerada com base nas configurações da sua conta de integração no portal do Azure. <p>1. no menu da sua conta de integração, em **configurações**, selecione **URL de retorno de chamada**. <br>2. no painel à direita, copie o valor da **URL de retorno de chamada gerado** . |
-   | **Servidor** | SIM | <*TN3270-Server-name*> | O nome do servidor para o serviço TN3270 |
+   | **Nome da conexão** | Sim | <*connection-name*> | O nome para a sua conexão |
+   | **ID da conta de integração** | Sim | <*integration-account-name*> | O nome da sua conta de integração |
+   | **URL SAS da conta de integração** | Sim | *integração de <-Account-SAS-URL*> | A URL da assinatura de acesso compartilhado (SAS) da sua conta de integração, que pode ser gerada com base nas configurações da sua conta de integração no portal do Azure. <p>1. no menu da sua conta de integração, em **configurações**, selecione **URL de retorno de chamada**. <br>2. no painel à direita, copie o valor da **URL de retorno de chamada gerado** . |
+   | **Servidor** | Sim | <*TN3270-Server-name*> | O nome do servidor para o serviço TN3270 |
    | **Porta** | Não | <*TN3270-Server-port*> | A porta usada pelo servidor TN3270. Se for deixado em branco, o conector usará `23` como o valor padrão. |
    | **Tipo de dispositivo** | Não | <*IBM-terminal-model*> | O nome do modelo ou o número do terminal IBM a ser emulado. Se for deixado em branco, o conector usará valores padrão. |
-   | **Página de código** | Não | *código de <-página-número*> | O número da página de código para o host. Se for deixado em branco, o conector usará `37` como o valor padrão. |
+   | **Página de Código** | Não | *código de <-página-número*> | O número da página de código para o host. Se for deixado em branco, o conector usará `37` como o valor padrão. |
    | **Nome da unidade lógica** | Não | <*nome da unidade lógica*> | O nome da unidade lógica específica a ser solicitada do host |
    | **Habilitar SSL?** | Não | Ativar ou desativar | Ligar ou desligar a criptografia SSL. |
    | **Validar o certificado SSL do host?** | Não | Ativar ou desativar | Ative ou desative a validação para o certificado do servidor. |
@@ -378,10 +378,10 @@ Ao concluir todas essas etapas, você pode usar a ação que você cria em seu a
 
 1. Forneça as informações necessárias para a ação:
 
-   | Propriedade | obrigatórios | Value | Descrição |
+   | Propriedade | Obrigatório | Valor | DESCRIÇÃO |
    |----------|----------|-------|-------------|
-   | **Nome do Hidx** | SIM | <*HIDX-nome do arquivo*> | Selecione o arquivo 3270 HIDX que você deseja usar. |
-   | **Nome do método** | SIM | *nome do método de* <> | Selecione o método no arquivo HIDX que você deseja usar. Depois de selecionar um método, a lista **Adicionar novo parâmetro** é exibida para que você possa selecionar os parâmetros a serem usados com esse método. |
+   | **Nome do Hidx** | Sim | <*HIDX-nome do arquivo*> | Selecione o arquivo 3270 HIDX que você deseja usar. |
+   | **Nome do método** | Sim | *nome do método de* <> | Selecione o método no arquivo HIDX que você deseja usar. Depois de selecionar um método, a lista **Adicionar novo parâmetro** é exibida para que você possa selecionar os parâmetros a serem usados com esse método. |
    ||||
 
    Por exemplo:
@@ -409,8 +409,11 @@ Ao concluir todas essas etapas, você pode usar a ação que você cria em seu a
 
 ## <a name="connector-reference"></a>Referência de conector
 
-Para obter detalhes técnicos sobre gatilhos, ações e limites, que são descritos pela descrição de OpenAPI (anteriormente, Swagger) do conector, examine a [página de referência do conector](/connectors/si3270/).
+Para obter mais detalhes técnicos sobre esse conector, como gatilhos, ações e limites, conforme descrito pelo arquivo Swagger do conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/si3270/).
 
-## <a name="next-steps"></a>Próximos passos
+> [!NOTE]
+> Para aplicativos lógicos em um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), a versão rotulada do ISE do conector usa os [limites de mensagem do ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) em vez disso.
+
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

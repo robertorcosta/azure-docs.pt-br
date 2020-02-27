@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: a6d2e2d912f176a88dc993803d750e37cff1acb6
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 9f3e06f66996be4a2b43b64e6100c62a2fa41381
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443645"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649952"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implantar um Windows híbrido Runbook Worker
 
@@ -19,6 +19,9 @@ ms.locfileid: "77443645"
 Depois de implantar com êxito um trabalhador de runbook, revise [Executar runbooks em um Hybrid Runbook Worker](automation-hrw-run-runbooks.md) para saber como configurar seus runbooks para automatizar processos em seu datacenter local ou em outro ambiente de nuvem.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+>[!NOTE]
+>Este artigo foi atualizado para usar o novo módulo Az do Azure PowerShell. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020. Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para obter instruções de instalação do módulo AZ no seu Hybrid Runbook Worker, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para sua conta de automação, você pode atualizar seus módulos para a versão mais recente usando [como atualizar os módulos de Azure PowerShell na automação do Azure](automation-update-azure-modules.md).
 
 ## <a name="windows-hybrid-runbook-worker-installation-and-configuration"></a>Instalação e configuração do Windows Hybrid Runbook Worker
 
@@ -50,8 +53,9 @@ Para obter mais requisitos de rede para o Hybrid Runbook Worker, consulte [ Conf
 
 ### <a name="server-onboarding-for-management-with-automation-dsc"></a>Integração do servidor para gerenciamento com o DSC de Automação
 
-Para obter mais informações sobre servidores de integração para gerenciamento com o DSC, consulte [Máquinas de integração para gerenciamento pelo DSC de automação do Azure](automation-dsc-onboarding.md).
-Se você habilitar a [solução gerenciamento de atualizações](../operations-management-suite/oms-solution-update-management.md), qualquer computador Windows conectado ao seu espaço de trabalho log Analytics será configurado automaticamente como um Hybrid runbook Worker para dar suporte a runbooks incluídos nesta solução. No entanto, ele não está registrado em nenhum grupo de Hybrid Worker já definido em sua conta de automação. 
+Para obter informações sobre servidores de integração para gerenciamento com DSC, consulte [máquinas de integração para gerenciamento pelo Azure DSC de automação](automation-dsc-onboarding.md).
+
+Se você habilitar a [solução gerenciamento de atualizações](../operations-management-suite/oms-solution-update-management.md), qualquer computador Windows conectado ao seu espaço de trabalho log Analytics será configurado automaticamente como um Hybrid runbook Worker para dar suporte a runbooks incluídos nesta solução. No entanto, ele não está registrado em nenhum grupo de Hybrid Worker já definido em sua conta de automação.
 
 ### <a name="adding-the-computer-to-a-hybrid-runbook-worker-group"></a>Adicionando o computador a um grupo de Hybrid Runbook Worker
 
@@ -65,19 +69,17 @@ No computador de destino, execute as etapas a seguir para automatizar a instala�
 
 Faça o download do script New-OnPremiseHybridWorker.ps1 da [Galeria do PowerShell](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker) diretamente do computador que executa a função de executor de manual híbrido ou de outro computador em seu ambiente. Copie o script para o trabalhador. O script New-OnPremiseHybridWorker.ps1 requer os seguintes parâmetros durante a execução:
 
-   * *AAResourceGroupName* (obrigatório): o nome do grupo de recursos associado à sua conta de automação.
-   * *OMSResourceGroupName* (opcional): o nome do grupo de recursos do espaço de trabalho do Log Analytics. Se este grupo de recursos não for especificado, *AAResourceGroupName* será usado.
-   * *SubscriptionId* (obrigatório): a ID da assinatura do Azure na qual sua conta de automação está.
-   * *Tenantid* (opcional): o identificador da organização do locatário associado à sua conta de automação.
-   * *WorkspaceName* (opcional): o nome do espaço de trabalho do Log Analytics. Se você não tiver um espaço de trabalho do Log Analytics, o script cria e configura um.
-   * *AutomationAccountName* (obrigatório): o nome da sua conta de automação.
-   * *HybridGroupName* (obrigatório): o nome de um grupo de executável de manual híbrido que você especifica como um destino para os runbooks que suportam esse cenário.
-   * *Credencial* (opcional): as credenciais a serem usadas ao fazer logon no ambiente do Azure.
+* *AAResourceGroupName* (obrigatório): o nome do grupo de recursos associado à sua conta de automação.
+* *OMSResourceGroupName* (opcional): o nome do grupo de recursos do espaço de trabalho do Log Analytics. Se este grupo de recursos não for especificado, *AAResourceGroupName* será usado.
+* *SubscriptionId* (obrigatório): a ID da assinatura do Azure na qual sua conta de automação está.
+* *Tenantid* (opcional): o identificador da organização do locatário associado à sua conta de automação.
+* *WorkspaceName* (opcional): o nome do espaço de trabalho do Log Analytics. Se você não tiver um espaço de trabalho do Log Analytics, o script cria e configura um.
+* *AutomationAccountName* (obrigatório): o nome da sua conta de automação.
+* *HybridGroupName* (obrigatório): o nome de um grupo de executável de manual híbrido que você especifica como um destino para os runbooks que suportam esse cenário.
+* *Credencial* (opcional): as credenciais a serem usadas ao fazer logon no ambiente do Azure.
   
-   > [!NOTE]
-   > Ao habilitar soluções, somente determinadas regiões têm suporte para vincular um espaço de trabalho do Log Analytics e uma Conta de Automação.
-   >
-   > Para obter uma lista dos pares de mapeamento com suporte, confira [mapeamento de região para conta de automação e espaço de trabalho de log Analytics](how-to/region-mappings.md).
+> [!NOTE]
+> Ao habilitar soluções, somente determinadas regiões têm suporte para vincular um Log Analytics espaço de trabalho e uma conta de automação. Para obter uma lista dos pares de mapeamento com suporte, confira [mapeamento de região para conta de automação e espaço de trabalho de log Analytics](how-to/region-mappings.md).
 
 ### <a name="2-open-windows-powershell-command-line-shell"></a>2. abrir Shell de linha de comando do Windows PowerShell
 

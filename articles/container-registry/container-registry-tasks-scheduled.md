@@ -3,12 +3,12 @@ title: Tutorial – agendar uma tarefa ACR
 description: Neste tutorial, saiba como executar uma tarefa de registro de contêiner do Azure em um agendamento definido definindo um ou mais gatilhos de temporizador
 ms.topic: article
 ms.date: 06/27/2019
-ms.openlocfilehash: 37247289ef11873ac37dc78ad56548994220f894
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 4c0962a38cca73e4a03a7417baaa595cf0d97009
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454682"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617450"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Executar uma tarefa ACR em um agendamento definido
 
@@ -25,7 +25,7 @@ O agendamento de uma tarefa é útil para cenários como o seguinte:
 * Execute uma carga de trabalho de contêiner para operações de manutenção agendadas. Por exemplo, execute um aplicativo em contêiner para remover imagens desnecessárias do registro.
 * Execute um conjunto de testes em uma imagem de produção durante o workday como parte de seu monitoramento de site ativo.
 
-Você pode usar o Azure Cloud Shell ou uma instalação local do CLI do Azure para executar os exemplos neste artigo. Se você quiser usá-lo localmente, a versão 2.0.68 ou posterior será necessária. Execute `az --version` para encontrar a versão. Se você precisa instalar ou fazer upgrade, veja [Instalar a CLI do Azure][azure-cli-install].
+Você pode usar o Azure Cloud Shell ou uma instalação local do CLI do Azure para executar os exemplos neste artigo. Se você quiser usá-lo localmente, a versão 2.0.68 ou posterior será necessária. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
 
 ## <a name="about-scheduling-a-task"></a>Sobre o agendamento de uma tarefa
@@ -175,7 +175,7 @@ O fuso horário usado com as expressões cron é UTC (tempo Universal Coordenado
 
 Cada campo pode ter um dos seguintes tipos de valores:
 
-|Digite  |Exemplo  |Quando disparado  |
+|Type  |Exemplo  |Quando disparado  |
 |---------|---------|---------|
 |Um valor específico |<nobr>`"5 * * * *"`</nobr>|a cada hora às 5 minutos após a hora|
 |Todos os valores (`*`)|<nobr>`"* 5 * * *"`</nobr>|a cada minuto da hora começando em 5:00 UTC (60 vezes por dia)|
@@ -197,6 +197,14 @@ Cada campo pode ter um dos seguintes tipos de valores:
 |`"30 9 * * 1-5"`|às 9:30 UTC a cada dia da semana|
 |`"30 9 * Jan Mon"`|às 9:30 UTC a cada segunda-feira em janeiro|
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Para remover todos os recursos que você criou nesta série de tutoriais, incluindo o registro de contêiner ou registros, a instância de contêiner, o cofre de chaves e a entidade de serviço, emita os seguintes comandos:
+
+```azurecli-interactive
+az group delete --resource-group $RES_GROUP
+az ad sp delete --id http://$ACR_NAME-pull
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

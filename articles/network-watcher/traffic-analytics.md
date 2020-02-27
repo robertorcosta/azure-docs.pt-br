@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: e53bd3deae5ccd7339c7a6d491dc4ff0da44a277
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 47d9508c891d2b4fe74b42114783b02c58e8c91f
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77426215"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619999"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -201,7 +201,7 @@ Você também pode configurar a análise de tráfego usando o cmdlet do PowerShe
 
 ## <a name="view-traffic-analytics"></a>Exibir Análise de Tráfego
 
-No lado esquerdo do portal, selecione **Todos os serviços**, em seguida, digite *Monitorar* na caixa **Filtro**. Selecione **Monitorar** quando aparecer nos resultados da pesquisa. Para começar a explorar a análise de tráfego e seus recursos, selecione **Observador de Rede**, em seguida, **Análise de Tráfego**.
+Para exibir Análise de Tráfego, procure o **observador de rede** na barra de pesquisa do Portal. Uma vez dentro do observador de rede, para explorar a análise de tráfego e seus recursos, selecione **análise de tráfego** no menu à esquerda. 
 
 ![Acessar o painel de Análise de Tráfego](./media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
 

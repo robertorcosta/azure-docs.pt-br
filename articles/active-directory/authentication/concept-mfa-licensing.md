@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e49a07f591731a1deb2838751852c0134548966d
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: e74a7ab0c003aaf9d90211484b39f8322cd9c329
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77521839"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647995"
 ---
 # <a name="features-and-licenses-for-azure-multi-factor-authentication"></a>Recursos e licenças para a autenticação multifator do Azure
 
@@ -43,7 +43,7 @@ A tabela a seguir fornece uma lista dos recursos que estão disponíveis em vár
 
 | Recurso | Azure AD Gratuito-padrões de segurança | Azure AD Gratuito-administradores globais do Azure AD | Office 365 Business Premium, E3 ou e5 | O Azure AD Premium P1 ou P2 |
 | --- |:---:|:---:|:---:|:---:|
-| Proteger contas de administrador do Azure AD com MFA | ● | ● (Somente contas de*administrador global do Azure ad* ) | ● | ● |
+| Proteger contas de administrador de locatário do Azure AD com MFA | ● | ● (Somente contas de*administrador global do Azure ad* ) | ● | ● |
 | Aplicativos móveis como um fator secundário | ● | ● | ● | ● |
 | Chamada telefônica como um fator secundário | | ● | ● | ● |
 | SMS como um fator secundário | | ● | ● | ● |

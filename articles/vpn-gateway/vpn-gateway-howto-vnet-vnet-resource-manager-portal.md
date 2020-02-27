@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/25/2020
 ms.author: cherylmc
-ms.openlocfilehash: b98fb4044028ec9b335dc314732da04d18a3e2f9
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: b26947f2dd25f950b2d69d58321582a503aea83d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894951"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619775"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurar uma conexão de gateway de VPN de VNet para VNet usando o portal do Azure
 
@@ -46,7 +46,7 @@ Quando você cria uma conexão de VNet a VNet, o espaço de endereço de gateway
 
 Se você estiver trabalhando com uma configuração de rede complicada, talvez prefira conectar suas VNets usando uma [Conexão Site a Site](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Quando você segue as etapas de IPsec Site a Site, cria e configura os gateways de rede local manualmente. O gateway de rede local para cada VNet trata a outra VNet como um site local. Estas etapas permitem que você especifique os espaços de endereço adicionais para o gateway de rede local para rotear o tráfego. Se o espaço de endereço para uma VNet mudar, você deverá atualizar manualmente o gateway de rede local correspondente.
 
-### <a name="vnet-peering"></a>Emparelhamento de VNet
+### <a name="vnet-peering"></a>Emparelhamento VNet
 
 Você também pode conectar suas VNets usando o Emparelhamento VNET. O Emparelhamento VNET não usa um gateway de VPN e tem restrições diferentes. Além disso, os [preços do emparelhamento VNet](https://azure.microsoft.com/pricing/details/virtual-network) são calculados de maneira diferente dos [preços de Gateway de VPN de VNet a VNet](https://azure.microsoft.com/pricing/details/vpn-gateway). Para obter mais informações, consulte [Emparelhamento da VNet](../virtual-network/virtual-network-peering-overview.md).
 
@@ -103,7 +103,7 @@ Este artigo mostra como conectar VNets usando o tipo de conexão VNet a VNet. Ao
    - **Espaço de endereço**: insira *10.41.0.0/16*.
    - **Assinatura**: selecione a assinatura que você deseja usar.
    - **Grupo de recursos**: insira *TestRG4*.
-   - **Local**: selecione **Oeste dos EUA**.
+   - **Local**: selecione **oeste dos EUA**.
    - **Sub-rede** 
       - **Nome**: insira *front-end*.
       - **Intervalo de endereços**: insira *10.41.0.0/24*.
@@ -153,7 +153,7 @@ Quando os gateways de rede virtual para TestVNet1 e TestVNet4 tiverem sido concl
    ![Página conexões](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/1to4connect2.png "Página conexões")
 2. Em **Configurações**, selecione **Conexões** e, em seguida, **Adicionar** para abrir a página **Adicionar conexão**.
 
-   ![Adicionar Conexão](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "Adicionar um conexão")
+   ![Adicionar Conexão](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "Adicionar uma conexão")
 3. Na página **Adicionar conexão**, preencha os valores para sua conexão:
 
    - **Nome**: Insira um nome para a conexão. Por exemplo, *TestVNet1toTestVNet4*.
@@ -183,7 +183,7 @@ Localize o gateway de rede virtual no portal do Azure. Na página **Gateway de r
 
 Quando dados começarem a fluir, você verá valores de **Entrada de dados** e de **Saída de dados**.
 
-![Conceitos básicos](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
+![Conceitos básicos](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Conceitos básicos")
 
 ## <a name="add-additional-connections"></a>Adicionar conexões extras
 
@@ -194,7 +194,7 @@ Exiba os detalhes de perguntas frequentes para obter informações adicionais so
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre como você pode limitar o tráfego de rede para recursos em uma rede virtual, confira [Segurança de Rede](../virtual-network/security-overview.md).
 

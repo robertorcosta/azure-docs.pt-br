@@ -10,12 +10,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 11/04/2019
-ms.openlocfilehash: 0da5fe56bd56d360cd8052976bdde0cdc910c9a5
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 49ee00d43820d5aeb50e44cff1b6c5a448b4ce81
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904274"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623911"
 ---
 # <a name="create-event-driven-machine-learning-workflows-preview"></a>Criar fluxos de trabalho de aprendizado de máquina controlados por evento (versão prévia)
 
@@ -25,15 +25,15 @@ Para obter mais informações, consulte [Azure Machine Learning integração com
 
 Use a grade de eventos para habilitar cenários comuns, como:
 
-* Disparando pipelines para novo treinamento
+* Enviar emails durante a conclusão da execução
+* Usar uma função do Azure depois que um modelo é registrado
 * Transmitindo eventos de Azure Machine Learning para vários pontos de extremidade
+* Disparar um pipeline ML quando o descompasso for detectado
 
-## <a name="prerequisites"></a>Pré-requisitos
-
+## <a name="prerequisites"></a>Prerequisites
 * Acesso de colaborador ou proprietário ao espaço de trabalho Azure Machine Learning você criará eventos para o.
-* Selecione um ponto de extremidade do manipulador de eventos, como um webhook ou Hub de eventos. Para obter mais informações, consulte [manipuladores de eventos](https://docs.microsoft.com/azure/event-grid/event-handlers). 
 
-## <a name="configure-machine-learning-events-using-the-azure-portal"></a>Configurar eventos de Machine Learning usando o portal do Azure
+### <a name="configure-eventgrid-using-the-azure-portal"></a>Configurar o EventGrid usando o portal do Azure
 
 1. Abra o [portal do Azure](https://portal.azure.com) e vá para seu espaço de trabalho do Azure Machine Learning.
 
@@ -51,7 +51,7 @@ Use a grade de eventos para habilitar cenários comuns, como:
 
 Depois de confirmar sua seleção, clique em __criar__. Após a configuração, esses eventos serão enviados por push para o ponto de extremidade.
 
-## <a name="set-up-azure-event-grid-using-cli"></a>Configurar a grade de eventos do Azure usando a CLI
+### <a name="configure-eventgrid-using-the-cli"></a>Configurar o EventGrid usando a CLI
 
 Você pode instalar a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)mais recente ou usar o Azure cloud Shell fornecido como parte de sua assinatura do Azure.
 
@@ -61,7 +61,7 @@ Para instalar a extensão da grade de eventos, use o seguinte comando da CLI:
 az add extension --name eventgrid
 ```
 
-O exemplo a seguir demonstra como selecionar uma assinatura do Azure e, em seguida, criar uma nova assinatura de evento para Azure Machine Learning:
+O exemplo a seguir demonstra como selecionar uma assinatura do Azure e cria e uma nova assinatura de evento para Azure Machine Learning:
 
 ```azurecli-interactive
 # Select the Azure subscription that contains the workspace
@@ -77,6 +77,12 @@ az eventgrid event-subscription create \
 ```
 
 ## <a name="sample-scenarios"></a>Cenários de exemplo
+
+### <a name="use-azure-functions-to-deploy-a-model-based-on-tags"></a>Usar Azure Functions para implantar um modelo com base em marcas
+
+Um objeto de modelo de Azure Machine Learning contém parâmetros que você pode dinamizar implantações como nome do modelo, versão, marca e propriedade. O evento de registro de modelo pode disparar um ponto de extremidade e você pode usar uma função do Azure para implantar um modelo com base no valor desses parâmetros.
+
+Para obter um exemplo, consulte o repositório [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) e siga as etapas no arquivo **Leiame** .
 
 ### <a name="use-a-logic-app-to-send-email-alerts"></a>Usar um aplicativo lógico para enviar alertas por email
 
@@ -159,12 +165,6 @@ Agora, o pipeline data factory é disparado quando ocorre descompasso. Exiba det
 ![exibir-no-espaço de trabalho](./media/how-to-use-event-grid/view-in-workspace.png)
 
 
-### <a name="use-azure-functions-to-deploy-a-model-based-on-tags"></a>Usar Azure Functions para implantar um modelo com base em marcas
-
-Um objeto de modelo de Azure Machine Learning contém parâmetros que você pode dinamizar implantações como nome do modelo, versão, marca e propriedade. O evento de registro de modelo pode disparar um ponto de extremidade e você pode usar uma função do Azure para implantar um modelo com base no valor desses parâmetros.
-
-Para obter um exemplo, consulte o repositório [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) e siga as etapas no arquivo **Leiame** .
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre os eventos disponíveis, consulte o [esquema de evento Azure Machine Learning](/azure/event-grid/event-schema-machine-learning)

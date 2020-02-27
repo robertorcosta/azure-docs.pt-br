@@ -4,12 +4,12 @@ description: Saiba como criar um cluster do AKS (serviço de kubernetes do Azure
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: e59dccbcc7514f12e148bfb2f771593a53e85dc5
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 4b4ba130d9ff63291abdd46617b0692e844a60bf
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77594559"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649500"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Criar um cluster privado do serviço kubernetes do Azure (versão prévia)
 
@@ -55,6 +55,18 @@ O plano de controle ou o servidor de API está em uma assinatura do Azure gerenc
 * Oeste dos EUA 2
 * Leste dos EUA 2
 
+## <a name="currently-supported-availability-zones"></a>Zonas de Disponibilidade atualmente com suporte
+
+* Centro dos EUA
+* Leste dos EUA
+* Leste dos EUA 2
+* França Central
+* Leste do Japão
+* Norte da Europa
+* Sudeste Asiático
+* Sul do Reino Unido
+* Europa Ocidental
+* Oeste dos EUA 2
 
 ## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Instalar a extensão mais recente do CLI do Azure AKS Preview
 
@@ -115,6 +127,7 @@ Onde *--Enable-Private-cluster* é um sinalizador obrigatório para um cluster p
 > Se o endereço de ponte do Docker (172.17.0.1/16) conflitar com o CIDR da sub-rede, altere o endereço da ponte do Docker adequadamente.
 
 ## <a name="connect-to-the-private-cluster"></a>Conectar-se ao cluster privado
+
 O ponto de extremidade do servidor de API não tem nenhum endereço IP público. Consequentemente, você deve criar uma VM (máquina virtual) do Azure em uma rede virtual e conectar-se ao servidor de API. Para fazer isso, faça o seguinte:
 
 1. Obtenha as credenciais para se conectar ao cluster.
@@ -148,7 +161,8 @@ O ponto de extremidade do servidor de API não tem nenhum endereço IP público.
 * Para usar um servidor DNS personalizado, implante um servidor do AD com o DNS para encaminhar para este IP 168.63.129.16
 
 ## <a name="limitations"></a>Limitações 
-* Atualmente, só há suporte para Zonas de Disponibilidade nas regiões leste dos EUA 2 e oeste dos EUA 2
+* Os intervalos autorizados por IP não podem ser aplicados ao ponto de extremidade do servidor de API privada, eles se aplicam somente ao servidor de API pública
+* Atualmente, há suporte para Zonas de Disponibilidade em determinadas regiões, consulte o início deste documento 
 * As [limitações do serviço de vínculo privado do Azure][private-link-service] se aplicam a clusters privados, pontos de extremidade privados do Azure e pontos de extremidade de serviço de rede virtual, que atualmente não têm suporte na mesma rede virtual.
 * Não há suporte para nós virtuais em um cluster privado para girar ACI (instâncias de contêiner do Azure particulares) em uma rede virtual do Azure privada
 * Não há suporte para a integração do Azure DevOps pronta para uso com clusters privados

@@ -12,12 +12,12 @@ ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7ccc5fe314d49ea65aaa8750937170ab79a8c04f
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 5ec83857ebabc92bf86f9f84a43746a0e561218a
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77581456"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647594"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrar um aplicativo SAML no Azure AD B2C
 
@@ -276,7 +276,6 @@ Sua política personalizada e o locatário de Azure AD B2C agora estão prontos.
 1. Insira um **Nome** para o aplicativo. Por exemplo, *SAMLApp1*.
 1. Em **tipos de conta com suporte**, selecione **contas neste diretório organizacional somente**
 1. Em **URI de redirecionamento**, selecione **Web**e, em seguida, insira `https://localhost`. Você modificará esse valor posteriormente no manifesto do registro do aplicativo.
-1. Selecione **conceder consentimento de administrador às permissões OpenID e offline_access**.
 1. Selecione **Registrar**.
 
 ### <a name="42-update-the-app-manifest"></a>4,2 atualizar o manifesto do aplicativo
@@ -338,7 +337,7 @@ A última etapa é habilitar Azure AD B2C como um IdP SAML em seu aplicativo de 
 Algumas ou todas as seguintes são normalmente necessárias:
 
 * **Metadados**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
-* **Emissor**: `https://tenant-name.onmicrosoft.com/policy-name`
+* **Emissor**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name`
 * **URL de logon/ponto de extremidade SAML/URL SAML**: Verifique o valor no arquivo de metadados
 * **Certificado**: é *B2C_1A_SamlIdpCert*, mas sem a chave privada. Para obter a chave pública do certificado:
 

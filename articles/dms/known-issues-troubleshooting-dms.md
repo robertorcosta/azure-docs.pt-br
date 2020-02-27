@@ -2,21 +2,21 @@
 title: Problemas comuns-serviço de migração de banco de dados do Azure
 description: Saiba mais sobre como solucionar problemas comuns/erros conhecidos associados ao uso do serviço de migração de banco de dados do Azure.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 06/18/2019
-ms.openlocfilehash: 5bed7935f673ef824037cb5641ac8e8577fee550
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/20/2020
+ms.openlocfilehash: c5d2ad481124f5ae048d010cdf632ee661bbd6ec
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437783"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649100"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Solucionar problemas e erros comuns do serviço de migração de banco de dados do Azure
 
@@ -112,7 +112,7 @@ Quando você migra um banco de dados MySQL para uma instância do banco de dados
 
 Quando você tenta conectar o serviço de migração de banco de dados do Azure para SQL Server fonte que é executada na instância nomeada ou em uma porta dinâmica, a conexão falha com esse erro:
 
-* **Erro**:-1-falha na conexão SQL. Ocorreu um erro relacionado à rede ou específico da instância ao estabelecer uma conexão com o SQL Server. O servidor não foi encontrado ou não estava acessível. Verifique se o nome de instância está correto e se o SQL Server está configurado para permitir conexões remotas. (provedor: Adaptadores de Rede do SQL, erro: 26 – Erro ao Localizar Servidor/Instância Especificada)
+* **Erro**:-1-falha na conexão SQL. Ocorreu um erro relacionado à rede ou específico da instância ao estabelecer uma conexão com o SQL Server. O servidor não foi encontrado ou não estava acessível. Verifique se o nome de instância está correto e se o SQL Server está configurado para permitir conexões remotas. (provedor: interfaces de rede do SQL, erro: 26-erro ao localizar o servidor/instância especificado)
 
 | Causa         | Resolução    |
 | ------------- | ------------- |
@@ -124,7 +124,7 @@ Quando você tenta conectar o serviço de migração de banco de dados do Azure 
 * [Problemas conhecidos/limitações de migração com migrações online para o banco de dados do Azure para MySQL](https://docs.microsoft.com/azure/dms/known-issues-azure-mysql-online)
 * [Problemas conhecidos/limitações de migração com migrações online para o banco de dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/dms/known-issues-azure-postgresql-online)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Exiba o artigo [PowerShell do serviço de migração de banco de dados do Azure](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
 * Exiba o artigo [como configurar parâmetros de servidor no banco de dados do Azure para MySQL usando o portal do Azure](https://docs.microsoft.com/azure/mysql/howto-server-parameters).

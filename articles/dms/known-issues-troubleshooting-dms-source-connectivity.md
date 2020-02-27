@@ -3,21 +3,21 @@ title: Problemas ao conectar bancos de dados de origem
 titleSuffix: Azure Database Migration Service
 description: Saiba mais sobre como solucionar problemas/erros conhecidos associados à conexão do serviço de migração de banco de dados do Azure a bancos de dados de origem.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 06/28/2019
-ms.openlocfilehash: b697faeded4177381f70ebb9d1f93d928b25d7b1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/20/2020
+ms.openlocfilehash: 332f612e1ffe57fc4edd90b1fe4c6a5ea5a2904a
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437803"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649168"
 ---
 # <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>Solucionar erros DMS ao conectar-se a bancos de dados de origem
 
@@ -65,7 +65,7 @@ Os possíveis problemas associados à conexão a um banco de dados do AWS RDS de
 > * [Solução de problemas de conectividade do Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Troubleshooting.html#CHAP_Troubleshooting.Connecting)
 > * [Como fazer resolver problemas de conexão com minha instância de banco de dados do Amazon RDS?](https://aws.amazon.com/premiumsupport/knowledge-center/rds-cannot-connect)
 
-## <a name="aws-rds-sql-server"></a>AWS RDS SQL Server
+## <a name="aws-rds-sql-server"></a>SQL Server AWS RDS
 
 Os possíveis problemas associados à conexão a um banco de dados AWS SQL Server RDS de origem e como solucioná-los são fornecidos na tabela a seguir.
 
@@ -89,7 +89,7 @@ Os possíveis problemas associados à conexão a um banco de dados AWS SQL Serve
 * [Problemas conhecidos/limitações de migração com migrações online para o banco de dados do Azure para MySQL](https://docs.microsoft.com/azure/dms/known-issues-azure-mysql-online)
 * [Problemas conhecidos/limitações de migração com migrações online para o banco de dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/dms/known-issues-azure-postgresql-online)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Exiba o artigo [PowerShell do serviço de migração de banco de dados do Azure](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
 * Exiba o artigo [como configurar parâmetros de servidor no banco de dados do Azure para MySQL usando o portal do Azure](https://docs.microsoft.com/azure/mysql/howto-server-parameters).

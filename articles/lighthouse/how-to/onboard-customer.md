@@ -3,12 +3,12 @@ title: Integrar um cliente no gerenciamento de recursos delegados do Azure
 description: Saiba como integrar um cliente ao gerenciamento de recursos delegado do Azure, permitindo que seus recursos sejam acessados e gerenciados por meio de seu próprio locatário.
 ms.date: 01/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 34c6173211a9125cace59d77ea942d301919aa26
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 33cf880098e174c2c230a3d78e125ad8df7d894a
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526205"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649782"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Integrar um cliente no gerenciamento de recursos delegados do Azure
 
@@ -16,7 +16,7 @@ Este artigo explica como você, como um provedor de serviços, pode integrar um 
 
 Você pode repetir esse processo se estiver gerenciando recursos para vários clientes. Assim, quando um usuário autorizado entra no seu locatário, pode receber autorizado em vários escopos de locatários do cliente para executar operações de gerenciamento sem precisar entrar em cada locatário individual do cliente.
 
-Para acompanhar o impacto nos compromissos do cliente e receber o reconhecimento, associe sua ID do Microsoft Partner Network (MPN) às assinaturas integradas. Para saber mais, confira [Vincular uma ID de parceiro a suas contas do Azure](../../billing/billing-partner-admin-link-started.md). Observe que você precisará executar essa associação em seu locatário do provedor de serviços.
+Para acompanhar o impacto nos compromissos do cliente e receber o reconhecimento, associe sua ID do Microsoft Partner Network (MPN) a pelo menos uma conta de usuário que tenha acesso a cada uma de suas assinaturas integradas. Observe que você precisará executar essa associação em seu locatário do provedor de serviços. Para simplificar, é recomendável criar uma conta de entidade de serviço em seu locatário que esteja associada à ID do MPN e concedendo acesso de leitor de ti a todos os clientes que você carregar. Para obter mais informações, consulte [vincular uma ID de parceiro às suas contas do Azure](../../billing/billing-partner-admin-link-started.md). 
 
 > [!NOTE]
 > Os clientes também podem ser integrados quando comprarem uma oferta de serviços gerenciados (pública ou privada) que você publicou no Azure Marketplace. Para mais informações, veja [Publicar ofertas de Serviços Gerenciados no Azure Marketplace](publish-managed-services-offers.md). Você também pode usar o processo de integração descrito aqui junto com uma oferta publicada no Azure Marketplace.

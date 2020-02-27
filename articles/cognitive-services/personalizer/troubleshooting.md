@@ -2,14 +2,14 @@
 title: Solução de problemas-personalizador
 description: Este artigo contém respostas para perguntas frequentes sobre solução de problemas sobre o personalizador.
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 02/26/2020
 ms.author: diberry
-ms.openlocfilehash: fec403da7f54098dbf197d14f3b16afd30bf5efc
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 432b33243bdb38cf359d4fea1a336500eb244464
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77469537"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650513"
 ---
 # <a name="personalizer-troubleshooting"></a>Solução de problemas do personalizador
 
@@ -32,6 +32,19 @@ Este artigo contém respostas para perguntas frequentes sobre solução de probl
 </details>
 
 ## <a name="learning-loop"></a>Loop de aprendizagem
+
+<details>
+<summary>
+<b>O loop de aprendizagem não atinge uma correspondência de 100% para o sistema sem personalizar. Como fazer corrigir isso?</b></summary>
+
+**Resposta**: os motivos pelos quais você não atinge seu objetivo com o loop de aprendizagem:
+* Não há recursos suficientes enviados com a chamada à API de classificação
+* Bugs nos recursos enviados, como o envio de dados de recursos não agregados, como carimbos de data/hora para a API de classificação
+* Bugs com processamento de loop-como não enviar dados de recompensa para recompensar a API para eventos
+
+Para corrigir, você precisa alterar o processamento alterando os recursos enviados para o loop ou certificar-se de que a recompensa é uma avaliação correta da qualidade da resposta da classificação.
+
+</details>
 
 <details>
 <summary>
@@ -91,7 +104,7 @@ Quando o novo período de atualização começar, o modelo atualizado será usad
 <details>
 <summary><b>Como fazer importar uma política de aprendizado?</b></summary>
 
-**Resposta**: Saiba mais sobre os [conceitos de política de aprendizado](concept-active-learning.md#understand-learning-policy-settings) e [como aplicar](how-to-learning-policy.md) uma nova política de aprendizado. Se você não quiser selecionar uma política de aprendizado, poderá usar a [avaliação offline](how-to-offline-evaluation.md) para sugerir uma política de aprendizado com base em seus eventos atuais.
+**Resposta**: Saiba mais sobre os [conceitos de política de aprendizado](concept-active-learning.md#understand-learning-policy-settings) e [como aplicar](how-to-manage-model.md) uma nova política de aprendizado. Se você não quiser selecionar uma política de aprendizado, poderá usar a [avaliação offline](how-to-offline-evaluation.md) para sugerir uma política de aprendizado com base em seus eventos atuais.
 
 </details>
 

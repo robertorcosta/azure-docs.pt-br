@@ -1,16 +1,16 @@
 ---
 title: Atualizar continuamente o código do aplicativo de funções usando o Azure DevOps
 description: Saiba como configurar um pipeline DevOps do Azure que tem como destino Azure Functions.
-author: ahmedelnably
+author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/18/2019
-ms.author: aelnably
-ms.openlocfilehash: e6ea7edb16aa28428754cbe920e1d350aded0cff
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.author: cshoe
+ms.openlocfilehash: 1d627329a6d5f4c283a4480c1b0b1077a8e856cf
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834034"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649935"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Entrega contínua usando o Azure DevOps
 
@@ -25,11 +25,11 @@ Você tem duas opções para definir seu pipeline:
 
 Para criar um pipeline baseado em YAML, primeiro crie seu aplicativo e, em seguida, implante o aplicativo.
 
-### <a name="build-your-app"></a>Crie seu aplicativo
+### <a name="build-your-app"></a>Compilar seu aplicativo
 
 A forma como você cria seu aplicativo no Azure Pipelines depende da linguagem de programação do seu aplicativo. Cada idioma tem etapas de Build específicas que criam um artefato de implantação. Um artefato de implantação é usado para implantar seu aplicativo de funções no Azure.
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 Você pode usar o exemplo a seguir para criar um arquivo YAML para compilar um aplicativo .NET:
 
@@ -60,7 +60,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Você pode usar o exemplo a seguir para criar um arquivo YAML para criar um aplicativo JavaScript:
 
@@ -88,7 +88,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Você pode usar um dos exemplos a seguir para criar um arquivo YAML para criar um aplicativo para uma versão específica do Python. O Python tem suporte apenas para aplicativos de funções em execução no Linux.
 
@@ -150,7 +150,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Você pode usar o exemplo a seguir para criar um arquivo YAML para empacotar um aplicativo PowerShell. O PowerShell só tem suporte para o Windows Azure Functions.
 
@@ -215,7 +215,7 @@ steps:
 
 Os modelos no Azure DevOps são grupos predefinidos de tarefas que criam ou implantam um aplicativo.
 
-### <a name="build-your-app"></a>Crie seu aplicativo
+### <a name="build-your-app"></a>Compilar seu aplicativo
 
 A forma como você cria seu aplicativo no Azure Pipelines depende da linguagem de programação do seu aplicativo. Cada idioma tem etapas de Build específicas que criam um artefato de implantação. Um artefato de implantação é usado para atualizar seu aplicativo de funções no Azure.
 
@@ -265,7 +265,7 @@ Para criar um pipeline de compilação no Azure, use o [comando](/cli/azure/func
 
     - Você deve ser o administrador do projeto no Azure DevOps.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Examine a [Azure Functions visão geral](functions-overview.md).
 - Examine a [visão geral do Azure DevOps](/azure/devops/pipelines/).

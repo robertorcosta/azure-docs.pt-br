@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 3a79db11ff05bcc9d18619c7f508a9864c17c3b8
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 5b2ee8b5bf19f16d7f7f04e9515fe591db7132f1
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012807"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647516"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB como um repositório de valor de chave – visão geral do custo
 
@@ -26,7 +26,7 @@ Azure Cosmos DB desempenho é baseado na quantidade de produtividade provisionad
 
 Como um sistema de banco de dados distribuído globalmente, Cosmos DB é o único serviço do Azure que fornece SLAs abrangentes que abrangem latência, taxa de transferência, consistência e alta disponibilidade. A taxa de transferência que você provisiona é aplicada a cada uma das regiões associadas à sua conta do cosmos. Para leituras, o Cosmos DB oferece vários [níveis de consistência](consistency-levels.md) bem definidos para sua escolha. 
 
-A tabela a seguir mostra o número de RUs necessário para executar operações de leitura e gravação com base em um item de dados de tamanho de 1 KB e 100 KBs.
+A tabela a seguir mostra o número de RUs necessário para executar operações de leitura e gravação com base em um item de dados de tamanho de 1 KB e 100 KBs com a indexação automática padrão desativada. 
 
 |Tamanho do Item|1 Leitura|1 Gravação|
 |-------------|------|-------|

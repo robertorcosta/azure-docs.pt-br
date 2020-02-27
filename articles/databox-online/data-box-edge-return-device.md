@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 02/26/2020
 ms.author: alkohli
-ms.openlocfilehash: a5fee604a529e9ca6153f6c189f199577ae65426
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 521277b2eed7edfba016f6a80e8f877decfb0ac5
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356154"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651093"
 ---
 # <a name="return-or-replace-your-azure-data-box-edge-device"></a>Retornar ou substituir seu dispositivo Azure Data Box Edge
 
 Este artigo descreve como apagar os dados e, em seguida, retornar o dispositivo Azure Data Box Edge. Depois de retornar o dispositivo, você também pode excluir o recurso associado ao dispositivo ou solicitar um dispositivo de substituição.
 
-Neste artigo, você aprenderá a:
+Neste artigo, você aprenderá como:
 
 > [!div class="checklist"]
 > * Apagar os dados dos discos de dados no dispositivo
@@ -47,7 +47,7 @@ Para redefinir o dispositivo usando a interface do usuário da Web local, execut
 
 A redefinição apaga os dados dos discos de dados do dispositivo. Dependendo da quantidade de dados em seu dispositivo, esse processo leva cerca de 30-40 minutos.
 
-Como alternativa, conecte-se à interface do PowerShell do dispositivo e use `Reset-HcsAppliance` o cmdlet para apagar os dados dos discos de dados. Para obter mais informações, consulte [redefinir seu dispositivo](data-box-edge-connect-powershell-interface.md#reset-your-device).
+Como alternativa, conecte-se à interface do PowerShell do dispositivo e use o cmdlet `Reset-HcsAppliance` para apagar os dados dos discos de dados. Para obter mais informações, consulte [redefinir seu dispositivo](data-box-edge-connect-powershell-interface.md#reset-your-device).
 
 > [!NOTE]
 > - Se você estiver trocando ou atualizando para um novo dispositivo, recomendamos que você redefina seu dispositivo somente depois de receber o novo dispositivo.
@@ -72,7 +72,7 @@ Para iniciar o processo de retorno, execute as etapas a seguir.
 3. Desconecte os cabos de alimentação e remova todos os cabos de rede do dispositivo.
 4. Prepare o pacote de remessa usando sua própria caixa ou a caixa vazia que você recebeu do Azure. Coloque o dispositivo e os cabos de alimentação que foram enviados com o dispositivo na caixa.
 5. Fixar o rótulo de envio recebido do Azure no pacote.
-6. Agende uma retirada com sua transportadora regional. Se retornar o dispositivo nos EUA, sua operadora será UPS. Para agendar uma retirada:
+6. Agende uma retirada com sua transportadora regional. Se retornar o dispositivo nos EUA, sua operadora poderia ser UPS ou FedEx. Para agendar uma retirada com UPS:
 
     1. Ligue para o serviço de no-break local (linha gratuita específica do país).
     2. Em sua chamada, entre em contato com o número de rastreamento de remessa reversa, conforme mostrado no seu rótulo impresso.

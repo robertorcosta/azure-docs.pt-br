@@ -4,15 +4,15 @@ description: Saiba mais sobre os recursos de rede no serviço Azure App e quais 
 author: ccompy
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 02/27/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 208bf37bfcdf0f86fad11611279d1b4e642fb18a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0fd904b15a830e2b261057a11d1a8f3a4d584fe1
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74971750"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649219"
 ---
 # <a name="app-service-networking-features"></a>Recursos de rede do serviço de aplicativo
 
@@ -26,9 +26,9 @@ O serviço de Azure App é um sistema distribuído. As funções que tratam soli
 
 | Recursos de entrada | Recursos de saída |
 |---------------------|-------------------|
-| Endereço atribuído ao aplicativo | Conexões híbridas |
+| endereço atribuído ao aplicativo | Conexões Híbridas |
 | Restrições de acesso | Integração VNet necessária do gateway |
-| Pontos de extremidade de serviço | Integração VNet (versão prévia) |
+| Pontos de extremidade de serviço | Integração VNet |
 
 Salvo indicação em contrário, todos os recursos podem ser usados juntos. Você pode misturar os recursos para resolver os diversos problemas.
 
@@ -41,10 +41,10 @@ Para qualquer caso de uso específico, pode haver algumas maneiras de resolver o
 | Dar suporte às necessidades de SSL baseado em IP para seu aplicativo | endereço atribuído ao aplicativo |
 | Não compartilhado, endereço de entrada dedicado para seu aplicativo | endereço atribuído ao aplicativo |
 | Restringir o acesso ao seu aplicativo de um conjunto de endereços bem definidos | Restrições de acesso |
-| Expor meu aplicativo em IPs privados em minha VNet | ILB ASE </br> Gateway de aplicativo com pontos de extremidade de serviço |
+| Expor meu aplicativo em IPs privados em minha VNet | ILB ASE </br> Gateway de Aplicativo com pontos de extremidade de serviço |
 | Restringir o acesso ao meu aplicativo de recursos em uma VNet | Pontos de extremidade de serviço </br> ILB ASE |
 | Expor meu aplicativo em um IP privado em minha VNet | ILB ASE </br> IP privado para entrada em um gateway de aplicativo com pontos de extremidade de serviço |
-| Proteger meu aplicativo com um WAF | Gateway de aplicativo + ILB ASE </br> Gateway de aplicativo com pontos de extremidade de serviço </br> Porta frontal do Azure com restrições de acesso |
+| Proteger meu aplicativo com um WAF | Gateway de aplicativo + ILB ASE </br> Gateway de Aplicativo com pontos de extremidade de serviço </br> Porta frontal do Azure com restrições de acesso |
 | Balancear a carga do tráfego para meus aplicativos em regiões diferentes | Porta frontal do Azure com restrições de acesso | 
 | Balancear a carga do tráfego na mesma região | [Gateway de aplicativo com pontos de extremidade de serviço][appgwserviceendpoints] | 
 
@@ -55,8 +55,10 @@ Os seguintes casos de uso de saída sugerem como usar os recursos de rede do ser
 | Acessar recursos em um Entrada na Rede virtual do Azure na mesma região | Integração VNet </br> ASE |
 | Acessar recursos em um Entrada na Rede virtual do Azure em uma região diferente | Integração VNet necessária do gateway </br> Emparelhamento de ASE e VNet |
 | Acessar recursos protegidos com pontos de extremidade de serviço | Integração VNet </br> ASE |
-| Acessar recursos em uma rede privada não conectada ao Azure | Conexões híbridas |
-| Acessar recursos nos circuitos do ExpressRoute | Integração VNet (restrita aos endereços RFC 1918 por enquanto) </br> ASE | 
+| Acessar recursos em uma rede privada não conectada ao Azure | Conexões Híbridas |
+| Acessar recursos nos circuitos do ExpressRoute | Integração VNet </br> ASE | 
+| Proteger o tráfego de saída de seu aplicativo Web | Integração VNet e grupos de segurança de rede </br> ASE | 
+| Rotear o tráfego de saída do seu aplicativo Web | Integração VNet e tabelas de rotas </br> ASE | 
 
 
 ### <a name="default-networking-behavior"></a>Comportamento de rede padrão
@@ -69,7 +71,7 @@ O serviço de aplicativo tem vários pontos de extremidade que são usados para 
 
 ![Diagrama de entrada e saída do serviço de aplicativo](media/networking-features/default-behavior.png)
 
-### <a name="app-assigned-address"></a>Endereço atribuído ao aplicativo 
+### <a name="app-assigned-address"></a>endereço atribuído ao aplicativo 
 
 O recurso de endereço atribuído ao aplicativo é um offshoot do recurso SSL baseado em IP e é acessado Configurando o SSL com seu aplicativo. Esse recurso pode ser usado para chamadas SSL baseadas em IP, mas também pode ser usado para dar a seu aplicativo um endereço que só tenha. 
 
@@ -110,7 +112,7 @@ Os pontos de extremidade de serviço permitem bloquear o acesso de **entrada** a
 
 Você pode aprender mais sobre a configuração de pontos de extremidade de serviço com seu aplicativo no tutorial sobre como [Configurar restrições de acesso de ponto final de serviço][serviceendpoints]
  
-### <a name="hybrid-connections"></a>Conexões híbridas
+### <a name="hybrid-connections"></a>Conexões Híbridas
 
 O serviço de aplicativo Conexões Híbridas permite que seus aplicativos façam chamadas de **saída** para pontos de extremidade TCP especificados. O ponto de extremidade pode ser local, em uma VNet ou em qualquer lugar que permita o tráfego de saída para o Azure na porta 443. O recurso requer a instalação de um agente de retransmissão chamado HCM (Gerenciador de Conexões Híbridas) em um host Windows Server 2012 ou mais recente. O HCM precisa ser capaz de alcançar a retransmissão do Azure na porta 443. O HCM pode ser baixado da interface do usuário Conexões Híbridas do serviço de aplicativo no Portal. 
 
@@ -146,15 +148,17 @@ Quando esse recurso estiver habilitado, seu aplicativo usará o servidor DNS com
 
 ### <a name="vnet-integration"></a>Integração VNet
 
-O recurso de integração VNet do gateway necessário é muito útil, mas ainda não resolve o acesso a recursos no ExpressRoute. Além de precisar alcançar entre conexões de ExpressRoute, há a necessidade de os aplicativos serem capazes de fazer chamadas para serviços protegidos de ponto de extremidade de serviço. Para resolver essas duas necessidades adicionais, outro recurso de integração VNet foi adicionado. O novo recurso de integração VNet permite que você coloque o back-end de seu aplicativo em uma sub-rede em uma VNet do Resource Manager na mesma região. Esse recurso não está disponível em um Ambiente do Serviço de Aplicativo, que já está em uma VNet. Esse recurso permite a:
+O recurso de integração VNet do gateway necessário é muito útil, mas ainda não resolve o acesso a recursos no ExpressRoute. Além de precisar alcançar entre conexões de ExpressRoute, há a necessidade de os aplicativos serem capazes de fazer chamadas para serviços protegidos de ponto de extremidade de serviço. Para resolver essas duas necessidades adicionais, outro recurso de integração VNet foi adicionado. O novo recurso de integração VNet permite que você coloque o back-end de seu aplicativo em uma sub-rede em uma VNet do Resource Manager na mesma região. Esse recurso não está disponível em um Ambiente do Serviço de Aplicativo, que já está em uma VNet. Esse recurso permite:
 
 * Acessando recursos no VNets do Resource Manager na mesma região
 * Acessando recursos que são protegidos com pontos de extremidade de serviço 
 * Acessando recursos que são acessíveis em conexões de ExpressRoute ou VPN
+* Protegendo todo o tráfego de saída 
+* Forçar túnel de todo o tráfego de saída. 
 
 ![Integração VNet](media/networking-features/vnet-integration.png)
 
-Esse recurso está em versão prévia e não deve ser usado para cargas de trabalho de produção. Para saber mais sobre esse recurso, leia os documentos na [integração VNet do serviço de aplicativo][vnetintegration].
+Para saber mais sobre esse recurso, leia os documentos na [integração VNet do serviço de aplicativo][vnetintegration].
 
 ## <a name="app-service-environment"></a>Ambiente do Serviço de Aplicativo 
 

@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Neste artigo, saiba como configurar e associar políticas de ponto de extremidade de serviço usando o portal do Azure.
 services: virtual-network
 documentationcenter: virtual-network
-author: KumudD
+author: RDhillon
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 09/18/2018
-ms.author: kumud
-ms.openlocfilehash: b1d2d04e74828323166810d93c52a60671bf71e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 02/21/2020
+ms.author: rdhillon
+ms.openlocfilehash: d26fd2fec5f9d5ab8e9d82ff2c6bd83b11c72e99
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64710926"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651119"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Criar, alterar ou excluir a política de ponto de extremidade de serviço usando o portal do Azure
 
@@ -40,84 +40,77 @@ Entre no Portal do Azure em https://portal.azure.com.
 ## <a name="create-a-service-endpoint-policy"></a>Criar uma política de ponto de extremidade de serviço
 
 1. Selecione **Criar um recurso** no canto superior esquerdo do Portal do Azure.
-2. No painel de pesquisa, digite "política de ponto de extremidade de serviço" e selecione **Política de ponto de extremidade de serviço (Versão prévia)** e, em seguida, selecione **Criar**.
+2. No painel Pesquisar, digite "política de ponto de extremidade de serviço" e selecione **política de ponto de extremidade de serviço** e, em seguida, selecione **criar**.
+
+![Criar política de ponto de extremidade de serviço](./media/virtual-network-service-endpoint-policies-portal/create-sep-resource.png)
+
 3. Insira, ou selecione, as seguintes informações em **Básico** 
 
-   - Assinatura: Selecione sua assinatura para a política.    
-   - Grupo de recursos: Selecione **Criar novo** e insira *myResourceGroup*.     
+   - Assinatura: selecione sua assinatura para a política
+   - Grupo de recursos: selecione **criar novo** e digite *MyResource* Group
    - Nome: myEndpointPolicy
-   - Local: Centro-Oeste dos EUA     
+   - Local: EUA Central
  
-   ![Criar o básico da política de ponto de extremidade de serviço](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-startpane.PNG)
-   
-4. Insira, ou selecione, as seguintes informações em **Definições de política**
+   ![Criar o básico da política de ponto de extremidade de serviço](./media/virtual-network-service-endpoint-policies-portal/create-sep-basics.png)
 
-   - Em **+ Adicionar um recurso**, insira, ou selecione, as informações a seguir, aceite o padrão para as configurações restantes e clique em **Adicionar**.  
-   - Escopo: Selecione **Conta individual** ou **Todas as contas na assinatura** ou **Todas as contas no grupo de recursos**.    
-   - Assinatura: Selecione sua assinatura para a conta de armazenamento. A política e as contas de armazenamento podem estar em diferentes assinaturas.   
-   - Grupo de recursos: Selecione o grupo de recursos. Obrigatório, se o escopo estiver definido como "Todas as contas no grupo de recursos" ou "Conta individual".  
-   - Recurso: mystorageaccountportal    
-   - Clique em **+ Adicionar um recurso** para continuar adicionando mais recursos.
+4. Selecione **+ Adicionar** em **recursos** e insira ou selecione as seguintes informações no painel **Adicionar um recurso**
+
+   - Serviço: somente **o Microsoft. Storage** está disponível com políticas de ponto de extremidade de serviço
+   - Escopo: selecione um de **conta única**, **todas as contas na assinatura** e **todas as contas no grupo de recursos**
+   - Assinatura: selecione sua assinatura para a conta de armazenamento. A política e as contas de armazenamento podem estar em diferentes assinaturas.
+   - Grupo de recursos: selecione seu grupo de recursos. Obrigatório, se o escopo estiver definido como "Todas as contas no grupo de recursos" ou "Conta individual".  
+   - Recurso: selecione o recurso de armazenamento do Azure na assinatura ou grupo de recursos selecionado
+   - Clique no botão **Adicionar** na parte inferior para concluir a adição do recurso
+
+   ![Definição de política de ponto de extremidade de serviço – recurso](./media/virtual-network-service-endpoint-policies-portal/create-sep-add-resource.png)
+
+   - Adicione mais recursos repetindo as etapas acima conforme necessário
+
+5. Opcional: insira ou selecione as seguintes informações em **Tags**:
    
-   ![Criar definições da política de ponto de extremidade de serviço](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-policydefinitionspane.PNG)
-   
-5. Opcional: Insira, ou selecione, as seguintes informações em **Marcas**:
-   
-   - Chave: Selecione sua chave para a política. Por exemplo: Dept     
-   - Valor: Insira um par de valor para a chave. Por exemplo: Finanças
+   - Chave: selecione sua chave para a política. Por exemplo: Depto     
+   - Valor: insira um par de valor para a chave. Por exemplo: Finanças
 
 6. Selecione **Examinar + criar**. Valide as informações e clique em **Criar**. Para fazer mais edições, clique em **Anterior**. 
 
-   ![Criar validações definitivas da política de ponto de extremidade de serviço](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-finalcreatereview.PNG)
+   ![Criar validações definitivas da política de ponto de extremidade de serviço](./media/virtual-network-service-endpoint-policies-portal/create-sep-review-create.png)
   
- 
 ## <a name="view-endpoint-policies"></a>Exibir políticas de ponto de extremidade 
 
-1. Na caixa *Todos os serviços* no portal, comece digitando *políticas de ponto de extremidade de serviço*. Selecione **Políticas de ponto de extremidade de serviço (Versão prévia)** .
+1. Na caixa *Todos os serviços* no portal, comece digitando *políticas de ponto de extremidade de serviço*. Selecione **políticas de ponto de extremidade de serviço**.
 2. Em **Assinaturas**, selecione sua assinatura e grupo de recursos, conforme mostrado na imagem a seguir
 
-   ![Mostrar política](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-viewpolicies.PNG)
+   ![Mostrar política](./media/virtual-network-service-endpoint-policies-portal/sep-view.png)
        
 3. Selecione a política e clique em **Definições de política** para exibir ou adicionar mais definições de política.
 
-   ![Mostrar definições de política](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-viewpolicy-adddefinitions.PNG)
+   ![Mostrar definições de política](./media/virtual-network-service-endpoint-policies-portal/sep-policy-definition.png)
 
-4. Selecione **Sub-redes associadas** para exibir as sub-redes às quais a política está associada. Para associar a política a uma sub-rede, clique em "Navegar até a rede virtual na mesma região".
+4. Selecione **Sub-redes associadas** para exibir as sub-redes às quais a política está associada. Se nenhuma sub-rede estiver associada ainda, siga as instruções na próxima etapa.
 
-   ![Mostrar sub-redes associadas](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-view-associatedsubnets.PNG)
+   ![Sub-redes associadas](./media/virtual-network-service-endpoint-policies-portal/sep-associated-subnets.png)
  
-## <a name="associate-a-policy-to-a-subnet"></a>Associar uma política a uma sub-rede
+5. Associar uma política a uma sub-rede
 
 >[!WARNING] 
-> Certifique-se de que todos os recursos acessados da sub-rede, para o serviço selecionado, sejam adicionados à política antes de associá-la. Depois que a política for associada, apenas o acesso aos recursos listados na política serão permitidos, para regiões de ponto de extremidade do serviço. 
+> Certifique-se de que todos os recursos acessados da sub-rede sejam adicionados à definição de política antes de associar a política à sub-rede determinada. Depois que a política estiver associada, somente o acesso aos recursos *listados de permitir* será permitido em pontos de extremidade de serviço. 
+>
+> Verifique também se não existem serviços gerenciados do Azure na sub-rede que está sendo associada à política de ponto de extremidade de serviço
 
-Antes de poder associar uma política a uma sub-rede, é necessário criar uma rede virtual e uma sub-rede e, em seguida, é possível associar a política à sub-rede:
+- Antes de poder associar uma política a uma sub-rede, você precisa criar uma rede virtual e uma sub-rede. Veja o artigo [criar uma rede virtual](./quick-create-portal.md) para obter ajuda com isso.
 
-1. Selecione **Criar um recurso** no canto superior esquerdo do Portal do Azure.
-2. Selecione **Rede** e, sem seguida, selecione **Rede Virtual**.
-3. Em **Criar rede virtual**, insira, ou selecione, as informações a seguir, aceite o padrão para as configurações restantes e, em seguida, selecione **Criar**:
-   - Nome: myVirtualNetwork      
-   - Espaço de endereço: 10.0.0.0/16      
-   - Assinatura: Selecione sua assinatura. A política deve estar na mesma assinatura que a VNet     
-   - Grupo de recursos: Selecione **Usar existente** e depois *myResourceGroup*     
-   - Local: Centro-Oeste dos EUA     
-   - Nome da sub-rede: privado     
-   - Intervalo de endereços: 10.0.0.0/24
-     
-4. Na caixa **Pesquisar recursos, serviços e documentos** na parte superior do portal, comece digitando *myVirtualNetwork*. Quando **myVirtualNetwork** aparecer nos resultados da pesquisa, selecione-o.
-5. Em **CONFIGURAÇÕES**, selecione **Sub-redes** e, em seguida, selecione **privado**.
-6. Conforme mostrado na imagem a seguir, selecione **Pontos de extremidade de serviço**, **Microsoft.Storage**, **Políticas de ponto de extremidade de serviço**, **myEndpointPolicy** e, em seguida, **Salvar**:
+- Depois que a rede virtual e a sub-rede forem configuradas, você precisará configurar pontos de extremidade de serviço de rede virtual para o armazenamento do Azure. Na folha rede virtual, selecione **pontos de extremidade de serviço**e, no próximo painel, selecione **Microsoft. Storage** e, em sub- **redes** , selecione a VNet ou sub-rede desejada
 
-   ![Associar política](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-associatepolicies.PNG)
+- Agora, você pode optar por selecionar a política de ponto de extremidade de serviço na lista suspensa no painel acima se já tiver criado políticas de ponto de extremidade de serviço antes de configurar o ponto de extremidade de serviço para a sub-rede, conforme mostrado abaixo
+
+    ![Associar sub-rede ao criar ponto de extremidade de serviço](./media/virtual-network-service-endpoint-policies-portal/vnet-config-service-endpoint-add-sep.png)
+
+- OU, se você estiver associando políticas de ponto de extremidade de serviço depois que os pontos de extremidades de serviço já estiverem configurados, você poderá optar por associar a sub-rede de dentro da folha de política de ponto de extremidade de serviço navegando até o painel de **sub-redes associado** , conforme mostrado abaixo
+
+    ![Associar sub-rede via SEP](./media/virtual-network-service-endpoint-policies-portal/sep-edit-subnet-association.png)
 
 >[!WARNING] 
->O acesso aos recursos de serviço em outras regiões será permitido desta sub-rede, com base em NSGs (Grupos de Segurança de Rede). Para restringir o acesso a apenas regiões de ponto de extremidade, limite os NSGs a apenas tráfego de serviço nas regiões de ponto de extremidade. Para obter mais informações sobre como criar NSGs com marcas de serviço por região, confira [Marcas de serviço do Azure de NSG.](manage-network-security-group.md?toc=%2fcreate-a-security-rule%2f.json)
-
-No exemplo abaixo, o NSG é restrito para acessar apenas recursos de Armazenamento do Azure em WestCentralUS e WestUS2, com uma regra "Negar todos" como uma regra de prioridade mais baixa.
-
-![Negar todo NSG](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-nsg-rules.PNG)
-
+>O acesso aos recursos de armazenamento do Azure em todas as regiões será restrito de acordo com a política de ponto de extremidade de serviço desta sub-rede.
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você criou uma política de ponto de extremidade de serviço e a associou a uma sub-rede. Para saber mais sobre políticas de ponto de extremidade de serviço, confira [visão geral de políticas de ponto de extremidade de serviço.](virtual-network-service-endpoint-policies-overview.md)
-

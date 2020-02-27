@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 598fdd5e3682226253ef8f2611ede2bbeba596f7
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: afa3b0f3ed345ccc7f4c627ec485351838ab2bee
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190435"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649271"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre configuração e gerenciamento de aplicativos Web no Azure
 
@@ -199,7 +199,7 @@ No momento, você não pode ter conexões VPN de ponto para site a uma rede virt
 
 No momento, não há suporte para conectar um aplicativo web do Serviço de Aplicativo a uma rede virtual que tem um gateway de roteamento estático (baseado em políticas). Se a sua rede virtual de destino já existe, ela deve ter a VPN ponto a site habilitada com um gateway de roteamento dinâmico antes que possa ser conectada a um aplicativo. Se o gateway é definido como o roteamento estático, não é possível ativar uma VPN ponto a site. 
 
-Para obter mais informações, consulte [Integrar um aplicativo a uma rede virtual do Azure](web-sites-integrate-with-vnet.md#getting-started).
+Para obter mais informações, consulte [Integrar um aplicativo a uma rede virtual do Azure](web-sites-integrate-with-vnet.md).
 
 ## <a name="in-my-app-service-environment-why-can-i-create-only-one-app-service-plan-even-though-i-have-two-workers-available"></a>Em meu Ambiente do Serviço de Aplicativo, por que só posso criar um Plano do Serviço de Aplicativo, embora tenha dois processadores disponíveis?
 

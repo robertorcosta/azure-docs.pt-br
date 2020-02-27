@@ -4,14 +4,14 @@ description: Saiba como o Serviço de Aplicativo do Azure ajuda a hospedar suas 
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/21/2018
+ms.date: 02/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: e2eca624fabf30eae86c480ede6c4bdffc2226bc
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 28848d8b676bb5f4182a887f5efdd48c6221041a
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671117"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500061"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutorial: Hospedar uma API RESTful com CORS no Serviço de Aplicativo do Azure
 
@@ -141,7 +141,7 @@ Em seguida, habilite o suporte interno de CORS no Serviço de Aplicativo para a 
 
 No seu repositório local, abra _wwwroot/index.html_.
 
-Na linha 51, defina a variável `apiEndpoint` como a URL da sua API implantada (`http://<app_name>.azurewebsites.net`). Substitua  _\<appname>_ pelo nome do aplicativo no Serviço de Aplicativo.
+Na linha 51, defina a variável `apiEndpoint` como a URL da sua API implantada (`http://<app_name>.azurewebsites.net`). Substitua _\<appname>_ pelo nome do aplicativo no Serviço de Aplicativo.
 
 Na janela do terminal local, execute novamente o aplicativo de exemplo.
 
@@ -149,7 +149,7 @@ Na janela do terminal local, execute novamente o aplicativo de exemplo.
 dotnet run
 ```
 
-Navegue até o aplicativo de navegador em `http://localhost:5000`. Abra a janela de ferramentas de desenvolvedor no navegador (`Ctrl` + `Shift` + `i` no Chrome para Windows) e inspecione a guia **Console**. Agora, você verá a mensagem de erro `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
+Navegue até o aplicativo de navegador em `http://localhost:5000`. Abra a janela de ferramentas de desenvolvedor no navegador (`Ctrl`+`Shift`+`i` no Chrome para Windows) e inspecione a guia **Console**. Agora, você verá a mensagem de erro `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
 
 ![Erro de CORS no cliente de navegador](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-error.png)
 
@@ -159,7 +159,7 @@ Na produção, o aplicativo de navegador teria uma URL pública em vez da URL de
 
 ### <a name="enable-cors"></a>Habilitar CORS 
 
-No Cloud Shell, habilite o CORS para URL do cliente usando o comando [ `az resource update` ](/cli/azure/resource#az-resource-update). Substitua o espaço reservado _&lt;appname>_ .
+No Cloud Shell, habilite o CORS para URL do cliente usando o comando [`az resource update`](/cli/azure/resource#az-resource-update). Substitua o espaço reservado _&lt;appname>_ .
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.cors.allowedOrigins="['http://localhost:5000']" --api-version 2015-06-01

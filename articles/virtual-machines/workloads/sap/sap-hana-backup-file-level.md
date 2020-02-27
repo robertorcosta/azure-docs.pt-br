@@ -4,20 +4,20 @@ description: Há duas possibilidades principais de backup para SAP HANA em máqu
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
-ms.author: rclaus
-ms.openlocfilehash: e8ad1a9468c52fd120360827ed3a08f8f53ec3d1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: hermannd
+ms.openlocfilehash: d1044e4cbfd59cdf58af1a132a64e7143083905c
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426015"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616163"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Backup do Azure do SAP HANA no nível do arquivo
 
@@ -155,7 +155,7 @@ Nesta captura de tela, é possível ver que a estrutura de diretórios de origem
 
 Armazenar os arquivos de backup do SAP HANA em arquivos do Azure pode ser uma opção interessante no futuro, quando os backups de arquivo do SAP HANA oferecerem suporte diretamente. Ou quando for possível montar os arquivos do Azure por meio de NFS, e o limite de cota máximo for consideravelmente maior do que 5 TB.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Guia de backup do SAP HANA nas Máquinas Virtuais do Azure](sap-hana-backup-guide.md) fornece uma visão geral e informações sobre como começar.
 * [O backup do SAP HANA com base em instantâneos de armazenamento](sap-hana-backup-storage-snapshots.md) descreve a opção de backup baseados em instantâneo de armazenamento.
 * Para saber como estabelecer a alta disponibilidade e o plano de recuperação de desastres do SAP HANA no Azure (instâncias grandes), confira [Alta disponibilidade e recuperação de desastres do SAP HANA (instâncias grandes) no Azure](hana-overview-high-availability-disaster-recovery.md).

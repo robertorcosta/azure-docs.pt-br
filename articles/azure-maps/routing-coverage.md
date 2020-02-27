@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: b19c23c7adb8dce84530b8f3f8d994f4e32869cc
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b8b3dbf515aa3bcc9075a748b9d717cfa36b6ab0
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988933"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648914"
 ---
 # <a name="azure-maps-routing-coverage"></a>Cobertura de rotas nos Mapas do Azure
 
@@ -45,9 +45,9 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Angola                         |        ✓       |                       |             |
 | Benin                          |        ✓       |                       |             |
 | Botsuana                       |        ✓       |                       |             |
-| Burquina Faso                   |        ✓       |                       |             |
+| Burkina Faso                   |        ✓       |                       |             |
 | Burundi                        |        ✓       |                       |             |
-| República dos Camarões                       |        ✓       |                       |             |
+| Camarões                       |        ✓       |                       |             |
 | Cabo Verde                     |        ✓       |                       |             |
 | Congo-Brazzaville Kinshasa    |        ✓       |                       |             |
 | Congo-Kinshasa                |        ✓       |                       |             |
@@ -90,7 +90,7 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Barbados                       |        ✓       |                      |             |
 | Belize                         |        ✓       |                      |             |
 | Brasil                         |        ✓       |         ✓            |     ✓       | 
-| Canadá                         |        ✓       |         ✓            |     ✓      |
+| Canada                         |        ✓       |         ✓            |     ✓      |
 | Chile                          |        ✓       |         ✓            |     ✓      |
 | Colômbia                       |        ✓       |         ✓            |             |
 | Costa Rica                     |        ✓       |                      |             |
@@ -146,7 +146,7 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Myanmar                        |        ✓       |                      |             |
 | Nova Zelândia                    |        ✓       |         ✓            |     ✓       | 
 | Filipinas                    |        ✓       |         ✓            |             |
-| Cingapura                      |        ✓       |         ✓            |             |
+| Singapura                      |        ✓       |         ✓            |             |
 | Taiwan                         |        ✓       |         ✓            |             |
 | Tailândia                       |        ✓       |         ✓            |             |
 | Vietnã                        |        ✓       |         ✓            |             |
@@ -195,7 +195,7 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Moldova                        |        ✓       |                      |             |
 | Mônaco                         |        ✓       |         ✓            |             |
 | Montenegro                     |        ✓       |                      |     ✓      | 
-| Holanda                    |        ✓       |         ✓            |     ✓      | 
+| Países Baixos                    |        ✓       |         ✓            |     ✓      | 
 | \+ Aruba                         |        ✓       |                      |             | 
 | \+ Caribe Países Baixos         |        ✓       |                      |             |
 | \+ Curaçao                       |        ✓       |                      |             |
@@ -206,7 +206,6 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Romênia                        |        ✓       |         ✓            |     ✓      | 
 | Federação Russa             |        ✓       |         ✓            |     ✓      | 
 | San Marino                     |        ✓       |         ✓            |             |
-| \+ Santo Maarten                  |        ✓       |                      |             |
 | Sérvia                         |        ✓       |                      |     ✓      | 
 | Eslováquia                       |        ✓       |         ✓            |     ✓      | 
 | Eslovênia                       |        ✓       |         ✓            |     ✓      |
@@ -215,7 +214,7 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Suíça                    |        ✓       |         ✓            |     ✓      | 
 | Turquia                         |        ✓       |         ✓            |     ✓      | 
 | Ucrânia                        |        ✓       |         ✓            |             | 
-| Reino Unido                 |        ✓       |         ✓            |     ✓      | 
+| United Kingdom                 |        ✓       |         ✓            |     ✓      | 
 | \+ Anguila                      |        ✓       |                      |             |
 | \+ Bermuda                       |        ✓       |                      |             |
 | \+ Ilhas Virgens Britânicas        |        ✓       |                      |             |
@@ -244,6 +243,6 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Iêmen                          |        ✓       |                      |             |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre o roteamento do Azure Maps, consulte as páginas de referência de [Roteamento](https://docs.microsoft.com/rest/api/maps/route) .

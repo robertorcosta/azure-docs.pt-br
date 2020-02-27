@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 025a31c08ac97783ddf1a608c2899eadd9b89725
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: be331f36a6305b05ce83a2b2d5fdfb73a154ce3d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561766"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623112"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Usar o Apache Hive como uma ferramenta de extração, transformação e carregamento (ETL)
 
@@ -81,13 +81,13 @@ O modelo de ETL normalmente é usado quando você deseja:
 
 * Carregar dados de transmissão ou grandes volumes de dados semiestruturados ou não estruturados de fontes externas para um banco de dados ou sistema de informações existente.
 * Limpar, transformar e validar os dados antes de carregá-los, talvez usando mais de uma passagem de transformação pelo cluster.
-* Gere relatórios e visualizações que são atualizadas regularmente.  Por exemplo, se o relatório demora muito para ser gerado durante o dia, você pode agendar para que ele seja executado durante a noite.  Você pode usar o Agendador do Microsoft Azure e o PowerShell para executar automaticamente uma consulta de Hive.
+* Gere relatórios e visualizações que são atualizadas regularmente. Por exemplo, se o relatório demora muito para ser gerado durante o dia, você pode agendar para que ele seja executado durante a noite. Para executar automaticamente uma consulta de Hive, você pode usar os [aplicativos lógicos do Azure](../../logic-apps/logic-apps-overview.md) e o PowerShell.
 
 Se o destino dos dados não for um banco de dado, você poderá gerar um arquivo no formato apropriado dentro da consulta, por exemplo, um CSV. Esse arquivo pode ser importado para o Excel ou Power BI.
 
 Se você precisar executar várias operações nos dados como parte do processo de ETL, considere como você as gerencia. Se as operações são controladas por um programa externo, em vez de como um fluxo de trabalho dentro da solução, você precisa decidir se algumas operações podem ser executadas em paralelo e detectar quando cada trabalho é concluído. Usar um mecanismo de fluxo de trabalho como o Oozie no Hadoop pode ser mais fácil do que tentar orquestrar uma sequência de operações usando scripts externos ou programas personalizados. Para obter mais informações sobre o Oozie, consulte [Fluxo de trabalho e o orquestração de trabalhos](https://msdn.microsoft.com/library/dn749829.aspx).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [ETL em escala](apache-hadoop-etl-at-scale.md)
 * [Operacionalizar um pipeline de dados](../hdinsight-operationalize-data-pipeline.md)

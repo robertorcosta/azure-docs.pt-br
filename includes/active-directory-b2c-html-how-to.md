@@ -3,14 +3,14 @@ author: mmacy
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 02/12/2020
+ms.date: 02/26/2020
 ms.author: marsma
-ms.openlocfilehash: 9612abbe078ab8d9e8c10c2da923a9a9b233d094
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: 4cf8eba9632c51ce9b5bcc42feae2446348890c2
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77373087"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77651627"
 ---
 ## <a name="use-custom-page-content"></a>Usar conteúdo de página personalizado
 
@@ -61,7 +61,7 @@ Ao usar seus próprios arquivos HTML e CSS para personalizar a interface do usu�
 ## <a name="guidelines-for-using-custom-page-content"></a>Diretrizes para usar o conteúdo da página personalizada
 
 - Use uma URL absoluta quando você incluir recursos externos, como mídia, CSS e arquivos JavaScript em seu arquivo HTML.
-- Adicione o atributo `data-preload="true"` em suas marcas HTML para controlar a ordem de carregamento para CSS e JavaScript. Com `data-preload=true`, a página é construída antes de ser exibida para o usuário. Esse atributo ajuda a impedir que a página "oscilação", precarregando o arquivo CSS, sem que o HTML com estilo seja mostrado ao usuário. O trecho de código HTML a seguir mostra o uso da marca `data-preload`.
+- Usando o [layout de página versão](../articles/active-directory-b2c/page-layout.md) 1.2.0 e superior, você pode adicionar o atributo `data-preload="true"` em suas marcas HTML para controlar a ordem de carregamento para CSS e JavaScript. Com `data-preload=true`, a página é construída antes de ser exibida para o usuário. Esse atributo ajuda a impedir que a página "oscilação", precarregando o arquivo CSS, sem que o HTML com estilo seja mostrado ao usuário. O trecho de código HTML a seguir mostra o uso da marca `data-preload`.
   ```HTML
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```

@@ -4,7 +4,7 @@ description: Implantar o SAP S/4HANA ou o BW/4HANA em uma VM do Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 2fa68d9dc3052263b5354086ee802cc31fa35ace
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c110a4e0429ba52e01c472097a2241f91d504cf5
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101452"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616200"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Implantar o SAP S/4HANA ou o BW/4HANA no Azure
 Este artigo descreve como implantar o S/4HANA no Azure usando o SAP CAL (SAP Cloud Appliance Library) 3.0. Para implantar outras soluções baseadas em SAP HANA, como BW/4HANA, siga as mesmas etapas.
@@ -119,7 +119,7 @@ Demonstramos o caminho básico para implantação aqui.
 
     d. Inserir uma **Senha** mestre de oito ou nove caracteres para a solução. A senha é usada para os administradores dos diferentes componentes.
 
-   ![Modo Básico SAP CAL: Criar Instância](./media/cal-s4h/s4h-pic10a.png)
+   ![Modo básico da SAP CAL: criar instância](./media/cal-s4h/s4h-pic10a.png)
 
 1. Clique em **Criar** e na caixa de mensagem que for exibida, clique em **OK**.
 

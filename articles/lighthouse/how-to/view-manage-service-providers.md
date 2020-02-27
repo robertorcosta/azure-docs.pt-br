@@ -1,29 +1,29 @@
 ---
 title: Exibir e gerenciar provedores de serviços
 description: Os clientes podem usar a página Provedores de serviços no portal do Azure para exibir informações sobre provedores de serviços, ofertas de provedor de serviço e recursos delegados.
-ms.date: 01/15/2020
+ms.date: 02/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: ff3c37c02c580a833008a65315009d1e42e49043
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 94103c293ffa7ccfb9d7da0a237dc1b1c6540b72
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046132"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649731"
 ---
 # <a name="view-and-manage-service-providers"></a>Exibir e gerenciar provedores de serviços
 
-Os clientes podem usar a página **Provedores de serviços** no [portal do Azure](https://portal.azure.com) para exibir informações sobre provedores de serviços e ofertas de provedores de serviços, recursos específicos delegados por meio do [gerenciamento de recursos delegados do Azure](../concepts/azure-delegated-resource-management.md) e comprar outras ofertas de provedores de serviços. Embora nos refiramos aqui aos provedores de serviços e clientes, as empresas que gerenciam vários locatários podem usar o mesmo processo para consolidar sua experiência de gerenciamento.
+Os clientes podem usar a página **provedores de serviço** no [portal do Azure](https://portal.azure.com) para exibir informações sobre provedores de serviço e ofertas de provedor de serviço, delegar recursos específicos por meio [do gerenciamento de recursos delegado do Azure](../concepts/azure-delegated-resource-management.md)e comprar novas ofertas de provedor de serviços. Embora nos refiramos aqui aos provedores de serviços e clientes, as empresas que gerenciam vários locatários podem usar o mesmo processo para consolidar sua experiência de gerenciamento.
 
 Para acessar a página **Provedores de serviços** no portal do Azure, o cliente pode selecionar **Todos os serviços**, pesquisar **Provedores de serviços** e selecioná-lo. Ele também pode pesquisar isso inserindo “Provedores de serviço” na caixa de pesquisa próxima à parte superior do portal do Azure.
 
-Tenha em mente que a página **Provedores de serviço** mostra apenas informações sobre os provedores de serviços que têm acesso às assinaturas ou aos grupos de recursos do cliente por meio do gerenciamento de recursos delegados do Azure. Se um cliente trabalha com outros provedores de serviços que não usam o gerenciamento de recursos delegados do Azure para acessar os recursos do cliente, as informações sobre esses provedores de serviços não são mostradas aqui.
+Tenha em mente que a página **provedores de serviço** mostra apenas informações sobre os provedores de serviço que têm acesso às assinaturas ou aos grupos de recursos do cliente por meio do gerenciamento de recursos delegado do Azure. Se um cliente trabalha com outros provedores de serviços que não usam o gerenciamento de recursos delegados do Azure para acessar os recursos do cliente, as informações sobre esses provedores de serviços não são mostradas aqui.
 
 > [!NOTE]
 > Os provedores de serviço podem exibir informações sobre seus clientes navegando até **Meus clientes** no portal do Azure. Para saber mais, confira [Exibir e gerenciar os clientes e recursos delegados](view-manage-customers.md).
 
 ## <a name="view-service-provider-details"></a>Exibir detalhes do provedor de serviços
 
-Para exibir informações sobre os provedores de serviços com os quais um cliente está trabalhando, ele pode **Ofertas de provedores** no lado esquerdo da página **Provedores de serviços**.
+Para exibir informações sobre provedores de serviço, o cliente pode selecionar **ofertas de provedor** no lado esquerdo da página provedores de **serviço** .
 
 Para cada oferta de provedor de serviços, o cliente verá o nome do provedor de serviços e a oferta associada a ele, juntamente com o nome que o cliente inseriu durante o processo de integração.
 
@@ -59,12 +59,20 @@ Depois de revisar as alterações, o cliente pode optar por atualizar para a nov
 
 As delegações representam as atribuições de função que concedem permissões ao provedor de serviços para os recursos que um cliente delegou. Para exibir essas informações, selecione **Delegações** no lado esquerdo da página **Provedores de serviços**.
 
-Os filtros na parte superior da página permitem que você classifique e agrupe suas informações de delegação ou filtre por clientes, ofertas ou palavras-chave específicos.
+Os filtros na parte superior da página permitem que você classifique e agrupe suas informações de delegação. Você também pode filtrar por clientes, ofertas ou palavras-chave específicas.
 
 > [!NOTE]
 > Os clientes não verão essas atribuições de função ou todos os usuários do locatário do provedor de serviços que receberam essas funções, ao [Exibir informações de atribuição de função para o escopo delegado no portal do Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) ou via APIs.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="audit-delegations-in-your-environment"></a>Auditar delegações em seu ambiente
 
+Os clientes talvez queiram obter visibilidade das assinaturas e/ou dos grupos de recursos que foram delegados aos provedores de serviços para o [Gerenciamento de recursos delegado do Azure](../concepts/azure-delegated-resource-management.md). Isso é especialmente útil para os clientes com um grande número de assinaturas, ou que têm muitos usuários que executam tarefas de gerenciamento.
+
+Fornecemos uma [definição de política interna Azure Policy](../../governance/policy/samples/built-in-policies.md#lighthouse) para auditar a delegação de escopos para um locatário de gerenciamento. Você pode atribuir essa política a um grupo de gerenciamento que inclui todas as assinaturas que você deseja auditar. Quando você verifica a conformidade com essa política, quaisquer assinaturas delegadas e/ou grupos de recursos (dentro do grupo de gerenciamento ao qual a política é atribuída) serão mostrados em um estado não compatível. Em seguida, você pode examinar os resultados e confirmar se não há delegações inesperadas.
+
+Para obter mais informações sobre como atribuir uma política e exibir os resultados do estado de conformidade, consulte [início rápido: criar uma atribuição de política](../../governance/policy/assign-policy-portal.md).
+
+## <a name="next-steps"></a>Próximas etapas
+ 
 - Saiba mais sobre o [Azure Lighthouse](../overview.md).
 - Saiba como os provedores de serviço podem [exibir e gerenciar clientes](view-manage-customers.md) acessando **Meus clientes** no portal do Azure.

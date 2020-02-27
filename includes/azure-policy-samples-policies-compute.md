@@ -2,14 +2,14 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/13/2020
+ms.date: 02/19/2020
 ms.author: dacoulte
-ms.openlocfilehash: db30b18a7027a62e6cd5bb1ad8d069a41f8a943f
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 372850975873c9a6af02846612445edc2899c308
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77371033"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77495538"
 ---
 |Nome |Descrição |Efeito(s) |Versão |Fonte |
 |---|---|---|---|
@@ -23,4 +23,4 @@ ms.locfileid: "77371033"
 |[Somente as extensões aprovadas da VM devem ser instaladas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc0e996f8-39cf-4af9-9f45-83fbde810432) |Essa política rege as extensões da máquina virtual que não foram aprovadas. |Audit, Deny, desabilitado |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VirtualMachines_ApprovedExtensions_Audit.json)
 |[Exigir a aplicação automática de patch da imagem do sistema operacional em Conjuntos de Dimensionamento de Máquinas Virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F465f0161-0087-490a-9ad9-ad6217f4f43a) |Essa política impõe a habilitação do patch automático da imagem do sistema operacional nos Conjuntos de Dimensionamento de Máquinas Virtuais para que as máquinas virtuais estejam sempre protegidas por meio da aplicação segura dos patches de segurança mais recentes mensalmente. |deny |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMSSOSUpgradeHealthCheck_Deny.json)
 |[Os discos desconectados devem ser criptografados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2c89a2e5-7285-40fe-afe0-ae8654b92fb2) |Essa política audita qualquer disco desconectado sem a criptografia habilitada. |Audit, desabilitado |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/UnattachedDisk_Encryption_Audit.json)
-|[As máquinas virtuais devem ser migradas para os novos recursos do Azure Resource Manager](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d84d5fb-01f6-4d12-ba4f-4a26081d403d) |Use o novo Azure Resource Manager para suas máquinas virtuais para fornecer melhorias de segurança como: RBAC (controle de acesso) mais forte, melhor auditoria, implantação e governança baseadas no Azure Resource Manager, acesso a identidades gerenciadas, acesso ao cofre de chaves para segredos, autenticação baseada no Azure AD e suporte para marcas e grupos de recursos, a fim de facilitar o gerenciamento da segurança |Audit, Deny, desabilitado |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/ClassicCompute_Audit.json)
+|[As máquinas virtuais devem ser migradas para os novos recursos do Azure Resource Manager](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d84d5fb-01f6-4d12-ba4f-4a26081d403d) |Use o novo Azure Resource Manager para que suas máquinas virtuais forneçam aprimoramentos de segurança, como: controle de acesso (RBCA) mais forte, melhor auditoria, governança e implantação baseadas no ARM, acesso a identidades gerenciadas, acesso ao cofre de chaves com segredos, autenticação baseada no Azure AD e suporte para marcas e grupos de recursos para facilitar o gerenciamento de segurança |Audit, Deny, desabilitado |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/ClassicCompute_Audit.json)

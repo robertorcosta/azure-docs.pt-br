@@ -3,12 +3,12 @@ title: Limites – QnA Maker
 description: O QnA Maker tem limites de meta para partes do serviço e da base de dados de conhecimento. É importante manter sua base de dados de conhecimento dentro desses limites para testar e publicar.
 ms.topic: article
 ms.date: 02/14/2020
-ms.openlocfilehash: 7fdf45a4a22f6d9ffe123f5998592739402be55f
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: ba53513f21cfc2a4f16fe17decdf0df41570201c
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77252001"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650360"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites e limites de base de dados de conhecimento do QnA Maker
 
@@ -55,7 +55,7 @@ O número máximo de links profundos que podem ser rastreados para extração de
 
 ## <a name="metadata-limits"></a>Limites de metadados
 
-Os metadados são armazenados e comparados em letras minúsculas.
+Os metadados são apresentados como um par chave com base em texto: valor, como `product:windows 10`. Ele é armazenado e comparado em letras minúsculas.
 
 ### <a name="by-azure-cognitive-search-pricing-tier"></a>Pelo Azure Pesquisa Cognitiva tipo de preço
 
@@ -71,8 +71,8 @@ O comprimento e os caracteres aceitáveis para o nome e o valor dos metadados s�
 
 |Item|Caracteres permitidos|Correspondência de padrão de Regex|Máximo de caracteres|
 |--|--|--|--|
-|Nome|Permitem<br>alfanumérico (letras e dígitos)<br>`_` (sublinhado)|`^[a-zA-Z0-9_]+$`|100|
-|Valor|Permite tudo, exceto<br>`:` (dois-pontos)<br>`|` (barra vertical)|`^[^:|]+$`|500|
+|Nome (chave)|Permitem<br>alfanumérico (letras e dígitos)<br>`_` (sublinhado)<br> Não deve conter espaços.|`^[a-zA-Z0-9_]+$`|100|
+|Valor|Permite tudo, exceto<br>`:` (dois-pontos)<br>`|` (barra vertical)<br>Apenas um valor é permitido.|`^[^:|]+$`|500|
 |||||
 
 ## <a name="knowledge-base-content-limits"></a>Limites de conteúdo da Base de Dados de Conhecimento
@@ -103,4 +103,4 @@ Eles representam os limites de cada ação de atualização; ou seja, clique em 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba quando e como alterar os [tipos de preço de serviço](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker).
+Saiba quando e como alterar os [tipos de preço de serviço](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku).

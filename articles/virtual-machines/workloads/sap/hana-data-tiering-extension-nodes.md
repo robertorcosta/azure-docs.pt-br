@@ -3,27 +3,27 @@ title: Camadas de dados e nós de extensão para SAP HANA no Azure (Instâncias 
 description: Camadas de dados e nós de extensão para SAP HANA no Azure (Instâncias Grandes).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/04/2018
-ms.author: saghorpa
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 261009edc20f946fa86f0482d8ab5045f4b4f84b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c3553ac9704ac26d0bdaae0f93b89f41a87ac716
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099852"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617155"
 ---
 # <a name="use-sap-hana-data-tiering-and-extension-nodes"></a>Usar os nós de extensão e camadas de dados do SAP HANA
 
 O SAP dá suporte a um modelo de camadas de dados para SAP BW de diferentes versões do SAP NetWeaver e SAP BW/4HANA. Para obter mais informações sobre o modelo de camadas de dados, consulte o documento do SAP [SAP BW/4HANA e SAP BW no HANA com nós de extensão do SAP HANA ](https://www.sap.com/documents/2017/05/ac051285-bc7c-0010-82c7-eda71af511fa.html#).
-Com o SAP HANA em Instâncias Grandes, é possível usar a configuração da opção 1 dos nós de extensão do SAP HANA, conforme explicado nos documentos de perguntas frequentes e no blog do SAP. As configurações da opção 2 podem ser configuradas com as seguintes SKUs de instância grande do HANA: S72m, S192, S192m, S384 e S384m. 
+Com o SAP HANA em Instâncias Grandes, é possível usar a configuração da opção 1 dos nós de extensão do SAP HANA, conforme explicado nos documentos de perguntas frequentes e no blog do SAP. Configurações de opção 2 podem ser definidas com os SKUs de instâncias do HANA grandes: S72m, S192, S192m, S384 e S384m. 
 
 Ao examinar a documentação, a vantagem pode não ser aparente à primeira vista. Mas quando você examina para as diretrizes de dimensionamento do SAP, é possível ver uma vantagem usando os nós de extensão da opção 1 e da opção 2 do SAP HANA. A seguir, são apresentados alguns exemplos:
 

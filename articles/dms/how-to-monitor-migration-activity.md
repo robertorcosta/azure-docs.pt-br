@@ -2,21 +2,21 @@
 title: Monitorar a atividade de migração-serviço de migração de banco de dados do Azure
 description: Aprenda a usar o Serviço de Migração de Banco de Dados do Azure para monitorar a atividade de migração.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: b3ba634ddb084b5637d0a0c97c0ac4ff72193c1d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/20/2020
+ms.openlocfilehash: 31b49cdd9e0e5569981b2a0b0c6efcab7239e019
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437931"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648505"
 ---
 # <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Monitorar a atividade de migração usando o serviço de migração de banco de dados do Azure
 Neste artigo, você aprenderá a monitorar o progresso de uma migração em nível de banco de dados e em nível de tabela.
@@ -63,11 +63,11 @@ A tabela a seguir lista os campos na folha de nível de banco de dados e descrev
       <td>O pipeline do DMS está em execução e executando a migração.</td>
     </tr>
     <tr>
-      <td>Completo</td>
+      <td>Concluído</td>
       <td>Migração concluída.</td>
     </tr>
     <tr>
-      <td>Com falha</td>
+      <td>Falhou</td>
       <td>Falha na migração. Clique nos detalhes da migração para ver os erros de migração.</td>
     </tr>
     <tr>
@@ -108,7 +108,7 @@ A parte inferior da folha lista as tabelas e mostra um resumo rápido do andamen
 
 A tabela a seguir descreve os campos mostrados nos detalhes de nível de tabela.
 
-| Nome do campo        | Description       |
+| Nome do campo        | DESCRIÇÃO       |
 | ------------- | ------------- |
 | **Carregamento completo concluído**      | Número de tabelas com o carregamento de dados completo concluído. |
 | **Carregamento completo na fila**      | Número de tabelas que estão sendo enfileiradas para o carregamento completo.      |
@@ -129,7 +129,7 @@ Há duas guias que mostram o progresso da migração no carregamento completo e 
 
 A tabela a seguir descreve os campos mostrados no andamento da migração em nível de tabela.
 
-| Nome do campo        | Description       |
+| Nome do campo        | DESCRIÇÃO       |
 | ------------- | ------------- |
 | **Status – sincronizando**      | A sincronização contínua está em execução. |
 | **Inserção**      | Número de inserções da CDA nas linhas aplicadas ao destino.      |
@@ -141,5 +141,5 @@ A tabela a seguir descreve os campos mostrados no andamento da migração em ní
 > [!NOTE]
 > Os valores da CDA de Inserção, Atualização, Exclusão e Total Aplicado poderão diminuir quando o banco de dados for substituído ou a migração for reiniciada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Verificar as diretrizes de migração no [Guia de Migração de Banco de Dados da Microsoft](https://datamigration.microsoft.com/).
