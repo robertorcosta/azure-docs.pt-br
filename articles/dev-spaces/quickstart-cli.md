@@ -1,17 +1,17 @@
 ---
 title: Desenvolver um aplicativo no Kubernetes
 services: azure-dev-spaces
-ms.date: 07/08/2019
+ms.date: 02/20/2020
 ms.topic: quickstart
 description: Este início rápido mostra como usar o Azure Dev Spaces e a linha de comando para desenvolver um aplicativo no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 553c316587d27e0921fbbbf78b02ddb048532c43
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 2d3a498d72264d3084e45202b7daa99806d45ce3
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867245"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602616"
 ---
 # <a name="quickstart-develop-an-application-on-kubernetes---azure-dev-spaces"></a>Início Rápido: Desenvolver um aplicativo no Kubernetes – Azure Dev Spaces
 Neste guia, você aprenderá a:
@@ -19,7 +19,7 @@ Neste guia, você aprenderá a:
 - Configure o Azure Dev Spaces com um cluster Kubernetes gerenciado no Azure.
 - Desenvolver e executar o código em contêineres usando a linha de comando.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura do Azure. Caso não tenha uma assinatura do Azure, é possível criar uma [conta gratuita](https://azure.microsoft.com/free).
 - A [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) instalada.
@@ -30,7 +30,7 @@ Você precisa criar um cluster do AKS em uma [região com suporte][supported-reg
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 ```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Habilitar o Azure Dev Spaces no cluster do AKS
@@ -76,7 +76,7 @@ Para executar o aplicativo no Azure Dev Spaces, você precisará de um Dockerfil
 Gerar os ativos de gráfico do Helm e do Docker para executar o aplicativo no Kubernetes usando o comando `azds prep`:
 
 ```cmd
-azds prep --public
+azds prep --enable-ingress
 ```
 
 Você deve executar o comando `prep` no diretório *dev-spaces/samples/nodejs/getting-started/webfrontend* para gerar corretamente os ativos de gráfico do Helm e do Docker.

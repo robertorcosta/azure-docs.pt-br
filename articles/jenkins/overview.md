@@ -4,12 +4,12 @@ description: Hospede o servidor de automação de build e implantação do Jenki
 keywords: jenkins, azure, devops, visão geral
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: 84d9a62c432208893ac5ff960a5f7aec743680d1
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: a9297ebc116d75cfe1d4f37d4e9ada7d5198beae
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74479348"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620178"
 ---
 # <a name="azure-and-jenkins"></a>Azure e Jenkins
 
@@ -22,7 +22,7 @@ Este artigo é uma introdução ao uso do Azure com o Jenkins, fornecendo detalh
 Hospede o Jenkins no Azure para centralizar a automação de build e dimensionar a implantação, conforme as necessidades de seus projetos de software aumentam. Implante o Jenkins no Azure usando:
  
 - [O modelo de solução do Jenkins](install-jenkins-solution-template.md) no Azure Marketplace.
-- [Máquinas virtuais do Azure](/azure/virtual-machines/linux/overview). Consulte nosso [tutorial](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd) para criar uma instância do Jenkins em uma VM.
+- [Máquinas virtuais do Azure](/azure/virtual-machines/linux/overview). Consulte nosso [tutorial](tutorial-jenkins-github-docker-cicd.md) para criar uma instância do Jenkins em uma VM.
 - Em um cluster Kubernetes em execução no [Serviço de Contêiner do Azure](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough), consulte nossas [instruções](/azure/container-service/kubernetes/container-service-kubernetes-jenkins).
 
 Monitore e gerencie a implantação do Azure Jenkins usando [logs do Azure Monitor](/azure/log-analytics/log-analytics-overview) e a [CLI do Azure](/cli/azure).
@@ -33,7 +33,7 @@ Adicione agentes de build à implantação existente do Jenkins para dimensionar
 
 Depois de configurados com uma [entidade de serviço do Azure](/azure/azure-resource-manager/resource-group-overview), os trabalhos e pipelines do Jenkins podem usar essa credencial para:
 
-- Armazene e arquive com segurança artefatos de build no [Armazenamento do Azure](/azure/storage/common/storage-introduction) usando o [plug-in do Armazenamento do Azure](https://plugins.jenkins.io/windows-azure-storage). Examine as [instruções de armazenamento do Jenkins](/azure/storage/common/storage-java-jenkins-continuous-integration-solution) para saber mais.
+- Armazene e arquive com segurança artefatos de build no [Armazenamento do Azure](/azure/storage/common/storage-introduction) usando o [plug-in do Armazenamento do Azure](https://plugins.jenkins.io/windows-azure-storage). Examine as [instruções de armazenamento do Jenkins](storage-java-jenkins-continuous-integration-solution.md) para saber mais.
 - Gerenciar e configurar os recursos do Azure com a [CLI do Azure](/azure/jenkins/execute-cli-jenkins-pipeline).
 
 ## <a name="deploy-your-code-into-azure-services"></a>Implantar o código nos serviços do Azure

@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Este início rápido mostra como fazer o desenvolvimento do Kubernetes de equipe com contêineres e microsserviços com o Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 1b36cf30574c0c9892a0383bee7e2f914bc9feac
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 1f087225fc594b7c6469c4988ea1bf93ec558a71
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482387"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605276"
 ---
 # <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>Início Rápido: Desenvolvimento em equipe no Kubernetes – Azure Dev Spaces
 
@@ -35,7 +35,7 @@ Você deve criar um cluster do AKS em uma [região com suporte][supported-region
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 ```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Habilitar o Azure Dev Spaces no cluster do AKS

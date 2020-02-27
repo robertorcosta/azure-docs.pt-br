@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/19/2020
+ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: a118d560541595e26c80547dd641968c518aa353
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 9d9033689472fbc462eefd3d31c2b36a19add81a
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485005"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589463"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources-public-preview"></a>Criar redes virtuais com recursos de gateway da NAT (versão prévia pública)
 
@@ -35,9 +35,6 @@ Recursos de gateway da NAT são parte da [NAT de Rede Virtual](nat-overview.md) 
 
 >[!NOTE] 
 >A NAT de Rede Virtual está disponível atualmente como versão prévia pública. No momento, ela só está disponível em um conjunto limitado de [regiões](nat-overview.md#region-availability). Essa visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.comsupport/legal/preview-supplemental-terms) para obter detalhes.
-
-> [!IMPORTANT]
-> Depois que a [versão prévia da NAT de Rede Virtual estiver habilitada](./nat-overview.md#enable-preview) na assinatura, use https://aka.ms/natportal para acessar o portal.
 
 ## <a name="how-to-deploy-nat"></a>Como implantar a NAT
 
@@ -339,7 +336,6 @@ Uma porta de SNAT está disponível para reutilização para o mesmo endereço I
 
 - A NAT é compatível com recursos de prefixo de IP público, IP público de SKU e balanceador de carga de nível Standard.   Os recursos Básicos (por exemplo, um balanceador de carga básico) e produtos derivados deles não são compatíveis com a NAT.  Os recursos básicos precisam ser colocados em uma sub-rede não configurada com NAT.
 - A família de endereços IPv4 é compatível.  A NAT não interage com a família de endereços IPv6.
-- O NSG em uma sub-rede ou adaptador de rede não é respeitado para fluxos de saída para pontos de extremidade públicos usando a NAT.
 - O registro em log de fluxo do NSG não é compatível com o uso de NAT.
 - A NAT não pode abranger várias redes virtuais.
 

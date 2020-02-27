@@ -6,18 +6,18 @@ ms.topic: quickstart
 description: Este início rápido mostra como usar o Azure Dev Spaces e o Visual Studio Core para depurar e iterar rapidamente um aplicativo Java no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Java, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 8ceb48bf60438442b63fab698091fdb5064793af
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: c0062d7cda79cbe91dc7485baa33b60d318a8af0
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025190"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605328"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-java---azure-dev-spaces"></a>Início Rápido: Depurar e iterar com o Visual Studio Code e o JavaDepurar e iterar no Kubernetes com o Visual Studio Code e o Java no Kubernetes – Azure Dev Spaces
 
 Neste início rápido, você configurará o Azure Dev Spaces com um cluster do Kubernetes gerenciado e usará um aplicativo Java no Visual Studio Code para desenvolver e depurar o código em contêineres de maneira iterativa. O Azure Dev Spaces permite depurar e testar todos os componentes do aplicativo no AKS (Serviço de Kubernetes do Azure) com a configuração mínima do computador de desenvolvimento. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
 - [JDK (Java Development Kit) 1.8.0+](https://aka.ms/azure-jdks).
@@ -33,7 +33,7 @@ Você precisa criar um cluster do AKS em uma [região com suporte][supported-reg
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 ```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Habilitar o Azure Dev Spaces no cluster do AKS

@@ -8,18 +8,18 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: b0a8deb5f656fafde358dbcf2e1a2724f1a84113
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ff439083ca9c648ceec95b89b041bb5b60785c91
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "64727623"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603015"
 ---
 # <a name="linux-virtual-machines-documentation"></a>Documentação sobre Máquinas Virtuais do Linux
 
 As Máquinas Virtuais Linux do Azure fornecem infraestrutura sob demanda, de alta escala, segura e virtualizada usando Red Hat, Ubuntu ou a distribuição do Linux de sua escolha. Aprenda a criar, configurar, gerenciar e dimensionar as VMs do Linux com nossos guias de início rápido, tutoriais e exemplos.
 
-## <a name="5-minute-quickstarts"></a>Guia de início rápido de 5 minutos
+## <a name="5-minute-quickstarts"></a>Guias de início rápido de 5 minutos
 
 Saiba como implantar um servidor Web NGINX em uma Máquina Virtual executando o Ubuntu:
 
@@ -27,7 +27,7 @@ Saiba como implantar um servidor Web NGINX em uma Máquina Virtual executando o 
 - [PowerShell do Azure](/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [CLI do Azure](/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="step-by-step-tutorials"></a>Tutoriais Passo a Passo
+## <a name="step-by-step-tutorials"></a>Tutoriais passo a passo
 
 Saiba como implantar, gerenciar e dimensionar as VMs do Linux no Azure.
 
@@ -42,7 +42,7 @@ Saiba como implantar, gerenciar e dimensionar as VMs do Linux no Azure.
 - [Fazer backup das VMs](/azure/virtual-machines/linux/tutorial-backup-vms)
 - [Monitorar VMs](/azure/virtual-machines/linux/tutorial-monitoring)
 - [Gerenciar segurança nas VMs](/azure/virtual-machines/linux/tutorial-azure-security)
-- [Criar uma infra-estrutura de CI/CD com Jenkins, Docker e GitHub](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd)
+- [Criar uma infra-estrutura de CI/CD com Jenkins, Docker e GitHub](/azure/jenkins/tutorial-jenkins-github-docker-cicd)
 
 ## <a name="free-pluralsight-video-training"></a>Treinamento em Vídeo Pluralsight gratuito
 

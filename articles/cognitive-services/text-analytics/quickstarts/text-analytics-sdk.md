@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 01/23/2020
+ms.date: 02/24/2020
 ms.author: aahi
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 87cf5f226a8b2d1efcc0ee967d84f6e0002cb03d
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: c6883b9b79adfc4f91af354147d45ea27d806d78
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76987862"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614489"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Início Rápido: Usar a biblioteca de clientes da Análise de Texto
 
@@ -37,17 +37,6 @@ Use a biblioteca de clientes da Análise de Texto para executar:
 > * O código neste artigo usa métodos síncronos e armazenamento de credenciais não seguras por motivos de simplicidade. Para cenários de produção, recomendamos usar os métodos assíncronos em lote para desempenho e escalabilidade. Confira a documentação de referência abaixo.
 
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-> [!IMPORTANT]
-> * A última versão prévia da API de Análise de Texto é `3.0-preview`, que inclui uma versão prévia pública para a [Análise de Sentimento](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) e o [NER (reconhecimento de entidade nomeada)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) aprimorados. A última versão estável é `2.1`.
->    * Lembre-se de seguir as instruções para a versão que você está usando.
-> * O código neste artigo usa métodos síncronos e armazenamento de credenciais não seguras por motivos de simplicidade. Para cenários de produção, recomendamos usar os métodos assíncronos em lote para desempenho e escalabilidade. Confira a documentação de referência abaixo. 
-
-[!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
 
 ::: zone-end
 
@@ -73,6 +62,17 @@ Use a biblioteca de clientes da Análise de Texto para executar:
 
 ::: zone-end
 
+::: zone pivot="programming-language-python"
+
+> [!IMPORTANT]
+> * A última versão prévia da API de Análise de Texto é `3.0-preview`, que inclui uma versão prévia pública para a [Análise de Sentimento](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) e o [NER (reconhecimento de entidade nomeada)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) aprimorados. A última versão estável é `2.1`.
+>    * Lembre-se de seguir as instruções para a versão que você está usando.
+> * O código neste artigo usa métodos síncronos e armazenamento de credenciais não seguras por motivos de simplicidade. Para cenários de produção, recomendamos usar os métodos assíncronos em lote para desempenho e escalabilidade. Confira a documentação de referência abaixo. 
+
+[!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
+
+::: zone-end
+
 ::: zone pivot="programming-language-other"
 
 ## <a name="additional-language-support"></a>Suporte a idiomas adicionais
@@ -81,8 +81,8 @@ Se você clicou nessa guia, provavelmente não viu um início rápido em sua lin
 
 | Linguagem | Versão disponível | 
 |----------|------------------------|
-| Ruby     | [Versão 2.1](ruby-sdk.md)          | 
-| Go       | [Versão 2.1](go-sdk.md)          | 
+| Ruby     | [Versão 2.1](ruby-sdk.md) | 
+| Go       | [Versão 2.1](go-sdk.md) | 
 
 ::: zone-end
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: bc19c6358ff116b3d7299673783e8fbd6e8cd4f5
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 82cd596f08136f6d9b327fc83122c0f32d8f9914
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201043"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649289"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início Rápido: Explorar e analisar os custos com a análise de custo
 
@@ -50,7 +50,7 @@ A exibição inicial da análise de custos inclui as áreas a seguir.
 
 **Custo real**: mostra os custos totais de uso e de compra para o mês atual, uma vez que eles são acumulados e serão exibidos na sua fatura.
 
-**Previsão**: mostra o total de custos previstos para o período escolhido. A previsão está em versão prévia.
+**Previsão**: mostra o total de custos previstos para o período escolhido.
 
 **Orçamento**: mostra o limite de gastos planejados para o escopo selecionado, se disponível.
 

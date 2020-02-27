@@ -1,5 +1,6 @@
 ---
-title: 'Início Rápido: Criar uma DSVM do Ubuntu'
+title: 'Início Rápido: Criar uma Máquina Virtual de Ciência de Dados do Ubuntu'
+titleSuffix: Azure Data Science Virtual Machine
 description: Configure e crie uma Máquina Virtual de Ciência de Dados para Linux (Ubuntu) para realizar a análise e o aprendizado de máquina.
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -7,18 +8,18 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: 263c12b344e8634c639167aa3e455032f0817e2f
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 5d139cbd59b1b3e63786ae22bbd3b934de37cd49
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75612080"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526103"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Início Rápido: Configurar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
 
 Coloque tudo em funcionamento com a Máquina Virtual de Ciência de Dados do Ubuntu 18.04.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para criar uma Máquina Virtual de Ciência de Dados do Ubuntu 18.04, é necessário ter uma assinatura do Azure. [Experimentar o Azure gratuitamente](https://azure.com/free).
 Observe que as contas gratuitas do Azure não dão suporte a SKUs de máquina virtual habilitada para GPU.

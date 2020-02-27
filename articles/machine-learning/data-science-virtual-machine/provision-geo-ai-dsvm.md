@@ -1,5 +1,6 @@
 ---
-title: 'Início Rápido: Criar uma DSVM de IA geográfica'
+title: 'Início Rápido: Criar uma Máquina Virtual de Ciência de Dados de IA Geográfica'
+titleSuffix: Azure Data Science Virtual Machine
 description: Configure e crie uma Máquina Virtual de Ciência de Dados de IA Geográfica no Azure para realizar a análise geoespacial e o aprendizado de máquina.
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -7,12 +8,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/13/2019
-ms.openlocfilehash: 6b32d1f76091d7bbb8f870402020d0ac247d425b
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: f3ff9bd64f54d8f83fd1889078e8a4c01827d135
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170730"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525882"
 ---
 # <a name="quickstart-set-up-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Início Rápido: Configurar uma Máquina Virtual de Inteligência Artificial Geográfica no Azure 
 
@@ -41,9 +42,9 @@ Para criar uma instância da VM de Ciência de Dados de IA Geográfica, siga est
 
 **Noções básicas**:
 
-- **Nome**: O nome do servidor de ciência de dados que está sendo criado.
+- **Name**: O nome do servidor de ciência de dados que está sendo criado.
     
-- **Nome de usuário**: a ID de entrada da conta do administrador.
+- **Nome de Usuário**: a ID de entrada da conta do administrador.
     
 - **Senha**: Senha da conta do administrador.
     
@@ -51,7 +52,7 @@ Para criar uma instância da VM de Ciência de Dados de IA Geográfica, siga est
     
 - **Grupo de recursos**: É possível criar um novo ou usar um grupo de recursos existente **vazio** do Azure na assinatura.
     
-- **Localização**: Selecione o data center mais apropriado. Normalmente, é o que contém a maioria dos seus dados ou que está mais próximo de sua localização física para oferecer acesso mais rápido à rede. Se você planeja executar um aprendizado profundo na GPU, escolha um dos locais no Azure que têm as instâncias de VM da GPU da Série NC. Atualmente, esses locais são: **Leste dos EUA, Centro-Norte dos EUA, Centro-Sul dos EUA, Oeste dos EUA 2, Europa Setentrional, Europa Ocidental**. Para obter a lista mais recente, verifique os [Produtos do Azure pela página da região](https://azure.microsoft.com/regions/services/) e procure **Série NC** em **Computação**. 
+- **Localização**: Selecione o data center mais apropriado. Normalmente, é o que contém a maioria dos seus dados ou que está mais próximo de sua localização física para oferecer acesso mais rápido à rede. Se você planeja executar um aprendizado profundo na GPU, escolha um dos locais no Azure que têm as instâncias de VM da GPU da Série NC. Atualmente, esses locais são: **Leste dos EUA, Centro-Norte dos EUA, Centro-Sul dos EUA, Oeste dos EUA 2, Norte da Europa, Europa Ocidental**. Para obter a lista mais recente, verifique os [Produtos do Azure pela página da região](https://azure.microsoft.com/regions/services/) e procure **Série NC** em **Computação**. 
     
     
 **Configurações**: Selecione um dos tamanhos de máquina virtual da GPU da Série NC, caso planeje executar um aprendizado profundo em uma GPU da DSVM Geográfica. Caso contrário, escolha uma das instâncias baseadas em CPU. Crie uma conta de armazenamento para sua VM. 

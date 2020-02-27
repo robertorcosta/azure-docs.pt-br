@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 71a256b0350742f0e7a7b95519fafff5bc32f58b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a2b775afcd9e603a11b560bb7c42d6cf76be9b34
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928780"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597908"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Início Rápido: Criar um data factory e um pipeline usando o SDK do .NET
 
@@ -48,7 +48,7 @@ Das seções em *Como usar o portal para criar um aplicativo do Azure AD e uma e
 1. Em [Criar um aplicativo no Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application), crie um aplicativo que represente o aplicativo .NET que você está criando neste tutorial. Para a URL de logon, você pode fornecer uma URL fictícia, como mostrado no artigo (`https://contoso.org/exampleapp`).
 2. Em [Obter valores para entrar](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in), obtenha a **ID do aplicativo** e a **ID do locatário** e anote esses valores que você usará posteriormente neste tutorial. 
 3. Em [Certificados e segredos](../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets), obtenha a **chave de autenticação** e anote esse valor que você usa posteriormente neste tutorial.
-4. Em [Atribuir o aplicativo a uma função](../active-directory/develop/howto-create-service-principal-portal.md#assign-the-application-to-a-role), atribua o aplicativo à função **Colaborador** no nível da assinatura para que o aplicativo possa criar os data factories na assinatura.
+4. Em [Atribuir o aplicativo a uma função](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application), atribua o aplicativo à função **Colaborador** no nível da assinatura para que o aplicativo possa criar os data factories na assinatura.
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
@@ -434,7 +434,7 @@ O pipeline cria automaticamente a pasta de saída no contêiner de blob **adftut
 2. Na lista de pastas, selecione **saída**.
 3. Confirme que **emp.txt** tenha sido copiado para a pasta de saída. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para excluir programaticamente o data factory, adicione as linhas de código a seguir ao programa: 
 

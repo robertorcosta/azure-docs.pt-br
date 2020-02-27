@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 1bdd6552c3d418d761ffaf1df4ebb769421693f5
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: b27baed20d8e36bf5790036e2fdc0804a94a4ea1
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484988"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589429"
 ---
 # <a name="what-is-virtual-network-nat-public-preview"></a>O que é NAT de Rede Virtual (versão prévia pública)?
 
@@ -140,9 +140,6 @@ A NAT está disponível atualmente nestas regiões:
 
 As assinaturas devem ser registradas para permitir a participação na versão prévia pública.  A participação requer um processo em duas etapas e as instruções são fornecidas abaixo para a CLI do Azure e o Azure PowerShell.  A ativação pode levar vários minutos para ser concluída.
 
-> [!IMPORTANT]
-> Depois que a [versão prévia da NAT de Rede Virtual estiver habilitada](./nat-overview.md#enable-preview) na assinatura, use https://aka.ms/natportal para acessar o portal.
-
 ### <a name="azure-cli"></a>CLI do Azure
 
 1. registrar a assinatura para a versão prévia pública
@@ -168,7 +165,7 @@ As assinaturas devem ser registradas para permitir a participação na versão p
 2. ativar o registro
 
     ```azurepowershell-interactive
-      Register-AzProviderFeature -ProviderNamespace Microsoft.Network
+      Register-AzResourceProvider -ProviderNamespace Microsoft.Network
     ```
 
 ## <a name="pricing"></a>Preços
@@ -197,7 +194,6 @@ Desejamos saber como podemos aprimorar o serviço. Compartilhe conosco seus [com
 
 - A NAT é compatível com recursos de prefixo de IP público, IP público de SKU e balanceador de carga de nível Standard.   Os recursos Básicos (por exemplo, um balanceador de carga básico) e produtos derivados deles não são compatíveis com a NAT.  Os recursos básicos precisam ser colocados em uma sub-rede não configurada com NAT.
 - A família de endereços IPv4 é compatível.  A NAT não interage com a família de endereços IPv6.
-- O NSG em uma sub-rede ou adaptador de rede não é respeitado para fluxos de saída para pontos de extremidade públicos usando a NAT.
 - O registro em log de fluxo do NSG não é compatível com o uso de NAT.
 - A NAT não pode abranger várias redes virtuais.
 

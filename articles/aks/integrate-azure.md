@@ -2,22 +2,21 @@
 title: Integrar com serviços gerenciados do Azure usando o Service Broker Aberto para Azure (OSBA)
 description: Integrar com serviços gerenciados do Azure usando o Service Broker Aberto para Azure (OSBA)
 author: zr-msft
-ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: zarhoads
-ms.openlocfilehash: 131e767daa920f03db5ec9a3aac711fc850c7132
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 8d727256afbe152a4f7022d0fd2454c4677b023c
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276798"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595596"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integrar com serviços gerenciados do Azure usando o Service Broker Aberto para Azure (OSBA)
 
 Junto com o [catálogo de serviços do Kubernetes ][kubernetes-service-catalog], o Service Broker Aberto para Azure (OSBA) permite que desenvolvedores utilizem serviços gerenciados pelo Azure no Kubernetes. Este guia se concentra na implantação do Serviço de catálogo do Kubernetes, Service Broker Aberto para Azure (OSBA) e aplicativos que usam serviços gerenciados pelo Azure usando o Kubernetes.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 * Uma assinatura do Azure
 
 * CLI do Azure: [instale-a localmente][azure-cli-install] ou use-a no [Azure Cloud Shell][azure-cloud-shell].

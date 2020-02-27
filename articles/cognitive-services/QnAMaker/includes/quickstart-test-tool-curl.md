@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: fdbabc6620aaf7458350492cf3922ff910e66b89
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: f3a1a33b2fe859839deec587191b3b3a319c0cf8
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77112348"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77494977"
 ---
 Este início rápido baseado em cURL fornece uma orientação para obtenção de uma resposta de base de dados de conhecimento.
 
@@ -445,9 +445,8 @@ Você pode solicitar um limite mínimo para a resposta. Se o limite não for ate
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':60.00}"
     ```
-    ```
 
-    The returned JSON found the answer.
+    O JSON retornado encontrou a resposta.
 
     ```json
     {
