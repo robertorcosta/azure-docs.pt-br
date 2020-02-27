@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 02/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9fe24e4a2b25b1ef3f0da2b1a5e1c0f29251df1
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: dff80d849268c770e4227ff8c99b8f4d133c4d78
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77192227"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620726"
 ---
 # <a name="conditional-access-conditions"></a>Acesso condicional: condições
 
@@ -52,7 +52,9 @@ Ao configurar o local como uma condição, as organizações podem optar por inc
 
 Ao incluir **qualquer local**, essa opção inclui qualquer endereço IP na Internet não apenas para os locais nomeados configurados. Ao selecionar **qualquer local**, os administradores podem optar por excluir **todos os locais confiáveis** ou **selecionados**.
 
-Por exemplo, algumas organizações podem optar por não exigir a autenticação multifator quando seus usuários estiverem conectados à rede em um local confiável, como sua matriz física. Os administradores podem criar uma política que inclui qualquer local, mas exclui os locais selecionados para suas redes da sede
+Por exemplo, algumas organizações podem optar por não exigir a autenticação multifator quando seus usuários estiverem conectados à rede em um local confiável, como sua matriz física. Os administradores podem criar uma política que inclui qualquer local, mas exclui os locais selecionados para suas redes da sede.
+
+Mais informações sobre locais podem ser encontradas no artigo, [qual é a condição de local em Azure Active Directory acesso condicional](location-condition.md).
 
 ## <a name="client-apps-preview"></a>Aplicativos cliente (visualização)
 
@@ -64,9 +66,21 @@ Por padrão, as políticas de acesso condicional se aplicam a aplicativos e apli
    - Clientes de autenticação moderna
       - Essa opção inclui aplicativos como os aplicativos de área de trabalho e de telefone do Office.
    - Clientes do Exchange ActiveSync
+      - Por padrão, isso inclui todo o uso do protocolo EAS (Exchange ActiveSync). **A escolha de aplicar política somente às plataformas com suporte** limitará a plataformas com suporte, como Ios, Android e Windows.
       - Quando a política bloqueia o uso do Exchange ActiveSync, o usuário afetado receberá um único email de quarentena. Este email com fornece informações sobre por que eles estão bloqueados e incluem instruções de correção, se possível.
    - Outros clientes
-      - Essa opção inclui clientes que usam protocolos de autenticação básica/herdada, incluindo IMAP, MAPI, POP, SMTP e aplicativos herdados do Office que não dão suporte à autenticação moderna.
+      - Essa opção inclui clientes que usam protocolos de autenticação básica/herdados que não dão suporte à autenticação moderna.
+         - SMTP autenticado-usado pelo cliente POP e IMAP para enviar mensagens de email.
+         - Descoberta automática-usada pelos clientes do Outlook e do EAS para localizar e conectar-se às caixas de correio no Exchange Online.
+         - Exchange Online PowerShell-usado para se conectar ao Exchange Online com o PowerShell remoto. Se você bloquear a autenticação básica para o Exchange Online PowerShell, será necessário usar o módulo do PowerShell do Exchange Online para se conectar. Para obter instruções, consulte [conectar-se ao Exchange Online PowerShell usando a autenticação multifator](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
+         - Serviços Web do Exchange (EWS)-uma interface de programação usada pelo Outlook, Outlook para Mac e aplicativos de terceiros.
+         - IMAP4 – usado por clientes de email IMAP.
+         - MAPI sobre HTTP (MAPI/HTTP) – usado pelo Outlook 2010 e posterior.
+         - OAB (catálogo de endereços offline) – uma cópia das coleções de listas de endereços que são baixadas e usadas pelo Outlook.
+         - Outlook Anywhere (RPC sobre HTTP) – usado pelo Outlook 2016 e anterior.
+         - Serviço do Outlook – usado pelo aplicativo de email e calendário para Windows 10.
+         - POP3-usado por clientes de email POP.
+         - Serviços Web de relatórios-usados para recuperar dados de relatório no Exchange Online.
 
 Essas condições são normalmente usadas quando se requer um dispositivo gerenciado, bloqueando a autenticação herdada e bloqueando aplicativos Web, mas permitindo aplicativos móveis ou de desktop.
 
@@ -139,7 +153,7 @@ Essa configuração tem um impacto nas tentativas de acesso feitas a partir dos 
 | Outlook 2016, Outlook 2013 (com autenticação moderna), Skype for Business (com autenticação moderna) | Office 365 Exchange Online | Windows 8.1, Windows 7 |
 | Aplicativo móvel do Outlook | Office 365 Exchange Online | Android, iOS |
 | Aplicativo Power BI | serviço do Power BI | Windows 10, Windows 8.1, Windows 7, Android e iOS |
-| Skype for Business | Office 365 Exchange Online| Android, IOS |
+| Skype for Business | Office 365 Exchange Online| Android, iOS |
 | Aplicativo Visual Studio Team Services | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS e Android |
 
 ### <a name="exchange-activesync-clients"></a>Clientes do Exchange ActiveSync

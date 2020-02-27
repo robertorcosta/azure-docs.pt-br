@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: 1cf1a97ed6350174511d61d924f893bb209736c2
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 09654132b6e10f9905f79d1eb50f9bce220a7ab7
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712583"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613781"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Ingressar uma máquina virtual Ubuntu Linux em um domínio Azure AD Domain Services gerenciado
 
@@ -63,13 +63,13 @@ sudo vi /etc/hosts
 
 No arquivo *hosts* , atualize o endereço *localhost* . No exemplo a seguir:
 
-* *aadds.contoso.com* é o nome de domínio DNS do seu domínio gerenciado AD DS do Azure.
+* *aaddscontoso.com* é o nome de domínio DNS do seu domínio gerenciado AD DS do Azure.
 * o *Ubuntu* é o nome do host da sua VM do Ubuntu que você está unindo ao domínio gerenciado.
 
 Atualize esses nomes com seus próprios valores:
 
 ```console
-127.0.0.1 ubuntu.aadds.contoso.com ubuntu
+127.0.0.1 ubuntu.aaddscontoso.com ubuntu
 ```
 
 Quando terminar, salve e saia do arquivo de *hosts* usando o comando `:wq` do editor.
@@ -78,7 +78,7 @@ Quando terminar, salve e saia do arquivo de *hosts* usando o comando `:wq` do ed
 
 A VM precisa de alguns pacotes adicionais para ingressar a VM no domínio gerenciado AD DS do Azure. Para instalar e configurar esses pacotes, atualize e instale as ferramentas de ingresso no domínio usando `apt-get`
 
-Durante a instalação do Kerberos, o pacote *krb5-User* solicita o nome do realm em letras maiúsculas. Por exemplo, se o nome do seu domínio gerenciado AD DS do Azure for *aadds.contoso.com*, insira *aadds. CONTOSO.COM* como o realm. A instalação grava as seções `[realm]` e `[domain_realm]` no arquivo de configuração */etc/krb5.conf* . Certifique-se de especificar o realm em letras MAIÚSCULAs:
+Durante a instalação do Kerberos, o pacote *krb5-User* solicita o nome do realm em letras maiúsculas. Por exemplo, se o nome do seu domínio gerenciado AD DS do Azure for *aaddscontoso.com*, insira *AADDSCONTOSO.com* como o realm. A instalação grava as seções `[realm]` e `[domain_realm]` no arquivo de configuração */etc/krb5.conf* . Certifique-se de especificar o realm em letras MAIÚSCULAs:
 
 ```console
 sudo apt-get update
@@ -95,10 +95,10 @@ Para que a comunicação de domínio funcione corretamente, a data e hora da sua
     sudo vi /etc/ntp.conf
     ```
 
-1. No arquivo *NTP. conf* , crie uma linha para adicionar o nome DNS do domínio gerenciado AD DS do Azure. No exemplo a seguir, uma entrada para *aadds.contoso.com* é adicionada. Use seu próprio nome DNS:
+1. No arquivo *NTP. conf* , crie uma linha para adicionar o nome DNS do domínio gerenciado AD DS do Azure. No exemplo a seguir, uma entrada para *aaddscontoso.com* é adicionada. Use seu próprio nome DNS:
 
     ```console
-    server aadds.contoso.com
+    server aaddscontoso.com
     ```
 
     Quando terminar, salve e saia do arquivo *NTP. conf* usando o comando `:wq` do editor.
@@ -113,7 +113,7 @@ Para que a comunicação de domínio funcione corretamente, a data e hora da sua
 
     ```console
     sudo systemctl stop ntp
-    sudo ntpdate aadds.contoso.com
+    sudo ntpdate aaddscontoso.com
     sudo systemctl start ntp
     ```
 
@@ -121,30 +121,30 @@ Para que a comunicação de domínio funcione corretamente, a data e hora da sua
 
 Agora que os pacotes necessários estão instalados na VM e o NTP está configurado, ingresse a VM no domínio gerenciado AD DS do Azure.
 
-1. Use o comando `realm discover` para descobrir o domínio gerenciado do AD DS do Azure. O exemplo a seguir descobre o realm *AADDS. CONTOSO.COM*. Especifique seu próprio nome de domínio gerenciado AD DS do Azure em letras MAIÚSCULAs:
+1. Use o comando `realm discover` para descobrir o domínio gerenciado do AD DS do Azure. O exemplo a seguir descobre o realm *AADDSCONTOSO.com*. Especifique seu próprio nome de domínio gerenciado AD DS do Azure em letras MAIÚSCULAs:
 
     ```console
-    sudo realm discover AADDS.CONTOSO.COM
+    sudo realm discover AADDSCONTOSO.COM
     ```
 
    Se o comando `realm discover` não conseguir localizar seu domínio gerenciado do Azure AD DS, examine as seguintes etapas de solução de problemas:
 
-    * Verifique se o domínio está acessível da VM. Tente `ping aadds.contoso.com` para ver se uma resposta positiva é retornada.
+    * Verifique se o domínio está acessível da VM. Tente `ping aaddscontoso.com` para ver se uma resposta positiva é retornada.
     * Verifique se a VM está implantada no mesmo ou em uma rede virtual emparelhada na qual o domínio gerenciado do Azure AD DS está disponível.
     * Confirme se as configurações do servidor DNS para a rede virtual foram atualizadas para apontar para os controladores de domínio do domínio gerenciado AD DS do Azure.
 
 1. Agora, inicialize o Kerberos usando o comando `kinit`. Especifique um usuário que pertença ao grupo de *Administradores de DC do AAD* . Se necessário, [adicione uma conta de usuário a um grupo no Azure ad](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
-    Novamente, o nome de domínio gerenciado do AD DS do Azure deve ser inserido em letras MAIÚSCULAs. No exemplo a seguir, a conta chamada `contosoadmin@aadds.contoso.com` é usada para inicializar o Kerberos. Insira sua própria conta de usuário que seja membro do grupo de *Administradores de DC do AAD* :
+    Novamente, o nome de domínio gerenciado do AD DS do Azure deve ser inserido em letras MAIÚSCULAs. No exemplo a seguir, a conta chamada `contosoadmin@aaddscontoso.com` é usada para inicializar o Kerberos. Insira sua própria conta de usuário que seja membro do grupo de *Administradores de DC do AAD* :
 
     ```console
-    kinit contosoadmin@AADDS.CONTOSO.COM
+    kinit contosoadmin@AADDSCONTOSO.COM
     ```
 
-1. Por fim, ingresse o computador no domínio gerenciado AD DS do Azure usando o comando `realm join`. Use a mesma conta de usuário que é membro do grupo de *Administradores de DC do AAD* que você especificou no comando `kinit` anterior, como `contosoadmin@AADDS.CONTOSO.COM`:
+1. Por fim, ingresse o computador no domínio gerenciado AD DS do Azure usando o comando `realm join`. Use a mesma conta de usuário que é membro do grupo de *Administradores de DC do AAD* que você especificou no comando `kinit` anterior, como `contosoadmin@AADDSCONTOSO.COM`:
 
     ```console
-    sudo realm join --verbose AADDS.CONTOSO.COM -U 'contosoadmin@AADDS.CONTOSO.COM' --install=/
+    sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM' --install=/
     ```
 
 Leva alguns minutos para ingressar a VM no domínio gerenciado AD DS do Azure. A saída de exemplo a seguir mostra que a VM ingressou com êxito no domínio gerenciado do Azure AD DS:
@@ -248,10 +248,10 @@ Para conceder aos membros do grupo de *Administradores do AAD DC* privilégios a
 
 Para verificar se a VM foi unida com êxito ao domínio gerenciado AD DS do Azure, inicie uma nova conexão SSH usando uma conta de usuário de domínio. Confirme se um diretório base foi criado e se a associação de grupo do domínio foi aplicada.
 
-1. Crie uma nova conexão SSH no console do. Use uma conta de domínio que pertença ao domínio gerenciado usando o comando `ssh -l`, como `contosoadmin@aadds.contoso.com` e, em seguida, insira o endereço da VM, como *Ubuntu.aadds.contoso.com*. Se você usar o Azure Cloud Shell, use o endereço IP público da VM em vez do nome DNS interno.
+1. Crie uma nova conexão SSH no console do. Use uma conta de domínio que pertença ao domínio gerenciado usando o comando `ssh -l`, como `contosoadmin@aaddscontoso.com` e, em seguida, insira o endereço da VM, como *Ubuntu.aaddscontoso.com*. Se você usar o Azure Cloud Shell, use o endereço IP público da VM em vez do nome DNS interno.
 
     ```console
-    ssh -l contosoadmin@AADDS.CONTOSO.com ubuntu.aadds.contoso.com
+    ssh -l contosoadmin@AADDSCONTOSO.com ubuntu.aaddscontoso.com
     ```
 
 1. Quando você se conectou com êxito à VM, verifique se o diretório base foi inicializado corretamente:
@@ -276,7 +276,7 @@ Para verificar se a VM foi unida com êxito ao domínio gerenciado AD DS do Azur
     sudo apt-get update
     ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Se você tiver problemas para conectar a VM ao domínio gerenciado AD DS do Azure ou entrar com uma conta de domínio, consulte [Solucionando problemas de ingresso no domínio](join-windows-vm.md#troubleshoot-domain-join-issues).
 

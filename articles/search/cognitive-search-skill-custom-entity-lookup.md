@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 5c820b7e11c06f2d785da036f5174298caf56da6
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: d5e2813c71e9d6941eea7d11fb6565fb84fd0789
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76960601"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651331"
 ---
 #    <a name="custom-entity-lookup-cognitive-skill-preview"></a>Habilidade cognitiva de pesquisa de entidade personalizada (versão prévia)
 
@@ -36,7 +36,7 @@ Microsoft. Skills. Text. CustomEntityLookupSkill
 
 Os parâmetros diferenciam maiúsculas de minúsculas.
 
-| Nome do parâmetro     | Description |
+| Nome do parâmetro     | DESCRIÇÃO |
 |--------------------|-------------|
 | entitiesDefinitionUri | Caminho para um arquivo JSON ou CSV que contém todo o texto de destino para correspondência. Esta definição de entidade é lida no início de uma execução de indexador; as atualizações para esse arquivo mid-Run não serão realizadas até as execuções subsequentes. Essa configuração deve ser acessível via HTTPS. Consulte formato de [definição de entidade personalizada](#custom-entity-definition-format) "abaixo para obter o esquema CSV ou JSON esperado.|
 |inlineEntitiesDefinition | Definições de entidade JSON embutida. Esse parâmetro substitui o parâmetro entitiesDefinitionUri, se presente. No máximo 10 KB de configuração podem ser fornecidos embutidos. Consulte a [definição de entidade personalizada](#custom-entity-definition-format) abaixo para obter o esquema JSON esperado. |
@@ -45,7 +45,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada      | Description                   |
+| Nome de entrada      | DESCRIÇÃO                   |
 |---------------|-------------------------------|
 | text          | O texto para analisar.          |
 | languageCode  | Opcional. O padrão é `"en"`.  |
@@ -54,7 +54,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 ## <a name="skill-outputs"></a>Saídas de habilidades
 
 
-| Nome de saída     | Description                   |
+| Nome de saída     | DESCRIÇÃO                   |
 |---------------|-------------------------------|
 | entidades | Uma matriz de objetos que contém informações sobre as correspondências que foram encontradas e os metadados relacionados. Cada uma das entidades identificadas pode conter os seguintes campos:  <ul> <li> *nome*: a entidade de nível superior identificada. A entidade representa o formulário "normalizado". </li> <li> *ID*: um identificador exclusivo para a entidade, conforme definido pelo usuário no "formato de definição de entidade personalizada".</li> <li> *Descrição*: Descrição da entidade conforme definida pelo usuário no "formato de definição de entidade personalizada". </li> <li> *tipo:* Tipo de entidade, conforme definido pelo usuário no "formato de definição de entidade personalizada".</li> <li> *subtipo:* Subtipo de entidade, conforme definido pelo usuário no "formato de definição de entidade personalizada".</li>  <li> *corresponde*: coleção que descreve cada uma das correspondências para essa entidade no texto de origem. Cada correspondência terá os seguintes membros: </li> <ul> <li> *texto*: a correspondência de texto bruto do documento de origem. </li> <li> *offset*: o local onde a correspondência foi encontrada no texto. </li> <li> *comprimento*: o comprimento do texto correspondente. </li> <li> *matchDistance*: o número de caracteres diferente dessa correspondência era do nome ou alias da entidade original.  </li> </ul> </ul>
   |
@@ -63,7 +63,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 Há 3 maneiras diferentes de fornecer a lista de entidades personalizadas para a habilidade de pesquisa de entidade personalizada. Você pode fornecer a lista em um. Arquivo CSV, a. Arquivo JSON ou como uma definição embutida como parte da definição de habilidade.  
 
-Se o arquivo de definição for um. CSV ou. Arquivo JSON, o caminho do arquivo precisa ser fornecido como parte do parâmetro *entitiesDefitionUri* . Nesse caso, o arquivo é baixado uma vez no início de cada execução do indexador. O arquivo deve estar acessível contanto que o indexador tenha a finalidade de ser executado.
+Se o arquivo de definição for um. CSV ou. Arquivo JSON, o caminho do arquivo precisa ser fornecido como parte do parâmetro *entitiesDefitionUri* . Nesse caso, o arquivo é baixado uma vez no início de cada execução do indexador. O arquivo deve estar acessível contanto que o indexador tenha a finalidade de ser executado. Além disso, o arquivo deve ser codificado em UTF-8.
 
 Se a definição for fornecida em linha, ela deverá ser fornecida como embutida como o conteúdo do parâmetro de habilidade *inlineEntitiesDefinition* . 
 
@@ -143,7 +143,7 @@ Um exemplo mais complexo de uma definição de JSON pode, opcionalmente, fornece
 
 As tabelas a seguir descrevem mais detalhadamente os diferentes parâmetros de configuração que você pode definir ao definir as entidades para correspondência:
 
-|  Nome do campo  |        Description  |
+|  Nome do campo  |        DESCRIÇÃO  |
 |--------------|----------------------|
 | name | O descritor de entidade de nível superior. As correspondências na saída da habilidade serão agrupadas por esse nome e deverão representar a forma "normalizada" do texto que está sendo encontrado.  |
 | descrição  | Adicional Esse campo pode ser usado como uma passagem para metadados personalizados sobre os textos correspondentes. O valor desse campo será exibido com cada correspondência de sua entidade na saída da habilidade. |
@@ -156,7 +156,7 @@ As tabelas a seguir descrevem mais detalhadamente os diferentes parâmetros de c
 | defaultFuzzyEditDistance | Adicional Altera o valor de distância de edição difusa padrão para esta entidade. Ele pode ser usado para alterar o valor padrão de todos os aliases fuzzyEditDistance valores. |
 | aliases | Adicional Uma matriz de objetos complexos que pode ser usada para especificar grafias alternativas ou sinônimos para o nome da entidade raiz. |
 
-| Propriedades do alias | Description |
+| Propriedades do alias | DESCRIÇÃO |
 |------------------|-------------|
 | text  | A grafia alternativa ou a representação de algum nome de entidade de destino.  |
 | caseSensitive | Adicional Age da mesma forma que o parâmetro "caseSensitive" da entidade raiz acima, mas aplica-se somente a esse alias. |
@@ -296,7 +296,7 @@ Como alternativa, se você decidir fornecer um ponteiro para o arquivo de defini
   } 
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 + [Habilidades internas](cognitive-search-predefined-skills.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)

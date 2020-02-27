@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: a31076d17ebaf8020fe4b3f82594b98a7c3bde74
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f920a789f1ec631c5d70863b10d8364b3eb81b6c
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977447"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650462"
 ---
 # <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>Criar um plano de continuidade de negócios para o seu serviço QnA Maker
 
@@ -37,7 +37,7 @@ A ideia de alto nível como representada acima é a seguinte:
 
 6. Por fim, use o ponto de extremidade do gerenciador de tráfego em seu bot ou aplicativo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Escolher a capacidade para sua implantação do QnA Maker](../Tutorials/choosing-capacity-qnamaker-deployment.md)
+> [Escolha capactiy](./improve-knowledge-base.md)

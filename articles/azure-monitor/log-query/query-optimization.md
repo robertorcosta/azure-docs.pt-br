@@ -6,16 +6,16 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/24/2019
-ms.openlocfilehash: 32eee22aa8e9b707d404cb85db6b7fae90d11987
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.date: 02/25/2019
+ms.openlocfilehash: 521fd84e79196439ea220bd7ffa7cc6d0750f045
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589838"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648828"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Otimizar consultas de log no Azure Monitor
-Os logs de Azure Monitor usam o [Data Explorer do Azure (ADX)](/azure/data-explorer/) para armazenar e gerenciar seus logs e consultas. Ele cria, gerencia e mantém os clusters ADX para você e os otimiza para sua carga de trabalho de análise de log. Quando você executa uma consulta, ela é otimizada e roteada para o cluster ADX apropriado que armazena o espaço de trabalho. Os logs de Azure Monitor e o Data Explorer do Azure usam muitos mecanismos de otimização de consulta automática. Embora as otimizações automáticas forneçam um aumento significativo, elas estão em alguns casos em que você pode melhorar drasticamente o desempenho da consulta. Este artigo explica as considerações de desempenho e várias técnicas para corrigi-las.
+Os logs de Azure Monitor usam o [Data Explorer do Azure (ADX)](/azure/data-explorer/) para armazenar dados de log e executar consultas para analisar esses dados. Ele cria, gerencia e mantém os clusters ADX para você e os otimiza para sua carga de trabalho de análise de log. Quando você executa uma consulta, ela é otimizada e roteada para o cluster ADX apropriado que armazena os dados do espaço de trabalho. Os logs de Azure Monitor e o Data Explorer do Azure usam muitos mecanismos de otimização de consulta automática. Embora as otimizações automáticas forneçam um aumento significativo, elas estão em alguns casos em que você pode melhorar drasticamente o desempenho da consulta. Este artigo explica as considerações de desempenho e várias técnicas para corrigi-las.
 
 A maioria das técnicas é comum a consultas que são executadas diretamente no Azure Data Explorer e nos logs de Azure Monitor, embora haja várias considerações de logs de Azure Monitor exclusivas que são discutidas aqui. Para obter mais dicas de otimização de Data Explorer do Azure, consulte [práticas recomendadas de consulta](/azure/kusto/query/best-practices).
 
@@ -24,7 +24,7 @@ Consultas otimizadas irão:
 - Execute mais rápido, reduza a duração geral da execução da consulta.
 - Ter menos chances de ser limitado ou rejeitado.
 
-Você deve dar atenção especial às consultas que são usadas para uso recorrente e intermitente, como painéis e Power BI. O impacto de uma consulta ineficaz nesses casos é substancial.
+Você deve dar atenção especial às consultas que são usadas para uso recorrente e intermitente, como dashboards, alertas, aplicativos lógicos e Power BI. O impacto de uma consulta ineficaz nesses casos é substancial.
 
 ## <a name="query-performance-pane"></a>Painel de desempenho de consulta
 Depois de executar uma consulta no Log Analytics, clique na seta para baixo acima dos resultados da consulta para exibir o painel desempenho da consulta que mostra os resultados de vários indicadores de desempenho para a consulta. Esses indicadores de desempenho são descritos na seção a seguir.
@@ -38,11 +38,11 @@ Os seguintes indicadores de desempenho de consulta estão disponíveis para cada
 
 - [Total de CPU](#total-cpu): computação geral usada para processar a consulta em todos os nós de computação. Ele representa o tempo usado para computação, análise e busca de dados. 
 
-- [Dados usados para consulta processada](#data-used-for-query-processing): dados gerais que foram acessados para processar a consulta. Influenciado pelo tamanho da tabela de destino, pelo período de tempo usado, pelos filtros aplicados e pelo número de colunas referenciadas.
+- [Dados usados para consulta processada](#data-used-for-processed-query): dados gerais que foram acessados para processar a consulta. Influenciado pelo tamanho da tabela de destino, pelo período de tempo usado, pelos filtros aplicados e pelo número de colunas referenciadas.
 
-- Período [de tempo da consulta processada](#time-range-of-the-data-processed): a lacuna entre os dados mais recentes e mais antigos que foram acessados para processar a consulta. Influenciado pelo intervalo de tempo explícito da consulta e filtros aplicados. Pode ser maior do que o intervalo de tempo explícito devido ao particionamento de dados.
+- Período [de tempo da consulta processada](#time-span-of-the-processed-query): a lacuna entre os dados mais recentes e mais antigos que foram acessados para processar a consulta. Influenciado pelo intervalo de tempo explícito especificado para a consulta.
 
-- [Idade dos dados processados](#age-of-the-oldest-data-used): a lacuna entre agora e os dados mais antigos que foram acessados para processar a consulta. Ele é altamente influencia a eficiência da busca de dados.
+- [Idade dos dados processados](#age-of-processed-data): a lacuna entre agora e os dados mais antigos que foram acessados para processar a consulta. Ele é altamente influencia a eficiência da busca de dados.
 
 - [Número de espaços de trabalho](#number-of-workspaces): quantos espaços de trabalho foram acessados durante o processamento da consulta devido à seleção implícita ou explícita.
 
@@ -123,7 +123,7 @@ Perf
 by CounterPath
 ```
 
-O consumo de CPU também pode ser afetado por condições ou colunas estendidas que exigem computação intensiva. Todas as comparações de cadeia de caracteres triviais como igual a = [=](/azure/kusto/query/datatypes-string-operators) e [StartsWith](/azure/kusto/query/datatypes-string-operators) têm aproximadamente o mesmo impacto de CPU enquanto as correspondências de texto avançadas têm mais impacto. Especificamente, o operador tem é mais eficiente que o operador Contains. Devido a técnicas de manipulação de cadeias de caracteres, é mais eficiente procurar cadeias de caracteres com mais de quatro caracteres do que as cadeias curtas.
+O consumo de CPU também pode ser afetado por condições ou colunas estendidas que exigem computação intensiva. Todas as comparações de cadeia de caracteres triviais como igual a = [=](/azure/kusto/query/datatypes-string-operators) e [StartsWith](/azure/kusto/query/datatypes-string-operators) têm aproximadamente o mesmo impacto de CPU enquanto as correspondências de texto avançadas têm mais impacto. Especificamente, o operador [tem](/azure/kusto/query/datatypes-string-operators) é mais eficiente que o operador [Contains](/azure/kusto/query/datatypes-string-operators) . Devido a técnicas de manipulação de cadeias de caracteres, é mais eficiente procurar cadeias de caracteres com mais de quatro caracteres do que as cadeias curtas.
 
 Por exemplo, as consultas a seguir produzem resultados semelhantes, dependendo da política de nomenclatura do computador, mas a segunda é mais eficiente:
 
@@ -151,7 +151,7 @@ Heartbeat
 > Esse indicador apresenta apenas a CPU do cluster imediato. Na consulta de várias regiões, ele representaria apenas uma das regiões. Na consulta de vários espaços de trabalho, ele pode não incluir todos os espaços de trabalho.
 
 
-## <a name="data-used-for-query-processing"></a>Dados usados para processamento de consulta
+## <a name="data-used-for-processed-query"></a>Dados usados para consulta processada
 
 Um fator crítico no processamento da consulta é o volume de dados que é verificado e usado para o processamento da consulta. O Azure Data Explorer usa otimizações agressivas que reduzem drasticamente o volume de dados em comparação com outras plataformas de dados. Ainda assim, há fatores críticos na consulta que podem afetar o volume de dados que é usado.
 Nos logs de Azure Monitor, a coluna **TimeGenerated** é usada como uma maneira de indexar os dados. A restrição dos valores **TimeGenerated** para o mais estreito possível fará uma melhoria significativa no desempenho da consulta, limitando significativamente a quantidade de dados a serem processados.
@@ -209,7 +209,7 @@ SecurityEvent
 | summarize count(), dcount(EventID), avg(Level) by Computer  
 ```
 
-## <a name="time-range-of-the-data-processed"></a>Intervalo de tempo dos dados processados
+## <a name="time-span-of-the-processed-query"></a>Período de tempo da consulta processada
 
 Todos os logs em logs de Azure Monitor são particionados de acordo com a coluna **TimeGenerated** . O número de partições acessadas está diretamente relacionado ao período de tempo. Reduzir o intervalo de tempo é a maneira mais eficiente de garantir uma execução de consulta de prompt.
 
@@ -259,14 +259,10 @@ by Computer
 ) on Computer
 ```
 
-A medida é sempre maior do que o tempo real especificado. Por exemplo, se o filtro na consulta for de sete dias, o sistema poderá verificar 7,5 ou 8,1 dias. Isso ocorre porque o sistema está particionando os dados em partes em tamanho variável. Para garantir que todos os registros relevantes sejam verificados, ele verifica toda a partição que pode abranger várias horas e ainda mais do que um dia.
+> [!IMPORTANT]
+> Esse indicador não está disponível para consultas entre regiões.
 
-Há vários casos em que o sistema não pode fornecer uma medição precisa do intervalo de tempo. Isso acontece na maioria dos casos em que o intervalo da consulta é menor que um dia ou em consultas de vários espaços de trabalho.
-
-> [!NOTE]
-> Esse indicador apresenta apenas os dados processados no cluster imediato. Na consulta de várias regiões, ele representaria apenas uma das regiões. Na consulta de vários espaços de trabalho, ele pode não incluir todos os espaços de trabalho.
-
-## <a name="age-of-the-oldest-data-used"></a>Idade dos dados mais antigos usados
+## <a name="age-of-processed-data"></a>Idade dos dados processados
 O Azure Data Explorer usa várias camadas de armazenamento: em memória, discos SSD locais e BLOBs do Azure muito mais lentos. Quanto mais novos os dados, mais alto é a chance de que ele seja armazenado em uma camada mais eficaz com menor latência, reduzindo a duração da consulta e a CPU. Além dos dados em si, o sistema também tem um cache para metadados. Quanto mais antigos os dados, menos chance seus metadados estarão no cache.
 
 Embora algumas consultas exijam o uso de dados antigos, há casos em que os dados antigos são usados por engano. Isso acontece quando as consultas são executadas sem fornecer um intervalo de tempo em seus metadados e nem todas as referências de tabela incluem o filtro na coluna **TimeGenerated** . Nesses casos, o sistema examinará todos os dados armazenados nessa tabela. Quando a retenção de dados é longa, ela pode cobrir intervalos de tempo longos e, portanto, dados tão antigos quanto o período de retenção de dados.
@@ -289,7 +285,7 @@ A execução de consulta entre regiões exige que o sistema Serialize e transfir
 Se não houver nenhum motivo para verificar todas essas regiões, você deve ajustar o escopo para abranger menos regiões. Se o escopo do recurso for minimizado, mas ainda muitas regiões forem usadas, isso pode acontecer devido a uma configuração incorreta. Por exemplo, os logs de auditoria e as configurações de diagnóstico são enviados para espaços de trabalho diferentes em regiões diferentes ou há várias configurações de configurações de diagnóstico. 
 
 > [!IMPORTANT]
-> Quando uma consulta é executada em várias regiões, as medições de CPU e dados não serão precisas e representarão a medida somente em uma das regiões.
+> Esse indicador não está disponível para consultas entre regiões.
 
 ## <a name="number-of-workspaces"></a>Número de espaços de trabalho
 Os espaços de trabalho são contêineres lógicos que são usados para separar e administrar dados de logs. O back-end otimiza os posicionamentos de espaço de trabalho em clusters físicos na região selecionada.
@@ -305,7 +301,7 @@ A execução de consultas entre regiões e entre clusters exige que o sistema Se
 > Em alguns cenários de vários espaços de trabalho, as medições de CPU e dados não serão precisas e representarão a medida apenas para alguns dos espaços de trabalho.
 
 ## <a name="parallelism"></a>Paralelismo
-Os logs de Azure Monitor estão usando clusters grandes do Data Explorer do Azure para executar as consultas. Esses clusters variam em escala, potencialmente recebendo até 140 nós de computação. O sistema dimensiona automaticamente os clusters de acordo com a lógica e a capacidade de posicionamento do espaço de trabalho.
+Os logs de Azure Monitor estão usando clusters grandes do Data Explorer do Azure para executar consultas, e esses clusters variam em escala. O sistema dimensiona automaticamente os clusters de acordo com a lógica e a capacidade de posicionamento do espaço de trabalho.
 
 Para executar uma consulta com eficiência, ela é particionada e distribuída para nós de computação com base nos dados necessários para seu processamento. Há algumas situações em que o sistema não pode fazer isso com eficiência. Isso pode levar a uma longa duração da consulta. 
 

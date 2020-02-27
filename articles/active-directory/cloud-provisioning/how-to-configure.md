@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 853950cf441007eac0170f32f28f2d9c16a71292
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: c086227d23901cb7904d8cc0a768e9f4b5ad43db
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75549424"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620982"
 ---
-# <a name="azure-ad-connect-cloud-provisioning-new-agent-configuration"></a>Configuração de novo agente de provisionamento de Azure AD Connect nuvem
+# <a name="create-a-new-configuration-for-azure-ad-connect-cloud-based-provisioning"></a>Criar uma nova configuração para Azure AD Connect provisionamento baseado em nuvem
 
 Depois de instalar o agente, você precisa entrar no portal do Azure e configurar o provisionamento de nuvem do Azure Active Directory (Azure AD) Connect. Siga estas etapas para habilitar o agente.
 
@@ -56,7 +56,8 @@ Você pode fazer o escopo do agente para sincronizar usuários e grupos específ
 
     ![Opção de grupos de segurança selecionados](media/how-to-configure/scope3.png)
 
-1.  Ou você pode alterar o escopo para incluir apenas unidades organizacionais específicas. Selecione **concluído** e **salvar**.
+1.  Ou você pode alterar o escopo para incluir apenas unidades organizacionais específicas. Selecione **concluído** e **salvar**.  
+2.  Depois de alterar o escopo, você deve [reiniciar o provisionamento](#restart-provisioning) para iniciar uma sincronização imediata das alterações.
 
     ![Opção de unidades organizacionais selecionadas](media/how-to-configure/scope4.png)
 
@@ -90,7 +91,7 @@ Para excluir uma configuração, siga estas etapas.
 >Não há nenhuma confirmação antes de excluir uma configuração. Certifique-se de que essa é a ação que você deseja executar antes de selecionar **excluir**.
 
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Próximas etapas 
 
 - [O que é provisionamento?](what-is-provisioning.md)
 - [O que é o provisionamento em nuvem do Azure AD Connect?](what-is-cloud-provisioning.md)

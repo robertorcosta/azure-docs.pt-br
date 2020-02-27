@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 02/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a65145fe9752a90e3328c308ce603c8626d8708
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7f7f6f31c4d2f67660fef507ce101b2d15897d51
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74380872"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620863"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como bloquear a autenticação herdada no Azure AD com acesso condicional   
 
@@ -24,7 +24,7 @@ Para fornecer aos usuários acesso fácil aos aplicativos na nuvem, o Azure AD (
 
 Se o seu ambiente estiver pronto para bloquear a autenticação herdada para melhorar a proteção do locatário, você poderá atingir esse objetivo com o acesso condicional. Este artigo explica como você pode configurar políticas de acesso condicional que bloqueiam a autenticação herdada para seu locatário.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Este artigo pressupõe que você esteja familiarizado com: 
 
@@ -48,13 +48,30 @@ As políticas de Acesso Condicional são impostas após a conclusão da autentic
 
 Esta seção explica como configurar uma política de acesso condicional para bloquear a autenticação herdada. 
 
+### <a name="legacy-authentication-protocols"></a>Protocolos de autenticação herdados
+
+As opções a seguir são consideradas protocolos de autenticação herdados
+
+- SMTP autenticado-usado pelo cliente POP e IMAP para enviar mensagens de email.
+- Descoberta automática-usada pelos clientes do Outlook e do EAS para localizar e conectar-se às caixas de correio no Exchange Online.
+- Exchange Online PowerShell-usado para se conectar ao Exchange Online com o PowerShell remoto. Se você bloquear a autenticação básica para o Exchange Online PowerShell, será necessário usar o módulo do PowerShell do Exchange Online para se conectar. Para obter instruções, consulte [conectar-se ao Exchange Online PowerShell usando a autenticação multifator](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
+- Serviços Web do Exchange (EWS)-uma interface de programação usada pelo Outlook, Outlook para Mac e aplicativos de terceiros.
+- IMAP4 – usado por clientes de email IMAP.
+- MAPI sobre HTTP (MAPI/HTTP) – usado pelo Outlook 2010 e posterior.
+- OAB (catálogo de endereços offline) – uma cópia das coleções de listas de endereços que são baixadas e usadas pelo Outlook.
+- Outlook Anywhere (RPC sobre HTTP) – usado pelo Outlook 2016 e anterior.
+- Serviço do Outlook – usado pelo aplicativo de email e calendário para Windows 10.
+- POP3-usado por clientes de email POP.
+- Serviços Web de relatórios-usados para recuperar dados de relatório no Exchange Online.
+- Outros clientes-outros protocolos identificados como utilizando a autenticação herdada.
+
 ### <a name="identify-legacy-authentication-use"></a>Identificar o uso de autenticação herdada
 
 Antes de poder bloquear a autenticação herdada em seu diretório, primeiro você precisa entender se os usuários têm aplicativos que usam autenticação herdada e como ele afeta o diretório geral. Os logs de entrada do Azure AD podem ser usados para entender se você está usando a autenticação herdada.
 
 1. Navegue até o **portal do Azure** > **Azure Active Directory** > **entradas**.
 1. Adicione a coluna aplicativo cliente se ela não for exibida clicando em **colunas** > **aplicativo cliente**.
-1. **Adicionar filtros** > **aplicativo cliente** > selecione todas as opções para **outros clientes** e clique em **aplicar**.
+1. **Adicionar filtros** > **aplicativo cliente** > selecione todos os protocolos de autenticação herdados e clique em **aplicar**.
 
 A filtragem mostrará apenas as tentativas de entrada feitas por protocolos de autenticação herdados. Clicar em cada tentativa de entrada individual mostrará detalhes adicionais. O campo **aplicativo cliente** na guia **informações básicas** indicará qual protocolo de autenticação herdado foi usado.
 
@@ -74,7 +91,7 @@ Para bloquear o acesso a esses aplicativos, é necessário selecionar **Bloquear
 
 Se você quiser bloquear a autenticação herdada para sua organização, provavelmente pressupõe que é possível fazer isso, selecionando:
 
-- Todos os usuários
+- todos os usuários
 - Todos os aplicativos em nuvem
 - Acesso bloqueado
 

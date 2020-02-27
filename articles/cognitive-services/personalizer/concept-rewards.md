@@ -1,31 +1,26 @@
 ---
 title: Pontuação de recompensa – Personalizador
-titleSuffix: Azure Cognitive Services
 description: A pontuação da recompensa indica como foi o resultado da escolha de personalização, RewardActionID, para o usuário. O valor da pontuação de recompensa é determinado pela sua lógica de negócios, com base em observações do comportamento do usuário. O personalizador treina seus modelos de machine learning avaliando as recompensas.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.date: 02/20/2020
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.author: diberry
-ms.openlocfilehash: a47d6014e51dce81c9caf82f8624896c439f050d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 734e4d0fdcec25884f8535ec61ccd10569fa8890
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490878"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623776"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Pontuações de recompensa indicam o sucesso da personalização
 
 A pontuação da recompensa indica como foi o resultado da escolha de personalização, [RewardActionID](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/rank/rank#response), para o usuário. O valor da pontuação de recompensa é determinado pela sua lógica de negócios, com base em observações do comportamento do usuário.
 
-O personalizador treina seus modelos de machine learning avaliando as recompensas. 
+O personalizador treina seus modelos de machine learning avaliando as recompensas.
+
+Saiba [como](how-to-settings.md#configure-rewards-for-the-feedback-loop) configurar a pontuação de recompensa padrão no portal do Azure para o recurso personalizador.
 
 ## <a name="use-reward-api-to-send-reward-score-to-personalizer"></a>Usar a API de Recompensa para enviar pontuação de recompensa ao Personalizador
 
-As recompensas são enviadas ao Personalizador pela [API de Recompensa](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward). Normalmente, um prêmio é um número de 0 e 1. Um prêmio negativo, com o valor de-1, é possível em determinados cenários e só deve ser usado se você tiver experiência com o reforço Learning (RL). O Personalizador treina o modelo para obter a soma mais alta possível de recompensas ao longo do tempo.
+As recompensas são enviadas ao Personalizador pela [API de Recompensa](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward). Normalmente, um prêmio é um número de 0 a 1. Um prêmio negativo, com o valor de-1, é possível em determinados cenários e só deve ser usado se você tiver experiência com o reforço Learning (RL). O Personalizador treina o modelo para obter a soma mais alta possível de recompensas ao longo do tempo.
 
 As recompensas são enviadas depois que o comportamento do usuário ocorre, o que pode ser dias mais tarde. O tempo máximo que o Personalizador aguardará até que um evento seja considerado para receber nenhuma recompensa ou uma recompensa padrão está configurado no [Tempo de espera de recompensa](#reward-wait-time) no portal do Azure.
 
@@ -47,16 +42,16 @@ Considere esses sinais e comportamentos para o contexto da pontuação de recomp
 
 Uma pontuação de recompensa deve ser calculada em sua lógica de negócios. A pontuação pode ser representada como:
 
-* Um único número enviado uma vez 
+* Um único número enviado uma vez
 * Uma pontuação enviada imediatamente (por exemplo, 0,8) e uma pontuação adicional enviada mais tarde (normalmente, 0,2).
 
 ## <a name="default-rewards"></a>Recompensas padrão
 
 Se nenhuma recompensa for recebida dentro do [Tempo de espera de recompensa](#reward-wait-time), a duração desde a chamada de classificação, o Personalizador aplicará implicitamente a **recompensa padrão** a esse evento de classificação.
 
-## <a name="building-up-rewards-with-multiple-factors"></a>Como criar remunerações com vários fatores  
+## <a name="building-up-rewards-with-multiple-factors"></a>Como criar remunerações com vários fatores
 
-Para uma personalização efetiva, você pode criar a pontuação de recompensa com base em vários fatores. 
+Para uma personalização efetiva, você pode criar a pontuação de recompensa com base em vários fatores.
 
 Por exemplo, você pode aplicar estas regras para personalizar uma lista de conteúdo de vídeo:
 
@@ -93,8 +88,8 @@ Ao adicionar pontuações de recompensa, sua recompensa final pode estar fora do
 * **Considere consequências indesejadas**: Crie funções de recompensa que levam a resultados responsáveis com [ética e uso responsável](ethics-responsible-use.md).
 
 * **Usar recompensas incrementais**: a adição de recompensas parciais para comportamentos menores de usuário ajuda a personalizar a obtenção de melhores recompensas. Essa recompensa incremental permite que o algoritmo saiba que está ficando mais perto de envolver o usuário no comportamento final desejado.
-    * Se você estiver exibindo uma lista de filmes e o usuário passar o mouse sobre o primeiro por um tempo para ver mais informações, você poderá determinar que ocorreu algum envolvimento do usuário. O comportamento pode contar com uma pontuação de recompensa de 0,1. 
-    * Se o usuário abriu a página e, em seguida, saiu, a pontuação de recompensa pode ser 0,2. 
+    * Se você estiver exibindo uma lista de filmes e o usuário passar o mouse sobre o primeiro por um tempo para ver mais informações, você poderá determinar que ocorreu algum envolvimento do usuário. O comportamento pode contar com uma pontuação de recompensa de 0,1.
+    * Se o usuário abriu a página e, em seguida, saiu, a pontuação de recompensa pode ser 0,2.
 
 ## <a name="reward-wait-time"></a>Tempo de espera de recompensa
 
@@ -106,12 +101,12 @@ Se o **Tempo de espera de recompensa** expirar e não houver nenhuma informaçã
 
 Siga estas recomendações para obter melhores resultados.
 
-* Defina o menor tempo de espera de recompensa possível, deixando tempo suficiente para obter comentários dos usuários. 
+* Defina o menor tempo de espera de recompensa possível, deixando tempo suficiente para obter comentários dos usuários.
 
 * Não escolha uma duração menor do que o tempo necessário para receber comentários. Por exemplo, se alguma das suas recompensas ocorrer depois que um usuário tiver assistido a um minuto de um vídeo, a duração do experimento deverá ter pelo menos o dobro disso.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Aprendizado de reforço](concepts-reinforcement-learning.md) 
+* [Aprendizado de reforço](concepts-reinforcement-learning.md)
 * [Testar a API de Classificação](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank/console)
 * [Testar a API de Recompensa](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward)

@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: b505a90057a213d7f64d4d168a6a70da0ff03c2f
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 44e4114b328701d5de363e91f5562f1daad351c6
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485294"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621069"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Associações do Barramento de Serviço para o Azure Functions
 
@@ -30,11 +30,11 @@ Trabalhar com o gatilho e as associações exige que você referencie o pacote a
 
 | Linguagem                                        | Adicionar por...                                   | Comentários 
 |-------------------------------------------------|---------------------------------------------|-------------|
-| C#                                              | Instalando o [pacote NuGet], versão 3. x | |
+| C#                                              | Instalando o [pacote NuGet], versão 4. x | |
 | C#Script, Java, JavaScript, Python, PowerShell | Registrando o [pacote de extensão]          | A [extensão de ferramentas do Azure] é recomendada para uso com Visual Studio Code. |
 | C#Script (somente online em portal do Azure)         | Adicionando uma associação                            | Para atualizar as extensões de associação existentes sem precisar republicar seu aplicativo de funções, consulte [atualizar suas extensões]. |
 
-[Pacote NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus
+[Pacote NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/
 [core tools]: ./functions-run-local.md
 [pacote de extensão]: ./functions-bindings-register.md#extension-bundles
 [Atualizar suas extensões]: ./install-update-binding-extensions-manual.md

@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 54ad9109a23b0fb25470987c2bc863934864b83f
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: b31d0237f04ef535fa6528d5b3a04e5ee7256e22
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77580661"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623671"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Acessar dados nos serviços de armazenamento do Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -84,13 +84,12 @@ No entanto, para Azure Data Lake Storage armazenamentos de dados Gen 1 e 2, essa
 
 Todos os métodos de registro estão na classe [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) e têm o formulário `register_azure_*`.
 
-Você pode encontrar as informações necessárias para preencher o método `register()` usando o [portal do Azure](https://portal.azure.com):
+Você pode encontrar as informações necessárias para preencher o método `register()` no [portal do Azure](https://portal.azure.com).
+Selecione **contas de armazenamento** no painel esquerdo e escolha a conta de armazenamento que você deseja registrar. A página **visão geral** fornece informações como o nome da conta, o contêiner e o nome do compartilhamento de arquivos. 
 
-1. Selecione **contas de armazenamento** no painel esquerdo e escolha a conta de armazenamento que você deseja registrar. 
-2. Para obter informações como o nome da conta, o contêiner e o nome do compartilhamento de arquivos, vá para a página **visão geral** . 
-3. Para obter informações de autenticação, como chave de conta ou token SAS, acesse **chaves de acesso** no painel **configurações** . 
+* Para itens de autenticação, como chave de conta ou token SAS, vá para **chaves de conta** no painel **configurações** . 
 
-4. Para itens de entidade de serviço como, ID do locatário e ID do cliente, vá para a página **visão geral** do seu **registros de aplicativo**. 
+* Para itens de entidade de serviço como, ID do locatário e ID do cliente, vá para o **registros de aplicativo** e selecione qual aplicativo você deseja usar. Sua página de **visão geral** correspondente conterá esses itens.
 
 > [!IMPORTANT]
 > Se sua conta de armazenamento estiver em uma rede virtual, haverá suporte para a criação de BLOB, compartilhamento de arquivos, ADLS Gen 1 e ADLS de armazenamento Gen 2 **por meio do SDK** . Para conceder ao seu espaço de trabalho acesso à sua conta de armazenamento, defina o parâmetro `grant_workspace_access` como `True`.
@@ -137,7 +136,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 #### <a name="azure-data-lake-storage-generation-2"></a>Azure Data Lake Storage geração 2
 
-Para um repositório de armazenamento de Azure Data Lake Storage geração 2 (ADLS Gen 2), use [register_azure_data_lake_gen2 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) para registrar um repositório de armazenamento de credenciais conectado a um armazenamento do Azure datalake Gen 2 com [permissões de entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Para utilizar sua entidade de serviço, você precisa [registrar seu aplicativo](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). Saiba mais sobre o [controle de acesso configurado para o ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
+Para um repositório de armazenamento de Azure Data Lake Storage geração 2 (ADLS Gen 2), use [register_azure_data_lake_gen2 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) para registrar um repositório de armazenamento de credenciais conectado a um armazenamento do Azure datalake Gen 2 com [permissões de entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Para utilizar sua entidade de serviço, você precisa [registrar seu aplicativo](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) e definir atribuições de função para leitor e acesso a dados. Saiba mais sobre o [controle de acesso configurado para o ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
 O código a seguir cria e registra o repositório de armazenamento de `adlsgen2_datastore_name` no espaço de trabalho `ws`. Esse repositório de armazenamento acessa o sistema de arquivos `test` na conta de armazenamento de `account_name`, usando as credenciais de entidade de serviço fornecidas.
 
@@ -177,7 +176,7 @@ Você pode encontrar as informações necessárias para preencher o formulário 
 
 * Para itens de autenticação, como chave de conta ou token SAS, vá para **chaves de conta** no painel **configurações** . 
 
-* Para itens de entidade de serviço como, ID do locatário e ID do cliente, vá para a página **visão geral** do seu **registros de aplicativo**. 
+* Para itens de entidade de serviço como, ID do locatário e ID do cliente, vá para o **registros de aplicativo** e selecione qual aplicativo você deseja usar. Sua página de **visão geral** correspondente conterá esses itens. 
 
 O exemplo a seguir demonstra a aparência do formulário quando você cria um repositório de armazenamento de BLOBs do Azure: 
     

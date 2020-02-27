@@ -1,5 +1,5 @@
 ---
-title: Proteção contra DDoS do Azure-criando soluções resilientes | Microsoft Docs
+title: Criando soluções resilientes com a proteção contra DDoS do Azure
 description: Saiba mais sobre como você pode usar os dados de log para obter informações detalhadas sobre seu aplicativo.
 services: security
 author: barclayn
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: ac36a4c59dbec8bf27850de1565e86b78643148a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 8d3fc809999508bf3d49c3765c90017e89e80fa7
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595415"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624049"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Proteção contra DDoS do Azure-criando soluções resilientes
 

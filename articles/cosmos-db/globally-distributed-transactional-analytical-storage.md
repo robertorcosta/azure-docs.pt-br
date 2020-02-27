@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 18cf43ba137c92fc00d5f8e82e13501d03b4b6a3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1c2b79f8d0641b1a1386329a2add14ded766bf5a
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445396"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623391"
 ---
 # <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>Armazenamento analítico e transacional distribuído globalmente para contêineres de Cosmos do Azure
 
@@ -30,7 +30,7 @@ O mecanismo de armazenamento transacional tem o respaldo do SSDs local, enquanto
 |Recurso  |Armazenamento transacional  |Armazenamento analítico |
 |---------|---------|---------|
 |Armazenamento máximo por um contêiner Cosmos do Azure |   Ilimitado      |    Ilimitado     |
-|Armazenamento máximo por uma chave de partição lógica   |   10 GB      |   Ilimitado      |
+|Armazenamento máximo por uma chave de partição lógica   |   20 GB      |   Ilimitado      |
 |Codificação de armazenamento  |   Orientado por linha, usando um formato interno.   |   Orientado por coluna, usando o formato Apache parquet. |
 |Localidade de armazenamento |   Armazenamento replicado apoiado por SSDs local/dentro do cluster. |  Armazenamento replicado apoiado por SSDs de baixo custo remoto/fora do cluster.       |
 |Durabilidade  |    99,99999 (7-9 s)     |  99,99999 (7-9 s)       |
@@ -67,6 +67,6 @@ Em uma determinada região, as cargas de trabalho transacionais operam no armaze
 
 As cargas de trabalho transacionais consomem a taxa de transferência provisionada (RUs). Ao contrário das cargas de trabalho transacionais, a taxa de transferência das cargas de trabalho analíticas é baseada no consumo real. As cargas de trabalho analíticas consomem recursos sob demanda.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Vida útil em Azure Cosmos DB](time-to-live.md)

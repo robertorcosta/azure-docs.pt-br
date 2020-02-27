@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: d605b852d37af3b1e2ef0868084f3c0b99c24784
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 055ba8b5050aef639bbe6527292a18c8b405065a
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765730"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620268"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorado pelo Azure Monitor?
 Este artigo descreve os diferentes aplicativos e serviços monitorados pelo Azure Monitor. 
@@ -20,11 +20,11 @@ Este artigo descreve os diferentes aplicativos e serviços monitorados pelo Azur
 ## <a name="insights-and-core-solutions"></a>Informações e soluções principais
 As principais informações e soluções são consideradas parte do Azure Monitor e seguem os contratos de nível de serviço e suporte para o Azure. Eles têm suporte em todas as regiões do Azure onde Azure Monitor está disponível.
 
-### <a name="insights"></a>Visões
+### <a name="insights"></a>Insights
 
 As informações fornecem uma experiência de monitoramento Personalizada para aplicativos e serviços específicos. Eles coletam e analisam os logs e as métricas.
 
-| Insight | Description |
+| Insight | DESCRIÇÃO |
 |:---|:---|
 | [Application Insights](app/app-insights-overview.md) | Serviço de gerenciamento de desempenho de aplicativos (APM) extensível para monitorar seu aplicativo Web ativo em qualquer plataforma. |
 | [Azure Monitor para contêineres](insights/container-insights-overview.md) | Monitora o desempenho de cargas de trabalho de contêiner implantadas em instâncias de contêiner do Azure ou em clusters kubernetes gerenciados hospedados no AKS (serviço kubernetes do Azure). |
@@ -38,7 +38,7 @@ As informações fornecem uma experiência de monitoramento Personalizada para a
 
 As soluções são baseadas em consultas de log e exibições personalizadas para um determinado aplicativo ou serviço. Eles coletam e analisam somente logs e estão sendo preteridos ao longo do tempo em favor das ideias.
 
-| Solução | Description |
+| Solução | DESCRIÇÃO |
 |:---|:---|
 | [Integridade do agente](insights/solution-agenthealth.md) | Analise a integridade e a configuração dos agentes de Log Analytics. |
 | [Gerenciamento de alertas](platform/alert-management-solution.md) | Analise os alertas coletados de System Center Operations Manager, Nagios ou Zabbix. |
@@ -57,15 +57,15 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |:---|:---|:---|:---|:---|
 |Active Directory | Não | Sim | [Sim](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
 |Active Directory B2C | Não | Não | Não |  |
-|Serviços de Domínio do Active Directory | Não | Sim | Não |  |
-|Logs de atividades | Não | Sim | Não | |
+|Active Directory Domain Services | Não | Sim | Não |  |
+|Log de atividades | Não | Sim | Não | |
 |Proteção Avançada contra Ameaças | Não | Não | Não |  |
-|Assistente | Não | Não | Não |  |
-|AI Builder | Não | Não | Não |  |
-|Analysis Services | Sim | Sim | Não |  |
+|Supervisor | Não | Não | Não |  |
+|Construtor de ia | Não | Não | Não |  |
+|Serviços de análise | Sim | Sim | Não |  |
 |API para FHIR | Não | Não | Não |  |
 |Gerenciamento de API | Sim | Sim | Não |  |
-|Serviço de aplicativo | Sim | Sim | Não |  |
+|Serviço de Aplicativo | Sim | Sim | Não |  |
 |AppConfig | Não | Não | Não |  |
 |Gateway de Aplicativo | Sim | Sim | Não |  |
 |Serviço de atestado | Não | Não | Não |  |
@@ -74,15 +74,15 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Backup | Não | Sim | Não |  |
 |Bastion | Não | Não | Não |  |
 |Lote | Sim | Sim | Não |  |
-|Batch AI | Não | Não | Não |  |
-|Serviço de blockchain | Não | Sim | Não |  |
+|Lote AI | Não | Não | Não |  |
+|Blockchain Service | Não | Sim | Não |  |
 |Blueprints | Não | Não | Não |  |
 |Serviço de Bot | Não | Não | Não |  |
-|Serviços em Nuvem | Sim | Sim | Não | Agente necessário para monitorar o sistema operacional convidado e os fluxos de trabalho.  |
+|Serviços de Nuvem | Sim | Sim | Não | Agente necessário para monitorar o sistema operacional convidado e os fluxos de trabalho.  |
 |Cloud Shell | Não | Não | Não |  |
-|Serviços cognitivos | Sim | Sim | Não |  |
-|Instâncias de contêiner | Sim | Não | Não |  |
-|Registro de contêiner | Sim | Sim | Não |  |
+|Serviços Cognitivos | Sim | Sim | Não |  |
+|Instâncias de Contêiner | Sim | Não | Não |  |
+|Registro de Contêiner | Sim | Sim | Não |  |
 |CDN (Rede de Distribuição de Conteúdo) | Não | Sim | Não |  |
 |Cosmos DB | Sim | Sim | [Sim](insights/cosmosdb-insights-overview.md) |  |
 |Gerenciamento de Custos | Não | Não | Não |  |
@@ -95,10 +95,10 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Banco de dados para MariaDB | Sim | Sim | Não |  |
 |Banco de dados para MySQL | Sim | Sim | Não |  |
 |Banco de dados para PostgreSQL | Sim | Sim | Não |  |
-|Serviço de Migração do Banco de Dados | Não | Não | Não |  |
+|Serviço de Migração de Banco de Dados | Não | Não | Não |  |
 |Databricks | Não | Sim | Não |  |
 |Proteção contra DDoS | Sim | Sim | Não |  |
-|Operações de Desenvolvimento | Não | Não | Não |  |
+|DevOps | Não | Não | Não |  |
 |DNS | Sim | Não | Não |  |
 |Nomes de domínio | Não | Não | Não |  |
 |DPS | Não | Não | Não |  |
@@ -114,26 +114,26 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Cache do HPC | Não | Não | Não |  |
 |Proteção de informações | Não | Sim | Não |  |
 |Intune | Não | Sim | Não |  |
-|IoT Central | Não | Não | Não |  |
+|Central da IoT | Não | Não | Não |  |
 |Hub IoT | Sim | Sim | Não |  |
 |Key Vault | Sim | Sim | Não |  |
 |AKS (Serviço do Kubernetes) | Não | Não | [Sim](insights/container-insights-overview.md)  |  |
 |Load Balancer | Sim | Sim | Não |  |
-|aplicativos Lógicos | Sim | Sim | Não |  |
+|Aplicativos Lógicos | Sim | Sim | Não |  |
 |Serviço do Machine Learning | Não | Não | Não |  |
 |Aplicativos gerenciados  | Não | Não | Não |  |
 |Mapas  | Não | Não | Não |  |
-|Serviços de Mídia | Sim | Sim | Não |  |
+|Serviços de mídia | Sim | Sim | Não |  |
 |Microsoft Flow | Não | Não | Não |  |
 |Área de trabalho gerenciada da Microsoft | Não | Não | Não |  |
 |Microsoft PowerApps | Não | Não | Não |  |
-|Microsoft Social Engagement | Não | Não | Não |  |
+|Engajamento social da Microsoft | Não | Não | Não |  |
 |Microsoft Stream | Sim | Sim | Não |  |
-|Migre | Não | Não | Não |  |
+|Migrar | Não | Não | Não |  |
 |Autenticação Multifator | Não | Sim | Não |  |
 |Observador de Rede | Sim | Sim | Não |  |
-|Hubs de notificação | Sim | Não | Não |  |
-|Open Datasets | Não | Não | Não |  |
+|Hubs de Notificação | Sim | Não | Não |  |
+|Conjuntos de dados em aberto | Não | Não | Não |  |
 |Política | Não | Não | Não |  |
 |Power BI | Sim | Sim | Não |  |
 |Power BI Embedded | Não | Não | Não |  |
@@ -142,38 +142,38 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Red Hat OpenShift | Não | Não | Não |  |
 |Cache Redis | Sim | Sim | Não |  |
 |Resource Graph | Não | Não | Não |  |
-|Resource Manager | Não | Não | Não |  |
+|Gerenciador de Recursos | Não | Não | Não |  |
 |Pesquisa de varejo – por Bing | Não | Não | Não |  |
-|Pesquisa | Sim | Sim | Não |  |
-|Service Bus | Sim | Sim | Não |  |
-|Malha de Serviço | Não | Sim | Não | Agente necessário para monitorar o sistema operacional convidado e os fluxos de trabalho.  |
+|Search | Sim | Sim | Não |  |
+|Barramento de Serviço | Sim | Sim | Não |  |
+|Service Fabric | Não | Sim | Não | Agente necessário para monitorar o sistema operacional convidado e os fluxos de trabalho.  |
 |Portal de inscrição | Não | Não | Não |  |
-|Recuperação de site | Não | Sim | Não |  |
+|Site Recovery | Não | Sim | Não |  |
 |Serviço Spring Cloud | Não | Não | Não |  |
 |SQL Data Warehouse | Sim | Sim | Não |  |
-|Banco de dados SQL | Sim | Sim | Não |  |
+|Banco de Dados SQL | Sim | Sim | Não |  |
 |SQL Server Stretch Database | Sim | Sim | Não |  |
 |Pilha | Não | Não | Não |  |
 |Armazenamento | Sim | Não | [Sim](insights/storage-insights-overview.md) |  |
 |Cache de armazenamento | Não | Não | Não |  |
 |Serviços de sincronização de armazenamento | Não | Não | Não |  |
 |Stream Analytics | Sim | Sim | Não |  |
-|Análises de séries temporais | Sim | Sim | Não |  |
+|Time Series Insights | Sim | Sim | Não |  |
 |TINA | Não | Não | Não |  |
 |Gerenciador de Tráfego | Sim | Sim | Não |  |
 |Impressão universal | Não | Não | Não |  |
-|Conjuntos de dimensionamento de máquina virtual | Não | Sim | [Sim](insights/vminsights-overview.md) | Agente necessário para monitorar o sistema operacional convidado e os fluxos de trabalho. |
-|Máquinas virtuais | Sim | Sim | [Sim](insights/vminsights-overview.md) | Agente necessário para monitorar o sistema operacional convidado e os fluxos de trabalho. |
-|Rede virtual | Sim | Sim | [Sim](insights/network-insights-overview.md) |  |
+|Conjuntos de Dimensionamento de Máquinas Virtuais | Não | Sim | [Sim](insights/vminsights-overview.md) | Agente necessário para monitorar o sistema operacional convidado e os fluxos de trabalho. |
+|Máquinas Virtuais | Sim | Sim | [Sim](insights/vminsights-overview.md) | Agente necessário para monitorar o sistema operacional convidado e os fluxos de trabalho. |
+|Rede Virtual | Sim | Sim | [Sim](insights/network-insights-overview.md) |  |
 |Rede virtual-logs de fluxo NSG | Não | Sim | Não |  |
-|Gateway VPN | Sim | Sim | Não |  |
+|Gateway de VPN | Sim | Sim | Não |  |
 |Área de Trabalho Virtual do Windows | Não | Não | Não |  |
 
 
 ## <a name="product-integrations"></a>Integrações de produtos
 Os serviços e as soluções na tabela a seguir armazenam seus dados em um Log Analytics espaço de trabalho para que possam ser analisados com outros dados de log coletados pelo Azure Monitor.
 
-| Produto/Serviço | Description |
+| Produto/Serviço | DESCRIÇÃO |
 |:---|:---|
 | [Automação do Azure](/azure/automation/) | Gerenciar atualizações do sistema operacional e controlar alterações em computadores Windows e Linux. Consulte [controle de alterações](../automation/change-tracking.md) e [Gerenciamento de atualizações](../automation/automation-update-management.md). |
 | [Proteção de informações do Azure](https://docs.microsoft.com/azure/information-protection/) | Classifique e, opcionalmente, proteja documentos e emails. Consulte [relatórios centrais para a proteção de informações do Azure](https://docs.microsoft.com/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
@@ -195,22 +195,22 @@ Os serviços e as soluções na tabela a seguir armazenam seus dados em um Log A
 ## <a name="other-solutions"></a>Outras soluções
 Outras soluções estão disponíveis para monitorar diferentes aplicativos e serviços, mas o desenvolvimento ativo foi interrompido e eles podem não estar disponíveis em todas as regiões. Eles são cobertos pelo contrato de nível de serviço de ingestão de dados do Azure Log Analytics.
 
-| Solução | Description |
+| Solução | DESCRIÇÃO |
 |:---|:---|
-| [Avaliação de Active Directory](insights/ad-assessment.md) | Avalie o risco e a integridade de seus ambientes de Active Directory. |
+| [Active Directory verificação de integridade](insights/ad-assessment.md) | Avalie o risco e a integridade de seus ambientes de Active Directory. |
 | [Status de replicação do Active Directory](insights/ad-replication-status.md) | Monitora regularmente seu ambiente de Active Directory em busca de falhas de replicação. |
 | [Log Analytics de atividades](platform/activity-log-view.md#activity-logs-analytics-monitoring-solution) | Analise as entradas do log de atividades usando consultas e exibições de log predefinidas. |
 | [Análise de DNS (versão prévia)](insights/dns-analytics.md) | Coleta, analisa e correlaciona os logs analíticos e de auditoria do DNS do Windows e outros dados relacionados dos servidores DNS. |
 | [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | Colete, exiba e analise suas Cloud Foundry métricas de desempenho e integridade do sistema em várias implantações. |
 | [Contêineres](insights/containers.md) | Exiba e gerencie hosts de contêiner do Docker e do Windows. |
 | [Avaliações sob demanda](https://docs.microsoft.com/services-hub/health/getting_started_with_on_demand_assessments) | Avalie e otimize a disponibilidade, a segurança e o desempenho de seus ambientes de tecnologia da Microsoft locais, híbridos e na nuvem. |
-| [Avaliação do SQL](insights/sql-assessment.md) | Avalie o risco e a integridade de seus ambientes de SQL Server.  |
+| [Verificação de integridade do SQL](insights/sql-assessment.md) | Avalie o risco e a integridade de seus ambientes de SQL Server.  |
 | [Dados durante a transmissão](insights/wire-data.md) | Dados consolidados de rede e de desempenho coletados de computadores conectados ao Windows e conectados ao Linux com o agente de Log Analytics. |
 
 
 ## <a name="third-party-integration"></a>Integração de terceiros
 
-| Solução | Description |
+| Solução | DESCRIÇÃO |
 |:---|:---|
 | [ITSM](platform/itsmc-overview.md) | O ITSMC (Conector de Gerenciamento de Serviços de TI) permite que você conecte o Azure e um produto/serviço de ITSM (Gerenciamento de Serviços de TI) compatível.  |
 
@@ -218,7 +218,7 @@ Outras soluções estão disponíveis para monitorar diferentes aplicativos e se
 ## <a name="resources-outside-of-azure"></a>Recursos fora do Azure
 Azure Monitor pode coletar dados de recursos fora do Azure usando os métodos listados na tabela a seguir.
 
-| Grupos | Método |
+| Recurso | Método |
 |:---|:---|
 | Aplicativos | Monitore aplicativos Web fora do Azure usando Application Insights. Veja [o que é Application insights?](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). |
 | Máquinas virtuais | Use o agente de Log Analytics para coletar dados do sistema operacional convidado de máquinas virtuais em outros ambientes de nuvem ou locais. Consulte [coletar dados de log com o agente de log Analytics](platform/log-analytics-agent.md). |
@@ -226,7 +226,7 @@ Azure Monitor pode coletar dados de recursos fora do Azure usando os métodos li
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Leia mais sobre a [plataforma de dados Azure monitor que armazena os logs e as métricas coletados por informações e soluções](platform/data-platform.md).
 - Conclua um [tutorial sobre como monitorar um recurso do Azure](learn/tutorial-resource-logs.md).

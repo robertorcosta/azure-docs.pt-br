@@ -4,12 +4,12 @@ description: Saiba como atualizar um cluster do AKS (Serviço de Kubernetes do A
 services: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.openlocfilehash: 9acf08765ee42401229bc464b4513856127e9f66
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 4520297e83f96f95b10ecafd5af52a913dc5f450
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592978"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621969"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster do Serviço de Kubernetes do Azure (AKS)
 
@@ -22,7 +22,7 @@ Para clusters AKS que usam vários pools de nó ou nós do Windows Server (atual
 Este artigo requer que você esteja executando o CLI do Azure versão 2.0.65 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
 > [!WARNING]
-> Uma atualização do cluster AKS dispara um Cordon e dreno de seus nós. Se você tiver uma cota de computação baixa disponível, a atualização poderá falhar.  Consulte [aumentar cotas](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request?branch=pr-en-us-83289) para obter mais informações.
+> Uma atualização do cluster AKS dispara um Cordon e dreno de seus nós. Se você tiver uma cota de computação baixa disponível, a atualização poderá falhar. Consulte [aumentar cotas](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) para obter mais informações.
 > Se você estiver executando sua própria implantação de autodimensionamento de cluster, desabilite-a (você pode dimensioná-la para zero réplicas) durante a atualização, pois há uma chance de que ela interfira no processo de atualização. O dimensionador automático gerenciado manipula isso automaticamente. 
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Verificação de atualizações disponíveis do cluster do AKS

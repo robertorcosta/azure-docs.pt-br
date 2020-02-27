@@ -4,7 +4,7 @@ description: Guia de início rápido para a instalação manual do SAP HANA de i
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 630f094ffc6c57a0137d1abc46476f5abe64f616
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 0090ffe977dee3e493d726c9eb4d151bcbeb503f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750377"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617245"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-virtual-machines"></a>Início rápido: instalação manual de SAP HANA de instância única em máquinas virtuais do Azure
 ## <a name="introduction"></a>Introdução
@@ -29,7 +29,7 @@ Este guia ajuda você a configurar um SAP HANA de instância única em máquinas
 > [!NOTE]
 > Esta guia descreve as implantações do SAP HANA em VMs do Azure. Para obter informações sobre como implantar SAP HANA em instâncias grandes do HANA, consulte [usar o SAP em máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started).
  
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Este guia pressupõe que você esteja familiarizado com esses conceitos básicos de IaaS (infraestrutura como serviço) como:
  * Como implantar máquinas virtuais (VMs) ou redes virtuais por meio do portal do Azure ou do PowerShell.
  * A CLI (interface de linha de comando) entre plataformas do Azure, que inclui a opção de usar modelos de JavaScript Object Notation (JSON).
@@ -176,10 +176,10 @@ Veja um exemplo de como verificar se há patches disponíveis para o SUSE Linux 
 
 Dependendo do tipo de defeito, os patches são classificados por categoria e gravidade. Os valores comumente usados para a categoria são: 
 - Segurança
-- Recomendado
+- Recomendadas
 - Opcional
 - Recurso
-- Documento
+- Document
 - YaST
 
 Valores comumente usados para gravidade são:
@@ -188,7 +188,7 @@ Valores comumente usados para gravidade são:
 - Importante
 - Moderado
 - Baixo
-- Não especificado
+- Não Especificado
 
 O comando **zypper** procura somente as atualizações que os seus pacotes instalados precisam. Por exemplo, você pode usar este comando:
 

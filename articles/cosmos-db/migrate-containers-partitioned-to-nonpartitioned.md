@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: b7eed4089a65f62056027c70f08902f531567c17
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 742ef62895f3ef64e8fa22ab21d2947bee57776b
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445261"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623360"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrar contêineres não particionados para contêineres particionados
 
-Azure Cosmos DB dá suporte à criação de contêineres sem uma chave de partição. No momento, você pode criar contêineres não particionados usando CLI do Azure e Azure Cosmos DB SDKs (.net, Java, NodeJs) que têm uma versão menor ou igual a 2. x. Você não pode criar contêineres não particionados usando o portal do Azure. No entanto, esses contêineres não particionados não são elásticos e têm capacidade de armazenamento fixa de 10 GB e limite de taxa de transferência de 10K RU/s.
+Azure Cosmos DB dá suporte à criação de contêineres sem uma chave de partição. No momento, você pode criar contêineres não particionados usando CLI do Azure e Azure Cosmos DB SDKs (.net, Java, NodeJs) que têm uma versão menor ou igual a 2. x. Você não pode criar contêineres não particionados usando o portal do Azure. No entanto, esses contêineres não particionados não são elásticos e têm capacidade de armazenamento fixa de 20 GB e limite de taxa de transferência de 10K RU/s.
 
 Os contêineres não particionados são herdados e você deve migrar seus contêineres não particionados existentes para contêineres particionados para dimensionar o armazenamento e a taxa de transferência. Azure Cosmos DB fornece um mecanismo definido pelo sistema para migrar seus contêineres não particionados para contêineres particionados. Este documento explica como todos os contêineres não particionados existentes são migrados automaticamente para os contêineres particionados. Você poderá aproveitar o recurso de migração automática somente se estiver usando a versão v3 de SDKs em todos os idiomas.
 
@@ -126,7 +126,7 @@ Se você consultar o SDK V3 para os itens que são inseridos usando o SDK do v2 
 
 Se novos itens forem inseridos com valores diferentes para a chave de partição, a consulta para essas contagens de itens passando a chave apropriada no `FeedOptions` não terá nenhum problema. Depois de inserir novos documentos com a chave de partição, se você precisar consultar apenas a contagem de documentos sem o valor de chave de partição, essa consulta poderá, novamente, ocorrer mais de RU/s semelhante às coleções particionadas regulares.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Particionamento no Azure Cosmos DB](partitioning-overview.md)
 * [Unidades de Solicitação no Azure Cosmos DB](request-units.md)

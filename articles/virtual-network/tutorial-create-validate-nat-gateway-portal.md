@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 582646b6e1c50c8e6835fafaa8a27c7386b4695c
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: a314af3d53936a58f9dfb3694ec1114ecdc3d521
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77429057"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586998"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal-and-test-the-nat-service"></a>Tutorial: Criar um Gateway da NAT usando o portal do Azure e testar o serviço NAT
 
@@ -30,10 +30,7 @@ Neste tutorial, você criará um gateway da NAT para fornecer conectividade de s
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-> [!IMPORTANT]
-> Depois que a [versão prévia da NAT de Rede Virtual estiver habilitada](./nat-overview.md#enable-preview) na assinatura, use https://aka.ms/natportal para acessar o portal.
-
-Entre no [portal do Azure](https://aka.ms/natportal).
+Entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="prepare-the-source-for-outbound-traffic"></a>Preparar a origem para o tráfego de saída
 
@@ -293,7 +290,7 @@ Agora você está pronto para testar o serviço NAT.
 
 Enquanto estiver conectado à VM de origem, você poderá usar o **curl** e o **hey** para gerar solicitações para o endereço IP de destino.
 
-Use curl para recuperar o arquivo de 100 KBytes.  Substitua **\<destino-de-endereço-IP>** no exemplo abaixo pelo endereço IP de destino copiado anteriormente.  O parâmetro **--output** indica que o arquivo recuperado será descartado.
+Use curl para recuperar o arquivo de 100 KB.  Substitua **\<destino-de-endereço-IP>** no exemplo abaixo pelo endereço IP de destino copiado anteriormente.  O parâmetro **--output** indica que o arquivo recuperado será descartado.
 
 ```bash
 curl http://<ip-address-destination>/100k --output /dev/null

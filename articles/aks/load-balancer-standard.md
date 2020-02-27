@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 3fe4de2b8b85e603bc200b27fa15c67f6cc05dd4
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 9c414572e1c3b2f046ae9a14139885e9927ab3bb
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595088"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622179"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Usar um balanceador de carga SKU padrão no serviço kubernetes do Azure (AKS)
 
@@ -39,7 +39,7 @@ Se você tiver um cluster existente com o Load Balancer de SKU básico, haverá 
 
 Por exemplo, fazer implantações azuis/verdes para migrar clusters é uma prática comum, Considerando que o tipo de `load-balancer-sku` de um cluster só pode ser definido no momento da criação do cluster. No entanto, os balanceadores de carga de *SKU básicos* usam endereços IP de *SKU básicos* que não são compatíveis com os balanceadores de carga *SKU padrão* , pois exigem endereços IP de *SKU padrão* . Ao migrar clusters para atualizar Load Balancer SKUs, um novo endereço IP com um SKU de endereço IP compatível será necessário.
 
-Para obter mais considerações sobre como migrar clusters, visite [nossa documentação sobre considerações de migração](acs-aks-migration.md) para exibir uma lista de tópicos importantes a serem considerados durante a migração. As limitações abaixo também são importantes diferenças comportamentais a serem observadas ao usar balanceadores de carga de SKU padrão no AKS.
+Para obter mais considerações sobre como migrar clusters, visite [nossa documentação sobre considerações de migração](aks-migration.md) para exibir uma lista de tópicos importantes a serem considerados durante a migração. As limitações abaixo também são importantes diferenças comportamentais a serem observadas ao usar balanceadores de carga de SKU padrão no AKS.
 
 ### <a name="limitations"></a>Limitações
 

@@ -6,12 +6,12 @@ author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 5d4b1282b0a08657aea6f8a13aae7ed1fe49079b
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 11c759dc8865da9de63e3acbfa1d4e26836d010a
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964202"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622453"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Armazenamentos de dados com suporte no compartilhamento de dados do Azure
 
@@ -27,8 +27,8 @@ A tabela abaixo detalha as fontes de dados com suporte para o compartilhamento d
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | Armazenamento de Blobs do Azure |✓ | |
 | Azure Data Lake Storage Gen1 |✓ | |
-| Azure Data Lake Store Gen2 |✓ ||
-| Banco de dados SQL do Azure |Visualização pública | |
+| Azure Data Lake Storage Gen2 |✓ ||
+| Banco de Dados SQL do Azure |Visualização pública | |
 | Análise do Azure Synapse (anteriormente Azure SQL DW) |Visualização pública | |
 | Azure Data Explorer | |Visualização pública |
 
@@ -38,16 +38,16 @@ O compartilhamento de dados do Azure oferece flexibilidade aos consumidores de d
 
 A tabela abaixo detalha combinações diferentes e escolhas que os consumidores de dados têm ao aceitar e configurar seu compartilhamento de dados. Para obter mais informações sobre como configurar mapeamentos de conjunto de dados, consulte [como configurar mapeamentos de conjunto](how-to-configure-mapping.md)de dados.
 
-|  | Armazenamento de Blobs do Azure | Azure Data Lake Storage Gen1 | Azure Data Lake Store Gen2 | Banco de dados SQL do Azure | Azure Synapse Analytics 
+|  | Armazenamento do Blobs do Azure | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Banco de Dados SQL do Azure | Azure Synapse Analytics 
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | Armazenamento de Blobs do Azure | ✓ || ✓|
 | Azure Data Lake Storage Gen1 | ✓ | | ✓|
-| Azure Data Lake Store Gen2 | ✓ | | ✓|
-| Banco de dados SQL do Azure | ✓ | | ✓| ✓| ✓|
+| Azure Data Lake Storage Gen2 | ✓ | | ✓|
+| Banco de Dados SQL do Azure | ✓ | | ✓| ✓| ✓|
 | Análise do Azure Synapse (anteriormente Azure SQL DW) | ✓ | | ✓| ✓| ✓|
 
 ## <a name="share-from-a-storage-account"></a>Compartilhar de uma conta de armazenamento
-O compartilhamento de dados do Azure dá suporte ao compartilhamento de arquivos, pastas e sistemas de arquivos do Azure Data Lake Gen1 e Azure Data Lake Gen2. Ele também dá suporte ao compartilhamento de BLOBs, pastas e contêineres do armazenamento de BLOBs do Azure. Quando as pastas são compartilhadas no compartilhamento baseado em instantâneo, o consumidor de dados pode optar por fazer uma cópia completa dos dados de compartilhamento ou aproveitar o recurso de instantâneo incremental para copiar somente arquivos novos ou atualizados. Os arquivos existentes com o mesmo nome serão substituídos.
+O compartilhamento de dados do Azure dá suporte ao compartilhamento de arquivos, pastas e sistemas de arquivos do Azure Data Lake Gen1 e Azure Data Lake Gen2. Ele também dá suporte ao compartilhamento de BLOBs, pastas e contêineres do armazenamento de BLOBs do Azure. No momento, só há suporte para blob de blocos. Quando as pastas são compartilhadas no compartilhamento baseado em instantâneo, o consumidor de dados pode optar por fazer uma cópia completa dos dados de compartilhamento ou aproveitar o recurso de instantâneo incremental para copiar somente arquivos novos ou atualizados. Os arquivos existentes com o mesmo nome serão substituídos.
 
 ## <a name="share-from-a-sql-based-source"></a>Compartilhar de uma fonte baseada em SQL
 O compartilhamento de dados do Azure dá suporte ao compartilhamento de tabelas ou exibições do banco de dados SQL do Azure e do Azure Synapse Analytics (anteriormente conhecido como Azure SQL DW). O consumidor de dados pode optar por aceitar os dados no Azure Data Lake Storage Gen2 ou no armazenamento de BLOBs do Azure como arquivos CSV ou parquet. O instantâneo completo substitui o conteúdo do arquivo de destino. Como alternativa, o consumidor de dados pode aceitar os dados em uma tabela SQL. Se a tabela SQL de destino não estiver disponível no lado do consumidor de dados, o compartilhamento de dados do Azure criará a tabela SQL com o esquema de origem. O instantâneo completo acrescenta o conteúdo da tabela de origem à tabela SQL de destino. Não há suporte para o instantâneo incremental no momento.
@@ -59,6 +59,6 @@ Para acessar bancos de dados compartilhados, os clientes precisam ter seu própr
 
 O Azure Data Explorer dá suporte a dois modos de ingestão de dados: lote e streaming. Os dados recebidos do lote no banco de dados compartilhado aparecerão entre alguns segundos e alguns minutos no lado do consumidor de dado. Os dados recebidos do streaming podem levar até 24 horas para serem exibidos no lado do consumidor de dados. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber como iniciar o compartilhamento de dados, continue com o tutorial sobre como [compartilhar seus dados](share-your-data.md).

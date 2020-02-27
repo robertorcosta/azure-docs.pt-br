@@ -3,18 +3,18 @@ title: Implantar várias instâncias de recursos
 description: Use a operação de cópia e matrizes em um modelo de Azure Resource Manager para implantar o tipo de recurso muitas vezes.
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 38b5bcd38e0dc8ba8c758e9aa8371857541ba55e
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: e90673504ceaccdc25a477e856defa77eed37d86
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210821"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620231"
 ---
 # <a name="resource-iteration-in-azure-resource-manager-templates"></a>Iteração de recurso em modelos de Azure Resource Manager
 
 Este artigo mostra como criar mais de uma instância de um recurso em seu modelo de Azure Resource Manager. Ao adicionar o elemento **copiar** à seção recursos do modelo, você pode definir dinamicamente o número de recursos a serem implantados. Você também evita a repetição da sintaxe do modelo.
 
-Você também pode usar copiar com [Propriedades](copy-properties.md) e [variáveis](copy-variables.md).
+Você também pode usar copiar com [Propriedades](copy-properties.md), [variáveis](copy-variables.md) e [saídas](copy-outputs.md).
 
 Caso precise especificar se um recurso é ou não implantado, confira [Elemento condition](conditional-resource-deployment.md).
 
@@ -130,6 +130,8 @@ O exemplo a seguir cria uma conta de armazenamento para cada nome fornecido no p
   "outputs": {}
 }
 ```
+
+Se você quiser retornar valores dos recursos implantados, poderá usar [Copiar na seção de saídas](copy-outputs.md).
 
 ## <a name="serial-or-parallel"></a>Serial ou paralela
 
@@ -279,7 +281,10 @@ Os exemplos a seguir mostram cenários comuns para criar mais de uma instância 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para passar por um tutorial, consulte [Tutorial: crie várias instâncias de recursos usando os modelos do Resource Manager](template-tutorial-create-multiple-instances.md).
-* Para outros usos do elemento Copy, consulte [iteração de propriedade em modelos de Azure Resource Manager](copy-properties.md) e [iteração de variável em modelos de Azure Resource Manager](copy-variables.md).
+* Para outros usos do elemento copiar, consulte:
+  * [Iteração de propriedade em modelos de Azure Resource Manager](copy-properties.md)
+  * [Iteração variável em modelos de Azure Resource Manager](copy-variables.md)
+  * [Iteração de saída em modelos de Azure Resource Manager](copy-outputs.md)
 * Para obter informações sobre como usar a cópia com modelos aninhados, consulte [usando copiar](linked-templates.md#using-copy).
 * Para saber mais sobre as seções de um modelo, veja [Criando modelos do Azure Resource Manager](template-syntax.md).
 * Para saber mais sobre como implantar o modelo, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](deploy-powershell.md).

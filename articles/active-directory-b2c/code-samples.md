@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 69e6b7beecb95c0e89b60640353155fc7802a881
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: d0a5790e84364bf34072977d5d3976fd880996bb
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982935"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620583"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Exemplos de código do Azure Active Directory B2C
 
@@ -39,7 +39,6 @@ As tabelas a seguir fornecem links para exemplos de aplicativos, incluindo iOS, 
 | [dotnet-webapp-and-webapi](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi) | Um exemplo combinado para um aplicativo Web .NET que chama uma API Web .NET, ambos protegidos usando o Azure AD B2C. |
 | [dotnetcore-webapp](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp) | Um aplicativo Web ASP.NET Core que pode entrar em um usuário usando o Azure AD B2C, obter um token de acesso usando MSAL.NET e chamar uma API. |
 | [openidconnect-nodejs](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS) | Um aplicativo Node.js que fornece uma maneira rápida e fácil de configurar um aplicativo Web com o Express usando o OpenID Connect. |
-| [javascript-nodejs-webapp](https://github.com/AzureADQuickStarts/active-directory-b2c-javascript-nodejs-webapp) | Um servidor node. js que fornece uma maneira rápida e fácil de configurar um serviço de API REST usando o protocolo OAuth2. |
 | [javascript-nodejs-webapi](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) | Uma pequena API WEB Node.js do Azure AD B2C que mostra como proteger sua API Web e aceita tokens de acesso B2C usando passport.js. |
 | [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/README_B2C.md) | Demonstre como integrar o B2C da plataforma de identidade da Microsoft a um aplicativo Web Python.  |
 

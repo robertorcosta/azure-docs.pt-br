@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2020
+ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 5453793c7e1bb1ef766939d2e7fdf32a1ac1ec72
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 01397ad078bc741977c4928f67d1834f05e1db8d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77499938"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623966"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de segurança-um guia de referência
 
@@ -33,7 +33,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 ## <a name="alerts-windows"></a>Alertas para computadores Windows
 
-[Mais detalhes e observações](security-center-alerts-iaas.md#windows-)
+[Mais detalhes e observações](threat-protection.md#windows-machines)
 
 |Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
@@ -124,7 +124,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 ## <a name="alerts-linux"></a>Alertas para computadores Linux
 
-[Mais detalhes e observações](security-center-alerts-iaas.md#linux-)
+[Mais detalhes e observações](threat-protection.md#linux-machines)
 
 |Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
@@ -213,7 +213,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 ## <a name="alerts-azureappserv"></a>Alertas para o serviço Azure App
 
-[Mais detalhes e observações](security-center-alerts-compute.md#azure-app-service-)
+[Mais detalhes e observações](threat-protection.md#app-services)
 
 |Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
@@ -232,13 +232,13 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 |**Agente de usuário suspeito detectado**|Azure App log de atividades de serviço indica solicitações com um agente de usuário suspeito. Esse comportamento pode indicar em tentativas de exploração de uma vulnerabilidade em seu aplicativo do serviço de aplicativo.|-|
 |**Invocação suspeita de tema do WordPress detectada**|O log de atividades do serviço de aplicativo indica uma possível atividade de injeção de código no recurso do serviço de aplicativo.<br>Essa atividade suspeita se assemelha à atividade que manipula um tema do WordPress para dar suporte à execução do código no lado do servidor, seguida de uma solicitação da Web direta para invocar o arquivo de tema manipulado. Esse tipo de atividade pode fazer parte de uma campanha de ataque sobre o WordPress.|-|
 |**Verificador de vulnerabilidade detectado**<br>(Joomla/WordPress/CMS)|O Azure App log de atividades do serviço indica que um possível verificador de vulnerabilidade foi usado no recurso do serviço de aplicativo. A atividade suspeita detectada se assemelha a ferramentas de direcionamento de aplicativos Joomla/aplicativos WordPress/um sistema de gerenciamento de conteúdo (CMS).|-|
-|**Impressão digital da Web detectada**<br>(NMAP/Blind Elephant)|O log de atividades do serviço de aplicativo indica uma possível atividade de impressão digital na Web no recurso do serviço de aplicativo.<br>Essa atividade suspeita está associada a uma ferramenta chamada elefante cego. A ferramenta servidores Web de impressões digitais e tenta detectar os aplicativos instalados e suas versões. Os invasores geralmente usam essa ferramenta para investigar os aplicativos Web para encontrar vulnerabilidades. |-|
+|**Impressão digital da Web detectada**<br>(Elefante NMAP/cego)|O log de atividades do serviço de aplicativo indica uma possível atividade de impressão digital na Web no recurso do serviço de aplicativo.<br>Essa atividade suspeita está associada a uma ferramenta chamada elefante cego. A ferramenta servidores Web de impressões digitais e tenta detectar os aplicativos instalados e suas versões. Os invasores geralmente usam essa ferramenta para investigar os aplicativos Web para encontrar vulnerabilidades. |-|
 ||||
 
 
 ## <a name="alerts-akscluster"></a>Alertas para contêineres-clusters do serviço kubernetes do Azure
 
-[Mais detalhes e observações](security-center-alerts-compute.md#azure-containers-)
+[Mais detalhes e observações](threat-protection.md#azure-containers)
 
 |Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
@@ -253,7 +253,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 ## <a name="alerts-containerhost"></a>Alertas para contêineres-nível de host
 
-[Mais detalhes e observações](security-center-alerts-compute.md#azure-containers-)
+[Mais detalhes e observações](threat-protection.md#azure-containers)
 
 |Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
@@ -269,7 +269,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 ## <a name="alerts-sql-db-and-warehouse"></a>Alertas para o banco de dados SQL e SQL Data Warehouse
 
-[Mais detalhes e observações](security-center-alerts-data-services.md#sql-database-and-sql-data-warehouse-)
+[Mais detalhes e observações](threat-protection.md#data-sql)
 
 |Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
@@ -287,7 +287,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 ## <a name="alerts-azurestorage"></a>Alertas para o armazenamento do Azure
 
-[Mais detalhes e observações](security-center-alerts-data-services.md#azure-storage-)
+[Mais detalhes e observações](threat-protection.md#azure-storage)
 
 |Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
@@ -308,7 +308,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 ## <a name="alerts-azurecosmos"></a>Alertas para Azure Cosmos DB (versão prévia)
 
-[Mais detalhes e observações](security-center-alerts-data-services.md#azure-cosmos-db)
+[Mais detalhes e observações](threat-protection.md#cosmos-db)
 
 |Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
@@ -319,7 +319,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 ## <a name="alerts-azurenetlayer"></a>Alertas da camada de rede do Azure
 
-[Mais detalhes e observações](security-center-alerts-service-layer.md#azure-network-layer)
+[Mais detalhes e observações](threat-protection.md#network-layer)
 
 |Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
@@ -344,7 +344,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 ## <a name="alerts-azureresourceman"></a>Alertas para Azure Resource Manager (versão prévia)
 
-[Mais detalhes e observações](security-center-alerts-service-layer.md#azure-management-layer-azure-resource-manager-preview)
+[Mais detalhes e observações](threat-protection.md#management-layer)
 
 |Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
@@ -363,7 +363,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 ## <a name="alerts-azurekv"></a>Alertas para Azure Key Vault (versão prévia)
 
-[Mais detalhes e observações](security-center-alerts-service-layer.md#azure-keyvault)
+[Mais detalhes e observações](threat-protection.md#azure-keyvault)
 
 |Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
@@ -381,7 +381,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 ## <a name="alerts-azureddos"></a>Alertas para a proteção contra DDoS do Azure
 
-[Mais detalhes e observações](security-center-alerts-integration.md#azure-ddos)
+[Mais detalhes e observações](threat-protection.md#azure-ddos)
 
 |Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
@@ -418,6 +418,7 @@ As tentativas de cadeia de Kill chain com suporte da central de segurança são 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre alertas, consulte o seguinte:
 
+* [Proteção contra ameaças na central de segurança do Azure](threat-protection.md)
 * [Alertas na Central de Segurança do Azure](security-center-alerts-overview.md)
 * [Gerencie e responda a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md)
 * [Exportar alertas de segurança e recomendações (versão prévia)](continuous-export.md)

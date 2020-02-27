@@ -8,32 +8,32 @@ ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4c8761d82c8a735ac9c4bff2e5ac0107b2a57fe0
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 44d3b7c2b9e23b90f696162747d9728b18fb7d3f
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537541"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623369"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Usando um gráfico particionado no Azure Cosmos DB
 
 Um dos principais recursos da API do Gremlin no Azure Cosmos DB é a capacidade de lidar com gráficos em grande escala por meio de dimensionamento horizontal. Os contêineres podem ser dimensionados independentemente em termos de armazenamento e taxa de transferência. É possível criar contêineres no Azure Cosmos DB que podem ser dimensionados automaticamente para armazenar dados de gráfico. Os dados são balanceados automaticamente com base na **chave de partição** especificada.
 
-**O particionamento será necessário** se o contêiner tiver que armazenar mais de 10 GB em tamanho ou se você quiser alocar mais de 10.000 RUs (unidades de solicitação) por segundo. Os mesmos princípios gerais do [mecanismo de particionamento do Azure Cosmos DB](partition-data.md) aplicar com algumas otimizações específicas de gráfico descritas abaixo.
+O **particionamento será necessário** se o contêiner for para armazenar mais de 20 GB de tamanho ou se você quiser alocar mais de 10.000 unidades de solicitação por segundo (RUs). Os mesmos princípios gerais do [Azure Cosmos DB mecanismo de particionamento](partition-data.md) se aplicam a algumas otimizações específicas de grafo descritas abaixo.
 
-![Particionamento do Graph.](./media/graph-partitioning/graph-partitioning.png)
+![Particionamento de grafo.](./media/graph-partitioning/graph-partitioning.png)
 
-## <a name="graph-partitioning-mechanism"></a>Mecanismo de particionamento do Graph
+## <a name="graph-partitioning-mechanism"></a>Mecanismo de particionamento de grafo
 
-As diretrizes a seguir descrevem como funciona a estratégia de particionamento no Azure Cosmos DB:
+As diretrizes a seguir descrevem como a estratégia de particionamento no Azure Cosmos DB Opera:
 
 - **Os vértices e as bordas são armazenados como documentos JSON**.
 
-- **Vértices exigem uma chave de partição**. Essa chave determina em qual partição o vértice será armazenado por meio de um algoritmo de hash. O nome da propriedade de chave de partição é definido durante a criação de um novo contêiner e ele tem um formato: `/partitioning-key-name`.
+- **Vértices exigem uma chave de partição**. Essa chave determina em qual partição o vértice será armazenado por meio de um algoritmo de hash. O nome da propriedade de chave de partição é definido ao criar um novo contêiner e tem um formato: `/partitioning-key-name`.
 
-- **Bordas serão armazenadas com o vértice de origem**. Em outras palavras, para cada vértice, sua chave de partição definirá o local em que ele será armazenado junto com suas bordas de saída. Essa otimização é feita para evitar consultas entre partições ao usar o `out()` cardinalidade em consultas de gráfico.
+- **Bordas serão armazenadas com o vértice de origem**. Em outras palavras, para cada vértice, sua chave de partição definirá o local em que ele será armazenado junto com suas bordas de saída. Essa otimização é feita para evitar consultas entre partições ao usar a cardinalidade de `out()` em consultas de grafo.
 
-- **Bordas contêm referências para os vértices que eles apontem para**. Todas as bordas são armazenadas com as chaves de partição e as identificações de vértices que eles estão apontando para. Esse cálculo torna todos os `out()` consultas direção sempre ser uma consulta particionada com escopo definido e não uma consulta entre partições cega. 
+- **As bordas contêm referências aos vértices para os quais apontam**. Todas as bordas são armazenadas com as chaves de partição e as IDs dos vértices aos quais estão apontando. Essa computação faz com que todas as consultas de direção de `out()` sempre sejam uma consulta particionada com escopo e não uma consulta de partição cruzada. 
 
 - **Consultas de gráfico precisam especificar uma chave de partição**. Para aproveitar ao máximo o particionamento horizontal no Azure Cosmos DB, a chave de partição deve ser especificada quando um único vértice for selecionado, sempre que possível. A seguir estão as consultas para selecionar os vários vértices em um gráfico particionado:
 
@@ -58,13 +58,13 @@ As diretrizes a seguir descrevem como funciona a estratégia de particionamento 
         g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
         ```
         
-    - Selecionar um conjunto de vértices com suas IDs e **especificando uma lista de valores de chave de partição**: 
+    - Selecionar um conjunto de vértices com suas IDs e **especificar uma lista de valores de chave de partição**: 
     
         ```java
         g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
         ```
 
-    - Usando o **estratégia de partição** no início de uma consulta e especificando uma partição para o escopo do resto da consulta Gremlin: 
+    - Usando a **estratégia de partição** no início de uma consulta e especificando uma partição para o escopo do restante da consulta Gremlin: 
     
         ```java
         g.withStrategies(PartitionStrategy.build().partitionKey('partitionKey').readPartitions('partitionKey_value').create()).V()
@@ -74,9 +74,9 @@ As diretrizes a seguir descrevem como funciona a estratégia de particionamento 
 
 Use as diretrizes a seguir para garantir o desempenho e a escalabilidade ao usar gráficos particionados com contêineres ilimitados:
 
-- **Sempre especifique o valor de chave de partição ao consultar um vértice**. Obter o vértice de uma partição conhecida é uma maneira de alcançar o desempenho. Todas as operações subsequentes de adjacência sempre terá escopo para uma partição como bordas contenham a chave de partição e ID de referência para seus vértices de destino.
+- **Sempre especifique o valor de chave de partição ao consultar um vértice**. Obter o vértice de uma partição conhecida é uma maneira de alcançar o desempenho. Todas as operações de adjacência subsequentes sempre terão o escopo definido para uma partição, uma vez que as bordas contêm a ID de referência e a chave de partição para seus vértices de destino.
 
-- **Use a direção de saída ao consultar as bordas sempre que possível**. Conforme mencionado acima, as bordas são armazenadas com seus vértices de origem na direção de saída. Dessa forma, as chances de reclassificação para consultas entre partições são minimizadas quando os dados e as consultas são criadas com esse padrão em mente. Ao contrário, o `in()` consulta sempre será uma consulta cara de fan-out.
+- **Use a direção de saída ao consultar as bordas sempre que possível**. Conforme mencionado acima, as bordas são armazenadas com seus vértices de origem na direção de saída. Dessa forma, as chances de reclassificação para consultas entre partições são minimizadas quando os dados e as consultas são criadas com esse padrão em mente. Por outro lado, a consulta `in()` sempre será uma consulta de Fan-out cara.
 
 - **Escolha uma chave de partição que distribuirá uniformemente dados entre as partições**. Essa decisão depende muito do modelo de dados da solução. Leia mais sobre a criação de uma chave de partição apropriada em [Particionamento e escala no Azure Cosmos DB](partition-data.md).
 

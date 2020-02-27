@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/27/2019
-ms.openlocfilehash: 8e265b592bebfc506ae0116c955403dd1070ad3f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: dece5b0bb0508e2d83ee184e71ef0b4364d25ac8
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73166402"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622922"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db-preview"></a>Explorar Azure Monitor para Azure Cosmos DB (versão prévia)
 
@@ -35,8 +35,35 @@ Esse recurso não exige que você habilite ou configure nada, essas métricas de
 >[!NOTE]
 >Não há nenhum encargo para acessar esse recurso e você só será cobrado pelos recursos essenciais Azure Monitor que você configurar ou habilitar, conforme descrito na página de [detalhes de preços de Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) .
 
+## <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>Exibir métricas de nível de operação para Azure Cosmos DB
 
-## <a name="accessing-azure-monitor-for-azure-cosmos-db"></a>Acessando Azure Monitor para Azure Cosmos DB
+1. Entre no [portal do Azure](https://portal.azure.com/).
+
+1. Selecione **Monitor** na barra de navegação à esquerda e selecione **métricas**.
+
+   ![Painel de métricas no Azure Monitor](./media/cosmosdb-insights-overview/monitor-metrics-blade.png)
+
+1. No painel de **métricas** > **selecione um recurso** > escolha a **assinatura**necessária e o **grupo de recursos**. Para o **tipo de recurso**, selecione **contas de Azure Cosmos DB**, escolha uma das contas existentes do Azure Cosmos e selecione **aplicar**.
+
+   ![Escolha uma conta de Cosmos DB para exibir as métricas](./media/cosmosdb-insights-overview/select-cosmosdb-account.png)
+
+1. Em seguida, você pode selecionar uma métrica na lista de métricas disponíveis. Você pode selecionar métricas específicas para unidades de solicitação, armazenamento, latência, disponibilidade, Cassandra e outros. Para saber mais detalhadamente sobre todas as métricas disponíveis nesta lista, consulte o artigo [métricas por categoria](../../cosmos-db/monitor-cosmos-db-reference.md) . Neste exemplo, vamos selecionar unidades de **solicitação** e **Méd** como o valor de agregação.
+
+   Além desses detalhes, você também pode selecionar o intervalo de **tempo** e a **granularidade de tempo** das métricas. No máximo, você pode exibir as métricas dos últimos 30 dias.  Depois de aplicar o filtro, um gráfico é exibido com base no seu filtro. Você pode ver o número médio de unidades de solicitação consumidas por minuto para o período selecionado.  
+
+   ![Escolha uma métrica no portal do Azure](./media/cosmosdb-insights-overview/metric-types.png)
+
+### <a name="add-filters-to-metrics"></a>Adicionar filtros a métricas
+
+Você também pode filtrar as métricas e o gráfico exibidos por um **CollectionName**, **DatabaseName**, **OperationType**, **região**e **StatusCode**específicos. Para filtrar as métricas, selecione **Adicionar filtro** e escolha a propriedade necessária, como **OperationType** , e selecione um valor como **consulta**. Em seguida, o grafo exibe as unidades de solicitação consumidas para a operação de consulta para o período selecionado. As operações executadas por meio do procedimento armazenado não são registradas para que não estejam disponíveis na métrica OperationType.
+
+![Adicionar um filtro para selecionar a granularidade da métrica](./media/cosmosdb-insights-overview/add-metrics-filter.png)
+
+Você pode agrupar as métricas usando a opção **aplicar divisão** . Por exemplo, você pode agrupar as unidades de solicitação por tipo de operação e exibir o grafo para todas as operações de uma só vez, conforme mostrado na imagem a seguir:
+
+![Adicionar filtro de divisão de aplicação](./media/cosmosdb-insights-overview/apply-metrics-splitting.png)
+
+## <a name="view-utilization-and-performance-metrics-for-azure-cosmos-db"></a>Exibir métricas de desempenho e utilização para Azure Cosmos DB
 
 Para exibir a utilização e o desempenho de suas contas de armazenamento em todas as suas assinaturas, execute as etapas a seguir.
 
@@ -50,7 +77,7 @@ Para exibir a utilização e o desempenho de suas contas de armazenamento em tod
 
     ![Captura de tela da pasta de trabalho de visão geral Cosmos DB](./media/cosmosdb-insights-overview/cosmos-db.png)
 
-### <a name="overview"></a>Visão Geral
+### <a name="overview"></a>Visão geral
 
 Em **visão geral**, a tabela exibe métricas de Azure Cosmos DB interativas. Você pode filtrar os resultados com base nas opções selecionadas nas seguintes listas suspensas:
 
@@ -74,11 +101,11 @@ Selecione **falhas** na parte superior da página e a parte de **falhas** do mod
 
 ![Captura de tela de falhas com divisão por tipo de solicitação HTTP](./media/cosmosdb-insights-overview/failures.png)
 
-| Codificar      |  Descrição       | 
+| Código      |  DESCRIÇÃO       | 
 |-----------|:--------------------|
-| `200 OK`  | Uma das seguintes operações REST foi bem-sucedida: </br>-OBTER em um recurso. </br> -PUT em um recurso. </br> -POST em um recurso. </br> -POST em um recurso de procedimento armazenado para executar o procedimento armazenado.|
+| `200 OK`  | Uma das seguintes operações REST foram bem-sucedidas: </br>-OBTER em um recurso. </br> -PUT em um recurso. </br> -POST em um recurso. </br> -POST em um recurso de procedimento armazenado para executar o procedimento armazenado.|
 | `201 Created` | Uma operação POST para criar um recurso foi bem-sucedida. |
-| `404 Not Found` | A operação está tentando agir em um recurso que não existe mais. Por exemplo, o recurso pode já ter sido excluído. |
+| `404 Not Found` | A operação está tentando atuar em um recurso que não existe mais. Por exemplo, o recurso pode já ter sido excluído. |
 
 Para obter uma lista completa de códigos de status, consulte o [artigo Azure Cosmos DB código de status http](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
@@ -90,7 +117,7 @@ Selecione a **capacidade** na parte superior da página e a parte da **capacidad
 
 Assim como acontece com a pasta de trabalho Visão geral, a seleção da lista suspensa ao lado de um recurso de Azure Cosmos DB na coluna **assinatura** revelará uma divisão pelos contêineres individuais que compõem o banco de dados.
 
-### <a name="operations"></a>Operations 
+### <a name="operations"></a>Operações 
 
 Selecione **operações** na parte superior da página e a parte de **operações** do modelo da pasta de trabalho será aberta. Ele oferece a capacidade de ver suas solicitações divididas pelo tipo de solicitações feitas. 
 
@@ -122,7 +149,7 @@ As pastas de trabalho são salvas em um grupo de recursos, na seção **meus rel
 
 ![Iniciar Galeria de pastas de trabalho na barra de comandos](./media/cosmosdb-insights-overview/gallery.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Configure [alertas de métrica](../platform/alerts-metric.md) e [notificações de integridade do serviço](../../service-health/alerts-activity-log-service-notifications.md) para configurar alertas automatizados para auxiliar na detecção de problemas.
 

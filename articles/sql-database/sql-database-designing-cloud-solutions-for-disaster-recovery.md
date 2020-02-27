@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: 8eb115497427338599db08e8c7bbdd55c5a158fc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 348bd2b92801217a5aea2ef4d1426c020085e4c1
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73807957"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624161"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Criar serviços globalmente disponíveis usando o banco de dados SQL do Azure
 
@@ -112,14 +112,14 @@ Neste cenário, o aplicativo tem as seguintes características:
 
 Para atender a esses requisitos, você precisa garantir que o dispositivo de usuário **sempre** se conecte ao aplicativo implantado na mesma geografia para as operações somente leitura, como procurar dados, análises, etc. Enquanto isso, as operações de OLTP são processadas na mesma geografia na **maior parte do tempo**. Por exemplo, durante as horas do dia, as operações OLTP são processadas na mesma geografia, mas fora do horário comercial, elas podem ser processadas em uma geografia diferente. Se a atividade do usuário final geralmente ocorrer durante o horário de trabalho, você poderá garantir o desempenho ideal para a maioria dos usuários na maior parte do tempo. O diagrama a seguir mostra essa topologia.
 
-Os recursos do aplicativo devem ser implantados em cada geografia em que há demanda de uso substancial. Por exemplo, se o aplicativo for usado ativamente nos Estados Unidos, na União Europeia e no Sudeste Asiático, ele deverá ser implantado em todas essas geografias. O banco de dados primário deve ser dinamicamente alternado de uma geografia para a próxima ao final do horário de trabalho. Esse método é chamado de “seguir o sol”. A carga de trabalho OLTP sempre se conecta ao banco de dados por meio do ouvinte de leitura/gravação **&lt;failover-group-name&gt;.database.windows.net** (1). A carga de trabalho somente leitura se conecta ao banco de dados local diretamente usando o ponto de extremidade do servidor de bancos de dados **&lt;server-name&gt;.database.windows.net** (2). O gerenciador de tráfego é configurado com o [método de roteamento de desempenho](../traffic-manager/traffic-manager-configure-performance-routing-method.md). Isso garante que o dispositivo do usuário final seja conectado ao serviço Web na região mais próxima. O gerenciador de tráfego deve ser configurado com o monitoramento de ponto de extremidade habilitado para cada ponto de extremidade do serviço Web (3).
+Os recursos do aplicativo devem ser implantados em cada geografia em que há demanda de uso substancial. Por exemplo, se o aplicativo for usado ativamente nos Estados Unidos, na União Europeia e no Sudeste da Ásia, ele deverá ser implantado em todas essas geografias. O banco de dados primário deve ser dinamicamente alternado de uma geografia para a próxima ao final do horário de trabalho. Esse método é chamado de “seguir o sol”. A carga de trabalho OLTP sempre se conecta ao banco de dados por meio do ouvinte de leitura/gravação **&lt;failover-group-name&gt;.database.windows.net** (1). A carga de trabalho somente leitura se conecta ao banco de dados local diretamente usando o ponto de extremidade do servidor de bancos de dados **&lt;server-name&gt;.database.windows.net** (2). O gerenciador de tráfego é configurado com o [método de roteamento de desempenho](../traffic-manager/traffic-manager-configure-performance-routing-method.md). Isso garante que o dispositivo do usuário final seja conectado ao serviço Web na região mais próxima. O gerenciador de tráfego deve ser configurado com o monitoramento de ponto de extremidade habilitado para cada ponto de extremidade do serviço Web (3).
 
 > [!NOTE]
 > A configuração do grupo de failover define qual região é usada para failover. Como o novo primário está em uma geografia diferente, o failover resulta em uma latência mais longa para cargas de trabalho OLTP e somente leitura até que a região afetada fique online novamente.
 
 ![Cenário 3: Configuração com o primário no Leste dos EUA.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-a.png)
 
-No final do dia (por exemplo, 23h na hora local), os bancos de dados ativos devem ser alternados para a próxima região (Norte da Europa). Essa tarefa pode ser totalmente automatizada usando o [serviço de agendamento do Azure](../scheduler/scheduler-intro.md).  A tarefa envolve as seguintes etapas:
+No final do dia, por exemplo às 11 horas locais, os bancos de dados ativos devem ser alternados para a próxima região (Europa Setentrional). Essa tarefa pode ser totalmente automatizada usando [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md). A tarefa envolve as seguintes etapas:
 
 * Alternar o servidor primário no grupo de failover para o Norte da Europa usando o failover amigável (1)
 * Remover o grupo de failover entre o Leste dos EUA e o Norte da Europa
@@ -130,7 +130,7 @@ O seguinte diagrama ilustra a nova configuração após o failover planejado:
 
 ![Cenário 3: Fazendo a transição do primário para o Norte da Europa.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-b.png)
 
-Se uma interrupção ocorrer no Norte da Europa, por exemplo, o failover automático de banco de dados será iniciado pelo grupo de failover, o que resulta efetivamente na movimentação do aplicativo para a próxima região antes do prazo (1).  Nesse caso, o Leste dos EUA é a única região secundária restante até que o Norte da Europa fique online novamente. As duas regiões restantes atendem aos clientes em todas as três geografias alternando funções. O agendador do Azure precisa ser ajustado de acordo. Como as demais regiões recebem tráfego de usuário adicional da Europa, o desempenho do aplicativo é afetado não apenas pela latência adicional, mas também por um aumento do número de conexões do usuário final. Depois que a interrupção for atenuada no Norte da Europa, o banco de dados secundário será imediatamente sincronizado com o primário atual. O seguinte diagrama ilustra uma interrupção no Norte da Europa:
+Se uma interrupção ocorrer no Norte da Europa, por exemplo, o failover automático de banco de dados será iniciado pelo grupo de failover, o que resulta efetivamente na movimentação do aplicativo para a próxima região antes do prazo (1).  Nesse caso, o Leste dos EUA é a única região secundária restante até que o Norte da Europa fique online novamente. As duas regiões restantes atendem aos clientes em todas as três geografias alternando funções. Os aplicativos lógicos do Azure têm que ser ajustados de acordo. Como as demais regiões recebem tráfego de usuário adicional da Europa, o desempenho do aplicativo é afetado não apenas pela latência adicional, mas também por um aumento do número de conexões do usuário final. Depois que a interrupção for atenuada no Norte da Europa, o banco de dados secundário será imediatamente sincronizado com o primário atual. O seguinte diagrama ilustra uma interrupção no Norte da Europa:
 
 ![Cenário 3: Interrupção no Norte da Europa.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
 

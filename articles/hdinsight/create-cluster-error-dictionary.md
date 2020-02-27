@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/19/2019
-ms.openlocfilehash: 6e5ed996a0f44bae6c37027bc01f30be85d164f9
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 979e83c0eeaac4555fc5144bca479f0b5656cd28
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905489"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617534"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: erros de criação de cluster
 
@@ -124,7 +124,7 @@ Como o script é seu script personalizado, recomendamos que você solucione o pr
 
 ### <a name="error"></a>Erro
 
-"A versão de esquema do metastore do \<META_STORE_TYPE\> \<METASTORE_MAJOR_VERSION\> no banco de dados \<database_name\> é incompatível com a versão do cluster \<CLUSTER_VERSION do"
+"A versão de esquema do metastore do \<META_STORE_TYPE\> \<METASTORE_MAJOR_VERSION\> no banco de dados \<database_name\> é incompatível com a versão do cluster \<CLUSTER_VERSION do"\>
 
 ### <a name="cause"></a>Causa
 
@@ -172,7 +172,7 @@ Você não forneceu as permissões necessárias para gerenciar a identidade. A i
 1. Abra o portal do Azure.
 1. Vá até sua conta de armazenamento.
 1. Procure em **controle de acesso (iam)** .
-1. Certifique-se de que a função de colaborador de dados do blob de armazenamento ou a função de proprietário de dados do blob de armazenamento tenha acesso "atribuído" à identidade gerenciada atribuída pelo usuário para a assinatura.
+1. Verifique se o usuário tem a função de colaborador de dados do blob de armazenamento ou a função de proprietário de dados do blob de armazenamento atribuída a ele.
 
 Para obter mais informações, consulte [configurar permissões para a identidade gerenciada na conta de data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
@@ -212,6 +212,6 @@ Normalmente, esse erro é gerado quando há um problema transitório ou uma inte
 
 Verifique a página de [status do Azure](https://status.azure.com) para qualquer interrupção do Azure que possa afetar a implantação do cluster. Se não houver interrupções, repita a implantação do cluster.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre como solucionar erros de criação de cluster, consulte [solucionar problemas de falhas de criação de cluster com o Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-troubleshoot-cluster-creation-fails).

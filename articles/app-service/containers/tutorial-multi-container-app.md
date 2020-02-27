@@ -6,12 +6,13 @@ author: msangapu-msft
 ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu
-ms.openlocfilehash: 531dc62cacc044187c7800dd8abcdad282c4e633
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.custom: cli-validate
+ms.openlocfilehash: 92a9368bf6aa4f2cf043b3aabd443b37cdcde390
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759936"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523940"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutorial: Criar um aplicativo multicontêiner (versão prévia) no Aplicativo Web para Contêineres
 
@@ -32,7 +33,7 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisa ter experiência com o [Docker Compose](https://docs.docker.com/compose/).
 

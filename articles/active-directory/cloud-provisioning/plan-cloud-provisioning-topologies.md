@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 142974423816b07d754a5425017aedc3195e2f4e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 386af46bbee623d37bc914d2ee9130c914c6c885
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793991"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620868"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-supported-topologies-and-scenarios"></a>Azure AD Connect topologias e cenários com suporte de provisionamento em nuvem
 Este artigo descreve várias topologias locais e Azure Active Directory (Azure AD) que usam Azure AD Connect provisionamento de nuvem. Este artigo inclui apenas cenários e configurações com suporte.
@@ -33,12 +33,16 @@ Veja a seguir uma lista de informações para ter em mente ao selecionar uma sol
 - A âncora de origem dos objetos é escolhida automaticamente.  Ele usa MS-DS-ConsistencyGuid, se presente, caso contrário, objectGUID será usado.
 - Não é possível alterar o atributo usado para a âncora de origem.
 
+## <a name="single-forest-single-azure-ad-tenant"></a>Floresta única, locatário único do Azure AD
+![Topologia de uma única floresta e um único locatário](media/plan-cloud-provisioning-topologies/single-forest.png)
+
+A topologia mais simples é uma floresta local única, com um ou vários domínios, e um único locatário do Azure AD.  Para obter um exemplo desse cenário, consulte [tutorial: uma única floresta com um único locatário do Azure ad](tutorial-single-forest.md)
 
 
 ## <a name="multi-forest-single-azure-ad-tenant"></a>Locatário único do Azure AD de várias florestas
 ![Topologia para várias florestas e um único locatário](media/plan-cloud-provisioning-topologies/multi-forest.png)
 
-A topologia mais comum é uma várias florestas do AD, com um ou vários domínios e um único locatário do Azure AD.  
+Uma topologia comum é uma várias florestas do AD, com um ou vários domínios e um único locatário do Azure AD.  
 
 ## <a name="existing-forest-with-azure-ad-connect-new-forest-with-cloud-provisioning"></a>Floresta existente com Azure AD Connect, nova floresta com provisionamento de nuvem
 ![Topologia de uma única floresta e um único locatário](media/plan-cloud-provisioning-topologies/existing-forest-new-forest.png)
@@ -50,13 +54,10 @@ Esse cenário é a topologia semelhante ao cenário de várias florestas, no ent
 
 Para obter um exemplo desse cenário, consulte [tutorial: piloto Azure ad Connect provisionamento de nuvem em uma floresta do AD sincronizada existente](tutorial-pilot-aadc-aadccp.md)
 
-## <a name="single-forest-single-azure-ad-tenant"></a>Floresta única, locatário único do Azure AD
-![Topologia de uma única floresta e um único locatário](media/plan-cloud-provisioning-topologies/single-forest.png)
 
-A topologia mais simples é uma floresta local única, com um ou vários domínios, e um único locatário do Azure AD.  Para obter um exemplo desse cenário, consulte [tutorial: uma única floresta com um único locatário do Azure ad](tutorial-single-forest.md)
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Próximas etapas 
 
 - [O que é provisionamento?](what-is-provisioning.md)
-- [O que é Azure AD Connect provisionamento de nuvem?](what-is-cloud-provisioning.md)
+- [O que é o provisionamento em nuvem do Azure AD Connect?](what-is-cloud-provisioning.md)
 

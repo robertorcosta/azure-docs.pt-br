@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f4e8450593b8ff0f73c09f236f17eb4ef09334c
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: e4581ab89f74425682f569425f62714ead2c27c5
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75549495"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620948"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Instalar o agente de provisionamento em nuvem do Azure AD Connect
 Este documento orienta o processo de instalação para o agente de provisionamento do Azure Active Directory (Azure AD) Connect e como configurá-lo inicialmente no portal do Azure.
@@ -55,7 +55,7 @@ Para instalar o agente, siga estas etapas.
 
 1. Após a conclusão dessa operação, você deverá ver o aviso de que **a configuração do agente foi verificada com êxito.** Selecione **sair**.
 
-   ![Botão Sair](media/how-to-install/install5.png)</br>
+   ![Botão sair](media/how-to-install/install5.png)</br>
 1. Se você ainda vir a tela inicial do **pacote de agente de provisionamento do Microsoft Azure ad Connect** , selecione **fechar**.
 
 ## <a name="verify-agent-installation"></a>Verificar a instalação do agente
@@ -96,11 +96,11 @@ Para verificar se o agente está em execução, siga estas etapas.
     ![Tela de serviços](media/how-to-troubleshoot/troubleshoot1.png)
 
 >[!IMPORTANT]
->O agente foi instalado, mas deve ser configurado e habilitado antes de iniciar a sincronização de usuários. Para configurar um novo agente, consulte [Azure ad Connect nuvem Provisionando nova configuração de agente](how-to-configure.md).
+>O agente foi instalado, mas deve ser configurado e habilitado antes de iniciar a sincronização de usuários. Para configurar um novo agente, consulte [criar uma nova configuração para Azure ad Connect provisionamento baseado em nuvem](how-to-configure.md).
 
 
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Próximas etapas 
 
 - [O que é provisionamento?](what-is-provisioning.md)
 - [O que é o provisionamento em nuvem do Azure AD Connect?](what-is-cloud-provisioning.md)

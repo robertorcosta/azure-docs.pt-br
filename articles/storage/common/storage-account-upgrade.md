@@ -6,25 +6,25 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 02/25/2019
 ms.author: tamram
-ms.openlocfilehash: eb3523ca55e67d7a26ae608da8963dbf6124f2f7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 42cef26143eaeb49c4aa80dc5e1b05eb7be943cc
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75975820"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616839"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Atualizar para uma conta de armazenamento de uso geral v2
 
 As contas de armazenamento para uso geral v2 são compatíveis com os recursos mais recentes do Armazenamento do Azure e incorporam todas as funcionalidades das contas de armazenamento de blobs e para uso geral v1. Contas de uso geral v2 são recomendadas para a maioria dos cenários de armazenamento. As contas de armazenamento para uso geral v2 têm os menores preços de capacidade por gigabyte para o Armazenamento do Azure, bem como os preços de transação competitivos no setor. As contas v2 de uso geral dão suporte a camadas de acesso de conta padrão de camadas de nível quente ou fria e de camada de blob entre Hot, frio ou arquivo morto.
 
-A atualização para uma conta de armazenamento de uso geral v2 das suas contas de armazenamento de Blobs ou uso geral v1 é simples. Você pode atualizar usando o portal do Azure, o PowerShell ou a CLI do Azure.
+A atualização para uma conta de armazenamento v2 de uso geral de suas contas de armazenamento de blob v1 ou de uso geral é simples. Você pode atualizar usando o portal do Azure, o PowerShell ou a CLI do Azure. Não há nenhum tempo de inatividade ou risco de perda de dados associado à atualização para uma conta de armazenamento v2 de uso geral. A atualização da conta ocorre por meio de uma operação simples de Azure Resource Manager que altera o tipo de conta.
 
 > [!IMPORTANT]
 > A atualização de uma conta de armazenamento de blob v1 ou de uso geral para uso geral V2 é permanente e não pode ser desfeita.
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. Navegue até sua conta de armazenamento.
@@ -35,7 +35,7 @@ A atualização para uma conta de armazenamento de uso geral v2 das suas contas 
 
     ![Tipo de conta de atualização](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -46,7 +46,7 @@ Em seguida, chame o seguinte comando para atualizar a conta, substituindo o nome
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
 ```
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para atualizar uma conta de uso geral v1 para uma conta de uso geral v2 usando a CLI do Azure, primeiro instale a versão mais recente da CLI do Azure. Para obter informações sobre como instalar a CLI 2.0 do Azure, veja [Como instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -165,6 +165,6 @@ O custo da transferência de dados de replicação geográfica para contas de ar
 > [!NOTE]
 > Para obter um exemplo mais detalhado de como calcular os custos para usar a camada de acesso de armazenamento frequente ou esporádico, dê uma olhada nas Perguntas frequentes intituladas *“O que são as camadas de acesso frequente e esporádico e como devo determinar qual delas usar?”* na [Página de preços de armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Criar uma conta de armazenamento](storage-account-create.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 02/24/2020
-ms.openlocfilehash: 0cb33f55acacfd3635d19719265a46b566765a64
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 2ea77be0a7aabefaf8f6ed9a5bd841ea1fdda263
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592095"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620321"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Azure Monitor configuração de chave gerenciada pelo cliente 
 
@@ -172,7 +172,7 @@ https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<res
 
 ### <a name="azure-monitor-data-store-adx-cluster-provisioning"></a>Provisionamento de Azure Monitor armazenamento de dados (cluster ADX)
 
-Durante o período de acesso antecipado do recurso, o cluster ADX é provisionado manualmente pela equipe de produto depois que as etapas anteriores são concluídas. Use o canal que você tem com a Microsoft para fornecer os detalhes do recurso de *cluster* . A resposta JSON pode ser recuperada usando GET REST API:
+Durante o período de acesso antecipado do recurso, o cluster ADX é provisionado manualmente pela equipe de produto depois que as etapas anteriores são concluídas. Use seu canal da Microsoft para fornecer os detalhes do recurso de *cluster* . Copie a resposta JSON do recurso de *cluster* obter API REST:
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview

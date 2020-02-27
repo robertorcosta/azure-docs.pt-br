@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 81db0889294360f74cb42d388e5d875de91c1019
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: cf70124f2e310dd62fd32de0e17edb40c047a318
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212468"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615675"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions plano Premium
 
@@ -107,28 +107,29 @@ Abaixo estão as regiões com suporte no momento para cada sistema operacional.
 |--| -- | -- |
 |Austrália Central| ✔<sup>1</sup> | |
 |Austrália Central 2| ✔<sup>1</sup> | |
-|Leste da Austrália| ✔ | |
+|Leste da Austrália| ✔ | ✔<sup>1</sup> |
 |Sudeste da Austrália | ✔ | ✔<sup>1</sup> |
 |Sul do Brasil| ✔<sup>2</sup> |  |
-|Canadá Central| ✔ |  |
+|Canadá Central| ✔ | ✔<sup>1</sup> |
 |Centro dos EUA| ✔ |  |
 |Leste da Ásia| ✔ |  |
 |Leste dos EUA | ✔ | ✔<sup>1</sup> |
-|Leste dos EUA 2| ✔ |  |
+|Leste dos EUA 2| ✔ | ✔<sup>1</sup> |
 |França Central| ✔ |  |
 |Centro-oeste da Alemanha| ✔ | |
 |Leste do Japão| ✔ | ✔<sup>1</sup> |
-|Oeste do Japão| ✔ | |
-|Coreia Central| ✔ |  |
+|Oeste do Japão| ✔ | ✔<sup>1</sup> |
+|Coreia Central| ✔ | ✔<sup>1</sup> |
 |Centro-Norte dos EUA| ✔ |  |
 |Norte da Europa| ✔ | ✔<sup>1</sup> |
 |Centro-Sul dos Estados Unidos| ✔ | ✔<sup>1</sup> |
 |Sul da Índia | ✔ | |
 |Sudeste Asiático| ✔ | ✔<sup>1</sup> |
-|Sul do Reino Unido| ✔ | |
+|Sul do Reino Unido| ✔ | ✔<sup>1</sup> |
 |Oeste do Reino Unido| ✔ |  |
 |Europa Ocidental| ✔ | ✔<sup>1</sup> |
 |Oeste da Índia| ✔ |  |
+|Centro-Oeste dos EUA| | ✔<sup>1</sup> |
 |Oeste dos EUA| ✔ | ✔<sup>1</sup> |
 |Oeste dos EUA 2| ✔ |  |
 

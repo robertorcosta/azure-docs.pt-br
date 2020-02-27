@@ -2,13 +2,13 @@
 title: Visão geral das Tarefas do ACR
 description: Uma introdução às tarefas do ACR, um conjunto de recursos no registro de contêiner do Azure que fornece criação de imagem de contêiner segura e automatizada, gerenciamento e aplicação de patches na nuvem.
 ms.topic: article
-ms.date: 09/05/2019
-ms.openlocfilehash: f8ab3c3bd259f83a61d0b030a49e158ccd6e2a69
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.date: 01/22/2020
+ms.openlocfilehash: cb5f0a71c31c26d679efd8a17b360dab2ad0862b
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938873"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615948"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizar compilações de imagem de contêiner e manutenção com tarefas ACR
 
@@ -70,26 +70,12 @@ Saiba como disparar builds na confirmação do código-fonte no segundo tutorial
 
 ## <a name="automate-os-and-framework-patching"></a>Automatizar sistema operacional e aplicação de patch de estrutura
 
-O poder das Tarefas do ACR de realmente aprimorar seu fluxo de trabalho de build de contêiner vem da capacidade de detectar uma atualização para uma imagem de base. Quando a imagem base atualizada é enviada para o registro ou uma imagem base é atualizada em um repositório público, como no Hub do Docker, as tarefas do ACR podem criar automaticamente qualquer imagem de aplicativo baseada nela.
+O poder das tarefas do ACR para aprimorar verdadeiramente seu fluxo de trabalho de Build de contêiner vem da sua capacidade de detectar uma atualização para uma *imagem de base*. Um recurso da maioria das imagens de contêiner, uma imagem de base é uma imagem pai na qual uma ou mais imagens de aplicativo se baseiam. As imagens básicas normalmente contêm o sistema operacional e, às vezes, estruturas de aplicativo. 
 
-As imagens de contêiner podem ser amplamente categorizadas em imagens de *base* e imagens de *aplicativo*. Suas imagens de base normalmente incluem o sistema operacional e estruturas de aplicativo com base nos quais seu aplicativo é criado, em conjunto com outras personalizações. Essas imagens básicas normalmente são baseadas em imagens de upstream públicas, por exemplo: [Alpine Linux][base-alpine], [Windows][base-windows], [.net][base-dotnet]ou [node. js][base-node]. Várias das suas imagens de aplicativo podem compartilhar uma imagem de base comum.
+Você pode configurar uma tarefa ACR para rastrear uma dependência em uma imagem base ao criar uma imagem de aplicativo. Quando a imagem base atualizada é enviada para o registro ou uma imagem base é atualizada em um repositório público, como no Hub do Docker, as tarefas do ACR podem criar automaticamente qualquer imagem de aplicativo baseada nela.
+Com essa detecção e recriação automáticas, as Tarefas do ACR poupam o tempo e o esforço normalmente necessários para acompanhar e atualizar manualmente cada imagem de aplicativo que faz referência à imagem base atualizada.
 
-Quando um sistema operacional ou uma imagem de estrutura de aplicativo é atualizado pelo mantenedor upstream, por exemplo, com um patch de segurança crítico de sistema operacional, você deverá também atualizar suas imagens de base para incluir a correção crítica. Cada imagem de aplicativo deve também ser reconstruída para incluir essas correções upstream agora incluídas em sua imagem de base.
-
-Como as Tarefas do ACR descobrem dinamicamente as dependências da imagem base quando criam uma imagem de contêiner, elas podem detectar quando a imagem base de uma imagem de aplicativo é atualizada. Com uma [tarefa de build](container-registry-tutorial-base-image-update.md#create-a-task) pré-configurada, as Tarefas do ACR **recriam automaticamente cada imagem do aplicativo** para você. Com essa detecção e recriação automáticas, as Tarefas do ACR poupam o tempo e o esforço normalmente necessários para acompanhar e atualizar manualmente cada imagem de aplicativo que faz referência à imagem base atualizada.
-
-Para compilações de imagem de um Dockerfile, uma tarefa ACR rastreia uma atualização de imagem base quando a imagem base está em um dos seguintes locais:
-
-* O mesmo Registro de Contêiner do Azure em que a tarefa é executada
-* Outro Registro de Contêiner do Azure na mesma região 
-* Um repositório público no Docker Hub
-* Um repositório público no Registro de Contêiner da Microsoft
-
-> [!NOTE]
-> * O gatilho de atualização da imagem base é habilitado por padrão em uma tarefa ACR. 
-> * Atualmente, as tarefas de ACR rastreiam apenas atualizações de imagem base para imagens de aplicativo (*tempo de execução*). As tarefas de ACR não rastreiam atualizações de imagem base para imagens intermediárias (*buildtime*) usadas em Dockerfiles de vários estágios. 
-
-Saiba mais sobre aplicação de patches do sistema operacional e da estrutura no terceiro tutorial de tarefas do ACR, [Automatize a criação de imagens na atualização da imagem base com as tarefas do registro de contêiner do Azure](container-registry-tutorial-base-image-update.md).
+Saiba mais sobre [gatilhos de atualização de imagem base](container-registry-tasks-base-images.md) para tarefas ACR. E saiba como disparar uma compilação de imagem quando uma imagem base é enviada por push para um registro de contêiner no tutorial [automatizar a imagem de contêiner cria quando uma imagem base é atualizada em um registro de contêiner do Azure](container-registry-tutorial-base-image-update.md)
 
 ## <a name="schedule-a-task"></a>Agendar uma tarefa
 
@@ -116,7 +102,7 @@ Saiba mais sobre as tarefas de várias etapas em [Run multi-step build, test, an
 
 A tabela a seguir mostra alguns exemplos de locais de contexto com suporte para as Tarefas do ACR:
 
-| Local do contexto | Description | Exemplo |
+| Local do contexto | DESCRIÇÃO | Exemplo |
 | ---------------- | ----------- | ------- |
 | Sistema de arquivos local | Arquivos dentro de um diretório no sistema de arquivos local. | `/home/user/projects/myapp` |
 | Branch mestre do GitHub | Arquivos dentro da ramificação mestre (ou outro padrão) de um repositório GitHub público ou privado.  | `https://github.com/gituser/myapp-repo.git` |
@@ -133,7 +119,7 @@ A tabela a seguir mostra alguns exemplos de locais de contexto com suporte para 
 
 Por padrão, as tarefas ACR criam imagens para o SO Linux e a arquitetura AMD64. Especifique a marca de `--platform` para criar imagens do Windows ou imagens do Linux para outras arquiteturas. Especifique o sistema operacional e, opcionalmente, uma arquitetura com suporte no formato de sistema operacional/arquitetura (por exemplo, `--platform Linux/arm`). Para arquiteturas ARM, especifique opcionalmente uma variante no formato do sistema operacional/arquitetura/variante (por exemplo, `--platform Linux/arm64/v8`):
 
-| SISTEMA OPERACIONAL | Arquitetura|
+| Sistema operacional | Arquitetura|
 | --- | ------- | 
 | Linux | AMD64<br/>braço<br/>arm64<br/>386 |
 | Windows | AMD64 |
@@ -148,7 +134,7 @@ Por padrão, os dados e logs para tarefas executadas em um registro são mantido
 az acr task update-run --registry myregistry --run-id cf11 --no-archive false
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Quando estiver pronto para automatizar as compilações e a manutenção da imagem de contêiner na nuvem, confira a [série de tutoriais de tarefas do ACR](container-registry-tutorial-quick-task.md).
 

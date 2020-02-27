@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: aa03e388019bf696324ea7af6062ec98386df5fa
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 0585ced3bc53f216ab203b4686b5800b5e14bbbd
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827044"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612736"
 ---
 # <a name="troubleshoot-account-sign-in-problems-with-an-azure-ad-domain-services-managed-domain"></a>Solucionar problemas de conexão de conta com um Azure AD Domain Services domínio gerenciado
 
@@ -59,7 +59,7 @@ O Azure AD DS domínios gerenciados sem sincronização local, somente contas no
     * [Altere a senha da conta][enable-user-accounts] para gerar os hashes de senha necessários e aguarde 15 minutos antes de tentar entrar novamente.
     * Se você desabilitar o Azure AD DS e, em seguida, reabilitar, cada conta deverá seguir as etapas novamente para alterar a senha e gerar os hashes de senha necessários.
 * **Sim, a senha foi alterada.**
-    * Tente entrar usando o formato *UPN* , como `driley@contoso.com`, em vez do formato *sAMAccountName* como `CONTOSO\deeriley`.
+    * Tente entrar usando o formato *UPN* , como `driley@aaddscontoso.com`, em vez do formato *SAMAccountName* , como `AADDSCONTOSO\deeriley`.
     * O *sAMAccountName* pode ser gerado automaticamente para usuários cujo prefixo UPN é muito longo ou é o mesmo que outro usuário no domínio gerenciado. É garantido que o formato *UPN* seja exclusivo em um locatário do Azure AD.
 
 ## <a name="the-account-is-locked-out"></a>A conta está bloqueada

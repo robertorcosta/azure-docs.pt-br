@@ -1,27 +1,27 @@
 ---
 title: Realizar uma análise da causa raiz em um alerta – Azure | Microsoft Docs
 description: Neste tutorial, você aprenderá a conduzir uma análise da causa raiz em um alerta usando o Azure Time Series Insights.
-author: aditidugar
-ms.author: adugar
+author: Philmea
+ms.author: philmea
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 70d29359d4a4bcf9f5badbbf0c553d7bed88a02b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c3cb940583677d813873c07fbfa679fdcc1dff59
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284550"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565461"
 ---
-# <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Tutorial: realizar uma análise da causa raiz em um alerta
+# <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Tutorial: Fazer uma análise da causa-raiz em um alerta
 
 Neste tutorial, você aprenderá a usar o acelerador de solução de Monitoramento Remoto para diagnosticar a causa raiz de um alerta. Você verá que um alerta foi disparado no painel da solução de Monitoramento Remoto. Em seguida, use o explorador do Azure Time Series Insights para investigar a causa raiz.
 
 O tutorial usa dois dispositivos de caminhão de entrega simulados que enviam a telemetria de localização, altitude, velocidade e temperatura da carga. Os caminhões são gerenciados por uma organização chamada Contoso e são conectados ao acelerador de solução de Monitoramento Remoto. Como operador da Contoso, você precisa entender por que um dos seus caminhões (caminhão de entrega 02) registrou um alerta de baixa temperatura.
 
-Neste tutorial, você irá:
+Neste tutorial, você:
 
 >[!div class="checklist"]
 > * Filtrar os dispositivos no painel

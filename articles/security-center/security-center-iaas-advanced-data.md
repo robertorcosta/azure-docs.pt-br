@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: memildin
-ms.openlocfilehash: 068fb9f61b7dcb3948e4f03c284ddfa680522c85
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: a2970ea3f5ad360deaedd7efc82154cd3bc50337
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907083"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617106"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Segurança de dados avançada para servidores SQL em máquinas virtuais do Azure (versão prévia)
 A segurança de dados avançada para servidores SQL em máquinas virtuais do Azure é um pacote unificado para recursos avançados de segurança do SQL. Esse recurso de visualização inclui a funcionalidade para identificar e reduzir possíveis vulnerabilidades de banco de dados e detectar atividades anormais que podem indicar ameaças ao seu banco de dados. 
@@ -61,13 +61,13 @@ Para criar um novo espaço de trabalho, siga as instruções em [criar um log An
 Para conectar o host do SQL Server a um espaço de trabalho, siga as instruções em [conectar computadores Windows ao Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
 
 
-## <a name="set-up-email-notification-for-atp-alerts"></a>Configurar notificação por email para alertas ATP 
+## <a name="set-up-email-notification-for-security-alerts"></a>Configurar a notificação por email para alertas de segurança 
 
 Você pode definir uma lista de destinatários para receber uma notificação por email quando os alertas da central de segurança são gerados. O email contém um link direto para o alerta na central de segurança do Azure com todos os detalhes relevantes. 
 
 1. Vá para a **central de segurança** > **preços & configurações** e clique na assinatura relevante
 
-    ![Configurações de assinatura](./media/security-center-advanced-iaas-data/subscription-settings.png)
+    ![Configurações de Assinatura](./media/security-center-advanced-iaas-data/subscription-settings.png)
 
 1. No menu configurações, clique em **notificações de email**. 
 1. Na caixa de texto **endereço de email** , insira os endereços de email para receber as notificações. Você pode inserir mais de um endereço de email separando os endereços de email com uma vírgula (,).  Por exemplo admin1@mycompany.com,admin2@mycompany.com,admin3@mycompany.com

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
-ms.openlocfilehash: 06fa98ae4acc2252d8866858ed0e2194ed84ff79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 40735f91e2ca58cc42f723c7993686d92f0e5ff0
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60928270"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623340"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Desativando os níveis de desempenho S1, S2 e S3
 
@@ -26,7 +26,7 @@ Este artigo fornece uma visão geral dos níveis de desempenho S1, S2 e S3 e dis
 - [O que é necessário fazer para garantir o acesso ininterrupto aos meus dados?](#uninterrupted-access)
 - [Como a minha coleção mudará após a migração?](#collection-change)
 - [Como minha cobrança mudará depois que eu migrar para as coleções de partição única?](#billing-change)
-- [E se eu precisar de mais de 10 GB de armazenamento?](#more-storage-needed)
+- [E se eu precisar de mais de 20 GB de armazenamento?](#more-storage-needed)
 - [Posso mudar entre os níveis de desempenho S1, S2 e S3 antes da migração planejada?](#change-before)
 - [Como eu migro dos níveis de desempenho S1, S2 e S3 para as coleções de partição única sozinho?](#migrate-diy)
 - [Como serei afetado se eu for um cliente EA?](#ea-customer)
@@ -47,7 +47,7 @@ A tabela a seguir compara as opções da taxa de transferência e armazenamento 
 |---|---|---|---|---|---|
 |Taxa de transferência máxima|Ilimitado|10 K RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
 |Taxa de transferência mínima|2.5 K RU/s|400 RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
-|Armazenamento máximo|Ilimitado|10 GB|10 GB|10 GB|10 GB|
+|Armazenamento máximo|Ilimitado|20 GB|20 GB|20 GB|20 GB|
 |Preço (mensal)|Taxa de transferência: $ 6/100 RU/s<br><br>Armazenamento: $ 0,25/GB|Taxa de transferência: $ 6/100 RU/s<br><br>Armazenamento: $ 0,25/GB|$ 25 dólares americanos|$ 50 dólares americanos|$ 100 dólares americanos|
 
 Você é um cliente EA? Se for, consulte [Como serei afetado se eu for um cliente EA?](#ea-customer)
@@ -80,9 +80,9 @@ Supondo que você tem 10 coleções S1, 1 GB de armazenamento para cada uma, na 
 
 <a name="more-storage-needed"></a>
 
-## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>E se eu precisar de mais de 10 GB de armazenamento?
+## <a name="what-if-i-need-more-than-20-gb-of-storage"></a>E se eu precisar de mais de 20 GB de armazenamento?
 
-Se você tiver uma coleção com o nível de desempenho S1, S2 ou S3 ou tem uma coleção de partição única, que têm 10 GB de armazenamento disponível, que você pode usar a ferramenta de migração de dados de banco de dados do Azure Cosmos para migrar os dados para uma coleção particionada com praticamente armazenamento ilimitado. Para obter informações sobre os benefícios de uma coleção particionada, consulte [Particionamento e escala no Azure Cosmos DB](sql-api-partition-data.md). 
+Se você tiver uma coleção com o nível de desempenho S1, S2 ou S3 ou tiver uma coleção de partição única, todas as quais têm 20 GB de armazenamento disponíveis, você pode usar a ferramenta de migração de dados Azure Cosmos DB para migrar seus dados para uma coleção particionada com virtualmente armazenamento ilimitado. Para obter informações sobre os benefícios de uma coleção particionada, consulte [Particionamento e escala no Azure Cosmos DB](sql-api-partition-data.md). 
 
 <a name="change-before"></a>
 

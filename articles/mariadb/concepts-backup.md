@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 333e51782fd0dd88b3e8747fb831b841a22c8e6c
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 02/25/2020
+ms.openlocfilehash: 3e10c23aaaef6315e072348d879d5f077e16382a
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773073"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623654"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Backup e restauração no Banco de Dados do Azure para MariaDB
 
@@ -20,6 +20,8 @@ O Banco de Dados do Azure para MariaDB cria backups de servidor automaticamente 
 ## <a name="backups"></a>Backups
 
 O Banco de Dados do Azure para MariaDB usa backups completos, diferenciais e de log de transações. Esses backups permitem que você restaure um servidor pontualmente dentro de seu período de retenção de backup configurado. O período de retenção de backup padrão é de sete dias. Você pode, opcionalmente, configurá-lo para até 35 dias. Todos os backups são criptografados usando a criptografia AES de 256 bits.
+
+Esses arquivos de backup não podem ser exportados. Os backups só podem ser usados para operações de restauração no banco de dados do Azure para MariaDB. Você pode usar [mysqldump](howto-migrate-dump-restore.md) para copiar um banco de dados.
 
 ### <a name="backup-frequency"></a>Frequência de backup
 
@@ -52,9 +54,9 @@ Há dois tipos de restauração disponíveis:
 O tempo estimado de recuperação dependerá de vários fatores, incluindo os tamanhos dos bancos de dados, o tamanho do log de transações, a largura de banda de rede e o número total de bancos de dados de recuperação na mesma região e ao mesmo tempo. Normalmente, o tempo de recuperação é menor do que 12 horas.
 
 > [!IMPORTANT]
-> Servidores excluídos **não podem** ser restaurados. Se você excluir o servidor, todos os bancos de dados que pertencem a esse servidor também serão excluídos e não poderão ser recuperados. Para proteger os recursos do servidor, após a implantação, contra exclusão acidental ou alterações inesperadas, os administradores podem usar [bloqueios de gerenciamento](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
+> Excluir servidores **não é possível** ser restaurado. Se você excluir o servidor, todos os bancos de dados que pertencem a esse servidor também serão excluídos e não poderão ser recuperados. Para proteger os recursos do servidor, após a implantação, contra exclusão acidental ou alterações inesperadas, os administradores podem usar [bloqueios de gerenciamento](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 
-### <a name="point-in-time-restore"></a>Restauração pontual
+### <a name="point-in-time-restore"></a>Restauração em um momento determinado
 
 Independentemente de sua opção de redundância de backup, você pode executar uma restauração para qualquer ponto anterior dentro de seu período de retenção de backup. Um novo servidor é criado na mesma região do Azure do servidor original. Ele é criado com a configuração do servidor original para o tipo de preço, a geração de computação, o número de núcleos virtuais, o tamanho do armazenamento, o período de retenção de backup e a opção de redundância de backup.
 
@@ -77,10 +79,10 @@ Após uma restauração de um dos mecanismos de recuperação, você deve execut
 - Verifique se as permissões e os logons adequados no nível do banco de dados estão em vigor
 - Configurar os alertas, conforme apropriado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre continuidade dos negócios, confira a  [visão geral de continuidade dos negócios](concepts-business-continuity.md).
-- Para restaurar para um determinado ponto no tempo usando o Portal do Azure, consulte  [Restaurar um banco de dados para um ponto no tempo usando o Portal do Azure](howto-restore-server-portal.md).
+- Para restaurar para um determinado ponto no tempo usando o Portal do Azure, confira  [Restaurar um banco de dados para um ponto no tempo usando o Portal do Azure](howto-restore-server-portal.md).
  
 <!--
 - To restore to a point in time using Azure CLI, see [restore database to a point in time using CLI](howto-restore-server-cli.md).-->

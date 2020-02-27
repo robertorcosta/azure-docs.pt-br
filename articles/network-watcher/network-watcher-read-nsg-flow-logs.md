@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: damendo
-ms.openlocfilehash: ee44dda7a7ca2f7e1ad386498798191fe792cef0
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 47d927f9f17580767526ec6683e819256fc5e994
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840818"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619927"
 ---
 # <a name="read-nsg-flow-logs"></a>Ler logs de fluxo NSG
 
@@ -184,8 +184,11 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 
 Esse cenário é um exemplo de como ler entradas nos logs de fluxo NSG sem precisar analisar o log inteiro. Você pode ler as novas entradas no log conforme elas são gravadas usando a ID do bloco ou acompanhando o tamanho dos blocos armazenados no blob de blocos. Isso permite que você leia apenas as novas entradas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
+
 
 Visite [Usar Pilha Elástica](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Usar Grafana](network-watcher-nsg-grafana.md), e [Usar Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) para saber mais sobre outras maneiras de exibir logs de fluxo NSG. Uma abordagem de função do Azure de software livre para o consumo direto dos BLOBs e a emissão de vários consumidores do log Analytics podem ser encontradas aqui: [conector de logs de fluxo NSG do observador de rede do Azure](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
+
+Você pode usar o [Azure análise de tráfego](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) para obter informações sobre seus fluxos de tráfego. Análise de Tráfego usa [log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) para tornar seu fluxo de tráfego passível de consulta.
 
 Para saber mais sobre blobs de armazenamento, acesse: [Associações de armazenamento de Blobs do Azure Functions](../azure-functions/functions-bindings-storage-blob.md)

@@ -2,21 +2,21 @@
 title: Matriz de ferramentas do serviço de migração de banco de dados Azure
 description: Conheça os serviços e ferramentas disponíveis para migrar bancos de dados e prestar suporte a várias fases do processo de migração.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/10/2020
-ms.openlocfilehash: 6259f365edeb3c3d94646a4b2ae019d0776dcc23
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 02/20/2020
+ms.openlocfilehash: c64e9392173f2f329f6c95d4cf9f40614060066e
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75860836"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650991"
 ---
 # <a name="services-and-tools-available-for-data-migration-scenarios"></a>Serviços e ferramentas disponíveis para cenários de migração de dados
 
@@ -29,7 +29,7 @@ As tabelas a seguir identificam os serviços e as ferramentas que você pode usa
 
 ## <a name="business-justification-phase"></a>Fase de justificativa de negócios
 
-| Origem | Escolha o destino | Descobri<br/>Inventário | Destino e SKU<br/>recomendação | TCO/ROI e<br/>Caso comercial |
+| Fonte | Destino | Descobri<br/>Inventário | Destino e SKU<br/>recomendação | TCO/ROI e<br/>Caso comercial |
 | --- | --- | --- | --- | --- |
 | SQL Server | BD SQL do Azure | [MAP Toolkit](https://msdn.microsoft.com/library/bb977556.aspx)<br/>[Migrações para Azure](https://azure.microsoft.com/services/azure-migrate/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [Calculadora de TCO](https://azure.microsoft.com/pricing/tco/calculator/) |
  SQL Server | SQL do Azure para MI do BD | [MAP Toolkit](https://msdn.microsoft.com/library/bb977556.aspx)<br/>[Migrações para Azure](https://azure.microsoft.com/services/azure-migrate/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [Calculadora de TCO](https://azure.microsoft.com/pricing/tco/calculator/) |
@@ -54,7 +54,7 @@ As tabelas a seguir identificam os serviços e as ferramentas que você pode usa
 
 ## <a name="pre-migration-phase"></a>Fase de pré-migração
 
-| Origem | Escolha o destino | Acesso a dados do aplicativo<br/>Avaliação de camada | Banco de dados<br/>Avaliação | Performance<br/>Avaliação |
+| Fonte | Destino | Acesso a dados do aplicativo<br/>Avaliação de camada | Banco de dados<br/>Avaliação | Desempenho<br/>Avaliação |
 | --- | --- | --- | --- | --- |
 | SQL Server | BD SQL do Azure | [DAMT](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) / [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DEA](https://www.microsoft.com/download/details.aspx?id=54090)<br/>[Cloudamize*](https://www.cloudamize.com/) |
 | SQL Server | SQL do Azure para MI do BD | [DAMT](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) / [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DEA](https://www.microsoft.com/download/details.aspx?id=54090)<br/>[Cloudamize*](https://www.cloudamize.com/) |
@@ -79,7 +79,7 @@ As tabelas a seguir identificam os serviços e as ferramentas que você pode usa
 
 ## <a name="migration-phase"></a>Fase de migração
 
-| Origem | Escolha o destino | Esquema | Dados<br/>Está | Dados<br/>Conectar |
+| Fonte | Destino | Esquema | data<br/>Está | data<br/>Conectar |
 | --- | --- | --- | --- | --- |
 | SQL Server | BD SQL do Azure | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/)<br/>[Attunity*](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | SQL Server | SQL do Azure para MI do BD | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/)<br/>[Attunity*](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
@@ -104,7 +104,7 @@ As tabelas a seguir identificam os serviços e as ferramentas que você pode usa
 
 ## <a name="post-migration-phase"></a>Fase de pós-migração
 
-| Origem | Escolha o destino | Otimize |
+| Fonte | Destino | Otimizar |
 | --- | --- | --- |
 | SQL Server | BD SQL do Azure | [Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) |
 | SQL Server | SQL do Azure para MI do BD | [Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) |
@@ -127,6 +127,6 @@ As tabelas a seguir identificam os serviços e as ferramentas que você pode usa
 | Sybase-SAP IQ | SQL do Azure para BD, MI, VM |  |
 | | | |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter uma visão geral do Serviço de Migração de Banco de Dados do Azure, consulte o artigo [O que é o Serviço de Migração de Banco de Dados do Azure](dms-overview.md).

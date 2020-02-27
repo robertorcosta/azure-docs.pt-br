@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 02/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeb2e98ad9bbd35f3ec507e36e958c5ce6ad2198
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: dc87b434664ba12cefeb233972e749f631d8a2b4
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185875"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620678"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Solucionar problemas usando a ferramenta de What If no acesso condicional
 
@@ -98,7 +98,7 @@ Você inicia uma avaliação clicando em **What If**. O resultado da avaliação
 
 Se [políticas clássicas](policy-migration.md#classic-policies) existirem para os aplicativos de nuvem selecionados, um indicador é apresentado a você. Clicando no indicador, você é redirecionado para a página de políticas clássicas. Na página de políticas clássicas, você pode migrar uma política clássica ou simplesmente desabilitá-la. Você pode retornar para o resultado da avaliação fechando essa página.
 
-Na lista de políticas que se aplicam ao usuário selecionado, você também pode localizar uma lista de [controles de concessão](controls.md#grant-controls) e controles de [sessão](controls.md#session-controls) que o seu usuário deve atender.
+Na lista de políticas que se aplicam ao usuário selecionado, você também pode encontrar uma lista de [controles de concessão](concept-conditional-access-grant.md) e de [sessão](concept-conditional-access-session.md) que seu usuário deve atender.
 
 Na lista de políticas que não se aplicam ao usuário, você pode também encontrar os motivos pelos quais essas políticas não se aplicam. Para cada política listada, o motivo representa a primeira condição que não foi atendida. Um motivo possível para uma política que não é aplicada é uma política desabilitada por não ter sido melhor avaliada.   
 

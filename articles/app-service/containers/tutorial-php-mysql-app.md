@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: be8bbfde7e9873f9cef3a85cacc2dfcf4db9039b
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 89b8d9fb1d929e0598469ba582049c61216e923a
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687425"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523973"
 ---
 # <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>Criar um aplicativo em PHP e MySQL no Serviço de Aplicativo do Azure no Linux
 
@@ -587,7 +587,7 @@ O menu à esquerda fornece páginas para configurar o aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Criar um banco de dados MySQL no Azure

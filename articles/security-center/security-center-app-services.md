@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/27/2019
 ms.author: memildin
-ms.openlocfilehash: c286efcfad78a8f7acf9974605d53ed3cc06a09e
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 2d81e1a1218add504e1e35015276b6924da0e3e3
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604542"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616479"
 ---
 # <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Proteger seus aplicativos Web e APIs do serviço de Azure App
 
@@ -29,7 +29,7 @@ Para habilitar a proteção avançada contra ameaças para seu plano de serviço
 
 Com o plano do serviço de aplicativo habilitado, a central de segurança avalia os recursos cobertos pelo seu plano do serviço de aplicativo e gera recomendações de segurança com base em suas descobertas. A central de segurança protege a instância de VM na qual seu serviço de aplicativo está em execução e a interface de gerenciamento. Ele também monitora solicitações e respostas enviadas para e de seus aplicativos em execução no Serviço de Aplicativo.
 
-A central de segurança aproveita a escala da nuvem e a visibilidade que o Azure tem como um provedor de nuvem para monitorar ataques comuns de aplicativos Web. A central de segurança pode descobrir ataques em seus aplicativos e identificar ataques emergentes – mesmo enquanto os invasores estão na fase de reconhecimento, a verificação para identificar vulnerabilidades em vários aplicativos hospedados no Azure. Como um serviço nativo do Azure, a central de segurança também está em uma posição exclusiva para oferecer análise de segurança baseada em host que abrange os nós de computação subjacentes para essa PaaS, permitindo que a central de segurança detecte ataques contra aplicativos Web que já foram explorados. Para obter detalhes dos alertas de detecção de ameaças da central de segurança do serviço Azure App, consulte [detecção de ameaças para computação nativa na nuvem](security-center-alerts-compute.md#azure-app-service-).
+A central de segurança aproveita a escala da nuvem e a visibilidade que o Azure tem como um provedor de nuvem para monitorar ataques comuns de aplicativos Web. A central de segurança pode descobrir ataques em seus aplicativos e identificar ataques emergentes – mesmo enquanto os invasores estão na fase de reconhecimento, a verificação para identificar vulnerabilidades em vários aplicativos hospedados no Azure. Como um serviço nativo do Azure, a central de segurança também está em uma posição exclusiva para oferecer análise de segurança baseada em host que abrange os nós de computação subjacentes para essa PaaS, permitindo que a central de segurança detecte ataques contra aplicativos Web que já foram explorados. Para obter mais detalhes, consulte [proteção contra ameaças para o serviço de Azure app](threat-protection.md#app-services).
 
 
 ## <a name="enabling-monitoring-and-protection-of-app-service"></a>Ativando o monitoramento e a proteção do Serviço de Aplicativo

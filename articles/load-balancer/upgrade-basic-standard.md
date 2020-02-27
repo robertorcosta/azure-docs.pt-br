@@ -7,14 +7,14 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 179d0ff8143b526e100b89cffbbac0bbc29ca3e1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 83cac961eb3cd700451f16c684c64185b35e9bd3
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776658"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616743"
 ---
-# <a name="upgrade-azure-public-load-balancer-from-basic-sku-to-standard-sku"></a>Atualizar Load Balancer públicos do Azure de SKU básico para SKU Standard
+# <a name="upgrade-azure-public-load-balancer"></a>Atualizar Load Balancer públicos do Azure
 O [Azure Standard Load Balancer](load-balancer-overview.md) oferece um conjunto avançado de funcionalidades e alta disponibilidade por meio de redundância de zona. Para saber mais sobre Load Balancer SKU, confira [tabela de comparação](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
 
 Há dois estágios em uma atualização:
@@ -28,8 +28,8 @@ Este artigo aborda a migração de configuração. A adição de VMs a pools de 
 
 Há um script de Azure PowerShell disponível que faz o seguinte:
 
-* Cria um Load Balancer de SKU público padrão no grupo de recursos e no local que você especificar.
-* Copia diretamente as configurações do Load Balancer público do SKU básico para o recém-criado Load Balancer público padrão.
+* Cria um Load Balancer de SKU padrão no grupo de recursos e no local que você especificar.
+* Copia diretamente as configurações do Load Balancer SKU básico para o recém-criado Standard Load Balancer.
 
 ### <a name="caveatslimitations"></a>Caveats\Limitations
 
@@ -70,18 +70,9 @@ Para executar o script:
 
 1. Use `Import-Module Az` para importar os módulos AZ.
 
-1. Execute `Get-Help AzureLBUpgrade.ps1` para examinar os parâmetros necessários:
+1. Examine os parâmetros necessários:
 
-   ```
-   AzurePublicLBUpgrade.ps1
-    -oldRgName <name of the Resource Group where Basic Load Balancer exists>
-    -oldLBName <name of existing Basic Load Balancer>
-    -newrgName <Name of the Resource Group where the new Standard Load Balancer will be created>
-    -newlocation <Name of the location where the new Standard Load Balancer will be created>
-    -newLBName <Name of the Standard Load Balancer to be created>
-   ```
-   Parâmetros para o script:
-   * **oldRgName: [String]: Required** – este é o grupo de recursos para o Load Balancer básico existente que você deseja atualizar. Para localizar esse valor de cadeia de caracteres, navegue até o portal do Azure, selecione sua fonte de Load Balancer básica e clique na **visão geral** do balanceador de carga. O grupo de recursos está localizado nessa página.
+   * **oldRgName: [String]: Required** – este é o grupo de recursos para o Load Balancer básico existente que você deseja atualizar. Para localizar esse valor de cadeia de caracteres, navegue até portal do Azure, selecione sua fonte de Load Balancer básica e clique na **visão geral** do balanceador de carga. O grupo de recursos está localizado nessa página.
    * **oldLBName: [String]: Required** – este é o nome do balanceador básico existente que você deseja atualizar. 
    * **newrgName: [String]: Required** – este é o grupo de recursos no qual o Standard Load Balancer será criado. Pode ser um novo grupo de recursos ou um existente. Se você escolher um grupo de recursos existente, observe que o nome do Load Balancer deve ser exclusivo dentro do grupo de recursos. 
    * **NewLocation: [String]: Required** – este é o local no qual o Standard Load Balancer será criado. É recomendável herdar o mesmo local do Load Balancer básico escolhido para o Standard Load Balancer para uma melhor associação com outros recursos existentes.
@@ -132,6 +123,6 @@ Não. O script de Azure PowerShell migra apenas a configuração. A migração d
   
 Você pode enviar um email para slbupgradesupport@microsoft.com, abrir um caso de suporte com o suporte do Azure ou fazer ambos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Saiba mais sobre o Load Balancer Standard](load-balancer-overview.md)

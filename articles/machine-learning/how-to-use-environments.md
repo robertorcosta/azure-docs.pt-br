@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 9d6c823b5dc85676b15188c8f1783e50e5ed441b
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: cb76c7d7804a7d39e8a18c7a4cf41e9b4e0a7593
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76717819"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623645"
 ---
 # <a name="reuse-environments-for-training-and-deployment-by-using-azure-machine-learning"></a>Reutilizar ambientes para treinamento e implantação usando o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -231,7 +231,7 @@ build.wait_for_completion(show_output=True)
 
  A [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) da classe Azure Machine Learning `Environment` permite que você personalize e controle com detalhes o sistema operacional convidado no qual você executa o treinamento.
 
-Quando você `enable` o Docker, o serviço cria uma imagem do Docker. Ele também cria um ambiente Python que usa suas especificações dentro desse contêiner do Docker. Essa funcionalidade fornece isolamento e reprodução adicionais para suas execuções de treinamento.
+Quando você habilita o Docker, o serviço cria uma imagem do Docker. Ele também cria um ambiente Python que usa suas especificações dentro desse contêiner do Docker. Essa funcionalidade fornece isolamento e reprodução adicionais para suas execuções de treinamento.
 
 ```python
 # Creates the environment inside a Docker container.
@@ -379,7 +379,7 @@ Baixe um ambiente registrado usando o comando a seguir.
 az ml environment download -n myenv -d downloaddir
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Para usar um destino de computação gerenciado para treinar um modelo, consulte [tutorial: treinar um modelo](tutorial-train-models-with-aml.md).
 * Depois de ter um modelo treinado, saiba [como e onde implantar modelos](how-to-deploy-and-where.md).

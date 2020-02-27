@@ -5,12 +5,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Este tutorial mostra como usar o Azure Dev Spaces e o Visual Studio Code para depurar e iterar rapidamente um aplicativo Node.js no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: de60a45126539cdd39b951eeb503fc349004797a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 1ad30a5dd7504c7e224e4b2d26d1f5a4fe1da38a
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121356"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602863"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-nodejs-with-azure-dev-spaces"></a>Criar um espaço de desenvolvimento do Kubernetes: Visual Studio Code e Node.js com o Azure Dev Spaces
 
@@ -61,7 +61,7 @@ az group create --name MyResourceGroup --location <region>
 Crie um cluster Kubernetes com o seguinte comando:
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
 ```
 
 São necessários alguns minutos para criar o cluster.
@@ -98,7 +98,7 @@ Até o momento, você tem um aplicativo Web básico que pode ser executado local
 1. Execute esse comando (certifique-se de que **webfrontend** seja a pasta atual):
 
     ```cmd
-    azds prep --public
+    azds prep --enable-ingress
     ```
 
 O comando `azds prep` da CLI do Azure gera ativos de Docker e Kubernetes com configurações padrão:

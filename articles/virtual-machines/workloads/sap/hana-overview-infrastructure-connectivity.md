@@ -3,8 +3,8 @@ title: Infraestrutura e conectividade para o SAP HANA no Azure (instâncias gran
 description: Configure a infraestrutura de conectividade necessária para usar SAP HANA no Azure (instâncias grandes).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 36f0b78f563bb4dda76f192259541d1c2b1fa060
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cea89087742f1987f693b8bfb627bd71038a0c14
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224681"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616915"
 ---
 # <a name="sap-hana-large-instances-deployment"></a>Implantação do SAP HANA (instâncias grandes) 
 

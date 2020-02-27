@@ -2,13 +2,13 @@
 title: Saídas em modelos
 description: Descreve como definir valores de saída em um modelo de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: 7244e1ac0eff973d550a2bae8a70fa5055ca2248
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/25/2020
+ms.openlocfilehash: ec96b45cdc5ccf488d46c2d8da03caf16d002dfa
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483915"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622850"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Saídas no modelo de Azure Resource Manager
 
@@ -43,6 +43,24 @@ Na seção de saídas, você pode retornar um valor condicionalmente. Normalment
 
 Para obter um exemplo simples de saída condicional, consulte [modelo de saída condicional](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json).
 
+## <a name="dynamic-number-of-outputs"></a>Número dinâmico de saídas
+
+Em alguns cenários, você não sabe o número de instâncias de um valor que precisa retornar ao criar o modelo. Você pode retornar um número variável de valores usando o elemento **Copy** .
+
+```json
+"outputs": {
+  "storageEndpoints": {
+    "type": "array",
+    "copy": {
+      "count": "[parameters('storageCount')]",
+      "input": "[reference(concat(copyIndex(), variables('baseName'))).primaryEndpoints.blob]"
+    }
+  }
+}
+```
+
+Para obter mais informações, consulte [iteração de saída em modelos de Azure Resource Manager](copy-outputs.md).
+
 ## <a name="linked-templates"></a>Modelos vinculados
 
 Para recuperar o valor de saída de um modelo vinculado, use a função de [referência](template-functions-resource.md#reference) no modelo pai. A sintaxe no modelo pai é:
@@ -69,7 +87,7 @@ Quando a implantação for realizada com sucesso, os valores de saída serão re
 
 Para obter valores de saída do histórico de implantação, você pode usar o script.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeployment `
@@ -77,7 +95,7 @@ Para obter valores de saída do histórico de implantação, você pode usar o s
   -Name <deployment-name>).Outputs.resourceID.value
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 az group deployment show \
@@ -92,12 +110,12 @@ az group deployment show \
 
 Os exemplos a seguir demonstram cenários para o uso de saídas.
 
-|Modelo  |Description  |
+|Modelo  |DESCRIÇÃO  |
 |---------|---------|
 |[Variáveis de cópia](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Cria variáveis complexas e gera os valores. Ele não implanta nenhum recurso. |
 |[Endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Cria um endereço IP público e gera a ID de recurso. |
 |[Balanceador de carga](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Links para o modelo anterior. Usa a ID do recurso na saída ao criar o balanceador de carga. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre as propriedades disponíveis para saídas, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](template-syntax.md).

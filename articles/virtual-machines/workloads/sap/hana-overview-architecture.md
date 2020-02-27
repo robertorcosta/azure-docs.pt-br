@@ -3,8 +3,8 @@ title: Visão geral do SAP HANA no Azure (Instâncias Grandes) | Microsoft Docs
 description: Visão geral de como implantar o SAP HANA no Azure (Instâncias Grandes).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ea337101a5fe44e42ce85c17fec32028c75d3b85
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 39fcf5d0fe2273c4debd3ae5ebe5fd1190ddc959
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101178"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616962"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>O que é SAP HANA no Azure (Instâncias Grandes)?
 
@@ -26,9 +26,9 @@ SAP HANA do Azure (Instâncias Grandes) é uma solução exclusiva para o Azure.
 
 O isolamento do cliente dentro do carimbo de infraestrutura é executado em locatários, o que é semelhante a:
 
-- **Rede**: Isolamento de clientes na pilha de infraestrutura por meio de redes virtuais por locatário atribuído pelo cliente. Um locatário é atribuído a um único cliente. Um cliente pode ter vários locatários. O isolamento de rede dos locatários proíbe a comunicação de rede entre locatários no nível do carimbo de infraestrutura, mesmo se os locatários pertencerem ao mesmo cliente.
-- **Componentes de armazenamento**: Isolamento por meio de máquinas virtuais de armazenamento que têm volumes de armazenamento atribuídos a elas. Volumes de armazenamento podem ser atribuídos a somente uma máquina virtual de armazenamento. Uma máquina virtual de armazenamento é atribuída exclusivamente a um único locatário na pilha de infraestrutura certificada pela TDI do SAP HANA. Como resultado, os volumes de armazenamento atribuídos a uma máquina virtual de armazenamento podem ser acessados apenas em um locatário específico e relacionado. Eles não são visíveis entre os diferentes locatários implantados.
-- **Servidor ou host**: Uma unidade de host ou servidor não é compartilhada entre clientes ou locatários. Um servidor ou host, implantado para um cliente, é uma unidade de computação bare-metal atômica que é atribuída a um único locatário. *Nenhum* particionamento de hardware ou particionamento flexível é usado, o que pode resultar no compartilhamento de um host ou de um servidor com outro cliente. Volumes de armazenamento que são atribuídos à máquina virtual de armazenamento do locatário específico são montados para um servidor desse tipo. Um locatário pode ter unidades de servidor de um para muitos de diferentes SKUs atribuídos de modo exclusivo.
+- **Rede**: isolamento dos clientes dentro da pilha de infraestrutura por meio de redes virtuais por locatário atribuído pelo cliente. Um locatário é atribuído a um único cliente. Um cliente pode ter vários locatários. O isolamento de rede dos locatários proíbe a comunicação de rede entre locatários no nível do carimbo de infraestrutura, mesmo se os locatários pertencerem ao mesmo cliente.
+- **Componentes de armazenamento**: isolamento por meio de máquinas virtuais de armazenamento que têm volumes de armazenamento atribuídos a elas. Volumes de armazenamento podem ser atribuídos a somente uma máquina virtual de armazenamento. Uma máquina virtual de armazenamento é atribuída exclusivamente a um único locatário na pilha de infraestrutura certificada pela TDI do SAP HANA. Como resultado, os volumes de armazenamento atribuídos a uma máquina virtual de armazenamento podem ser acessados apenas em um locatário específico e relacionado. Eles não são visíveis entre os diferentes locatários implantados.
+- **Servidor ou host**: uma unidade de host ou servidor não é compartilhada entre os clientes ou locatários. Um servidor ou host, implantado para um cliente, é uma unidade de computação bare-metal atômica que é atribuída a um único locatário. *Nenhum* particionamento de hardware ou particionamento flexível é usado, o que pode resultar no compartilhamento de um host ou de um servidor com outro cliente. Volumes de armazenamento que são atribuídos à máquina virtual de armazenamento do locatário específico são montados para um servidor desse tipo. Um locatário pode ter unidades de servidor de um para muitos de diferentes SKUs atribuídos de modo exclusivo.
 - Em um carimbo de infraestrutura do SAP HANA do Azure (Instâncias Grandes), muitos locatários diferentes são implantados e isolados uns em relação a outros por meio dos conceitos de locatário no nível de computação, armazenamento e rede. 
 
 
@@ -36,12 +36,12 @@ Essas unidades de servidor bare-metal têm suporte para executar apenas o SAP HA
 
 A partir de julho de 2019, diferenciamos entre duas revisões diferentes de carimbos de instância grande do HANA e localização de implantações:
 
-- "Revisão 3" (Rev. 3): Os carimbos foram disponibilizados para que o cliente seja implantado antes de julho de 2019
-- "Revisão 4" (Rev 4): Novo design de carimbo que é implantado em proximidade com os hosts de VM do Azure e que até agora são lançados nas regiões do Azure de:
+- "Revisão 3" (Rev. 3): os carimbos que foram disponibilizados para que o cliente seja implantado antes de julho de 2019
+- "Revisão 4" (Rev 4): novo design de carimbo que é implantado em proximidade com hosts de VM do Azure e que até o momento são lançados nas regiões do Azure de:
     -  Oeste dos EUA 2 
-    -  East US 
+    -  Leste dos EUA 
     -  Europa Ocidental
-    -  Europa Setentrional
+    -  Norte da Europa
 
 
 Este documento é um dos vários documentos que cobrem o SAP HANA do Azure (Instâncias Grandes). Este documento apresenta a arquitetura básica, as responsabilidades e os serviços fornecidos pela solução. Recursos de alto nível da solução também são abordados. Para a maioria das outras áreas, como rede e conectividade, quatro outros documentos cobrem detalhes e informações detalhadas. A documentação do SAP HANA do Azure (Instâncias Grandes) não abrange aspectos da instalação ou das implantações do SAP NetWeaver do SAP NetWeaver nas VMs. O SAP NetWeaver no Azure é abordado em documentos separados, localizados no mesmo contêiner de documentação do Azure. 

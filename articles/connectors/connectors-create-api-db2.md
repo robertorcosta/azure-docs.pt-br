@@ -7,12 +7,12 @@ ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 0f6e32056783a816d847db191de4fcdae2616ab7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 32b482607827ee4420e39b1936586d64f9ea3139
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446192"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651374"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Acessar e gerenciar recursos do IBM DB2 usando aplicativos lógicos do Azure
 
@@ -47,7 +47,7 @@ O conector do IBM DB2 é compatível com estas operações de banco de dados, qu
 | Remover uma linha usando DELETE | Excluir linha |
 |||
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
@@ -80,7 +80,7 @@ Os exemplos neste artigo usam o gatilho **Recorrência**.
 
 Para configurar sua conexão, forneça estes detalhes de conexão quando solicitados. Escolha **Criar** e salve seu aplicativo lógico:
 
-| Propriedade | Obrigatório | Description |
+| Propriedade | Obrigatório | DESCRIÇÃO |
 |----------|----------|-------------|
 | **Conectar por meio do gateway local** | Não | Aplica-se somente para conexões locais. |
 | **Nome da conexão** | Sim | O nome da sua conexão, por exemplo, "MyLogicApp-DB2-connection" |
@@ -100,7 +100,7 @@ Por exemplo:
 
 Antes de criar sua conexão, é necessário já ter o gateway de dados local instalado. Caso contrário, não será possível configurar sua conexão. Se você já tiver sua instalação de gateway, continue fornecendo esses detalhes de conexão e escolha **Criar**.
 
-| Propriedade | Obrigatório | Description |
+| Propriedade | Obrigatório | DESCRIÇÃO |
 |----------|----------|-------------|
 | **Conectar por meio do gateway local** | Sim | Aplica-se quando você desejar uma conexão local e mostra as propriedades da conexão local. |
 | **Nome da conexão** | Sim | O nome da sua conexão, por exemplo, "MyLogicApp-DB2-connection" | 
@@ -151,7 +151,7 @@ Para efetuar fetch de um registro em uma tabela do banco de dados DB2, use a aç
 
 1. Especifique valores para todas as propriedades obrigatórias (*). Após selecionar uma tabela, a ação mostrará as propriedades relevantes específicas para os registros nessa tabela.
 
-   | Propriedade | Obrigatório | Description |
+   | Propriedade | Obrigatório | DESCRIÇÃO |
    |----------|----------|-------------|
    | **Nome da tabela** | Sim | A tabela que tem o registro desejado, como "AREA" neste exemplo |
    | **ID de área** | Sim | A ID do registro desejado, como "99999" neste exemplo |
@@ -231,7 +231,7 @@ Para adicionar um único registro a uma tabela do banco de dados DB2, use a aç�
 
    Para esse exemplo, estas são as propriedades:
 
-   | Propriedade | Obrigatório | Description |
+   | Propriedade | Obrigatório | DESCRIÇÃO |
    |----------|----------|-------------|
    | **Nome da tabela** | Sim | A tabela na qual adicionar o registro, como "AREA" |
    | **ID de área** | Sim | A ID da área a ser adicionada, como "99999" |
@@ -278,7 +278,7 @@ Para atualizar um único registro em uma tabela do banco de dados DB2, use a aç
 
    Para esse exemplo, estas são as propriedades:
 
-   | Propriedade | Obrigatório | Description |
+   | Propriedade | Obrigatório | DESCRIÇÃO |
    |----------|----------|-------------|
    | **Nome da tabela** | Sim | A tabela na qual atualizar o registro, como "AREA" |
    | **ID da linha** | Sim | A ID do registro a ser atualizado, como "99999" |
@@ -326,7 +326,7 @@ Para excluir um único registro de uma tabela do banco de dados DB2, use a açã
 
    Para esse exemplo, estas são as propriedades:
 
-   | Propriedade | Obrigatório | Description |
+   | Propriedade | Obrigatório | DESCRIÇÃO |
    |----------|----------|-------------|
    | **Nome da tabela** | Sim | A tabela na qual excluir o registro, como "AREA" |
    | **ID da linha** | Sim | A ID do registro a ser excluído, como "99999" |
@@ -359,8 +359,11 @@ Expanda a ação **Excluir linha**.
 
 ## <a name="connector-reference"></a>Referência de conector
 
-Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo OpenAPI (anteriormente Swagger) do conector, consulte a [página de referência do conector](/connectors/db2/).
+Para obter mais detalhes técnicos sobre esse conector, como gatilhos, ações e limites, conforme descrito pelo arquivo Swagger do conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/db2/).
 
-## <a name="next-steps"></a>Próximos passos
+> [!NOTE]
+> Para aplicativos lógicos em um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), a versão rotulada do ISE do conector usa os [limites de mensagem do ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) em vez disso.
+
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

@@ -7,15 +7,18 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 08/22/2019
-ms.openlocfilehash: 9f72edecc07c34a0f176e52f6b70644f9ceb16e0
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.date: 02/27/2020
+ms.openlocfilehash: 0ce813e91750db3cdfa1e651a68fbb82d593eb32
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666696"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650548"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens AS2 para Enterprise Integration B2B nos Aplicativos Lógicos do Azure com Enterprise Integration Pack
+
+> [!IMPORTANT]
+> O conector AS2 original está sendo preterido, portanto, certifique-se de usar o conector **AS2 (v2)** em vez disso. Essa versão fornece os mesmos recursos que a versão original, é nativa para o tempo de execução dos aplicativos lógicos e fornece melhorias significativas de desempenho em termos de taxa de transferência e tamanho da mensagem. Além disso, o conector v2 nativo não exige que você crie uma conexão com sua conta de integração. Em vez disso, conforme descrito em pré-requisitos, certifique-se de vincular sua conta de integração ao aplicativo lógico em que você planeja usar o conector.
 
 Para trabalhar com mensagens AS2 em aplicativos lógicos do Azure, você pode usar o conector do AS2, que fornece gatilhos e ações para gerenciar a comunicação AS2. Por exemplo, para estabelecer a segurança e a confiabilidade ao transmitir mensagens, você pode usar estas ações:
 
@@ -46,10 +49,7 @@ Para trabalhar com mensagens AS2 em aplicativos lógicos do Azure, você pode us
 
 Este artigo mostra como adicionar as ações de codificação e decodificação AS2 a um aplicativo lógico existente.
 
-> [!IMPORTANT]
-> O conector AS2 original será preterido, portanto, certifique-se de usar o conector **AS2 (v2)** em vez disso. Essa versão fornece os mesmos recursos que a versão original, é nativa para o tempo de execução dos aplicativos lógicos e fornece melhorias significativas de desempenho em termos de taxa de transferência e tamanho da mensagem. Além disso, o conector v2 nativo não exige que você crie uma conexão com sua conta de integração. Em vez disso, conforme descrito em pré-requisitos, certifique-se de vincular sua conta de integração ao aplicativo lógico em que você planeja usar o conector.
-
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Caso você ainda não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
@@ -63,9 +63,9 @@ Este artigo mostra como adicionar as ações de codificação e decodificação 
 
 * Se você usar [Azure Key Vault](../key-vault/key-vault-overview.md) para o gerenciamento de certificados, verifique se as chaves do cofre permitem as operações **criptografar** e **descriptografar** . Caso contrário, as ações de codificação e decodificação falharão.
 
-  No portal do Azure, vá para o cofre de chaves, exiba as **operações permitidas**da chave do cofre e confirme se as operações **criptografar** e **descriptografar** estão selecionadas.
+  Na portal do Azure, vá para a chave no cofre de chaves, examine as **operações permitidas**da chave e confirme se as operações **criptografar** e **descriptografar** estão selecionadas, por exemplo:
 
-  ![Verificar operações de chave do cofre](media/logic-apps-enterprise-integration-as2/vault-key-permitted-operations.png)
+  ![Verificar operações de chave do cofre](media/logic-apps-enterprise-integration-as2/key-vault-permitted-operations.png)
 
 <a name="encode"></a>
 
@@ -81,7 +81,7 @@ Este artigo mostra como adicionar as ações de codificação e decodificação 
 
 1. Agora, forneça informações para essas propriedades:
 
-   | Propriedade | Description |
+   | Propriedade | DESCRIÇÃO |
    |----------|-------------|
    | **Mensagem a ser codificada** | A carga da mensagem |
    | **AS2 de** | O identificador do remetente da mensagem conforme especificado pelo seu contrato AS2 |
@@ -91,6 +91,9 @@ Este artigo mostra como adicionar as ações de codificação e decodificação 
    Por exemplo:
 
    ![Propriedades de codificação de mensagem](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
+
+> [!TIP]
+> Se você tiver problemas ao enviar mensagens assinadas ou criptografadas, considere a possibilidade de experimentar diferentes formatos de algoritmo SHA256. A especificação AS2 não fornece nenhuma informação sobre formatos SHA256, de modo que cada provedor usa sua própria implementação ou formato.
 
 <a name="decode"></a>
 
@@ -116,8 +119,11 @@ Para tentar implantar um aplicativo lógico totalmente operacional e o cenário 
 
 ## <a name="connector-reference"></a>Referência de conector
 
-Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo OpenAPI (anteriormente Swagger) do conector, consulte a [página de referência do conector](/connectors/as2/).
+Para obter mais detalhes técnicos sobre esse conector, como ações e limites, conforme descrito pelo arquivo Swagger do conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/as2/). 
 
-## <a name="next-steps"></a>Próximos passos
+> [!NOTE]
+> Para aplicativos lógicos em um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), a versão original com rótulo do ISE do conector usa os [limites de mensagem do ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) em vez disso.
 
-Saiba mais sobre o [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
+## <a name="next-steps"></a>Próximas etapas
+
+* Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

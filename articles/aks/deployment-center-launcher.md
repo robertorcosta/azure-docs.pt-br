@@ -2,18 +2,16 @@
 title: Centro de implantação para o Kubernetes do Azure
 description: A Central de Implantação no Azure DevOps simplifica a configuração de um pipeline robusto do Azure DevOps para seu aplicativo
 ms.author: puagarw
-ms.prod: devops
-ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
 monikerRange: vsts
-ms.openlocfilehash: 5384180720d391c6b4ae830f9316a70e80003063
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 84e5533a17dc70fb5c835089f3a3cec1a86e35bf
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972968"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596072"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Centro de implantação para o Kubernetes do Azure
 
@@ -136,7 +134,7 @@ A Central de Implantação cria e configura automaticamente a relação entre a 
 
 1. Selecione **Logs**. Os logs contêm informações úteis de implantação, que você pode exibir durante e após as implantações.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Exclua os recursos relacionados que você criou quando não precisar mais deles. Use a funcionalidade excluir no painel do DevOps Projects.
 

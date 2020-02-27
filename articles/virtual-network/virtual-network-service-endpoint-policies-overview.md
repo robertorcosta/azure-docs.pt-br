@@ -3,89 +3,118 @@ title: Políticas de ponto de extremidade de serviço de rede virtual do Azure |
 description: Aprenda a filtrar o tráfego de Rede Virtual para recursos de serviço do Azure usando políticas de Ponto de Extremidade de Serviço
 services: virtual-network
 documentationcenter: na
-author: sumeetmittal
+author: RDhillon
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
-ms.author: sumi
-ms.openlocfilehash: 1aa4328a6d5367ef356ce33807289a873c93d90f
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.date: 02/21/2020
+ms.author: rdhillon
+ms.openlocfilehash: 926da07ffaf0c61ca2a7fd02351ef3635ec4d73b
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77056692"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651280"
 ---
-# <a name="virtual-network-service-endpoint-policies-preview"></a>Políticas de ponto de extremidade de serviço de rede virtual (versão prévia)
+# <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Políticas de ponto de extremidade de serviço de rede virtual para armazenamento do Azure
 
-Políticas de ponto de extremidade de serviço de VNet (Rede Virtual) permitem filtrar o tráfego de rede virtual para serviços do Azure, permitindo apenas recursos de serviço do Azure específico, em pontos de extremidade de serviço. As políticas de ponto de extremidade fornecem controle de acesso granular para tráfego de rede virtual aos serviços do Azure.
+As políticas de ponto de extremidade de serviço de rede virtual (VNet) permitem filtrar o tráfego de rede virtual de egresso para contas de armazenamento do Azure sobre o ponto de extremidade de serviço e permitir que os dados vazamentom apenas contas específicas de armazenamento do Azure As políticas de ponto de extremidade fornecem controle de acesso granular para o tráfego de rede virtual para o armazenamento do Azure ao se conectar ao ponto de extremidade
 
-Esse recurso está disponível em versão __prévia__ em todas as regiões públicas do Azure para o armazenamento do Azure.
+![Protegendo o tráfego de saída da rede virtual para contas de armazenamento do Azure](./media/virtual-network-service-endpoint-policies-overview/vnet-service-endpoint-policies-overview.png)
 
-Para obter notificações mais recentes sobre a versão prévia, confira a página [Atualizações de rede virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
-
-> [!NOTE]  
-> Durante a versão prévia, as políticas de ponto de extremidade de serviço de rede virtual não podem ter o mesmo nível de disponibilidade e confiabilidade que os recursos que estão em versão de disponibilidade geral. Para obter mais informações, consulte [Termos de Uso Complementares do Microsoft Azure para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Esse recurso está geralmente disponível para o __armazenamento do Azure__ em __todas as regiões globais do Azure__.
 
 ## <a name="key-benefits"></a>Principais benefícios
 
 Políticas de ponto de extremidade de serviço de rede virtual fornecem os seguintes benefícios:
 
-- __Segurança aprimorada para o tráfego de Rede Virtual para os Serviços do Azure__
+- __Segurança aprimorada para o tráfego de rede virtual para o armazenamento do Azure__
 
-  [Marcas de serviço do Azure para grupos de segurança de rede](https://aka.ms/servicetags) permitem que você restrinja o tráfego de saída de rede virtual para serviços específicos do Azure. No entanto, isso permite o tráfego para todos os recursos daquele serviço do Azure. 
+  As [marcas de serviço do Azure para grupos de segurança de rede](https://aka.ms/servicetags) permitem restringir o tráfego de saída da rede virtual para regiões específicas do armazenamento do Azure. No entanto, isso permite o tráfego para qualquer conta na região de armazenamento do Azure selecionada.
   
-  Com as políticas de ponto de extremidade, agora você pode restringir o acesso de saída de rede virtual a apenas os recursos específicos do Azure. Isso oferece um controle de segurança muito mais granular para proteger os dados acessados em sua rede virtual. 
+  As políticas de ponto de extremidade permitem que você especifique as contas de armazenamento do Azure que têm permissão de acesso de saída de rede virtual e restringe o acesso a todas as outras contas de armazenamento. Isso fornece um controle de segurança muito mais granular para proteger os dados vazamento de sua rede virtual.
 
 - __Políticas escalonáveis altamente disponíveis para filtrar o tráfego de serviço do Azure__
 
    Políticas de ponto de extremidade fornecem uma solução altamente disponível e escalonável horizontalmente para filtrar o tráfego de serviço do Azure de redes virtuais em pontos de extremidade de serviço. Nenhuma sobrecarga adicional é necessária para manter os dispositivos de rede central para esse tráfego em suas redes virtuais.
 
+## <a name="json-object-for-service-endpoint-policies"></a>Objeto JSON para políticas de ponto de extremidade de serviço
+Vamos dar uma olhada rápida no objeto de política de ponto de extremidade de serviço.
+
+```json
+"serviceEndpointPolicyDefinitions": [
+    {
+            "description": null,
+            "name": "MySEP-Definition",
+            "resourceGroup": "MySEPDeployment",
+            "service": "Microsoft.Storage",
+            "serviceResources": [ 
+                    "/subscriptions/subscriptionID/resourceGroups/MySEPDeployment/providers/Microsoft.Storage/storageAccounts/mystgacc"
+            ],
+            "type": "Microsoft.Network/serviceEndpointPolicies/serviceEndpointPolicyDefinitions"
+    }
+]
+```
+
 ## <a name="configuration"></a>Configuração
 
-- Você pode configurar as políticas de ponto de extremidade para restringir o tráfego de rede virtual aos recursos específicos de serviço do Azure. Para a versão prévia, oferecemos suporte a políticas de ponto de extremidade para o Armazenamento do Azure. 
-- A política de ponto de extremidade é configurada em uma sub-rede em uma rede virtual. Pontos de extremidade de serviço devem ser habilitados na sub-rede para aplicar a política para todos os serviços do Azure listados na política.
-- A política de ponto de extremidade permite que você coloque na lista de permissões recursos específicos de serviço do Azure usando o formato resourceID. Você pode restringir o acesso a todos os recursos em um grupo de recursos ou em uma assinatura. Você também pode restringir o acesso a recursos específicos. 
-- Por padrão, se nenhuma política tiver sido anexada a uma sub-rede com pontos de extremidade, você poderá acessar todos os recursos no serviço. Depois que uma política é configurada na sub-rede, somente os recursos especificados na política poderão ser acessados de instâncias de computação naquela sub-rede. O acesso a todos os outros recursos para o serviço específico será negado. 
-- Você pode filtrar o tráfego para os recursos de serviço do Azure nas regiões em que o ponto de extremidade de serviço está configurado. O acesso aos recursos de serviço em outras regiões será permitido por padrão. 
+-   Você pode configurar as políticas de ponto de extremidade para restringir o tráfego de rede virtual para contas específicas de armazenamento do Azure.
+-   A política de ponto de extremidade é configurada em uma sub-rede em uma rede virtual. Os pontos de extremidade de serviço do armazenamento do Azure devem ser habilitados na sub-rede para aplicar a política.
+-   A política de ponto de extremidade permite adicionar contas de armazenamento do Azure específicas à lista de permissões, usando o formato ResourceId. Você pode restringir o acesso a
+    - todas as contas de armazenamento em uma assinatura<br>
+      `E.g. /subscriptions/subscriptionId`
 
-  > [!NOTE]  
-  > Para bloquear completamente o acesso de saída de rede virtual para recursos do Azure em regiões de ponto de extremidade de serviço, você também precisa de regras de grupo de segurança de rede configuradas para permitir o tráfego somente para as regiões de ponto de extremidade de serviço usando [marcas de serviço](security-overview.md#service-tags).
-
-- Você pode aplicar várias políticas a uma sub-rede. Quando várias políticas estão associadas à sub-rede, para o mesmo serviço, o tráfego de rede virtual para recursos especificados em qualquer uma dessas políticas será permitido. O acesso a todos os outros recursos de serviço não especificado em nenhuma das políticas será negado. 
-
-  > [!NOTE]  
-  > A política só permite acesso aos recursos de serviço listado de uma rede virtual. Todos os outros tráfegos para o serviço serão negados automaticamente, quando você adicionar recursos específicos à política. Verifique se todas as dependências de recurso de serviço para seus aplicativos podem ser identificadas e listadas na política.
-
-  > [!WARNING]  
-  > Serviços do Azure implantados em sua rede virtual, como Azure HDInsight, acessam outros serviços do Azure, como Armazenamento do Azure, para requisitos de infraestrutura. Restringir a política de ponto de extremidade a recursos específicos pode interromper o acesso a esses recursos de infraestrutura para serviços implantados em sua rede virtual. Para serviços específicos, veja [Limitações](#limitations) durante a versão prévia, não há suporte para políticas de ponto de extremidade de serviço para nenhum serviço gerenciado do Azure implantado em sua rede virtual.
-
-- Para o Armazenamento do Azure: 
-  -  Você pode restringir o acesso listando a *resourceId* do Azure Resource Manager da conta de armazenamento. Isso abrange o tráfego para blobs, tabelas, filas, arquivos e armazenamento do Azure Data Lake Storage Gen2.
-
-     Por exemplo, contas de Armazenamento do Azure poderiam ser listadas na definição de política de ponto de extremidade como mostrado abaixo:
-    
-     Para permitir conta de armazenamento específica:         
-     `subscriptions/subscriptionId/resourceGroups/resourceGroup/providers/Microsoft.Storage/storageAccounts/storageAccountName`
-      
-     Para permitir todas as contas em um grupo de recursos e assinatura: `/subscriptions/subscriptionId/resourceGroups/resourceGroup`
+    - todas as contas de armazenamento em um grupo de recursos<br>
+      `E.g. subscriptions/subscriptionId/resourceGroups/resourceGroupName`
      
-     Para permitir todas as contas em uma assinatura: `/subscriptions/subscriptionId`
-    
-- Somente contas de armazenamento usando o Modelo de Recurso do Azure podem ser especificadas na política de ponto de extremidade.  
+    - uma conta de armazenamento individual listando o Azure Resource Manager ResourceId correspondente. Isso abrange o tráfego para blobs, tabelas, filas, arquivos e armazenamento do Azure Data Lake Storage Gen2. <br>
+    `E.g. /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.Storage/storageAccounts/storageAccountName`
+-   Por padrão, se nenhuma política estiver anexada a uma sub-rede com pontos de extremidade, você poderá acessar todas as contas de armazenamento no serviço. Depois que uma política é configurada na sub-rede, somente os recursos especificados na política poderão ser acessados de instâncias de computação naquela sub-rede. O acesso a todas as outras contas de armazenamento será negado.
+-   Ao aplicar políticas de ponto de extremidade de serviço em uma sub-rede, o *escopo do ponto de extremidade do serviço* de armazenamento do Azure é atualizado de regional para **global**. Isso significa que todo o tráfego para o armazenamento do Azure é protegido pelo ponto de extremidade de serviço posteriormente. As políticas de ponto de extremidade de serviço também são aplicáveis globalmente, portanto, qualquer conta de armazenamento, que não seja explicitamente permitida, terá o acesso negado. 
+-   Você pode aplicar várias políticas a uma sub-rede. Quando várias políticas são associadas à sub-rede, o tráfego de rede virtual para os recursos especificados em qualquer uma dessas políticas será permitido. O acesso a todos os outros recursos de serviço não especificado em nenhuma das políticas será negado.
 
-  > [!NOTE]  
-  > O acesso às contas de armazenamento clássico é bloqueado com as políticas de ponto de extremidade.
+    > [!NOTE]  
+    > As políticas de ponto de extremidade de serviço são **políticas de permissão**, portanto, além dos recursos especificados, todos os outros recursos são restritos. Verifique se todas as dependências de recursos de serviço para seus aplicativos são identificadas e listadas na política.
 
-- O local primário para a conta listada deve ser nas regiões do par de área geográfica do ponto de extremidade de serviço para a sub-rede. 
+- Somente contas de armazenamento usando o Modelo de Recurso do Azure podem ser especificadas na política de ponto de extremidade. Suas contas de armazenamento do Azure clássicas não dão suporte a políticas de ponto de extremidade de serviço do Azure
+- Acesso de RA-GRS secundário será permitido automaticamente se a conta primária estiver listada.
+- Contas de armazenamento podem estar em uma assinatura ou Locatário do Azure Active Directory igual ou diferente daquele da rede virtual.
 
-  > [!NOTE]  
-  > As políticas permitem que recursos de serviço de outras regiões sejam especificados. O acesso à rede virtual para os serviços do Azure só é filtrado para as regiões do par de área geográfica. Se os grupos de segurança de rede não estiverem restritos a regiões do par de área geográfica para o Armazenamento do Azure, a rede virtual poderá acessar todas as contas de armazenamento fora das regiões do par de área geográfica.
+## <a name="scenarios"></a>Cenários
 
-- Acesso de RA-GRS secundário será permitido automaticamente se a conta primária estiver listada. 
-- Contas de armazenamento podem estar em uma assinatura ou Locatário do Azure Active Directory igual ou diferente daquele da rede virtual. 
+- **Redes virtuais emparelhadas, conectadas ou múltiplas**: para filtrar o tráfego em redes virtuais emparelhadas, as políticas de ponto de extremidade devem ser aplicadas individualmente a elas.
+- **Filtrando o tráfego de Internet com dispositivos de rede ou o Firewall do Azure**: filtre o tráfego de serviço do Azure com políticas, pontos de extremidade de serviço e filtre o restante da Internet ou o tráfego do Azure por meio de dispositivos ou firewall do Azure.
+- **Filtragem de tráfego nos serviços do Azure implantados em redes virtuais**: neste momento, as políticas de ponto de extremidade de serviço do Azure não têm suporte para serviços gerenciados do Azure que são implantados em sua rede virtual. 
+- **Filtragem de tráfego para serviços do Azure do local**: políticas de ponto de extremidade de serviço se aplicam somente ao tráfego de sub-redes associadas a políticas. Para permitir o acesso a recursos de Serviço do Azure específicos do local, o tráfego deve ser filtrado usando firewalls ou dispositivos virtuais de rede ou.
+
+## <a name="logging-and-troubleshooting"></a>Registro em log e solução de problemas
+Nenhum registro em log centralizado está disponível para políticas de ponto de extremidade de serviço. Para logs de diagnóstico de serviço, veja [Registro em log de pontos de extremidade de serviço](virtual-network-service-endpoints-overview.md#logging-and-troubleshooting).
+
+### <a name="troubleshooting-scenarios"></a>Cenários de solução de problemas
+- Acesso negado às contas de armazenamento que estavam funcionando na visualização (não em uma região emparelhada geograficamente)
+  - Com a atualização do armazenamento do Azure para usar marcas de serviço globais, o escopo do ponto de extremidade de serviço e, portanto, as políticas de ponto de extremidade de serviço agora são Portanto, qualquer tráfego para o armazenamento do Azure é criptografado em pontos de extremidade de serviço e somente contas de armazenamento explicitamente listadas na política têm permissão de acesso.
+  - Permitir explicitamente listar todas as contas de armazenamento necessárias para restaurar o acesso.  
+  - Contate o suporte do Azure.
+- O acesso é negado para contas listadas nas políticas de ponto de extremidade
+  - Grupos de segurança de rede ou a filtragem de firewall podem estar bloqueando o acesso
+  - Se remover/reaplicar a política resultar em perda de conectividade:
+    - Valide se o serviço do Azure está configurado para permitir o acesso da rede virtual nos pontos de extremidade ou se a política padrão para o recurso está definida como *permitir todos*.
+    - Valide que o diagnóstico de serviço mostra o tráfego nos pontos de extremidade.
+    - Verifique se os logs de fluxo do grupo de segurança de rede mostram o acesso e se os logs de armazenamento mostram o acesso, conforme esperado, pelos pontos de extremidade de serviço.
+    - Contate o suporte do Azure.
+- O acesso é negado para contas não listadas nas políticas de ponto de extremidade de serviço
+  - Valide se o armazenamento do Azure está configurado para permitir o acesso da rede virtual nos pontos de extremidade ou se a política padrão do recurso está definida para *permitir todos*.
+  - Verifique se as contas não são **contas de armazenamento clássicas** com políticas de ponto de extremidade de serviço na sub-rede.
+- Um serviço gerenciado do Azure parou de funcionar após a aplicação de uma política de ponto de extremidade de serviço pela sub-rede
+  - Não há suporte para serviços gerenciados com políticas de ponto de extremidade de serviço no momento. *Assista a este espaço para obter atualizações*.
+
+## <a name="provisioning"></a>Provisionamento
+
+Políticas de ponto de extremidade de serviço podem ser configuradas em sub-redes por um usuário com acesso de gravação a uma rede virtual. Saiba mais sobre [funções internas](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure e como atribuir permissões específicas a [funções personalizadas](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+As redes virtuais e as contas de armazenamento do Azure podem estar na mesma assinatura ou em assinaturas diferentes, ou Azure Active Directory locatários.
 
 ## <a name="limitations"></a>Limitações
 
@@ -93,86 +122,12 @@ Políticas de ponto de extremidade de serviço de rede virtual fornecem os segui
 - Redes virtuais devem estar na mesma região que a política de ponto de extremidade de serviço.
 - Só será possível aplicar política de ponto de extremidade de serviço em uma sub-rede se os pontos de extremidade de serviço estiverem configurados para os serviços do Azure listados na política.
 - Você não pode usar políticas de ponto de extremidade de serviço para o tráfego da sua rede local para serviços do Azure.
-- Políticas de ponto de extremidade não devem ser aplicadas a sub-redes com serviços gerenciados do Azure com dependência de serviços do Azure para requisitos de infraestrutura. 
+- Atualmente, os serviços gerenciados do Azure não dão suporte a políticas de ponto de extremidade. Isso inclui serviços gerenciados implantados nas sub-redes compartilhadas (por exemplo, *Azure HDInsight, lote do Azure, Azure ADDS, gateway de aplicativo do Azure, gateway de VPN do Azure, firewall do Azure*) ou em sub-redes dedicadas (por exemplo *, ambiente do serviço de aplicativo do Azure, cache Redis do Azure, gerenciamento de API do Azure, SQL do Azure, serviços gerenciados clássicos*).
 
-  > [!WARNING]  
-  > Serviços do Azure implantados em sua rede virtual, como Azure HDInsight, acessam outros serviços do Azure, como Armazenamento do Azure, para requisitos de infraestrutura. Restringir a política de ponto de extremidade a recursos específicos pode interromper o acesso a esses recursos de infraestrutura para serviços do Azure implantados em sua rede virtual.
-  
-  - Alguns serviços do Azure podem ser implantados em sub-redes com outras instâncias de computação. Verifique se as políticas de ponto de extremidade não foram aplicadas à sub-rede caso os serviços gerenciados listados abaixo sejam implantados na sub-rede.
-   
-    - Azure HDInsight
-    - Lote do Azure (Azure Resource Manager)
-    - Azure Active Directory Domain Services (Azure Resource Manager)
-    - Gateway de Aplicativo do Azure (Azure Resource Manager)
-    - Gateway de VPN do Azure (Azure Resource Manager)
-    - Firewall do Azure
+ > [!WARNING]
+ > Serviços do Azure implantados em sua rede virtual, como Azure HDInsight, acessam outros serviços do Azure, como Armazenamento do Azure, para requisitos de infraestrutura. Restringir a política de ponto de extremidade a recursos específicos pode interromper o acesso a esses recursos de infraestrutura para serviços do Azure implantados em sua rede virtual.
 
-  - Alguns serviços do Azure são implantados em sub-redes dedicadas. Políticas de ponto de extremidade são bloqueadas em todos esses serviços, listados abaixo, durante a versão prévia. 
-
-     - Ambiente de Serviço de Aplicativo do Azure
-     - Cache Redis do Azure
-     - Gerenciamento de API do Azure
-     - Instância Gerenciada do Azure SQL
-     - Azure Active Directory Domain Services
-     - Gateway de Aplicativo do Azure (Clássico)
-     - Gateway de VPN do Azure (Clássico)
-
-- Armazenamento do Azure: contas de armazenamento clássicas não têm suporte em políticas de ponto de extremidade. As políticas negarão o acesso a todas as contas de armazenamento clássicas por padrão. Se seu aplicativo precisar acessar o Azure Resource Manager e contas de armazenamento clássico, políticas de ponto de extremidade não deverão ser usadas para esse tráfego. 
-
-## <a name="nsgs-with-service-endpoint-policies"></a>NSGs com Políticas de Ponto de Extremidade de Serviço
-- Por padrão, NSGs permitem tráfego na Internet de saída, incluindo o tráfego de rede virtual para serviços do Azure.
-- Se você quiser negar todo o tráfego na Internet de saída e permitir somente o tráfego para recursos específicos de serviço do Azure: 
-
-  Etapa 1: Configurar NSGs para permitir tráfego de saída somente para serviços do Azure em regiões de ponto de extremidade usando *marcas de serviço do Azure*. Para saber mais, confira [marcas do serviço para NSGs](https://aka.ms/servicetags)
-      
-  Por exemplo, regras de grupo de segurança de rede que restringem o acesso a apenas regiões ponto de extremidade se parecem com o exemplo a seguir:
-
-  ```
-  Allow AzureStorage.WestUS2,
-  Allow AzureStorage.WestCentralUS,
-  Deny all
-  ```
-
-  Etapa 2: Aplicar a política de ponto de extremidade de serviço com acesso a apenas os recursos de serviço do Azure específico.
-
-  > [!WARNING]  
-  > Se o grupo de segurança de rede não estiver configurado para limitar o acesso de serviço do Azure da rede virtual a regiões de ponto de extremidade, você poderá acessar recursos do serviço em outras regiões, mesmo que a política de ponto de extremidade de serviço esteja aplicada.
-
-## <a name="scenarios"></a>Cenários
-
-- **Redes virtuais emparelhadas, conectadas ou múltiplas**: para filtrar o tráfego em redes virtuais emparelhadas, as políticas de ponto de extremidade devem ser aplicadas individualmente a elas.
-- **Filtragem de tráfego da Internet com Dispositivos de Rede ou Firewall do Azure**: filtre o tráfego de serviço do Azure com políticas, por pontos de extremidade, e filtre o restante do tráfego da Internet ou do Azure por meio de dispositivos ou do Firewall do Azure. 
-- **Filtragem de tráfego em serviços do Azure implantados em redes virtuais**: durante a versão prévia, as políticas de ponto de extremidade de serviço não têm suporte para nenhum serviço gerenciado do Azure implantado em sua rede virtual. 
- Para serviços específicos, veja as [limitações.](#limitations)
-- **Filtragem de tráfego para serviços do Azure do local**: políticas de ponto de extremidade de serviço se aplicam somente ao tráfego de sub-redes associadas a políticas. Para permitir o acesso a recursos de Serviço do Azure específicos do local, o tráfego deve ser filtrado usando firewalls ou dispositivos virtuais de rede ou.
-
-## <a name="logging-and-troubleshooting"></a>Registro em log e solução de problemas
-Nenhum registro em log centralizado está disponível para políticas de ponto de extremidade de serviço. Para logs de diagnóstico de serviço, veja [Registro em log de pontos de extremidade de serviço](virtual-network-service-endpoints-overview.md#logging-and-troubleshooting).
-
-### <a name="troubleshooting-scenarios"></a>Cenários de solução de problemas
-- Acesso permitido a contas de armazenamento não listadas nas políticas de ponto de extremidade
-  - Grupos de segurança de rede podem estar permitindo acesso às contas de Armazenamento do Azure ou da Internet em outras regiões.
-  - Grupos de segurança de rede devem ser configurados para negar todo o tráfego na Internet de saída e permitir somente o tráfego para regiões específicas do Armazenamento do Azure. Para obter detalhes, confira Grupos de Segurança de Rede.
-- O acesso é negado para contas listadas nas políticas de ponto de extremidade
-  - Grupos de segurança de rede ou a filtragem de firewall podem estar bloqueando o acesso
-  - Se remover/reaplicar a política resultar em perda de conectividade:
-    - Valide se o serviço do Azure está configurado para permitir o acesso da rede virtual, por pontos de extremidade, ou se a política padrão para o recurso está definida como *Permitir Tudo*.
-      > [!NOTE]      
-      > Recursos de serviço não precisam ser protegidos para as redes virtuais obterem acesso por políticas de ponto de extremidade. No entanto, como uma melhor prática de segurança, é recomendável que os recursos de serviço sejam protegidos para redes confiáveis, como redes virtuais do Azure, por meio de pontos de extremidade de serviço e, localmente, por meio de um firewall de IP.
-  
-    - Valide que o diagnóstico de serviço mostra o tráfego nos pontos de extremidade.
-    - Verifique se os logs de fluxo do grupo de segurança de rede mostram o acesso e se os logs de armazenamento mostram o acesso, conforme esperado, pelos pontos de extremidade de serviço.
-    - Contate o suporte do Azure.
-- O acesso é negado para contas não listadas nas políticas de ponto de extremidade de serviço
-  - Grupos de segurança de rede ou a filtragem de firewall podem estar bloqueando o acesso. Verifique se a marca de serviço *Armazenamento do Azure* é permitida para as regiões de ponto de extremidade. Para restrições de política, veja as [limitações](#limitations).
-  Por exemplo, contas de armazenamento clássicas têm acesso negado se uma política é aplicada.
-  - Valide se o serviço do Azure está configurado para permitir o acesso da rede virtual, por pontos de extremidade, ou se a política padrão para o recurso está definida como *Permitir Tudo*.
-
-## <a name="provisioning"></a>Provisionamento
-
-Políticas de ponto de extremidade de serviço podem ser configuradas em sub-redes por um usuário com acesso de gravação a uma rede virtual. Saiba mais sobre [funções internas](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure e como atribuir permissões específicas a [funções personalizadas](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-Redes virtuais e recursos de serviço do Azure podem estar em assinaturas ou locatários do Azure Active Directory iguais ou diferentes. 
+- Não há suporte para contas de armazenamento clássicas em políticas de ponto de extremidade. As políticas negarão o acesso a todas as contas de armazenamento clássicas por padrão. Se seu aplicativo precisar acessar o Azure Resource Manager e contas de armazenamento clássico, políticas de ponto de extremidade não deverão ser usadas para esse tráfego.
 
 ## <a name="pricing-and-limits"></a>Preços e limites
 
@@ -190,4 +145,3 @@ Os limites a seguir são impostos em políticas de ponto de extremidade de servi
 
 - Saiba como [configurar políticas de ponto de extremidade de serviço de rede virtual](virtual-network-service-endpoint-policies-portal.md)
 - Saiba mais sobre [Pontos de Extremidade de Serviço de rede virtual](virtual-network-service-endpoints-overview.md)
-

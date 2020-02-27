@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0ca9ed8781a13f9ab5e949e0e5f019a851dc75f4
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 1404854e054c8fc4967ba863486969b8a87db526
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77057474"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621524"
 ---
 # <a name="tutorial-configure-insight4grc-for-automatic-user-provisioning"></a>Tutorial: configurar o Insight4GRC para o provisionamento automático de usuário
 
@@ -90,7 +90,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Guia provisionamento](common/provisioning-automatic.png)
 
-5. Na seção **credenciais de administrador** , insira suas credenciais de administrador do Insight4GRC e o nome de usuário. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Insight4GRC. Se a conexão falhar, verifique se sua conta do Insight4GRC tem permissões de administrador e tente novamente.
+5. Na seção **credenciais de administrador** , insira a URL do ponto de extremidade scim na **URL do locatário**. A URL de ponto deve estar no formato `https://<Insight4GRC Domain Name>.insight4grc.com/public/api/scim/v2 ` em que o **nome de domínio Insight4GRC** é o valor recuperado nas etapas anteriores. Insira o valor do token de portador recuperado anteriormente no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Insight4GRC. Se a conexão falhar, verifique se sua conta do Insight4GRC tem permissões de administrador e tente novamente.
 
     ![provisionamento](./media/insight4grc-provisioning-tutorial/provisioning.png)
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: c8412a01f4a5056b352b1d985f36e5a51a25a649
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: b19dc7a85fafa1a4d875c84db9bbefabb3cd5a7d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76158892"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77651641"
 ---
 A tabela a seguir lista informações de cota específicas para mensagens do barramento de serviço do Azure. Para obter informações sobre preços e outras cotas para o barramento de serviço, consulte [preços do barramento de serviço](https://azure.microsoft.com/pricing/details/service-bus/).
 
@@ -34,9 +34,9 @@ A tabela a seguir lista informações de cota específicas para mensagens do bar
 | Tamanho da propriedade da mensagem para uma fila, um tópico ou uma entidade de assinatura |Entidade | A exceção **serializaexception** é gerada. |O tamanho máximo da propriedade de mensagem para cada propriedade é 32.000. O tamanho cumulativo de todas as propriedades não pode exceder 64.000. Esse limite se aplica ao cabeçalho inteiro do [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage), que tem propriedades do usuário e propriedades do sistema, como [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber), [rótulo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label)e [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid). |
 | Número de assinaturas por tópico |Entidade |As solicitações subsequentes para a criação de assinaturas adicionais para o tópico são rejeitadas. Como resultado, se configuradas por meio do portal, uma mensagem de erro é mostrada. Se chamado da API de gerenciamento, uma exceção é recebida pelo código de chamada. |2\.000 por tópico para a camada Standard. |
 | Número de filtros SQL por tópico |Entidade |As solicitações subsequentes para a criação de filtros adicionais no tópico são rejeitadas e uma exceção é recebida pelo código de chamada. |2\.000 |
-| Número de filtros de correlação por tópico |Entidade |As solicitações subsequentes para a criação de filtros adicionais no tópico são rejeitadas e uma exceção é recebida pelo código de chamada. |100 mil |
+| Número de filtros de correlação por tópico |Entidade |As solicitações subsequentes para a criação de filtros adicionais no tópico são rejeitadas e uma exceção é recebida pelo código de chamada. |100.000 |
 | Tamanho de filtros ou ações SQL |Namespace |As solicitações subsequentes para a criação de filtros adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. |Comprimento máximo da cadeia de caracteres de condição de filtro: 1.024 (1 K).<br /><br />Comprimento máximo da cadeia de caracteres de ação de regra: 1.024 (1 K).<br /><br />Número máximo de expressões por ação de regra: 32. |
-| Número de regras [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) por namespace, fila ou tópico |Entidade, namespace |As solicitações subsequentes para a criação de regras adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. |Número máximo de regras: 12. <br /><br /> As regras configuradas em um namespace do Barramento de Serviço se aplicam a todas as filas e tópicos no namespace. |
+| Número de regras [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) por namespace, fila ou tópico |Entidade, namespace |As solicitações subsequentes para a criação de regras adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. |Número máximo de regras por tipo de entidade: 12. <br /><br /> As regras configuradas em um namespace do barramento de serviço se aplicam a todos os tipos: filas, tópicos. |
 | Número de mensagens por transação | Transação | Mensagens de entrada adicionais são rejeitadas e uma exceção informando "não é possível enviar mais de 100 mensagens em uma única transação" é recebida pelo código de chamada. | 100 <br /><br /> Para ambas as operações **Send()** e **SendAsync()** . |
 | Número de regras de rede virtual e filtro IP | Namespace | &nbsp; | 128 | 
 

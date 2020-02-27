@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 12/26/2019
+ms.date: 02/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: bebc7dde30dad57157d0abee7f2294d9da58fd5c
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: af15a7366fd07cecb376ff76ad383f784202a887
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861805"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526800"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Tutorial: Configurar um ambiente de Versão Prévia do Azure Time Series Insights
 
@@ -37,7 +37,7 @@ Neste tutorial, você aprenderá como:
 
 Inscreva-se em uma [assinatura do Azure gratuita](https://azure.microsoft.com/free/) se já não tiver uma.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * No mínimo, você deve ter a função de **Colaborador** para a assinatura do Azure. Para obter mais informações, leia [Gerenciar o acesso usando o controle de acesso baseado em função e o portal do Azure](../role-based-access-control/role-assignments-portal.md).
 

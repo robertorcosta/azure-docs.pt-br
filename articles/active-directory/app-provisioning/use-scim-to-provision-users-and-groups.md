@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9ebeb0db14a42f090a629e379d88e00867bda65
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: 3dbe5871a78634d2866ec1a3d1455492762ff2aa
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77538168"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619238"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Criar um ponto de extremidade SCIM e configurar o provisionamento de usuário com o Azure Active Directory (Azure AD)
 
@@ -106,7 +106,7 @@ Em seguida, você pode usar a tabela abaixo para entender como os atributos que 
 | Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
 | givenName |name.givenName |
 | jobTitle |título |
-| email |emails[type eq "work"].value |
+| mail |emails[type eq "work"].value |
 | mailNickname |externalId |
 | manager |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Manager |
 | Serviço Móvel |phoneNumbers[type eq "mobile"].value |
@@ -124,7 +124,7 @@ Em seguida, você pode usar a tabela abaixo para entender como os atributos que 
 | Grupo do Active Directory do Azure | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
 | displayName |displayName |
-| email |emails[type eq "work"].value |
+| mail |emails[type eq "work"].value |
 | mailNickname |displayName |
 | membros |membros |
 | objectId |externalId |
@@ -133,7 +133,7 @@ Em seguida, você pode usar a tabela abaixo para entender como os atributos que 
 Há vários pontos de extremidade definidos na RFC SCIM. Você pode começar a usar o ponto de extremidade/User e, em seguida, expandir a partir daí. O ponto de extremidade/schemas é útil ao usar atributos personalizados ou se o esquema for alterado com frequência. Ele permite que um cliente recupere o esquema mais atualizado automaticamente. O ponto de extremidade/Bulk é especialmente útil ao dar suporte a grupos. A tabela a seguir descreve os vários pontos de extremidade definidos no padrão SCIM. O ponto de extremidade/schemas é útil ao usar atributos personalizados ou se o esquema for alterado com frequência. Ele permite que um cliente recupere o esquema mais atualizado automaticamente. O ponto de extremidade/Bulk é especialmente útil ao dar suporte a grupos. A tabela a seguir descreve os vários pontos de extremidade definidos no padrão SCIM. 
  
 ### <a name="table-4-determine-the-endpoints-that-you-would-like-to-develop"></a>Tabela 4: determinar os pontos de extremidade que você deseja desenvolver
-|PONTO DE EXTREMIDADE|DESCRIÇÃO|
+|ENDPOINT|DESCRIPTION|
 |--|--|
 |/|Executar operações CRUD em um objeto de usuário.|
 |/Group|Executar operações CRUD em um objeto de grupo.|
@@ -560,7 +560,7 @@ Esta seção fornece exemplos de solicitações SCIM emitidas pelo cliente SCIM 
 * A atualização para a solicitação de PATCH de grupo deve gerar um *HTTP 204 sem conteúdo* na resposta. O retorno de um corpo com uma lista de todos os membros não é aconselhável.
 * Não é necessário dar suporte ao retorno de todos os membros do grupo.
 
-#### <a name="create-group"></a>{1&gt;Criar Grupo&lt;1}
+#### <a name="create-group"></a>Criar Grupo
 
 ##### <a name="request-7"></a>Quest
 
@@ -712,7 +712,7 @@ Esta seção fornece exemplos de solicitações SCIM emitidas pelo cliente SCIM 
 
 *HTTP/1.1 204 sem conteúdo*
 
-#### <a name="delete-group"></a>Excluir Grupo
+#### <a name="delete-group"></a>Excluir grupo
 
 ##### <a name="request-13"></a>Quest
 
@@ -965,6 +965,9 @@ Para hospedar o serviço no Serviços de Informações da Internet, um desenvolv
 ### <a name="handling-endpoint-authentication"></a>Manipulando a autenticação do ponto de extremidade
 
 As solicitações do Active Directory do Azure incluem um token de portador do OAuth 2.0.   Qualquer serviço que recebe a solicitação deve autenticar o emissor como sendo Azure Active Directory para o locatário de Azure Active Directory esperado, para acesso ao serviço de API Microsoft Graph.  No token, o emissor é identificado por uma declaração ISS, como "ISS": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  Neste exemplo, o endereço base do valor de declaração, https://sts.windows.net, identifica Azure Active Directory como o emissor, enquanto o segmento de endereço relativo, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, é um identificador exclusivo do locatário Azure Active Directory para o qual o token foi emitido. O público-alvo do token será a ID do modelo de aplicativo para o aplicativo na galeria. A ID do modelo de aplicativo para todos os aplicativos personalizados é 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. A ID do modelo de aplicativo para cada aplicativo na Galeria varia. Entre em contato com ProvisioningFeedback@microsoft.com para obter perguntas sobre a ID do modelo de aplicativo para um aplicativo da galeria. Cada um dos aplicativos registrados em um único locatário pode receber a mesma declaração de `iss` com solicitações SCIM.
+
+   > [!NOTE]
+   > ***Não*** é recomendável deixar esse campo em branco e contar com um token gerado pelo Azure AD. Essa opção está disponível principalmente para fins de teste.
 
 Os desenvolvedores que usam as bibliotecas de CLI fornecidas pela Microsoft para criar um serviço SCIM podem autenticar solicitações de Azure Active Directory usando o pacote Microsoft. Owin. Security. ActiveDirectory seguindo estas etapas: 
 
@@ -1450,6 +1453,8 @@ Siga a lista de verificação abaixo para garantir que seu aplicativo seja integ
 > [!div class="checklist"]
 > * Suporte a um usuário do [SCIM 2,0](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-2-understand-the-azure-ad-scim-implementation) e ponto de extremidade do grupo (apenas um é necessário, mas ambos são recomendados)
 > * Suporte a pelo menos 25 solicitações por segundo por locatário (obrigatório)
+> * Estabelecer contatos de engenharia e suporte para orientar os clientes na integração da galeria (obrigatório)
+> * 3 credenciais de teste sem expiração para seu aplicativo (obrigatório)
 > * Suporte à concessão de código de autorização OAuth ou a um token de vida útil longa, conforme descrito abaixo (obrigatório)
 > * Estabelecer uma engenharia e um ponto de suporte de contato para dar suporte aos clientes postando a galeria (obrigatório)
 > * Suporte à atualização de várias associações de grupo com um único PATCH (recomendado) 
@@ -1498,7 +1503,7 @@ Para ajudar a impulsionar o reconhecimento e a demanda de nossa integração con
 
 Determinados aplicativos permitem o tráfego de entrada para seu aplicativo. Para que o serviço de provisionamento do Azure AD funcione conforme o esperado, os endereços IP usados devem ser permitidos. Para obter uma lista de endereços IP para cada tag de serviço/região, confira o arquivo JSON – [Intervalos de IP do Azure e marcas de serviço – nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519). Você pode baixar e programar esses IPs em seu firewall, conforme necessário. Os intervalos de IP reservados para o provisionamento do Azure AD podem ser encontrados em "AzureActiveDirectoryDomainServices".
 
-## <a name="related-articles"></a>{1&gt;{2&gt;Artigos relacionados&lt;2}&lt;1}
+## <a name="related-articles"></a>Artigos relacionados
 
 * [Automatizar o provisionamento e o desprovisionamento de usuários para aplicativos SaaS](user-provisioning.md)
 * [Personalizar mapeamentos de atributos para provisionamento do usuário](customize-application-attributes.md)

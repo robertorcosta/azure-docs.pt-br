@@ -3,21 +3,21 @@ title: Migrar pacotes do SSIS para a instância gerenciada do SQL
 titleSuffix: Azure Database Migration Service
 description: Saiba como migrar pacotes do SQL Server Integration Services (SSIS) e projetos para uma instância gerenciada do banco de dados SQL do Azure usando o serviço de migração de banco de dados do Azure ou o Assistente de Migração de Dados.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/08/2020
-ms.openlocfilehash: 22f3e6a0e4c041024e826a7ed724d788ce77da62
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 02/20/2020
+ms.openlocfilehash: a0669724888f02672d18ef9e8f725eef1c744f90
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751211"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650957"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-database-managed-instance"></a>Migrar pacotes SQL Server Integration Services para uma instância gerenciada do banco de dados SQL do Azure
 Se você usar SQL Server Integration Services (SSIS) e quiser migrar seus projetos/pacotes do SSIS do SSISDB de origem hospedado por SQL Server para o SSISDB de destino, hospedado por uma instância gerenciada do banco de dados SQL do Azure, você poderá usar o serviço de migração de banco de dados do Azure.

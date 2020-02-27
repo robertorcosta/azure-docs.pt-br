@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: pepogors
-ms.openlocfilehash: d5a03629a134a0b2c7d6ee95dba9ea3ad06e99ba
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: f40e54f5260f827f0b18c833d23d1f57b5ebc3a3
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75609818"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617461"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Exemplos de aplicativo de Reliable Services e manifesto do serviço
 A seguir estão exemplos dos manifestos de aplicativo e serviço para um aplicativo do Service Fabric com um front-end Web do ASP.NET Core e um back-end com estado. O objetivo desses exemplos é mostrar quais configurações estão disponíveis e como usá-las. Esses manifestos de aplicativo e serviços se baseiam em manifestos [Início Rápido do Service Fabric .NET](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/).
@@ -69,7 +69,7 @@ Veja [Elementos do manifesto de aplicativo](#application-manifest-elements), [El
                                 MemorySwapInMB="[MemorySwapInMB]"/>
 
       <!-- Share the data package across multiple instances of the VotingData service-->
-      <PackageSharingPolicy PackageRef="VotingDataPkg.Data"/>
+      <PackageSharingPolicy PackageRef="Data"/>
 
       <!-- Give read rights on the "DataEndpoint" endpoint to the Customer2 account.-->
       <SecurityAccessPolicy GrantRights="Read" PrincipalRef="Customer2" ResourceRef="DataEndpoint" ResourceType="Endpoint"/>         
