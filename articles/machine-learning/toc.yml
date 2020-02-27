@@ -329,23 +329,18 @@
           href: how-to-deploy-existing-model.md
         - name: Solucionar problemas e depurar
           href: how-to-troubleshoot-deployment.md
-    - name: Consumir serviços Web
-      items:
-        - name: Consumir em tempo real
+        - name: Criar clientes
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
-        - name: Previsões em lotes do designer
-          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-          href: how-to-run-batch-predictions-designer.md
-    - name: Monitorar modelos
-      items:
-        - name: Coletar e avaliar dados de modelo
-          displayName: track production
-          href: how-to-enable-data-collection.md
-        - name: Detectar descompasso de dados
-          href: how-to-monitor-data-drift.md
-        - name: Monitorar com Application Insights
-          href: how-to-enable-app-insights.md
+        - name: Monitorar modelos
+          items:
+            - name: Coletar e avaliar dados de modelo
+              displayName: track production
+              href: how-to-enable-data-collection.md
+            - name: Detectar descompasso de dados
+              href: how-to-monitor-data-drift.md
+            - name: Monitorar com Application Insights
+              href: how-to-enable-app-insights.md
     - name: Criar e usar pipelines do ML
       displayName: pipelines
       items:
@@ -372,6 +367,9 @@
         - name: Depurar e solucionar problemas de etapa de execução paralela
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
+        - name: Previsões em lotes do designer
+          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+          href: how-to-run-batch-predictions-designer.md
     - name: Gerenciar cotas de recursos
       displayName: limits
       href: how-to-manage-quotas.md

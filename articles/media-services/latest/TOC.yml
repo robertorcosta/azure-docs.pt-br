@@ -148,6 +148,8 @@
           href: live-event-states-billing.md
         - name: Latency
           href: live-event-latency.md
+        - name: Códigos de erro de evento ao vivo
+          href: live-event-error-codes.md
     - name: Monitoramento
       items:
         - name: Eventos com Grade de Eventos
@@ -175,6 +177,8 @@
           items:
             - name: Códigos de erro do ponto de extremidade de streaming
               href: streaming-endpoint-error-codes.md
+            - name: Códigos de erro de evento ao vivo
+              href: live-event-error-codes.md
             - name: Códigos de erro do trabalho
               href: job-error-codes.md
     - name: Diretrizes de migração da v2 para a v3
@@ -325,6 +329,8 @@
       items:
         - name: Códigos de erro do ponto de extremidade de streaming
           href: streaming-endpoint-error-codes.md
+        - name: Códigos de erro de evento ao vivo
+          href: live-event-error-codes.md
         - name: Códigos de erro do trabalho
           href: job-error-codes.md
 - name: Recursos

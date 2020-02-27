@@ -1,0 +1,302 @@
+### YamlMime:Hub
+title: Documentação da engenharia de confiabilidade de sites
+summary: A engenharia de confiabilidade de sites é uma disciplina de engenharia dedicada a ajudar uma organização a atingir de maneira sustentável o nível apropriado de confiabilidade em sistemas, serviços e produtos.
+brand: azure
+metadata:
+  title: Documentação da engenharia de confiabilidade de sites
+  description: A engenharia de confiabilidade de sites é uma disciplina de engenharia dedicada a ajudar uma organização a atingir de maneira sustentável o nível apropriado de confiabilidade em sistemas, serviços e produtos.
+  services: site-reliability-engineering
+  ms.service: site-reliability-engineering
+  ms.topic: hub-page
+  author: dnblankedelman
+  ms.author: dnb
+  ms.date: 02/18/2020
+  ms.openlocfilehash: a89b50cb23d87c9495b24e4ac2ae562b637ec6fa
+  ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 02/25/2020
+  ms.locfileid: "77598928"
+highlightedContent:
+  items:
+  - title: 'Introdução à SRE:  o que é a SRE? (1/3)'
+    itemType: video
+    url: https://channel9.msdn.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-1/player
+  - title: 'Introdução à SRE: princípios e práticas fundamentais (2/3)'
+    itemType: video
+    url: https://channel9.msdn.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-2/player
+  - title: 'Introdução à SRE: como começar a usá-la (3/3)'
+    itemType: video
+    url: https://channel9.msdn.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-3/player
+productDirectory:
+  items:
+  - title: Como aprimorar a confiabilidade por meio de práticas de operações modernas
+    imageSrc: ./media/index/video.svg
+    links:
+    - url: https://myignite.techcommunity.microsoft.com/sessions/82996
+      text: 'Como criar a base para operações modernas: monitoramento'
+    - url: https://myignite.techcommunity.microsoft.com/sessions/82997
+      text: Como responder a incidentes
+    - url: https://myignite.techcommunity.microsoft.com/sessions/82998
+      text: Como aprender com os erros
+    - url: https://myignite.techcommunity.microsoft.com/sessions/82999
+      text: Práticas de implantação para maior confiabilidade
+    - url: https://myignite.techcommunity.microsoft.com/sessions/83001
+      text: 'Preparando-se para o crescimento: planejamento de capacidade e dimensionamento'
+  - title: Introdução ao curso online sobre SRE
+    imageSrc: ./media/index/learn.svg
+    links:
+    - url: https://docs.microsoft.com/learn/modules/intro-to-site-reliability-engineering/
+      text: Aprenda os conceitos básicos da SRE em um curso online gratuito
+  - title: Recursos da SRE
+    imageSrc: ./media/index/reference.svg
+    links:
+    - url: resources/books.md
+      text: Manuais
+    - url: resources/events.md
+      text: Eventos
+    - url: resources/links.md
+      text: Links e resumos
+conceptualContent:
+  title: SRE no Azure
+  summary: Documentação de SREs
+  items:
+  - title: Arquitetura
+    links:
+    - url: https://docs.microsoft.com/azure/architecture/framework/
+      itemType: reference
+      text: Estrutura de Arquitetura do Azure
+    - url: https://docs.microsoft.com/azure/architecture/guide
+      itemType: reference
+      text: Guia de Arquitetura do Aplicativo do Azure
+    - url: https://docs.microsoft.com/azure/architecture/architectures/?filter=reference-architecture
+      itemType: reference
+      text: Arquiteturas de referência
+    - url: https://docs.microsoft.com/azure/architecture/cloud-adoption/
+      itemType: reference
+      text: Microsoft Cloud Adoption Framework for Azure
+    - url: https://docs.microsoft.com/azure/architecture/architectures/?filter=example-workload
+      itemType: reference
+      text: Exemplo de cargas de trabalho
+    - url: https://docs.microsoft.com/azure/architecture/microservices
+      itemType: reference
+      text: Compilar Microsserviços no Azure
+    - url: https://docs.microsoft.com/azure/architecture/data-guide/
+      itemType: reference
+      text: Guia de Arquitetura de Dados do Azure
+    - url: https://docs.microsoft.com/azure/architecture/best-practices/
+      itemType: reference
+      text: Práticas recomendadas da nuvem
+    - url: https://docs.microsoft.com/azure/architecture/framework/resiliency/overview
+      itemType: reference
+      text: Como desenvolver aplicativos do Azure confiáveis
+    - url: https://docs.microsoft.com/azure/architecture/patterns
+      itemType: reference
+      text: Padrões de design na nuvem
+    - url: https://docs.microsoft.com/azure/architecture/aws-professional
+      itemType: reference
+      text: Azure para profissionais do AWS
+    - url: https://docs.microsoft.com/azure/architecture/performance
+      itemType: reference
+      text: Ajuste de desempenho
+    footerLink:
+      url: https://docs.microsoft.com/azure/architecture/
+      text: Veja mais no Centro de Arquitetura do Azure
+  - title: Monitoramento
+    links:
+    - url: https://docs.microsoft.com/azure/azure-monitor/overview
+      itemType: get-started
+      text: Visão geral do Azure Monitor
+    - url: https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics
+      itemType: get-started
+      text: Métricas com o Azure Monitor
+    - url: https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs
+      itemType: get-started
+      text: Logs com o Azure Monitor
+    - url: https://docs.microsoft.com/azure/azure-monitor/azure-monitor-app-hub
+      itemType: get-started
+      text: Gerenciamento de desempenho de aplicativos com o Application Insights
+    - url: https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing
+      itemType: get-started
+      text: Rastreamento distribuído com o Azure Monitor
+    footerLink:
+      url: https://docs.microsoft.com/en-us/azure/azure-monitor/
+      text: Veja mais sobre o Azure Monitor
+  - title: Provisionamento e entrega
+    links:
+    - url: https://docs.microsoft.com/azure/azure-resource-manager/
+      itemType: get-started
+      text: Azure Resource Manager
+    - url: https://docs.microsoft.com/azure/terraform/
+      itemType: get-started
+      text: Terraform no Azure
+    - url: https://help.github.com/actions
+      itemType: get-started
+      text: GitHub Actions
+    - url: https://docs.microsoft.com/azure/devops/pipelines/index?view=azure-devops
+      itemType: get-started
+      text: Azure Pipelines
+  - title: Scaling
+    links:
+    - url: https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview
+      itemType: get-started
+      text: Visão geral do dimensionamento automático
+    - url: https://docs.microsoft.com/azure/architecture/best-practices/auto-scaling
+      itemType: get-started
+      text: Diretrizes de dimensionamento automático
+    - url: https://www.pluralsight.com/courses/microsoft-azure-autoscaling-developing
+      itemType: get-started
+      text: Desenvolvimento para dimensionamento automático
+    - url: https://docs.microsoft.com/azure/architecture/framework/scalability/overview
+      itemType: get-started
+      text: Pilar de escalabilidade da arquitetura do Azure
+    - url: https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out
+      itemType: get-started
+      text: Design a aumentar
+    - url: https://docs.microsoft.com/en-us/azure/architecture/patterns/category/performance-scalability
+      itemType: get-started
+      text: Padrões de desempenho e Escalabilidade
+additionalContent:
+  sections:
+  - title: Palestras da Microsoft sobre SRE
+    items:
+    - title: Cultura
+      links:
+      - text: A evolução da engenharia de confiabilidade de sites
+        url: https://www.usenix.org/conference/srecon18asia/presentation/purgason
+      - text: 'Como criar a SRE: cultura de fora para dentro'
+        url: https://www.usenix.org/conference/srecon18asia/presentation/palino
+      - text: Nuance cultural e colaboração efetiva para equipes multiculturais
+        url: https://www.usenix.org/conference/srecon18asia/presentation/ravindran
+      - text: Evolução da SRE e a crescente necessidade de catalizadores de SRE
+        url: https://www.usenix.org/conference/srecon18asia/presentation/ganeriwal
+      - text: 'Loops de comentários: qual o benefício dos SREs e o que é necessário para concretizar o potencial deles'
+        url: https://www.usenix.org/conference/srecon17americas/program/presentation/tangi
+      - text: Entender as métricas de negócios pode tornar você um SRE melhor
+        url: https://www.usenix.org/conference/srecon19asia/presentation/suley
+      - text: A história sem fim da confiabilidade de sites
+        url: https://www.usenix.org/conference/srecon17europe/conference-program/presentation/andersen
+      - text: Todo dia é segunda-feira nas operações
+        url: https://www.usenix.org/conference/srecon17americas/program/presentation/purgason
+    - title: Resposta a incidentes e revisões pós-incidente
+      links:
+      - text: 'Criação de resiliência: como aprender mais com os incidentes'
+        url: https://www.usenix.org/conference/srecon19emea/presentation/stenning
+      - text: 'Um relato sobre dois relatórios finais: uma visão de fatores humanos'
+        url: https://www.usenix.org/conference/srecon19asia/presentation/lund-postmortem
+      - text: 'Ironias da automação: uma comédia em três partes'
+        url: https://www.usenix.org/conference/srecon19asia/presentation/lund-comedy
+      - text: 'Contra o plantão: uma polêmica'
+        url: https://www.usenix.org/conference/srecon18europe/presentation/murphy
+      - text: SRE entre duas pessoas
+        url: https://www.usenix.org/conference/srecon19americas/presentation/tobey
+    - title: Monitoramento e observabilidade
+      links:
+      - text: 'Mais de 600 milhões de membros e centenas de microsserviços: como dimensionamos nosso sistema de monitoramento para mantê-lo atualizado'
+        url: https://www.usenix.org/conference/srecon19asia/presentation/lamba
+      - text: 'Fora do convencional: como passar o foco da observabilidade do seu serviço para o cliente'
+        url: https://www.usenix.org/conference/lisa19/presentation/suley
+      - text: 'Você obtém o que mede: por que as métricas são importantes'
+        url: https://www.usenix.org/conference/srecon18asia/presentation/srinivasamurthy-metrics
+      - text: 'Superação de crises: como os avisos antecipados salvam o patrimônio'
+        url: https://www.usenix.org/conference/srecon19emea/presentation/sherwin
+      - text: Captura e análise de milhões de consultas sem nenhuma sobrecarga
+        url: https://www.usenix.org/conference/srecon17europe/program/presentation/appigatla
+      - text: 'Correlação de eventos: uma nova abordagem de redução do MTTR'
+        url: https://www.usenix.org/conference/srecon17asia/program/presentation/rajan
+      - text: Como o monitoramento robusto capacita a alta disponibilidade para o feed do LinkedIn
+        url: https://www.usenix.org/conference/srecon17americas/program/presentation/barot
+      - text: 'Redução do MTTR e de escalonamentos falsos: Correlação de eventos no LinkedIn'
+        url: https://www.usenix.org/conference/srecon17europe/program/presentation/kehoe-0
+    - title: Práticas e princípios
+      links:
+      - text: 'Disponibilidade: como pensar além dos noves'
+        url: https://www.usenix.org/conference/srecon19asia/presentation/srinivasamurthy
+      - text: Modelos mentais para SREs
+        url: https://www.usenix.org/conference/srecon18asia/presentation/suley-mental
+      - text: Como priorizar a confiança durante a criação de aplicativos
+        url: https://www.usenix.org/conference/srecon19emea/presentation/davis
+      - text: O Java odeia o Linux. Lide com isso.
+        url: https://www.usenix.org/conference/srecon17americas/program/presentation/banks
+      - text: Como caracterizar e entender as fases das práticas de SRE
+        url: https://www.usenix.org/conference/srecon18asia/presentation/andersen
+      - text: 'Segurança e SRE: multiplicadores de força natural'
+        url: https://www.usenix.org/conference/srecon18americas/presentation/scott
+      - text: 'Revisão da melhoria da produção: como acabar com a dívida de reparo'
+        url: https://www.usenix.org/conference/srecon16europe/program/presentation/check
+      - text: Garantia da confiabilidade de aplicativos de alto desempenho
+        url: https://www.usenix.org/conference/srecon18asia/presentation/nayak
+      - text: 'O cartão de pontuação de serviço: como transformar a excelência operacional em um jogo'
+        url: https://www.usenix.org/conference/srecon17americas/program/presentation/lawrence
+      - text: Como aprimorar um serviço criticando-o
+        url: https://www.usenix.org/conference/srecon16/program/presentation/dickson
+    - title: Equipes e gerenciamento
+      links:
+      - text: 'Emergência interna: como ajudar as equipes de operações de alto nível de maneira inteligente'
+        url: https://www.usenix.org/conference/srecon19americas/presentation/kehoe
+      - text: 'Liderança sem gerenciamento: Como se tornar um líder técnico de SRE'
+        url: https://www.usenix.org/conference/srecon19asia/presentation/palino-leading
+      - text: Diferenças nas implementações de SRE entre empresas
+        url: https://www.usenix.org/conference/srecon19americas/presentation/andersen
+      - text: 100 equipes, 100 maneiras de fracassar
+        url: https://www.usenix.org/conference/srecon17europe/program/presentation/keiser
+      - text: O "por quê", o "o quê" e o "como" do começo de uma participação com a SRE
+        url: https://www.usenix.org/conference/srecon17europe/program/presentation/clawson
+      - text: Como criar e administrar equipes de SRE
+        url: https://www.usenix.org/conference/srecon16europe/program/presentation/andersen
+      - text: 'De aluno universitário a SRE: como integrar seu talento iniciante'
+        url: https://www.usenix.org/conference/srecon16/program/presentation/kehoe
+      - text: 'SRE do LinkedIn: do início a uma escala global'
+        url: https://www.usenix.org/conference/srecon17asia/program/presentation/connelly
+      - text: Como entrelaçar sequências de DNA de SRE na maior empresa de software do planeta
+        url: https://www.usenix.org/conference/srecon16europe/program/presentation/splicing-sre-dna-sequences-biggest-software-company
+      - text: Como transformar lagartas da camada 1 em borboletas
+        url: https://www.usenix.org/conference/srecon16/program/presentation/mushiana
+    - title: Ferramentas e tecnologias
+      links:
+      - text: 'Azure SREBot: mais do que um chatbot – um bot inteligente para acabar com o tempo de mitigação'
+        url: https://www.usenix.org/conference/srecon17asia/program/presentation/guimaraes
+      - text: 'TrafficShift: prevenção de desastres em escala'
+        url: https://www.usenix.org/conference/srecon17americas/program/presentation/kehoe_trafficshift
+      - text: Vamos criar um Sistema de Arquivos Distribuído
+        url: https://www.usenix.org/conference/srecon19asia/presentation/patel
+      - text: 'TCP: arquitetura, melhorias e ajuste'
+        url: https://www.usenix.org/conference/srecon19asia/presentation/dhakal
+      - text: 'BGP: o backbone da Internet'
+        url: https://www.usenix.org/conference/srecon19asia/presentation/kehoe
+      - text: As operações em modelos sem servidor
+        url: https://www.usenix.org/conference/srecon19americas/presentation/davis
+      - text: Como usamos o Kafka para dimensionar a infraestrutura do banco de dados
+        url: https://www.usenix.org/conference/srecon19asia/presentation/thambara
+      - text: 'Redes para SREs: o que é preciso saber para solucionar problemas de aplicativos'
+        url: https://www.usenix.org/conference/srecon17europe/program/presentation/kehoe
+      - text: 'Ambry: repositório distribuído de objetos imutáveis do LinkedIn'
+        url: https://www.usenix.org/conference/srecon17americas/program/presentation/shenoy
+      - text: 'BPerf: criação de perfil de nuvem do Bing.com em produção'
+        url: https://www.usenix.org/conference/srecon17americas/program/presentation/sabharwal
+      - text: 'DNS: solução antiga para problemas modernos'
+        url: https://www.usenix.org/conference/srecon16europe/program/presentation/jackson
+      - text: Gestão de tráfego com o Rum DNS no LinkedIn
+        url: https://www.usenix.org/conference/srecon17europe/program/presentation/rastogi
+    - title: Scaling
+      links:
+      - text: Previsão de tráfego e infraestrutura do teste de estresse
+        url: https://www.usenix.org/conference/srecon19asia/presentation/sulakhe
+      - text: O aprendizado em escala é difícil! Análise de padrões de interrupção e dados sujos
+        url: https://www.usenix.org/conference/srecon18americas/presentation/lund
+      - text: 'Como dimensionar um sistema com estado distribuído: um estudo de caso do LinkedIn'
+        url: https://www.usenix.org/conference/srecon18asia/presentation/kanuri
+      - text: 'Depuração em escala: como migrar de caixa única para produção'
+        url: https://www.usenix.org/conference/srecon18asia/presentation/srinivasamurthy-debugging
+      - text: Como criar uma infraestrutura de cache centralizada em escala
+        url: https://www.usenix.org/conference/srecon19asia/presentation/won
+      - text: 'Codificação escalonável: localizar o erro'
+        url: https://www.usenix.org/conference/srecon18europe/presentation/ebner-de-carvalho
+      - text: Como gerenciar a capacidade no LinkedIn
+        url: https://www.usenix.org/conference/srecon17asia/program/presentation/harkare
+      - text: 'InStream: Distribuição em grande escala usando o BitTorrent, o Python, o Salt e o Kafka'
+        url: https://www.usenix.org/conference/srecon17europe/program/presentation/sharma
+      - text: Como evitar e livrar-se da prisão da capacidade
+        url: https://www.usenix.org/conference/srecon17europe/program/presentation/welch
+      - text: A evolução do roteamento de tráfego global e do failover
+        url: https://www.usenix.org/conference/srecon16/program/presentation/heady

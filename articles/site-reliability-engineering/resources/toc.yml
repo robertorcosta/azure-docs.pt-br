@@ -1,0 +1,11 @@
+- name: Documentação da engenharia de confiabilidade de sites
+  href: ../index.yml
+- name: Recursos
+  expanded: true
+  items:
+    - name: Manuais sobre a SRE
+      href: books.md
+    - name: Eventos de SRE
+      href: events.md
+    - name: Coleções de links e resumos sobre a SRE
+      href: links.md

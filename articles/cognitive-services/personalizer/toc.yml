@@ -23,9 +23,11 @@
     - name: Como funciona o Personalizador
       href: how-personalizer-works.md
       displayName: 'rank, reward, api, explore, exploit, score, design, research, loop, action, context, feature, JSON, event, inactive, model'
-    - name: Em que situações o Personalizador pode ser usado?
+    - name: Em qual situação usar o Personalizador
       href: where-can-you-use-personalizer.md
       displayName: 'checklist, considerations, effectiveness, recommendation engine'
+    - name: Terminologia
+      href: terminology.md
     - name: Ética e uso responsável
       href: ethics-responsible-use.md
       displayName: 'best practice, design'
@@ -34,9 +36,11 @@
         - name: 'Recursos: ação e contexto'
           href: concepts-features.md
           displayName: 'action, context, feature, namespace, JSON, best practice, set, ID, guid, event id,'
-        - name: Eventos ativos e inativos
+        - name: Política de aprendizado
           href: concept-active-learning.md
           displayName: 'active, inactive'
+        - name: Eventos ativos e inativos
+          href: concept-active-inactive-events.md
         - name: Recompensas
           href: concept-rewards.md
           displayName: 'reward, wait time, default reward'
@@ -56,15 +60,15 @@
       href: concepts-scalability-performance.md
 - name: Guias de instruções
   items:
-    - name: Criar e configurar o Personalizador
+    - name: Criar um recurso do Personalizador
+      href: how-to-create-resource.md
+    - name: Configurar um loop de aprendizagem
       href: how-to-settings.md
       displayName: 'azure, portal, settings, evaluation, offline, policy, export, model, configure'
-    - name: Gerenciar sua política de aprendizado
-      href: how-to-learning-policy.md
-    - name: Analisar
-      items:
-        - name: Avaliação offline
-          href: how-to-offline-evaluation.md
+    - name: Gerenciar configurações de modelo e de aprendizado
+      href: how-to-manage-model.md
+    - name: Analisar com uma avaliação offline
+      href: how-to-offline-evaluation.md
 - name: Referência
   items:
     - name: Exemplos

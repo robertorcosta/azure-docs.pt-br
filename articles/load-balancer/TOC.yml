@@ -62,10 +62,14 @@
       href: load-balancer-security-controls.md
 - name: Como
   items:
-    - name: Atualizar um Load Balancer Público Básico para o Load Balancer Público Standard
-      href: upgrade-basic-standard.md
-    - name: Atualizar um balanceador de carga interno básico para balanceador de carga interno padrão
-      href: upgrade-basicInternal-standard.md
+    - name: Fazer upgrade de um Basic Load Balancer para um Standard Load Balancer
+      items:
+        - name: Atualizar um Basic Load Balancer público
+          href: upgrade-basic-standard.md
+        - name: Atualizar um Basic Load Balancer interno sem necessidade de conexão de saída
+          href: upgrade-basicInternal-standard.md
+        - name: Atualizar um Basic Load Balancer interno com necessidade de conexão de saída
+          href: upgrade-InternalBasic-To-PublicStandard.md
     - name: Configurar regras de saída
       items:
         - name: Portal do Azure
