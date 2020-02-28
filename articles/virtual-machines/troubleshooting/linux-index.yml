@@ -10,18 +10,18 @@ metadata:
   author: genlin
   ms.author: genli
   ms.date: 09/09/2019
-  ms.openlocfilehash: 5b5ef5ee550100eed4bd8a236fb102c2870c70ed
-  ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+  ms.openlocfilehash: f19ce0f1e088d2360f4afb2925d2a5d67b4c0252
+  ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 02/20/2020
-  ms.locfileid: "77519267"
+  ms.lasthandoff: 02/28/2020
+  ms.locfileid: "77920834"
 landingContent:
 - title: Solucionar problemas de falhas de implantação
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Solucionar problemas de falha de alocação quando você cria, reinicia ou redimensiona VMs no Azure
+    - text: Solução de problemas de falha de alocação quando você cria, reinicia ou redimensiona VMs no Azure
       url: allocation-failure.md
     - text: Solucionar problemas de implantação ao criar uma nova máquina virtual no Azure
       url: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm
@@ -41,7 +41,7 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Como usar o diagnóstico de inicialização para solucionar problemas de Máquinas Virtuais do Linux no Azure
+    - text: Como usar o diagnóstico de inicialização para solucionar problemas de máquinas virtuais Linux no Azure
       url: https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics
     - text: Como redefinir a senha local do Linux em VMs do Azure
       url: https://docs.microsoft.com/azure/virtual-machines/linux/reset-password
@@ -65,7 +65,7 @@ landingContent:
       url: https://support.microsoft.com/help/4091524/how-recovery-azure-linux-vm-from-kernel-related-boot-related-issues
     - text: Usar o console serial para acessar GRUB e modificar o modo de configuração de inicialização
       url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode
-    - text: Como usar o diagnóstico de inicialização para solucionar problemas de Máquinas Virtuais do Linux no Azure
+    - text: Como usar o diagnóstico de inicialização para solucionar problemas de máquinas virtuais Linux no Azure
       url: https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics
     - text: Noções básicas sobre erros FSTAB e etapas de mitigação
       url: https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors
@@ -73,7 +73,7 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Solucionar problemas de implantação de máquina virtual do Windows no Azure
+    - text: Solução de problemas de implantação de máquina virtual do Windows no Azure
       url: https://docs.microsoft.com/azure/virtual-machines/windows/restart-resize-error-troubleshooting
     - text: Solucionar problemas de falhas de alocação (modelo de implantação clássico)
       url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/allocation-failure-classic
@@ -134,6 +134,6 @@ landingContent:
     - text: Solucionar problemas de Servidor de Backup do Azure
       url: https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot
     - text: Examine os recursos do Backup do Azure
-      url: https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#using-premium-storage-vms-with-azure-backup
+      url: https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup
     - text: Noções básicas do backup das máquinas virtuais do Azure nos cofres dos Serviços de Recuperação
       url: https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm

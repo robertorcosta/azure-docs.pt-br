@@ -11,12 +11,12 @@ metadata:
   ms.author: nitinme
   manager: nitinme
   ms.date: 01/21/2020
-  ms.openlocfilehash: f39f2a6360363131eb346f613cf0f7a25910404a
-  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.openlocfilehash: 6f49c2e645ba0ecf48c8c111b9afd7c12722f4ad
+  ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 02/22/2020
-  ms.locfileid: "77560755"
+  ms.lasthandoff: 02/28/2020
+  ms.locfileid: "77919321"
 highlightedContent:
   items:
   - title: O que são Serviços Cognitivos?
@@ -114,36 +114,6 @@ conceptualContent:
     - url: ./Bing-web-search/index.yml
       itemType: overview
       text: Página do hub de APIs de Pesquisa do Bing
-    - url: ./Bing-Autosuggest/get-suggested-search-terms.md
-      itemType: overview
-      text: Pesquisa de Sugestão Automática
-    - url: ./bing-custom-search/overview.md
-      itemType: overview
-      text: Pesquisa Personalizada
-    - url: ./bing-entities-search/overview.md
-      itemType: overview
-      text: Pesquisa de Entidade
-    - url: ./bing-image-search/overview.md
-      itemType: overview
-      text: Pesquisa de Imagem
-    - url: ./bing-local-business-search/overview.md
-      itemType: overview
-      text: Pesquisa de Negócios Locais (versão prévia)
-    - url: ./bing-news-search/search-the-web.md
-      itemType: overview
-      text: Pesquisa de Notícias
-    - url: ./bing-spell-check/overview.md
-      itemType: overview
-      text: Verificação ortográfica
-    - url: ./Bing-Video-Search/overview.md
-      itemType: overview
-      text: Pesquisa de Vídeo
-    - url: ./bing-visual-search/overview.md
-      itemType: overview
-      text: Pesquisa Visual
-    - url: ./bing-web-search/overview.md
-      itemType: overview
-      text: Pesquisa na Web
   - title: Contêineres de Serviço Cognitivo
     summary: O suporte a contêiner nos Serviços Cognitivos do Azure permite que os desenvolvedores usem as mesmas APIs avançadas disponíveis no Azure e habilita a flexibilidade de onde implantar e hospedar os serviços que vêm com os contêineres do Docker.
     links:
