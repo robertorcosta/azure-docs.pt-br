@@ -8,9 +8,10 @@
   expanded: true
   items:
     - name: Criar aplicativo para Unity
-      href: unity-overview.yml
       expanded: true
       items:
+        - name: Visão geral do Unity
+          href: unity-overview.md
         - name: HoloLens
           href: quickstarts/get-started-unity-hololens.md
         - name: Android
@@ -40,7 +41,7 @@
       href: tutorials/tutorial-new-unity-hololens-app.md
     - name: Como iniciar um novo aplicativo Android
       href: tutorials/tutorial-new-android-app.md
-- name: Como fazer
+- name: Como
   items:
     - name: Criar e localizar âncoras
       href: create-locate-anchors-overview.md
@@ -101,7 +102,7 @@
       href: 'https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/'
 - name: Recursos
   items:
-    - name: Notas de versão
+    - name: Notas sobre a versão
       href: 'https://github.com/Azure/azure-spatial-anchors-samples/releases'
     - name: API REST do Gerenciamento de Recursos da Realidade Misturada do Azure
       href: 'https://docs.microsoft.com/rest/api/mixedreality/'

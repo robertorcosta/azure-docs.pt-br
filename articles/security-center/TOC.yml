@@ -49,7 +49,7 @@
           href: azure-container-registry-integration.md
         - name: Integração com o Serviço de Kubernetes do Azure
           href: azure-kubernetes-service-integration.md
-    - name: Alertas e incidentes de detecção de ameaças
+    - name: Proteção contra ameaças e alertas de segurança
       items:
         - name: Visão geral de alertas de segurança
           href: security-center-alerts-overview.md
@@ -59,16 +59,8 @@
           href: security-center-managing-and-responding-alerts.md
         - name: Gerenciar incidentes de segurança
           href: security-center-incident.md
-        - name: Detecção de ameaças para VMs e servidores
-          href: security-center-alerts-iaas.md
-        - name: Detecção de ameaças para aplicativos e contêineres de nuvem
-          href: security-center-alerts-compute.md
-        - name: Detecção de ameaças para serviços de dados
-          href: security-center-alerts-data-services.md
-        - name: Detecção de ameaças para camadas de serviço do Azure
-          href: security-center-alerts-service-layer.md
-        - name: Alertas de detecção de ameaças do Azure WAF e da Proteção contra DDoS do Azure
-          href: security-center-alerts-integration.md
+        - name: Proteção contra ameaças na Central de Segurança do Azure
+          href: threat-protection.md
         - name: Correlação de alertas inteligentes de nuvem (incidentes)
           href: security-center-alerts-cloud-smart.md
         - name: Inteligência contra ameaças e mapa de alertas de segurança
@@ -165,7 +157,7 @@
           href: security-center-apply-disk-encryption.md
         - name: Aplicar atualizações do sistema
           href: security-center-apply-system-updates.md
-        - name: Instalar proteção do ponto de extremidade
+        - name: Instalar o Endpoint Protection
           href: security-center-install-endpoint-protection.md
         - name: Relatórios de ameaça
           href: security-center-threat-report.md
@@ -195,7 +187,7 @@
           href: faq-vms.md
         - name: Usuários existentes do Azure Log Analytics
           href: faq-azure-monitor-logs.md
-    - name: Notas de versão
+    - name: Notas sobre a versão
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Recursos e desativação da API (julho de 2019)
       href: security-center-features-retirement-july2019.md

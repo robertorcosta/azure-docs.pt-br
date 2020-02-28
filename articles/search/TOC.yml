@@ -1,25 +1,25 @@
-- name: Documentação da pesquisa cognitiva do Azure
+- name: Documentação do Azure Cognitive Search
   href: index.yml
 - name: Visão geral
-  expanded: true
   items:
-    - name: O que é a Pesquisa Cognitiva do Azure?
+    - name: O que é o Azure Cognitive Search?
       href: search-what-is-azure-search.md
     - name: Novidades
       href: whats-new.md
 - name: Inícios rápidos
+  expanded: true
   items:
-    - name: Criar um serviço
-      href: search-create-service-portal.md
     - name: Portal
       items:
+        - name: Criar um serviço
+          href: search-create-service-portal.md
         - name: Crie um índice
           href: search-get-started-portal.md
         - name: Criar um aplicativo
           href: search-create-app-portal.md
-        - name: Criar um conjunto de habilidades cognitivas
+        - name: Criar um conjunto de habilidades
           href: cognitive-search-quickstart-blob.md
-        - name: Criar um repositório de dados de conhecimento
+        - name: Criar um repositório de conhecimento
           href: knowledge-store-create-portal.md
     - name: 'C#'
       href: search-get-started-dotnet.md
@@ -53,7 +53,7 @@
       href: search-semi-structured-data.md
     - name: Indexar várias fontes de dados do Azure
       href: tutorial-multiple-data-sources.md
-    - name: Enriquecer com IA (pesquisa cognitiva)
+    - name: Enriquecer com IA (Cognitive Search)
       items:
         - name: 'C#'
           href: cognitive-search-tutorial-blob-dotnet.md
@@ -99,61 +99,7 @@
       href: cognitive-search-incremental-indexing-conceptual.md
 - name: Guias de instruções
   items:
-    - name: Planejamento
-      items:
-        - name: Escolha uma faixa
-          href: search-sku-tier.md
-        - name: Limites de serviço
-          href: search-limits-quotas-capacity.md
-        - name: Ajustar a capacidade
-          href: search-capacity-planning.md
-        - name: Dimensionamento em razão de desempenho
-          href: search-performance-optimization.md
-        - name: Mover o serviço entre regiões
-          href: search-howto-move-across-regions.md
-        - name: Arquitetura de multilocatários
-          href: search-modeling-multitenant-saas-applications.md
-    - name: Segurança
-      items:
-        - name: Visão geral da segurança
-          href: search-security-overview.md
-        - name: Criar um ponto de extremidade privado
-          href: service-create-private-endpoint.md
-        - name: Serviço de gerenciamento de chaves
-          href: search-security-api-keys.md
-        - name: Acesso de administrador baseado em função
-          href: search-security-rbac.md
-        - name: Filtros de segurança
-          href: search-security-trimming-for-azure-search.md
-        - name: Filtrar identidades do AAD
-          href: search-security-trimming-for-azure-search-with-aad.md
-        - name: Gerenciar chaves de criptografia
-          href: search-security-manage-encryption-keys.md
-    - name: Desenvolvimento
-      items:
-        - name: Versões de API
-          href: search-api-versions.md
-        - name: Lista de versão prévia do recurso
-          href: search-api-preview.md
-        - name: Desenvolver em .NET
-          href: search-howto-dotnet-sdk.md
-        - name: Atualizar o SDK
-          items:
-            - name: SDK do .NET 10.0
-              href: search-dotnet-sdk-migration-version-10.md
-            - name: .NET SDK 9.0
-              href: search-dotnet-sdk-migration-version-9.md
-            - name: .NET SDK 5.0
-              href: search-dotnet-sdk-migration-version-5.md
-            - name: .NET SDK 3.0
-              href: search-dotnet-sdk-migration.md
-            - name: .NET SDK 1.1
-              href: search-dotnet-sdk-migration-version-1.md
-            - name: SDK do Gerenciamento do .NET
-              href: search-dotnet-mgmt-sdk-migration.md
-        - name: Atualizar a API REST
-          href: search-api-migration.md
-    - name: Crie um índice
+    - name: Criar índices e constructos
       items:
         - name: Criar um índice básico
           href: search-what-is-an-index.md
@@ -185,7 +131,7 @@
           href: search-howto-complex-data-types.md
         - name: Modelar dados relacionais
           href: index-sql-relational-data.md
-    - name: Indexação (importação)
+    - name: Ingerir todos os dados
       items:
         - name: Visão geral da importação de dados
           href: search-what-is-data-import.md
@@ -197,16 +143,16 @@
           href: search-howto-large-index.md
         - name: Suporte a atualizações simultâneas
           href: search-howto-concurrency.md
-    - name: Usar um indexador
+    - name: Ingerir dados do Azure
       items:
         - name: Configurar indexadores
           href: search-indexer-overview.md
-        - name: Mapear campos
-          href: search-indexer-field-mappings.md
         - name: Monitorar indexadores
           href: search-howto-monitor-indexers.md
         - name: Indexadores do agendamento
           href: search-howto-schedule-indexers.md
+        - name: Mapear campos
+          href: search-indexer-field-mappings.md
         - name: Fontes de dados
           items:
             - name: Blobs do Azure
@@ -223,25 +169,25 @@
                   href: search-howto-index-csv-blobs.md
                 - name: Indexar blobs do JSON
                   href: search-howto-index-json-blobs.md
+            - name: Tabelas do Azure
+              href: search-howto-indexing-azure-tables.md
             - name: Azure Cosmos DB
               href: search-howto-index-cosmosdb.md
             - name: Azure Data Lake Storage Gen2
               href: search-howto-index-azure-data-lake-storage.md
-            - name: Banco de Dados SQL do Azure
+            - name: Banco de Dados SQL
               href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-            - name: Armazenamento de Tabelas do Azure
-              href: search-howto-indexing-azure-tables.md
             - name: Instâncias gerenciadas do SQL
               href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
             - name: VMs do SQL Server
               href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-    - name: Enriquecimento de IA
+    - name: Ingerir usando a IA
       items:
         - name: Anexar um recurso dos Serviços Cognitivos
           href: cognitive-search-attach-cognitive-services.md
         - name: Conjuntos de habilidades
           items:
-            - name: Definir um conjunto de qualificações
+            - name: Definir um conjunto de habilidades
               href: cognitive-search-defining-skillset.md
             - name: Fazer referência a uma anotação
               href: cognitive-search-concept-annotations-syntax.md
@@ -275,7 +221,7 @@
               href: knowledge-store-connect-power-bi.md
             - name: Exemplos de projeção
               href: knowledge-store-projections-examples.md
-    - name: Consultar documentos
+    - name: Consulta
       items:
         - name: Tipos de consulta e composição
           href: search-query-overview.md
@@ -295,7 +241,7 @@
               href: query-lucene-syntax.md
             - name: moreLikeThis (versão prévia)
               href: search-more-like-this.md
-    - name: Aplicar filtros
+    - name: Filtrar
       items:
         - name: Visão geral de filtro
           href: search-filters.md
@@ -309,27 +255,83 @@
           href: search-query-understand-collection-filters.md
         - name: Exemplo de facetas de vários níveis
           href: search-example-adventureworks-multilevel-faceting.md
-    - name: Manipular resultados
+    - name: Resultados
       items:
         - name: Recursos relacionados à página
           href: search-pagination-page-layout.md
         - name: Ajuste de relevância (perfis de pontuação)
           href: index-add-scoring-profiles.md
-    - name: Gerenciar um serviço
+    - name: Plano
+      items:
+        - name: Escolha um nível
+          href: search-sku-tier.md
+        - name: Limites de serviço
+          href: search-limits-quotas-capacity.md
+        - name: Ajustar a capacidade
+          href: search-capacity-planning.md
+        - name: Dimensionamento em razão de desempenho
+          href: search-performance-optimization.md
+        - name: Arquitetura de multilocatários
+          href: search-modeling-multitenant-saas-applications.md
+    - name: Desenvolver
+      items:
+        - name: Versões de API
+          href: search-api-versions.md
+        - name: Lista de versão prévia do recurso
+          href: search-api-preview.md
+        - name: Desenvolver em .NET
+          href: search-howto-dotnet-sdk.md
+        - name: Atualizar o SDK
+          items:
+            - name: SDK do .NET 10.0
+              href: search-dotnet-sdk-migration-version-10.md
+            - name: .NET SDK 9.0
+              href: search-dotnet-sdk-migration-version-9.md
+            - name: .NET SDK 5.0
+              href: search-dotnet-sdk-migration-version-5.md
+            - name: .NET SDK 3.0
+              href: search-dotnet-sdk-migration.md
+            - name: .NET SDK 1.1
+              href: search-dotnet-sdk-migration-version-1.md
+            - name: SDK do Gerenciamento do .NET
+              href: search-dotnet-mgmt-sdk-migration.md
+        - name: Atualizar a API REST
+          href: search-api-migration.md
+    - name: Seguro
+      items:
+        - name: Visão Geral de Segurança
+          href: search-security-overview.md
+        - name: Criar um ponto de extremidade privado
+          href: service-create-private-endpoint.md
+        - name: Serviço de gerenciamento de chaves
+          href: search-security-api-keys.md
+        - name: Acesso de administrador baseado em função
+          href: search-security-rbac.md
+        - name: Filtros de segurança
+          href: search-security-trimming-for-azure-search.md
+        - name: Filtrar identidades do AAD
+          href: search-security-trimming-for-azure-search-with-aad.md
+        - name: Gerenciar chaves de criptografia
+          href: search-security-manage-encryption-keys.md
+    - name: Gerenciar
       items:
         - name: Portal
           href: search-manage.md
         - name: PowerShell
           href: search-manage-powershell.md
-    - name: Monitoramento e log
+        - name: Mover o serviço entre regiões
+          href: search-howto-move-across-regions.md
+    - name: Monitoramento
       items:
         - name: Conceitos básicos
           href: search-monitor-usage.md
         - name: Registro de diagnóstico
           href: search-monitor-logs.md
+        - name: Visualizar logs de diagnóstico
+          href: search-monitor-logs-powerbi.md
         - name: Monitorar atividade de consulta
           href: search-monitor-queries.md
-        - name: Análise do tráfego de pesquisa
+        - name: Análise de tráfego de pesquisa
           href: search-traffic-analytics.md
     - name: Solucionar problemas
       items:

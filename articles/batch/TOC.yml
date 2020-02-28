@@ -7,19 +7,19 @@
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Executar um trabalho em lotes - CLI
+    - name: Executar um trabalho em lotes – CLI
       href: quick-create-cli.md
-    - name: Executar um trabalho em lotes - Portal
+    - name: Executar um trabalho em lotes – Portal
       href: quick-create-portal.md
-    - name: Executar um trabalho em lotes - .NET
+    - name: Executar um trabalho em lotes – .NET
       href: quick-run-dotnet.md
-    - name: Executar um trabalho em lotes - Python
+    - name: Executar um trabalho em lotes – Python
       href: quick-run-python.md
 - name: Tutoriais
   items:
-    - name: Processamento de arquivo paralelo - .NET
+    - name: Processamento de arquivo paralelo – .NET
       href: tutorial-parallel-dotnet.md
-    - name: Processamento de arquivo paralelo - Python
+    - name: Processamento de arquivo paralelo – Python
       href: tutorial-parallel-python.md
     - name: Renderização de cena com Arnold
       href: tutorial-rendering-cli.md
@@ -53,7 +53,7 @@
       href: best-practices.md
     - name: Cotas e limites
       href: batch-quota-limit.md
-    - name: Tamanhos de VM com suporte
+    - name: Tamanhos de VM compatíveis
       href: batch-pool-vm-sizes.md
     - name: Alta disponibilidade e recuperação de desastre
       href: high-availability-disaster-recovery.md
@@ -97,7 +97,7 @@
           href: batch-virtual-network.md
         - name: Montar um sistema de arquivos virtual
           href: virtual-file-mount.md
-        - name: Montar um compartilhamento de arquivos do Azure
+        - name: Montar um compartilhamento de arquivo do Azure
           href: pool-file-shares.md
         - name: Usar instâncias de RDMA ou GPU
           href: batch-pool-compute-intensive-sizes.md
@@ -123,6 +123,8 @@
           href: large-number-tasks.md
         - name: Verificar se há erros de trabalho e tarefa
           href: batch-job-task-error-checking.md
+        - name: Detectar e manipular erros do serviço de Lote
+          href: batch-retry-after-errors.md
     - name: Criar arquivos de recurso
       href: resource-files.md
     - name: Persistir saída de tarefa e de trabalho
@@ -145,7 +147,7 @@
           href: batch-efficient-list-queries.md
     - name: Usar ferramentas de script
       items:
-        - name: Usar PowerShell do Azure
+        - name: Usar Azure PowerShell
           href: batch-powershell-cmdlets-get-started.md
         - name: Usar a CLI do Azure
           href: batch-cli-get-started.md

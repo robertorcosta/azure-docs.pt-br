@@ -6,22 +6,18 @@
       href: private-link-overview.md
 - name: Inícios rápidos
   items:
-    - name: Criar um ponto de extremidade privado
-      items:
-        - name: Portal do Azure
-          href: create-private-endpoint-portal.md
-        - name: CLI do Azure
-          href: create-private-endpoint-cli.md
-        - name: Azure PowerShell
-          href: create-private-endpoint-powershell.md
-    - name: Criar um serviço de Link Privado
-      items:
-        - name: Portal do Azure
-          href: create-private-link-service-portal.md
-        - name: Azure PowerShell
-          href: create-private-link-service-powershell.md
-        - name: CLI do Azure
-          href: create-private-link-service-cli.md
+    - name: Criar um ponto de extremidade privado – Portal
+      href: create-private-endpoint-portal.md
+    - name: Criar um ponto de extremidade privado – PowerShell
+      href: create-private-endpoint-powershell.md
+    - name: Criar um ponto de extremidade privado – CLI do Azure
+      href: create-private-endpoint-cli.md
+    - name: Criar um serviço de Link Privado – Portal
+      href: create-private-link-service-portal.md
+    - name: Criar um serviço de Link Privado – PowerShell
+      href: create-private-link-service-powershell.md
+    - name: Criar um serviço de Link Privado – CLI do Azure
+      href: create-private-link-service-cli.md
 - name: Conceitos
   items:
     - name: Ponto de extremidade privado

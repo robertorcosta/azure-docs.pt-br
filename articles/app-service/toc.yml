@@ -203,10 +203,14 @@
           href: app-service-web-restore-snapshots.md
         - name: Clonar um aplicativo
           href: app-service-web-app-cloning.md
-        - name: Mover recursos
-          href: '../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations'
         - name: Restaurar Serviço de Aplicativo excluído
           href: app-service-undelete.md
+    - name: Mover aplicativo
+      items:
+        - name: Mover entre regiões
+          href: manage-move-across-regions.md
+        - name: Mover assinaturas
+          href: '../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations'
     - name: Executar tarefas em segundo plano
       items:
         - name: Criar WebJobs
@@ -255,7 +259,7 @@
           href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app'
         - name: Scripts de Implantação
           href: 'https://azure.microsoft.com/documentation/scripts/'
-    - name: solução de problemas
+    - name: Solução de problemas
       items:
         - name: Solucionar problemas com o Visual Studio
           href: troubleshoot-dotnet-visual-studio.md
