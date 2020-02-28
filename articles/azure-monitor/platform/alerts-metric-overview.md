@@ -1,18 +1,15 @@
 ---
 title: Entender como funcionam os alertas de métrica no Azure Monitor.
 description: Obtenha uma visão geral do que você pode fazer com alertas de métrica e como eles funcionam no Azure Monitor.
-author: rboucher
-ms.author: robb
 ms.date: 12/5/2019
 ms.topic: conceptual
-ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: abcf7d100a1c195d4a49c3061bf22710285c2a9f
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 2f1734d30136be904aedf7d880922ba052130ec7
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444155"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664722"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Entender como funcionam os alertas de métrica no Azure Monitor
 
@@ -77,7 +74,7 @@ Digamos que você tem um Plano do Serviço de Aplicativo para seu site. Você de
 - Recurso de destino: myAppServicePlan
 - Métrica: porcentagem de CPU
 - Tipo de condição: estático
-- Dimensões
+- Dimensions
   - Instance = InstanceName1, InstanceName2
 - Agregação de tempo: média
 - Período: nos últimos 5 minutos
@@ -92,7 +89,7 @@ Digamos que você tenha um aplicativo Web que esteja sob grande demanda e é nec
 - Recurso de destino: myAppServicePlan
 - Métrica: porcentagem de CPU
 - Tipo de condição: estático
-- Dimensões
+- Dimensions
   - Instância = *
 - Agregação de tempo: média
 - Período: nos últimos 5 minutos
@@ -109,7 +106,7 @@ Digamos que você tenha um aplicativo Web com muitas instâncias e não sabe qua
 - Recurso de destino: myAppServicePlan
 - Métrica: porcentagem de CPU
 - Tipo de condição: dinâmica
-- Dimensões
+- Dimensions
   - Instância = *
 - Agregação de tempo: média
 - Período: nos últimos 5 minutos
@@ -144,7 +141,7 @@ Para alertas de métrica, normalmente você será notificado em menos de 5 minut
 Você pode encontrar a lista completa dos tipos de recursos com suporte neste [artigo](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Saiba como criar, exibir e gerenciar alertas de métrica no Azure](alerts-metric.md)
 - [Saiba como criar alertas de métrica usando modelos do Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md)

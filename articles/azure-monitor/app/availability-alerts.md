@@ -1,19 +1,17 @@
 ---
 title: Configurar alertas de disponibilidade com o Aplicativo Azure insights | Microsoft Docs
 description: Configure testes da web no Application Insights. Obtenha alertas se um site fica indisponível ou responde lentamente.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: a1637ac82c33c2a541bcec9f2848a248c29d56ca
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: e0c1a93ef663762bec199abc5aa7eabbc821168d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872665"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654946"
 ---
 # <a name="availability-alerts"></a>Alertas de disponibilidade
 
@@ -26,7 +24,7 @@ Os alertas agora são automaticamente habilitados por padrão, mas para configur
 ![Criar experiência](./media/availability-alerts/create-test.png)
 
 > [!NOTE]
->  com os [novos alertas unificados](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), as preferências de notificação e a gravidade de regra de alerta com [grupos de ação](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **deve ser** configurada no experiência de alertas. Sem as etapas a seguir, você só receberá notificações no portal.
+>  Com os [novos alertas unificados](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), as preferências de severidade e notificação da regra de alerta com [grupos de ação](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **devem ser** configuradas na experiência de alertas. Sem as etapas a seguir, você só receberá notificações no portal.
 
 1. Depois de salvar o teste de disponibilidade, na guia Detalhes, clique nas reticências do teste que acabou de criar. Clique em "Editar alerta".
 
@@ -66,11 +64,11 @@ Usando [novos alertas unificados](https://docs.microsoft.com/azure/monitoring-an
 
 Para automatizar esse processo com modelos de Azure Resource Manager, consulte a documentação [criar um alerta de métrica com o modelo do Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert) .
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 [Artigo de solução de problemas](troubleshoot-availability.md)dedicado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Testes na Web de várias etapas](availability-multistep.md)
 * [Testes da Web de ping de URL](monitor-web-app-availability.md)

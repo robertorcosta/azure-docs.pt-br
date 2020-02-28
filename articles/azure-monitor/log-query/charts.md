@@ -1,18 +1,17 @@
 ---
 title: Criar gráficos e diagramas a partir de consultas de log do Azure Monitor | Microsoft Docs
 description: Descreve várias visualizações no Azure Monitor para exibir seus dados de log de maneiras diferentes.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: ca60ed68277486ca5ed7d7d90ad72506a4844936
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8a515f01bfa9f8ec579c51b806c997d79b629250
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75398077"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670314"
 ---
 # <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Criar gráficos e diagramas a partir de consultas de log do Azure Monitor
 
@@ -34,7 +33,7 @@ Heartbeat
 
 Por padrão, os resultados são exibidos como uma tabela:
 
-![Tabela](media/charts/table-display.png)
+![Table](media/charts/table-display.png)
 
 Para obter uma visão melhor, selecione **Chart** e escolha a opção **Pie** para visualizar os resultados:
 
@@ -53,7 +52,7 @@ Perf
 
 Selecione o **linha** opção de exibição de gráfico:
 
-![Gráfico de Linhas](media/charts/charts-and-diagrams-multiSeries.png)
+![Gráfico de linhas](media/charts/charts-and-diagrams-multiSeries.png)
 
 ### <a name="reference-line"></a>Linha de referência
 
@@ -86,7 +85,7 @@ Você pode alternar entre selecionando o menu suspenso com o nome da coluna.
 
 ![Gráfico de barras AccountType](media/charts/charts-and-diagrams-multiDimension2.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Consulte outras lições para usar a [linguagem de consulta Kusto](/azure/kusto/query/) com os dados de log do Azure Monitor:
 
 - [Operações de cadeia de caracteres](string-operations.md)

@@ -3,17 +3,16 @@ title: Métricas baseadas em log do Aplicativo Azure insights | Microsoft Docs
 description: Este artigo lista Aplicativo Azure métricas de informações com agregações e dimensões com suporte. Os detalhes sobre as métricas baseadas em log incluem as instruções de consulta Kusto subjacentes.
 author: vgorbenko
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 847c56faae61483813286c46190764327e287783
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 12bc51e800ef5ccd4ad3c72d3860fb22bac5b749
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887248"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664908"
 ---
 # <a name="application-insights-log-based-metrics"></a>Application Insights métricas baseadas em log
 
@@ -80,7 +79,7 @@ A métrica de *testes de disponibilidade* reflete a contagem dos testes da Web e
 
 |Unidade de medida|Agregações com suporte|Dimensões com suporte|
 |---|---|---|---|---|---|
-|Contagem|Contagem|Local de execução, nome do teste, resultado do teste|
+|{1&gt;{2&gt;Contagem&lt;2}&lt;1}|{1&gt;{2&gt;Contagem&lt;2}&lt;1}|Local de execução, nome do teste, resultado do teste|
 
 ```Kusto
 availabilityResults
@@ -99,7 +98,7 @@ As métricas do navegador são coletadas pelo SDK Application Insights JavaScrip
 
 |Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|
 |---|---|---|
-|Milissegundos|Média, mín., máx.|nenhum|
+|Milissegundos|Média, mín., máx.|Nenhum|
 
 ```Kusto
 browserTimings
@@ -115,7 +114,7 @@ browserTimings
 
 |Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|
 |---|---|---|
-|Milissegundos|Média, mín., máx.|nenhum|
+|Milissegundos|Média, mín., máx.|Nenhum|
 
 ```Kusto
 browserTimings
@@ -131,7 +130,7 @@ browserTimings
 
 |Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|
 |---|---|---|
-|Milissegundos|Média, mín., máx.|nenhum|
+|Milissegundos|Média, mín., máx.|Nenhum|
 
 ```Kusto
 browserTimings
@@ -147,7 +146,7 @@ browserTimings
 
 |Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|
 |---|---|---|
-|Milissegundos|Média, mín., máx.|nenhum|
+|Milissegundos|Média, mín., máx.|Nenhum|
 
 ```Kusto
 browserTimings
@@ -163,7 +162,7 @@ browserTimings
 
 |Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|
 |---|---|---|
-|Milissegundos|Média, mín., máx.|nenhum|
+|Milissegundos|Média, mín., máx.|Nenhum|
 
 ```Kusto
 browserTimings
@@ -183,9 +182,9 @@ As métricas em **falhas** mostram problemas com solicitações de processamento
 
 Essa métrica reflete o número de exceções geradas do código do aplicativo em execução no navegador. Somente as exceções que são controladas com uma chamada à API ```trackException()``` Application Insights são incluídas na métrica.
 
-|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Observações|
+|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|{1&gt;Observações&lt;1}|
 |---|---|---|---|
-|Contagem|Contagem|nenhum|A versão baseada em log usa agregação **sum**|
+|{1&gt;{2&gt;Contagem&lt;2}&lt;1}|{1&gt;{2&gt;Contagem&lt;2}&lt;1}|Nenhum|A versão baseada em log usa agregação **sum**|
 
 ```Kusto
 exceptions
@@ -198,9 +197,9 @@ exceptions
 
 O número de chamadas de dependência com falha.
 
-|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Observações|
+|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|{1&gt;Observações&lt;1}|
 |---|---|---|---|
-|Contagem|Contagem|nenhum|A versão baseada em log usa agregação **sum**|
+|{1&gt;{2&gt;Contagem&lt;2}&lt;1}|{1&gt;{2&gt;Contagem&lt;2}&lt;1}|Nenhum|A versão baseada em log usa agregação **sum**|
 
 ```Kusto
 dependencies
@@ -213,9 +212,9 @@ dependencies
 
 Cada vez que você registra uma exceção em Application Insights, há uma chamada para o [método trackexception ()](../../azure-monitor/app/api-custom-events-metrics.md#trackexception) do SDK. A métrica de exceções mostra o número de exceções registradas.
 
-|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Observações|
+|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|{1&gt;Observações&lt;1}|
 |---|---|---|---|
-|Contagem|Contagem|Nome da função de nuvem, instância de função de nuvem, tipo de dispositivo|A versão baseada em log usa agregação **sum**|
+|{1&gt;{2&gt;Contagem&lt;2}&lt;1}|{1&gt;{2&gt;Contagem&lt;2}&lt;1}|Nome da função de nuvem, instância de função de nuvem, tipo de dispositivo|A versão baseada em log usa agregação **sum**|
 
 ```Kusto
 exceptions
@@ -227,9 +226,9 @@ exceptions
 
 A contagem de solicitações de servidor rastreadas que foram marcadas como *com falha*. Por padrão, o SDK do Application Insights marca automaticamente cada solicitação do servidor que retornou o código de resposta HTTP 5xx ou 4xx como uma solicitação com falha. Você pode personalizar essa lógica modificando a propriedade *Success* do item telemetria de solicitação em um [inicializador de telemetria personalizado](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
-|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Observações|
+|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|{1&gt;Observações&lt;1}|
 |---|---|---|---|
-|Contagem|Contagem|Instância de função de nuvem, nome da função de nuvem, tráfego real ou sintético, desempenho da solicitação, código de resposta|A versão baseada em log usa agregação **sum**|
+|{1&gt;{2&gt;Contagem&lt;2}&lt;1}|{1&gt;{2&gt;Contagem&lt;2}&lt;1}|Instância de função de nuvem, nome da função de nuvem, tráfego real ou sintético, desempenho da solicitação, código de resposta|A versão baseada em log usa agregação **sum**|
 
 ```Kusto
 requests
@@ -242,9 +241,9 @@ requests
 
 Essa métrica mostra o número de exceções de servidor.
 
-|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Observações|
+|Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|{1&gt;Observações&lt;1}|
 |---|---|---|---|
-|Contagem|Contagem|Nome da função de nuvem, instância de função de nuvem|A versão baseada em log usa agregação **sum**|
+|{1&gt;{2&gt;Contagem&lt;2}&lt;1}|{1&gt;{2&gt;Contagem&lt;2}&lt;1}|Nome da função de nuvem, instância de função de nuvem|A versão baseada em log usa agregação **sum**|
 
 ```Kusto
 exceptions
@@ -253,7 +252,7 @@ exceptions
 | render barchart
 ```
 
-## <a name="performance-counters"></a>contadores de desempenho
+## <a name="performance-counters"></a>Contadores de desempenho
 
 Use as métricas na categoria **contadores de desempenho** para acessar os contadores de desempenho do [sistema coletados pelo Application insights](../../azure-monitor/app/performance-counters.md).
 

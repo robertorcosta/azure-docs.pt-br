@@ -1,18 +1,17 @@
 ---
 title: Conectar computadores usando o gateway de Log Analytics | Microsoft Docs
 description: Conecte seus dispositivos e computadores monitorados por Operations Manager usando o gateway de Log Analytics para enviar dados para a automação do Azure e o serviço de Log Analytics quando eles não tiverem acesso à Internet.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 30854382b5a6dfd0faabfc2f59340dc21518d6f2
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 6c5325a21ffa74f5679a74b991f1c814eadc64ff
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773283"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672286"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conectar computadores sem acesso à Internet usando o gateway de Log Analytics no Azure Monitor
 
@@ -69,8 +68,8 @@ Os computadores designados para executar o gateway de Log Analytics devem ter a 
 
 O gateway de Log Analytics está disponível nestes idiomas:
 
-- Chinês (simplificado)
-- Chinês (tradicional)
+- Chinês (Simplificado)
+- Chinês (Tradicional)
 - Tcheco
 - Holandês
 - Inglês
@@ -99,7 +98,7 @@ A tabela a seguir mostra aproximadamente Quantos agentes podem se comunicar com 
 |Gateway |Agentes com suporte (aproximado)|  
 |--------|----------------------------------|  
 |CPU: processador Intel Xeon E5-2660 v3 \@ 2,6 GHz 2 núcleos<br> Memória: 4 GB<br> Largura de banda de rede: 1 Gbps| 600|  
-|CPU: processador Intel Xeon E5-2660 v3 \@ 2,6 GHz 4 núcleos<br> Memória: 8 GB<br> Largura de banda de rede: 1 Gbps| 1\.000|  
+|CPU: processador Intel Xeon E5-2660 v3 \@ 2,6 GHz 4 núcleos<br> Memória: 8 GB<br> Largura de banda de rede: 1 Gbps| 1000|  
 
 ## <a name="download-the-log-analytics-gateway"></a>Fazer download do gateway do Log Analytics
 
@@ -154,13 +153,13 @@ O arquivo baixado para o gateway é um pacote Windows Installer que dá suporte 
  
 A tabela a seguir realça os parâmetros com suporte na instalação do.
 
-|Parâmetros| Observações|
+|Parâmetros| {1&gt;Observações&lt;1}|
 |----------|------| 
 |PORTNUMBER | Número da porta TCP para o gateway a ser escutado |
 |ACIONISTA | Endereço IP do servidor proxy |
 |INSTALLDIR | Caminho totalmente qualificado para especificar o diretório de instalação dos arquivos de software do gateway |
-|USERNAME | ID de usuário para autenticar com o servidor proxy |
-|PASSWORD | Senha da ID de usuário para autenticar com o proxy |
+|NOME DE USUÁRIO | ID de usuário para autenticar com o servidor proxy |
+|SENHA | Senha da ID de usuário para autenticar com o proxy |
 |LicenseAccepted | Especifique um valor de **1** para verificar se você aceita o contrato de licença |
 |HASAUTH | Especifique um valor de **1** quando os parâmetros de nome de usuário/senha forem especificados |
 |HASPROXY | Especifique um valor de **1** ao especificar o endereço IP para o parâmetro de **proxy** |
@@ -202,7 +201,7 @@ Para saber como projetar e implantar um cluster de balanceamento de carga de red
 
     ![Gerenciador de Balanceamento de Carga de Rede – Adicionar Host ao Cluster: Conectar](./media/gateway/nlb03.png) 
 
-### <a name="azure-load-balancer"></a>Azure Load Balancer
+### <a name="azure-load-balancer"></a>Balanceador de carga do Azure
 
 Para saber como projetar e implantar um Azure Load Balancer, consulte [o que é Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). Para implantar um balanceador de carga básico, siga as etapas descritas neste guia de [início rápido](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) , excluindo as etapas descritas na seção **criar servidores back-end**.   
 
@@ -331,7 +330,7 @@ Um erro na etapa 3 significa que o módulo não foi importado. O erro pode ocorr
 | **Cmdlet** | **Parâmetros** | **Descrição** | **Exemplo** |
 | --- | --- | --- | --- |  
 | `Get-OMSGatewayConfig` |Chave |Obtém a configuração do serviço |`Get-OMSGatewayConfig` |  
-| `Set-OMSGatewayConfig` |Chave (obrigatória) <br> Valor |Altera a configuração do serviço |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
+| `Set-OMSGatewayConfig` |Chave (obrigatória) <br> {1&gt;Valor&lt;1} |Altera a configuração do serviço |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Obtém o endereço do proxy de retransmissão (upstream) |`Get-OMSGatewayRelayProxy` |  
 | `Set-OMSGatewayRelayProxy` |Endereço<br> Nome de Usuário<br> Senha |Define o endereço (e as credenciais) do proxy de retransmissão (upstream) |1. Defina um proxy de retransmissão e uma credencial:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Defina um proxy de retransmissão que não precise de autenticação: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. desmarque a configuração de proxy de retransmissão:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
 | `Get-OMSGatewayAllowedHost` | |Obtém o host atualmente permitido (somente o host permitido configurado localmente, os hosts permitidos que não foram baixados automaticamente) |`Get-OMSGatewayAllowedHost` | 
@@ -387,6 +386,6 @@ Para obter ajuda, selecione o ícone de ponto de interrogação no canto superio
 
 ![Captura de tela de uma nova solicitação de suporte](./media/gateway/support.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Adicione fontes de dados](../../azure-monitor/platform/agent-data-sources.md) para coletar dados de fontes conectadas e armazene os dados em seu espaço de trabalho do log Analytics.

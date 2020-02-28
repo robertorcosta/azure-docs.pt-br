@@ -1,18 +1,16 @@
 ---
 title: Instruções detalhadas do agente do insights Aplicativo Azure | Microsoft Docs
 description: Instruções detalhadas para introdução ao Application Insights Agent. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicativos Web ASP.NET hospedados localmente, em VMs ou no Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 3b053b7876494a3b2e6f392850c0323b56b1c3ec
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cd5ca5039b537859d5b31c901ed1f93877ecb629
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230259"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671198"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Agente de Application Insights (anteriormente denominado Status Monitor v2): instruções detalhadas
 
@@ -53,7 +51,7 @@ https:/go.microsoft.com/fwlink/?LinkID=135170.
 ## <a name="prerequisites-for-powershell"></a>Pré-requisitos para PowerShell
 
 Faça auditoria da instância do PowerShell executando o comando `$PSVersionTable`.
-Esse comando produz a seguinte saída:
+Esse comando gera a seguinte saída:
 
 
 ```
@@ -156,7 +154,7 @@ Se por algum motivo você não puder se conectar ao módulo do PowerShell, poder
 
 ### <a name="manually-download-the-latest-nupkg-file"></a>Baixar manualmente o arquivo nupkg mais recente
 
-1. Vá para https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+1. Ir para https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
 2. Selecione a versão mais recente do arquivo na tabela de **histórico de versão** .
 3. Em **Opções de instalação**, selecione **download manual**.
 
@@ -225,7 +223,7 @@ Consulte a [referência da API](status-monitor-v2-api-enable-monitoring.md) para
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
  Exiba sua telemetria:
 

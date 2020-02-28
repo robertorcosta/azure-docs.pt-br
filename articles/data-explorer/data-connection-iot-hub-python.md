@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: cfd92546def21972e37781bd8a4b0bfefda9111f
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 76c8ca24882f465bf2a973dc59736745178fc61f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444206"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669515"
 ---
 # <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-python-preview"></a>Criar uma conexão de dados do Hub IoT para o Azure Data Explorer usando Python (versão prévia)
 
@@ -24,13 +24,13 @@ ms.locfileid: "77444206"
 
 Neste artigo, você cria uma conexão de dados do Hub IoT para o Azure Data Explorer usando o Python. O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. O Azure Data Explorer oferece ingestão ou carregamento de dados, de hubs de eventos, hubs IoT e Blobs gravados em contêineres de BLOB.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 * [Python 3.4+](https://www.python.org/downloads/).
 
-* [Um cluster e um banco de dados](/create-cluster-database-python.md).
+* [Um cluster e um banco de dados](create-cluster-database-python.md).
 
 * [Mapeamento de tabela e coluna](net-standard-ingest-data.md#create-a-table-on-your-test-cluster).
 

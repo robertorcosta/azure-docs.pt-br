@@ -1,22 +1,21 @@
 ---
 title: Usando a solução Mapa do Serviço no Azure | Microsoft Docs
 description: O Mapa do Serviço é uma solução no Azure que descobre automaticamente os componentes do aplicativo nos sistemas Windows e Linux, e mapeia a comunicação entre os serviços. Este artigo fornece detalhes sobre a implantação do Mapa do Serviço em seu ambiente e sobre como usá-lo em diversos cenários.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 0f2181a388a5329dbc16ce8968da79529b22ea85
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: c177589bea76770f8f72dd3267b856b00d57699c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76168186"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663616"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Usando a solução Mapa do Serviço no Azure
 
-O Mapa do Serviço detecta automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Com o Mapa do Serviço é possível exibir seus servidores da maneira desejada: como sistemas interconectados que fornecem serviços críticos. O Mapa do Serviço mostra conexões entre servidores, processos, latência de conexão de entrada e saída e portas em qualquer arquitetura conectada a TCP, sem a necessidade de configuração, exceto a instalação de um agente.
+O Mapa do Serviço descobre automaticamente os componentes de aplicativo em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Com o Mapa do Serviço é possível exibir seus servidores da maneira desejada: como sistemas interconectados que fornecem serviços críticos. O Mapa do Serviço mostra conexões entre servidores, processos, latência de conexão de entrada e saída e portas em qualquer arquitetura conectada a TCP, sem a necessidade de configuração diferente da instalação de um agente.
 
 Este artigo descreve os detalhes de integração e como usar o Mapa do Serviço. Para obter informações sobre como configurar os pré-requisitos para essa solução, consulte [habilitar a Azure monitor para VMs visão geral](vminsights-enable-overview.md#prerequisites). Para resumir, você precisa do seguinte:
 
@@ -54,7 +53,7 @@ O Mapa do Serviço ajuda a eliminar as suposições de isolamento do problema, m
 
 Ao utilizar o Mapa do Serviço você pode, efetivamente, planejar, acelerar e validar as migrações do Azure, permitindo assegurar que nada seja deixado para trás e que interrupções inesperadas não ocorram. Você pode descobrir todos os sistemas interdependentes que precisam migrar juntos, avaliar a capacidade e a configuração do sistema e identificar se um sistema em execução ainda está atendendo aos usuários ou é candidato para encerramento em vez de migração. Após a conclusão do movimento será possível inspecionar a identidade e carregamento do cliente para verificar se os sistemas de teste e os clientes estão se conectando. Se o seu planejamento de sub-rede e definições de firewall tiverem problemas, as conexões com falha em mapas do Mapa do Serviço apontarão para os sistemas que precisam de conectividade.
 
-### <a name="business-continuity"></a>Continuidade dos negócios
+### <a name="business-continuity"></a>Continuidade de negócios
 
 Se você estiver usando o Azure Site Recovery e precisar de ajuda para definir a sequência de recuperação para seu ambiente de aplicativo, o Mapa do Serviço poderá mostrar automaticamente como os sistemas dependem uns dos outros para assegurar que seu plano de recuperação seja confiável. Ao escolher um grupo ou servidor crítico e exibir seus clientes, será possível identificar quais são os sistemas front-end a serem recuperados depois que o servidor estiver restaurado e disponível. Por outro lado, ao analisar as dependências de back-end de servidores críticos, você poderá identificar os sistemas a serem recuperados antes que seus sistemas de foco sejam restaurados.
 
@@ -98,7 +97,7 @@ Os usuários selecionam quais servidores pertencem em um grupo e escolhem um nom
 
 Para criar um grupo, selecione o computador ou os computadores que você deseja na lista Computadores e clique em **Adicionar ao grupo**.
 
-![Criar Grupo](media/service-map/machine-groups-create.png)
+![{1&gt;Criar Grupo&lt;1}](media/service-map/machine-groups-create.png)
 
 Nesse ponto, é possível escolher **Criar novo** e atribuir ao grupo um nome.
 
@@ -155,7 +154,7 @@ Clique no menu de reticências próximo ao nome do grupo na Lista de Grupos.
 
 Alguns processos possuem funções específicas em computadores: servidores Web, servidores de aplicativos, banco de dados, etc. O Mapa do Serviço adiciona ao processo e às caixas do computador ícones de função para ajudar a identificar rapidamente a função de um processo ou servidor.
 
-| Ícone de função | Description |
+| Ícone de Função | Descrição |
 |:--|:--|
 | ![Servidor Web](media/service-map/role-web-server.png) | Servidor Web |
 | ![Servidor de aplicativos](media/service-map/role-application-server.png) | Servidor de aplicativos |
@@ -327,7 +326,7 @@ Os registros nessas tabelas são gerados a partir dos dados relatados pelo agent
 
 Para gerenciar o custo e a complexidade, os registros de conexão não representam as conexões de rede física individuais. Várias conexões de rede física são agrupadas em uma conexão lógica, o que é refletido na respectiva tabela.  Ou seja, os registros na tabela *VMConnection* representam um agrupamento lógico, não as conexões físicas individuais sendo observadas. As conexões de rede física que compartilham o mesmo valor para os atributos a seguir durante o intervalo especificado de um minuto são agregadas em um único registro lógico em *VMConnection*. 
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--|:--|
 | `Direction` |Direção da conexão, o valor é *entrada* ou *saída* |
 | `Machine` |O FQDN do computador |
@@ -339,7 +338,7 @@ Para gerenciar o custo e a complexidade, os registros de conexão não represent
 
 Para levar em conta o impacto do agrupamento, são fornecidas informações sobre o número de conexões físicas agrupadas nas seguintes propriedades do registro:
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--|:--|
 | `LinksEstablished` |O número de conexões de rede física que foram estabelecidas durante o intervalo de tempo de geração de relatórios |
 | `LinksTerminated` |O número de conexões de rede física que foram terminadas durante o intervalo de tempo de geração de relatórios |
@@ -350,7 +349,7 @@ Para levar em conta o impacto do agrupamento, são fornecidas informações sobr
 
 Além das métricas de contagem de conexões, as informações sobre o volume de dados enviados e recebidos em determinada conexão lógica ou porta de rede também estão incluídas nas seguintes propriedades do registro:
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--|:--|
 | `BytesSent` |Número total de bytes enviados durante o intervalo de tempo de geração de relatórios |
 | `BytesReceived` |Número total de bytes recebidos durante o intervalo de tempo de geração de relatórios |
@@ -378,7 +377,7 @@ Para sua conveniência, o endereço IP da extremidade remota de uma conexão é 
 
 *VMConnection* também inclui informações de localização geográfica para a extremidade remota de cada registro de conexão nas seguintes propriedades do registro: 
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--|:--|
 | `RemoteCountry` |O nome do país/região que hospeda o RemoteIp.  Por exemplo: *Estados Unidos* |
 | `RemoteLatitude` |A latitude da localização geográfica.  Por exemplo: *47,68* |
@@ -388,7 +387,7 @@ Para sua conveniência, o endereço IP da extremidade remota de uma conexão é 
 
 Todas as propriedades RemoteIp na tabela *VMConnection* são verificadas em um conjunto de IPs com atividades maliciosas conhecidas. Se RemoteIp for identificado como malicioso, as propriedades a seguir serão preenchidas (elas ficam em branco quando o IP não é considerado malicioso) nas seguintes propriedades do registro:
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--|:--|
 | `MaliciousIp` |Endereço de RemoteIp |
 | `IndicatorThreadType` |O indicador de ameaça detectado é um dos seguintes valores, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
@@ -406,7 +405,7 @@ Todas as propriedades RemoteIp na tabela *VMConnection* são verificadas em um c
 
 Registros com um tipo de *ServiceMapComputer_CL* têm dados de inventário para servidores com agentes do Mapa do Serviço. Esses registros têm as propriedades descritas na tabela a seguir:
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--|:--|
 | `Type` | *ServiceMapComputer_CL* |
 | `SourceSystem` | *OpsManager* |
@@ -432,7 +431,7 @@ Registros com um tipo de *ServiceMapComputer_CL* têm dados de inventário para 
 
 Registros com um tipo de *ServiceMapProcess_CL* têm dados de inventário para processos conectados com TCP em servidores com agentes do Mapa do Serviço. Esses registros têm as propriedades descritas na tabela a seguir:
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--|:--|
 | `Type` | *ServiceMapProcess_CL* |
 | `SourceSystem` | *OpsManager* |
@@ -549,7 +548,7 @@ A Microsoft coleta automaticamente dados de uso e de desempenho por meio do uso 
 
 Para obter mais informações sobre a coleta e uso de dados, consulte a [Política de privacidade do Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba mais sobre [pesquisas de logs](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics para recuperar dados coletados pelo Mapa do Serviço.
 
@@ -572,7 +571,7 @@ Pode ser útil instalar primeiro as [bibliotecas de tempo de execução mais rec
 
 A tabela a seguir lista números de código e soluções sugeridas.
 
-| Codificar | Description | Resolução |
+| Código | Descrição | Resolução |
 |:--|:--|:--|
 | 0x17 | O instalador da biblioteca exige uma atualização do Windows que não foi instalada. | Procure no log do instalador de biblioteca mais recente.<br><br>Se uma referência a `Windows8.1-KB2999226-x64.msu` for seguida por uma linha `Error 0x80240017: Failed to execute MSU package,` você não terá os pré-requisitos para instalar o KB2999226. Siga as instruções na seção pré-requisitos no artigo [tempo de execução universal C no Windows](https://support.microsoft.com/kb/2999226) . Talvez seja necessário executar o Windows Update e reiniciar várias vezes para instalar os pré-requisitos.<br><br>Execute novamente o instalador do Agente de Dependência da Microsoft. |
 

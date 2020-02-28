@@ -3,17 +3,16 @@ title: Métricas personalizadas no Azure Monitor
 description: Saiba mais sobre as métricas personalizadas no Azure Monitor e como elas são modeladas.
 author: ancav
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 744958fc44a8d10bbc8ca5d44af8c473548ae5ca
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3e3f45c1802d501e2320930c35073ec89ff38124
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669175"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662341"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métricas personalizadas no Azure Monitor
 
@@ -57,10 +56,10 @@ Essa propriedade captura em que região do Azure o recurso para o qual você est
 ### <a name="timestamp"></a>Timestamp
 Cada ponto de dados enviado ao Azure Monitor deve estar marcado com um carimbo de data/hora. Esse registro de data e hora captura o DateTime no qual o valor da métrica é medido ou coletado. O Monitor do Azure aceita dados de métricas com registros de data e hora em até 20 minutos no passado e 5 minutos no futuro. O carimbo de data/hora deve estar no formato ISO 8601.
 
-### <a name="namespace"></a>Namespace
+### <a name="namespace"></a>{1&gt;Namespace&lt;1}
 Namespaces são uma maneira de categorizar ou agrupar métricas semelhantes. Ao usar namespaces, você pode obter isolamento entre grupos de métricas que podem coletar diferentes insights ou indicadores de desempenho. Por exemplo, você pode ter um namespace chamado **contosomemorymetrics** que controla as métricas de uso de memória cujo perfil é seu aplicativo. Outro namespace chamado **contosoapptransaction** pode rastrear todas as métricas sobre transações de usuário em seu aplicativo.
 
-### <a name="name"></a>Nome
+### <a name="name"></a>{1&gt;Nome&lt;1}
 **Nome** é o nome da métrica que está sendo relatada. Normalmente, o nome é descritivo para ajudar a identificar o que está sendo medido. Um exemplo é uma métrica que mede o número de bytes de memória usados em uma determinada VM. Pode ter um nome de métrica como **Memory Bytes In Use**.
 
 ### <a name="dimension-keys"></a>Chaves de dimensão
@@ -173,13 +172,13 @@ Durante a pré-visualização pública, a capacidade de publicar métricas perso
 | **EUA e Canadá** | |
 |Centro-Oeste dos EUA | https:\//westcentralus.monitoring.azure.com/ |
 |Oeste dos EUA 2       | https:\//westus2.monitoring.azure.com/ |
-|Centro-Norte dos EUA | https:\//northcentralus.monitoring.azure.com
+|Centro Norte dos EUA | https:\//northcentralus.monitoring.azure.com
 |Centro-Sul dos Estados Unidos| https:\//southcentralus.monitoring.azure.com/ |
 |Centro dos EUA      | https:\//centralus.monitoring.azure.com |
 |Canadá Central | https:\//canadacentral.Monitoring.Azure.comc
 |Leste dos EUA| https:\//eastus.monitoring.azure.com/ |
 | **Europa** | |
-|Europa do Norte    | https:\//northeurope.monitoring.azure.com/ |
+|Norte da Europa    | https:\//northeurope.monitoring.azure.com/ |
 |Europa Ocidental     | https:\//westeurope.monitoring.azure.com/ |
 |Sul do Reino Unido | https:\//uksouth.monitoring.azure.com
 |França Central | https:\//francecentral.monitoring.azure.com |
@@ -205,12 +204,12 @@ O Monitor do Azure impõe os seguintes limites de uso em métricas personalizada
 
 Uma série temporal ativa é definida como qualquer combinação exclusiva de métrica, chave de dimensão ou valor de dimensão que teve valores de métrica publicados nas últimas 12 horas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Use métricas personalizadas de diferentes serviços: 
  - [Máquinas virtuais](collect-custom-metrics-guestos-resource-manager-vm.md)
  - [Conjunto de dimensionamento de máquinas virtuais](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Máquinas virtuais do Azure (clássico)](collect-custom-metrics-guestos-vm-classic.md)
  - [Linux Virtual Machine usando o agente Telegraf](collect-custom-metrics-linux-telegraf.md)
- - [API REST](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
+ - [REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
  - [Serviços de nuvem clássico](collect-custom-metrics-guestos-vm-cloud-service-classic.md)
  

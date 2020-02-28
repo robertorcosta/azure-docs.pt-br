@@ -1,18 +1,14 @@
 ---
 title: Usando o PowerShell para instalar o Application Insights no Azure | Microsoft Docs
 description: Automatizar a configuração de Diagnóstico do Azure para canalizar dados para Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 08/06/2019
-ms.openlocfilehash: 0e1fd048b855473c1d7978e2a908c45360a1ed2a
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: da1796c8af5b9463d8223615f4b0629ba65eb3e8
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819024"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669796"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-azure-cloud-services"></a>Usando o PowerShell para configurar o Application Insights para serviços de nuvem do Azure
 
@@ -129,7 +125,7 @@ Para remover a extensão de diagnóstico de cada função individual:
 ```
 
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Consulte também
 * [Monitorar aplicativos dos Serviços de Nuvem do Azure com o Application Insights](../../azure-monitor/app/cloudservices.md)
 * [Enviar o Diagnóstico do Azure para o Application Insights](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Automatizar a configuração de alertas](powershell-alerts.md)

@@ -1,18 +1,16 @@
 ---
 title: Referência da API do agente do insights Aplicativo Azure
 description: Referência de API do agente Application Insights. Enable-ApplicationInsightsMonitoring. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicativos Web ASP.NET hospedados localmente, em VMs ou no Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: dccd7e617174bef4a85cb6293cbcc459542310f9
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 8bbdc96a49fffc91f80d24a9eb0926766f86ee16
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899700"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671300"
 ---
 # <a name="application-insights-agent-api-enable-applicationinsightsmonitoring"></a>API do agente de Application Insights: Enable-ApplicationInsightsMonitoring
 
@@ -49,9 +47,9 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 ### <a name="example-with-an-instrumentation-key-map"></a>Exemplo com um mapa de chave de instrumentação
 Neste exemplo:
 - `MachineFilter` corresponde ao computador atual usando o curinga `'.*'`.
-- `AppFilter='WebAppExclude'` fornece uma chave de instrumentação `null`. O aplicativo especificado não será instrumentado.
-- `AppFilter='WebAppOne'` atribui a um aplicativo especificado uma chave de instrumentação exclusiva.
-- `AppFilter='WebAppTwo'` atribui a um aplicativo especificado uma chave de instrumentação exclusiva.
+- `AppFilter='WebAppExclude'` fornece uma chave de instrumentação de `null`. O aplicativo especificado não será instrumentado.
+- `AppFilter='WebAppOne'` atribui ao aplicativo especificado uma chave de instrumentação exclusiva.
+- `AppFilter='WebAppTwo'` atribui ao aplicativo especificado uma chave de instrumentação exclusiva.
 - Por fim, `AppFilter` também usa o curinga `'.*'` para corresponder a todos os aplicativos Web que não são correspondentes pelas regras anteriores e atribuir uma chave de instrumentação padrão.
 - Os espaços são adicionados para facilitar a leitura.
 
@@ -65,7 +63,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 ```
 
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>Parâmetros
 
 ### <a name="-instrumentationkey"></a>-InstrumentationKey
 **Obrigatório.** Use esse parâmetro para fornecer uma chave de instrumentação única para uso por todos os aplicativos no computador de destino.
@@ -77,7 +75,7 @@ Você pode criar um único script de instalação para vários computadores defi
 > [!IMPORTANT]
 > Os aplicativos serão compatíveis com as regras na ordem em que as regras são fornecidas. Portanto, você deve especificar as regras mais específicas primeiro e as regras mais genéricas por último.
 
-#### <a name="schema"></a>Esquema
+#### <a name="schema"></a>Schema
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'}})`
 
 - **MachineFilter** é um Regex C# necessário do computador ou nome da VM.
@@ -91,12 +89,12 @@ Você pode criar um único script de instalação para vários computadores defi
 
 
 ### <a name="-enableinstrumentationengine"></a>-EnableInstrumentationEngine
-**Opcional** Use essa opção para habilitar o mecanismo de instrumentação para coletar eventos e mensagens sobre o que está acontecendo durante a execução de um processo gerenciado. Esses eventos e mensagens incluem códigos de resultado de dependência, verbos HTTP e texto de comando SQL.
+**Opcional.** Use essa opção para habilitar o mecanismo de instrumentação para coletar eventos e mensagens sobre o que está acontecendo durante a execução de um processo gerenciado. Esses eventos e mensagens incluem códigos de resultado de dependência, verbos HTTP e texto de comando SQL.
 
 O mecanismo de instrumentação adiciona sobrecarga e está desativado por padrão.
 
 ### <a name="-acceptlicense"></a>-AcceptLicense
-**Opcional** Use essa opção para aceitar a licença e a política de privacidade em instalações sem periféricos.
+**Opcional.** Use essa opção para aceitar a licença e a política de privacidade em instalações sem periféricos.
 
 ### <a name="-ignoresharedconfig"></a>-IgnoreSharedConfig
 Quando você tem um cluster de servidores Web, você pode estar usando uma [configuração compartilhada](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
@@ -146,7 +144,7 @@ Updating app pool permissions...
 Successfully enabled Application Insights Status Monitor
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
   Exiba sua telemetria:
  - [Explore as métricas](../../azure-monitor/app/metrics-explorer.md) para monitorar o desempenho e o uso.

@@ -1,18 +1,17 @@
 ---
 title: Otimize seu ambiente de SQL Server com Azure Monitor | Microsoft Docs
 description: Com o Azure Monitor, você pode usar a solução de verificação de integridade do SQL para avaliar o risco e a integridade de seus ambientes em intervalos regulares.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/28/2019
-ms.openlocfilehash: 23b1391033713fc8eeccf2d0872c49a4291b8292
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: ceaed0800df01bf2c44fee13d98b01b6e726200d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76168889"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662477"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Otimize seu ambiente SQL com a solução de verificação de integridade SQL Server no Azure Monitor
 
@@ -32,7 +31,7 @@ Após ter adicionado a solução e a avaliação ser concluída, as informaçõe
 
 ![imagem do painel Verificação da Integridade do SQL](./media/sql-assessment/sql-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * A solução de verificação de integridade do SQL requer uma versão com suporte do .NET Framework 4.6.2 instalada em cada computador que tenha o Microsoft Monitoring Agent (MMA) instalado.  O agente MMA é usado pelo System Center 2016 – Operations Manager, pelo Operations Manager 2012 R2 e pelo Azure Monitor.  
 * A solução oferece suporte ao SQL Server, versões 2012, 2014 e 2016.
@@ -77,16 +76,16 @@ Use as informações a seguir para definir a conta Executar como do Operations M
 >
 >
 
-1. No Operations Manager, abra o console Operações e clique em **Administração**.
+1. No Operations Manager, abra o console de operações e, em seguida, clique em **Administração**.
 2. Em **Configuração Executar como**, clique em **Perfis** e abra **Perfil Executar como da Avaliação do SQL**.
-3. Na página **Contas Executar como**, clique em **Adicionar**.
-4. Selecione uma conta Executar como do Windows que contenha as credenciais necessárias para o SQL Server ou clique em **Nova** para criar uma.
+3. Na página **Contas executar como**, clique em **Adicionar**.
+4. Selecione uma conta Executar como do Windows que contém as credenciais necessárias para o SQL Server ou clique em **Nova** para criar uma.
 
    > [!NOTE]
    > O tipo de conta Executar Como deve ser Windows. A conta Executar como também deve fazer parte do grupo de administradores locais em todos os servidores Windows que hospedam instâncias do SQL Server.
    >
    >
-5. Clique em **Save** (Salvar).
+5. Clique em **Salvar**.
 6. Modifique e execute o seguinte T-SQL de exemplo em cada instância do SQL Server para conceder as permissões mínimas necessárias para a conta Executar como realizar a verificação da integridade. No entanto, você não precisará fazer isso se uma conta Executar como já fizer parte da função do servidor sysadmin nas instâncias do SQL Server.
 
 ```
@@ -126,8 +125,8 @@ Cada recomendação feita recebe um valor de ponderação que identifica a impor
 ### <a name="how-weights-are-calculated"></a>Como os pesos são calculados
 Os pesos são valores agregados com base em três fatores principais:
 
-* A *probabilidade* de que um problema identificado cause problemas. Uma probabilidade mais alta é igual a uma pontuação geral maior para a recomendação.
-* O *impacto* da questão na sua organização se ela causar um problema. Um impacto maior é igual a uma pontuação geral maior para a recomendação.
+* A *probabilidade* que um problema identificado causar problemas. Uma probabilidade mais alta é igual a uma pontuação geral maior para a recomendação.
+* O *impacto* do problema na sua organização se ele causar um problema. Um impacto maior é igual a uma pontuação geral maior para a recomendação.
 * O *esforço* necessário para implementar a recomendação. Um esforço maior é igual a uma pontuação geral menor para a recomendação.
 
 A importância de cada recomendação é expressa como um percentual da pontuação total disponível para todas as áreas de foco. Por exemplo, se uma recomendação na área de foco de segurança e conformidade tiver uma pontuação de 5%, implementar essa recomendação aumentará sua pontuação geral de segurança e conformidade em 5%.
@@ -162,7 +161,7 @@ Veja as avaliações de conformidade resumidas para sua infraestrutura e faça u
 4. Na página **Visão Geral**, clique no bloco **Verificação da Integridade do SQL**.
 5. Na página **Verificação da Integridade**, revise as informações resumidas em uma das folhas da área de foco e clique em uma para exibir as recomendações dessa área de foco.
 6. Em qualquer uma das páginas da área de foco, você pode exibir as recomendações priorizadas para seu ambiente. Clique em uma recomendação sob **Objetos Afetados** para exibir detalhes sobre o motivo pelo qual a recomendação foi feita.<br><br> ![imagem das recomendações de Verificação da Integridade do SQL](./media/sql-assessment/sql-healthcheck-dashboard-02.png)<br>
-7. É possível executar as ações corretivas sugeridas em **Ações Sugeridas**. Quando o item tiver sido resolvido, avaliações posteriores gravarão que essas ações recomendadas foram executadas e sua pontuação de conformidade aumentará. Os itens corrigido aparecem como **Objetos Passados**.
+7. É possível executar as ações corretivas sugeridas em **Ações Sugeridas**. Quando o item tiver sido resolvido, avaliações posteriores gravarão que essas ações recomendadas foram executadas e sua pontuação de conformidade aumentará. Os itens corrigidos aparecem como **Objetos Passados**.
 
 ## <a name="ignore-recommendations"></a>Ignorar as recomendações
 Se houver recomendações que deseja ignorar, você poderá criar um arquivo de texto que será usado pelo Azure Monitor para impedir que as recomendações sejam exibidas nos resultados da avaliação.
@@ -215,7 +214,7 @@ Os resultados podem então ser exportados para o Excel para análise adicional.
 
 *Existe alguma maneira de configurar a frequência de execução da verificação?*
 
-* No momento, não.
+* Não no momento.
 
 *Se outro servidor for descoberto após eu ter adicionado a solução de Verificação da Integridade do SQL, ele será verificado?*
 
@@ -243,7 +242,7 @@ Os resultados podem então ser exportados para o Excel para análise adicional.
 
 *Há uma maneira de configurar quando os dados são coletados?*
 
-* No momento, não.
+* Não no momento.
 
 *Por que é necessário configurar uma conta Executar como?*
 
@@ -257,5 +256,5 @@ Os resultados podem então ser exportados para o Excel para análise adicional.
 
 * Sim, confira a seção [Ignorar recomendações](#ignore-recommendations) acima.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * [Registre consultas](../log-query/log-query-overview.md) para saber como analisar dados e recomendações de verificação de integridade do SQL detalhados.

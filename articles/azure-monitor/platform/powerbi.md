@@ -1,18 +1,17 @@
 ---
 title: Importar dados do Log Analytics do Azure para o Power BI | Microsoft Docs
 description: O Power BI é um serviço de análise de negócios baseado em nuvem da Microsoft que fornece relatórios e visualizações avançadas para análise de diferentes conjuntos de dados.  Este artigo descreve como configurar e importar dados do Log Analytics para o Power BI e configurá-los para serem atualizados automaticamente.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2019
-ms.openlocfilehash: 8c703cc2fd93900e13d39021992bc11247881b47
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8ff24d508eb35c4f2a04c7d024254fa6f1875da8
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75394697"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659275"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importar Azure Monitor dados de log para Power BI
 
@@ -21,7 +20,7 @@ O [Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-sta
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Para importar dados de um [espaço de trabalho log Analytics](manage-access.md) no Azure Monitor para Power bi, você cria um conjunto de dados no Power bi com base em uma [consulta de log](../log-query/log-query-overview.md) no Azure monitor.  A consulta é executada cada vez que o conjunto de dados é atualizado.  Depois você pode compilar relatórios do Power BI que usam dados do conjunto de dados.  Para criar o conjunto de dados no Power BI, exporte sua consulta do Log Analytics para a [linguagem do Power Query (M)](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification).  Depois use-a para criar uma consulta no Power BI Desktop e publicá-la no Power BI como um conjunto de dados.  Os detalhes para esse processo são descritos abaixo.
 
 ![Log Analytics para Power BI](media/powerbi/overview.png)
@@ -79,6 +78,6 @@ O conjunto de dados criado no Power BI terá os mesmos dados vistos anteriorment
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [pesquisas de log](../log-query/log-query-overview.md) para criar consultas que podem ser exportadas para o Power BI.
 * Saiba mais sobre [Power bi](https://powerbi.microsoft.com) criar visualizações com base em exportações de log Azure monitor.

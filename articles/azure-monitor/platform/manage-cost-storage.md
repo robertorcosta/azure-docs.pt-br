@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 8c4169ccfb35b74b92ea4996cbc779bac35d6ccb
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: dc784fa2dd5317932294af6e9c9d36dcce7d32f1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715868"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672065"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerenciar o uso e os custos com logs de Azure Monitor
 
@@ -208,123 +208,120 @@ Quando o alerta é definido e o limite é alcançado, um alerta é disparado e e
 
 O uso aumenta devido a uma ou mais das seguintes causas:
 - Mais nós do que o esperado enviando dados para Log Analytics espaço de trabalho
-- Mais dados do que o esperado que está sendo enviado para Log Analytics espaço de trabalho
+- Mais dados do que o esperado que está sendo enviado para Log Analytics espaço de trabalho (talvez devido ao início do uso de uma nova solução ou uma alteração de configuração para uma solução existente)
 
 ## <a name="understanding-nodes-sending-data"></a>Noções básicas sobre nós enviando dados
 
-Para entender o número de computadores que relatam pulsações por dia no último mês, use
+Para entender o número de nós que relatam pulsações do agente a cada dia no último mês, use
 
 ```kusto
-Heartbeat | where TimeGenerated > startofday(ago(31d))
-| summarize dcount(Computer) by bin(TimeGenerated, 1d)    
+Heartbeat 
+| where TimeGenerated > startofday(ago(31d))
+| summarize nodes = dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart
 ```
-
-Para obter uma lista de computadores que serão cobrados como nós se o espaço de trabalho estiver no tipo de preço herdado por nó, procure os nós que estão enviando **tipos de dados cobrados** (alguns tipos de dados são gratuitos). Para fazer isso, use a [propriedade](log-standard-properties.md#_isbillable) `_IsBillable` e use o campo mais à esquerda do nome de domínio totalmente qualificado. Isso retorna a lista de computadores com dados cobrados:
+A contagem obter um número de nós que enviam dados vistos pode ser determinada usando: 
 
 ```kusto
 union withsource = tt * 
-| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize nodes = dcount(computerName)
+```
+
+Para obter uma lista de nós que enviam quaisquer dados (e a quantidade de dados enviados por cada um), a seguinte consulta pode ser usada:
+
+```kusto
+union withsource = tt * 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName
 ```
 
-A contagem de nós faturáveis vistos pode ser estimada como: 
-
-```kusto
-union withsource = tt * 
-| where _IsBillable == true 
-| extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| where computerName != ""
-| summarize billableNodes=dcount(computerName)
-```
-
 > [!NOTE]
 > Use estas consultas `union withsource = tt *` com moderação como verificações em tipos de dados que são caros para executar. Essa consulta substitui a maneira antiga de consultar informações por computador com o tipo de dados de uso.  
 
-Um cálculo mais preciso do que realmente será cobrado é obter a contagem de computadores por hora que estão enviando tipos de dados cobrados. (Para espaços de trabalho no tipo de preço herdado por nó, Log Analytics calcula o número de nós que precisam ser cobrados por hora.) 
-
-```kusto
-union withsource = tt * 
-| where _IsBillable == true 
-| extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| where computerName != ""
-| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
-```
-
 ## <a name="understanding-ingested-data-volume"></a>Compreendendo o volume de dados ingeridos
 
-Na página **Uso e custos estimados**, o gráfico *Ingestão de dados por solução* mostra o volume total de dados enviados e quanto está sendo enviado por cada solução. Isso permite determinar tendências, como se o uso geral de dados (ou uso por uma solução específica) está crescendo, permanecendo estável ou diminuindo. É a consulta usada para gerar isso
+Na página **Uso e custos estimados**, o gráfico *Ingestão de dados por solução* mostra o volume total de dados enviados e quanto está sendo enviado por cada solução. Isso permite determinar tendências, como se o uso geral de dados (ou uso por uma solução específica) está crescendo, permanecendo estável ou diminuindo. 
+
+### <a name="data-volume-by-solution"></a>Volume de dados por solução
+
+A consulta usada para exibir o volume de dados faturáveis por solução é
 
 ```kusto
-Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| summarize TotalVolumeGB = sum(Quantity) / 1000. by bin(TimeGenerated, 1d), Solution| render barchart
+Usage 
+| where TimeGenerated > startofday(ago(31d))
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(TimeGenerated, 1d), Solution | render barchart
 ```
 
-Observe que a cláusula "onde IsBillable = verdadeiro" filtra os tipos de dados de determinadas soluções para o qual não há nenhuma taxa de ingestão. 
+Observe que a cláusula `where IsBillable = true` filtra os tipos de dados de determinadas soluções para as quais não há nenhum encargo de ingestão. 
 
-Você pode detalhar mais para ver tendências de dados para tipos de dados específicos, por exemplo, se você quiser estudar os dados devido aos logs do IIS:
+### <a name="data-volume-by-type"></a>Volume de dados por tipo
+
+Você pode analisar mais detalhadamente para ver as tendências de dados por tipo de dados:
 
 ```kusto
 Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| where DataType == "W3CIISLog"
-| summarize TotalVolumeGB = sum(Quantity) / 1000. by bin(TimeGenerated, 1d), Solution| render barchart
+| where TimeGenerated > startofday(ago(31d))
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(TimeGenerated, 1d), DataType | render barchart
+```
+
+Ou para ver uma tabela por solução e tipo para o último mês,
+
+```kusto
+Usage 
+| where TimeGenerated > startofday(ago(31d))
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) by Solution, DataType
+| sort by Solution asc, DataType asc
 ```
 
 ### <a name="data-volume-by-computer"></a>Volume de dados por computador
 
-Para ver o **tamanho** dos eventos faturáveis ingeridos por computador, use a [Propriedade](log-standard-properties.md#_billedsize)`_BilledSize`, que fornece o tamanho em bytes:
+O tipo de dados `Usage` não inclui informações no nível de preenchimento. Para ver o **tamanho** dos dados ingeridos por computador, use a [Propriedade](log-standard-properties.md#_billedsize)`_BilledSize`, que fornece o tamanho em bytes:
 
 ```kusto
 union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| summarize Bytes=sum(_BilledSize) by  computerName | sort by Bytes nulls last
+| summarize BillableDataBytes = sum(_BilledSize) by  computerName | sort by Bytes nulls last
 ```
 
 A [propriedade](log-standard-properties.md#_isbillable) `_IsBillable` especifica se os dados ingeridos incorrerão em encargos.
 
-Para ver a contagem de eventos **faturáveis** ingeridos por computador, use 
+Para ver a **contagem** de eventos faturáveis ingeridos por computador, use 
 
 ```kusto
 union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| summarize eventCount=count() by computerName  | sort by eventCount nulls last
-```
-
-Se você quiser ver as contagens dos tipos de dados faturáveis que estão enviando dados para um computador específico, use:
-
-```kusto
-union withsource = tt *
-| where Computer == "computer name"
-| where _IsBillable == true 
-| summarize count() by tt | sort by count_ nulls last
+| summarize eventCount = count() by computerName  | sort by eventCount nulls last
 ```
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Volume de dados por recurso do Azure, grupo de recursos ou assinatura
 
-Para dados de nós hospedados no Azure, você pode obter o **tamanho** dos eventos faturáveis ingeridos __por computador__, usar a [Propriedade](log-standard-properties.md#_resourceid)_ResourceId, que fornece o caminho completo para o recurso:
+Para dados de nós hospedados no Azure, você pode obter o **tamanho** dos dados ingeridos __por computador__, usar a [Propriedade](log-standard-properties.md#_resourceid)_ResourceId, que fornece o caminho completo para o recurso:
 
 ```kusto
 union withsource = tt * 
 | where _IsBillable == true 
-| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
+| summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
 ```
 
-Para dados de nós hospedados no Azure, você pode obter o **tamanho** dos eventos faturáveis ingeridos __por assinatura do Azure__, analisar a propriedade `_ResourceId` como:
+Para dados de nós hospedados no Azure, você pode obter o **tamanho** dos dados ingeridos __por assinatura do Azure__, analisar a propriedade `_ResourceId` como:
 
 ```kusto
 union withsource = tt * 
 | where _IsBillable == true 
 | parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
     resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
-| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
+| summarize BillableDataBytes = sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
 ```
 
 Alterar `subscriptionId` para `resourceGroup` mostrará o volume de dados ingerido Faturável pelo grupo de recursos do Azure. 
-
 
 > [!NOTE]
 > Alguns dos campos do tipo de dados Uso, ainda no esquema, foram reprovados e seus valores não serão mais preenchidos. Estes são **Computador**, bem como campos relacionados à ingestão (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** e **AverageProcessingTimeMs**.
@@ -361,6 +358,18 @@ Algumas sugestões para reduzir o volume de logs coletados incluem:
 | Syslog                     | Altere a [configuração do syslog](data-sources-syslog.md) para: <br> - Reduzir o número de instalações coletadas <br> - Coletar somente níveis de eventos necessários. Por exemplo, não coletar eventos de nível *Informações* e *Depurar* |
 | AzureDiagnostics           | Altere a coleção de logs do recurso para: <br> - Reduzir o número de logs de envio de recursos para o Log Analytics <br> - Coletar somente os logs necessários |
 | Dados da solução de computadores que não precisam da solução | Use [direcionamento de solução](../insights/solution-targeting.md) para coletar dados somente dos grupos de computadores necessários. |
+
+### <a name="getting-nodes-as-billed-in-the-per-node-pricing-tier"></a>Obtendo nós como cobrados no tipo de preço por nó
+
+Para obter uma lista de computadores que serão cobrados como nós se o espaço de trabalho estiver no tipo de preço herdado por nó, procure os nós que estão enviando **tipos de dados cobrados** (alguns tipos de dados são gratuitos). Para fazer isso, use a [propriedade](log-standard-properties.md#_isbillable) `_IsBillable` e use o campo mais à esquerda do nome de domínio totalmente qualificado. Isso retorna a contagem de computadores com dados cobrados por hora (que é a granularidade na qual os nós são contados e cobrados):
+
+```kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
+```
 
 ### <a name="getting-security-and-automation-node-counts"></a>Obtendo contagens de nós de segurança e automação
 

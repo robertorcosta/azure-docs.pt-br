@@ -1,18 +1,17 @@
 ---
 title: Exemplos de análise inteligente do Log Analytics | Microsoft Docs
 description: Exemplos que usam funções de análise inteligente no Log Analytics para executar a análise da atividade do usuário.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/15/2019
-ms.openlocfilehash: 03a4b8df24a0ab1dbe3cfabd3ccf207005b0e186
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 51584ccf5f845be8a06b1e049cae11e636edef11
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75397627"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659825"
 ---
 # <a name="log-analytics-smart-analytics-examples"></a>Exemplos de análise inteligente de Log Analytics
 Este artigo inclui exemplos que usam funções de análise inteligente no Log Analytics para executar a análise da atividade do usuário. Você pode usar esses exemplos para analisar seus próprios aplicativos monitorados pelo Application Insights ou usar os conceitos nessas consultas para análise semelhante em outros dados. 
@@ -213,7 +212,7 @@ traces
 | project PatternMatch = iff(RSquare2 > minRsquare and Slope>0, "Spike detected", "No Match")
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Veja a [Referência da linguagem do Data Explorer](/azure/kusto/query) para obter detalhes sobre a linguagem.
 - Percorra passo a passo uma [lição sobre como escrever consultas no Log Analytics](get-started-queries.md).

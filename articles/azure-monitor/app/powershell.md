@@ -1,18 +1,14 @@
 ---
 title: Automatizar o Azure Application Insights com o PowerShell | Microsoft Docs
 description: Automatize a criação e o gerenciamento de recursos, alertas e testes de disponibilidade no PowerShell usando um modelo de Azure Resource Manager.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/17/2019
-ms.openlocfilehash: 82b406d6f2d9f9dc4464472108c8136c7b65c67a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 06fedb3d345cfe6790f7a19b88fbfdb36470638f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977828"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669787"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Gerenciar Application Insights recursos usando o PowerShell
 
@@ -423,7 +419,7 @@ O Azure deve configurar os recursos na ordem explícita. Para certificar-se de q
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Outros artigos sobre automação:
 
 * [Criar um recurso do Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically) -método rápido sem usar um modelo.

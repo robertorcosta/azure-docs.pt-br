@@ -1,18 +1,17 @@
 ---
 title: Analisar dados de texto nos logs do Azure Monitor | Microsoft Docs
 description: Descreve as diferentes opções para análise de dados de log em registros do Azure Monitor quando os dados são ingeridos e recuperados em uma consulta, comparando as vantagens relativas de cada uma.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/04/2018
-ms.openlocfilehash: 82ad197a1f64040dfb91aa73d7a6dfd4210f99a1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d7a37d51c411488231205fd036f9a287f5206ce5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365267"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672439"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Analisar dados de texto nos logs do Azure Monitor
 Alguns dados de log coletados pelo Azure Monitor incluirão várias informações em uma única propriedade. A análise desses dados em várias propriedades facilita seu uso em consultas. Um exemplo comum é um [log personalizado](../../log-analytics/log-analytics-data-sources-custom-logs.md) que coleta uma entrada de log inteira com vários valores em uma única propriedade. Criando propriedades separadas para os diferentes valores, você pode fazer pesquisas e agregações em cada uma delas.
@@ -188,5 +187,5 @@ MyCustomCSVLog
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * Saiba mais sobre [registrar consultas](log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.

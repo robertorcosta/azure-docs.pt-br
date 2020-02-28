@@ -3,12 +3,12 @@ title: Recuperar arquivos e pastas do backup de VM do Azure
 description: Neste artigo, saiba como recuperar arquivos e pastas de um ponto de recuperação de máquina virtual do Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 4565929b5475e2348685fbec77b596b65ed73fd6
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: d80fb1060eca766305ecbfffe151d975472f8b3c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114330"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660913"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos de um backup de máquina virtual do Azure
 
@@ -161,7 +161,7 @@ Se o disco RAID tiver outro LVM configurado, use o procedimento anterior para pa
 
 A tabela a seguir mostra a compatibilidade entre os sistemas operacionais de computador e servidor. Ao recuperar arquivos, você não poderá restaurar arquivos para uma versão anterior ou uma versão futura do sistema operacional. Por exemplo, você não pode restaurar um arquivo de uma VM do Windows Server 2016 para um computador Windows Server 2012 ou Windows 8. É possível restaurar arquivos de uma VM para o mesmo sistema operacional do servidor ou para o sistema operacional compatível do cliente.
 
-|Sistema operacional de servidor | Sistema operacional de cliente compatível  |
+|Sistema operacional do servidor | Sistema operacional de cliente compatível  |
 | --------------- | ---- |
 | Windows Server 2019    | Windows 10 |
 | Windows Server 2016    | Windows 10 |
@@ -190,7 +190,7 @@ No Linux, o SO do computador utilizado para restaurar arquivos deve fornecer sup
 
 O script também exige componentes Python e bash para executar e se conectar com segurança ao ponto de recuperação.
 
-|Componente | Versão  |
+|Componente | {1&gt;Version&lt;1}  |
 | --------------- | ---- |
 | bash | 4 e acima |
 | python | 2.6.6 e acima  |
@@ -206,7 +206,7 @@ Se você executar o script em um computador com acesso restrito, verifique se h�
   - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (para o Azure China 21Vianet)
   - <https://pod01-rec2.geo-name.backup.windowsazure.us> (Para Governo dos EUA para Azure)
   - <https://pod01-rec2.geo-name.backup.windowsazure.de> (Para Azure Alemanha)
-- porta de saída 3260
+- Portas de saída 53 (DNS), 443, 3260
 
 > [!NOTE]
 >
@@ -249,7 +249,7 @@ Como o processo de recuperação de arquivo anexa todos os discos do backup, qua
 - Cada vez que o usuário baixa um script, o backup do Azure inicia o processo de preparação do ponto de recuperação para download. Com discos grandes, esse processo levará um tempo considerável. Se houver picos de solicitações sucessivas, a preparação de destino entrará em uma espiral de download. Portanto, é recomendável baixar um script do portal/PowerShell/CLI, aguardar 20-30 minutos (um heurístico) e, em seguida, executá-lo. Neste momento, espera-se que o destino esteja pronto para a conexão do script.
 - Após a recuperação de arquivos, verifique se você retornou ao portal e clique em **desmontar discos** para pontos de recuperação em que você não conseguiu montar volumes. Essencialmente, essa etapa limpará todos os processos/sessões existentes e aumentará a chance de recuperação.
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Se você tiver problemas durante a recuperação de arquivos de máquinas virtuais, verifique a tabela a seguir para obter informações adicionais.
 
@@ -301,7 +301,7 @@ Qualquer ACL (lista de controle de acesso) de arquivo presente na VM pai/com bac
 
 O script fornece acesso somente leitura a um ponto de recuperação e é válido por apenas 12 horas. Se você quiser remover o acesso anteriormente, entre no portal do Azure/PowerShell/CLI e execute a **desmontagem de discos** para esse ponto de recuperação específico. O script será invalidado imediatamente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Para problemas durante a restauração de arquivos, consulte a seção de [solução de problemas](#troubleshooting)
 - Saiba como [restaurar arquivos por meio do PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-files-from-an-azure-vm-backup)

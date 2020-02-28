@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: f231a5339b9c696b2a427b0713118d4b46e30277
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: a7f30a5a70f71ff958d9b222d2a9e21d03d85e06
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840988"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670756"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao log de fluxo dos grupos de segurança da rede
 
@@ -33,11 +33,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 ```
 Você pode analisar logs de fluxo e obter percepções sobre seu tráfego de rede usando a [análise de tráfego](traffic-analytics.md).
 
-As mesmas políticas de retenção vistas para outros logs aplicam-se aos logs de fluxo. Você pode definir a política de retenção de log de 1 dia para 365 dias. Se a política de retenção não for configurada, os logs serão mantidos para sempre.
-
-> [!NOTE] 
-> O uso do recurso de política de retenção com o log de fluxo do NSG pode resultar em um alto volume de operações de armazenamento e os custos associados. Se você não precisa do recurso de política de retenção, é recomendável que você defina esse valor como 0.
-
+As mesmas políticas de retenção vistas para outros logs aplicam-se aos logs de fluxo. Você pode definir a política de retenção de log de 1 dia para 365 dias. Se uma política de retenção não for definida, os logs serão mantidos para sempre.
 
 ## <a name="log-file"></a>Arquivo de log
 
@@ -287,7 +283,7 @@ O texto que segue é um exemplo de um log de fluxo. Como você pode ver, há vá
         ...
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Para saber como habilitar os logs de fluxo, consulte [Habilitar o log de fluxo NSG](network-watcher-nsg-flow-logging-portal.md).
 - Para saber como ler os logs de fluxo, confira [Ler logs de fluxo do NSG](network-watcher-read-nsg-flow-logs.md).

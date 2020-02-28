@@ -1,18 +1,14 @@
 ---
 title: Monitorar um site do SharePoint com o Application Insights
 description: Iniciar o monitoramento de um novo aplicativo com uma nova chave de instrumentação
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/11/2018
-ms.openlocfilehash: 041368d6310aca2183c7acbfe49d57d7e9683765
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 395e8d667985318f4a084428c6fd4c395ee8b956
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048337"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671436"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Monitorar um site do SharePoint com o Application Insights
 O Azure Application Insights monitora a disponibilidade, o desempenho e o uso de seus aplicativos. Aqui você aprenderá a configurá-lo para um site do SharePoint.
@@ -136,7 +132,7 @@ function onRequestFail(sender, args) {
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * [Testes da web](../../azure-monitor/app/monitor-web-app-availability.md) para monitorar a disponibilidade de seu site.
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md) para outros tipos de aplicativos.
 

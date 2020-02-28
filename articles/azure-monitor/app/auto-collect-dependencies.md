@@ -1,19 +1,17 @@
 ---
 title: Azure Application Insights – coleta automática de dependência | Microsoft Docs
 description: O Application Insights coleta e visualiza dependências automaticamente
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: reference
 author: nikmd23
 ms.author: nimolnar
 ms.date: 04/29/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: e774690fae2314b8db6e14f19a67c7ae1ce3a203
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: eaafe19f5112b433d50a34aa551aa84d196726a5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064267"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665809"
 ---
 # <a name="dependency-auto-collection"></a>Coleta automática de dependência
 
@@ -82,9 +80,9 @@ Veja abaixo a lista atualmente com suporte de chamadas de dependência que são 
 
 | Bibliotecas de comunicação | Versões |
 | ------------------------|----------|
-| [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest) | Todos |
+| [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest) | Tudo |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Configurar o acompanhamento de dependência personalizado para [.NET](../../azure-monitor/app/asp-net-dependencies.md).
 - Configurar o acompanhamento de dependência personalizado para [Java](../../azure-monitor/app/java-agent.md).

@@ -6,19 +6,19 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 12/12/2019
-ms.openlocfilehash: 39217a883863fd663b02cafea699dcbc4e070dfb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/25/2020
+ms.openlocfilehash: 13c51f0db468c1591ca29de17f1744752589a1c8
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435737"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663738"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usar o cliente Apache Beeline com Apache Hive
 
 Saiba como usar o [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) para executar consultas do Apache Hive no HDInsight.
 
-O Beeline é um cliente Hive que está incluído em nós principais do cluster HDInsight. Para instalar o beeline localmente, consulte [instalar o cliente beeline](#install-beeline-client), abaixo. O Beeline usa o JDBC para se conectar ao HiveServer2, um serviço hospedado em seu cluster HDInsight. Você também pode usar o Beeline para acessar remotamente o Hive no HDInsight pela internet. Os exemplos a seguir fornecem as cadeias de caracteres de conexão mais comuns usadas para se conectar ao HDInsight do Beeline:
+O Beeline é um cliente Hive que está incluído em nós principais do cluster HDInsight. Para instalar o beeline localmente, consulte [instalar o cliente beeline](#install-beeline-client), abaixo. O Beeline usa o JDBC para se conectar ao HiveServer2, um serviço hospedado em seu cluster HDInsight. Você também pode usar o Beeline para acessar remotamente o Hive no HDInsight pela internet. Os exemplos a seguir fornecem as cadeias de conexão mais comuns usadas para se conectar ao HDInsight do beeline.
 
 ## <a name="types-of-connections"></a>Tipos de conexões
 
@@ -59,7 +59,9 @@ Substitua `<username>` pelo nome de uma conta no domínio com permissões para a
 
 ### <a name="over-public-or-private-endpoints"></a>Em pontos de extremidade públicos ou privados
 
-Ao se conectar a um cluster usando os pontos de extremidade públicos ou privados, você deve fornecer o nome da conta de logon do cluster (padrão `admin`) e a senha. Por exemplo, usando Beeline de um sistema de cliente para conectar-se para o `clustername.azurehdinsight.net` endereço. Essa conexão é feita pela porta `443`e é criptografada com SSL:
+Ao se conectar a um cluster usando os pontos de extremidade públicos ou privados, você deve fornecer o nome da conta de logon do cluster (padrão `admin`) e a senha. Por exemplo, usando Beeline de um sistema de cliente para conectar-se para o `clustername.azurehdinsight.net` endereço. Essa conexão é feita pela porta `443`e é criptografada usando SSL.
+
+Substitua `clustername` pelo nome do cluster HDInsight. Substitua `admin` pela conta de logon do cluster de seu cluster. Para clusters ESP, use o UPN completo (por exemplo, user@domain.com). Substitua `password` pela senha da conta de logon do cluster.
 
 ```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p 'password'
@@ -71,19 +73,17 @@ ou para o ponto de extremidade privado:
 beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p 'password'
 ```
 
-Substitua `clustername` pelo nome do cluster HDInsight. Substitua `admin` pela conta de logon do cluster de seu cluster. Para clusters ESP, use o UPN completo (por exemplo, user@domain.com). Substitua `password` pela senha da conta de logon do cluster.
-
 Pontos de extremidade privados apontam para um balanceador de carga básico, que só pode ser acessado por meio do VNETs emparelhado na mesma região. Consulte [restrições em emparelhamento VNet global e balanceadores de carga](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para obter mais informações. Você pode usar o comando `curl` com `-v` opção para solucionar problemas de conectividade com pontos de extremidade públicos ou privados antes de usar o beeline.
 
 ---
 
-### <a id="sparksql"></a>Usar Beeline com Apache Spark
+### <a name="use-beeline-with-apache-spark"></a>Usar o beeline com Apache Spark
 
 O Apache Spark fornece sua própria implementação de HiveServer2, que, às vezes, é referenciado como o servidor Spark Thrift. Esse serviço usa Spark SQL para resolver consultas em vez de Hive e pode fornecer um desempenho melhor, dependendo da consulta.
 
 #### <a name="through-public-or-private-endpoints"></a>Por meio de pontos de extremidade públicos ou privados
 
-A cadeia de conexão usada é ligeiramente diferente. Em vez de conter `httpPath=/hive2` é `httpPath/sparkhive2`:
+A cadeia de conexão usada é ligeiramente diferente. Em vez de conter `httpPath=/hive2` é `httpPath/sparkhive2`. Substitua `clustername` pelo nome do cluster HDInsight. Substitua `admin` pela conta de logon do cluster de seu cluster. Para clusters ESP, use o UPN completo (por exemplo, user@domain.com). Substitua `password` pela senha da conta de logon do cluster.
 
 ```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p 'password'
@@ -94,8 +94,6 @@ ou para o ponto de extremidade privado:
 ```bash
 beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p 'password'
 ```
-
-Substitua `clustername` pelo nome do cluster HDInsight. Substitua `admin` pela conta de logon do cluster de seu cluster. Para clusters ESP, use o UPN completo (por exemplo, user@domain.com). Substitua `password` pela senha da conta de logon do cluster.
 
 Pontos de extremidade privados apontam para um balanceador de carga básico, que só pode ser acessado por meio do VNETs emparelhado na mesma região. Consulte [restrições em emparelhamento VNet global e balanceadores de carga](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para obter mais informações. Você pode usar o comando `curl` com `-v` opção para solucionar problemas de conectividade com pontos de extremidade públicos ou privados antes de usar o beeline.
 
@@ -111,7 +109,7 @@ Ao conectar diretamente do nó principal do cluster ou de um recurso dentro da m
 
 ---
 
-## <a id="prereq"></a>Pré-requisitos
+## <a name="prerequisites-for-examples"></a>Pré-requisitos para exemplos
 
 * Um cluster Hadoop no HDInsight. Consulte [Introdução ao HDInsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
@@ -121,7 +119,7 @@ Ao conectar diretamente do nó principal do cluster ou de um recurso dentro da m
 
 * Opção 2: um cliente beeline local.
 
-## <a id="beeline"></a>Executar um trabalho do Hive
+## <a name="run-a-hive-query"></a>Executar um trabalho do Hive
 
 Este exemplo se baseia no uso do cliente beeline de uma conexão SSH.
 
@@ -188,24 +186,21 @@ Este exemplo se baseia no uso do cliente beeline de uma conexão SSH.
         t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
-    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs 
-        WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' 
+    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
+        WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log'
         GROUP BY t4;
     ```
 
     Essas instruções realizam as seguintes ações:
 
-    * `DROP TABLE`-se a tabela existir, ela será excluída.
-
-    * `CREATE EXTERNAL TABLE` – Cria uma tabela **externa** no Hive. Tabelas externas só armazenam a definição da tabela no Hive. Os dados são mantidos no local original.
-
-    * `ROW FORMAT` – o modo como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
-
-    * `STORED AS TEXTFILE LOCATION` – O local em que os dados são armazenados e em qual formato de arquivo.
-
-    * `SELECT` – Seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]** . Essa consulta deve retornar um valor de **3**, já que existem três linhas que contêm esse valor.
-
-    * `INPUT__FILE__NAME LIKE '%.log'`- O Hive tenta aplicar o esquema a todos os arquivos no diretório. Nesse caso, o diretório contém arquivos que não correspondem ao esquema. Para evitar dados incorretos nos resultados, essa instrução informa ao Hive que deve retornar apenas dados de arquivos que terminam em .log.
+    |de |DESCRIÇÃO |
+    |---|---|
+    |DROP TABLE|Se a tabela existir, ela será excluída.|
+    |CRIAR TABELA EXTERNA|Cria uma tabela **externa** no hive. Tabelas externas só armazenam a definição da tabela no Hive. Os dados são mantidos no local original.|
+    |FORMATO DE LINHA|Como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.|
+    |ARMAZENADO COMO LOCAL DO TEXTFILE|Onde os dados são armazenados e em qual formato de arquivo.|
+    |SELECT|Seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]** . Essa consulta deve retornar um valor de **3**, já que existem três linhas que contêm esse valor.|
+    |INPUT__FILE__NAME como '%. log '|O hive tenta aplicar o esquema a todos os arquivos no diretório. Nesse caso, o diretório contém arquivos que não correspondem ao esquema. Para evitar dados incorretos nos resultados, essa instrução informa ao Hive que deve retornar apenas dados de arquivos que terminam em .log.|
 
    > [!NOTE]  
    > As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa. Por exemplo, um processo de upload de dados automatizado ou uma operação MapReduce.
@@ -236,7 +231,11 @@ Este exemplo se baseia no uso do cliente beeline de uma conexão SSH.
         +----------+--------+--+
         1 row selected (47.351 seconds)
 
-6. Para sair do Beeline, use `!exit`.
+6. Sair do beeline:
+
+    ```bash
+    !exit
+    ```
 
 ## <a name="run-a-hiveql-file"></a>Executar um arquivo HiveQL
 
@@ -248,7 +247,7 @@ Esta é uma continuação do exemplo anterior. Use as etapas a seguir para criar
     nano query.hql
     ```
 
-2. Use o texto a seguir como conteúdo do arquivo. Essa consulta cria uma nova tabela 'interna' chamada **errorLogs**:
+1. Use o texto a seguir como conteúdo do arquivo. Essa consulta cria uma nova tabela 'interna' chamada **errorLogs**:
 
     ```hiveql
     CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
@@ -257,16 +256,18 @@ Esta é uma continuação do exemplo anterior. Use as etapas a seguir para criar
 
     Essas instruções realizam as seguintes ações:
 
-   * **CREATE TABLE se não existir** -se a tabela ainda não existir, ela será criada. Como a palavra-chave **external** não é usada, essa instrução cria uma tabela interna. As tabelas internas são armazenadas no data warehouse do Hive e totalmente gerenciadas por ele.
-   * **STORES AS ORC** : armazena os dados no formato ORC (Optimized Row Columnar). O formato ORC é altamente otimizado e eficiente para o armazenamento de dados do Hive.
-   * **Inserir substituição... SELECT** – seleciona linhas da tabela **log4jLogs** que contêm **[ERROR]** e insere os dados na tabela de **logs de erros** .
+    |de |DESCRIÇÃO |
+    |---|---|
+    |CREATE TABLE SE NÃO EXISTIR|Se a tabela ainda não existir, ela será criada. Como a palavra-chave **external** não é usada, essa instrução cria uma tabela interna. As tabelas internas são armazenadas no data warehouse do Hive e totalmente gerenciadas por ele.|
+    |ARMAZENADO COMO ORC|Armazena os dados no formato OCR (Optimized Row Columnar). O formato ORC é altamente otimizado e eficiente para o armazenamento de dados do Hive.|
+    |INSERIR SUBSTITUIÇÃO... Não|Seleciona linhas da tabela **log4jLogs** que contêm **[ERROR]** e insere os dados na tabela **errorLogs**.|
 
     > [!NOTE]  
     > Diferentemente de tabelas externas, o descarte de uma tabela interna excluirá também os dados subjacentes.
 
-3. Para salvar o arquivo, use **Ctrl**+**X**, em seguida, digite **Y**e, por fim, **Enter**.
+1. Para salvar o arquivo, use **Ctrl**+**X**, em seguida, digite **Y**e, por fim, **Enter**.
 
-4. Use o seguinte para executar o arquivo usando Beeline:
+1. Use o seguinte para executar o arquivo usando Beeline:
 
     ```bash
     beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i query.hql
@@ -275,7 +276,7 @@ Esta é uma continuação do exemplo anterior. Use as etapas a seguir para criar
     > [!NOTE]  
     > O parâmetro `-i` inicia o Beeline e executa as instruções no arquivo `query.hql`. Quando a consulta for concluída, você verá um prompt `jdbc:hive2://headnodehost:10001/>`. Você também pode executar um arquivo usando o parâmetro `-f`, que fechará o Beeline após a conclusão da consulta.
 
-5. Para verificar se a tabela **errorLogs** foi criada, use a seguinte instrução para retornar todas as linhas de **errorLogs**:
+1. Para verificar se a tabela **errorLogs** foi criada, use a seguinte instrução para retornar todas as linhas de **errorLogs**:
 
     ```hiveql
     SELECT * from errorLogs;
@@ -310,7 +311,9 @@ Embora o beeline esteja incluído nos nós de cabeçalho do cluster HDInsight, t
         sudo apt install openjdk-11-jre-headless
         ```
 
-    1. Modifique o arquivo bashrc (geralmente encontrado em ~/.bashrc). Abra o arquivo com `nano ~/.bashrc` e, em seguida, adicione a seguinte linha ao final do arquivo:
+    1. Abra o arquivo bashrc (geralmente encontrado em ~/.bashrc): `nano ~/.bashrc`.
+
+    1. Modifique o arquivo bashrc. Adicione a seguinte linha ao final do arquivo:
 
         ```bash
         export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
@@ -335,11 +338,12 @@ Embora o beeline esteja incluído nos nós de cabeçalho do cluster HDInsight, t
 1. Modifique ainda mais o arquivo bashrc. Você precisará identificar o caminho para onde os arquivos mortos foram desempacotados. Se estiver usando o [subsistema do Windows para Linux](https://docs.microsoft.com/windows/wsl/install-win10)e tiver seguido as etapas exatamente, o caminho será `/mnt/c/Users/user/`, em que `user` é o seu nome de usuário.
 
     1. Abra o arquivo: `nano ~/.bashrc`
+
     1. Modifique os comandos abaixo com o caminho apropriado e insira-os no final do arquivo bashrc:
 
         ```bash
-        export HADOOP_HOME=/$(path_where_the_archives_were_unpacked)/hadoop-2.7.3
-        export HIVE_HOME=/$(path_where_the_archives_were_unpacked)/apache-hive-1.2.1-bin
+        export HADOOP_HOME=/path_where_the_archives_were_unpacked/hadoop-2.7.3
+        export HIVE_HOME=/path_where_the_archives_were_unpacked/apache-hive-1.2.1-bin
         PATH=$PATH:$HIVE_HOME/bin
         ```
 
@@ -349,7 +353,7 @@ Embora o beeline esteja incluído nos nós de cabeçalho do cluster HDInsight, t
 
 1. Teste sua conexão. Use o formato de conexão de [pontos de extremidade públicos ou privados](#over-public-or-private-endpoints)acima.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter mais informações gerais sobre o hive no HDInsight, consulte [usar Apache Hive com Apache Hadoop no HDInsight](hdinsight-use-hive.md)
 

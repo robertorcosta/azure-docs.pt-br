@@ -2,22 +2,20 @@
 title: Como criar Alertas de métrica para logs no Azure Monitor
 description: Tutorial sobre como criar alertas de métrica quase em tempo real para dados populares do Log Analytics.
 author: yanivlavi
-services: monitoring
-ms.service: azure-monitor
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 358312bcbb23aee5a06eaa39898ff4e632cd8b4b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c50c6f91daef35906dec9c0648dfe38fb2f1de85
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977610"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662225"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Criar Alertas de métrica para Logs no Azure Monitor
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -687,7 +685,7 @@ Ou use Implantar o modelo de recurso usando a CLI do Azure:
 az group deployment create --resource-group myRG --template-file metricfromLogsAlertDynamic.json --parameters @metricfromLogsAlertDynamic.parameters.json
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Saiba mais sobre [alertas de métrica](alerts-metric.md).
 - Saiba mais sobre os [alertas de log no Azure](../../azure-monitor/platform/alerts-unified-log.md).

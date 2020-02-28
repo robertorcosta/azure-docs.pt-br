@@ -1,18 +1,16 @@
 ---
 title: Referência da API do agente do insights Aplicativo Azure
 description: Referência de API do agente Application Insights. Enable-InstrumentationEngine. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicativos Web ASP.NET hospedados localmente, em VMs ou no Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 796c2cc669e238499223d233cf4ddcf740af7c95
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: b3f298ac31cc584cd16553186359c87f69f27aad
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899715"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671339"
 ---
 # <a name="application-insights-agent-api-enable-instrumentationengine"></a>API do agente de Application Insights: Enable-InstrumentationEngine
 
@@ -43,10 +41,10 @@ Habilite o mecanismo de instrumentação se:
 PS C:\> Enable-InstrumentationEngine
 ```
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>Parâmetros
 
 ### <a name="-acceptlicense"></a>-AcceptLicense
-**Opcional** Use essa opção para aceitar a licença e a política de privacidade em instalações sem periféricos.
+**Opcional.** Use essa opção para aceitar a licença e a política de privacidade em instalações sem periféricos.
 
 ### <a name="-verbose"></a>-Verbose
 **Parâmetro comum.** Use essa opção para gerar logs detalhados.
@@ -61,7 +59,7 @@ Configuring IIS Environment for instrumentation engine...
 Configuring registry for instrumentation engine...
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
   Exiba sua telemetria:
  - [Explore as métricas](../../azure-monitor/app/metrics-explorer.md) para monitorar o desempenho e o uso.

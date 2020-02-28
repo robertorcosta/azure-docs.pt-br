@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
-ms.openlocfilehash: 47e38d79e8aa4656b8164c94b4ef439bf431e01d
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: af5ab05cb772909cd36e2e6bfe1c100a5b83841c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049662"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660029"
 ---
 # <a name="linux-support"></a>Suporte para Linux
 
@@ -22,6 +22,9 @@ Você pode usar o SDK do Linux para área de trabalho virtual do Windows para cr
 
 Você pode usar as APIs do SDK para recuperar feeds de recursos, conectar-se a sessões de aplicativos remotos ou de área de trabalho e usar muitos dos redirecionamentos aos quais nossos clientes de primeira empresa dão suporte.
 
+> [!NOTE]
+> O SDK está atualmente em desenvolvimento. Atualizaremos este documento com instruções para acessar o SDK quando ele estiver disponível.
+
 ### <a name="supported-linux-distributions"></a>Distribuições do Linux com suporte
 
 O SDK é compatível com a maioria dos sistemas operacionais baseados no Ubuntu 18, 4 ou posterior. Se você tiver uma distribuição do Linux diferente, poderemos trabalhar com você para descobrir como oferecer o melhor suporte às suas necessidades.
@@ -30,7 +33,7 @@ O SDK é compatível com a maioria dos sistemas operacionais baseados no Ubuntu 
 
 O SDK dá suporte a várias conexões para desktop e sessões de aplicativos remotos. Há suporte para os seguintes redirecionamentos:
 
-| Redirecionamento       | Com suporte |
+| Redirecionamento       | Suportado |
 | :---------------- | :-------: |
 | Teclado          | &#10004;  |
 | Mouse             | &#10004;  |
@@ -54,8 +57,6 @@ Para poder desenvolver um cliente Linux para área de trabalho virtual do Window
 2. Teste os clientes primários disponíveis para se familiarizar com a experiência do usuário da área de trabalho virtual do Windows.
 
 ## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
-
-O SDK está atualmente em desenvolvimento. Atualizaremos este documento com instruções para acessar o SDK quando ele estiver disponível.
 
 Confira nossa documentação para os seguintes clientes:
 

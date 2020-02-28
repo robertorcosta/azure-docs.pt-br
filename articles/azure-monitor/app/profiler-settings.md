@@ -1,19 +1,17 @@
 ---
 title: Usar o painel de configurações do Azure Application Insights Profiler | Microsoft Docs
 description: Ver o status do Profiler e iniciar sessões de criação de perfil
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: b383ef8c92325b0ad6561bee9b654c78e4054338
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: f66a23c0562ec9f1987bd119a45b7b767f2dfe46
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820483"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671623"
 ---
 # <a name="configure-application-insights-profiler"></a>Configurar o Profiler do Application Insights
 
@@ -55,7 +53,7 @@ Clicar no botão gatilhos na barra de menus abre a caixa configurações do gati
 Botão ligar/desligar | Em: o profiler pode ser iniciado por este gatilho; Desativada: o criador de perfil não será iniciado por este gatilho.
 Limite de memória | Quando esse percentual de memória estiver em uso, o criador de perfil será iniciado.
 Duration | Define o período de tempo que o profiler executará quando for disparado.
-Cooldown | Define o período de tempo que o profiler aguardará antes de verificar a memória ou o uso da CPU novamente depois que ele for disparado.
+Resfriamento | Define o período de tempo que o profiler aguardará antes de verificar a memória ou o uso da CPU novamente depois que ele for disparado.
 
 ## <a name="recent-profiling-sessions"></a>Sessões de criação de perfil recentes
 Esta seção da página mostra informações sobre as sessões de criação de perfil recentes. Uma sessão de criação de perfil representa o período de tempo em que o agente do criador de perfil estava usando um perfil em um dos computadores que hospedam seu aplicativo. Você pode abrir os perfis de uma sessão clicando em uma das linhas. Para cada sessão, mostramos:
@@ -107,7 +105,7 @@ Se seu aplicativo da Web já tiver tráfego de entrada ou se você quiser gerar 
 
 Depois que o Profiler terminar a execução, siga as instruções na notificação para ir para o painel Desempenho e exibir os rastreamentos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 [Habilitar o Profiler e ver os rastreios](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
 [profiler-on-demand]: ./media/profiler-settings/Profiler-on-demand.png

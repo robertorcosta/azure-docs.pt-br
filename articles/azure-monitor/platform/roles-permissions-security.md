@@ -3,17 +3,16 @@ title: Funções, permissões e segurança no Azure Monitor
 description: Saiba como usar funções e permissões internas do Azure Monitor para restringir o acesso aos recursos de monitoramento.
 author: johnkemnetz
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: d223c3483becdc8ba44bc14ec16150cf1b001943
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 81309f0b5781e6302887a5b079ed359e70659834
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894531"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658958"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Funções, permissões e segurança no Azure Monitor
 
@@ -187,7 +186,7 @@ Os dados de monitoramento costumam ser gravados em uma conta de armazenamento. C
 
 Para saber mais, confira [Segurança de rede e Armazenamento do Azure](../../storage/common/storage-network-security.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * [Leia sobre RBAC e permissões no Gerenciador de Recursos](../../role-based-access-control/overview.md)
 * [Leia a visão geral do monitoramento no Azure](../../azure-monitor/overview.md)
 

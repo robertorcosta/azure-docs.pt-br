@@ -1,18 +1,17 @@
 ---
 title: Visão geral das informações no Azure Monitor | Microsoft Docs
 description: As informações fornecem uma experiência de monitoramento Personalizada em Azure Monitor para aplicativos e serviços específicos. Este artigo fornece uma breve descrição de cada uma das informações disponíveis no momento.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/22/2019
-ms.openlocfilehash: d1b53267daa2d47baf9976727bbaf3fa56172432
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 15ea7698c9e90fa8b0dfa20f71b552a2b0e9c7d2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832088"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657241"
 ---
 # <a name="overview-of-insights-in-azure-monitor"></a>Visão geral das informações no Azure Monitor
 As informações fornecem uma experiência de monitoramento Personalizada para aplicativos e serviços específicos. Eles armazenam dados na [plataforma de dados Azure monitor](../platform/data-platform.md) e aproveitam outros recursos de Azure monitor para análise e alertas, mas podem coletar dados adicionais e fornecer uma experiência de usuário exclusiva no portal do Azure. Acesse informações da seção **insights** do menu Azure Monitor na portal do Azure.
@@ -26,12 +25,12 @@ Veja [o que é Application insights?](../app/app-insights-overview.md).
 
 ![Application Insights](media/insights-overview/app-insights.png)
 
-## <a name="azure-monitor-for-containers"></a>Azure Monitor para contêineres
+## <a name="azure-monitor-for-containers"></a>Azure Monitor para Contêineres
 O Azure Monitor para contêineres monitora o desempenho das cargas de trabalho de contêineres implantadas nas Instâncias de Contêiner do Azure ou nos clusters Kubernetes gerenciados hospedados no AKS (Serviço de Kubernetes do Azure). Monitorar os contêineres é fundamental, principalmente ao executar um cluster de produção em grande escala e com vários aplicativos.
 
 Consulte [a visão geral de Azure monitor para contêineres](../insights/container-insights-overview.md).
 
-![Azure Monitor para contêineres](media/insights-overview/container-insights.png)
+![Azure Monitor para Contêineres](media/insights-overview/container-insights.png)
 
 ## <a name="azure-monitor-for-resource-groups-preview"></a>Azure Monitor para grupos de recursos (visualização)
 Azure Monitor para grupos de recursos ajuda a fazer a triagem e diagnosticar quaisquer problemas encontrados por seus recursos individuais, ao mesmo tempo em que oferece contexto para a integridade e o desempenho do grupo de recursos como um todo.
@@ -50,8 +49,8 @@ Veja [o que é Azure monitor para VMs?](vminsights-overview.md)
 ## <a name="azure-monitor-for-networks-preview"></a>Azure Monitor para redes (visualização)
 O [Azure monitor para redes](network-insights-overview.md) fornece uma visão abrangente da integridade e das métricas para todos os recursos de rede. A capacidade de pesquisa avançada ajuda a identificar dependências de recursos, permitindo cenários como identificar recursos que hospedam seu site, simplesmente pesquisando o nome do site.
 
-![Azure Monitor para redes](media/insights-overview/network-insights.png)
+![Azure Monitor para Redes](media/insights-overview/network-insights.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * Saiba mais sobre a [plataforma de dados Azure monitor](../platform/data-platform.md) aproveitada pelo insights.
 * Saiba mais sobre as diferentes [fontes de dados usadas pelo Azure monitor](../platform/data-sources.md) e os diferentes tipos de dados coletados por cada uma das informações.

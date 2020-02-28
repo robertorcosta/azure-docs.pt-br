@@ -3,17 +3,16 @@ title: Exemplo de gráfico de métrica Azure Monitor
 description: Saiba mais sobre como visualizar seus dados do Azure Monitor.
 author: vgorbenko
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 8cc653b8e5d2c239243bf6a09955b10011c7408b
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 1aaeb853a67b36a21a09db57e015029d10cd0c36
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538974"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660863"
 ---
 # <a name="metric-chart-examples"></a>Exemplos de gráfico de métrica 
 
@@ -51,7 +50,7 @@ O recurso da conta de armazenamento está enfrentando um volume de transações 
 
 No seletor de métrica, selecione sua conta de armazenamento e a métrica **Transações**. Alterne o tipo de gráfico para **Gráfico de barras**. Clique em **Aplicar a divisão** e selecione a dimensão **Nome da API**. Em seguida, clique em **Adicionar filtro** e escolha a dimensão **Nome da API** novamente. Na caixa de diálogo de filtro, selecione as APIs que deseja plotar no gráfico.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Saiba mais sobre as [Pastas de Trabalho](../../azure-monitor/app/usage-workbooks.md) do Azure Monitor
 * Saiba mais sobre o [Metrics Explorer](metrics-charts.md)

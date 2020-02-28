@@ -1,19 +1,18 @@
 ---
 title: Criar um arquivo de solução de gerenciamento no Azure | Microsoft Docs
 description: As soluções de gerenciamento fornecem cenários de gerenciamento empacotados que os clientes podem adicionar ao ambiente do Azure.  Este artigo fornece detalhes sobre como criar soluções de gerenciamento para usar em seu próprio ambiente ou disponibilizar para os clientes.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d583f47a9c83abb1119262a2a6b70292cfa4ab69
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 999177f821b98adfa015520252bd3323d0892533
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977687"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662530"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Criar um arquivo de solução de gerenciamento no Azure (versão prévia)
 > [!NOTE]
@@ -62,12 +61,12 @@ Um parâmetro de exemplo é mostrado abaixo.
 
 A tabela a seguir descreve os atributos de um parâmetro.
 
-| Atributo | Description |
+| Atributo | Descrição |
 |:--- |:--- |
 | type |Tipo de dados para o parâmetro. O controle de entrada exibido para o usuário depende do tipo de dados.<br><br>bool – Caixa suspensa<br>cadeia de caracteres – caixa de texto<br>int – Caixa de texto<br>securestring – Campo de senha<br> |
 | category |Categoria opcional para o parâmetro.  Parâmetros na mesma categoria são agrupados. |
 | controle |Funcionalidade adicional para parâmetros de cadeia de caracteres.<br><br>datetime – O controle datetime é exibido.<br>GUID – O valor de GUID é gerado automaticamente e o parâmetro não é exibido. |
-| descrição |Descrição opcional para o parâmetro.  Exibido em um balão de informações ao lado do parâmetro. |
+| description |Descrição opcional para o parâmetro.  Exibido em um balão de informações ao lado do parâmetro. |
 
 ### <a name="standard-parameters"></a>Parâmetros padrão
 A tabela a seguir lista os parâmetros padrão para todas as soluções de gerenciamento.  Esses valores são populados para o usuário em vez de solicitados a eles quando a solução é instalada dos modelos do Azure Marketplace ou de Início Rápido.  Se a solução for instalada com outro método, o usuário deverá fornecer valores para eles.
@@ -77,14 +76,14 @@ A tabela a seguir lista os parâmetros padrão para todas as soluções de geren
 >
 >
 
-| Parâmetro | Tipo | Description |
+| Parâmetro | Tipo | Descrição |
 |:--- |:--- |:--- |
-| accountName |cadeia de caracteres |Nome da conta de Automação do Azure. |
-| pricingTier |cadeia de caracteres |Tipo de preço do espaço de trabalho do Log Analytics e da conta de Automação do Azure. |
-| regionId |cadeia de caracteres |Região da conta de Automação do Azure. |
-| solutionName |cadeia de caracteres |O nome da solução.  Se você estiver implantando a solução por meio de modelos de Início Rápido, defina solutionName como um parâmetro para que seja possível definir uma cadeia de caracteres, em vez de exigir que o usuário especifique um. |
-| workspaceName |cadeia de caracteres |O nome do espaço de trabalho do Log Analytics. |
-| workspaceRegionId |cadeia de caracteres |A região do espaço de trabalho do Log Analytics. |
+| accountName |string |Nome da conta de Automação do Azure. |
+| pricingTier |string |Tipo de preço do espaço de trabalho do Log Analytics e da conta de Automação do Azure. |
+| regionId |string |Região da conta de Automação do Azure. |
+| solutionName |string |O nome da solução.  Se você estiver implantando a solução por meio de modelos de Início Rápido, defina solutionName como um parâmetro para que seja possível definir uma cadeia de caracteres, em vez de exigir que o usuário especifique um. |
+| workspaceName |string |O nome do espaço de trabalho do Log Analytics. |
+| workspaceRegionId |string |A região do espaço de trabalho do Log Analytics. |
 
 
 A seguir está a estrutura dos parâmetros padrão que você pode copiar e colar em seu arquivo de solução.  
@@ -154,7 +153,7 @@ Você também pode definir variáveis complexas que têm vários conjuntos de va
 
 Nesse caso, você consulta os valores de variáveis por meio da solução com a sintaxe **variables('variable name').property**.  Por exemplo, para acessar a variável Solution Name, você usará **variables('Solution').Name**.
 
-## <a name="resources"></a>Implante
+## <a name="resources"></a>Recursos
 Os [recursos](../../azure-resource-manager/templates/template-syntax.md#resources) definem os diferentes recursos que a solução de gerenciamento instalará e configurará.  Essa será a maior e mais complexa parte do modelo.  É possível obter a estrutura e a descrição completa dos elementos de recursos em [Criando modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md#resources).  Recursos diferentes que normalmente são definidos são detalhados em outros artigos desta documentação. 
 
 
@@ -202,10 +201,10 @@ Cada solução exige uma entrada de recurso no elemento **resources** que define
 ### <a name="dependencies"></a>Dependências
 O recurso da solução deve ter uma [dependência](../../azure-resource-manager/templates/define-resource-dependency.md) em todos os outros recursos da solução, pois precisam existir antes que a solução possa ser criada.  Você pode fazer isso adicionando uma entrada para cada recurso no elemento **dependsOn**.
 
-### <a name="properties"></a>Propriedades
+### <a name="properties"></a>{1&gt;Propriedades&lt;1}
 O recurso da solução tem as propriedades na tabela a seguir.  Isso inclui os recursos referenciados e contidos pela solução que define como os recursos são gerenciados após a instalação da solução.  Cada recurso na solução deve ser listado na propriedade **referencedResources** ou **containedResources**.
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--- |:--- |
 | workspaceResourceId |ID do espaço de trabalho Log Analytics no formato *\<ID do grupo de recursos >/providers/Microsoft.OperationalInsights/workspaces/\<nome do espaço de trabalho\>* . |
 | referencedResources |Lista de recursos na solução que não deverão ser removidos quando a solução for removida. |
@@ -216,16 +215,16 @@ O exemplo acima é uma solução com um runbook, um cronograma e uma exibição.
 ### <a name="plan"></a>Plano
 A entidade **plano** do recurso da solução tem as propriedades na tabela a seguir.
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--- |:--- |
-| name |O nome da solução. |
+| {1&gt;name&lt;1} |O nome da solução. |
 | version |Versão da solução conforme determinado pelo autor. |
 | product |Cadeia de caracteres exclusiva para identificar a solução. |
-| publicador |O publicador da solução. |
+| publisher |O publicador da solução. |
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * [Adicionar alertas e pesquisas salvas](solutions-resources-searches-alerts.md) à sua solução de gerenciamento.
 * [Adicionar exibições](solutions-resources-views.md) à sua solução de gerenciamento.
 * [Adicionar runbooks e outros recursos da Automação](solutions-resources-automation.md) à solução de gerenciamento.

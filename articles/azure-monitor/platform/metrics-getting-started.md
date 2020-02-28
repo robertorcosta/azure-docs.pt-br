@@ -1,24 +1,23 @@
 ---
 title: Introdução ao Gerenciador de métricas do Azure
-description: Saiba como criar seu primeiro gráfico de métrica com o Azure Metrics Explorer.
+description: Saiba como criar seu primeiro gráfico de métricas com o Azure Metrics Explorer.
 author: vgorbenko
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: ceaefffaf04a3ab266cde300e8c4b93a5e804796
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 920ff19b162843d1c2d631ad192ce1b3c4273a68
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861089"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662274"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introdução ao Metrics Explorer do Azure
 
 ## <a name="where-do-i-start"></a>Onde começo
-O Azure Monitor Metrics Explorer é um componente do portal do Microsoft Azure que permite plotar gráficos, correlacionar tendências visualmente e investigar picos e quedas nos valores das métricas. Use o Metrics Explorer para investigar a integridade e a utilização de seus recursos. Iniciar na seguinte ordem:
+O Azure Monitor Metrics Explorer é um componente do portal do Microsoft Azure que permite plotar gráficos, correlacionar tendências visualmente e investigar picos e quedas nos valores das métricas. Use o Metrics Explorer para investigar a integridade e o uso dos recursos. Iniciar na seguinte ordem:
 
 1. [Escolha um recurso e uma métrica](#create-your-first-metric-chart) e você verá um gráfico básico. Em seguida, [Selecione um intervalo de tempo](#select-a-time-range) que seja relevante para sua investigação.
 
@@ -32,9 +31,9 @@ Para criar um gráfico de métricas, em seu recurso, grupo de recursos, assinatu
 
 1. Usando o seletor de recursos, selecione o recurso para o qual você deseja ver as métricas. (O recurso será pré-selecionado se você tiver aberto as **métricas** no contexto de um recurso específico).
 
-    > ![Selecione um recurso](./media/metrics-getting-started/resource-picker.png)
+    > ![Selecionar um recurso](./media/metrics-getting-started/resource-picker.png)
 
-2. Para alguns recursos, você deve escolher um namespace. O namespace é apenas uma maneira de organizar métricas para que você possa encontrá-las facilmente. Por exemplo, contas de armazenamento têm namespaces separados para armazenar arquivos, tabelas, BLOBs e métricas de filas. Muitos tipos de recursos têm apenas um namespace.
+2. Para alguns recursos, você deve escolher um namespace. O namespace é apenas uma maneira de organizar as métricas para que você possa encontrá-las com facilidade. Por exemplo, as contas de armazenamento têm namespaces separados para armazenar métricas de arquivos, tabelas, blobs e filas. Muitos tipos de recursos têm apenas um namespace.
 
 3. Selecione uma métrica em uma lista de métricas disponíveis.
 
@@ -43,16 +42,16 @@ Para criar um gráfico de métricas, em seu recurso, grupo de recursos, assinatu
 4. Opcionalmente, você pode alterar a agregação de métrica. Por exemplo, talvez você queira que o gráfico mostre os valores mínimo, máximo ou médio da métrica.
 
 > [!NOTE]
-> Use o botão **Adicionar métrica** e repita essas etapas se desejar ver várias métricas plotadas no mesmo gráfico. Para vários gráficos em uma exibição, selecione o botão **Adicionar gráfico** na parte superior.
+> Use o botão **Adicionar métrica** e repita essas etapas se quiser ver várias métricas plotadas no mesmo gráfico. Para vários gráficos em uma exibição, selecione o botão **Adicionar gráfico** na parte superior.
 
-## <a name="select-a-time-range"></a>Selecione um intervalo de tempo
+## <a name="select-a-time-range"></a>Selecionar um intervalo de tempo
 
-Por padrão, o gráfico mostra as 24 horas mais recentes de dados de métricas. Use o painel **seletor de tempo** para alterar o intervalo de tempo, ampliar ou reduzir seu gráfico. 
+Por padrão, o gráfico mostra as últimas 24 horas de dados de métricas. Use o painel **seletor de tempo** para alterar o intervalo de tempo, ampliar ou reduzir seu gráfico. 
 
-![Alterar painel de intervalo de tempo](./media/metrics-getting-started/time-picker.png)
+![Alterar o painel de intervalo de tempo](./media/metrics-getting-started/time-picker.png)
 
 > [!NOTE]
-> Use o **pincel de tempo** para investigar uma área interessante do gráfico (pico ou DIP). Coloque o ponteiro do mouse no início da área, clique e mantenha o botão esquerdo do mouse, arraste para o outro lado da área e, em seguida, solte o botão. O gráfico será ampliado nesse intervalo de tempo. 
+> Use o **pincel de tempo** para investigar uma área interessante do gráfico (pico ou DIP). Coloque o ponteiro do mouse no início da área, clique e mantenha o botão esquerdo do mouse, arraste para o outro lado da área e, em seguida, solte o botão. O gráfico será ampliado naquele intervalo de tempo. 
 
 ## <a name="apply-dimension-filters-and-splitting"></a>Aplicar filtros de dimensão e divisão
 
@@ -60,15 +59,15 @@ Por padrão, o gráfico mostra as 24 horas mais recentes de dados de métricas. 
 
 - A **filtragem** permite que você escolha quais valores de dimensão serão incluídos no gráfico. Por exemplo, talvez você queira mostrar solicitações bem-sucedidas ao representar o gráfico da métrica de *tempo de resposta do servidor* . Você precisaria aplicar o filtro no *sucesso da dimensão de solicitação* . 
 
-- **Dividir** controles se o gráfico exibe linhas separadas para cada valor de uma dimensão ou agrega os valores em uma única linha. Por exemplo, você pode ver uma linha para um tempo médio de resposta em todas as instâncias de servidor ou ver linhas separadas para cada servidor. Você precisaria aplicar a divisão na dimensão de *instância do servidor* para ver linhas separadas.
+- A **divisão** controla se o gráfico exibe linhas separadas para cada valor de uma dimensão ou se agrega os valores em uma única linha. Por exemplo, você pode ver uma linha para um tempo médio de resposta em todas as instâncias de servidor ou ver linhas separadas para cada servidor. Você precisaria aplicar a divisão na dimensão de *instância do servidor* para ver linhas separadas.
 
-Veja [exemplos dos gráficos](metric-chart-samples.md) que têm a filtragem e a divisão aplicada. O artigo mostra as etapas usadas para configurar os gráficos.
+Confira [exemplos de gráficos](metric-chart-samples.md) que têm a filtragem e a divisão aplicadas. O artigo mostra as etapas usadas para configurar os gráficos.
 
-## <a name="advanced-chart-settings"></a>Configurações avançadas do gráfico
+## <a name="advanced-chart-settings"></a>Configurações de gráfico avançadas
 
-Você pode personalizar o estilo do gráfico, o título e modificar as configurações avançadas do gráfico. Quando terminar com a personalização, fixe-a em um painel para salvar seu trabalho. Você também pode configurar alertas de métricas. Siga a [documentação do produto](metrics-charts.md) para saber mais sobre esses e outros recursos avançados do Azure monitor métricas Explorer.
+Você pode personalizar o estilo do gráfico, o título e modificar as configurações avançadas do gráfico. Quando terminar a personalização, fixe-a em um painel para salvar seu trabalho. Você também pode configurar alertas de métricas. Siga a [documentação do produto](metrics-charts.md) para saber mais sobre esses e outros recursos avançados do Azure monitor métricas Explorer.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Saiba mais sobre os recursos avançados do Metrics Explorer](metrics-charts.md)
 * [Solução de problemas Metrics Explorer](metrics-troubleshoot.md)

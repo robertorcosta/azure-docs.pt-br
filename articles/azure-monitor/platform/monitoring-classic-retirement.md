@@ -3,17 +3,16 @@ title: Atualização do monitoramento clássico de & de alertas no Azure Monitor
 description: Descrição da desativação de serviços e funcionalidades de monitoramento clássicos, mostrada anteriormente em portal do Azure em alertas (clássico).
 author: yanivlavi
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: f4639d46a796924b4fe1dcbb46735abea128388f
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: dec4d6824644cabf8b1872da207b8554fee0b3d3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307095"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659468"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>O alerta e monitoramento unificados no Monitor do Azure substituem o alerta e monitoramento clássicos
 
@@ -76,9 +75,9 @@ Este artigo será links serão atualizadas continuamente e detalhes sobre o moni
 
 ## <a name="pricing-for-migrated-alert-rules"></a>Preços das regras de alerta migradas
 
-Estamos implantando uma ferramenta de migração para ajudá-lo a migrar seus [alertas Azure monitor clássicos](../../azure-monitor/platform/alerts-classic.overview.md) para a nova experiência de alertas. As regras de alerta migradas e os grupos de ações migrados correspondentes (email, webhook ou LogicApp) permanecerão livres de encargos. A funcionalidade que você tinha com os alertas clássicos, incluindo a capacidade de editar o limite, o tipo e a granularidade da agregação, continuará disponível gratuitamente com sua regra de alerta migrada. No entanto, caso edite a regra de alerta migrada para usar algum dos recursos, das notificações ou dos tipos de ação da nova plataforma de alertas, uma cobrança correspondente será aplicada. Para obter mais informações sobre os preços das regras e notificações de alerta, consulte [preços de Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
+Estamos implantando uma ferramenta de migração para ajudá-lo a migrar seus [alertas Azure monitor clássicos](../../azure-monitor/platform/alerts-classic.overview.md) para a nova experiência de alertas. As regras de alerta migradas e os grupos de ação migrados correspondentes (email, webhook ou LogicApp) permanecerão livres de encargos. A funcionalidade que você tinha com alertas clássicos, incluindo a capacidade de editar o limite, o tipo de agregação e a granularidade de agregação, continuará disponível gratuitamente com sua regra de alerta migrada. No entanto, se você editar a regra de alerta migrada para usar qualquer um dos novos recursos, notificações ou tipos de ação da nova plataforma de alerta, uma cobrança correspondente será aplicada. Para obter mais informações sobre os preços das regras e notificações de alerta, consulte [preços de Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
-Os seguintes exemplos mostram casos em que você poderá incorrer em cobrança pela regra de alerta:
+Veja a seguir exemplos de casos em que você incorrerá em um encargo para sua regra de alerta:
 
 - Qualquer nova regra de alerta (não migrada) criada além das unidades gratuitas, na nova plataforma do Monitor do Azure
 - Qualquer dado ingerido e retido além das unidades gratuitas incluídas pelo Monitor do Azure

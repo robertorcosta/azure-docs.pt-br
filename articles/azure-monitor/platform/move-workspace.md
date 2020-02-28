@@ -1,18 +1,17 @@
 ---
 title: Mover um espaço de trabalho Log Analytics no Azure Monitor | Microsoft Docs
 description: Saiba como mover seu espaço de trabalho Log Analytics para outra assinatura ou grupo de recursos.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: 4baa65ca5dda6b266cd6c739225ebd01d011268c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9213ddf034e725f6e31c9280d47bd13e4703b3f4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980096"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659485"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Mover um espaço de trabalho Log Analytics para uma assinatura ou grupo de recursos diferente
 
@@ -35,8 +34,8 @@ As soluções gerenciadas que estão instaladas no espaço de trabalho serão mo
 Soluções que devem ser removidas para que você possa desvincular sua conta de automação:
 
 - Gerenciamento de atualização
-- Alterar acompanhamento
-- Inicie/pare VMs durante os horários inativos
+- Controle de Alterações
+- Iniciar/Parar VMs durante os horários inativos
 
 
 ### <a name="delete-in-azure-portal"></a>Exclusão no Portal do Azure
@@ -106,5 +105,5 @@ Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000
 > Após a operação de movimentação, as soluções removidas e o link da conta de automação devem ser reconfigurados para colocar o espaço de trabalho de volta ao estado anterior.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 - Para obter uma lista dos recursos que dão suporte à movimentação, consulte [mover suporte de operação para recursos](../../azure-resource-manager/management/move-support-resources.md).

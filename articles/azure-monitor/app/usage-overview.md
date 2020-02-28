@@ -1,18 +1,14 @@
 ---
 title: Usar análise com o Azure Application Insights | Microsoft Docs
 description: Compreenda seus usuários e o que eles fazem com o seu aplicativo.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/19/2019
-ms.openlocfilehash: aa37717c5037294c2b5ec61f7815b007cbf74992
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 9f34267a1820f8b2365a41569bd3c8eaed9f2f9c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73884817"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671011"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análise de uso com o Application Insights
 
@@ -170,10 +166,10 @@ Para aplicativos [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) , 
 
 Todos os novos TelemetryClients adicionam automaticamente o valor da propriedade que você especificar. Eventos de telemetria individuais podem substituir os valores padrão.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
    - [Usuários, Sessões, Eventos](usage-segmentation.md)
    - [Funis](usage-funnels.md)
    - [Retenção](usage-retention.md)
    - [Fluxos de Usuário](usage-flows.md)
    - [Pastas de trabalho](../../azure-monitor/app/usage-workbooks.md)
-   - [Adicionar o contexto de usuário](usage-send-user-context.md)
+   - [Adicionar contexto de usuário](usage-send-user-context.md)

@@ -8,12 +8,12 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3de84e2d814acfca67bc722243a90fa41f6536e1
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: df27a77c202951a6c789703f12712e75bd8b5906
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161674"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656956"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticação e autorização para âncoras espaciais do Azure
 
@@ -45,38 +45,38 @@ Duas chaves são disponibilizadas, que são simultaneamente válidas para acesso
 
 O SDK tem suporte interno para autenticação com chaves de conta; Você simplesmente precisa definir a propriedade AccountKey em seu objeto cloudSession.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 this.cloudSession.Configuration.AccountKey = @"MyAccountKey";
 ```
 
-# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 _cloudSession.configuration.accountKey = @"MyAccountKey";
 ```
 
-# <a name="swifttabswift"></a>[Swift](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 _cloudSession!.configuration.accountKey = "MyAccountKey"
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```java
 mCloudSession.getConfiguration().setAccountKey("MyAccountKey");
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++NDK](#tab/cpp)
 
 ```cpp
 auto configuration = cloudSession_->Configuration();
 configuration->AccountKey(R"(MyAccountKey)");
 ```
 
-# <a name="c-winrttabcppwinrt"></a>[C++WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++WinRT](#tab/cppwinrt)
 
 ```cpp
 auto configuration = m_cloudSession.Configuration();
@@ -120,38 +120,38 @@ Para aplicativos que visam Azure Active Directory usuários, a abordagem recomen
 
 Com isso, seu aplicativo deve ser capaz de obter do MSAL um token do Azure AD; Você pode definir esse token do Azure AD como o **authenticationToken** em seu objeto de configuração de sessão de nuvem.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 this.cloudSession.Configuration.AuthenticationToken = @"MyAuthenticationToken";
 ```
 
-# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 _cloudSession.configuration.authenticationToken = @"MyAuthenticationToken";
 ```
 
-# <a name="swifttabswift"></a>[Swift](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 _cloudSession!.configuration.authenticationToken = "MyAuthenticationToken"
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```java
 mCloudSession.getConfiguration().setAuthenticationToken("MyAuthenticationToken");
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++NDK](#tab/cpp)
 
 ```cpp
 auto configuration = cloudSession_->Configuration();
 configuration->AuthenticationToken(R"(MyAuthenticationToken)");
 ```
 
-# <a name="c-winrttabcppwinrt"></a>[C++WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++WinRT](#tab/cppwinrt)
 
 ```cpp
 auto configuration = m_cloudSession.Configuration();
@@ -211,38 +211,38 @@ E a resposta contém o token MR em texto sem formatação.
 
 Esse token Sr é retornado para o cliente. Seu aplicativo cliente pode defini-lo como seu token de acesso na configuração da sessão de nuvem.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 this.cloudSession.Configuration.AccessToken = @"MyAccessToken";
 ```
 
-# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 _cloudSession.configuration.accessToken = @"MyAccessToken";
 ```
 
-# <a name="swifttabswift"></a>[Swift](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 _cloudSession!.configuration.accessToken = "MyAccessToken"
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```java
 mCloudSession.getConfiguration().setAccessToken("MyAccessToken");
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++NDK](#tab/cpp)
 
 ```cpp
 auto configuration = cloudSession_->Configuration();
 configuration->AccessToken(R"(MyAccessToken)");
 ```
 
-# <a name="c-winrttabcppwinrt"></a>[C++WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++WinRT](#tab/cppwinrt)
 
 ```cpp
 auto configuration = m_cloudSession.Configuration();
@@ -259,12 +259,18 @@ Para ajudar a controlar o nível de acesso concedido a aplicativos, serviços ou
 - **Colaborador de conta de âncoras espaciais**: os aplicativos ou usuários que têm essa função podem criar âncoras espaciais, consultá-los, mas não podem excluí-los.
 - **Leitor de conta de âncoras espaciais**: os aplicativos ou usuários que têm essa função só podem consultar âncoras espaciais, mas não podem criar novos, excluir ou atualizar metadados em âncoras espaciais. Normalmente, isso é usado para aplicativos em que alguns usuários separam o ambiente, enquanto outros só podem recuperar âncoras previamente colocadas nesse ambiente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Crie seu primeiro aplicativo com âncoras espaciais do Azure.
 
 > [!div class="nextstepaction"]
-> [Unity](../unity-overview.yml)
+> [Unity (HoloLens)](../quickstarts/get-started-unity-hololens.md)
+
+> [!div class="nextstepaction"]
+> [Unity (iOS)](../quickstarts/get-started-unity-ios.md)
+
+> [!div class="nextstepaction"]
+> [Unity (Android)](../quickstarts/get-started-unity-android.md)
 
 > [!div class="nextstepaction"]
 > [iOS](../quickstarts/get-started-ios.md)
@@ -274,3 +280,9 @@ Crie seu primeiro aplicativo com âncoras espaciais do Azure.
 
 > [!div class="nextstepaction"]
 > [HoloLens](../quickstarts/get-started-hololens.md)
+
+> [!div class="nextstepaction"]
+> [Xamarin (Android)](../quickstarts/get-started-xamarin-android.md)
+
+> [!div class="nextstepaction"]
+> [Xamarin (iOS)](../quickstarts/get-started-xamarin-ios.md)

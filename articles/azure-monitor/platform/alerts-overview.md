@@ -1,32 +1,26 @@
 ---
 title: Visão geral de alertas e monitoramento de notificações do Azure
 description: Visão geral de alertas no Azure. Alertas, alertas clássicos e a interface de alertas.
-ms.service: azure-monitor
 ms.subservice: alerts
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: 7f6c7f22cef1cf49a9ff7b2cb87716abd61821c4
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: 7ca77531ed3e1fae8ec297e430597452c7512aea
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830319"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665657"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Visão geral dos alertas no Microsoft Azure 
 
 Este artigo descreve o que são alertas, seus benefícios e como começar a usá-los.  
-
-
-
 
 ## <a name="what-are-alerts-in-microsoft-azure"></a>O que são os alertas no Microsoft Azure?
 Os alertas trabalham de forma proativa, mandando notificações quando encontram condições importante em seus dados de monitoramento. Eles permitem que você identifique e resolva problemas antes que os usuários do seu sistema os percebam. 
 
 Este artigo aborda a experiência de alerta unificada no Azure Monitor, que inclui alertas que foram gerenciados anteriormente pelo Log Analytics e Application Insights. A [experiência anterior de alerta](alerts-classic.overview.md) e os tipos de alerta são chamados de *alertas clássicos*. Você pode exibir essa experiência mais antiga e o tipo de alerta mais antigo selecionando **exibir alertas clássicos** na parte superior da página de alerta. 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 O diagrama a seguir representa o fluxo de alertas. 
 
@@ -41,45 +35,48 @@ Veja a seguir os principais atributos de uma regra de alerta:
 **Sinal**: emitido pelo recurso de destino. Os sinais podem ser dos seguintes tipos: métrica, log de atividades, Application Insights e log.
 
 **Critérios**: uma combinação de sinal e lógica aplicada em um recurso de destino. Exemplos: 
-   - Porcentagem de CPU > 70%
-   - Tempo de resposta do servidor > 4 ms 
-   - Contagem de resultados de uma consulta de log > 100
+
+- Porcentagem de CPU > 70%
+- Tempo de resposta do servidor > 4 ms 
+- Contagem de resultados de uma consulta de log > 100
 
 **Nome do alerta**: um nome específico para a regra de alerta configurada pelo usuário.
 
 **Descrição do alerta**: uma descrição para a regra de alerta configurada pelo usuário.
 
 **Severidade**: a severidade do alerta depois que os critérios especificados na regra de alerta são atendidos. A gravidade pode variar de 0 a 4.
-   - Sev 0 = crítico
-   - Sev 1 = erro
-   - Sev 2 = aviso
-   - Sev 3 = informativo
-   - Sev 4 = detalhado 
+
+- Sev 0 = crítico
+- Sev 1 = erro
+- Sev 2 = aviso
+- Sev 3 = informativo
+- Sev 4 = detalhado 
 
 **Ação**: uma ação específica executada quando o alerta é acionado. Para obter mais informações, consulte [Grupos de Ações](../../azure-monitor/platform/action-groups.md).
 
 ## <a name="what-you-can-alert-on"></a>Sobre o que você pode alertar
 
 Você pode alertar sobre métricas e logs, conforme descrito em [monitorando fontes de dados](../../azure-monitor/platform/data-sources.md). Elas incluem, mas sem limitação:
+
 - Valores métricos
 - Consultas da pesquisa de logs
-- Eventos de log de atividades
+- Eventos do log de atividades
 - Integridade da plataforma subjacente do Azure
 - Testes de disponibilidade do site
 
 Antes, as métricas do Azure Monitor, o Application Insights, o Log Analytics e a Integridade do Serviço tinham recursos de alerta separados. Com o tempo, o Azure aprimorou e combinou a interface de usuário e os diferentes métodos de alerta. Essa consolidação ainda está em processo. Como resultado, ainda há alguns recursos de alerta que não estão no novo sistema de alertas.  
 
-| **Monitor de origem** | **Tipo de sinal**  | **Descrição** | 
+| **Monitor de origem** | **Tipo de sinal**  | **Descrição** |
 |-------------|----------------|-------------|
-| Integridade do serviço | Logs de atividades  | Sem suporte. Consulte [Criar alertas do log de atividades em notificações de serviço](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
-| Percepções sobre o Aplicativo | Testes de disponibilidade na Web | Sem suporte. Consulte [Alertas de teste da Web](../../azure-monitor/app/monitor-web-app-availability.md). Disponível para qualquer site que seja instrumentado para enviar dados ao Application Insights. Receba uma notificação quando a disponibilidade ou capacidade de resposta de um site estiver abaixo das expectativas. |
+| Integridade do serviço | Log de atividades  | {1&gt;Sem suporte.&lt;1} Consulte [Criar alertas do log de atividades em notificações de serviço](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
+| Application Insights | Testes de disponibilidade na Web | {1&gt;Sem suporte.&lt;1} Consulte [Alertas de teste da Web](../../azure-monitor/app/monitor-web-app-availability.md). Disponível para qualquer site que seja instrumentado para enviar dados ao Application Insights. Receba uma notificação quando a disponibilidade ou capacidade de resposta de um site estiver abaixo das expectativas. |
 
 ## <a name="manage-alerts"></a>Gerenciar alertas
 Você pode definir o estado de um alerta para especificar onde ele está no processo de resolução. Quando os critérios especificados na regra de alerta são atendidos, um alerta é criado ou acionado e tem um status *novo*. É possível alterar o status ao reconhecer um alerta e ao fechá-lo. Todas as alterações de estado são armazenadas no histórico do alerta.
 
 Os seguintes estados de alerta são compatíveis.
 
-| Estado | Description |
+| Estado | Descrição |
 |:---|:---|
 | Novo | O problema acabou de ser detectado e ainda não foi revisado. |
 | Confirmado | Um administrador examinou o alerta e começou a trabalhar nele. |
@@ -106,15 +103,15 @@ Ele não mostra nem rastreia alertas clássicos. Você pode alterar as assinatur
 
 Você pode filtrar essa exibição selecionando valores nos menus suspensos na parte superior da página.
 
-| Column | Description |
+| Coluna | Descrição |
 |:---|:---|
-| Subscription | Selecione as assinaturas do Azure para as quais você deseja exibir os alertas. Opcionalmente, você pode optar por selecionar todas as suas assinaturas. Somente os alertas aos quais você tem acesso nas assinaturas selecionadas são incluídos na exibição. |
+| Assinatura | Selecione as assinaturas do Azure para as quais você deseja exibir os alertas. Opcionalmente, você pode optar por selecionar todas as suas assinaturas. Somente os alertas aos quais você tem acesso nas assinaturas selecionadas são incluídos na exibição. |
 | Grupo de recursos | Selecione um único grupo de recursos. Somente alertas com destinos no grupo de recursos selecionado são incluídos na exibição. |
-| Intervalo de horas | Somente os alertas acionados no intervalo de tempo selecionado são incluídos na exibição. Os valores com suporte são a última hora, as últimas 24 horas, os últimos 7 dias e os últimos 30 dias. |
+| Intervalo de tempo | Somente os alertas acionados no intervalo de tempo selecionado são incluídos na exibição. Os valores com suporte são a última hora, as últimas 24 horas, os últimos 7 dias e os últimos 30 dias. |
 
 Selecione os seguintes valores na parte superior da página alertas para abrir outra página:
 
-| Valor | Description |
+| {1&gt;Valor&lt;1} | Descrição |
 |:---|:---|
 | Total de alertas | O número total de alertas que correspondem aos critérios selecionados. Selecione esse valor para abrir a exibição Todos os Alertas sem filtro. |
 | Grupos inteligentes | O número total de grupos inteligentes que foram criados a partir dos alertas que correspondem aos critérios selecionados. Selecione esse valor para abrir a lista de grupos inteligentes na exibição Todos os Alertas.
@@ -149,17 +146,17 @@ Para ver a página **todos os alertas** , selecione **total de alertas**. Aqui v
 
 Você pode filtrar a exibição selecionando os seguintes valores nos menus suspensos na parte superior da página:
 
-| Column | Description |
+| Coluna | Descrição |
 |:---|:---|
-| Subscription | Selecione as assinaturas do Azure para as quais você deseja exibir os alertas. Opcionalmente, você pode optar por selecionar todas as suas assinaturas. Somente os alertas aos quais você tem acesso nas assinaturas selecionadas são incluídos na exibição. |
+| Assinatura | Selecione as assinaturas do Azure para as quais você deseja exibir os alertas. Opcionalmente, você pode optar por selecionar todas as suas assinaturas. Somente os alertas aos quais você tem acesso nas assinaturas selecionadas são incluídos na exibição. |
 | Grupo de recursos | Selecione um único grupo de recursos. Somente alertas com destinos no grupo de recursos selecionado são incluídos na exibição. |
 | Tipo de recurso | Selecione um ou mais tipos de recurso. Somente alertas com destinos do tipo selecionado são incluídos na exibição. Essa coluna somente estará disponível depois que um grupo de recursos for especificado. |
-| Grupos | Selecione um recurso. Apenas alertas com esse recurso como um destino são incluídos na exibição. Essa coluna somente estará disponível depois que um tipo de recurso for especificado. |
-| Gravidade | Selecione uma gravidade de alerta ou selecione **Todos** para incluir alertas de todas as gravidades. |
+| Recurso | Selecione um recurso. Apenas alertas com esse recurso como um destino são incluídos na exibição. Essa coluna somente estará disponível depois que um tipo de recurso for especificado. |
+| Severity | Selecione uma gravidade de alerta ou selecione **Todos** para incluir alertas de todas as gravidades. |
 | Monitorar condição | Selecione uma condição de monitor ou selecione **tudo** para incluir alertas de todas as condições. |
 | Estado de alerta | Selecione um estado de alerta ou selecione **todos** para incluir alertas de todos os Estados. |
 | Monitorar serviço | Selecione um serviço ou selecione **Todos** para incluir todos os serviços. Apenas alertas criados por regras que usam o serviço como um destino são incluídos. |
-| Intervalo de horas | Somente os alertas acionados no intervalo de tempo selecionado são incluídos na exibição. Os valores com suporte são a última hora, as últimas 24 horas, os últimos 7 dias e os últimos 30 dias. |
+| Intervalo de tempo | Somente os alertas acionados no intervalo de tempo selecionado são incluídos na exibição. Os valores com suporte são a última hora, as últimas 24 horas, os últimos 7 dias e os últimos 30 dias. |
 
 Selecione **colunas** na parte superior da página para selecionar quais colunas mostrar. 
 
@@ -170,11 +167,11 @@ Quando você seleciona um alerta, essa página fornece detalhes do alerta e perm
 
 A página detalhes do alerta inclui as seguintes seções:
 
-| Seção | Description |
+| Seção | Descrição |
 |:---|:---|
 | Resumo | Exibe as propriedades e outras informações significativas sobre o alerta. |
 | Histórico | Lista cada ação realizada pelo alerta e todas as alterações feitas no alerta. Atualmente limitado a alterações de estado. |
-| Diagnóstico | Informações sobre o grupo inteligente no qual o alerta está incluído. A *contagem de alerta* refere-se ao número de alertas incluídos no grupo inteligente. Inclui outros alertas no mesmo grupo inteligente que foram criados nos últimos 30 dias, independentemente do filtro de tempo na página de lista de alertas. Selecione um alerta para exibir os detalhes. |
+| Diagnósticos | Informações sobre o grupo inteligente no qual o alerta está incluído. A *contagem de alerta* refere-se ao número de alertas incluídos no grupo inteligente. Inclui outros alertas no mesmo grupo inteligente que foram criados nos últimos 30 dias, independentemente do filtro de tempo na página de lista de alertas. Selecione um alerta para exibir os detalhes. |
 
 ## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>RBAC (controle de acesso baseado em função) para suas instâncias de alerta
 
@@ -205,7 +202,7 @@ Você pode consultar os alertas para seus campos [essenciais](alerts-common-sche
 
 Use a [API REST do gerenciamento de alertas](https://aka.ms/alert-management-api) para obter mais informações sobre alertas específicos, incluindo seus campos de [contexto de alerta](alerts-common-schema-definitions.md#alert-context) .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Saiba mais sobre os grupos inteligentes](https://aka.ms/smart-groups)
 - [Saiba mais sobre grupos de ação](../../azure-monitor/platform/action-groups.md)

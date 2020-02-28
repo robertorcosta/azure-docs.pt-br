@@ -1,18 +1,17 @@
 ---
 title: Otimizar seu ambiente do System Center Operations Manager com o Azure Log Analytics | Microsoft Docs
 description: Você pode usar a solução System Center Operations Manager Health Check para avaliar o risco e a integridade de seus ambientes em intervalos regulares.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: 5ec0f181d9d22e9e1183a59a4fbd7d77e658862e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c8add2acb8f263c54f6014699f792380d256d9b0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402859"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663463"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Otimizar seu ambiente com a solução System Center Operations Manager Health Check (Versão prévia)
 
@@ -58,7 +57,7 @@ A solução Verificação de Integridade do System Center Operations Manager col
 * Registro
 * WMI (Instrumentação de Gerenciamento do Windows)
 * Log de eventos
-* Dados de arquivo
+* Dados de arquivos
 * Diretamente do Operations Manager usando o PowerShell e as consultas SQL, de um servidor de gerenciamento que você especificou.  
 
 Os dados são coletados no servidor de gerenciamento e encaminhados para o Log Analytics a cada sete dias.  
@@ -180,8 +179,8 @@ Cada recomendação feita recebe um valor de ponderação que identifica a impor
 
 Os pesos são valores agregados com base em três fatores principais:
 
-- A *probabilidade* de que um problema identificado cause problemas. Uma probabilidade mais alta é igual a uma pontuação geral maior para a recomendação.
-- O *impacto* da questão na sua organização se ela causar um problema. Um impacto maior é igual a uma pontuação geral maior para a recomendação.
+- A *probabilidade* que um problema identificado causar problemas. Uma probabilidade mais alta é igual a uma pontuação geral maior para a recomendação.
+- O *impacto* do problema na sua organização se ele causar um problema. Um impacto maior é igual a uma pontuação geral maior para a recomendação.
 - O *esforço* necessário para implementar a recomendação. Um esforço maior é igual a uma pontuação geral menor para a recomendação.
 
 A importância de cada recomendação é expressa como um percentual da pontuação total disponível para todas as áreas de foco. Por exemplo, se uma recomendação na área de foco Disponibilidade e Continuidade de Negócios tiver uma pontuação de 5%, implementar essa recomendação aumentará a pontuação geral da Disponibilidade e Continuidade de Negócios em 5%.
@@ -215,7 +214,7 @@ Veja as avaliações de conformidade resumidas para sua infraestrutura e faça u
 4. Na página **Visão Geral**, clique no bloco **System Center Operations Manager Health Check**.
 5. Na página **System Center Operations Manager Health Check**, analise as informações de resumo em uma das folhas da área de foco e clique em uma para exibir as recomendações dessa área de foco.
 6. Em qualquer uma das páginas da área de foco, você pode exibir as recomendações priorizadas para seu ambiente. Clique em uma recomendação sob **Objetos Afetados** para exibir detalhes sobre o motivo pelo qual a recomendação foi feita.<br><br> ![área de foco](./media/scom-assessment/log-analytics-scom-healthcheck-dashboard-02.png)<br>
-7. É possível executar as ações corretivas sugeridas em **Ações Sugeridas**. Quando o item tiver sido resolvido, avaliações posteriores gravarão que essas ações recomendadas foram executadas e sua pontuação de conformidade aumentará. Os itens corrigido aparecem como **Objetos Passados**.
+7. É possível executar as ações corretivas sugeridas em **Ações Sugeridas**. Quando o item tiver sido resolvido, avaliações posteriores gravarão que essas ações recomendadas foram executadas e sua pontuação de conformidade aumentará. Os itens corrigidos aparecem como **Objetos Passados**.
 
 ## <a name="ignore-recommendations"></a>Ignorar as recomendações
 
@@ -294,6 +293,6 @@ Se houver recomendações que você deseja ignorar, poderá criar um arquivo de 
 *É possível ignorar uma recomendação?* Sim, consulte [Ignorar recomendações](#ignore-recommendations).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Pesquisar logs](../../azure-monitor/log-query/log-query-overview.md) para aprender como analisar dados detalhados e recomendações do System Center Operations Manager Health Check.

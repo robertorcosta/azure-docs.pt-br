@@ -1,18 +1,17 @@
 ---
 title: Exemplos de consulta de log do Azure Monitor | Microsoft Docs
 description: Exemplos de consultas de log no Azure Monitor usando a linguagem de consulta do Kusto.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/01/2019
-ms.openlocfilehash: 8850aef8b5d45f236385551a1455e6fe7b540340
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 9bfadf55e4f68bb7188b27e4ef5bc03e3955f375
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614455"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662041"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Exemplos de consulta de log do Azure Monitor
 Este artigo inclui vários exemplos de [consultas](log-query-overview.md) usando a [linguagem de consulta do Kusto](/azure/kusto/query/) para recuperar os diferentes tipos de dados de log do Azure Monitor. Diferentes métodos são usados para consolidar e analisar os dados, de modo que você pode usar esses exemplos para identificar estratégias diferentes que pode usar para seus próprios requisitos.  
@@ -73,7 +72,7 @@ Heartbeat
 ### <a name="match-protected-status-records-with-heartbeat-records"></a>Corresponder os registros de status protegidos com os registros de pulsação
 
 Este exemplo localiza os registros de status de proteção e os registros de pulsação relacionados, correspondidos quanto ao computador e também quanto à hora.
-Observe que o campo de hora será arredondado para o minuto mais próximo. Usamos o cálculo de compartimentalização do tempo de execução para fazer isso: `round_time=bin(TimeGenerated, 1m)`.
+Observe que o campo de hora será arredondado para o minuto mais próximo. Usamos o cálculo de compartimentalização do runtime para fazer isso: `round_time=bin(TimeGenerated, 1m)`.
 
 ```Kusto
 let protection_data = ProtectionStatus
@@ -429,7 +428,7 @@ Update
 ```
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Veja a [Referência da linguagem Kusto](/azure/kusto/query) para obter detalhes sobre a linguagem.
 - Confira uma [lição sobre as consultas de log de gravação no Azure Monitor](get-started-queries.md).

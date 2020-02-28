@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/25/2020
+ms.date: 02/26/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b974869d1462f449e8a241a5925ef345170b493a
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 08f770ced6cb1ec1102159788e1583d481436b08
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623869"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672490"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arquitetura de alta disponibilidade e cenários para SAP NetWeaver
 
@@ -344,7 +344,7 @@ As seções a seguir abordam como alcançar alta disponibilidade para todos os t
 
 > Esta seção aplica-se a:
 >
-> ![Windows][Logo_Windows] Windows e ![Linux][Logo_Linux] Linux
+> ![Portal][Logo_Windows] Windows e ![Linux][Logo_Linux] Linux
 >
 
 Normalmente, não é necessária uma solução específica de alta disponibilidade para servidor de aplicativos SAP e instâncias de diálogo. Você atinge alta disponibilidade por redundância e configura várias instâncias de caixa de diálogo em várias instâncias de máquinas virtuais do Azure. Você deve ter pelo menos duas instâncias do aplicativo SAP instaladas em duas máquinas virtuais do Azure.
@@ -382,7 +382,7 @@ Para obter mais informações, consulte a seção [conjuntos de disponibilidade 
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-windows"></a>Arquitetura de alta disponibilidade para uma instância do SAP ASCS/SCS no Windows
 
-> ![Windows][Logo_Windows] Windows
+> ![Portal][Logo_Windows] Portal
 >
 
 Você pode usar uma solução WSFC para proteger a instância SAP ASCS/SCS. A solução tem duas variantes:
@@ -404,7 +404,7 @@ Para obter mais informações sobre como agrupar a instância do SAP ASCS/SCS em
 
 ### <a name="sap-netweaver-multi-sid-configuration-for-a-clustered-sap-ascsscs-instance"></a>Configuração multi-SID do SAP NetWeaver para uma instância do SAP ASCS/SCS em cluster
 
-> ![Windows][Logo_Windows] Windows
+> ![Portal][Logo_Windows] Portal
 > 
 > Há suporte para vários SID com o WSFC, usando o compartilhamento de arquivos e o disco compartilhado.
 > 
@@ -420,6 +420,7 @@ Para obter mais informações sobre como agrupar a instância do SAP ASCS/SCS em
 > Para obter mais informações sobre a arquitetura de alta disponibilidade de vários SIDs no Linux, consulte:
 
 * [HA para SAP NW em VMs do Azure no SLES para aplicativos SAP guia de vários SIDs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
+* [HA para SAP NW em VMs do Azure no RHEL para aplicativos SAP guia de vários SIDs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
 
 ### <a name="high-availability-dbms-instance"></a>Instância do DBMS de alta disponibilidade
 

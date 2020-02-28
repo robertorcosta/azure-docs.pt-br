@@ -1,20 +1,16 @@
 ---
 title: Amostragem de telemetria no Azure Application Insights | Microsoft Docs
 description: Como manter o volume de telemetria sob controle.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9fda3bb0188a2030572ee686ff5a942aca61ea36
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: fc9db23f7733f97ca207e834d4543fbdb1b9db5c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989970"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671487"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -565,7 +561,7 @@ A amostragem de taxa fixa é um recurso do SDK em versões do ASP.NET do 2.0.0 e
 
 Antes do v 2.5.0-beta2 do SDK do ASP.NET e v 2.2.0-Beta3 do SDK ASP.NET Core, a decisão de amostragem foi baseada no hash da ID de usuário para aplicativos que definem "user" (ou seja, a maioria dos aplicativos Web típicos). Para os tipos de aplicativos que não definiram os usuários (como serviços Web), a decisão de amostragem foi baseada na ID da operação da solicitação. As versões recentes dos SDKs ASP.NET e ASP.NET Core usam a ID da operação para a decisão de amostragem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [filtragem](../../azure-monitor/app/api-filtering-sampling.md) pode fornecer um controle mais restrito do que o SDK envia.
 * Leia o artigo rede do desenvolvedor [otimizar a telemetria com Application insights](https://msdn.microsoft.com/magazine/mt808502.aspx).

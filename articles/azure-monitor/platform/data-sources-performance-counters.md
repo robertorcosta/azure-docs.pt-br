@@ -1,18 +1,17 @@
 ---
 title: Coletar e analisar contadores de desempenho no Azure Monitor | Microsoft Docs
 description: Os contadores de desempenho são coletados pelo Azure Monitor para analisar o desempenho em agentes do Windows e do Linux.  Este artigo descreve como configurar a coleta de contadores de desempenho para agentes do Linux e do Windows, cujos detalhes são armazenados no workspace, e como analisá-los no portal do Azure.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 624996c86423bf486111fde8743117ea888862e7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d1a972a1d89066b961f2dcc28fba830e3a04ebc1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363822"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670535"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Fontes de dados de desempenho do Windows e do Linux no Azure Monitor
 Os contadores de desempenho no Windows e Linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operacionais e aplicativos.  O Azure Monitor pode coletar contadores de desempenho em intervalos frequentes para análises NRT (Near Real Time), além de agregar dados de desempenho para análise e relatório de longo prazo.
@@ -26,7 +25,7 @@ Ao configurar os contadores de desempenho do Windows ou do Linux para um novo wo
 
 Para os contadores de desempenho do Windows, você pode escolher uma instância específica para cada contador de desempenho. Para os contadores de desempenho do Linux, a instância de cada contador escolhido se aplicará a todos os contadores filhos do contador pai. A tabela a seguir mostra as instâncias comuns disponíveis para os contadores de desempenho do Linux e do Windows.
 
-| Nome da instância | Description |
+| Nome da instância | Descrição |
 | --- | --- |
 | \_Total |Total de todas as instâncias |
 | \* |Todas as instâncias |
@@ -74,71 +73,71 @@ Cada objeto, ou categoria, de métricas de desempenho a ser coletado deve ser de
 
 Os parâmetros usados com este comando são descritos na tabela a seguir.
 
-| Parâmetros | Description |
+| Parâmetros | Descrição |
 |:--|:--|
 | object\_name | O nome do objeto da coleção. |
 | instance\_regex |  Uma *expressão regular* que define quais instâncias serão coletadas. O valor: `.*` especifica todas as instâncias. Para coletar métricas de processador somente para a instância \_Total, você poderia especificar `_Total`. Para coletar métricas de processador somente para a instância _Total, você poderia especificar: `(crond\|sshd)`. |
 | counter\_name\_regex | Uma *expressão regular* que define os contadores (para o objeto) a serem coletados. Para coletar todos os contadores para o objeto, especifique: `.*`. Para coletar somente os contadores de espaço de permuta para o objeto de memória, por exemplo, você poderia especificar: `.+Swap.+` |
-| intervalo | A frequência na qual os contadores do objeto são coletados. |
+| interval | A frequência na qual os contadores do objeto são coletados. |
 
 
 A tabela a seguir lista os objetos e contadores que você pode especificar no arquivo de configuração.  Há contadores adicionais disponíveis para alguns aplicativos, conforme descrito em [Coletar contadores de desempenho para aplicativos do Linux no Azure Monitor](data-sources-linux-applications.md).
 
-| Nome do Objeto | Nome do contador |
+| Nome do Objeto | Nome do Contador |
 |:--|:--|
-| Disco Lógico | % de Inodes livres |
-| Disco Lógico | % de Espaço Livre |
-| Disco Lógico | % de Inodes Usados |
-| Disco Lógico | % de Espaço Usado |
-| Disco Lógico | Bytes Lidos no Disco/s |
+| Disco Lógico | % de inodes livres |
+| Disco Lógico | % de espaço livre |
+| Disco Lógico | % de inodes usados |
+| Disco Lógico | % de espaço utilizado |
+| Disco Lógico | Bytes de Leitura de Disco/s |
 | Disco Lógico | Leituras de Disco/s |
-| Disco Lógico | Transferências de Disco/s |
-| Disco Lógico | Bytes Gravados no Disco/s |
+| Disco Lógico | Transferências do disco/s |
+| Disco Lógico | Bytes de Gravação de Disco/s |
 | Disco Lógico | Gravações de Disco/s |
-| Disco Lógico | Megabytes Livres |
-| Disco Lógico | Bytes de Disco Lógico/s |
-| Memória | % de Memória Disponível |
-| Memória | % de Espaço de Permuta Disponível |
-| Memória | % de Memória Usada |
-| Memória | % de Espaço de Permuta Usado |
-| Memória | MBytes de Memória Disponíveis |
-| Memória | MBytes de Espaço de Permuta Disponíveis |
+| Disco Lógico | Megabytes livres |
+| Disco Lógico | Bytes de disco lógico/s |
+| Memória | % de memória disponível |
+| Memória | % de espaço de permuta disponível |
+| Memória | % de memória utilizada |
+| Memória | % de espaço de permuta utilizado |
+| Memória | Memória de mBytes disponível |
+| Memória | Permuta de mBytes disponível |
 | Memória | Leituras de Página/s |
 | Memória | Gravações de Página/s |
-| Memória | Páginas/s |
-| Memória | MBytes de Espaço de Permuta Usado |
-| Memória | MBytes de Memória Usada |
+| Memória | Páginas/segundo |
+| Memória | Espaço de permuta de megabytes usado |
+| Memória | Megabytes de memória usados |
 | Rede | Total de Bytes Transmitidos |
 | Rede | Total de Bytes Recebidos |
-| Rede | Total de Bytes |
+| Rede | Total de bytes |
 | Rede | Total de Pacotes Transmitidos |
 | Rede | Total de Pacotes Recebidos |
 | Rede | Total de Erros de Rx |
 | Rede | Total de Erros de Tx |
 | Rede | Total de Colisões |
-| Disco Físico | Média de disco s/leitura |
-| Disco Físico | Média de disco s/transferência |
-| Disco Físico | Média de disco s/gravação |
-| Disco Físico | Bytes/s do Disco Físico |
-| Processo | % de Tempo Privilegiado |
-| Processo | % de Tempo do Usuário |
+| Disco físico | Média de disco s/leitura |
+| Disco físico | Média de disco s/transferência |
+| Disco físico | Média de disco s/gravação |
+| Disco físico | Bytes de disco físico/s |
+| Processo | Pct de tempo de privilégio |
+| Processo | Pct de tempo do usuário |
 | Processo | KBytes de Memória Usada |
-| Processo | Memória Virtual Compartilhada |
-| Processador | % de Tempo de DPC |
-| Processador | % de Tempo Ocioso |
-| Processador | % de Tempo de Interrupção |
-| Processador | % de Tempo de Espera de E/S |
-| Processador | % de Tempo Adequado |
-| Processador | % de Tempo Privilegiado |
-| Processador | % Tempo do Processador |
-| Processador | % de Tempo do Usuário |
-| Sistema | Memória Física Livre |
-| Sistema | Espaço Livre em Arquivos de Paginação |
-| Sistema | Memória Virtual Livre |
-| Sistema | Processos |
-| Sistema | Tamanho Armazenado em Arquivos de Paginação |
-| Sistema | Tempo de atividade |
-| Sistema | Usuários |
+| Processo | Memória compartilhada virtual |
+| Processador | % de tempo de DPC |
+| Processador | % de tempo ocioso |
+| Processador | % de tempo de interrupção |
+| Processador | % de tempo de espera de ES |
+| Processador | % tempo adequado |
+| Processador | % de tempo de privilégio |
+| Processador | % do tempo do processador |
+| Processador | % de tempo do usuário |
+| {1&gt;Sistema&lt;1} | Memória física livre |
+| {1&gt;Sistema&lt;1} | Espaço livre em arquivos de paginação |
+| {1&gt;Sistema&lt;1} | Memória virtual livre |
+| {1&gt;Sistema&lt;1} | Processos |
+| {1&gt;Sistema&lt;1} | Tamanho armazenado em arquivos de paginação |
+| {1&gt;Sistema&lt;1} | Atividade |
+| {1&gt;Sistema&lt;1} | Usuários |
 
 
 A seguir está a configuração padrão para as métricas de desempenho.
@@ -181,7 +180,7 @@ O Azure Monitor coleta todos os contadores de desempenho especificados em seu in
 ## <a name="performance-record-properties"></a>Propriedades do registro de desempenho
 Os registros de desempenho têm um tipo de **Perf** e têm as propriedades na tabela a seguir.
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--- |:--- |
 | Computador |Computador do qual o evento foi coletado. |
 | CounterName |Nome do contador de desempenho |
@@ -200,7 +199,7 @@ Os registros de desempenho têm um tipo de **Perf** e têm as propriedades na ta
 ## <a name="log-queries-with-performance-records"></a>Consultas de log com registros de Desempenho
 A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam registros de Desempenho.
 
-| Consulta | Description |
+| Query | Descrição |
 |:--- |:--- |
 | Perf |Todos os dados de desempenho |
 | Perf &#124; where Computer == "MyComputer" |Todos os dados de desempenho de um computador específico |
@@ -217,7 +216,7 @@ A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * [Colete contadores de desempenho de aplicativos Linux](data-sources-linux-applications.md), incluindo Apache HTTP Server e MySQL.
 * Saiba mais sobre [registrar consultas](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.  
 * Exporte os dados coletados para o [Power BI](powerbi.md) para análise e visualizações adicionais.

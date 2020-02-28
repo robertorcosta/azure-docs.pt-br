@@ -1,18 +1,17 @@
 ---
 title: Solucionar problemas de extensão de VM do Azure Log Analytics no Azure Monitor | Microsoft Docs
 description: Descreva os sintomas, as causas e a resolução dos problemas mais comuns com a extensão de VM do Log Analytics para VMs do Azure para Windows e Linux.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/06/2019
-ms.openlocfilehash: e0f41529c5daed134c6eb8efb3595e311cf5fee1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 88d76fc0c215653cf732ba7b827d82187d738fd9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363143"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658465"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Solucionando problemas da extensão de VM Log Analytics no Azure Monitor
 Este artigo fornece ajuda para solucionar erros que você pode encontrar com a extensão de VM do Log Analytics para máquinas virtuais Windows e Linux em execução no Microsoft Azure e sugere soluções possíveis para resolvê-los.
@@ -59,6 +58,6 @@ Se a extensão da VM *Agente do Log Analytics para Linux* não estiver instaland
 
 Para obter mais informações, consulte [Solucionando problemas em extensões do Linux](../../virtual-machines/extensions/oms-linux.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para mais orientações sobre solução de problemas relacionados ao agente do Log Analytics para Linux hospedado em computadores fora do Azure, consulte [Solucionar problemas do Agente do Linux do Azure Log Analytics](agent-linux-troubleshoot.md).  

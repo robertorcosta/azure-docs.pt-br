@@ -4,18 +4,17 @@ description: Simplifique a emissão de relatórios complexos com pastas de traba
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: f3a7e47d1e6ac0018c8695751ba2ea5091ddbfe8
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 3e7dda85f1f890d5ae0eb4722c3e028b373fdcab
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872818"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658210"
 ---
 # <a name="workbook-parameters"></a>Parâmetros da pasta de trabalho
 
@@ -82,7 +81,7 @@ Use a seção `Previews` do painel _Editar parâmetro_ para ver as opções de e
 
 ![Imagem mostrando as opções de parâmetro de intervalo de tempo](./media/workbooks-parameters/time-previews.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Comece a aprender mais](workbooks-visualizations.md) sobre pastas de trabalho muitas opções de visualizações ricas.
 * [Controle](workbooks-access-control.md) e compartilhe o acesso aos recursos da pasta de trabalho.

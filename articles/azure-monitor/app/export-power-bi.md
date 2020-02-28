@@ -1,18 +1,14 @@
 ---
 title: Exportar para o Power BI do Azure Application Insights | Microsoft Docs
 description: As consultas do Analytics podem ser exibidas no Power BI.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 08/10/2018
-ms.openlocfilehash: 3ec20f82bc12b60e5b88a02bb92a4a0ada4dcae7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0e17ca6e07ec76f0a7a1cb04f7aa13619fb9970c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73668017"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663990"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentar o Power BI do Application Insights
 O [Power BI](https://www.powerbi.com/) é um conjunto de ferramentas de negócios que ajudam a analisar dados e a compartilhar informações. Painéis avançados estão disponíveis em cada dispositivo. Você pode combinar dados de várias fontes, incluindo consultas do Analytics do [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -81,7 +77,7 @@ Instalar o [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
    ![Captura de tela do Power BI Desktop, com a alteração de título realçada](./media/export-power-bi/changetitle.png)
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Você pode encontrar erros relacionados às credenciais ou ao tamanho do conjunto de dados. Aqui estão algumas informações sobre o que fazer com esses erros.
 
@@ -123,7 +119,7 @@ Esse método cria um painel completo de telemetria para você. O conjunto de dad
 
 ### <a name="get-the-adapter"></a>Obter o adaptador
 1. Entre no [Power BI](https://app.powerbi.com/).
-2. Abra **Obter Dados** ![Captura de tela do ícone GetData no canto inferior esquerdo](./media/export-power-bi/001.png), **Serviços**.
+2. Abra **obter dados** ![captura de tela do ícone GetData no canto inferior esquerdo](./media/export-power-bi/001.png), **Serviços**.
 
     ![Capturas de tela de Obter da fonte de dados do Application Insights](./media/export-power-bi/002.png)
 
@@ -148,7 +144,7 @@ Você pode editar o painel, combinando os gráficos do Application Insights a ou
 
 Após a importação inicial, o painel e os relatórios continuarão a ser atualizados diariamente. Você pode controlar o agendamento de atualização no conjunto de dados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * [Power BI - Saiba mais](https://www.powerbi.com/learning/)
 * [Tutorial do Analytics](../../azure-monitor/log-query/get-started-portal.md)
 

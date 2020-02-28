@@ -1,19 +1,18 @@
 ---
 title: Pesquisas salvas em soluções de gerenciamento | Microsoft Docs
 description: As soluções de gerenciamento normalmente incluem consultas de log salvas para analisar os dados coletados pela solução. Este artigo descreve como definir Log Analytics pesquisas salvas em um modelo do Resource Manager.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/29/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ff9c45ffb636f53951a763f617c25a2e8c09088
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 61fc64e140af091b5ff3f631398daf901557791b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977732"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663021"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionar alertas e pesquisas salvas do Log Analytics à solução de gerenciamento (versão prévia)
 
@@ -28,7 +27,7 @@ As [Soluções de gerenciamento](solutions.md) geralmente incluirão [pesquisas 
 > [!NOTE]
 > As amostras deste artigo usam variáveis e parâmetros que são necessários ou comuns a soluções de gerenciamento e descritos em [Projetar e criar uma solução de gerenciamento no Azure](solutions-creating.md)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 Este artigo pressupõe que você já está familiarizado com o modo para [criar uma solução de gerenciamento](solutions-creating.md) e com a estrutura de um [modelo do Resource Manager](../../azure-resource-manager/templates/template-syntax.md) e de um arquivo de solução.
 
 
@@ -44,7 +43,7 @@ Todos os recursos do Log Analytics definidos em um modelo do Resource Manager t�
 
 A tabela a seguir lista a versão de API para o recurso usado neste exemplo.
 
-| Tipo de recurso | Versão da API | Consulta |
+| Tipo de recurso | Versão da API | Query |
 |:---|:---|:---|
 | savedSearches | 2017-03-15-preview | Event &#124; where EventLevelName == "Error"  |
 
@@ -71,11 +70,11 @@ Os recursos [da pesquisa salva do Log Analytics](../../azure-monitor/log-query/l
 
 Todas as propriedades de uma pesquisa salva são descritas na tabela a seguir.
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--- |:--- |
 | category | A categoria para a pesquisa salva.  As pesquisas salvas na mesma solução geralmente compartilham uma única categoria para que eles são agrupados juntos no console. |
 | displayname | Nome para exibição para a pesquisa salva no portal. |
-| Consulta | Consulta a executar. |
+| query | Consulta a executar. |
 
 > [!NOTE]
 > Você talvez precise usar caracteres de escape na consulta, se ele inclui os caracteres que podem ser interpretados como JSON. Por exemplo, se a consulta fosse **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"** , ela deveria ser gravada no arquivo de solução como **AzureActivity | OperationName:/\"Microsoft.Compute/virtualMachines/write\"** .
@@ -112,10 +111,10 @@ Uma pesquisa salva pode ter uma ou mais agendas com cada agenda que representa u
     }
 As propriedades de recursos de agendamento são descritas na tabela a seguir.
 
-| Nome do elemento | Obrigatório | Description |
+| Nome do elemento | Obrigatório | Descrição |
 |:--|:--|:--|
 | Habilitado       | Sim | Especifica se o alerta está habilitado quando ele é criado. |
-| intervalo      | Sim | A frequência com a consulta é executada em minutos. |
+| interval      | Sim | A frequência com a consulta é executada em minutos. |
 | queryTimeSpan | Sim | Período de tempo em minutos no qual avaliar resultados. |
 
 O recurso de agendamento deve depender a pesquisa salva para que ele seja criado antes da agenda.
@@ -164,7 +163,7 @@ Ações de alerta tem a seguinte estrutura. Isso inclui variáveis e parâmetros
 
 As propriedades de Recursos de ação de alerta são descritas nas tabelas a seguir.
 
-| Nome do elemento | Obrigatório | Description |
+| Nome do elemento | Obrigatório | Descrição |
 |:--|:--|:--|
 | `type` | Sim | Tipo da ação.  Isso será **Alerta** para ações de alerta. |
 | `name` | Sim | Nome de exibição para o alerta.  Esse é o nome que é exibido no console para a regra de alerta. |
@@ -174,7 +173,7 @@ As propriedades de Recursos de ação de alerta são descritas nas tabelas a seg
 #### <a name="threshold"></a>Limite
 Esta seção é necessária. Define as propriedades para o limite de alerta.
 
-| Nome do elemento | Obrigatório | Description |
+| Nome do elemento | Obrigatório | Descrição |
 |:--|:--|:--|
 | `Operator` | Sim | O operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
 | `Value` | Sim | O valor para comparar os resultados. |
@@ -182,7 +181,7 @@ Esta seção é necessária. Define as propriedades para o limite de alerta.
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Esta seção é opcional. Inclua-o para um alerta de métrica de medição.
 
-| Nome do elemento | Obrigatório | Description |
+| Nome do elemento | Obrigatório | Descrição |
 |:--|:--|:--|
 | `TriggerCondition` | Sim | Especifica se o limite do número total de violações ou falhas consecutivas dos seguintes valores:<br><br>**Total<br>consecutivas** |
 | `Operator` | Sim | O operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
@@ -192,7 +191,7 @@ Esta seção é opcional. Inclua-o para um alerta de métrica de medição.
 #### <a name="throttling"></a>Limitação
 Esta seção é opcional. Inclua esta seção se você desejar Suprimir alertas da mesma regra por algum tempo depois que um alerta é criado.
 
-| Nome do elemento | Obrigatório | Description |
+| Nome do elemento | Obrigatório | Descrição |
 |:--|:--|:--|
 | DurationInMinutes | Sim, se a limitação elemento incluído | Número de minutos para suprimir alertas depois da mesma regra de alerta será criado. |
 
@@ -201,7 +200,7 @@ Todos os alertas no Azure, use o Grupo de Ações como mecanismo padrão para li
 
 O usuário que tiver estendido seus alertas ao Azure tem uma agenda que deve ter agora detalhes do Grupo de Ações passado junto com o limite, para poder criar um alerta. Detalhes de email, URLs de Webhook, detalhes de automação de runbook e outras ações precisam ser definidas no Grupo de Ações antes de criar um alerta; é possível criar o [Grupo de Ações do Azure Monitor](../../azure-monitor/platform/action-groups.md) no Portal ou usar [Grupo de Ações – Modelo de Recursos](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
-| Nome do elemento | Obrigatório | Description |
+| Nome do elemento | Obrigatório | Descrição |
 |:--|:--|:--|
 | AzNsNotification | Sim | A ID de recurso do grupo de ações do Azure a ser associada ao alerta para tomar as ações necessárias quando os critérios de alerta são atendidos. |
 | CustomEmailSubject | Não | A linha do assunto personalizada do email enviado para todos os endereços especificados no grupo de ação associado. |
@@ -401,6 +400,6 @@ O arquivo de parâmetro a seguir fornece valores de amostras para esta solução
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * [Adicionar exibições](solutions-resources-views.md) à sua solução de gerenciamento.
 * [Adicionar runbooks de automação e outros recursos](solutions-resources-automation.md) à sua solução de gerenciamento.

@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: caa80443a189874bfd699dba412fb749c8711556
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 03e8baa5f0286652ee500a06382c0a45e6f0ec52
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493391"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655660"
 ---
 # <a name="mv2-series"></a>Série Mv2
 
@@ -26,14 +26,14 @@ Cache de armazenamento Premium: com suporte
 
 Acelerador de Gravação: [com suporte](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
-|Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
+|Size | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_M208ms_v2<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80000/800 (7040) | 40000 / 1000 | 8 / 16000 |
 | Standard_M208s_v2<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80000/800 (7040) | 40000 / 1000 | 8 / 16000 |
 | Standard_M416ms_v2<sup>1, 2</sup> | 416 | 11400 | 8192 | 64 | 250000/1600 (14080) | 80000 / 2000 | 8 / 32000 |
 | Standard_M416s_v2<sup>1, 2</sup> | 416 | 5700 | 8192 | 64 | 250000/1600 (14080) | 80000 / 2000 | 8 / 32000 |
 
-<sup>1</sup> as VMs da série Mv2 são apenas de geração 2. Se você estiver usando o Linux, consulte [suporte para VMs de geração 2 no Azure](/linux/generation-2.md) para obter instruções sobre como localizar e selecionar uma imagem.
+<sup>1</sup> as VMs da série Mv2 são apenas de geração 2. Se você estiver usando o Linux, consulte [suporte para VMs de geração 2 no Azure](./linux/generation-2.md) para obter instruções sobre como localizar e selecionar uma imagem.
 
 <sup>2</sup> para os tamanhos de M416ms_v2 e M416s_v2, observe que há suporte inicial apenas para a imagem a seguir: "GEN2: SuSE Linux Enterprise Server (SLES) 12 SP4 para aplicativos SAP".
 
@@ -48,6 +48,6 @@ Acelerador de Gravação: [com suporte](https://docs.microsoft.com/azure/virtual
 - [Computação de alto desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba mais sobre como as [ACUs (unidade de computação do Azure)](acu.md) podem ajudar você a comparar o desempenho de computação entre SKUs do Azure.

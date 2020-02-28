@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: 3cbe7788ca7486022513fabdca682cbb78615281
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: a1726e18ea8c1ba86d77d7b9ca3d50c444620361
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500377"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657156"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Visão geral de segurança de máquinas virtuais do Azure
 Este artigo fornece uma visão geral dos principais recursos de segurança do Azure que podem ser usados com máquinas virtuais.
@@ -61,7 +61,7 @@ Para uma proteção ainda mais poderosa, considere o uso da [Proteção Avançad
 * [Proteção de próxima geração](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
 * [Resposta e a proteção de ponto de extremidade](/windows/security/threat-protection/windows-defender-atp/overview-endpoint-detection-response)
 * [Correção e investigação automatizada](/windows/security/threat-protection/windows-defender-atp/automated-investigations-windows-defender-advanced-threat-protection)
-* [Pontuação segura](/windows/security/threat-protection/windows-defender-atp/overview-secure-score-windows-defender-advanced-threat-protection)
+* [Pontuação segura](/windows/security/threat-protection/microsoft-defender-atp/configuration-score)
 * [Procura avançada](/windows/security/threat-protection/windows-defender-atp/overview-hunting-windows-defender-advanced-threat-protection)
 * [Gerenciamento e APIs](/windows/security/threat-protection/windows-defender-atp/management-apis)
 * [Proteção contra ameaças da Microsoft](/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
@@ -169,6 +169,6 @@ Saiba mais:
 * [Apresentando a computação confidencial do Azure](https://azure.microsoft.com/blog/introducing-azure-confidential-computing/)  
 * [Computação confidencial do Azure](https://azure.microsoft.com/blog/azure-confidential-computing/)  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba mais sobre [as práticas recomendadas de segurança](iaas.md) para VMs e sistemas operacionais.

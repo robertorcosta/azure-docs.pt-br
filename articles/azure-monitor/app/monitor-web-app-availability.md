@@ -1,19 +1,15 @@
 ---
 title: Monitorar a disponibilidade e a capacidade de resposta de qualquer site da Web | Microsoft Docs
 description: Configure testes da web no Application Insights. Obtenha alertas se um site fica indisponível ou responde lentamente.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 074b5c175305131cd67cc6660d13756a83386c11
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 61358051a8ddc32bc01ec5e231f4c28ebfa18ee0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819290"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670025"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorar a disponibilidade de qualquer site
 
@@ -74,7 +70,7 @@ Para criar sua primeira solicitação de disponibilidade, abra o painel disponib
 |----|----|----|
 |**Quase em tempo real (visualização)** | É recomendável usar alertas quase em tempo real. A configuração desse tipo de alerta é feita após a criação do teste de disponibilidade.  |
 |**Clássico** | Não recomendamos o uso de alertas clássicos para novos testes de disponibilidade.|
-|**Limite de local de alerta**|é recomendável um mínimo de 3/5 locais. A relação ideal entre o limite de local de alerta e o número de locais de teste é o **limite de local de alerta**  = **número de locais de teste-2, com um mínimo de cinco locais de teste.**|
+|**Limite de local de alerta**|é recomendável um mínimo de 3/5 locais. A relação ideal entre o limite de local de alerta e o número de locais de teste é o **limite de local de alerta** = **número de locais de teste-2, com um mínimo de cinco locais de teste.**|
 
 ## <a name="see-your-availability-test-results"></a>Ver os resultados de teste de disponibilidade
 
@@ -82,11 +78,11 @@ Os resultados do teste de disponibilidade podem ser visualizados com exibições
 
 Depois de alguns minutos, clique em **Atualizar** para ver os resultados do teste.
 
-![Exibição de linha](./media/monitor-web-app-availability/availability-refresh-002.png)
+![exibição Linha](./media/monitor-web-app-availability/availability-refresh-002.png)
 
 A exibição dispersão mostra exemplos dos resultados de teste que têm detalhes da etapa de teste de diagnóstico neles. O mecanismo de teste armazena detalhes de diagnóstico para testes com falhas. Para testes bem-sucedidos, detalhes de diagnóstico são armazenados para um subconjunto das execuções. Passe o mouse sobre qualquer um dos pontos verdes/vermelhos para ver o teste, o nome do teste e o local.
 
-![Exibição de linha](./media/monitor-web-app-availability/availability-scatter-plot-003.png)
+![exibição Linha](./media/monitor-web-app-availability/availability-scatter-plot-003.png)
 
 Selecione um teste específico e uma localização, ou reduza o período de tempo para ver mais resultados em todo o período de tempo de interesse. Use o Search Explorer para ver os resultados de todas as execuções ou usar consultas de análise para executar relatórios personalizados sobre esses dados.
 
@@ -127,11 +123,11 @@ Além dos resultados brutos, você também pode exibir duas métricas de disponi
 * [Use os scripts do PowerShell para configurar um teste de disponibilidade](../../azure-monitor/app/powershell.md#add-an-availability-test) automaticamente.
 * Configure um [webhook](../../azure-monitor/platform/alerts-webhooks.md) , que é chamado quando um alerta é gerado.
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 [Artigo de solução de problemas](troubleshoot-availability.md)dedicado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Alertas de disponibilidade](availability-alerts.md)
 * [Testes na Web de várias etapas](availability-multistep.md)

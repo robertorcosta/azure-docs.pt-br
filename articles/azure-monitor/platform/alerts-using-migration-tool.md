@@ -2,17 +2,16 @@
 title: Migre seus alertas clássicos no Azure Monitor usando a ferramenta de migração voluntária
 description: Saiba como usar a ferramenta de migração voluntária para migrar suas regras de alerta clássicas.
 author: yanivlavi
-ms.service: azure-monitor
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: c4ebb2e9572f1dcc9ade548a55fc44d7441e5a79
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 537d84639523a74cbd9403d4ad25c34a798b7061
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705574"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665095"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Use a ferramenta de migração voluntária para migrar suas regras de alerta clássicas
 
@@ -97,7 +96,7 @@ A migração foi concluída para a maioria das assinaturas em menos de uma hora.
 
 Consulte o [Guia de solução de problemas](alerts-understand-migration.md#common-problems-and-remedies) para obter ajuda com problemas que você pode enfrentar durante a migração. Se alguma ação for necessária para concluir a migração, você será notificado sobre os endereços de email que forneceu ao configurar a ferramenta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Preparar para a migração](alerts-prepare-migration.md)
 - [Entender como a ferramenta de migração funciona](alerts-understand-migration.md)

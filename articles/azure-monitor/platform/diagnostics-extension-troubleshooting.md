@@ -1,18 +1,17 @@
 ---
 title: Solucionando problemas de extensão do Diagnóstico do Azure
 description: Solucionar problemas ao usar o diagnóstico do Azure no Service Fabric, Serviços de Nuvem e Máquinas Virtuais do Azure.
-ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
-ms.openlocfilehash: e2b3ceba7a3673caa38e09f6b4dfa296fd063cfe
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 043369bd6112c4cac36539bbd764393d889439c0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467906"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672269"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solução de problemas do Diagnóstico do Azure
 Este artigo descreve informações de solução de problemas relevantes para o uso do Diagnóstico do Azure. Para mais informações sobre o Diagnóstico do Azure, consulte [Visão geral do Diagnóstico do Azure](diagnostics-extension-overview.md).
@@ -206,7 +205,7 @@ Veja um exemplo:
 ```
 Esse código gera quatro tabelas:
 
-| Evento | Nome da tabela |
+| {1&gt;Evento&lt;1} | Nome da tabela |
 | --- | --- |
 | Provider = "prov1" &lt;ID do evento = "1"/&gt; |WADEvent + MD5 ("prov1") + "1" |
 | Provider = "prov1" &lt;ID do evento = "2" eventDestination = "dest1"/&gt; |WADdest1 |
@@ -229,7 +228,7 @@ Para a função de serviço de nuvem, se você escolher a configuração a parti
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Códigos de saída do plug-in do Diagnóstico do Microsoft Azure
 O plug-in retorna os seguintes códigos de saída:
 
-| Código de saída | DESCRIÇÃO |
+| Código de saída | Descrição |
 | --- | --- |
 | 0 |Sucesso. |
 | -1 |Erro genérico. |

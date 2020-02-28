@@ -3,22 +3,18 @@ title: Modelo de dados do Azure Application Insights Telemetry | Microsoft Docs
 description: Visão geral do modelo de dados do Application Insights
 services: application-insights
 documentationcenter: .net
-author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: b14ce5cc83dcbbeef2379d21027d4bca337fd9fd
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 94013a12e1cf48a8007fce2547c200d82a657b71
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376032"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671827"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Modelo de dados do Application Insights Telemetry
 
@@ -30,11 +26,11 @@ Os dados coletados pelo Application Insights modelam esse padrão de execução 
 
 Os seguintes tipos de telemetria são usados para monitorar a execução de seu aplicativo. Estes três tipos normalmente são coletados automaticamente pelo SDK do Application Insights na estrutura do aplicativo Web:
 
-* [**Solicitação** ](data-model-request-telemetry.md) – Gerada para registrar uma solicitação recebida pelo seu aplicativo. Por exemplo, o SDK Web do Application Insights gera automaticamente um item de telemetria da solicitação para cada solicitação HTTP que seu aplicativo Web recebe. 
+* [**Solicitação**](data-model-request-telemetry.md) – Gerada para registrar uma solicitação recebida pelo seu aplicativo. Por exemplo, o SDK Web do Application Insights gera automaticamente um item de telemetria da solicitação para cada solicitação HTTP que seu aplicativo Web recebe. 
 
     Uma **operação** é o thread de execução que processa uma solicitação. Você também pode [escrever código](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) para monitorar outros tipos de operação, como uma "ativação" em um trabalho ou em uma função Web que processa dados periodicamente.  Cada operação tem uma ID. Essa ID que pode ser usada para [agrupar](../../azure-monitor/app/correlation.md) toda a telemetria gerada enquanto o aplicativo está processando a solicitação. Cada operação é bem-sucedida ou falha, além de ter uma duração.
-* [**Exceção** ](data-model-exception-telemetry.md) – Normalmente representa uma exceção que causa falha em uma operação.
-* [**Dependência** ](data-model-dependency-telemetry.md) – Representa uma chamada de seu aplicativo para um serviço ou armazenamento externo, como uma API REST ou SQL. No ASP.NET, chamadas de dependência para SQL são definidas por `System.Data`. Chamadas para pontos de extremidade HTTP são definidas por `System.Net`. 
+* [**Exceção**](data-model-exception-telemetry.md) – Normalmente representa uma exceção que causa falha em uma operação.
+* [**Dependência**](data-model-dependency-telemetry.md) – Representa uma chamada de seu aplicativo para um serviço ou armazenamento externo, como uma API REST ou SQL. No ASP.NET, chamadas de dependência para SQL são definidas por `System.Data`. Chamadas para pontos de extremidade HTTP são definidas por `System.Net`. 
 
 O Application Insights fornece três tipos de dados adicionais para telemetria personalizada:
 
@@ -52,7 +48,7 @@ O modelo de dados do Application Insights é uma maneira simples e básica, mas 
 
 Para relatar problemas de esquema ou modelo de dados e sugestões, use o repositório [ApplicationInsights-Home](https://github.com/Microsoft/ApplicationInsights-Home/issues) do GitHub.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Escrever telemetria personalizada](../../azure-monitor/app/api-custom-events-metrics.md)
 - Saiba como [estender e filtrar a telemetria](../../azure-monitor/app/api-filtering-sampling.md).

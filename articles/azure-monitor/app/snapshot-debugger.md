@@ -1,19 +1,15 @@
 ---
 title: Depurador de Instantâneos de informações do Aplicativo Azure para aplicativos .NET
 description: Depure instantâneos são coletados automaticamente quando exceções forem geradas na produção de aplicativos .NET
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/23/2019
 ms.reviewer: cweining
-ms.openlocfilehash: 44b4a7bb5910f7f2d89a9f76e21ccfcacda667fb
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 18f43ba90157d71ec9488b6858fa9f41b2ee42a5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76932568"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671317"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantâneos em exceções em aplicativos .NET
 Quando ocorrer uma exceção, você pode coletar automaticamente um Instantâneo de Depuração de seu aplicativo web ativo. O instantâneo mostra o estado do código-fonte e variáveis no momento em que a exceção foi lançada. O Depurador de Instantâneos no [insights do aplicativo Azure](../../azure-monitor/app/app-insights-overview.md) monitora a telemetria de exceção do seu aplicativo Web. Ele coleta instantâneos em suas exceções com mais lançamentos para que você tenha as informações necessárias para diagnosticar problemas na produção. Inclua o [pacote NuGet do coletor de instantâneos](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) em seu aplicativo e, opcionalmente, configure os parâmetros de coleção em [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Os instantâneos aparecem em [exceções](../../azure-monitor/app/asp-net-exceptions.md) no portal de Application insights.
@@ -131,7 +127,7 @@ No entanto, nos Serviços de Aplicativos do Azure, o Coletor de Instantâneo pod
 > [!TIP]
 > Instale a extensão de site do Application Insights no seu Serviço de Aplicativo para obter suporte de desotimização.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Habilite Depurador de Instantâneos Application Insights para seu aplicativo:
 
 * [Serviço de Aplicativo do Azure](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 7daa2da76bf3097679a72bfdef069db20ae66087
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: d88d5ecf8be3fadb36239b75d476a13abf39cbf7
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161725"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659706"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Suporte para VMs de geração 2 no Azure
 
@@ -58,8 +58,9 @@ As VMs de geração 2 dão suporte às seguintes imagens do Marketplace:
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
 * Ubuntu Server 16, 4, 18, 4, 19, 4, 19,10 
-* RHEL 8,0, 7,6, 7,5, 7,4, 7,0
-* Cent OS 8,0
+* RHEL 8,1, 8,0, 7,7, 7,6, 7,5, 7,4, 7,0
+* Cent OS 8,0, 7,7, 7,6, 7,5, 7,4
+* Oracle Linux 7,7, 7,7-CI
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>VMs locais vs. Azure geração 2
 
@@ -85,7 +86,7 @@ Atualmente, o Azure não dá suporte a alguns dos recursos que o Hyper-V local d
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Recursos de geração 1 versus geração 2
 
-| Recurso | Geração 1 | Geração 2 |
+| Capability | Geração 1 | Geração 2 |
 |------------|--------------|--------------|
 | Disco do sistema operacional > 2 TB                    | :x:                | :heavy_check_mark: |
 | Disco personalizado/imagem/sistema operacional de permuta         | :heavy_check_mark: | :heavy_check_mark: |
@@ -205,7 +206,7 @@ Você também pode criar VMs de geração 2 usando conjuntos de dimensionamento 
     1. Verifique se a propriedade de **geração de VM** está definida como **Gen 2** na guia **avançado** .
     1. Verifique se você está procurando um [tamanho de VM que dá suporte a VMs Gen2](#generation-2-vm-sizes).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Saiba mais sobre as [máquinas virtuais de geração 2 no Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 

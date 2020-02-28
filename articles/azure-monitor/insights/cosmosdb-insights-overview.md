@@ -1,18 +1,17 @@
 ---
 title: Monitorar Azure Cosmos DB com Azure Monitor para Cosmos DB (versão prévia) | Microsoft Docs
 description: Este artigo descreve o Azure Monitor para Cosmos DB recurso que fornece aos Cosmos DB proprietários uma rápida compreensão dos problemas de desempenho e utilização com suas contas do CosmosDB.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/27/2019
-ms.openlocfilehash: dece5b0bb0508e2d83ee184e71ef0b4364d25ac8
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: d28db9907094a651835078f4459a985b9d15e589
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622922"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657377"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db-preview"></a>Explorar Azure Monitor para Azure Cosmos DB (versão prévia)
 
@@ -101,7 +100,7 @@ Selecione **falhas** na parte superior da página e a parte de **falhas** do mod
 
 ![Captura de tela de falhas com divisão por tipo de solicitação HTTP](./media/cosmosdb-insights-overview/failures.png)
 
-| Código      |  DESCRIÇÃO       | 
+| Código      |  Descrição       | 
 |-----------|:--------------------|
 | `200 OK`  | Uma das seguintes operações REST foram bem-sucedidas: </br>-OBTER em um recurso. </br> -PUT em um recurso. </br> -POST em um recurso. </br> -POST em um recurso de procedimento armazenado para executar o procedimento armazenado.|
 | `201 Created` | Uma operação POST para criar um recurso foi bem-sucedida. |
@@ -149,7 +148,7 @@ As pastas de trabalho são salvas em um grupo de recursos, na seção **meus rel
 
 ![Iniciar Galeria de pastas de trabalho na barra de comandos](./media/cosmosdb-insights-overview/gallery.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Configure [alertas de métrica](../platform/alerts-metric.md) e [notificações de integridade do serviço](../../service-health/alerts-activity-log-service-notifications.md) para configurar alertas automatizados para auxiliar na detecção de problemas.
 

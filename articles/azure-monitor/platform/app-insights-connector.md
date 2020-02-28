@@ -1,18 +1,17 @@
 ---
 title: Exibir dados do aplicativo do Azure Application Insights | Microsoft Docs
 description: Use a solução Conector do Application Insights para diagnosticar problemas de desempenho e entender o que os usuários fazem com seu aplicativo quando ele é monitorado com o Application Insights.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: d0cfca44878130e870c633040afcfbdd55ba8b7b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c143d8aa24d3479f4619ea2c220d4a0c593f9cb1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75396531"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665130"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solução de gerenciamento do Conector do Application Insights (preterida)
 
@@ -43,14 +42,14 @@ Ao usar a solução, você pode:
 
 Ao contrário da maioria das outras soluções do Log Analytics, os dados não são coletados para o Conector do Application Insights por agentes. Todos os dados usados pela solução vêm diretamente do Azure.
 
-| Fonte Conectada | Com suporte | Description |
+| Fonte Conectada | Suportado | Descrição |
 | --- | --- | --- |
 | [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | Não | A solução não coleta informações de agentes do Windows. |
 | [Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Não | A solução não coleta informações de agentes do Linux. |
 | [Grupo de gerenciamento do SCOM](../../azure-monitor/platform/om-agents.md) | Não | A solução não coleta informações de agentes em um grupo de gerenciamento de SCOM conectado. |
 | [Conta de armazenamento do Azure](collect-azure-metrics-logs.md) | Não | A solução não coleta informações do armazenamento do Azure. |
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 - Para acessar as informações do Conector do Application Insights, você deve ter uma assinatura do Azure
 - É necessário ter, pelo menos, um recurso do Application Insights configurado.
@@ -61,7 +60,7 @@ Ao contrário da maioria das outras soluções do Log Analytics, os dados não s
 1. Habilite a solução Análise de Aplicativos Web do Azure no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) ou usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](../../azure-monitor/insights/solutions.md).
 2. Navegue até o [Portal do Azure](https://portal.azure.com). Selecione **Todos os serviços** para abrir o Application Insights. Em seguida, procure Application Insights. 
 3. Em **Assinaturas**, selecione uma assinatura que tem os recursos do Application Insights e, em seguida, em **Nome**, selecione um ou mais aplicativos.
-4. Clique em **Save** (Salvar).
+4. Clique em **Salvar**.
 
 Em aproximadamente 30 minutos, os dados ficarão disponíveis e o bloco do Application Insights será atualizado com os dados, como a seguinte imagem:
 
@@ -124,7 +123,7 @@ Quando você clica em qualquer lugar na folha **Exceções**, você vê uma visu
 
 Independentemente de você clicar em algo no painel **Conector do Application Insights**, na própria página **Pesquisa**, qualquer consulta que retorna dados do Application Insights mostra a perspectiva do Application Insights. Por exemplo, se você estiver exibindo dados do Application Insights, uma consulta **&#42;** também mostrará a guia de perspectiva como a seguinte imagem:
 
-![Percepções sobre o Aplicativo](./media/app-insights-connector/app-insights-search.png)
+![Application Insights](./media/app-insights-connector/app-insights-search.png)
 
 Os componentes da perspectiva são atualizados, dependendo da consulta de pesquisa. Isso significa que você pode filtrar os resultados usando qualquer campo de pesquisa que fornece a capacidade de ver os dados de:
 
@@ -161,7 +160,7 @@ A amostragem afeta somente o número total de entradas geradas pelo aplicativo. 
 
 A solução recebe os seguintes tipos de telemetria de dados dos aplicativos conectados do Application Insights:
 
-- Disponibilidade
+- Availability
 - Exceções
 - Solicitações
 - Exibições de página – para que o workspace receba exibições de página, você deve configurar os aplicativos para coletar essas informações. Para obter mais informações, consulte [PageViews](../../azure-monitor/app/api-custom-events-metrics.md#page-views).
@@ -175,7 +174,7 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 
 ### <a name="generic-fields"></a>Campos genéricos
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 | --- | --- |
 | Tipo | ApplicationInsights |
 | ClientIP |   |
@@ -201,9 +200,9 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 
 ### <a name="availability-specific-fields"></a>Campos específicos à disponibilidade
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 | --- | --- |
-| TelemetryType | Disponibilidade |
+| TelemetryType | Availability |
 | AvailabilityTestName | Nome do teste na Web |
 | AvailabilityRunLocation | Origem geográfica da solicitação HTTP |
 | AvailabilityResult | Indica o resultado de êxito do teste na Web |
@@ -243,16 +242,16 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 
 ### <a name="request-specific-fields"></a>Campos específicos à solicitação
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 | --- | --- |
 | Tipo | ApplicationInsights |
-| TelemetryType | Solicitar |
+| TelemetryType | Solicitação |
 | ResponseCode | Resposta HTTP enviada ao cliente |
 | RequestSuccess | Indica êxito ou falha. Verdadeiro ou falso. |
 | RequestID | ID para identificar exclusivamente a solicitação |
 | RequestName | GET/POST + URL base |
 | RequestDuration | Tempo, em segundos, da duração da solicitação |
-| URL | URL da solicitação, não incluindo host |
+| {1&gt;URL&lt;1} | URL da solicitação, não incluindo host |
 | Host | Host do servidor Web |
 | URLBase | URL completa da solicitação |
 | ApplicationProtocol | Tipo de protocolo usado pelo aplicativo |
@@ -317,6 +316,6 @@ Também é possível recuperar uma lista de aplicativos usando uma consulta de l
 ApplicationInsights | summarize by ApplicationName
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Use a [Pesquisa de Logs](../../azure-monitor/log-query/log-query-overview.md) para exibir informações detalhadas dos aplicativos do Application Insights.

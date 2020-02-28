@@ -7,21 +7,22 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: f5ff4ca94f9e9c6bd03cde6b948331e42cc6225a
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 346fc3d5a4e7b165caafd9847b9797abae0c9113
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77618198"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659978"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Atualização de Load Balancer interno do Azure-conexão de saída necessária
 O [Azure Standard Load Balancer](load-balancer-overview.md) oferece um conjunto avançado de funcionalidades e alta disponibilidade por meio de redundância de zona. Para saber mais sobre Load Balancer SKU, confira [tabela de comparação](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus). Como o Load Balancer interno padrão não fornece conexão de saída, fornecemos uma solução para criar um Load Balancer público padrão.
 
-Há três estágios em uma atualização:
+Há quatro estágios em uma atualização:
 
 1. Migrar a configuração para o Load Balancer público padrão
 2. Adicionar VMs a pools de back-end de Load Balancer públicos padrão
-3. Configurar regras de NSG para sub-redes/VMs que devem ser disparadas de/para a Internet
+3. Criar uma regra de saída no Load Balancer para conexão de saída
+4. Configurar regras de NSG para sub-redes/VMs que devem ser disparadas de/para a Internet
 
 Este artigo aborda a migração de configuração. A adição de VMs a pools de back-end pode variar dependendo do seu ambiente específico. No entanto, algumas recomendações gerais de alto nível [são fornecidas](#add-vms-to-backend-pools-of-standard-load-balancer).
 
@@ -83,7 +84,7 @@ Para executar o script:
     **Exemplo**
 
    ```azurepowershell
-   ./AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
+   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
    ```
 
 ### <a name="add-vms-to-backend-pools-of-standard-load-balancer"></a>Adicionar VMs a pools de back-end de Standard Load Balancer
@@ -103,12 +104,18 @@ Aqui estão alguns cenários de como adicionar VMs a pools de back-end do Load B
    
     1. Selecione o pool de back-end que corresponde ao pool de back-end do Load Balancer básico, selecione o seguinte valor: 
       - **Máquina virtual**: lista suspensa e selecione as VMs do pool de back-end correspondente do Load Balancer básico.
-    1. Clique em **Salvar**.
+    1. Selecione **Salvar**.
     >[!NOTE]
     >Para VMs que têm IPs públicos, você precisará criar endereços IP padrão primeiro, em que o mesmo endereço IP não é garantido. Desassocie as VMs de IPs básicos e associe-as aos endereços IP padrão recém-criados. Em seguida, você poderá seguir as instruções para adicionar VMs ao pool de back-end de Standard Load Balancer. 
 
 * **Criar novas VMs para adicionar aos pools de back-end do Load Balancer público padrão criado recentemente**.
     * Mais instruções sobre como criar uma VM e associá-las ao Standard Load Balancer podem ser encontradas [aqui](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
+
+### <a name="create-an-outbound-rule-for-outbound-connection"></a>Criar uma regra de saída para conexão de saída
+
+Siga as [instruções](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-portal#create-outbound-rule-configuration) para criar uma regra de saída para que você possa
+* Defina o NAT de saída do zero.
+* Dimensione e ajuste o comportamento do NAT de saída existente.
 
 ### <a name="create-nsg-rules-for-vms-which-to-refrain-communication-from-or-to-the-internet"></a>Criar regras NSG para VMs que evitem a comunicação de ou para a Internet
 Se você quiser evitar que o tráfego da Internet chegue às suas VMs, poderá criar uma [regra NSG](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) na interface de rede das VMs.
@@ -127,6 +134,6 @@ Não. O script de Azure PowerShell migra apenas a configuração. A migração d
   
 Você pode enviar um email para slbupgradesupport@microsoft.com, abrir um caso de suporte com o suporte do Azure ou fazer ambos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Saiba mais sobre o Load Balancer Standard](load-balancer-overview.md)

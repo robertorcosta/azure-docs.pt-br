@@ -3,17 +3,16 @@ title: Solução de problemas Azure Monitor gráficos de métricas
 description: Solucionar problemas com a criação, personalização ou interpretação de gráficos de métricas
 author: vgorbenko
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 072e62d89e8febc4837c10874398daea3b8114ed
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e1ad4e53596b8228bdef5beb18aa250a9512c49f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974864"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659655"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Solução de problemas de gráficos de métricas
 
@@ -29,7 +28,7 @@ Você clica no botão **Selecione um recurso**, mas não vê seu recurso na caix
 
 1. Certifique-se de que você selecionou o grupo de recursos correto.
     > [!WARNING]
-    > Para obter o melhor desempenho, quando você abre o Metrics Explorer pela primeira vez, o menu suspenso **grupo de recursos** não tem grupos de recursos previamente selecionados. Você precisa escolher pelo menos um grupo para ver os recursos.
+    > Para melhorar o desempenho, na primeira vez que você abre o Metrics Explorer, o menu suspenso **Grupo de Recursos** não mostra nenhum grupo de recursos previamente selecionado. Você precisa escolher pelo menos um grupo para ver os recursos.
 
 ## <a name="chart-shows-no-data"></a>O gráfico não mostra dados
 
@@ -113,7 +112,7 @@ Por padrão, as métricas de sistema operacional convidado são armazenadas na c
 
 1. Use o [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para validar que as métricas estão fluindo para a conta de armazenamento. Se as métricas não estiverem sendo coletadas, siga o [Guia de solução de problemas da Extensão de Diagnóstico do Azure](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Saiba mais sobre como começar a usar o Gerenciador de métricas](metrics-getting-started.md)
 * [Saiba mais sobre os recursos avançados do Gerenciador de métricas](metrics-charts.md)

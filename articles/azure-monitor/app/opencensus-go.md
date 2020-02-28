@@ -1,24 +1,20 @@
 ---
 title: Rastreamento Go do OpenCensus com Azure Application Insights | Microsoft Docs
 description: Fornece instruções para integrar o rastreamento Go do OpenCensus com o encaminhador local e o Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/15/2018
-ms.openlocfilehash: ef67801fee574ae43d83af650d6b715e12426c7e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ddb8dfbf14f2c75e4d16693076e56a711d8861ad
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432554"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669974"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Coletar rastreamentos distribuídos do Go (versão prévia)
 
 Agora o Application Insights dá suporte ao rastreamento distribuído de aplicativos Go por meio da integração com o [OpenCensus](https://opencensus.io) e nosso novo [encaminhador local](./opencensus-local-forwarder.md). Este artigo orientará você passo a passo durante o processo de configuração do OpenCensus para Go e obtenção dos dados de rastreamento para o Application Insights.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 - É necessária uma assinatura do Azure.
 - O Go deve ser instalado. Este artigo usa a versão 1.11 [Download do Go](https://golang.org/dl/).
@@ -43,7 +39,7 @@ Primeiro, você precisa criar um recurso do Application Insights que vai gerar u
 
    Uma caixa de configuração é exibida. Use a tabela a seguir para preencher os campos de entrada.
 
-   | Configurações        | Valor           | Description  |
+   | Configurações        | {1&gt;Valor&lt;1}           | Descrição  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valor Globalmente Exclusivo | Nome que identifica o aplicativo que você está monitorando |
    | **Grupo de recursos**     | myResourceGroup      | Nome para o novo grupo de recursos no qual hospedar dados do Application Insights |
@@ -208,7 +204,7 @@ Primeiro, você precisa criar um recurso do Application Insights que vai gerar u
 
     Uma vez que o objetivo era apenas rastrear uma chamada de método, nosso mapa do aplicativo não é tão interessante. Porém, o mapa do aplicativo pode ser dimensionado para visualizar aplicativos muito mais distribuídos:
 
-   ![Mapa de Aplicativos](media/opencensus-go/application-map.png)
+   ![Mapa de aplicativo](media/opencensus-go/application-map.png)
 
 4. Selecione **Investigar Desempenho** para executar uma análise de desempenho detalhada e determinar a causa raiz da lentidão no desempenho.
 
@@ -222,7 +218,7 @@ Primeiro, você precisa criar um recurso do Application Insights que vai gerar u
 
 Abordamos apenas as noções básicas da integração do OpenCensus ao Go com o encaminhador local e o Application Insights. A [diretriz de uso oficial do OpenCensus Go](https://godoc.org/go.opencensus.io) cobre tópicos mais avançados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Mapa do aplicativo](./../../azure-monitor/app/app-map.md)
 * [Monitoramento de desempenho de ponta a ponta](./../../azure-monitor/learn/tutorial-performance.md)
