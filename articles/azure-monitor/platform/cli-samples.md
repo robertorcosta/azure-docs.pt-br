@@ -1,23 +1,20 @@
 ---
 title: Exemplos de início rápido da CLI do Azure Monitor
 description: Comandos de exemplo da CLI para recursos do Azure Monitor. O Azure Monitor é um serviço do Microsoft Azure que permite enviar notificações de alerta ou chamar URLs da Web baseadas em valores dos dados de telemetria configurados, bem como dimensionar automaticamente Serviços de Nuvem, Máquinas Virtuais e Aplicativos Web.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 05/16/2018
-ms.openlocfilehash: 0def528e0c432ecbc706622f0b8c29c2d610c663
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 69687cee8b8a907b82f2c848242ac64d54dedb87
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893528"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663497"
 ---
 # <a name="azure-monitor-cli-quick-start-samples"></a>Exemplos de início rápido da CLI do Azure Monitor
 Este artigo mostra um exemplo de CLI (interface de linha de comando) que ajudará você a acessar os recursos do Azure Monitor. O Azure Monitor permite que você dimensione automaticamente Serviços de Nuvem, Máquinas Virtuais e Aplicativos Web e envie notificações de alerta ou chame URLs da Web com base em valores de dados de telemetria configurados.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Se você ainda não instalou a CLI do Azure, siga as instruções para [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Você também pode usar o [Azure Cloud Shell](/azure/cloud-shell) para executar a CLI como uma experiência interativa no navegador. Veja uma referência completa de todos os comandos disponíveis na [referência da CLI do Azure Monitor](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
 
@@ -184,7 +181,7 @@ az monitor diagnostic-settings delete --name <diagnostic name> \
     --resource <target resource ID>
 ```
 
-## <a name="autoscale"></a>Autoescala
+## <a name="autoscale"></a>Autoscale
 
 Use as informações desta seção para trabalhar com configurações de dimensionamento automático. Você precisa modificar estes exemplos.
 

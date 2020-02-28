@@ -1,18 +1,14 @@
 ---
 title: Solucionar problemas do Application Insights em um projeto Web Java
 description: 'Guia de solução de problemas: monitoramento em tempo real aplicativos Java com o Application Insights.'
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 03/14/2019
-ms.openlocfilehash: aea0adc9217a7729c9bf14211cf5da422ac9e198
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 04e98938bc5dd17816ae873f122073212275a414
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432530"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657173"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Solução de problemas e perguntas e respostas para o Application Insights para Java
 Perguntas ou problemas com o [aplicativo Azure insights em Java][java]? Aqui estão algumas dicas.
@@ -183,7 +179,7 @@ O Application Insights usa `org.apache.http`. Isso é realocado no jars do núcl
 >Se você habilitar o registro em log de nível DEBUG para todos os namespaces no aplicativo, isso será respeitado por todos os módulos em execução, incluindo `org.apache.http` renomeado como `com.microsoft.applicationinsights.core.dependencies.http`. O Application Insights não poderá aplicar a filtragem a essas chamadas, pois a chamada de log estará sendo feita pela biblioteca Apache. O registro em log do nível DEBUG gera uma quantidade considerável de dados de log e não é recomendado para instâncias de produção.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 **Configurei o Application Insights para meu aplicativo de servidor Java. O que mais posso fazer?**
 
 * [Monitorar a disponibilidade de suas páginas da Web][availability]
@@ -192,7 +188,7 @@ O Application Insights usa `org.apache.http`. Isso é realocado no jars do núcl
 * [Escrever código para acompanhar o uso de seu aplicativo][track]
 * [Capturar logs de diagnóstico][javalogs]
 
-## <a name="get-help"></a>Obtenha ajuda
+## <a name="get-help"></a>Obter ajuda
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * [Relatar Problema no GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues)
 

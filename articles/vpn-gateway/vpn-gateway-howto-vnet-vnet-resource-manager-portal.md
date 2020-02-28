@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 02/26/2020
 ms.author: cherylmc
-ms.openlocfilehash: b26947f2dd25f950b2d69d58321582a503aea83d
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 18ef9d89a2366e6d4db3c3154bae0bd83e0386f1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77619775"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654692"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurar uma conexão de gateway de VPN de VNet para VNet usando o portal do Azure
 
@@ -71,57 +71,57 @@ Este artigo mostra como conectar VNets usando o tipo de conexão VNet a VNet. Ao
 
 ### <a name="example-settings"></a>Configurações de exemplo
 
-**Valores para TestVNet1:**
+**Valores para VNet1:**
 
 - **Configurações de rede virtual**
-    - **Nome**: insira *TestVNet1*.
-    - **Espaço de endereço**: insira *10.11.0.0/16*.
+    - **Nome**: VNet1
+    - **Espaço de endereço**: 10.11.0.0/16
     - **Assinatura**: selecione a assinatura que você deseja usar.
-    - **Grupo de recursos**: insira *TestRG1*.
-    - **Localização**: selecione **Leste dos EUA**.
+    - **Grupo de recursos**: TestRG1
+    - **Local**: Leste dos EUA
     - **Sub-rede**
-        - **Nome**: insira *front-end*.
-        - **Intervalo de endereços**: insira *10.11.0.0/24*.
+        - **Nome**: frontend
+        - **Intervalo de endereços**: 10.11.0.0/24
     - **Gateway de sub-rede**:
-        - **Nome**: *GatewaySubnet* é autopreenchido.
-        - **Intervalo de endereços**: insira *10.11.255.0/27*.
+        - **Nome**: *GatewaySubnet* é preenchido com preenchimento automática
+        - **Intervalo de endereços**: 10.11.255.0/27
 
-- **Configurações de gateway de rede virtual** 
-    - **Nome**: insira *TestVNet1GW*.
+- **Configurações de gateway de rede virtual**
+    - **Nome**: VNet1GW
     - **Tipo de gateway**: selecione **VPN**.
     - **Tipo de VPN**: selecione **baseado em rota**.
     - **SKU**: selecione o SKU de gateway que você deseja usar.
-    - **Nome do endereço IP público**: insira *TestVNet1GWIP*
-    - **Conexão** 
-       - **Nome**: insira *TestVNet1toTestVNet4*.
-       - **Chave compartilhada**: insira *abc123*. Você pode criar a chave compartilhada por conta própria. Quando você cria a conexão entre as redes virtuais, os valores devem corresponder.
+    - **Nome do endereço IP público**: VNet1GWpip
+    - **Conexão**
+       - **Nome**: VNet1toVNet4
+       - **Chave compartilhada**: você pode criar a chave compartilhada por conta própria. Quando você cria a conexão entre as redes virtuais, os valores devem corresponder. Para este exercício, use abc123.
 
-**Valores para TestVNet4:**
+**Valores para VNet4:**
 
 - **Configurações de rede virtual**
-   - **Nome**: insira *TestVNet4*.
-   - **Espaço de endereço**: insira *10.41.0.0/16*.
+   - **Nome**: VNet4
+   - **Espaço de endereço**: 10.41.0.0/16
    - **Assinatura**: selecione a assinatura que você deseja usar.
-   - **Grupo de recursos**: insira *TestRG4*.
-   - **Local**: selecione **oeste dos EUA**.
+   - **Grupo de recursos**: TestRG4
+   - **Local**: oeste dos EUA
    - **Sub-rede** 
-      - **Nome**: insira *front-end*.
-      - **Intervalo de endereços**: insira *10.41.0.0/24*.
+      - **Nome**: frontend
+      - **Intervalo de endereços**: 10.41.0.0/24
    - **GatewaySubnet** 
-      - **Nome**: *GatewaySubnet* é autopreenchido.
-      - **Intervalo de endereços**: insira *10.41.255.0/27*.
+      - **Nome**: *GatewaySubnet* é preenchido com preenchimento automática
+      - **Intervalo de endereços**: 10.41.255.0/27
 
 - **Configurações de gateway de rede virtual** 
-    - **Nome**: insira *TestVNet4GW*.
+    - **Nome**: VNet4GW
     - **Tipo de gateway**: selecione **VPN**.
     - **Tipo de VPN**: selecione **baseado em rota**.
     - **SKU**: selecione o SKU de gateway que você deseja usar.
-    - **Nome do endereço IP público**: insira *TestVNet4GWIP*.
+    - **Nome do endereço IP público**: VNet4GWpip
     - **Conexão** 
-       - **Nome**: insira *TestVNet4toTestVNet1*.
-       - **Chave compartilhada**: insira *abc123*. Você pode criar a chave compartilhada por conta própria. Quando você cria a conexão entre as redes virtuais, os valores devem corresponder.
+       - **Nome**: VNet4toVNet1
+       - **Chave compartilhada**: você pode criar a chave compartilhada por conta própria. Quando você cria a conexão entre as redes virtuais, os valores devem corresponder. Para este exercício, use abc123.
 
-## <a name="create-and-configure-testvnet1"></a>Criar e configurar a TestVNet1
+## <a name="create-and-configure-vnet1"></a>Criar e configurar o VNet1
 Se você já tiver uma rede virtual, verifique se as configurações são compatíveis com seu design de gateway de VPN. Preste atenção especial em todas as sub-redes que possam se sobrepor a outras redes. Sua conexão não funcionará corretamente se você tiver uma sobreposição de sub-redes.
 
 ### <a name="to-create-a-virtual-network"></a>Para criar uma rede virtual
@@ -142,21 +142,21 @@ Nesta etapa, você cria o gateway de rede virtual para sua rede virtual. Criar u
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
-## <a name="create-and-configure-testvnet4"></a>Criar e configurar TestVNet4
-Depois de ter configurado TestVNet1, crie TestVNet4 repetindo as etapas anteriores e substituindo os valores por aqueles de TestVNet4. Você não precisa esperar até que o gateway de rede virtual para TestVNet1 tenha terminado a criação antes de configurar TestVNet4. Se você estiver usando seus próprios valores, verifique se os espaços de endereço não se sobrepõem a nenhuma das redes virtuais às quais você deseja se conectar.
+## <a name="create-and-configure-vnet4"></a>Criar e configurar o VNet4
+Depois de configurar o VNet1, crie VNet4 repetindo as etapas anteriores e substituindo os valores por valores de VNet4. Você não precisa esperar até que o gateway de rede virtual para VNet1 tenha concluído a criação antes de configurar o VNet4. Se você estiver usando seus próprios valores, verifique se os espaços de endereço não se sobrepõem a nenhuma das redes virtuais às quais você deseja se conectar.
 
-## <a name="configure-the-testvnet1-gateway-connection"></a>Configurar a conexão de gateway TestVNet1
-Quando os gateways de rede virtual para TestVNet1 e TestVNet4 tiverem sido concluídos, você poderá criar suas conexões de gateway de rede virtual. Nesta seção, você cria uma conexão de VNet1 para VNet4. Estas etapas funcionam apenas para as VNets na mesma assinatura. Se as VNets estiverem em assinaturas diferentes, você deverá usar o [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) para fazer a conexão. No entanto, se as redes virtuais estiverem em grupos de recursos diferentes na mesma assinatura, você poderá conectá-las usando o portal.
+## <a name="configure-the-vnet1-gateway-connection"></a>Configurar a conexão de gateway VNet1
+Quando os gateways de rede virtual para VNet1 e VNet4 tiverem sido concluídos, você poderá criar suas conexões de gateway de rede virtual. Nesta seção, você cria uma conexão de VNet1 para VNet4. Estas etapas funcionam apenas para as VNets na mesma assinatura. Se as VNets estiverem em assinaturas diferentes, você deverá usar o [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) para fazer a conexão. No entanto, se as redes virtuais estiverem em grupos de recursos diferentes na mesma assinatura, você poderá conectá-las usando o portal.
 
-1. No portal do Azure, selecione **Todos os recursos**, insira *gateway de rede virtual* na pesquisa de caixa e, em seguida, navegue até o gateway de rede virtual para sua rede virtual. Por exemplo, **TestVNet1GW**. Selecione-o para abrir a página **Gateway de rede virtual**.
+1. No portal do Azure, selecione **Todos os recursos**, insira *gateway de rede virtual* na pesquisa de caixa e, em seguida, navegue até o gateway de rede virtual para sua rede virtual. Por exemplo, **VNet1GW**. Selecione o gateway para abrir a página de **Gateway de rede virtual** . Em **Configurações**, selecione **Conexões**.
 
-   ![Página conexões](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/1to4connect2.png "Página conexões")
-2. Em **Configurações**, selecione **Conexões** e, em seguida, **Adicionar** para abrir a página **Adicionar conexão**.
+   ![Página conexões](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections.png "Página conexões")
+2. Selecione **+ Adicionar** para abrir a página **Adicionar conexão** .
 
-   ![Adicionar Conexão](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "Adicionar uma conexão")
+   ![Adicionar Conexão](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-to-vnet4.png "Adicionar uma conexão")
 3. Na página **Adicionar conexão**, preencha os valores para sua conexão:
 
-   - **Nome**: Insira um nome para a conexão. Por exemplo, *TestVNet1toTestVNet4*.
+   - **Nome**: Insira um nome para a conexão. Por exemplo, *VNet1toVNet4*.
 
    - **Tipo de conexão**: selecione **vnet a vnet** na lista suspensa.
 
@@ -172,18 +172,18 @@ Quando os gateways de rede virtual para TestVNet1 e TestVNet4 tiverem sido concl
     
 4. Selecione **OK** para salvar suas alterações.
 
-## <a name="configure-the-testvnet4-gateway-connection"></a>Configurar a conexão de gateway TestVNet4
-Em seguida, crie uma conexão de TestVNet4 para TestVNet1. No portal, localize o gateway de rede virtual associado com o TestVNet4. Siga as etapas da seção anterior, substituindo os valores para criar uma conexão de TestVNet4 para TestVNet1. Use a mesma chave compartilhada.
+## <a name="configure-the-vnet4-gateway-connection"></a>Configurar a conexão de gateway VNet4
+Em seguida, crie uma conexão de VNet4 para VNet1. No portal, localize o gateway de rede virtual associado ao VNet4. Siga as etapas da seção anterior, substituindo os valores para criar uma conexão de VNet4 para VNet1. Use a mesma chave compartilhada.
 
 ## <a name="verify-your-connections"></a>Verificar as conexões
 
-Localize o gateway de rede virtual no portal do Azure. Na página **Gateway de rede virtual**, selecione **Conexões** para exibir a página **Conexões** para o gateway de rede virtual. Depois que a conexão for estabelecida, você verá os valores do **Status** mudarem para **Êxito** e **Conectado**. Selecione uma conexão para abrir a página **Essentials** e exibir mais informações.
+1. Localize o gateway de rede virtual no portal do Azure. 
+2. Na página **Gateway de rede virtual**, selecione **Conexões** para exibir a página **Conexões** para o gateway de rede virtual. Depois que a conexão for estabelecida, você verá os valores de **status** mudarem para **conectado**.
 
-![Êxito](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "Teve êxito")
+   ![Verificar conexões](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png "Verificar conexões")
+3. Na coluna **nome** , selecione uma das conexões para exibir mais informações. Quando dados começarem a fluir, você verá valores de **Entrada de dados** e de **Saída de dados**.
 
-Quando dados começarem a fluir, você verá valores de **Entrada de dados** e de **Saída de dados**.
-
-![Conceitos básicos](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Conceitos básicos")
+   ![Status](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png "Status")
 
 ## <a name="add-additional-connections"></a>Adicionar conexões extras
 

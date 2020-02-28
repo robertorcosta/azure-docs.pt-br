@@ -1,18 +1,16 @@
 ---
 title: Endereços IP usados pelo Application Insights e pelo Log Analytics | Microsoft Docs
 description: Exceções de firewall de servidor exigidas pelo Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 12/19/2019
-ms.openlocfilehash: 02f1e5e3f3252ffa026d8dffe9fe83c9e5abe65b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 7c1c65552e73fd79da0e8f0405e2ee55addff36b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899131"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656238"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP usados pelo Application Insights e pelo Log Analytics
 O serviço [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) usa vários endereços IP. Talvez seja necessário conhecer esses endereços se o aplicativo que você está monitorando estiver hospedado atrás de um firewall.
@@ -30,7 +28,7 @@ O serviço [Azure Application Insights](../../azure-monitor/app/app-insights-ove
 ## <a name="outgoing-ports"></a>Portas de saída
 Você precisa abrir algumas portas de saída no firewall do servidor para permitir que o SDK do Application Insights e/ou o Monitor de Status envie dados para o portal:
 
-| Finalidade | URL | IP | Portas |
+| Finalidade | {1&gt;URL&lt;1} | IP | Portas |
 | --- | --- | --- | --- |
 | Telemetria |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235 | 443 |
 | Live Metrics Stream (leste dos EUA) |use.rt.prod.applicationinsights.trafficmanager.net |23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207 |443 |
@@ -43,7 +41,7 @@ Você precisa abrir algumas portas de saída no firewall do servidor para permit
 ## <a name="status-monitor"></a>Monitor de status
 Configuração do Monitor de Status - necessária somente ao fazer alterações.
 
-| Finalidade | URL | IP | Portas |
+| Finalidade | {1&gt;URL&lt;1} | IP | Portas |
 | --- | --- | --- | --- |
 | Configuração |`management.core.windows.net` | |`443` |
 | Configuração |`management.azure.com` | |`443` |
@@ -226,13 +224,13 @@ Observação: o domínio *.loganalytics.io pertence à equipe do Log Analytics.
 
 | Finalidade | IP | Portas
 | --- | --- | --- |
-| Alerta | 23.96.11.4 | 443 |
+| Alertas | 23.96.11.4 | 443 |
 
 ## <a name="profiler"></a>Criador de perfil
 
 | Finalidade | URI | IP | Portas |
 | --- | --- | --- | --- |
-| Agente | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 20.190.60.38<br/>20.190.60.32<br/>52.173.196.230<br/>52.173.196.209<br/>23.102.44.211<br/>23.102.45.216<br/>13.69.51.218<br/>13.69.51.175<br/>138.91.32.98<br/>138.91.37.93<br/>40.121.61.208<br/>40.121.57.2<br/>51.140.60.235<br/>51.140.180.52<br/>52.138.31.112<br/>52.138.31.127<br/>104.211.90.234<br/>104.211.91.254<br/>13.70.124.27<br/>13.75.195.15<br/>52.185.132.101<br/>52.185.132.170<br/>20.188.36.28<br/>40.89.153.171<br/>52.141.22.239<br/>52.141.22.149<br/>102.133.162.233<br/>102.133.161.73<br/>191.232.214.6<br/>191.232.213.239 | 443
+| Agente do | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 20.190.60.38<br/>20.190.60.32<br/>52.173.196.230<br/>52.173.196.209<br/>23.102.44.211<br/>23.102.45.216<br/>13.69.51.218<br/>13.69.51.175<br/>138.91.32.98<br/>138.91.37.93<br/>40.121.61.208<br/>40.121.57.2<br/>51.140.60.235<br/>51.140.180.52<br/>52.138.31.112<br/>52.138.31.127<br/>104.211.90.234<br/>104.211.91.254<br/>13.70.124.27<br/>13.75.195.15<br/>52.185.132.101<br/>52.185.132.170<br/>20.188.36.28<br/>40.89.153.171<br/>52.141.22.239<br/>52.141.22.149<br/>102.133.162.233<br/>102.133.161.73<br/>191.232.214.6<br/>191.232.213.239 | 443
 | Portal | gateway.azureserviceprofiler.net | dinâmico | 443
 | Armazenamento | *.core.windows.net | dinâmico | 443
 
@@ -243,6 +241,6 @@ Observação: o domínio *.loganalytics.io pertence à equipe do Log Analytics.
 
 | Finalidade | URI | IP | Portas |
 | --- | --- | --- | --- |
-| Agente | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 20.190.60.38<br/>20.190.60.32<br/>52.173.196.230<br/>52.173.196.209<br/>23.102.44.211<br/>23.102.45.216<br/>13.69.51.218<br/>13.69.51.175<br/>138.91.32.98<br/>138.91.37.93<br/>40.121.61.208<br/>40.121.57.2<br/>51.140.60.235<br/>51.140.180.52<br/>52.138.31.112<br/>52.138.31.127<br/>104.211.90.234<br/>104.211.91.254<br/>13.70.124.27<br/>13.75.195.15<br/>52.185.132.101<br/>52.185.132.170<br/>20.188.36.28<br/>40.89.153.171<br/>52.141.22.239<br/>52.141.22.149<br/>102.133.162.233<br/>102.133.161.73<br/>191.232.214.6<br/>191.232.213.239 | 443
+| Agente do | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 20.190.60.38<br/>20.190.60.32<br/>52.173.196.230<br/>52.173.196.209<br/>23.102.44.211<br/>23.102.45.216<br/>13.69.51.218<br/>13.69.51.175<br/>138.91.32.98<br/>138.91.37.93<br/>40.121.61.208<br/>40.121.57.2<br/>51.140.60.235<br/>51.140.180.52<br/>52.138.31.112<br/>52.138.31.127<br/>104.211.90.234<br/>104.211.91.254<br/>13.70.124.27<br/>13.75.195.15<br/>52.185.132.101<br/>52.185.132.170<br/>20.188.36.28<br/>40.89.153.171<br/>52.141.22.239<br/>52.141.22.149<br/>102.133.162.233<br/>102.133.161.73<br/>191.232.214.6<br/>191.232.213.239 | 443
 | Portal | ppe.gateway.azureserviceprofiler.net | dinâmico | 443
 | Armazenamento | *.core.windows.net | dinâmico | 443

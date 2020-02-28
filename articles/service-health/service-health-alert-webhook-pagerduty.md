@@ -1,14 +1,14 @@
 ---
 title: Enviar alertas de integridade do serviço do Azure com o PagerDuty
 description: Obtenha notificações personalizadas sobre eventos de integridade do serviço na instância do PagerDuty.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 746113622b746949a0fae3fd0d7f1f9c7d170707
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: bb449a5279f3cea55e6aec2f72edfd11fb26227a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551645"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654062"
 ---
 # <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Enviar alertas de integridade do serviço do Azure com PagerDuty usando WebHooks
 
@@ -84,7 +84,7 @@ Este artigo mostra como configurar notificações de integridade do serviço do 
 
 1. Acesse o [PagerDuty](https://www.pagerduty.com/) para confirmar se a integração foi configurada com êxito.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Saiba como [configurar notificações de webhook para sistemas de gerenciamento de problemas existentes](service-health-alert-webhook-guide.md).
 - Examine o [esquema do webhook de alertas de log de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - Saiba mais sobre as [notificações de integridade do serviço](../azure-monitor/platform/service-notifications.md).

@@ -6,19 +6,19 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/03/2019
-ms.openlocfilehash: 5cc54c95759ba1490f498305f05cc49a4411686d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 02/26/2020
+ms.openlocfilehash: aa71f7d2f3b277ca34e1e5fea76ada6adf93e573
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930327"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655049"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Transformação de pesquisa de fluxo de dados de mapeamento de Azure Data Factory
 
 Use a pesquisa para adicionar dados de referência de outra fonte a seu fluxo de dados. A transformação de pesquisa requer a definição de uma fonte que aponte para a sua tabela de referência e apresente correspondência com os campos de chave.
 
-![Lookup Transformation](media/data-flow/lookup1.png "Pesquisa")
+![Transformação Pesquisa](media/data-flow/lookup1.png "Pesquisa")
 
 Selecione os campos de chave que você deseja comparar entre os campos de fluxo de entrada e os campos da fonte de referência. Primeiro é preciso criar uma nova fonte na tela de design de fluxo de dados para ser usada como o lado direito da pesquisa.
 
@@ -36,9 +36,19 @@ Depois de usar a transformação pesquisa, você pode adicionar uma divisão de 
 
 ## <a name="first-or-last-value"></a>Primeiro ou último valor
 
-Quando você tiver várias correspondências de sua pesquisa, convém reduzir as várias linhas correspondentes escolhendo a primeira ou a última correspondência. Você pode fazer isso usando uma transformação Agregação após a pesquisa.
+A transformação pesquisa é implementada como uma junção externa esquerda. Quando você tem várias correspondências de sua pesquisa, convém reduzir as várias linhas correspondentes selecionando a primeira linha correspondente, a última correspondência ou qualquer linha aleatória.
 
-Nesse caso, uma transformação agregada chamada ```PickFirst``` é usada para escolher o primeiro valor das correspondências de pesquisa.
+### <a name="option-1"></a>Opção 1
+
+![Pesquisa de linha única](media/data-flow/singlerowlookup.png "Pesquisa de linha única")
+
+* Corresponder várias linhas: deixe em branco para retornar a correspondência de linha única
+* Corresponder em: selecione primeira, última ou qualquer correspondência
+* Condições de classificação: se você selecionar primeiro ou último, o ADF exigirá que seus dados sejam ordenados para que haja lógica por trás da primeira e da última
+
+### <a name="option-2"></a>Opção 2
+
+Você também pode fazer isso usando uma transformação Agregação após a pesquisa. Nesse caso, uma transformação agregada chamada ```PickFirst``` é usada para escolher o primeiro valor das correspondências de pesquisa.
 
 ![Agregação de pesquisa](media/data-flow/lookup333.png "Agregação de pesquisa")
 
@@ -48,7 +58,7 @@ Nesse caso, uma transformação agregada chamada ```PickFirst``` é usada para e
 
 No Data Factory, os fluxos de dados são executados em ambientes Spark expandidos. Se o conjunto de seus conjuntos de trabalho puder se ajustar ao espaço de memória do nó do trabalhador, podemos otimizar seu desempenho de pesquisa.
 
-![Junção de difusão](media/data-flow/broadcast.png "Difusão")
+![Junção de difusão](media/data-flow/broadcast.png "Junção de difusão")
 
 ### <a name="broadcast-join"></a>Junção de transmissão
 
@@ -58,7 +68,7 @@ Selecione junção de difusão esquerda e/ou direita para solicitar que o ADF en
 
 Você também pode especificar o particionamento de seus dados selecionando "definir particionamento" na guia otimizar da transformação pesquisa para criar conjuntos de dados que podem se ajustar melhor à memória por trabalho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * As transformações [Join](data-flow-join.md) e [Exists](data-flow-exists.md) executam tarefas semelhantes em fluxos de dados de mapeamento do ADF. Observe essas transformações em seguida.
 * Usar uma [divisão condicional](data-flow-conditional-split.md) com ```isMatch()``` para dividir linhas em valores correspondentes e não correspondentes

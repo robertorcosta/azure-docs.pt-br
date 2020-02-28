@@ -1,18 +1,17 @@
 ---
 title: Perguntas frequentes sobre preços para o Monitor de Desempenho de Rede do Azure | Microsoft Docs
 description: Perguntas frequentes - Monitor de Desempenho de Rede do Azure
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: agummadi
 ms.author: agummadi
 ms.date: 04/02/2018
-ms.openlocfilehash: 3d69637c2851764363209ed8dfbe8c24c636ffba
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c5a80c7ff6d08ce601a6c2bbb0db0ef866d3b425
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898780"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654385"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Alterações de preços para o Monitor de Desempenho de Rede do Azure
 
@@ -25,7 +24,7 @@ O Monitor de Desempenho de Rede consiste em três componentes:
 
 As seções a seguir explicam as alterações de preços para os componentes do NPM.
 
-## <a name="performance-monitor"></a>Monitorar Desempenho
+## <a name="performance-monitor"></a>Monitor de desempenho
 
 **Como o uso do Monitor de Desempenho era cobrado no modelo antigo?**
 

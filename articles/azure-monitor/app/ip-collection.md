@@ -1,18 +1,14 @@
 ---
 title: Coleção de endereços IP do Aplicativo Azure insights | Microsoft Docs
 description: Compreendendo como os endereços IP e a localização geográfica são tratados com o Aplicativo Azure insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/11/2019
-ms.openlocfilehash: 5a647dda21855f754754f76682e5c00443eaac55
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 969061ec89ddd0f13caa675bc324207c6c5d8843
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432596"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656510"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Geolocalização e manipulação de endereço IP
 
@@ -101,7 +97,7 @@ Se você só precisa modificar o comportamento de um único recurso Application 
     
     Uma lista de propriedades será retornada como resultado. Uma das propriedades deve ler `DisableIpMasking: true`. Se você executar o PowerShell antes de implantar a nova propriedade com Azure Resource Manager, a propriedade não existirá.
 
-### <a name="rest-api"></a>API Rest
+### <a name="rest-api"></a>API do Rest
 
 A carga da [API REST](https://docs.microsoft.com/rest/api/azure/) para fazer as mesmas modificações é a seguinte:
 
@@ -235,7 +231,7 @@ requests
 
 Endereços IP recentemente coletados devem aparecer na coluna `customDimensions_client-ip`. A coluna de `client-ip` padrão ainda terá quatro octetos zerados ou apenas exibindo os três primeiros octetos, dependendo de como você configurou a coleta de endereços IP no nível do componente. Se você estiver testando localmente após implementar o inicializador de telemetria e o valor que você vê para `customDimensions_client-ip` for `::1` o comportamento é esperado. `::1` representa o endereço de loopback no IPv6. É equivalente a `127.0.01` no IPv4 e é o resultado que você verá ao testar a partir do localhost.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Saiba mais sobre a [coleta de dados pessoais](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt) no Application insights.
 

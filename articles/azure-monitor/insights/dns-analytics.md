@@ -1,18 +1,17 @@
 ---
 title: Solução Análise de DNS no Azure Monitor | Microsoft Docs
 description: Configure e use a solução Análise de DNS no Azure Monitor para obter insights relacionados à segurança, ao desempenho e às operações na infraestrutura DNS.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: bca77db3452aecb31852c4c50e7754c7777fc458
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2471c29f559df5c347c62ceb4c7fd9b4ae1e5eec
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75971257"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657326"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Coletar informações sobre a infraestrutura DNS com a solução Visualização da Análise de DNS
 
@@ -184,6 +183,6 @@ Etapas comuns de solução de problemas:
 
 Para fornecer comentários, visite a [página log Analytics UserVoice](https://aka.ms/dnsanalyticsuservoice) para postar ideias para análise de DNS recursos para trabalhar. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Consulte logs](../log-query/log-query-overview.md) para exibir registros de log DNS detalhados.

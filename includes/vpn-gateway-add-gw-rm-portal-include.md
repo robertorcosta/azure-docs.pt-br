@@ -1,23 +1,23 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 10/04/2019
+ms.date: 02/26/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 12c28969ed00a1370b90e06e9d57cd666c50ea29
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f1d4c50766fea5f4c562dc6a9661945713a41f53
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73522207"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654698"
 ---
 1. No menu [portal do Azure](https://portal.azure.com) , selecione **criar um recurso**. 
 
-   ![Criar um recurso no portal do Azure](./media/vpn-gateway-add-gw-rm-portal-include/azure-portal-create-resource.png)
+   ![Crie um recurso no portal do Azure](./media/vpn-gateway-add-gw-rm-portal-include/azure-portal-create-resource.png)
 2. No campo **Pesquisar no Marketplace** , digite "gateway de rede virtual". Localize **Gateway de rede virtual** na pesquisa, retorne e clique na entrada. Na página **Gateway de rede virtual** , clique em **criar**. Isso abre a página **Criar gateway de rede virtual**.
 
    ![Criar campos de página de gateway de rede virtual](./media/vpn-gateway-add-gw-rm-portal-include/p2sgw.png "Criar campos de página de gateway de rede virtual")
@@ -34,7 +34,7 @@ ms.locfileid: "73522207"
 
    - **Nome**: nomeie o seu gateway. Nomear seu gateway não é o mesmo que nomear uma sub-rede de gateway. É o nome do objeto de gateway que você está criando.
    - **Região**: selecione a região na qual você deseja criar esse recurso. A região do gateway deve ser a mesma que a rede virtual.
-   - **Tipo de gateway**: selecione **VPN**. Gateways VPN usam o tipo de gateway de rede virtual do tipo **VPN**. 
+   - **Tipo de gateway**: selecione **VPN**. Gateways VPN usam o tipo de gateway de rede virtual do tipo **VPN**.
    - **Tipo de VPN**: selecione o Tipo de VPN especificado para sua configuração. A maioria das configurações exige um tipo de VPN baseado em rota.
    - **SKU**: selecione o SKU de gateway no menu suspenso. As SKUs listadas na lista suspensa dependem do tipo de VPN selecionado. Para saber mais sobre os SKUs de gateway, consulte [SKUs de Gateway](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 

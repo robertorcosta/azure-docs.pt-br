@@ -10,12 +10,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 1367bf32eea58b828c00ee23a59a32a2fec699ab
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 8fdc64632be8b5fcb3dca8de2ee833fef25719fe
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983088"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656731"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Limitações e restrições de URL de resposta/URI de redirecionamento
 
@@ -30,7 +30,7 @@ Um URI de redirecionamento, ou URL de resposta, é o local para o qual o servido
 
 A tabela a seguir mostra o número máximo de URIs de redirecionamento que você pode adicionar ao registrar seu aplicativo.
 
-| Contas sendo conectadas | Número máximo de URIs de redirecionamento | Description |
+| Contas sendo conectadas | Número máximo de URIs de redirecionamento | Descrição |
 |--------------------------|---------------------------------|-------------|
 | Contas corporativas ou de estudante da Microsoft no locatário do Azure Active Directory (Azure AD) de qualquer organização | 256 | `signInAudience` campo no manifesto do aplicativo é definido como *AzureADMyOrg* ou *AzureADMultipleOrgs* |
 | Contas pessoais da Microsoft e contas corporativas e de estudante | 100 | `signInAudience` campo no manifesto do aplicativo é definido como *AzureADandPersonalMicrosoftAccount* |
@@ -54,7 +54,7 @@ O modelo de aplicativo do Azure AD não dá suporte a URIs curinga para aplicati
 > [!NOTE]
 > A nova experiência de [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) não permite que os desenvolvedores adicionem URIs curinga na interface do usuário. A adição de URI curinga para aplicativos que entram em contas corporativas ou de estudante tem suporte apenas por meio do editor de manifesto de aplicativo. No futuro, novos aplicativos não poderão usar curingas no URI de redirecionamento. No entanto, os aplicativos mais antigos que contêm curingas em URIs de redirecionamento continuarão a funcionar.
 
-Se seu cenário exigir mais URIs de redirecionamento do que o limite máximo permitido, em vez de adicionar um URI de redirecionamento curinga, considere uma das abordagens a seguir.
+Se seu cenário exigir mais URIs de redirecionamento do que o limite máximo permitido, em vez de adicionar um URI de redirecionamento curinga, considere a abordagem a seguir.
 
 ### <a name="use-a-state-parameter"></a>Usar um parâmetro de estado
 
@@ -71,10 +71,6 @@ Nesta abordagem:
 > [!NOTE]
 > Essa abordagem permite que um cliente comprometido modifique os parâmetros adicionais enviados no parâmetro de estado, redirecionando, assim, o usuário para uma URL diferente, que é a [ameaça de redirecionamento aberta](https://tools.ietf.org/html/rfc6819#section-4.2.4) descrita na RFC 6819. Portanto, o cliente deve proteger esses parâmetros criptografando o estado ou verificando-o por outros meios, como validar o nome de domínio no URI de redirecionamento em relação ao token.
 
-### <a name="add-redirect-uris-to-service-principals"></a>Adicionar URIs de redirecionamento às entidades de serviço
-
-Outra abordagem é adicionar URIs de redirecionamento às [entidades de serviço](app-objects-and-service-principals.md#application-and-service-principal-relationship) que representam o registro do aplicativo em qualquer locatário do Azure AD. Você pode usar essa abordagem quando não pode usar um parâmetro de estado ou seu cenário requer que você adicione novos URIs de redirecionamento ao registro do aplicativo para cada novo locatário ao qual dá suporte. 
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Saiba mais sobre o [manifesto do aplicativo](reference-app-manifest.md)

@@ -1,18 +1,17 @@
 ---
 title: Perguntas frequentes - Solução de Monitor de Desempenho de Rede no Azure | Microsoft Docs
 description: Este artigo captura as perguntas frequentes sobre Monitor de Desempenho de Rede no Azure. O Monitor de Desempenho de Rede (NPM) ajuda a monitorar o desempenho de suas redes quase em tempo real e detectar e localizar afunilamentos de desempenho de rede.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 7ee593a8db020134e13ea853f17f097d716f7814
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 0ef50dfd4d9c6eb0066e54b76167b9934fbb9cf0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538195"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654426"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Perguntas da Solução do Monitor de Desempenho de Rede
 
@@ -258,7 +257,7 @@ Isso pode ocorrer se uma um mais opções forem verdadeiras:
 ### <a name="in-the-service-connectivity-monitor-capability-the-service-response-time-is-na-but-network-loss-as-well-as-latency-are-valid"></a>Na funcionalidade do Monitor de Conectividade do Serviço, o tempo de resposta do serviço for NA, mas a perda da rede, bem como a latência é válida
 Isso pode acontecer se o serviço de destino não for um aplicativo web, mas o teste está configurado como um teste da Web. Edite a configuração de teste e escolha o tipo de teste como Rede em vez de Web.
 
-## <a name="miscellaneous"></a>Disposições gerais
+## <a name="miscellaneous"></a>Diversos
 
 ### <a name="is-there-a-performance-impact-on-the-node-being-used-for-monitoring"></a>Há um impacto de desempenho no nó que está sendo usado para monitoramento?
 O processo do NPM está configurado para ser interrompido se ele utiliza mais de 5% dos recursos de CPU do host. Isso é para garantir que você pode continuar usando os nós para suas cargas de trabalho normais sem afetar o desempenho.
@@ -272,6 +271,6 @@ Você pode exibir o status de integridade de nós que estão sendo usados para m
 ### <a name="can-npm-report-latency-numbers-in-microseconds"></a>O NPM pode relatar os números de latência em microssegundos?
 O NPM arredonda os números de latência na interface do usuário e, em milissegundos. Os mesmos dados são armazenados em uma granularidade maior (às vezes, até quatro decimais).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o Monitor de desempenho de rede consultando [Solução de Monitor de Desempenho de Rede no Azure](../../azure-monitor/insights/network-performance-monitor.md).

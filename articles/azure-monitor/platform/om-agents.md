@@ -1,18 +1,17 @@
 ---
 title: Conectar Operations Manager ao Azure Monitor | Microsoft Docs
 description: Para manter seu investimento existente no System Center Operations Manager e usar funcionalidades estendidas com o Log Analytics, você pode integrar o Operations Manager ao seu workspace.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 5dc9412c7884eb62795fd04240f6cfa7d103e3be
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 92b6737f48d8d8704f461c9adac92284b323b05f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363652"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659400"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Conectar Operations Manager ao Azure Monitor
 
@@ -34,7 +33,7 @@ O diagrama a seguir mostra a conexão entre os servidores de gerenciamento e os 
 
 Se suas políticas de segurança TI não permitirem que os computadores em sua rede conectem a Internet, os servidores de gerenciamento poderão ser configurados para conectarem o gateway do Log Analytics para receber informações de configuração e enviar os dados coletados dependendo das soluções habilitadas. Para obter mais informações e etapas sobre como configurar seu grupo de gerenciamento de Operations Manager para se comunicar por meio de um gateway de Log Analytics para Azure Monitor, consulte [conectar computadores ao Azure monitor usando o gateway log Analytics](../../azure-monitor/platform/gateway.md).  
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, revise os seguintes requisitos.
 
@@ -47,9 +46,9 @@ Antes de começar, revise os seguintes requisitos.
 * Regiões com suporte – somente as seguintes regiões do Azure têm suporte pelo System Center Operations Manager para se conectar a um espaço de trabalho do Log Analytics:
     - Centro-Oeste dos EUA
     - Sudeste da Austrália
-    - Oeste da Europa
+    - Europa Ocidental
     - Leste dos EUA
-    - Sudeste Asiático
+    - Sudeste da Ásia
     - Leste do Japão
     - Sul do Reino Unido
     - Índia Central
@@ -70,7 +69,7 @@ Antes de começar, revise os seguintes requisitos.
 
 As informações abaixo listam as informações de configuração de proxy e firewall necessárias para que o agente de Operations Manager, os servidores de gerenciamento e o console de operações se comuniquem com Azure Monitor. O tráfego de cada componente é de saída de sua rede para Azure Monitor.
 
-|Grupos | Número da porta| Ignorar a Inspeção de HTTP|  
+|Recurso | Número da porta| Ignorar a Inspeção de HTTP|  
 |---------|------|-----------------------|  
 |**Agente**|||  
 |\*.ods.opinsights.azure.com| 443 |Sim|  
@@ -353,6 +352,6 @@ No futuro, se você pretender reconectar o grupo de gerenciamento a um espaço d
 * Na mídia de origem sob a pasta `\ManagementPacks` para o System Center 2016 - Operations Manager e superior.
 * Do rollup de atualização mais recente aplicado ao seu grupo de gerenciamento. Para Operations Manager 2012, a pasta de origem é `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` e para 2012 R2, ela está localizada em `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para adicionar funcionalidade e coletar dados, consulte [Adicionar soluções de Azure monitor do Galeria de soluções](../../azure-monitor/insights/solutions.md).

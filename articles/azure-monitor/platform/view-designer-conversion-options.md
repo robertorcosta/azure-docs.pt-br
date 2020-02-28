@@ -3,16 +3,15 @@ title: Opções de conversão do designer de exibição para pastas de trabalho 
 description: ''
 author: austonli
 ms.author: aul
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: f04ebc1a4a53825709479ca3f1dc7ce1245fc67f
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 7bfa831332451718c0c9c05023b90104d2b8b02b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77171547"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658703"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-conversion-options"></a>Opções de conversão do designer de exibição para pastas de trabalho do Azure Monitor
 O [Designer de exibição](view-designer.md) é um recurso do Azure monitor que permite que você crie modos de exibição personalizados para ajudá-lo a Visualizar dados em seu espaço de trabalho do log Analytics, com gráficos, listas e linhas do tempo. Eles estão sendo desativados e substituídos por pastas de trabalho que fornecem funcionalidade adicional. Este artigo compara os conceitos fundamentais entre as duas opções para converter exibições em pastas de trabalho.
@@ -41,8 +40,8 @@ Os blocos de designer de exibição geralmente consistem em duas seções, uma v
 
 Com as pastas de trabalho, permitimos que o usuário opte por consultar uma ou ambas as seções da exibição. As consultas do formular em pastas de trabalho são um processo simples de duas etapas. Primeiro, os dados são gerados a partir da consulta e, segundo, os dados são renderizados como uma visualização.  Um exemplo de como essa exibição seria recriada em pastas de trabalho é a seguinte:
 
-![Converter](media/view-designer-conversion-options/convert-donut.png)
+![Convert](media/view-designer-conversion-options/convert-donut.png)
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 - [Acessando pastas de trabalho & permissões](view-designer-conversion-access.md)

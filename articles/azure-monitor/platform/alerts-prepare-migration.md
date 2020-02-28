@@ -1,18 +1,17 @@
 ---
 title: Prepare-se para Azure Monitor migração de alertas clássicos atualizando seus aplicativos lógicos e runbooks
-author: yanivlavi
 description: Saiba como modificar seus WebHooks, aplicativos lógicos e runbooks para se preparar para a migração voluntária.
-ms.service: azure-monitor
+author: yanivlavi
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 58ba95ff60ddccf909578a673110c870caf57376
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 9219e105acb98424939030af76b526d475585619
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705557"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665585"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparar seus aplicativos lógicos e runbooks para a migração de regras de alerta clássicas
 
@@ -31,8 +30,8 @@ A tabela a seguir é uma referência às interfaces programáticas para alertas 
 
 |         |Alertas clássicos  |Novos alertas de métrica |
 |---------|---------|---------|
-|API REST     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
-|Azure CLI     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [alerta AZ monitor de métricas](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
+|API REST     | [Microsoft. insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [Microsoft. insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
+|CLI do Azure     | [alerta de monitor AZ](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [alerta AZ monitor de métricas](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
 |PowerShell      | [Referência](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Referência](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Modelo do Azure Resource Manager | [Para alertas clássicos](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[Para novos alertas de métrica](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
 
@@ -44,26 +43,26 @@ Use a tabela a seguir para mapear os campos de carga do webhook do formato clás
 
 |  |Alertas clássicos  |Novos alertas de métrica |
 |---------|---------|---------|
-|O alerta foi ativado ou resolvido?    | **status**       | **data.status** |
-|Informações contextuais sobre o alerta     | **context**        | **data.context**        |
-|Carimbo de data/hora em que o alerta foi ativado ou resolvido     | **context.timestamp**       | **data.context.timestamp**        |
+|O alerta foi ativado ou resolvido?    | **status**       | **Data. status** |
+|Informações contextuais sobre o alerta     | **context**        | **Data. Context**        |
+|Carimbo de data/hora em que o alerta foi ativado ou resolvido     | **contexto. Timestamp**       | **Data. Context. Timestamp**        |
 | ID da regra de alerta | **context.id** | **data.context.id** |
 | Nome da regra de alerta | **context.name** | **data.context.name** |
-| Descrição da regra de alerta | **context.description** | **data.context.description** |
-| Condição de regra de alerta | **context.condition** | **data.context.condition** |
-| Nome da métrica | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
+| Descrição da regra de alerta | **contexto. Descrição** | **Data. Context. Description** |
+| Condição de regra de alerta | **contexto. condição** | **Data. Context. Condition** |
+| Nome da métrica | **Context. condição. metricname** | **Data. Context. Condition. allOf [0]. metricname** |
 | Agregação de tempo (como a métrica é agregada na janela de avaliação)| **contexto. condição. timeaggregation** | **contexto. condição. timeaggregation** |
-| Período de avaliação | **context.condition.windowSize** | **data.context.condition.windowSize** |
-| Operador (como o valor da métrica agregada é comparado com o limite) | **context.condition.operator** | **data.context.condition.operator** |
-| Limite | **context.condition.threshold** | **Data. Context. Condition. allOf [0]. Threshold** |
-| Valor da métrica | **context.condition.metricValue** | **data.context.condition.allOf[0].metricValue** |
-| ID da Assinatura | **context.subscriptionId** | **data.context.subscriptionId** |
-| Grupo de recursos do recurso afetado | **context.resourceGroup** | **data.context.resourceGroup** |
-| Nome do recurso afetado | **context.resourceName** | **data.context.resourceName** |
-| Tipo do recurso afetado | **context.resourceType** | **data.context.resourceType** |
-| ID de recurso do recurso afetado | **context.resourceId** | **data.context.resourceId** |
-| Link direto para a página de Resumo de recursos do portal | **context.portalLink** | **data.context.portalLink** |
-| Campos de carga personalizada a serem passados para o webhook ou o aplicativo lógico | **properties** | **data.properties** |
+| Período de avaliação | **Context. condição. windowSize** | **Data. Context. Condition. windowSize** |
+| Operador (como o valor da métrica agregada é comparado com o limite) | **Context. Condition. Operator** | **Data. Context. Condition. Operator** |
+| Limite | **contexto. condição. limite** | **Data. Context. Condition. allOf [0]. Threshold** |
+| Valor da métrica | **contexto. condição. metricvalue** | **Data. Context. Condition. allOf [0]. metricvalue** |
+| ID da assinatura | **contexto. SubscriptionId** | **Data. Context. SubscriptionId** |
+| Grupo de recursos do recurso afetado | **Context. resourcegroup** | **Data. Context. resourcegroup** |
+| Nome do recurso afetado | **Context. resourceName** | **Data. Context. resourceName** |
+| Tipo do recurso afetado | **Context. resourceType** | **Data. Context. resourceType** |
+| ID de recurso do recurso afetado | **Context. ResourceId** | **Data. Context. ResourceId** |
+| Link direto para a página de Resumo de recursos do portal | **Context. portalLink** | **Data. Context. portalLink** |
+| Campos de carga personalizada a serem passados para o webhook ou o aplicativo lógico | **properties** | **Data. Properties** |
 
 As cargas são semelhantes, como você pode ver. A seção a seguir oferece:
 
@@ -163,7 +162,7 @@ A maioria de [nossos parceiros que se integram com alertas clássicos](https://d
 
 Se você estiver usando uma integração de parceiro que não está listada aqui, confirme com o provedor de integração que a integração funciona com novos alertas de métrica.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Como usar a ferramenta de migração](alerts-using-migration-tool.md)
 - [Entender como a ferramenta de migração funciona](alerts-understand-migration.md)

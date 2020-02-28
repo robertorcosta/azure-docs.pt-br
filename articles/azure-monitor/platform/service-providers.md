@@ -1,18 +1,17 @@
 ---
 title: Logs de Azure Monitor para provedores de serviço | Microsoft Docs
 description: Os logs de Azure Monitor podem ajudar provedores de serviços gerenciados (MSPs), grandes empresas, ISVs (fornecedores independentes de software) e provedores de serviços de hospedagem a gerenciar e monitorar servidores na infraestrutura local ou na nuvem do cliente.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 1b5c181569ea569ecc4808284683501cb20f7bf5
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: ed398e12ee90f2eef2cfa78e2ed02701e6012517
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117065"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658873"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Logs de Azure Monitor para provedores de serviço
 
@@ -80,7 +79,7 @@ Há duas opções para implementar logs em um local central:
 
 2. Power BI como um local central: Power BI pode atuar como o local central quando os vários espaços de trabalho exportam dados para ele usando a integração entre o espaço de trabalho Log Analytics e [Power bi](../../azure-monitor/platform/powerbi.md). 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Automatizar a criação e configuração de workspaces usando [modelos do Gerenciador de recursos](template-workspace-configuration.md)
 

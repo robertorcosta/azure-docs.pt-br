@@ -1,32 +1,28 @@
 ---
 title: Application Insights para serviços de nuvem do Azure | Microsoft Docs
 description: Monitorar suas funções da Web e de trabalho com eficiência com o Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/05/2018
-ms.openlocfilehash: f915764deaa70117b96a42c5e7310b691125d731
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ce794a7bd18635fddfa30056ab2d675dc138097d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979844"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655830"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para serviços de nuvem do Azure
 [Application insights][start] pode monitorar os [aplicativos de serviço de nuvem do Azure](https://azure.microsoft.com/services/cloud-services/) quanto à disponibilidade, ao desempenho, às falhas e ao uso combinando dados de SDKs de Application Insights com dados de [diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de seus serviços de nuvem. Com os comentários que você obtiver sobre o desempenho e a eficiência de seu aplicativo em uso, você pode fazer escolhas informadas sobre a direção do projeto em cada ciclo de vida de desenvolvimento.
 
 ![Visão geral do dashboard](./media/cloudservices/overview-graphs.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 Antes de começar, você precisa de:
 
 * Uma assinatura do [Azure](https://azure.com). Entrar com sua conta da Microsoft para Windows, Xbox Live ou outros serviços de nuvem da Microsoft. 
 * Ferramentas do Microsoft Azure 2.9 ou posteriores.
 * Developer Analytics Tools 7.10 ou posterior.
 
-## <a name="get-started-quickly"></a>Comece rapidamente
+## <a name="get-started-quickly"></a>Introdução rápida
 A maneira mais rápida e fácil de monitorar seu serviço de nuvem com o Application Insights é escolher essa opção quando você publica seu serviço no Azure.
 
 ![Exemplo da página Configurações de Diagnóstico](./media/cloudservices/azure-cloud-application-insights.png)
@@ -265,7 +261,7 @@ Se seu sistema usa outros serviços do Azure, como o Stream Analytics, inclua os
 
 Caso tenha um aplicativo cliente móvel, use o [App Center](../../azure-monitor/learn/mobile-center-quickstart.md). Crie consultas no [Analytics](../../azure-monitor/app/analytics.md) para exibir a contagem de eventos e fixe-os ao painel.
 
-## <a name="example"></a>Exemplo
+## <a name="example"></a>{1&gt;Exemplo&lt;1}
 [O exemplo](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitora um serviço que tem uma função web e duas funções de trabalho.
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Exceção "método não encontrado" em execução nos serviços de nuvem do Azure
@@ -275,7 +271,7 @@ Você compilou para .NET 4.6? O .NET 4.6 não tem suporte automático nas funç�
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * [Configurar o envio dos Diagnósticos do Azure ao Application Insights](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Criar automaticamente recursos do Application Insights](../../azure-monitor/app/powershell.md)
 * [Automatizar o Diagnóstico do Azure](../../azure-monitor/app/powershell-azure-diagnostics.md)

@@ -1,28 +1,27 @@
 ---
 title: Conectar Configuration Manager ao Azure Monitor | Microsoft Docs
 description: Este artigo mostra as etapas para se conectar Configuration Manager ao espaço de trabalho no Azure Monitor e iniciar a análise de dados.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: 5b5af034b116ec1cdcefc811630683c9f560c840
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 3140c0de6fbe090e3d040202cd581c455f03b6d6
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513636"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655249"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Conectar Configuration Manager ao Azure Monitor
 Você pode conectar seu ambiente de Configuration Manager de ponto de extremidade da Microsoft para Azure Monitor para sincronizar dados de coleta de dispositivos e fazer referência a essas coleções no Azure Monitor e na automação do Azure.  
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 O Azure Monitor dá suporte Configuration Manager Branch atual, versão 1606 e superior.
 
 >[!NOTE]
->O recurso para se conectar Configuration Manager com um espaço de trabalho de Log Analytics é opcional e não é habilitado por padrão. É necessário habilitar esse recurso antes de usá-lo. Para obter mais informações, consulte [Enable optional features from updates (Habilitar recursos opcionais de atualizações)](https://docs.microsoft.com/configmgr/core/servers/manage/install-in-console-updates#bkmk_options).
+>O recurso para se conectar Configuration Manager com um espaço de trabalho de Log Analytics é opcional e não é habilitado por padrão. Você deve habilitar esse recurso antes de usá-lo. Para obter mais informações, consulte [habilitar recursos opcionais de atualizações](https://docs.microsoft.com/configmgr/core/servers/manage/install-in-console-updates#bkmk_options).
 
 ## <a name="configuration-overview"></a>Visão geral de configuração
 
@@ -80,7 +79,7 @@ Examine o artigo [conectar computadores Windows ao Azure monitor no Azure](agent
 
 4. Na página serviços do Azure do assistente de serviços do Azure:
 
-    1. Especifique um **Nome** para o objeto no Configuration Manager.
+    1. Especifique um **nome** para o objeto em Configuration Manager.
     2. Especifique uma **Descrição** opcional para ajudá-lo a identificar o serviço.
     3. Selecione o conector do **OMS**de serviço do Azure.
 
@@ -148,6 +147,6 @@ Depois que as coleções forem importadas, você poderá ver quantos computadore
 
 Quando você clica em qualquer um, o editor de consultas de log é aberto exibindo todos os grupos importados ou todos os computadores que pertencem a cada grupo. Usando a [pesquisa de log](../../azure-monitor/log-query/log-query-overview.md), você pode executar uma análise mais detalhada dos dados de associação da coleção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Use a [Pesquisa de Log](../../azure-monitor/log-query/log-query-overview.md) para exibir informações detalhadas sobre os dados do Configuration Manager.

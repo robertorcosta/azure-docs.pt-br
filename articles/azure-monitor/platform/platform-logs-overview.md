@@ -3,17 +3,16 @@ title: Visão geral dos logs da plataforma Azure | Microsoft Docs
 description: Visão geral dos logs em Azure Monitor que fornecem dados avançados e frequentes sobre a operação de um recurso do Azure.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 5f02368bfb0c084691376300980d4cdee0d9b3be
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 89de6b3737c8a1e91832aba8f749078806b64e90
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530877"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659313"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Visão geral dos logs da plataforma Azure
 Os logs de plataforma fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e a plataforma do Azure da qual dependem. Eles são gerados automaticamente, embora você precise configurar determinados logs da plataforma para serem encaminhados a um ou mais destinos a serem retidos. Este artigo fornece uma visão geral dos logs de plataforma, incluindo as informações que eles fornecem e como você pode configurá-los para coleta e análise.
@@ -21,10 +20,10 @@ Os logs de plataforma fornecem informações detalhadas de diagnóstico e audito
 ## <a name="types-of-platform-logs"></a>Tipos de logs de plataforma
 A tabela a seguir lista os logs de plataforma específicos que estão disponíveis em diferentes camadas do Azure.
 
-| Log | Camada | Description |
+| Log | Camada | DESCRIÇÃO |
 |:---|:---|:---|
 | Logs de recursos | Recursos do Azure | Forneça informações sobre as operações que foram executadas em um recurso do Azure (o *plano de dados*), por exemplo, obter um segredo de um Key Vault ou fazer uma solicitação para um banco de dado. O conteúdo dos logs de recursos varia de acordo com o serviço do Azure e o tipo de recurso.<br><br>*Os logs de recursos foram anteriormente referidos como logs de diagnóstico.*  |
-| Logs de atividades | Assinatura do Azure | Fornece informações sobre as operações em cada recurso do Azure na assinatura de fora (*o plano de gerenciamento*), além de atualizações em eventos de integridade do serviço. Use o log de atividades para determinar o _que_, _quem_e _quando_ para qualquer operação de gravação (put, post, Delete) realizada nos recursos em sua assinatura. Também é possível compreender o status da operação e outras propriedades relevantes.  Há um único log de atividades para cada assinatura do Azure. |
+| Log de atividades | Assinatura do Azure | Fornece informações sobre as operações em cada recurso do Azure na assinatura de fora (*o plano de gerenciamento*), além de atualizações em eventos de integridade do serviço. Use o log de atividades para determinar o _que_, _quem_e _quando_ para qualquer operação de gravação (put, post, Delete) realizada nos recursos em sua assinatura. Também é possível compreender o status da operação e outras propriedades relevantes.  Há um único log de atividades para cada assinatura do Azure. |
 | Logs de Azure Active Directory | Locatário do Azure |  Contém o histórico de atividade de entrada e a trilha de auditoria das alterações feitas no Azure Active Directory para um locatário específico. Consulte [o que são Azure Active Directory relatórios?](../../active-directory/reports-monitoring/overview-reports.md) para obter uma descrição completa dos Logs de Azure Active Directory.   |
 
 > [!NOTE]
@@ -53,7 +52,7 @@ Você pode enviar os logs da plataforma para um ou mais dos destinos na tabela a
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Exibir o esquema do log de atividades para diferentes categorias](activity-log-schema.md)
 * [Exibir o esquema de log de recursos para diferentes serviços do Azure](diagnostic-logs-schema.md)

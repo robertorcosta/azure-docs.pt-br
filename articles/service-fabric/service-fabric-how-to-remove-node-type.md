@@ -1,29 +1,23 @@
 ---
-title: Remover um tipo de nó no Azure Service Fabric
+title: Remover um tipo de nó no Azure Service Fabric | Microsoft Docs
 description: Saiba como remover um tipo de nó de um cluster do Service Fabric em execução no Azure.
+author: inputoutputcode
+manager: sridmad
 ms.topic: conceptual
-ms.date: 02/14/2019
-ms.openlocfilehash: f3dc3210fdb436038174bb8d9347424f14d3faa3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/21/2020
+ms.author: chrpap
+ms.openlocfilehash: d8ee2327f65332d32038806f2d2416cac190875b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464500"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661969"
 ---
-# <a name="remove-a-service-fabric-node-type"></a>Remover o tipo de nó do Service Fabric
+# <a name="how-to-remove-a-service-fabric-node-type"></a>Como remover um tipo de nó Service Fabric
 Este artigo descreve como dimensionar um cluster do Azure Service Fabric removendo um tipo de nó existente de um cluster. Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Uma máquina ou VM que faz parte de um cluster é chamada de nó. Conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que você usa para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Então, cada tipo de nó pode ser gerenciado separadamente. Depois de criar um cluster do Service Fabric, você pode dimensionar um cluster horizontalmente removendo um tipo de nó (conjunto de dimensionamento de máquinas virtuais) e todos os seus nós.  É possível dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster.  Na medida em que o cluster for dimensionado, os aplicativos também serão dimensionados automaticamente.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-Use [Remove-AzServiceFabricNodeType](https://docs.microsoft.com/powershell/module/az.servicefabric/remove-azservicefabricnodetype) para remover um tipo de nó Service Fabric.
-
-As três operações que ocorrem quando Remove-AzServiceFabricNodeType é chamado são:
-1.  O conjunto de dimensionamento de máquinas virtuais por trás do tipo de nó é excluído.
-2.  O tipo de nó é removido do cluster.
-3.  Para cada nó dentro desse tipo de nó, todo o estado para esse nó é removido do sistema. Se houver serviços nesse nó, em seguida, os serviços são primeiro movidos para outro nó. Se o gerenciador de cluster não puder localizar um nó para o serviço/réplica, a operação é atrasada/bloqueada.
-
 > [!WARNING]
-> Não é recomendável usar Remove-AzServiceFabricNodeType para remover um tipo de nó de um cluster de produção a ser usado com frequência. Esse é um comando muito perigoso, pois ele exclui o recurso de conjunto de dimensionamento de máquinas virtuais por trás do tipo de nó. 
+> O uso dessa abordagem para remover um tipo de nó de um cluster de produção não é recomendável para ser usado com frequência. Esse é um comando muito perigoso, pois ele exclui o recurso de conjunto de dimensionamento de máquinas virtuais por trás do tipo de nó. 
 
 ## <a name="durability-characteristics"></a>Características de durabilidade
 A segurança é priorizada em velocidade ao usar remove-AzServiceFabricNodeType. O tipo de nó deve ser do [nível de durabilidade](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) Prata ou Ouro, porque:
@@ -31,45 +25,156 @@ A segurança é priorizada em velocidade ao usar remove-AzServiceFabricNodeType.
 - A durabilidade Prata ou Ouro intercepta todas as alterações para o conjunto de dimensionamento.
 - Ouro também dá controle sobre as atualizações do Azure sob o conjunto de dimensionamento.
 
-O Service Fabric "orquestra" alterações subjacentes e atualiza de forma que os dados não sejam perdidos. No entanto, quando você remove um nó com durabilidade Bronze, você pode perder informações de estado. Se você estiver removendo um tipo de nó primário e seu aplicativo estiver sem estado, Bronze é aceitável. Quando você executar cargas de trabalho com monitoramento de estado na produção, a configuração mínima deve ser Prata. Da mesma forma, cenários de produção do tipo de nó primário devem ser sempre Prata ou Ouro.
+O Service Fabric "orquestra" alterações subjacentes e atualiza de forma que os dados não sejam perdidos. No entanto, quando você remove um tipo de nó com durabilidade bronze, você pode perder informações de estado. Se você estiver removendo um tipo de nó primário e seu aplicativo estiver sem estado, bronze será aceitável. Quando você executar cargas de trabalho com monitoramento de estado na produção, a configuração mínima deve ser Prata. Da mesma forma, cenários de produção do tipo de nó primário devem ser sempre Prata ou Ouro.
 
 ### <a name="more-about-bronze-durability"></a>Mais informações sobre durabilidade de Bronze
 
 Ao remover um tipo de nó que é Bronze, todos os nós no tipo de nó diminuem imediatamente. O Service Fabric não intercepta todas as atualizações do conjunto de dimensionamento de nós de Bronze, assim, todas as VMs ficam inativas imediatamente. Se você tiver qualquer coisa com o monitoamento de estado em nós, os dados são perdidos. Agora, mesmo se você estivesse sem estado, todos os nós no Service Fabric participam do anel, portanto, uma vizinhança inteira pode ser perdida, o que pode desestabilizar o cluster em si.
 
-## <a name="recommended-node-type-removal-process"></a>Recomendado o processo de remoção do tipo de nó
+## <a name="remove-a-non-primary-node-type"></a>Remover um tipo de nó não primário
 
-Para remover o tipo de nó, execute o cmdlet [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype).  O cmdlet leva algum tempo para ser concluído.  Depois que todas as VMs estiverem ausentes (representadas como "inativas"), o Fabric:/System/InfrastructureService/[NodeType Name] mostrará um estado de erro.
+1. Tome cuidado com esses pré-requisitos antes de iniciar o processo.
 
-```powershell
-$groupname = "mynodetype"
-$nodetype = "nt2vm"
-$clustername = "mytestcluster"
+    - O cluster está íntegro.
+    - Ainda haverá capacidade suficiente depois que o tipo de nó for removido, por exemplo, número de nós para inserir a contagem de réplicas necessárias.
 
-Remove-AzServiceFabricNodeType -Name $clustername  -NodeType $nodetype -ResourceGroupName $groupname
+2. Mova todos os serviços que têm restrições de posicionamento para usar o tipo de nó fora do tipo de nó.
 
-Connect-ServiceFabricCluster -ConnectionEndpoint mytestcluster.eastus.cloudapp.azure.com:19000 `
-          -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint <thumbprint> `
-          -FindType FindByThumbprint -FindValue <thumbprint> `
-          -StoreLocation CurrentUser -StoreName My
-```
+    - Modifique o manifesto do aplicativo/serviço para não referenciar mais o tipo de nó.
+    - Implante a alteração.
 
-Em seguida, você pode atualizar o recurso de cluster para remover o tipo de nó. Você pode usar a implantação de modelo ARM ou editar o recurso de cluster por meio do [Azure Resource Manager](https://resources.azure.com). Isso iniciará uma atualização de cluster, o que removerá o serviço Fabric:/System/InfrastructureService/[NodeType Name] que está em estado de erro.
+    Em seguida, valide isso:
+    - Todos os serviços modificados acima não estão mais em execução no nó que pertence ao tipo de nó.
+    - Todos os serviços estão íntegros.
 
-Você ainda verá que os nós estão "inativos" na Service Fabric Explorer. Execute [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) em cada um dos nós que você deseja remover.
+3. Desmarcar o tipo de nó como não primário (ignorar para tipos de nó não primários)
 
+    - Localize o modelo de Azure Resource Manager usado para implantação.
+    - Localize a seção relacionada ao tipo de nó na seção Service Fabric.
+    - Altere a propriedade IsPrimary para false. \* * Não remova a seção relacionada ao tipo de nó nesta tarefa.
+    - Implante o modelo de Azure Resource Manager modificado. \* * Dependendo da configuração do cluster, essa etapa pode demorar um pouco.
+    
+    Em seguida, valide isso:
+    - Service Fabric seção no portal indica que o cluster está pronto.
+    - O cluster está íntegro.
+    - Nenhum dos nós pertencentes ao tipo de nó são marcados como nó semente.
 
-```powershell
-$nodes = Get-ServiceFabricNode | Where-Object {$_.NodeType -eq $nodetype} | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending
+4. Desabilite os dados para o tipo de nó.
 
-Foreach($node in $nodes)
-{
-    Remove-ServiceFabricNodeState -NodeName $node.NodeName -TimeoutSec 300 -Force 
-}
-```
+    Conecte-se ao cluster usando o PowerShell e, em seguida, execute a etapa a seguir.
+    
+    ```powershell
+    $nodeType = "" # specify the name of node type
+    $nodes = Get-ServiceFabricNode
+    
+    foreach($node in $nodes)
+    {
+      if ($node.NodeType -eq $nodeType)
+      {
+        $node.NodeName
+     
+        Disable-ServiceFabricNode -Intent RemoveNode -NodeName $node.NodeName -Force
+      }
+    }
+    ```
 
-## <a name="next-steps"></a>Próximos passos
+    - Para durabilidade de bronze, aguarde até que todos os nós cheguem ao estado desabilitado
+    - Para durabilidade prata e ouro, alguns nós entrarão em desabilitado e o restante estará no estado desabilitando. Verifique a guia detalhes dos nós no estado desabilitando, se todos estiverem presos na garantia de quorum para partições de serviço de infraestrutura, será seguro continuar.
+
+5. Parar dados para o tipo de nó.
+
+    Conecte-se ao cluster usando o PowerShell e, em seguida, execute a etapa a seguir.
+    
+    ```powershell
+    foreach($node in $nodes)
+    {
+      if ($node.NodeType -eq $nodeType)
+      {
+        $node.NodeName
+     
+        Start-ServiceFabricNodeTransition -Stop -OperationId (New-Guid) -NodeInstanceId $node.NodeInstanceId -NodeName $node.NodeName -StopDurationInSeconds 10000
+      }
+    }
+    ```
+    
+    Aguarde até que todos os nós do tipo de nó sejam marcados como inativos.
+    
+6. Remova os dados do tipo de nó.
+
+    Conecte-se ao cluster usando o PowerShell e, em seguida, execute a etapa a seguir.
+    
+    ```powershell
+    foreach($node in $nodes)
+    {
+      if ($node.NodeType -eq $nodeType)
+      {
+        $node.NodeName
+     
+        Remove-ServiceFabricNodeState -NodeName $node.NodeName -Force
+      }
+    }
+    ```
+
+    Aguarde até que todos os nós sejam removidos do cluster. Os nós não devem ser exibidos em SFX.
+
+7. Remova o tipo de nó da seção Service Fabric.
+
+    - Localize o modelo de Azure Resource Manager usado para implantação.
+    - Localize a seção relacionada ao tipo de nó na seção Service Fabric.
+    - Remova a seção correspondente ao tipo de nó.
+    - Para clusters de durabilidade prata e mais alto, atualize o recurso de cluster no modelo e configure as políticas de integridade para ignorar a malha:/integridade do aplicativo de sistema adicionando `applicationDeltaHealthPolicies` conforme indicado abaixo. A política abaixo deve ignorar os erros existentes, mas não permitir novos erros de integridade. 
+ 
+ 
+     ```json
+    "upgradeDescription":  
+    { 
+      "forceRestart": false, 
+      "upgradeReplicaSetCheckTimeout": "10675199.02:48:05.4775807", 
+      "healthCheckWaitDuration": "00:05:00", 
+      "healthCheckStableDuration": "00:05:00", 
+      "healthCheckRetryTimeout": "00:45:00", 
+      "upgradeTimeout": "12:00:00", 
+      "upgradeDomainTimeout": "02:00:00", 
+      "healthPolicy": { 
+        "maxPercentUnhealthyNodes": 100, 
+        "maxPercentUnhealthyApplications": 100 
+      }, 
+      "deltaHealthPolicy":  
+      { 
+        "maxPercentDeltaUnhealthyNodes": 0, 
+        "maxPercentUpgradeDomainDeltaUnhealthyNodes": 0, 
+        "maxPercentDeltaUnhealthyApplications": 0, 
+        "applicationDeltaHealthPolicies":  
+        { 
+            "fabric:/System":  
+            { 
+                "defaultServiceTypeDeltaHealthPolicy":  
+                { 
+                        "maxPercentDeltaUnhealthyServices": 0 
+                } 
+            } 
+        } 
+      } 
+    },
+    ```
+
+    Implante o modelo de Azure Resource Manager modificado. \* * Esta etapa levará um tempo, geralmente até duas horas. Essa atualização irá alterar as configurações para o InfrastructureService, portanto, é necessária uma reinicialização de nó. Nesse caso, `forceRestart` é ignorado. 
+    O parâmetro `upgradeReplicaSetCheckTimeout` especifica o tempo máximo que Service Fabric aguarda que uma partição esteja em um estado seguro, se ainda não estiver em um estado seguro. Depois que as verificações de segurança forem aprovadas para todas as partições em um nó, Service Fabric continuará com a atualização nesse nó.
+    O valor do parâmetro `upgradeTimeout` pode ser reduzido para 6 horas, mas para a segurança máxima 12 horas deve ser usado.
+
+    Em seguida, valide isso:
+    - Service Fabric recurso no portal mostra pronto.
+
+8. Remova todas as referências aos recursos relacionados ao tipo de nó.
+
+    - Localize o modelo de Azure Resource Manager usado para implantação.
+    - Remova o conjunto de dimensionamento de máquinas virtuais e outros recursos relacionados ao tipo de nó do modelo.
+    - Implante as alterações.
+
+    Em seguida:
+    - Aguarde a conclusão da implantação.
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 - Saiba mais sobre o cluster [características de durabilidade](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 - Saiba mais sobre [tipos de nós e Conjuntos de Dimensionamento de Máquinas Virtuais](service-fabric-cluster-nodetypes.md).
 - Saiba mais sobre [Dimensionamento do cluster do Service Fabric](service-fabric-cluster-scaling.md).

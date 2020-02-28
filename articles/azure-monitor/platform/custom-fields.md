@@ -1,18 +1,17 @@
 ---
 title: Campos personalizados em Azure Monitor (visualização) | Microsoft Docs
 description: O recurso campos personalizados do Azure Monitor permite que você crie seus próprios campos pesquisáveis de registros em um espaço de trabalho Log Analytics que são adicionados às propriedades de um registro coletado.  Este artigo descreve o processo para criar um campo personalizado e fornece um passo a passo detalhado com um evento de exemplo.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: 880d3ffa9914a8fc6f27edce06c5d353d7903db4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bfb0a73631564c96a4af745fe9d7540a3a84f9c3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75396873"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655354"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Criar campos personalizados em um espaço de trabalho Log Analytics no Azure Monitor (visualização)
 
@@ -21,7 +20,7 @@ ms.locfileid: "75396873"
 
 O recurso **campos personalizados** do Azure monitor permite que você estenda os registros existentes em seu espaço de trabalho log Analytics adicionando seus próprios campos pesquisáveis.  Os campos personalizados são populados automaticamente por meio dos dados extraídos de outras propriedades no mesmo registro.
 
-![Visão Geral](media/custom-fields/overview.png)
+![Visão geral](media/custom-fields/overview.png)
 
 Por exemplo, o registro de exemplo abaixo tem dados úteis escondidos na descrição do evento. A extração desses dados em uma propriedade separada torna-o disponível para ações como classificação e filtragem.
 
@@ -79,7 +78,7 @@ A seção a seguir explica passo a passo um exemplo completo de criação de cam
 
 Inserimos a seguinte consulta para retornar todos os eventos do Gerenciador de Controle de Serviço que têm uma ID de Evento de 7036, que é o evento que indica um serviço iniciando ou parando.
 
-![Consulta](media/custom-fields/query.png)
+![Query](media/custom-fields/query.png)
 
 Em seguida, selecionamos e expandimos qualquer registro com a ID de evento 7036.
 
@@ -91,7 +90,7 @@ Definimos campos personalizados clicando na elipse ao lado da propriedade Top.
 
 O **Field Extraction Wizard** (Assistente de Extração de Campo) é aberto e os campos **EventLog** e **EventID** são selecionados na coluna **Main Example** (Exemplo Principal).  Isso indica que o campo personalizado será definido para eventos do log do sistema com uma ID de evento de 7036.  Isso é suficiente para que não precisemos selecionar nenhum outro campo.
 
-![Main Example](media/custom-fields/main-example.png)
+![Exemplo principal](media/custom-fields/main-example.png)
 
 Realçamos o nome do serviço na propriedade **RenderedDescription** e usamos **Service** para identificar o nome do serviço.  O campo personalizado será chamado **Service_CF**. O tipo de campo, nesse caso, é uma cadeia de caracteres, portanto, podemos deixar isso inalterado.
 
@@ -99,11 +98,11 @@ Realçamos o nome do serviço na propriedade **RenderedDescription** e usamos **
 
 Vemos que o nome do serviço é identificado corretamente para alguns registros, mas não para outros.   Os **Resultados da Pesquisa** mostram que parte do nome do **Adaptador de Desempenho WMI** não foi selecionada.  O **Resumo** mostra que um registro identificou o **instalador de módulos** em vez do **instalador de módulos do Windows**.  
 
-![Resultados da pesquisa](media/custom-fields/search-results-01.png)
+![Resultados da Pesquisa](media/custom-fields/search-results-01.png)
 
 Começamos com o registro **Adaptador de Desempenho WMI** .  Clicamos em seu ícone de edição e em **Modify this highlight**(Modificar esse realce).  
 
-![Modificar o realce](media/custom-fields/modify-highlight.png)
+![Modificar realce](media/custom-fields/modify-highlight.png)
 
 Aumentaremos o realce para incluir a palavra **WMI** e, em seguida, executamos a extração novamente.  
 
@@ -111,7 +110,7 @@ Aumentaremos o realce para incluir a palavra **WMI** e, em seguida, executamos a
 
 Podemos ver que as entradas para **Adaptador de Desempenho WMI** foram corrigidas e o Log Analytics também usou essa informação para corrigir os registros para **Instalador de Módulo do Windows**.
 
-![Resultados da pesquisa](media/custom-fields/search-results-02.png)
+![Resultados da Pesquisa](media/custom-fields/search-results-02.png)
 
 Agora podemos executar uma consulta que verifica se **Service_CF** foi criado, mas ainda não foi adicionado a nenhum registro. Isso ocorre porque o campo personalizado não funciona com registros existentes, portanto, precisamos aguardar a coleta de novos registros.
 
@@ -125,7 +124,7 @@ Agora podemos usar o campo personalizado como qualquer outra propriedade de regi
 
 ![Agrupar por consulta](media/custom-fields/query-group.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * Saiba mais sobre [consultas de log](../log-query/log-query-overview.md) para criar consultas usando campos personalizados para critérios.
 * Monitorar [arquivos de log personalizados](data-sources-custom-logs.md) que você analisa usando campos personalizados.
 

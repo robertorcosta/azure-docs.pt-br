@@ -1,18 +1,15 @@
 ---
 title: Parceiros que se integram com o Azure Monitor
 description: Saiba mais sobre os parceiros do Azure Monitor e como você pode acessar a documentação para a integração com eles.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: e111bcdde9381e8e418e7027d8294aa7dad7e39d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 40ba4c4f0a90d5bca03afea67302a5dbb77de027
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023864"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659451"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 
@@ -89,7 +86,7 @@ O OneAgent do Dynatrace integra-se com as VMs do Azure e Serviços de Aplicativo
 
 [Vá para a documentação.][dynatrace-doc]
 
-## <a name="elastic"></a>Elasticidade
+## <a name="elastic"></a>Elástico
 
 ![Logotipo elástico](./media/partners/elastic.png)
 
@@ -251,7 +248,7 @@ O Turbonomic oferece automação de carga de trabalho para nuvens híbridas otim
 
 [Saiba mais.][turbonomic-doc]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - [Saiba mais sobre o Azure Monitor](../../azure-monitor/overview.md)
 - [Acessar métricas usando a API REST](rest-api-walkthrough.md)
 - [Transmitir o Log de Atividades para um serviço que não seja da Microsoft](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)

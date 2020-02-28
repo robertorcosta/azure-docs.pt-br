@@ -1,30 +1,26 @@
 ---
-title: Exportar usando Stream Analytics do Aplicativo Azure insights | Microsoft Docs
+title: Exportar usando o Stream Analytics no Azure Application Insights | Microsoft Docs
 description: O Stream Analytics pode transformar, filtrar e rotear continuamente os dados exportados do Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/08/2019
-ms.openlocfilehash: 3be1a643cbe942c0b740ae8ebcc2c7f2dda24854
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: b93bc49d005e3e54f1e5db84e6ff1adc49e25a65
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677944"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664007"
 ---
-# <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Usar Stream Analytics para processar dados exportados de Application Insights
-[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) é a ferramenta ideal para processar dados [exportados do Application Insights](export-telemetry.md). Stream Analytics pode extrair dados de uma variedade de fontes. Ele pode transformar e filtrar os dados e, em seguida, roteá-los para uma variedade de coletores.
+# <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Usar o Stream Analytics para processar os dados exportados do Application Insights
+[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) é a ferramenta ideal para processar dados [exportados do Application Insights](export-telemetry.md). O Stream Analytics pode extrair dados de várias fontes. Ele pode transformar e filtrar os dados e depois roteá-los a uma variedade de coletores.
 
-Neste exemplo, criaremos um adaptador que usa dados de Application Insights, renomeia e processa alguns dos campos e os canaliza em Power BI.
+Neste exemplo, vamos criar um adaptador que usa dados do Application Insights, renomeia e processa alguns dos campos e os direciona ao Power BI.
 
 > [!WARNING]
-> Há [maneiras recomendadas para exibir os dados do Application Insights no Power BI](../../azure-monitor/app/export-power-bi.md ) muito mais fáceis e eficientes. O caminho ilustrado aqui é apenas um exemplo para ilustrar como processar dados exportados.
+> Há [maneiras recomendadas para exibir os dados do Application Insights no Power BI](../../azure-monitor/app/export-power-bi.md ) muito mais fáceis e eficientes. O caminho ilustrado aqui é apenas um exemplo para mostrar como processar os dados exportados.
 > 
 > 
 
-![Diagrama de bloco para exportar por meio de SA para PBI](./media/export-stream-analytics/020.png)
+![Diagrama de bloco para exportação por meio do SA para PBI](./media/export-stream-analytics/020.png)
 
 ## <a name="create-storage-in-azure"></a>Criar armazenamento no Azure
 Exportação contínua sempre gera dados para uma conta de armazenamento do Azure, por isso você precisa primeiro criar o armazenamento.
@@ -35,49 +31,49 @@ Exportação contínua sempre gera dados para uma conta de armazenamento do Azur
 2. Criar um contêiner
    
     ![No novo armazenamento, selecione Contêineres, clique no bloco Contêineres e, em seguida, Adicionar](./media/export-stream-analytics/040.png)
-3. Copiar a chave de acesso de armazenamento
+3. Copie a chave de acesso de armazenamento
    
     Você precisará dela em breve para configurar a entrada para o serviço do Stream Analytics.
    
-    ![No armazenamento, abra configurações, chaves e faça uma cópia da chave de acesso primária](./media/export-stream-analytics/045.png)
+    ![No armazenamento, abra Configurações, Chaves e faça uma cópia da Chave de Acesso Primária](./media/export-stream-analytics/045.png)
 
 ## <a name="start-continuous-export-to-azure-storage"></a>Iniciar exportação contínua no armazenamento do Azure
 [exportação contínua](export-telemetry.md) move os dados do Application Insights para o armazenamento do Azure.
 
 1. No portal do Azure, navegue até o recurso do Application Insights que você criou para seu aplicativo.
    
-    ![Escolha procurar, Application Insights, seu aplicativo](./media/export-stream-analytics/050.png)
+    ![Selecione Navegar, Application Insights e o nome do seu projeto.](./media/export-stream-analytics/050.png)
 2. Crie uma exportação contínua.
    
-    ![Escolha configurações, exportação contínua, adicionar](./media/export-stream-analytics/060.png)
+    ![Escolha as Configurações, Exportação Contínua e Adicionar](./media/export-stream-analytics/060.png)
 
-    Selecione a conta de armazenamento que você criou anteriormente:
+    Selecione a conta de armazenamento criada anteriormente:
 
     ![Definir o destino de exportação](./media/export-stream-analytics/070.png)
 
     Defina os tipos de eventos que você deseja ver:
 
-    ![Escolher tipos de evento](./media/export-stream-analytics/080.png)
+    ![Escolher os tipos de evento](./media/export-stream-analytics/080.png)
 
-1. Permitir que alguns dados sejam acumulados. Agora relaxe e deixe as pessoas usarem seu aplicativo por um tempo. A telemetria chegará e você verá os gráficos estatísticos no [gerenciador de métricas](../../azure-monitor/app/metrics-explorer.md) e eventos individuais na [pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md). 
+1. Deixe que alguns dados sejam acumulados. Agora relaxe e deixe as pessoas usarem seu aplicativo por um tempo. A telemetria chegará e você verá os gráficos estatísticos no [gerenciador de métricas](../../azure-monitor/app/metrics-explorer.md) e eventos individuais na [pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md). 
    
-    Além disso, os dados serão exportados para o armazenamento. 
+    E, além disso, os dados serão exportados para seu armazenamento. 
 2. Inspecione os dados exportados. No Visual Studio, escolha **Exibir/Cloud Explorer**e abra Azure/Armazenamento. (Se você não tiver essa opção de menu, precisará instalar o Azure SDK: abra o diálogo Novo Projeto e abra Visual C#/Nuvem/Obter Microsoft Azure SDK para .NET.)
    
     ![](./media/export-stream-analytics/04-data.png)
    
     Anote a parte comum do nome do caminho, que deriva do nome do aplicativo e da chave de instrumentação. 
 
-Os eventos são gravados em arquivos de blob no formato JSON. Cada arquivo pode conter um ou mais eventos. Portanto, gostaríamos de escrever um código para ler os dados de evento e filtrar os campos desejados. Há todos os tipos de coisas que poderíamos fazer com os dados, mas nosso plano hoje é usar Stream Analytics para canalizar os dados para Power BI.
+Os eventos são gravados em arquivos blob formato JSON. Cada arquivo pode conter um ou mais eventos. Portanto, gostaríamos de escrever um código para ler os dados de evento e filtrar os campos desejados. Podemos fazer todos os tipos de coisas com os dados, mas nosso plano para hoje é usar o Stream Analytics para redirecionar os dados ao Power BI.
 
-## <a name="create-an-azure-stream-analytics-instance"></a>Criar uma instância de Azure Stream Analytics
-No [portal do Azure](https://portal.azure.com/), selecione o serviço Azure Stream Analytics e crie um novo trabalho de Stream Analytics:
+## <a name="create-an-azure-stream-analytics-instance"></a>Criar uma instância do Azure Stream Analytics
+No [Portal do Azure](https://portal.azure.com/), selecione o serviço do Azure Stream Analytics e crie um novo trabalho do Stream Analytics:
 
 ![](./media/export-stream-analytics/SA001.png)
 
 ![](./media/export-stream-analytics/SA002.png)
 
-Quando o novo trabalho for criado, selecione **ir para o recurso**.
+Após a criação do novo trabalho, escolha **Ir para o recurso**.
 
 ![](./media/export-stream-analytics/SA003.png)
 
@@ -85,17 +81,17 @@ Quando o novo trabalho for criado, selecione **ir para o recurso**.
 
 ![](./media/export-stream-analytics/SA004.png)
 
-Defina-a para obter entrada do seu blob de exportação contínua:
+Defina a entrada do seu blob de Exportação Contínua:
 
 ![](./media/export-stream-analytics/SA0005.png)
 
-Agora você precisará da chave de acesso primária da sua conta de armazenamento, que você anotou anteriormente. Defina como a chave da conta de armazenamento.
+Agora, você precisará da Chave de Acesso Primária da sua Conta de Armazenamento, previamente anotada. Defina isso como a chave da conta de armazenamento.
 
 ### <a name="set-path-prefix-pattern"></a>Definir padrão de prefixo de caminho
 
 **Defina o Formato de Data como AAAA-MM-DD (com traços).**
 
-O padrão de prefixo de caminho especifica onde Stream Analytics localiza os arquivos de entrada no armazenamento. Você precisa configurá-lo para corresponder à maneira como a Exportação Contínua armazena os dados. Defina-o da seguinte forma:
+O Padrão de Prefixo de Caminho especifica como o Stream Analytics encontra os arquivos de entrada no armazenamento. Você precisa configurá-lo para corresponder à maneira como a Exportação Contínua armazena os dados. Defina-o assim:
 
     webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
@@ -107,23 +103,23 @@ Neste exemplo:
 * `/{date}/{time}` um padrão escrito literalmente.
 
 > [!NOTE]
-> Inspecione o armazenamento para certificar-se de que você obtém o caminho certo.
+> Inspecione o armazenamento para garantir que o caminho está certo.
 > 
 
 ## <a name="add-new-output"></a>Adicionar nova saída
-Agora, selecione seu trabalho > **saídas**  > **Adicionar**.
+Agora, selecione seu trabalho > **Saídas** > **Adicionar**.
 
 ![](./media/export-stream-analytics/SA006.png)
 
 
-![Selecione o novo canal, clique em saídas, adicionar Power BI](./media/export-stream-analytics/SA010.png)
+![Selecione o novo canal, clique em Saídas, Adicionar, Power BI](./media/export-stream-analytics/SA010.png)
 
-Forneça sua **conta corporativa ou de estudante** para autorizar o Stream Analytics a acessar seu recurso do Power BI. Em seguida, crie um nome para a saída e para o conjunto de Power BI e a tabela de destino.
+Forneça sua **conta corporativa ou de estudante** para autorizar o Stream Analytics a acessar seu recurso do Power BI. Em seguida, crie um nome para a saída, bem como para a tabela e o conjunto de dados do Power BI de destino.
 
 ## <a name="set-the-query"></a>Definir a consulta
-A consulta governa a conversão de entrada para saída.
+A consulta controla a conversão de entrada para a saída.
 
-Use a função de teste para verificar se você obtém a saída correta. Dê a ele os dados de exemplo que você tirou na página de entradas. 
+Use a função Test para verificar se você obteve a saída certa. Atribua a ela os exemplos de dados que você obteve da página de entradas. 
 
 ### <a name="query-to-display-counts-of-events"></a>Consulta para exibir contagens de eventos
 Cole esta consulta:
@@ -141,11 +137,11 @@ Cole esta consulta:
     GROUP BY TumblingWindow(minute, 1), flat.ArrayValue.name
 ```
 
-* Export-Input é o alias que fornecemos à entrada do fluxo
-* PBI-output é o alias de saída que definimos
-* Usamos [outer aplica GetElements](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) porque o nome do evento está em uma matriz JSON aninhada. Em seguida, a seleção escolhe o nome do evento, junto com uma contagem do número de instâncias com esse nome no período de tempo. A cláusula [Group by](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) agrupa os elementos em períodos de tempo de um minuto.
+* export-input é o alias que atribuímos à entrada do fluxo
+* pbi-output é o alias de saída que definimos
+* Usamos [OUTER APPLY GetElements](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) porque o nome do evento está em uma matriz JSON aninhada. Em seguida, o Select seleciona o nome do evento, juntamente com uma contagem do número de instâncias com esse nome no período de tempo. A cláusula [Agrupar por](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) agrupa os elementos em períodos de tempo de um minuto.
 
-### <a name="query-to-display-metric-values"></a>Consulta para exibir valores de métrica
+### <a name="query-to-display-metric-values"></a>Consulta para exibir valores de métricas
 ```SQL
 
     SELECT
@@ -160,9 +156,9 @@ Cole esta consulta:
 
 ``` 
 
-* Essa consulta analisa a telemetria de métricas para obter a hora do evento e o valor da métrica. Os valores de métrica estão dentro de uma matriz, portanto, usamos o padrão de aplicação de GetElements para extrair as linhas. "mymetric" é o nome da métrica, nesse caso. 
+* Essa consulta detalha a telemetria de métricas para obter a hora do evento e o valor da métrica. Os valores de métrica estão dentro de uma matriz, por isso usamos o padrão OUTER APPLY GetElements para extrair as linhas. "myMetric" é o nome da métrica nesse caso. 
 
-### <a name="query-to-include-values-of-dimension-properties"></a>Consulta para incluir valores de propriedades de dimensão
+### <a name="query-to-include-values-of-dimension-properties"></a>Consulta para incluir valores das propriedades de dimensão
 ```SQL
 
     WITH flat AS (
@@ -182,30 +178,30 @@ Cole esta consulta:
 
 ```
 
-* Essa consulta inclui valores das propriedades de dimensão sem depender de uma determinada dimensão estar em um índice fixo na matriz de dimensão.
+* Essa consulta inclui os valores das propriedades de dimensão sem a necessidade de ter uma determinada dimensão em um índice fixo na matriz de dimensão.
 
 ## <a name="run-the-job"></a>Executar o trabalho
-Você pode selecionar uma data no passado para iniciar o trabalho do. 
+Você pode selecionar uma data no passado a partir da qual iniciar o trabalho. 
 
-![Selecione o trabalho e clique em consulta. Cole o exemplo abaixo.](./media/export-stream-analytics/SA008.png)
+![Selecione o trabalho e clique em Consulta. Cole o exemplo a seguir.](./media/export-stream-analytics/SA008.png)
 
-Aguarde até que o trabalho esteja em execução.
+Aguarde até o trabalho estar Em execução.
 
 ## <a name="see-results-in-power-bi"></a>Ver os resultados no Power BI
 > [!WARNING]
-> Há [maneiras recomendadas para exibir os dados do Application Insights no Power BI](../../azure-monitor/app/export-power-bi.md ) muito mais fáceis e eficientes. O caminho ilustrado aqui é apenas um exemplo para ilustrar como processar dados exportados.
+> Há [maneiras recomendadas para exibir os dados do Application Insights no Power BI](../../azure-monitor/app/export-power-bi.md ) muito mais fáceis e eficientes. O caminho ilustrado aqui é apenas um exemplo para mostrar como processar os dados exportados.
 > 
 > 
 
-Abra Power BI com sua conta corporativa ou de estudante e selecione o conjunto de tabelas e a tabela que você definiu como a saída do trabalho de Stream Analytics.
+Abra o Power BI com sua conta corporativa ou de estudante e selecione o conjunto de dados e a tabela que você definiu como a saída do trabalho do Stream Analytics.
 
-![Em Power BI, selecione o conjunto de e os campos.](./media/export-stream-analytics/200.png)
+![No Power BI, selecione o conjunto de dados e os campos.](./media/export-stream-analytics/200.png)
 
 Agora você pode usar esse conjunto de dados em relatórios e painéis no [Power BI](https://powerbi.microsoft.com).
 
-![Em Power BI, selecione o conjunto de e os campos.](./media/export-stream-analytics/210.png)
+![No Power BI, selecione o conjunto de dados e os campos.](./media/export-stream-analytics/210.png)
 
-## <a name="no-data"></a>Nenhum dado?
+## <a name="no-data"></a>Não há dados?
 * Verifique se você [definiu o formato de data](#set-path-prefix-pattern) corretamente para AAAA-MM-DD (com traços).
 
 ## <a name="video"></a>Vídeo
@@ -215,7 +211,7 @@ Noam Ben Zeev mostra como processar dados exportados usando o Stream Analytics.
 > 
 > 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * [Exportação contínua](export-telemetry.md)
 * [Referência de modelo de dados detalhados para os tipos de propriedades e valores.](export-data-model.md)
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md)

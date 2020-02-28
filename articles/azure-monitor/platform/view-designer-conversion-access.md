@@ -3,16 +3,15 @@ title: Resumo e acesso de conversão do designer de exibição para pastas de tr
 description: ''
 author: austonli
 ms.author: aul
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: e49b4c0220b6c00fe3a7a6e1cab219364a2a89b7
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: fb53a966b0dc4959253ac0786ef09ef3c497e809
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77171235"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658839"
 ---
 # <a name="view-designer-to-workbooks-conversion-summary-and-access"></a>Resumo e acesso de conversão do designer de pastas de trabalho
 O [Designer de exibição](view-designer.md) é um recurso do Azure monitor que permite que você crie modos de exibição personalizados para ajudá-lo a Visualizar dados em seu espaço de trabalho do log Analytics, com gráficos, listas e linhas do tempo. Eles estão sendo desativados e substituídos por pastas de trabalho, que fornecem funcionalidade adicional. Este artigo fornece detalhes sobre como você pode criar um resumo de visão geral e as permissões necessárias para acessar pastas de trabalho.
@@ -46,6 +45,6 @@ Para que um usuário exiba uma pasta de trabalho compartilhada, ela deve ter ace
 
 ![Acesso baseado em assinatura](media/view-designer-conversion-access/subscription-access.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Tarefas comuns](view-designer-conversion-tasks.md)

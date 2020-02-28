@@ -1,14 +1,14 @@
 ---
 title: Enviar alertas de integridade do serviço do Azure com o ServiceNow
 description: Obtenha notificações personalizadas sobre eventos de integridade do serviço na instância do ServiceNow.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: f332b1e0e188797da172b4ae63f6e5ef1a97e59c
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 3daae05aabff571010d043cf5602847e95ea29f0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551600"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654096"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Enviar alertas de integridade do serviço do Azure com o ServiceNow usando WebHooks
 
@@ -191,7 +191,7 @@ Este artigo mostra como integrar os alertas de integridade do serviço do Azure 
 
 1. Acesse o [ServiceNow](https://www.servicenow.com/) para confirmar se a integração foi configurada com êxito.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Saiba como [configurar notificações de webhook para sistemas de gerenciamento de problemas existentes](service-health-alert-webhook-guide.md).
 - Examine o [esquema do webhook de alertas de log de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - Saiba mais sobre as [notificações de integridade do serviço](../azure-monitor/platform/service-notifications.md).

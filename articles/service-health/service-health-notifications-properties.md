@@ -1,14 +1,14 @@
 ---
 title: O que são as notificações de integridade do serviço do Azure?
 description: As notificações de integridade do serviço permitem exibir mensagens de integridade do serviço publicadas pelo Microsoft Azure.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 4/12/2018
-ms.openlocfilehash: f2d79dc920129241c801c75cc9009b3ba8f34b78
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e40538ac98bbc7b79311d4fb0da7568d56a84e18
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451562"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77653961"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Exibir as notificações de integridade do serviço usando o Portal do Azure
 
@@ -24,7 +24,7 @@ Há diversas classes de notificações de integridade do serviço:
 
 Cada notificação de integridade do serviço inclui detalhes sobre o escopo e o impacto em seus recursos. Os detalhes incluem:
 
-Nome da propriedade | Description
+Nome da propriedade | DESCRIÇÃO
 -------- | -----------
 canais | Um dos seguintes valores: **Admin** ou **Operação**.
 correlationId | Geralmente, um GUID no formato de cadeia de caracteres. Eventos que pertencem à mesma ação geralmente compartilham a mesma correlationId.

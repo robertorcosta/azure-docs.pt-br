@@ -4,18 +4,17 @@ description: Simplifique relatórios complexos com pastas de trabalho parametriz
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: c9b9f9ca2a9c08c05a3ce32230a39ca79625cd72
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 20116ab105e4eb12875ba3cb279fb261eb5c70e4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872920"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658414"
 ---
 # <a name="access-control"></a>Controle de acesso
 
@@ -40,6 +39,6 @@ Para controle de acesso baseado em função personalizado:
 
 Adicione `microsoft.insights/workbooks/write` para salvar pastas de trabalho compartilhadas. Para obter mais detalhes, consulte a função [colaborador da pasta de trabalho](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Comece a aprender mais](workbooks-visualizations.md) sobre pastas de trabalho muitas opções de visualizações ricas.

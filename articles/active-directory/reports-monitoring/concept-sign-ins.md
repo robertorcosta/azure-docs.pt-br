@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/09/2019
+ms.date: 02/26/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 256194d8b0b5e6b08210e9338d945774603ac328
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ffb2ff87eb78ed4088225f832b6df55726196493
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429799"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656561"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de entrada no portal do Azure Active Directory
 
@@ -37,7 +37,7 @@ A arquitetura de relatórios no Azure AD (Azure Active Directory) consiste nos s
 
 Este artigo fornece uma visão geral do relatório de entradas.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 ### <a name="who-can-access-the-data"></a>Quem pode acessar os dados?
 
@@ -47,7 +47,7 @@ Este artigo fornece uma visão geral do relatório de entradas.
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Qual licença do Azure AD você precisa para acessar a atividade de entrada?
 
-* O locatário deve ter uma licença do Azure AD Premium associada a ele para ver todo o relatório de atividade de entrada. Consulte [introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar sua edição do Azure Active Directory. Levará alguns dias para que os dados sejam exibidos nos relatórios após a atualização para uma licença Premium sem atividades de dados antes da atualização.
+* O locatário deve ter uma licença do Azure AD Premium associada a ele para ver todo o relatório de atividade de entrada. Consulte [Introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para fazer upgrade da edição do Azure Active Directory. Levará alguns dias para que os dados sejam exibidos nos relatórios após a atualização para uma licença Premium sem atividades de dados antes da atualização.
 
 ## <a name="sign-ins-report"></a>Relatório de entradas
 
@@ -59,7 +59,7 @@ O relatório de entradas de usuário fornece respostas para as seguintes pergunt
 
 No menu [portal do Azure](https://portal.azure.com) , selecione **Azure Active Directory**ou pesquise e selecione **Azure Active Directory** em qualquer página.
 
-![Selecionar Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
+![Selecionar Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Active Directory do Azure")
 
 Em **monitoramento**, selecione **entradas** para abrir o relatório de [entradas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
 
@@ -101,65 +101,96 @@ Selecione um item na exibição de lista para obter informações mais detalhada
 
 ## <a name="filter-sign-in-activities"></a>Filtrar atividades de entrada
 
-Primeiro, restringir os dados relatados a um nível que funciona para você. Em segundo lugar, filtre os dados de entrada usando o campo de data como filtro padrão. O Azure AD oferece uma ampla variedade de filtros adicionais que você pode definir.
+Primeiro, restringir os dados relatados a um nível que funciona para você. Em segundo lugar, filtre os dados de entrada usando o campo de data como filtro padrão. O Azure AD oferece uma ampla variedade de filtros adicionais que você pode definir:
 
 ![Atividade de entrada](./media/concept-sign-ins/04.png "Atividade de entrada")
 
-O filtro **Usuário** permite que você especifique o nome ou o UPN (nome UPN) do usuário desejado.
+**ID da solicitação** -a ID da solicitação sobre a qual você se preocupa.
 
-O filtro **Aplicativo** permite que você especifique o nome do aplicativo desejado.
+**Usuário** -o nome ou nome UPN do usuário que você se importa.
 
-O filtro **status de entrada** permite que você selecione:
+**Aplicativo** -o nome do aplicativo de destino.
+ 
+**Status** -o status de entrada sobre o qual você se preocupa:
 
-- Tudo
-- Sucesso
+- Êxito
+
 - Falha
 
-O filtro **Acesso Condicional** permite que você selecione o status da política de Autoridade de Certificação para a entrada:
+- Suspenso
 
-- Tudo
-- Não aplicado
-- Sucesso
+
+**Endereço IP** -o endereço IP do dispositivo usado para se conectar ao seu locatário.
+
+O **local** -o local do qual a conexão foi iniciada:
+
+- Cidade
+
+- Estado/província
+
+- País/região
+
+
+**Recurso** -o nome do serviço usado para a entrada.
+
+
+**ID do recurso** -a ID do serviço usado para a entrada.
+
+
+**Aplicativo cliente** -o tipo do aplicativo cliente usado para se conectar ao seu locatário:
+
+![Filtro de aplicativo cliente](./media/concept-sign-ins/client-app-filter.png)
+
+
+|{1&gt;Nome&lt;1}|Autenticação moderna|Descrição|
+|---|:-:|---|
+|SMTP autenticado| |Usado pelo cliente POP e IMAP para enviar mensagens de email.|
+|Descoberta automática| |Usado pelos clientes do Outlook e do EAS para localizar e conectar-se às caixas de correio no Exchange Online.|
+|Exchange ActiveSync| |Esse filtro mostra todas as tentativas de entrada nas quais o protocolo EAS foi tentado.|
+|Navegador.|![Verificar](./media/concept-sign-ins/check.png)|Mostra todas as tentativas de entrada de usuários usando navegadores da Web|
+|Exchange ActiveSync| | Mostra todas as tentativas de entrada de usuários com aplicativos cliente usando o Exchange ActiceSync para se conectar ao Exchange Online|
+|PowerShell do Exchange Online| |Usado para se conectar ao Exchange Online com o PowerShell remoto. Se você bloquear a autenticação básica para o Exchange Online PowerShell, será necessário usar o módulo do PowerShell do Exchange Online para se conectar. Para obter instruções, consulte [conectar-se ao Exchange Online PowerShell usando a autenticação multifator](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
+|Serviços Web do Exchange| |Uma interface de programação usada pelo Outlook, pelo Outlook para Mac e por aplicativos de terceiros.|
+|IMAP4| |Um cliente de email herdado usando IMAP para recuperar email.|
+|MAPI sobre HTTP| |Usado pelo Outlook 2010 e posterior.|
+|Aplicativos móveis e clientes de desktop|![Verificar](./media/concept-sign-ins/check.png)|Mostra todas as tentativas de entrada de usuários que usam aplicativos móveis e clientes de desktop.|
+|Catálogo de endereços offline| |Uma cópia de coleções de listas de endereços que são baixadas e usadas pelo Outlook.|
+|Outlook Anywhere (RPC sobre HTTP)| |Usado pelo Outlook 2016 e anterior.|
+|Serviço do Outlook| |Usado pelo aplicativo de email e calendário para Windows 10.|
+|POP3| |Um cliente de email herdado usando POP3 para recuperar email.|
+|Serviços Web de relatórios| |Usado para recuperar dados de relatório no Exchange Online.|
+|Outros clientes| |Mostra todas as tentativas de entrada de usuários em que o aplicativo cliente não está incluído ou desconhecido.|
+
+
+
+**Sistema operacional** -o sistema operacional em execução no dispositivo usou o logon no seu locatário. 
+
+
+**Navegador do dispositivo** -se a conexão tiver sido iniciada em um navegador, esse campo permitirá que você filtre por nome do navegador.
+
+
+**ID de correlação** -a ID de correlação da atividade.
+
+
+**Acesso condicional** -o status das regras de acesso condicional aplicadas
+
+- Não aplicado 
+
+- Êxito
+
 - Falha
 
-O filtro **Data** permite definir um período de tempo para os dados retornados.  
-Os valores possíveis são:
 
-- Um mês
-- 7 dias
-- 24 horas
-- Intervalo de tempo personalizado
 
-Quando você seleciona um período de tempo personalizado, pode configurar uma hora de início e uma hora de término.
 
-Se você adicionar outros campos ao modo de exibição de entradas, esses campos serão adicionados automaticamente à lista de filtros. Por exemplo, ao adicionar o campo **Aplicativo Cliente** à sua lista, você também obtém outra opção de filtro que permite definir os seguintes filtros:  
-![Atividade de entrada](./media/concept-sign-ins/12.png "Atividade de entrada")
 
-- **Navegador**  
-    Esse filtro mostra todos os eventos em que as tentativas de entrada foram tentadas usando fluxos de navegador.
-- **Exchange ActiveSync (com suporte)**  
-    Esse filtro mostra todas as tentativas de entrada em que o protocolo EAS (Exchange ActiveSync) foi tentado a partir de plataformas com suporte, como iOS, Android e Windows Phone.
-- **Exchange ActiveSync (sem suporte)**  
-    Esse filtro mostra todas as tentativas de entrada nas quais o protocolo EAS foi tentado a partir de plataformas sem suporte, como o Linux distribuições.
-- **Aplicativos móveis e clientes de área de trabalho** O filtro mostra todas as tentativas de entrada que não estavam usando fluxos de navegador. Por exemplo, aplicativos móveis de qualquer plataforma usando qualquer protocolo ou de aplicativos cliente de desktop como Office no Windows ou MacOS.
-  
-- **Outros clientes**
-    - **IMAP**  
-        Um cliente de email herdado usando IMAP para recuperar email.
-    - **MAPI**  
-        Office 2013, onde a ADAL está habilitada e está usando MAPI.
-    - **Clientes do Office antigos**  
-        Office 2013 em sua configuração padrão em que a ADAL não está habilitada e está usando MAPI ou o Office 2016 em que a ADAL foi desabilitada.
-    - **POP**  
-        Um cliente de email herdado usando POP3 para recuperar email.
-    - **SMTP**  
-        Um cliente de email herdado usando SMTP para enviar email.
+
 
 ## <a name="download-sign-in-activities"></a>Baixar atividades de entrada
 
 Clique na opção **baixar** para criar um arquivo CSV ou JSON dos registros 250.000 mais recentes. Comece com [baixar os dados de entradas](quickstart-download-sign-in-report.md) se quiser trabalhar com eles fora do portal do Azure.  
 
-![Download](./media/concept-sign-ins/71.png "Baixar")
+![Download](./media/concept-sign-ins/71.png "{1&gt;{2&gt;Baixar&lt;2}&lt;1}")
 
 > [!IMPORTANT]
 > O número de registros que podem ser baixados é restringido pelas [políticas de retenção de relatórios do Azure Active Directory](reference-reports-data-retention.md).  
@@ -228,7 +259,7 @@ Os gráficos de uso de aplicativo geram agregações semanais de entradas para o
 
 Se desejar, você pode definir o foco em um aplicativo específico.
 
-![Reporting](./media/concept-sign-ins/single-app-usage-graph.png "Relatório")
+![Reporting](./media/concept-sign-ins/single-app-usage-graph.png "Reporting")
 
 Quando você clica em um dia no grafo de uso do aplicativo, pode obter uma lista detalhada das atividades de entrada.
 
@@ -240,7 +271,7 @@ Você pode exibir os logs de atividade do Office 365 no [centro de administraç�
 
 Você também pode acessar os logs de atividade do Office 365 programaticamente usando as [APIs de gerenciamento do office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Códigos de erro do relatório de atividade de entrada](reference-sign-ins-error-codes.md)
 * [Políticas de retenção de dados do Azure AD](reference-reports-data-retention.md)

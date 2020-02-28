@@ -1,18 +1,17 @@
 ---
 title: Solução de Monitor de Desempenho de Rede no Azure | Microsoft Docs
 description: O Monitor de Desempenho de Rede no Azure ajuda a monitorar o desempenho de suas redes quase em tempo real para detectar e localizar gargalos de desempenho de rede.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 396652e3f8a0a8d9e18effb94a48a362054dde96
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cb906f6b3cf333e3fb3a24a934e5d9f11fc10cda
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75403157"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654470"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução do Monitor de Desempenho de Rede no Azure
 
@@ -37,19 +36,19 @@ Mais informações sobre os diversos recursos de suporte do [Monitor de Desempen
  
 ## <a name="supported-regions"></a>Regiões com Suporte
 O NPM pode monitorar a conectividade entre redes e aplicativos em qualquer parte do mundo, de um workspace que está hospedado em uma das seguintes regiões:
-* Europa Setentrional
-* Oeste da Europa
+* Norte da Europa
+* Europa Ocidental
 * França Central
 
 * Centro-Oeste dos EUA
 * Centro-Norte dos EUA
-* Centro-Sul dos EUA
-* EUA Central
+* Centro-Sul dos Estados Unidos
+* Centro dos EUA
 * Leste dos EUA
 * Leste dos EUA 2
 * Oeste dos EUA 2
 * Leste do Japão
-* Sudeste Asiático
+* Sudeste da Ásia
 * Sudeste da Austrália
 * Austrália Central
 * Leste da Austrália
@@ -286,5 +285,5 @@ Informações sobre preços estão disponíveis [online](network-performance-mon
 
 * **Junte-se ao nosso coorte:** Estamos sempre interessados em novos clientes para a nossa coorte. Como parte do coorte, você consegue acesso antecipado a novos recursos e uma oportunidade de ajudar a melhorar o Monitor de Desempenho de Rede. Se você estiver interessado em ingressar, preencha esta [pesquisa rápida](https://aka.ms/npmcohort). 
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Próximas etapas 
 Saiba mais sobre o [Monitor de Desempenho](network-performance-monitor-performance-monitor.md), o [Monitor de Conectividade do Serviço](network-performance-monitor-performance-monitor.md) e o [Monitor do ExpressRoute](network-performance-monitor-expressroute.md). 

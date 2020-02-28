@@ -1,18 +1,16 @@
 ---
 title: Usar a análise de alterações do aplicativo no Azure Monitor para encontrar problemas do aplicativo Web | Microsoft Docs
 description: Use a análise de alterações do aplicativo no Azure Monitor para solucionar problemas de aplicativos em sites ativos no serviço Azure App.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/07/2019
-ms.openlocfilehash: f2602dbee12f82c32ab3a3c2ec0566d8dfbeaa83
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 143f55a02a856b536172bd5fc2bac15903a228b9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77211827"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655677"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usar a análise de alterações do aplicativo (versão prévia) no Azure Monitor
 
@@ -53,7 +51,7 @@ As alterações nas dependências de recursos também podem causar problemas em 
 Atualmente, há suporte para as seguintes dependências:
 - Aplicativos Web
 - Armazenamento do Azure
-- SQL do Azure
+- Azure SQL
 
 ### <a name="enablement"></a>Habilitação
 O provedor de recursos "Microsoft. ChangeAnalysis" precisa ser registrado com uma assinatura para o Azure Resource Manager propriedades rastreadas e as configurações de proxy alteram os dados para que estejam disponíveis. À medida que você insere a ferramenta diagnosticar e solucionar problemas do aplicativo Web ou ativa a guia autônomo da análise de alterações, esse provedor de recursos é registrado automaticamente. Ele não tem nenhuma implementação de desempenho e custo para sua assinatura. Quando você habilita a análise de alterações para aplicativos Web (ou habilitando a ferramenta diagnosticar e resolver problemas), ele terá um impacto insignificante no desempenho do aplicativo Web e nenhum custo de cobrança.
@@ -149,7 +147,7 @@ foreach ($webapp in $webapp_list)
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Habilitar Application Insights para [aplicativos de serviços Azure apps](azure-web-apps.md).
 - Habilite Application Insights para a [VM do Azure e o conjunto de dimensionamento de máquinas virtuais do Azure aplicativos hospedados pelo IIS](azure-vm-vmss-apps.md).

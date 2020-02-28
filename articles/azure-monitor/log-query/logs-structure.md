@@ -1,23 +1,22 @@
 ---
 title: Estrutura de logs de Azure Monitor | Microsoft Docs
 description: Você precisa de uma consulta de log para recuperar dados de log do Azure Monitor.  Este artigo descreve como novas consultas de log são utilizadas no Azure Monitor e fornece conceitos necessários para serem compreendidos antes de criar uma.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: 6ce8470da6b444cedb7bff1d14bcc6448b52fe94
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1d647ba7e8d4f0e29252dfff95099e39bab87895
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893630"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662069"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Estrutura de logs de Azure Monitor
 A capacidade de obter informações rapidamente sobre seus dados usando uma consulta de [log](log-query-overview.md) é um recurso poderoso de Azure monitor. Para criar consultas eficientes e úteis, você deve entender alguns conceitos básicos, como onde estão localizados os dados desejados e como eles são estruturados. Este artigo fornece os conceitos básicos de que você precisa para começar.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Os dados em logs de Azure Monitor são armazenados em um espaço de trabalho Log Analytics ou em um aplicativo Application Insights. Ambos são fornecidos pelo [Azure data Explorer](/azure/data-explorer/) significando que eles aproveitam seu poderoso mecanismo de dados e linguagem de consulta.
 
 Os dados em espaços de trabalho e aplicativos são organizados em tabelas, cada um dos quais armazena diferentes tipos de dados e tem seu próprio conjunto exclusivo de propriedades. A maioria das [fontes de dados](../platform/data-sources.md) será gravada em suas próprias tabelas em um espaço de trabalho log Analytics, enquanto Application insights será gravado em um conjunto predefinido de tabelas em um aplicativo Application insights. As consultas de log são muito flexíveis, permitindo que você combine facilmente os dados de várias tabelas e até mesmo use uma consulta entre recursos para combinar dados de tabelas em vários espaços de trabalho ou para escrever consultas que combinam dados de espaço de trabalho e de aplicativo.
@@ -53,7 +52,7 @@ Quando você cria um aplicativo no Application Insights, um aplicativo correspon
 
 Ao contrário de um espaço de trabalho Log Analytics, um aplicativo Application Insights tem um conjunto fixo de tabelas. Você não pode configurar outras fontes de dados para gravar no aplicativo, portanto, nenhuma tabela adicional pode ser criada. 
 
-| Tabela | Descrição | 
+| Table | Descrição | 
 |:---|:---|
 | availabilityResults | Dados de resumo dos testes de disponibilidade. |
 | browserTimings      | Dados sobre o desempenho do cliente, como o tempo necessário para processar os dados de entrada. |
@@ -76,11 +75,11 @@ Embora cada tabela em logs de Azure Monitor tenha seu próprio esquema, há prop
 | Espaço de trabalho do Log Analytics | Application Insights aplicativo | Descrição |
 |:---|:---|:---|
 | TimeGenerated | timestamp  | Data e hora em que o registro foi criado. |
-| Type          | itemType   | Nome da tabela da qual o registro foi recuperado. |
+| Tipo          | itemType   | Nome da tabela da qual o registro foi recuperado. |
 | _ResourceId   |            | Identificador exclusivo do recurso ao qual o registro está associado. |
 | _IsBillable   |            | Especifica se os dados ingeridos são faturáveis. |
 | _BilledSize   |            | Especifica o tamanho em bytes de dados que serão cobrados. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 - Saiba mais sobre como usar [log Analytics para criar e editar pesquisas de log](../log-query/portals.md).
 - Confira um [tutorial sobre como escrever consultas](../log-query/get-started-queries.md) utilizando a nova linguagem de consulta.

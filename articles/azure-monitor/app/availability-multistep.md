@@ -1,21 +1,17 @@
 ---
 title: Monitor com testes na Web de várias etapas-insights de Aplicativo Azure
 description: Configurar testes na Web de várias etapas para monitorar seus aplicativos Web com o Aplicativo Azure insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/23/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 8e630f324a7a0ebdfcc74941e760b80fabefa8d3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3b8baad127b16a1bd9d071d0c3d4df68da8c3304
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928962"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655933"
 ---
-# <a name="multi-step-web-tests"></a>Teste na Web de várias etapas
+# <a name="multi-step-web-tests"></a>Testes na Web com diversas etapas
 
 Você pode monitorar uma sequência registrada de URLs e interações com um site por meio de testes na Web de várias etapas. Este artigo explicará o processo de criação de um teste na Web de várias etapas com Visual Studio Enterprise.
 
@@ -114,7 +110,7 @@ Em todos os casos, você deve criar uma conta no aplicativo apenas para fins de 
 | Senha do certificado | A senha para o certificado de cliente que concederá acesso à chave privada inserida. |
 | Certificado do cliente  | O valor do certificado de cliente com a chave privada no formato codificado em base64. |
 | Identificador de nome | O identificador de nome para o token |
-| Não depois | O TimeSpan para o qual o token será válido.  O padrão é 5 minutos. |
+| Não após | O TimeSpan para o qual o token será válido.  O padrão é 5 minutos. |
 | Não Antes De | O TimeSpan para o qual um token criado no passado será válido (para endereçar distorções de tempo).  O padrão é (negativo) 5 minutos. |
 | Nome do parâmetro de contexto de destino | O parâmetro de contexto que receberá a declaração gerada. |
 
@@ -141,11 +137,11 @@ Ao comparar sessões diferentes, identifique o token passado de volta ao site de
 Registre um teste na Web usando o Visual Studio.
 Parametrize os tokens, definindo o parâmetro quando o token for retornado do autenticador e usando-o na consulta ao site. (O Visual Studio tenta parametrizar o teste, mas não parametriza os tokens corretamente.)
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 [Artigo de solução de problemas](troubleshoot-availability.md)dedicado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Alertas de disponibilidade](availability-alerts.md)
 * [Testes da Web de ping de URL](monitor-web-app-availability.md)

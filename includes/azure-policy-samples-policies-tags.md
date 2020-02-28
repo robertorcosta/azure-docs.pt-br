@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/19/2020
+ms.date: 02/26/2020
 ms.author: dacoulte
-ms.openlocfilehash: 21f4e4234025ab4b9bb14a1e1338aa4b748ef1a6
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: f9a5a4c86404b6df36f3bb6988451e8dcae046fd
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77495557"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77780256"
 ---
 |Nome |Descrição |Efeito(s) |Versão |Fonte |
-|---|---|---|---|
+|---|---|---|---|---|
 |[Adicionar uma marca aos grupos de recursos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F726aca4c-86e9-4b04-b0c5-073027359532) |Adiciona a marca e o valor especificados quando qualquer grupo de recursos que está faltando nessa marca é criado ou atualizado. Os grupos de recursos existentes podem ser corrigidos disparando uma tarefa de correção. Se a marca existir com um valor diferente, ela não será alterada. |modify |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddTag_ResourceGroup_Modify.json)
 |[Adicionar uma marca aos recursos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4f9dc7db-30c1-420c-b61a-e1d640128d26) |Adiciona a marca e o valor especificados quando qualquer recurso que está faltando nessa marca é criado ou atualizado. Os recursos existentes podem ser corrigidos disparando uma tarefa de correção. Se a marca existir com um valor diferente, ela não será alterada. Não modifica tags em grupos de recursos. |modify |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddTag_Modify.json)
 |[Adicionar ou substituir uma marca nos grupos de recursos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd157c373-a6c4-483d-aaad-570756956268) |Adiciona ou substitui a marca e o valor especificados quando qualquer grupo de recursos é criado ou atualizado. Os grupos de recursos existentes podem ser corrigidos disparando uma tarefa de correção. |modify |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddOrReplaceTag_ResourceGroup_Modify.json)

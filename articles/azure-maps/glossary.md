@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: a6c1e14e332f6081111d2a58a30702093b99a876
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: c9d5c2efc14dec5beee0eaf81a4f628421ef3d49
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198234"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657037"
 ---
 # <a name="glossary"></a>Glossário
 
 A lista a seguir descreve as palavras comuns usadas com os serviços do Azure Maps.
 
-## <a name="a"></a>Um
+## <a name="a"></a>A
 
 <a name="address-validation"></a>**Validação de endereço**: o processo de verificar a existência de um endereço.
 
@@ -47,9 +47,9 @@ A lista a seguir descreve as palavras comuns usadas com os serviços do Azure Ma
 
 <a name="asynchronous-request"></a>**Solicitação assíncrona**: uma solicitação HTTP que abre uma conexão e faz uma solicitação ao servidor que retorna um identificador para a solicitação assíncrona e, em seguida, fecha a conexão. O servidor continua a processar a solicitação e o usuário pode verificar o status usando o identificador. Quando a solicitação terminar o processamento, o usuário pode então fazer o download da resposta. Esse tipo de solicitação é usado para processos de longa execução.
 
-<a name="autocomplete"></a>**Preenchimento automático**: um recurso em um aplicativo prevê o restante de uma palavra que um usuário está digitando. 
+<a name="autocomplete"></a>**Preenchimento automático**: um recurso em um aplicativo que prevê o restante de uma palavra que um usuário está digitando. 
 
-<a name="autosuggest"></a>**Sugestão**automática: um recurso em um aplicativo o prevê possibilidades lógicas para o que o usuário está digitando.
+<a name="autosuggest"></a>**Sugestão**automática: um recurso em um aplicativo que prevê possibilidades lógicas para o que o usuário está digitando.
 
 <a name="azure-location-based-services-lbs"></a>**Serviços do Azure baseados na localização (lbs)** : o nome anterior do Azure Maps quando ele estava em versão prévia.
 
@@ -145,7 +145,7 @@ A lista a seguir descreve as palavras comuns usadas com os serviços do Azure Ma
 
 <a name="find-along-route"></a>**Localizar ao longo da rota**: uma consulta espacial que procura dados que estão dentro de uma hora ou distância de desvio especificada de um caminho de rota.
 
-<a name="find-nearby"></a>**Localizar próximo**: uma consulta espacial que pesquisa uma distância de linha reta fixa (à medida que o corvo voa) de um ponto.
+<a name="find-nearby"></a>**Localizar próximo**: uma consulta espacial que pesquisa uma distância de linha reta fixa (à medida que as galinha surge) de um ponto.
 
 <a name="fleet-management"></a>**Gerenciamento de frota**: o gerenciamento de veículos comerciais, como carros, caminhões, veículos e aviões. A gestão de frotas pode incluir uma variedade de funções, como financiamento de veículo, manutenção, telemática (rastreamento e diagnóstico) bem como driver, velocidade, combustível, gerenciamento de segurança e integridade. O gerenciamento de frota é um processo usado por empresas que dependem de transporte em seus negócios. As empresas desejam minimizar os riscos e reduzir os custos gerais com o transporte e a equipe, garantindo, ao mesmo tempo, a conformidade com a legislação governamental.
 
@@ -257,7 +257,7 @@ A lista a seguir descreve as palavras comuns usadas com os serviços do Azure Ma
 
 <a name="navigation-bar"></a>**Barra de navegação**: o conjunto de controles em um mapa usado para ajustar o nível de zoom, a densidade, a rotação e a alternância da camada do mapa base.
 
-<a name="nearby-search"></a>**Pesquisa próxima**: uma consulta espacial que pesquisa uma distância de linha reta fixa (à medida que o corvo voa) de um ponto.
+<a name="nearby-search"></a>**Pesquisa próxima**: uma consulta espacial que pesquisa uma distância de linha reta fixa (à medida que as galinha surge) de um ponto.
 
 <a name="neutral-ground-truth"></a>Linguagem de **aterramento neutra**: um mapa que renderiza rótulos no idioma oficial da região que ele representa e em scripts locais, se disponíveis.
 
@@ -305,7 +305,7 @@ A lista a seguir descreve as palavras comuns usadas com os serviços do Azure Ma
 
 ## <a name="r"></a>R
 
-<a name="radial-search"></a>**Pesquisa radial**: uma consulta espacial que pesquisa uma distância de linha reta fixa (à medida que o corvo voa) de um ponto. 
+<a name="radial-search"></a>**Pesquisa radial**: uma consulta espacial que pesquisa uma distância de linha reta fixa (à medida que as galinha surge) de um ponto. 
 
 <a name="raster-data"></a>**Dados de varredura**: uma matriz de células (ou pixels) organizada em linhas e colunas (ou em uma grade) em que cada célula contém um valor que representa informações, como temperatura. Varredura inclui fotografias aéreas digitais, imagens de satélites, imagens digitais e mapas digitalizados.
 

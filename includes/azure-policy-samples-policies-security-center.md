@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/19/2020
+ms.date: 02/26/2020
 ms.author: dacoulte
-ms.openlocfilehash: 786075b4641675f7b36df427fff69f33c9cfc2c5
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 27b453c4e20c2ae3ccb6ddda5a00e42ba4e522f6
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77495086"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77780299"
 ---
 |Nome |Descrição |Efeito(s) |Versão |Fonte |
-|---|---|---|---|
+|---|---|---|---|---|
 |[\[Versão prévia\] A Avaliação de Vulnerabilidades deve ser habilitada nas Máquinas Virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Monitora as vulnerabilidades detectadas pela Avaliação de Vulnerabilidades da Central de Segurança do Azure nas Máquinas Virtuais |AuditIfNotExists, desabilitado |1.0.0 – versão prévia |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json)
 |[\[Versão prévia\]: os intervalos de IP autorizados devem ser definidos nos Serviços do Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0e246bcf-5f6f-4f87-bc6f-775d4712c7ea) |Restrinja o acesso à API de Gerenciamento de Serviços do Kubernetes permitindo acesso à API somente aos endereços IP em intervalos específicos. Recomendamos limitar o acesso aos intervalos de IP autorizados para garantir que somente os aplicativos de redes permitidas possam acessar o cluster. |Audit, desabilitado |1.0.0 – versão prévia |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableIpRanges_KubernetesService_Audit.json)
 |[\[Versão prévia\]: o encaminhamento IP na máquina virtual deve ser desabilitado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbd352bd5-2853-4985-bf0d-73806b4a5744) |A habilitação do encaminhamento de IP na NIC de uma máquina virtual permite que o computador receba o tráfego endereçado a outros destinos. O encaminhamento de IP raramente é necessário (por exemplo, ao usar a VM como uma solução de virtualização de rede) e, portanto, isso deve ser examinado pela equipe de segurança de rede. |AuditIfNotExists, desabilitado |1.0.0 – versão prévia |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_IPForwardingOnVirtualMachines_Audit.json)

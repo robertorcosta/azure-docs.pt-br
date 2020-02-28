@@ -3,17 +3,16 @@ title: Coletar métricas personalizadas para VM Linux com o agente InfluxData Te
 description: Instruções sobre como implantar o agente InfluxData telegraf em uma VM do Linux no Azure e configurar o agente para publicar métricas para Azure Monitor.
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 365330aa445bcf8e5b1aec575d5e646d533ceaf7
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 0ed9144116c1d716124025ef0aae39e7783c5934
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901330"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655456"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Coletar métricas personalizadas para uma VM do Linux com o Agente InfluxData Telegraf
 
@@ -130,7 +129,7 @@ Além disso, neste passo a passo, você usou o agente Telegraf para emitem métr
 
 Quando o grupo de recursos, a máquina virtual e todos os recursos relacionados não forem mais necessários, exclua-os. Para fazer isso, selecione o grupo de recursos para a máquina virtual e selecione **excluir**. Em seguida, confirme o nome do grupo de recursos para excluir. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 - Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
 
 

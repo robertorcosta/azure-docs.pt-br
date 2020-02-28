@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 4ca8c18d448297cc2d2e2249a1dbbe04ecccd092
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 40abd048b047bbece79b7c05d36a1fb189a4f28d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77019410"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656918"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gerenciamento para Serviços de Nuvem do Azure: perguntas frequentes
 
@@ -137,7 +137,7 @@ Você esgotou a cota de armazenamento local para gravar no diretório de log. 
 * Aumentar os limite de cota para recursos locais.
 
 Para obter mais informações, consulte um dos seguintes documentos:
-* [Armazenar e exibir dados de diagnóstico no Armazenamento do Azure](cloud-services-dotnet-diagnostics-storage.md)
+* [Armazenar e exibir dados de diagnóstico no Armazenamento do Azure](/azure/storage/common/storage-introduction)
 * [Logs do IIS param de gravar no serviço de nuvem](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Como habilitar o registro em log do WAD para serviços de nuvem?
@@ -183,7 +183,7 @@ Para configurar um endereço IP estático, você precisa criar um IP reservado. 
 ### <a name="what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides"></a>Quais são os recursos e as funcionalidades que o DDOS e o IPS/IDS básicos do Azure oferecem?
 O Azure tem IPS/IDS nos servidores físicos do datacenter para proteger-se contra ameaças. Além disso, os clientes podem implantar soluções de segurança de terceiros, como firewalls de aplicativo Web, firewalls de rede, antimalware, IDS/IPS (sistema de detecção de intrusão/sistema de prevenção de intrusão) e muito mais. Para obter mais informações, consulte [Proteger seus dados e ativos e cumprir padrões de segurança globais](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity).
 
-A Microsoft monitora servidores, redes e aplicativos continuamente para detectar ameaças. A abordagem de gerenciamento de ameaças em várias frentes do Azure, usa detecção de intrusão, prevenção de ataque de DDoS (negação de serviço distribuída), teste de penetração, análise de comportamento, detecção de anomalias e machine learning para reforçar constantemente sua defesa e reduzir os riscos. O Microsoft Antimalware para Azure protege os serviços de nuvem e as máquinas virtuais do Azure. Você tem a opção de implantar soluções de segurança de terceiros adicionalmente, como firewalls de aplicativo Web, firewalls de rede, antimalware, IDS/IPS (sistema de detecção de intrusão/sistema de prevenção de intrusão) e muito mais.
+A Microsoft monitora continuamente servidores, redes e aplicativos para detectar ameaças. A abordagem de gerenciamento de ameaças em várias frentes do Azure, usa detecção de intrusão, prevenção de ataque de DDoS (negação de serviço distribuída), teste de penetração, análise de comportamento, detecção de anomalias e machine learning para reforçar constantemente sua defesa e reduzir os riscos. O Microsoft Antimalware para Azure protege os serviços de nuvem e as máquinas virtuais do Azure. Você tem a opção de implantar soluções de segurança de terceiros adicionalmente, como firewalls de aplicativo Web, firewalls de rede, antimalware, IDS/IPS (sistema de detecção de intrusão/sistema de prevenção de intrusão) e muito mais.
 
 ### <a name="how-to-enable-http2-on-cloud-services-vm"></a>Como habilitar o HTTP/2 na VM dos Serviços de Nuvem?
 
@@ -231,7 +231,7 @@ Esse erro pode ocorrer se você usar o arquivo RDP a partir de um computador ass
 1. Clique com o botão direito no arquivo RDP que você fez download e, em seguida, selecione **Editar**.
 2. Adicione "&#92;" como prefixo antes do nome de usuário. Por exemplo, use **.\nome de usuário** em vez de **nome de usuário**.
 
-## <a name="scaling"></a>Dimensionamento
+## <a name="scaling"></a>Scaling
 
 ### <a name="i-cannot-scale-beyond-x-instances"></a>Não consigo dimensionar além de X instâncias
 Sua Assinatura do Azure tem um limite no número de núcleos que você pode usar. O dimensionamento não funcionará se você tiver usado todos os núcleos disponíveis. Por exemplo, se você tiver um limite de 100 núcleos, isso significa você poderia ter 100 instâncias de máquina virtual A1 dimensionadas para seu serviço de nuvem ou 50 instâncias de máquina virtual A2.
@@ -250,7 +250,7 @@ Para obter mais informações sobre como habilitar o Application Insights para s
 
 Para obter mais informações sobre como habilitar o log de Diagnóstico do Microsoft Azure para serviços de nuvem, consulte [Configurar diagnósticos para serviços de nuvem do Azure e máquinas virtuais](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
-## <a name="generic"></a>Genérico
+## <a name="generic"></a>Genéricos
 
 ### <a name="how-do-i-add-nosniff-to-my-website"></a>Como fazer para adicionar "nosniff" ao meu site?
 Para evitar que clientes detectem os tipos MIME, adicione uma configuração ao arquivo *web.config*.
@@ -311,7 +311,7 @@ A associação de SNI pode ser configurada usando o cmdlet do PowerShell **New-W
     
 Conforme descrito [aqui](https://technet.microsoft.com/library/ee790567.aspx), o $sslFlags poderia ser um dos valores como o seguinte:
 
-|Valor|Significado|
+|{1&gt;Valor&lt;1}|Significado|
 ------|------
 |0|Nenhuma SNI|
 |1|SNI habilitada|

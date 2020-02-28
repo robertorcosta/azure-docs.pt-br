@@ -1,18 +1,17 @@
 ---
 title: Diferenças na linguagem de consulta de log do Azure Monitor | Microsoft Docs
 description: Informações de referência para a linguagem de consulta Kusto usada pelo Azure Monitor. Inclui elementos adicionais específicos ao Azure Monitor e elementos sem suporte às consultas do Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 16a221c0530d65e11589ac272a8e032de0cd3d2b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b4601968a318388086a60ef98e4359ae01f652ed
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933095"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662095"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Diferenças na linguagem de consulta de log do Azure Monitor
 
@@ -56,7 +55,7 @@ Os seguintes operadores dão suporte a recursos específicos do Azure Monitor e 
 * [app()](app-expression.md)
 * [workspace()](workspace-expression.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Obtenha referências para diferentes [recursos para escrever consultas de log do Azure Monitor](query-language.md).
 - Acesse a [documentação de referência completa da linguagem de consulta Kusto](/azure/kusto/query/).

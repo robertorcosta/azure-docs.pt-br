@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 02/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 8d3f4294a5c8b09a132d56cd72ccb36ce766e0dd
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: c2c909d8ef2be982d4dd4a70b5f35d03e8e71418
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616712"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659961"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Atualizar o Load Balancer interno do Azure-nenhuma conexão de saída é necessária
 O [Azure Standard Load Balancer](load-balancer-overview.md) oferece um conjunto avançado de funcionalidades e alta disponibilidade por meio de redundância de zona. Para saber mais sobre Load Balancer SKU, confira [tabela de comparação](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
@@ -81,7 +81,7 @@ Para executar o script:
     **Exemplo**
 
    ```azurepowershell
-   ./AzureILBUpgrade.ps1 -rgName "test_InternalUpgrade_rg" -oldLBName "LBForInternal" -newlocation "centralus" -newLbName "LBForUpgrade"
+   AzureILBUpgrade.ps1 -rgName "test_InternalUpgrade_rg" -oldLBName "LBForInternal" -newlocation "centralus" -newLbName "LBForUpgrade"
    ```
 
 ### <a name="add-vms-to-backend-pools-of-standard-load-balancer"></a>Adicionar VMs a pools de back-end de Standard Load Balancer
@@ -101,7 +101,7 @@ Aqui estão alguns cenários de como você adiciona VMs a pools de back-end das 
    
     1. Selecione o pool de back-end que corresponde ao pool de back-end do Load Balancer básico, selecione o seguinte valor: 
       - **Máquina virtual**: lista suspensa e selecione as VMs do pool de back-end correspondente do Load Balancer básico.
-    1. Clique em **Salvar**.
+    1. Selecione **Salvar**.
     >[!NOTE]
     >Para VMs que têm IPs públicos, você precisará criar endereços IP padrão primeiro, em que o mesmo endereço IP não é garantido. Desassocie as VMs de IPs básicos e associe-as aos endereços IP padrão recém-criados. Em seguida, você poderá seguir as instruções para adicionar VMs ao pool de back-end de Standard Load Balancer. 
 
@@ -122,6 +122,6 @@ Não. O script de Azure PowerShell migra apenas a configuração. A migração d
   
 Você pode enviar um email para slbupgradesupport@microsoft.com, abrir um caso de suporte com o suporte do Azure ou fazer ambos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Saiba mais sobre o Load Balancer Standard](load-balancer-overview.md)

@@ -3,17 +3,16 @@ title: Coletar logs de recursos do Azure no espaço de trabalho Log Analytics
 description: Saiba como transmitir logs de recursos do Azure para um espaço de trabalho Log Analytics no Azure Monitor.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: b0b8757590876669e00e81378411c010514e3036
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 36bd464624118b7671a3879bcc1d34114bba9ce3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750370"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658992"
 ---
 # <a name="collect-azure-platform-logs-in-log-analytics-workspace-in-azure-monitor"></a>Coletar logs da plataforma Azure no espaço de trabalho Log Analytics no Azure Monitor
 [Os logs de plataforma](platform-logs-overview.md) no Azure, incluindo logs de recursos e log de atividades do Azure, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem. Este artigo descreve a coleta de logs de recursos em um espaço de trabalho Log Analytics que permite analisá-lo com outros dados de monitoramento coletados em logs de Azure Monitor usando consultas de log poderosas e também para aproveitar outros recursos de Azure Monitor, como alertas e visualizações. 
@@ -26,7 +25,7 @@ Coletar os logs de plataforma em um espaço de trabalho Log Analytics permite qu
 * **Alertas** -obtenha notificações proativas de condições críticas e padrões identificados em seus logs de recursos usando [alertas de log no Azure monitor](alerts-log.md).
 * **Visualizações** – fixe os resultados de uma consulta de log em um painel do Azure ou inclua-os em uma pasta de trabalho como parte de um relatório interativo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 Você precisará [criar um novo espaço de trabalho](../learn/quick-create-workspace.md) se ainda não tiver um. O espaço de trabalho não precisa estar na mesma assinatura que o recurso que envia logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
 
 ## <a name="create-a-diagnostic-setting"></a>Criar uma configuração de diagnóstico
@@ -116,13 +115,13 @@ Há um limite de propriedade de 500 para qualquer tabela nos logs de Azure Monit
 
 Se você estiver coletando logs de recursos de vários serviços, o _AzureDiagnostics_ poderá exceder esse limite e os dados serão perdidos. Até que todos os serviços do Azure ofereçam suporte ao modo específico de recurso, você deve configurar recursos para gravar em vários espaços de trabalho para reduzir a possibilidade de atingir o limite de coluna de 500.
 
-### <a name="azure-data-factory"></a>Azure Data Factory
+### <a name="azure-data-factory"></a>Fábrica de dados do Azure
 Azure Data Factory, devido a um conjunto muito detalhado de logs, é um serviço que é conhecido por gravar um grande número de colunas e, potencialmente, fazer com que o _AzureDiagnostics_ exceda seu limite. Para qualquer configuração de diagnóstico configurada antes do modo específico do recurso ser habilitado, haverá uma nova coluna criada para cada parâmetro de usuário nomeado exclusivamente em relação a qualquer atividade. Mais colunas serão criadas por causa da natureza detalhada das entradas e saídas da atividade.
  
 Você deve migrar seus logs para usar o modo específico do recurso assim que possível. Se você não puder fazer isso imediatamente, uma alternativa provisória é isolar Azure Data Factory logs em seu próprio espaço de trabalho para minimizar a chance desses logs, afetando outros tipos de log que estão sendo coletados em seus espaços de trabalho.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Leia mais sobre os logs de recursos](platform-logs-overview.md).
 * [Crie a configuração de diagnóstico para coletar logs e métricas no Azure](diagnostic-settings.md).

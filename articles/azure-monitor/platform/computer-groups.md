@@ -1,18 +1,17 @@
 ---
 title: Grupos de computadores nas consultas de log do Azure Monitor | Microsoft Docs
 description: Os grupos de computadores no Azure Monitor permitem que você analise as consultas de log em um determinado conjunto de computadores.  Este artigo descreve os diferentes métodos que podem ser utilizados para criar grupos de computadores e como usá-los em uma consulta de log.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: eedf04a2168c67449f97d8e462d4ff82653a22b3
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: a005b6cec811b8a584123dc4c8abab77766961e0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513687"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655320"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de computadores em consultas Azure Monitor log
 Os grupos de computadores no Azure Monitor permitem que você analise as [consultas de log](../log-query/log-query-overview.md) de um determinado conjunto de computadores.  Cada grupo é preenchido com computadores usando uma consulta que você define ou importando grupos de fontes diferentes.  Quando o grupo é incluído em uma consulta de log, os resultados são limitados aos registros que correspondem aos computadores no grupo.
@@ -22,10 +21,10 @@ Os grupos de computadores no Azure Monitor permitem que você analise as [consul
 ## <a name="creating-a-computer-group"></a>Criando um grupo de computadores
 É possível criar um grupo de computadores no Azure Monitor usando qualquer um dos métodos da tabela a seguir.  Detalhes sobre cada método são fornecidos nas seções a seguir. 
 
-| Método | Description |
+| Método | Descrição |
 |:--- |:--- |
 | Consulta de log |Crie uma consulta de log que retorne uma lista de computadores. |
-| API de Pesquisa de Log |Use a API da Pesquisa de Logs para criar programaticamente um grupo de computadores com base nos resultados de uma consulta de log. |
+| API da Pesquisa de Log |Use a API da Pesquisa de Logs para criar programaticamente um grupo de computadores com base nos resultados de uma consulta de log. |
 | Active Directory |Examine automaticamente a associação de grupo de qualquer computador de agente que seja membro de um domínio do Active Directory e crie um grupo no Azure Monitor para cada grupo de segurança. (computadores Windows, somente)|
 | Configuration Manager | Importe coleções do Microsoft Endpoint Configuration Manager e crie um grupo no Azure Monitor para cada uma. |
 | Windows Server Update Services |Examine automaticamente clientes ou servidores do WSUS para grupos de direcionamento e crie um grupo no Azure Monitor para cada um. |
@@ -47,9 +46,9 @@ Use o procedimento a seguir para criar um grupo de computadores de uma pesquisa 
 
 A tabela a seguir descreve as propriedades que definem um grupo de computadores.
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:---|:---|
-| Nome   | Nome da consulta a ser exibida no portal. |
+| {1&gt;Nome&lt;1}   | Nome da consulta a ser exibida no portal. |
 | Alias da função | Um alias exclusivo usado para identificar o grupo de computadores em uma consulta. |
 | Categoria       | Categoria para organizar as consultas no portal. |
 
@@ -119,7 +118,7 @@ A consulta a seguir retornaria registros UpdateSummary apenas para computadores 
 ## <a name="computer-group-records"></a>Registros de grupo de computadores
 Um registro é criado no espaço de trabalho do Log Analytics para cada associação do grupo do computadores criada no Active Directory ou no WSUS.  Esses registros de desempenho têm um tipo de **ComputerGroup** e têm as propriedades na tabela a seguir.  Os registros não são criados para grupos de computadores com base em consultas de log.
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--- |:--- |
 | `Type` |*ComputerGroup* |
 | `SourceSystem` |*SourceSystem* |
@@ -131,6 +130,6 @@ Um registro é criado no espaço de trabalho do Log Analytics para cada associa�
 | `ManagementGroupName` |Nome do grupo de gerenciamento de agentes do SCOM.  Para outros agentes, ele é AOI-\<ID do espaço de trabalho\> |
 | `TimeGenerated` |Data e hora em que o grupo de computadores foi criado ou atualizado. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * Saiba mais sobre [registrar consultas](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.  
 

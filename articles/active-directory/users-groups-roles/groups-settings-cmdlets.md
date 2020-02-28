@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b5d74c7c599f31694a68e7582a6447af8471508
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: a727cd57e470f248321011d505f8037808f64298
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984941"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656867"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para definir configurações de grupo
 
@@ -63,7 +63,7 @@ Essas etapas criam configurações no nível de diretório, que são aplicáveis
    ```
    Essa chamada do cmdlet retorna todos os modelos disponíveis:
   
-   ```powershell
+   ``` PowerShell
    Id                                   DisplayName         Description
    --                                   -----------         -----------
    62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified       ...
@@ -77,7 +77,7 @@ Essas etapas criam configurações no nível de diretório, que são aplicáveis
   
    ```powershell
    $TemplateId = (Get-AzureADDirectorySettingTemplate | where { $_.DisplayName -eq "Group.Unified" }).Id
-   $Template = Get-AzureADDirectorySettingTemplate -Id $TemplateId
+   $Template = Get-AzureADDirectorySettingTemplate | where -Property Id -Value $TemplateId -EQ
    ```
 3. Em seguida, crie um novo objeto de configurações com base no modelo:
   
@@ -157,7 +157,7 @@ Aqui estão as configurações definidas no Group.Unified SettingsTemplate. A me
 |  <ul><li>PrefixSuffixNamingRequirement<li>Tipo: String<li>Padrão: “” | Cadeia de caracteres de um comprimento máximo de 64 caracteres que define a convenção de nomenclatura configurada para Grupos do Office 365. Para obter mais informações, confira [Impor uma política de nomenclatura para grupos do Office 365](groups-naming-policy.md). |
 | <ul><li>CustomBlockedWordsList<li>Tipo: String<li>Padrão: “” | Cadeia de caracteres de frases separadas por vírgulas que os usuários não serão autorizados a usar em nomes de grupos ou alias. Para obter mais informações, confira [Impor uma política de nomenclatura para grupos do Office 365](groups-naming-policy.md). |
 | <ul><li>EnableMSStandardBlockedWords<li>Tipo: booliano<li>Padrão: “False” | Não usar
-|  <ul><li>AllowGuestsToBeGroupOwner<li>Tipo: booliano<li>Padrão: False | Booliano que indica se um usuário convidado pode ser um proprietário de grupos. |
+|  <ul><li>AllowGuestsToBeGroupOwner<li>Tipo: booliano<li>Padrão: Falso | Booliano que indica se um usuário convidado pode ser um proprietário de grupos. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Tipo: booliano<li>Padrão: True | Booliano que indica se um usuário convidado pode ter acesso ao conteúdo dos Grupos do Office 365.  Essa configuração não requer uma licença do Azure Active Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Tipo: String<li>Padrão: “” | A url de um link para as diretrizes de uso do convidado. |
 |  <ul><li>AllowToAddGuests<li>Tipo: booliano<li>Padrão: True | Um booliano que indica se há permissão para adicionar convidados a este diretório. <br>Essa configuração poderá ser substituída e se tornará somente leitura se *EnableMIPLabels* estiver definido como *true* e uma política de convidado estiver associada ao rótulo de sensibilidade atribuído ao grupo. |
@@ -171,7 +171,7 @@ Aqui estão as configurações definidas no Group.Unified SettingsTemplate. A me
    ```
 2. Para definir a política de convidado para grupos no nível do diretório, você precisa de grupo. modelo unificado
    ```powershell
-   $Template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
+   $Template = Get-AzureADDirectorySettingTemplate | where -Property Id -Value "62375ab9-6b52-47ed-826b-58e47e0e304b" -EQ
    ```
 3. Em seguida, crie um novo objeto de configurações com base no modelo:
   
@@ -262,7 +262,7 @@ Esta etapa remove configurações no nível do diretório, que se aplicam a todo
    ```
 2. Recupere o objeto de modelo para o modelo Groups.Unified.Guest:
    ```powershell
-   $Template1 = Get-AzureADDirectorySettingTemplate -Id 08d542b9-071f-4e16-94b0-74abb372e3d9
+   $Template1 = Get-AzureADDirectorySettingTemplate | where -Property Id -Value "08d542b9-071f-4e16-94b0-74abb372e3d9" -EQ
    ```
 3. Crie um novo objeto de configurações do modelo:
    ```powershell

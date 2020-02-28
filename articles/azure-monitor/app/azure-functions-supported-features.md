@@ -1,19 +1,17 @@
 ---
 title: Insights de Aplicativo Azure-Azure Functions recursos com suporte
 description: Recursos suportados do Application Insights para funções do Azure
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: reference
 author: TimothyMothra
 ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 807dde08d6ae88054524cb9e397d36db41324482
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: cf0c97fd65f9966bf42fa22e2c8f92263952cb7a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484563"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655643"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Recursos suportados do Application Insights para o Azure Functions
 
@@ -23,7 +21,7 @@ Para obter mais informações sobre as versões de tempo de execução do functi
 
 Para obter mais informações sobre versões compatíveis do Application Insights, consulte [dependências](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/).
 
-## <a name="supported-features"></a>Recursos compatíveis
+## <a name="supported-features"></a>Recursos com suporte
 
 | Funções do Azure                       | V1                | V2 & v3   | 
 |-----------------------------------    |---------------    |------------------ |
@@ -52,7 +50,7 @@ Para obter mais informações sobre versões compatíveis do Application Insight
 | &bull;Totalmente configurável.<br/>Ver [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) para obter instruções.<br/>Ver [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) para todas as opções.               |                   | Sim                   | 
 
 
-## <a name="performance-counters"></a>Contadores de desempenho
+## <a name="performance-counters"></a>Contadores de Desempenho
 
 A coleta automática de contadores de desempenho só funciona em máquinas Windows.
 

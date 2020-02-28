@@ -4,18 +4,17 @@ description: Simplifique a emissão de relatórios complexos com pastas de traba
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 1d1ee243fa9df8a77a6ce80ecb9d8e5336e8b19b
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 380b8a7ce286ab06b6935bf63bf3a0e82f371c2f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872750"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658006"
 ---
 # <a name="workbook-time-parameters"></a>Parâmetros de tempo da pasta de trabalho
 
@@ -62,7 +61,7 @@ Os parâmetros de hora permitem que os usuários definam o contexto de tempo de 
 4. O controle de texto mostrará o texto: _o intervalo de tempo escolhido é das últimas 24 horas_
 
 ## <a name="time-parameter-options"></a>Opções de parâmetro de tempo
-| . | Explicação | Exemplo |
+| Parâmetro | Explicação | {1&gt;Exemplo&lt;1} |
 | ------------- |:-------------|:-------------|
 | `{TimeRange}` | Rótulo de intervalo de tempo | Últimas 24 horas |
 | `{TimeRange:label}` | Rótulo de intervalo de tempo | Últimas 24 horas |
@@ -79,7 +78,7 @@ requests
 | make-series Requests = count() default = 0 on timestamp from {TimeRange:start} to {TimeRange:end} step {TimeRange:grain}
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Comece a aprender mais](workbooks-visualizations.md) sobre pastas de trabalho muitas opções de visualizações ricas.
 * [Controle](workbooks-access-control.md) e compartilhe o acesso aos recursos da pasta de trabalho.

@@ -1,18 +1,14 @@
 ---
 title: Monitoramento de desempenho de aplicativos Web Java-insights de Aplicativo Azure
 description: Desempenho e monitoramento de uso estendidos do seu site Java com o Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/10/2019
-ms.openlocfilehash: 8194c4b16d114be9b2b95ff56dea59d98cfdae10
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b29618179d22eac97a07bf41906465aba1fd7929
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931137"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657020"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorar dependências, exceções capturadas e tempos de execução de método em aplicativos Web Java
 
@@ -127,7 +123,7 @@ Para pesquisar instâncias individuais de dependência, exceção e relatórios 
 [Diagnosticando problemas de dependência – Saiba mais](../../azure-monitor/app/asp-net-dependencies.md#diagnosis).
 
 ## <a name="questions-problems"></a>Perguntas? Problemas?
-* Nenhum dado? [Definir exceções de firewall](../../azure-monitor/app/ip-addresses.md)
+* Não há dados? [Definir exceções de firewall](../../azure-monitor/app/ip-addresses.md)
 * [Solucionar problemas de Java](java-troubleshoot.md)
 
 <!--Link references-->

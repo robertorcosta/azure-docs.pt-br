@@ -1,18 +1,17 @@
 ---
 title: Entender a integridade de suas máquinas virtuais do Azure | Microsoft Docs
 description: Este artigo descreve como entender a integridade das máquinas virtuais e dos sistemas operacionais subjacentes com Azure Monitor para VMs.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/14/2019
-ms.openlocfilehash: e01223783130ea6b276db26bab709e2b51a8f76d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3cecb04a4f299051860c45425f0fc4e13c3722ea
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75399785"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656289"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Entender a integridade de suas máquinas virtuais do Azure
 
@@ -34,12 +33,12 @@ Para obter informações sobre como configurar o Monitor do Azure para VMs, cons
 
 Esta seção descreve os critérios de integridade padrão para monitorar as VMs do Windows e Linux do Azure. Todos os critérios de integridade são pré-configurados para enviar um alerta quando detectam uma condição não íntegra.
 
-| Nome do monitor | Frequência (min) | Duração de Lookback (min) | Operador | Limite | Alertar no estado | Gravidade | Categoria da carga de trabalho | 
+| Nome do monitor | Frequência (min) | Duração de Lookback (min) | Operador | Limite | Alertar no estado | Severity | Categoria da carga de trabalho | 
 |--------------|-----------|----------|----------|-----------|----------------|----------|-------------------|
 | Disco lógico online | 5 | 15 | <> | 1 (verdadeiro) | Crítico | Sev1 | Linux | 
-| Espaço livre em disco lógico | 5 | 15 | < | 200 MB (aviso)<br> 100 MB (crítico) | Aviso | Sev1<br> Sev2 | Linux | 
-| % de Inodes livres do disco lógico | 5 | 15 | < | 5% | Crítico | Sev1 | Linux | 
-| % de espaço livre no Disco lógico | 5 | 15 | < | 5% | Crítico | Sev1 | Linux | 
+| Espaço Livre no Disco Lógico | 5 | 15 | < | 200 MB (aviso)<br> 100 MB (crítico) | Aviso | Sev1<br> Sev2 | Linux | 
+| Porcentagem de Inodes Livres no Disco Lógico | 5 | 15 | < | 5% | Crítico | Sev1 | Linux | 
+| Porcentagem de Espaço Livre no Disco Lógico | 5 | 15 | < | 5% | Crítico | Sev1 | Linux | 
 | Status do adaptador de rede | 5 | 15 | <> | 1 (verdadeiro) | Aviso | Sev2 | Linux | 
 | Memória Disponível em Megabytes do Sistema Operacional | 5 | 10 | < | 2,5 MB | Crítico | Sev1 | Linux | 
 | Média de disco s/leitura de disco | 5 | 25 | > | 0,05 s | Crítico | Sev1 | Linux | 
@@ -47,33 +46,33 @@ Esta seção descreve os critérios de integridade padrão para monitorar as VMs
 | Média de disco s/gravação de disco | 5 | 25 | > | 0,05 s | Crítico | Sev1 | Linux | 
 | Status do disco | 5 | 25 | <> | 1 (verdadeiro) | Crítico | Sev1 | Linux | 
 | Porcentagem Total de Tempo do Processador do Sistema Operacional | 5 | 10 | >= | 95% | Crítico | Sev1 | Linux | 
-| Porcentagem de utilização de CPU total | 5 | 10 | >= | 95% | Crítico | Sev1 | Windows | 
-| Erro ou corrupção do sistema de arquivos | 60 | 60 | <> | 4 | Crítico | Sev1 | Windows | 
-| Média de Segundos de Disco por Gravação | 1 | 15 | > | 0.04 s | Aviso | Sev2 | Windows | 
-| Média de segundos de disco lógico por transferência | 1 | 15 | > | 0.04 s | Aviso | Sev2 | Windows | 
-| Média de segundos de disco lógico por gravação (disco lógico) | 1 | 15 | > | 0.04 s | Aviso | Sev2 | Windows | 
-| Comprimento atual da fila de disco (disco lógico) | 5 | 60 | >= | 32 | Aviso | Sev2 | Windows | 
-| Espaço livre em disco lógico (MB) | 15 | 60 | > | aviso de 500 MB<br> 300 MB crítico | Crítico | Sev1<br> Sev2 | Windows | 
-| Espaço livre em disco lógico (%) | 15 | 60 | > | aviso de 10%<br> 5% crítico | Crítico | Sev1<br> Sev2 | Windows |
-| Porcentagem de Tempo Ocioso do Disco Lógico | 15 | 360 | <= | 20% | Aviso | Sev2 | Windows | 
-| Porcentagem de largura de banda usada | 5 | 60 | >= | 60% | Aviso | Sev2 | Windows | 
-| Porcentagem de largura de banda total utilizada | 5 | 60 | >= | 75% | Aviso | Sev2 | Windows | 
-| Porcentagem de largura de banda usada | 5 | 60 | >= | 60% | Aviso | Sev2 | Windows | 
-| Integridade do serviço de cliente DHCP | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Windows | 
-| Integridade do serviço de cliente DNS | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Windows | 
-| Integridade de serviço de Log de eventos do Windows | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Windows | 
-| Integridade de serviço de Firewall do Windows | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Windows | 
-| Integridade do serviço RPC | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Windows | 
-| Integridade do serviço de servidor | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Windows | 
-| Integridade de serviço de gerenciamento remoto do Windows | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Windows | 
-| Megabytes Disponíveis de Memória | 5 | 10 | < | 100 MB | Crítico | Sev1 | Windows | 
-| Entradas de tabela livres da página do sistema | 5 | 10 | <= | 5\.000 | Crítico | Sev1 | Windows | 
-| Páginas de memória por segundo | 5 | 10 | >= | 5\.000/s | Aviso | Sev1 | Windows | 
-| Porcentagem de memória confirmada em uso | 5 | 10 | > | 80% | Crítico | Sev1 | Windows | 
-| Média de segundos de disco por transferência | 1 | 15 | > | 0.04 s | Aviso | Sev2 | Windows | 
-| Média de Segundos de Disco por Gravação | 1 | 15 | > | 0.04 s | Aviso | Sev2 | Windows | 
-| Comprimento da fila atual de disco | 5 | 60 | >= | 32 | Aviso | Sev2 | Windows | 
-| Tempo ocioso percentual do disco | 5 | 60 | >= | 20% | Aviso | Sev2 | Windows | 
+| Porcentagem de Utilização Total de CPU | 5 | 10 | >= | 95% | Crítico | Sev1 | Portal | 
+| Erro ou corrupção de sistema de arquivos | 60 | 60 | <> | 4 | Crítico | Sev1 | Portal | 
+| Média de Segundos de Disco Lógico por Leitura | 1 | 15 | > | 0.04 s | Aviso | Sev2 | Portal | 
+| Média de Segundos de Disco Lógico por Transferência | 1 | 15 | > | 0.04 s | Aviso | Sev2 | Portal | 
+| Média de segundos de disco lógico por gravação (disco lógico) | 1 | 15 | > | 0.04 s | Aviso | Sev2 | Portal | 
+| Comprimento Atual da Fila de Disco (Disco Lógico) | 5 | 60 | >= | 32 | Aviso | Sev2 | Portal | 
+| Espaço livre em disco lógico (MB) | 15 | 60 | > | aviso de 500 MB<br> 300 MB crítico | Crítico | Sev1<br> Sev2 | Portal | 
+| Espaço livre em disco lógico (%) | 15 | 60 | > | aviso de 10%<br> 5% crítico | Crítico | Sev1<br> Sev2 | Portal |
+| Porcentagem de Tempo Ocioso do Disco Lógico | 15 | 360 | <= | 20% | Aviso | Sev2 | Portal | 
+| Porcentagem de Largura de Banda de Leitura Utilizada | 5 | 60 | >= | 60% | Aviso | Sev2 | Portal | 
+| Porcentagem total de largura de banda usada | 5 | 60 | >= | 75% | Aviso | Sev2 | Portal | 
+| Porcentagem de largura de banda de gravação usada | 5 | 60 | >= | 60% | Aviso | Sev2 | Portal | 
+| Integridade de Serviço Cliente de DHCP | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Portal | 
+| Integridade de Serviço Cliente DNS | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Portal | 
+| Integridade de Serviço Log de Eventos do Windows | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Portal | 
+| Integridade de serviço de Firewall do Windows | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Portal | 
+| Integridade do Serviço RPC | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Portal | 
+| Integridade do Serviço de Servidor | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Portal | 
+| Integridade de serviço de gerenciamento remoto do Windows | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Portal | 
+| Megabytes Disponíveis de Memória | 5 | 10 | < | 100 MB | Crítico | Sev1 | Portal | 
+| Entradas de tabela livres da página do sistema | 5 | 10 | <= | 5000 | Crítico | Sev1 | Portal | 
+| Páginas de Memória por Segundo | 5 | 10 | >= | 5\.000/s | Aviso | Sev1 | Portal | 
+| Porcentagem de Memória Confirmada em Uso | 5 | 10 | > | 80% | Crítico | Sev1 | Portal | 
+| Média de Segundos de Disco por Transferência | 1 | 15 | > | 0.04 s | Aviso | Sev2 | Portal | 
+| Média de Segundos de Disco por Gravação | 1 | 15 | > | 0.04 s | Aviso | Sev2 | Portal | 
+| Comprimento da Fila de Disco Atual | 5 | 60 | >= | 32 | Aviso | Sev2 | Portal | 
+| Tempo ocioso percentual do disco | 5 | 60 | >= | 20% | Aviso | Sev2 | Portal | 
 
 >[!NOTE]
 >A duração de Lookback representa a frequência com que a janela olhar de volta verifica os valores de métrica, como nos últimos cinco minutos.  
@@ -105,10 +104,10 @@ Os estados de integridade definidos para uma VM estão descritos na seguinte tab
 
 |ícone |Estado de integridade |Significado |
 |-----|-------------|---------------|
-| |Integridade |A VM está dentro das condições de integridade definidas. Esse estado indica que não há nenhum problema detectado e a VM está funcionando normalmente. Com um monitor de rollup pai, a integridade acumula e reflete o estado de melhor caso ou o pior caso do filho.|
+| |Íntegra |A VM está dentro das condições de integridade definidas. Esse estado indica que não há nenhum problema detectado e a VM está funcionando normalmente. Com um monitor de rollup pai, a integridade acumula e reflete o estado de melhor caso ou o pior caso do filho.|
 | |Crítico |O estado não está dentro da condição de integridade definida, indicando que um ou mais problemas críticos foram detectados. Esses problemas devem ser resolvidos para restaurar a funcionalidade normal. Com um monitor de rollup pai, o estado de integridade acumula e reflete o estado de melhor caso ou pior caso do filho.|
 | |Aviso |O estado está entre dois limites para a condição de integridade definida, em que um indica um estado de aviso e o outro indica um estado crítico (três limites de estado de integridade podem ser configurados) ou quando um problema não crítico pode causar problemas críticos se não resolvidos. Com um monitor de rollup pai, se um ou mais filhos estiverem em um estado de aviso, o pai refletirá um estado de aviso. Se um filho estiver em um estado crítico e outro filho em um estado de aviso, o rollup pai mostrará o estado de integridade como crítico.|
-| |Unknown (desconhecido) |O estado não pode ser computado por vários motivos. A seção a seguir fornece detalhes adicionais e possíveis soluções. |
+| |Desconhecido |O estado não pode ser computado por vários motivos. A seção a seguir fornece detalhes adicionais e possíveis soluções. |
 
 Um estado de integridade desconhecido pode ser causado pelos seguintes problemas:
 
@@ -217,8 +216,8 @@ O estado de um critério de integridade é definido por um dos quatro tipos: **c
 A página **diagnóstico de integridade** tem três seções principais:
 
 * Modelo de componente
-* Critérios de Integridade
-* Alterações de estado
+* Critérios de integridade
+* Alterações de Estado
 
 ![Seções da página de diagnóstico de integridade](./media/vminsights-health/health-diagnostics-page-02.png)
 
@@ -300,17 +299,17 @@ Os alertas de outros tipos de recursos ou serviços não devem ser incluídos ne
 
 Você pode filtrar essa exibição selecionando valores nos menus suspensos na parte superior da página.
 
-|Column |Description |
+|Coluna |Descrição |
 |-------|------------|
-|Subscription |Selecione uma assinatura do Azure. Apenas alertas na assinatura selecionada são incluídos na exibição. |
-|Grupo de recursos |Selecione um único grupo de recursos. Somente alertas com destinos no grupo de recursos selecionado são incluídos na exibição. |
+|Assinatura |Selecione uma assinatura do Azure. Apenas alertas na assinatura selecionada são incluídos na exibição. |
+|Grupo de Recursos |Selecione um único grupo de recursos. Somente alertas com destinos no grupo de recursos selecionado são incluídos na exibição. |
 |Tipo de recurso |Selecione um ou mais tipos de recurso. Por padrão, somente os alertas de destino **Máquinas virtuais** estão selecionados e incluídos nessa exibição. Essa coluna somente estará disponível depois que um grupo de recursos for especificado. |
-|Grupos |Selecione um recurso. Apenas alertas com esse recurso como um destino são incluídos na exibição. Esta coluna só estará disponível depois que um tipo de recurso tiver sido especificado. |
-|Gravidade |Selecione a gravidade do alerta ou selecione **Tudo** para incluir alertas de todas as gravidades. |
-|Monitorar condição |Selecione uma condição de monitor para filtrar alertas se eles tiverem sido acionados ou resolvidos pelo sistema se a condição não estiver mais ativa. Ou selecione **todos** para incluir alertas de todas as condições. |
+|Recurso |Selecione um recurso. Apenas alertas com esse recurso como um destino são incluídos na exibição. Esta coluna só estará disponível depois que um tipo de recurso tiver sido especificado. |
+|Severity |Selecione a gravidade do alerta ou selecione **Tudo** para incluir alertas de todas as gravidades. |
+|Condição do Monitor |Selecione uma condição de monitor para filtrar alertas se eles tiverem sido acionados ou resolvidos pelo sistema se a condição não estiver mais ativa. Ou selecione **todos** para incluir alertas de todas as condições. |
 |Estado de alerta |Selecione um estado de alerta, **novo**, **reconhecer**, **fechado**ou **todos** para incluir alertas de todos os Estados. |
 |Monitorar serviço |Selecione um serviço ou selecione **Tudo** para incluir todos os serviços. Somente os alertas do VM insights têm suporte para esse recurso.|
-|Intervalo de horas| Apenas alertas acionados dentro da janela de tempo selecionada são incluídos na exibição. Os valores com suporte são a última hora, as últimas 24 horas, os últimos 7 dias e os últimos 30 dias. |
+|Intervalo de tempo| Apenas alertas acionados dentro da janela de tempo selecionada são incluídos na exibição. Os valores com suporte são a última hora, as últimas 24 horas, os últimos 7 dias e os últimos 30 dias. |
 
 Quando você seleciona um alerta, a página de **detalhes do alerta** é exibida. Esta página fornece detalhes do alerta e permite que você altere seu estado.
 
@@ -325,7 +324,7 @@ Para saber mais sobre como gerenciar alertas, confira [Criar, exibir e gerenciar
 Você pode alterar um estado de alerta para um ou vários alertas selecionando-os e, em seguida, selecionando **alterar estado** na página **todos os alertas** no canto superior esquerdo. Selecione um dos Estados no painel **alterar estado do alerta** , adicione uma descrição da alteração no campo **Comentário** e, em seguida, selecione **OK** para confirmar suas alterações. Quando as informações são verificadas e as alterações são aplicadas, acompanhe o progresso em **notificações** no menu.
 
 ### <a name="configure-alerts"></a>Configurar alertas
-Você não pode gerenciar determinadas tarefas de gerenciamento de alertas do portal do Azure. Essas tarefas devem ser executadas usando a [API REST do Azure monitor](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Mais especificamente:
+Você não pode gerenciar determinadas tarefas de gerenciamento de alertas do portal do Azure. Essas tarefas devem ser executadas usando a [API REST do Azure monitor](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Especificamente:
 
 - Habilitando ou desabilitando um alerta para critérios de integridade
 - Configurando notificações para alertas de critérios de integridade
@@ -436,7 +435,7 @@ O Azure Monitor para VMs Health dá suporte a notificações de SMS e email quan
     }
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Para identificar as limitações e o desempenho geral da VM, consulte [Exibir o desempenho da VM do Azure](vminsights-performance.md).
 

@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/13/2020
+ms.date: 02/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4cc4db9ffcb700d4b65a7f5c21d258e9af52d164
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 155498aeaea30bf2da1d5aa0dbcb322aeb43bbdd
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598520"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661287"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento de máquina virtual do SAP HANA no Azure
 
@@ -35,6 +35,10 @@ Para saber mais sobre esses tipos de disco, consulte o artigo [selecionar um tip
 O Azure oferece dois métodos de implantação para VHDs nos Armazenamentos do Azure Standard e Premium. Se o cenário geral permitir, aproveite as implantações do [Azure Managed disk](https://azure.microsoft.com/services/managed-disks/). 
 
 Para obter uma lista de tipos de armazenamento e os respectivos SLAs em IOPS e taxa de transferência de armazenamento, revise a [documentação do Azure para discos gerenciado](https://azure.microsoft.com/pricing/details/managed-disks/).
+
+> [!IMPORTANT]
+> Independentemente do tipo de armazenamento do Azure escolhido, o sistema de arquivos usado nesse armazenamento precisa ter suporte do SAP para o sistema operacional específico e o DBMS. [Nota de suporte SAP #405827](https://launchpad.support.sap.com/#/notes/405827) lista os sistemas de arquivos com suporte para diferentes sistemas operacionais e bancos de dados, incluindo SAP Hana. Isso se aplica a todos os volumes SAP HANA pode acessar para leitura e gravação para qualquer tarefa. Especificamente usando o NFS no Azure para SAP HANA, restrições adicionais de versões de NFS se aplicam conforme mencionado posteriormente neste artigo 
+
 
 As condições mínimas de SAP HANA certificadas para os diferentes tipos de armazenamento são: 
 
@@ -278,7 +282,7 @@ Os [limites de taxa de transferência de Azure NetApp files](https://docs.micros
 
 Para atender aos requisitos de taxa de transferência mínima do SAP para dados e log, e de acordo com as diretrizes para `/hana/shared`, os tamanhos recomendados seriam semelhantes a:
 
-| Volume | Tamanho<br /> Camada de armazenamento Premium | Tamanho<br /> Camada de armazenamento ultra | Protocolo NFS com suporte |
+| Volume | Size<br /> Camada de armazenamento Premium | Size<br /> Camada de armazenamento ultra | Protocolo NFS com suporte |
 | --- | --- | --- |
 | /Hana/log | 4 TiB | 2 TiB | 4\.1 |
 | /hana/data | 6,3 TiB | 3,2 TiB | 4\.1 |
@@ -296,7 +300,7 @@ Portanto, você pode considerar implantar uma taxa de transferência semelhante 
 A documentação sobre como implantar uma configuração de expansão SAP HANA com o nó em espera usando volumes NFS v 4.1 hospedados em seja é publicada em [SAP Hana expansão com o nó em espera em VMs do Azure com Azure NetApp files em SuSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse).
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Para obter mais informações, consulte:
 
 - [SAP Hana guia de alta disponibilidade para máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).

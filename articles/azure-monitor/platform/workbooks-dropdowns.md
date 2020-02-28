@@ -4,18 +4,17 @@ description: Simplifique relatórios complexos com pastas de trabalho parametriz
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: df30b71e6ec9e982988ed75b187db08255e24b61
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: f3220a363025d80fd7636dbfc3af3d2d9d7bc040
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872869"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658272"
 ---
 # <a name="workbook-drop-down-parameters"></a>Parâmetros de menu suspenso da pasta de trabalho
 
@@ -127,7 +126,7 @@ dependencies
 
 
 ## <a name="drop-down-parameter-options"></a>Opções de parâmetro de lista suspensa
-| . | Explicação | Exemplo |
+| Parâmetro | Explicação | {1&gt;Exemplo&lt;1} |
 | ------------- |:-------------|:-------------|
 | `{DependencyName}` | O valor selecionado | OBTER fabrikamaccount |
 | `{DependencyName:label}` | O rótulo selecionado | 🌐 OBTER fabrikamaccount |
@@ -150,7 +149,7 @@ Aqui está um exemplo para a lista suspensa de seleção múltipla no trabalho:
 
 ![Imagem mostrando um parâmetro suspenso de seleção múltipla](./media/workbook-dropdowns/dropdown-multiselect.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Comece a aprender mais](workbooks-visualizations.md) sobre pastas de trabalho muitas opções de visualizações ricas.
 * [Controle](workbooks-access-control.md) e compartilhe o acesso aos recursos da pasta de trabalho.

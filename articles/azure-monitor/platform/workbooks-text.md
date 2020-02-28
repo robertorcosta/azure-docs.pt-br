@@ -4,18 +4,17 @@ description: Simplifique relatórios complexos com pastas de trabalho parametriz
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3b7affb9c7d7be790d4279c1db8174a5dd3b2c2a
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: c5fb585d0eb6aeb7866c2ab04b324ee31fe903ca
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872767"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658042"
 ---
 # <a name="workbook-text-parameters"></a>Parâmetros de texto da pasta de trabalho
 
@@ -84,7 +83,7 @@ Um uso comum de TextBoxes é como variáveis internas usadas por outros controle
 > [!NOTE]
 > Embora este exemplo consulte Application Insights dados, a abordagem pode ser usada para qualquer fonte de dados baseada em log – Log Analytics, grafo de recursos do Azure, etc.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Comece a aprender mais](workbooks-visualizations.md) sobre pastas de trabalho muitas opções de visualizações ricas.
 * [Controle](workbooks-access-control.md) e compartilhe o acesso aos recursos da pasta de trabalho.

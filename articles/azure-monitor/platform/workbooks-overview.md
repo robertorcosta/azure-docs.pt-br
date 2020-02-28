@@ -1,20 +1,19 @@
 ---
-title: Visão geral das Azure Monitor de trabalho
+title: Visão geral das Pastas de Trabalho do Azure Monitor
 description: Simplifique a emissão de relatórios complexos com pastas de trabalho parametrizadas predefinidas e personalizadas
 author: mrbullwinkle
 manager: carmonm
 services: azure-monitor
-ms.service: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: cf11ce3a77fb47b7d8586ef56141a72cd0a10c2e
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 29e675f3ae35df9211f58d45ad8450566d67a588
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872852"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658227"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor pastas de trabalho
 
@@ -43,7 +42,7 @@ As pastas de trabalho fornecem um conjunto avançado de recursos para visualizar
 * [Texto](workbooks-visualizations.md#text)
 * [Gráficos](workbooks-visualizations.md#charts)
 * [Grades](workbooks-visualizations.md#grids)
-* [Blocos](workbooks-visualizations.md#tiles)
+* [Lado a lado](workbooks-visualizations.md#tiles)
 * [Tree](workbooks-visualizations.md#trees)
 * [Gráficos](workbooks-visualizations.md#graphs)
 

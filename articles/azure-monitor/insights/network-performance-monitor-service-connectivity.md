@@ -1,18 +1,17 @@
 ---
 title: Conectividade do serviço de solução Monitor de Desempenho de Rede-Log Analytics do Azure
-description: Use o recurso Monitor de Conectividade de Serviço em Monitor de Desempenho de Rede para monitorar a conectividade de rede para qualquer ponto de extremidade que tem uma porta TCP aberta.
-ms.service: azure-monitor
+description: Use o recurso Monitor de Conectividade de Serviço em {1}Monitor de Desempenho de Rede{2} para monitorar a conectividade de rede para qualquer ponto de extremidade que tem uma porta TCP aberta.
 ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 11975a86b5d9135b42dd51bdd787c2f76cabe259
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 93f3820b7cf1db85b9ff4cd514fe22efc75a90d9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551498"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654538"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de Conectividade de Serviço
 
@@ -102,7 +101,7 @@ Depois de determinar que o problema é devido à rede, selecione a exibição **
 
 ![Testes do Monitor de Conectividade de Serviço](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
 
-## <a name="diagnostics"></a>Diagnóstico 
+## <a name="diagnostics"></a>Diagnósticos 
 
 Se você observar uma anormalidade, siga estas etapas:
 
@@ -133,5 +132,5 @@ Para a região da Virgínia do governo dos EUA, somente as URLs do DOD são NPM 
 | Exchange Online | * outlook.office365.us <br> * attachments.office365-net.us <br> * autodiscover-s.office365.us <br> * manage.office365.us <br> * scc.office365.us |
 | MS Teams | gov.teams.microsoft.us | 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Pesquisar logs](../../azure-monitor/log-query/log-query-overview.md) para exibir registros de dados de desempenho de rede detalhados.

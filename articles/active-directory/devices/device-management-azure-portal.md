@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c8e94a1b15ad8cd55019f9351c82f58130e472d
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: e09de5911ca0946bfcbcb77d1ad4131c8feac9f0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420611"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654657"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gerenciar identidades de dispositivo usando o portal do Azure
 
@@ -29,15 +29,10 @@ Este artigo:
 
 ## <a name="manage-device-identities"></a>Gerenciar identidades do dispositivo
 
-O portal do AD do Azure fornece um local central para gerenciar suas identidades de dispositivo. Você pode acessar este local usando um [link direto](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) ou seguindo estas etapas manuais:
+O portal do AD do Azure fornece um local central para gerenciar suas identidades de dispositivo. Você pode chegar a esse local usando um [link direto](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) ou:
 
-1. Entre no [portal do Azure](https://portal.azure.com) como administrador.
-
-2. Procure e selecione **Azure Active Directory** ou selecione-o na **Home** Page.
-
-3. Na seção **Gerenciar**, clique em **Dispositivos**.
-
-   ![Definir configurações do dispositivo](./media/device-management-azure-portal/74.png)
+1. Entre no [portal do Azure](https://portal.azure.com).
+1. Navegue até **Azure Active Directory** **dispositivos** > .
 
 A página de **Dispositivos** permite que você:
 
@@ -50,9 +45,7 @@ A página de **Dispositivos** permite que você:
 
 Para gerenciar suas identidades de dispositivo usando o portal do AD do Azure, seus dispositivos precisam ser [registrados ou ingressados](overview.md) no Azure AD. Como administrador, você pode ajustar o processo de registro e ingresso de dispositivos definindo as configurações do dispositivo.
 
-![Definir configurações do dispositivo](./media/device-management-azure-portal/22.png)
-
-A página de configurações do dispositivo permite que você configure:
+A página Configurações do dispositivo permite que você defina as configurações relacionadas às identidades dos dispositivos:
 
 ![Gerenciar um dispositivo do Intune](./media/device-management-azure-portal/21.png)
 
@@ -63,7 +56,7 @@ A página de configurações do dispositivo permite que você configure:
 
 - **Outros administradores locais nos dispositivos associados ao Azure AD** – você pode selecionar os usuários que têm direitos de administrador local em um dispositivo. Os usuários adicionados aqui são adicionados à função *Administradores do dispositivo* no Azure AD. Os administradores globais no Azure AD e os proprietários do dispositivo recebem direitos de administrador local por padrão. Essa opção é uma funcionalidade Premium Edition disponível por meio de produtos como o Azure AD Premium ou o EMS (Enterprise Mobility Suite).
 - **Os usuários podem registrar seus dispositivos com o Azure ad** -você precisa definir essa configuração para permitir que dispositivos Windows 10 Personal, Ios, Android e macOs sejam registrados com o Azure AD. Se você selecionar **nenhum**, os dispositivos não terão permissão para se registrar no Azure AD. O registro com o Microsoft Intune ou o MDM (Gerenciamento de Dispositivo Móvel) para o Office 365 exige registro. Se você tiver configurado qualquer um desses serviços, a opção **TODOS** estará selecionada e **NENHUM** não estará disponível.
-- **Exigir autenticação multifator para ingressar em dispositivos** – você pode escolher se os usuários precisam fornecer um fator de autenticação adicional para ingressar seu dispositivo no Azure AD. O padrão é **Não**. É recomendável exigir a autenticação multifator ao registrar um dispositivo. Antes de habilitar a autenticação multifator para este serviço, você deve garantir que a autenticação multifator esteja configurada para os usuários que registram seus dispositivos. Para saber mais sobre os diferentes serviços de autenticação multifator do Azure, consulte [Introdução à autenticação multifator do Azure](../authentication/concept-mfa-whichversion.md). 
+- **Exigir autenticação multifator para ingressar em dispositivos** – você pode escolher se os usuários precisam fornecer um fator de autenticação adicional para ingressar seu dispositivo no Azure AD. O padrão é **No**. É recomendável exigir a autenticação multifator ao registrar um dispositivo. Antes de habilitar a autenticação multifator para este serviço, você deve garantir que a autenticação multifator esteja configurada para os usuários que registram seus dispositivos. Para saber mais sobre os diferentes serviços de autenticação multifator do Azure, consulte [Introdução à autenticação multifator do Azure](../authentication/concept-mfa-whichversion.md). 
 
 > [!NOTE]
 > **Exigir a configuração de autenticação multifator para ingressar dispositivos** se aplica a dispositivos que estão ingressados no Azure ad ou o Azure ad registrado. Essa configuração não se aplica a dispositivos ingressados no Azure AD híbrido.
@@ -81,12 +74,7 @@ Essa opção é uma funcionalidade premium disponível por meio de produtos como
 Você tem duas opções para localizar dispositivos registrados e associados:
 
 - **Todos os dispositivos** na seção **Gerenciar** da página **Dispositivos**  
-
-   ![Todos os dispositivos](./media/device-management-azure-portal/41.png)
-
 - **Dispositivos** na seção **Gerenciar** de uma página **Usuário**
-
-   ![Todos os dispositivos](./media/device-management-azure-portal/43.png)
 
 Com as duas opções, você pode obter uma exibição que:
 
@@ -193,9 +181,7 @@ As atividades de dispositivo estão disponíveis por meio dos logs de atividade.
 
 O ponto de entrada para os dados de auditoria é **Logs de auditoria**, na seção **Atividade** da página **Dispositivos**.
 
-![Logs de auditoria](./media/device-management-azure-portal/61.png)
-
-Um log de auditoria tem um modo de exibição de lista padrão que mostra:
+O log de auditoria tem uma exibição de lista padrão que mostra:
 
 - A data e a hora da ocorrência
 - Os destinos

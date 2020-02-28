@@ -4,18 +4,17 @@ description: Saiba mais sobre todos os componentes de visualizações de pasta d
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: f3f8f377ac8e65d375f8f78c803db5427fd31007
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d05902f47dff3dd2f8a63ae240c0b8825a5c441f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75394480"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658023"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Azure Monitor visualizações da pasta de trabalho
 
@@ -60,7 +59,7 @@ As pastas de trabalho dão suporte a gráficos para logs e fontes de dados de m�
 
 #### <a name="log-chart-parameters"></a>Parâmetros do gráfico de log
 
-| Parâmetro | Explicação | Exemplo |
+| Parâmetro | Explicação | {1&gt;Exemplo&lt;1} |
 | ------------- |:-------------|:-------------|
 | `Query Type` | O tipo de consulta a ser usado | Log, grafo de recursos do Azure, etc. |
 | `Resource Type` | O tipo de recurso para o destino | Application Insights, Log Analytics ou Azure-First |
@@ -83,7 +82,7 @@ As pastas de trabalho dão suporte a gráficos para logs e fontes de dados de m�
 
 #### <a name="metric-chart-parameters"></a>Parâmetros do gráfico de métrica
 
-| Parâmetro | Explicação | Exemplo |
+| Parâmetro | Explicação | {1&gt;Exemplo&lt;1} |
 | ------------- |:-------------|:-------------|
 | `Resource Type` | O tipo de recurso para o destino | Armazenamento ou máquina virtual. |
 | `Resources` | Um conjunto de recursos dos quais obter o valor de métricas | MyStorage1 |
@@ -115,7 +114,7 @@ O exemplo a seguir mostra uma grade que combina ícones, calor e barras de Spark
 
 ![Captura de tela da consulta de grade com base em log](./media/workbooks-visualizations/grid-query.png)
 
-## <a name="tiles"></a>Blocos
+## <a name="tiles"></a>Lado a lado
 
 Os blocos são uma maneira muito útil de apresentar dados resumidos em pastas de trabalho. A imagem abaixo mostra um caso de uso comum de blocos-Resumo de nível de aplicativo na parte superior de uma grade detalhada.
 
@@ -205,7 +204,7 @@ O gráfico abaixo mostra dados que fluem para dentro/para fora de um computador 
 
 ![Captura de tela da exibição de resumo do bloco](./media/workbooks-visualizations/graph.png)
 
-### <a name="adding-a-graph"></a>Adicionando um gráfico
+### <a name="adding-a-graph"></a>Adicionando um grafo
 1. Alterne a pasta de trabalho para o modo de edição clicando no item _Editar_ barra de ferramentas.
 2. Use o link **Adicionar consulta** para adicionar um controle de consulta de log à pasta de trabalho. 
 3. Selecione o tipo de consulta como **log**, tipo de recurso (por exemplo, Application insights) e os recursos a serem direcionados.
@@ -251,7 +250,7 @@ O gráfico abaixo mostra dados que fluem para dentro/para fora de um computador 
 
 ![Captura de tela da exibição de resumo do bloco](./media/workbooks-visualizations/graph-settings.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Implante](workbooks-automate.md) pastas de trabalho com Azure Resource Manager.
 * [Controle](workbooks-access-control.md) e compartilhe o acesso aos recursos da pasta de trabalho.

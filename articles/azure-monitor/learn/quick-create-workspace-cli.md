@@ -1,18 +1,17 @@
 ---
 title: Criar um espaço de trabalho do Log Analytics usando a CLI do Azure | Microsoft Docs
 description: Saiba como criar um espaço de trabalho do Log Analytics para habilitar as soluções de gerenciamento e a coleta de dados da sua nuvem e dos ambientes locais com a CLI do Azure.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2019
-ms.openlocfilehash: b696d57919383e87f8e5e647b774fc9e4dbdf16b
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 89d397574c423e28bcbb0fec5ddd45959a737a93
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513466"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659876"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Criar um espaço de trabalho do Log Analytics com a CLI do Azure 2.0
 
@@ -35,7 +34,7 @@ Se você não tiver uma assinatura do Azure, crie [uma conta gratuita](https://a
 
 Se você optar por instalar e usar a CLI localmente, este início rápido exigirá a execução da CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="create-a-workspace"></a>Crie um workspace
+## <a name="create-a-workspace"></a>Criar um workspace
 Crie um workspace com [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). O exemplo a seguir cria um espaço de trabalho no local *eastus* usando um modelo do Resource Manager do computador local. O modelo JSON está configurado para solicitar apenas o nome do workspace e especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão em seu ambiente. Ou ainda armazenar o modelo em uma conta de armazenamento do Azure para acesso compartilhado na sua organização. Para obter mais informações sobre como trabalhar com modelos, veja [Implantar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
 Para obter informações sobre regiões com suporte, consulte [regiões log Analytics está disponível no](https://azure.microsoft.com/regions/services/) e procure por Azure monitor no campo **Pesquisar um produto** .
@@ -119,7 +118,7 @@ A implantação pode levar alguns minutos para ser concluída. Quando ela for co
 
 ![Resultados de exemplo, quando a implantação for concluída](media/quick-create-workspace-cli/template-output-01.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Agora que já tem um workspace disponível, você pode configurar a coleta de monitoramento de telemetria, executar pesquisas de logs para analisar os dados e adicionar uma solução de gerenciamento para fornecer dados adicionais e informações analíticas.  
 
 * Para habilitar a coleta de dados de recursos do Azure com o Diagnóstico do Azure ou com o armazenamento do Azure, consulte [Coletar logs e as métricas do serviço do Azure para uso no Log Analytics](../platform/collect-azure-metrics-logs.md).  

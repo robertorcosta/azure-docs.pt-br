@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor para redes (visualização)
 description: Uma visão geral rápida de Azure Monitor para rede que fornece uma visão abrangente da integridade e das métricas para todos os recursos de rede implantados sem nenhuma configuração.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
-ms.openlocfilehash: 3bb92b85779366081349dab777be67e063469678
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0f5b2fbd13cb9658e255fde727e115df748aaed9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73840048"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654861"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Azure Monitor para redes (visualização)
 O Azure Monitor para rede fornece uma visão abrangente da integridade e das métricas para todos os recursos de rede implantados sem nenhuma configuração. A capacidade de pesquisa avançada ajuda a identificar dependências de recursos, permitindo cenários como identificar recursos que hospedam seu site simplesmente pesquisando o nome do site hospedado.
@@ -31,7 +30,7 @@ A exibição de integridade e alertas de recursos pode ser personalizada usando 
 
 A caixa de pesquisa pode ser usada para pesquisar recursos e recursos associados. Por exemplo, um IP público é associado a um gateway de aplicativo. Pesquisar o nome DNS do IPs público identificará o IP público e o gateway de aplicativo associado.
 
-![Pesquisar](media/network-insights-overview/search.png)
+![Search](media/network-insights-overview/search.png)
 
 
 ## <a name="resource-health-and-metric"></a>Resource Health e métrica

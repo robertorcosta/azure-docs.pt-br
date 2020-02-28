@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: e3e8476d09541518d964bfaff4dabad47755eeb9
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: c3f5fb2a387db6e672290fcf03d46c476b6211b6
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189661"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657096"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressões de estilo controladas por dados (SDK da Web)
 
@@ -41,7 +41,7 @@ As expressões são representadas como matrizes JSON. O primeiro elemento de uma
 
 O SDK da Web do Azure Maps dá suporte a muitos tipos de expressões. As expressões podem ser usadas sozinhas ou em combinação com outras expressões.
 
-| Tipo de expressões | DESCRIÇÃO |
+| Tipo de expressões | Descrição |
 |---------------------|-------------|
 | [Expressão de agregação](#aggregate-expression) | Uma expressão que define um cálculo que é processado em um conjunto de dados e pode ser usado com a opção `clusterProperties` de um `DataSource`. |
 | [Expressões booleanas](#boolean-expressions) | As expressões booleanas fornecem um conjunto de expressões de operadores boolianos para avaliar comparações boolianas. |
@@ -81,16 +81,18 @@ Todos os exemplos neste documento usam o recurso a seguir para demonstrar difere
 
 As expressões de dados fornecem acesso aos dados de propriedade em um recurso. 
 
-| Expression | Tipo de retorno | DESCRIÇÃO |
+| Expressão | Tipo de retorno | Descrição |
 |------------|-------------|-------------|
 | `['at', number, array]` | objeto | Recupera um item de uma matriz. |
 | `['geometry-type']` | string | Obtém o tipo de geometria do recurso: ponto, MultiPoint, LineString, MultiLineString, polígono, MultiPolygon. |
-| `['get', string]` | value | Obtém o valor da propriedade das propriedades do recurso atual. Retornará NULL se a propriedade solicitada estiver ausente. |
-| `['get', string, object]` | value | Obtém o valor da propriedade das propriedades do objeto fornecido. Retornará NULL se a propriedade solicitada estiver ausente. |
+| `['get', string]` | {1&gt;Valor&lt;1} | Obtém o valor da propriedade das propriedades do recurso atual. Retornará NULL se a propriedade solicitada estiver ausente. |
+| `['get', string, object]` | {1&gt;Valor&lt;1} | Obtém o valor da propriedade das propriedades do objeto fornecido. Retornará NULL se a propriedade solicitada estiver ausente. |
 | `['has', string]` | booleano | Determina se as propriedades de um recurso têm a propriedade especificada. |
 | `['has', string, object]` | booleano | Determina se as propriedades do objeto têm a propriedade especificada. |
-| `['id']` | value | Obtém a ID do recurso se ele tiver um. |
+| `['id']` | {1&gt;Valor&lt;1} | Obtém a ID do recurso se ele tiver um. |
 | `['length', string | array]` | número | Obtém o comprimento de uma cadeia de caracteres ou de uma matriz. |
+| `['in', boolean | string | number, array]` | booleano | Determina se um item existe em uma matriz |
+| `['in', substring, string]` | booleano | Determina se uma subcadeia de caracteres existe em uma cadeia de caracteres |
 
 **Exemplos**
 
@@ -139,7 +141,7 @@ Da mesma forma, a estrutura de polígonos será renderizada em camadas de linha.
 
 As expressões matemáticas fornecem operadores matemáticos para executar cálculos controlados por dados dentro do Expression Framework.
 
-| Expression | Tipo de retorno | DESCRIÇÃO |
+| Expressão | Tipo de retorno | Descrição |
 |------------|-------------|-------------|
 | `['+', number, number, …]` | número | Calcula a soma dos números especificados. |
 | `['-', number]` | número | Subtrai 0 pelo número especificado. |
@@ -188,13 +190,13 @@ Uma expressão de agregação leva em três valores: um valor de operador e um v
 
 Se todos os recursos em um conjunto de dados tiverem uma propriedade `revenue`, que é um número. Em seguida, a receita total de todos os pontos em um cluster, que são criados a partir do conjunto de dados, pode ser calculada. Esse cálculo é feito usando a seguinte expressão de agregação: `['+', 0, ['get', 'revenue']]`
 
-## <a name="boolean-expressions"></a>Expressões boolianas
+## <a name="boolean-expressions"></a>expressões Boolianas
 
 As expressões booleanas fornecem um conjunto de expressões de operadores boolianos para avaliar comparações boolianas.
 
 Ao comparar valores, a comparação é estritamente digitada. Os valores de tipos diferentes são sempre considerados desiguais. Os casos em que os tipos são conhecidos como diferentes no momento da análise são considerados inválidos e produzirão um erro de análise. 
 
-| Expression | Tipo de retorno | DESCRIÇÃO |
+| Expressão | Tipo de retorno | Descrição |
 |------------|-------------|-------------|
 | `['! ', boolean]` | booleano | Negação lógica. Retornará `true` se a entrada for `false`e `false` se a entrada for `true`. |
 | `['!= ', value, value]` | booleano | Retorna `true` se os valores de entrada não forem iguais, `false` caso contrário. |
@@ -397,7 +399,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 As expressões de tipo fornecem ferramentas para testar e converter diferentes tipos de dados, como cadeias de caracteres, números e valores Boolianos.
 
-| Expression | Tipo de retorno | DESCRIÇÃO |
+| Expressão | Tipo de retorno | Descrição |
 |------------|-------------|-------------|
 | `['literal', array]`<br/><br/>`['literal', object]` | objeto de \| de matriz | Retorna um valor de objeto ou matriz literal. Use esta expressão para impedir que uma matriz ou objeto seja avaliado como uma expressão. Isso é necessário quando uma matriz ou objeto precisa ser retornado por uma expressão. |
 | `['image', string]` | string | Verifica se uma ID de imagem especificada é carregada na imagem de mapas Sprite. Se for, a ID será retornada; caso contrário, NULL será retornado. |
@@ -433,7 +435,7 @@ As expressões de tipo fornecem ferramentas para testar e converter diferentes t
 
 As expressões de cor facilitam a criação e a manipulação de valores de cores.
 
-| Expression | Tipo de retorno | DESCRIÇÃO |
+| Expressão | Tipo de retorno | Descrição |
 |------------|-------------|-------------|
 | `['rgb', number, number, number]` | cor | Cria um valor de cor dos componentes *vermelho*, *verde*e *azul* que devem variar entre `0` e `255`e um componente alfa de `1`. Se algum componente estiver fora do intervalo, a expressão será um erro. |
 | `['rgba', number, number, number, number]` | cor | Cria um valor de cor de componentes *vermelhos*, *verdes*e *azuis* que devem variar entre `0` e `255`e um componente alfa dentro de um intervalo de `0` e `1`. Se algum componente estiver fora do intervalo, a expressão será um erro. |
@@ -461,7 +463,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 Expressões do operador String executam operações de conversão em cadeias de caracteres como concatenar e converter o caso. 
 
-| Expression | Tipo de retorno | DESCRIÇÃO |
+| Expressão | Tipo de retorno | Descrição |
 |------------|-------------|-------------|
 | `['concat', string, string, …]` | string | Concatena várias cadeias de caracteres juntas. Cada valor deve ser uma cadeia de caracteres. Use a expressão de tipo `to-string` para converter outros tipos de valor em cadeia de caracteres, se necessário. |
 | `['downcase', string]` | string | Converte a cadeia de caracteres especificada em minúsculas. |
@@ -821,7 +823,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 
 Expressões de associação de variáveis armazenam os resultados de um cálculo em uma variável. Portanto, os resultados de cálculo podem ser referenciados em outro lugar em uma expressão várias vezes. É uma otimização útil para expressões que envolvem muitos cálculos.
 
-| Expression | Tipo de retorno | DESCRIÇÃO |
+| Expressão | Tipo de retorno | Descrição |
 |--------------|---------------|--------------|
 | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;' Let ',<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome1: String,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value1: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome2: String,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value2: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;...<br/>&nbsp;&nbsp;&nbsp;&nbsp;childy<br/>\] | | Armazena um ou mais valores como variáveis para uso pela expressão `var` na expressão filho que retorna o resultado. |
 | `['var', name: string]` | any | Faz referência a uma variável que foi criada usando a expressão `let`. |
@@ -854,7 +856,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte os artigos a seguir para obter mais exemplos de código que implementam expressões:
 

@@ -3,12 +3,12 @@ title: Bloquear imagens
 description: Defina atributos para uma imagem de contêiner ou repositório para que ele não possa ser excluído ou substituído em um registro de contêiner do Azure.
 ms.topic: article
 ms.date: 09/30/2019
-ms.openlocfilehash: 93a99f65d5bb21d696ce24365e7c819d2c34a8b0
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: da84767523bb6d948b71b1c1ad2ddaffb628354a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972930"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659689"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Bloquear uma imagem de contêiner em um registro de contêiner do Azure
 
@@ -44,7 +44,7 @@ Para ver os atributos atuais de um repositório, execute o comando [AZ ACR Repos
 
 ```azurecli
 az acr repository show \
-    --name myregistry --repository myrepo
+    --name myregistry --repository myrepo \
     --output jsonc
 ```
 
@@ -145,7 +145,7 @@ az acr repository update \
     --delete-enabled true --write-enabled true
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste artigo, você aprendeu a usar o comando [AZ ACR Repository Update][az-acr-repository-update] para impedir a exclusão ou a atualização de versões de imagem em um repositório. Para definir atributos adicionais, consulte a referência do comando [AZ ACR Repository Update][az-acr-repository-update] .
 

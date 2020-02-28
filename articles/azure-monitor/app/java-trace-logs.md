@@ -1,18 +1,14 @@
 ---
 title: Explorar os logs de rastreamento do Java no Aplicativo Azure insights
 description: Pesquisar rastreamentos Log4J ou Logback no Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/18/2019
-ms.openlocfilehash: f552ccdbc67df93913c698e5d763dbb62b48a4ad
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: da1b76d52ab93f4d1be7196d6eb7286579481119
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927236"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657207"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Explore os logs de rastreamento de Java no Application Insights
 Se você estiver usando Logback ou Log4J (v 1.2 ou 2.0) para rastreamento, você pode enviar seus logs de rastreamento automaticamente para o Application Insights, no qual você pode explorá-los e pesquisar o conteúdo deles.
@@ -130,7 +126,7 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
 #### <a name="otherwise-"></a>Caso contrário...
 Siga as orientações para instalar manualmente o SDK do Java do Application Insights, baixe o jar (após chegar na Página Central do Maven, clique no link para "jar" na seção de download) correspondente ao appender apropriado e adicione-o ao projeto.
 
-| Agente | Baixar | Biblioteca |
+| Agente | {1&gt;{2&gt;Baixar&lt;2}&lt;1} | Biblioteca |
 | --- | --- | --- |
 | Logback |[Jar do appender de Logback](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
 | Log4J v2.0 |[Jar do appender de Log4J v2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
@@ -192,7 +188,7 @@ Exceções enviadas por meio de agentes serão exibidas no portal como Telemetri
 
 ![No portal do Application Insights, abra a Pesquisa](./media/java-trace-logs/01-diagnostics.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 [Pesquisa de diagnóstico][diagnostic]
 
 <!--Link references-->

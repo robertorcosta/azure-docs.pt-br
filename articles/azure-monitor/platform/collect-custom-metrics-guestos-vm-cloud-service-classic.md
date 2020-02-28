@@ -3,17 +3,16 @@ title: Enviar métricas clássicas dos serviços de nuvem para Azure Monitor ban
 description: Descreve o processo para enviar métricas de desempenho do SO convidado para serviços de nuvem clássicos do Azure para o repositório de métrica Azure Monitor.
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: fb13bb7ec2de2633796aecb5216ae8b9e2574a57
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 3b390ffa20cf3cf79b8fb6311ad05b2978bd5d24
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75971203"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655780"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Enviar as métricas do SO convidado aos Serviços de Nuvem clássicos de armazenamento de métricas do Azure Monitor 
 
@@ -27,7 +26,7 @@ Armazená-las nesse local permite que você acesse as mesmas ações possíveis 
 
 O processo descrito neste artigo só funciona para contadores de desempenho nos Serviços de Nuvem do Azure. Ele não funciona para outras métricas personalizadas. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 - Você deve ser um [administrador ou co-administrador de serviços](../../cost-management-billing/manage/add-change-subscription-administrator.md) em sua assinatura do Azure. 
 
@@ -190,7 +189,7 @@ Use a filtragem de dimensão e os recursos de divisão para exibir a memória to
 
  ![Métricas do portal do Azure](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/metrics-graph.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
 

@@ -1,18 +1,17 @@
 ---
 title: Escopo de consulta de log em Azure Monitor Log Analytics | Microsoft Docs
 description: Descreve o escopo e o intervalo de tempo para uma consulta de log no Azure Monitor Log Analytics.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2019
-ms.openlocfilehash: dec81bfde160cd9913db07bb99629b8fbcc37364
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 897eff62fcbab5996b6b9493bd825ae412aa4c3e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365199"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660302"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Escopo de consulta de log e intervalo de tempo em Azure Monitor Log Analytics
 Quando você executa uma [consulta de log](log-query-overview.md) em [log Analytics no portal do Azure](get-started-portal.md), o conjunto de dados avaliado pela consulta depende do escopo e do intervalo de tempo que você selecionar. Este artigo descreve o escopo e o intervalo de tempo e como você pode definir cada um dependendo de seus requisitos. Ele também descreve o comportamento de diferentes tipos de escopos.
@@ -32,8 +31,8 @@ O escopo é determinado pelo método usado para iniciar Log Analytics e, em algu
 | Espaço de trabalho do Log Analytics | Todos os registros no espaço de trabalho Log Analytics. | Selecione **logs** no menu **Azure monitor** ou no menu **log Analytics espaços de trabalho** .  | Pode alterar o escopo para qualquer outro tipo de recurso. |
 | Application Insights aplicativo | Todos os registros no aplicativo Application Insights. | Selecione **análise** na página **visão geral** do Application insights. | Só é possível alterar o escopo para outro aplicativo Application Insights. |
 | Grupo de recursos | Registros criados por todos os recursos no grupo de recursos. Pode incluir dados de vários espaços de trabalho do Log Analytics. | Selecione **logs** no menu grupo de recursos. | Não é possível alterar o escopo.|
-| Subscription | Registros criados por todos os recursos na assinatura. Pode incluir dados de vários espaços de trabalho do Log Analytics. | Selecione **logs** no menu assinatura.   | Não é possível alterar o escopo. |
-| Outros recursos do Azure | Registros criados pelo recurso. Pode incluir dados de vários espaços de trabalho do Log Analytics.  | Selecione **logs** no menu de recursos.<br>OU<br>Selecione **logs** no menu **Azure monitor** e, em seguida, selecione um novo escopo. | Só é possível alterar o escopo para o mesmo tipo de recurso. |
+| Assinatura | Registros criados por todos os recursos na assinatura. Pode incluir dados de vários espaços de trabalho do Log Analytics. | Selecione **logs** no menu assinatura.   | Não é possível alterar o escopo. |
+| Outros recursos do Azure | Registros criados pelo recurso. Pode incluir dados de vários espaços de trabalho do Log Analytics.  | Selecione **logs** no menu de recursos.<br>OR<br>Selecione **logs** no menu **Azure monitor** e, em seguida, selecione um novo escopo. | Só é possível alterar o escopo para o mesmo tipo de recurso. |
 
 ### <a name="limitations-when-scoped-to-a-resource"></a>Limitações no escopo de um recurso
 
@@ -63,7 +62,7 @@ Sua consulta será impedida de ser executada se o escopo incluir espaços de tra
 ![Falha na consulta](media/scope/query-failed.png)
 
 
-## <a name="time-range"></a>Intervalo de horas
+## <a name="time-range"></a>Intervalo de tempo
 O intervalo de tempo especifica o conjunto de registros que são avaliados para a consulta com base em quando o registro foi criado. Isso é definido por uma propriedade padrão em cada registro no espaço de trabalho ou aplicativo, conforme especificado na tabela a seguir.
 
 | Local | Propriedade |
@@ -89,7 +88,7 @@ Se a consulta usar o **aplicativo** para recuperar dados de um aplicativo Applic
 
 ![Consultar com o aplicativo](media/scope/query-app.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Percorra um [tutorial sobre como usar log Analytics no portal do Azure](get-started-portal.md).
 - Percorra um [tutorial sobre como escrever consultas](get-started-queries.md).

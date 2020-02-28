@@ -1,18 +1,17 @@
 ---
 title: Consultas de pesquisa nos logs do Azure Monitor | Microsoft Docs
 description: Este artigo fornece um tutorial de introdução ao uso de pesquisa nas consultas do Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/06/2018
-ms.openlocfilehash: d92cd42f0fceadee16035b605e8d25c6bc23bc67
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: e13f4abc37e348759e7d0b8a2f7d890c82fe0d15
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932993"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660233"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Consultas de pesquisa nos logs do Azure Monitor
 As consultas de log do Azure Monitor podem começar com um nome de tabela ou um comando de pesquisa. Este tutorial abrange consultas baseadas em pesquisa. Há vantagens em cada método.
@@ -95,7 +94,7 @@ Você também pode obter tudo em uma tabela usando apenas um curinga: `search in
 > [!TIP]
 > Embora você possa usar `search *` para obter todas as colunas de todas as tabelas, é recomendável que você sempre definir o escopo de suas consultas em tabelas específicas. Fora do escopo de consultas pode demorar um pouco para ser concluído e pode retornar um número excessivo de resultados.
 
-## <a name="add-and--or-to-search-queries"></a>Adicione *e* / *ou* para pesquisar consultas
+## <a name="add-and--or-to-search-queries"></a>Adicionar *e* / *ou* para pesquisar consultas
 Use **e** para procurar registros que contêm vários termos:
 
 ```Kusto
@@ -130,6 +129,6 @@ search in (Event) "win"
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Confira mais tutoriais sobre o [site da linguagem de consulta do Kusto](/azure/kusto/query/).

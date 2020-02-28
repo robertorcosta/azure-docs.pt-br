@@ -1,18 +1,17 @@
 ---
 title: Solução Monitor de Desempenho de Rede no Azure Log Analytics | Microsoft Docs
 description: Use a funcionalidade ExpressRoute Monitor no Monitor de Desempenho de Rede para monitorar a conectividade de ponta a ponta e o desempenho entre as filiais e o Azure, por meio do Azure ExpressRoute.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
-ms.openlocfilehash: 5383402816eddba4c631c240585723b7c7119cef
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 6ac610d7dcf9849b6b439741957684867b9d01aa
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898890"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660743"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute Monitor
 
@@ -140,5 +139,5 @@ Você pode ver os códigos de notificação e definir alertas sobre eles por mei
 
  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 [Pesquisar logs](../../azure-monitor/log-query/log-query-overview.md) para exibir registros de dados de desempenho de rede detalhados.

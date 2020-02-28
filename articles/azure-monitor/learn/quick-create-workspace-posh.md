@@ -1,18 +1,17 @@
 ---
 title: Criar um espaço de trabalho do Log Analytics usando o Azure PowerShell | Microsoft Docs
 description: Saiba como criar um espaço de trabalho do Log Analytics para habilitar as soluções de gerenciamento e a coleta de dados da sua nuvem e dos ambientes locais com o Azure PowerShell.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2019
-ms.openlocfilehash: 87550e7ee3008418fde84596a811d44d02191cee
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: a2765aaf36aa5f7e541e0ee7fb3178246d2cca5d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513483"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659887"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Criar um espaço de trabalho do Log Analytics com o Azure PowerShell
 
@@ -37,7 +36,7 @@ Se você não tiver uma assinatura do Azure, crie [uma conta gratuita](https://a
 
 Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo Azure PowerShell AZ. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa fazer a atualização, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 
-## <a name="create-a-workspace"></a>Crie um workspace
+## <a name="create-a-workspace"></a>Criar um workspace
 Crie um espaço de trabalho com [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). O exemplo a seguir cria um espaço de trabalho no local *eastus* usando um modelo do Resource Manager do computador local. O modelo JSON está configurado para solicitar apenas o nome do workspace e especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão em seu ambiente. 
 
 Para obter informações sobre regiões com suporte, consulte [regiões log Analytics está disponível no](https://azure.microsoft.com/regions/services/) e procure por Azure monitor no campo **Pesquisar um produto** . 
@@ -121,7 +120,7 @@ A implantação pode levar alguns minutos para ser concluída. Quando ela for co
 
 ![Resultados de exemplo, quando a implantação for concluída](media/quick-create-workspace-posh/template-output-01.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Agora que já tem um workspace disponível, você pode configurar a coleta de monitoramento de telemetria, executar pesquisas de logs para analisar os dados e adicionar uma solução de gerenciamento para fornecer dados adicionais e informações analíticas.  
 
 * Para habilitar a coleta de dados de recursos do Azure com o Diagnóstico do Azure ou com o armazenamento do Azure, confira [Coletar logs e as métricas do serviço do Azure para uso no Azure Monitor](../platform/collect-azure-metrics-logs.md).  

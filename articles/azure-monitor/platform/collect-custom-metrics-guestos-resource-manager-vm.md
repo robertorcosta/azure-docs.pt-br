@@ -3,17 +3,16 @@ title: Coletar métricas de VM do Windows em Azure Monitor com modelo
 description: Enviar métricas do SO convidado para o repositório de métricas do Azure Monitor usando um modelo do Resource Manager para uma máquina virtual do Windows
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 05a05c46a49c0262bd5db33390bb995ebe849fd7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e747ca89912c36538bfb9d02986629fe57c5adcb
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364111"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657360"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Enviar métricas do SO convidado para o repositório de métricas do Azure Monitor usando um modelo do Resource Manager para uma máquina virtual do Windows
 
@@ -27,7 +26,7 @@ Armazená-las nessa localização permite que você acesse as mesmas ações par
 
 Se você é novo nos modelos do Resource Manager, aprenda sobre [implantações de modelos](../../azure-resource-manager/management/overview.md) e sua estrutura e sintaxe.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 - Sua assinatura deve ser registrada com [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
 
@@ -271,7 +270,7 @@ Para implantar o modelo do Resource Manager, usamos o Azure PowerShell.
 
 ## <a name="chart-your-metrics"></a>Fazer um gráfico das métricas
 
-1. Faça logon no Portal do Azure.
+1. Faça o logon no portal Azure.
 
 2. No menu esquerdo, selecione **Monitorar**.
 
@@ -288,6 +287,6 @@ Para implantar o modelo do Resource Manager, usamos o Azure PowerShell.
 7. No menu suspenso de métricas, selecione **Memória\%Bytes Confirmados em Uso**.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 - Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
 

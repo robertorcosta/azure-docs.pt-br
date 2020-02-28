@@ -1,19 +1,15 @@
 ---
 title: Azure Application Insights para aplicativos de console | Microsoft Docs
 description: Monitorar aplicativos web de disponibilidade, desempenho e uso.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/02/2019
 ms.reviewer: lmolkova
-ms.openlocfilehash: c8c71fa3798b7c56550b742a8b19c83336bb6ddf
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: baaea0f8055eeff0314fcf5fde00729ea8091d12
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74889134"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655422"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights para aplicativos do console .NET
 
@@ -209,6 +205,6 @@ namespace ConsoleApp
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * [Monitore dependências](../../azure-monitor/app/asp-net-dependencies.md) para ver se REST, SQL ou outros recursos externos estão causando lentidão.
 * [Use a API](../../azure-monitor/app/api-custom-events-metrics.md) para enviar seus próprios eventos e métricas para uma exibição mais detalhada do desempenho e do uso do aplicativo.

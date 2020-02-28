@@ -4,18 +4,17 @@ description: Simplifique a emissão de relatórios complexos com pastas de traba
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 02456d6e690c2ef96b578a00f8e71ae2515ec089
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cc2cde7932f783f63ee2783f0589ce4f88f248a2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363108"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658095"
 ---
 # <a name="workbook-resource-parameters"></a>Parâmetros de recurso da pasta de trabalho
 
@@ -101,7 +100,7 @@ Os valores dos seletores de recursos podem vir do contexto da pasta de trabalho,
 > Essa abordagem pode ser usada para associar recursos a outros controles, como métricas.
 
 ## <a name="resource-parameter-options"></a>Opções de parâmetro de recurso
-| Parâmetro | Explicação | Exemplo |
+| Parâmetro | Explicação | {1&gt;Exemplo&lt;1} |
 | ------------- |:-------------|:-------------|
 | `{Applications}` | A ID de recurso selecionada | _/subscriptions/< subid >/resourceGroups/< recurso-grupo >/Providers/< tipo de recurso >/acmeauthentication_ |
 | `{Applications:label}` | O rótulo do recurso selecionado | `acmefrontend` |
@@ -112,7 +111,7 @@ Os valores dos seletores de recursos podem vir do contexto da pasta de trabalho,
 | `{Applications:subscription}` | A assinatura do recurso selecionado |  |
 | `{Applications:grid}` | Uma grade que mostra as propriedades do recurso. Útil para renderizar em um bloco de texto durante a depuração  |  |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Comece a aprender mais](workbooks-visualizations.md) sobre pastas de trabalho muitas opções de visualizações ricas.
 * [Controle](workbooks-access-control.md) e compartilhe o acesso aos recursos da pasta de trabalho.

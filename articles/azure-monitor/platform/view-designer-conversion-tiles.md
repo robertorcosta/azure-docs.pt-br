@@ -3,16 +3,15 @@ title: Conversões de bloco do designer de exibição para pastas de trabalho Az
 description: ''
 author: austonli
 ms.author: aul
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: b1cce6d1aafabda62b71ecd38ff5ac7df1033b26
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: f07d15521c787dfd588c285bff57616059caa2f3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561979"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658619"
 ---
 # <a name="azure-monitor-view-designer-tile-conversions"></a>Azure Monitor conversões de bloco do designer de exibição
 O [Designer de exibição](view-designer.md) é um recurso do Azure monitor que permite que você crie modos de exibição personalizados para ajudá-lo a Visualizar dados em seu espaço de trabalho do log Analytics, com gráficos, listas e linhas do tempo. Eles estão sendo desativados e substituídos por pastas de trabalho que fornecem funcionalidade adicional. Este artigo fornece detalhes para converter blocos diferentes em pastas de trabalho.
@@ -160,6 +159,6 @@ Veja a seguir um exemplo de como a linha do tempo & bloco de lista pode ser rein
 
 ![Lista de tempo das pastas de trabalho](media/view-designer-conversion-tiles/time-workbooks.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Visão geral da transição do designer de exibição para pastas de trabalho](view-designer-conversion-overview.md)

@@ -1,18 +1,17 @@
 ---
 title: Portal do OMS migrando para o Azure | Microsoft Docs
 description: O portal do OMS está sendo desativado com toda a sua funcionalidade migrando para o portal do Azure. Este artigo fornece detalhes sobre essa transição.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: 170973d15b5f49021a0507bdd2fd6a2632777d48
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 680cd9b44cc447f9bdea38cb9d04fc661fba9c79
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932141"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659247"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portal do OMS migrando para o Azure
 
@@ -105,5 +104,5 @@ Você pode continuar a contar com as Configurações de Diagnóstico para enviar
 ## <a name="system-center-operations-manager"></a>System Center Operations Manager
 Se você [conectou seu grupo de gerenciamento do Operations Manager ao Log Analytics](om-agents.md), ele continuará funcionando sem alterações. No entanto, para novas conexões, você deve seguir as orientações em [Pacote de Gerenciamento do Microsoft System Center Operations Manager para configurar o Operations Management Suite](https://blogs.technet.microsoft.com/momteam/2018/07/25/microsoft-system-center-operations-manager-management-pack-to-configure-operations-management-suite/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Consulte [Perguntas comuns para a transição do portal do OMS para o portal do Azure para usuários do Log Analytics](oms-portal-faq.md) para obter diretrizes sobre como fazer a transição do portal do OMS para o portal do Azure.

@@ -4,18 +4,17 @@ description: Simplifique relatórios complexos com pastas de trabalho Azure Moni
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: e3d29beab7b1d82f73c706897af9650b68be11f5
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 2c2d70d1c945e700a3fa42609f8aa0e1607ba77c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872903"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658397"
 ---
 # <a name="programmatically-manage-workbooks"></a>Gerenciar pastas de trabalho programaticamente
 
@@ -98,9 +97,9 @@ Este modelo mostra como implantar uma pasta de trabalho simples que exibe um ' O
 }
 ```
 
-### <a name="template-parameters"></a>Parâmetros de modelo
+### <a name="template-parameters"></a>Parâmetros do Modelo
 
-| . | Explicação |
+| Parâmetro | Explicação |
 | :------------- |:-------------|
 | `workbookDisplayName` | O nome amigável da pasta de trabalho usada na galeria ou na lista salva. Precisa ser exclusivo no escopo do grupo de recursos e da origem |
 | `workbookType` | A galeria na qual a pasta de trabalho será mostrada. Os valores com suporte incluem Workbook, `tsg`, Azure Monitor, etc. |
@@ -113,7 +112,7 @@ Este modelo mostra como implantar uma pasta de trabalho simples que exibe um ' O
 ### <a name="workbook-types"></a>Tipos de pasta de trabalho
 Tipos de pasta de trabalho especifique a Galeria da pasta de trabalho na qual a nova instância da pasta de trabalho será exibida. As opções incluem:
 
-| Type | Localização da Galeria |
+| Tipo | Localização da Galeria |
 | :------------- |:-------------|
 | `workbook` | O padrão usado na maioria dos relatórios, incluindo a Galeria de pastas de trabalho do Application Insights, Azure Monitor, etc.  |
 | `tsg` | A Galeria de guias de solução de problemas no Application Insights |
@@ -122,7 +121,7 @@ Tipos de pasta de trabalho especifique a Galeria da pasta de trabalho na qual a 
 ### <a name="limitations"></a>Limitações
 Por um motivo técnico, esse mecanismo não pode ser usado para criar instâncias da pasta de trabalho na Galeria de _pastas de trabalho_ do Application insights. Estamos trabalhando para resolver essa limitação. Enquanto isso, recomendamos que você use a Galeria de guias de solução de problemas (WorkbookType: `tsg`) para implantar Application Insights pastas de trabalho relacionadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Explore como as pastas de trabalho estão sendo usadas para capacitar a nova [Azure monitor de experiência de armazenamento](../insights/storage-insights-overview.md).
 

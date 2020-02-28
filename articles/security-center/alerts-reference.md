@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 01397ad078bc741977c4928f67d1834f05e1db8d
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: f83385e1c0a360689569424dbba0c4548751916c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623966"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661952"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de segurança-um guia de referência
 
@@ -35,7 +35,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 [Mais detalhes e observações](threat-protection.md#windows-machines)
 
-|Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
+|Alert|Descrição|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
 |**Um logon de um IP mal-intencionado foi detectado**|Ocorreu uma autenticação remota bem-sucedida para a conta ' Mauro. schleining ' e o processo ' Advapi '; no entanto, o endereço IP de logon [endereço IP] foi relatado anteriormente como mal-intencionado ou muito incomum. Um ataque bem-sucedido provavelmente ocorreu.|-|
 |**Um logon de um IP mal-intencionado foi detectado. [visto várias vezes]**|Uma autenticação remota bem-sucedida para a conta ' IUSR_10001 ' e o processo ' Advapi ' ocorreu, no entanto, o endereço IP de logon [endereço IP] foi relatado anteriormente como mal-intencionado ou muito incomum. Um ataque bem-sucedido provavelmente ocorreu. Arquivos com as extensões. scr são arquivos de proteção de tela e, normalmente, residem e são executados a partir do diretório de sistema do Windows.|-|
@@ -126,7 +126,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 [Mais detalhes e observações](threat-protection.md#linux-machines)
 
-|Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
+|Alert|Descrição|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
 |**Processo visto acessando o arquivo de chaves autorizadas SSH de maneira incomum**|Um arquivo de chaves autorizadas SSH foi acessado em um método semelhante a campanhas de malware conhecidas. Esse acesso pode indicar que um invasor está tentando obter acesso persistente a um computador.|-|
 |**Tentativa de persistência detectada**|A análise de dados do host detectou que um script de inicialização para o modo de usuário único foi instalado.<br>Como é raro que qualquer processo legítimo seja necessário para ser executado nesse modo, isso pode indicar que um invasor adicionou um processo mal-intencionado a cada nível de execução para garantir a persistência. |Persistência|
@@ -215,7 +215,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 [Mais detalhes e observações](threat-protection.md#app-services)
 
-|Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
+|Alert|Descrição|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
 |**Uma tentativa de executar comandos do Linux em um serviço de aplicativo do Windows**|A análise dos processos do serviço de aplicativo detectou uma tentativa de executar um comando do Linux em um serviço de aplicativo do Windows. Esta ação estava sendo executada pelo aplicativo Web. Esse comportamento geralmente é visto durante as campanhas que exploram uma vulnerabilidade em um aplicativo Web comum.|-|
 |**Um IP que se conectou à interface de FTP do serviço de Azure App foi encontrado em inteligência contra ameaças**|A análise de logs de FTP do serviço de aplicativo detectou uma conexão de um endereço de origem que foi encontrado no feed de inteligência contra ameaças. Durante essa conexão, um usuário acessou as páginas listadas.|-|
@@ -240,7 +240,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 [Mais detalhes e observações](threat-protection.md#azure-containers)
 
-|Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
+|Alert|Descrição|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
 |**VISUALIZAÇÃO – Associação de função ao cluster-função de administrador detectada**|A análise do log de auditoria do kubernetes detectou uma nova associação à função de administrador do cluster, resultando em privilégios de administrador. O fornecimento desnecessariamente de privilégios de administrador pode resultar em problemas de escalonamento de privilégio no cluster.|Persistência|
 |**VISUALIZAÇÃO – painel kubernetes exposto detectado**|A análise do log de auditoria do kubernetes detectou a exposição do painel do kubernetes por um serviço Balancer. Os painéis expostos permitem acesso não autenticado ao gerenciamento de cluster e representam uma ameaça à segurança.|Persistência|
@@ -255,7 +255,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 [Mais detalhes e observações](threat-protection.md#azure-containers)
 
-|Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
+|Alert|Descrição|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
 |**Contêiner com privilégios detectado**|Os logs de computador indicam que um contêiner do Docker privilegiado está em execução. Um contêiner com privilégios tem acesso completo aos recursos do host. Se comprometido, um invasor pode usar o contêiner privilegiado para obter acesso ao computador host.|PrivilegeEscalation/execução|
 |**Execução de comando privilegiado no contêiner**|Os logs de computador indicam que um comando privilegiado foi executado em um contêiner do Docker. Um comando privilegiado tem privilégios estendidos no computador host.|PrivilegeEscalation|
@@ -271,7 +271,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 [Mais detalhes e observações](threat-protection.md#data-sql)
 
-|Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
+|Alert|Descrição|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
 |**Uma possível vulnerabilidade à injeção de SQL**|Um aplicativo gerou uma instrução SQL com falha no banco de dados. Isso pode indicar uma possível vulnerabilidade a ataques de injeção de SQL. Há dois motivos possíveis para uma instrução FAULTED. Um defeito no código do aplicativo pode ter construído a instrução SQL com falha. Ou, o código do aplicativo ou os procedimentos armazenados não corrigiram a entrada do usuário ao construir a instrução SQL com falha, que pode ser explorada para injeção de SQL.|-|
 |**Tentativa de logon por um aplicativo potencialmente prejudicial**|Um aplicativo potencialmente prejudicial foi usado para acessar o banco de dados. Em alguns casos, o alerta detecta um teste de segurança que está sendo executado. Em outros casos, o alerta detecta um ataque que usa ferramentas comuns.|Investigação|
@@ -289,7 +289,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 [Mais detalhes e observações](threat-protection.md#azure-storage)
 
-|Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
+|Alert|Descrição|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
 |**VISUALIZAÇÃO – malware potencial carregado para uma conta de armazenamento**|Indica que um blob que contém o malware potencial foi carregado em uma conta de armazenamento. As possíveis causas podem incluir um upload de malware intencional por um invasor ou um upload não intencional, de um blob potencialmente mal-intencionado, por um usuário legítimo.|LateralMovement|
 |**Acesso de um nó de saída do Tor a uma conta de armazenamento**|Indica que essa conta foi acessada com êxito de um endereço IP que é conhecido como um nó de saída ativo de Tor (um proxy de anonimato). A severidade desse alerta considera o tipo de autenticação usado (se houver) e se este é o primeiro caso desse acesso. As possíveis causas podem ser um invasor que tenha acessado sua conta de armazenamento usando o Tor ou um usuário legítimo que tenha acessado sua conta de armazenamento usando o Tor.|Investigação/exploração|
@@ -310,7 +310,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 [Mais detalhes e observações](threat-protection.md#cosmos-db)
 
-|Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
+|Alert|Descrição|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
 |**Acesso de um local incomum a uma conta de Cosmos DB**|Indica que houve uma alteração no padrão de acesso para uma conta de Azure Cosmos DB. Alguém acessou essa conta a partir de um endereço IP desconhecido, em comparação com a atividade recente. Um invasor acessou a conta ou um usuário legítimo o acessou de uma localização geográfica nova e incomum. Um exemplo do último é a manutenção remota de um novo aplicativo ou desenvolvedor.|Exploração|
 |**Quantidade incomum de dados extraídos de uma conta de Cosmos DB**|Indica que houve uma alteração no padrão de extração de dados de uma conta de Azure Cosmos DB. Alguém extraiu uma quantidade incomum de dados em comparação com a atividade recente. Um invasor pode ter extraído uma grande quantidade de dados de um banco de dado Azure Cosmos DB (por exemplo, vazamento ou vazamento de dados ou uma transferência não autorizada de dados). Ou, um usuário ou aplicativo legítimo pode ter extraído uma quantidade incomum de dados de um contêiner (por exemplo, para a atividade de backup de manutenção).|Vazamento|
@@ -321,7 +321,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 [Mais detalhes e observações](threat-protection.md#network-layer)
 
-|Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
+|Alert|Descrição|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
 |**Comunicação de rede com um computador mal-intencionado detectada**|Análise de tráfego de rede indica que o computador (IP% {IP da vítima}) se comunicava com o que é possivelmente um centro de comando e de controle. Quando o recurso comprometido é um balanceador de carga ou um gateway de aplicativo, a atividade suspeita pode indicar que um ou mais dos recursos no pool de back-end (do balanceador de carga ou do gateway de aplicativo) se comunicaram com o que possivelmente é um comando e Centro de controle.|-|
 |**Possível computador comprometido detectado**|A inteligência contra ameaças indica que a sua máquina (no IP% {Machine IP}) pode ter sido comprometida por um malware do tipo Conficker. O Conficker foi um worm computacional que tem como alvo o sistema operacional Microsoft Windows e foi detectado primeiro em novembro de 2008. O Conficker infectou milhões de computadores, incluindo governo, computadores comerciais e domésticos em mais de 200 países, o que o torna a maior infecção de worms de computador conhecida desde o worm 2003 Welchia.|-|
@@ -346,7 +346,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 [Mais detalhes e observações](threat-protection.md#management-layer)
 
-|Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
+|Alert|Descrição|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
 |**Execução do kit de ferramentas de visualização-azurite detectada**|Foi detectada uma execução conhecida do kit de ferramentas de reconhecimento de ambiente de nuvem em seu ambiente. A ferramenta [azurite](https://github.com/mwrlabs/Azurite) pode ser usada por um invasor (ou testador de penetração) para mapear os recursos de suas assinaturas e identificar configurações inseguras.|-|
 |**VISUALIZAÇÃO – execução da função "Get-AzureDomainInfo" do kit de ferramentas de microburst detectada**|Foi detectada uma execução conhecida do kit de ferramentas de reconhecimento de ambiente de nuvem em seu ambiente. A ferramenta "microburst" (consulte https://github.com/NetSPI/MicroBurst) pode ser usada por um invasor (ou testador de penetração) para mapear seus recursos de assinatura, identificar configurações inseguras e vazar informações confidenciais.|-|
@@ -365,7 +365,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 [Mais detalhes e observações](threat-protection.md#azure-keyvault)
 
-|Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
+|Alert|Descrição|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
 |**Acesso de um nó de saída do TOR a um Key Vault**|O Key Vault foi acessado por alguém usando o sistema de anonimato de IP TOR para ocultar seu local. Os atores mal-intencionados muitas vezes tentam ocultar seu local ao tentar obter acesso não autorizado a recursos conectados à Internet.|-|
 |**Alto volume de operações em um Key Vault**|Um volume maior de operações de Key Vault foi realizado em comparação com os dados históricos. Key Vault atividade geralmente é a mesma ao longo do tempo. Essa pode ser uma alteração legítima na atividade. Como alternativa, sua infraestrutura pode estar comprometida e investigações adicionais são necessárias.|-|
@@ -383,7 +383,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 [Mais detalhes e observações](threat-protection.md#azure-ddos)
 
-|Alerta|DESCRIÇÃO|Intenção ([saiba mais](#intentions))|
+|Alert|Descrição|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
 |**Ataque de DDoS detectado para IP público**|Ataque de DDoS detectado para IP público (endereço IP) e mitigado.|Investigação|
 |**Ataque de DDoS mitigado para IP público**|Ataque de DDoS mitigado para IP público (endereço IP).|Investigação|
@@ -397,10 +397,10 @@ A série de etapas que descrevem a progressão de um cyberattack de reconhecimen
 
 As tentativas de cadeia de Kill chain com suporte da central de segurança são baseadas na [estrutura Mitre ATT &AMP; CK™](https://attack.mitre.org/matrices/enterprise) e descritas na tabela a seguir.
 
-|Intencional|DESCRIÇÃO|
+|Intencional|Descrição|
 |------|-------|
-|**Investigação**|A investigação pode ser uma tentativa de acessar um determinado recurso, independentemente de uma intenção mal-intencionada, ou uma tentativa com falha de obter acesso a um sistema de destino para coletar informações antes da exploração. Normalmente, essa etapa é detectada como uma tentativa, proveniente de fora da rede, para verificar o sistema de destino e identificar um ponto de entrada.|
-|**Exploração**|A exploração é o estágio em que um invasor consegue obter um destaque no recurso atacado. Esse estágio é relevante para os hosts de computação e recursos, como contas de usuário, certificados etc. Os atores de ameaça geralmente poderão controlar o recurso após esse estágio.|
+|**Preatacar**</br>(Substitui investigação)|O antiattack pode ser uma tentativa de acessar um determinado recurso, independentemente de uma intenção mal-intencionada, ou uma tentativa com falha de obter acesso a um sistema de destino para coletar informações antes da exploração. Normalmente, essa etapa é detectada como uma tentativa, proveniente de fora da rede, para verificar o sistema de destino e identificar um ponto de entrada.</br>Mais detalhes sobre o estágio de pré-ataque podem ser lidos na [página do Mitre](https://attack.mitre.org/matrices/pre/).|
+|**InitialAccess**</br>(Substitui a exploração)|InitialAccess é o estágio em que um invasor consegue obter um destaque no recurso atacado. Esse estágio é relevante para os hosts de computação e recursos, como contas de usuário, certificados etc. Os atores de ameaça geralmente poderão controlar o recurso após esse estágio.|
 |**Persistência**|A persistência é qualquer alteração de acesso, ação ou configuração em um sistema que dá a um ator de ameaça uma presença persistente nesse sistema. Os atores de ameaças geralmente precisarão manter o acesso aos sistemas por meio de interrupções, como reinicializações do sistema, perda de credenciais ou outras falhas que exijam que uma ferramenta de acesso remoto reinicie ou forneça um backdoor alternativo para que eles recuperem o acesso.|
 |**PrivilegeEscalation**|O escalonamento de privilégios é o resultado de ações que permitem que um adversário obtenha um nível mais alto de permissões em um sistema ou rede. Determinadas ferramentas ou ações exigem um nível mais alto de privilégio para funcionar e provavelmente são necessárias em muitos pontos em uma operação. Contas de usuário com permissões para acessar sistemas específicos ou executar funções específicas necessárias para que os adversários atinjam seu objetivo também podem ser consideradas um escalonamento de privilégio.|
 |**DefenseEvasion**|O Defense evasão consiste em técnicas que um adversário pode usar para escapar da detecção ou evitar outras defesas. Às vezes, essas ações são as mesmas que as técnicas (ou variações de) em outras categorias que têm o benefício adicional de subverter uma determinada defesa ou mitigação.|
@@ -415,7 +415,7 @@ As tentativas de cadeia de Kill chain com suporte da central de segurança são 
 ||||
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Para saber mais sobre alertas, consulte o seguinte:
 
 * [Proteção contra ameaças na central de segurança do Azure](threat-protection.md)

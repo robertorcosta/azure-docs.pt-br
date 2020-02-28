@@ -1,18 +1,14 @@
 ---
 title: Automatizar os processos do Azure Application Insights com o Microsoft Flow
 description: Saiba como você pode usar o Microsoft Flow para automatizar rapidamente os processos repetidos usando o conector do Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 08/29/2019
-ms.openlocfilehash: 7d9c966051c2756d7936fa079a0aac68e694425d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7566ae87f92707180b09d50eb6e5eeccedae85b9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407537"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655084"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatizar os processos do Azure Application Insights com o conector para o Microsoft Flow
 
@@ -117,7 +113,7 @@ Quando criar suas próprias consultas, verifique se elas estão funcionando corr
 
 ### <a name="step-7-save-and-test-your-flow"></a>Etapa 7: Salvar e testar o fluxo
 
-Clique em **Save** (Salvar).
+Clique em **Salvar**.
 
 Você pode aguardar o gatilho executar esta ação ou clicar em ![ícone de teste do Beaker](./media/automate-with-flow/testicon.png) **teste** na parte superior.
 
@@ -130,7 +126,7 @@ Quando o fluxo é executado, os destinatários que você especificou na lista de
 
 ![Email de exemplo](./media/automate-with-flow/flow9.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Saiba mais sobre como criar [consultas do Analytics](../../azure-monitor/log-query/get-started-queries.md).
 - Saiba mais sobre o [Microsoft Flow](https://ms.flow.microsoft.com).

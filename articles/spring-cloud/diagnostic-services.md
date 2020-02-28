@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-ms.openlocfilehash: fc1f81c616dc6ee664bb5be924f2a1586646d16d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 90ff59bb76bceaacc7b0528ed0461b76832dc7fd
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76279168"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662120"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analisar logs e métricas com configurações de diagnóstico
 
@@ -25,7 +25,7 @@ Escolha a categoria de log e a categoria de métrica que você deseja monitorar.
 
 ## <a name="logs"></a>Logs
 
-|Log | Description |
+|Log | Descrição |
 |----|----|
 | **ApplicationConsole** | Log do console de todos os aplicativos do cliente. | 
 | **SystemLogs** | Atualmente, somente os logs do [servidor de configuração do Spring Cloud](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) nesta categoria. |
@@ -46,7 +46,7 @@ Para começar, habilite um desses serviços para receber os dados. Para saber ma
     * **Enviar para Log Analytics**
 
 1. Escolha qual categoria de log e categoria de métrica você deseja monitorar e, em seguida, especifique o tempo de retenção (em dias). O tempo de retenção se aplica somente à conta de armazenamento.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 > [!NOTE]
 > Pode haver um intervalo de até 15 minutos entre o momento em que os logs ou as métricas são emitidos e quando aparecem na sua conta de armazenamento, no Hub de eventos ou Log Analytics.
@@ -65,7 +65,7 @@ Há vários métodos para exibir os logs e as métricas, conforme descrito nos c
     AppPlatformLogsforSpring
     | limit 50
     ```
-   * Para exibir as métricas, insira uma consulta simples, como:
+   * para exibir as métricas, insira uma consulta simples, como:
 
     ```sql
     AzureMetrics
@@ -85,7 +85,7 @@ Há vários métodos para exibir os logs e as métricas, conforme descrito nos c
     AppPlatformLogsforSpring
     | limit 50
     ```
-    * Para exibir as métricas, insira uma consulta simples, como:
+    * para exibir as métricas, insira uma consulta simples, como:
 
     ```sql
     AzureMetrics
@@ -114,7 +114,7 @@ Para saber mais sobre a linguagem de consulta usada no Log Analytics, consulte [
 1. Para examinar os logs de aplicativo, procure um contêiner chamado **insights-logs-applicationconsole**.
 1. Para revisar as métricas do aplicativo, procure um contêiner chamado **insights-métricas-PT1M**.
 
-Para saber mais sobre como enviar informações de diagnóstico para uma conta de armazenamento, consulte [armazenar e exibir dados de diagnóstico no armazenamento do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-to-storage).
+Para saber mais sobre como enviar informações de diagnóstico para uma conta de armazenamento, consulte [armazenar e exibir dados de diagnóstico no armazenamento do Azure](../storage/common/storage-introduction.md).
 
 ### <a name="use-your-event-hub"></a>Usar seu hub de eventos
 

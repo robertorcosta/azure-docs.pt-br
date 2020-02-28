@@ -1,18 +1,17 @@
 ---
 title: Criar um espaço de trabalho do Log Analytics no portal do Azure | Microsoft Docs
 description: Saiba como criar um espaço de trabalho do Log Analytics para habilitar as soluções de gerenciamento e a coleta de dados da sua nuvem e dos ambientes locais no portal do Azure.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2019
-ms.openlocfilehash: bc8162a157cee10deeb8bf3f1e62a53fbdd30d0e
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 3c2e9d5634916c3713b7e3380c0496611d8f60a6
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513432"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656272"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Criar um espaço de trabalho do Log Analytics no Portal do Azure
 Use o menu **Espaços de trabalho do Log Analytics** para criar um espaço de trabalho do Log Analytics usando o portal do Azure. Um espaço de trabalho do Log Analytics é um ambiente exclusivo para dados de log do Azure Monitor. Cada workspace tem seu próprio repositório de dados e configuração. As fontes de dados e as soluções são configuradas para armazenar seus dados em um determinado workspace. Você precisa de um espaço de trabalho do Log Analytics se pretender coletar dados das seguintes fontes:
@@ -30,10 +29,10 @@ Para outras fontes, como as VMs do Azure e as VMs do Windows ou do Linux em seu 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="sign-in-to-azure-portal"></a>Entre no Portal do Azure
+## <a name="sign-in-to-azure-portal"></a>Entre no portal do Azure
 Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
 
-## <a name="create-a-workspace"></a>Crie um workspace
+## <a name="create-a-workspace"></a>Criar um workspace
 1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Escolha **workspaces do Log Analytics**.
 
     ![Portal do Azure](media/quick-create-workspace/azure-portal-01.png)
@@ -52,7 +51,7 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
 Enquanto as informações são verificadas e o workspace é criado, você pode acompanhar seu progresso no menu **Notificações**. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Agora que já tem um workspace disponível, você pode configurar a coleta de monitoramento de telemetria, executar pesquisas de logs para analisar os dados e adicionar uma solução de gerenciamento para fornecer dados adicionais e informações analíticas. 
 
 * Para habilitar a coleta de dados de recursos do Azure com o Diagnóstico do Azure ou com o armazenamento do Azure, consulte [Coletar logs e as métricas do serviço do Azure para uso no Log Analytics](../platform/collect-azure-metrics-logs.md).  

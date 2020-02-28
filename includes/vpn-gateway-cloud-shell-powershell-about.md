@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 02/10/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 35463c2b74e0a20a65239e7bf0d0ab08a866ad71
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: c81a67d129ee5558c129040e7b7ff2cad2e04fd7
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77149128"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660455"
 ---
 [!INCLUDE [cloudshell powershell](vpn-gateway-cloud-shell-powershell.md)]
 
 [!INCLUDE [powershell locally](vpn-gateway-powershell-locally.md)]
-
-Se você estiver usando o Azure CloudShell, você estará conectado à sua conta automaticamente e não precisará executar o comando Connect-AzAccount. Se você estiver executando o PowerShell localmente, abra o console do PowerShell com privilégios elevados e conecte-se ao Azure usando o comando `Connect-AzAccount`.

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 02/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5df7eedcd92d338d3f741f7092ff6ef73f3442d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: d3df906936cc4e47ee1f43adb0fcbaa0e8c04b0f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585876"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656306"
 ---
 # <a name="conditional-access-grant"></a>Acesso condicional: Grant
 
@@ -55,7 +55,7 @@ A seleção dessa caixa de seleção exigirá que os usuários executem a autent
 
 As organizações que implantaram Microsoft Intune podem usar as informações retornadas de seus dispositivos para identificar os dispositivos que atendem aos requisitos de conformidade específicos. Essas informações de conformidade de política são encaminhadas do Intune para o Azure AD, em que o acesso condicional pode tomar decisões para conceder ou bloquear o acesso a recursos. Para obter mais informações sobre políticas de conformidade, consulte o artigo [definir regras em dispositivos para permitir o acesso a recursos em sua organização usando o Intune](https://docs.microsoft.com/intune/protect/device-compliance-get-started).
 
-Um dispositivo pode ser marcado como compatível pelo Intune (para qualquer sistema operacional do dispositivo) ou por um sistema MDM de terceiros para dispositivos Windows 10. Sistemas MDM de terceiros para tipos de dispositivo OS, exceto Windows 10, não são suportados.
+Um dispositivo pode ser marcado como compatível pelo Intune (para qualquer sistema operacional do dispositivo) ou por um sistema MDM de terceiros para dispositivos Windows 10. O JAMF pro é o único sistema MDM de terceiros com suporte. Mais informações sobre a integração podem ser encontradas no artigo [integrar o JAMF pro ao Intune para fins de conformidade](/intune/protect/conditional-access-integrate-jamf).
 
 Os dispositivos devem ser registrados no Azure AD antes que possam ser marcados como em conformidade. Mais informações sobre o registro de dispositivo podem ser encontradas no artigo [o que é uma identidade de dispositivo](../devices/overview.md).
 
@@ -125,7 +125,7 @@ Essa configuração se aplica aos seguintes aplicativos cliente:
 
 Se sua organização tiver criado termos de uso, opções adicionais poderão estar visíveis em conceder controles. Essas opções permitem que os administradores exijam a confirmação dos termos de uso como uma condição de acessar os recursos protegidos pela política. Mais informações sobre os termos de uso podem ser encontradas no artigo [Azure Active Directory termos de uso](terms-of-use.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Acesso condicional: controles de sessão](concept-conditional-access-session.md)
 

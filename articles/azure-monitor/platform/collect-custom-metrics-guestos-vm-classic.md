@@ -3,17 +3,16 @@ title: Enviar métricas de VM do Windows clássicas para Azure Monitor banco de 
 description: Enviar métricas do sistema operacional convidado para o armazenamento de dados do Monitor do Azure para uma máquina virtual do Windows (clássica)
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: d911a6b65ba0d63bca09437f6451019addcbc0b3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 65bb1a3915ece384974da12b4e7a1ad0c1e08133
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977616"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655790"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Enviar métricas do sistema operacional convidado para o banco de dados de métricas de Azure Monitor para uma máquina virtual do Windows (clássica)
 
@@ -27,7 +26,7 @@ Armazená-los nesse local permite acessar as mesmas ações que você faz para a
 
 O processo descrito neste artigo funciona somente em máquinas virtuais clássicas que executam o sistema operacional Windows.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 - Você deve ser um [administrador ou co-administrador de serviços](../../cost-management-billing/manage/add-change-subscription-administrator.md) em sua assinatura do Azure. 
 
@@ -203,6 +202,6 @@ Conceda a este aplicativo as permissões “Monitoring Metrics Publisher” para
    ![Plotar as métricas](./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 - Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
 
