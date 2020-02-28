@@ -1,19 +1,15 @@
 ---
 title: Alerta sobre problemas nos Serviços de Nuvem do Azure usando a integração do Diagnóstico do Azure com o Azure Application Insights | Microsoft Docs
 description: Monitore problemas como falhas na inicialização, panes e loops de reciclagem de função nos Serviços de Nuvem do Azure com o Azure Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 06/07/2018
 ms.reviewer: harelbr
-ms.openlocfilehash: b4404f033f5bdf221590e155640e4c0442601e18
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 997c5e063c4181a597520e60e2a7669401b9677d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820641"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669736"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Alerta sobre problemas nos Serviços de Nuvem do Azure usando a integração do diagnóstico do Azure com o Azure Application Insights
 
@@ -111,7 +107,7 @@ Na seção **Definir grupo de ação**, é possível selecionar um **Grupo de a�
 
 Após definir o Grupo de ação, confirme suas alterações e clique em **Criar regra de alerta**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba mais sobre como detectar automaticamente:
 

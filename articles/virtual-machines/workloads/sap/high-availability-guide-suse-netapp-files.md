@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 02/26/2020
 ms.author: radeltch
-ms.openlocfilehash: 18aecfc5ea40c8368fbf4d4a07f86e71047265f7
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 493414d6e903dba02f126c10c2f4d6a34e0b1549
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598639"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661216"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs do Azure em SUSE Linux Enterprise Server com Azure NetApp Files para aplicativos SAP
 
@@ -97,10 +97,6 @@ Agora é possível obter a alta disponibilidade do SAP NetWeaver usando o armaze
 ![Visão geral da Alta Disponibilidade do SAP NetWeaver](./media/high-availability-guide-suse-anf/high-availability-guide-suse-anf.PNG)
 
 O SAP NetWeaver ASCS, o SAP NetWeaver SCS, o SAP NetWeaver ERS e o banco de dados SAP HANA usam o nome do host virtual e os endereços IP virtuais. No Azure, um [balanceador de carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) é necessário para usar um endereço IP virtual. É recomendável usar o [balanceador de carga padrão](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). A lista a seguir mostra a configuração do balanceador de carga (A) SCS e ERS.
-
-> [!IMPORTANT]
-> **Não há suporte para**clustering de vários SIDs do SAP ASCS/ers com o SuSE Linux como sistema operacional convidado em VMs do Azure. Clustering de vários SIDs descreve a instalação de várias instâncias do SAP ASCS/ERS com SIDs diferentes em um cluster pacemaker
-
 
 ### <a name="ascs"></a>(A)SCS
 
@@ -253,7 +249,7 @@ Primeiro, você precisa criar os volumes de Azure NetApp Files. Implante as VMs.
          1. Abra o balanceador de carga, selecione o pool de IPs de front-end e clique em Adicionar
          1. Insira o nome do novo pool de IPS de front-end (por exemplo, **frontend. QAS. ASCS**)
          1. Defina a atribuição como estática e insira o endereço IP (por exemplo **10.1.1.20**)
-         1. Clique em OK
+         1. Clique em OK.
       1. Endereço IP 10.1.1.21 para ASCS ERS
          * Repita as etapas acima em "a" para criar um endereço IP para o ERS (por exemplo, **10.1.1.21** e **frontend. QAS. ERS**)
    1. Criar os pools de back-end
@@ -263,13 +259,13 @@ Primeiro, você precisa criar os volumes de Azure NetApp Files. Implante as VMs.
          1. Clique em Adicionar uma máquina virtual.
          1. Selecionar máquina virtual
          1. Selecione as máquinas virtuais do cluster (A) SCS e seus endereços IP.
-         1. Clique em Adicionar
+         1. Clique em Adicionar.
    1. Crie as investigações de integridade
       1. Porta 620**00** para ASCS
          1. Abra o balanceador de carga, selecione as investigações de integridade e clique em Adicionar
          1. Insira o nome da nova investigação de integridade (por exemplo, **integridade. QAS. ASCS**)
          1. Selecione TCP como protocolo, porta 620**00**, mantenha o Intervalo 5 e o limite Não Íntegro 2
-         1. Clique em OK
+         1. Clique em OK.
       1. Porta 621**01** para ASCS ers
             * Repita as etapas acima em "c" para criar uma investigação de integridade para o ERS (por exemplo, 621**01** e a **integridade. QAS. ERS**)
    1. Regras de balanceamento de carga
@@ -280,7 +276,7 @@ Primeiro, você precisa criar os volumes de Azure NetApp Files. Implante as VMs.
          1. Selecionar **portas de alta disponibilidade**
          1. Aumente o tempo limite de ociosidade para 30 minutos
          1. **Habilite o IP Flutuante**
-         1. Clique em OK
+         1. Clique em OK.
          * Repita as etapas acima para criar regras de balanceamento de carga para ERS (por exemplo, **lb. QAS. ERS**)
 1. Como alternativa, se seu cenário exigir o Load Balancer básico (interno), siga estas etapas:  
    1. Criar os endereços IP de front-end
@@ -288,7 +284,7 @@ Primeiro, você precisa criar os volumes de Azure NetApp Files. Implante as VMs.
          1. Abra o balanceador de carga, selecione o pool de IPs de front-end e clique em Adicionar
          1. Insira o nome do novo pool de IPS de front-end (por exemplo, **frontend. QAS. ASCS**)
          1. Defina a atribuição como estática e insira o endereço IP (por exemplo **10.1.1.20**)
-         1. Clique em OK
+         1. Clique em OK.
       1. Endereço IP 10.1.1.21 para ASCS ERS
          * Repita as etapas acima em "a" para criar um endereço IP para o ERS (por exemplo, **10.1.1.21** e **frontend. QAS. ERS**)
    1. Criar os pools de back-end
@@ -298,13 +294,13 @@ Primeiro, você precisa criar os volumes de Azure NetApp Files. Implante as VMs.
          1. Clique em Adicionar uma máquina virtual.
          1. Selecione o conjunto de disponibilidade que você criou anteriormente para ASCS 
          1. Selecione as máquinas virtuais do cluster (A)SCS
-         1. Clique em OK
+         1. Clique em OK.
    1. Crie as investigações de integridade
       1. Porta 620**00** para ASCS
          1. Abra o balanceador de carga, selecione as investigações de integridade e clique em Adicionar
          1. Insira o nome da nova investigação de integridade (por exemplo, **integridade. QAS. ASCS**)
          1. Selecione TCP como protocolo, porta 620**00**, mantenha o Intervalo 5 e o limite Não Íntegro 2
-         1. Clique em OK
+         1. Clique em OK.
       1. Porta 621**01** para ASCS ers
             * Repita as etapas acima em "c" para criar uma investigação de integridade para o ERS (por exemplo, 621**01** e a **integridade. QAS. ERS**)
    1. Regras de balanceamento de carga
@@ -315,7 +311,7 @@ Primeiro, você precisa criar os volumes de Azure NetApp Files. Implante as VMs.
          1. Mantenha o protocolo **TCP**, insira a porta **3200**
          1. Aumente o tempo limite de ociosidade para 30 minutos
          1. **Habilite o IP Flutuante**
-         1. Clique em OK
+         1. Clique em OK.
       1. Portas adicionais para ASCS
          * Repita as etapas acima em "d" para as portas**36 00**,**39 00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 e TCP para o ASCS
       1. Portas adicionais para ERS do ASCS
@@ -1418,8 +1414,9 @@ Os testes a seguir são uma cópia dos casos de teste nos [guias de práticas re
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
+* [HA para SAP NW em VMs do Azure no SLES para aplicativos SAP guia de vários SIDs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
 * [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
 * [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]
 * [Implantação de DBMS de máquinas virtuais do Azure para SAP][dbms-guide]

@@ -11,12 +11,12 @@ ms.date: 11/12/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 305b17a9118bddac53b19462cb8c3be887395311
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c715b2328f66c58fa744235c8762b31fd0b30d1f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923595"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669482"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gerenciar computação no SQL Data Warehouse do Azure
 Saiba mais sobre como gerenciar recursos de computação no SQL Data Warehouse do Azure. Reduzir os custos pausando o data warehouse, ou dimensionar o data warehouse para atender às demandas de desempenho. 
@@ -31,7 +31,7 @@ Para etapas de escala horizontal, consulte os inícios rápidos do [Portal do Az
 
 Para executar uma operação de escala, o SQL Data Warehouse primeiro encerra todas as consultas de entrada e, em seguida, reverte as transações para garantir um estado consistente. A escala ocorrerá somente depois que a reversão de transação estiver completa. Para uma operação de escala, o sistema desanexa a camada de armazenamento dos nós de Computação, adiciona nós de Computação e, em seguida, reanexa a camada de armazenamento na camada de Computação. Cada data warehouse é armazenado como 60 distribuições que são distribuídas uniformemente para os nós de Computação. Adicionar mais nós de Computação, adiciona mais potência de computação. À medida que o número de nós de Computação aumenta, o número de distribuições por nó de computação diminui, proporcionando mais potência de computação para suas consultas. Da mesma forma, diminuindo as unidades de data warehouse reduzirá o número de nós de Computação, o que reduz os recursos de computação para consultas.
 
-A tabela a seguir mostra como o número de distribuições por nó de Computação altera na medida em que as unidades do data warehouse mudam.  O DWU6000 fornece 60 nós de Computação e alcança um desempenho de consultas muito maior que o DWU100. 
+A tabela a seguir mostra como o número de distribuições por nó de Computação altera na medida em que as unidades do data warehouse mudam.  O DW30000c fornece 60 nós de computação e Obtém um desempenho de consulta muito maior do que o DW100c. 
 
 | Unidades de data warehouse  | \# de nós de Computação | \# de distribuições por nó |
 | -------- | ---------------- | -------------------------- |
@@ -119,5 +119,5 @@ Para verificar o estado do data warehouse, consulte o início rápido do [PowerS
 Escalar o data warehouse exige as permissões descritas em [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse).  Pausar e Retomar exige a permissão [Contribuidor do DB SQL](../role-based-access-control/built-in-roles.md#sql-db-contributor), especificamente Microsoft.Sql/servers/databases/action.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Consulte o guia de instruções para [gerenciar computação](manage-compute-with-azure-functions.md) outro aspecto do gerenciamento de recursos de computação que está alocando diferentes recursos de computação para consultas individuais. Para obter mais informações, consulte [Classes de recurso para gerenciamento de carga de trabalho](resource-classes-for-workload-management.md).

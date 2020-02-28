@@ -1,24 +1,22 @@
 ---
 title: Referência da API do agente do insights Aplicativo Azure
 description: Referência de API do agente Application Insights. Set-ApplicationInsightsMonitoringConfig. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicativos Web ASP.NET hospedados localmente, em VMs ou no Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 45dcd2374fc5be40f86d403f8daccf4a6f1d6997
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 1226b3e10adf786ed3335844a5d3f4e530911705
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189433"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671232"
 ---
 # <a name="application-insights-agent-api-set-applicationinsightsmonitoringconfig"></a>API do agente de Application Insights: Set-ApplicationInsightsMonitoringConfig
 
 Este documento descreve um cmdlet que é membro do [módulo AZ. ApplicationMonitor do PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
-## <a name="description"></a>DESCRIÇÃO
+## <a name="description"></a>Descrição
 
 Define o arquivo de configuração sem fazer uma reinstalação completa.
 Reinicie o IIS para que suas alterações entrem em vigor.
@@ -53,7 +51,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
           @{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'}})
 ```
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>Parâmetros
 
 ### <a name="-instrumentationkey"></a>-InstrumentationKey
 **Obrigatório.** Use esse parâmetro para fornecer uma chave de instrumentação única para uso por todos os aplicativos no computador de destino.
@@ -65,7 +63,7 @@ Você pode criar um único script de instalação para vários computadores defi
 > [!IMPORTANT]
 > Os aplicativos serão compatíveis com as regras na ordem em que as regras são fornecidas. Portanto, você deve especificar as regras mais específicas primeiro e as regras mais genéricas por último.
 
-#### <a name="schema"></a>Esquema
+#### <a name="schema"></a>Schema
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
 
 - **MachineFilter** é um Regex C# necessário do computador ou nome da VM.
@@ -112,7 +110,7 @@ VERBOSE: Config File Path:
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applicationInsights.ikey.config
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
   Exiba sua telemetria:
  - [Explore as métricas](../../azure-monitor/app/metrics-explorer.md) para monitorar o desempenho e o uso.

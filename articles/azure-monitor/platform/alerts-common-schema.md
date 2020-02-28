@@ -1,20 +1,17 @@
 ---
 title: Esquema de alerta comum para alertas do Azure monitor
 description: Compreendendo o esquema de alerta comum, por que você deve usá-lo e como habilitá-lo
-ms.service: azure-monitor
-ms.subservice: alerts
 ms.topic: conceptual
-author: anantr
-ms.author: robb
+ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: ff5c0d96bd4bc87f36a69ca7e8014e118ac7b7bf
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 1445e8cf38b2694146fc8749ba5e77f2297de969
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552462"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668172"
 ---
-# <a name="common-alert-schema"></a>Esquema de alerta comum
+# <a name="common-alert-schema"></a>Esquema comum de alertas
 
 Este artigo descreve o que é o esquema de alerta comum, os benefícios de usá-lo e como habilitá-lo.
 
@@ -34,9 +31,9 @@ Isso significa que você pode potencialmente ter menos integrações, tornando o
 
 O esquema de alerta comum se manifestará principalmente em suas notificações de alerta. Os aprimoramentos que você verá serão listados abaixo:
 
-| Ação | Melhorias|
+| Ação | Aprimoramentos|
 |:---|:---|
-| SMS | Um modelo de SMS consistente para todos os tipos de alerta. |
+| sms | Um modelo de SMS consistente para todos os tipos de alerta. |
 | Email | Um modelo de email consistente e detalhado, permitindo que você diagnostique facilmente os problemas rapidamente. Inseridos em profundidade – links para a instância de alerta no portal e o recurso afetado garantem que você possa ir rapidamente para o processo de correção. |
 | Aplicativo webhook/lógico/Azure function/Automation runbook | Uma estrutura JSON consistente para todos os tipos de alertas, que permite que você crie facilmente integrações em diferentes tipos de alertas. |
 
@@ -121,7 +118,7 @@ Por exemplo, o corpo da solicitação a seguir feita para [criar ou atualizar](h
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Definições comuns de esquema de alerta para WebHooks/aplicativos lógicos/Azure Functions/Runbooks de automação.](https://aka.ms/commonAlertSchemaDefinitions)
 - [Saiba como criar um aplicativo lógico que aproveita o esquema de alerta comum para lidar com todos os seus alertas.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 

@@ -1,18 +1,17 @@
 ---
 title: Exibir dependências de aplicativo com Azure Monitor para VMs (versão prévia)
 description: O MAP é um recurso do Azure Monitor para VMs. Ele descobre automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo fornece detalhes sobre como usar o recurso de mapa em vários cenários.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: d91c4f7c3abdb06bfe0116e0fadf67c5b7a7a394
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cbdcd5cc8fa9475febd338f94f8b6fe1cb2fe406
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450716"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670739"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-preview-to-understand-application-components"></a>Use o recurso de mapa de Azure Monitor para VMs (versão prévia) para entender os componentes do aplicativo
 No Azure Monitor para VMs, você pode exibir componentes de aplicativos descobertos em VMs (máquinas virtuais) do Windows e Linux que são executadas no Azure ou no seu ambiente. Você pode observar as VMs de duas maneiras. Exiba um mapa diretamente de uma VM ou exiba um mapa de Azure Monitor para ver os componentes em grupos de VMs. Este artigo o ajudará a entender esses dois métodos de exibição e como usar o recurso de mapa. 
@@ -133,6 +132,6 @@ O seletor de **grupo** retorna assinaturas, grupos de recursos, [grupos](../../a
 
 Por padrão, o mapa mostra os últimos 30 minutos. Se você quiser ver como as dependências foram examinadas no passado, poderá consultar intervalos de tempo históricos de até uma hora. Para executar a consulta, use o seletor de **intervalo de timerange** . Você pode executar uma consulta, por exemplo, durante um incidente ou para ver o status antes de uma alteração.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para identificar afunilamentos, verificar o desempenho e entender a utilização geral de suas VMs, consulte [Exibir status de desempenho para Azure monitor para VMs](vminsights-performance.md). 

@@ -1,18 +1,14 @@
 ---
 title: Explorando métricas no Azure Application Insights | Microsoft Docs
 description: Como interpretar os gráficos no gerenciador de métricas e como personalizar as folhas do gerenciador de métricas.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/22/2019
-ms.openlocfilehash: b0831ff500ba4cbe71dae6251fd960f6c96c0fe5
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: f85a8fe79e7f4f820d7c0e5b942730305e892095
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820797"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670161"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Explorar métricas no Application Insights
 As métricas em [Application insights][start] são valores medidos e contagens de eventos que são enviados na telemetria do seu aplicativo. Eles ajudam você a detectar problemas de desempenho e observar as tendências referentes a como seu aplicativo está sendo usado. Há uma grande variedade de métricas padrão, e você também pode criar suas próprias métricas e eventos personalizados.
@@ -173,18 +169,18 @@ Para ser notificado por email sobre valores incomuns de qualquer métrica, adici
 [Saiba mais sobre alertas][alerts].
 
 
-## <a name="continuous-export"></a>Exportação contínua
+## <a name="continuous-export"></a>Exportação Contínua
 Se desejar que os dados sejam exportados de forma contínua para que você possa processá-los externamente, considere usar a [Exportação contínua](../../azure-monitor/app/export-telemetry.md).
 
 ### <a name="power-bi"></a>Power BI
 Se desejar obter exibições ainda mais avançadas dos seus dados, você poderá [exportar para o Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
-## <a name="analytics"></a>Análises
+## <a name="analytics"></a>Análise
 [Análise](../../azure-monitor/app/analytics.md) é uma maneira mais versátil de analisar a telemetria usando uma linguagem de consulta eficiente. Use-a se quiser combinar ou calcular resultados de métricas ou executar uma exploração detalhada do desempenho recente de seu aplicativo. 
 
 Em um gráfico de métricas, clique no ícone do Analytics para ir diretamente à consulta do Analytics equivalente.
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solução de problemas
 *Não vejo dados no gráfico.*
 
 * Os filtros se aplicam a todos os gráficos da folha. Verifique se, ao se concentrar em um gráfico, não definiu um filtro que excluía todos os dados em outro.
@@ -197,7 +193,7 @@ Em um gráfico de métricas, clique no ícone do Analytics para ir diretamente �
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * [Monitorando o uso com o Application Insights](../../azure-monitor/app/usage-overview.md)
 * [Usando a Pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md)
 

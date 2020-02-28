@@ -1,18 +1,14 @@
 ---
 title: Monitoramento de desempenho de aplicativo Web-insights de Aplicativo Azure
 description: Como o Application Insights se encaixa no ciclo do devOps
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/21/2018
-ms.openlocfilehash: 1396bc86971941fdf8c6559df71a4c47f58a899c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 24095aade80022d1e1ebb38357971512bfc873c0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928816"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669685"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnósticos detalhados para aplicativos Web e serviços com o Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Por que eu preciso do Application Insights?
@@ -51,7 +47,7 @@ Algumas perguntas que fazemos quando estamos desenvolvendo um sistema Web:
 * Qual é a causa raiz? A falha foi no meu componente ou em uma dependência? É um problema de comunicação?
 * Quantos usuários foram afetados? Se tiver mais de um problema para resolver, qual será o mais importante?
 
-## <a name="what-is-application-insights"></a>O que são Application Insights?
+## <a name="what-is-application-insights"></a>O que é o Application Insights?
 ![Fluxo de trabalho básico do Application Insights](./media/devops/020.png)
 
 1. O Application Insights instrumentaliza seu aplicativo e envia a telemetria sobre ele enquanto o aplicativo está em execução. Você pode compilar o SDK do Application Insights no aplicativo ou você pode aplicar a instrumentação no runtime. O primeiro método é mais flexível, uma vez que você pode adicionar sua própria telemetria aos módulos regulares.
@@ -108,10 +104,10 @@ E permite que você inspecione imediatamente uma amostra de quaisquer falhas ou 
 
 ![Eventos de falha em tempo real](./media/devops/002-live-stream-failures.png)
 
-## <a name="application-map"></a>Mapa de Aplicativos
+## <a name="application-map"></a>Mapa de aplicativo
 O mapa de aplicativo detecta automaticamente a topologia do aplicativo, colocando as informações de desempenho sobre ela para permitir que você identifique facilmente os gargalos de desempenho e fluxos problemáticos em ambientes distribuídos. Ele permite que você descubra dependências de aplicativos nos Serviços do Azure. Você pode fazer a triagem do problema entendendo se ele é relacionado ao código ou à dependência e, de um único lugar, detalhar a experiência de diagnóstico relacionada. Por exemplo, seu aplicativo pode estar falhando devido à degradação do desempenho na camada SQL. Com o mapa de aplicativo, você pode vê-lo imediatamente e detalhar a experiência do SQL Index Advisor ou Insights de Consulta.
 
-![Mapa de Aplicativos](./media/devops/0050.png)
+![Mapa de aplicativo](./media/devops/0050.png)
 
 ## <a name="application-insights-analytics"></a>Análise do Application Insights
 Com a [Análise](../../azure-monitor/app/analytics.md), você pode escrever consultas arbitrárias em uma poderosa linguagem semelhante a SQL.  O diagnóstico em toda a pilha do aplicativo fica fácil, conforme várias perspectivas são conectadas e você pode fazer as perguntas certas para correlacionar o desempenho do serviço às métricas de negócios e à experiência do cliente. 
@@ -158,7 +154,7 @@ Quando um alerta é gerado, o Application Insights pode criar automaticamente um
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 É fácil começar a usar o Application Insights. As principais opções são:
 
 * [Servidores IIS](../../azure-monitor/app/monitor-performance-live-website-now.md)e também para [Azure app serviço](../../azure-monitor/app/app-insights-overview.md).

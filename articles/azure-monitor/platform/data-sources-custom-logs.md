@@ -1,18 +1,17 @@
 ---
 title: Coletar logs personalizados no Azure Monitor| Microsoft Docs
 description: O Azure Monitor pode coletar eventos de arquivos de texto em computadores com Windows e Linux.  Este artigo descreve como definir um novo log personalizado e os detalhes dos registros que ele cria no Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
-ms.openlocfilehash: 6d85ada428ab448bd8e96545999ca038e532a32b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1e889aaef7cd01cd743e8063a8a1dd5138ba9d0e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450655"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670586"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Logs personalizados de atividades no Azure Monitor
 
@@ -63,10 +62,10 @@ Inicie carregando um exemplo de log personalizado.  O assistente analisará e ex
 Se um delimitador de carimbo de data/hora for usado, a propriedade TimeGenerated de cada registro armazenado no Azure Monitor será preenchido com a data/hora especificada para essa entrada no arquivo de log.  Se um delimitador de nova linha for usado, TimeGenerated será populada com a data e hora em que o Azure Monitor coletou a entrada.
 
 1. Clique em **Procurar** e navegue até um arquivo de exemplo.  Observe que esse botão pode ser rotulado como **Escolher Arquivo** em alguns navegadores.
-2. Clique em **Próximo**.
+2. Clique em **Avançar**.
 3. O Custom Log Wizard (Assistente de Log Personalizado) carregará o arquivo e listará os registros que identificar.
 4. Altere o delimitador usado para identificar um novo registro e selecione o delimitador que melhor identifica os registros no arquivo de log.
-5. Clique em **Próximo**.
+5. Clique em **Avançar**.
 
 ### <a name="step-3-add-log-collection-paths"></a>Etapa 3. Adicionar caminhos de coleta de log
 Você deve definir um ou mais caminhos no agente no qual ele pode localizar o log personalizado.  Você pode fornecer um caminho e um nome específicos para o arquivo de log ou pode especificar um caminho com um caractere curinga para o nome. Isso dá suporte a aplicativos que criam um novo arquivo por dia ou quando um arquivo atinge um determinado tamanho. Você também pode fornecer vários caminhos para um único arquivo de log.
@@ -75,7 +74,7 @@ Por exemplo, um aplicativo pode criar um arquivo de log por dia com a data inclu
 
 A tabela a seguir fornece exemplos de padrões válidos para especificar diferentes arquivos de log.
 
-| Description | Caminho |
+| Descrição | Caminho |
 |:--- |:--- |
 | Todos os arquivos em *C:\Logs* com extensão .txt no agente do Windows |C:\Logs\\\*.txt |
 | Todos os arquivos em *C:\Logs* cujo nome começa com log e uma extensão .txt no agente do Windows |C:\Logs\log\*.txt |
@@ -118,7 +117,7 @@ Todo o conteúdo da entrada de log é gravado em uma única propriedade chamada 
 ## <a name="custom-log-record-properties"></a>Propriedades de registro do log personalizado
 Os registros de log personalizado têm um tipo com o nome do log que você fornece e as propriedades na tabela a seguir.
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--- |:--- |
 | TimeGenerated |Data e hora em que o registro foi coletado pelo Azure Monitor.  Se o log usar um delimitador baseado na hora, essa será a hora coletada da entrada. |
 | SourceSystem |Tipo de registro do qual os dados foram coletados. <br> OpsManager – agente do Windows, conexão direta ou System Center Operations Manager <br> Linux: todos os agentes do Linux |
@@ -168,6 +167,6 @@ Nos casos em que seus dados não puderem ser coletados com logs personalizados, 
 - Usar um script personalizado ou outro método para gravar dados em [Eventos do Windows](data-sources-windows-events.md) ou [Syslog](data-sources-syslog.md) coletados pelo Azure Monitor. 
 - Enviar os dados diretamente ao Azure Monitor usando a [API do coletor de dados HTTP](data-collector-api.md). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * Consulte [Analisar dados de texto no Azure Monitor](../log-query/parse-text.md) para métodos para analisar cada entrada de log importada em várias propriedades.
 * Saiba mais sobre [registrar consultas](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.

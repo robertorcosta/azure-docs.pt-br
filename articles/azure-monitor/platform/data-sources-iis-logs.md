@@ -1,23 +1,22 @@
 ---
 title: Logs de IIS no Azure Monitor | Microsoft Docs
 description: O IIS (Serviços de Informações da Internet) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Azure Monitor.  Este artigo descreve como configurar a coleta de logs do IIS e os detalhes dos registros que eles criam no repositório do Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: a865f43585ccbb31569e2ca0987aae62a89a9281
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 1b3ae6295a639c3d59643b106b920cb606572e0a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932496"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670569"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Coletar logs II no Azure Monitor
 O IIS (Serviços de Informações da Internet) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Azure Monitor e armazenados como [dados de log](data-platform.md).
 
-![Logs do IIS](media/data-sources-iis-logs/overview.png)
+![Logs IIS](media/data-sources-iis-logs/overview.png)
 
 ## <a name="configuring-iis-logs"></a>Configurando logs do IIS
 O Azure Monitor coleta entradas de arquivos de log criados pelo IIS, por isso você deve [configurar o IIS para o registro em log](https://technet.microsoft.com/library/hh831775.aspx).
@@ -61,7 +60,7 @@ Os registros log do IIS têm um tipo de **W3CIISLog** e têm as propriedades na 
 ## <a name="log-queries-with-iis-logs"></a>Consultas de log com logs do IIS
 A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam registros do log do IIS.
 
-| Consulta | Descrição |
+| Query | Descrição |
 |:--- |:--- |
 | W3CIISLog |Todos os registros de log do IIS. |
 | W3CIISLog &#124; where scStatus==500 |Todos os registros de log do IIS com um status de retorno de 500. |
@@ -69,6 +68,6 @@ A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam 
 | W3CIISLog &#124; em que csHost = = "www\.contoso.com &#124; " resumir contagem () por csUriStem |Contagem de entradas de log do IIS por URL para o host www\.contoso.com. |
 | W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000 |Total de bytes recebidos por cada computador com IIS. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * Configure o Azure Monitor para coletar outras [fontes de dados](agent-data-sources.md) para análise.
 * Saiba mais sobre [registrar consultas](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.

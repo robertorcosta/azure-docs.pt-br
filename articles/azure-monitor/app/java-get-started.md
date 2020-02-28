@@ -1,18 +1,16 @@
 ---
 title: 'Início rápido: análise de aplicativo Web Java com o Aplicativo Azure insights'
 description: 'Monitoramento de desempenho de aplicativos usando o Application Insights para aplicativos Web Java. '
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: abc16f8e1fdc6b81634b926eeb287e5d03efdc40
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 484d4e8df8a8fdceed62a65858126a16d028121e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963675"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670076"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Início rápido: introdução ao Application Insights em um projeto Web Java
 
@@ -20,7 +18,7 @@ Neste guia de início rápido, você usa Application Insights para instrumentar 
 
 Application Insights é um serviço de análise extensível para desenvolvedores da Web que ajuda você a entender o desempenho e o uso do seu aplicativo em tempo real. O Application Insights oferece suporte a aplicativos Java em execução no Windows, no Unix ou no Linux.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Um aplicativo Java em funcionamento.
@@ -38,7 +36,7 @@ Application Insights é um serviço de análise extensível para desenvolvedores
 
 *Escolha o tipo de projeto.*
 
-# <a name="maventabmaven"></a>[Maven](#tab/maven)
+# <a name="maven"></a>[Maven](#tab/maven)
 
 Se o seu projeto já estiver configurado para usar o Maven para compilação, mescle o código a seguir ao arquivo *pom. xml* .
 
@@ -56,7 +54,7 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
     </dependencies>
 ```
 
-# <a name="gradletabgradle"></a>[Gradle](#tab/gradle)
+# <a name="gradle"></a>[Gradle](#tab/gradle)
 
 Se o projeto já estiver configurado para usar o gradle para compilação, mescle o código a seguir ao arquivo *Build. gradle* .
 
@@ -70,7 +68,7 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
     }
 ```
 
-# <a name="other-typestabother"></a>[Outros tipos](#tab/other)
+# <a name="other-types"></a>[Outros tipos](#tab/other)
 
 Baixe a [versão mais recente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) e copie os arquivos necessários para o projeto substituindo as versões anteriores.
 
@@ -297,7 +295,7 @@ Agora que você instalou o SDK, você pode usar a API para enviar sua próprias 
 * [Acompanhe eventos e métricas personalizados][api] para saber o que os usuários estão fazendo com seu aplicativo.
 * [Pesquise eventos e logs][diagnostic] para ajudar a diagnosticar problemas.
 
-## <a name="availability-web-tests"></a>Testes Web de disponibilidade
+## <a name="availability-web-tests"></a>Testes de disponibilidade na Web
 O Application Insights pode testar seu site em intervalos regulares para verificar ele está operante e respondendo bem.
 
 [Saiba mais sobre como configurar testes da Web de disponibilidade.][availability]
@@ -305,7 +303,7 @@ O Application Insights pode testar seu site em intervalos regulares para verific
 ## <a name="questions-problems"></a>Perguntas? Problemas?
 [Solucionar problemas de Java](java-troubleshoot.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * [Monitorar chamadas de dependência](java-agent.md)
 * [Monitorar os contadores de desempenho do Unix](java-collectd.md)
 * Adicionar [monitoramento a suas páginas da Web](javascript.md) para monitorar tempos de carregamento de página, chamadas AJAX e exceções do navegador.

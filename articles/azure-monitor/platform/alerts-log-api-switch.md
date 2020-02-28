@@ -2,18 +2,16 @@
 title: Mudar da API herdada de alertas do Log Analytics para a nova API de alertas do Azure
 description: Visão geral do savedSearch herdado com base Log Analytics API de alerta e processo para alternar as regras de alerta para a nova API ScheduledQueryRules, com detalhes que abordam as preocupações comuns dos clientes.
 author: yanivlavi
-services: azure-monitor
-ms.service: azure-monitor
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: a6f71cca2c63591d2d26a7d34ced232eabfbc6bb
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: c1ca85ba9c79f828b5ddcf0d640cfe7f8b6e097c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425144"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668002"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Mudar preferência de API para os Alertas de Log
 
@@ -113,7 +111,7 @@ Além do mais, se o workspace do Log Analytics especificado ainda não tiver sid
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Saiba mais sobre o [Azure Monitor – Alertas de log](alerts-unified-log.md).
 - Saiba como criar [alertas de log nos alertas do Azure](alerts-log.md).

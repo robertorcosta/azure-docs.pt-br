@@ -1,24 +1,22 @@
 ---
 title: Criar o perfil de Serviços de Nuvem do Azure ativos com o Application Insights | Microsoft Docs
 description: Habilite o Application Insights Profiler para os Serviços de Nuvem do Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 682711d7681e3646ae14686b01542bc5d7432179
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 3fbeb1120e97a884135cd4622a49ef97fd43e58e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820505"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671657"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Criar o perfil de Serviços de Nuvem do Azure ativos com o Application Insights
 
 Você também pode implantar o Application Insights Profiler nesses serviços:
-* [Serviço de aplicativo do Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Serviço de Aplicativo do Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Aplicativos do Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas Virtuais do Azure](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
@@ -39,7 +37,7 @@ O Application Insights Profiler é instalado com a extensão de Diagnóstico do 
 
 1. Configure a extensão de Diagnóstico do Azure para habilitar o Profiler:
 
-    a. Localize o arquivo [diagnostics.wadcfgx](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) do *Diagnóstico do Azure* para sua função de aplicativo, como mostrado aqui:  
+    a. Localize o arquivo [diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *Diagnostics. wadcfgx* para sua função de aplicativo, conforme mostrado aqui:  
 
       ![Local do arquivo de configuração de diagnóstico](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
 
@@ -70,7 +68,7 @@ O Application Insights Profiler é instalado com a extensão de Diagnóstico do 
 
 1. Implante seu serviço com a nova configuração de diagnóstico e o Application Insights Profiler será configurado para ser executado em seu serviço.
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Gere tráfego para seu aplicativo (por exemplo, inicie um [teste de disponibilidade](monitor-web-app-availability.md)). Em seguida, espere de 10 a 15 minutos para que os rastreamentos comecem a ser enviados à instância do Application Insights.
 * Consulte [Rastreamentos do criador de perfil](profiler-overview.md?toc=/azure/azure-monitor/toc.json) no portal do Azure.

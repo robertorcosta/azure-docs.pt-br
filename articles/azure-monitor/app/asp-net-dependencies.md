@@ -1,18 +1,14 @@
 ---
 title: Acompanhamento de dependência no Azure Application Insights | Microsoft Docs
 description: Monitore chamadas de dependência de seu aplicativo Web local ou Microsoft Azure com Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 06/25/2019
-ms.openlocfilehash: 5b37ce1ba3d8a9d56cb2204c9db89d0e47d9996e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 8fb1550a3f1d4b3336384139b049b60e23e648d7
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277676"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666234"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Rastreamento de dependência no insights Aplicativo Azure 
 
@@ -32,7 +28,7 @@ Application Insights SDKs para .NET e .NET Core são fornecidos com `DependencyT
 |[Armazenamento do Azure (BLOB, tabela, fila)](https://www.nuget.org/packages/WindowsAzure.Storage/) | Chamadas feitas com o cliente de armazenamento do Azure. |
 |[SDK do cliente do EventHub](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | Versão 1.1.0 e posterior. |
 |[SDK do Cliente do Barramento de Serviço](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Versão 3.0.0 e posterior. |
-|BD Cosmos do Azure | Rastreado automaticamente se HTTP/HTTPS for usado. O modo TCP não será capturado pelo Application Insights. |
+|Azure Cosmos DB | Rastreado automaticamente se HTTP/HTTPS for usado. O modo TCP não será capturado pelo Application Insights. |
 
 Se você não tiver uma dependência ou se estiver usando um SDK diferente, verifique se ele está na lista de [dependências coletadas automaticamente](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). Se a dependência não for coletada automaticamente, você ainda poderá rastreá-la manualmente com uma [chamada de dependência de faixa](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
@@ -96,7 +92,7 @@ Para aplicativos ASP.NET Core, não há nenhuma etapa adicional necessária para
 
 Para aplicativos ASP.NET, a consulta SQL completa é coletada com a ajuda da instrumentação de código de byte, que requer o mecanismo de instrumentação. As etapas adicionais específicas da plataforma, conforme descrito abaixo, são necessárias.
 
-| Plataforma | Etapas necessárias para obter a consulta SQL completa |
+| Platform | Etapas necessárias para obter a consulta SQL completa |
 | --- | --- |
 | Aplicativo Web do Azure |No painel de controle do aplicativo Web, [abra a folha Application insights](../../azure-monitor/app/azure-web-apps.md) e habilite os comandos SQL no .net |
 | Servidor IIS (VM do Azure, local e assim por diante). | Use o módulo Status Monitor PowerShell para [instalar o mecanismo de instrumentação](../../azure-monitor/app/status-monitor-v2-api-enable-instrumentation-engine.md) e reiniciar o IIS. |
@@ -191,7 +187,7 @@ Você pode rastrear dependências na [linguagem de consulta Kusto](/azure/kusto/
 ## <a name="open-source-sdk"></a>SDK do código-fonte aberto
 Assim como todos os Application Insights SDK, o módulo de coleta de dependência também é de código-fonte aberto. Leia e contribua com o código ou relate problemas no [repositório do GitHub oficial](https://github.com/Microsoft/ApplicationInsights-dotnet-server).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Exceções](../../azure-monitor/app/asp-net-exceptions.md)
 * [Dados do usuário e da página](../../azure-monitor/app/javascript.md)

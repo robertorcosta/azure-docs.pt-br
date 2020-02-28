@@ -1,19 +1,15 @@
 ---
 title: Modelo de dados para telemetria de métrica-Aplicativo Azure insights
 description: Modelo de dados do Application Insights para telemetria de métricas
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: f697d7543a8551993640ef8c6d6c98fee35c0d68
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3e4a1fc3de58b8e65ab9c7a288bdf3eb37e7bae0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922217"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671963"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Telemetria de métricas: modelo de dados do Application Insights
 
@@ -37,15 +33,15 @@ Métrica representando os contadores de processo e de sistema:
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time`   | Trabalho em andamento... | [requestExecutionTime](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestExecutionTime) | tempo médio de execução de solicitações
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue` | Trabalho em andamento... | [requestsInQueue](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsInQueue) | número de solicitações aguardando processamento em uma fila
 
-## <a name="name"></a>name
+## <a name="name"></a>{1&gt;Nome&lt;1}
 
 Nome da métrica que você gostaria de ver na interface do usuário e no portal do Application Insights. 
 
-## <a name="value"></a>Value
+## <a name="value"></a>{1&gt;Valor&lt;1}
 
 Valor único para medida. Soma de medidas individuais para a agregação.
 
-## <a name="count"></a>Contagem
+## <a name="count"></a>{1&gt;{2&gt;Contagem&lt;2}&lt;1}
 
 Peso da métrica agregada. Não deve ser definido para uma medida.
 
@@ -53,7 +49,7 @@ Peso da métrica agregada. Não deve ser definido para uma medida.
 
 Valor mínimo da métrica agregada. Não deve ser definido para uma medida.
 
-## <a name="max"></a>Máx.
+## <a name="max"></a>Max
 
 Valor máximo da métrica agregada. Não deve ser definido para uma medida.
 
@@ -67,7 +63,7 @@ Métrica com a propriedade personalizada `CustomPerfCounter` definida para `true
 
 [!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Saiba como usar a [API do Application Insights para métricas e eventos personalizados](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric).
 - Consulte [modelo de dados](data-model.md) para modelo de dados e tipos do Application Insights.

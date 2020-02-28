@@ -1,18 +1,14 @@
 ---
 title: Anotações de versão para o Application Insights | Microsoft Docs
 description: Adicione uma implantação ou compile marcadores para seus gráficos do gerenciador de métricas no Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/01/2019
-ms.openlocfilehash: f9ab1f1ef2b64c07a3b0c8ddf93d6ef4293517db
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e0e2a106b276110e13b3c68889e4d1d349ba73a4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73668112"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666506"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotações sobre gráficos de métricas no Application Insights
 
@@ -106,7 +102,7 @@ Você pode usar o script do PowerShell do [CreateReleaseAnnotation](https://gith
 
 Você pode modificar o script, por exemplo, para criar anotações para o passado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Criar um item de trabalho](../../azure-monitor/app/diagnostic-search.md#create-work-item)
 * [Automação com o PowerShell](../../azure-monitor/app/powershell.md)

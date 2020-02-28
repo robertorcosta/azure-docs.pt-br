@@ -1,18 +1,17 @@
 ---
 title: Habilitar Azure Monitor (visualização) para um ambiente híbrido | Microsoft Docs
 description: Este artigo descreve como habilitar Azure Monitor para VMs para um ambiente de nuvem híbrida que contém uma ou mais máquinas virtuais.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 0afc67bf6d9e997ef615ecadc6836b36ed73e2ea
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bd44eebf8aceaf7fe32cf8cf1b1152db32acb344
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969674"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669617"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Habilitar Azure Monitor para VMs (versão prévia) para um ambiente híbrido
 
@@ -20,7 +19,7 @@ ms.locfileid: "75969674"
 
 Este artigo explica como habilitar a Azure Monitor para VMs (versão prévia) para máquinas virtuais ou computadores físicos hospedados em seu datacenter ou em outro ambiente de nuvem. No final desse processo, você terá iniciado com êxito o monitoramento de suas máquinas virtuais em seu ambiente e aprenderá se elas estão enfrentando problemas de desempenho ou disponibilidade.
 
-Antes de começar, certifique-se de revisar os [pré-requisitos](vminsights-enable-overview.md) e verificar se sua assinatura e seus recursos atendem aos requisitos. Examine os requisitos e os métodos de implantação do [agente do Linux e do Windows do Log Analytics](../../log-analytics/log-analytics-agent-overview.md).
+Antes de começar, examine os [pré-requisitos](vminsights-enable-overview.md) e verifique se a sua assinatura e os recursos atendem aos requisitos. Examine os requisitos e os métodos de implantação do [agente do Linux e do Windows do Log Analytics](../../log-analytics/log-analytics-agent-overview.md).
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -49,7 +48,7 @@ Instale o Dependency Agent manualmente em computadores Windows executando `Insta
 
 A tabela a seguir destaca os parâmetros compatíveis com a instalação do agente por meio da linha de comando.
 
-| Parâmetro | Description |
+| Parâmetro | Descrição |
 |:--|:--|
 | /? | Retorna uma lista das opções de linha de comando. |
 | /S | Realiza uma instalação silenciosa sem a interação do usuário. |
@@ -66,10 +65,10 @@ O Dependency Agent é instalado em servidores Linux por meio de *InstallDependen
 > O acesso root é necessário para instalar ou configurar o agente.
 >
 
-| Parâmetro | Description |
+| Parâmetro | Descrição |
 |:--|:--|
 | -help | Obtenha uma lista das opções de linha de comando. |
-| -S | Realize uma instalação silenciosa sem solicitações ao usuário. |
+| -s | Realize uma instalação silenciosa sem solicitações ao usuário. |
 | --check | Verifica as permissões e o sistema operacional, mas não instala o agente. |
 
 Por exemplo, para executar o programa de instalação com o parâmetro `-help`, insira **installdependencyagent-Linux64. bin-Help**.
@@ -80,7 +79,7 @@ Se o Agente de Dependência não for iniciado, verifique os logs para obter info
 
 Os arquivos do Agente de Dependência são colocados nos diretórios a seguir:
 
-| Arquivos | Local |
+| Files | Local |
 |:--|:--|
 | Arquivos de núcleo | /opt/microsoft/dependency-agent |
 | Arquivos de log | /var/opt/microsoft/dependency-agent/log |
@@ -107,7 +106,7 @@ wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDepende
 sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 
-## <a name="desired-state-configuration"></a>Configuração de estado desejado
+## <a name="desired-state-configuration"></a>Desired State Configuration
 
 Para implantar o agente de dependência por meio da Desired State Configuration (DSC), você pode usar o módulo xPSDesiredStateConfiguration e um pouco de código semelhante ao seguinte:
 
@@ -253,7 +252,7 @@ Se você vir o servidor no mapa, mas ele não tiver dados de processo ou de cone
 Verifique o arquivo C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log (Windows) ou o arquivo /var/opt/microsoft/dependency-agent/log/service.log (Linux). As últimas linhas do arquivo devem indicar por que o kernel não foi carregado. Por exemplo, se o kernel tiver sido atualizado por você, talvez o Linux não dê suporte a ele.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Agora que o monitoramento está habilitado para suas máquinas virtuais, essas informações estão disponíveis para análise com Azure Monitor para VMs.
 

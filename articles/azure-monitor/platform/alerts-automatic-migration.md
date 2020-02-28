@@ -1,18 +1,15 @@
 ---
 title: Entenda como funciona o processo de migração automática para seus alertas Azure Monitor clássicos
 description: Saiba como funciona o processo de migração automática.
-author: snehithm
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 08/19/2019
-ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: e0ac349554fa580c4ac88b26e76d0bea1ecf738b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 8df83439d6754440648688ac1cc36ff66556a4e4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932703"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668240"
 ---
 # <a name="understand-the-automatic-migration-process-for-your-classic-alert-rules"></a>Entender o processo de migração automática para suas regras de alerta clássicas
 
@@ -57,7 +54,7 @@ Consulte o [Guia de solução de problemas](alerts-understand-migration.md#commo
   > [!NOTE]
   > Caso uma ação seja necessária para o cliente, como desabilitar temporariamente um bloqueio de recurso ou alterar uma atribuição de política, os clientes precisarão resolver quaisquer problemas até 31 de outubro de 2019. Se os problemas não forem resolvidos por enquanto, a migração bem-sucedida de seus alertas clássicos não poderá ser garantida.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Preparar para a migração](alerts-prepare-migration.md)
 - [Entender como a ferramenta de migração funciona](alerts-understand-migration.md)

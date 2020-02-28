@@ -1,21 +1,19 @@
 ---
-title: Definir alertas no Aplicativo Azure insights | Microsoft Docs
+title: Definir alertas no Aplicativo Azure insights
 description: Seja notificado sobre os tempos de resposta lentos, as exceções e outras alterações de desempenho ou de uso em seu aplicativo Web.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/23/2019
 ms.reviewer: lagayhar
-ms.openlocfilehash: a21e2676d1b03472c58e2f95095a1a59d00b16be
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.subservice: alerts
+ms.openlocfilehash: 80759c94d7cc5b60b6e38a34b85fb64c3c18fd2e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678399"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666710"
 ---
 # <a name="set-alerts-in-application-insights"></a>Definir alertas no Application Insights
+
 [Aplicativo Azure insights][start] pode alertá-lo sobre alterações nas métricas de desempenho ou de uso em seu aplicativo Web. 
 
 O Application Insights monitora seu aplicativo em tempo real em uma [ampla variedade de plataformas][platforms] para ajudá-lo a diagnosticar problemas de desempenho e entender os padrões de uso.
@@ -27,60 +25,61 @@ Há vários tipos de alertas:
 * Os [**testes da Web**][availability] informam quando seu site está indisponível na Internet ou está respondendo lentamente. [Saiba mais][availability].
 * Os [**diagnósticos proativos**](../../azure-monitor/app/proactive-diagnostics.md) são configurados automaticamente para notificar você sobre padrões de desempenho incomuns.
 
-## <a name="set-a-metric-alert"></a>Definir um alerta de métrica
+## <a name="set-a-metric-alert"></a>Definir um alerta de Métrica
+
 Abra a guia regras de alerta e, em seguida, use o botão Adicionar.
 
 ![Na guia regras de alerta, escolha Adicionar alerta. Defina seu aplicativo como o recurso a ser medido, forneça um nome para o alerta e escolha uma métrica.](./media/alerts/01-set-metric.png)
 
-* Defina o recurso antes das outras propriedades. **Escolha o recurso "(componentes)"** se desejar definir alertas em métricas de desempenho ou de uso.
+* Defina o recurso antes de outras propriedades. **Escolha o recurso "(componentes)"** se desejar definir alertas em métricas de desempenho ou de uso.
 * O nome dado ao alerta deve ser exclusivo dentro do grupo de recursos (não apenas no seu aplicativo).
-* Tenha cuidado para observar as unidades nas quais você será solicitado a inserir o valor do limite.
-* Se você marcar a caixa "proprietários de email...", os alertas serão enviados por email para todos que têm acesso a esse grupo de recursos. Para expandir esse grupo de pessoas, adicione-as à [assinatura ou grupo de recursos](../../azure-monitor/app/resources-roles-access-control.md) (não o recurso).
-* Se você especificar "emails adicionais", os alertas serão enviados a esses indivíduos ou grupos (se você tiver marcado ou não os "proprietários de email..." Box). 
-* Defina um [endereço de webhook](../../azure-monitor/platform/alerts-webhooks.md) se tiver configurado um aplicativo Web que responda aos alertas. Ele é chamado quando o alerta é ativado e quando é resolvido. (Mas observe que, no momento, os parâmetros de consulta não são passados como propriedades de webhook.)
+* Observe as unidades quando você for solicitado para inserir o valor de limite.
+* Se você marcar a caixa “Proprietários de email...”, os alertas serão enviados por email para qualquer pessoa que tenha acesso a esse grupo de recursos. Para expandir esse grupo de pessoas, adicione-as à [assinatura ou grupo de recursos](../../azure-monitor/app/resources-roles-access-control.md) (não o recurso).
+* Se você especificar “Emails adicionais”, os alertas serão enviados aos indivíduos ou grupos (sem levar em conta se a caixa “proprietários de email...” foi marcada ou não). 
+* Defina um [endereço de webhook](../../azure-monitor/platform/alerts-webhooks.md) se tiver configurado um aplicativo Web que responda aos alertas. Ele é chamado quando o alerta é ativado e quando ele está resolvido. (Mas observe que, no momento, os parâmetros de consulta não são passados como propriedades de webhook)
 * Você pode desabilitar ou habilitar o alerta: consulte os botões na parte superior.
 
-*Não vejo o botão adicionar alerta.*
+*Não vejo o botão Adicionar Alerta.*
 
-* Você está usando uma conta institucional? Você poderá definir alertas se tiver acesso de proprietário ou colaborador a esse recurso de aplicativo. Dê uma olhada na guia controle de acesso. [saiba mais sobre o controle de acesso][roles].
+* Você está usando uma conta organizacional? Você poderá definir alertas se tiver acesso de proprietário ou colaborador a esse recurso de aplicativo. Dê uma olhada na guia controle de acesso. [saiba mais sobre o controle de acesso][roles].
 
 > [!NOTE]
-> Na folha alertas, você verá que já existe um alerta configurado: [Proactive Diagnostics](../../azure-monitor/app/proactive-failure-diagnostics.md). O alerta automático monitora uma métrica específica, taxa de falha de solicitação. A menos que você decida desabilitar o alerta proativo, não precisará definir seu próprio alerta na taxa de falha de solicitação.
+> Na folha de alertas, você vê que já existe uma configuração de alerta: [Proactive Diagnostics](../../azure-monitor/app/proactive-failure-diagnostics.md). O alerta automático monitora uma métrica específica, taxa de falha de solicitação. A menos que você opte por desabilitar o alerta proativo, não precisa definir seu próprio alerta na taxa de falha de solicitação.
 > 
 > 
 
 ## <a name="see-your-alerts"></a>Ver seus alertas
-Você receberá um email quando um alerta mudar de estado entre inativo e ativo. 
+Você recebe um email quando o estado de um alerta é mudado de inativo para ativo. 
 
 O estado atual de cada alerta é mostrado na guia regras de alerta.
 
-Há um resumo das atividades recentes na lista suspensa alertas:
+Há um resumo da atividade recente no menu suspenso de alertas:
 
-![Lista suspensa alertas](./media/alerts/010-alert-drop.png)
+![Lista suspensa Alertas](./media/alerts/010-alert-drop.png)
 
-O histórico de alterações de estado está no log de atividades:
+O histórico das alterações de estado está no Log de Atividades:
 
 ![Na guia Visão geral, clique em configurações, logs de auditoria](./media/alerts/09-alerts.png)
 
-## <a name="how-alerts-work"></a>Como funcionam os alertas
-* Um alerta tem três Estados: "nunca ativado", "ativado" e "resolvido". Ativado significa que a condição especificada era true, quando ela foi avaliada pela última vez.
-* Uma notificação é gerada quando um alerta muda de estado. (Se a condição de alerta já foi verdadeira quando você criou o alerta, talvez você não receba uma notificação até que a condição seja falsa.)
-* Cada notificação gera um email se você marcou a caixa emails ou os endereços de email fornecidos. Você também pode examinar a lista suspensa notificações.
-* Um alerta é avaliado cada vez que uma métrica chega, mas não de outra forma.
-* A avaliação agrega a métrica durante o período anterior e a compara com o limite para determinar o novo estado.
-* O período escolhido especifica o intervalo em que as métricas são agregadas. Ele não afeta a frequência com que o alerta é avaliado: isso depende da frequência de chegada das métricas.
-* Se nenhum dado chegar para uma determinada métrica por algum tempo, a lacuna tem efeitos diferentes sobre a avaliação do alerta e sobre os gráficos no Metrics Explorer. No Metrics Explorer, se nenhum dado for visto por mais tempo do que o intervalo de amostragem do gráfico, o gráfico mostrará um valor de 0. Mas um alerta baseado na mesma métrica não é reavaliado e o estado do alerta permanece inalterado. 
+## <a name="how-alerts-work"></a>Como os alertas funcionam
+* Um alerta tem três estados: “Nunca ativado”, “Ativado” e “Resolvido”. Ativado significa que a condição especificada era true, quando ela foi avaliada pela última vez.
+* Uma notificação é gerada quando um alerta muda de estado. (Se a condição do alerta já era true quando o alerta foi criado, talvez você não receba uma notificação até que a condição mude para false.)
+* Cada notificação gerará um email caso tenha marcado a caixa de emails ou fornecido endereços de email. Também é possível examinar a lista suspensa Notificações.
+* Um alerta é avaliado toda vez que uma métrica chega, mas não o contrário.
+* A avaliação agrega a métrica ao longo do período anterior e a compara com o limite para determinar o novo estado.
+* O período que você escolhe especifica o intervalo durante o qual as métricas são agregadas. Ele não afeta a frequência com que o alerta é avaliado: isto depende da frequência da chegada das métricas.
+* Se nenhum dado chegar para uma determinada métrica por algum tempo, a lacuna tem efeitos diferentes sobre a avaliação do alerta e sobre os gráficos no Metrics Explorer. No Metrics Explorer, se nenhum dado for visto por mais tempo do que o intervalo de amostragem do gráfico, o gráfico mostrará um valor 0. Mas um alerta com base na mesma métrica não é avaliado novamente e o estado do alerta permanece inalterado. 
   
-    Quando os dados chegam eventualmente, o gráfico volta para um valor diferente de zero. O alerta é avaliado com base nos dados disponíveis para o período especificado. Se o novo ponto de dados for o único disponível no período, a agregação será baseada apenas no ponto de dados.
-* Um alerta pode piscar frequentemente entre os estados de alerta e íntegro, mesmo que você defina um longo período. Isso pode acontecer se o valor da métrica focalizar o limite. Não há nenhuma histerese no limite: a transição para o alerta acontece com o mesmo valor que a transição para o estado íntegro.
+    Quando os dados chegam, o gráfico volta para um valor diferente de zero. O alerta é avaliado com base nos dados disponíveis para o período especificado. Se o novo ponto de dados for o único disponível no período, a agregação se baseará apenas nisso.
+* Um alerta pode piscar frequentemente entre os estados de alerta e íntegro, mesmo que você defina um longo período. Isso pode acontecer se o valor da métrica estiver em torno do limite. Não há nenhuma histerese no limite: a transição para o alerta acontece com o mesmo valor que a transição para o estado íntegro.
 
 ## <a name="what-are-good-alerts-to-set"></a>Quais são alguns alertas que é recomendável definir?
-Depende do seu aplicativo. Para começar, é melhor não definir muitas métricas. Passe algum tempo examinando seus gráficos de métricas enquanto seu aplicativo está em execução para ter uma noção de como ele se comporta normalmente. Essa prática ajuda você a encontrar maneiras de melhorar seu desempenho. Em seguida, configure alertas para informá-lo quando as métricas ficarem fora da zona normal. 
+Depende de seu aplicativo. Para começar, é melhor não definir um número excessivo de métricas. Passe algum tempo examinando seus gráficos de métricas enquanto seu aplicativo está em execução para ter uma noção de como ele se comporta normalmente. Esta prática ajuda a encontrar maneiras de melhorar o desempenho. Em seguida, configure alertas para informá-lo quando as métricas estiverem fora da zona normal. 
 
 Alguns alertas populares são:
 
-* As [métricas do navegador][client], especialmente **tempos de carregamento de página**do navegador, são boas para aplicativos Web. Se sua página tiver muitos scripts, você deverá procurar por **exceções de navegador**. Para obter essas métricas e alertas, você precisa configurar o [monitoramento de página da Web][client].
-* **Tempo de resposta do servidor** para o lado do servidor de aplicativos Web. Além de configurar alertas, fique atento a essa métrica para ver se ela varia desproporcionalmente com altas taxas de solicitação: a variação pode indicar que seu aplicativo está ficando sem recursos. 
+* As [métricas do navegador][client], especialmente **tempos de carregamento de página**do navegador, são boas para aplicativos Web. Se a página tem muitos scripts, você deve procurar **exceções de navegador**. Para obter essas métricas e alertas, você precisa configurar o [monitoramento de página da Web][client].
+* **Tempo de resposta do servidor** para o lado do servidor de aplicativos Web. Além de configurar alertas, confira essa métrica para ver se ela varia de forma desproporcional com altas taxas de solicitação: a variação pode indicar que seu aplicativo está ficando sem recursos. 
 * **Exceções de servidor** - para vê-las, você precisa fazer algumas [configurações adicionais](../../azure-monitor/app/asp-net-exceptions.md).
 
 Não se esqueça de que [diagnósticos de taxa de falha proativos](../../azure-monitor/app/proactive-failure-diagnostics.md) monitoram automaticamente a taxa em que seu aplicativo responde às solicitações com códigos de falha.
@@ -158,18 +157,18 @@ Para cancelar a assinatura de notificações por email geradas por uma determina
 
 Se seu endereço de email não estiver listado explicitamente, é recomendável desabilitar a opção para notificar todos os membros de determinadas funções automaticamente e, em vez disso, listar todos os emails do usuário que precisam receber notificações para essa regra de alerta no email de notificação campo de destinatários.
 
-## <a name="who-receives-the-classic-alert-notifications"></a>Quem recebe as notificações de alerta (clássico)?
+## <a name="who-receives-the-classic-alert-notifications"></a>Quem recebe as notificações de alerta (clássicas)?
 
-Esta seção se aplica somente a alertas clássicos e ajudará você a otimizar suas notificações de alerta para garantir que somente os destinatários desejados recebam notificações. Para entender mais sobre a diferença entre [alertas clássicos](../platform/alerts-classic.overview.md) e a nova experiência de alertas, consulte o [artigo Visão geral de alertas](../platform/alerts-overview.md). Para controlar a notificação de alerta na nova experiência de alertas, use [grupos de ação](../platform/action-groups.md).
+Esta seção só se aplica aos alertas clássicos e ajudará você a otimizar suas notificações de alerta para fazer com que somente os destinatários desejados recebam notificações. Para entender mais sobre a diferença entre [alertas clássicos](../platform/alerts-classic.overview.md) e a nova experiência de alertas, consulte o [artigo Visão geral de alertas](../platform/alerts-overview.md). Para controlar a notificação de alerta na nova experiência de alertas, use [grupos de ação](../platform/action-groups.md).
 
-* Recomendamos o uso de destinatários específicos para notificações de alerta clássicas.
+* Recomendamos o uso de destinatários específicos para notificações de alertas clássicos.
 
-* Para alertas sobre as métricas de Application Insights (incluindo métricas de disponibilidade), a opção de caixa de seleção **em massa/grupo** , se habilitada, envia para usuários com funções de proprietário, colaborador ou leitor na assinatura. Na verdade, _todos_ os usuários com acesso à assinatura o recurso Application insights estão no escopo e receberão notificações.
+* Para alertas sobre métrica do Application Insights (incluindo métrica de disponibilidade), a opção de caixa de seleção **em massa/em grupo**, se habilitada, envia para os usuários com funções de leitor, colaborador ou proprietário na assinatura. Na verdade, _todos_ os usuários com acesso à assinatura do recurso do Application Insights fazem parte do escopo e receberão notificações.
 
 > [!NOTE]
-> Se você usar a opção de caixa de seleção **Bulk/Group** no momento e desabilitá-la, não será possível reverter a alteração.
+> Se você estiver usando a opção de caixa de seleção **em massa/grupo** e desabilitá-la, não poderá reverter a alteração.
 
-Use a nova experiência de alerta/alertas quase em tempo real se você precisar notificar os usuários com base em suas funções. Com os [grupos de ação](../platform/action-groups.md), você pode configurar notificações por email para os usuários com qualquer uma das funções colaborador/proprietário/leitor (não combinadas como uma única opção).
+Use a nova experiência de alerta/alertas quase em tempo real caso precise notificar usuários com base em suas funções. Com os [grupos de ação](../platform/action-groups.md), você pode configurar notificações por email para os usuários que tenham qualquer uma das funções de proprietário/colaborador/leitor (não combinadas como uma única opção).
 
 ## <a name="automation"></a>Automação
 * [Usar o PowerShell para automatizar a configuração de alertas](../../azure-monitor/app/powershell-alerts.md)

@@ -1,18 +1,16 @@
 ---
 title: Solucionar problemas com o agente do Log Analytics para Windows
 description: Descreva os sintomas, as causas e a resolução dos problemas mais comuns com o agente de Log Analytics para Windows no Azure Monitor.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 486c68cb32b5f4c8c8a18b21d1aee139ffda45bf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 78625707bfa296eeb7ad8cc658657f46da1dc495
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75397449"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668784"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Como solucionar problemas com o agente de Log Analytics para Windows 
 
@@ -62,15 +60,15 @@ Há várias maneiras de verificar se o agente está se comunicando com êxito co
 
 - Filtre o log de eventos *Operations Manager* por **fontes de evento** - *módulos de serviço de integridade*, *HealthService*e *conector de serviço* e filtre por *aviso* de **nível de evento** e *erro* para confirmar se ele gravou eventos da tabela a seguir. Se estiverem, examine as etapas de resolução incluídas para cada evento possível.
 
-    |ID do evento |Origem |Description |Resolução |
+    |ID do evento |Origem |Descrição |Resolução |
     |---------|-------|------------|-----------|
     |2133 & 2129 |Serviço de Integridade |Falha na conexão com o serviço do agente |Esse erro pode ocorrer quando o agente não pode se comunicar diretamente ou por meio de um servidor de firewall/proxy para o serviço de Azure Monitor. Verifique as configurações de proxy do agente ou se o firewall de rede/proxy permite o tráfego TCP do computador para o serviço.|
-    |2138 |Módulos do Serviço de Integridade |Proxy exige autenticação |Defina as configurações de proxy do agente e especifique o nome de usuário/senha necessários para autenticar com o servidor proxy. |
-    |2129 |Módulos do Serviço de Integridade |Falha na conexão/falha na negociação SSL |Verifique as configurações de TCP/IP do adaptador de rede e as configurações de proxy do agente.|
-    |2127 |Módulos do Serviço de Integridade |Falha ao enviar dados-código de erro recebido |Se isso ocorrer apenas periodicamente durante o dia, poderia ser uma anomalia aleatória que pode ser ignorada. Monitor para entender com que frequência isso acontece. Se ocorrer muitas vezes ao longo do dia, verifique primeiro as configurações de rede e de proxy. Se a descrição incluir o código de erro HTTP 404 e for a primeira vez que o agente tentar enviar dados para o serviço, ele incluirá um erro 500 com um código de erro de 404 interno. 404 significa não encontrado, que indica que a área de armazenamento do novo espaço de trabalho ainda está sendo provisionada. Na próxima tentativa, os dados serão gravados com êxito no espaço de trabalho conforme o esperado. Um erro HTTP 403 pode indicar uma permissão ou um problema de credenciais. Há mais informações incluídas com o erro 403 para ajudar a solucionar o problema.|
-    |4000 |Conector de Serviço |Falha na resolução do nome DNS |O computador não pôde resolver o endereço da Internet usado ao enviar dados para o serviço. Isso pode ser as configurações do resolvedor de DNS em seu computador, configurações de proxy incorretas ou talvez um problema de DNS temporário com seu provedor. Se ocorrer periodicamente, isso pode ser causado por um problema transitório relacionado à rede.|
-    |4001 |Conector de Serviço |Falha na conexão com o serviço. |Esse erro pode ocorrer quando o agente não pode se comunicar diretamente ou por meio de um servidor de firewall/proxy para o serviço de Azure Monitor. Verifique as configurações de proxy do agente ou se o firewall de rede/proxy permite o tráfego TCP do computador para o serviço.|
-    |4002 |Conector de Serviço |O serviço retornou o código de status HTTP 403 em resposta a uma consulta. Verifique com o administrador de serviços a integridade do serviço. A consulta será repetida mais tarde. |Esse erro é gravado durante a fase de registro inicial do agente e você verá uma URL semelhante à seguinte: *https://\<workspaceid >. OMS. opinsights. Azure. com/AgentService. svc/AgentTopologyRequest*. Um código de erro 403 significa proibido e pode ser causado por uma ID ou chave de espaço de trabalho digitada incorretamente, ou os dados e a hora estão incorretos no computador. Se a hora for +/-15 minutos da hora atual, a integração falhará. Para corrigir isso, atualize a data e/ou o fuso horário do computador com Windows.|
+    |2138 |Módulos Serviço de Integridade |O proxy requer autenticação |Defina as configurações de proxy do agente e especifique o nome de usuário/senha necessários para autenticar com o servidor proxy. |
+    |2129 |Módulos Serviço de Integridade |Falha na conexão/falha na negociação SSL |Verifique as configurações de TCP/IP do adaptador de rede e as configurações de proxy do agente.|
+    |2127 |Módulos Serviço de Integridade |Falha ao enviar dados-código de erro recebido |Se isso ocorrer apenas periodicamente durante o dia, poderia ser uma anomalia aleatória que pode ser ignorada. Monitor para entender com que frequência isso acontece. Se ocorrer muitas vezes ao longo do dia, verifique primeiro as configurações de rede e de proxy. Se a descrição incluir o código de erro HTTP 404 e for a primeira vez que o agente tentar enviar dados para o serviço, ele incluirá um erro 500 com um código de erro de 404 interno. 404 significa não encontrado, que indica que a área de armazenamento do novo espaço de trabalho ainda está sendo provisionada. Na próxima tentativa, os dados serão gravados com êxito no espaço de trabalho conforme o esperado. Um erro HTTP 403 pode indicar uma permissão ou um problema de credenciais. Há mais informações incluídas com o erro 403 para ajudar a solucionar o problema.|
+    |4000 |Conector de serviço |Falha na resolução do nome DNS |O computador não pôde resolver o endereço da Internet usado ao enviar dados para o serviço. Isso pode ser as configurações do resolvedor de DNS em seu computador, configurações de proxy incorretas ou talvez um problema de DNS temporário com seu provedor. Se ocorrer periodicamente, isso pode ser causado por um problema transitório relacionado à rede.|
+    |4001 |Conector de serviço |Falha na conexão com o serviço. |Esse erro pode ocorrer quando o agente não pode se comunicar diretamente ou por meio de um servidor de firewall/proxy para o serviço de Azure Monitor. Verifique as configurações de proxy do agente ou se o firewall de rede/proxy permite o tráfego TCP do computador para o serviço.|
+    |4002 |Conector de serviço |O serviço retornou o código de status HTTP 403 em resposta a uma consulta. Verifique com o administrador de serviços a integridade do serviço. A consulta será repetida mais tarde. |Esse erro é gravado durante a fase de registro inicial do agente e você verá uma URL semelhante à seguinte: *https://\<workspaceid >. OMS. opinsights. Azure. com/AgentService. svc/AgentTopologyRequest*. Um código de erro 403 significa proibido e pode ser causado por uma ID ou chave de espaço de trabalho digitada incorretamente, ou os dados e a hora estão incorretos no computador. Se a hora for +/-15 minutos da hora atual, a integração falhará. Para corrigir isso, atualize a data e/ou o fuso horário do computador com Windows.|
 
 ## <a name="data-collection-issues"></a>Problemas de coleta de dados
 
@@ -100,9 +98,9 @@ Se a consulta retornar resultados, você precisará determinar se um determinado
 
 3. Se, após vários minutos, você não vir os dados esperados nos resultados da consulta ou na visualização, dependendo de se você estiver exibindo os dados de uma solução ou insight, no log de eventos *Operations Manager* , procure por **fontes de eventos** *HealthService* e *serviço de integridade módulos* e filtre por *aviso* de **nível de evento** e *erro* para confirmar se há eventos gravados da tabela a seguir.
 
-    |ID do evento |Origem |Description |Resolução |
+    |ID do evento |Origem |Descrição |Resolução |
     |---------|-------|------------|
     |8000 |HealthService |Esse evento especificará se um fluxo de trabalho relacionado a desempenho, evento ou outro tipo de dados coletado não puder encaminhar para o serviço para ingestão no espaço de trabalho. | A ID de evento 2136 da fonte HealthService é escrita junto com esse evento e pode indicar que o agente não pode se comunicar com o serviço, possivelmente devido a uma configuração incorreta do proxy e das configurações de autenticação, interrupção de rede ou o firewall/proxy de rede não permite o tráfego TCP do computador para o serviço.| 
-    |10102 e 10103 |Módulos do Serviço de Integridade |O fluxo de trabalho não pôde resolver a fonte de dados. |Isso pode ocorrer se o contador de desempenho ou a instância especificada não existir no computador ou se estiver definido incorretamente nas configurações de dados do espaço de trabalho. Se esse for um [contador de desempenho](data-sources-performance-counters.md#configuring-performance-counters)especificado pelo usuário, verifique se as informações especificadas estão seguindo o formato correto e se existem nos computadores de destino. |
-    |26002 |Módulos do Serviço de Integridade |O fluxo de trabalho não pôde resolver a fonte de dados. |Isso pode ocorrer se o log de eventos do Windows especificado não existir no computador. Esse erro pode ser ignorado com segurança se o computador não tiver esse log de eventos registrado; caso contrário, se esse for um [log de eventos](data-sources-windows-events.md#configuring-windows-event-logs)especificado pelo usuário, verifique se as informações especificadas estão corretas. |
+    |10102 e 10103 |Módulos Serviço de Integridade |O fluxo de trabalho não pôde resolver a fonte de dados. |Isso pode ocorrer se o contador de desempenho ou a instância especificada não existir no computador ou se estiver definido incorretamente nas configurações de dados do espaço de trabalho. Se esse for um [contador de desempenho](data-sources-performance-counters.md#configuring-performance-counters)especificado pelo usuário, verifique se as informações especificadas estão seguindo o formato correto e se existem nos computadores de destino. |
+    |26002 |Módulos Serviço de Integridade |O fluxo de trabalho não pôde resolver a fonte de dados. |Isso pode ocorrer se o log de eventos do Windows especificado não existir no computador. Esse erro pode ser ignorado com segurança se o computador não tiver esse log de eventos registrado; caso contrário, se esse for um [log de eventos](data-sources-windows-events.md#configuring-windows-event-logs)especificado pelo usuário, verifique se as informações especificadas estão corretas. |
 

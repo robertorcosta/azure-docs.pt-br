@@ -1,18 +1,17 @@
 ---
 title: Configurar fontes de dados do agente no Azure Monitor | Microsoft Docs
 description: As fontes de dados definem os dados coletados pelo Azure Monitor de agentes e outras fontes conectadas.  Este artigo descreve o conceito de como o Azure Monitor usa fontes de dados, explica os detalhes de como configurá-las e fornece um resumo das diferentes fontes de dados disponíveis.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: f7960adca1c3665dbf8737cb10a898c58b1542ec
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: aec3fe2386ce916c556f6da295a8554fff140259
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932829"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668767"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Fontes de dados do agente no Azure Monitor
 Os dados coletados pelo Azure Monitor dos agentes são definidos pelas fontes de dados configuradas.  Os dados dos agentes são armazenados como [dados de log](data-platform-logs.md) com um conjunto de registros.  Cada fonte de dados cria registros de um determinado tipo com cada tipo de tendo seu próprio conjunto de propriedades.
@@ -23,15 +22,15 @@ Os dados coletados pelo Azure Monitor dos agentes são definidos pelas fontes de
 A tabela a seguir lista as fontes de dados de agente atualmente disponíveis no Azure Monitor.  Cada uma tem um link para um artigo à parte que fornece detalhes para aquela fonte de dados.   Fornece também informações sobre o método e a frequência de coleta. 
 
 
-| Fonte de dados | Plataforma | Agente do log Analytics | Agente do Operations Manager | Armazenamento do Azure | Operations Manager necessário? | Dados de agente do Operations Manager enviados por meio do grupo de gerenciamento | Frequência de coleta |
+| Fonte de dados | Platform | Agente do log Analytics | Agente do Operations Manager | Armazenamento do Azure | Operations Manager necessário? | Dados de agente do Operations Manager enviados por meio do grupo de gerenciamento | Frequência da coleta |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| [Logs personalizados](data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | na chegada |
+| [Logs personalizados](data-sources-custom-logs.md) | Portal |&#8226; |  | |  |  | na chegada |
 | [Logs personalizados](data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | na chegada |
-| [Logs do IIS](data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |depende da configuração de rolagem de arquivo de log |
-| [Contadores de desempenho](data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |conforme agendado, mínimo de 10 segundos |
+| [Logs do IIS](data-sources-iis-logs.md) | Portal |&#8226; |&#8226; |&#8226; |  |  |depende da configuração de rolagem de arquivo de log |
+| [Contadores de desempenho](data-sources-performance-counters.md) | Portal |&#8226; |&#8226; |  |  |  |conforme agendado, mínimo de 10 segundos |
 | [Contadores de desempenho](data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |conforme agendado, mínimo de 10 segundos |
 | [Syslog](data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |do armazenamento do Azure: 10 minutos; do agente: na chegada |
-| [Logs de eventos do Windows](data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | na chegada |
+| [Logs de eventos do Windows](data-sources-windows-events.md) |Portal |&#8226; |&#8226; |&#8226; |  |&#8226; | na chegada |
 
 
 ## <a name="configuring-data-sources"></a>Configurando fontes de dados
@@ -39,7 +38,7 @@ Configure fontes de dados no menu **Dados** nas **Configurações Avançadas** d
 
 ![Configurar eventos do Windows](media/agent-data-sources/configure-events.png)
 
-1. No portal do Azure, selecione **workspaces do Log Analytics** > seu workspace > **Configurações Avançadas**.
+1. No portal do Azure, escolha **workspaces do Log Analytics** > seu workspace > **Configurações Avançadas**.
 2. Selecione **Dados**.
 3. Clique na fonte de dados que você deseja configurar.
 4. Siga o link para a documentação para cada fonte de dados na tabela acima para obter detalhes sobre sua configuração.
@@ -55,7 +54,7 @@ Se o agente não puder se conectar ao Azure Monitor nem ao Operations Manager, e
 ## <a name="log-records"></a>Registros de log
 Todos os dados de log coletados pelo Azure Monitor são armazenados no workspace como registros.  Registros coletados por diferentes fontes de dados terão seu próprio conjunto de propriedades e serão identificados por sua propriedade **Type** .  Consulte a documentação para cada fonte de dados e a solução para obter detalhes sobre cada tipo de registro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * Conheça as [soluções de monitoramento](../insights/solutions.md) que adicionam funcionalidades ao Azure Monitor e também coletam dados no workspace.
 * Saiba mais sobre as [consultas de log](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções de monitoramento.  
 * Configure [alertas](alerts-overview.md) para notificá-lo de forma proativa sobre dados críticos coletados de fontes de dados e soluções de monitoramento.

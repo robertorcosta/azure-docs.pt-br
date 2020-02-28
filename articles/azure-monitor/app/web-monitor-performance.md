@@ -1,19 +1,15 @@
 ---
 title: Monitorar a integridade e o uso do aplicativo com o Application Insights
 description: Introdução ao Application Insights. Analise o uso, disponibilidade e desempenho de seu local ou aplicativos do Microsoft Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: ebf6fa6d3dac6c63dfaa349a77a08bc81d402ef8
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e398f23559729580ae4ad8b6507c2f09328052b5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899293"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670892"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitore o desempenho em aplicativos da web
 
@@ -50,14 +46,14 @@ Clique em um gráfico para selecionar outras medidas que são exibidas, ou adici
 ## <a name="metrics"></a>O que significa tudo isso? Blocos e relatórios de desempenho
 Há várias métricas de desempenho que você pode obter. Vamos começar com estas que aparecem por padrão na folha do aplicativo.
 
-### <a name="requests"></a>Requests
+### <a name="requests"></a>Solicitações
 O número de solicitações de HTTP receberam em um período especifico. Compare isso com os resultados em outros reatórios para ver como seu aplicativo se comporta conforme a carga varia.
 
 As solicitações HTTP incluem todas as solicitações GET ou POST para páginas, dados e imagens.
 
 Clique no mosaico para obter contagens para URLs específicas.
 
-### <a name="average-response-time"></a>Tempo de resposta média
+### <a name="average-response-time"></a>Tempo médio de resposta
 Mede o tempo entre uma solicitação da web inserindo seu aplicativo e a resposta que está sendo devolvida.
 
 Os pontos mostram uma média da movimentação. Se existe muitas solicitações, pode haver algumas que desviam da média sem um pico óbvio ou profundo no grafo.

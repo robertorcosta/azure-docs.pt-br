@@ -1,18 +1,17 @@
 ---
 title: Monitoramento do VMware solução no Azure Monitor | Microsoft Docs
 description: Saiba mais sobre como a solução de Monitoramento de VMware pode ajudar a gerenciar logs e monitorar hosts ESXi.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: ac735c9131ebe7b7273d93a927cb4d4a8be24508
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c1622ef16155206d779c6d703fc7da568d233e7e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75399201"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664772"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Monitoramento do VMware (preterido) solução no Azure Monitor
 
@@ -82,7 +81,7 @@ A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre 
 
 A tabela a seguir mostram exemplos de campos de dados coletados pela solução de Monitoramento de VMware:
 
-| nome do campo | descrição |
+| nome do campo | description |
 | --- | --- |
 | Device_s |dispositivos de armazenamento do VMware |
 | ESXIFailure_s |tipos de falha |
@@ -128,7 +127,7 @@ A partir daqui, você pode editar a consulta de log para modificá-la para algo 
 #### <a name="find-esxi-host-events"></a>Encontrar eventos do host ESXi
 Um único host ESXi gera vários logs, com base em seus processos. A solução de Monitoramento do VMware centraliza-os e resume as contagens de eventos. Essa exibição centralizada ajuda a entender qual host ESXi tem um alto volume de eventos e quais eventos ocorrem com mais frequência em seu ambiente.
 
-![event](./media/vmware/events.png)
+![{1&gt;evento&lt;1}](./media/vmware/events.png)
 
 Você pode aprofundar-se ainda mais, clicando em um host ESXi ou um tipo de evento.
 
@@ -197,7 +196,7 @@ Pode haver vários motivos:
 
      d. Se o arquivo não existe ou o usuário e a configuração de grupo estão errados, tome uma ação corretiva ao [Preparar um servidor Linux](#prepare-a-linux-server).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * Usar [consultas de log](../log-query/log-query-overview.md) no Log Analytics para exibir dados detalhados de hosts do VMware.
 * [Criar seus próprios painéis](../learn/tutorial-logs-dashboards.md) mostrando os dados de host do VMware.
 * [Criar alertas](../platform/alerts-overview.md) quando ocorrem eventos específicos de host do VMware.

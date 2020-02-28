@@ -1,18 +1,17 @@
 ---
 title: Conectar computadores Linux ao Azure Monitor | Microsoft Docs
 description: Este artigo descreve como conectar computadores Linux hospedados em outras nuvens ou locais para Azure Monitor com o agente de Log Analytics para Linux.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
-ms.openlocfilehash: 15334f0c58f602a2728e3daa6645b957dfcd7129
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 40c279a4beee9fbebe2de7f272fe51d9039f071c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290318"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668699"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Conectar computadores Linux ao Azure Monitor
 
@@ -161,7 +160,7 @@ Se a autenticação for necessária em ambos os casos, você precisará especifi
 
 A atualização de uma versão anterior, começando com a versão 1.0.0-47, tem suporte em cada versão. Execute a instalação com o parâmetro `--upgrade` para atualizar todos os componentes do agente para a versão mais recente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Examine [o gerenciamento e a manutenção do agente de log Analytics para Windows e Linux](agent-manage.md) para saber mais sobre como reconfigurar, atualizar ou remover o agente da máquina virtual.
 

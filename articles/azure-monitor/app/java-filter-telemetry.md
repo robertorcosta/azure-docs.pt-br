@@ -1,18 +1,14 @@
 ---
 title: Filtrar Aplicativo Azure telemetria de informações em seu aplicativo Web Java
 description: Reduza o tráfego da telemetria filtrando os eventos que você não precisa monitorar.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 3/14/2019
-ms.openlocfilehash: dd47ef68726f3f804dabbc9751e9c86dfe846559
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 020e54132e0ca0a9f9ccf0236f94515877015637
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927292"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659910"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrar a telemetria no aplicativo Web Java
 
@@ -264,12 +260,12 @@ public TelemetryProcessor successFilter() {
 Você precisará criar seus próprios parâmetros de filtro no `application.properties` e aproveitar a estrutura de configuração externa do Spring boot para passar esses parâmetros para o filtro personalizado. 
 
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 *Meu filtro não está funcionando.*
 
 * Verifique se você forneceu valores válidos de parâmetro. Por exemplo, durações devem ser números inteiros. Valores inválidos farão com que o filtro seja ignorado. Se seu filtro personalizado lançar uma exceção de um construtor ou método set, ele será ignorado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Amostragem](../../azure-monitor/app/sampling.md) — considere a amostragem como uma alternativa que não distorce suas métricas.

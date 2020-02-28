@@ -1,19 +1,17 @@
 ---
 title: Criar um alerta clássico de métrica no Azure com um modelo do Resource Manager
 description: Saiba como usar um modelo do Resource Manager para criar um alerta clássico de métrica para receber notificações por email ou webhook.
-author: johnkemnetz
-services: azure-monitor
-ms.service: azure-monitor
+author: rboucher
+ms.author: robb
 ms.topic: conceptual
 ms.date: 4/27/2018
-ms.author: johnkem
-ms.subservice: metrics
-ms.openlocfilehash: 7c1cdf912f9a1e4e8ae92baa4381e9705702136f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.subservice: alerts
+ms.openlocfilehash: c25886308b4f9560b336982b87bd4b38b306bcb2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977583"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668036"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica clássico com um modelo do Gerenciador de Recursos
 Este artigo mostra como você pode usar um [o modelo do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar alertas de métricas do Azure. Isso permite que você configure de modo automático alertas sobre os recursos quando eles são criados para garantir que todos os recursos sejam monitorados corretamente.
@@ -401,7 +399,7 @@ Um alerta em um modelo do Resource Manager geralmente é mais útil ao criar um 
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * [Saiba mais sobre os Alertas](alerts-overview.md)
 * [Adicionar Configurações de Diagnóstico](../../azure-monitor/platform/diagnostic-settings-template.md) ao modelo do Resource Manager
 * Para obter a sintaxe JSON e as propriedades, confira a referência de modelo [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules).

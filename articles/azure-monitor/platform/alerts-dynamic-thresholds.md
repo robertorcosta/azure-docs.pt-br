@@ -2,18 +2,15 @@
 title: Criação de alertas com limites dinâmicos no Azure Monitor
 description: Criar alertas com limites dinâmicos baseados em aprendizado de máquina
 author: yanivlavi
-services: azure-monitor
-ms.service: azure-monitor
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.author: yalavi
-ms.reviewer: mbullwin
-ms.openlocfilehash: f67dcf7f1f4f39a11eb995995a8d0acc278b5d4a
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: 9345138e948d84e0ea3c804dbd7a4b3c21daca2f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77373400"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668138"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertas de métrica com limites dinâmicos no Azure Monitor
 

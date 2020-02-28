@@ -1,19 +1,15 @@
 ---
 title: Mapa de aplicativos no Azure Application Insights | Microsoft Docs
 description: Monitorar topologias complexas de aplicativos com o mapa do aplicativo
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: cc7d58f0557e620c273043af8ffb2e8ec4d8ec87
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: dce2fdbe7e0c390309be38d2ebab4c73dbb4ed2e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485141"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666268"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa do aplicativo: aplicativos distribuídos por triagem
 
@@ -236,7 +232,7 @@ Um cenário em que você talvez queira substituir o valor para a instância de f
 
 Para obter mais informações sobre como substituir a propriedade de nome da função de nuvem por inicializadores de telemetria, consulte [Adicionar propriedades: ITelemetryInitializer](api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Se você estiver tendo dificuldades para obter o Mapa do aplicativo para trabalhar conforme esperado, tente essas etapas:
 
@@ -274,7 +270,7 @@ Para fornecer feedback, use a opção de feedback.
 
 ![Imagem de MapLink-1](./media/app-map/14-updated.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para saber mais sobre como a correlação funciona em Application Insights consulte o [artigo correlação de telemetria](correlation.md).
 * A [experiência de diagnóstico de transação de ponta a ponta](transaction-diagnostics.md) correlaciona a telemetria do lado do servidor em todos os seus Application insights componentes monitorados em uma única exibição.

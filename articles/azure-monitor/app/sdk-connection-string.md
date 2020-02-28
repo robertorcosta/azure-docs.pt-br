@@ -1,19 +1,17 @@
 ---
 title: Cadeias de conexão no Aplicativo Azure insights | Microsoft Docs
 description: Como usar cadeias de conexão.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8febe1fd749842a6db0cd1c9991f4002eb7cf2ad
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: ad56f1f15936bc3f3f1ac75396352206f68e7a61
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190090"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671470"
 ---
 # <a name="connection-strings"></a>Cadeias de conexão
 
@@ -49,7 +47,7 @@ Sua cadeia de conexão é exibida na folha visão geral do recurso de Applicatio
 
 ![Cadeia de conexão na folha visão geral](media/overview-dashboard/overview-connection-string.png)
 
-### <a name="schema"></a>Esquema
+### <a name="schema"></a>Schema
 
 #### <a name="max-length"></a>Comprimento máximo
 
@@ -264,7 +262,7 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 ```
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Introdução ao runtime com:
 

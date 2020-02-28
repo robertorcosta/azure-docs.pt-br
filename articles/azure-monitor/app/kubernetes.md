@@ -1,18 +1,16 @@
 ---
 title: Use Application Insights para monitorar o AKS (serviço kubernetes do Azure) ou outros aplicativos hospedados do kubernetes-Azure Monitor | Microsoft Docs
 description: Azure Monitor usa a tecnologia de malha de serviço, İSTİO, no cluster kubernetes para fornecer monitoramento de aplicativo para qualquer aplicativo kubernetes hospedado. Isso permite que você colete Application Insights telemetria referente a solicitações de entrada e saída de e para o pods em execução no cluster.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: a7821db85d4218cbccb6c10f12ecbc624f2702fe
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 15c75d4add9615df6c42aa6121557659e54354d0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432517"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666779"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Monitoramento de aplicativo de instrumentação zero para aplicativos hospedados kubernetes
 
@@ -26,14 +24,14 @@ O Azure Monitor agora aproveita a tecnologia de malha de serviço em seu cluster
 > [!NOTE]
 > Essa é uma das várias maneiras de executar o monitoramento de aplicativos no kubernetes. Você também pode instrumentar qualquer aplicativo hospedado no kubernetes usando o [SDK Application insights](../../azure-monitor/azure-monitor-app-hub.yml) sem a necessidade de uma malha de serviço. Para monitorar o kubernetes sem instrumentar o aplicativo com um SDK, você pode usar o método abaixo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 - Um [cluster kubernetes](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads).
 - Acesso do console ao cluster para executar o *kubectl*.
 - Um [recurso do Application insights](create-new-resource.md)
 - Ter uma malha de serviço. Se o cluster não tiver o İSTİO implantado, você poderá aprender a [instalar e usar o İSTİO no serviço kubernetes do Azure](https://docs.microsoft.com/azure/aks/istio-install).
 
-## <a name="capabilities"></a>Capacidades
+## <a name="capabilities"></a>{1&gt;Capabilities&lt;1}
 
 Ao usar o monitoramento de aplicativos de instrumentação zero para aplicativos hospedados do kubernetes, você poderá usar:
 
@@ -129,7 +127,7 @@ Abaixo está o fluxo de solução de problemas a ser usado quando a telemetria n
    ```
    Procure quaisquer erros, especialmente relacionados à comunicação com o adaptador *applicationinsightsadapter* .
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Perguntas frequentes
 
 Para obter as informações mais recentes sobre o progresso deste projeto, visite o [adaptador de Application insights para o GitHub do projeto do mixer İSTİO](https://github.com/Microsoft/Application-Insights-Istio-Adapter/blob/master/SETUP.md#faq).
 
@@ -142,6 +140,6 @@ kubectl delete -f <filename.yaml>
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para saber mais sobre como Azure Monitor e contêineres funcionam juntos, visite [Azure monitor para obter visão geral dos contêineres](../../azure-monitor/insights/container-insights-overview.md)

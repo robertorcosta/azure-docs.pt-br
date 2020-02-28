@@ -1,19 +1,17 @@
 ---
 title: correlação de telemetria no Azure Application Insights | Microsoft Docs
 description: Correlação no Application Insights Telemetry
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: bc73dfb1c4dc77abe0bd135ecf572fa05ddf6322
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 06897fffda490cdfcbb2a9cf6f55c7945e8afda0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951319"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672048"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
@@ -33,7 +31,7 @@ Você pode compilar um modo de exibição de operação lógica distribuída usa
 
 Em um ambiente de microsserviços, os rastreamentos de componentes podem ir para itens de armazenamento diferentes. Todo componente pode ter sua própria chave de instrumentação no Application Insights. Para obter a telemetria para a operação lógica, o Application Insights consulta dados de cada item de armazenamento. Quando o número de itens de armazenamento for grande, você precisará de uma dica sobre onde procurar em seguida. O modelo de dados do Application Insights define dois campos para resolver esse problema: `request.source` e `dependency.target`. O primeiro campo identifica o componente que iniciou a solicitação de dependência. O segundo campo identifica qual componente retornou a resposta da chamada de dependência.
 
-## <a name="example"></a>Exemplo
+## <a name="example"></a>{1&gt;Exemplo&lt;1}
 
 Vamos examinar um exemplo. Um aplicativo chamado preços de ações mostra o preço atual do mercado de um estoque usando uma API externa chamada stock. O aplicativo de preços de ações tem uma página chamada Stock Page que o navegador da Web do cliente abre usando `GET /Home/Stock`. O aplicativo consulta a API de estoque usando a chamada HTTP `GET /api/stock/value`.
 
@@ -47,7 +45,7 @@ Você pode analisar a telemetria resultante executando uma consulta:
 
 Nos resultados, observe que todos os itens de telemetria compartilham a raiz `operation_Id`. Quando uma chamada AJAX é feita da página, uma nova ID exclusiva (`qJSXU`) é atribuída à telemetria de dependência e a ID do pageView é usada como `operation_ParentId`. A solicitação do servidor, em seguida, usa a ID do Ajax como `operation_ParentId`.
 
-| itemType   | Nome                      | ID           | operation_ParentId | operation_Id |
+| itemType   | {1&gt;name&lt;1}                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Página de ações                |              | STYz               | STYz         |
 | dependência | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
@@ -204,7 +202,7 @@ Este recurso está em `Microsoft.ApplicationInsights.JavaScript`. Isso está des
 
 A [especificação do modelo de dados do OpenTracing](https://opentracing.io/) e os modelos de dados do Application Insights são mapeados da seguinte maneira:
 
-| Percepções sobre o Aplicativo                  | OpenTracing                                       |
+| Application Insights                  | OpenTracing                                       |
 |------------------------------------   |-------------------------------------------------  |
 | `Request`, `PageView`                 | `Span` com `span.kind = server`                  |
 | `Dependency`                          | `Span` com `span.kind = client`                  |
@@ -358,7 +356,7 @@ Talvez você queira personalizar a maneira como os nomes de componentes são exi
 
   O iniciador do Spring boot atribui automaticamente `cloudRoleName` ao valor inserido para a propriedade `spring.application.name`.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Gravar a [telemetria personalizada](../../azure-monitor/app/api-custom-events-metrics.md).
 - Para cenários de correlação avançada em ASP.NET Core e ASP.NET, consulte [rastrear operações personalizadas](custom-operations-tracking.md).

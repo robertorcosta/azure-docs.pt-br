@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: d0c9fe9ebd040ee59ae8717e95fd1911eaef61be
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: ff7420619cffc2287ab8ff6332df605d56329549
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560449"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664126"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>Gerenciar o dimensionamento horizontal do cluster (scale out) no Azure Data Explorer para acomodar a demanda em alteração
 
@@ -45,7 +45,7 @@ Dimensionamento automático otimizado é o método de dimensionamento automátic
 
 1. Selecione uma contagem de instâncias mínima e uma contagem máxima de instâncias. O dimensionamento automático do cluster varia entre esses dois números, com base na carga.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
    ![Método de dimensionamento automático otimizado](media/manage-cluster-horizontal-scaling/optimized-autoscale-method.png)
 
@@ -59,13 +59,14 @@ Quando o cluster se aproxima de um estado de utilização excessiva, escale hori
 * O número de instâncias de cluster está abaixo do número máximo de instâncias definidas pelo usuário.
 * A utilização do cache é alta por mais de uma hora.
 * A CPU é alta por mais de uma hora.
+* A utilização de ingestão é alta por mais de uma hora.
 
 > [!NOTE]
 > A lógica de expansão não considera a métrica de utilização de ingestão. Se essa métrica for importante para seu caso de uso, use o [dimensionamento automático personalizado](#custom-autoscale).
 
 **Reduzir horizontalmente**
 
-Quando o cluster se aproximar de um estado de subutilização, dimensione-o para reduzir os custos, mas manter o desempenho. Várias métricas são usadas para verificar se é seguro dimensionar no cluster. As regras a seguir são avaliadas diariamente por 7 dias antes da realização de scale in:
+Quando o cluster se aproximar de um estado de subutilização, dimensione-o para reduzir os custos, mas manter o desempenho. Várias métricas são usadas para verificar se é seguro dimensionar no cluster. As regras a seguir são avaliadas por hora por 6 horas antes da realização de scale in:
 * O número de instâncias é acima de 2 e acima do número mínimo de instâncias definidas.
 * Para garantir que não haja sobrecarga de recursos, as métricas a seguir devem ser verificadas antes de a redução de escala ser executada: 
     * A utilização do cache não é alta
@@ -125,11 +126,11 @@ Usando o dimensionamento automático personalizado, você pode dimensionar seu c
     | **Default** | O número padrão de instâncias. Essa configuração será usada se houver problemas na leitura das métricas de recurso. |
     |  |  |
 
-7. Clique em **Salvar**.
+7. Selecione **Salvar**.
 
 Agora você configurou o dimensionamento horizontal para o cluster de Data Explorer do Azure. Adicione outra regra para o dimensionamento vertical. Se você precisar de assistência com problemas de dimensionamento de cluster, [abra uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) no portal do Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Monitorar o desempenho, a integridade e o uso do Data Explorer do Azure com métricas](using-metrics.md)
 * [Gerencie o dimensionamento vertical do cluster](manage-cluster-vertical-scaling.md) para o dimensionamento apropriado de um cluster.

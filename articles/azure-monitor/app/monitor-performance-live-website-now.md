@@ -1,18 +1,14 @@
 ---
 title: Monitorar um aplicativo Web ASP.NET dinâmico com o Azure Application Insights | Microsoft Docs
 description: Monitore o desempenho do site sem implantá-lo novamente. Funciona com aplicativos Web ASP.NET hospedado localmente ou em máquinas virtuais.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 08/26/2019
-ms.openlocfilehash: ac238ae5715e09b2e64737801a862d89852ec9d9
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 63d632df61548d15a1e0a606cf2e198207faf341
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820760"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670042"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentar aplicativos Web em tempo de execução com Application Insights anexação sem código
 
@@ -43,14 +39,14 @@ Aqui está um resumo do que você tem com cada rota:
 
 |  | Tempo de compilação | Tempo de execução |
 | --- | --- | --- |
-| Solicitações e exceções |SIM |SIM |
-| [Exceções mais detalhadas](../../azure-monitor/app/asp-net-exceptions.md) | |SIM |
+| Solicitações e exceções |Sim |Sim |
+| [Exceções mais detalhadas](../../azure-monitor/app/asp-net-exceptions.md) | |Sim |
 | [Diagnóstico de dependência](../../azure-monitor/app/asp-net-dependencies.md) |No .NET 4.6+, mas menos detalhes |Sim, detalhes completos: códigos de resultado, texto do comando SQL, verbo HTTP|
-| [Contadores de desempenho do sistema](../../azure-monitor/app/performance-counters.md) |SIM |SIM |
-| [API para telemetria personalizada][api] |SIM |Não |
-| [Integração do log de rastreamento](../../azure-monitor/app/asp-net-trace-logs.md) |SIM |Não |
-| [Exibição da página e dados do usuário](../../azure-monitor/app/javascript.md) |SIM |Não |
-| É necessário recompilar o código |SIM | Não |
+| [Contadores de desempenho do sistema](../../azure-monitor/app/performance-counters.md) |Sim |Sim |
+| [API para telemetria personalizada][api] |Sim |Não |
+| [Integração do log de rastreamento](../../azure-monitor/app/asp-net-trace-logs.md) |Sim |Não |
+| [Exibição da página e dados do usuário](../../azure-monitor/app/javascript.md) |Sim |Não |
+| É necessário recompilar o código |Sim | Não |
 
 
 
@@ -88,7 +84,7 @@ Se você deseja publicar novamente sem adicionar Application Insights no código
 4. Reaplique as edições realizadas no arquivo .config.
 
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 
 ### <a name="confirm-a-valid-installation"></a>Confirmar uma instalação válida 
 
@@ -176,7 +172,7 @@ Exclua qualquer um destes arquivos encontrados no diretório do aplicativo:
 
 * Consulte [solução de problemas][qna]adicional.
 
-## <a name="system-requirements"></a>Requisitos do Sistema
+## <a name="system-requirements"></a>Requisitos do sistema
 Suporte de sistema operacional para Application Insights Status Monitor no servidor:
 
 * Windows Server 2008
@@ -253,7 +249,7 @@ Saiba quais aplicativos estão sendo monitorados:
 
 ## <a name="questions"></a>Perguntas sobre o Status Monitor
 
-### <a name="what-is-status-monitor"></a>O que é Status Monitor?
+### <a name="what-is-status-monitor"></a>O que é o Status Monitor?
 
 Um aplicativo de desktop instalado no servidor web IIS. Ele ajuda você instrumentar e configurar aplicativos web. 
 
@@ -294,7 +290,7 @@ Para aplicativos que você instrumenta apenas em tempo de execução usando o St
 * Solicitações HTTP
 * Chamadas para dependências
 * Exceções
-* contadores de desempenho
+* Contadores de desempenho
 
 Para aplicativos já instrumentados em tempo de compilação:
 

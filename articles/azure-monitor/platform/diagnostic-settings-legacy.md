@@ -2,17 +2,16 @@
 title: Coletar log de atividades do Azure com configurações de diagnóstico (versão prévia) – Azure Monitor | Microsoft Docs
 description: Use as configurações de diagnóstico para encaminhar logs de atividades do Azure para Azure Monitor logs, armazenamento do Azure ou hubs de eventos do Azure.
 author: bwren
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: fcdcef5d63163b24fe5de0f547dc2dde00cd674f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: fcf7eef269c9fa8b62217fb64ed792aece1fce4e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016248"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670331"
 ---
 # <a name="update-to-azure-activity-log-collection-and-export"></a>Atualizar para a coleta e a exportação do log de atividades do Azure
 O [log de atividades do Azure](platform-logs-overview.md) é um [log de plataforma](platform-logs-overview.md) que fornece informações sobre eventos de nível de assinatura que ocorreram no Azure. O método para enviar entradas do log de atividades para [um hub de eventos ou uma conta de armazenamento](activity-log-export.md) ou para um [log Analytics espaço de trabalho](activity-log-collect.md) foi alterado para usar [as configurações de diagnóstico](diagnostic-settings.md). Este artigo descreve a diferença entre os métodos e como limpar as configurações herdadas na preparação para alterar as configurações de diagnóstico.
@@ -96,7 +95,7 @@ Você deve desabilitar a coleta existente da atividade antes de habilitá-la usa
 ## <a name="activity-log-monitoring-solution"></a>Solução de monitoramento do log de atividades
 A solução de monitoramento de Log Analytics do Azure inclui várias consultas de log e exibições para analisar os registros de log de atividades em seu espaço de trabalho do Log Analytics. Essa solução usa os dados de log coletados em um espaço de trabalho Log Analytics e continuará a funcionar sem nenhuma alteração se você coletar o log de atividades usando as configurações de diagnóstico. Consulte [solução de monitoramento de análise de logs de atividade](activity-log-collect.md#activity-logs-analytics-monitoring-solution) para obter detalhes sobre esta solução.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Leia mais sobre o Log de Atividades](../../azure-resource-manager/management/view-activity-logs.md)
 * [Saiba mais sobre as configurações de diagnóstico](diagnostic-settings.md)

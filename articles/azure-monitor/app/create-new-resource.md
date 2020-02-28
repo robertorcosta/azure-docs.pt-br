@@ -1,18 +1,14 @@
 ---
 title: Criar um novo recurso do Azure Application Insights | Microsoft Docs
 description: Configure manualmente o monitoramento do Application Insights para um novo aplicativo em tempo real.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/02/2019
-ms.openlocfilehash: 1ba6d6e1774db4e9c95b107e1482a0c6ce532bb5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 090c983dcca101557f8dec479d1267275d24908b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432625"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672031"
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 
@@ -28,7 +24,7 @@ Entre no [portal do Azure](https://portal.azure.com)e crie um recurso de Applica
 
 ![Clique no sinal ' + ' no canto superior esquerdo. Selecionar Ferramentas para Desenvolvedores seguido por Application Insights](./media/create-new-resource/new-app-insights.png)
 
-   | Configurações        |  Valor           | Description  |
+   | Configurações        |  {1&gt;Valor&lt;1}           | Descrição  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valor exclusivo | Nome que identifica o aplicativo que você está monitorando. |
    | **Grupo de recursos**     | myResourceGroup      | Nome do grupo de recursos novo ou existente para hospedar dados do App insights. |
@@ -68,7 +64,7 @@ New-AzApplicationInsights [-ResourceGroupName] <String> [-Name] <String> [-Locat
  [-Tag <Hashtable>] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-#### <a name="example"></a>Exemplo
+#### <a name="example"></a>{1&gt;Exemplo&lt;1}
 
 ```powershell
 New-AzApplicationInsights -Kind java -ResourceGroupName testgroup -Name test1027 -location eastus
@@ -119,7 +115,7 @@ az monitor app-insights component create --app
                                          [--tags]
 ```
 
-#### <a name="example"></a>Exemplo
+#### <a name="example"></a>{1&gt;Exemplo&lt;1}
 
 ```azurecli
 az monitor app-insights component create --app demoApp --location westus2 --kind web -g demoRg --application-type web
@@ -155,7 +151,7 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 
 Para obter a documentação completa de CLI do Azure para esse comando e saber como recuperar a chave de instrumentação, consulte a [documentação do CLI do Azure](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * [Pesquisa de Diagnóstico](../../azure-monitor/app/diagnostic-search.md)
 * [Explorar métricas](../../azure-monitor/app/metrics-explorer.md)
 * [Escrever consultas do Analytics](../../azure-monitor/app/analytics.md)

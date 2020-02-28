@@ -1,18 +1,14 @@
 ---
 title: Recursos, funções e controle de acesso no Azure Application Insights | Microsoft Docs
 description: Proprietários, colaboradores e leitores de percepções de sua organização.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 02/14/2019
-ms.openlocfilehash: 28eb7e490890b46a4025a6cf62e13b364bd7b6dd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 617134c523148e713f7d34b46e0fbf6ae862591f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432353"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671521"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Recursos, funções e controle de acesso no Application Insights
 
@@ -98,7 +94,7 @@ Quando aplicável, vincular a documentação de referência oficial associada.
 
 A 'edição' inclui a criação, a exclusão e a atualização:
 
-* Implante
+* Recursos
 * Testes da Web
 * Alertas
 * Exportação contínua

@@ -1,20 +1,18 @@
 ---
 title: Depurar no Visual Studio com o Aplicativo Azure insights
 description: Análise de desempenho do aplicativo Web e diagnóstico durante a depuração e na produção.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 07/07/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
-ms.openlocfilehash: c4b32d775f64d3adba4ca07fa5154e395717d599
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 8905222214d58eeba24ecf50da768ffa1d65c39d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930669"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670875"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Depure seus aplicativos com o Azure Application Insights no Visual Studio
 No Visual Studio (2015 e posterior), você pode analisar o desempenho e diagnosticar problemas em seu aplicativo Web ASP.NET na depuração e na produção usando a telemetria do [Application Insights do Azure](../../azure-monitor/app/app-insights-overview.md).
@@ -95,7 +93,7 @@ Também será particularmente útil se você tiver [telemetria personalizada](..
   * Para parar a telemetria sendo enviada ao portal, comente a linha `<instrumentationkey>...` de ApplicationInsights. config. Quando você estiver pronto para enviar telemetria para o portal novamente, remova a marca de comentário.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 |  |  |
 | --- | --- |
 | **[Adicionar mais dados](../../azure-monitor/app/asp-net-more.md)**<br/>Monitorar o uso, a disponibilidade, as dependências e as exceções. Integrar rastreamentos de estruturas de logs. Escrever telemetria personalizada. |![Visual Studio](./media/visual-studio/64.png) |

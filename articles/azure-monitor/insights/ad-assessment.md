@@ -1,18 +1,17 @@
 ---
 title: Otimizar seu ambiente do Active Directory com o Azure Monitor | Microsoft Docs
 description: É possível usar a solução Verificação de Integridade do Active Directory para avaliar o risco e a integridade de seus ambientes em intervalos regulares.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2019
-ms.openlocfilehash: 1e97ce1655ae35f4986a915a382d456bb8d2ce4b
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 57c474c8391168702154b71e0c454253ab921dc1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76167841"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667220"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Otimizar seu ambiente do Active Directory com a solução de Verificação de Integridade do Active Directory no Azure Monitor
 
@@ -34,7 +33,7 @@ Após a adição da solução e a conclusão da verificação, as informações 
 
 ![imagem do painel da Verificação da Integridade do AD](./media/ad-assessment/ad-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * A solução de verificação de integridade Active Directory requer uma versão com suporte do .NET Framework 4.6.2 ou superior instalada em cada computador que tenha o agente de Log Analytics para Windows (também conhecido como Microsoft Monitoring Agent (MMA)) instalado.  O agente é usado pelo System Center 2016-Operations Manager, Operations Manager 2012 R2 e Azure Monitor.
 * A solução oferece suporte a controladores de domínio que executam o Windows Server 2008 e 2008 R2, o Windows Server 2012 e 2012 R2 e o Windows Server 2016.
@@ -59,11 +58,11 @@ A Verificação de Integridade do Active Directory coleta dados das seguintes fo
 
 - Registro
 - LDAP
-- .NET Framework
+- {1&gt;.NET Framework&lt;1}
 - Log de eventos
 - ADSI (Interfaces de Serviço do Active Directory)
 - Windows PowerShell
-- Dados de arquivo
+- Dados de arquivos
 - WMI (Instrumentação de Gerenciamento do Windows)
 - API de ferramentas DCDIAG
 - API do NTFRS (Serviço de Replicação de Arquivos)
@@ -80,7 +79,7 @@ Cada recomendação feita recebe um valor de ponderação que identifica a impor
 Os pesos são valores agregados com base em três fatores principais:
 
 * A *probabilidade* de que um problema identificado cause problemas. Uma probabilidade mais alta é igual a uma pontuação geral maior para a recomendação.
-* O *impacto* da questão na sua organização se ela causar um problema. Um impacto maior é igual a uma pontuação geral maior para a recomendação.
+* O *impacto* do problema na sua organização se ele causar um problema. Um impacto maior é igual a uma pontuação geral maior para a recomendação.
 * O *esforço* necessário para implementar a recomendação. Um esforço maior é igual a uma pontuação geral menor para a recomendação.
 
 A importância de cada recomendação é expressa como um percentual da pontuação total disponível para todas as áreas de foco. Por exemplo, se uma recomendação na área de foco de segurança e conformidade tiver uma pontuação de 5%, implementar essa recomendação aumentará sua pontuação geral de segurança e conformidade em 5%.
@@ -119,7 +118,7 @@ Veja as avaliações de conformidade resumidas para sua infraestrutura e faça u
 
     ![imagem das recomendações de verificação de integridade](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
 
-4. É possível executar as ações corretivas sugeridas em **Ações Sugeridas**. Quando o item tiver sido resolvido, avaliações posteriores gravarão que essas ações recomendadas foram executadas e sua pontuação de conformidade aumentará. Os itens corrigido aparecem como **Objetos Passados**.
+4. É possível executar as ações corretivas sugeridas em **Ações Sugeridas**. Quando o item tiver sido resolvido, avaliações posteriores gravarão que essas ações recomendadas foram executadas e sua pontuação de conformidade aumentará. Os itens corrigidos aparecem como **Objetos Passados**.
 
 ## <a name="ignore-recommendations"></a>Ignorar as recomendações
 
@@ -184,7 +183,7 @@ Os resultados podem então ser exportados para o Excel para análise adicional.
 
 *Há uma maneira de configurar a frequência com a qual a verificação de integridade é executada?*
 
-* No momento, não.
+* Não no momento.
 
 *Se outro servidor for descoberto após eu ter adicionado a solução de verificação de integridade, ele será verificado?*
 
@@ -204,7 +203,7 @@ Os resultados podem então ser exportados para o Excel para análise adicional.
 
 *Há uma maneira de configurar quando os dados são coletados?*
 
-* No momento, não.
+* Não no momento.
 
 *Por que apenas as 10 principais recomendações são exibidas?*
 
@@ -214,6 +213,6 @@ Os resultados podem então ser exportados para o Excel para análise adicional.
 
 * Sim, confira a seção [Ignorar recomendações](#ignore-recommendations) acima.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Use as [Consultas de log do Azure Monitor](../log-query/log-query-overview.md) para saber como analisar dados detalhados da Verificação de Integridade do AD, bem como as recomendações.

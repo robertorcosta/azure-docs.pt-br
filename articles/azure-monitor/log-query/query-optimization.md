@@ -1,18 +1,17 @@
 ---
 title: Otimizar consultas de log no Azure Monitor
 description: Práticas recomendadas para otimizar consultas de log no Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/25/2019
-ms.openlocfilehash: 521fd84e79196439ea220bd7ffa7cc6d0750f045
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 19b0ce154fc19015f7faa17e339c9df259206365
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/27/2020
-ms.locfileid: "77648828"
+ms.locfileid: "77670807"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Otimizar consultas de log no Azure Monitor
 Os logs de Azure Monitor usam o [Data Explorer do Azure (ADX)](/azure/data-explorer/) para armazenar dados de log e executar consultas para analisar esses dados. Ele cria, gerencia e mantém os clusters ADX para você e os otimiza para sua carga de trabalho de análise de log. Quando você executa uma consulta, ela é otimizada e roteada para o cluster ADX apropriado que armazena os dados do espaço de trabalho. Os logs de Azure Monitor e o Data Explorer do Azure usam muitos mecanismos de otimização de consulta automática. Embora as otimizações automáticas forneçam um aumento significativo, elas estão em alguns casos em que você pode melhorar drasticamente o desempenho da consulta. Este artigo explica as considerações de desempenho e várias técnicas para corrigi-las.
@@ -300,7 +299,7 @@ A execução de consultas entre regiões e entre clusters exige que o sistema Se
 > [!IMPORTANT]
 > Em alguns cenários de vários espaços de trabalho, as medições de CPU e dados não serão precisas e representarão a medida apenas para alguns dos espaços de trabalho.
 
-## <a name="parallelism"></a>Paralelismo
+## <a name="parallelism"></a>Parallelism
 Os logs de Azure Monitor estão usando clusters grandes do Data Explorer do Azure para executar consultas, e esses clusters variam em escala. O sistema dimensiona automaticamente os clusters de acordo com a lógica e a capacidade de posicionamento do espaço de trabalho.
 
 Para executar uma consulta com eficiência, ela é particionada e distribuída para nós de computação com base nos dados necessários para seu processamento. Há algumas situações em que o sistema não pode fazer isso com eficiência. Isso pode levar a uma longa duração da consulta. 
@@ -315,6 +314,6 @@ Os comportamentos de consulta que podem reduzir o paralelismo incluem:
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Documentação de referência para a linguagem de consulta Kusto](/azure/kusto/query/).

@@ -1,24 +1,23 @@
 ---
 title: Usar o PowerShell para criar e configurar um espaço de trabalho do Log Analytics | Microsoft Docs
 description: Log Analytics espaços de trabalho no Azure Monitor armazenar dados de servidores em sua infraestrutura local ou na nuvem. Você pode coletar dados da máquina do armazenamento do Azure quando gerados pelo diagnóstico do Azure.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/19/2019
-ms.openlocfilehash: 68cd0d51c16ecd63a1446c284f81c5dea07b8c06
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6f3f21a7148c59de452d6407fd9a1067b86faae4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363516"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659264"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Gerenciar Log Analytics espaço de trabalho no Azure Monitor usando o PowerShell
 
 Você pode usar os [cmdlets do log Analytics PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/) para executar várias funções em um espaço de trabalho Log Analytics no Azure monitor de uma linha de comando ou como parte de um script.  Os exemplos das tarefas que você pode executar com o PowerShell incluem:
 
-* Crie um workspace
+* Criar um workspace
 * Adicionar ou remover uma solução
 * Importar e exportar pesquisas salvas
 * Criar um grupo de computadores
@@ -37,14 +36,14 @@ Este artigo fornece dois exemplos de código que ilustram algumas das funções 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Esses exemplos funcionam com a versão 1.0.0 ou posterior do módulo AZ. OperationalInsights.
 
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Criar e configurar um espaço de trabalho do Log Analytics
 O exemplo de script a seguir ilustra como:
 
-1. Crie um workspace
+1. Criar um workspace
 2. Listar as soluções disponíveis
 3. Adicionar soluções ao workspace
 4. Importar pesquisas salvas
@@ -202,8 +201,8 @@ Para o monitoramento de recursos do Azure realizado sem o uso de agente, os recu
 
 | Tipo de recurso | Logs | Métricas |
 | --- | --- | --- |
-| Gateways de Aplicativo    | Sim | Sim |
-| Contas de Automação     | Sim | |
+| Gateways do Aplicativo    | Sim | Sim |
+| Contas de automação     | Sim | |
 | Contas do Lote          | Sim | Sim |
 | Data Lake Analytics     | Sim | |
 | Data Lake Store         | Sim | |
@@ -211,14 +210,14 @@ Para o monitoramento de recursos do Azure realizado sem o uso de agente, os recu
 | Namespace do Hub de Eventos     |     | Sim |
 | Hubs IoT                |     | Sim |
 | Key Vault               | Sim | |
-| Load Balancers          | Sim | |
-| aplicativos Lógicos              | Sim | Sim |
-| Grupos de Segurança de Rede | Sim | |
+| Balanceadores de Carga          | Sim | |
+| Aplicativos Lógicos              | Sim | Sim |
+| Grupos de segurança de rede | Sim | |
 | Cache Redis do Azure             |     | Sim |
-| Serviços de pesquisa         | Sim | Sim |
+| Serviços Search         | Sim | Sim |
 | Namespace do Barramento de Serviço   |     | Sim |
 | SQL (v12)               |     | Sim |
-| Sites da Web               |     | Sim |
+| Sites               |     | Sim |
 | Farms do servidor Web        |     | Sim |
 
 Para obter os detalhes das métricas disponíveis, consulte [métricas compatíveis com o Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
@@ -274,6 +273,6 @@ Remove-AzOperationalInsightsStorageInsight -ResourceGroupName $workspace.Resourc
 Você também pode usar o script anterior para coletar logs de contas de armazenamento em assinaturas diferentes. O script é capaz de trabalhar entre assinaturas, pois você está fornecendo a ID do recurso da conta de armazenamento e uma chave de acesso correspondente. Quando você altera a chave de acesso, você precisa atualizar as informações de armazenamento para a nova chave.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Examinar cmdlets do PowerShell do Log Analytics](https://docs.microsoft.com/powershell/module/az.operationalinsights/) para obter informações adicionais sobre como usar o PowerShell para a configuração do Log Analytics.
 

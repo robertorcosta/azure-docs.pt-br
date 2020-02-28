@@ -1,19 +1,18 @@
 ---
 title: Criar uma solução de gerenciamento no Azure | Microsoft Docs
 description: As soluções de gerenciamento incluem cenários de gerenciamento de empacotados no Azure que os clientes podem adicionar ao espaço de trabalho do Log Analytics.  Este artigo fornece detalhes sobre como criar soluções de gerenciamento para usar em seu próprio ambiente ou disponibilizar para os clientes.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5465c177cf174ebf8d6b7d4f43c5387bce3adb70
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f1605597c7716ba6a896c7ecdae968f07d66027b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969689"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663208"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Projetar e criar uma solução de gerenciamento no Azure (versão prévia)
 > [!NOTE]
@@ -28,7 +27,7 @@ As soluções de gerenciamento contêm recursos do Azure que trabalham juntos pa
 A estratégia básica é iniciar a solução de gerenciamento compilando os componentes individuais em seu ambiente do Azure.  Assim que as funcionalidades estiverem funcionando corretamente, você poderá começar a agrupá-las em um [arquivo de solução de gerenciamento]( solutions-solution-file.md). 
 
 
-## <a name="design-your-solution"></a>Projete sua solução
+## <a name="design-your-solution"></a>Projetar sua solução
 O padrão mais comum para uma solução de gerenciamento é mostrado no diagrama a seguir.  Os diferentes componentes nesse padrão são discutidos a seguir.
 
 ![Visão geral da solução de gerenciamento](media/solutions-creating/solution-overview.png)
@@ -74,7 +73,7 @@ Depois de concluir e testar sua solução, disponibilize-a para clientes usando 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * Saiba como [criar um arquivo de solução]( solutions-solution-file.md) para sua solução de gerenciamento.
 * Aprenda os detalhes da [Criação de modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
 * Pesquise entre os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates) para obter exemplos de diferentes modelos do Resource Manager.

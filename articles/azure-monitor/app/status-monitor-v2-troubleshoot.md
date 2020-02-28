@@ -1,18 +1,16 @@
 ---
 title: Problemas conhecidos e solução de problemas do agente do Aplicativo Azure insights | Microsoft Docs
 description: Os problemas conhecidos do agente de Application Insights e exemplos de solução de problemas. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicativos Web ASP.NET hospedados localmente, em VMs ou no Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 30172bf65be52ba1ddd2b9127c3e2b5a284d48dc
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 217629ba5c386557455cc2d2b8bd47f85fa8f84e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899586"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671147"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Solucionando problemas do agente de Application Insights (anteriormente denominado Status Monitor v2)
 
@@ -26,9 +24,9 @@ Se você entrar em um problema que não está listado aqui, poderá entrar em co
 
 Se qualquer uma dessas DLLs estiver presente no diretório bin, o monitoramento poderá falhar:
 
-- Microsoft. ApplicationInsights. dll
-- Microsoft. AspNet. TelemetryCorrelation. dll
-- System. Diagnostics. Diagnosticname. dll
+- Microsoft.ApplicationInsights.dll
+- Microsoft.AspNet.TelemetryCorrelation.dll
+- System.Diagnostics.DiagnosticSource.dll
 
 Algumas dessas DLLs estão incluídas nos modelos de aplicativo padrão do Visual Studio, mesmo que seu aplicativo não as use.
 Você pode usar ferramentas de solução de problemas para ver o comportamento do sintoma:
@@ -83,7 +81,7 @@ Estamos acompanhando esse problema [aqui](https://github.com/microsoft/Applicati
 
     
     
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solução de problemas
     
 ### <a name="troubleshooting-powershell"></a>Solucionando problemas do PowerShell
 
@@ -133,14 +131,14 @@ Examine a [referência da API](status-monitor-v2-api-get-status.md) para obter u
 
 ### <a name="collect-etw-logs-by-using-perfview"></a>Coletar logs do ETW usando PerfView
 
-#### <a name="setup"></a>Configuração
+#### <a name="setup"></a>Instalação
 
 1. Baixe PerfView. exe e PerfView64. exe do [GitHub](https://github.com/Microsoft/perfview/releases).
 2. Inicie o PerfView64. exe.
-3. Expanda **Opções avançadas**.
+3. Expanda **Opções Avançadas**.
 4. Desmarque estas caixas de seleção:
-    - **Rápida**
-    - **Mescle**
+    - **Zip**
+    - **Mesclagem**
     - **Coleção de símbolos .NET**
 5. Defina estes **provedores adicionais**: `61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
 
@@ -155,7 +153,7 @@ Examine a [referência da API](status-monitor-v2-api-get-status.md) para obter u
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Examine a [referência da API](status-monitor-v2-overview.md#powershell-api-reference) para saber mais sobre os parâmetros que você pode ter perdido.
 - Se você entrar em um problema que não está listado aqui, poderá entrar em contato conosco no [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).

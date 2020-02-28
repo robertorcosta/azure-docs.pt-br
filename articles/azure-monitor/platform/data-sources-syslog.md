@@ -1,18 +1,17 @@
 ---
 title: Coletar e analisar mensagens do Syslog no Azure Monitor | Microsoft Docs
 description: O Syslog é um protocolo de registro de eventos em log que é comum para o Linux. Este artigo descreve como configurar a coleta de mensagens do Syslog no Log Analytics e os detalhes dos registros criados.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/22/2019
-ms.openlocfilehash: ffc6c48a6b49edded97570fd1ac421933b5f6b72
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8d68a8d6d28d79c50a92cd2d18df2abab26c30ec
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450623"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670484"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Fontes de dados de syslog no Azure Monitor
 O Syslog é um protocolo de registro de eventos em log que é comum para o Linux. Os aplicativos enviarão mensagens que podem ser armazenadas no computador local ou entregues a um coletor de Syslog. Quando o agente do Log Analytics para Linux é instalado, ele configura o daemon do Syslog local para encaminhar mensagens para o agente. O agente envia a mensagem ao Azure Monitor, onde um registro correspondente é criado.  
@@ -27,12 +26,12 @@ O Syslog é um protocolo de registro de eventos em log que é comum para o Linux
 Os seguintes recursos têm suporte com o coletor de syslog:
 
 * Kern
-* usuário
-* mail
+* {1&gt;user&lt;1}
+* email
 * daemon
 * auth
 * syslog
-* lpr
+* LPR
 * news
 * uucp
 * cron
@@ -195,10 +194,10 @@ Após concluir as alterações, será necessário reiniciar o Syslog e o serviç
 ## <a name="syslog-record-properties"></a>Propriedades de registro do syslog
 Os registros do syslog têm um tipo de **Syslog** e têm as propriedades na tabela a seguir.
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--- |:--- |
 | Computador |Computador do qual o evento foi coletado. |
-| Recurso |Define a parte do sistema que gerou a mensagem. |
+| Instalações |Define a parte do sistema que gerou a mensagem. |
 | HostIP |Endereço IP do sistema que envia a mensagem. |
 | HostName |Nome do sistema enviando a mensagem. |
 | SeverityLevel |Nível de severidade do evento. |
@@ -209,14 +208,14 @@ Os registros do syslog têm um tipo de **Syslog** e têm as propriedades na tabe
 ## <a name="log-queries-with-syslog-records"></a>Consultas do log com registros do Syslog
 A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam registros do Syslog.
 
-| Consulta | Description |
+| Query | Descrição |
 |:--- |:--- |
 | Syslog |Todos os Syslogs. |
 | Syslog &#124; where SeverityLevel == "error" |Todos os registros do Syslog com a severidade de erro. |
 | Syslog &#124; summarize AggregatedValue = count() by Computer |Contagem de registros do Syslog por computador. |
 | Syslog &#124; summarize AggregatedValue = count() by Facility |Contagem de registros do Syslog por recurso. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * Saiba mais sobre [registrar consultas](../../azure-monitor/log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.
 * Use [campos personalizados](../../azure-monitor/platform/custom-fields.md) para analisar dados dos registros do syslog em campos individuais.
 * [Configure Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) para coletar outros tipos de dados.

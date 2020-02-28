@@ -1,18 +1,17 @@
 ---
 title: Monitoramento contínuo com o Azure Monitor | Microsoft Docs
 description: Descreve as etapas específicas de uso do Azure Monitor para ativar o monitoramento contínuo em todos os fluxos de trabalho.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 7dc8001d74ea026625d7496fb84053b4e9109dce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b9ca8a703ed8a84148abd23e90114402d8806bd6
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406146"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667186"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitoramento contínuo com o Azure Monitor
 
@@ -84,7 +83,7 @@ Garantir que o desenvolvimento e as operações tenham acesso à mesma telemetri
 - Use a [Análise de impacto](../azure-monitor/app/usage-impact.md) para ajudar você a priorizar em quais áreas se concentrar para gerar importantes KPIs.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Saiba mais sobre os diferentes componentes do [Azure Monitor](overview.md).
 - [Adicione monitoramento contínuo](../azure-monitor/app/continuous-monitoring.md) ao seu pipeline de lançamento.

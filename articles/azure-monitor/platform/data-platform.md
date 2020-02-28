@@ -5,18 +5,17 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 74ede523c9747de4746fe1854bd1e352eba2f7e3
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: a1b5859341237c1b177ee8deaf636a67f4824948
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77148888"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666540"
 ---
 # <a name="azure-monitor-data-platform"></a>Plataforma de dados Azure Monitor
 
@@ -70,7 +69,7 @@ A tabela a seguir compara as métricas e os logs em Azure Monitor.
 | Atributo  | Métricas | Logs |
 |:---|:---|:---|
 | Benefícios | Leve e capaz de cenários quase em tempo real, como alertas. Ideal para detecção rápida de problemas. | Analisado com a linguagem de consulta avançada. Ideal para análise profunda e identificação da causa raiz. |
-| data | Somente valores numéricos | Texto ou dados numéricos |
+| Dados | Somente valores numéricos | Texto ou dados numéricos |
 | Estrutura | Conjunto padrão de propriedades, incluindo o tempo de exemplo, o recurso que está sendo monitorado, um valor numérico. Algumas métricas incluem várias dimensões para definição adicional. | Conjunto exclusivo de propriedades dependendo do tipo de log. |
 | Coleção | Coletados em intervalos regulares. | Pode ser coletado esporadicamente, pois os eventos disparam um registro a ser criado. |
 | Exibir no portal do Azure | Metrics Explorer | Log Analytics |
@@ -87,7 +86,7 @@ Além de usar as ferramentas no Azure para analisar os dados de monitoramento, p
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Leia mais sobre [métricas em Azure monitor](data-platform-metrics.md).
 - Leia mais sobre [logs em Azure monitor](data-platform-logs.md).

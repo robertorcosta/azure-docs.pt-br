@@ -1,53 +1,52 @@
 ---
-title: Recursos avançados do Gerenciador de métricas do Azure
+title: Recursos avançados do Azure Metrics Explorer
 description: Saiba mais sobre os recursos avançados do Azure Monitor Metrics Explorer
 author: vgorbenko
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c754f33ab5f4346413b6603ca2cd404acac5443f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60256892"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662393"
 ---
-# <a name="advanced-features-of-azure-metrics-explorer"></a>Recursos avançados do Gerenciador de métricas do Azure
+# <a name="advanced-features-of-azure-metrics-explorer"></a>Recursos avançados do Azure Metrics Explorer
 
 > [!NOTE]
-> Este artigo pressupõe que você esteja familiarizado com os recursos básicos do Metrics Explorer. Se você for um novo usuário e querem saber como criar seu primeiro gráfico de métrica, consulte [Introdução ao Azure Metrics Explorer](metrics-getting-started.md).
+> Este artigo pressupõe que você esteja familiarizado com os recursos básicos do Metrics Explorer. Se você for um novo usuário e quiser saber como criar seu primeiro gráfico de métrica, consulte [introdução ao Azure Metrics Explorer](metrics-getting-started.md).
 
 ## <a name="metrics-in-azure"></a>Métricas no Azure
 
-[Métricas no Azure Monitor](data-platform-metrics.md) são a série de valores medidos e as contagens coletadas e armazenadas ao longo do tempo. Há métricas padrão (ou da “plataforma”) e métricas personalizadas. As métricas padrão são fornecidas pela própria plataforma Azure. As métricas padrão refletem as estatísticas de uso e integridade dos recursos do Azure. Enquanto as métricas personalizadas são enviadas para o Azure por seus aplicativos usando o [API do Application Insights para métricas e eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [Windows Azure extensão WAD (Diagnóstico)](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), ou pelo [Azure Monitorar REST API](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
+[Métricas no Azure Monitor](data-platform-metrics.md) são a série de valores medidos e as contagens coletadas e armazenadas ao longo do tempo. Há métricas padrão (ou da “plataforma”) e métricas personalizadas. As métricas padrão são fornecidas pela própria plataforma Azure. As métricas padrão refletem as estatísticas de uso e integridade dos recursos do Azure. Enquanto as métricas personalizadas são enviadas ao Azure por seus aplicativos usando a [api Application insights para métricas e eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [extensão WAD (Windows diagnóstico do Azure)](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview)ou por [Azure monitor API REST](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
 
-## <a name="create-views-with-multiple-metrics-and-charts"></a>Criar modos de exibição com várias métricas e gráficos
+## <a name="create-views-with-multiple-metrics-and-charts"></a>Criar exibições com várias métricas e gráficos
 
-Você pode criar gráficos que criar gráficos com várias linhas de métricas ou mostram vários gráficos de métricas ao mesmo tempo. Essa funcionalidade permite que você:
+Você pode criar gráficos que plotam várias linhas de métricas ou mostrar vários gráficos de métrica de uma só vez. Essa funcionalidade permite que você:
 
-- correlacionar métricas relacionadas no mesmo gráfico para ver como um valor está relacionada a outro
-- Exibir métricas com diferentes unidades de medida em estreita proximidade
-- visualmente, agregar e comparar as métricas de vários recursos
+- Correlacione as métricas relacionadas no mesmo grafo para ver como um valor está relacionado a outro
+- Exibir métricas com diferentes unidades de medida no próximo proximidade
+- Agregue visualmente e compare métricas de vários recursos
 
-Por exemplo, se você tiver 5 contas de armazenamento e você quiser saber a quantidade total de espaço é consumido entre eles, você pode criar um gráfico de área (empilhada) que mostra os indivíduos e a soma de todos os valores em determinados pontos no tempo.
+Por exemplo, se você tiver 5 contas de armazenamento e quiser saber quanto espaço total é consumido entre elas, você pode criar um gráfico de área (empilhado) que mostra a pessoa e a soma de todos os valores em determinados pontos no tempo.
 
 ### <a name="multiple-metrics-on-the-same-chart"></a>Várias métricas no mesmo gráfico
 
-Primeiro, [criar um novo gráfico](metrics-getting-started.md#create-your-first-metric-chart). Clique em **adicionar métrica** e repita as etapas para adicionar outra métrica no mesmo gráfico.
+Primeiro, [crie um novo gráfico](metrics-getting-started.md#create-your-first-metric-chart). Clique em **Adicionar métrica** e repita as etapas para adicionar outra métrica no mesmo gráfico.
 
    > [!NOTE]
    > Normalmente, você não deseja ter métricas com diferentes unidades de medida (ou seja, “milissegundos” e “quilobytes”) ou com uma escala consideravelmente diferente em um gráfico. Em vez disso, considere o uso de vários gráficos. Clique no botão Adicionar Gráfico para criar vários gráficos no Metrics Explorer.
 
 ### <a name="multiple-charts"></a>Vários gráficos
 
-Clique o **adicionar gráfico** e crie outro gráfico com uma métrica diferente.
+Clique em **Adicionar gráfico** e crie outro gráfico com uma métrica diferente.
 
-### <a name="order-or-delete-multiple-charts"></a>Ordem ou excluir vários gráficos
+### <a name="order-or-delete-multiple-charts"></a>Ordenar ou excluir vários gráficos
 
-Para ordenar ou excluir vários gráficos, clique na elipse ( **...**  ) símbolo para abrir o menu de gráfico e escolha o item de menu apropriado **mover para cima**, **mover para baixo**, ou **excluir**.
+Para ordenar ou excluir vários gráficos, clique no símbolo de reticências ( **...** ) para abrir o menu do gráfico e escolha o item de menu apropriado de **mover para cima**, **mover para baixo**ou **excluir**.
 
 ## <a name="apply-filters-to-charts"></a>Aplicar filtros a gráficos
 
@@ -73,7 +72,7 @@ Aplique filtros aos gráficos que mostram métricas com dimensões. Por exemplo,
 
 
 
-## <a name="apply-splitting-to-a-chart"></a>Aplicar a divisão de um gráfico
+## <a name="apply-splitting-to-a-chart"></a>Aplicar divisão a um gráfico
 
 Divida uma métrica pela dimensão para visualizar uma comparação de diferentes segmentos da métrica em relação um ao outro e identificar os segmentos distantes de uma dimensão.
 
@@ -82,7 +81,7 @@ Divida uma métrica pela dimensão para visualizar uma comparação de diferente
 1. Clique em **Aplica-se a divisão** acima do gráfico.
  
    > [!NOTE]
-   > A divisão não pode ser usada com gráficos que têm várias métricas. Além disso, você pode ter vários filtros, mas apenas uma dimensão de divisão, aplicado a um único gráfico.
+   > A divisão não pode ser usada com gráficos com várias métricas. Além disso, você pode ter vários filtros, mas apenas uma dimensão de divisão aplicada a um único gráfico.
 
 2. Escolha uma dimensão na qual você deseja segmentar o gráfico:
 
@@ -136,7 +135,7 @@ Você será levado para o painel de criação de regra de alerta com as dimensõ
 
 Verifique este [artigo](alerts-metric.md) para saber mais sobre como configurar alertas de métrica.
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 *Não vejo dados no gráfico.*
 
@@ -146,7 +145,7 @@ Verifique este [artigo](alerts-metric.md) para saber mais sobre como configurar 
 
 * Se você segmentar um gráfico por uma propriedade que não esteja definida na métrica, o gráfico ficará vazio. Tente limpar a segmentação (divisão) ou escolha uma propriedade diferente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
   Leia [Criar painéis personalizados de KPI](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) para saber mais sobre as melhores práticas para a criação de painéis acionáveis com métricas.
 

@@ -1,18 +1,16 @@
 ---
 title: Definições comuns de esquema de alerta para Azure Monitor
 description: Compreendendo as definições comuns de esquema de alerta para Azure Monitor
-ms.service: azure-monitor
-ms.subservice: alerts
-ms.topic: conceptual
 author: ofirmanor
-ms.author: robb
+ms.topic: conceptual
+ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: efa6a8807b3db14649a2b4ad38c575cf98aba113
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: b0b398be919364b5a146e86ca1a1790674bb7d01
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425163"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668206"
 ---
 # <a name="common-alert-schema-definitions"></a>Definições comuns do esquema de alertas
 
@@ -73,7 +71,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 
 ## <a name="essentials"></a>Conceitos básicos
 
-| Campo | DESCRIÇÃO|
+| Campo | Descrição|
 |:---|:---|
 | alertId | O GUID que identifica exclusivamente a instância de alerta. |
 | alertRule | O nome da regra de alerta que gerou a instância de alerta. |
@@ -85,7 +83,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 | originAlertId | A ID da instância de alerta, conforme gerado pelo serviço de monitoramento que a gera. |
 | firedDateTime | A data e a hora em que a instância de alerta foi acionada no UTC (tempo Universal Coordenado). |
 | resolvedDateTime | A data e a hora em que a condição do monitor para a instância de alerta está definida como **resolvida** em UTC. Atualmente aplicável somente a alertas de métricas.|
-| descrição | A descrição, conforme definido na regra de alerta. |
+| description | A descrição, conforme definido na regra de alerta. |
 |essentialsVersion| O número de versão da seção Essentials.|
 |alertContextVersion | O número de versão para a seção `alertContext`. |
 
@@ -481,7 +479,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 ```
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Saiba mais sobre o [esquema de alerta comum](https://aka.ms/commonAlertSchemaDocs).
 - Saiba [como criar um aplicativo lógico que usa o esquema de alerta comum para lidar com todos os seus alertas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations). 

@@ -1,19 +1,15 @@
 ---
 title: Encaminhador local do Aplicativo Azure insights OpenCensus (visualização)
 description: Encaminhe períodos e rastreamento distribuído OpenCensus em linguagens como Python e Go para o Azure Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
-ms.openlocfilehash: 25c6c82fa1179a9173f42c3a5a4e95a371dd49c6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bcf7ba495897eb1c9b40c78f00825e863390b5d1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406600"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669957"
 ---
 # <a name="local-forwarder-preview"></a>Encaminhador local (visualização)
 
@@ -23,7 +19,7 @@ O encaminhador local é um agente que coleta telemetria do Application Insights 
 
 O encaminhador local é um [projeto de software livre no GitHub](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases). Há várias formas de executar o encaminhador local em várias plataformas.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a>Portal
 
 #### <a name="windows-service"></a>Windows Service
 
@@ -177,6 +173,6 @@ Os rastreamentos são gravados no sistema de arquivo ao lado do executável que 
 
 Se nenhum arquivo de configuração for fornecido (o que é o padrão), o encaminhador local usará a configuração padrão, que pode ser encontrada [aqui](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/blob/master/src/Common/NLog.config).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Open Census](https://opencensus.io/)

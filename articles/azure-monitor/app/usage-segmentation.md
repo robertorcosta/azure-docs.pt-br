@@ -1,19 +1,17 @@
 ---
 title: Análise de usuário, sessão e evento no Aplicativo Azure insights
 description: Análise demográfica dos usuários de seu aplicativo Web.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: dbda6debe2412f1756bc707cf3b587c77f466fdc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 56059304026b060e2215ce73e0e94e3200573a14
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432314"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670977"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Análise de usuários, sessões e eventos no Application Insights
 
@@ -21,7 +19,7 @@ Descubra quando as pessoas usam seu aplicativo Web, em quais páginas elas estã
 
 ![Captura de tela de Usuários do Application Insights](./media/usage-segmentation/0001-users.png)
 
-## <a name="get-started"></a>Comece agora
+## <a name="get-started"></a>Introdução
 
 Caso ainda não veja dados nas folhas de usuários, sessões ou eventos no portal do Application Insights, [veja como começar a usar as ferramentas de uso](usage-overview.md).
 
@@ -57,7 +55,7 @@ Para compartilhar uma cópia dos dados em um relatório de Usuários, Sessões o
 
 A seção **Conheça seus usuários** mostra informações sobre cinco usuários de exemplo que correspondem à consulta atual. Considerar e explorar os comportamentos de indivíduos, além de agregados, pode fornecer informações sobre como as pessoas realmente usam seu aplicativo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Para habilitar as experiências de uso, comece enviando [eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [exibições de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Se você já envia eventos personalizados ou exibições de página, explore as ferramentas de uso para saber como os usuários utilizam o seu serviço.

@@ -3,17 +3,16 @@ title: Enviar métricas para o banco de dados de métricas Azure Monitor usando 
 description: Enviar métricas personalizadas de um recurso do Azure para o repositório de métricas do Azure Monitor usando uma API REST
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: a19b59c758f31ff1ef3416b59031202193d50522
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 84709c022631543101889f784231158ebb96b6f3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74285937"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662257"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Enviar métricas personalizadas de um recurso do Azure para o repositório de métricas do Azure Monitor usando uma API REST
 
@@ -31,7 +30,7 @@ Observe o seguinte ao percorrer este processo:
 
 - Você pode inserir qualquer URL para a URL de entrada.  
 - Criar novo segredo do cliente para esse aplicativo.  
-- Salve a chave e a ID do cliente para uso em etapas posteriores.  
+- Salve a Chave e a ID do cliente para serem usadas em etapas posteriores.  
 
 Dê ao aplicativo criado na etapa 1 as permissões de "Editor de métricas de monitoramento" para o recurso do qual deseja emitir métricas. Se você planeja usar o aplicativo para emitir métricas personalizadas de vários recursos, conceda essas permissões no nível da assinatura ou do grupo de recursos. 
 
@@ -88,7 +87,7 @@ Salve o token de acesso da resposta.
 1. Altere o carimbo de data/hora e os valores no arquivo JSON. 
 1. Repita as duas etapas anteriores algumas vezes, para que você tenha dados por vários minutos.
 
-## <a name="troubleshooting"></a>Solucionando problemas 
+## <a name="troubleshooting"></a>Solução de problemas 
 Se você receber uma mensagem de erro em alguma parte do processo, considere as seguintes informações de solução de problemas:
 
 1. Você não consegue emitir métrica em relação a uma assinatura ou um grupo de recursos como seu recurso do Azure. 
@@ -117,6 +116,6 @@ Se você receber uma mensagem de erro em alguma parte do processo, considere as 
 1. No menu suspenso **métricas**, selecione **QueueDepth**.  
 
  
-## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre as [métricas personalizadas](../../azure-monitor/platform/metrics-custom-overview.md).
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+- Saiba mais sobre [métricas personalizadas](../../azure-monitor/platform/metrics-custom-overview.md).
 

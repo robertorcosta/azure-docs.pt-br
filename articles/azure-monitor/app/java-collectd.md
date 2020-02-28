@@ -1,18 +1,14 @@
 ---
 title: Monitorar o desempenho do aplicativo Web Java no Linux - Azure | Microsoft Docs
 description: Monitoramento estendido do desempenho de aplicativo do seu site Java com o plug-in CollectD para Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 03/14/2019
-ms.openlocfilehash: 47e5e9dd81174b79e149ba29eec725c8c17eb1a6
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 687f97c305bffdfb408feb314ccded4f93ac574a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176395"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660726"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: métricas de desempenho do Linux no Application Insights
 
@@ -98,7 +94,7 @@ Para excluir dados de plug-ins ou fontes de dados específicos:
 * Edite o arquivo de configuração. 
 * Em `<Plugin ApplicationInsightsWriter>`, adicione linhas diretivas como esta:
 
-| Diretiva | Efeito |
+| Directive | Efeito |
 | --- | --- |
 | `Exclude disk` |Excluir todos os dados coletados pelo plug-in `disk` |
 | `Exclude disk:read,write` |Exclua as fontes denominadas `read` e `write` do plug-in `disk`. |

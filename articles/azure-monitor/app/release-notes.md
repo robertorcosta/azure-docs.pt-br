@@ -1,18 +1,14 @@
 ---
 title: Notas de versão do Azure Application Insights | Microsoft Docs
 description: As atualizações mais recentes para SDKs do Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/17/2017
-ms.openlocfilehash: 02c4d6ff9000e9f9e1f427144fed237d609a463d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: fcd20e1d14cebb9a5f5cc8ff2f7ae3f16fa594cb
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841669"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671504"
 ---
 # <a name="sdk-release-notes---application-insights"></a>Notas de versão do SDK ‒ Application Insights
 Aqui estão as notas de versão detalhadas e instruções de atualização para nossos SDKs:

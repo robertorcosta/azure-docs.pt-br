@@ -1,18 +1,17 @@
 ---
 title: Integrar o mapa de Azure Monitor para VMs com Operations Manager | Microsoft Docs
 description: Azure Monitor para VMs descobre automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo aborda o uso do recurso de mapa para criar automaticamente diagramas de aplicativos distribuídos no Operations Manager.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: a8d0e0980b0d3634626bc1332e8219bdca7fbe01
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 112413720f969474369555a74bc89846666e2ef9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402631"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663446"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integrar System Center Operations Manager com o recurso de mapa de Azure Monitor para VMs
 
@@ -21,7 +20,7 @@ No Azure Monitor para VMs, você pode exibir componentes de aplicativos descober
 >[!NOTE]
 >Se você já tiver implantado Mapa do Serviço, poderá exibir seus mapas no Azure Monitor para VMs, que inclui recursos adicionais para monitorar a integridade e o desempenho da VM. O recurso de mapa do Azure Monitor para VMs destina-se a substituir a solução de Mapa do Serviço autônoma. Para saber mais, consulte [visão geral do Azure Monitor para VMs](vminsights-overview.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Um grupo de gerenciamento de System Center Operations Manager (2012 R2 ou posterior).
 * Um espaço de trabalho Log Analytics configurado para dar suporte a Azure Monitor para VMs.

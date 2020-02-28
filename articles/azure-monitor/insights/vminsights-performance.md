@@ -1,18 +1,17 @@
 ---
 title: Como mapear o desempenho com o Azure Monitor para VMs (versão prévia) | Microsoft Docs
 description: O desempenho é um recurso do Monitor do Azure para VMs que descobre automaticamente os componentes do aplicativo nos sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo fornece detalhes sobre como usá-lo em vários cenários.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 0d679675758b736455c66066f3df4cb9ea43fdea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 245d5c0fb0a54a6d129a193deaa9445bc8fefbfb
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75399291"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670688"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Como mapear o desempenho com o Azure Monitor para VMs (versão prévia)
 
@@ -127,7 +126,7 @@ No entanto, só podemos coletar e armazenar um subconjunto das métricas de dese
 
 Revise a visão geral da [coleção de métricas e logs com o Monitor do Azure](../platform/data-platform.md) para entender melhor as diferenças fundamentais e outras considerações antes de configurar a coleta dessas métricas adicionais e regras de alerta.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Saiba como usar [pastas de trabalho](vminsights-workbooks.md) incluídas com o Azure monitor para VMs para analisar ainda mais as métricas de desempenho e rede.  
 

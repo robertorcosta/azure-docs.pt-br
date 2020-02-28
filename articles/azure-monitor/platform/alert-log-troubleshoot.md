@@ -2,18 +2,16 @@
 title: Solucionar problemas de alertas de log no Azure Monitor | Microsoft Docs
 description: Problemas comuns, erros e resoluções para regras de alerta de log no Azure.
 author: yanivlavi
-services: azure-monitor
-ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 10/29/2018
 ms.author: yalavi
+ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: aa2f3481b63c98ec23e1db8213939278684a4cd6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 10/29/2018
+ms.openlocfilehash: acb9784b745fa90fc9cd264162930020e6d64751
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977633"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668495"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Solucionar problemas de alertas de log no Azure Monitor  
 
@@ -189,7 +187,7 @@ O [Azure Advisor](../../advisor/advisor-overview.md) avisa você sobre esse comp
 
 Você pode encontrar a hora exata em que Azure Monitor desabilitou a regra de alerta de log procurando um evento no [log de atividades do Azure](../../azure-resource-manager/management/view-activity-logs.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Saiba mais sobre os [alertas de log no Azure](../platform/alerts-unified-log.md).
 - Saiba mais sobre o [Application Insights](../../azure-monitor/app/analytics.md).

@@ -1,18 +1,15 @@
 ---
 title: Noções básicas sobre o esquema de webhook usado em alertas do log de atividades
 description: Saiba mais sobre o esquema JSON que é enviado para uma URL de webhook quando um alerta do log de atividades é ativado.
-ms.service: azure-monitor
-ms.subservice: alerts
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 03/31/2017
-ms.openlocfilehash: eb43db7a67063622f6a6125178267573cd209471
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.subservice: alerts
+ms.openlocfilehash: c076b8dcea350f9ddd66977e89ce99b81f377b17
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748811"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669039"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook para alertas de log de atividades do Azure
 Como parte da definição de um grupo de ações, você pode configurar pontos de extremidade de webhook para receber notificações de alerta do log de atividades. Os webhooks permitem rotear uma notificação de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas. Este artigo mostra a aparência do conteúdo para o HTTP POST para um webhook.
@@ -257,21 +254,21 @@ Para obter detalhes de esquema específico sobre alertas de log de atividades de
 }
 ```
 
-| Nome do elemento | Description |
+| Nome do elemento | Descrição |
 | --- | --- |
 | status |Usado para alertas de métrica. Sempre definido como "ativado" para alertas do log de atividades. |
 | contexto |Contexto do evento. |
 | resourceProviderName |O provedor de recursos do recurso afetado. |
 | conditionType |Sempre "Evento". |
-| name |Nome da regra de alerta. |
-| id |ID do recurso do alerta. |
-| descrição |Descrição do alerta definida quando o alerta é criado. |
+| {1&gt;name&lt;1} |Nome da regra de alerta. |
+| {1&gt;id&lt;1} |ID do recurso do alerta. |
+| description |Descrição do alerta definida quando o alerta é criado. |
 | subscriptionId |Id de assinatura do Azure. |
 | timestamp |Hora quando o evento foi gerado pelo serviço do Azure que processou a solicitação. |
 | resourceId |ID de recurso do recurso afetado. |
 | resourceGroupName |Nome do grupo de recursos do recurso afetado. |
-| properties |Conjunto de pares `<Key, Value>` (ou seja, `Dictionary<String, String>`) que inclui detalhes sobre o evento. |
-| event |Elemento que contém metadados sobre o evento. |
+| propriedades |Conjunto de pares `<Key, Value>` (ou seja, `Dictionary<String, String>`) que inclui detalhes sobre o evento. |
+| {1&gt;evento&lt;1} |Elemento que contém metadados sobre o evento. |
 | autorização |As propriedades de Controle de Acesso Baseado em Função do evento. Essas propriedades geralmente incluem a ação, função e escopo. |
 | category |Categoria do evento. Os valores com suporte são: Administrativo, Alerta, Segurança, ServiceHealth e Recomendação. |
 | chamador |Endereço de email do usuário que realizou a operação, declaração UPN ou declaração SPN com base na disponibilidade. Pode ser nulo para determinadas chamadas do sistema. |
@@ -283,13 +280,13 @@ Para obter detalhes de esquema específico sobre alertas de log de atividades de
 | level |Um dos seguintes valores: Crítico, Erro, Aviso e Informativo. |
 | operationId |Geralmente um GUID compartilhado entre os eventos correspondentes a uma única operação. |
 | operationName |Nome da operação. |
-| properties |Propriedades do evento. |
-| status |Cadeia de caracteres. Status da operação. Os valores comuns incluem: Iniciado, Em Andamento, Êxito, Falha, Ativo, Resolvido. |
+| propriedades |Propriedades do evento. |
+| status |Cadeia de Caracteres. Status da operação. Os valores comuns incluem: Iniciado, Em Andamento, Êxito, Falha, Ativo, Resolvido. |
 | subStatus |Geralmente inclui o código de status HTTP da chamada REST correspondente. Também pode incluir outras cadeias de caracteres que descrevam um substatus. Os valores de substatus comuns incluem: OK (Código de Status HTTP: 200), Criado (Código de Status HTTP: 201), Aceito (Código de Status HTTP: 202), Sem Conteúdo (Código de Status HTTP: 204), Solicitação Incorreta (Código de Status HTTP: 400), Não Encontrado (Código de Status HTTP: 404), Conflito (Código de Status HTTP: 409), Erro Interno do Servidor (Código de Status HTTP: 500), Serviço Indisponível (Código de Status HTTP: 503), Tempo Limite do Gateway (Código de Status HTTP: 504). |
 
 Para obter detalhes de esquema específico em todos os outros alertas do log de atividades, veja [Visão geral do log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * [Leia mais sobre o log de atividades](../../azure-monitor/platform/platform-logs-overview.md).
 * [Exemplos de scripts da automação do Azure (Runbooks) em alertas do Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [Usar aplicativo lógico para enviar um SMS por meio do Twilio de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Este exemplo serve para alertas de métrica, mas pode ser modificado para funcionar com um alerta do log de atividades.

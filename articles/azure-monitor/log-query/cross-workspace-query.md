@@ -1,18 +1,17 @@
 ---
 title: Fazer consulta entre recursos com o Azure Monitor | Microsoft Docs
 description: Este artigo descreve como você pode consultar nos recursos de vários workspaces e no aplicativo App Insights em sua assinatura.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/05/2019
-ms.openlocfilehash: 0eaaf1157bf49068958bc07d17a23fc31dd99de0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4740034bd970f42833125fa43bfdf72f710ac147
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365488"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670248"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Executar consultas entre logs de recursos no Azure Monitor  
 
@@ -135,7 +134,7 @@ applicationsScoping
 
 ![Gráfico de tempo](media/cross-workspace-query/chart.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Para obter uma visão geral das consultas de log e de como os dados de log do Azure Monitor estão estruturados, examine [Analisar dados de log no Azure Monitor](log-query-overview.md).
 - Para exibir todos os recursos das consultas de log do Azure Monitor, examine [Consultas de log do Azure Monitor](query-language.md).

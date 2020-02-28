@@ -1,25 +1,23 @@
 ---
 title: Monitorar aplicativos Python com o Azure Monitor (versão prévia) | Microsoft Docs
 description: Fornece instruções para conectar o Python OpenCensus com o Azure Monitor
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: b9d2bda1d3f01d2bf4bb152c0f62ade87bb61b4c
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 7d27256f64e09a4d4ba3dbf1544eaec4715f6d88
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368274"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669906"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configurar Azure Monitor para seu aplicativo Python (versão prévia)
 
 O Azure Monitor dá suporte ao rastreamento distribuído, à coleta de métrica e ao registro em log de aplicativos Python por meio da integração com o [OpenCensus](https://opencensus.io). Este artigo explicará o processo de configuração do OpenCensus para Python e o envio dos dados de monitoramento para Azure Monitor.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 - Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 - Instalação do Python. Este artigo usa o [Python 3.7.0](https://www.python.org/downloads/), embora as versões anteriores provavelmente funcionem com pequenas alterações.
@@ -38,7 +36,7 @@ Primeiro, você precisa criar um recurso de Application Insights no Azure Monito
 
 1. Uma caixa de configuração é exibida. Use a tabela a seguir para preencher os campos de entrada.
 
-   | Configuração        | Valor           | DESCRIÇÃO  |
+   | Configuração        | {1&gt;Valor&lt;1}           | Descrição  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valor global exclusivo | Nome que identifica o aplicativo que você está monitorando |
    | **Grupo de recursos**     | myResourceGroup      | Nome do novo grupo de recursos para hospedar Application Insights dados |
@@ -67,7 +65,7 @@ Aqui estão os exportadores que o OpenCensus fornece mapeado para os tipos de te
 
 ![Captura de tela do mapeamento de tipos de telemetria de OpenCensus para Azure Monitor](./media/opencensus-python/0012-telemetry-types.png)
 
-### <a name="trace"></a>Trace
+### <a name="trace"></a>Rastreamento
 
 > [!NOTE]
 > `Trace` no OpenCensus refere-se ao [rastreamento distribuído](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing). O `AzureExporter` envia `requests` e `dependency` telemetria para Azure Monitor.
@@ -388,7 +386,7 @@ Para obter informações mais detalhadas sobre como usar consultas e logs, consu
 * [Integração do MySQL](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-mysql)
 * [PostgreSQL](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-postgresql)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Mapa do aplicativo](./../../azure-monitor/app/app-map.md)
 * [Monitoramento de desempenho de ponta a ponta](./../../azure-monitor/learn/tutorial-performance.md)

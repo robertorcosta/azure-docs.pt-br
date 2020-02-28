@@ -1,18 +1,17 @@
 ---
 title: Criando sua implantação de logs de Azure Monitor | Microsoft Docs
 description: Este artigo descreve as considerações e recomendações para os clientes se preparando para implantar um espaço de trabalho no Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: f2d530792e1a6f598dbf2ed66889c01cc43467ed
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: e493b07814821496f941a4b81402ba0b49acbede
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162235"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670450"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Criando sua implantação de logs de Azure Monitor
 
@@ -63,7 +62,7 @@ Com o RBAC (controle de acesso baseado em função), você pode conceder aos usu
 
 Os dados aos quais um usuário tem acesso são determinados por uma combinação de fatores listados na tabela a seguir. Cada um é descrito nas seções a seguir.
 
-| Fator | DESCRIÇÃO |
+| Fator | Descrição |
 |:---|:---|
 | [Modo de acesso](#access-mode) | Método usado pelo usuário para acessar o espaço de trabalho.  Define o escopo dos dados disponíveis e o modo de controle de acesso que é aplicado. |
 | [Modo de controle de acesso](#access-control-mode) | Configuração no espaço de trabalho que define se as permissões são aplicadas no nível de espaço de trabalho ou de recurso. |
@@ -164,6 +163,6 @@ Ao planejar a migração para esse modelo, considere o seguinte:
 * Remova a permissão de equipes de aplicativo para ler e consultar o espaço de trabalho.
 * Habilite e configure qualquer solução de monitoramento, informações como Azure Monitor para contêineres e/ou Azure Monitor para VMs, suas contas de automação e soluções de gerenciamento, como Gerenciamento de Atualizações, iniciar/parar VMs, etc., que foram implantadas no espaço de trabalho original.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para implementar as permissões de segurança e os controles recomendados neste guia, examine [gerenciar o acesso aos logs](manage-access.md).

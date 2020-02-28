@@ -1,18 +1,17 @@
 ---
 title: Consultas de log do Azure Monitor | Microsoft Docs
 description: Referências a recursos para aprender a escrever consultas de log no Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2019
-ms.openlocfilehash: 7c6530416f0eb6b822b6f5f3eb53f59aeae05d53
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: fc943ac3cf82d22a58d0ba3390ad8d9bbee6a4c9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894343"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669379"
 ---
 # <a name="azure-monitor-log-queries"></a>Consultas de log do Azure Monitor
 Os logs do Azure Monitor baseiam-se no Azure Data Explorer e as consultas de log do Azure Monitor usam uma versão da mesma linguagem de consulta do Kusto. A [Documentação da linguagem de consulta do Kusto](/azure/kusto/query) tem todos os detalhes da linguagem e deve ser seu principal recurso para escrever consultas de log do Azure Monitor. Esta página fornece links para outros recursos para saber mais sobre como escrever consultas e sobre diferenças na implementação da linguagem no Azure Monitor.
@@ -57,6 +56,6 @@ Os logs do Azure Monitor baseiam-se no Azure Data Explorer e as consultas de log
 -  [SQL para consultas de log do Azure Monitor](sql-cheatsheet.md) auxilia usuários que já estão familiarizados com o SQL.
 -  [Splunk para consultas de log do Azure Monitor](splunk-cheatsheet.md) auxilia usuários que já estão familiarizados com o Splunk.
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Acesse a [documentação de referência completa da linguagem de consulta do Kusto](/azure/kusto/query/).

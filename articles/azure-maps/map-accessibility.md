@@ -8,12 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 2ae84b59cd70a5b27ad3e501db6cfae110d90fbd
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: b0d9437b10bc54aac481eb630f12a2b99d2360a1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209776"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672456"
 ---
 # <a name="building-an-accessible-application"></a>Criando um aplicativo acessível
 
@@ -32,9 +32,11 @@ O SDK da Web do Azure Maps vem precompilado com muitos recursos de acessibilidad
 Detalhes completos de conformidade de acessibilidade para todos os produtos da Microsoft podem ser encontrados [aqui](https://cloudblogs.microsoft.com/industry-blog/government/2018/09/11/accessibility-conformance-reports/). Pesquise "Azure Maps Web" para localizar o documento especificamente para o SDK da Web do Azure Maps. 
 
 ## <a name="navigating-the-map"></a>Navegando no mapa
+
 Há várias maneiras diferentes pelas quais o mapa pode ser ampliado, panorâmico, girado e com densidade. Os detalhes a seguir são todas as diferentes maneiras de navegar no mapa.
 
 **Aplicar zoom ao mapa**
+
 - Usando um mouse, clique duas vezes no mapa para aplicar zoom em um nível.
 - Usando um mouse, role a roda para aplicar zoom no mapa.
 - Usando uma tela sensível ao toque, toque o mapa com dois dedos e aperte-o para reduzir ou espalhar os dedos para ampliar.
@@ -45,25 +47,48 @@ Há várias maneiras diferentes pelas quais o mapa pode ser ampliado, panorâmic
 - Pressione e segure o botão `Shift` e pressione o botão esquerdo do mouse para baixo no mapa e arraste para desenhar uma área para aplicar zoom no mapa.
 
 **Deslocar o mapa**
+
 - Usando um mouse, pressione o botão esquerdo do mouse no mapa e arraste em qualquer direção.
 - Usando uma tela sensível ao toque, toque no mapa e arraste em qualquer direção.
 - Com o mapa focalizado, use as teclas de direção para mover o mapa.
 
 **Girar o mapa**
+
 - Usando um mouse, pressione o botão direito do mouse no mapa e arraste para a esquerda ou para a direita. 
 - Usando uma tela sensível ao toque, toque no mapa com dois dedos e girar.
 - Com o mapa focalizado, use a tecla Shift e as teclas de seta para a esquerda ou para a direita.
 - Usando o controle de rotação com uma tecla de mouse, toque ou teclado/insira chaves.
 
 **Pitch do mapa**
+
 - Usando o mouse, pressione o botão direito do mouse no mapa e arraste para cima ou para baixo. 
 - Usando uma tela sensível ao toque, toque o mapa com dois dedos e arraste-os para cima ou para baixo juntos.
 - Com o mapa focalizado, use a tecla Shift mais as teclas de seta para cima ou para baixo. 
 - Usando o controle de densidade com uma tecla de mouse, toque ou teclado/insira chaves.
 
-**Alterar o estilo do mapa** Nem todos os desenvolvedores querem que todos os estilos de mapa possíveis estejam disponíveis em seu aplicativo. O desenvolvedor pode definir e alterar o estilo do mapa de forma programática. Se o desenvolvedor exibir o controle do seletor de estilo do mapa, o usuário poderá alterar o estilo do mapa usando o mouse, um toque ou o teclado com a tecla TAB ou Enter. O desenvolvedor pode especificar quais estilos de mapa eles desejam disponibilizar no controle do seletor de estilo do mapa. 
+## <a name="change-the-map-style"></a>Alterar o estilo do mapa
 
-## <a name="keyboard-shortcuts"></a>Atalhos do teclado
+Nem todos os desenvolvedores querem que todos os estilos de mapa possíveis estejam disponíveis em seu aplicativo. Se o desenvolvedor exibir o controle do seletor de estilo do mapa, o usuário poderá alterar o estilo do mapa usando o mouse, um toque ou o teclado com a tecla TAB ou Enter. O desenvolvedor pode especificar quais estilos de mapa eles desejam disponibilizar no controle do seletor de estilo do mapa. Além disso, o desenvolvedor pode definir e alterar o estilo de mapa de forma programática.
+
+**Usar alto contraste**
+
+- Quando o controle de mapa é carregado, ele verifica se o alto contraste está habilitado e o navegador dá suporte a ele.
+- O controle de mapa não monitora o modo de alto contraste do dispositivo. Se o modo do dispositivo for alterado, o mapa não será. Portanto, o usuário precisará recarregar o mapa atualizando a página.
+- Quando o alto contraste for detectado, o estilo do mapa mudará automaticamente para alto contraste e todos os controles internos usarão um estilo de alto contraste. Por exemplo, ZoomControl, PitchControl, CompassControl, StyleControl e outros controles internos, usarão um estilo de alto contraste.
+- Há dois tipos de alto contraste, claro e escuro. Se o tipo de alto contraste puder ser detectado pelos controles de mapa, o comportamento do mapa será ajustado de acordo. Se Light, o estilo de mapa de grayscale_light será carregado. Se o tipo não puder ser detectado ou for escuro, o estilo de high_contrast_dark será carregado.
+- Se você estiver criando controles personalizados, será útil saber se os controles internos estão usando um estilo de alto contraste. Os desenvolvedores podem adicionar uma classe CSS na div contêiner do mapa para verificar. As classes CSS que seriam adicionadas são `high-contrast-dark` e `high-contrast-light`. Para verificar o uso do JavaScript, use:
+
+```javascript
+map.getMapContainer().classList.contains("high-contrast-dark")
+```
+
+ou use:
+
+```javascript
+map.getMapContainer().classList.contains("high-contrast-light")
+```
+
+## <a name="keyboard-shortcuts"></a>Atalhos de teclado
 
 O mapa tem vários atalhos de teclado internos que facilitam o uso do mapa. Esses atalhos de teclado funcionam quando o mapa tem foco.
 
@@ -126,7 +151,7 @@ Aqui estão algumas dicas adicionais para tornar o aplicativo de mapeamento da W
 - Tente navegar pelo seu aplicativo usando o teclado. Verifique se a ordem de tabulação é lógica.
 - Se estiver criando atalhos de teclado, Tente limitá-lo para duas chaves ou menos. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba mais sobre acessibilidade nos módulos do SDK da Web.
 

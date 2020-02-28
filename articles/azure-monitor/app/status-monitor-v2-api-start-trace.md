@@ -1,18 +1,16 @@
 ---
 title: Referência da API do agente do insights Aplicativo Azure
 description: Referência de API do agente Application Insights. Start-Trace. Coletar logs do ETW do Status Monitor e do SDK do Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: c97315b3a215f10e5b8f9533bf09fa5ac30ee16f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: b9680101f1a22dd6d9c1617c8afc13a10ad1c594
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899663"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671215"
 ---
 # <a name="application-insights-agent-api-start-applicationinsightsmonitoringtrace"></a>API do agente de Application Insights: Start-ApplicationInsightsMonitoringTrace
 
@@ -47,26 +45,26 @@ Para coletar esses eventos:
 ### <a name="what-events-to-collect"></a>Quais eventos coletar
 
 Você tem três opções ao coletar eventos:
-1. Use a opção `-CollectSdkEvents` para coletar eventos emitidos do SDK do Application Insights.
+1. Use a opção `-CollectSdkEvents` para coletar eventos emitidos pelo SDK do Application Insights.
 2. Use a opção `-CollectRedfieldEvents` para coletar eventos emitidos por Status Monitor e o tempo de execução Redfield. Esses logs são úteis ao diagnosticar o IIS e a inicialização do aplicativo.
 3. Use ambos os switches para coletar ambos os tipos de evento.
 4. Por padrão, se nenhuma opção for especificada, ambos os tipos de eventos serão coletados.
 
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>Parâmetros
 
 ### <a name="-maxdurationinminutes"></a>-MaxDurationInMinutes
-**Opcional** Use esse parâmetro para definir por quanto tempo esse script deve coletar eventos. O padrão é de 5 minutos.
+**Opcional.** Use esse parâmetro para definir por quanto tempo esse script deve coletar eventos. O padrão é de 5 minutos.
 
 ### <a name="-logdirectory"></a>-LogDirectory
-**Opcional** Use essa opção para definir o diretório de saída do arquivo ETL. Por padrão, esse arquivo será criado no diretório de módulos do PowerShell. O caminho completo será exibido durante a execução do script.
+**Opcional.** Use essa opção para definir o diretório de saída do arquivo ETL. Por padrão, esse arquivo será criado no diretório de módulos do PowerShell. O caminho completo será exibido durante a execução do script.
 
 
 ### <a name="-collectsdkevents"></a>-CollectSdkEvents
-**Opcional** Use essa opção para coletar Application Insights eventos do SDK.
+**Opcional.** Use essa opção para coletar Application Insights eventos do SDK.
 
 ### <a name="-collectredfieldevents"></a>-CollectRedfieldEvents
-**Opcional** Use essa opção para coletar eventos de Status Monitor e o tempo de execução Redfield.
+**Opcional.** Use essa opção para coletar eventos de Status Monitor e o tempo de execução Redfield.
 
 ### <a name="-verbose"></a>-Verbose
 **Parâmetro comum.** Use essa opção para gerar logs detalhados.
@@ -106,7 +104,7 @@ Timeout Reached. Stopping...
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Solução de problemas adicional:
 

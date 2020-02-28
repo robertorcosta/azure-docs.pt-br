@@ -1,19 +1,15 @@
 ---
 title: Canais de telemetria no Aplicativo Azure insights | Microsoft Docs
 description: Como personalizar canais de telemetria nos SDKs do Aplicativo Azure insights para .NET e .NET Core.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/14/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: cef35ae5cb2b66385332a3b1f9ebe177ea26a3e4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9c292246f947e4d3a364f79b31fe7a1deebd33d9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406368"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671113"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Canais de telemetria no Application Insights
 
@@ -168,7 +164,7 @@ Leia mais sobre [proteção e privacidade de dados](data-retention-privacy.md#do
 ## <a name="open-source-sdk"></a>SDK do código-fonte aberto
 Assim como todos os SDK para Application Insights, os canais são de software livre. Leia e contribua com o código ou relate problemas no [repositório GitHub oficial](https://github.com/Microsoft/ApplicationInsights-dotnet).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Amostragem](../../azure-monitor/app/sampling.md)
 * [Solução de problemas do SDK](../../azure-monitor/app/asp-net-troubleshoot-no-data.md)

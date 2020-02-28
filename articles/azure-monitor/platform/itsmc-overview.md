@@ -1,18 +1,17 @@
 ---
 title: Conector de Gerenciamento de Serviço de TI no Azure Log Analytics | Microsoft Docs
 description: Este artigo fornece uma visão geral do ITSMC (Conector de Gerenciamento de Serviços de TI) e informações como usar esta solução para monitorar e gerenciar de forma centralizada os itens de trabalho de ITSM no Azure Log Analytics, bem como resolver problemas rapidamente.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 68aff01ea541a24be1f8d526fecbb6a9d2c30086
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 50bab4c26046059b993c19a030a8f840ae336ef2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990667"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672218"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
@@ -113,12 +112,12 @@ Depois de criar a conexão de ITSM, crie itens de trabalho na ferramenta de ITSM
 
 Os Grupos de Ações fornecem uma maneira modular e reutilizável de disparar ações para os Alertas do Azure. Use Grupos de Ação com alertas de métricas, alertas do Log de Atividades e alertas do Azure Log Analytics no portal do Azure.
 
-Use este procedimento:
+Use o seguinte procedimento:
 
 1. No portal do Azure, clique em **Monitorar**.
 2. No painel esquerdo, clique em **Grupos de ações**. A janela **Adicionar grupo de ações** é exibida.
 
-    ![Grupos de ações](media/itsmc-overview/action-groups.png)
+    ![Grupos de Ação](media/itsmc-overview/action-groups.png)
 
 3. Forneça um **nome** e um **ShortName** para o grupo de ações. Selecione o **Grupo de Recursos** e a **Assinatura** em que deseja criar seu grupo de ações.
 
@@ -161,7 +160,7 @@ Se estiver usando a solução Mapa do Serviço, exiba os itens da central de ser
 Mais informações: [Mapa do Serviço](../../azure-monitor/insights/service-map.md)
 
 
-## <a name="additional-information"></a>Informações adicionais
+## <a name="additional-information"></a>{1&gt;{2&gt;Informações adicionais&lt;2}&lt;1}
 
 ### <a name="data-synced-from-itsm-product"></a>Dados sincronizados do produto de ITSM
 Os incidentes e as solicitações de alteração são sincronizados do produto de ITSM para o espaço de trabalho do Log Analytics, de acordo com a configuração da conexão.
@@ -190,11 +189,11 @@ ServiceDeskWorkItemType_s="Incident"
 - Origem
 - Atribuído a
 - Categoria
-- Title
-- Description
-- Data de criação
-- Data de fechamento
-- Data de resolução
+- {1&gt;Título&lt;1}
+- Descrição
+- Data de Criação
+- Data de Fechamento
+- Data da Resolução
 - Data da última modificação
 - Computador
 
@@ -210,7 +209,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Fechado por
 - Origem
 - Atribuído a
-- Title
+- {1&gt;Título&lt;1}
 - Tipo
 - Categoria
 - Estado
@@ -221,15 +220,15 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Risco
 - Impacto
 - Atribuído a
-- Data de criação
-- Data de fechamento
+- Data de Criação
+- Data de Fechamento
 - Data da última modificação
 - Data de solicitação
 - Data de início prevista
 - Data de término prevista
 - Data de início do trabalho
 - Data de término do trabalho
-- Description
+- Descrição
 - Computador
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Dados de saída de um incidente do ServiceNow
@@ -248,7 +247,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | AssignedTo_s | Atribuído a  |
 | Category_s | Categoria |
 | Title_s|  Descrição breve |
-| Description_s|  Observações |
+| Description_s|  {1&gt;Observações&lt;1} |
 | CreatedDate_t|  Aberto |
 | ClosedDate_t| closed|
 | ResolvedDate_t|Resolvido|
@@ -276,7 +275,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   Data de término planejada |
 | WorkStartDate_t  | Data de início real |
 | WorkEndDate_t | Data de término real|
-| Description_s | Description |
+| Description_s | Descrição |
 | Computador  | Item de Configuração |
 
 
@@ -299,9 +298,9 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 3.  Se você não conseguir criar o namespace de retransmissão do barramento de serviço, certifique-se de que o provedor de recursos necessário está registrado na assinatura. Se ele não estiver registrado, crie manualmente o namespace de retransmissão do barramento de serviço usando o Portal do Azure. Você também pode criá-lo ao [criar a conexão híbrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection) do Portal do Azure.
 
 
-## <a name="contact-us"></a>Contate-nos
+## <a name="contact-us"></a>Fale conosco
 
 Em caso de dúvidas ou comentários sobre o Conector de Gerenciamento de Serviço de TI, entre em contato conosco pelo email [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 [Adicionar produtos/serviços de ITSM ao Conector de Gerenciamento de Serviço de TI](../../azure-monitor/platform/itsmc-connections.md).

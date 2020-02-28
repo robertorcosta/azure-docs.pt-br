@@ -2,16 +2,15 @@
 title: Criar, exibir e gerenciar alertas de métrica clássicos usando o Azure Monitor
 description: Saiba como usar o portal do Azure, a CLI ou o Powershell para criar, exibir e gerenciar regras de alerta de métrica clássicos.
 author: yanivlavi
-ms.service: azure-monitor
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: yalavi
-ms.openlocfilehash: fd15d6bb9442d91c672fdd444313880001880e07
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: b770b9bd34c8267889db536ec81332de32cb8776
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705591"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668308"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de métrica clássicos usando o Azure Monitor
 
@@ -129,7 +128,7 @@ Esta seção mostra como usar os comandos do PowerShell para criar, exibir e ger
 
 8. Regras de alerta clássico não podem ser criadas por meio do PowerShell. Para criar uma regra de alerta, você precisa usar o novo comando [' Add-AzMetricAlertRule '](/powershell/module/az.monitor/add-azmetricalertrule) .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Criar um alerta de métrica clássico com um modelo do Resource Manager](../../azure-monitor/platform/alerts-enable-template.md).
 - [Fazer um alerta de métrica clássico notificar um sistema diferente do Azure usando um webhook](../../azure-monitor/platform/alerts-webhooks.md).

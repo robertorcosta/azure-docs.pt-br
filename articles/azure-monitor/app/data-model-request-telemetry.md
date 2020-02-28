@@ -1,19 +1,15 @@
 ---
 title: Modelo de dados para telemetria de solicitação-Aplicativo Azure insights
 description: Modelo de dados do Application Insights para telemetria de solicitações
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: b253a95a39f118efe82e36ac7261a4d6c62a99d6
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d8a28063bf6780c3cace4ead81e289779b95eb9a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928829"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671895"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria de solicitações: modelo de dados do Application Insights
 
@@ -21,7 +17,7 @@ Um item de telemetria de solicitação (em [Application Insights](../../azure-mo
 
 A solicitação de telemetria dá suporte ao modelo de extensibilidade padrão usando `properties` e `measurements` personalizadas.
 
-## <a name="name"></a>name
+## <a name="name"></a>{1&gt;Nome&lt;1}
 
 O nome da solicitação representa o caminho de código necessário para processar a solicitação. Valor de baixa cardinalidade para permitir melhor agrupamento de solicitações. Para solicitações HTTP, ele representa o método HTTP e o modelo do caminho de URL como `GET /values/{id}` sem um valor real de `id`.
 
@@ -57,7 +53,7 @@ Resultado de uma execução de solicitação. Código de status HTTP para solici
 
 Comprimento máximo: 1.024 caracteres
 
-## <a name="success"></a>Sucesso
+## <a name="success"></a>Êxito
 
 Indicação de chamada bem-sucedida ou malsucedida. Esse campo é obrigatório. Quando não definido explicitamente como `false`, uma solicitação é considerada bem-sucedida. Defina esse valor como `false` se a operação for interrompida por exceção ou tiver retornado um código de resultado do erro.
 
@@ -75,7 +71,7 @@ Você pode ler mais sobre código de status e código de resultados de solicita�
 
 [!INCLUDE [application-insights-data-model-measurements](../../../includes/application-insights-data-model-measurements.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Escrever uma telemetria de solicitação personalizada](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)
 - Consulte [modelo de dados](data-model.md) para modelo de dados e tipos do Application Insights.

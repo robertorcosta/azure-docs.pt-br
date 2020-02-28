@@ -8,16 +8,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 02/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 2283f4f3cf1d31f0d67e01e1a63ee20557ef5633
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: c5f65adfe401f2f6e99234d08b8e8dabeff7d5db
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591567"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656375"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos
 
@@ -85,7 +85,7 @@ Os aplicativos daemon podem usar duas formas de credenciais para autenticar com 
 
 ### <a name="upload-a-certificate"></a>Carregar um certificado
 
-Você pode usar um certificado existente se tiver um.  Opcionalmente, você pode criar um certificado autoassinado para fins de teste. Abra o PowerShell e execute [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) com os seguintes parâmetros para criar um certificado autoassinado no repositório de certificados do usuário em seu computador: 
+Você pode usar um certificado existente se tiver um.  Opcionalmente, você pode criar um certificado autoassinado somente para *fins de teste*. Abra o PowerShell e execute [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) com os seguintes parâmetros para criar um certificado autoassinado no repositório de certificados do usuário em seu computador: 
 
 ```powershell
 $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
@@ -93,8 +93,18 @@ $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocati
 
 Exporte esse certificado para um arquivo usando o snap-in [gerenciar certificado do usuário](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) do MMC acessível no painel de controle do Windows.
 
+1. Selecione **executar** no menu **Iniciar** e digite **certmgr. msc**.
+
+   A ferramenta Gerenciador de certificados para o usuário atual é exibida.
+
+1. Para exibir seus certificados, em **certificados – usuário atual** no painel esquerdo, expanda o diretório **pessoal** .
+1. Clique com o botão direito do mouse no certificado que você criou, selecione **todas as tarefas-> exportar**.
+1. Siga o assistente para exportação de certificados.  Exporte a chave privada, especifique uma senha para o arquivo de certificado e exporte para um arquivo.
+
 Para carregar o certificado:
 
+1. Selecione **Azure Active Directory**.
+1. Em **Registros de aplicativo** no Azure AD, selecione seu aplicativo.
 1. Selecione **Certificados e segredos**.
 1. Selecione **carregar certificado** e selecione o certificado (um certificado existente ou o certificado autoassinado que você exportou).
 
@@ -146,19 +156,25 @@ Em sua assinatura do Azure, sua conta deve ter `Microsoft.Authorization/*/Write`
 
 Para verificar suas permissões de assinatura:
 
-1. Selecione sua conta no canto superior direito e selecione **...-> minhas permissões**.
+1. Pesquise e selecione **assinaturas**, ou selecione **assinaturas** na **Home** Page do.
 
-   ![Selecione sua conta e suas permissões de usuário](./media/howto-create-service-principal-portal/select-my-permissions.png)
+   ![Search](./media/howto-create-service-principal-portal/select-subscription.png)
 
-1. Na lista suspensa, selecione a assinatura em que você deseja criar o serviço principal. Em seguida, selecione **Clique aqui para exibir o acesso completo detalhes para essa assinatura**.
+1. Selecione a assinatura na qual você deseja criar a entidade de serviço.
+
+   ![Selecione a assinatura para atribuição](./media/howto-create-service-principal-portal/select-one-subscription.png)
+
+   Se você não vir a assinatura que está procurando, selecione **filtro de assinaturas globais**. Garanta que a assinatura desejada seja selecionada para o portal.
+
+1. Selecionar **Minhas permissões**. Em seguida, selecione **Clique aqui para exibir o acesso completo detalhes para essa assinatura**.
 
    ![Selecione a assinatura na qual você deseja criar a entidade de serviço](./media/howto-create-service-principal-portal/view-details.png)
 
-1. Selecione **atribuições de função** para exibir suas funções atribuídas e determine se você tem permissões adequadas para atribuir uma função a um aplicativo do AD. Caso contrário, peça ao administrador da assinatura para adicioná-lo à função Administrador de Acesso do Usuário. Na imagem a seguir, o usuário recebe a função proprietário, o que significa que o usuário tem as permissões adequadas.
+1. Selecione **Exibir** nas **atribuições de função** para exibir suas funções atribuídas e determine se você tem permissões adequadas para atribuir uma função a um aplicativo do AD. Caso contrário, peça ao administrador da assinatura para adicioná-lo à função Administrador de Acesso do Usuário. Na imagem a seguir, o usuário recebe a função proprietário, o que significa que o usuário tem as permissões adequadas.
 
    ![Este exemplo mostra ao usuário a função de proprietário atribuída](./media/howto-create-service-principal-portal/view-user-role.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para aprender a especificar as políticas de segurança, consulte [Controle de Acesso baseado nas Funções do Azure](../../role-based-access-control/role-assignments-portal.md).  
 * Para obter uma lista de ações disponíveis que podem ser concedidas ou negadas a usuários, consulte [Operações do Provedor de Recursos do Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md).

@@ -3,22 +3,21 @@ title: Instalar e configurar a extensão de diagnóstico do Windows Azure (WAD)
 description: Saiba como coletar dados de diagnóstico do Azure em uma conta de armazenamento do Azure para que você possa exibi-los com uma das várias ferramentas disponíveis.
 services: azure-monitor
 author: bwren
-ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
-ms.openlocfilehash: 5b3cc4cbaa663b7932609e85c544378a7cca69ef
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 929ab4109eb8d0e90b6c561a2135c0b7dd4205bb
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472681"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672252"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalar e configurar a extensão de diagnóstico do Windows Azure (WAD)
 A extensão de diagnóstico do Azure é um agente no Azure Monitor que coleta dados de monitoramento do sistema operacional convidado e cargas de trabalho de máquinas virtuais do Azure e outros recursos de computação. Este artigo fornece detalhes sobre como instalar e configurar a extensão de diagnóstico do Windows e uma descrição de como os dados são armazenados no e na conta de armazenamento do Azure.
 
-A extensão de diagnóstico é implementada como uma [extensão de máquina virtual](/virtual-machines/extensions/overview) no Azure, portanto, ela dá suporte às mesmas opções de instalação usando modelos do Resource Manager, PowerShell e CLI. Consulte [extensões e recursos de máquina virtual para Windows](/virtual-machines/extensions/features-windows) para obter detalhes sobre como instalar e manter extensões de máquina virtual.
+A extensão de diagnóstico é implementada como uma [extensão de máquina virtual](../../virtual-machines/extensions/overview.md) no Azure, portanto, ela dá suporte às mesmas opções de instalação usando modelos do Resource Manager, PowerShell e CLI. Consulte [extensões e recursos de máquina virtual para Windows](../../virtual-machines/extensions/features-windows.md) para obter detalhes sobre como instalar e manter extensões de máquina virtual.
 
 ## <a name="install-with-azure-portal"></a>Instalar com o portal do Azure
 Você pode instalar e configurar a extensão de diagnóstico em uma máquina virtual individual no portal do Azure que fornece uma interface em vez de trabalhar diretamente com a configuração. Quando você habilita a extensão de diagnóstico, ela automaticamente usará uma configuração padrão com os contadores de desempenho e eventos mais comuns. Você pode modificar essa configuração padrão de acordo com seus requisitos específicos.
@@ -36,14 +35,14 @@ Você pode instalar e configurar a extensão de diagnóstico em uma máquina vir
 
 Você pode modificar a configuração padrão depois que a extensão de diagnóstico tiver sido habilitada. A tabela a seguir descreve as opções que podem ser modificadas nas guias diferentes. Algumas opções têm um comando **personalizado** que permite que você especifique uma configuração mais detalhada; consulte [esquema de extensão de diagnóstico do Windows](diagnostics-extension-schema-windows.md) para obter detalhes sobre configurações diferentes.
 
-| Tab | DESCRIÇÃO |
+| Tab | Descrição |
 |:---|:---|
 | Visão geral | Exibe a configuração atual com links para as outras guias. |
 | Contadores de desempenho | Selecione os contadores de desempenho a serem coletados e a taxa de amostragem para cada um.  |
 | Logs | Selecione os dados de log a serem coletados. Isso inclui logs de eventos do Windows, logs do IIS, logs de aplicativos .NET e eventos do ETW.  |
 | Despejos de memória | Habilite o despejo de memória para processos diferentes. |
 | Coletores | Habilite coletores de dados para enviar dados para destinos além do armazenamento do Azure.<br>Azure Monitor-envia dados de desempenho para Azure Monitor métricas.<br>Application Insights-enviar dados para um aplicativo Application Insights. |
-| Agente | Modifique a seguinte configuração para o agente:<br>-Alterar a conta de armazenamento.<br>-Especifique o máximo de disco local usado para o agente.<br>-Configure os logs para a integridade do próprio agente.|
+| Agente do | Modifique a seguinte configuração para o agente:<br>-Alterar a conta de armazenamento.<br>-Especifique o máximo de disco local usado para o agente.<br>-Configure os logs para a integridade do próprio agente.|
 
 
 > [!NOTE]
@@ -166,13 +165,13 @@ Consulte também [Usar o PowerShell para habilitar o Diagnóstico do Azure em um
 A tabela a seguir lista os diferentes tipos de dados coletados da extensão de diagnóstico e se eles são armazenados como uma tabela ou um blob. Os dados armazenados em tabelas também podem ser armazenados em BLOBs, dependendo da [configuração de storagetype](diagnostics-extension-schema-windows.md#publicconfig-element) em sua configuração pública.
 
 
-| data | Tipo de armazenamento | DESCRIÇÃO |
+| Dados | Tipo de armazenamento | Descrição |
 |:---|:---|:---|
-| WADDiagnosticInfrastructureLogsTable | Tabela | Monitor de diagnóstico e alterações de configuração. |
-| WADDirectoriesTable | Tabela | Diretórios que o monitor de diagnóstico está monitorando.  Isso inclui logs do IIS, logs de solicitação do IIS com falha e diretórios personalizados.  O local do arquivo de log de blob é especificado no campo Container e o nome do blob está no campo RelativePath.  O campo AbsolutePath indica o local e o nome do arquivo como existia na máquina virtual do Azure. |
-| WadLogsTable | Tabela | Logs gravados no código usando o ouvinte de rastreamento. |
-| WADPerformanceCountersTable | Tabela | Contadores de desempenho. |
-| WADWindowsEventLogsTable | Tabela | Logs de eventos do Windows. |
+| WADDiagnosticInfrastructureLogsTable | Table | Monitor de diagnóstico e alterações de configuração. |
+| WADDirectoriesTable | Table | Diretórios que o monitor de diagnóstico está monitorando.  Isso inclui logs do IIS, logs de solicitação do IIS com falha e diretórios personalizados.  O local do arquivo de log de blob é especificado no campo Container e o nome do blob está no campo RelativePath.  O campo AbsolutePath indica o local e o nome do arquivo como existia na máquina virtual do Azure. |
+| WadLogsTable | Table | Logs gravados no código usando o ouvinte de rastreamento. |
+| WADPerformanceCountersTable | Table | Contadores de desempenho. |
+| WADWindowsEventLogsTable | Table | Logs de eventos do Windows. |
 | wad-iis-failedreqlogfiles | Blob | Contém informações de logs de solicitação com falha do IIS. |
 | wad-iis-logfiles | Blob | Contém informações sobre logs do IIS. |
 | Personalizar | Blob | Um contêiner personalizado com base na configuração de diretórios que são monitorados pelo monitor de diagnóstico.  O nome desse contêiner de blob será especificado em WADDirectoriesTable. |
@@ -180,9 +179,9 @@ A tabela a seguir lista os diferentes tipos de dados coletados da extensão de d
 ## <a name="tools-to-view-diagnostic-data"></a>Ferramentas para exibir dados de diagnóstico
 Várias ferramentas estão disponíveis para exibir os dados depois de serem transferidos para o armazenamento. Por exemplo:
 
-* Gerenciador de Servidores no Visual Studio – Se tiver instalado as Ferramentas do Azure para o Microsoft Visual Studio, será possível usar o nó do Armazenamento do Azure no Gerenciador de Servidores para exibir os dados de tabela e de blob somente leitura de suas contas de armazenamento do Azure. Você pode exibir dados de conta do emulador de armazenamento local e também de contas de armazenamento que você criou para o Azure. Para obter mais informações, veja [Procurando e gerenciando recursos de armazenamento com o Gerenciador de Servidores](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
+* Gerenciador de Servidores no Visual Studio - Se você instalou as Ferramentas do Azure para Microsoft Visual Studio, poderá usar o nó de Armazenamento do Azure no Gerenciador de Servidores para exibir os dados de tabela e de blob somente leitura de suas contas de armazenamento do Azure. Você pode exibir dados de conta do emulador de armazenamento local e também de contas de armazenamento que você criou para o Azure. Para obter mais informações, veja [Procurando e gerenciando recursos de armazenamento com o Gerenciador de Servidores](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
 * [Gerenciamento de Armazenamento do Microsoft Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo que permite trabalhar facilmente com os dados de Armazenamento do Azure no Windows, OSX e Linux.
 * [Azure Management Studio](https://www.cerebrata.com/products/azure-management-studio/introduction) inclui o Gerenciador de Diagnóstico do Azure que permite exibir, baixar e gerenciar os dados de diagnósticos coletados pelos aplicativos em execução no Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 - Consulte [enviar dados da extensão de diagnóstico do Windows Azure para os hubs de eventos](diagnostics-extension-stream-event-hubs.md) para obter detalhes sobre como encaminhar os dados de monitoramento para os hubs de eventos do Azure.

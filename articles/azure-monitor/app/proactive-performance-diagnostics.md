@@ -1,19 +1,15 @@
 ---
 title: Detecção Inteligente - anomalias de desempenho | Microsoft Docs
 description: O Application Insights executa uma análise inteligente da telemetria do seu aplicativo e o avisa de possíveis problemas. Esse recurso não precisa de nenhuma configuração.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: b9a95bb2ee6ab137e974b46e24738ca5194f3bd2
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 3d8de08605d3dd693eb74a84a29c2efa6cad669a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820576"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671725"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detecção Inteligente - anomalias de desempenho
 
@@ -61,7 +57,7 @@ As notificações de detecção inteligente são habilitadas por padrão e envia
 
 Emails sobre anomalias de desempenho de Detecção Inteligente são limitados a um email por dia por recurso do Application Insights. O email será enviado somente se houver pelo menos um novo problema que foi detectado no dia em questão. Você não receberá nenhuma mensagem repetida. 
 
-## <a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a>Perguntas frequentes
 
 * *Portanto, a equipe da Microsoft examina os meus dados?*
   * Não. O serviço é totalmente automático. Somente você recebe as notificações. Os dados são [privados](../../azure-monitor/app/data-retention-privacy.md).
@@ -174,10 +170,10 @@ Clique nos links para abrir o Metrics Explorer e a Pesquisa de relatórios relev
 
 Modifique o intervalo de tempo e os filtros para explorar a telemetria.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Essas ferramentas de diagnóstico ajudam você a inspecionar a telemetria do seu aplicativo:
 
-* [Criador de perfil](profiler.md) 
+* [Profiler](profiler.md) 
 * [Depurador instantâneo](../../azure-monitor/app/snapshot-debugger.md)
 * [Analytics](../../azure-monitor/log-query/get-started-portal.md)
 * [Diagnóstico inteligente do Analytics](../../azure-monitor/app/analytics.md)

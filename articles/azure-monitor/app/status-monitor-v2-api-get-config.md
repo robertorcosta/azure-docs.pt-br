@@ -1,18 +1,16 @@
 ---
 title: Referência da API do agente do insights Aplicativo Azure
 description: Referência de API do agente Application Insights. Get-ApplicationInsightsMonitoringConfig. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicativos Web ASP.NET hospedados localmente, em VMs ou no Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 91e7bcbe79dfde8bbd4011748b40b692015af1c2
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 93ab8f613e5634b2eabe7c02189e223d3dfbb0a8
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899745"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671266"
 ---
 # <a name="application-insights-agent-api-get-applicationinsightsmonitoringconfig"></a>API do agente de Application Insights: Get-ApplicationInsightsMonitoringConfig
 
@@ -31,7 +29,7 @@ Obtém o arquivo de configuração e imprime os valores no console.
 PS C:\> Get-ApplicationInsightsMonitoringConfig
 ```
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>Parâmetros
 
 Nenhum parâmetro é necessário.
 
@@ -48,7 +46,7 @@ Filters:
 2)InstrumentationKey: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault AppFilter: .* MachineFilter: .*
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
   Exiba sua telemetria:
  - [Explore as métricas](../../azure-monitor/app/metrics-explorer.md) para monitorar o desempenho e o uso.

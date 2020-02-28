@@ -1,18 +1,17 @@
 ---
 title: Como consultar logs do Azure Monitor para VMs (versão prévia) | Microsoft Docs
 description: Azure Monitor para VMs solução coleta dados de log e métricas para o e este artigo descreve os registros e inclui exemplos de consultas.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/19/2019
-ms.openlocfilehash: 690c7ba04cf849d973295a6ec27eaa38f9b807c3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e679345669d0954008e46f48d986930038a84c10
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75399329"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670705"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Como consultar logs do Azure Monitor para VMs (versão prévia)
 
@@ -48,10 +47,10 @@ Os seguintes campos e convenções se aplicam a VMConnection e VMBoundPort:
 
 Para gerenciar o custo e a complexidade, os registros de conexão não representam as conexões de rede física individuais. Várias conexões de rede física são agrupadas em uma conexão lógica, o que é refletido na respectiva tabela.  Ou seja, os registros na tabela *VMConnection* representam um agrupamento lógico, não as conexões físicas individuais sendo observadas. As conexões de rede física que compartilham o mesmo valor para os atributos a seguir durante o intervalo especificado de um minuto são agregadas em um único registro lógico em *VMConnection*. 
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--|:--|
 |Direção |Direção da conexão, o valor é *entrada* ou *saída* |
-|Computador |O FQDN do computador |
+|Machine |O FQDN do computador |
 |Processo |Identidade do processo ou grupos de processos, iniciando/aceitando a conexão |
 |SourceIp |Endereço IP da origem |
 |DestinationIp |Endereço IP do destino |
@@ -60,7 +59,7 @@ Para gerenciar o custo e a complexidade, os registros de conexão não represent
 
 Para levar em conta o impacto do agrupamento, são fornecidas informações sobre o número de conexões físicas agrupadas nas seguintes propriedades do registro:
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--|:--|
 |LinksEstablished |O número de conexões de rede física que foram estabelecidas durante o intervalo de tempo de geração de relatórios |
 |LinksTerminated |O número de conexões de rede física que foram terminadas durante o intervalo de tempo de geração de relatórios |
@@ -71,7 +70,7 @@ Para levar em conta o impacto do agrupamento, são fornecidas informações sobr
 
 Além das métricas de contagem de conexões, as informações sobre o volume de dados enviados e recebidos em determinada conexão lógica ou porta de rede também estão incluídas nas seguintes propriedades do registro:
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--|:--|
 |BytesSent |Número total de bytes enviados durante o intervalo de tempo de geração de relatórios |
 |BytesReceived |Número total de bytes recebidos durante o intervalo de tempo de geração de relatórios |
@@ -99,7 +98,7 @@ Para sua conveniência, o endereço IP da extremidade remota de uma conexão é 
 
 *VMConnection* também inclui informações de localização geográfica para a extremidade remota de cada registro de conexão nas seguintes propriedades do registro: 
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--|:--|
 |RemoteCountry |O nome do país/região que hospeda o RemoteIp.  Por exemplo: *Estados Unidos* |
 |RemoteLatitude |A latitude da localização geográfica. Por exemplo: *47,68* |
@@ -109,14 +108,14 @@ Para sua conveniência, o endereço IP da extremidade remota de uma conexão é 
 
 Todas as propriedades RemoteIp na tabela *VMConnection* são verificadas em um conjunto de IPs com atividades maliciosas conhecidas. Se RemoteIp for identificado como malicioso, as propriedades a seguir serão preenchidas (elas ficam em branco quando o IP não é considerado malicioso) nas seguintes propriedades do registro:
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--|:--|
 |MaliciousIP |Endereço de RemoteIp |
 |IndicatorThreadType |O indicador de ameaça detectado é um dos seguintes valores, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
-|Description |Descrição da ameaça observada. |
+|Descrição |Descrição da ameaça observada. |
 |TLPLevel |O TLP (Traffic Light Protocol) é um dos valores definidos, *Branco*, *Verde*, *Âmbar*, *Vermelho*. |
-|Confiança |Os valores são *0 – 100*. |
-|Gravidade |Os valores são *0 – 5*, onde *5* é o mais grave e *0* não é grave. O valor padrão é *3*.  |
+|Confidence |Os valores são *0 – 100*. |
+|Severity |Os valores são *0 – 5*, onde *5* é o mais grave e *0* não é grave. O valor padrão é *3*.  |
 |FirstReportedDateTime |A primeira vez que o provedor relatou o indicador. |
 |LastReportedDateTime |A última vez que o indicador foi visto pelo Interflow. |
 |IsActive |Indica que os indicadores estão desativados com o valor *Verdadeiro* ou *Falso*. |
@@ -129,11 +128,11 @@ As portas em um computador que aceitam ativamente o tráfego de entrada ou podem
 
 Cada registro em VMBoundPort é identificado pelos seguintes campos: 
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--|:--|
 |Processo | Identidade do processo (ou grupos de processos) com os quais a porta está associada.|
 |Ip | Endereço IP da porta (pode ser IP de curinga, *0.0.0.0*) |
-|Port |O número da porta |
+|Porta |O número da porta |
 |Protocolo | O protocolo.  Exemplo, *TCP* ou *UDP* (somente *TCP* tem suporte no momento).|
  
 A identidade que uma porta é derivada dos cinco campos acima e é armazenada na propriedade portid. Essa propriedade pode ser usada para localizar rapidamente registros para uma porta específica ao longo do tempo. 
@@ -157,14 +156,14 @@ Aqui estão alguns pontos importantes a considerar:
 
 Os registros com um tipo de *VMComputer* têm dados de inventário para servidores com o Dependency Agent. Esses registros têm as propriedades descritas na tabela a seguir:
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--|:--|
 |TenantId | O identificador exclusivo do espaço de trabalho |
 |SourceSystem | *Insights* | 
 |TimeGenerated | Carimbo de data/hora do registro (UTC) |
 |Computador | O FQDN do computador | 
 |AgentId | A ID exclusiva do agente de Log Analytics |
-|Computador | Nome do recurso de Azure Resource Manager para o computador exposto por ServiceMap. Ele está no formato *m-{GUID}* , em que *GUID* é o mesmo GUID que agentID. | 
+|Machine | Nome do recurso de Azure Resource Manager para o computador exposto por ServiceMap. Ele está no formato *m-{GUID}* , em que *GUID* é o mesmo GUID que agentID. | 
 |DisplayName | Nome de exibição | 
 |FullDisplayName | Nome de exibição completo | 
 |HostName | O nome do computador sem o nome de domínio |
@@ -219,22 +218,22 @@ Os registros com um tipo de *VMComputer* têm dados de inventário para servidor
 
 Os registros com um tipo de *VMProcess* têm dados de inventário para processos conectados por TCP em servidores com o Dependency Agent. Esses registros têm as propriedades descritas na tabela a seguir:
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--|:--|
 |TenantId | O identificador exclusivo do espaço de trabalho |
 |SourceSystem | *Insights* | 
 |TimeGenerated | Carimbo de data/hora do registro (UTC) |
 |Computador | O FQDN do computador | 
 |AgentId | A ID exclusiva do agente de Log Analytics |
-|Computador | Nome do recurso de Azure Resource Manager para o computador exposto por ServiceMap. Ele está no formato *m-{GUID}* , em que *GUID* é o mesmo GUID que agentID. | 
+|Machine | Nome do recurso de Azure Resource Manager para o computador exposto por ServiceMap. Ele está no formato *m-{GUID}* , em que *GUID* é o mesmo GUID que agentID. | 
 |Processo | O identificador exclusivo do processo de Mapa do Serviço. Ele está no formato *p-{GUID}* . 
 |Executávelname | O nome do processo executável | 
 |DisplayName | Nome de exibição do processo |
 |Função | Função de processo: *WebServer*, *appServer*, *databaseServer*, *ldapServer*, *smbServer* |
-|Agrupar | Nome do grupo de processos. Os processos no mesmo grupo estão logicamente relacionados, por exemplo, parte do mesmo produto ou componente do sistema. |
+|Grupo | Nome do grupo de processos. Os processos no mesmo grupo estão logicamente relacionados, por exemplo, parte do mesmo produto ou componente do sistema. |
 |StartTime | O tempo de início do pool de processos |
 |FirstPid | O primeiro PID no pool de processos |
-|Description | A descrição do processo |
+|Descrição | A descrição do processo |
 |CompanyName | O nome da empresa |
 |InternalName | O nome interno |
 |ProductName | O nome do produto |
@@ -430,7 +429,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 | summarize Remote=makeset(iff(isempty(RemoteMachine), todynamic('{}'), pack('Machine', RemoteMachine, 'Process', Process1, 'ProcessName', ProcessName1))) by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Se você for novo na gravação de consultas de log em Azure Monitor, examine [como usar log Analytics](../../azure-monitor/log-query/get-started-portal.md) no portal do Azure para gravar consultas de log.
 

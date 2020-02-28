@@ -1,19 +1,17 @@
 ---
 title: Solucionar problemas com o Aplicativo Azure insights Profiler
 description: Este artigo contém etapas de solução de problemas e informações para ajudar os desenvolvedores que estão tendo problemas para habilitar ou usar o Application Insights Profiler.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2bac317d6a3a5c6895a3cea4dae22694b603cabf
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: f284d4dfbe550c357f81c01fa0a66aa9878b6c1e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024017"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671555"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Solucionar problemas ao habilitar ou exibir o Profiler do Application Insights
 
@@ -71,7 +69,7 @@ Para o Profiler funcionar corretamente:
 * Seu aplicativo da web deve ter o Application Insights ativado.
 * Seu aplicativo Web deve ter as seguintes configurações de aplicativo:
 
-    |Configurações de Aplicativo    | Valor    |
+    |Configurações de Aplicativo    | {1&gt;Valor&lt;1}    |
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey para o recurso de Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
@@ -103,7 +101,7 @@ Quando você configura o Profiler, são feitas atualizações nas configuraçõe
 1. Defina **Sempre ativo** como **Ativado**.
 1. Crie estas configurações de aplicativo:
 
-    |Configurações de Aplicativo    | Valor    |
+    |Configurações de Aplicativo    | {1&gt;Valor&lt;1}    |
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey para o recurso de Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |

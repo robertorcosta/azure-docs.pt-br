@@ -1,19 +1,15 @@
 ---
 title: Diagnóstico de transação do Azure Application Insights | Microsoft Docs
 description: Diagnóstico de transação de ponta a ponta do Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 1ed3713fe4a6c9403be13f444d0409af459a1e70
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 39c4c51a1bc84e06efac3674b1ee5b487f9e6729
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899566"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671130"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnóstico de transação entre componentes unificado
 
@@ -60,11 +56,11 @@ Esse painel recolhível mostra os detalhes de qualquer item selecionado no gráf
 
 ![Detalhes de exceção](media/transaction-diagnostics/exceptiondetail.png)
 
-## <a name="search-results"></a>Resultados da pesquisa
+## <a name="search-results"></a>Resultados da Pesquisa
 
 Esse painel recolhível mostra os outros resultados que atendem aos critérios de filtro. Clique em qualquer resultado para atualizar os respectivos detalhes listados nas três seções acima. Tentamos encontrar exemplos que têm mais probabilidade de ter detalhes disponíveis de todos os componentes, mesmo que a amostragem esteja em vigor em qualquer um deles. Eles são mostrados como exemplos "sugeridos".
 
-![Resultados da pesquisa](media/transaction-diagnostics/searchResults.png)
+![Resultados da Pesquisa](media/transaction-diagnostics/searchResults.png)
 
 ## <a name="profiler-and-snapshot-debugger"></a>Profiler e depurador de instantâneos
 
@@ -76,7 +72,7 @@ Se você não pôde obter Depurador de Instantâneos funcionando, entre em conta
 
 ![Integração do Profiler](media/transaction-diagnostics/profilerTraces.png)
 
-## <a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a>Perguntas frequentes
 
 *Eu vejo um único componente no gráfico e os outros somente estão mostrando como dependências externas sem qualquer detalhe do que aconteceu dentro desses componentes.*
 
@@ -98,4 +94,4 @@ As linhas do tempo são ajustadas para as distorções do relógio no gráfico d
 
 *Por que na nova experiência está faltando a maioria das consultas de itens relacionados?*
 
-Esse comportamento é intencional. Todos os itens relacionados, em todos os componentes, já estão disponíveis no lado esquerdo (seções superior e inferior). A nova experiência tem dois itens relacionados que o lado esquerdo não abrange: toda a telemetria de cinco minutos antes e depois desse evento e a linha do tempo do usuário.
+Esse comportamento é esperado. Todos os itens relacionados, em todos os componentes, já estão disponíveis no lado esquerdo (seções superior e inferior). A nova experiência tem dois itens relacionados que o lado esquerdo não abrange: toda a telemetria de cinco minutos antes e depois desse evento e a linha do tempo do usuário.

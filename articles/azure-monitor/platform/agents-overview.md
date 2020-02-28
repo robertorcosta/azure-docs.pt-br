@@ -2,18 +2,17 @@
 title: Visão geral agentes de monitoramento do Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral detalhada dos agentes do Azure disponíveis que oferecem suporte ao monitoramento de máquinas virtuais hospedadas no Azure ou no ambiente híbrido.
 services: azure-monitor
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: e3385234433a292ce146c9aed25ecfeb1095d79a
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: a7e6a3a299df8112fe4fbcf457516894c1766b8c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616125"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668512"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Visão geral dos agentes de Azure Monitor
 
@@ -34,7 +33,7 @@ As tabelas a seguir fornecem uma comparação rápida dos agentes de Azure Monit
 |:---|:---|:---|:---|
 | Ambientes com suporte | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local | 
 | Requisitos do agente  | Nenhum | Nenhum | Requer agente de Log Analytics |
-| Dados coletados | Logs de eventos<br>Eventos ETW<br>Desempenho<br>Logs baseados em arquivo<br>Logs IIS<br>Logs do aplicativo .NET<br>Despejos de memória<br>Logs de diagnóstico do agente | Logs de eventos<br><IIS logs> de desempenho<br>Logs baseados em arquivo<br>Insights e soluções<br>Outros serviços | Detalhes e dependências do processo<br>Métricas de conexão de rede |
+| Dados coletados | Logs de evento<br>Eventos ETW<br>Desempenho<br>Logs baseados em arquivo<br>Logs IIS<br>Logs do aplicativo .NET<br>Despejos de memória<br>Logs de diagnóstico do agente | Logs de evento<br><IIS logs> de desempenho<br>Logs baseados em arquivo<br>Insights e soluções<br>Outros serviços | Detalhes e dependências do processo<br>Métricas de conexão de rede |
 | Dados enviados para | Armazenamento do Azure<br>Métricas de Azure Monitor<br>Hub de evento | Logs do Azure Monitor | Logs do Azure Monitor |
 
 
@@ -44,7 +43,7 @@ As tabelas a seguir fornecem uma comparação rápida dos agentes de Azure Monit
 |:---|:---|:---|:---|:---|
 | Ambientes com suporte | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local |
 | Requisitos do agente  | Nenhum | Nenhum | Nenhum | Requer agente de Log Analytics |
-| Dados coletados | syslog<br>Desempenho | Desempenho | syslog<br>Desempenho| Detalhes e dependências do processo<br>Métricas de conexão de rede |
+| Dados coletados | Syslog<br>Desempenho | Desempenho | Syslog<br>Desempenho| Detalhes e dependências do processo<br>Métricas de conexão de rede |
 | Dados enviados para | Armazenamento do Azure<br>Hub de evento | Métricas de Azure Monitor | Logs do Azure Monitor | Logs do Azure Monitor |
 
 ## <a name="log-analytics-agent"></a>Agente do Log Analytics
@@ -114,7 +113,7 @@ Considere o seguinte ao usar o Dependency Agent:
 A extensão de Log Analytics para [Windows](../../virtual-machines/extensions/oms-windows.md) e [Linux](../../virtual-machines/extensions/oms-linux.md) instala o agente de log Analytics em máquinas virtuais do Azure. A extensão de dependência Azure Monitor para [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) e [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) instala o Dependency Agent em máquinas virtuais do Azure. Esses são os mesmos agentes descritos acima, mas permitem que você os gerencie por meio de [extensões de máquina virtual](../../virtual-machines/extensions/overview.md). Você deve usar extensões para instalar e gerenciar os agentes sempre que possível.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Obtenha mais detalhes sobre cada um dos agentes no seguinte:
 

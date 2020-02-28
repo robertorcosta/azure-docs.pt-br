@@ -1,18 +1,14 @@
 ---
 title: Usar o PowerShell para configurar alertas no Application Insights | Microsoft Docs
 description: Automatize a configuração do Application Insights para receber emails sobre alterações de métricas.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/31/2016
-ms.openlocfilehash: cf03fa0055710dde86a0f74cd58344575494faf1
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: c19cb43d08b44b55c786e750e64a83e6f0c67381
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928576"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669838"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Usar o PowerShell para configurar alertas no Application Insights
 
@@ -33,7 +29,7 @@ Instale o módulo do Azure Powershell no computador em que você deseja executar
 * Instale o [Microsoft Web Platform Installer (v5 ou superior)](https://www.microsoft.com/web/downloads/platform.aspx).
 * Use-o para instalar o Microsoft Azure PowerShell
 
-## <a name="connect-to-azure"></a>Conecte-se ao Azure
+## <a name="connect-to-azure"></a>Conectar-se ao Azure
 Inicie o Azure PowerShell e [conecte-se à sua assinatura](/powershell/azure/overview):
 
 ```powershell
@@ -93,7 +89,7 @@ Tenho um aplicativo em que uso o [TrackMetric()](../../azure-monitor/app/api-cus
 A mesma regra pode ser usada para a métrica relatada usando o [parâmetro de medida](../../azure-monitor/app/api-custom-events-metrics.md#properties) de outra chamada de controle, como TrackEvent ou trackPageView.
 
 ## <a name="metric-names"></a>Nomes de métrica
-| Nome da métrica | Nome da tela | DESCRIÇÃO |
+| Nome da métrica | Nome da tela | Descrição |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |Exceções de navegador |Contagem de exceções não identificadas lançadas no navegador. |
 | `basicExceptionServer.count` |Exceções do servidor |Contagem de exceções sem tratamento lançadas pelo aplicativo |
@@ -122,7 +118,7 @@ As métricas são enviadas por diferentes módulos de telemetria:
 
 | Grupo de métricas | Módulo de coletor |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>view |[JavaScript do navegador](../../azure-monitor/app/javascript.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>modo de exibição |[JavaScript do navegador](../../azure-monitor/app/javascript.md) |
 | performanceCounter |[Desempenho](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | remoteDependencyFailed |[Dependência](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | request,<br/>requestFailed |[Solicitação do servidor](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |

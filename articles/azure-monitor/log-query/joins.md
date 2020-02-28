@@ -1,18 +1,17 @@
 ---
 title: Junções nas consultas de log do Azure Monitor | Microsoft Docs
 description: Este artigo inclui uma lição sobre como usar junções nas consultas de log do Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: f2880044e48e59d0d5f005f9772cdd0f807f7f29
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2dace6968fbbe69f806c27fb7a46e60c63f78b4f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75397821"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670195"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Junções nas consultas de log do Azure Monitor
 
@@ -80,10 +79,10 @@ SecurityEvent
 ## <a name="join-kinds"></a>Tipos de junção
 Especifique o tipo de junção com o argumento _kind_. Cada tipo realiza uma correspondência diferente entre os registros das tabelas determinadas conforme descrito na tabela a seguir.
 
-| Tipo de junção | Description |
+| Tipo de junção | Descrição |
 |:---|:---|
 | innerunique | Esse é o modo de junção padrão. Primeiro, os valores da coluna correspondente na tabela esquerda são encontrados e os valores duplicados são removidos.  Em seguida, o conjunto de valores exclusivos é correspondido com a tabela direita. |
-| interna | Somente os registros correspondentes em ambas as tabelas são incluídos nos resultados. |
+| internas | Somente os registros correspondentes em ambas as tabelas são incluídos nos resultados. |
 | leftouter | Todos os registros na tabela esquerda e os registros correspondentes na tabela direita são incluídos nos resultados. As propriedades de saída sem correspondência contêm valores nulos.  |
 | leftanti | Os registros do lado esquerdo que não tenham correspondências da direita são incluídos nos resultados. A tabela de resultados tem apenas as colunas da tabela esquerda. |
 | leftsemi | Os registros do lado esquerdo que tenham correspondências da direita são incluídos nos resultados. A tabela de resultados tem apenas as colunas da tabela esquerda. |
@@ -98,7 +97,7 @@ Considere os pontos a seguir para o desempenho ideal:
 - Se uma tabela sempre for menor do que a outra, use-a como o lado esquerdo da junção.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Confira outras lições para utilizar consultas de log no Azure Monitor:
 
 - [Operações de cadeia de caracteres](string-operations.md)

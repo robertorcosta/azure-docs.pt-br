@@ -1,18 +1,17 @@
 ---
 title: Trabalhar com cadeias de caracteres nas consultas de log no Azure Monitor | Microsoft Docs
 description: Este artigo fornece um tutorial para usar Azure Monitor Log Analytics no portal do Azure para consultar e analisar dados de log no Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 940c82e9ef7016639a3ab334040c408f83996e2b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8be4f318149590ff08b73fda719e99a17220ec2e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365301"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670144"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Trabalhar com JSON e estruturas de dados em consultas de log do Azure Monitor
 
@@ -124,7 +123,7 @@ print hosts_object
 
 ![Criar esquema](media/json-data-structures/buildschema.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Confira outras lições para usar consultas de log no Azure Monitor:
 
 - [Operações de cadeia de caracteres](string-operations.md)

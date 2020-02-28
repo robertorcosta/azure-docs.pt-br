@@ -1,19 +1,17 @@
 ---
 title: Impacto do uso do Azure Application Insights | Microsoft Docs
 description: Analise como propriedades diferentes podem afetar as taxas de conversão para partes dos aplicativos.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: f057ec6424f72370c48599296452d607107f6c34
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 787221c4df3f06029d19ee779a28bb763723f27d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406262"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671028"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Análise do Impact com o Application Insights
 
@@ -80,7 +78,7 @@ Em seguida, as sessões são divididas em dois tipos diferentes de _subsessões_
 
 Como o impacto acaba sendo calculado varia de acordo com a análise feita por métrica ou dimensão. Para métricas, a média de todos os _A_s em uma subsessão é calculada. Embora para dimensões o valor de cada _A_ contribua _1/N_ para o valor atribuído a _B_ em que _N_ é o número de _A_s na subsessão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Para habilitar as experiências de uso, comece enviando [eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [exibições de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Se você já envia eventos personalizados ou exibições de página, explore as ferramentas de uso para saber como os usuários utilizam o seu serviço.

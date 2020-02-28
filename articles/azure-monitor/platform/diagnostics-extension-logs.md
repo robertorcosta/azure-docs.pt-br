@@ -1,18 +1,17 @@
 ---
 title: Usar o armazenamento de BLOB para o IIS e o armazenamento de tabelas para eventos no Azure Monitor | Microsoft Docs
 description: Azure Monitor pode ler os logs dos serviços do Azure que gravam diagnósticos em armazenamento de tabela ou logs do IIS gravados no armazenamento de BLOBs.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 7edf778dc2429cc1054d1550a513d7461f8e7928
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 44368ab90abd189c6a8a0792494828c87142eb20
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472551"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672388"
 ---
 # <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Coletar dados da extensão de diagnóstico do Azure para logs de Azure Monitor
 A extensão de diagnóstico do Azure é um [agente no Azure monitor](agents-overview.md) que coleta dados de monitoramento do sistema operacional convidado dos recursos de computação do Azure, incluindo máquinas virtuais. Este artigo descreve como coletar dados coletados pela extensão de diagnóstico do armazenamento do Azure para Azure Monitor logs.
@@ -23,10 +22,10 @@ A extensão de diagnóstico do Azure é um [agente no Azure monitor](agents-over
 ## <a name="supported-data-types"></a>Tipos de dados com suporte
 A extensão de diagnóstico do Azure armazena dados em uma conta de armazenamento do Azure. Para que os logs de Azure Monitor coletem esses dados, eles devem estar nos seguintes locais:
 
-| Tipo de Log | Tipo de recurso | Location |
+| Tipo de Log | Tipo de recurso | Local |
 | --- | --- | --- |
 | Logs IIS |Máquinas Virtuais <br> Funções da Web <br> Funções de trabalho |wad-iis-logfiles (Armazenamento de Blobs) |
-| syslog |Máquinas Virtuais |LinuxsyslogVer2v0 (Armazenamento de Tabelas) |
+| Syslog |Máquinas Virtuais |LinuxsyslogVer2v0 (Armazenamento de Tabelas) |
 | Eventos operacionais do Service Fabric |Nós do Service Fabric |WADServiceFabricSystemEventTable |
 | Eventos dos Reliable Actors do Service Fabric |Nós do Service Fabric |WADServiceFabricReliableActorEventTable |
 | Arquitetura de Serviços Confiáveis do Service Fabric |Nós do Service Fabric |WADServiceFabricReliableServiceEventTable |
@@ -62,7 +61,7 @@ Em aproximadamente 30 minutos, você poderá ver os dados da conta de armazename
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Coletar logs e métricas para serviços do Azure](collect-azure-metrics-logs.md) para serviços do Azure com suporte.
 * [Habilitar Soluções](../../azure-monitor/insights/solutions.md) para fornecer informações sobre os dados.

@@ -1,22 +1,20 @@
 ---
 title: Alertas de log de atividades no Azure Monitor
 description: Seja notificado por SMS, webhook, email e mais quando ocorrerem determinados eventos no log de atividades.
-ms.service: azure-monitor
 ms.subservice: alerts
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 09/17/2018
-ms.openlocfilehash: c42f72800a93de714f0cc126939a28a8a6b5fce4
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 26ecfdb33b92c91010af63ec14089dd148d6bad0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747533"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669006"
 ---
-# <a name="alerts-on-activity-log"></a>Alertas no log de atividades 
+# <a name="alerts-on-activity-log"></a>Alertas no log de atividades
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
+
 Alertas do log de atividades são alertas que são ativados quando ocorre um novo [evento do log de atividades](activity-log-schema.md) que corresponde às condições especificadas no alerta. Com base na ordem e no volume dos eventos registrados no [log de atividades do Azure](platform-logs-overview.md), a regra de alerta será acionada. As regras de alerta do log de atividades são recursos do Azure, para que possam ser criadas usando um modelo de Azure Resource Manager. Eles também podem ser criados, atualizados ou excluídos no portal do Azure. Este artigo apresenta os conceitos por trás de alertas de log de atividades. Para obter mais informações sobre a criação ou uso de regras de alerta do log de atividades, consulte [criar e gerenciar alertas do log de atividades](alerts-activity-log.md).
 
 > [!NOTE]
@@ -58,7 +56,7 @@ Quando um alerta do log de atividades é ativado, ele usa um grupo de ações pa
 Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações no portal do Azure](action-groups.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Obtenha uma [visão geral dos alertas](alerts-overview.md).
 - Saiba mais sobre [criar e modificar alertas do log de atividades](alerts-activity-log.md).

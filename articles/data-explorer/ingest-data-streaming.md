@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 4a0593ccd6bdf37520e73ba8ed421ec4b10ea52c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 89772bea818a0ebb57135990b3a04fcb559e2716
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623298"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664925"
 ---
 # <a name="streaming-ingestion-preview"></a>Ingestão de streaming (visualização)
 
@@ -20,7 +20,7 @@ A ingestão de streaming é destinada a cenários que exigem baixa latência com
 
 Use a ingestão clássica (em massa) em vez da ingestão de streaming quando a quantidade de dados aumentar para mais de 1 MB por segundo por tabela. Leia [visão geral de ingestão de dados](/azure/data-explorer/ingest-data-overview) para saber mais sobre os vários métodos de ingestão.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 * Entre na [interface do usuário da Web](https://dataexplorer.azure.com/).
@@ -33,7 +33,7 @@ Use a ingestão clássica (em massa) em vez da ingestão de streaming quando a q
 
 1. No portal do Azure, acesse o cluster do Azure Data Explorer. Em **configurações**, selecione **configurações**. 
 1. No painel **configurações** , selecione **ativado** para habilitar a **ingestão de streaming**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
  
     ![ingestão de streaming em](media/ingest-data-streaming/streaming-ingestion-on.png)
  
@@ -66,7 +66,7 @@ Há dois tipos de ingestão de streaming com suporte:
 1. Remova a [política de ingestão de streaming](/azure/kusto/concepts/streamingingestionpolicy) de todas as tabelas e bancos de dados relevantes. A remoção da política de ingestão de streaming dispara a movimentação de dados de ingestão de streaming do armazenamento inicial para o armazenamento permanente no repositório de coluna (extensões ou fragmentos). A movimentação de dados pode durar entre alguns segundos e algumas horas, dependendo da quantidade de dados no armazenamento inicial e de como a CPU e a memória são usadas pelo cluster.
 1. No portal do Azure, acesse o cluster do Azure Data Explorer. Em **configurações**, selecione **configurações**. 
 1. No painel **configurações** , selecione **desativado** para desabilitar a **ingestão de streaming**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
     ![Ingestão de streaming desativada](media/ingest-data-streaming/streaming-ingestion-off.png)
 
@@ -76,12 +76,12 @@ Há dois tipos de ingestão de streaming com suporte:
 * A limitação de tamanho de dados por solicitação de ingestão é 4 MB.
 * As atualizações de esquema, como criação e modificação de tabelas e mapeamentos de ingestão, podem levar até 5 minutos para o serviço de ingestão de streaming.
 * Habilitar a ingestão de streaming em um cluster, mesmo quando os dados não são ingeridos via streaming, o usa parte do disco SSD local das máquinas de cluster para dados de ingestão de streaming e reduz o armazenamento disponível para cache ativo.
-* As [marcas de extensão](/azure/kusto/management/extents-overview.md#extent-tagging) não podem ser definidas nos dados de ingestão de streaming.
+* As [marcas de extensão](/azure/kusto/management/extents-overview#extent-tagging) não podem ser definidas nos dados de ingestão de streaming.
 
 A ingestão de streaming não dá suporte aos seguintes recursos:
 * [Cursores de banco de dados](/azure/kusto/management/databasecursor).
 * [Mapeamento de dados](/azure/kusto/management/mappings). Somente o mapeamento [de dados pré-criado](/azure/kusto/management/tables#create-ingestion-mapping) tem suporte. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Consultar dados no Azure Data Explorer](web-query-data.md)

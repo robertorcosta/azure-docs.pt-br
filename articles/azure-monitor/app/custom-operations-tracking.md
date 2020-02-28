@@ -1,19 +1,15 @@
 ---
 title: Acompanhar operações personalizadas com o SDK do .NET do Aplicativo Azure insights
 description: Acompanhar operações personalizadas com o SDK do .NET do Azure Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 7b92a386d691e15975f18de169d7924b82ec5c5f
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 31c1fb366e7b109ea1fa4977d8e2f908e766e0f2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951336"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671810"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Acompanhar operações personalizadas com o SDK do .NET do Application Insights
 
@@ -27,7 +23,7 @@ Este documento fornece diretrizes sobre como controlar operações personalizada
 - Application Insights para aplicativos Web (executando ASP.NET) versão 2.4+.
 - Application Insights para ASP.NET Core versão 2.1+.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Uma operação é um trabalho lógico executado por um aplicativo. Ela tem nome, hora de início, duração e resultado, além de um contexto de execução como nome de usuário, propriedades e resultado. Se a operação A tiver sido iniciada pela operação B, então a operação B será definida como pai para A. Uma operação pode ter somente um pai, mas pode ter muitas operações filhas. Para obter mais informações sobre as operações e a correlação de telemetria, consulte [Correlação de telemetria do Azure Application Insights](correlation.md).
 
 No SDK do .NET do Application Insights, a operação é descrita pela classe abstrata [OperationTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) e seus descendentes [RequestTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) e [DependencyTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs).
@@ -128,7 +124,7 @@ Embora haja um [contexto de rastreamento do W3C](https://www.w3.org/TR/trace-con
 
 ### <a name="service-bus-queue"></a>Fila do Barramento de Serviço
 O Application Insights rastreia chamadas de Mensagens do Barramento do Serviço com o novo [cliente de Barramento de Serviço do Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) versão 3.0.0 e superior.
-Se você usar [padrão de manipulador de mensagens](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) para processar mensagens, você conclui: todas as chamadas de Barramento de Serviço feitas pelo serviço são automaticamente rastreadas e correlacionadas com outros itens de telemetria. Consulte o [cliente de Barramento de Serviço de rastreamento com o Microsoft Application Insights](../../service-bus-messaging/service-bus-end-to-end-tracing.md) se você processar mensagens manualmente.
+Se você usar o [padrão do manipulador de mensagens](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) para processar mensagens, você está pronto: todas as chamadas de Barramento de Serviço feitas pelo serviço são automaticamente rastreadas e correlacionadas com outros itens de telemetria. Consulte o [cliente de Barramento de Serviço de rastreamento com o Microsoft Application Insights](../../service-bus-messaging/service-bus-end-to-end-tracing.md) se você processar mensagens manualmente.
 
 Se você usar o pacote [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/), leia mais - os exemplos a seguir demonstram como rastrear (e correlacionar) chamadas no Barramento de Serviço tal como a fila do Barramento de Serviço usa o protocolo AMQP e o Application Insights não rastreia automaticamente as operações de fila.
 Os identificadores de correlação são passados nas propriedades da mensagem.
@@ -268,7 +264,7 @@ public async Task Enqueue(CloudQueue queue, string message)
 Para reduzir a quantidade de telemetria que o seu aplicativo relata ou se você não quiser acompanhar a operação `Enqueue` por outros motivos, use a API `Activity` diretamente:
 
 - Crie (e inicie) um novo `Activity` em vez de iniciar a operação do Application Insights. Você *não* precisa atribuir nenhuma propriedade a ele, exceto o nome da operação.
-- Serializar `yourActivity.Id` para o conteúdo da mensagem, em vez de `operation.Telemetry.Id`. Você também pode usar `Activity.Current.Id`.
+- Serializar `yourActivity.Id` para o conteúdo da mensagem, em vez de `operation.Telemetry.Id`. Também é possível usar `Activity.Current.Id`.
 
 
 #### <a name="dequeue"></a>Remover da fila
@@ -355,7 +351,7 @@ Application Insights usa o tipo de dependência para experiências de interface 
 - `Azure Event Hubs` para os hubs de eventos do Azure
 - `Azure Service Bus` para o barramento de serviço do Azure
 
-### <a name="batch-processing"></a>Processamento de lote
+### <a name="batch-processing"></a>Processamento em lotes
 Com algumas filas, você pode remover da fila várias mensagens com uma solicitação. O processamento dessas mensagens é supostamente independente e pertence a diferentes operações lógicas. Não é possível correlacionar a operação de `Dequeue` a uma mensagem específica que está sendo processada.
 
 Cada mensagem deve ser processada no seu próprio fluxo de controle assíncrono. Para obter mais informações, consulte a seção [Acompanhamento de dependências de saída](#outgoing-dependencies-tracking).
@@ -429,7 +425,7 @@ public async Task RunMyTaskAsync()
 
 Descartar a operação faz com que ela seja interrompida, portanto, você pode fazer isso em vez de chamar `StopOperation`.
 
-*Aviso*: em alguns casos, uma exceção não tratada [impede](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) `finally` de ser chamado para que operações não possam ser rastreadas.
+*Aviso*: em alguns casos, uma exceção não disponível pode [impedir](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) que `finally` seja chamado para que as operações não sejam rastreadas.
 
 ### <a name="parallel-operations-processing-and-tracking"></a>Rastreamento e processamento de operações paralelas
 
@@ -479,7 +475,7 @@ As atividades são cidadãos de primeira classe em Application Insights, e a col
 
 Cada operação de Application Insights (solicitação ou dependência) envolve `Activity`-quando `StartOperation` é chamado, ele cria a atividade abaixo. `StartOperation` é a maneira recomendada de controlar a telemetrias de solicitação ou de dependência manualmente e garantir que tudo esteja correlacionado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Aprenda noções básicas de [correlação de telemetria](correlation.md) no Application Insights.
 - Confira como os dados correlacionados alimentam a [experiência de diagnóstico de transação](../../azure-monitor/app/transaction-diagnostics.md) e o mapa do [aplicativo](../../azure-monitor/app/app-map.md).

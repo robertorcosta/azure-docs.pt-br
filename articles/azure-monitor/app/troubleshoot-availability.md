@@ -1,27 +1,25 @@
 ---
 title: Solucionar os testes de disponibilidade do Aplicativo Azure insights | Microsoft Docs
 description: Solucionar problemas de testes na Web no Aplicativo Azure insights. Obtenha alertas se um site fica indisponível ou responde lentamente.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 71c16fa005710bb5816ec69716573b79fcae620a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f135aa6c0a4a55f8a42fd858572cc811e25b27c5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899538"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671096"
 ---
-# <a name="troubleshooting"></a>Solução de Problemas
+# <a name="troubleshooting"></a>Solução de problemas
 
 Este artigo o ajudará a solucionar problemas comuns que podem ocorrer ao usar o monitoramento de disponibilidade.
 
 ## <a name="ssltls-errors"></a>Erros de SSL/TLS
 
-|Sintoma/mensagem de erro| Possíveis causas|
+|Sintoma/mensagem de erro| Causas possíveis|
 |--------|------|
 |Não foi possível criar o canal seguro SSL/TLS  | Versão do SSL. Somente há suporte para TLS 1,0, 1,1 e 1,2. **Não há suporte para SSLv3.**
 |Camada de registro do TLSv 1.2: alerta (nível: fatal, descrição: MAC de registro inadequado)| Consulte thread do StackExchange para obter [mais informações](https://security.stackexchange.com/questions/39844/getting-ssl-alert-write-fatal-bad-record-mac-during-openssl-handshake).
@@ -33,7 +31,7 @@ Este artigo o ajudará a solucionar problemas comuns que podem ocorrer ao usar o
 
 ## <a name="test-fails-only-from-certain-locations"></a>O teste falha apenas de determinados locais
 
-|Sintoma/mensagem de erro| Possíveis causas|
+|Sintoma/mensagem de erro| Causas possíveis|
 |----|---------|
 |Uma tentativa de conexão falhou porque a parte conectada não respondeu corretamente após um período de tempo  | Os agentes de teste em determinados locais estão sendo bloqueados por um firewall.|
 |    |O redirecionamento de determinados endereços IP está ocorrendo via (balanceadores de carga, gerenciadores de tráfego geográficos, rota expressa do Azure). 
@@ -41,14 +39,14 @@ Este artigo o ajudará a solucionar problemas comuns que podem ocorrer ao usar o
 
 ## <a name="test-failure-with-a-protocol-violation-error"></a>Falha de teste com um erro de violação de protocolo
 
-|Sintoma/mensagem de erro| Possíveis causas| Possíveis resoluções |
+|Sintoma/mensagem de erro| Causas possíveis| Possíveis resoluções |
 |----|---------|-----|
 |O servidor confirmou uma violação de protocolo. Seção = ResponseHeader Detail = CR deve ser seguido por LF | Isso ocorre quando cabeçalhos malformados são detectados. Especificamente, alguns cabeçalhos podem não estar usando CRLF para indicar o fim da linha, que viola a especificação de HTTP. Application Insights impõe essa especificação HTTP e falha em respostas com cabeçalhos malformados.| a. Contate o provedor de host/provedor de CDN do site para corrigir os servidores com falha. <br> b. Caso as solicitações com falha sejam recursos (por exemplo, arquivos de estilo, imagens, scripts), você pode considerar desabilitar a análise de solicitações dependentes. Tenha em mente, se você fizer isso, perderá a capacidade de monitorar a disponibilidade desses arquivos).
 
 > [!NOTE]
 > A URL pode não falhar em navegadores que têm uma validação reduzida dos cabeçalhos HTTP. Consulte esta postagem de blog para obter uma explicação detalhada do problema: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
 
-## <a name="common-troubleshooting-questions"></a>Perguntas frequentes sobre a solução de problemas
+## <a name="common-troubleshooting-questions"></a>Perguntas comuns de solução de problemas
 
 ### <a name="site-looks-okay-but-i-see-test-failures-why-is-application-insights-alerting-me"></a>O site parece ok, mas eu vejo falhas de teste? Por que Application Insights alertar-me?
 
@@ -128,7 +126,7 @@ Esta seção só se aplica aos alertas clássicos e ajudará você a otimizar su
 
 Use a nova experiência de alerta/alertas quase em tempo real caso precise notificar usuários com base em suas funções. Com os [grupos de ação](../platform/action-groups.md), você pode configurar notificações por email para os usuários que tenham qualquer uma das funções de proprietário/colaborador/leitor (não combinadas como uma única opção).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Teste na Web de várias etapas](availability-multistep.md)
 * [Testes de ping de URL](monitor-web-app-availability.md)

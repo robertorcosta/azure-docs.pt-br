@@ -1,18 +1,14 @@
 ---
 title: Aplicativo Azure insights substituir pontos de extremidade do SDK padrão
 description: Modifique o Azure Monitor padrão Application Insights pontos de extremidade do SDK para regiões como o Azure governamental.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/26/2019
-ms.openlocfilehash: c04b793512eccf6aaff7d3ed3cc65efdd3dfc303
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3aa18a6b96458533c3dc53f3f420ed264b298a3e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432582"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671980"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Application Insights substituindo pontos de extremidade padrão
 
@@ -195,27 +191,27 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 
 Atualmente, as únicas regiões que exigem modificações de ponto de extremidade são o [Azure governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) e o [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
 
-|Região |  Nome do Ponto de Extremidade | Valor |
+|Região |  Nome do Ponto de Extremidade | {1&gt;Valor&lt;1} |
 |-----------------|:------------|:-------------|
 | Azure China | Canal de telemetria | `https://dc.applicationinsights.azure.cn/v2/track` |
 | Azure China | QuickPulse (métricas ao vivo) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
 | Azure China | Consulta de perfil |`https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId`  |
-| Azure Governamental | Canal de telemetria |`https://dc.applicationinsights.us/v2/track` |
-| Azure Governamental | QuickPulse (métricas ao vivo) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
-| Azure Governamental | Consulta de perfil |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
+| Azure Government | Canal de telemetria |`https://dc.applicationinsights.us/v2/track` |
+| Azure Government | QuickPulse (métricas ao vivo) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
+| Azure Government | Consulta de perfil |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
 
 Se você usar atualmente a [API REST Application insights](https://dev.applicationinsights.io/
 ) que normalmente é acessada por meio de ' API.applicationinsights.Io ', será necessário usar um ponto de extremidade que seja local para sua região:
 
-|Região |  Nome do Ponto de Extremidade | Valor |
+|Região |  Nome do Ponto de Extremidade | {1&gt;Valor&lt;1} |
 |-----------------|:------------|:-------------|
 | Azure China | API REST | `api.applicationinsights.azure.cn` |
-| Azure Governamental | API REST | `api.applicationinsights.us`|
+| Azure Government | API REST | `api.applicationinsights.us`|
 
 > [!NOTE]
 > **Não há suporte** para o monitoramento baseado em agente/extensão sem código para serviços Azure apps nessas regiões. Assim que essa funcionalidade for disponibilizada, este artigo será atualizado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Para saber mais sobre as modificações personalizadas do Azure governamental, consulte as diretrizes detalhadas para [monitoramento e gerenciamento do Azure](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights).
 - Para saber mais sobre o Azure China, consulte o [manual do Azure na China](https://docs.microsoft.com/azure/china/).

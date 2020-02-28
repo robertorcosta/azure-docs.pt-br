@@ -1,19 +1,17 @@
 ---
 title: Funis do Azure Application Insights
 description: Saiba como você pode usar Funis para descobrir como os clientes estão interagindo com seu aplicativo.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 07/17/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: d6a6e34f9688747891ac91401941a96b6e85d76a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 89440a6385bab5b917a866b686e8d2ba828c92e5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899467"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671045"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Descobrir como os clientes estão usando seu aplicativo com os Funis do Application Insights
 
@@ -44,7 +42,7 @@ A captura de tela anterior inclui cinco áreas realçadas. Esses são recursos d
 4. O gráfico de conversão de histórico mostra as taxas de conversão nos últimos 90 dias. 
 5. Compreenda melhor seus usuários ao acessar a ferramenta de usuários. Você pode usar filtros em cada etapa. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
   * [Visão geral do uso](usage-overview.md)
   * [Usuários, Sessões e Eventos](usage-segmentation.md)
   * [Retenção](usage-retention.md)

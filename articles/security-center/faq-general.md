@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: b13e5e0000cdd8e33f459400cc4c24d107ccaba3
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: f9043ae1414b63f25583d52100774f3e87754a74
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604801"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661832"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Perguntas frequentes-perguntas gerais sobre a central de segurança do Azure
 
@@ -38,16 +38,17 @@ A Central de Segurança do Azure monitora os seguintes recursos do Azure:
 * VMs (máquinas virtuais) (incluindo os [Serviços de Nuvem](../cloud-services/cloud-services-choose-me.md))
 * conjuntos de escala de máquina virtual
 * Redes Virtuais do Azure
+* Contêineres
 * Serviço do SQL Azure
 * Conta de Armazenamento do Azure
 * Aplicativos Web do Azure (em um [Ambiente do Serviço de Aplicativo](../app-service/environment/intro.md))
 * Soluções de parceiros integradas com sua assinatura do Azure, como um firewall de aplicativo Web em VMs e no Ambiente do Serviço de Aplicativo
 
-Além disso, os computadores não Azure (incluindo locais) também podem ser monitorados pela central de segurança do Azure (os computadores com [Windows](./quick-onboard-windows-computer.md) e [Linux](./quick-onboard-linux-computer.md) têm suporte)
+Além disso, os computadores não Azure (incluindo o local) também podem ser monitorados pela central de segurança do Azure. Há suporte para [máquinas com Windows](./quick-onboard-windows-computer.md) e [computadores Linux](./quick-onboard-linux-computer.md) .
 
 
 ## <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>Como é possível ver o estado atual da segurança dos meus recursos do Azure?
-A página **visão geral da central de segurança** mostra a postura de segurança geral do seu ambiente dividido por computação, rede, armazenamento & dados e aplicativos. Cada tipo de recurso tem um indicador mostrando se possíveis vulnerabilidades de segurança foram identificadas. Clicar em cada bloco exibe uma lista dos problemas de segurança identificados pela Central de Segurança, junto com um inventário dos recursos em sua assinatura.
+A página **visão geral da central de segurança** mostra a postura de segurança geral do seu ambiente dividido por computação, rede, armazenamento & dados e aplicativos. Cada tipo de recurso tem um indicador mostrando vulnerabilidades de segurança identificadas. Clicar em cada bloco exibe uma lista dos problemas de segurança identificados pela Central de Segurança, junto com um inventário dos recursos em sua assinatura.
 
 
 

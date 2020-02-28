@@ -3,17 +3,16 @@ title: Exibir eventos do log de atividades do Azure no Azure Monitor
 description: Exiba o log de atividades do Azure em Azure Monitor e recupere com o PowerShell, a CLI e a API REST.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 46d26aa5dccd32438b2028e21eaa94f7993944d1
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 9df7593a9fd191d3a734fba5e81fb1aecba08345
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749510"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668818"
 ---
 # <a name="view-and-retrieve-azure-activity-log-events"></a>Exibir e recuperar eventos do log de atividades do Azure
 
@@ -40,13 +39,13 @@ Você pode filtrar eventos do log de atividades pelos seguintes campos:
 ## <a name="categories-in-the-activity-log"></a>Categorias no log de atividades
 Cada evento no log de atividades tem uma categoria específica que são descritas na tabela a seguir. Para obter todos os detalhes sobre o esquema dessas categorias, veja o [esquema de eventos de Log de Atividades do Azure](activity-log-schema.md). 
 
-| Categoria | Description |
+| Categoria | Descrição |
 |:---|:---|
 | Administrativo | Contém o registro de todas as operações de criação, atualização, exclusão e ação executadas por meio do Resource Manager. Exemplos de eventos administrativos incluem _criar máquina virtual_ e _excluir grupo de segurança de rede_.<br><br>Cada ação tomada por um usuário ou aplicativo usando o Resource Manager é modelada como uma operação em um determinado tipo de recurso. Se o tipo de operação for _gravação_, _exclusão_ou _ação_, os registros de início e êxito ou falha da operação serão registrados na categoria administrativa. Os eventos administrativos também incluem quaisquer alterações no controle de acesso baseado em função em uma assinatura. |
-| Integridade do Serviço | Contém o registro de qualquer incidente de integridade do serviço que ocorreu no Azure. Um exemplo de SQL Azure de eventos de integridade do serviço _no leste dos EUA está apresentando tempo de inatividade_. <br><br>Os eventos de integridade do serviço são fornecidos em seis variedades: _ação necessária_, _recuperação assistida_, _incidente_, _manutenção_, _informações_ou _segurança_. Esses eventos serão criados somente se você tiver um recurso na assinatura que seria impactado pelo evento.
+| Integridade do serviço | Contém o registro de qualquer incidente de integridade do serviço que ocorreu no Azure. Um exemplo de SQL Azure de eventos de integridade do serviço _no leste dos EUA está apresentando tempo de inatividade_. <br><br>Os eventos de integridade do serviço são fornecidos em seis variedades: _ação necessária_, _recuperação assistida_, _incidente_, _manutenção_, _informações_ou _segurança_. Esses eventos serão criados somente se você tiver um recurso na assinatura que seria impactado pelo evento.
 | Integridade de recursos | Contém o registro dos eventos de integridade do recurso que ocorreram para os recursos do Azure. Um exemplo de um evento de Resource Health é o _status de integridade da máquina virtual alterado para indisponível_.<br><br>Resource Health eventos podem representar um dos quatro status de integridade: _disponível_, _indisponível_, _degradado_e _desconhecido_. Além disso, Resource Health eventos podem ser categorizados como sendo _iniciado pela plataforma_ ou _pelo usuário_. |
-| Alerta | Contém o registro de ativações para alertas do Azure. Um exemplo de um evento de alerta é _% de CPU em myVM tem mais de 80 para os últimos 5 minutos_.|
-| Autoescala | Contém o registro de todos os eventos relacionados à operação do mecanismo de dimensionamento automático com base em qualquer configuração de dimensionamento automático que você definiu em sua assinatura. Um exemplo de um evento de dimensionamento automático é a _ação de escalabilidade vertical com falha_. |
+| Alert | Contém o registro de ativações para alertas do Azure. Um exemplo de um evento de alerta é _% de CPU em myVM tem mais de 80 para os últimos 5 minutos_.|
+| Autoscale | Contém o registro de todos os eventos relacionados à operação do mecanismo de dimensionamento automático com base em qualquer configuração de dimensionamento automático que você definiu em sua assinatura. Um exemplo de um evento de dimensionamento automático é a _ação de escalabilidade vertical com falha_. |
 | Recomendação | Contém eventos de recomendação do Azure Advisor. |
 | Segurança | Contém o registro de todos os alertas gerados pela central de segurança do Azure. Um exemplo de um evento de segurança é um _arquivo de extensão dupla suspeito executado_. |
 | Política | Contém registros de todas as operações de ação de efeito executadas por Azure Policy. Exemplos de eventos de política incluem _auditoria_ e _negação_. Cada ação tomada pelo Policy é modelada como uma operação em um recurso. |
@@ -174,7 +173,7 @@ GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5
 ## <a name="activity-logs-analytics-monitoring-solution"></a>Solução de monitoramento de análise de logs de atividades
 A solução de monitoramento de Log Analytics do Azure inclui várias consultas de log e exibições para analisar os registros de log de atividades em seu espaço de trabalho do Log Analytics.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 Você deve criar uma configuração de diagnóstico para enviar o log de atividades da sua assinatura para um espaço de trabalho Log Analytics. Consulte [coletar logs da plataforma Azure no espaço de trabalho log Analytics no Azure monitor](resource-logs-collect-workspace.md).
 
 ### <a name="install-the-solution"></a>Instalar a solução
@@ -190,7 +189,7 @@ Clique no bloco **logs de atividade do Azure** para abrir a exibição **logs de
 
 ![Painel Logs de Atividade do Azure](media/collect-activity-logs/activity-log-dash.png)
 
-| Parte de visualização | Description |
+| Parte de visualização | Descrição |
 | --- | --- |
 | Entradas de log de atividades do Azure | Mostra um gráfico de barras dos totais principais registros de entrada do log de atividades do Azure para o intervalo de datas selecionado e mostra uma lista dos 10 principais chamadores de atividade. Clique no gráfico de barras para executar uma pesquisa de logs para `AzureActivity`. Clique em um item do chamador para executar uma pesquisa de logs retornando todas as entradas do log de atividades para esse item. |
 | Logs de atividade por status | Mostra um gráfico de rosca para o status do log de atividades do Azure para o intervalo de datas selecionado e uma lista dos dez principais registros de status. Clique no gráfico para executar uma consulta de log para `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`. Clique em um item de status para executar uma pesquisa de logs que retorna todas as entradas do log de atividades para esse registro de status. |
@@ -200,7 +199,7 @@ Clique no bloco **logs de atividade do Azure** para abrir a exibição **logs de
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Leia uma visão geral dos logs da plataforma](platform-logs-overview.md)
 * [Criar configuração de diagnóstico para enviar logs de atividade para outros destinos](diagnostic-settings.md)

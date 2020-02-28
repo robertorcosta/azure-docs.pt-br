@@ -3,17 +3,16 @@ title: Criar configuração de diagnóstico no Azure usando o modelo do Resource
 description: Crie configurações de diagnóstico usando um modelo do Resource Manager para encaminhar logs da plataforma Azure para Azure Monitor logs, armazenamento do Azure ou hubs de eventos do Azure.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 2a171ae89e8314684eddf29f78b9b09bc52f9c9b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a2569ca3f998030680bd7dbd872d71ccd372a25d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977548"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672422"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Criar configuração de diagnóstico no Azure usando um modelo do Resource Manager
 [As configurações de diagnóstico](diagnostic-settings.md) no Azure monitor especificam onde enviar [os logs de plataforma](platform-logs-overview.md) que são coletados pelos recursos do Azure e a plataforma do Azure da qual dependem. Este artigo fornece detalhes e exemplos para usar um [modelo de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para criar e definir configurações de diagnóstico para coletar logs de plataforma para destinos diferentes.
@@ -69,7 +68,7 @@ Veja a seguir um modelo que coleta uma categoria de log de recursos para um recu
 
 
 
-### <a name="example"></a>Exemplo
+### <a name="example"></a>{1&gt;Exemplo&lt;1}
 Veja a seguir um exemplo que cria uma configuração de diagnóstico para uma configuração de dimensionamento automático que habilita o streaming de logs de recursos para um hub de eventos, uma conta de armazenamento e um espaço de trabalho Log Analytics.
 
 ```json
@@ -144,7 +143,7 @@ Veja a seguir um exemplo que cria uma configuração de diagnóstico para uma co
 }
 ```
 
-## <a name="activity-log"></a>Logs de atividades
+## <a name="activity-log"></a>Log de atividades
 Para o log de atividades do Azure, adicione um recurso do tipo `Microsoft.Insights/diagnosticSettings`. As categorias disponíveis são listadas em [categorias no log de atividades](activity-log-view.md#categories-in-the-activity-log). Veja a seguir um modelo que coleta todas as categorias de log de atividades para um Log Analytics espaço de trabalho, uma conta de armazenamento e um hub de eventos.
 
 
@@ -237,6 +236,6 @@ Para o log de atividades do Azure, adicione um recurso do tipo `Microsoft.Insigh
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * Leia mais sobre [os logs de plataforma no Azure](platform-logs-overview.md).
 * Saiba mais sobre [as configurações de diagnóstico](diagnostic-settings.md).

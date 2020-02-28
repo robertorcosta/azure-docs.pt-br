@@ -1,20 +1,18 @@
 ---
 title: Análise de tendências no Visual Studio | Microsoft Docs
 description: Analisar, visualizar e explorar tendências em sua telemetria do Application Insights no Visual Studio.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
-ms.openlocfilehash: da1cd3ed9d07b1eb1304f6b26999af92d2704537
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: bb94d3596fde541f16edd1b7012f57b89ebf52eb
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899310"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670858"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Análise de tendências no Visual Studio
 A ferramenta Application Insights Trends visualiza como eventos de telemetria importantes do seu aplicativo mudam com o tempo, ajudando a identificar rapidamente problemas e anomalias. Vinculando-o a informações mais detalhadas de diagnóstico, o Trends pode ajudá-lo a melhorar o desempenho de seu aplicativo, rastrear as causas de exceções e obter informações por meio de seus eventos personalizados.
@@ -71,7 +69,7 @@ Para navegar entre as bolhas na visualização:
 > 
 > 
 
-## <a name="filter"></a>Filtrar
+## <a name="filter"></a>Filtro
 Descubra tendências mais específicas com os controles de filtro na parte inferior da janela. Para aplicar um filtro, clique em seu nome. Você pode alternar rapidamente entre diferentes filtros para descobrir tendências que podem estar ocultas em uma dimensão específica da telemetria. Se você aplicar um filtro em uma dimensão, como tipo de exceção, os filtros em outras dimensões permanecerão clicáveis, embora sejam exibidos esmaecidos. Para cancelar a aplicação de um filtro, clique nele novamente. Ctrl+clique para selecionar vários filtros na mesma dimensão.
 
 ![Filtros de tendência](./media/visual-studio-trends/TrendsFiltering-750.png)

@@ -1,19 +1,15 @@
 ---
 title: 'Application Insights: linguagens, plataformas e integrações | Microsoft Docs'
 description: Linguagens, plataformas e integrações disponíveis para Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/18/2019
 ms.reviewer: olegan
-ms.openlocfilehash: 01cebc3a86808d549f1a7dc3adfd2883bc289076
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: d87b1d0aa74263f249db2030f2366b93b8c2b421
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73061444"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669821"
 ---
 # <a name="supported-languages"></a>Idiomas com suporte
 
@@ -27,10 +23,10 @@ ms.locfileid: "73061444"
 
 ### <a name="instrumentation-for-already-deployed-applications-codeless-agent-based"></a>Instrumentação para aplicativos já implantados (sem código, baseados em agente)
 * [Conjuntos de dimensionamento de máquinas virtuais do Azure e VM do Azure](../../azure-monitor/app/azure-vm-vmss-apps.md)
-* [Serviço de aplicativo do Azure](../../azure-monitor/app/azure-web-apps.md)
+* [Serviço de Aplicativo do Azure](../../azure-monitor/app/azure-web-apps.md)
 * [ASP.NET – para aplicativos que já estejam ao vivo](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [Serviços de nuvem do Azure](../../azure-monitor/app/cloudservices.md), incluindo funções Web e de trabalho
-* [Funções do Azure](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
+* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
 ### <a name="instrumentation-through-code-sdks"></a>Instrumentação por meio de código (SDKs)
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
 * [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
@@ -51,7 +47,7 @@ ms.locfileid: "73061444"
 
 ## <a name="export-and-data-analysis"></a>Análise de dados e exportação
 * [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
-* [Análise de fluxo](../../azure-monitor/app/export-power-bi.md)
+* [Stream Analytics](../../azure-monitor/app/export-power-bi.md)
 
 ## <a name="unsupported-sdks"></a>SDKs sem suporte
 Estamos cientes de que existem vários outros SDKs com suporte da Comunidade. No entanto, Azure Monitor só fornece suporte ao usar os SDKs com suporte listados nesta página. Estamos constantemente avaliando as oportunidades de expandir nosso suporte para outras linguagens, então siga nossa página de [anúncios do GitHub](https://github.com/microsoft/ApplicationInsights-Announcements/issues) para receber as notícias mais recentes do SDK. 

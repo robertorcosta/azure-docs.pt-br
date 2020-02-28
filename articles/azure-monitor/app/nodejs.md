@@ -1,18 +1,14 @@
 ---
 title: Como monitorar os serviços Node.js com o Application Insights do Azure | Microsoft Docs
 description: Monitore o desempenho e diagnostique problemas em serviços do Node.js com o Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 03/14/2019
-ms.openlocfilehash: 81f63380c041ae743a2b38e6ba89558b83e7497a
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 320ec62e642155002e42c59d4656f51673249eb1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820715"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670008"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Como monitorar seus serviços do Node.js e aplicativos com o Application Insights
 
@@ -24,11 +20,11 @@ O SDK do Node.js pode monitorar automaticamente as solicitações HTTP de entrad
 
 Você pode usar a API TelemetryClient para instrumentar e monitorar manualmente outros aspectos do aplicativo e do sistema. Descrevemos a API TelemetryClient em mais detalhes mais adiante neste artigo.
 
-## <a name="get-started"></a>Comece agora
+## <a name="get-started"></a>Introdução
 
 Conclua as seguintes tarefas para configurar o monitoramento em um aplicativo ou serviço.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Antes de começar, verifique se você tem uma assinatura do Azure ou [obtenha uma nova gratuitamente][azure-free-offer]. Se sua organização já tiver uma assinatura do Azure, um administrador poderá seguir [estas instruções][add-aad-user] para adicioná-lo a ela.
 
@@ -88,7 +84,7 @@ Para saber mais sobre o aplicativo e solucionar problemas, selecione os outros m
 
 ![Seção Investigar](./media/nodejs/007-investigate-pane.png)
 
-#### <a name="no-data"></a>Nenhum dado?
+#### <a name="no-data"></a>Não há dados?
 
 Como o SDK envia lotes de dados, pode haver um atraso antes de os itens serem exibidos no portal. Se você não visualizar os dados em seu recurso, experimente algumas das seguintes correções:
 
@@ -195,7 +191,7 @@ server.on("listening", () => {
 });
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Monitorar sua telemetria no portal](../../azure-monitor/app/overview-dashboard.md)
 * [Escrever consultas de análise sobre a telemetria](../../azure-monitor/log-query/get-started-portal.md)

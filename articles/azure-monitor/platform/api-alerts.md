@@ -1,20 +1,18 @@
 ---
 title: Usando a API REST de alerta do Log Analytics
 description: A API REST do alerta de Log Analytics permite criar e gerenciar alertas no Log Analytics, que faz parte do Log Analytics.  Este artigo fornece detalhes da API e vários exemplos para executar operações diferentes.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
 ms.date: 07/29/2018
-ms.openlocfilehash: 7112f86ca123c66c5969236617f35fcb8d698030
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: a85dad2ba638505233e5df769e55fa5bd7b8dafd
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680657"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664993"
 ---
-# <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Criar e gerenciar regras de alerta no Log Analytics com a API REST
+# <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Criar e gerenciar regras de alerta no Log Analytics com a API REST 
+
 A API REST de alerta do Log Analytics permite criar e gerenciar alertas no Log Analytics.  Este artigo fornece detalhes da API e vários exemplos para executar operações diferentes.
 
 > [!IMPORTANT]
@@ -22,18 +20,18 @@ A API REST de alerta do Log Analytics permite criar e gerenciar alertas no Log A
 
 A API REST de Pesquisa do Log Analytics é RESTful e pode ser acessada por meio da API REST do Azure Resource Manager. Neste documento, você encontrará exemplos em que a API é acessada por meio de uma linha de comando do PowerShell usando o [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comando de software livre que simplifica a invocação da API do Azure Resource Manager. O uso do ARMClient e do PowerShell é uma das muitas opções para acessar a API de Pesquisa do Log Analytics. Com essas ferramentas, você pode utilizar a API do RESTful Azure Resource Manager para fazer chamadas para espaços de trabalho do Log Analytics e executar comandos de pesquisa dentro deles. A API produzirá resultados da pesquisa para você no formato JSON, permitindo que você use os resultados da pesquisa de diferentes maneiras por meio de programação.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 Atualmente, os alertas somente podem ser criados com uma pesquisa salva no Log Analytics.  Você pode consultar a [API REST da Pesquisa de Log](../../azure-monitor/log-query/log-query-overview.md) para obter mais informações.
 
-## <a name="schedules"></a>Agendamentos
+## <a name="schedules"></a>Agendas
 Uma pesquisa salva pode ter um ou mais agendamentos. O agendamento define a frequência com que a pesquisa é executada e o intervalo de tempo em que os critérios são identificados.
 Os agendamentos têm as propriedades indicadas na tabela a seguir.
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--- |:--- |
 | Intervalo |A frequência com que a pesquisa é executada. Medida em minutos. |
 | QueryTimeSpan |O intervalo durante o qual os critérios são avaliados. Deve ser igual ou maior que Interval. Medida em minutos. |
-| Versão |A versão da API que está sendo usada.  Atualmente, isso sempre deve ser definido como 1. |
+| {1&gt;Version&lt;1} |A versão da API que está sendo usada.  Atualmente, isso sempre deve ser definido como 1. |
 
 Por exemplo, considere uma consulta de evento com um Interval (Intervalo) de 15 minutos e Timespan (Período) de 30 minutos. Nesse caso, a consulta deverá ser executada a cada 15 minutos e um alerta deverá ser disparado se os critérios continuarem a ser resolvidos como verdadeiro por um período de 30 minutos.
 
@@ -89,7 +87,7 @@ Um agendamento pode ter várias ações. Uma ação pode definir um ou mais proc
 
 Todas as ações têm as propriedades indicadas na tabela a seguir.  Diferentes tipos de alertas têm diferentes propriedades adicionais que são descritas abaixo.
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--- |:--- |
 | `Type` |Tipo da ação.  Atualmente, os valores possíveis são Alerta e Webhook. |
 | `Name` |Nome de exibição para o alerta. |
@@ -124,12 +122,12 @@ Use o método Delete com a ID de ação para excluir uma ação.
 ### <a name="alert-actions"></a>Ações de Alerta
 Um Agendamento deve ter somente uma ação de Alerta.  Ações de alerta têm uma ou mais das seções na tabela a seguir.  Elas são descritas em mais detalhes abaixo.
 
-| Seção | Description | Uso |
+| Seção | Descrição | Uso |
 |:--- |:--- |:--- |
 | Limite |Critérios para quando a ação for executada.| Necessário para cada alerta, antes ou depois de ser estendido para o Azure. |
-| Gravidade |Rótulo usado para classificar o alerta quando disparado.| Necessário para cada alerta, antes ou depois de ser estendido para o Azure. |
+| Severity |Rótulo usado para classificar o alerta quando disparado.| Necessário para cada alerta, antes ou depois de ser estendido para o Azure. |
 | Suprimir |Opção para interromper notificações do alerta. | Opcional para cada alerta, antes ou depois de ser estendido para o Azure. |
-| Grupos de ações |IDs do ActionGroup do Azure em que as ações necessárias são especificadas, como - Emails SMSs, Chamadas de voz, Webhooks, Runbooks de automação, Conectores ITSM, etc.| Necessário quando os alertas são estendidos para o Azure|
+| Grupos de Ação |IDs do ActionGroup do Azure em que as ações necessárias são especificadas, como - Emails SMSs, Chamadas de voz, Webhooks, Runbooks de automação, Conectores ITSM, etc.| Necessário quando os alertas são estendidos para o Azure|
 | Personalizar Ações|Modificar a saída padrão para determinadas ações do ActionGroup| Opcional para cada alerta, pode ser usado depois de alertas serem estendidos para o Azure. |
 
 ### <a name="thresholds"></a>Limites
@@ -137,7 +135,7 @@ Uma ação de Alerta deve ter somente um limite.  Quando os resultados de pesqui
 
 Os limites têm as propriedades indicadas na tabela a seguir.
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--- |:--- |
 | `Operator` |Operador de comparação de limite. <br> gt = Maior Que <br> lt = Menor Que |
 | `Value` |Valor para o limite. |
@@ -167,7 +165,7 @@ Use o método Put com uma ID de ação existente para criar uma nova ação de l
     $thresholdJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
 
-#### <a name="severity"></a>Gravidade
+#### <a name="severity"></a>Severity
 O Log Analytics permite classificar alertas em categorias, para facilitar a triagem e o gerenciamento. A gravidade do Alerta definida é: informativo, aviso e crítico. São mapeadas para a escala de gravidade normalizada dos Alertas do Azure como:
 
 |Nível de gravidade do Log Analytics  |Nível de gravidade dos Alertas do Azure  |
@@ -230,7 +228,7 @@ Use o método Put com uma ID de ação existente para modificar uma ação de gr
     $AlertSuppressJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
 
-#### <a name="action-groups"></a>Grupos de ações
+#### <a name="action-groups"></a>Grupos de Ação
 Todos os alertas no Azure, use o Grupo de Ações como mecanismo padrão para lidar com ações. Com o Grupo de Ações, você pode especificar suas ações uma vez e, em seguida, associar o grupo de ações para vários alertas - em todo o Azure. Sem a necessidade de declarar repetidamente as mesmas ações. Os Grupos de Ações dão suportam a várias ações - incluindo Email, SMS, Chamada de voz, Conexão ITSM, Runbook de automação, URI de Webhook e muito mais. 
 
 Para os usuários que tiverem estendido seus alertas ao Azure, agora deve haver uma agenda com detalhes do Grupo de Ações passado junto com o limite para poder criar um alerta. Detalhes de email, URLs de Webhook, detalhes de automação de Runbook e outras ações precisam ser definidos no Grupo de Ações antes de criar um alerta; é possível criar o [Grupo de Ações pelo Azure Monitor](../../azure-monitor/platform/action-groups.md) no Portal ou usar a [API de Grupo de Ações](https://docs.microsoft.com/rest/api/monitor/actiongroups).
@@ -336,7 +334,7 @@ Use o método Put com uma ID de ação existente para modificar um Grupo de Aç�
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Use a [API REST para executar pesquisas de log](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics.
 * Saiba mais sobre os [alertas de log no Azure monitor](../../azure-monitor/platform/alerts-unified-log.md)

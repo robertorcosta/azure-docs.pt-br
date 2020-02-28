@@ -1,18 +1,17 @@
 ---
 title: API do Coletor de Dados HTTP do Azure Monitor | Microsoft Docs
 description: É possível usar a API do Coletor de Dados HTTP do Azure Monitor para adicionar dados JSON POST a um espaço de trabalho do Log Analytics de qualquer cliente que possa chamar a API REST. Este artigo descreve como usar a API e tem exemplos de como publicar dados usando diferentes linguagens de programação.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/01/2019
-ms.openlocfilehash: 136644dbcfe9e2835f799b284d21263913bc67b4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: f12e9e90b99a055945c34398ff5351334c344253
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932583"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666745"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Enviar dados de log para o Azure Monitor com a API do Coletor de Dados HTTP (visualização pública)
 Este artigo mostra como usar a API do Coletor de Dados HTTP para enviar dados de log para o Azure Monitor a partir de um cliente API REST.  O artigo descreve como formatar dados coletados pelo script ou aplicativo, incluí-los em uma solicitação e ter essa solicitação autorizada pelo Azure Monitor.  Os exemplos são fornecidos para PowerShell, C# e Python.
@@ -35,7 +34,7 @@ Todos os dados no espaço de trabalho do Log Analytics são armazenados como um 
 ## <a name="create-a-request"></a>Criar uma solicitação
 Para usar a API do Coletor de Dados HTTP, crie uma solicitação POST que inclua os dados a serem enviados em JSON (JavaScript Object Notation).  As próximas três tabelas listam os atributos que são necessários para cada solicitação. Descrevemos cada atributo em mais detalhes posteriormente neste artigo.
 
-### <a name="request-uri"></a>URI da solicitação
+### <a name="request-uri"></a>URI de solicitação
 | Atributo | Propriedade |
 |:--- |:--- |
 | Método |POST |
@@ -43,19 +42,19 @@ Para usar a API do Coletor de Dados HTTP, crie uma solicitação POST que inclua
 | Tipo de conteúdo |aplicativo/json |
 
 ### <a name="request-uri-parameters"></a>Solicitar parâmetros de URI (Uniform Resource Identifier)
-| . | Descrição |
+| Parâmetro | Descrição |
 |:--- |:--- |
 | CustomerID |O identificador exclusivo do espaço de trabalho do Log Analytics. |
-| Grupos |O nome do recurso de API: /api/logs. |
+| Recurso |O nome do recurso de API: /api/logs. |
 | Versão da API |A versão da API a ser usada com esta solicitação. Atualmente, ela é 2016-04-01. |
 
-### <a name="request-headers"></a>Cabeçalhos da solicitação
+### <a name="request-headers"></a>Cabeçalhos de solicitações
 | Cabeçalho | Descrição |
 |:--- |:--- |
 | Autorização |A assinatura de autorização. Posteriormente neste artigo, você pode ler sobre como criar um cabeçalho HMAC-SHA256. |
 | Log-Type |Especifique o tipo de registro dos dados que estão sendo enviados. Pode conter apenas letras, números e sublinhado (_) e não pode exceder 100 caracteres. |
 | x-ms-date |A data em que a solicitação foi processada, no formato RFC 1123. |
-| x-MS-AzureResourceId | ID de recurso do recurso do Azure ao qual os dados devem ser associados. Isso popula a propriedade [_ResourceId](log-standard-properties.md#_resourceid) e permite que os dados sejam incluídos em consultas de [contexto de recurso](design-logs-deployment.md#access-mode) . Se esse campo não for especificado, os dados não serão incluídos nas consultas de contexto de recurso. |
+| x-ms-AzureResourceId | ID de recurso do recurso do Azure ao qual os dados devem ser associados. Isso popula a propriedade [_ResourceId](log-standard-properties.md#_resourceid) e permite que os dados sejam incluídos em consultas de [contexto de recurso](design-logs-deployment.md#access-mode) . Se esse campo não for especificado, os dados não serão incluídos nas consultas de contexto de recurso. |
 | time-generated-field | O nome de um campo nos dados que contém o carimbo de data/hora do item de dados. Se você especificar um campo, seu conteúdo será usado para **TimeGenerated**. Se esse campo não for especificado, o padrão para **TimeGenerated** será a hora em que a mensagem é incluída. O conteúdo do campo de mensagem deve seguir o formato ISO 8601 AAAA-MM-DDThh:mm:ssZ. |
 
 ## <a name="authorization"></a>Autorização
@@ -135,9 +134,9 @@ Para identificar o tipo de dados de uma propriedade, o Azure Monitor adiciona um
 
 | Tipo de dados de propriedade | Suffix |
 |:--- |:--- |
-| string |_s |
-| Booliano |_b |
-| DOUBLE |_d |
+| String |_s |
+| Boolean |_b |
+| Duplo |_d |
 | Data/hora |_t |
 | GUID (armazenado como uma cadeia de caracteres) |_g |
 
@@ -181,7 +180,7 @@ O código de status HTTP 200 significa que a solicitação foi recebida para pro
 
 Esta tabela lista o conjunto completo de códigos de status que o serviço pode retornar:
 
-| Codificar | Status | Código do erro | Descrição |
+| Código | Status | Código do erro | Descrição |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |A solicitação foi aceita com êxito. |
 | 400 |Solicitação incorreta |InactiveCustomer |O workspace foi fechado. |
@@ -196,8 +195,8 @@ Esta tabela lista o conjunto completo de códigos de status que o serviço pode 
 | 403 |Proibido |InvalidAuthorization |O serviço falhou ao autenticar a solicitação. Verifique se a chave de conexão e a ID do workspace são válidos. |
 | 404 |Não encontrado | | A URL fornecida está incorreta ou a solicitação é muito grande. |
 | 429 |Número Excessivo de Solicitações | | O serviço está recebendo um alto volume de dados da sua conta. Tente fazer novamente a solicitação. |
-| 500 |Erro interno do servidor |UnspecifiedError |O serviço encontrou um erro interno. Tente novamente a solicitação. |
-| 503 |Serviço indisponível |ServiceUnavailable |No momento, o serviço está indisponível para receber solicitações. Tente novamente a sua solicitação. |
+| 500 |Erro Interno do Servidor |UnspecifiedError |O serviço encontrou um erro interno. Tente novamente a solicitação. |
+| 503 |Serviço Indisponível |ServiceUnavailable |No momento, o serviço está indisponível para receber solicitações. Tente novamente a sua solicitação. |
 
 ## <a name="query-data"></a>Consultar dados
 Para consultar dados enviados pela API do Coletor de Dados HTTP do Azure Monitor, pesquise registros com **Tipo** que seja igual ao valor **LogType** especificado, anexado com **_CL**. Por exemplo, se você usasse **MyCustomLog**, retornariam todos os registros com `MyCustomLog_CL`.
@@ -475,7 +474,7 @@ Embora a API do coletor de dados deva abranger a maioria das suas necessidades d
 | [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | O Azure Data Explorer (ADX) é a plataforma de dados que capacita Application Insights análise e Azure Monitor logs. Agora disponível ("GA"), usar a plataforma de dados em sua forma bruta oferece flexibilidade total (mas exigindo a sobrecarga de gerenciamento) sobre o cluster (RBAC, taxa de retenção, esquema e assim por diante). O ADX fornece muitas [Opções de ingestão](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) , incluindo arquivos [CSV, TSV e JSON](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) . | <ul><li> Dados que não serão correlacionados a outros dados em Application Insights ou logs. </li><li> Os dados que exigem recursos avançados de ingestão ou processamento não estão disponíveis atualmente nos logs de Azure Monitor. </li></ul> |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 - Use a [API de Pesquisa de Logs](../log-query/log-query-overview.md) para recuperar dados do espaço de trabalho do Log Analytics.
 
 - Saiba mais sobre como [criar um pipeline de dados com a API do Coletor de Dados ](create-pipeline-datacollector-api.md) usando fluxo de trabalho de Aplicativos Lógicos para Azure Monitor.

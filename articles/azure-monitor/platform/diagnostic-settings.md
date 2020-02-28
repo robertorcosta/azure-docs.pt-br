@@ -3,17 +3,16 @@ title: Criar configuração de diagnóstico para coletar logs e métricas no Azu
 description: Crie configurações de diagnóstico para encaminhar logs da plataforma Azure para logs de Azure Monitor, armazenamento do Azure ou hubs de eventos do Azure.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 22932121b97c1b0fe91c46b5eea0222a022a4e61
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: fb2f9ff5af68575d9f9d29e9a6aca83d603395b3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751076"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672405"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Criar configuração de diagnóstico para coletar logs e métricas de plataforma no Azure
 [Os logs de plataforma](platform-logs-overview.md) no Azure, incluindo logs de recursos e log de atividades do Azure, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem. Este artigo fornece detalhes sobre como criar e definir configurações de diagnóstico para enviar logs de plataforma para destinos diferentes.
@@ -23,10 +22,10 @@ ms.locfileid: "75751076"
 
 Cada recurso do Azure requer sua própria configuração de diagnóstico, que define o seguinte:
 
-- As categorias de logs e os dados de métrica enviados aos destinos definidos na configuração. As categorias disponíveis variam para diferentes tipos de recursos.
-- Um ou mais destinos para enviar os logs. Os destinos atuais incluem workspace do Log Analytics, Hubs de Eventos e Armazenamento do Azure.
+- Categorias de logs e dados de métrica enviados aos destinos definidos na configuração. As categorias disponíveis irão variar para diferentes tipos de recursos.
+- Um ou mais destinos para enviar os logs. Os destinos atuais incluem Log Analytics espaço de trabalho, hubs de eventos e armazenamento do Azure.
  
-Uma única configuração de diagnóstico pode definir, no máximo, um de cada um dos destinos. Se você quiser enviar dados para mais de um tipo de destino específico (por exemplo, dois workspaces do Log Analytics diferentes), crie várias configurações. Cada recurso pode ter até cinco configurações de diagnóstico.
+Uma única configuração de diagnóstico pode definir, no máximo, um de cada um dos destinos. Se você quiser enviar dados para mais de um tipo de destino específico (por exemplo, dois espaços de trabalho de Log Analytics diferentes), crie várias configurações. Cada recurso pode ter até 5 configurações de diagnóstico.
 
 
 > [!NOTE]
@@ -35,7 +34,7 @@ Uma única configuração de diagnóstico pode definir, no máximo, um de cada u
 ## <a name="destinations"></a>Destinos 
 Os logs de plataforma podem ser enviados para os destinos na tabela a seguir. A configuração de cada destino é executada usando o mesmo processo para a criação de configurações de diagnóstico descritas neste artigo. Siga cada link na tabela a seguir para obter detalhes sobre como enviar dados para esse destino.
 
-| Destino | Description |
+| Destino | Descrição |
 |:---|:---|
 | [Espaço de Trabalho do Log Analytics](resource-logs-collect-workspace.md) | A coleta de logs em um Log Analytics espaço de trabalho permite analisá-los com outros dados de monitoramento coletados por Azure Monitor usando consultas de log poderosas e também para aproveitar outros recursos de Azure Monitor, como alertas e visualizações. |
 | [Hubs de Eventos](resource-logs-stream-event-hubs.md) | O envio de logs para hubs de eventos permite que você transmita dados para sistemas externos, como SIEMs de terceiros e outras soluções do log Analytics. |
@@ -69,7 +68,7 @@ Você pode definir as configurações de diagnóstico no portal do Azure no menu
 3. Dê um nome à sua configuração se ela ainda não tiver uma.
 4. Marque a caixa para cada destino para enviar os logs. Clique em **Configurar** para especificar suas configurações, conforme descrito na tabela a seguir.
 
-    | Configuração | Description |
+    | Configuração | Descrição |
     |:---|:---|
     | Espaço de trabalho do Log Analytics | Nome do espaço de trabalho. |
     | Conta de armazenamento | Nome da conta de armazenamento. |
@@ -86,7 +85,7 @@ Você pode definir as configurações de diagnóstico no portal do Azure no menu
    >
    > *Por exemplo*: a métrica “Mensagens de Entrada” em um Hub de Eventos pode ser explorada e mapeada por nível da fila. No entanto, quando exportada por meio das configurações de diagnóstico, a métrica será representada como todas as mensagens de entrada em todas as filas no Hub de Eventos.
 
-6. Clique em **Save** (Salvar).
+6. Clique em **Salvar**.
 
 Após alguns instantes, a nova configuração aparecerá na lista de configurações desse recurso e os logs serão transmitidos para os destinos especificados à medida que novos dados de evento forem gerados. Observe que pode haver até quinze minutos entre o momento em que um evento é emitido e quando ele [aparece em um espaço de trabalho log Analytics](data-ingestion-time.md).
 
@@ -134,6 +133,6 @@ Consulte [configurações de diagnóstico](https://docs.microsoft.com/rest/api/m
 ### <a name="configure-diagnostic-settings-using-resource-manager-template"></a>Definir configurações de diagnóstico usando o modelo do Resource Manager
 Consulte [criar configuração de diagnóstico no Azure monitor usando um modelo do Resource Manager](diagnostic-settings-template.md) para criar ou atualizar configurações de diagnóstico com um modelo do Resource Manager.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Leia mais sobre os logs da plataforma Azure](platform-logs-overview.md)

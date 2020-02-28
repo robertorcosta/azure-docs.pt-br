@@ -1,18 +1,15 @@
 ---
 title: Regras de ação para alertas de Azure Monitor
 description: Noções básicas sobre as regras de ação no Azure Monitor são e como configurá-las e gerenciá-las.
-ms.service: azure-monitor
-ms.subservice: alerts
 ms.topic: conceptual
-author: anantr
-ms.author: robb
 ms.date: 04/25/2019
-ms.openlocfilehash: e9de7a1fe4cee16cd1d22ba764ab9eccdf3979fd
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.subservice: alerts
+ms.openlocfilehash: 42f8d9cd30caa48376cda049f6404aa897a6866c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767680"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668461"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (visualização)
 
@@ -60,7 +57,7 @@ Primeiro, escolha o escopo (assinatura do Azure, grupo de recursos ou recurso de
 
 ![Escopo da regra de ação](media/alerts-action-rules/action-rules-new-rule-creation-flow-scope.png)
 
-### <a name="filter-criteria"></a>Critérios de filtro
+### <a name="filter-criteria"></a>Critérios de filtragem
 
 Além disso, você pode definir filtros para limitá-los a um subconjunto específico de alertas. 
 
@@ -103,7 +100,7 @@ Se você selecionar **grupo de ações** na alternância, adicione um grupo de a
 ### <a name="action-rule-details"></a>Detalhes da regra de ação
 
 Por fim, configure os seguintes detalhes para a regra de ação:
-* name
+* {1&gt;Nome&lt;1}
 * Grupo de recursos no qual ele foi salvo
 * Descrição 
 
@@ -115,7 +112,7 @@ A contoso deseja suprimir notificações para todos os alertas do Sev4 em todas 
 
 **Solução:** Crie uma regra de ação com:
 * Scope = **ContosoSub**
-* Filtros
+* Filtros.
     * Severidade = **Sev4**
     * Tipo de recurso = **máquinas virtuais**
 * Supressão com recorrência definida como semanal e **sábado** e **domingo** verificados
@@ -126,7 +123,7 @@ A contoso deseja suprimir as notificações de todos os alertas de log gerados p
 
 **Solução:** Crie uma regra de ação com:
 * Scope = **ContosoSub**
-* Filtros
+* Filtros.
     * Monitorar serviço = **log Analytics**
     * O contexto do alerta (carga) contém o **computador-01**
 * Supressão definida como **de Now (Always)**
@@ -161,7 +158,7 @@ Para usar melhor os alertas de log com regras de ação, crie alertas de log com
 
 ![Regras de ação e alertas de log (número de resultados)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 
-## <a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a>Perguntas frequentes
 
 ### <a name="while-im-configuring-an-action-rule-id-like-to-see-all-the-possible-overlapping-action-rules-so-that-i-avoid-duplicate-notifications-is-it-possible-to-do-that"></a>Enquanto estou Configurando uma regra de ação, gostaria de ver todas as regras de ação sobrepostas possíveis, para evitar notificações duplicadas. É possível fazer isso?
 
@@ -216,6 +213,6 @@ Para cada alerta no VM1, o grupo de ações AG1 seria disparado uma vez. As aç�
  
 Para cada alerta no VM1, o grupo de ações AG1 seria disparado uma vez. Sempre que a regra de alerta "rule1" for disparada, ela também disparará o AG2 adicionalmente. Grupos de ação definidos em regras de ação e regras de alerta operam de forma independente, sem eliminação de duplicação. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Saiba mais sobre alertas no Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)

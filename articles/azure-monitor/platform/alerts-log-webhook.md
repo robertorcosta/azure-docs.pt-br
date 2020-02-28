@@ -2,18 +2,17 @@
 title: Ações de webhook para alertas de log nos alertas do Azure
 description: Este artigo descreve como criar uma regra de alerta de log usando o espaço de trabalho Log Analytics ou Application Insights, como o alerta envia dados por push como um webhook HTTP e os detalhes das diferentes personalizações que são possíveis.
 author: yanivlavi
+ms.author: yalavi
 services: monitoring
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 3a072ae64104f8fded49ff6a00f5b58902c39903
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 7b1956ad2bf9bf38ba9edc4c7234078557564071
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838581"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667696"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações de webhook para regras de alerta do log
 Quando um [alerta de log é criado no Azure](alerts-log.md), você tem a opção de [configurá-lo usando grupos de ação](action-groups.md) para executar uma ou mais ações. Este artigo descreve as diferentes ações de webhook que estão disponíveis e mostra como configurar um webhook personalizado baseado em JSON.
@@ -33,7 +32,7 @@ As ações de webhook exigem as propriedades indicadas na tabela a seguir.
 | **Carga JSON personalizada** |A carga personalizada a ser enviada com o webhook quando essa opção é escolhida durante a criação do alerta. Para obter mais informações, consulte [Manage log Alerts](alerts-log.md).|
 
 > [!NOTE]
-> O botão **Exibir webhook** junto com a opção **incluir conteúdo JSON personalizado para** o webhook para o alerta de log exibe o conteúdo do webhook de exemplo para a personalização fornecida. Ele não contém dados reais, mas representa o esquema JSON que é usado para alertas de log. 
+> O botão **Exibir webhook** junto com a opção **incluir conteúdo JSON personalizado para o webhook** para o alerta de log exibe o conteúdo do webhook de exemplo para a personalização fornecida. Ele não contém dados reais, mas representa o esquema JSON que é usado para alertas de log. 
 
 Os WebHooks incluem uma URL e uma carga formatada em JSON que os dados enviam para o serviço externo. Por padrão, a carga inclui os valores na tabela a seguir. Você pode optar por substituir essa carga por uma personalizado de sua preferência. Nesse caso, use as variáveis na tabela para cada um dos parâmetros para incluir seus valores em sua carga personalizada.
 
@@ -41,7 +40,7 @@ Os WebHooks incluem uma URL e uma carga formatada em JSON que os dados enviam pa
 | Parâmetro | Variável | Descrição |
 |:--- |:--- |:--- |
 | *AlertRuleName* |#alertrulename |Nome da regra de alerta. |
-| *Severidade* |#severity |Severidade definida para o alerta do log disparado. |
+| *Severity* |#severity |Severidade definida para o alerta do log disparado. |
 | *AlertThresholdOperator* |#thresholdoperator |Operador de limite para a regra de alerta, que usa maior ou menor que. |
 | *AlertThresholdValue* |#thresholdvalue |O valor de limite para a regra de alerta. |
 | *LinkToSearchResults* |#linktosearchresults |Link para o portal de análise que retorna os registros da consulta que criou o alerta. |
@@ -57,7 +56,7 @@ Os WebHooks incluem uma URL e uma carga formatada em JSON que os dados enviam pa
 | *ID da assinatura* |#subscriptionid |ID da sua assinatura do Azure usada. 
 
 > [!NOTE]
-> *LinkToSearchResults* passa parâmetros como *SearchQuery*, *StartTime de intervalo de pesquisa*e hora de término do intervalo de *pesquisa* na URL para a Portal do Azure para exibição na seção de análise. O portal do Azure tem um limite de tamanho de URI de aproximadamente 2.000 caracteres. O portal *não* abrirá links fornecidos em alertas se os valores de parâmetro excederem o limite. Você pode inserir manualmente os detalhes para exibir os resultados no portal de análise. Ou, você pode usar a [API REST do Application insights Analytics](https://dev.applicationinsights.io/documentation/Using-the-API) ou a [api REST do log Analytics](/rest/api/loganalytics/) para recuperar os resultados programaticamente. 
+> *LinkToSearchResults* passa parâmetros como *SearchQuery*, *StartTime de intervalo de pesquisa*e *hora de término do intervalo de pesquisa* na URL para a Portal do Azure para exibição na seção de análise. O portal do Azure tem um limite de tamanho de URI de aproximadamente 2.000 caracteres. O portal *não* abrirá links fornecidos em alertas se os valores de parâmetro excederem o limite. Você pode inserir manualmente os detalhes para exibir os resultados no portal de análise. Ou, você pode usar a [API REST do Application insights Analytics](https://dev.applicationinsights.io/documentation/Using-the-API) ou a [api REST do log Analytics](/rest/api/loganalytics/) para recuperar os resultados programaticamente. 
 
 Por exemplo, você pode especificar a seguinte carga personalizada que inclui um único parâmetro chamado *text*. O serviço que esse webhook chama espera esse parâmetro.
 
@@ -205,7 +204,7 @@ A seguinte carga de exemplo é para uma ação personalizada de webhook para qua
 ```
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 - Saiba mais sobre os [alertas de log nos alertas do Azure](alerts-unified-log.md).
 - Entenda como [Gerenciar alertas de log no Azure](alerts-log.md).
 - Crie e gerencie [grupos de ações no Azure](action-groups.md).

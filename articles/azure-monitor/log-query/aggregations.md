@@ -1,31 +1,30 @@
 ---
 title: Agregações nas consultas de log do Azure Monitor | Microsoft Docs
 description: Descreve as funções de agregação nas consultas de log do Azure Monitor que oferecem maneiras úteis de analisar seus dados.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 86b84e76b4716c1fddda23a6d52c65c0700c5663
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d164c53e7e2be55f3cede389901a256ba388808d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900422"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670297"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Agregações nas consultas de log do Azure Monitor
 
 > [!NOTE]
-> Você deve concluir [Primeiros passos com o portal do Google Analytics](get-started-portal.md) e [Primeiros passos com as consultas](get-started-queries.md) antes de concluir esta lição.
+> Você deve concluir [Introdução ao portal do Analytics](get-started-portal.md) e [Introdução às consultas](get-started-queries.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Este artigo descreve as funções de agregação nas consultas de log do Azure Monitor que oferecem maneiras úteis de analisar seus dados. These functions all work with the `summarize` operator that produces a  table with aggregated results of the input table.
 
-## <a name="counts"></a>Counts
+## <a name="counts"></a>Contagens
 
-### <a name="count"></a>count
+### <a name="count"></a>{1&gt;count&lt;1}
 Conte o número de linhas no conjunto de resultados depois que os filtros forem aplicados. O exemplo a seguir retorna o número total de linhas na tabela _Perf_ dos últimos 30 minutos. O resultado é retornado em uma coluna chamada *count_* , a menos que você atribua um nome específico a ele:
 
 
@@ -87,7 +86,7 @@ Heartbeat
 |Canadá           | 3                   |
 |Irlanda          | 0                   |
 |Reino Unido   | 0                   |
-|Holanda      | 2                   |
+|Países Baixos      | 2                   |
 
 
 Para analisar subgrupos ainda menores de seus dados, adicione nomes de coluna adicionais à seção`by`. Por exemplo, talvez você queira contar os computadores distintos de cada país/região por OSType:
@@ -122,7 +121,7 @@ Perf
 
 Isso pode mostrar que algumas CPUs de computadores têm valores medianos semelhantes, mas enquanto algumas estão em torno da mediana, outros computadores relataram valores de CPU muito menores e mais altos, o que significa que experimentaram picos.
 
-### <a name="variance"></a>Variação
+### <a name="variance"></a>Variance
 Para avaliar diretamente a variância de um valor, use os métodos de desvio padrão e variância:
 
 ```Kusto
@@ -141,7 +140,7 @@ Perf
 | summarize stdev(CounterValue), percentiles(CounterValue, 50) by Computer
 ```
 
-Confira outras lições para usar a [linguagem de consulta do Kusto](/azure/kusto/query/) com os dados de log do Azure Monitor:
+Consulte outras lições para usar a [linguagem de consulta Kusto](/azure/kusto/query/) com os dados de log do Azure Monitor:
 
 - [Operações de cadeia de caracteres](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)
