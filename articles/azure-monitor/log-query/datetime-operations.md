@@ -1,18 +1,17 @@
 ---
 title: Trabalhar com valores de data e hora em consultas de log do Azure Monitor | Microsoft Docs
 description: Descreve como trabalhar com dados de data e hora em consultas de log do Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: d659be5b817317e7cec5726718f154825674349e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ea7c98a1b5b4059c5fea0cf1e8ea2ff5ef08d9d1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365335"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655371"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Trabalhar com valores de data e hora em consultas de log do Azure Monitor
 
@@ -32,7 +31,7 @@ Intervalos de tempo (timespans) são expressos como um decimal seguido por uma u
 |abreviação   | unidade de tempo    |
 |:---|:---|
 |d           | dia          |
-|h           | hora         |
+|h           | hour         |
 |m           | minute       |
 |s           | second       |
 |ms          | milissegundo  |
@@ -85,7 +84,7 @@ Event
 | extend timeAgo = now() - TimeGenerated 
 ```
 
-A coluna `timeAgo` contém valores como: "00:09:31.5118992", o que significa que eles são formatados como hh: mm: SS. fffffff. Se você deseja formatar esses valores para o `numver` de minutos transcorridos desde a hora de início, divida esse valor por "1 minuto":
+A coluna `timeAgo` contém valores, como: "00:09:31.5118992", que significa que elas são formatadas como hh:mm:ss.fffffff. Se você deseja formatar esses valores para o `numver` de minutos transcorridos desde a hora de início, divida esse valor por "1 minuto":
 
 ```Kusto
 Event
@@ -152,11 +151,10 @@ Event
 | Converter tipos de dados | [ToDateTime](/azure/kusto/query/todatetimefunction)  [ToTimeSpan](/azure/kusto/query/totimespanfunction)  |
 | Valor arredondado para o tamanho do compartimento | [bin](/azure/kusto/query/binfunction) |
 | Obter uma data ou hora específica | [há](/azure/kusto/query/agofunction) [agora](/azure/kusto/query/nowfunction)   |
-| Obter parte do valor | [datetime_part](/azure/kusto/query/datetime-partfunction) [GetMonth](/azure/kusto/query/getmonthfunction) [MonthOfYear](/azure/kusto/query/monthofyearfunction) [GetYear](/azure/kusto/query/getyearfunction) [DayOfMonth](/azure/kusto/query/dayofmonthfunction) [DayOfWeek](/azure/kusto/query/dayofweekfunction) [DayOfYear](/azure/kusto/query/dayofyearfunction) [WeekOfYear](/azure/kusto/query/weekofyearfunction)
- |
+| Obter parte do valor | [datetime_part](/azure/kusto/query/datetime-partfunction) [GetMonth](/azure/kusto/query/getmonthfunction) [MonthOfYear](/azure/kusto/query/monthofyearfunction) [getyear](/azure/kusto/query/getyearfunction) [DayOfMonth](/azure/kusto/query/dayofmonthfunction) [DayOfWeek](/azure/kusto/query/dayofweekfunction) [DayOfYear](/azure/kusto/query/dayofyearfunction) [WeekOfYear](/azure/kusto/query/weekofyearfunction) |
 | Obter um valor de data relativo  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [ENDOFMONTH](/azure/kusto/query/endofmonthfunction) [ENDOFYEAR](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [STARTOFMONTH](/azure/kusto/query/startofmonthfunction) [STARTOFYEAR](/azure/kusto/query/startofyearfunction) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Consulte outras lições para usar a [linguagem de consulta Kusto](/azure/kusto/query/) com os dados de log do Azure Monitor:
 
 - [Operações de cadeia de caracteres](string-operations.md)

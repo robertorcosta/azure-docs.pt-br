@@ -3,17 +3,16 @@ title: Transmitir logs da plataforma Azure para um hub de eventos
 description: Saiba como transmitir logs de recursos do Azure para um hub de eventos para enviar dados a sistemas externos, como SIEMs de terceiros e outras soluções do log Analytics.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 00dcc1c1a1d823ab0f2497e47641916d391ee37b
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 72341b6da0068ba4b7e3f53b08e6015cafb70f09
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750349"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658907"
 ---
 # <a name="stream-azure-platform-logs-to-azure-event-hubs"></a>Transmitir logs da plataforma Azure para os hubs de eventos do Azure
 [Os logs de plataforma](platform-logs-overview.md) no Azure, incluindo logs de recursos e log de atividades do Azure, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem.  Este artigo descreve os logs da plataforma de streaming para os hubs de eventos para enviar dados a sistemas externos, como SIEMs de terceiros e outras soluções do log Analytics.
@@ -26,7 +25,7 @@ Transmita logs da plataforma no Azure para os hubs de eventos para fornecer a se
   
 * **Crie uma plataforma de registro em log e telemetria personalizada** – a natureza altamente escalonável de publicação-assinatura dos hubs de eventos permite que você inscreva com flexibilidade os logs da plataforma em uma plataforma teletry personalizada. Consulte [projetando e dimensionando uma plataforma de telemetria de escala global nos hubs de eventos do Azure](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) para obter detalhes.
 
-* **Exibir a integridade do serviço transmitindo dados para Power bi** – use os hubs de eventos, Stream Analytics e Power bi para transformar os dados de diagnóstico em informações quase em tempo real nos serviços do Azure. Consulte [Stream Analytics e Power bi: um painel de análise em tempo real para dados de streaming](../../stream-analytics/stream-analytics-power-bi-dashboard.md) para obter detalhes sobre essa solução.
+* **Exibir a integridade do serviço transmitindo dados para Power bi** – use os hubs de eventos, Stream Analytics e Power bi para transformar os dados de diagnóstico em informações quase em tempo real nos serviços do Azure. Consulte [Stream Analytics e Power BI: Um painel de análise em tempo real para dados de streaming](../../stream-analytics/stream-analytics-power-bi-dashboard.md) para obter detalhes sobre essa solução.
 
     O código SQL a seguir é um exemplo de consulta do Stream Analytics que você pode usar para analisar todos os dados de log em uma tabela do Power BI:
     
@@ -57,7 +56,7 @@ As configurações de diagnóstico coletarão logs de recursos para recursos de 
 ## <a name="consuming-log-data-from-event-hubs"></a>Consumindo dados de log dos hubs de eventos
 Os logs de plataforma dos hubs de eventos são consumidos no formato JSON com os elementos na tabela a seguir.
 
-| Nome do elemento | Description |
+| Nome do elemento | DESCRIÇÃO |
 | --- | --- |
 | records |Uma matriz de todos os eventos de log nessa carga. |
 | time |A hora na qual o evento ocorreu. |
@@ -133,7 +132,7 @@ Veja a seguir exemplos de dados de saída dos hubs de eventos para um log de rec
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Leia mais sobre os logs de recursos](platform-logs-overview.md).
 * [Crie a configuração de diagnóstico para coletar logs e métricas no Azure](diagnostic-settings.md).

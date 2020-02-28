@@ -276,7 +276,7 @@
       items:
         - name: Desativação a partir de 1º de março de 2023
           href: ../classic-vm-deprecation.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-        - name: Visão geral da migração
+        - name: Visão geral
           href: migration-classic-resource-manager-overview.md
         - name: Aprofunde-se na migração
           href: migration-classic-resource-manager-deep-dive.md
