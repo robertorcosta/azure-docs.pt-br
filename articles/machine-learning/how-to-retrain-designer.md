@@ -1,23 +1,23 @@
 ---
-title: Treinar novamente os modelos usando o designer de Azure Machine Learning
+title: Treinar novamente os modelos usando o designer de Azure Machine Learning (versão prévia)
 titleSuffix: Azure Machine Learning
-description: Saiba como treinar novamente modelos com pipelines publicados no Azure Machine Learning designer.
+description: Saiba como treinar novamente modelos com pipelines publicados no designer de Azure Machine Learning (versão prévia).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.author: peterlu
-author: peterclu
-ms.date: 12/15/2019
-ms.openlocfilehash: d1382da739fd8ca56d4cc53c2c302331bdfbf1c3
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.author: keli19
+author: likebupt
+ms.date: 02/24/2020
+ms.openlocfilehash: b69cd4c8459ffae363f02247b1f20488afe1cd9b
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311862"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921582"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer"></a>Readaptação de modelos com o Azure Machine Learning designer
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Treinar novamente modelos com o designer de Azure Machine Learning (versão prévia)
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Neste "como", você aprenderá a usar Azure Machine Learning designer para treinar novamente um modelo de aprendizado de máquina. Descubra como usar pipelines publicados para automatizar fluxos de trabalho de aprendizado de máquina para readaptação.
 
@@ -29,7 +29,7 @@ Neste artigo, você aprenderá a:
 > * Publique seu pipeline de treinamento.
 > * Readaptação de seu modelo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree).
 
@@ -69,11 +69,11 @@ O designer salva todas as saídas de pipeline, incluindo modelos treinados, para
 
 1. Selecione o módulo **Treinar Modelo**.
 
-1. No painel configurações, selecione **saídas**.
+1. No painel configurações, selecione **saídas + logs**.
 
-1. Selecione **Trained_model** para baixar o modelo.
+1. Clique no ícone **Exibir saída** e siga as instruções na janela pop-up para localizar o modelo treinado.
 
-![Captura de tela mostrando como baixar o modelo treinado](./media/how-to-retrain-designer/download-model.png)
+![Captura de tela mostrando como baixar o modelo treinado](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="create-a-pipeline-parameter"></a>Criar um parâmetro de pipeline
 
@@ -129,6 +129,6 @@ Use as etapas a seguir para enviar uma execução de ponto de extremidade de pip
 
 Há várias maneiras de acessar seu ponto de extremidade REST de forma programática, dependendo do ambiente de desenvolvimento. Você pode encontrar exemplos de código que mostram como enviar execuções de pipeline com parâmetros na guia **consumir** do pipeline.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Siga o [tutorial](tutorial-designer-automobile-price-train-score.md) do designer para treinar e implantar um modelo de regressão.

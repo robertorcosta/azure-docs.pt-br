@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 6498717f5d542be228483b9c323dbd8f3ca2ff00
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 621188b3901bdea1a7ae50ac49c0e6f625a3e79a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251916"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915751"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorar e coletar dados de pontos de extremidade de serviço Web do ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ Neste artigo, você aprende a coletar dados do e a monitorar modelos implantados
 [Saiba mais sobre o aplicativo Azure insights](../azure-monitor/app/app-insights-overview.md). 
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree)
 
@@ -43,39 +43,6 @@ Neste artigo, você aprende a coletar dados do e a monitorar modelos implantados
 
 Os metadados e a resposta para o serviço, que corresponde aos metadados do serviço Web e as previsões do modelo, são registrados nos rastreamentos do Aplicativo Azure insights sob a `"model_data_collection"`de mensagem. Você pode consultar Aplicativo Azure informações diretamente para acessar esses dados ou configurar uma [exportação contínua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) para uma conta de armazenamento para maior retenção ou processamento adicional. Os dados de modelo podem ser usados no Azure Machine Learning para configurar o rotulamento, o novo treinamento, a explicação, a análise de dados ou outro uso. 
 
-## <a name="use-the-azure-portal-to-configure"></a>Usar o portal do Azure para configurar
-
-Você pode habilitar e desabilitar informações de Aplicativo Azure no portal do Azure. 
-
-1. No [portal do Azure](https://portal.azure.com), abra seu espaço de trabalho
-
-1. Na guia **implantações** , selecione o serviço no qual você deseja habilitar o aplicativo Azure insights
-
-   [![Lista de serviços na guia implantações](./media/how-to-enable-app-insights/Deployments.PNG)](././media/how-to-enable-app-insights/Deployments.PNG#lightbox)
-
-3. Selecione **Editar**
-
-   [![Botão Editar](././media/how-to-enable-app-insights/Edit.PNG)](./././media/how-to-enable-app-insights/Edit.PNG#lightbox)
-
-4. Em **Configurações avançadas**, marque a caixa de seleção **habilitar diagnóstico de AppInsights**
-
-   [![Selecionada caixa de seleção para habilitar diagnósticos](./media/how-to-enable-app-insights/AdvancedSettings.png)](././media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
-
-1. Selecione **Atualizar** na parte inferior da tela para aplicar as alterações
-
-### <a name="disable"></a>Desabilitar
-
-1. No [portal do Azure](https://portal.azure.com), abra seu espaço de trabalho
-1. Selecione **implantações**, selecione o serviço e, em seguida, selecione **Editar**
-
-   [![Use o botão Editar](././media/how-to-enable-app-insights/Edit.PNG)](./././media/how-to-enable-app-insights/Edit.PNG#lightbox)
-
-1. Em **Configurações avançadas**, desmarque a caixa de seleção **habilitar diagnóstico de AppInsights**
-
-   [![Caixa de seleção desmarcada para habilitar o diagnóstico](./media/how-to-enable-app-insights/uncheck.png)](././media/how-to-enable-app-insights/uncheck.png#lightbox)
-
-1. Selecione **Atualizar** na parte inferior da tela para aplicar as alterações
- 
 ## <a name="use-python-sdk-to-configure"></a>Usar o SDK do Python para configurar 
 
 ### <a name="update-a-deployed-service"></a>Atualizar um serviço implantado
@@ -161,7 +128,7 @@ O bloco de anotações [Enable-app-Revisions-in-Production-Service. ipynb](https
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Consulte [como implantar um modelo em um cluster do serviço kubernetes do Azure](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service) ou [como implantar um modelo em instâncias de contêiner do Azure](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-container-instance) para implantar seus modelos em pontos de extremidade de serviço Web e habilitar aplicativo Azure insights para aproveitar a coleta de dados e o monitoramento de ponto de extremidades
 * Consulte [MLOps: gerenciar, implantar e monitorar modelos com Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment) para saber mais sobre como aproveitar os dados coletados de modelos em produção. Esses dados podem ajudar a melhorar continuamente o processo de aprendizado de máquina

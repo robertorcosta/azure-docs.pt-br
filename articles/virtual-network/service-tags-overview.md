@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 47488403a10a6b955e15b0048d455cc17016f009
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 7f5f75385374b6949ee3ef5e5ef298b8d54cc36e
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526239"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163243"
 ---
 # <a name="virtual-network-service-tags"></a>Marcas de serviço de rede virtual
 <a name="network-service-tags"></a>
@@ -58,7 +58,7 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Alg
 | **AzureCosmosDB** | Azure Cosmos DB. | Saída | Sim | Sim |
 | **AzureDatabricks** | Azure Databricks. | Ambos | Não | Não |
 | **AzureDataExplorerManagement** | Gerenciamento de Data Explorer do Azure. | Entrada | Não | Não |
-| **AzureDataLake** | Azure Data Lake. | Saída | Não | Sim |
+| **AzureDataLake** | Azure Data Lake Storage Gen1. | Saída | Não | Sim |
 | **AzureEventGrid** | Grade de Eventos do Azure. <br/><br/>*Observação:* Esta marca aborda os pontos de extremidade da grade de eventos do Azure no centro-sul dos EUA, leste dos EUA, leste dos EUA 2, oeste dos EUA 2 e Centro dos EUA apenas. | Ambos | Não | Não |
 | **AzureFrontDoor** | Porta frontal do Azure. | Ambos | Não | Não |
 | **AzureInformationProtection** | Proteção de informações do Azure.<br/><br/>*Observação:* Essa marca tem uma dependência nas marcas **AzureActiveDirectory** e **AzureFrontDoor. frontend** . Além disso, leia a lista de permissões a seguir IPs (essa dependência será removida em breve): 13.107.6.181 & 13.107.9.181. | Saída | Não | Não |
@@ -88,7 +88,7 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Alg
 | **ServiceFabric** | Service Fabric do Azure.<br/><br/>*Observação:* Essa marca representa o ponto de extremidade de serviço Service Fabric para o plano de controle por região. Isso permite que os clientes executem operações de gerenciamento para seus clusters Service Fabric de sua VNET (ponto de extremidade por exemplo). https://westus.servicefabric.azure.com) | Ambos | Não | Não |
 | **Sql** | Banco de dados SQL do Azure, banco de dados do Azure para MySQL, banco de dados do Azure para PostgreSQL e Azure SQL Data Warehouse.<br/><br/>*Observação:* Essa marca representa o serviço, mas não instâncias específicas do serviço. Por exemplo, a marca representa o serviço Banco de Dados SQL do Azure, mas não um banco de dados ou servidor SQL específico. | Saída | Sim | Sim |
 | **SqlManagement** | Tráfego de gerenciamento para implantações dedicadas do SQL. | Ambos | Não | Sim |
-| **Storage** | Armazenamento do Microsoft Azure. <br/><br/>*Observação:* Essa marca representa o serviço, mas não instâncias específicas do serviço. Por exemplo, a marca representa o serviço Armazenamento do Azure, mas não uma conta do Armazenamento do Azure específica. | Saída | Sim | Sim |
+| **Storage** | Armazenamento do Azure. <br/><br/>*Observação:* Essa marca representa o serviço, mas não instâncias específicas do serviço. Por exemplo, a marca representa o serviço Armazenamento do Azure, mas não uma conta do Armazenamento do Azure específica. | Saída | Sim | Sim |
 | **VirtualNetwork** | O espaço de endereço de rede virtual (todos os intervalos de endereços IP definidos para a rede virtual), todos os espaços de endereço locais conectados, redes virtuais [emparelhadas](virtual-network-peering-overview.md) , redes virtuais conectadas a um [Gateway de rede virtual](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), o [endereço IP virtual do host e os](security-overview.md#azure-platform-considerations)prefixos de endereço usados em [rotas definidas pelo usuário](virtual-networks-udr-overview.md). Essa marca também pode conter rotas padrão. | Ambos | Não | Não |
 
 >[!NOTE]
@@ -135,5 +135,5 @@ Você pode baixar arquivos JSON que contêm a lista atual de marcas de serviço 
 - Você pode detectar atualizações de uma publicação para a próxima, observando valores de *changeNumber* maiores no arquivo JSON. Cada subseção (por exemplo, **Storage. westus**) tem seu próprio *changeNumber* que é incrementado conforme ocorrem alterações. O nível superior do *changeNumber* do arquivo é incrementado quando qualquer uma das subseções é alterada.
 - Para obter exemplos de como analisar as informações de marca de serviço (por exemplo, obter todos os intervalos de endereços para armazenamento na Westus), consulte a documentação do [PowerShell da API de descoberta de marca de serviço](https://aka.ms/discoveryapi_powershell) .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 - Saiba como [criar um grupo de segurança de rede](tutorial-filter-network-traffic.md).

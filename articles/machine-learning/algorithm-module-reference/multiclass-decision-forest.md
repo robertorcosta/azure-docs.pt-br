@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 47cea412489693cedb05bd8a94a914b1757b8058
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: b1f7aaeaf5d1537e0e5a427ad994f7e31e43fee3
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152152"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921361"
 ---
 # <a name="multiclass-decision-forest-module"></a>Módulo de floresta de decisão multiclasse
 
@@ -55,6 +55,7 @@ O classificador de floresta de decisão em Azure Machine Learning consiste em um
 
     + **Parâmetro único**: Selecione esta opção se você souber como deseja configurar o modelo e fornecer um conjunto de valores como argumentos.
 
+    + **Intervalo de parâmetros**: Selecione esta opção se você não tiver certeza dos melhores parâmetros e quiser executar uma limpeza de parâmetro. Selecione um intervalo de valores para iteração e os [hiperparâmetros de modelo de ajuste](tune-model-hyperparameters.md) iteram sobre todas as combinações possíveis das configurações que você forneceu para determinar os hiperparâmetros que produzem os resultados ideais.   
 
 5. **Número de árvores de decisão**: digite o número máximo de árvores de decisão que podem ser criadas no Ensemble. Ao criar mais árvores de decisão, você pode potencialmente obter uma cobertura melhor, mas o tempo de treinamento pode aumentar.
 
@@ -78,6 +79,6 @@ O classificador de floresta de decisão em Azure Machine Learning consiste em um
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

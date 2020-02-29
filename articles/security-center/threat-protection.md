@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/25/2019
 ms.author: memildin
-ms.openlocfilehash: 7d078fb93f933320d13bfeb768b27923748b1262
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 8bd66b602201dbbb47a1fdba879c52a8ac441762
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623945"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921633"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Proteção contra ameaças na central de segurança do Azure
 
@@ -113,7 +113,7 @@ A central de segurança fornece proteção contra ameaças em diferentes níveis
     Para obter uma visão mais profunda da segurança do seu ambiente em contêiner, o agente monitora a análise específica do contêiner. Ele disparará alertas para eventos como criação de contêiner privilegiado, acesso suspeito a servidores de API e servidores Secure Shell (SSH) em execução dentro de um contêiner do Docker.
 
     >[!IMPORTANT]
-    > Se você optar por não instalar os agentes em seus hosts, receberá apenas um subconjunto dos benefícios e alertas de detecção de ameaças. Você ainda receberá alertas relacionados à análise de rede e comunicações com servidores mal-intencionados.
+    > Se você optar por não instalar os agentes em seus hosts, receberá apenas um subconjunto dos benefícios da proteção contra ameaças e dos alertas de segurança. Você ainda receberá alertas relacionados à análise de rede e comunicações com servidores mal-intencionados.
 
     Para obter uma lista dos alertas de nível de host, consulte a [tabela de referência de alertas](alerts-reference.md#alerts-containerhost).
 
@@ -240,7 +240,7 @@ Para obter uma lista dos alertas de Azure Resource Manager (versão prévia), co
 
 
 >[!NOTE]
-> Várias das análises anteriores são alimentadas por Microsoft Cloud App Security. Para se beneficiar dessas análises, você deve ativar uma licença de Cloud App Security. Se você tiver uma licença Cloud App Security, esses alertas serão habilitados por padrão. Para desabilitá-los:
+> Várias das análises anteriores são alimentadas por Microsoft Cloud App Security. Para se beneficiar dessas análises, você deve ativar uma licença de Cloud App Security. Se você tiver uma licença Cloud App Security, esses alertas serão habilitados por padrão. Para desabilitar os alertas:
 >
 > 1. Na folha **central de segurança** , selecione **política de segurança**. Para a assinatura que você deseja alterar, selecione **Editar configurações**.
 > 2. Selecione **detecção de ameaças**.
@@ -273,7 +273,7 @@ Para se defender contra ataques de DDoS, compre uma licença para a proteção c
 Para obter uma lista dos alertas de proteção contra DDoS do Azure, consulte a [tabela de referência de alertas](alerts-reference.md#alerts-azureddos).
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Para saber mais sobre os alertas de segurança desses recursos de proteção contra ameaças, consulte os seguintes artigos:
 
 * [Tabela de referência para todos os alertas da central de segurança do Azure](alerts-reference.md)

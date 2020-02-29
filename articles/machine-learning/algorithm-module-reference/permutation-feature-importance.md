@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 9ef859cce68e13f5207d77d8396bc69ddbbce339
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.date: 02/24/2020
+ms.openlocfilehash: 8611abd4e504e0378b744b12d0adb5fa22f5476b
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314939"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920358"
 ---
-# <a name="permutation-feature-importance"></a>Importância do recurso de permuta
+# <a name="permutation-feature-importance"></a>Importância do recurso de permutação
 
-Este artigo descreve como usar o módulo de importância do recurso de permuta no Azure Machine Learning designer, para computar um conjunto de pontuações de importância do recurso para o conjunto de seus conjuntos de resultados. Você usa essas pontuações para ajudá-lo a determinar os melhores recursos a serem usados em um modelo.
+Este artigo descreve como usar o módulo de importância do recurso de permuta no designer de Azure Machine Learning (versão prévia), para computar um conjunto de pontuações de importância do recurso para seu conjunto de seus. Você usa essas pontuações para ajudá-lo a determinar os melhores recursos a serem usados em um modelo.
 
 Neste módulo, os valores de recurso são aleatoriamente aleatórios, uma coluna de cada vez. O desempenho do modelo é medido antes e depois. Você pode escolher uma das métricas padrão para medir o desempenho.
 
@@ -46,7 +46,7 @@ A geração de um conjunto de pontuações de recursos requer que você tenha um
 
     -   **Classificação**
 
-        Precisão, precisão, recall, perda de log média  
+        Precisão, precisão, recall  
 
     -   **Regressão**
 
@@ -67,6 +67,6 @@ As classificações que o módulo fornece são muitas vezes diferentes daquelas 
 
 O motivo da diferença é que a importância do recurso de permuta não mede a associação entre um recurso e um valor de destino. Em vez disso, ele captura quanto influência cada recurso tem em previsões do modelo.
   
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

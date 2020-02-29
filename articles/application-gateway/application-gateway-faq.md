@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: f2f2e02cdb5698d7569e5be177d54ca4dcb0ae02
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 27048a8464fc7380a5c11ab6bbb543e35c089774
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086542"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919593"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o gateway de aplicativo
 
@@ -409,7 +409,9 @@ Mas se você quiser usar o gateway de aplicativo v2 somente com o IP privado, vo
 
 Exemplo de configuração de NSG para acesso somente IP privado: ![a configuração de NSG do gateway de aplicativo v2 para acesso de IP privado somente](./media/application-gateway-faq/appgw-privip-nsg.png)
 
+### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>O cookie de afinidade do gateway de aplicativo dá suporte ao atributo SameSite?
+Sim, a atualização do [Chromium Browser](https://www.chromium.org/Home) [V80](https://chromiumdash.appspot.com/schedule) introduziu uma exigência em cookies http sem que o atributo SameSite seja tratado como SameSite = LAX. Isso significa que o cookie de afinidade do gateway de aplicativo não será enviado pelo navegador em um contexto de terceiro Pary. Para dar suporte a esse cenário, o gateway de aplicativo injeta outro cookie chamado *ApplicationGatewayAffinityCORS* além do cookie *ApplicationGatewayAffinity* existente.  Esses cookies são semelhantes, mas o cookie *ApplicationGatewayAffinityCORS* tem mais dois atributos adicionados a ele: *SameSite = None; Proteger*. Esses atributos mantêm sessões adesivas mesmo para solicitações entre origens. Consulte a [seção afinidade baseada em cookie](configuration-overview.md#cookie-based-affinity) para obter mais informações.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para saber mais sobre o gateway de aplicativo, consulte [o que é aplicativo Azure gateway?](overview.md).

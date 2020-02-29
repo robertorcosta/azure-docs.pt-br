@@ -4,12 +4,12 @@ description: Saiba como configurar um contêiner PHP pré-criado para seu aplica
 ms.devlang: php
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: a3de4769193d95a3ef483924c4d65c4fa1cc9f8d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: e805487075499bd4e461a21fffb4c44156ce192b
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671846"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913864"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configurar um aplicativo do PHP do Linux para o serviço Azure App
 
@@ -39,52 +39,26 @@ Execute o seguinte comando no [Cloud Shell](https://shell.azure.com) para defini
 az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "PHP|7.2"
 ```
 
-## <a name="run-composer"></a>Executar o Composer
+## <a name="customize-build-automation"></a>Personalizar a automação de compilação
 
-Por padrão, o kudu não executa o [Composer](https://getcomposer.org/). Para habilitar a automação do Composer durante a implantação do kudu, você precisa fornecer um [script de implantação personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
+Se você implantar seu aplicativo usando pacotes git ou zip com a automação de compilação ativada, a automação de compilação do serviço de aplicativo passará por meio da seguinte sequência:
 
-Em uma janela de terminal local, altere o diretório para a raiz do repositório. Siga as [etapas de instalação da linha de comando](https://getcomposer.org/download/) para baixar o *Composer. Phar*.
+1. Executar script personalizado se especificado por `PRE_BUILD_SCRIPT_PATH`.
+1. Execute `php composer.phar install`.
+1. Executar script personalizado se especificado por `POST_BUILD_SCRIPT_PATH`.
 
-Execute os seguintes comandos:
+`PRE_BUILD_COMMAND` e `POST_BUILD_COMMAND` são variáveis de ambiente que estão vazias por padrão. Para executar comandos de pré-compilação, defina `PRE_BUILD_COMMAND`. Para executar comandos de pós-compilação, defina `POST_BUILD_COMMAND`.
 
-```bash
-npm install kuduscript -g
-kuduscript --php --scriptType bash --suppressPrompt
+O exemplo a seguir especifica as duas variáveis para uma série de comandos, separados por vírgulas.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
 ```
 
-A raiz do repositório agora tem dois novos arquivos, além de *Composer. Phar*: *. Deployment* e *Deploy.sh*. Esses arquivos funcionam tanto para os tipos Windows e Linux do serviço de aplicativo.
+Para obter variáveis de ambiente adicionais para personalizar a automação de compilação, consulte [configuração do Oryx](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
 
-Abra *Deploy.sh* e localize a seção `Deployment`. Substitua a seção inteira pelo código a seguir:
-
-```bash
-##################################################################################################################################
-# Deployment
-# ----------
-
-echo PHP deployment
-
-# 1. KuduSync
-if [[ "$IN_PLACE_DEPLOYMENT" -ne "1" ]]; then
-  "$KUDU_SYNC_CMD" -v 50 -f "$DEPLOYMENT_SOURCE" -t "$DEPLOYMENT_TARGET" -n "$NEXT_MANIFEST_PATH" -p "$PREVIOUS_MANIFEST_PATH" -i ".git;.hg;.deployment;deploy.sh"
-  exitWithMessageOnError "Kudu Sync failed"
-fi
-
-# 3. Initialize Composer Config
-initializeDeploymentConfig
-
-# 4. Use composer
-echo "$DEPLOYMENT_TARGET"
-if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
-  echo "Found composer.json"
-  pushd "$DEPLOYMENT_TARGET"
-  php composer.phar install $COMPOSER_ARGS
-  exitWithMessageOnError "Composer install failed"
-  popd
-fi
-##################################################################################################################################
-```
-
-Confirme todas as suas alterações e implante seu código novamente. O Composer agora deve estar em execução como parte da automação da implantação.
+Para obter mais informações sobre como o serviço de aplicativo é executado e cria aplicativos PHP no Linux, consulte [a documentação do Oryx: como os aplicativos PHP são detectados e compilados](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/php.md).
 
 ## <a name="customize-start-up"></a>Personalizar a inicialização
 
@@ -219,7 +193,7 @@ Para que as alterações entrem em vigor, reinicie o aplicativo.
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Quando um aplicativo PHP em funcionamento se comporta de forma diferente no serviço de aplicativo ou tem erros, tente o seguinte:
 
@@ -240,7 +214,7 @@ Você pode ver a seguinte mensagem nos logs de contêiner:
 
 Você pode ignorar essa mensagem com segurança. `/robots933456.txt` é um caminho de URL fictício que o serviço de aplicativo usa para verificar se o contêiner é capaz de atender solicitações. Uma resposta 404 indica simplesmente que o caminho não existe, mas permite que o serviço de aplicativo saiba que o contêiner está íntegro e pronto para responder às solicitações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!div class="nextstepaction"]
 > [Tutorial: aplicativo PHP com MySQL](tutorial-php-mysql-app.md)

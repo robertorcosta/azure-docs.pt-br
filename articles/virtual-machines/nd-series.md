@@ -2,17 +2,17 @@
 title: Série ND-máquinas virtuais do Azure
 description: Especificações para as VMs da série ND.
 services: virtual-machines
-author: jonbeck7
+author: vikancha
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 5f2e6775e0c1dbe094ed24554d2feac1da915511
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 31783b95b0816478b895086ddb47abf74503480e
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661015"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78162059"
 ---
 # <a name="nd-series"></a>Série ND
 
@@ -21,6 +21,10 @@ As máquinas virtuais da série ND são uma nova adição à família de GPU pro
 Armazenamento Premium: com suporte
 
 Cache de armazenamento Premium: com suporte
+
+Migração ao Vivo: sem suporte
+
+Atualizações de preservação de memória: sem suporte
 
 > [!IMPORTANT]
 > Para essa série de VMs, a cota de vCPU (núcleo) por região em sua assinatura é definida inicialmente como 0. [Solicite um aumento de cota de vCPU](../azure-supportability/resource-manager-core-quotas-request.md) para esta série em uma [região disponível](https://azure.microsoft.com/regions/services/).

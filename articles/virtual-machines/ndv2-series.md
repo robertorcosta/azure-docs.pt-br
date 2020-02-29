@@ -2,17 +2,17 @@
 title: Série NDv2-máquinas virtuais do Azure
 description: Especificações para as VMs da série NDv2.
 services: virtual-machines
-author: jonbeck7
+author: vikancha
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 2d38b69e468f766d21a38bda1c2da3daae50d900
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: c4f2a8deed256af54ffd4331210fdfc89b0f4e49
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77663701"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161934"
 ---
 # <a name="updated-ndv2-series-preview"></a>Série NDv2 atualizada (versão prévia)
 
@@ -40,9 +40,13 @@ Armazenamento Premium: com suporte
 
 Cache de armazenamento Premium: com suporte
 
+Migração ao Vivo: sem suporte
+
+Atualizações de preservação de memória: sem suporte
+
 InfiniBand: com suporte
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD): GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Largura de banda de rede máxima | Máximo de NICs |
+| Size | vCPU | Memória: GiB | Armazenamento temporário (SSD): GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Largura de banda de rede máxima | Máximo de NICs |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_ND40rs_v2 | 40 | 672 | 2948 | 8 V100 32 GB (NVLink) | 16 | 32 | 80000/800 | 24000 Mbps | 8 |
 
@@ -65,6 +69,6 @@ Se você optar por instalar manualmente os drivers NVIDIA GPU, consulte [configu
 - [Computação de alto desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba mais sobre como as [ACUs (unidade de computação do Azure)](acu.md) podem ajudar você a comparar o desempenho de computação entre SKUs do Azure.

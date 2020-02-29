@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 02/27/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 95601735064451a91530907e5e6b59f579ff0e28
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: df6f8ce22e8215a0727db7f69e0f6e5c3f5fc9e0
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840257"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917383"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurar o fluxo de credenciais de senha de proprietário do recurso no Azure Active Directory B2C usando uma política personalizada
 
@@ -24,19 +24,9 @@ ms.locfileid: "76840257"
 
 No Azure Active Directory B2C (Azure AD B2C), o fluxo de credenciais de senha do proprietário do recurso (ROPC) é um fluxo de autenticação padrão do OAuth. Nesse fluxo, um aplicativo, também conhecido como a terceira parte confiável, troca de credenciais válidas para tokens. As credenciais incluem um ID de usuário e senha. Os tokens retornados são um ID de token, um token de acesso e um token de atualização.
 
-Há suporte para as seguintes opções no fluxo ROPC:
+[!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
-- **Native Client** - Interação do usuário durante a autenticação ocorre quando o código é executado em um dispositivo do lado do usuário.
-- **Fluxo de cliente público** - Somente credenciais de usuário, coletadas por um aplicativo, são enviadas na chamada de API. As credenciais do aplicativo não são enviadas.
-- **Adicionar novas declarações** -O conteúdo do token de ID pode ser alterado para adicionar novas declarações.
-
-Não há suporte para os fluxos a seguir:
-
-- **Servidor-para-servidor** - O sistema de proteção de identidade precisa de um endereço IP confiável coletado pelo chamador (o cliente nativo) como parte da interação. Em uma chamada de API do lado do servidor, somente o endereço IP do servidor é usado. Se um número excessivo de entradas falharem, o sistema de proteção de identidade pode considerar um endereço IP repetido como um invasor.
-- **Aplicativo de página única** - Um aplicativo de front-end é principalmente escrito em JavaScript. Frequentemente, o aplicativo é escrito utilizando uma estrutura como AngularJS, Ember.js ou Durandal.
-- **Fluxo de cliente confidencial**: A ID do cliente do aplicativo é validada, mas o segredo do aplicativo não é validado.
-
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Conclua as etapas em [Introdução às políticas personalizadas no Azure Active Directory B2C](custom-policy-get-started.md).
 
@@ -261,12 +251,12 @@ Use seu aplicativo favorito de desenvolvimento de API para gerar uma chamada de 
 - Substitua `your-tenant-name` pelo nome de seu locatário do Azure AD B2C.
 - Substitua `B2C_1A_ROPC_Auth` com o nome completo da política de credenciais de senha do proprietário do recurso.
 
-| Chave | Valor |
+| Chave | {1&gt;Valor&lt;1} |
 | --- | ----- |
-| Nome de Usuário | `user-account` |
+| username | `user-account` |
 | password | `password1` |
 | grant_type | password |
-| scope | OpenID `application-id` offline_access |
+| escopo | OpenID `application-id` offline_access |
 | client_id | `application-id` |
 | response_type | token id_token |
 
@@ -306,7 +296,7 @@ Construa uma chamada POST como esta. Use as informações na tabela a seguir com
 - Substitua `your-tenant-name` pelo nome de seu locatário do Azure AD B2C.
 - Substitua `B2C_1A_ROPC_Auth` com o nome completo da política de credenciais de senha do proprietário do recurso.
 
-| Chave | Valor |
+| Chave | {1&gt;Valor&lt;1} |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
@@ -339,7 +329,7 @@ Uma resposta bem-sucedida se parece com o seguinte exemplo:
 
 Os padrões do Azure AD B2C atendem aos padrões OAuth 2.0 para credenciais de senha de proprietário de cliente público e deve ser compatível com a maioria dos SDKs clientes. Para obter informações mais recentes, consulte [nativo do SDK de aplicativo OAuth 2.0 e OpenID Connect implementando práticas recomendadas modernas](https://appauth.io/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Veja um exemplo completo deste cenário no [pacote de início de política personalizado do Azure Active Directory B2C](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/source/aadb2c-ief-ropc).
 - Saiba mais sobre os tokens que são usados pelo Azure Active Directory B2C na [referência de Token](tokens-overview.md).

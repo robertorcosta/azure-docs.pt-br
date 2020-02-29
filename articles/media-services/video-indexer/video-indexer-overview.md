@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/02/2020
 ms.author: juliako
-ms.openlocfilehash: aee4390d9b892eddbd7dc59887f5268e4c35d3f7
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: efd8386f464bfdf2ac27d3be07e6572dc27952e1
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989783"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163583"
 ---
 # <a name="what-is-video-indexer"></a>O que é o Video Indexer?
 
@@ -27,9 +27,14 @@ O diagrama a seguir é uma ilustração e não uma explicação técnica de como
 
 ![Diagrama de fluxo de Video Indexer dos serviços de mídia do Azure](./media/video-indexer-overview/model-chart.png)
 
+
 ## <a name="compliance-privacy-and-security"></a>Conformidade, privacidade e segurança
- 
-Como um lembrete importante, você deve obedecer a todas as leis aplicáveis em seu uso de Video Indexer, e você não pode usar Video Indexer ou qualquer outro serviço do Azure de uma maneira que viole os direitos de outras pessoas ou possa ser prejudicial para outras pessoas. Antes de carregar qualquer vídeo, incluindo quaisquer dados biométricos, para o serviço de Video Indexer para processamento e armazenamento, você deve ter todos os direitos apropriados, incluindo todos os condados apropriados, do (s) indivíduo (es) no vídeo. Para saber mais sobre conformidade, privacidade e segurança em Video Indexer, os [termos de serviços cognitivas](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)da Microsoft. Para obrigações de privacidade e manipulação de seus dados da Microsoft, examine a [política de privacidade](https://privacy.microsoft.com/PrivacyStatement)da Microsoft, os [termos de serviços online](https://www.microsoft.com/licensing/product-licensing/products) ("OST") e o [adendo de processamento de dados](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Informações de privacidade adicionais, incluindo a retenção de dados, exclusão/destruição, estão disponíveis no OST e [aqui](faq.md). Usando Video Indexer, você concorda em estar associado aos termos de serviços cognitivas, do OST, do DPA e da declaração de privacidade.
+
+Como um lembrete importante, você deve obedecer a todas as leis aplicáveis em seu uso de Video Indexer, e você não pode usar Video Indexer ou qualquer serviço do Azure de uma maneira que viole os direitos de terceiros ou que possam ser prejudiciais a outros.
+
+Antes de carregar qualquer vídeo/imagem para Video Indexer, você deve ter todos os direitos adequados para usar o vídeo/imagem, incluindo, quando exigido por lei, todos os condados necessários de indivíduos (se houver) no vídeo/imagem, para uso, processamento e armazenamento de seus dados no Video Indexer e no Azure. Algumas jurisdições podem impor requisitos legais especiais para a coleta, processamento online e armazenamento de determinadas categorias de dados, como dados biométricos. Antes de usar o Video Indexer e o Azure para o processamento e o armazenamento de quaisquer dados sujeitos a requisitos legais especiais, você deve garantir a conformidade com quaisquer requisitos legais que possam se aplicar a você.
+
+Para saber mais sobre conformidade, privacidade e segurança em Video Indexer visite a [central de confiabilidade](https://www.microsoft.com/TrustCenter/CloudServices/Azure/default.aspx)da Microsoft. Para as obrigações de privacidade da Microsoft, a manipulação de dados e as práticas de retenção, incluindo como excluir seus dados, examine a [política de privacidade](https://privacy.microsoft.com/PrivacyStatement)da Microsoft, os [termos de serviços online](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("OST") e o [adendo de processamento de dados](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Usando Video Indexer, você concorda em estar associado ao OST, ao DPA e à declaração de privacidade.
 
 ## <a name="what-can-i-do-with-video-indexer"></a>O que posso fazer com o Video Indexer?
 
@@ -107,7 +112,7 @@ Você pode acessar recursos de Video Indexer de três maneiras:
 
 Se você estiver usando o site, as informações serão adicionadas como metadados e estarão visíveis no Portal. Se você estiver usando APIs, as informações estarão disponíveis como um arquivo JSON.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Você está pronto para começar com o Video Indexer. Para obter mais informações, consulte os seguintes artigos:
 

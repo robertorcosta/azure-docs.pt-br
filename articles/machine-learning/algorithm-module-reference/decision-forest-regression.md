@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 3c412937e59927a9f3f3218b0da3382f0b67c230
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 6d326b3cb5a964e43ce77ee459533a4271d5ed73
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152373"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919933"
 ---
 # <a name="decision-forest-regression-module"></a>Módulo de regressão de floresta de decisão
 
@@ -60,6 +60,8 @@ Para obter mais informações sobre a estrutura teórica para este algoritmo e s
 
       Se você souber como deseja configurar o modelo, é possível fornecer um conjunto específico de valores como argumentos. Você pode ter aprendido esses valores por experimentação ou os recebido como orientação.
 
+    - **Intervalo de parâmetros**: Selecione esta opção se você não tiver certeza dos melhores parâmetros e quiser executar uma limpeza de parâmetro. Selecione um intervalo de valores para iteração e os [hiperparâmetros de modelo de ajuste](tune-model-hyperparameters.md) iteram sobre todas as combinações possíveis das configurações que você forneceu para determinar os hiperparâmetros que produzem os resultados ideais. 
+
 
 
 4. Para o **número de árvores de decisão**, indique o número total de árvores de decisão a serem criadas no Ensemble. Criando mais árvores de decisão, você pode potencialmente obter melhor cobertura, mas aumentará o tempo de treinamento.
@@ -90,6 +92,6 @@ Após a conclusão do treinamento:
 
 + Para salvar um instantâneo do modelo treinado, selecione o módulo de treinamento e, em seguida, alterne para a guia **saídas** no painel direito. Clique no ícone **registrar modelo**.  Você pode encontrar o modelo salvo como um módulo na árvore de módulo. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

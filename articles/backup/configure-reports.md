@@ -3,12 +3,12 @@ title: Configurar relatórios de Backup do Azure
 description: Configurar e exibir relatórios para o backup do Azure usando Log Analytics e pastas de trabalho do Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: cefe81e53e89b8d7903469e836f3c5d2665febea
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 651d1383f0f292895ed95c91bafd5206d4f04c2c
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77582697"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161194"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
 
@@ -47,6 +47,9 @@ Na seção monitoramento do cofre dos serviços de recuperação, selecione **co
 
 O backup do Azure também fornece um Azure Policy interno, que automatiza a configuração de configurações de diagnóstico para todos os cofres em um determinado escopo. Consulte o seguinte artigo para saber como usar essa política: [definir configurações de diagnóstico de cofre em escala](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics)
 
+> [!NOTE]
+> Depois de configurar o diagnóstico, pode levar até 24 horas para que o envio de dados inicial seja concluído. Depois que os dados começam a fluir para o espaço de trabalho LA, talvez você não consiga ver os dados nos relatórios imediatamente, já que os dados do dia parcial atual não são mostrados nos relatórios (mais detalhes [aqui](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports)). Portanto, é recomendável começar a exibir os relatórios 2 dias depois de configurar seus cofres para enviar dados para Log Analytics.
+
 3. **Exibir relatórios no portal do Azure:**
 
 Depois de configurar seus cofres para enviar dados para LA, exiba seus relatórios de backup navegando até a folha de um cofre e clicando no item de menu **relatórios de backup** . 
@@ -56,7 +59,8 @@ Depois de configurar seus cofres para enviar dados para LA, exiba seus relatóri
 Clicar nesse link abre a pasta de trabalho de relatório de backup.
 
 > [!NOTE]
-> Atualmente, a carga inicial do relatório pode levar até 1 minuto.
+> * Atualmente, a carga inicial do relatório pode levar até 1 minuto.
+> * O cofre dos serviços de recuperação é meramente um ponto de entrada para relatórios de backup. Depois que a pasta de trabalho relatórios de backup for aberta na folha de um cofre, você poderá ver os dados agregados em todos os seus cofres (selecionando o conjunto apropriado de espaços de trabalho de LA).
 
 Abaixo está uma descrição das várias guias que o relatório contém:
 
@@ -119,5 +123,5 @@ Os widgets no relatório de backup são alimentados por consultas Kusto, que sã
 
 * Além disso, o esquema v1 de envio de dados de diagnóstico para uma conta de armazenamento ou um espaço de trabalho da LA também está em um caminho de substituição. Isso significa que, se você tiver escrito qualquer consulta ou automação personalizada com base no esquema v1, será aconselhável atualizar essas consultas para usar o esquema V2 com suporte no momento.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 [Saiba mais sobre monitoramento e relatórios com o backup do Azure](https://docs.microsoft.com/azure/backup/backup-azure-monitor-alert-faq)

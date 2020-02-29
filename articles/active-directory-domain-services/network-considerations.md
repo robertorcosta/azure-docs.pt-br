@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 4a5aba6f8a357f33fd921ee12aac7e45f9b581ff
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: e00ec8448739ac30950877a2ae196aa78cde750c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613337"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917332"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Considerações de design de rede virtual e opções de configuração para Azure AD Domain Services
 
@@ -88,7 +88,7 @@ Você pode habilitar a resolução de nomes usando encaminhadores DNS condiciona
 
 Um domínio gerenciado do Azure AD DS cria alguns recursos de rede durante a implantação. Esses recursos são necessários para uma operação bem-sucedida e o gerenciamento do domínio gerenciado AD DS do Azure e não devem ser manualmente configurados.
 
-| Recursos do Azure                          | DESCRIÇÃO |
+| Recursos do Azure                          | Descrição |
 |:----------------------------------------|:---|
 | Placa de interface de rede                  | O Azure AD DS hospeda o domínio gerenciado em dois controladores de domínio (DCs) executados no Windows Server como VMs do Azure. Cada VM tem uma interface de rede virtual que se conecta à sua sub-rede de rede virtual. |
 | Endereço IP público padrão dinâmico      | O Azure AD DS se comunica com o serviço de sincronização e gerenciamento usando um endereço IP público de SKU padrão. Para obter mais informações sobre endereços IP públicos, consulte [tipos de endereço IP e métodos de alocação no Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
@@ -105,12 +105,12 @@ Um [NSG (grupo de segurança de rede)](https://docs.microsoft.com/azure/virtual-
 
 As regras do grupo de segurança de rede a seguir são necessárias para que o Azure AD DS forneça serviços de autenticação e gerenciamento. Não edite ou exclua essas regras de grupo de segurança de rede para a sub-rede da rede virtual em que o domínio gerenciado do Azure AD DS está implantado.
 
-| Número da porta | Protocolo | Fonte                             | Destino | Ação | Obrigatório | Finalidade |
+| Número da porta | Protocolo | Origem                             | Destino | Ação | Obrigatório | Finalidade |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Allow  | Sim      | Sincronização com seu locatário do Azure AD. |
-| 3389        | TCP      | CorpNetSaw                         | Qualquer         | Allow  | Sim      | Gerenciamento do seu domínio. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Allow  | Sim      | Gerenciamento do seu domínio. |
-| 636         | TCP      | Qualquer                                | Qualquer         | Allow  | Não       | Habilitado somente quando você configura LDAPS seguros (LDAPs). |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Sim      | Sincronização com seu locatário do Azure AD. |
+| 3389        | TCP      | CorpNetSaw                         | Qualquer         | Permitir  | Sim      | Gerenciamento do seu domínio. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Sim      | Gerenciamento do seu domínio. |
+| 636         | TCP      | Qualquer                                | Qualquer         | Permitir  | Não       | Habilitado somente quando você configura LDAPS seguros (LDAPs). |
 
 > [!WARNING]
 > Não edite manualmente esses recursos e configurações de rede. Quando você associa um grupo de segurança de rede configurado incorretamente ou uma tabela de rotas definida pelo usuário à sub-rede na qual o Azure AD DS é implantado, você pode interromper a capacidade de serviço e gerenciar o domínio da Microsoft. A sincronização entre seu locatário do Azure AD e seu domínio gerenciado do Azure AD DS também é interrompida.
@@ -144,6 +144,11 @@ As regras do grupo de segurança de rede a seguir são necessárias para que o A
 * Para os domínios gerenciados do Azure AD DS que usam uma rede virtual baseada no Resource Manager, você pode restringir o acesso de entrada a essa porta para a marca de serviço *AzureActiveDirectoryDomainServices* .
     * Para domínios gerenciados herdados do Azure AD DS usando uma rede virtual baseada em clássico, você pode restringir o acesso de entrada a essa porta para os seguintes endereços IP de origem: *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223*, *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18*e *104.40.87.209*.
 
+    > [!NOTE]
+    > Em 2017, Azure AD Domain Services tornou-se disponível para hospedar em uma rede Azure Resource Manager. Desde então, conseguimos criar um serviço mais seguro usando os recursos modernos do Azure Resource Manager. Como as implantações Azure Resource Manager substituem totalmente as implantações clássicas, as implantações de rede virtual clássica do Azure AD DS serão desativadas em 1º de março de 2023.
+    >
+    > Para obter mais informações, consulte o [aviso oficial de reprovação](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/)
+
 ## <a name="user-defined-routes"></a>Rotas definidas pelo usuário
 
 As rotas definidas pelo usuário não são criadas por padrão e não são necessárias para que o Azure AD DS funcione corretamente. Se for necessário usar tabelas de rotas, evite fazer alterações na rota *0.0.0.0* . As alterações nessa rota causam interrupção Azure AD Domain Services e coloca o domínio gerenciado em um estado sem suporte.
@@ -153,7 +158,7 @@ Você também deve rotear o tráfego de entrada dos endereços IP incluídos nas
 > [!CAUTION]
 > Esses intervalos de IP do datacenter do Azure podem ser alterados sem aviso prévio. Verifique se você tem processos para validar se tem os endereços IP mais recentes.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter mais informações sobre alguns dos recursos de rede e opções de conexão usados pelo Azure AD DS, consulte os seguintes artigos:
 

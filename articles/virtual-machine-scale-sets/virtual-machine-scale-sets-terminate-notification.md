@@ -1,31 +1,41 @@
 ---
 title: Terminar notificação para instâncias do conjunto de dimensionamento de máquinas virtuais do Azure
 description: Saiba como habilitar a notificação de término para instâncias do conjunto de dimensionamento de máquinas virtuais do Azure
-author: shandilvarun
+author: avirishuv
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 08/27/2019
-ms.author: vashan
-ms.openlocfilehash: a1b1e07fa0622ae25d8086ec65827816ec52a5ce
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.date: 02/26/2020
+ms.author: avverma
+ms.openlocfilehash: 6023e9bf7539b79446d0135ba731b61be166dd6e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271748"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919814"
 ---
-# <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances-preview"></a>Terminar notificação para instâncias do conjunto de dimensionamento de máquinas virtuais do Azure (versão prévia)
-As instâncias do conjunto de dimensionamento podem optar por receber notificações de encerramento de instância e definir um tempo limite de atraso predefinido para a operação de encerramento. A notificação de encerramento é enviada por meio do serviço de metadados do Azure – [eventos agendados](../virtual-machines/windows/scheduled-events.md), que fornece notificações e atraso de operações de impacto, como reinicializações e reimplantação. A solução de visualização adiciona outro evento – Terminate – à lista de Eventos Agendados, e o atraso associado do evento Terminate dependerá do limite de atraso conforme especificado pelos usuários em suas configurações de modelo de conjunto de dimensionamento.
+# <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Terminar notificação para instâncias do conjunto de dimensionamento de máquinas virtuais do Azure
+As instâncias do conjunto de dimensionamento podem optar por receber notificações de encerramento de instância e definir um tempo limite de atraso predefinido para a operação de encerramento. A notificação de encerramento é enviada por meio do serviço de metadados do Azure – [eventos agendados](../virtual-machines/windows/scheduled-events.md), que fornece notificações e atraso de operações de impacto, como reinicializações e reimplantação. A solução adiciona outro evento – Terminate – à lista de Eventos Agendados, e o atraso associado do evento Terminate dependerá do limite de atraso conforme especificado pelos usuários em suas configurações de modelo de conjunto de dimensionamento.
 
 Depois de registrado no recurso, as instâncias do conjunto de dimensionamento não precisam aguardar até que o tempo limite especificado expire antes que a instância seja excluída. Depois de receber uma notificação de encerramento, a instância pode optar por ser excluída a qualquer momento antes de expirar o tempo limite de encerramento.
 
-> [!IMPORTANT]
-> A notificação de encerramento para instâncias do conjunto de dimensionamento está atualmente em visualização pública. Nenhum procedimento de aceitação é necessário para usar a funcionalidade de visualização pública descrita abaixo.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="enable-terminate-notifications"></a>Habilitar notificações de término
 Há várias maneiras de habilitar notificações de encerramento em suas instâncias do conjunto de dimensionamento, conforme detalhado nos exemplos abaixo.
+
+### <a name="azure-portal"></a>Portal do Azure
+
+As etapas a seguir habilitam a notificação de término ao criar um novo conjunto de dimensionamento. 
+
+1. Vá para **conjuntos de dimensionamento de máquinas virtuais**.
+1. Selecione **+ Adicionar** para criar um novo conjunto de dimensionamento.
+1. Vá para a guia **Gerenciamento** . 
+1. Localize a seção **término da instância** .
+1. Para **notificação de encerramento de instância**, selecione **ativado**.
+1. Para o **atraso de encerramento (minutos)** , defina o tempo limite padrão desejado.
+1. Quando terminar de criar o novo conjunto de dimensionamento, selecione o botão **revisar + criar** . 
+
+> [!NOTE]
+> Você não pode definir notificações de término em conjuntos de dimensionamento existentes no portal do Azure
 
 ### <a name="rest-api"></a>API REST
 
@@ -59,22 +69,19 @@ Depois de habilitar o *scheduledEventsProfile* no modelo do conjunto de dimensio
 >As notificações de término em instâncias do conjunto de dimensionamento só podem ser habilitadas com a versão de API 2019-03-01 e superior
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Ao criar um novo conjunto de dimensionamento, você pode habilitar notificações de encerramento no conjunto de dimensionamento usando o cmdlet [New-AzVmss](/powershell/module/az.compute/new-azvmss) .
+Ao criar um novo conjunto de dimensionamento, você pode habilitar notificações de encerramento no conjunto de dimensionamento usando o cmdlet [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) .
+
+Este script de exemplo percorre a criação de um conjunto de dimensionamento e os recursos associados usando o arquivo de configuração: [criar um conjunto de dimensionamento de máquinas virtuais completo](./scripts/powershell-sample-create-complete-scale-set.md). Você pode fornecer configurar a notificação de término adicionando os parâmetros *TerminateScheduledEvents* e *TerminateScheduledEventNotBeforeTimeoutInMinutes* ao objeto de configuração para criar um conjunto de dimensionamento. O exemplo a seguir habilita o recurso com um tempo limite de atraso de 10 minutos.
 
 ```azurepowershell-interactive
-New-AzVmss `
-  -ResourceGroupName "myResourceGroup" `
-  -Location "EastUS" `
-  -VMScaleSetName "myScaleSet" `
-  -VirtualNetworkName "myVnet" `
-  -SubnetName "mySubnet" `
-  -PublicIpAddressName "myPublicIPAddress" `
-  -LoadBalancerName "myLoadBalancer" `
+New-AzVmssConfig `
+  -Location "VMSSLocation" `
+  -SkuCapacity 2 `
+  -SkuName "Standard_DS2" `
   -UpgradePolicyMode "Automatic" `
-  -TerminateScheduledEvents
+  -TerminateScheduledEvents $true `
+  -TerminateScheduledEventNotBeforeTimeoutInMinutes 10
 ```
-
-O exemplo acima cria um novo conjunto de dimensionamento com notificações de término habilitadas com um tempo limite padrão de 5 minutos. Ao criar um novo conjunto de dimensionamento, o parâmetro *TerminateScheduledEvents* não requer um valor. Para alterar o valor de tempo limite, especifique o tempo limite desejado por meio do parâmetro *TerminateScheduledEventNotBeforeTimeoutInMinutes* .
 
 Use o cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) para habilitar notificações de encerramento em um conjunto de dimensionamento existente.
 
@@ -89,6 +96,33 @@ O exemplo acima habilita as notificações de término em um conjunto de dimensi
 
 Depois de habilitar os eventos agendados no modelo do conjunto de dimensionamento e definir o tempo limite, atualize as instâncias individuais para o [modelo mais recente](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) para refletir as alterações.
 
+### <a name="azure-cli-20"></a>CLI do Azure 2.0
+
+O exemplo a seguir é para habilitar a notificação de encerramento ao criar um novo conjunto de dimensionamento.
+
+```azurecli-interactive
+az group create --name <myResourceGroup> --location <VMSSLocation>
+az vmss create \
+  --resource-group <myResourceGroup> \
+  --name <myVMScaleSet> \
+  --image UbuntuLTS \
+  --admin-username <azureuser> \
+  --generate-ssh-keys \
+  --terminate-notification-time 10
+```
+
+O exemplo acima primeiro cria um grupo de recursos e, em seguida, cria um novo conjunto de dimensionamento com notificações de término habilitadas para um tempo limite padrão de 10 minutos.
+
+O exemplo a seguir é para habilitar a notificação de encerramento em um conjunto de dimensionamento existente.
+
+```azurecli-interactive
+az vmss update \  
+  --resource-group <myResourceGroup> \
+  --name <myVMScaleSet> \
+  --enable-terminate-notification true \
+  --terminate-notification-time 10
+```
+
 ## <a name="get-terminate-notifications"></a>Obter notificações de término
 
 As notificações de término são entregues por meio de [eventos agendados](../virtual-machines/windows/scheduled-events.md), que é um serviço de metadados do Azure. O Serviço de Metadados do Azure expõe informações sobre a execução de Máquinas Virtuais usando um Ponto de Extremidade REST acessível de dentro da VM. As informações estão disponíveis por meio de um IP não roteável para que não seja exposta fora da VM.
@@ -100,8 +134,8 @@ Eventos Agendados está desabilitado para seu conjunto de dimensionamento se as 
 ### <a name="endpoint-discovery"></a>Descoberta de ponto de extremidade
 Para VMs habilitadas para VNET, o serviço de metadados está disponível de um IP não roteável estático, 169.254.169.254.
 
-O ponto de extremidade completo para a versão mais recente do Eventos Agendados para essa visualização é:
-> 'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01 '
+O ponto de extremidade completo para a versão mais recente dos eventos agendados é:
+> 'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01'
 
 ### <a name="query-response"></a>Resposta de consulta
 Uma resposta contém uma matriz de eventos agendados. Uma matriz vazia significa que não há eventos agendados no momento.
@@ -122,7 +156,7 @@ No caso de haver eventos agendados, a resposta contém uma matriz de eventos. Pa
     ]
 }
 ```
-O DocumentIncarnation é uma ETag e fornece uma maneira fácil de inspecionar se a carga de eventos foi alterada desde a última consulta.
+O *DocumentIncarnation* é uma ETag e fornece uma maneira fácil de inspecionar se a carga de eventos foi alterada desde a última consulta.
 
 Para obter mais informações sobre cada um dos campos acima, consulte a documentação do Eventos Agendados para [Windows](../virtual-machines/windows/scheduled-events.md#event-properties) e [Linux](../virtual-machines/linux/scheduled-events.md#event-properties).
 
@@ -147,21 +181,21 @@ Você também pode consultar scripts de exemplos para consultar e responder a ev
 ## <a name="tips-and-best-practices"></a>Dicas e práticas recomendadas
 -   Encerrar notificações somente em operações ' excluir ' – todas as operações de exclusão (exclusão manual ou redução iniciada pelo dimensionamento automático) gerarão eventos de término se o conjunto de dimensionamento tiver *scheduledEventsProfile* habilitado. Outras operações, como reinicializar, refazer imagem, reimplantar e parar/desalocar, não geram eventos Terminate. As notificações de término não podem ser habilitadas para VMs de baixa prioridade.
 -   Nenhuma espera obrigatória para tempo limite – você pode iniciar a operação de término a qualquer momento depois que o evento tiver sido recebido e antes de o tempo de falta *antes* do evento ser expirado.
--   Exclusão obrigatória no tempo limite – a visualização não fornece qualquer recurso de estender o valor de tempo limite após a geração de um evento. Quando o tempo limite expirar, o evento de encerramento pendente será processado e a VM será excluída.
+-   Exclusão obrigatória no tempo limite – não há nenhum recurso de estender o valor de tempo limite após a geração de um evento. Quando o tempo limite expirar, o evento de encerramento pendente será processado e a VM será excluída.
 -   Valor de tempo limite modificável – você pode modificar o valor de tempo limite a qualquer momento antes que uma instância seja excluída, modificando a propriedade *notBeforeTimeout* no modelo do conjunto de dimensionamento e atualizando as instâncias de VM para o modelo mais recente.
 -   Aprovar todas as exclusões pendentes – se houver uma exclusão pendente em VM_1 que não está aprovada e você tiver aprovado outro evento de encerramento em VM_2, VM_2 não será excluído até que o evento de encerramento para VM_1 seja aprovado ou seu tempo limite tenha decorrido. Depois de aprovar o evento Terminate para VM_1, os VM_1 e VM_2 são excluídos.
 -   Aprovar todas as exclusões simultâneas – estendendo o exemplo acima, se VM_1 e VM_2 tiverem o mesmo tempo *antes* , então ambos os eventos de término deverão ser aprovados ou nenhuma VM será excluída antes que o tempo limite expire.
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 ### <a name="failure-to-enable-scheduledeventsprofile"></a>Falha ao habilitar scheduledEventsProfile
-Se você receber um erro ' BadRequest ' com uma mensagem de erro informando "não foi possível encontrar o membro ' scheduledEventsProfile ' no objeto do tipo ' VirtualMachineProfile '", verifique a versão da API usada para as operações do conjunto de dimensionamento. A versão de API de computação **2019-03-01** ou superior é necessária para esta visualização.
+Se você receber um erro ' BadRequest ' com uma mensagem de erro informando "não foi possível encontrar o membro ' scheduledEventsProfile ' no objeto do tipo ' VirtualMachineProfile '", verifique a versão da API usada para as operações do conjunto de dimensionamento. A versão de API de computação **2019-03-01** ou superior é necessária. 
 
 ### <a name="failure-to-get-terminate-events"></a>Falha ao obter eventos de encerramento
 Se você não estiver obtendo eventos de **término** por meio de eventos agendados, verifique a versão da API usada para obter os eventos. A API do serviço de metadados versão **2019-01-01** ou superior é necessária para eventos de término.
->'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01 '
+>'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01'
 
 ### <a name="getting-terminate-event-with-incorrect-notbefore-time"></a>Obtendo evento de encerramento com hora incorreta  
 Depois de habilitar o *scheduledEventsProfile* no modelo do conjunto de dimensionamento e definir o *notBeforeTimeout*, atualize as instâncias individuais para o [modelo mais recente](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) para refletir as alterações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Aprenda como [Implantar o aplicativo](virtual-machine-scale-sets-deploy-app.md) em conjuntos de dimensionamento de máquinas virtuais

@@ -3,18 +3,18 @@ title: Sobre o backup de banco de dados SAP HANA em VMs do Azure
 description: Neste artigo, saiba mais sobre como fazer backup de bancos de dados SAP HANA em execução em máquinas virtuais do Azure.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: a1be572d6462ed8f8a86db0f5cbfeaaa37c219ab
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 188cef6bc9771f779e3e9c7f7f5fe246e929b68a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586556"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918505"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Sobre o backup de banco de dados SAP HANA em VMs do Azure
 
 SAP HANA bancos de dados são cargas de trabalho de missão crítica que exigem um RPO (objetivo de ponto de recuperação) baixo e um RTO (objetivo de tempo de recuperação) rápido. Agora você pode [fazer backup de bancos de dados SAP Hana em execução em VMs do Azure](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) usando o [backup do Azure](https://docs.microsoft.com/azure/backup/backup-overview).
 
-O backup do Azure é [BACKINT certificado](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5) pela SAP, para fornecer suporte de backup nativo aproveitando as APIs nativas do SAP Hana. Essa oferta do backup do Azure se alinha com os mantra de backups de **infraestrutura zero** do backup do Azure, eliminando a necessidade de implantar e gerenciar a infraestrutura de backup. Agora você pode fazer backup e restaurar diretamente SAP HANA bancos de dados em execução em VMs do Azure (as[VMs da série M](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory) também têm suporte agora!) e aproveitar os recursos de gerenciamento corporativo que o backup do Azure fornece.
+O backup do Azure é [BACKINT certificado](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5) pela SAP, para fornecer suporte de backup nativo aproveitando as APIs nativas do SAP Hana. Essa oferta do backup do Azure se alinha com os mantra de backups de **infraestrutura zero** do backup do Azure, eliminando a necessidade de implantar e gerenciar a infraestrutura de backup. Agora você pode fazer backup e restaurar diretamente SAP HANA bancos de dados em execução em VMs do Azure (as[VMs da série M](../virtual-machines/m-series.md) também têm suporte agora!) e aproveitar os recursos de gerenciamento corporativo que o backup do Azure fornece.
 
 ## <a name="added-value"></a>Valor adicionado
 
@@ -53,7 +53,7 @@ Para exibir os cenários de backup e restauração aos quais damos suporte hoje,
 * O **mecanismo de backup do Hana** retorna um fluxo de BACKINT com os dados a serem submetidos a backup.
 * Todos os backups agendados e backups sob demanda (disparados a partir do portal do Azure) que são completos ou diferenciais são iniciados pelo **plug-in do backup do Azure para Hana**. No entanto, os backups de log são gerenciados e disparados pelo **mecanismo de backup do Hana** .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Saiba como [restaurar um banco de dados SAP Hana em execução em uma VM do Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-restore)
 * Saiba como [gerenciar bancos de dados do SAP HANA cujo backup é feito usando o Backup do Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-manage)

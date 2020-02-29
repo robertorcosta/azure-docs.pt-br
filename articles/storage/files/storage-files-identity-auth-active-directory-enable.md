@@ -6,12 +6,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/23/2020
 ms.author: rogarana
-ms.openlocfilehash: 9bda3331bc27f387bd05ea0fcd29e7badf6d6a02
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 419f0506751ddc328539eafa52507b0dd0739c79
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651076"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921548"
 ---
 # <a name="enable-active-directory-authentication-over-smb-for-azure-file-shares"></a>Habilitar a autenticação de Active Directory sobre SMB para compartilhamentos de arquivos do Azure
 
@@ -34,7 +34,7 @@ Quando você habilita o AD para compartilhamentos de arquivos do Azure via SMB, 
 
 As identidades do AD usadas para acessar compartilhamentos de arquivos do Azure devem ser sincronizadas com o Azure AD para impor permissões de arquivo de nível de compartilhamento por meio do modelo [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) padrão. As [DACLs de estilo do Windows](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) em arquivos/diretórios transferidos de servidores de arquivos existentes serão preservadas e impostas. Esse recurso oferece integração direta com sua infraestrutura de domínio do AD corporativo. Ao substituir servidores de arquivos locais por compartilhamentos de arquivos do Azure, os usuários existentes podem acessar compartilhamentos de arquivos do Azure de seus clientes atuais com uma experiência de logon único, sem nenhuma alteração nas credenciais em uso.  
  
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1} 
 
 Antes de habilitar a autenticação do AD para compartilhamentos de arquivos do Azure, verifique se você concluiu os seguintes pré-requisitos: 
 
@@ -62,7 +62,7 @@ Antes de habilitar a autenticação do AD para compartilhamentos de arquivos do 
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
-A autenticação do AD dos arquivos do Azure está disponível na [maioria das regiões públicas](https://azure.microsoft.com/global-infrastructure/regions/), o subconjunto de regiões que ainda não está disponível no é:
+A autenticação do AD do Azure Files (versão prévia) está disponível na [maioria das regiões públicas](https://azure.microsoft.com/global-infrastructure/regions/) , exceto para:
 
 - Oeste dos EUA
 - Oeste dos EUA 2
@@ -130,7 +130,7 @@ Connect-AzAccount
 Select-AzSubscription -SubscriptionId "<your-subscription-id-here>"
 
 #Register the target storage account with your active directory environment under the target OU
-join-AzStorageAccountForAuth -ResourceGroupName "<resource-group-name-here>" -Name "<storage-account-name-here>" -DomainAccountType "<ServiceLogonAccount|ComputerAccount>" -OrganizationUnitName "<ou-name-here>"
+join-AzStorageAccountForAuth -ResourceGroupName "<resource-group-name-here>" -Name "<storage-account-name-here>" -DomainAccountType "<ServiceLogonAccount|ComputerAccount>" -OrganizationalUnitName "<ou-name-here>"
 ```
 
 A descrição a seguir resume todas as ações executadas quando o cmdlet `join-AzStorageAccountForAuth` é executado. Você pode executar essas etapas manualmente, se preferir não usar o comando:
@@ -195,7 +195,7 @@ Para disparar a rotação de senha, você pode executar o comando `Update-AzStor
 Update-AzStorageAccountADObjectPassword -RotateToKerbKey kerb2 -ResourceGroupName "your-resource-group-name-here" -StorageAccountName "your-storage-account-name-here"
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter mais informações sobre os arquivos do Azure e como usar o AD sobre SMB, consulte estes recursos:
 

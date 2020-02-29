@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 5298655437e04736e56193c443b8a770ea929606
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 10821639fb26af935326bda0bff7895105da675c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152407"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919950"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Módulo de regressão da árvore de decisão aumentada
 
@@ -54,7 +54,9 @@ O método de impulsionamento de gradiente também pode ser usado para problemas 
   
 2.  Especifique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .  
   
-    -   **Parâmetro único**: Selecione esta opção se você souber como deseja configurar o modelo e fornecer um conjunto específico de valores como argumentos.  
+    -   **Parâmetro único**: Selecione esta opção se você souber como deseja configurar o modelo e fornecer um conjunto específico de valores como argumentos. 
+     
+    -   **Intervalo de parâmetros**: Selecione esta opção se você não tiver certeza dos melhores parâmetros e quiser executar uma limpeza de parâmetro. Selecione um intervalo de valores para iteração e os [hiperparâmetros de modelo de ajuste](tune-model-hyperparameters.md) iteram sobre todas as combinações possíveis das configurações que você forneceu para determinar os hiperparâmetros que produzem os resultados ideais.    
    
   
 3. **Número máximo de folhas por árvore**: indica o número máximo de nós de terminal (folhas) que podem ser criados em qualquer árvore.  
@@ -75,7 +77,6 @@ O método de impulsionamento de gradiente também pode ser usado para problemas 
 
     Por padrão, a semente aleatória é definida como 0, o que significa que o valor de semente inicial é obtido do relógio do sistema.
   
-8. **Permitir níveis categóricos desconhecidos**: Selecione esta opção para criar um grupo de valores desconhecidos nos conjuntos de treinamento e validação. Se você desmarcar essa opção, o modelo poderá aceitar somente os valores contidos nos dados de treinamento. O modelo pode ser menos preciso para valores conhecidos, mas pode fornecer previsões melhores para valores novos (desconhecidos).
 
 9. Adicione um conjunto de uma de treinamento e um dos módulos de treinamento:
 
@@ -93,6 +94,6 @@ Após a conclusão do treinamento:
 
 + Para salvar um instantâneo do modelo treinado, selecione a guia **saídas** no painel direito do **modelo treinado** e clique no ícone **registrar conjunto de registros** . A cópia do modelo treinado será salva como um módulo na árvore de módulo e não será atualizada em execuções sucessivas do pipeline.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 02/27/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 036c8361af3f6631b6151782fa18495542d2e3f6
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: a6187fa9f274c6d00c1c9872a1b27268ac91295e
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888882"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161479"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federação direta com AD FS e provedores de terceiros para usuários convidados (visualização)
 |     |
@@ -64,6 +64,10 @@ Se você especificar a URL de metadados nas configurações do provedor de ident
 
 ### <a name="limit-on-federation-relationships"></a>Limite em relações de Federação
 Atualmente, há suporte para um máximo de 1.000 relações de Federação. Esse limite inclui [federações internas](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) e federações diretas.
+
+### <a name="limit-on-multiple-domains"></a>Limite em vários domínios
+Atualmente, não há suporte para Federação direta com vários domínios do mesmo locatário.
+
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 ### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>Posso configurar a Federação direta com um domínio para o qual existe um locatário não gerenciado (verificado por email)? 
 Sim. Se o domínio não tiver sido verificado e o locatário não passou por um [tomada de administrador](../users-groups-roles/domains-admin-takeover.md), você poderá configurar a Federação direta com esse domínio. Os locatários não gerenciados, ou verificados por email, são criados quando um usuário resgata um convite B2B ou executa uma inscrição de autoatendimento para o Azure AD usando um domínio que atualmente não existe. Você pode configurar a Federação direta com esses domínios. Se você tentar configurar a Federação direta com um domínio verificado pelo DNS, seja na portal do Azure ou por meio do PowerShell, você verá um erro.
@@ -90,16 +94,16 @@ As tabelas a seguir mostram os requisitos para atributos específicos e declara�
 
 Atributos necessários para a resposta SAML 2,0 do IdP:
 
-|Atributo  |Valor  |
+|Atributo  |{1&gt;Valor&lt;1}  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
-|Público     |`urn:federation:MicrosoftOnline`         |
+|Público-alvo     |`urn:federation:MicrosoftOnline`         |
 |Emissor     |O URI do emissor do IdP do parceiro, por exemplo `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 
 Declarações necessárias para o token 2,0 do SAML emitido pelo IdP:
 
-|Atributo  |Valor  |
+|Atributo  |{1&gt;Valor&lt;1}  |
 |---------|---------|
 |Formato NameID     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
@@ -116,15 +120,15 @@ As tabelas a seguir mostram os requisitos para atributos específicos e declara�
 
 Atributos necessários na mensagem WS-enfileirada do IdP:
  
-|Atributo  |Valor  |
+|Atributo  |{1&gt;Valor&lt;1}  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
-|Público     |`urn:federation:MicrosoftOnline`         |
+|Público-alvo     |`urn:federation:MicrosoftOnline`         |
 |Emissor     |O URI do emissor do IdP do parceiro, por exemplo `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 Declarações necessárias para o token de WS-reportado emitido pelo IdP:
 
-|Atributo  |Valor  |
+|Atributo  |{1&gt;Valor&lt;1}  |
 |---------|---------|
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
@@ -133,7 +137,7 @@ Declarações necessárias para o token de WS-reportado emitido pelo IdP:
 Em seguida, você configurará a Federação com o provedor de identidade configurado na etapa 1 no Azure AD. Você pode usar o portal do Azure AD ou o PowerShell. Pode levar de 5-10 minutos para a política de Federação direta entrar em vigor. Durante esse tempo, não tente resgatar um convite para o domínio de Federação direta. Os atributos a seguir são obrigatórios:
 - URI do emissor do parceiro IdP
 - Ponto de extremidade de autenticação passiva do parceiro IdP (há suporte apenas para https)
-- Certificado
+- Certificate
 
 ### <a name="to-configure-direct-federation-in-the-azure-ad-portal"></a>Para configurar a Federação direta no portal do Azure AD
 
@@ -152,11 +156,11 @@ Em seguida, você configurará a Federação com o provedor de identidade config
    - Nome de domínio do parceiro IdP
    - ID da entidade do parceiro IdP
    - Ponto de extremidade do solicitante passivo do parceiro IdP
-   - Certificado
+   - Certificate
    > [!NOTE]
    > A URL de metadados é opcional, no entanto, é altamente recomendável. Se você fornecer a URL de metadados, o Azure AD poderá renovar automaticamente o certificado de autenticação quando ele expirar. Se o certificado for girado por qualquer motivo antes da hora de expiração ou se você não fornecer uma URL de metadados, o Azure AD não poderá renová-la. Nesse caso, você precisará atualizar o certificado de autenticação manualmente.
 
-7. Clique em **Salvar**. 
+7. Selecione **Salvar**. 
 
 ### <a name="to-configure-direct-federation-in-azure-ad-using-powershell"></a>Para configurar a Federação direta no Azure AD usando o PowerShell
 
@@ -190,7 +194,7 @@ Agora, teste a configuração da Federação direta convidando um novo usuário 
 3. Selecionar **provedores de identidade**
 4. Em **provedores de identidade SAML/WS-Enalimentados**, selecione o provedor.
 5. No painel de detalhes do provedor de identidade, atualize os valores.
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 
 
 ## <a name="how-do-i-remove-direct-federation"></a>Como fazer remover a Federação direta?

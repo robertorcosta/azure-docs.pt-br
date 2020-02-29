@@ -2,17 +2,17 @@
 title: Série NV-máquinas virtuais do Azure
 description: Especificações para as VMs da série NV.
 services: virtual-machines
-author: jonbeck7
+author: vikancha
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 5b530fe33d28d6059c72a6a4ee6f14beee532fee
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: a36911d147e64a54b5a15d3925e93188373c6429
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666887"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161917"
 ---
 # <a name="nv-series"></a>Série NV
 
@@ -23,6 +23,10 @@ Cada GPU em instâncias NV vem com uma licença GRID. Esta licença oferece flex
 Armazenamento Premium: sem suporte
 
 Armazenamento em cache Premium: sem suporte
+
+Migração ao Vivo: sem suporte
+
+Atualizações de preservação de memória: sem suporte
 
 | Size | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Máximo de NICs | Estações de trabalho virtuais | Aplicativos virtuais |
 |---|---|---|---|---|---|---|---|---|---|

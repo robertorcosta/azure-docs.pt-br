@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: a22964b0bfa4e6a46e3c9f31195ea0a6add82646
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 5121ef8eb3123d830233e91968c69b331d255bd0
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493638"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161073"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamanhos expansíveis da máquina virtual da série B
 
@@ -25,7 +25,11 @@ Armazenamento Premium: com suporte
 
 Armazenamento em cache Premium: sem suporte
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Base de desempenho da CPU da VM | Máximo desempenho da CPU da VM | Créditos iniciais | Créditos bancários/hora | Máximo de créditos armazenados | Discos de dados máximos | Taxa de transferência máxima de armazenamento em cache e temporária: IOPS/MBps | Taxa de transferência máxima do disco não armazenado em cache: IOPS/MBps | Máximo de NICs |
+Migração ao Vivo: com suporte
+
+Atualizações de preservação de memória: com suporte
+
+| Size | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Base de desempenho da CPU da VM | Máximo desempenho da CPU da VM | Créditos iniciais | Créditos bancários/hora | Máximo de créditos armazenados | Discos de dados máximos | Taxa de transferência máxima de armazenamento em cache e temporária: IOPS/MBps | Taxa de transferência máxima do disco não armazenado em cache: IOPS/MBps | Máximo de NICs |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Standard_B1ls<sup>1</sup> | 1  | 0.5 | 4   | 5%   | 100%  | 30  | 3   | 72   | 2  | 200/10    | 160/10    | 2  |
 | Standard_B1s              | 1  | 1   | 4   | 10%  | 100%  | 30  | 6   | 144  | 2  | 400/10    | 320/10    | 2  |
@@ -54,7 +58,7 @@ Linha de base: 270%
 
 ![Gráfico de dados de tráfego por hora](./media/b-series-burstable/office-workload.png)
 
-| Cenário | Hora | Uso da CPU (%) | Créditos acumulados<sup>1</sup> | Créditos disponíveis |
+| Cenário | Tempo | Uso da CPU (%) | Créditos acumulados<sup>1</sup> | Créditos disponíveis |
 | --- | --- | --- | --- | --- |
 | Implantação do B16ms | Implantação | Implantação  | 480 (créditos iniciais) | 480 |
 | Nenhum tráfego | 0:00 | 0 | 162 | 642 |
@@ -140,6 +144,6 @@ por exemplo, na instância acima, sua linha de base é de 20% e se você usar 10
 - [GPU otimizada](sizes-gpu.md)
 - [Computação de alto desempenho](sizes-hpc.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba mais sobre como as [ACUs (unidade de computação do Azure)](acu.md) podem ajudar você a comparar o desempenho de computação entre SKUs do Azure.

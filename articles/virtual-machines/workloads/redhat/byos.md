@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: a53a27a92b393c38d1f49efbd50d91fa1a2e9657
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 712626345e10ab0e4290ac91b0f121ff6960303e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597687"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920562"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux imagens Gold de sua própria assinatura no Azure
 
@@ -41,6 +41,9 @@ As imagens Red Hat Enterprise Linux (RHEL) estão disponíveis no Azure por meio
 - As imagens não são qualificadas, portanto, você deve usar o Subscription-Manager para registrar e assinar as VMs para obter atualizações do Red Hat diretamente
 
 - No momento, não é possível alternar dinamicamente entre os modelos de cobrança BYOS e PAYG para imagens do Linux. Reimplantar a VM da respectiva imagem é necessária para alternar o modelo de cobrança
+
+>[!NOTE]
+> As imagens de BYOS de geração 2 RHEL não estão disponíveis atualmente por meio da oferta do Marketplace. Se você precisar de uma imagem de BYOS de Ger 2 RHEL, visite o painel de acesso do coud no gerenciamento de assinaturas do Red Hat. Mais detalhes estão disponíveis na [documentação do Red Hat](https://access.redhat.com/articles/4847681).
 
 ## <a name="requirements-and-conditions-to-access-the-red-hat-gold-images"></a>Requisitos e condições para acessar as imagens do Red Hat Gold
 
@@ -182,7 +185,7 @@ Não há suporte para Azure Disk Encryption em [imagens personalizadas do Red Ha
 
 As etapas para aplicar Azure Disk Encryption estão disponíveis em [cenários de Azure Disk Encryption em VMs do Linux](../../linux/disk-encryption-linux.md) e artigos relacionados.
 
-## <a name="additional-information"></a>Informações adicionais
+## <a name="additional-information"></a>{1&gt;{2&gt;Informações adicionais&lt;2}&lt;1}
 
 - Se você tentar provisionar uma VM em uma assinatura que não está habilitada para esta oferta, você receberá o seguinte erro:
 
@@ -206,7 +209,7 @@ As etapas para aplicar Azure Disk Encryption estão disponíveis em [cenários d
 
 - Se você estiver usando a automação para provisionar VMs das imagens RHEL BYOS, deverá fornecer parâmetros de plano semelhantes ao que foi mostrado acima. Por exemplo, se você estiver usando Terraform, você forneceria as informações do plano em um [bloco de plano](https://www.terraform.io/docs/providers/azurerm/r/virtual_machine.html#plan).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 - Os guias passo a passo e os detalhes do programa para acesso à nuvem estão disponíveis na [documentação do Red Hat Cloud Access.](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index)
 - Saiba mais sobre a [infraestrutura de atualização do Red Hat do Azure](./redhat-rhui.md).
 - Para saber mais sobre todas as imagens do Red Hat no Azure, vá para a [página de documentação](./redhat-images.md).

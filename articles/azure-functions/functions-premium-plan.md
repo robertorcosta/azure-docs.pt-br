@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: cf70124f2e310dd62fd32de0e17edb40c047a318
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 19c136c7f312d800b76aa60f2cab6e8da992591c
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615675"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161560"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions plano Premium
 
@@ -103,41 +103,42 @@ Por exemplo, um aplicativo de funções JavaScript é restrito pelo limite de me
 
 Abaixo estão as regiões com suporte no momento para cada sistema operacional.
 
-|Região| Windows | Linux |
+|Região| Portal | Linux |
 |--| -- | -- |
 |Austrália Central| ✔<sup>1</sup> | |
 |Austrália Central 2| ✔<sup>1</sup> | |
 |Leste da Austrália| ✔ | ✔<sup>1</sup> |
 |Sudeste da Austrália | ✔ | ✔<sup>1</sup> |
-|Sul do Brasil| ✔<sup>2</sup> |  |
+|Sul do Brasil| ✔<sup>2</sup> | ✔<sup>1</sup> |
 |Canadá Central| ✔ | ✔<sup>1</sup> |
-|Centro dos EUA| ✔ |  |
-|Leste da Ásia| ✔ |  |
+|Centro dos EUA| ✔ | ✔<sup>1</sup> |
+|Leste da Ásia| ✔ | ✔<sup>1</sup> |
 |Leste dos EUA | ✔ | ✔<sup>1</sup> |
 |Leste dos EUA 2| ✔ | ✔<sup>1</sup> |
-|França Central| ✔ |  |
+|França Central| ✔ | ✔<sup>1</sup> |
 |Centro-oeste da Alemanha| ✔ | |
 |Leste do Japão| ✔ | ✔<sup>1</sup> |
 |Oeste do Japão| ✔ | ✔<sup>1</sup> |
 |Coreia Central| ✔ | ✔<sup>1</sup> |
-|Centro-Norte dos EUA| ✔ |  |
+|Centro Norte dos EUA| ✔ | ✔<sup>1</sup> |
 |Norte da Europa| ✔ | ✔<sup>1</sup> |
+|Leste da Noruega| ✔<sup>1</sup> | ✔<sup>1</sup> |
 |Centro-Sul dos Estados Unidos| ✔ | ✔<sup>1</sup> |
 |Sul da Índia | ✔ | |
 |Sudeste Asiático| ✔ | ✔<sup>1</sup> |
 |Sul do Reino Unido| ✔ | ✔<sup>1</sup> |
-|Oeste do Reino Unido| ✔ |  |
+|Oeste do Reino Unido| ✔ | ✔<sup>1</sup> |
 |Europa Ocidental| ✔ | ✔<sup>1</sup> |
-|Oeste da Índia| ✔ |  |
-|Centro-Oeste dos EUA| | ✔<sup>1</sup> |
+|Oeste da Índia| ✔ | ✔<sup>1</sup> |
+|Centro-Oeste dos EUA| ✔<sup>1</sup> | ✔<sup>1</sup> |
 |Oeste dos EUA| ✔ | ✔<sup>1</sup> |
-|Oeste dos EUA 2| ✔ |  |
+|Oeste dos EUA 2| ✔ | ✔<sup>1</sup> |
 
 <sup>1</sup> Redução máxima limitada a 20 instâncias.  
 <sup>2</sup> Expansão máxima limitada a 60 instâncias.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!div class="nextstepaction"]
 > [Entender Azure Functions escala e opções de hospedagem](functions-scale.md)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: dapine
-ms.openlocfilehash: 4a2887ef8b264628128872730422fd38d6b0ac0f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: e30587ed4d09ba792516ebc7b16529a6ee5ac57c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77424993"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918947"
 ---
 # <a name="what-is-custom-speech"></a>O que é Fala Personalizada?
 
@@ -43,7 +43,7 @@ Este diagrama realça as partes que compõem o [portal de fala personalizada](ht
 
 ## <a name="set-up-your-azure-account"></a>Configurar sua conta do Azure
 
-Uma assinatura de serviço de fala é necessária para que você possa usar o [portal de fala personalizada](https://speech.microsoft.com/customspeech) para criar um modelo personalizado. Siga estas instruções para criar uma assinatura de serviço de fala padrão: [criar uma assinatura de fala](get-started.md#try-the-speech-service-using-a-new-azure-account).
+Uma assinatura de serviço de fala é necessária para que você possa usar o [portal de fala personalizada](https://speech.microsoft.com/customspeech) para criar um modelo personalizado. Siga estas instruções para criar uma assinatura de serviço de fala padrão: [criar uma assinatura de fala](get-started.md#new-resource).
 
 > [!NOTE]
 > Certifique-se de criar assinaturas padrão (S0), não há suporte para assinaturas de avaliação gratuita (F0).

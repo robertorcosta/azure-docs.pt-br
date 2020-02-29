@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 541d1001f8b5881f2773f795d7bd849704cbd796
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: b1afd99a569de96e9075b4b5b6eff902abd8642e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153682"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916754"
 ---
 # <a name="two-class-logistic-regression-module"></a>Módulo de regressão logística de duas classes
 
@@ -41,6 +41,8 @@ Por exemplo, a coluna de rótulo pode ser [voto] com os valores possíveis de "S
 2.  Especifique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .  
   
     -   **Parâmetro único**: se você souber como deseja configurar o modelo, poderá fornecer um conjunto específico de valores como argumentos.  
+
+    -   **Intervalo de parâmetros**: se você não tiver certeza dos melhores parâmetros, poderá encontrar os parâmetros ideais usando o módulo [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md) . Você fornece algum intervalo de valores, e o instrutor itera em várias combinações de configurações para determinar a combinação de valores que produz o melhor resultado.
   
 3.  Para a **tolerância de otimização**, especifique um valor de limite a ser usado ao otimizar o modelo. Se a melhoria entre as iterações cair abaixo do limite especificado, o algoritmo será considerado convergido em uma solução e o treinamento será interrompido.  
   
@@ -83,6 +85,6 @@ Após a conclusão do treinamento:
 + Para fazer previsões sobre novos dados, use o modelo treinado e novos dados como entrada para o módulo [modelo de Pontuação](./score-model.md) . 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

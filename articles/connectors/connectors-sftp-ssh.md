@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 02/28/2020
 tags: connectors
-ms.openlocfilehash: 3370eea8909f30563babcf2a84f727ba51f67e29
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: e7a0791cc2bca672e7fde142650ad25e7e8ab58b
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77647653"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161867"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitore, crie e gerencie arquivos SFTP usando SSH e os Aplicativos Lógicos do Azure
 
@@ -31,7 +31,28 @@ Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, examine a se
 
 ## <a name="limits"></a>limites
 
-* Por padrão, as ações de SFTP-SSH podem ler ou gravar arquivos que são de *1 GB ou menores* , mas apenas em partes de *15 MB* por vez. Para lidar com arquivos com mais de 15 MB, as ações SFTP-SSH dão suporte ao [agrupamento de mensagens](../logic-apps/logic-apps-handle-large-messages.md), exceto para a ação copiar arquivo, que pode manipular apenas 15 arquivos. A ação **obter conteúdo do arquivo** usa implicitamente o agrupamento de mensagens.
+* SFTP-as ações SSH que dão suporte ao [agrupamento](../logic-apps/logic-apps-handle-large-messages.md) podem manipular arquivos de até 1 GB, enquanto as ações de SFTP-SSH que não dão suporte a Agrupamento podem lidar com arquivos de até 50 MB. Embora o tamanho de parte padrão seja 15 MB, esse tamanho pode ser alterado dinamicamente, começando de 5 MB e gradualmente aumentando para o máximo de 50 MB, com base em fatores como latência de rede, tempo de resposta do servidor e assim por diante.
+
+  > [!NOTE]
+  > Para aplicativos lógicos em um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), a versão rotulada do ISE do conector usa os [limites de mensagem do ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) em vez disso.
+
+  O tamanho da parte é associado a uma conexão, o que significa que você pode usar a mesma conexão para ações que dão suporte a agrupamento e, em seguida, para ações que não dão suporte a agrupamento. Nesse caso, o tamanho da parte para ações que não dão suporte a intervalos de agrupamento de 5 MB a 50 MB. Esta tabela mostra quais ações de SFTP-SSH dão suporte ao agrupamento:
+
+  | Ação | Suporte a agrupamentos |
+  |--------|------------------|
+  | **Copiar arquivo** | Não |
+  | **Criar arquivo** | Sim |
+  | **Criar pasta** | Não aplicável |
+  | **Excluir arquivo** | Não aplicável |
+  | **Extrair o arquivo morto para a pasta** | Não aplicável |
+  | **Obter conteúdo do arquivo** | Sim |
+  | **Obter o conteúdo do arquivo usando o caminho** | Sim |
+  | **Obter metadados do arquivo** | Não aplicável |
+  | **Obter Metadados do Arquivo usando o caminho** | Não aplicável |
+  | **Listar arquivos na pasta** | Não aplicável |
+  | **Renomear arquivo** | Não aplicável |
+  | **Atualizar arquivo** | Não |
+  |||
 
 * Os gatilhos SFTP-SSH não dão suporte ao agrupamento. Ao solicitar o conteúdo do arquivo, os gatilhos selecionam apenas os arquivos que são 15 MB ou menores. Para obter arquivos com mais de 15 MB, siga este padrão em vez disso:
 
@@ -47,17 +68,13 @@ Aqui estão outras diferenças importantes entre o conector SFTP-SSH e o conecto
 
 * Usa a [biblioteca SSH.net](https://github.com/sshnet/SSH.NET), que é uma biblioteca de Secure Shell de código aberto (SSH) que dá suporte ao .net.
 
-* Por padrão, as ações de SFTP-SSH podem ler ou gravar arquivos que são de *1 GB ou menores* , mas apenas em partes de *15 MB* por vez.
-
-  Para lidar com arquivos com mais de 15 MB, as ações do SFTP-SSH podem usar o [agrupamento de mensagens](../logic-apps/logic-apps-handle-large-messages.md). No entanto, a ação copiar arquivo dá suporte a apenas 15 arquivos, pois essa ação não dá suporte ao agrupamento de mensagens. Os gatilhos SFTP-SSH não dão suporte ao agrupamento. Para carregar arquivos grandes, você precisa de permissões de leitura e gravação para a pasta raiz em seu servidor SFTP.
-
 * Fornece a ação **Criar pasta**, que cria uma pasta no caminho especificado no servidor SFTP.
 
 * Fornece a ação **Renomear arquivo**, que renomeia um arquivo no servidor SFTP.
 
 * Armazena em cache a conexão com o servidor SFTP *por até 1 hora*, o que melhora o desempenho e reduz o número de tentativas de conexão com o servidor. Para definir a duração desse comportamento de armazenamento em cache, edite a propriedade [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) na configuração do SSH em seu servidor SFTP.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
@@ -187,6 +204,6 @@ Para obter mais detalhes técnicos sobre esse conector, como gatilhos, ações e
 > [!NOTE]
 > Para aplicativos lógicos em um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), a versão rotulada do ISE do conector usa os [limites de mensagem do ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) em vez disso.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)
