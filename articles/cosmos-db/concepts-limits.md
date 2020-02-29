@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 5681efc202df511745532e4a314e88b319e9880a
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 99f255d9991b51897ee31671835dabb5f3e359fd
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623398"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916499"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB cotas de serviço
 
@@ -168,6 +168,9 @@ A tabela a seguir lista os limites específicos para o suporte a recursos do Mon
 | --- | --- |
 | Tamanho máximo de memória de consulta do MongoDB | 40 MB |
 | Tempo máximo de execução para operações do MongoDB| 30 s |
+| Tempo limite de conexão ociosa para encerramento de conexão no lado do servidor * | 30 minutos |
+
+\* recomendamos que os aplicativos cliente definam o tempo limite de conexão ociosa nas configurações do driver para 2-3 minutos porque o [tempo limite padrão para o Azure Balancer é de 4 minutos](../load-balancer/load-balancer-tcp-idle-timeout.md#tcp-idle-timeout).  Esse tempo limite garantirá que as conexões ociosas não sejam fechadas por um balanceador de carga intermediário entre o computador cliente e o Azure Cosmos DB.
 
 ## <a name="try-cosmos-db-free-limits"></a>Experimente Cosmos DB limites gratuitos
 
@@ -178,13 +181,13 @@ A tabela a seguir lista os limites para o [Azure Cosmos DB de teste para avalia�
 | Duração da avaliação | 30 dias (pode ser renovado várias vezes) |
 | Máximo de contêineres por assinatura (SQL, Gremlin, API de Tabela) | 1 |
 | Máximo de contêineres por assinatura (API do MongoDB) | 3 |
-| Taxa de transferência máxima por contêiner | 5\.000 |
+| Taxa de transferência máxima por contêiner | 5000 |
 | Taxa de transferência máxima por banco de dados de taxa de transferência compartilhada | 20000 |
 | Máximo de armazenamento total por conta | 10 GB |
 
 Tente Cosmos DB dá suporte à distribuição global somente nas regiões EUA Central, Europa Setentrional e sudeste asiático. Tíquetes de suporte do Azure não podem ser criados para contas try Azure Cosmos DB. No entanto, o suporte é fornecido para assinantes com planos de suporte existentes.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Leia mais sobre os conceitos principais do Cosmos DB a [distribuição global](distribute-data-globally.md) e o [particionamento](partitioning-overview.md) e a [taxa de transferência provisionada](request-units.md).
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: a809cabd2ace1b18af6c93dc54348137e9ba5750
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: a8bd12d98b76d5848753987c4f7bcb76d4e2266d
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749912"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921565"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Como redefinir o adaptador de rede de uma VM Windows do Azure 
 
@@ -45,7 +45,7 @@ Este artigo mostra como redefinir o adaptador de rede para uma VM do Windows no 
 8. A máquina virtual será reiniciada para inicializar a nova NIC no sistema.
 9.  Tente executar o RDP no computador. Se for bem-sucedido, você poderá alterar o endereço IP Privado novamente para o original, se desejar. Caso contrário, você poderá mantê-lo. 
 
-#### <a name="use-azure-powershell"></a>Usar o Azure PowerShell
+#### <a name="use-azure-powershell"></a>Usar PowerShell do Azure
 
 1. Verifique se você tem [o mais recente Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) instalado
 2. Abra uma sessão privilegiada do Azure PowerShell (Executar como administrador). Execute os seguintes comandos:
@@ -72,9 +72,11 @@ Este artigo mostra como redefinir o adaptador de rede para uma VM do Windows no 
 
 ### <a name="for-classic-vms"></a>Para VMs Clássicas
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 Para redefinir o adaptador de rede, siga estas etapas:
 
-#### <a name="use-azure-portal"></a>Use o Portal do Azure
+#### <a name="use-azure-portal"></a>Usar o portal do Azure
 
 1.  Vá para o [Portal do Azure]( https://ms.portal.azure.com).
 2.  Selecione **Máquinas Virtuais (Clássicas)** .
@@ -82,11 +84,11 @@ Para redefinir o adaptador de rede, siga estas etapas:
 4.  Selecione **Endereços IP**.
 5.  Se a **Atribuição de IP privado** não for **Estática**, altere-a para **Estática**.
 6.  Altere o **endereço IP** para outro endereço IP que está disponível na Sub-rede.
-7.  Clique em **Salvar**.
+7.  Selecione **Salvar**.
 8.  A máquina virtual será reiniciada para inicializar a nova NIC no sistema.
 9.  Tente executar o RDP no computador. Se for bem-sucedido, você poderá optar por reverter o Endereço IP privado para o original.  
 
-#### <a name="use-azure-powershell"></a>Usar o Azure PowerShell
+#### <a name="use-azure-powershell"></a>Usar PowerShell do Azure
 
 1. Certifique-se de que você tenha o [Azure PowerShell mais recente](https://docs.microsoft.com/powershell/azure/overview) instalado.
 2. Abra uma sessão privilegiada do Azure PowerShell (Executar como administrador). Execute os seguintes comandos:

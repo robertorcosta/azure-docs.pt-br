@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: f3b1141ea3c3c8e33b8a2ae12c22b6962a90d32b
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 02/28/2020
 ms.locfileid: "77198217"
 ---
 # <a name="how-to-use-image-templates"></a>Como usar modelos de imagem
@@ -108,7 +108,7 @@ Consulte o <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>marcador HTML de c
 
 Se seu aplicativo usar o mesmo ícone com ícones diferentes ou se você estiver criando um módulo que adiciona modelos de imagem adicionais, você poderá adicionar e recuperar facilmente esses ícones do SDK da Web do Azure Maps. Use as funções estáticas a seguir no namespace `atlas`.
 
-| Nome | Tipo de retorno | DESCRIÇÃO | 
+| {1&gt;Nome&lt;1} | Tipo de retorno | Descrição | 
 |-|-|-|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | Adiciona um modelo de imagem SVG personalizado ao namespace do Atlas. |
 |  `getImageTemplate(templateName: string, scale?: number)`| string | Recupera um modelo SVG por nome. |
@@ -116,7 +116,7 @@ Se seu aplicativo usar o mesmo ícone com ícones diferentes ou se você estiver
 
 Os modelos de imagem SVG dão suporte aos seguintes valores de espaço reservado:
 
-| Espaço reservado | DESCRIÇÃO |
+| Espaço reservado | Descrição |
 |-|-|
 | `{color}` | A cor primária. | 
 | `{secondaryColor}` | A cor secundária. | 
@@ -139,7 +139,7 @@ Esta tabela lista todos os modelos de imagem disponíveis atualmente no SDK da W
 
 |||||
 |:-:|:-:|:-:|:-:|
-| marcador | marcador-espesso | marcador-círculo | marcador-simples |
+| marker | marcador-espesso | marcador-círculo | marcador-simples |
 |![ícone de marcador](./media/image-templates/marker.png)|![marcador-espesso, ícone](./media/image-templates/marker-thick.png)|![marcador-ícone de círculo](./media/image-templates/marker-circle.png)|![marcador-ícone simples](./media/image-templates/marker-flat.png)|
 ||||
 | marcador-quadrado | marcador-quadrado-cluster | marcador-seta | marcador-bola-PIN | 
@@ -186,7 +186,7 @@ Com a ferramenta a seguir, você pode renderizar os diferentes modelos de imagem
 Consulte as <a href='https://codepen.io/azuremaps/pen/NQyaaO/'>Opções de modelo de ícone</a> de caneta por mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba mais sobre as classes e métodos usados neste artigo:
 

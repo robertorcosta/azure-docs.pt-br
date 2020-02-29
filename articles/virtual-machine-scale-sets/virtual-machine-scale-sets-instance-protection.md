@@ -1,28 +1,26 @@
 ---
 title: Proteção de instância para instâncias do conjunto de dimensionamento de máquinas virtuais do Azure
 description: Saiba como proteger as instâncias do conjunto de dimensionamento de máquinas virtuais do Azure de operações de expansão e de conjunto de escala.
-author: mayanknayar
+author: avirishuv
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.author: manayar
-ms.openlocfilehash: 071ea79f4d288e86cc5b9347f8607b4ff7190bc1
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.date: 02/26/2020
+ms.author: avverma
+ms.openlocfilehash: 021faad28fb575c4ffeb4d895ad451d8cd82b1a5
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275802"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919848"
 ---
-# <a name="instance-protection-for-azure-virtual-machine-scale-set-instances-preview"></a>Proteção de instância para instâncias do conjunto de dimensionamento de máquinas virtuais do Azure (versão prévia)
+# <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Proteção de instância para instâncias do conjunto de dimensionamento de máquinas virtuais do Azure
+
 Os conjuntos de dimensionamento de máquinas virtuais do Azure permitem uma melhor elasticidade para suas cargas de trabalho por meio do [dimensionamento automático](virtual-machine-scale-sets-autoscale-overview.md), para que você possa configurar quando sua infraestrutura é dimensionada e quando ela é dimensionada. Os conjuntos de dimensionamento também permitem que você gerencie, configure e atualize centralmente um grande número de VMs por meio de diferentes configurações de [política de atualização](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) . Você pode configurar uma atualização no modelo do conjunto de dimensionamento e a nova configuração será aplicada automaticamente a cada instância do conjunto de dimensionamento se você tiver definido a política de atualização como automática ou sem interrupção.
 
 À medida que seu aplicativo processa o tráfego, pode haver situações em que você deseja que instâncias específicas sejam tratadas de forma diferente do restante da instância do conjunto de dimensionamento. Por exemplo, determinadas instâncias no conjunto de dimensionamento podem estar executando operações de longa execução e você não quer que essas instâncias sejam dimensionadas até que as operações sejam concluídas. Você também pode ter especializado algumas instâncias no conjunto de dimensionamento para executar tarefas adicionais ou diferentes dos outros membros do conjunto de dimensionamento. Você precisa que essas VMs ' especiais ' não sejam modificadas com as outras instâncias no conjunto de dimensionamento. A proteção de instância fornece os controles adicionais para habilitar esses e outros cenários para seu aplicativo.
 
 Este artigo descreve como você pode aplicar e usar os diferentes recursos de proteção de instância com instâncias de conjunto de dimensionamento.
-
-> [!NOTE]
->A proteção de instância está atualmente em visualização pública. Nenhum procedimento de aceitação é necessário para usar a funcionalidade de visualização pública descrita abaixo. A visualização da proteção de instância só tem suporte com a versão de API 2019-03-01 e em conjuntos de dimensionamento usando discos gerenciados.
 
 ## <a name="types-of-instance-protection"></a>Tipos de proteção de instância
 Os conjuntos de dimensionamento fornecem dois tipos de recursos de proteção de instância:
@@ -44,6 +42,17 @@ Os conjuntos de dimensionamento fornecem dois tipos de recursos de proteção de
 A proteção da instância pode ser aplicada às instâncias do conjunto de dimensionamento depois que as instâncias são criadas. A proteção é aplicada e modificada somente no [modelo de instância](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-vm-model-view) e não no modelo de conjunto de [dimensionamento](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model).
 
 Há várias maneiras de aplicar a proteção de escala em suas instâncias do conjunto de dimensionamento, conforme detalhado nos exemplos abaixo.
+
+### <a name="azure-portal"></a>Portal do Azure
+
+Você pode aplicar a proteção de scale-in por meio do portal do Azure a uma instância no conjunto de dimensionamento. Você não pode ajustar mais de uma instância por vez. Repita as etapas para cada instância que você deseja proteger.
+ 
+1. Vá para um conjunto de dimensionamento de máquinas virtuais existente.
+1. Selecione **instâncias** no menu à esquerda, em **configurações**.
+1. Selecione o nome da instância que você deseja proteger.
+1. Selecione a guia **política de proteção** .
+1. Na folha **política de proteção** , selecione a opção **proteger do Scale-in** .
+1. Selecione **Salvar**. 
 
 ### <a name="rest-api"></a>API REST
 
@@ -102,6 +111,17 @@ A proteção de uma instância de ações do conjunto de dimensionamento também
 
 Há várias maneiras de aplicar a proteção de ações do conjunto de dimensionamento em suas instâncias do conjunto de dimensionamento, conforme detalhado nos exemplos abaixo.
 
+### <a name="azure-portal"></a>Portal do Azure
+
+Você pode aplicar a proteção contra ações do conjunto de dimensionamento por meio do portal do Azure a uma instância no conjunto de dimensionamento. Você não pode ajustar mais de uma instância por vez. Repita as etapas para cada instância que você deseja proteger.
+ 
+1. Vá para um conjunto de dimensionamento de máquinas virtuais existente.
+1. Selecione **instâncias** no menu à esquerda, em **configurações**.
+1. Selecione o nome da instância que você deseja proteger.
+1. Selecione a guia **política de proteção** .
+1. Na folha **política de proteção** , selecione a opção **proteger do conjunto de dimensionamento de ações** .
+1. Selecione **Salvar**. 
+
 ### <a name="rest-api"></a>API REST
 
 O exemplo a seguir aplica a proteção das ações do conjunto de dimensionamento a uma instância no conjunto de dimensionamento.
@@ -156,7 +176,7 @@ az vmss update \
   --protect-from-scale-set-actions true
 ```
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 ### <a name="no-protectionpolicy-on-scale-set-model"></a>Nenhum protectionPolicy no modelo de conjunto de dimensionamento
 A proteção de instância só é aplicável em instâncias de conjunto de dimensionamento e não no modelo de conjunto de dimensionamento.
 
@@ -168,5 +188,5 @@ Você pode aplicar a proteção de instância a instâncias de conjunto de dimen
 ### <a name="not-able-to-apply-instance-protection"></a>Não é possível aplicar a proteção de instância
 A proteção de instância só tem suporte com a versão de API 2019-03-01 e superior. Verifique a versão da API que está sendo usada e atualize conforme necessário. Talvez você também precise atualizar o PowerShell ou a CLI para a versão mais recente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Aprenda como [Implantar o aplicativo](virtual-machine-scale-sets-deploy-app.md) em conjuntos de dimensionamento de máquinas virtuais

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 02/15/2020
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: eda567fda13d6caca679d0ce4947e042eca9530d
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 94ed936e619461a2dbf7ec837c2d80e21c01c88e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77652003"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919984"
 ---
 # <a name="detecting-and-handling-batch-service-errors"></a>Detectando e manipulando erros do serviço de lote
 
@@ -33,11 +33,16 @@ ms.locfileid: "77652003"
 - A limitação pode causar erros como respostas HTTP de código de status 429 ou 503 com o cabeçalho Retry-After.
 - 4xx erros que incluem tais erros como AlreadyExists e InvalidOperation. Isso significa que o recurso não está no estado correto para a transição de estado.
 
+Para obter informações detalhadas sobre os vários tipos de códigos de erro e códigos de erro específicos, consulte [status do lote e códigos de erro](https://docs.microsoft.com/rest/api/batchservice/batch-status-and-error-codes).
+
 ## <a name="when-to-retry"></a>Quando tentar novamente
 
 As APIs do lote o notificarão se houver uma falha. Todos eles podem ser repetidos e todos eles incluem um manipulador de repetição global para essa finalidade. É melhor usar esse mecanismo interno.
 
 Após uma falha, você deve aguardar um pouco (vários segundos entre as repetições) antes de tentar novamente. Se você tentar novamente com muita frequência ou rapidamente, o manipulador de repetição será limitado.
 
+### <a name="for-more-information"></a>Para obter mais informações  
+
+Links de [APIs e ferramentas do lote](batch-apis-tools.md) para informações de referência de API. A API do .NET, por exemplo, tem uma [classe RetryPolicyProvider]( https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.retrypolicyprovider?view=azure-dotnet) em que a política de repetição necessária deve ser especificada. 
 
 Para obter informações detalhadas sobre cada API e suas políticas de repetição padrão, leia o [status do lote e os códigos de erro](https://docs.microsoft.com/rest/api/batchservice/batch-status-and-error-codes).

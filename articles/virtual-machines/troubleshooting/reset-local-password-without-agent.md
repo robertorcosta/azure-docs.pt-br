@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: 6faab5bffaddbbd5d8deb9c3834bf3d8fe3e3445
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: becbf88aeda164f7d916cbc1f1ace89262cc1a3f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058655"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921616"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Redefina a senha local do Windows para a VM do Azure offline
 Você pode redefinir a senha local do Windows de uma VM no Azure usando o [portal do Azure ou Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), desde que o agente convidado do Azure esteja instalado. Esse método é a principal maneira de redefinir uma senha para uma VM do Azure. Caso encontre problemas com o agente convidado do Azure, como não responder ou falhar na instalação após carregamento de uma imagem personalizada, você poderá redefinir manualmente uma senha do Windows. Este artigo fornece detalhes sobre como redefinir uma senha de conta local anexando o disco virtual do SO de origem a outra VM. As etapas descritas neste artigo não se aplicam aos controladores de domínio do Windows. 
@@ -102,6 +102,8 @@ Sempre tentar redefinir uma senha usando o [portal do Azure ou Azure PowerShell]
 
 ## <a name="detailed-steps-for-classic-vm"></a>Etapas detalhadas para a VM clássica
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 > [!NOTE]
 > As etapas não se aplicam aos controladores de domínio do Windows. Ela só funciona no servidor autônomo ou em um servidor que seja membro de um domínio.
 
@@ -121,7 +123,7 @@ Sempre tentar redefinir uma senha usando o [portal do Azure ou Azure PowerShell]
      
    2. Escolha *Arquivo VHD* e, em seguida, a conta de armazenamento que contém sua VM de origem:
      
-      ![Selecione a conta de armazenamento](./media/reset-local-password-without-agent/disks-select-storage-account-classic.png)
+      ![Escolher conta de armazenamento](./media/reset-local-password-without-agent/disks-select-storage-account-classic.png)
      
    3. Marque a caixa marcada *Mostrar contas de armazenamento clássicas*e, em seguida, selecione o contêiner de origem. O contêiner de origem normalmente é *vhds*:
      
@@ -147,7 +149,7 @@ Sempre tentar redefinir uma senha usando o [portal do Azure ou Azure PowerShell]
      
       ![Exibir o disco de dados anexado](./media/reset-local-password-without-agent/troubleshooting-vm-file-explorer-classic.png)
 
-4. Crie `gpt.ini` `gpt.ini` `gpt.ini.bak`no `\Windows\System32\GroupPolicy` na unidade da VM de origem (se existir, renomeie para):
+4. Crie `gpt.ini` em `\Windows\System32\GroupPolicy` na unidade da VM de origem (se `gpt.ini` existir, renomeie para `gpt.ini.bak`):
    
    > [!WARNING]
    > Certifique-se de não criar acidentalmente os seguintes arquivos no `C:\Windows`, a unidade do sistema operacional para a VM de solução de problemas. Crie os arquivos a seguir na unidade do SO da VM de origem que está anexada como um disco de dados.
@@ -211,12 +213,12 @@ Sempre tentar redefinir uma senha usando o [portal do Azure ou Azure PowerShell]
 
 2. Na sessão remota para a nova VM, remova os seguintes arquivos para limpar o ambiente:
     
-    * De`%windir%\System32`
-      * exclu`FixAzureVM.cmd`
-    * De`%windir%\System32\GroupPolicy\Machine\Scripts`
-      * exclu`scripts.ini`
-    * De`%windir%\System32\GroupPolicy`
-      * Remova `gpt.ini` (se `gpt.ini` existia antes, e você o renomeou `gpt.ini.bak`como, renomeie o `gpt.ini` `.bak` arquivo de volta para)
+    * De `%windir%\System32`
+      * remover `FixAzureVM.cmd`
+    * De `%windir%\System32\GroupPolicy\Machine\Scripts`
+      * remover `scripts.ini`
+    * De `%windir%\System32\GroupPolicy`
+      * Remova `gpt.ini` (se `gpt.ini` existia antes e você o renomeou como `gpt.ini.bak`, renomeie o arquivo de `.bak` de volta para `gpt.ini`)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Se você ainda não conseguir conectar usando a Área de Trabalho Remota, confira o [guia de solução de problemas do RDP](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). O [guia para solução de problemas detalhada de RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) explica os métodos da solução de problemas, e não etapas específicas. Você também pode [abrir uma solicitação de suporte do Azure](https://azure.microsoft.com/support/options/) para obter assistência prática.

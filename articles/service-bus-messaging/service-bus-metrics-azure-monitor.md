@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 569eb31c6cbe8b95773d52f6e1325801fbabf86f
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 329b930c950ea7c58bdac798fce51af152aa8ff3
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773543"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920596"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métricas do barramento de serviço do Azure no Azure Monitor
 
@@ -60,7 +60,7 @@ Todos os valores de métricas são enviados para o Azure Monitor a cada minuto. 
 
 Conta o número de solicitações de gerenciamento de dados e de operações.
 
-| Nome da métrica | Description |
+| Nome da métrica | Descrição |
 | ------------------- | ----------------- |
 | Solicitações de entrada| O número de solicitações feitas ao serviço de Barramento de Serviço durante um período específico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Solicitações bem sucedidas|O número de solicitações bem-sucedidas feitas ao serviço de Barramento de Serviço durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
@@ -78,18 +78,25 @@ Os dois tipos de erros a seguir são classificados como erros do usuário:
 
 ## <a name="message-metrics"></a>Métricas de mensagens
 
-| Nome da métrica | Description |
+| Nome da métrica | Descrição |
 | ------------------- | ----------------- |
 |Mensagens de entrada|O número de eventos ou mensagens enviadas para o Barramento de Serviço durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Mensagens de saída|O número de eventos ou mensagens recebidas do Barramento de Serviço durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-| Mensagens| Contagem de mensagens em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: EntityName |
+| Messages| Contagem de mensagens em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: EntityName |
 | ActiveMessages| Contagem de mensagens ativas em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: EntityName |
 | Mensagens inativas| Contagem de mensagens mortas em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/>Dimensão: EntityName |
 | Mensagens agendadas| Contagem de mensagens agendadas em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média  <br/> Dimensão: EntityName |
 
+> [!NOTE]
+> Os valores para as métricas a seguir são valores de ponto no tempo. As mensagens de entrada consumidas imediatamente após esse ponto no tempo podem não ser refletidas nessas métricas. 
+> - Messages
+> - Mensagens ativas 
+> - Mensagens inativas 
+> - Mensagens agendadas 
+
 ## <a name="connection-metrics"></a>Métricas de conexão
 
-| Nome da métrica | Description |
+| Nome da métrica | Descrição |
 | ------------------- | ----------------- |
 |ActiveConnections|O número de conexões ativas em um namespace, bem como em uma entidade.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 
@@ -98,7 +105,7 @@ Os dois tipos de erros a seguir são classificados como erros do usuário:
 > [!NOTE] 
 > As métricas a seguir estão disponíveis apenas com a camada **Premium**. 
 
-| Nome da métrica | Description |
+| Nome da métrica | Descrição |
 | ------------------- | ----------------- |
 |Uso da CPU por namespace|A porcentagem de uso da CPU do namespace.<br/><br/> Unidade: Porcentagem <br/> Tipo de agregação: Máximo <br/> Dimensão: EntityName|
 |Uso do tamanho da memória por namespace|A porcentagem de uso de memória do namespace.<br/><br/> Unidade: Porcentagem <br/> Tipo de agregação: Máximo <br/> Dimensão: EntityName|
@@ -107,7 +114,7 @@ Os dois tipos de erros a seguir são classificados como erros do usuário:
 
 O Barramento de Serviço do Azure dá suporte às seguintes dimensões para métricas no Azure Monitor. Adicionar dimensões às métricas é opcional. Se você não adicionar dimensões, as métricas serão especificadas no nível de namespace. 
 
-|Nome da dimensão|Description|
+|Nome da dimensão|Descrição|
 | ------------------- | ----------------- |
 |EntityName| O Barramento de Serviço dá suporte a entidades de mensagens no namespace.|
 
@@ -159,7 +166,7 @@ O Barramento de Serviço do Azure dá suporte às seguintes dimensões para mét
 
     ![Botão Criar regra de alerta](./media/service-bus-metrics-azure-monitor/create-alert-rule.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte a [visão geral do Azure monitor](../monitoring-and-diagnostics/monitoring-overview.md).
 

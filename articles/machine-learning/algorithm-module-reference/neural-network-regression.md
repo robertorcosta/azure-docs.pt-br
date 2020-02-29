@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 97095e4802373a1dd3f7b795c2fe567b778d2d5e
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: d1e93c18b13e7171274eda2a7e8d07eefbefb592
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153818"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920375"
 ---
 # <a name="neural-network-regression-module"></a>Módulo de regressão de rede neural
 
@@ -56,7 +56,9 @@ As redes neurais podem ser amplamente personalizadas. Esta seção descreve como
   
 2. Indique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .  
   
-    -   **Parâmetro único**: escolha esta opção se você já souber como deseja configurar o modelo.  
+    -   **Parâmetro único**: escolha esta opção se você já souber como deseja configurar o modelo.
+
+    -   **Intervalo de parâmetros**: Selecione esta opção se você não tiver certeza dos melhores parâmetros e quiser executar uma limpeza de parâmetro. Selecione um intervalo de valores para iteração e os [hiperparâmetros de modelo de ajuste](tune-model-hyperparameters.md) iteram sobre todas as combinações possíveis das configurações que você forneceu para determinar os hiperparâmetros que produzem os resultados ideais.   
 
 3.  Em **especificação de camada oculta**, selecione **caso totalmente conectado**. Essa opção cria um modelo usando a arquitetura de rede neural padrão, que, para um modelo de regressão de rede neural, tem estes atributos:  
   
@@ -72,7 +74,6 @@ As redes neurais podem ser amplamente personalizadas. Esta seção descreve como
 
 6.  Para **número de iterações de aprendizado**, especifique o número máximo de vezes que o algoritmo processa os casos de treinamento.
 
-7.  Para * * o diâmetro inicial dos pesos de aprendizado, digite um valor que determina os pesos do nó no início do processo de aprendizado.
 
 8.  Para **a dinâmica**, digite um valor a ser aplicado durante o aprendizado como um peso em nós de iterações anteriores.
 
@@ -93,6 +94,6 @@ Após a conclusão do treinamento:
 
 - Para salvar um instantâneo do modelo treinado, selecione a guia **saídas** no painel direito do módulo modelo de **treinamento** . Selecione o ícone **registrar conjunto de registros** para salvar o modelo como um módulo reutilizável.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

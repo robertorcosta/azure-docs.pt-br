@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: d4a51a44b48e94669e92a9d525c1b0966df53c18
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 3a7254cc9de89a297811792b4dd64b4b669ba8e4
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68964124"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921021"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Enviar mensagens da nuvem para o dispositivo de um hub IoT
 
@@ -35,17 +35,17 @@ O gráfico de estado do ciclo de vida é exibido no diagrama a seguir:
 
 ![Ciclo de vida da mensagem da nuvem para o dispositivo](./media/iot-hub-devguide-messages-c2d/lifecycle.png)
 
-Quando o serviço do Hub IoT envia uma mensagem para um dispositivo, o serviço define o estado damensagem como enfileirada. Quando um dispositivo quiser *receber* uma mensagem, o Hub IOT *bloqueará* a mensagem definindo o estado como *invisível*. Esse estado permite que outros threads no dispositivo comecem a receber outras mensagens. Quando um thread de dispositivo conclui o processamento de uma mensagem, ele notifica o Hub IoT concluindo a mensagem. Em seguida, o Hub IoT define o estado como *concluído*.
+Quando o serviço do Hub IoT envia uma mensagem para um dispositivo, o serviço define o estado da mensagem como *enfileirada*. Quando um dispositivo quiser *receber* uma mensagem, o Hub IOT *bloqueará* a mensagem definindo o estado como *invisível*. Esse estado permite que outros threads no dispositivo comecem a receber outras mensagens. Quando um thread de dispositivo conclui o processamento de uma mensagem, ele notifica o Hub IoT *concluindo* a mensagem. Em seguida, o Hub IoT define o estado como *concluído*.
 
 Um dispositivo também pode:
 
 * *Rejeite* a mensagem, o que faz com que o Hub IOT a defina para o estado de *mensagens mortas* . Os dispositivos que se conectam por meio do protocolo MQTT (transporte de telemetria de enfileiramento de mensagens) não podem rejeitar mensagens da nuvem para o dispositivo.
 
-* *Abandone* a mensagem, o que faz com que o Hub IOT Coloque a mensagem de volta na fila, com o estado definido como enfileirado. Os dispositivos que se conectam pelo protocolo MQTT não podem abandonar mensagens da nuvem para o dispositivo.
+* *Abandone* a mensagem, o que faz com que o Hub IOT Coloque a mensagem de volta na fila, com o estado definido como *enfileirado*. Os dispositivos que se conectam pelo protocolo MQTT não podem abandonar mensagens da nuvem para o dispositivo.
 
-Um thread pode falhar ao processar uma mensagem sem notificar o Hub IoT. Nesse caso, as mensagens são automaticamente transferidas do estado *invisível* de volta para o estado enfileirado após um tempo limite de *visibilidade* (ou tempo limite de *bloqueio* ). O valor desse tempo-limite é de um minuto e não pode ser alterado.
+Um thread pode falhar ao processar uma mensagem sem notificar o Hub IoT. Nesse caso, as mensagens são automaticamente transferidas do estado *invisível* de volta para o estado *enfileirado* após um tempo limite de *visibilidade* (ou tempo limite de *bloqueio* ). O valor desse tempo-limite é de um minuto e não pode ser alterado.
 
-A propriedade **contagem máxima de entrega** no Hub IOT determina o número máximo de vezes que uma mensagem pode fazer a transição entre os Estados enfileirados e invisíveis. Depois desse número de transições, o Hub IoT define o estado da mensagem para *mensagens mortas*. Da mesma forma, o Hub IoT define o estado de uma mensagem para *mensagens mortas* após seu tempo de expiração. Para obter mais informações, consulte [vida útil](#message-expiration-time-to-live).
+A propriedade **contagem máxima de entrega** no Hub IOT determina o número máximo de vezes que uma mensagem pode fazer a transição entre os Estados *enfileirados* e *invisíveis* . Depois desse número de transições, o Hub IoT define o estado da mensagem para *mensagens mortas*. Da mesma forma, o Hub IoT define o estado de uma mensagem para *mensagens mortas* após seu tempo de expiração. Para obter mais informações, consulte [vida útil](#message-expiration-time-to-live).
 
 O artigo [como enviar mensagens da nuvem para o dispositivo com o Hub IOT](iot-hub-csharp-csharp-c2d.md) mostra como enviar mensagens da nuvem para o dispositivo da nuvem e recebê-las em um dispositivo.
 
@@ -75,10 +75,10 @@ Quando você envia uma mensagem da nuvem para o dispositivo, o serviço pode sol
 
 | Valor da propriedade ACK | Comportamento |
 | ------------ | -------- |
-| nenhum     | O Hub IoT não gera uma mensagem de comentários (comportamento padrão). |
+| none     | O Hub IoT não gera uma mensagem de comentários (comportamento padrão). |
 | positivo | Se a mensagem da nuvem para o dispositivo atingir o estado *concluído* , o Hub IOT gerará uma mensagem de comentários. |
-| seriamente | Se a mensagem da nuvem para o dispositivo atingir o estado inativo, o Hub IOT gerará uma mensagem de comentários. |
-| completo     | O Hub IoT gera uma mensagem de comentários em ambos os casos. |
+| negativo | Se a mensagem da nuvem para o dispositivo atingir o estado *inativo* , o Hub IOT gerará uma mensagem de comentários. |
+| completa     | O Hub IoT gera uma mensagem de comentários em ambos os casos. |
 
 Se o valor de **ACK** estiver *cheio*e você não receber uma mensagem de comentários, isso significa que a mensagem de comentários expirou. O serviço não pode saber o que aconteceu com a mensagem original. Na prática, um serviço deve garantir que possa processar os comentários antes que eles expirem. O tempo de expiração máximo é de dois dias, o que deixa o tempo para que o serviço seja executado novamente se ocorrer uma falha.
 
@@ -98,7 +98,7 @@ O corpo é uma matriz de registros serializada em JSON, cada um com as seguintes
 | OriginalMessageId  | A *MessageId* da mensagem da nuvem para o dispositivo à qual essas informações de comentários se relacionam |
 | StatusCode         | Uma cadeia de caracteres necessária, usada em mensagens de comentários que são geradas pelo Hub IoT: <br/> *Êxito* <br/> *Vencer* <br/> *DeliveryCountExceeded* <br/> *Recusa* <br/> *Limpos* |
 | Descrição        | Valores de cadeia de caracteres para *StatusCode* |
-| DeviceID           | A DeviceID do dispositivo de destino da mensagem da nuvem para o dispositivo à qual esse comentário se relaciona |
+| deviceId           | A *DeviceID* do dispositivo de destino da mensagem da nuvem para o dispositivo à qual esse comentário se relaciona |
 | DeviceGenerationId | O *DeviceGenerationId* do dispositivo de destino da mensagem da nuvem para o dispositivo à qual esse comentário se relaciona |
 
 Para a mensagem da nuvem para o dispositivo correlacionar seus comentários com a mensagem original, o serviço deve especificar uma *MessageId*.
@@ -134,14 +134,38 @@ Cada Hub IoT expõe as seguintes opções de configuração para mensagens de nu
 
 | Propriedade                  | Descrição | Intervalo e padrão |
 | ------------------------- | ----------- | ----------------- |
-| defaultTtlAsIso8601       | TTL padrão para mensagens da nuvem para o dispositivo | Intervalo de ISO_8601 de até 2 dias (mínimo de 1 minuto); os 1 hora |
-| maxDeliveryCount          | Contagem máxima de entregas para filas de nuvem para dispositivo por dispositivo | 1 a 100; os 10 |
-| feedback.ttlAsIso8601     | Retenção de mensagens de comentários associadas ao serviço | Intervalo de ISO_8601 de até 2 dias (mínimo de 1 minuto); os 1 hora |
-| feedback.maxDeliveryCount | Contagem máxima de entregas para a fila de comentários | 1 a 100; os 100 |
+| defaultTtlAsIso8601       | TTL padrão para mensagens da nuvem para o dispositivo | Intervalo de ISO_8601 de até 2 dias (mínimo de 1 minuto); padrão: 1 hora |
+| maxDeliveryCount          | Contagem máxima de entregas para filas de nuvem para dispositivo por dispositivo | 1 a 100; padrão: 10 |
+| feedback.ttlAsIso8601     | Retenção de mensagens de comentários associadas ao serviço | Intervalo de ISO_8601 de até 2 dias (mínimo de 1 minuto); padrão: 1 hora |
+| feedback.maxDeliveryCount | Contagem máxima de entregas para a fila de comentários | 1 a 100; padrão: 10 |
+| Comentários. lockDurationAsIso8601 | Contagem máxima de entregas para a fila de comentários | Intervalo de ISO_8601 de 5 a 300 segundos (mínimo de 5 segundos); padrão: 60 segundos. |
 
-Para obter mais informações sobre como configurar essas opções de configuração, consulte [Criar Hubs IoT](iot-hub-create-through-portal.md).
+Você pode definir as opções de configuração de uma das seguintes maneiras:
 
-## <a name="next-steps"></a>Próximas etapas
+* **Portal do Azure**: em **configurações** no Hub IOT, selecione **pontos de extremidade internos** e expanda **mensagens de nuvem para dispositivo**. (A definição das propriedades **feedback. maxDeliveryCount** e **feedback. lockDurationAsIso8601** não tem suporte no momento no portal do Azure.)
+
+    ![Definir opções de configuração para mensagens da nuvem para o dispositivo no portal](./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png)
+
+* **CLI do Azure**: Use o comando [AZ IOT Hub Update](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) :
+
+    ```azurecli
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.defaultTtlAsIso8601=PT1H0M0S
+
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.maxDeliveryCount=10
+
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.feedback.ttlAsIso8601=PT1H0M0S
+
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.feedback.maxDeliveryCount=10
+
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.feedback.lockDurationAsIso8601=PT0H1M0S
+    ```
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter informações sobre os SDKs que você pode usar para receber mensagens da nuvem para o dispositivo, consulte [SDKs do IOT do Azure](iot-hub-devguide-sdks.md).
 

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: a2adf59a542f695b7845e1a871c0b297b0790fec
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 045f3ccdc8dc09bf657ab39ce15a0d0524c73fcb
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672150"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78162955"
 ---
 # <a name="azure-functions-http-trigger"></a>Gatilho HTTP Azure Functions
 
@@ -749,7 +749,7 @@ O usuário autenticado está disponível por meio de [cabeçalhos HTTP](../app-s
 
 ## <a name="authorization-keys"></a>Chaves de autorização
 
-As funções permitem o uso de chaves para dificultar o acesso aos pontos de extremidade de função HTTP durante o desenvolvimento.  Um gatilho HTTP padrão pode exigir que uma chave de API esteja presente na solicitação. 
+As funções permitem o uso de chaves para dificultar o acesso aos pontos de extremidade de função HTTP durante o desenvolvimento.  A menos que o nível de autorização HTTP em uma função disparada por HTTP seja definido como `anonymous`, as solicitações devem incluir uma chave de API na solicitação. 
 
 > [!IMPORTANT]
 > Embora as chaves possam ajudar o ofuscar seus pontos de extremidade HTTP durante o desenvolvimento, elas não foram projetadas como uma maneira de proteger um gatilho HTTP em produção. Para obter mais informações, confira [Proteger um ponto de extremidade HTTP em produção](#secure-an-http-endpoint-in-production).
@@ -757,14 +757,19 @@ As funções permitem o uso de chaves para dificultar o acesso aos pontos de ext
 > [!NOTE]
 > No runtime 1.x do Functions, os provedores de webhook podem usar chaves para autorizar solicitações de várias maneiras, dependendo do suporte do provedor. Isso é abordado em [Webhooks e chaves](#webhooks-and-keys). O tempo de execução do Functions na versão 2. x e superior não inclui suporte interno para provedores de webhook.
 
-Há dois tipos de chave:
+#### <a name="authorization-scopes-function-level"></a>Escopos de autorização (nível de função)
 
-* **Chaves de host**: essas chaves são compartilhadas por todas as funções do aplicativo de funções. Quando usadas como uma chave de API, elas permitem acesso a qualquer função no aplicativo de funções.
-* **Chaves de função**: essas chaves se aplicam apenas às funções específicas sob as quais elas foram definidas. Quando usadas como uma chave de API, elas permitem acesso apenas às funções em questão.
+Há dois escopos de autorização para chaves de nível de função:
+
+* **Função**: essas chaves se aplicam somente às funções específicas sob as quais elas são definidas. Quando usadas como uma chave de API, elas permitem acesso apenas às funções em questão.
+
+* **Host**: as chaves com um escopo de host podem ser usadas para acessar todas as funções no aplicativo de funções. Quando usadas como uma chave de API, elas permitem acesso a qualquer função no aplicativo de funções. 
 
 Cada chave é nomeada para referência e há uma chave padrão (chamada "default") no nível de função e de host. As chaves de função têm precedência sobre as chaves de host. Quando duas chaves forem definidas com o mesmo nome, a chave de função sempre será usada.
 
-Cada aplicativo de funções também tem uma **chave mestra** especial. Essa chave é uma chave de host chamada `_master`, que fornece acesso administrativo às APIs de runtime. Não é possível revogar essa chave. Quando você define o nível de autorização como `admin`, as solicitações precisam usar a chave mestra. Nesse caso, o uso de outra chave resulta em falha na autorização.
+#### <a name="master-key-admin-level"></a>Chave mestra (nível de administrador) 
+
+Cada aplicativo de funções também tem uma chave de host de nível de administrador chamada `_master`. Além de fornecer acesso em nível de host a todas as funções no aplicativo, a chave mestra também fornece acesso administrativo às APIs REST de tempo de execução. Não é possível revogar essa chave. Quando você define o nível de autorização como `admin`, as solicitações precisam usar a chave mestra. Nesse caso, o uso de outra chave resulta em falha na autorização.
 
 > [!CAUTION]  
 > Devido às permissões elevadas no aplicativo de funções concedidas pela chave mestra, você não deve compartilhar essa chave com terceiros nem distribuí-la em aplicativos cliente nativos. Tenha cuidado ao escolher o nível de autorização do administrador.

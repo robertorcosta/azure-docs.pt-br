@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 075216cf7d67aa4d5a04f34a7ae3444a078b4c62
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.date: 02/22/2020
+ms.openlocfilehash: 1778ba543e070bbffbbc8579b280373d834492fd
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76313902"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920783"
 ---
 # <a name="train-svd-recommender"></a>Treinar o sistema de recomendação SVD
 
-Este artigo descreve como usar o módulo treinar Recomendador SVD no designer de Azure Machine Learning. Use este módulo para treinar um modelo de recomendação com base no algoritmo de decomposição de valor único (SVD).  
+Este artigo descreve como usar o módulo treinar Recomendador SVD no designer de Azure Machine Learning (versão prévia). Use este módulo para treinar um modelo de recomendação com base no algoritmo de decomposição de valor único (SVD).  
 
 O módulo treinar Recomendador SVD lê um conjunto de uma série de processamentos de usuário-item-classificação. Ele retorna um recomendador SVD treinado. Em seguida, você pode usar o modelo treinado para prever classificações ou gerar recomendações usando o módulo de [recomendação SVD de Pontuação](score-svd-recommender.md) .  
 
@@ -48,14 +48,11 @@ Antes de usar o módulo, os dados de entrada devem estar no formato esperado pel
 + A segunda coluna contém identificadores de item.
 + A terceira coluna contém a classificação para o par usuário-item. Os valores de classificação devem ser do tipo numérico.  
 
-O conjunto de **valores de classificações de restaurantes** no designer de Azure Machine Learning (selecione conjuntos de itens **salvos** e, em seguida, **amostras**) demonstra o formato esperado:
+O conjunto de jogos de **classificações de filmes** no designer de Azure Machine Learning (selecione **conjuntos de valores** e, em seguida, **amostras**) demonstra o formato esperado:
 
-|userID|posicionaid|classificação|
-|------------|-------------|------------|
-|U1077|135085|2|
-|U1077|135038|2|
+![Classificações de filme](media/module/movie-ratings-dataset.png)
 
-Neste exemplo, você pode ver que um único usuário classificou dois restaurantes separados. 
+Neste exemplo, você pode ver que um único usuário classificou vários filmes. 
 
 ### <a name="train-the-model"></a>Treinar o modelo
 
@@ -74,6 +71,6 @@ Neste exemplo, você pode ver que um único usuário classificou dois restaurant
 5.  Execute o pipeline.  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

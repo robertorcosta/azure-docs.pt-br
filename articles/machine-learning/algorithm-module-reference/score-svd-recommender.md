@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 0b321f3548910a2bc79e4473609de30eda8c8622
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.date: 02/10/2020
+ms.openlocfilehash: a3eafc28dc6d0f44a1f1019cb3393259aa2a698a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314344"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920341"
 ---
 # <a name="score-svd-recommender"></a>Pontuar o sistema de recomendação SVD
 
-Este artigo descreve como usar o módulo de recomendação SVD de pontuação no designer de Azure Machine Learning. Use este módulo para criar previsões usando um modelo de recomendação treinado com base no algoritmo de decomposição de valor único (SVD).
+Este artigo descreve como usar o módulo Score SVD Recomendador no designer de Azure Machine Learning (versão prévia). Use este módulo para criar previsões usando um modelo de recomendação treinado com base no algoritmo de decomposição de valor único (SVD).
 
 O recomendador SVD pode gerar dois tipos diferentes de previsões:
 
@@ -91,7 +91,7 @@ Para recomendar itens para os usuários, você fornece uma lista de usuários e 
 
 5. **Número máximo de itens para recomendar a um usuário**: Insira o número de itens a serem retornados para cada usuário. Por padrão, o módulo recomenda cinco itens.
 
-6. **Tamanho mínimo do pool de recomendações por usuário**: Insira um valor que indica quantas recomendações anteriores são necessárias. Por padrão, esse parâmetro é definido como **2**, o que significa que pelo menos dois outros usuários recomendam o item.
+6. **Tamanho mínimo do pool de recomendações por usuário**: Insira um valor que indica quantas recomendações anteriores são necessárias. Por padrão, esse parâmetro é definido como 2, o que significa que pelo menos dois outros usuários recomendam o item.
 
    Use esta opção somente se você estiver pontuando no modo de avaliação. A opção não estará disponível se você selecionar **de todos os itens** ou **de itens sem classificação (para sugerir novos itens para os usuários)** .
 
@@ -116,11 +116,11 @@ O conjunto de pontos de Pontuação retornado por Score SVD Recomendador lista o
 
 Se você tiver um pipeline com o recomendador SVD e mover o modelo para produção, lembre-se de que há diferenças importantes entre usar o recomendador no modo de avaliação e usá-lo no modo de produção.
 
-A avaliação, por definição, requer previsões que podem ser verificadas em relação à *verdadeira verdade* em um conjunto de teste. Quando você avalia o recomendador, ele deve prever apenas os itens que foram classificados no conjunto de teste. Isso restringe os possíveis valores que são previstos.
+A avaliação, por definição, exige previsões que podem ser verificadas em relação a *verdades* em um conjunto de teste. Quando você avalia o recomendador, ele deve prever apenas os itens que foram classificados no conjunto de teste. Isso restringe os possíveis valores que são previstos.
 
 Ao colocar o modelo em operação, você normalmente altera o modo de previsão para fazer recomendações com base em todos os itens possíveis, a fim de obter as melhores previsões. Para muitas dessas previsões, não há nenhuma verdade de terra correspondente. Portanto, a precisão da recomendação não pode ser verificada da mesma maneira que durante as operações de pipeline.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

@@ -10,18 +10,18 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b49b3187f9178012131d793a7762ae470b0ea540
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f5c6125b850062450516e7fc0b19c2e0d5d6f577
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965714"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916057"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Chamar operações da API REST com autorização de chave compartilhada
 
 Este artigo mostra como chamar as APIs REST do armazenamento do Azure, incluindo como formar o cabeçalho de autorização. Ele é escrito a partir do ponto de vista de um desenvolvedor que não conhece nada sobre REST e sem ideia de como fazer uma chamada REST. Depois de aprender a chamar uma operação REST, você pode aproveitar esse conhecimento para usar qualquer outra operação REST do armazenamento do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 O aplicativo de exemplo lista os contêineres de BLOB para uma conta de armazenamento. Para testar o código neste artigo, você precisa dos seguintes itens:
 
@@ -175,7 +175,7 @@ Agora que você construiu a solicitação, você pode chamar o método SendAsync
 }
 ```
 
-Se você executar um rastreador de rede, como o [Fiddler](https://www.telerik.com/fiddler), ao fazer a chamada a SendAsync, poderá ver as informações de solicitação e resposta. Vamos conferir isso. O nome da conta de armazenamento é *contosorest*.
+Se você executar um rastreador de rede, como o [Fiddler](https://www.telerik.com/fiddler), ao fazer a chamada a SendAsync, poderá ver as informações de solicitação e resposta. Vamos dar uma olhada. O nome da conta de armazenamento é *contosorest*.
 
 **Solicitação:**
 
@@ -410,7 +410,7 @@ internal static AuthenticationHeaderValue GetAuthorizationHeader(
 
     // This is the actual header that will be added to the list of request headers.
     AuthenticationHeaderValue authHV = new AuthenticationHeaderValue("SharedKey",
-        storageAccountName + ":" + Convert.ToBase64String(SHA256.ComputeHash(SignatureBytes)));
+        storageAccountName + ":" + signature);
     return authHV;
 }
 ```
@@ -567,9 +567,9 @@ Content-Length: 1135
 
 Neste artigo, você aprendeu como fazer uma solicitação para a API REST do armazenamento de BLOBs. Com a solicitação, você pode recuperar uma lista de contêineres ou uma lista de BLOBs em um contêiner. Você aprendeu como criar a assinatura de autorização para a chamada à API REST e como usá-la na solicitação REST. Por fim, você aprendeu a examinar a resposta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [API REST do serviço Blob](/rest/api/storageservices/blob-service-rest-api)
 - [API REST do serviço de arquivo](/rest/api/storageservices/file-service-rest-api)
 - [API REST do serviço Fila](/rest/api/storageservices/queue-service-rest-api)
-- [API REST do serviço Tabela](/rest/api/storageservices/table-service-rest-api)
+- [API REST do serviço tabela](/rest/api/storageservices/table-service-rest-api)

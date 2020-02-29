@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
-ms.openlocfilehash: 47ff8870df7c89ee2ab3e48e064e31aa581f65f0
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 90034a56fcf5211059d37270e12391249f7a16b5
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748640"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920154"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>Falha de ativação do Windows no cenário de túnel forçado
 
@@ -38,7 +38,7 @@ Para resolver esse problema, use a rota personalizada do Azure para direcionar o
 
 O endereço IP do servidor KMS para a nuvem global do Azure é 23.102.135.246. Seu nome DNS é kms.core.windows.net. Se você usa outras plataformas do Azure, como o Azure Alemanha, deve usar o endereço IP do servidor KMS correspondente. Para obter mais informações, confira a tabela a seguir:
 
-|Plataforma| KMS DNS|KMS IP|
+|Platform| KMS DNS|KMS IP|
 |------|-------|-------|
 |Azure Global|kms.core.windows.net|23.102.135.246|
 |Azure Alemanha|kms.core.cloudapi.de|51.4.143.248|
@@ -85,6 +85,8 @@ Para adicionar a rota personalizada, siga essas etapas:
 
 ### <a name="for-classic-vms"></a>Para VMs Clássicas
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 1. Abra o Azure PowerShell e [conecte-se à sua conta do Azure](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 2. Execute os seguintes comandos:
 
@@ -109,7 +111,7 @@ Para adicionar a rota personalizada, siga essas etapas:
 
 4. Tente ativar o Windows e veja se o problema foi resolvido.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Chaves de instalação de cliente KMS](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys
 )

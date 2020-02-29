@@ -3,12 +3,12 @@ title: Executar o Azure Functions de um pacote
 description: Faça com que o Azure Functions Runtime execute suas funções montando um arquivo de pacote de implantação que contém os arquivos de projeto do aplicativo de funções.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: f5d3465e0899f7e5eab213bdb6234313128b7ec8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a3e11a7c4f3fd91df2fd9dd7a44f3922c4922585
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230347"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921106"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Executar o Azure Functions de um arquivo de pacote
 
@@ -35,7 +35,7 @@ Para saber mais, veja [este comunicado](https://github.com/Azure/app-service-ann
 
 Para habilitar seu aplicativo de funções para execução de um pacote, basta adicionar a configuração `WEBSITE_RUN_FROM_PACKAGE` às configurações do aplicativo de funções. A configuração `WEBSITE_RUN_FROM_PACKAGE` pode ter um dos seguintes valores:
 
-| Valor  | DESCRIÇÃO  |
+| {1&gt;Valor&lt;1}  | Descrição  |
 |---------|---------|
 | **`1`**  | Recomendado para aplicativos de funções em execução no Windows. Execute de um arquivo de pacote na pasta `d:\home\data\SitePackages` do seu aplicativo de funções. Se não estiver [implantando com a implantação de zip](#integration-with-zip-deployment), essa opção exigirá que a pasta também tenha um arquivo chamado `packagename.txt`. Esse arquivo contém apenas o nome do arquivo de pacote na pasta, sem espaços em branco. |
 |**`<URL>`**  | Localização de um arquivo de pacote específico que você deseja executar. Ao usar o armazenamento de Blobs, você deve usar um contêiner privado com uma [SAS (Assinatura de Acesso Compartilhado)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) para habilitar o runtime do Functions para acessar o pacote. Você pode usar o [Gerenciador de Armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) para carregar arquivos de pacote para sua conta de armazenamento de Blobs. Ao especificar uma URL, você também deve [sincronizar gatilhos](functions-deployment-technologies.md#trigger-syncing) depois de publicar um pacote atualizado. |
@@ -58,14 +58,41 @@ A [implantação de zip][Zip deployment for Azure Functions] é um recurso do se
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-## <a name="troubleshooting"></a>Solucionando problemas
+### <a name="use-key-vault-references"></a>Usar referências de Key Vault
+
+Para aumentar a segurança, você pode usar Key Vault referências em conjunto com a URL externa. Isso mantém a URL criptografada em repouso e permite aproveitar Key Vault para o gerenciamento e a rotação de segredos. É recomendável usar o armazenamento de BLOBs do Azure para que você possa girar facilmente a chave SAS associada. O armazenamento de BLOBs do Azure é criptografado em repouso, o que mantém os dados do aplicativo seguros quando não está implantado no serviço de aplicativo.
+
+1. Crie um Cofre de chaves do Azure.
+
+    ```azurecli
+    az keyvault create --name "Contoso-Vault" --resource-group <group-name> --location eastus
+    ```
+
+1. Adicione a URL externa como um segredo no Key Vault.
+
+    ```azurecli
+    az keyvault secret set --vault-name "Contoso-Vault" --name "external-url" --value "<insert-your-URL>"
+    ```
+
+1. Crie a configuração de aplicativo `WEBSITE_RUN_FROM_PACKAGE` e defina o valor como uma referência de Key Vault para a URL externa.
+
+    ```azurecli
+    az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"
+    ```
+
+Consulte os artigos a seguir para obter mais informações.
+
+- [Referências de Key Vault para o serviço de aplicativo](../app-service/app-service-key-vault-references.md)
+- [Criptografia de armazenamento do Azure para dados em repouso](../storage/common/storage-service-encryption.md)
+
+## <a name="troubleshooting"></a>Solução de problemas
 
 - A execução do pacote torna `wwwroot` somente leitura, portanto, você receberá um erro ao gravar arquivos nesse diretório.
 - Não há suporte para formatos tar e gzip.
 - Esse recurso não compõe o cache local.
 - Para obter um desempenho de inicialização a frio aprimorado, use a opção de zip local (`WEBSITE_RUN_FROM_PACKAGE`= 1).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!div class="nextstepaction"]
 > [Implantação contínua para Azure Functions](functions-continuous-deployment.md)

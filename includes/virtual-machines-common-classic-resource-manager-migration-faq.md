@@ -8,20 +8,28 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: c923dfed24253ce2e3551c13a457f19d155a1e40
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: a9c045162e650b4468fb53676e367d2c658bf7cc
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77068414"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912556"
 ---
+## <a name="what-is-the-time-required-for-migration"></a>Qual é o tempo necessário para a migração?
+
+O planejamento e a execução da migração dependem muito da complexidade da arquitetura e podem levar alguns meses.  
+
+## <a name="what-is-the-definition-of-a-new-customer-on-iaas-vms-classic"></a>Qual é a definição de um novo cliente em VMs de IaaS (clássico)?
+
+Os clientes que não tiverem VMs IaaS (clássicas) em suas assinaturas no mês de Febrauary 2020 (um mês antes da reprovação iniciada) serão considerados como novos clientes. 
+
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Este plano de migração afeta qualquer um de meus serviços existentes ou aplicativos executados em máquinas virtuais do Azure? 
 
-Não. As VMs (clássicas) são serviços com suporte total na disponibilidade geral. É possível continuar usando esses recursos para expandir seu volume no Microsoft Azure.
+Não até 1º de março de 2023 para VMs de IaaS (clássicas). As VMs de IaaS (clássicas) são serviços totalmente suportados em disponibilidade geral. É possível continuar usando esses recursos para expandir seu volume no Microsoft Azure. Em 1º de março de 2023, essas VMs serão totalmente desativadas e todas as VMs ativas ou alocadas serão interrompidas & desalocadas. Não haverá nenhum impacto para outros recursos clássicos, como serviços de nuvem (clássicos), contas de armazenamento (clássicas), etc.   
 
 ## <a name="what-happens-to-my-vms-if-i-dont-plan-on-migrating-in-the-near-future"></a>O que acontecerá com minhas VMs se eu não planejar a migração no futuro próximo? 
 
-Não estamos preterindo as APIs clássicas e o modelo de recursos existentes. Queremos simplificar a migração, considerando os recursos avançados disponíveis no modelo de implantação do Gerenciador de Recursos. É altamente recomendável que você examine [alguns dos avanços feitos](../articles/azure-resource-manager/management/deployment-models.md) como parte do IaaS no Gerenciador de Recursos.
+Em 1º de março de 2023, as VMs de IaaS (clássicas) serão totalmente desativadas e todas as VMs ativas ou alocadas serão interrompidas & desalocadas. Para evitar o impacto nos negócios, nós altamente recomentamos para começar a planejar sua migração hoje mesmo e concluí-la antes de 1º de março de 2023. Não estamos preterindo as APIs clássicas, os serviços de nuvem e o modelo de recursos existentes. Queremos simplificar a migração, considerando os recursos avançados disponíveis no modelo de implantação do Gerenciador de Recursos. Recomendamos que você comece a planejar a migração desses recursos para Azure Resource Manager. 
 
 ## <a name="what-does-this-migration-plan-mean-for-my-existing-tooling"></a>O que este plano de migração significa para minhas ferramentas existentes? 
 
@@ -37,7 +45,7 @@ Isso depende do número de recursos que estão sendo migrados. Para implantaçõ
 
 ## <a name="can-i-roll-back-my-migration-if-the-commit-operation-fails"></a>Poderei reverter minha migração se a operação de confirmação falhar? 
 
-Não será possível anular a migração se a operação de confirmação falhar. Todas as operações de migração, incluindo a operação de confirmação, são idempotentes. Portanto, recomendamos que você repita a operação após um curto período. Se você ainda encontrar um erro, crie um tíquete de suporte ou crie uma postagem no fórum no [Microsoft Q & a](https://docs.microsoft.com/answers/index.html).
+Não será possível anular a migração se a operação de confirmação falhar. Todas as operações de migração, incluindo a operação de confirmação, são idempotentes. Portanto, recomendamos que você repita a operação após um curto período. Se você ainda encontrar um erro, crie um tíquete de suporte.
 
 ## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>Será necessário comprar outro circuito de Rota Expressa se eu precisar aproveitar usar a IaaS no Gerenciador de Recursos? 
 

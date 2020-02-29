@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2da009189e0265aafcb26b7ec96837965f1ea0c5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f17192e738bb82fb348c660488e6296aa550bd25
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76838540"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913473"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solucionando problemas de erros e avisos comuns do indexador no Azure Pesquisa Cognitiva
 
@@ -32,10 +32,10 @@ Os avisos não param de indexação, mas indicam condições que podem resultar 
 
 A partir da versão de API `2019-05-06`, os erros e avisos do indexador em nível de item são estruturados para fornecer maior clareza em relação às causas e às próximas etapas. Elas contêm as seguintes propriedades:
 
-| Propriedade | Description | Exemplo |
+| Propriedade | Descrição | {1&gt;Exemplo&lt;1} |
 | --- | --- | --- |
 | chave | A ID do documento do documento impactado pelo erro ou aviso. | https:\//coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
-| name | O nome da operação que descreve onde ocorreu o erro ou o aviso. Isso é gerado pela seguinte estrutura: [Category]. [subcategoria]. [resourceType]. Source | DocumentExtraction. azureblob. myBlobContainerName enriquecetion. WebApiSkill. myskillname Projetion. SearchIndex. OutputFieldMapping. myOutputFieldName Projetion. SearchIndex. MergeOrUpload. myindexname Projeção. KnowledgeStore. Table. mytablename |
+| {1&gt;name&lt;1} | O nome da operação que descreve onde ocorreu o erro ou o aviso. Isso é gerado pela seguinte estrutura: [Category]. [subcategoria]. [resourceType]. Source | DocumentExtraction. azureblob. myBlobContainerName enriquecetion. WebApiSkill. myskillname Projetion. SearchIndex. OutputFieldMapping. myOutputFieldName Projetion. SearchIndex. MergeOrUpload. myindexname Projeção. KnowledgeStore. Table. mytablename |
 | message | Uma descrição de alto nível do erro ou aviso. | Não foi possível executar a habilidade porque a solicitação da API Web falhou. |
 | detalhes | Todos os detalhes adicionais que podem ser úteis para diagnosticar o problema, como a resposta WebApi, se a execução de uma habilidade personalizada falharem. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 origem, Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.`... restante do rastreamento de pilha... |
 | documentationLink | Um link para a documentação relevante com informações detalhadas para depurar e resolver o problema. Esse link geralmente apontará para uma das seções abaixo nesta página. | https://go.microsoft.com/fwlink/?linkid=2106475 |
@@ -46,7 +46,7 @@ A partir da versão de API `2019-05-06`, os erros e avisos do indexador em níve
 
 O indexador não pôde ler o documento a partir da fonte de dados. Isso pode acontecer devido a:
 
-| Motivo | Detalhes/exemplo | Resolução |
+| Reason | Detalhes/exemplo | Resolução |
 | --- | --- | --- |
 | tipos de campo inconsistentes em diferentes documentos | O tipo de valor tem uma incompatibilidade com o tipo de coluna. Não foi possível armazenar `'{47.6,-122.1}'` na coluna autores.  O tipo esperado é JArray. | Verifique se o tipo de cada campo é o mesmo em documentos diferentes. Por exemplo, se o primeiro documento `'startTime'` campo for um DateTime e, no segundo documento, for uma cadeia de caracteres, esse erro será atingido. |
 | erros do serviço subjacente da fonte de dados | (de Cosmos DB) `{"Errors":["Request rate is large"]}` | Verifique sua instância de armazenamento para garantir que ela esteja íntegra. Talvez seja necessário ajustar o dimensionamento/particionamento. |
@@ -57,7 +57,7 @@ O indexador não pôde ler o documento a partir da fonte de dados. Isso pode aco
 ## <a name="error-could-not-extract-content-or-metadata-from-your-document"></a>Erro: não foi possível extrair o conteúdo ou os metadados do documento
 O indexador com uma fonte de dados de BLOB não pôde extrair o conteúdo ou os metadados do documento (por exemplo, um arquivo PDF). Isso pode acontecer devido a:
 
-| Motivo | Detalhes/exemplo | Resolução |
+| Reason | Detalhes/exemplo | Resolução |
 | --- | --- | --- |
 | o blob está acima do limite de tamanho | O documento tem `'150441598'` bytes, o que excede o tamanho máximo `'134217728'` bytes para extração de documentos para sua camada de serviço atual. | [erros de indexação de BLOB](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | o blob tem um tipo de conteúdo sem suporte | O documento tem um tipo de conteúdo sem suporte `'image/png'` | [erros de indexação de BLOB](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
@@ -69,22 +69,22 @@ O indexador com uma fonte de dados de BLOB não pôde extrair o conteúdo ou os 
 ## <a name="error-could-not-parse-document"></a>Erro: não foi possível analisar o documento
 O indexador lê o documento da fonte de dados, mas houve um problema ao converter o conteúdo do documento no esquema de mapeamento de campo especificado. Isso pode acontecer devido a:
 
-| Motivo | Detalhes/exemplo | Resolução |
+| Reason | Detalhes/exemplo | Resolução |
 | --- | --- | --- |
 | A chave do documento está ausente | A chave do documento não pode estar ausente ou vazia | Garantir que todos os documentos tenham chaves de documento válidas |
 | A chave do documento é inválida | A chave do documento não pode ter mais de 1024 caracteres | Modifique a chave do documento para atender aos requisitos de validação. |
 | Não foi possível aplicar o mapeamento de campo a um campo | Não foi possível aplicar a função de mapeamento `'functionName'` ao `'fieldName'`de campo. A matriz não pode ser nula. Nome do parâmetro: bytes | Verifique os [mapeamentos de campo](search-indexer-field-mappings.md) definidos no indexador e compare com os dados do campo especificado do documento com falha. Pode ser necessário modificar os mapeamentos de campo ou os dados do documento. |
-| Não foi possível ler o valor do campo | Não foi possível ler o valor da coluna `'fieldName'` no índice `'fieldIndex'`. ocorreu um erro de nível de transporte ao receber os resultados do servidor. (provedor: provedor TCP, erro: 0-uma conexão existente foi fechada forçosamente pelo host remoto.) | Esses erros normalmente são devido a problemas de conectividade inesperados com o serviço subjacente da fonte de dados. Tente executar o documento por meio do indexador novamente mais tarde. |
+| Não foi possível ler o valor do campo | Não foi possível ler o valor da coluna `'fieldName'` no índice `'fieldIndex'`. ocorreu um erro de nível de transporte ao receber os resultados do servidor. (provedor: Provedor TCP, erro: 0 – Uma conexão existente foi fechada forçadamente pelo host remoto.) | Esses erros normalmente são devido a problemas de conectividade inesperados com o serviço subjacente da fonte de dados. Tente executar o documento por meio do indexador novamente mais tarde. |
 
 <a name="could-not-execute-skill"/>
 
 ## <a name="error-could-not-execute-skill"></a>Erro: não foi possível executar a habilidade
 O indexador não pôde executar uma habilidade no conseqüência de habilidades.
 
-| Motivo | Detalhes/exemplo | Resolução |
+| Reason | Detalhes/exemplo | Resolução |
 | --- | --- | --- |
 | Problemas de conectividade transitórios | Ocorreu um erro transitório. Tente novamente mais tarde. | Ocasionalmente, há problemas de conectividade inesperados. Tente executar o documento por meio do indexador novamente mais tarde. |
-| Possível bug do produto | Erro inesperado. | Isso indica uma classe desconhecida de falha e pode significar que há um bug do produto. Registre um [tíquete de suporte](https://ms.portal.azure.com/#create/Microsoft.Support) para obter ajuda. |
+| Possível bug do produto | Ocorreu um erro inesperado. | Isso indica uma classe desconhecida de falha e pode significar que há um bug do produto. Registre um [tíquete de suporte](https://ms.portal.azure.com/#create/Microsoft.Support) para obter ajuda. |
 | Uma habilidade encontrou um erro durante a execução | (Da habilidade de mesclagem) Um ou mais valores de deslocamento eram inválidos e não puderam ser analisados. Os itens foram inseridos no final do texto | Use as informações na mensagem de erro para corrigir o problema. Esse tipo de falha exigirá ação a ser resolvida. |
 
 <a name="could-not-execute-skill-because-the-web-api-request-failed"/>
@@ -140,7 +140,7 @@ O valor máximo que você pode definir para o parâmetro `timeout` é de 230 seg
 
 O documento foi lido e processado, mas o indexador não pôde adicioná-lo ao índice de pesquisa. Isso pode acontecer devido a:
 
-| Motivo | Detalhes/exemplo | Resolução |
+| Reason | Detalhes/exemplo | Resolução |
 | --- | --- | --- |
 | Um campo contém um termo muito grande | Um termo no documento é maior que o [limite de 32 KB](search-limits-quotas-capacity.md#api-request-limits) | Você pode evitar essa restrição garantindo que o campo não esteja configurado como filtrável, facetable ou classificável.
 | O documento é muito grande para ser indexado | Um documento é maior que o [tamanho máximo de solicitação de API](search-limits-quotas-capacity.md#api-request-limits) | [Como indexar grandes conjuntos de dados](search-howto-large-index.md)
@@ -152,11 +152,11 @@ O documento foi lido e processado, mas o indexador não pôde adicioná-lo ao í
 
 <a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"/>
 
-## <a name="error-could-not-index-document-because-the-indexer-data-to-index-was-invalid"></a>Erro: não foi possível indexar o documento porque os dados do indexador para o índice eram inválidos
+## <a name="error-could-not-index-document-because-some-of-the-documents-data-was-not-valid"></a>Erro: não foi possível indexar o documento porque alguns dos dados do documento não eram válidos
 
-O documento foi lido e processado, mas devido a uma incompatibilidade na configuração dos campos de índice e a natureza dos dados extraídos pelo indexador, não foi possível adicioná-lo ao índice de pesquisa. Isso pode acontecer devido a:
+O documento foi lido e processado pelo indexador, mas devido a uma incompatibilidade na configuração dos campos de índice e os dados extraídos e processados pelo indexador, não foi possível adicioná-los ao índice de pesquisa. Isso pode acontecer devido a:
 
-| Motivo | Detalhes/exemplo
+| Reason | Detalhes/exemplo
 | --- | ---
 | O tipo de dados dos campos extraídos pelo indexador é incompatível com o modelo de dados do campo de índice de destino correspondente. | O campo de dados '_Data_' no documento com a chave ' 888 ' tem um valor inválido ' do tipo ' EDM. String ' '. O tipo esperado era ' Collection (EDM. String) '. |
 | Falha ao extrair qualquer entidade JSON de um valor de cadeia de caracteres. | Não foi possível analisar o valor ' do tipo ' EDM. String ' ' do campo '_Data_' como um objeto JSON. Erro: ' depois de analisar um valor, um caractere inesperado foi encontrado: ' '. Caminho '_caminho_', linha 1, posição 3162. ' |
@@ -166,12 +166,11 @@ O documento foi lido e processado, mas devido a uma incompatibilidade na configu
 
 Em todos esses casos, consulte [tipos de dados com suporte](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) e [mapa de tipo de dados para indexadores](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) para se certificar de que você criou o esquema de índice corretamente e configurou os [mapeamentos de campo de indexador](search-indexer-field-mappings.md)apropriados. A mensagem de erro incluirá detalhes que podem ajudar a rastrear a origem da incompatibilidade.
 
-<a name="could-not-process-document-within-indexer-max-run-time"/>
-
 ## <a name="error-integrated-change-tracking-policy-cannot-be-used-because-table-has-a-composite-primary-key"></a>Erro: a política de controle de alterações integrada não pode ser usada porque a tabela tem uma chave primária composta
 
 Isso se aplica a tabelas SQL e geralmente acontece quando a chave é definida como uma chave composta ou, quando a tabela define um índice clusterizado exclusivo (como em um índice SQL, não um índice Azure Search). O principal motivo é que o atributo de chave é modificado para ser uma chave primária composta no caso de um [índice clusterizado exclusivo](https://docs.microsoft.com/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). Nesse caso, certifique-se de que a tabela SQL não tenha um índice clusterizado exclusivo ou que você mapeie o campo de chave para um campo que tenha a garantia de não ter valores duplicados.
 
+<a name="could-not-process-document-within-indexer-max-run-time"/>
 
 ## <a name="error-could-not-process-document-within-indexer-max-run-time"></a>Erro: não foi possível processar o documento dentro do tempo de execução máximo do indexador
 
@@ -183,7 +182,7 @@ Esse erro ocorre quando o indexador não pode concluir o processamento de um ún
 
 Esse erro ocorre quando o indexador está tentando [projetar dados em um repositório de conhecimento](knowledge-store-projection-overview.md) e houve uma falha em nossa tentativa de fazer isso.  Essa falha pode ser consistente e corrigível ou pode ser uma falha transitória com o coletor de saída de projeção que talvez seja necessário aguardar e tentar novamente para resolver.  Aqui estão um conjunto de Estados de falha conhecidos e possíveis resoluções.
 
-| Motivo | Detalhes/exemplo | Resolução |
+| Reason | Detalhes/exemplo | Resolução |
 | --- | --- | --- |
 | Não foi possível atualizar o blob de projeção `'blobUri'` no contêiner `'containerName'` |O contêiner especificado não existe. | O indexador verificará se o contêiner especificado foi criado anteriormente e o criará, se necessário, mas ele só executará essa verificação uma vez por execução de indexer. Esse erro significa que algo excluiu o contêiner após esta etapa.  Para resolver esse erro, tente: Deixe as informações da conta de armazenamento sozinhas, aguarde até que o indexador seja concluído e execute novamente o indexador. |
 | Não foi possível atualizar o blob de projeção `'blobUri'` no contêiner `'containerName'` |Não é possível gravar dados na conexão de transporte: uma conexão existente foi fechada forçosamente pelo host remoto. | Espera-se que essa seja uma falha transitória com o armazenamento do Azure e, portanto, deve ser resolvida executando novamente o indexador. Se você encontrar esse erro consistentemente, registre um [tíquete de suporte](https://ms.portal.azure.com/#create/Microsoft.Support) para que ele possa ser investigado mais detalhadamente.  |
@@ -220,7 +219,7 @@ Se você quiser fornecer um valor padrão no caso de entrada ausente, poderá us
 }
 ```
 
-| Motivo | Detalhes/exemplo | Resolução |
+| Reason | Detalhes/exemplo | Resolução |
 | --- | --- | --- |
 | A entrada de habilidade é do tipo errado | "A entrada de habilidade necessária não era do tipo esperado `String`. Nome: `text`, origem: `/document/merged_content`. "  "A entrada de habilidade necessária não estava no formato esperado. Nome: `text`, origem: `/document/merged_content`. "  "Não é possível iterar em `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`de não matriz."  "Não é possível selecionar `0` em `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`não matrizes" | Determinadas habilidades esperam entradas de tipos específicos, por exemplo, a [habilidade de sentimentos](cognitive-search-skill-sentiment.md) espera que `text` seja uma cadeia de caracteres. Se a entrada especificar um valor que não seja de cadeia de caracteres, a habilidade não será executada e não gerará nenhuma saída. Verifique se o conjunto de dados tem valores de entrada uniformes no tipo ou use uma [habilidade de API Web personalizada](cognitive-search-custom-skill-web-api.md) para pré-processar a entrada. Se você estiver Iterando a habilidade em uma matriz, verifique o contexto de habilidade e a entrada tem `*` nas posições corretas. Geralmente, o contexto e a fonte de entrada devem terminar com `*` para matrizes. |
 | A entrada da habilidade está ausente | "A entrada de habilidade necessária está ausente. Nome: `text`, fonte: `/document/merged_content`"" valor `/document/normalized_images/0/imageTags`ausente ".  "Não é possível selecionar `0` na matriz `/document/pages` de comprimento `0`". | Se todos os documentos obtiverem esse aviso, provavelmente haverá um erro de digitação nos caminhos de entrada e você deverá verificar a maiúsculas e minúsculas do nome da propriedade, `*` extra ou ausente no caminho e certificar-se de que os documentos da fonte de dados forneçam as entradas necessárias. |

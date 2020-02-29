@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/24/2017
 ms.author: yurid
-ms.openlocfilehash: ed2c1f874bd61e846cbdf1f68181a8f374c89524
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 69062e42a5d572cf7b73bec3932613d39be9b92f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603367"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921497"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines"></a>Central de Segurança do Azure e Máquinas Virtuais do Azure
 A [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/) ajuda você a evitar, detectar e responder a ameaças. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
@@ -33,7 +33,7 @@ A Central de Segurança ajuda a proteger os dados de máquinas virtuais no Azure
 * Recomendações de proteção de ponto de extremidade
 * Validação de criptografia de disco
 * Avaliação de vulnerabilidade e remediação
-* Detecção de ameaças
+* Alertas de segurança dos recursos de proteção contra ameaças
 
 Além de ajudar a proteger suas VMs do Azure, a Central de Segurança também fornece monitoramento de segurança e gerenciamento de serviços de nuvem, serviços de aplicativos, redes virtuais e muito mais. 
 
@@ -42,7 +42,7 @@ Além de ajudar a proteger suas VMs do Azure, a Central de Segurança também fo
 > 
 > 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 Para começar a usar a Central de Segurança do Azure, você precisará conhecer e considerar o seguinte:
 
 * Você deve ter uma assinatura do Microsoft Azure. Confira [Preços da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/) para obter mais informações sobre as camadas gratuitas e padrão da Central de Segurança.
@@ -64,13 +64,13 @@ A Central de Segurança analisa o estado de segurança de seus recursos do Azure
 
 Depois de definir uma política de segurança, a Central de Segurança analisa o estado de segurança de seus recursos para identificar possíveis vulnerabilidades. As recomendações são mostradas em um formato de tabela, em que cada linha representa uma recomendação específica. A tabela a seguir fornece alguns exemplos de recomendações para VMs do Azure e o que cada uma delas fará se você a aplicar. Ao selecionar uma recomendação, você receberá informações que mostram como implementar a recomendação na Central de Segurança.
 
-| Recomendação | DESCRIÇÃO |
+| Recomendação | Descrição |
 | --- | --- |
 | Habilitar coleta de dados para assinaturas |Recomenda que você ative a coleta de dados na política de segurança para cada uma de suas assinaturas e todas as VMs (máquinas virtuais) em suas assinaturas. |
 | Corrigir as vulnerabilidades do sistema operacional |Recomenda que você alinhe as configurações do sistema operacional com as regras de configuração recomendadas, por exemplo, não permitir o armazenamento de senhas. |
 | Aplicar atualizações do sistema |Recomenda que você implante a atualizações críticas e de segurança do sistema ausentes para VMs. |
 | Reinicializar após as atualizações do sistema |Recomenda que você reinicialize uma VM para concluir o processo de aplicação de atualizações de sistema. |
-| Instalar proteção do ponto de extremidade |Recomenda que você provisione programas antimalware para máquinas virtuais (somente VMs do Windows). |
+| Instalar o Endpoint Protection |Recomenda que você provisione programas antimalware para máquinas virtuais (somente VMs do Windows). |
 | Habilitar o Agente de VM |Permite que você veja quais máquinas virtuais exigem o Agente de VM. O Agente de VM deve ser instalado em VMs para provisionar verificação de linha de base, verificação de patch e programas antimalware. O agente de VM está instalado por padrão nas VMs implantadas do Azure Marketplace. O artigo [Agente de VM e extensões – parte 2](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) fornece informações sobre como instalar o Agente de VM. |
 | Aplicar a criptografia de disco |Recomenda de que você criptografe os discos de VM usando o Azure Disk Encryption (VMs do Windows e do Linux). A criptografia é recomendada para volumes de dados e do sistema operacional em sua VM. |
 | Avaliação de vulnerabilidade não instalada |Recomenda que você instale uma solução de avaliação de vulnerabilidade na VM. |
@@ -93,7 +93,7 @@ A Central de Segurança coleta, analisa e integra automaticamente os dados de re
 
 Selecione um alerta de segurança para saber mais sobre o evento que disparou o alerta e, se houver, as etapas necessárias para corrigir um ataque. Os alertas de segurança são agrupados por tipo e data.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 * [Configurando políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 2baa82bda1f92fe81bb0db69b84e6865b2709e42
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: cdbaeb5a97beba342bc471e75d1b07be0d0141ae
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058044"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921404"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Solução de problemas de implantação de máquina virtual do Windows no Azure
 
@@ -31,7 +31,7 @@ Caso precise de mais ajuda a qualquer momento neste artigo, entre em contato com
 [!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
 ## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>O cluster não dá suporte ao tamanho de VM solicitado
-\<Properties supportTopicIds = "123456789" resourceTags = "Windows" productPesIds = "1234, 5678"/>
+Propriedades de \<supportTopicIds = "123456789" resourceTags = "Windows" productPesIds = "1234, 5678"/>
 - Repita a solicitação com um tamanho de VM menor.
 - Se o tamanho da VM solicitada não puder ser alterado:
     - Pare todas as VMs no conjunto de disponibilidade. Clique em **Grupos de recursos** > seu grupo de recursos > **Recursos** > seu conjunto de disponibilidade > **Máquinas Virtuais** > sua máquina virtual > **Parar**.
@@ -40,7 +40,7 @@ Caso precise de mais ajuda a qualquer momento neste artigo, entre em contato com
 
 
 ## <a name="the-cluster-does-not-have-free-resources"></a>O cluster não tem recursos livres
-\<Properties supportTopicIds = "123456789" resourceTags = "Windows" productPesIds = "1234, 5678"/>
+Propriedades de \<supportTopicIds = "123456789" resourceTags = "Windows" productPesIds = "1234, 5678"/>
 - Tente fazer novamente a solicitação.
 - Se a nova VM puder ser parte de um conjunto de disponibilidade diferente
     - Crie uma nova VM em um conjunto de disponibilidade diferente (na mesma região).
@@ -107,6 +107,8 @@ Quando uma máquina virtual está em execução, ela é implantada em um servido
 
 - As VMs implantadas no modelo de implantação Clássico, a implantação do serviço de nuvem deve ser removida e reimplantada para alterar as VMs para um tamanho em outra família de tamanho.
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 - Para VMs implantadas no modelo de implantação do Gerenciador de Recursos, você deve interromper todas as VMs no conjunto antes de alterar o tamanho de uma VM no conjunto de disponibilidade.
 
 ## <a name="the-listed-vm-size-is-not-supported-while-deploying-in-availability-set"></a>Não há suporte para o tamanho da VM listado durante a implantação no Conjunto de Disponibilidade.
@@ -118,7 +120,7 @@ Escolha um tamanho que seja compatível com o cluster do conjunto de disponibili
 Sim. Você pode adicionar uma VM clássica existente para um Conjunto de Disponibilidade novo ou existente. Para obter mais informações, consulte [Adicionar uma máquina virtual existente ao conjunto de disponibilidade](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic#addmachine).
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Caso precise de mais ajuda a qualquer momento neste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/).
 
 Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.

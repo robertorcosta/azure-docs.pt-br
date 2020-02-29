@@ -2,7 +2,7 @@
 title: Otimizar o desempenho nas máquinas virtuais da série Lsv2 do Azure – armazenamento
 description: Saiba como otimizar o desempenho da sua solução nas máquinas virtuais da série Lsv2.
 services: virtual-machines-windows
-author: laurenhughes
+author: sasha-melamed
 manager: gwallace
 ms.service: virtual-machines-windows
 ms.topic: article
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: a14e38cd93e7d6273282e209db8ce83ec99f16db
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 57b248908a02327f2521be05920259681a26817a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74068172"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920222"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Otimizar o desempenho nas máquinas virtuais da série Lsv2
 
@@ -96,6 +96,6 @@ Para saber mais sobre as opções de backup de dados no armazenamento local, con
 * **Posso ajustar as configurações de sondagem no Windows Server 2019?**  
    As configurações de sondagem não são ajustáveis pelo usuário.
    
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Consulte as especificações para todas as [VMs otimizadas para desempenho de armazenamento](sizes-storage.md) no Azure

@@ -8,51 +8,21 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 02/27/2020
 ms.author: diberry
-ms.openlocfilehash: cadbf5fa88db7d5e524cb7e075745c03a844f750
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: dea2bf3b34ca336f3932dd85bf587184ab6881db
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901693"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914986"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Usar o aprendizado ativo para melhorar sua base de dados de conhecimento
 
-O aprendizado ativo permite melhorar a qualidade da sua base de dados de Conhecimento, sugerindo perguntas alternativas, com base em envios de usuário, para o par de pergunta e resposta. Você examina essas sugestões, adicionando-as às perguntas existentes ou rejeitando-as.
+O [aprendizado ativo](../Concepts/active-learning-suggestions.md) permite que você aprimore a qualidade de sua base de dados de conhecimento sugerindo perguntas alternativas, com base em envios de usuários, para seu par de perguntas e respostas. Você examina essas sugestões, adicionando-as às perguntas existentes ou rejeitando-as.
 
 Sua base de dados de conhecimento não é alterada automaticamente. Para que qualquer alteração entre em vigor, você deve aceitar as sugestões. Essas sugestões adicionam perguntas, mas não alteram nem removem perguntas existentes.
 
-## <a name="what-is-active-learning"></a>O que é o aprendizado ativo?
-
-O QnA Maker aprende novas variações de pergunta com comentários implícitos e explícitos.
-
-* [Comentários implícitos](#how-qna-makers-implicit-feedback-works) – o classificador entende quando uma pergunta de usuário tem várias respostas com pontuações que são muito próximas e considera isso como comentários. Você não precisa fazer nada para que isso aconteça.
-* [Comentários explícitos](#how-you-give-explicit-feedback-with-the-train-api) – quando várias respostas com pouca variação nas pontuações são retornadas da base de dados de conhecimento, o aplicativo cliente pergunta ao usuário qual pergunta é a pergunta correta. Os comentários explícitos do usuário são enviados para QnA Maker com a [API de treinamento](#train-api).
-
-Ambos os métodos fornecem o classificador com consultas semelhantes que são clusterizadas.
-
-## <a name="how-active-learning-works"></a>Como o aprendizado ativo funciona
-
-O aprendizado ativo é disparado com base nas pontuações das primeiras respostas retornadas pelo QnA Maker. Se as diferenças de Pontuação estiverem dentro de um intervalo pequeno, a consulta será considerada uma possível sugestão (como uma pergunta alternativa) para cada um dos possíveis pares de QnA. Depois de aceitar a pergunta sugerida para um par QnA específico, ele será rejeitado para os outros pares. Você precisa se lembrar de salvar e treinar, depois de aceitar sugestões.
-
-O aprendizado ativo fornece as melhores sugestões possíveis em casos em que os pontos de extremidade estão obtendo uma quantidade e variedade razoáveis de consultas de uso. Quando 5 ou mais consultas semelhantes são clusterizadas, a cada 30 minutos, QnA Maker sugere as perguntas baseadas no usuário para que o designer da base de dados de conhecimento aceite ou rejeite. Todas as sugestões são clusterizadas por similaridade e as principais sugestões de perguntas alternativas são exibidas com base na frequência das consultas específicas por usuários finais.
-
-Quando as perguntas são sugeridas no portal de QnA Maker, você precisa revisar e aceitar ou rejeitar essas sugestões. Não há uma API para gerenciar sugestões.
-
-## <a name="how-qna-makers-implicit-feedback-works"></a>Como o comentário implícito do QnA Maker funciona
-
-Os comentários implícitos do QnA Maker usam um algoritmo para determinar a proximidade da pontuação e, em seguida, fazer sugestões de aprendizado ativo. O algoritmo para determinar a proximidade não é um cálculo simples. Os intervalos no exemplo a seguir não devem ser corrigidos, mas devem ser usados como um guia para entender o impacto apenas do algoritmo.
-
-Quando a pontuação de uma pergunta tem um alto grau de confiabilidade, tal como 80%, o intervalo de pontuações que são consideradas para aprendizado ativo é amplo, dentro de aproximadamente 10%. Conforme a pontuação de confiança diminui, por exemplo, para 40%, o intervalo de pontuações diminui também, para dentro de aproximadamente 4%.
-
-## <a name="how-you-give-explicit-feedback-with-the-train-api"></a>Como você dá comentários explícitos com a API de treinamento
-
-É importante que QnA Maker obtenha comentários explícitos sobre quais das respostas foi a melhor resposta. Como a melhor resposta é determinada, você pode incluir:
-
-* Comentários do usuário, selecionando uma das respostas.
-* Lógica de negócios, como determinar um intervalo de Pontuação aceitável.
-* Uma combinação dos comentários do usuário e da lógica de negócios.
 
 ## <a name="upgrade-your-runtime-version-to-use-active-learning"></a>Atualizar sua versão de tempo de execução para usar o aprendizado ativo
 
@@ -187,12 +157,12 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|Propriedade de solicitação HTTP|Nome|Tipo|Finalidade|
+|Propriedade de solicitação HTTP|{1&gt;Nome&lt;1}|Tipo|Finalidade|
 |--|--|--|--|
-|Parâmetro de rota de URL|ID da base de dados de conhecimento|cadeia de caracteres|o GUID da base de dados de conhecimento.|
-|Subdomínio personalizado|Nome do recurso QnAMaker|cadeia de caracteres|O nome do recurso é usado como o subdomínio personalizado para seu QnA Maker. Isso estará disponível na página configurações depois que você publicar a base de dados de conhecimento. Ele é listado como o `host`.|
-|Cabeçalho|Tipo de conteúdo|cadeia de caracteres|o tipo de mídia do corpo enviado para a API. O valor padrão é: `application/json`|
-|Cabeçalho|Autorização|cadeia de caracteres|sua chave de ponto de extremidade (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Parâmetro de rota de URL|ID da base de dados de conhecimento|string|o GUID da base de dados de conhecimento.|
+|Subdomínio personalizado|Nome do recurso QnAMaker|string|O nome do recurso é usado como o subdomínio personalizado para seu QnA Maker. Isso estará disponível na página configurações depois que você publicar a base de dados de conhecimento. Ele é listado como o `host`.|
+|Cabeçalho|Content-Type|string|o tipo de mídia do corpo enviado para a API. O valor padrão é: `application/json`|
+|Cabeçalho|Autorização|string|sua chave de ponto de extremidade (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Corpo da postagem|Objeto JSON|JSON|Os comentários de treinamento|
 
 O corpo JSON tem várias configurações:
@@ -200,8 +170,8 @@ O corpo JSON tem várias configurações:
 |Propriedade de corpo JSON|Tipo|Finalidade|
 |--|--|--|--|
 |`feedbackRecords`|matriz|Lista de comentários.|
-|`userId`|cadeia de caracteres|A ID de usuário da pessoa que está aceitando as perguntas sugeridas. O formato da ID de usuário cabe a você. Por exemplo, um endereço de email pode ser uma ID de usuário válida em sua arquitetura. Opcional.|
-|`userQuestion`|cadeia de caracteres|Texto exato da consulta do usuário. Obrigatórios.|
+|`userId`|string|A ID de usuário da pessoa que está aceitando as perguntas sugeridas. O formato da ID de usuário cabe a você. Por exemplo, um endereço de email pode ser uma ID de usuário válida em sua arquitetura. Opcional.|
+|`userQuestion`|string|Texto exato da consulta do usuário. Obrigatório.|
 |`qnaID`|número|ID de pergunta, encontrada na [resposta de GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Um exemplo de corpo JSON é semelhante a:
@@ -403,7 +373,7 @@ Quando você Reimporta esse aplicativo, o aprendizado ativo continua a coletar i
 
 Para as práticas recomendadas ao usar o aprendizado ativo, veja [Práticas recomendadas](../Concepts/best-practices.md#active-learning).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!div class="nextstepaction"]
 > [Usar metadados com a API GenerateAnswer](metadata-generateanswer-usage.md)

@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: overview
+ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: a7681ba815533296deae2b585e377a733074b6c9
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
-ms.translationtype: HT
+ms.openlocfilehash: 01e3ed9f94b575aae4ce0ed12eb63e3cf40d99ce
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147907"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77911807"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Usar o portal do Azure para administrar o Data Box Disk
 
@@ -83,7 +83,7 @@ Talvez seja necessário baixar a etiqueta de remessa quando a que foi fornecida 
 Execute as etapas a seguir para baixar uma etiqueta de remessa.
 1.  Vá para **Visão geral > Baixar etiqueta de remessa**. Essa opção estará disponível somente depois que o disco for enviado. 
 
-    ![Baixar etiqueta de remessa](media/data-box-portal-ui-admin/download-shipping-label.png)
+    ![Faça o download da etiqueta de remessa](media/data-box-portal-ui-admin/download-shipping-label.png)
 
 2.  Essa opção baixa a etiqueta de remessa de devolução a seguir. Salve o rótulo, imprima-o horizontalmente e fixe-o na remessa de devolução.
 
@@ -119,21 +119,21 @@ Execute as etapas a seguir para editar os detalhes de notificação.
 
 ## <a name="view-order-status"></a>Exibir status do pedido
 
-|Status do pedido |DESCRIÇÃO |
+|Status do pedido |Descrição |
 |---------|---------|
 |Encomendado     | Pedido feito com êxito. <br> Se os discos não estiverem disponíveis, você receberá uma notificação. <br>Se os discos estiverem disponíveis, a Microsoft identificará um disco para remessa e preparará o pacote de disco.        |
 |Processado     | O processamento de pedidos foi concluído. <br> Durante o processamento do pedido, as seguintes ações ocorrem:<li>Os discos são criptografados usando a criptografia BitLocker AES-128. </li> <li>Os Azure Data Box Disk estão bloqueados para impedir acesso não autorizado.</li><li>A chave de acesso que desbloqueia os discos é gerada durante esse processo.</li>        |
 |Expedido     | O pedido foi enviado. Você deve receber o pedido em 1 a 2 dias.        |
 |Entregue     | O pedido foi entregue no endereço especificado no pedido.        |
 |Recolhido     |A remessa de devolução foi recolhida. <br> Após o recebimento da remessa no datacenter do Azure, os dados são carregados automaticamente no Azure.         |
-|Recebido     | Os discos foram recebidos no datacenter do Azure. A cópia de dados será iniciada em breve.        |
+|Recebidas     | Os discos foram recebidos no datacenter do Azure. A cópia de dados será iniciada em breve.        |
 |Dados copiados     |Cópia de dados em andamento.<br> Aguarde até que a cópia de dados seja concluída.         |
 |Concluído       |Pedido concluído com êxito.<br> Verifique se os dados estão no Azure antes de excluir os dados locais dos servidores.         |
 |Concluído com erros| A cópia de dados foi concluída, mas apresentou erros. <br> Reveja os logs de erros de carregamento usando o caminho fornecido na **Visão geral**. Para obter mais informações, acesse [Baixar logs de erros de upload](data-box-disk-troubleshoot-upload.md#download-logs).   |
-|Cancelado            |Pedido cancelado. <br> Você cancelou o pedido ou ocorreu um erro e o serviço cancelou o pedido.     |
+|Canceled            |Pedido cancelado. <br> Você cancelou o pedido ou ocorreu um erro e o serviço cancelou o pedido.     |
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Saiba como [Solucionar problemas do Data Box Disk](data-box-disk-troubleshoot.md).

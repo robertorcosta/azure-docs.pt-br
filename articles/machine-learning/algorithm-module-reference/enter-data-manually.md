@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 61c3dde49d4cd298fb3a0f19dc1d8c00e54977af
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 27c359a594cec66708647d5a648c7e8414c0d92c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152339"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917468"
 ---
 # <a name="enter-data-manually-module"></a>Inserir dados manualmente no módulo
 
@@ -36,13 +36,13 @@ Esse módulo pode ser útil em cenários como estes:
   
 2.  Em **formato de DataFormat**, selecione uma das opções a seguir. Essas opções determinam como os dados que você fornece devem ser analisados. Os requisitos para cada formato diferem muito, portanto, não deixe de ler os tópicos relacionados.  
   
-    -   **ARFF**. O formato de arquivo de relação de atributo, usado pelo weka.   
+    -   **ARFF**: o formato de arquivo de relação de atributo, usado pelo weka.   
   
-    -   **CSV**. Formato de valores separados por vírgula. Para obter mais informações, consulte [converter em CSV](./convert-to-csv.md).  
+    -   **CSV**: formato de valores separados por vírgula. Para obter mais informações, consulte [converter em CSV](./convert-to-csv.md).  
   
-    -   **SVMLight**. Um formato usado por Vowpal wabbit e outras estruturas de aprendizado de máquina.  
+    -   **SVMLight**: um formato usado por Vowpal wabbit e outras estruturas de aprendizado de máquina.  
   
-    -   **TSV**. Formato de valores separados por tabulação.
+    -   **TSV**: formato de valores separados por tabulação.
 
      Se você escolher um formato e não fornecer dados que atendam às especificações de formato, ocorrerá um erro em tempo de execução.
   
@@ -100,6 +100,6 @@ Esse módulo pode ser útil em cenários como estes:
 5.  Conecte a porta de saída a outros módulos e execute o pipeline.  
   
      Para exibir o conjunto de um, clique com o botão direito do mouse no módulo e selecione **Visualizar**.  
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

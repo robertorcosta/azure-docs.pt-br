@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/01/2019
-ms.openlocfilehash: 4340ee4ed1edda8590726151e07eec45c0751ed6
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 6ba53793e57be67e2954af870dfa4248fca465ec
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152254"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912198"
 ---
 # <a name="feature-hashing-module-reference"></a>Referência de módulo de hash de recurso
 
@@ -59,7 +59,7 @@ Depois que o dicionário é criado, o módulo hash de recurso converte os termos
 
 Por exemplo, após o hash, as colunas de recurso podem ter uma aparência semelhante a esta:
 
-|Classificação|Recurso de hash 1|Recurso de hash 2|Recurso de hash 3|
+|Rating|Recurso de hash 1|Recurso de hash 2|Recurso de hash 3|
 |-----|-----|-----|-----|
 |4|1|1|0|
 |5|0|0|0|
@@ -111,7 +111,7 @@ Depois que o processamento é concluído, o módulo gera um conjunto de resultad
 
 Depois de criar o conjunto de dados transformado, você pode usá-lo como a entrada para o módulo modelo de treinamento.
  
-### <a name="best-practices"></a>Práticas recomendadas
+## <a name="best-practices"></a>Práticas recomendadas
 
 As práticas recomendadas a seguir podem ajudá-lo a obter o máximo do módulo de hash de recurso:
 
@@ -129,6 +129,6 @@ As práticas recomendadas a seguir podem ajudá-lo a obter o máximo do módulo 
 
 O conjunto ideal de métodos de pré-processamento a serem aplicados em qualquer solução depende do domínio, do vocabulário e da necessidade de negócios. Pipeline com seus dados para ver quais métodos de processamento de texto são mais eficazes.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
             
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning 

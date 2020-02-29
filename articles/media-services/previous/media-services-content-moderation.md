@@ -14,16 +14,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: a8560df6120dd773e13dbfc7427d9a16e6f6c83b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 83fe7867a3128ac82597c028452863a1ad681ace
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895993"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914306"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usar o Azure Media Content Moderator para detectar possível conteúdo adulto e erótico 
 
-## <a name="overview"></a>Visão Geral
+> [!NOTE]
+> O processador de mídia **do Content moderator de mídia do Azure** será desativado. Para a data de aposentadoria, consulte o tópico [componentes herdados](legacy-components.md) .
+
+## <a name="overview"></a>Visão geral
 O processador de mídia (MP) do **Azure Media Content Moderator** possibilita usar a moderação auxiliada por computador para seus vídeos. Por exemplo, você talvez queira detectar possível conteúdo adulto e erótico em vídeos e revisar o conteúdo sinalizado por suas equipes de moderação humanas.
 
 O MP do **Azure Media Content Moderator** está atualmente em fase de Visualização.
@@ -48,7 +51,7 @@ O JSON de saída contém os seguintes elementos:
 | --- | --- |
 | version |A versão do Content Moderator. |
 | escala de tempo |"Tiques" por segundo do vídeo. |
-| deslocamento |A diferença de tempo para carimbos de data/hora. Na versão 1.0 das APIs de Vídeo, este valor sempre será 0. Esse valor pode ser alterado no futuro. |
+| offset |A diferença de tempo para carimbos de data/hora. Na versão 1.0 das APIs de Vídeo, este valor sempre será 0. Esse valor pode ser alterado no futuro. |
 | taxa de quadros |Quadros por segundo do vídeo. |
 | width |A largura do quadro de vídeo de saída, em pixels.|
 | height |A altura do quadro de vídeo de saída, em pixels.|
@@ -59,9 +62,9 @@ O JSON de saída contém os seguintes elementos:
 
 |Elemento|Descrição|
 |---|---|
-| iniciar |A hora de início do primeiro evento em "tiques". |
+| start |A hora de início do primeiro evento em "tiques". |
 | duration |A duração do fragmento, em “tiques”. |
-| intervalo |O intervalo de cada entrada de evento dentro do fragmento, em “tiques”. |
+| interval |O intervalo de cada entrada de evento dentro do fragmento, em “tiques”. |
 | [events](#events-json-elements) |Cada evento representa um clipe e cada clipe contém quadros-chave detectados e rastreados dentro dessa duração de tempo. É uma matriz de eventos. A matriz externa representa um intervalo de tempo. A matriz interna é composta por 0 ou mais eventos que ocorreram nesse ponto no tempo.|
 
 ### <a name="events-json-elements"></a>Elementos JSON de eventos
@@ -228,7 +231,7 @@ The following example of a Content Moderator JSON output was truncated.
 
 [Demonstrações do Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba mais sobre a [solução de revisão e moderação de vídeos](../../cognitive-services/Content-Moderator/video-moderation-human-review.md) do Content Moderator.
 

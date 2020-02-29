@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: 355909052a711773545114179cd5d1ca01811cec
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: bb6ad1f131d1299ce1e076fee70e6640e3bdf20a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485073"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913252"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do gateway de aplicativo
 
@@ -25,7 +25,7 @@ Esta imagem ilustra um aplicativo que tem três ouvintes. Os dois primeiros são
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Rede virtual do Azure e sub-rede dedicada
 
@@ -256,14 +256,14 @@ Aplicativo Azure gateway usa cookies gerenciados de gateway para manter sessões
 
 Esse recurso é útil quando você deseja manter uma sessão de usuário no mesmo servidor e quando o estado da sessão é salvo localmente no servidor para uma sessão de usuário. Se o aplicativo não puder lidar com a afinidade baseada em cookie, você não poderá usar esse recurso. Para usá-lo, verifique se os clientes dão suporte a cookies.
 
-A partir de **17 de fevereiro de 2020**, a atualização do [Chromium](https://www.chromium.org/Home) [V80](https://chromiumdash.appspot.com/schedule) traz um mandato em que os cookies http sem o atributo SameSite sejam tratados como SameSite = LAX. No caso de solicitações CORS (compartilhamento de recursos entre origens), se o cookie tiver que ser enviado em um contexto de terceiros, ele precisará usar "SameSite = None; Proteja os atributos e eles só devem ser enviados por HTTPS. Caso contrário, em um cenário somente HTTP, o navegador não enviará os cookies no contexto de terceiros. O objetivo dessa atualização do Chrome é aprimorar a segurança e evitar ataques CSRF (solicitação entre sites forjada). 
+A atualização do [Chromium Browser](https://www.chromium.org/Home) [V80](https://chromiumdash.appspot.com/schedule) colocou um mandato em que os cookies http sem o atributo [SameSite](https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html#rfc.section.5.3.7) têm que ser tratados como SameSite = LAX. No caso de solicitações CORS (compartilhamento de recursos entre origens), se o cookie tiver que ser enviado em um contexto de terceiros, ele precisará usar *SameSite = None; Proteja* os atributos e eles devem ser enviados somente por HTTPS. Caso contrário, em um cenário somente HTTP, o navegador não enviará os cookies no contexto de terceiros. O objetivo dessa atualização do Chrome é aprimorar a segurança e evitar ataques CSRF (solicitação entre sites forjada). 
 
-Para dar suporte a essa alteração, o gateway de aplicativo (todos os tipos de SKU) estará injetando outro cookie idêntico, chamado **ApplicationGatewayAffinityCORS** , além do cookie **ApplicationGatewayAffinity** existente, que é semelhante, mas esse cookie agora terá mais dois atributos **"SameSite = None; Seguro "** adicionado a ele para que a sessão adesiva possa ser mantida mesmo para solicitações entre origens.
+Para dar suporte a essa alteração, a partir de 17 de fevereiro de 2020, o gateway de aplicativo (todos os tipos de SKU) injetará outro cookie chamado *ApplicationGatewayAffinityCORS* além do cookie *ApplicationGatewayAffinity* existente. O cookie *ApplicationGatewayAffinityCORS* tem mais dois atributos adicionados a ele ( *"SameSite = None; Proteger "* ) para que a sessão adesiva seja mantida até mesmo para solicitações entre origens.
 
-Observe que o nome do cookie de afinidade padrão é **ApplicationGatewayAffinity** e isso pode ser alterado pelos usuários. Caso você esteja usando um nome de cookie de afinidade personalizado, um cookie adicional será adicionado com CORS como sufixo, por exemplo, **CustomCookieNameCORS**.
+Observe que o nome do cookie de afinidade padrão é *ApplicationGatewayAffinity* e você pode alterá-lo. Caso você esteja usando um nome de cookie de afinidade personalizado, um cookie adicional é adicionado com CORS como sufixo. Por exemplo, *CustomCookieNameCORS*.
 
 > [!NOTE]
-> É obrigatório que, se o atributo **SameSite = None** estiver definido, o cookie também deverá conter o sinalizador de **segurança** e deve ser enviado via **https**. Portanto, se a afinidade de sessão for necessária em CORS, você deverá migrar sua carga de trabalho para HTTPS. Consulte descarregamento SSL e documentação de SSL de ponta a ponta para o gateway de aplicativo aqui – [visão geral](ssl-overview.md), [como configurar o descarregamento de SSL](create-ssl-portal.md), [como configurar o SSL de ponta a ponta](end-to-end-ssl-portal.md).
+> Se o atributo *SameSite = None* estiver definido, é obrigatório que o cookie também contenha o sinalizador de *segurança* e deve ser enviado via HTTPS.  Se a afinidade de sessão for necessária em CORS, você deverá migrar sua carga de trabalho para HTTPS. Consulte descarregamento SSL e documentação de SSL de ponta a ponta para o gateway de aplicativo aqui – [visão geral](ssl-overview.md), [como configurar o descarregamento de SSL](create-ssl-portal.md), [como configurar o SSL de ponta a ponta](end-to-end-ssl-portal.md).
 
 ### <a name="connection-draining"></a>Descarregamento de conexão
 
@@ -351,7 +351,7 @@ Um gateway de aplicativo monitora a integridade de todos os recursos em seu back
 > [!NOTE]
 > Depois de criar uma investigação de integridade personalizada, você precisa associá-la a uma configuração de HTTP de back-end. Uma investigação personalizada não monitorará a integridade do pool de back-end, a menos que a configuração de HTTP correspondente esteja explicitamente associada a um ouvinte usando uma regra.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Agora que você conhece os componentes do gateway de aplicativo, você pode:
 

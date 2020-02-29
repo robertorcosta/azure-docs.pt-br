@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/27/2019
 ms.author: memildin
-ms.openlocfilehash: 5c199d074a6655ad14a0c66925e4302f70424970
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 834a097eb77cc7de2d0a3643bf1499ff7517ddb0
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615980"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912266"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gerenciar e responder a alertas de segurança na central de segurança do Azure
 
@@ -67,7 +67,7 @@ A Central de segurança coleta, analisa e integra automaticamente os dados de re
 
 1. As etapas de correção sugeridas pela central de segurança variam de acordo com o alerta de segurança. Siga-os para cada alerta. 
 
-    Em alguns casos, para atenuar um alerta de detecção de ameaças, talvez seja necessário usar outros controles ou serviços do Azure para implementar a correção recomendada. 
+    Em alguns casos, para atenuar um alerta de segurança, talvez seja necessário usar outros controles ou serviços do Azure para implementar a correção recomendada. 
 
     Os tópicos a seguir orientam você pelos diferentes alertas, de acordo com os tipos de recursos:
     
@@ -86,7 +86,7 @@ A Central de segurança coleta, analisa e integra automaticamente os dados de re
     * [Alertas da camada de rede do Azure](threat-protection.md#network-layer)
     * [Alertas de outros serviços](threat-protection.md#alerts-other)    
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 Neste documento, você aprendeu a configurar políticas de segurança na Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
 

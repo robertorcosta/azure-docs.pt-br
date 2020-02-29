@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 4991fe9fb06d0a49da3e0404f0362c85f15571af
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: d39ac40e8e29c7ff90e2accc3a519449571c1d58
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152288"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917400"
 ---
 # <a name="execute-r-script"></a>Executar script R
 
@@ -130,6 +130,8 @@ azureml_main <- function(dataframe1, dataframe2){
 Os módulos **Executar script r** podem retornar várias saídas, mas devem ser fornecidas como quadros de dados do r. Os quadros de dados são convertidos automaticamente em conjuntos de dados no designer para compatibilidade com outros módulos.
 
 Mensagens e erros padrão do R são retornados para o log do módulo.
+
+Se você precisar imprimir resultados no script do R, poderá encontrar os resultados impressos na guia **70_driver_log** em **saídas + logs** no painel direito do módulo.
 
 ## <a name="sample-scripts"></a>Scripts de exemplo
 
@@ -256,11 +258,11 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 
 |              |            | 
 |--------------|------------| 
-| Pacote      | Versão    | 
-| askpass      | 1,1        | 
+| Pacote      | {1&gt;Version&lt;1}    | 
+| askpass      | 1.1        | 
 | assertthat   | 0.2.1      | 
 | backports    | 1.1.4      | 
-| base         | 3.5.1      | 
+| {1&gt;base&lt;1}         | 3.5.1      | 
 | base64enc    | 0,1-3      | 
 | BH           | 1.69.0-1   | 
 | associador        | 0.1.1      | 
@@ -272,7 +274,7 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | acento        | 6.0-84     | 
 | caTools      | 1.17.1.2   | 
 | cellranger   | 1.1.0      | 
-| class        | 7.3-15     | 
+| {1&gt;classe&lt;1}        | 7.3-15     | 
 | CLI          | 1.1.0      | 
 | clipe        | 0.6.0      | 
 | cluster      | 2.0.7-1    | 
@@ -400,6 +402,6 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | zeallot      | 0.1.0      | 
 | zoológico          | 1.8-6      | 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

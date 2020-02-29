@@ -3,12 +3,12 @@ title: Fazer backup de um banco de dados SAP HANA no Azure com o backup do Azure
 description: Neste artigo, saiba como fazer backup de um banco de dados SAP HANA em máquinas virtuais do Azure com o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: dd4c6fc0e018f3fc8f2a2029ef8a90cdc305e2c2
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a5fd09e0e487d103e8bd78964c11b572a62e28fa
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765524"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164603"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Fazer backup de bancos de dados do SAP HANA em VMs do Azure
 
@@ -28,9 +28,9 @@ Neste artigo, você aprenderá a:
 >A **exclusão reversível para o SQL Server na VM do Azure e a exclusão reversível para SAP Hana em cargas de trabalho de VM do Azure** agora está disponível na versão prévia.<br>
 >Para se inscrever na versão prévia, escreva para nós em AskAzureBackupTeam@microsoft.com
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
-Consulte as seções [pré-requisitos](tutorial-backup-sap-hana-db.md#prerequisites) e [Configurando permissões](tutorial-backup-sap-hana-db.md#setting-up-permissions) para configurar o banco de dados para backup.
+Consulte os [pré-requisitos](tutorial-backup-sap-hana-db.md#prerequisites) e o [que o script de pré-registro faz](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) seções para configurar o banco de dados para backup.
 
 ### <a name="set-up-network-connectivity"></a>Configurar a conectividade de rede
 
@@ -89,23 +89,6 @@ Usar marcas de serviço do NSG | Mais fácil de ser gerenciada, pois as alteraç
 Usar marcas de FQDN do Firewall do Azure | Mais fácil de ser gerenciada, pois os FQDNs necessários são gerenciados automaticamente | Pode ser usada somente com o Firewall do Azure
 Usar um proxy HTTP | É permitido o controle granular no proxy das URLs de armazenamento <br/><br/> Único ponto de acesso à Internet para VMs <br/><br/> Não está sujeita a alterações de endereços IP do Azure | Custos adicionais para execução de uma VM com o software de proxy
 
-## <a name="onboard-to-the-public-preview"></a>Integrar-se à versão prévia pública
-
-Integre à versão prévia pública da seguinte maneira:
-
-* No portal, registre sua ID da assinatura para o provedor de serviço dos Serviços de Recuperação [seguindo este artigo](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal).
-* Para o módulo ' az ' no PowerShell, execute este cmdlet. Ele deve ser concluído como "Registrado".
-
-    ```powershell
-    Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-* Se você estiver usando o módulo ' AzureRM ' no PowerShell, execute este cmdlet. Ele deve ser concluído como "Registrado".
-
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-    
-
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="discover-the-databases"></a>Descobrir os bancos de dados
@@ -130,7 +113,7 @@ Agora, habilite o backup.
 
 1. Na etapa 2, clique em **Configurar backup**.
 
-    ![Configurar o Backup](./media/backup-azure-sap-hana-database/configure-backup.png)
+    ![Configurar backup](./media/backup-azure-sap-hana-database/configure-backup.png)
 2. Em **selecionar itens para fazer backup**, selecione todos os bancos de dados que você deseja proteger > **OK**.
 
     ![Selecionar itens para fazer backup](./media/backup-azure-sap-hana-database/select-items.png)
@@ -219,7 +202,7 @@ Se você quiser fazer um backup local (usando o HANA Studio) de um banco de dado
     * Defina **enable_auto_log_backup** como **Sim**.
     * Defina **log_backup_using_backint** como **true**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Saiba como [restaurar bancos de dados do SAP HANA em execução em VMs do Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-restore)
 * Saiba como [gerenciar SAP Hana bancos de dados cujo backup é feito usando o backup do Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-manage)

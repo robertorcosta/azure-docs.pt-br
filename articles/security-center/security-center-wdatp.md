@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: 46b9fe5c6a038aa98cf8df64c40bf8ea1747efec
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e735495038f0e5c28af31aa79a45c71225502b3c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73663602"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918148"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Proteção avançada contra ameaças do Microsoft defender com a central de segurança do Azure
 
@@ -48,7 +48,7 @@ Para investigar ainda mais, use o Microsoft defender ATP. O Microsoft defender A
 
 ![Página do Microsoft defender ATP com informações detalhadas sobre um alerta](media/security-center-wdatp/image3.png)
 
-## <a name="platform-support"></a>Suporte à plataforma
+## <a name="platform-support"></a>Suporte a plataforma
 
 O Microsoft defender ATP na central de segurança dá suporte à detecção no Windows Server 2016, 2012 R2 e 2008 R2 SP1, para VMs do Azure, você precisa de uma assinatura de camada Standard e para VMs não Azure, você precisa da camada Standard somente no nível do espaço de trabalho.
 
@@ -95,12 +95,14 @@ Se você tiver um proxy ou firewall que esteja bloqueando o tráfego anônimo, c
 
 Para gerar um alerta de teste benigno do Microsoft defender ATP:
 
-1. Use a Área de Trabalho Remota para acessar uma VM do Windows Server 2012 R2 ou uma VM do Windows Server 2016. Abra uma janela de Prompt de Comando.
+1. Crie uma pasta ' C:\test-MDATP-test '.
 
-2. No prompt, copie e execute o comando a seguir. A janela do prompt de comando será fechada automaticamente.
+1. Use a Área de Trabalho Remota para acessar uma VM do Windows Server 2012 R2 ou uma VM do Windows Server 2016. Abra uma janela de linha de comando.
+
+1. No prompt, copie e execute o comando a seguir. A janela do prompt de comando será fechada automaticamente.
 
     ```
-    powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-WDATP-test\\invoice.exe'); Start-Process 'C:\\test-WDATP-test\\invoice.exe'
+    powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-MDATP-test\\invoice.exe'); Start-Process 'C:\\test-MDATP-test\\invoice.exe'
     ```
 
    ![Uma janela do prompt de comando com o comando acima](media/security-center-wdatp/image4.jpeg)
@@ -111,7 +113,7 @@ Para gerar um alerta de teste benigno do Microsoft defender ATP:
 
 5. Na janela investigação, selecione o link para acessar o portal do Microsoft defender ATP.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Plataformas e recursos compatíveis com a Central de Segurança do Azure](security-center-os-coverage.md)
 - [Como configurar políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.

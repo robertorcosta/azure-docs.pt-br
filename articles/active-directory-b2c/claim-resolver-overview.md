@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
+ms.date: 03/02/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4434c877f69391f5dc5926c6aed07049ba46b7b7
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 97e51331657c62094996f79483148f2f441e6a44
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425639"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161594"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre resolvedores de declaração em políticas personalizadas do Azure Active Directory B2C
 
@@ -46,16 +46,16 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 
 ### <a name="culture"></a>Cultura
 
-| Declaração | DESCRIÇÃO | Exemplo |
+| Declaração | Descrição | {1&gt;Exemplo&lt;1} |
 | ----- | ----------- | --------|
 | {Culture:LanguageName} | As duas letras do código ISO para o idioma. | en |
 | {Culture:LCID}   | O LCID do código de idioma. | 1046 |
-| {Culture:RegionName} | As duas letras do código ISO para a região. | EUA |
+| {Culture:RegionName} | As duas letras do código ISO para a região. | US |
 | {Culture:RFC5646} | O código de idioma RFC5646. | pt-BR |
 
 ### <a name="policy"></a>Política
 
-| Declaração | DESCRIÇÃO | Exemplo |
+| Declaração | Descrição | {1&gt;Exemplo&lt;1} |
 | ----- | ----------- | --------|
 | {Policy:PolicyId} | O nome da política de terceira parte confiável. | B2C_1A_signup_signin |
 | {Policy:RelyingPartyTenantId} | A ID do locatário da política de terceira parte confiável. | your-tenant.onmicrosoft.com |
@@ -64,50 +64,51 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 
 ### <a name="openid-connect"></a>OpenID Connect
 
-| Declaração | DESCRIÇÃO | Exemplo |
+| Declaração | Descrição | {1&gt;Exemplo&lt;1} |
 | ----- | ----------- | --------|
-| {OIDC:AuthenticationContextReferences} |O parâmetro de cadeia de caracteres da consulta `acr_values`. | N/D |
+| {OIDC:AuthenticationContextReferences} |O parâmetro de cadeia de caracteres da consulta `acr_values`. | {1&gt;N/A&lt;1} |
 | {OIDC:ClientId} |O parâmetro de cadeia de caracteres da consulta `client_id`. | 00000000-0000-0000-0000-000000000000 |
 | {OIDC:DomainHint} |O parâmetro de cadeia de caracteres da consulta `domain_hint`. | facebook.com |
 | {OIDC:LoginHint} |  O parâmetro de cadeia de caracteres da consulta `login_hint`. | someone@contoso.com |
-| {OIDC:MaxAge} | O `max_age`. | N/D |
+| {OIDC:MaxAge} | A `max_age`. | {1&gt;N/A&lt;1} |
 | {OIDC:Nonce} |O parâmetro de cadeia de caracteres da consulta `Nonce`. | defaultNonce |
 | {OIDC:Prompt} | O parâmetro de cadeia de caracteres da consulta `prompt`. | login |
-| {OIDC:Resource} |O parâmetro de cadeia de caracteres da consulta `resource`. | N/D |
+| {OIDC:Resource} |O parâmetro de cadeia de caracteres da consulta `resource`. | {1&gt;N/A&lt;1} |
 | {OIDC:scope} |O parâmetro de cadeia de caracteres da consulta `scope`. | openid |
+| {OIDC: RedirectUri} |O parâmetro de cadeia de caracteres da consulta `redirect_uri`. | https://jwt.ms |
 
 ### <a name="context"></a>Contexto
 
-| Declaração | DESCRIÇÃO | Exemplo |
+| Declaração | Descrição | {1&gt;Exemplo&lt;1} |
 | ----- | ----------- | --------|
 | {Context:BuildNumber} | A versão do Identity Experience Framework (número de build).  | 1.0.507.0 |
 | {Context:CorrelationId} | ID de correlação.  | 00000000-0000-0000-0000-000000000000 |
 | {Context:DateTimeInUtc} |A data e hora em UTC.  | 10/10/2018 12:00:00 PM |
-| {Context:DeploymentMode} |O modo de implantação de política.  | Produção |
+| {Context:DeploymentMode} |O modo de implantação de política.  | Production |
 | {Context:IPAddress} | O endereço IP do usuário. | 11.111.111.11 |
-
+| {Context: KMSI} | Indica se a caixa [de seleção manter-me conectado](custom-policy-keep-me-signed-in.md) está marcada. |  {1&gt;true&lt;1} |
 
 ### <a name="non-protocol-parameters"></a>Parâmetros não de protocolo
 
 Qualquer nome de parâmetro incluído como parte de uma solicitação OIDC ou OAuth2 pode ser mapeado para uma declaração no percurso do usuário. Por exemplo, a solicitação do aplicativo pode incluir um parâmetro da cadeia de consulta com um nome de `app_session`, `loyalty_number` ou qualquer cadeia de consulta personalizada.
 
-| Declaração | DESCRIÇÃO | Exemplo |
+| Declaração | Descrição | {1&gt;Exemplo&lt;1} |
 | ----- | ----------------------- | --------|
 | {OAUTH-KV:campaignId} | Um parâmetro de cadeia de consulta. | havaí |
 | {OAUTH-KV:app_session} | Um parâmetro de cadeia de consulta. | A3C5R |
 | {OAUTH-KV:loyalty_number} | Um parâmetro de cadeia de consulta. | 1234 |
-| {OAUTH-KV:any custom query string} | Um parâmetro de cadeia de consulta. | N/D |
+| {OAUTH-KV:any custom query string} | Um parâmetro de cadeia de consulta. | {1&gt;N/A&lt;1} |
 
 ### <a name="oauth2"></a>OAuth2
 
-| Declaração | DESCRIÇÃO | Exemplo |
+| Declaração | Descrição | {1&gt;Exemplo&lt;1} |
 | ----- | ----------------------- | --------|
-| {oauth2:access_token} | O token de acesso. | N/D |
+| {oauth2:access_token} | O token de acesso. | {1&gt;N/A&lt;1} |
 
 
 ### <a name="saml"></a>SAML
 
-| Declaração | DESCRIÇÃO | Exemplo |
+| Declaração | Descrição | {1&gt;Exemplo&lt;1} |
 | ----- | ----------- | --------|
 | {SAML: AuthnContextClassReferences} | O valor do elemento `AuthnContextClassRef`, da solicitação SAML. | urn: Oasis: names: TC: SAML: 2.0: AC: classes: PasswordProtectedTransport |
 | {SAML: NameIdPolicyFormat} | O atributo `Format`, do elemento `NameIDPolicy` da solicitação SAML. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |

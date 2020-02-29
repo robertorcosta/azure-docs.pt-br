@@ -15,15 +15,18 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: da397c180b6ccaf91084a0ec22210c7bcc88a5dc
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: a79e718c04f81b1552d63ab98b6dcd6bb428fb50
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084809"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918306"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Usar as Miniaturas de Vídeo de Mídia do Azure para criar um resumo de vídeo  
- 
+
+> [!NOTE]
+> O processador de mídia **Azure Media Video thumbnails** será desativado. Para a data de aposentadoria, consulte o tópico [componentes herdados](legacy-components.md) .
+
 ## <a name="overview"></a>Visão geral
 
 O MP (processador de mídia) das **Miniaturas de Vídeo de Mídia do Azure** permite criar o resumo de um vídeo que é grande utilidade para clientes que desejam apenas visualizar um resumo de um vídeo de longa duração. Por exemplo, os clientes talvez queiram ver um breve “vídeo resumido” ao focalizar uma miniatura. Ao ajustar os parâmetros das **Miniaturas de Vídeo de Mídia do Azure** por meio de uma predefinição de configuração, é possível usar a avançada tecnologia de detecção de captura e concatenação do MP para gerar de forma algorítmica um subclipe descritivo.  
@@ -56,10 +59,10 @@ Ao criar uma tarefa de miniatura de vídeo com as **Miniaturas de Vídeo de Míd
 
 No momento, é possível alterar os seguintes parâmetros:
 
-| Param | DESCRIÇÃO |
+| Param | Descrição |
 | --- | --- |
-| outputAudio |Especifica se o vídeo resultante conterá áudio. <br/>Valores permitidos: True ou False. Padrão: True. |
-| fadeInFadeOut |Especifica se as transições de esmaecimento serão usadas entre as miniaturas de movimento separadas.  <br/>Valores permitidos: True ou False.  Padrão: True. |
+| outputAudio |Especifica se o vídeo resultante conterá áudio. <br/>Valores permitidos: True ou False. O padrão é True. |
+| fadeInFadeOut |Especifica se as transições de esmaecimento serão usadas entre as miniaturas de movimento separadas.  <br/>Valores permitidos: True ou False.  O padrão é True. |
 | maxMotionThumbnailDurationInSecs |Inteiro que especifica qual será a duração de todo o vídeo resultante.  O padrão depende da duração do vídeo original. |
 
 A tabela a seguir descreve a duração padrão, quando **maxMotionThumbnailInSecs** não é usado.
@@ -106,7 +109,7 @@ O programa a seguir mostra como:
 
 Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
 
-#### <a name="example"></a>Exemplo
+#### <a name="example"></a>{1&gt;Exemplo&lt;1}
 
 ```csharp
     using System;

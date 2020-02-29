@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/27/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 03ff564848298d31c8bf92169d9e5f66d024d711
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 1d17f9af5700df5458cc4373dfc5cd8fb7774f91
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949177"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912385"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configure o fluxo de credenciais de senha de proprietário do recurso no Azure AD B2C
 
@@ -24,16 +24,7 @@ O fluxo de credenciais de senha de proprietário do recurso (ROPC) é um fluxo d
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-No Azure Active Directory B2C (Azure AD B2C), há suporte para as seguintes opções:
-
-- **Native Client**: interação do usuário durante a autenticação ocorre quando o código é executado em um dispositivo do lado do usuário. O dispositivo pode ser um aplicativo móvel em execução em um sistema operacional nativo, como Android e iOS.
-- **Fluxo de cliente público**: Somente credenciais de usuário, coletadas por um aplicativo, são enviadas na chamada de API. As credenciais do aplicativo não são enviadas.
-- **Adicionar novas declarações**: O conteúdo do token de ID pode ser alterado para adicionar novas declarações.
-
-Não há suporte para os fluxos a seguir:
-
-- **Servidor-para-servidor**: O sistema de proteção de identidade precisa de um endereço IP confiável coletado pelo chamador (o cliente nativo) como parte da interação. Em uma chamada de API do lado do servidor, somente o endereço IP do servidor é usado. Se um limite dinâmico de autenticações com falha for excedido, o sistema de proteção de identidade pode identificar um endereço IP repetido como um invasor.
-- **Fluxo de cliente confidencial**: A ID do cliente do aplicativo é validada, mas o segredo do aplicativo não é validado.
+[!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
 ##  <a name="create-a-resource-owner-user-flow"></a>Crie um fluxo de usuário do proprietário de recurso
 
@@ -65,12 +56,12 @@ Use seu aplicativo favorito de desenvolvimento de API para gerar uma chamada de 
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Chave | Value |
+| Chave | {1&gt;Valor&lt;1} |
 | --- | ----- |
-| Nome de Usuário | leadiocl@outlook.com |
-| Senha | Passxword1 |
-| grant_type | Senha |
-| scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 offline_access |
+| username | leadiocl@outlook.com |
+| password | Passxword1 |
+| grant_type | password |
+| escopo | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 offline_access |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | token id_token |
 
@@ -105,7 +96,7 @@ Construa uma chamada POST como a monstrada aqui com as informações na tabela a
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Chave | Value |
+| Chave | {1&gt;Valor&lt;1} |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |

@@ -12,19 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 92c4a40de7e35d0580fe407e36305a50ad68094c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 4b314fbdb9cbc0c0b797cbee8e92ee4702bbea81
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981781"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919457"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Serviços de área de trabalho remota não estiver iniciando uma VM do Azure
 
 Este artigo descreve como solucionar problemas quando você se conecta a uma máquina virtual (VM) do Azure e os Serviços de Área de Trabalho Remota, ou TermService, não estão sendo iniciados ou não são iniciados.
 
-> [!NOTE]  
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Azure Resource Manager e o clássico](../../azure-resource-manager/management/deployment-models.md). Este artigo descreve o uso do modelo de implantação do Gerenciador de Recursos. Recomendamos que você use esse modelo para novas implantações em vez do modelo de implantação clássico.
 
 ## <a name="symptoms"></a>Sintomas
 
@@ -96,7 +94,7 @@ Para solucionar esse problema, use o Console Serial. Ou então, [repare a VM off
    ```
 8. Se o serviço não for iniciado, execute a solução baseada no erro recebido:
 
-    |  Erro |  Sugestão |
+    |  Error |  Sugestão |
     |---|---|
     |5 - ACESSO NEGADO |Consulte o [Serviço TermService está parado devido a um erro de Acesso Negado](#termservice-service-is-stopped-because-of-an-access-denied-problem). |
     |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Veja [Serviço TermService está desabilitado](#termservice-service-is-disabled).  |  
@@ -221,6 +219,6 @@ Para solucionar esse problema, use o Console Serial. Ou então, [repare a VM off
 
 4. [Desanexe o disco do SO e recrie a VM](../windows/troubleshoot-recovery-disks-portal.md). Em seguida, verifique se o problema for resolvido.
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Entrar em contato com o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 
 Se você ainda precisar de ajuda, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema.

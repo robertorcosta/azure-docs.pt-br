@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 438143d3253f1cab1afb958a90f427dcba59a98e
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 8ea85b560f35c79b3d5066d794f587345810b5d0
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059245"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920851"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Instalar o Agente de Máquina Virtual do Azure no modo offline 
 
@@ -35,13 +35,13 @@ Instale o Agente de VM no modo offline nos seguintes cenários:
 
 Use as etapas a seguir para instalar o Agente de VM no modo offline.
 
-### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Etapa 1: Anexar o disco do sistema operacional da VM a outra VM como um disco de dados
+### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Etapa 1: anexar o disco do sistema operacional da VM a uma outra VM como um disco de dados
 
 1. Tire um instantâneo do disco do sistema operacional da VM afetada, crie um disco do instantâneo e, em seguida, anexe o disco a uma VM de solução de problemas. Para obter mais informações, consulte [solucionar problemas de uma VM do Windows anexando o disco do sistema operacional a uma VM de recuperação usando o portal do Azure](troubleshoot-recovery-disks-portal-windows.md). Para a VM clássica, exclua a VM e mantenha o disco do sistema operacional e anexe o disco do sistema operacional à VM de solução de problemas.
 
 2.  Conecte-se à VM de solução de problemas. Abra **Gerenciamento do computador** > **Gerenciamento de disco**. Confirme que o disco do sistema operacional está online e que as letras de unidade estão atribuídas às partições de disco.
 
-### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>Etapa 2: Modificar o disco do sistema operacional para instalar o Agente de VM do Azure
+### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>Etapa 2: modificar o disco do sistema operacional para instalar o Agente de VM do Azure
 
 1.  Inicie uma conexão de área de trabalho remota para a VM de solução de problemas.
 
@@ -106,6 +106,8 @@ Se você criou a VM usando o modelo de implantação do Resource Manager, já es
 
 ### <a name="use-the-provisionguestagent-property-for-classic-vms"></a>Usar a propriedade ProvisionGuestAgent para VMs clássicas
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 Se você tiver criado a VM usando o modelo clássico, use o módulo do Azure PowerShell para atualizar a propriedade **ProvisionGuestAgent**. A propriedade informa o Azure que a VM tem o Agente de VM instalado.
 
 Para definir a propriedade **ProvisionGuestAgent**, execute os seguintes comandos do Azure PowerShell:
@@ -123,7 +125,7 @@ Em seguida, execute o `Get-AzureVM` comando. Observe que a propriedade **GuestAg
    GuestAgentStatus:Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVMModel.GuestAgentStatus
    ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Visão geral do Agente de Máquina Virtual do Azure](../extensions/agent-windows.md)
 - [Recursos e extensões da máquina virtual para Windows](../extensions/features-windows.md)

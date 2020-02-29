@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 678bef1b18d60679be6c296a1fd7beef42f721b7
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
-ms.translationtype: HT
+ms.openlocfilehash: 21b05631f1c225c9c4b1f7c65d18588900850b8e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203831"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77911731"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Segurança e proteção de dados do Azure Data Box
 
@@ -79,10 +79,10 @@ O Azure Data Box reúne e exibe informações pessoais nas seguintes instâncias
 - **Detalhes do pedido** - após a ordem ser criada, o endereço de envio, email e as informações de contato dos usuários são armazenadas no portal do Azure. As informações salvas incluem:
 
   - Nome de contato
-  - Número de telefone
+  - Telefone
   - Email
   - Endereço
-  - City
+  - Cidade
   - CEP/Código postal
   - Estado
   - Região/País/Região
@@ -100,7 +100,7 @@ Para mais informações, revise a Política de Privacidade da Microsoft na [Cent
 
 As seguintes diretrizes de segurança são implementadas no Data Box: 
 
-|Diretriz   |DESCRIÇÃO   |
+|Diretriz   |Descrição   |
 |---------|---------|
 |[IEC 60529 IP52](https://www.iec.ch/)    | Para proteção contra água e poeira         |
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | Para durabilidade em condições adversas de transporte          |
@@ -108,7 +108,7 @@ As seguintes diretrizes de segurança são implementadas no Data Box:
 |[FIPS 140-2 Nível 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | Para proteção de dados         |
 |Apêndice A para unidades de disco rígido ATA em [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | Para limpeza de dados         |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Examine os [requisitos do Data Box](data-box-system-requirements.md).
 - Entenda os [limites do Data Box](data-box-limits.md).

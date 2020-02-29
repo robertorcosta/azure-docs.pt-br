@@ -14,14 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 11f897852ce820e666d7403f42735b2ee3bdd73b
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 11889bd6df0bcc9564c17fdaacc333df1d418660
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084817"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918301"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Usar a Análise de Mídia do Azure para converter o conteúdo de texto em arquivos de vídeo em texto digital  
+
+> [!NOTE]
+> O processador de mídia do **OCR de mídia do Azure** será desativado. Para a data de aposentadoria, consulte o tópico [componentes herdados](legacy-components.md) .
 
 ## <a name="overview"></a>Visão geral
 Se for necessário extrair o conteúdo de texto de seus arquivos de vídeo e gerar um texto digital editável e pesquisável, você deverá usar o OCR (reconhecimento óptico de caracteres) da Análise de Mídia do Azure. Esse Processador de Mídia do Azure detecta o conteúdo de texto em seus arquivos de vídeo e gera arquivos de texto para seu uso. O OCR permite que você automatize a extração de metadados significativos do sinal de vídeo de sua mídia.
@@ -43,10 +46,10 @@ Configuração de tarefa (predefinição). Ao criar uma tarefa com o **OCR de M�
 >
 
 ### <a name="attribute-descriptions"></a>Descrições de atributos
-| Nome do atributo | DESCRIÇÃO |
+| Nome do atributo | Descrição |
 | --- | --- |
-|AdvancedOutput| Se você definir AdvancedOutput como true, a saída JSON conterá dados posicionais para cada palavra (além de frases e regiões). Se você não quiser ver esses detalhes, defina o sinalizador como false. O valor padrão é falso. Para saber mais, confira [este blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
-| idioma |(opcional) descreve o idioma do texto a ser procurado. Um dos seguintes: AutoDetect (padrão), Arabic, ChineseSimplified, ChineseTraditional, Czech Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish. |
+|AdvancedOutput| Se você definir AdvancedOutput como true, a saída JSON conterá dados posicionais para cada palavra (além de frases e regiões). Se você não quiser ver esses detalhes, defina o sinalizador como false. O valor padrão é false. Para saber mais, confira [este blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
+| Linguagem |(opcional) descreve o idioma do texto a ser procurado. Um dos seguintes: AutoDetect (padrão), Arabic, ChineseSimplified, ChineseTraditional, Czech Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish. |
 | TextOrientation |(opcional) descreve a orientação do texto a ser procurado.  "Left" significa que a parte superior de todas as letras apontam para a esquerda.  O texto padrão (como aquele que pode ser encontrado em um livro), tem a orientação “Up”.  Um dos seguintes: AutoDetect (padrão), Up, Right, Down, Left. |
 | TimeInterval |(opcional) descreve a taxa de amostragem.  O padrão é a cada 1/2 segundo.<br/>Formato JSON – HH:mm:ss.SSS (padrão 00:00:00.500)<br/>Formato XML: duração primitiva do W3C XSD (padrão PT0.5) |
 | DetectRegions |(opcional) Uma matriz de objetos DetectRegion especificando regiões dentro do quadro de vídeo para detectar o texto.<br/>Um objeto DetectRegion é composto pelos quatro seguintes valores inteiros:<br/>Left: pixels a partir da margem esquerda<br/>Top: pixels a partir da margem superior<br/>Width: altura da região em pixels<br/>Height: altura da região em pixels |
@@ -104,22 +107,22 @@ A saída de OCR de vídeo fornece dados segmentados por tempo sobre os caractere
 
 A saída contém os seguintes atributos:
 
-| Elemento | DESCRIÇÃO |
+| Elemento | Descrição |
 | --- | --- |
 | Escala de tempo |"Tiques" por segundo do vídeo |
-| Deslocamento |diferença de tempo para carimbos de data/hora. Na versão 1.0 das APIs de Vídeo, sempre será 0. |
+| Offset |diferença de tempo para carimbos de data/hora. Na versão 1.0 das APIs de Vídeo, sempre será 0. |
 | Taxa de quadros |Quadros por segundo do vídeo |
 | width |largura do vídeo em pixels |
 | height |altura do vídeo em pixels |
 | Fragmentos |matriz de partes com base em tempo do vídeo nas quais os metadados estão em bloco |
-| iniciar |hora de início de um fragmento em "tiques" |
+| start |hora de início de um fragmento em "tiques" |
 | duration |duração de um fragmento em "tiques" |
-| intervalo |intervalo de cada evento dentro do fragmento determinado |
-| events |matriz que contém regiões |
+| interval |intervalo de cada evento dentro do fragmento determinado |
+| eventos |matriz que contém regiões |
 | region |objeto representando palavras ou frases detectadas |
-| idioma |idioma do texto detectado dentro de uma região |
-| orientation |orientação do texto detectado dentro de uma região |
-| lines |matriz de linhas de texto detectadas em uma região |
+| {1&gt;language&lt;1} |idioma do texto detectado dentro de uma região |
+| orientação |orientação do texto detectado dentro de uma região |
+| linhas |matriz de linhas de texto detectadas em uma região |
 | texto |o texto real |
 
 ### <a name="json-output-example"></a>Exemplo de saída JSON
@@ -192,7 +195,7 @@ O programa a seguir mostra como:
 
 Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
 
-#### <a name="example"></a>Exemplo
+#### <a name="example"></a>{1&gt;Exemplo&lt;1}
 
 ```csharp
 using System;

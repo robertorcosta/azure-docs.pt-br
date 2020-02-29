@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: memildin
-ms.openlocfilehash: d208629ee29bb9102f16fcb1d541677bd4a4d5fa
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 330cbc3f28f5e549d5a21417c3d7ccc1e5444769
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77431560"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919525"
 ---
 # <a name="monitoring-the-security-of-your-containers"></a>Monitorando a segurança de seus contêineres
 
@@ -29,7 +29,7 @@ A central de segurança do Azure abrange os três aspectos de segurança do cont
 
 - **Protegendo seus clusters do serviço kubernetes do Azure** – a central de segurança fornece recomendações quando encontra vulnerabilidades na configuração de seus clusters do serviço kubernetes do Azure. Para obter detalhes sobre as recomendações específicas que podem aparecer, consulte as [recomendações do serviço kubernetes](recommendations-reference.md#recs-containers).
 
-- **Proteção de tempo de execução** -se você estiver no tipo de preço Standard da central de segurança, obterá detecção de ameaças em tempo real para seus ambientes em contêineres. A central de segurança gera alertas para atividades suspeitas no nível de cluster do host e do AKS. Para obter detalhes sobre os alertas de segurança relevantes que podem ser exibidos, consulte as seções [alertas para clusters do serviço kubernetes do Azure](alerts-reference.md#alerts-akscluster) e [alertas para contêineres-nível de host](alerts-reference.md#alerts-containerhost) da tabela de referência de alertas.
+- **Proteção de tempo de execução** -se você estiver no tipo de preço Standard da central de segurança, obterá proteção contra ameaças em tempo real para seus ambientes em contêineres. A central de segurança gera alertas para atividades suspeitas no nível de cluster do host e do AKS. Para obter detalhes sobre os alertas de segurança relevantes que podem ser exibidos, consulte as seções [alertas para clusters do serviço kubernetes do Azure](alerts-reference.md#alerts-akscluster) e [alertas para contêineres-nível de host](alerts-reference.md#alerts-containerhost) da tabela de referência de alertas.
 
 ## <a name="scanning-your-arm-based-container-registries-for-vulnerabilities"></a>Verificando se há vulnerabilidades nos registros de contêiner baseados em ARM 
 
@@ -135,7 +135,7 @@ Para exibir as recomendações de segurança da central de segurança do Azure p
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste artigo, você aprendeu a usar os recursos de segurança do contêiner da central de segurança. 
 

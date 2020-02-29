@@ -12,14 +12,16 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: d43176e04337c2faf7be0bea682428056bc4ab46
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 20e64e5225987a8045e406a0e8fcae098c580c61
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059189"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913371"
 ---
 # <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>As etapas de solução de problemas específicas de cenários de falha de alocação no modelo de implantação clássico
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 A seguir, os cenários de alocação comuns que fazem com que uma solicitação de alocação seja fixada. Vamos nos aprofundar em cada cenário posteriormente neste artigo.
 
@@ -116,7 +118,7 @@ New_General* ou New_VMSizeNotSupported\*
 
 **Causa de fixação de cluster**
 
-Antes de as redes virtuais regionais serem introduzidas, era necessário associar uma rede virtual ao grupo de afinidades. Como resultado, os recursos de computação colocados em um grupo de afinidades são vinculados pelas mesmas restrições, conforme descrito no "cenário de alocação: Seção de grupo de afinidade (proximidade de serviço/VM) "acima. Os recursos de computação são vinculados a um cluster.
+Antes de as redes virtuais regionais serem introduzidas, era necessário associar uma rede virtual ao grupo de afinidades. Como resultado, os recursos de computação colocados em um grupo de afinidades são vinculados pelas mesmas restrições descritas na seção anterior, "Cenário de alocação: grupo de afinidades (proximidade de serviço/VM)". Os recursos de computação são vinculados a um cluster.
 
 **Solução alternativa**
 

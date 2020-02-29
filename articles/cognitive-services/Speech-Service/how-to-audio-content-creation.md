@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: dapine
-ms.openlocfilehash: aed9c0a72af063c84c0744757772e11c689ac14c
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 4785356963e7df1d7b175ac21ceebc921f851ffb
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561027"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913643"
 ---
 # <a name="improve-synthesis-with-audio-content-creation"></a>Melhorar a síntese com a criação de conteúdo de áudio
 
@@ -23,7 +23,7 @@ A [criação de conteúdo de áudio](https://aka.ms/audiocontentcreation) é uma
 
 A ferramenta de criação de conteúdo de áudio baseia-se na [SSML (linguagem de marcação de síntese de fala)](speech-synthesis-markup.md). Para simplificar a personalização e o ajuste, a criação de conteúdo de áudio permite que você inspecione visualmente suas saídas de texto em fala em tempo real.
 
-## <a name="how-does-it-work"></a>Como ele funciona?
+## <a name="how-does-it-work"></a>Como funciona?
 
 Este diagrama mostra as etapas necessárias para ajustar e exportar saídas de fala para texto personalizadas. Use os links abaixo para saber mais sobre cada etapa.
 
@@ -43,7 +43,7 @@ Este diagrama mostra as etapas necessárias para ajustar e exportar saídas de f
 
 Siga estas etapas para criar um recurso de fala e conectá-lo com o Speech Studio.
 
-1. Siga estas instruções para [se inscrever em uma conta do Azure](get-started.md#try-the-speech-service-using-a-new-azure-account) e [criar um recurso de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Verifique se o tipo de preço está definido como **S0**. Se você estiver usando uma das vozes neurais, certifique-se de criar seu recurso em uma [região com suporte](regions.md#standard-and-neural-voices).
+1. Siga estas instruções para [se inscrever em uma conta do Azure](get-started.md#new-resource) e [criar um recurso de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Verifique se o tipo de preço está definido como **S0**. Se você estiver usando uma das vozes neurais, certifique-se de criar seu recurso em uma [região com suporte](regions.md#standard-and-neural-voices).
 2. Entrar na [criação de conteúdo de áudio](https://aka.ms/audiocontentcreation).
 3. Selecione um projeto existente ou clique em **criar novo**.
 4. Você pode modificar sua assinatura a qualquer momento com a opção **configurações** , localizada na barra de navegação superior.
@@ -95,20 +95,20 @@ Depois de revisar sua saída de áudio e ficar satisfeito com seu ajuste e ajust
 2. Escolha o formato de saída para o áudio ajustado. Uma lista de formatos com suporte e taxas de exemplo está disponível abaixo.
 3. Você pode exibir o status da tarefa na guia **exportar tarefa** . Se a tarefa falhar, consulte a página informações detalhadas para obter um relatório completo.
 4. Quando a tarefa for concluída, o áudio estará disponível para download na guia **biblioteca de áudio** .
-5. Clique em **Download**. Agora você está pronto para usar seu áudio ajustado personalizado em seus aplicativos ou produtos.
+5. Clique em **Baixar**. Agora você está pronto para usar seu áudio ajustado personalizado em seus aplicativos ou produtos.
 
 ### <a name="supported-audio-formats"></a>Formatos com suporte de áudio
 
-| Formatar | taxa de amostragem de 16 kHz | taxa de amostragem de 24 kHz |
+| Formato | taxa de amostragem de 16 kHz | taxa de amostragem de 24 kHz |
 |--------|--------------------|--------------------|
 | WAV | riff-16kHz-16 bits-mono-PCM | riff-24kHz-16 bits-mono-PCM |
 | mp3 | Audio-16kHz-128kbitrate-mono-mp3 | Audio-24kHz-160kbitrate-mono-mp3 |
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 * [API de áudio longo](https://aka.ms/long-audio-api)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!div class="nextstepaction"]
 > [Estúdio de Fala](https://speech.microsoft.com)

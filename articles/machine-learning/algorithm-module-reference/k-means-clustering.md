@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/19/2019
-ms.openlocfilehash: 6e2fa96584570e5837c4367c8be4701b7398fb0f
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/19/2020
+ms.openlocfilehash: 9606768288cc74afc24491149eb471944f45e2dc
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152203"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921157"
 ---
 # <a name="module-k-means-clustering"></a>Módulo: clustering K-means
 
@@ -107,11 +107,11 @@ Quando ele processa os dados de treinamento, o algoritmo K-means começa com um 
   
     -   Se você definir **criar modo de instrutor** como um **único parâmetro**, adicione um conjunto de um DataSet marcado e treine o modelo usando o módulo [treinar modelo de clustering](train-clustering-model.md) .  
   
-### <a name="results"></a>Resultados
+## <a name="results"></a>Resultados
 
 Depois de concluir a configuração e o treinamento do modelo, você tem um modelo que pode ser usado para gerar pontuações. No entanto, há várias maneiras de treinar o modelo e várias maneiras de exibir e usar os resultados: 
 
-#### <a name="capture-a-snapshot-of-the-model-in-your-workspace"></a>Capturar um instantâneo do modelo em seu espaço de trabalho
+### <a name="capture-a-snapshot-of-the-model-in-your-workspace"></a>Capturar um instantâneo do modelo em seu espaço de trabalho
 
 Se você usou o módulo [treinar modelo de clustering](train-clustering-model.md) :
 
@@ -121,7 +121,7 @@ Se você usou o módulo [treinar modelo de clustering](train-clustering-model.md
 
 O modelo salvo representa os dados de treinamento no momento em que você salvou o modelo. Se você atualizar mais tarde os dados de treinamento usados no pipeline, ele não atualizará o modelo salvo. 
 
-#### <a name="see-the-clustering-result-dataset"></a>Consulte o conjunto de conjuntos de resultados de clustering 
+### <a name="see-the-clustering-result-dataset"></a>Consulte o conjunto de conjuntos de resultados de clustering 
 
 Se você usou o módulo [treinar modelo de clustering](train-clustering-model.md) :
 
@@ -142,3 +142,7 @@ Você pode evitar esse problema de duas maneiras:
 -   Crie vários modelos, variando a métrica ou Iterando mais.  
   
 Em geral, com modelos de clustering, é possível que qualquer configuração específica resulte em um conjunto de clusters otimizado localmente. Em outras palavras, o conjunto de clusters retornado pelo modelo atende apenas aos pontos de dados atuais e não é generalizado para outros dados. Se você usar uma configuração inicial diferente, o método K-means poderá encontrar uma configuração diferente e superior. 
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

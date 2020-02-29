@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: f3cb583a3594b14266249ef80f8c49633c1df1de
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: cd634c41a1d6e3d9846e8299dd281b52beb77130
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152186"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912782"
 ---
 # <a name="linear-regression-module"></a>Módulo de regressão linear
 Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
@@ -51,17 +51,15 @@ Há anos, estatísticos desenvolver métodos cada vez mais avançados para regre
 
 Esse módulo dá suporte a dois métodos para ajustar um modelo de regressão, com opções diferentes:
 
-+ [Criar um modelo de regressão usando o gradiente online descendente](#bkmk_GradientDescent)
++ [Ajustar um modelo de regressão usando quadrados mínimos comuns](#create-a-regression-model-using-ordinary-least-squares)
+
+    Para conjuntos de valores pequenos, é melhor selecionar quadrados mínimos comuns. Isso deve fornecer resultados semelhantes para o Excel.
+    
++ [Criar um modelo de regressão usando o gradiente online descendente](#create-a-regression-model-using-online-gradient-descent)
 
     O espaço descendente do gradiente é uma função de perda melhor para modelos que são mais complexos, ou que têm muito poucos dados de treinamento, dado o número de variáveis.
 
-
-
-+ [Ajustar um modelo de regressão usando quadrados mínimos comuns](#bkmk_OrdinaryLeastSquares)
-
-    Para conjuntos de valores pequenos, é melhor selecionar quadrados mínimos comuns. Isso deve fornecer resultados semelhantes para o Excel.
-
-## <a name="bkmk_OrdinaryLeastSquares"></a>Criar um modelo de regressão usando quadrados mínimos comuns
+### <a name="create-a-regression-model-using-ordinary-least-squares"></a>Criar um modelo de regressão usando quadrados mínimos comuns
 
 1. Adicione o módulo **modelo de regressão linear** ao seu pipeline no designer.
 
@@ -86,7 +84,7 @@ Esse módulo dá suporte a dois métodos para ajustar um modelo de regressão, c
 
 8. Execute o pipeline.
 
-## <a name="results-for-ordinary-least-squares-model"></a>Resultados para o modelo de quadrados mínimos comum
+### <a name="results-for-ordinary-least-squares-model"></a>Resultados para o modelo de quadrados mínimos comum
 
 Após a conclusão do treinamento:
 
@@ -94,7 +92,7 @@ Após a conclusão do treinamento:
 + Para fazer previsões, conecte o modelo treinado ao módulo [modelo de Pontuação](./score-model.md) , juntamente com um conjunto de valores novos. 
 
 
-## <a name="bkmk_GradientDescent"></a>Criar um modelo de regressão usando o gradiente online descendente
+### <a name="create-a-regression-model-using-online-gradient-descent"></a>Criar um modelo de regressão usando o gradiente online descendente
 
 1. Adicione o módulo **modelo de regressão linear** ao seu pipeline no designer.
 
@@ -105,6 +103,8 @@ Após a conclusão do treinamento:
 3. Para **criar modo de instrutor**, indique se você deseja treinar o modelo com um conjunto predefinido de parâmetros ou se deseja otimizar o modelo usando uma varredura de parâmetro.
 
     + **Parâmetro único**: se você souber como deseja configurar a rede de regressão linear, poderá fornecer um conjunto específico de valores como argumentos.
+    
+    + **Intervalo de parâmetros**: Selecione esta opção se você não tiver certeza dos melhores parâmetros e quiser executar uma limpeza de parâmetro. Selecione um intervalo de valores para iteração e os [hiperparâmetros de modelo de ajuste](tune-model-hyperparameters.md) iteram sobre todas as combinações possíveis das configurações que você forneceu para determinar os hiperparâmetros que produzem os resultados ideais.  
 
    
 4. Para **taxa de aprendizagem**, especifique a taxa de aprendizado inicial para o otimizador de descendente de gradiente estocástico.
@@ -133,13 +133,13 @@ Após a conclusão do treinamento:
 
 13. Execute o pipeline.
 
-## <a name="results-for-online-gradient-descent"></a>Resultados para descendente de gradiente online
+### <a name="results-for-online-gradient-descent"></a>Resultados para descendente de gradiente online
 
 Após a conclusão do treinamento:
 
 + Para fazer previsões, conecte o modelo treinado ao módulo [modelo de Pontuação](./score-model.md) , junto com os novos dados de entrada.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

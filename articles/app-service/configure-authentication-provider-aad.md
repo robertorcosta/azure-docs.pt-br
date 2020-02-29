@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 09/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 69959418c52eb7324efe19ca41481e426b822ab4
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 717336e0ddfe99c96afda4861f4de1239ee949bf
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842343"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913201"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-ad-login"></a>Configurar seu aplicativo do serviço de aplicativo para usar o logon do Azure AD
 
@@ -25,6 +25,9 @@ Siga estas práticas recomendadas ao configurar seu aplicativo e a autenticaçã
 - Evite o compartilhamento de permissão entre ambientes usando registros de aplicativo separados para slots de implantação separados. Ao testar o novo código, essa prática pode ajudar a evitar problemas de afetar o aplicativo de produção.
 
 ## <a name="express"> </a>Configurar com as configurações expressas
+
+> [!NOTE]
+> A opção **expressa** não está disponível para nuvens governamentais. 
 
 1. No [Azure portal], procure e selecione serviços de **aplicativos**e, em seguida, selecione seu aplicativo.
 2. No painel de navegação esquerdo, selecione **autenticação/autorização** > **em**.
@@ -43,7 +46,7 @@ Siga estas práticas recomendadas ao configurar seu aplicativo e a autenticaçã
 
     > [!CAUTION]
     > Restringir o acesso dessa maneira se aplica a todas as chamadas para seu aplicativo, o que pode não ser desejável para aplicativos que têm um home page publicamente disponível, como em muitos aplicativos de página única. Para tais aplicativos, **Permitir solicitações anônimas (nenhuma ação)** pode ser preferível, com o aplicativo iniciando o logon manualmente. Para obter mais informações, consulte [fluxo de autenticação](overview-authentication-authorization.md#authentication-flow).
-5. Clique em **Salvar**.
+5. Selecione **Salvar**.
 
 ## <a name="advanced"> </a>Definir com configurações avançadas
 
@@ -57,7 +60,7 @@ Você pode definir as configurações do aplicativo manualmente se quiser usar u
 Você precisará das seguintes informações ao configurar seu aplicativo do serviço de aplicativo:
 
 - ID do Cliente
-- ID do locatário
+- ID do inquilino
 - Segredo do cliente (opcional)
 - URI da ID do aplicativo
 
@@ -90,7 +93,7 @@ Execute as seguintes etapas:
 1. Em **Provedores de Autenticação**, selecione **Azure Active Directory**.
 1. Em **modo de gerenciamento**, selecione **avançado** e configure a autenticação do serviço de aplicativo de acordo com a tabela a seguir:
 
-    |Campo|Description|
+    |Campo|Descrição|
     |-|-|
     |ID do Cliente| Use a **ID do aplicativo (cliente)** do registro do aplicativo. |
     |ID do emissor| Use `https://login.microsoftonline.com/<tenant-id>`e substitua *\<> ID do locatário* pela ID do **diretório (locatário)** do registro do aplicativo. |
@@ -101,7 +104,7 @@ Execute as seguintes etapas:
 
 Agora você está pronto para usar Azure Active Directory para autenticação em seu aplicativo do serviço de aplicativo.
 
-## <a name="configure-a-native-client-application"></a>Configurar um aplicativo de cliente nativo
+## <a name="configure-a-native-client-application"></a>Configurar um aplicativo cliente nativo
 
 Você pode registrar clientes nativos para permitir a autenticação usando uma biblioteca de cliente, como o **biblioteca de autenticação do Active Directory**.
 

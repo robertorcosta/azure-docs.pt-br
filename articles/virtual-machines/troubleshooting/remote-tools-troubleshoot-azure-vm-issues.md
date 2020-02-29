@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: 3f028431fcd4b338d2e610ce1828a02b753c4d32
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b86b1a2d8a49554cc3df99e0a32a2c0ccaacb560
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483707"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920001"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Use ferramentas remotas para solucionar problemas do VM do Azure
 
@@ -60,6 +60,9 @@ Você pode usar o recurso Custom Script Extension para executar um script person
 Carregue seu script em uma conta de armazenamento e gere seu próprio contêiner. Em seguida, execute o seguinte script do PowerShell do Azure em um computador que tenha conectividade com a VM.
 
 ### <a name="for-classic-deployment-model-vms"></a>Para VMs do modelo de implantação clássica
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 
 ```powershell
 #Set up the basic variables.
@@ -200,7 +203,7 @@ Você também pode usar o cmdlet Invoke-Command para executar um script na VM re
 Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 ```
 
-## <a name="remote-registry"></a>Registro remoto
+## <a name="remote-registry"></a>Registro Remoto
 
 >[!NOTE]
 >A porta TCP 135 ou 445 deve estar aberta para usar esta opção.
@@ -246,7 +249,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 5. Faça as alterações necessárias para os serviços.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Para obter mais informações sobre o cmdlet Enter-PSSession, consulte [Enter-PSSession](https://technet.microsoft.com/library/hh849707.aspx).
 - Para obter mais informações sobre a extensão de script personalizado para Windows usando o modelo de implantação clássico, consulte [extensão de script personalizado para Windows](../extensions/custom-script-classic.md).

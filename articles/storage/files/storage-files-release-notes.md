@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: d0e830aaca4f952f75c220b4f482ce831883b058
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 51b7b37466ae8a6988ee4bfa85a054fb42d23124
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905580"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920749"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão para o agente de Sincronização de Arquivos do Azure
 A Sincronização de Arquivos do Azure permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. As instalações do Windows Server são transformadas em um cache rápido do seu compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS). Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -23,24 +23,24 @@ Este artigo fornece as notas de versão para versões com suporte do agente de S
 ## <a name="supported-versions"></a>Versões com suporte
 As seguintes versões têm suporte pela Sincronização de arquivos do Azure:
 
-| Marco | Número de versão do agente | Data do lançamento | Status |
+| Marco | Número de versão do agente | Data de liberação | Status |
 |----|----------------------|--------------|------------------|
-| Pacote cumulativo de atualizações de dezembro de 2019 – [KB4522360](https://support.microsoft.com/help/4522360)| 9.1.0.0 | 12 de dezembro de 2019 | Com suporte |
-| V9 versão – [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | 2 de dezembro de 2019 | Com suporte |
-| V8 versão – [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 8 de outubro de 2019 | Com suporte |
-| Pacote cumulativo de atualizações de julho de 2019- [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 24 de julho de 2019 | Com suporte |
-| Pacote cumulativo de atualizações de julho de 2019- [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 12 de julho de 2019 | Com suporte |
-| Versão v7- [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 19 de junho de 2019 | Com suporte |
-| Pacote cumulativo de atualizações de junho de 2019- [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 27 de junho de 2019 | Com suporte |
-| Pacote cumulativo de atualizações de junho de 2019- [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 13 de junho de 2019 | Com suporte |
-| Pacote cumulativo de atualizações 2019 de maio- [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 7 de maio de 2019 | Com suporte |
-| Versão V6- [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 21 de abril de 2019 | Com suporte |
-| Pacote cumulativo de atualizações de abril de 2019- [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 4 de abril de 2019 | Com suporte-a versão do agente irá expirar em 12 de fevereiro de 2020 |
-| Pacote cumulativo de atualizações de março de 2019- [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 7 de março de 2019 | Com suporte-a versão do agente irá expirar em 12 de fevereiro de 2020 |
-| Versão V5 – [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 12 de fevereiro de 2019 | Com suporte-a versão do agente irá expirar em 12 de fevereiro de 2020 |
-| Lançamento V4 | 4.0.1.0 - 4.3.0.0 | N/D | Sem suporte-as versões do agente expiraram em 6 de novembro de 2019 |
-| Versão v3 | 3.1.0.0-3.4.0.0 | N/D | Sem suporte-as versões do agente expiraram em 19 de agosto de 2019 |
-| Agentes de pré-lançamento | 1.1.0.0 – 3.0.13.0 | N/D | Sem suporte – versão de agente expiradas em 1 de outubro de 2018 |
+| Pacote cumulativo de atualizações de dezembro de 2019 – [KB4522360](https://support.microsoft.com/help/4522360)| 9.1.0.0 | 12 de dezembro de 2019 | Suportado |
+| V9 versão – [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | 2 de dezembro de 2019 | Suportado |
+| V8 versão – [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 8 de outubro de 2019 | Suportado |
+| Pacote cumulativo de atualizações de julho de 2019- [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 24 de julho de 2019 | Suportado |
+| Pacote cumulativo de atualizações de julho de 2019- [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 12 de julho de 2019 | Suportado |
+| Versão v7- [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 19 de junho de 2019 | Suportado |
+| Pacote cumulativo de atualizações de junho de 2019- [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 27 de junho de 2019 | Suportado |
+| Pacote cumulativo de atualizações de junho de 2019- [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 13 de junho de 2019 | Suportado |
+| Pacote cumulativo de atualizações 2019 de maio- [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 7 de maio de 2019 | Suportado |
+| Versão V6- [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 21 de abril de 2019 | Suportado |
+| Pacote cumulativo de atualizações de abril de 2019- [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 4 de abril de 2019 | Com suporte-a versão do agente irá expirar em 18 de março de 2020 |
+| Pacote cumulativo de atualizações de março de 2019- [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 7 de março de 2019 | Com suporte-a versão do agente irá expirar em 18 de março de 2020 |
+| Versão V5 – [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 12 de fevereiro de 2019 | Com suporte-a versão do agente irá expirar em 18 de março de 2020 |
+| Lançamento V4 | 4.0.1.0 - 4.3.0.0 | {1&gt;N/A&lt;1} | Sem suporte-as versões do agente expiraram em 6 de novembro de 2019 |
+| Versão v3 | 3.1.0.0-3.4.0.0 | {1&gt;N/A&lt;1} | Sem suporte-as versões do agente expiraram em 19 de agosto de 2019 |
+| Agentes de pré-lançamento | 1.1.0.0 – 3.0.13.0 | {1&gt;N/A&lt;1} | Sem suporte – versão de agente expiradas em 1 de outubro de 2018 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente de Sincronização de Arquivo do Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
@@ -60,7 +60,7 @@ As notas de versão a seguir são para a versão 9.0.0.0 do agente de Sincroniza
 ### <a name="improvements-and-issues-that-are-fixed"></a>Problemas corrigidos e aprimoramentos
 
 - Suporte à restauração de autoatendimento
-    - Os usuários agora podem restaurar seus arquivos usando o recurso de versão anterior. Antes da versão V9, o recurso de versão anterior não tinha suporte em volumes que tinham camadas de nuvem habilitadas. Esse recurso deve ser habilitado para cada volume separadamente, no qual um ponto de extremidade com camada de nuvem habilitada existe. Para obter mais informações, consulte:  
+    - Os usuários agora podem restaurar seus arquivos usando o recurso de versão anterior. Antes da versão V9, o recurso de versão anterior não tinha suporte em volumes que tinham camadas de nuvem habilitadas. Esse recurso deve ser habilitado para cada volume separadamente, no qual um ponto de extremidade com camada de nuvem habilitada existe. Para saber mais, veja  
 [Restauração de autoatendimento por meio de versões anteriores e VSS (serviço de cópias de sombra de volume)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service). 
  
 - Suporte para tamanhos maiores de compartilhamento de arquivos 
@@ -426,7 +426,7 @@ As notas sobre a versão a seguir são para a versão 5.0.2.0 do agente de Sincr
 
 - Suporte para a nuvem do Azure Governamental
   - Adicionamos suporte à versão prévia para a nuvem do Azure Governamental. Isso exige uma assinatura inclusa na lista de permissão e download do agente especial da Microsoft. Para obter acesso à versão prévia, envie um email diretamente para [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com).
-- Suporte para Eliminação de Duplicação de Dados
+- Suporte para a Eliminação de Duplicação de Dados
     - A Eliminação de Duplicação de Dados tem suporte completo com a camada de nuvem habilitada no Windows Server 2016 e no Windows Server 2019. Habilitar a eliminação de duplicação em um volume com camada de nuvem habilitada permite armazenar em cache mais arquivos localmente sem ter que provisionar mais armazenamento.
 - Suporte para transferência de dados offline (por exemplo, por meio do Data Box)
     - Migre facilmente grandes quantidades de dados para a Sincronização de Arquivos do Azure do modo que escolher. Você pode escolher Azure Data Box, AzCopy e até mesmo serviços de migração de terceiros. Não é necessário usar grandes quantidades de largura de banda para colocar seus dados no Azure. No caso do Data Box, simplesmente envie-os por ele. Para obter mais informações, confira [Documentos de transferência de dados offline](https://aka.ms/AFS/OfflineDataTransfer).

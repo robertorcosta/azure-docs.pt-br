@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 5d0035e7c87806012d13117ae5335b7de5f3c99d
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: ac67ef64ca4850c6e805b5314ace856114d889a7
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132292"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917223"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Casos de uso comuns e cenários para Azure Active Directory Domain Services
 
@@ -97,7 +97,7 @@ As seguintes considerações de implantação se aplicam a este exemplo de caso 
 
 Você pode usar o Azure AD DS para fornecer serviços de domínio gerenciado para servidores de área de trabalho remota implantados no Azure. Para obter mais informações sobre esse cenário de implantação, consulte [como integrar o Azure AD Domain Services com sua implantação do RDS][windows-rds].
 
-## <a name="domain-joined-hdinsight-clusters-preview"></a>Clusters HDInsight ingressados no domínio (visualização)
+## <a name="domain-joined-hdinsight-clusters"></a>Clusters HDInsight ingressados no domínio
 
 Você pode configurar um cluster do Azure HDInsight que tenha ingressado em um domínio gerenciado AD DS do Azure com o Apache Ranger habilitado. Você pode criar e aplicar políticas de Hive por meio do Apache Ranger e permitir que usuários, como cientistas de dados, se conectem ao hive usando ferramentas baseadas em ODBC como Excel ou tableau. Continuamos a trabalhar para adicionar outras cargas de trabalho, como HBase, Spark e Storm ao HDInsight ingressado no domínio.
 

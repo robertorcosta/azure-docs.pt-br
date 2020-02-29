@@ -11,13 +11,13 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 02/06/2020
-ms.openlocfilehash: 5f9e15b83c36c6c19fbe93c5f1df365f6f763c81
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.date: 02/28/2020
+ms.openlocfilehash: 701e279e349bdc3b92d5b5c2dc50e23199f9d766
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187678"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78160804"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configurar um IR auto-hospedado como um proxy para um Azure-SSIS IR no Azure Data Factory
 
@@ -165,9 +165,9 @@ As segunda tarefas de preparo que são executadas no Azure-SSIS IR não são cob
 
 ## <a name="current-limitations"></a>Limitações atuais
 
-- Somente as tarefas de fluxo de dados com ODBC (Open Database Connectivity), OLEDB ou gerenciadores de conexões de arquivos simples e ODBC, OLEDB e fontes de arquivo simples ou destino OLEDB têm suporte no momento. 
+- No momento, só há suporte para tarefas de fluxo de dados com ODBC (Open Database Connectivity), OLEDB ou gerenciadores de conexões de arquivos simples e ODBC, OLEDB ou fontes de arquivo simples. 
 - Somente os serviços vinculados do armazenamento de BLOBs do Azure que estão configurados com *chave de conta*, *URI de SAS (assinatura de acesso compartilhado)* ou autenticação de *entidade de serviço* atualmente têm suporte.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Depois de configurar o IR auto-hospedado como um proxy para seu Azure-SSIS IR, você pode implantar e executar seus pacotes para acessar dados no local como executar atividades de pacote SSIS em pipelines de Data Factory. Para saber como, consulte [executar pacotes SSIS como atividades de execução de pacote SSIS em pipelines de data Factory](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).

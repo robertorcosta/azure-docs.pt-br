@@ -1,5 +1,6 @@
 ---
-title: Introdução às políticas personalizadas-Azure Active Directory B2C
+title: Introdução às políticas personalizadas
+titleSuffix: Azure AD B2C
 description: Saiba como começar a usar políticas personalizadas no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 02/28/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5a0e5846dd541e4997c271aee180b3790efa16e9
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: 04978b561e3b0057318d08146f344411dec55ee4
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114030"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161662"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introdução às políticas personalizadas no Azure Active Directory B2C
 
@@ -23,11 +24,11 @@ ms.locfileid: "77114030"
 
 [Políticas personalizadas](custom-policy-overview.md) são arquivos de configuração que definem o comportamento do seu locatário Azure Active Directory B2C (Azure ad B2C). Neste artigo, você criará uma política personalizada que dá suporte para inscrição ou entrada de conta local usando um endereço de email e uma senha. Você também pode preparar o ambiente para adicionar provedores de identidade.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 - Se você ainda não tiver um, [crie um locatário Azure ad B2C](tutorial-create-tenant.md) que esteja vinculado à sua assinatura do Azure.
 - [Registre seu aplicativo](tutorial-register-applications.md) no locatário que você criou para que ele possa se comunicar com Azure ad B2C.
-- Conclua as etapas em [Configurar inscrição e entrar com uma conta do Facebook](identity-provider-facebook.md) para configurar um aplicativo do Facebook.
+- Conclua as etapas em [Configurar inscrição e entrar com uma conta do Facebook](identity-provider-facebook.md) para configurar um aplicativo do Facebook. Embora um aplicativo do Facebook não seja necessário para o uso de políticas personalizadas, ele é usado neste tutorial para demonstrar a habilitação do logon social em uma política personalizada.
 
 ## <a name="add-signing-and-encryption-keys"></a>Adicionar chaves de criptografia e de assinatura
 
@@ -75,7 +76,7 @@ Você precisa registrar esses dois aplicativos em seu locatário do Azure AD B2C
 
 Para registrar um aplicativo em seu locatário do Azure AD B2C, você pode usar a experiência de **registros de aplicativo (herdada)** ou nossa nova experiência de registros de aplicativo unificada **(versão prévia)** . [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[Aplicativos](#tab/applications/)
+#### <a name="applications"></a>[Aplicativos](#tab/applications/)
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Na portal do Azure, procure e selecione **Azure Active Directory**.
@@ -86,7 +87,7 @@ Para registrar um aplicativo em seu locatário do Azure AD B2C, você pode usar 
 1. Para **URL de logon**, insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, em que `your-tenant-name` é o nome de domínio de locatário do Azure AD B2C. Agora todas as URLs devem estar usando [b2clogin.com](b2clogin.md).
 1. Selecione **Criar**. Após a criação, copie a ID do aplicativo e salve-a para uso posterior.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
 
 1. Escolha **Registros de Aplicativo (versão prévia)** e depois selecione **Novo Registro**.
 1. Para **Nome**, insira `IdentityExperienceFramework`.
@@ -110,7 +111,7 @@ Em seguida, exponha a API adicionando um escopo:
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>Registrar o aplicativo ProxyIdentityExperienceFramework
 
-#### <a name="applicationstabapplications"></a>[Aplicativos](#tab/applications/)
+#### <a name="applications"></a>[Aplicativos](#tab/applications/)
 
 1. Em **registros de aplicativo (Herdado)** , selecione **novo registro de aplicativo**.
 1. Para **Nome**, insira `ProxyIdentityExperienceFramework`.
@@ -122,7 +123,7 @@ Em seguida, exponha a API adicionando um escopo:
 1. Marque a caixa de seleção ao lado de **Acessar IdentityExperienceFramework**, clique em **Selecionar** e, em seguida, clique em **Concluído**.
 1. Selecione **conceder permissões**e, em seguida, confirme selecionando **Sim**.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
 
 1. Escolha **Registros de Aplicativo (versão prévia)** e depois selecione **Novo Registro**.
 1. Para **Nome**, insira `ProxyIdentityExperienceFramework`.
@@ -138,7 +139,7 @@ Em seguida, especifique que o aplicativo deve ser tratado como um cliente públi
 1. Em **Gerenciar**, selecione **Autenticação**.
 1. Selecione **Experimentar a nova experiência** (se mostrado).
 1. Em **Configurações avançadas**, habilite **tratar aplicativo como um cliente público** (selecione **Sim**).
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Agora, conceda permissões ao escopo da API que você expôs anteriormente no registro *IdentityExperienceFramework* :
 
@@ -222,6 +223,8 @@ Adicione as IDs de aplicativo ao arquivo de extensões *TrustFrameworkExtensions
 
 ## <a name="add-facebook-as-an-identity-provider"></a>Adicionar o Facebook como um provedor de identidade
 
+Conforme mencionado em [pré-requisitos](#prerequisites), o Facebook *não* é necessário para usar políticas personalizadas, mas é usado aqui para demonstrar como você pode habilitar o logon social federado em uma política personalizada.
+
 1. No arquivo de `SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** , substitua o valor de `client_id` pela ID do aplicativo do Facebook:
 
    ```xml
@@ -235,7 +238,7 @@ Adicione as IDs de aplicativo ao arquivo de extensões *TrustFrameworkExtensions
 1. Em **políticas personalizadas**, selecione **B2C_1A_signup_signin**.
 1. Selecione **executar agora** e selecione Facebook para entrar com o Facebook e testar a política personalizada.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Em seguida, tente adicionar Azure Active Directory (Azure AD) como um provedor de identidade. O arquivo base usado neste guia de introdução já contém parte do conteúdo de que você precisa para adicionar outros provedores de identidade, como o Azure AD.
 

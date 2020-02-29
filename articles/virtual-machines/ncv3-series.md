@@ -2,17 +2,17 @@
 title: Série NCv3-máquinas virtuais do Azure
 description: Especificações para as VMs da série NCv3.
 services: virtual-machines
-author: jonbeck7
+author: vikancha
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 363f8d2aae4e77453b8291637f2f6067d24bb80b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 1f93fd3c293f8f6108d7c5fbcd83f2f7a8b8f5d9
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661117"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78162155"
 ---
 # <a name="ncv3-series"></a>Série NCv3
 
@@ -21,6 +21,10 @@ VMs da série NCv3 têm a tecnologia de GPUs [NVIDIA Tesla V100](https://www.nvi
 Armazenamento Premium: com suporte
 
 Cache de armazenamento Premium: com suporte
+
+Migração ao Vivo: sem suporte
+
+Atualizações de preservação de memória: sem suporte
 
 > [!IMPORTANT]
 > Para essa série de VMs, a cota de vCPU (núcleo) em sua assinatura é inicialmente definida como 0 em cada região. [Solicite um aumento de cota de vCPU](../azure-supportability/resource-manager-core-quotas-request.md) para esta série em uma [região disponível](https://azure.microsoft.com/regions/services/).

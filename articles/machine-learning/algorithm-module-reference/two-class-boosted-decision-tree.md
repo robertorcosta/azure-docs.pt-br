@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 985417200737e00ddbda4194cf7596b11c74ac10
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 1d144a48f79e59b35c88c5b338747d3186ebceda
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153716"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920732"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Módulo de árvore de decisão aumentada de duas classes
 
@@ -38,6 +38,7 @@ Você pode treinar esse tipo de modelo usando o [modelo de treinamento](././trai
   
     + **Parâmetro único**: se você souber como deseja configurar o modelo, poderá fornecer um conjunto específico de valores como argumentos.
   
+    + **Intervalo de parâmetros**: se você não tiver certeza dos melhores parâmetros, poderá encontrar os parâmetros ideais usando o módulo [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md) . Você fornece algum intervalo de valores, e o instrutor itera em várias combinações de configurações para determinar a combinação de valores que produz o melhor resultado.
   
 3.  Para o **número máximo de folhas por árvore**, indique o número máximo de nós de terminal (folhas) que podem ser criados em qualquer árvore.
   
@@ -72,6 +73,6 @@ Após a conclusão do treinamento:
 
 + Para usar o modelo de pontuação, adicione o módulo **modelo de Pontuação** a um pipeline.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

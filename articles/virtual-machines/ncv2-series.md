@@ -2,17 +2,17 @@
 title: Série NCv2-máquinas virtuais do Azure
 description: Especificações para as VMs da série NCv2.
 services: virtual-machines
-author: jonbeck7
+author: vikancha
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 4ea199cdc75732ff3af730fa79530399e4372ebd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: f4a382e422fd56e754d8014bfb4f0f0af1a3ec77
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661020"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163974"
 ---
 # <a name="ncv2-series"></a>Série NCv2
 
@@ -23,6 +23,10 @@ A configuração NC24rs v2 fornece um adaptador de rede de alta taxa de transfer
 Armazenamento Premium: com suporte
 
 Cache de armazenamento Premium: com suporte
+
+Migração ao Vivo: sem suporte
+
+Atualizações de preservação de memória: sem suporte
 
 > [!IMPORTANT]
 > Para essa série de VMs, a cota de vCPU (núcleo) em sua assinatura é inicialmente definida como 0 em cada região. [Solicite um aumento de cota de vCPU](../azure-supportability/resource-manager-core-quotas-request.md) para esta série em uma [região disponível](https://azure.microsoft.com/regions/services/).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: d88d5ecf8be3fadb36239b75d476a13abf39cbf7
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: f9567238e4bb025fad41e7db33613a63d2fc25dd
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77659706"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77911756"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Suporte para VMs de geração 2 no Azure
 
@@ -33,18 +33,18 @@ As VMs de geração 2 usam a nova arquitetura de inicialização baseada em UEFI
 As VMs de geração 1 têm suporte de todos os tamanhos de VM no Azure (exceto para VMs da série Mv2). O Azure agora oferece suporte à geração 2 para a seguinte série de VMs selecionada:
 
 * [Série B](https://docs.microsoft.com/azure/virtual-machines/windows/b-series-burstable)
-* [Série DC](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dc-series)
-* Série [Dsv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv2-series) e [série Dsv3](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
-* [Série Esv3](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#esv3-series)
-* [Série Fsv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute#fsv2-series-1)
+* [Série DC](../dcv2-series.md)
+* Série [DSv2](../dv2-dsv2-series.md) e [série Dsv3](../dv3-dsv3-series.md)
+* [Série Esv3](../ev3-esv3-series.md)
+* [Série Fsv2](../fsv2-series.md)
 * [Série GS](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#gs-series)
-* [Série HB](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#hb-series)
-* [Série HC](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#hc-series)
-* Série [ls](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#ls-series) e [série Lsv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-storage#lsv2-series)
-* [Série Mv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series)
-* Série [NCv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#ncv2-series) e [série NCv3](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#ncv3-series)
-* [Série ND](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nd-series)
-* [Série NVv3](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nvv3-series--1)
+* [Série HB](../hb-series.md)
+* [Série HC](../hc-series.md)
+* Série [ls](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#ls-series) e [série Lsv2](../lsv2-series.md)
+* [Série Mv2](../mv2-series.md)
+* Série [NCv2](../ncv2-series.md) e [série NCv3](../ncv3-series.md)
+* [Série ND](../nd-series.md)
+* [Série NVv3](../nvv3-series.md)
 
 > [!NOTE]
 > O uso de imagens de VM de geração 2 para VMs da série Mv2 está geralmente disponível, já que a série Mv2 funciona com imagens de VM de geração 2 exclusivamente. Não há suporte para imagens de VM de geração 1 em VMs da série Mv2. 

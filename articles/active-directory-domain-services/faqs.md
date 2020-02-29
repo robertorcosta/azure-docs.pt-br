@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: a25337cad39674bc6016f67bdc46a804518d0b03
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 3abd9835c1cf750b926f49442f3e34e96dc9c865
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509012"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917349"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Perguntas frequentes (FAQs)
 
@@ -41,13 +41,15 @@ Esta página responde a perguntas frequentes sobre Azure Active Directory Domain
 Não. Você pode criar apenas um único domínio atendido pelo Azure AD Domain Services para um único diretório do Azure AD.
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-a-classic-virtual-network"></a>Posso habilitar Azure AD Domain Services em uma rede virtual clássica?
-As redes virtuais clássicas não têm suporte para novas implantações. Os domínios gerenciados existentes implantados em redes virtuais clássicas continuam com suporte. Você também pode [migrar Azure AD Domain Services do modelo de rede virtual clássica para o Gerenciador de recursos (versão prévia)](migrate-from-classic-vnet.md).
+As redes virtuais clássicas não têm suporte para novas implantações. Os domínios gerenciados existentes implantados em redes virtuais clássicas continuam com suporte até serem desativados em 1º de março de 2023. Para implantações existentes, você pode [migrar Azure AD Domain Services do modelo de rede virtual clássica para o Gerenciador de recursos](migrate-from-classic-vnet.md).
+
+Para obter mais informações, consulte o [aviso oficial de substituição](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/).
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>Posso habilitar os Serviços de Domínio do Azure AD em uma rede virtual do Azure Resource Manager?
 Sim. O Azure AD Domain Services pode ser habilitado em uma rede virtual do Azure Resource Manager. As redes virtuais clássicas do Azure não estão mais disponíveis quando você cria um domínio gerenciado.
 
 ### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>Posso migrar meu domínio gerenciado existente de uma rede virtual clássica para uma rede virtual do Resource Manager?
-Sim, esse recurso está em versão prévia. Para obter mais informações, consulte [migrar Azure AD Domain Services do modelo de rede virtual clássica para o Gerenciador de recursos (versão prévia)](migrate-from-classic-vnet.md).
+Sim. Para obter mais informações, consulte [migrar Azure AD Domain Services do modelo de rede virtual clássica para o Gerenciador de recursos](migrate-from-classic-vnet.md).
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>Posso habilitar o Azure AD Domain Services em uma assinatura do Azure CSP (Provedor de Soluções de Nuvem)?
 Sim. Para obter mais informações, consulte [como habilitar Azure AD Domain Services em assinaturas do Azure CSP](csp.md).
@@ -143,7 +145,7 @@ Consulte a página [Serviços do Azure por região](https://azure.microsoft.com/
 
 Confira o [Guia de solução de problemas](troubleshoot.md) a fim de obter soluções para os problemas comuns encontrados ao configurar ou administrar os Azure AD Domain Services.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para saber mais sobre Azure AD Domain Services, confira [o que é Azure Active Directory Domain Services?](overview.md).
 

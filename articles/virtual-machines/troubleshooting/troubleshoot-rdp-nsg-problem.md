@@ -12,20 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: aedb9c8d178cb210efedf8ff4bcbbeca39f89e60
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 6c877690cf27edd73f1d828b8a1dda6f4f34e780
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981799"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918165"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>Não é possível conectar-se remotamente a uma VM porque a porta RDP não está habilitada no NSG
 
 Este artigo explica como resolver um problema em que você não pode se conectar a uma máquina virtual do Windows Azure (VM) porque a porta de protocolo de área de trabalho remota (RDP) não está habilitada no Grupo de Segurança de Rede (NSG).
 
-
-> [!NOTE] 
-> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../azure-resource-manager/management/deployment-models.md). É recomendável que você use o modelo de implantação do Resource Manager em vez do modelo de implantação clássico para novas implantações. 
 
 ## <a name="symptom"></a>Sintoma
 
@@ -56,7 +53,7 @@ Para saber mais sobre NSGs, confira [Grupos de Segurança de Rede](../../virtual
 > [!NOTE]
 > A porta 3389 RDP é exposta à Internet. Portanto, é recomendável que você use essa porta somente para o recomendado para testar. Para ambientes de produção, recomendamos que você use uma VPN ou conexão privada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Se a porta do RDP já estiver habilitada em NSG, consulte [Solucionar problemas de um erro geral de RDP na VM do Azure](./troubleshoot-rdp-general-error.md).
 

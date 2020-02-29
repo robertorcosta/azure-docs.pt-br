@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: c87673fef0079ff1b04b0840da0434b090cda67c
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 03e6c2ecbf8fa0c5f71218d29b67cb03cdf3d5db
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153648"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916788"
 ---
 # <a name="two-class-neural-network-module"></a>Módulo de rede neural de duas classes
 
@@ -42,7 +42,9 @@ Para computar a saída da rede para uma entrada específica, um valor é calcula
   
 2.  Especifique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .  
   
-    -   **Parâmetro único**: escolha esta opção se você já souber como deseja configurar o modelo.  
+    -   **Parâmetro único**: escolha esta opção se você já souber como deseja configurar o modelo.
+
+    -   **Intervalo de parâmetros**: se você não tiver certeza dos melhores parâmetros, poderá encontrar os parâmetros ideais usando o módulo [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md) . Você fornece algum intervalo de valores, e o instrutor itera em várias combinações de configurações para determinar a combinação de valores que produz o melhor resultado.  
 
 3.  Para **especificação de camada oculta**, selecione o tipo de arquitetura de rede a ser criado.  
   
@@ -87,6 +89,6 @@ Após a conclusão do treinamento:
 + Para usar o modelo de pontuação, adicione o módulo **modelo de Pontuação** a um pipeline.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

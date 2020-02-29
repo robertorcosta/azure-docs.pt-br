@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 1f609c33ea474508eb107c0df9993c2ba3483660
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 36d6b0cac0321c989fecbc5751d71c744cd83292
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087034"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920936"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutorial: treinar e implantar um modelo da CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,7 +35,7 @@ Saiba como executar as seguintes ações:
 > * Implantar o modelo como um serviço Web
 > * Pontuar dados usando o serviço Web
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -68,7 +68,7 @@ O diretório `examples/cli-train-deploy` do projeto contém os seguintes arquivo
 O repositório contém os seguintes arquivos, que são usados para implantar o modelo treinado como um serviço Web:
 
 * `aciDeploymentConfig.yml`: um arquivo de __configuração de implantação__ . Esse arquivo define o ambiente de hospedagem necessário para o modelo.
-* `inferenceConfig.yml`: um arquivo de configuration__ de inferência. Esse arquivo define o ambiente de software usado pelo serviço para pontuar dados com o modelo.
+* `inferenceConfig.yml`: um arquivo de __configuração de inferência__ . Esse arquivo define o ambiente de software usado pelo serviço para pontuar dados com o modelo.
 * `score.py`: um script Python que aceita dados de entrada, classifica-os usando o modelo e, em seguida, retorna uma resposta.
 * `scoring-env.yml`: as dependências Conda necessárias para executar o modelo e `score.py` script.
 * `testdata.json`: um arquivo de dados que pode ser usado para testar o serviço Web implantado.
@@ -469,7 +469,7 @@ Para excluir o grupo de recursos e todos os recursos do Azure criados neste docu
 az group delete -g <resource-group-name> -y
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste Azure Machine Learning tutorial, você usou a CLI do Machine Learning para as seguintes tarefas:
 

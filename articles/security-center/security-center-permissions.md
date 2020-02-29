@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: f52d518d2ed1dfb62eed72cf9c0b839a37b7f856
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 0e60e782fa65cd5868bebe081673f9a158e07799
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201648"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921310"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permissões na Central de Segurança do Azure
 
@@ -39,24 +39,24 @@ Além dessas funções, há duas funções específicas da Central de Segurança
 
 ## <a name="roles-and-allowed-actions"></a>Funções e ações permitidas
 
-A tabela a seguir exibe as funções e as ações permitidas na Central de Segurança. Um X indica que a ação é permitida para essa função.
+A tabela a seguir exibe as funções e as ações permitidas na Central de Segurança.
 
-| Role | Editar política de segurança | Aplicar as recomendações de segurança a um recurso | Ignorar alertas e recomendações | Exibir alertas e recomendações |
+| Função | Editar política de segurança | Aplicar as recomendações de segurança a um recurso</br> (incluindo com ' correção rápida! ') | Ignorar alertas e recomendações | Exibir alertas e recomendações |
 |:--- |:---:|:---:|:---:|:---:|
-| Proprietário da assinatura | X | X | X | X |
-| Colaborador da assinatura | -- | X | X | X |
-| Proprietário do Grupo de Recursos | -- | X | -- | X |
-| Colaborador do Grupo de Recursos | -- | X | -- | X |
-| Leitor | -- | -- | -- | X |
-| Administrador de Segurança | X | -- | X | X |
-| Leitor de Segurança | -- | -- | -- | X |
+| Proprietário da assinatura | ✔ | ✔ | ✔ | ✔ |
+| Colaborador da assinatura | -- | ✔ | ✔ | ✔ |
+| Proprietário do Grupo de Recursos | -- | ✔ | -- | ✔ |
+| Colaborador do Grupo de Recursos | -- | ✔ | -- | ✔ |
+| Leitor | -- | -- | -- | ✔ |
+| Administrador de segurança | ✔ | -- | ✔ | ✔ |
+| Leitor de segurança | -- | -- | -- | ✔ |
 
 > [!NOTE]
 > Recomendamos que você atribua a função menos permissiva necessária para os usuários realizarem suas tarefas. Por exemplo, atribua a função Leitor aos usuários que precisam apenas exibir informações sobre a integridade da segurança de um recurso, mas que não precisam executar nenhuma ação, como aplicar recomendações ou editar políticas.
 >
 >
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Este artigo explicou como a Central de Segurança usa o RBAC para atribuir permissões aos usuários e identificou as ações permitidas para cada função. Agora que você está familiarizado com as atribuições de função necessárias para monitorar o estado de segurança de sua assinatura, editar as políticas de segurança e aplicar recomendações, saiba como:
 
 - [Configurar políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md)

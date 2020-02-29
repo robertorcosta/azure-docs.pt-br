@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: a17ff15e71251e781cd30c33a5616af85e4f4eb9
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 1aff2815144f776b351e92d8945b267d1451f9f6
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260076"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915700"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usar injeção de dependência no .NET do Azure Functions
 
@@ -21,11 +21,11 @@ Azure Functions dá suporte ao padrão de design de software injeção de depend
 
 - O suporte para injeção de dependência começa com Azure Functions 2. x.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Antes de poder usar a injeção de dependência, você deve instalar os seguintes pacotes NuGet:
 
-- [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
+- [Microsoft. Azure. Functions. Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
 - [Pacote Microsoft. net. Sdk. Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) versão 1.0.28 ou posterior
 
@@ -130,16 +130,16 @@ Se você precisar de seu próprio provedor de log, registre um tipo personalizad
 
 > [!WARNING]
 > - Não adicione `AddApplicationInsightsTelemetry()` à coleção de serviços, pois ela registra os serviços que entram em conflito com os serviços fornecidos pelo ambiente.
-> - Não Registre seu próprio `TelemetryConfiguration` ou `TelemetryClient` se você estiver usando a funcionalidade interna do Application Insights.
+> - Não Registre seu próprio `TelemetryConfiguration` ou `TelemetryClient` se você estiver usando a funcionalidade interna do Application Insights. Se você precisar configurar sua própria instância de `TelemetryClient`, crie uma por meio do `TelemetryConfiguration` injetado, conforme mostrado em [monitorar Azure Functions](./functions-monitoring.md#version-2x-and-later-2).
 
 ## <a name="function-app-provided-services"></a>Serviços fornecidos pelo aplicativo de funções
 
 O host de função registra vários serviços. Os seguintes serviços são seguros para serem adotados como uma dependência em seu aplicativo:
 
-|Tipo de Serviço|Tempo de vida|Description|
+|Tipo de Serviço|Tempo de vida|Descrição|
 |--|--|--|
-|`Microsoft.Extensions.Configuration.IConfiguration`|Singleton|Configuração de tempo de execução|
-|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Singleton|Responsável por fornecer a ID da instância do host|
+|`Microsoft.Extensions.Configuration.IConfiguration`|Único|Configuração de tempo de execução|
+|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Único|Responsável por fornecer a ID da instância do host|
 
 Se houver outros serviços nos quais você deseja assumir uma dependência, [crie um problema e proponha-os no GitHub](https://github.com/azure/azure-functions-host).
 
@@ -206,9 +206,9 @@ Consulte o [padrão de opções em ASP.NET Core](https://docs.microsoft.com/aspn
 > [!WARNING]
 > Evite tentar ler valores de arquivos como *local. Settings. JSON* ou *appSettings. { Environment}. JSON* no plano de consumo. Os valores lidos desses arquivos relacionados a conexões de gatilho não estão disponíveis conforme o aplicativo é dimensionado porque a infraestrutura de hospedagem não tem acesso às informações de configuração.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-Para saber mais, consulte os recursos a seguir:
+Para obter mais informações, consulte os seguintes recursos:
 
 - [Como monitorar seu aplicativo de funções](functions-monitoring.md)
 - [Práticas recomendadas para funções](functions-best-practices.md)

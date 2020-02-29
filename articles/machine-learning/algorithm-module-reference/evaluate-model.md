@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
-ms.openlocfilehash: 5951c6ec63478b4b266f22eaf8bf3162e0a45df0
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.date: 02/24/2020
+ms.openlocfilehash: a665ee97f923620bb484243d5cd4904a647969e4
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137541"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917418"
 ---
 # <a name="evaluate-model-module"></a>Módulo avaliar modelo
 
@@ -25,7 +25,8 @@ Use este módulo para medir a precisão de um modelo treinado. Você fornece um 
  As métricas retornadas pelo **modelo de avaliação** dependem do tipo de modelo que você está avaliando:  
   
 -   **Modelos de classificação**    
--   **Modelos de regressão**    
+-   **Modelos de regressão**  
+-   **Modelos de clustering**  
 
 
 > [!TIP]
@@ -72,20 +73,21 @@ O modelo ou os dados anexados à porta à esquerda são apresentados primeiro no
 
 Por exemplo, a imagem a seguir representa uma comparação de resultados de dois modelos de clustering que foram criados nos mesmos dados, mas com parâmetros diferentes.  
 
-![Comparing2Models&#95;AML](media/module/aml-comparing2models.png "AML_Comparing2Models")  
+![Comparing2Models](media/module/evaluate-2-models.png)  
 
 Como esse é um modelo de clustering, os resultados da avaliação são diferentes de se você comparasse pontuações de dois modelos de regressão ou compararam dois modelos de classificação. No entanto, a apresentação geral é a mesma. 
 
-## <a name="metrics"></a>metrics
+## <a name="metrics"></a>Métricas
 
 Esta seção descreve as métricas retornadas para os tipos específicos de modelos com suporte para uso com o **modelo de avaliação**:
 
 + [modelos de classificação](#metrics-for-classification-models)
 + [modelos de regressão](#metrics-for-regression-models)
++ [modelos de clustering](#metrics-for-clustering-models)
 
 ### <a name="metrics-for-classification-models"></a>Métricas para modelos de classificação
 
-As métricas a seguir são relatadas ao avaliar modelos de classificação. Se você comparar modelos, eles serão classificados pela métrica selecionada para avaliação.  
+As métricas a seguir são relatadas ao avaliar modelos de classificação.
   
 -   A **precisão** mede a imsorte de um modelo de classificação como a proporção de resultados verdadeiros para casos totais.  
   
@@ -105,7 +107,7 @@ As métricas a seguir são relatadas ao avaliar modelos de classificação. Se v
  
 As métricas retornadas para modelos de regressão são projetadas para estimar a quantidade de erros.  Um modelo é considerado adequado para os dados se a diferença entre os valores observados e previstos for pequena. No entanto, observar o padrão dos resíduos (a diferença entre qualquer ponto previsto e seu valor real correspondente) pode informá-lo muito sobre a possível diferença no modelo.  
   
- As métricas a seguir são relatadas para avaliar modelos de regressão. Quando você compara modelos, eles são classificados pela métrica selecionada para avaliação.  
+ As métricas a seguir são relatadas para avaliar modelos de regressão.
   
 - O **erro de média absoluta (Mae)** mede o quão próximo as previsões são para os resultados reais; Portanto, uma pontuação mais baixa é melhor.  
   
@@ -118,6 +120,30 @@ As métricas retornadas para modelos de regressão são projetadas para estimar 
 
   
 - O **coeficiente de determinação**, geralmente referido como R<sup>2</sup>, representa a potência preditiva do modelo como um valor entre 0 e 1. Zero significa que o modelo é aleatório (explica nada); 1 significa que há um ajuste perfeito. No entanto, cuidado deve ser usado na interpretação de valores de R<sup>2</sup> , já que valores baixos podem ser totalmente normais e valores altos podem ser suspeitos.
+
+###  <a name="metrics-for-clustering-models"></a>Métricas para modelos de clustering
+
+Como os modelos de clustering diferem significativamente dos modelos de classificação e regressão em muitos aspectos, o [modelo de avaliação](evaluate-model.md) também retorna um conjunto diferente de estatísticas para modelos de clustering.  
+  
+ As estatísticas retornadas para um modelo de clustering descrevem quantos pontos de dados foram atribuídos a cada cluster, a quantidade de separação entre clusters e quão rigidamente os pontos de dados são agrupados dentro de cada cluster.  
+  
+ As estatísticas para o modelo de clustering são calculadas em média em todo o conjunto de registros, com linhas adicionais contendo as estatísticas por cluster.  
+  
+As métricas a seguir são relatadas para avaliar modelos de clustering.
+    
+-   As pontuações na coluna, a **distância média para outro centro**, representam o quão próximo, em média, cada ponto no cluster é para as centróides de todos os outros clusters.   
+
+-   As pontuações na coluna, a **distância média até o centro de cluster**, representam a proximidade de todos os pontos em um cluster para o centróide desse cluster.  
+  
+-   A coluna **número de pontos** mostra quantos pontos de dados foram atribuídos a cada cluster, juntamente com o número total geral de pontos de dados em qualquer cluster.  
+  
+     Se o número de pontos de dados atribuídos a clusters for menor que o número total de pontos de dados disponíveis, isso significará que não foi possível atribuir os pontos de dados a um cluster.  
+  
+-   As pontuações na coluna, a **distância máxima ao centro de cluster**, representam a soma das distâncias entre cada ponto e o centróide do cluster desse ponto.  
+  
+     Se esse número for alto, isso pode significar que o cluster é amplamente disperso. Você deve examinar essa estatística junto com a **distância média para o centro de cluster** para determinar a disseminação do cluster.   
+
+-   A pontuação de **avaliação combinada** na parte inferior de cada seção de resultados lista as pontuações médias para os clusters criados nesse modelo específico.  
   
 
 ## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}

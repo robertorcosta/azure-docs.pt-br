@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/01/2019
-ms.openlocfilehash: 662f8c2a4184e858d33dc40effed363ef3ec17e5
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 95bfa7b1918da09e4f5913eeb2b57c290b093efe
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904964"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78162374"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Implantar modelos de Azure Resource Manager para aplicativos lógicos do Azure
 
@@ -22,7 +22,7 @@ Depois de criar um modelo de Azure Resource Manager para seu aplicativo lógico,
 * [PowerShell do Azure](#powershell)
 * [CLI do Azure](#cli)
 * [APIs REST do Gerenciador de Recursos do Azure](../azure-resource-manager/templates/deploy-rest.md)
-* [Azure Pipelines DevOps do Azure](#azure-pipelines)
+* [Azure DevOps](#azure-pipelines)
 
 <a name="portal"></a>
 
@@ -48,7 +48,7 @@ Para saber mais, consulte esses tópicos:
 
 <a name="visual-studio"></a>
 
-## <a name="deploy-with-visual-studio"></a>Implantar com o Visual Studio
+## <a name="deploy-with-visual-studio"></a>Implantação com o Visual Studio
 
 Para implantar um modelo de aplicativo lógico de um projeto de grupo de recursos do Azure que você criou usando o Visual Studio, siga estas [etapas para implantar manualmente seu aplicativo lógico](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure) no Azure.
 
@@ -69,7 +69,7 @@ Para saber mais, consulte esses tópicos:
 
 <a name="cli"></a>
 
-## <a name="deploy-with-azure-cli"></a>Implantar com o Azure CLI
+## <a name="deploy-with-azure-cli"></a>Implantar com a CLI do Azure
 
 Para implantar em um *grupo de recursos específico do Azure*, use o seguinte comando:
 
@@ -96,6 +96,7 @@ Para obter mais informações sobre integração contínua e implantação cont�
 * [Exemplo: conectar-se a contas de armazenamento do Azure de aplicativos lógicos do Azure e implantar com Azure Pipelines no Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Exemplo: configurar uma ação de aplicativo de funções para aplicativos lógicos do Azure e implantar com Azure Pipelines no Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Exemplo: conectar-se a uma conta de integração de aplicativos lógicos do Azure e implantar com Azure Pipelines no Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
+* [Exemplo: orquestrar Azure Pipelines usando os aplicativos lógicos do Azure](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-pipeline-orchestration/azure-devops-orchestration-with-logic-apps/)
 
 Aqui estão as etapas gerais de alto nível para usar Azure Pipelines:
 
@@ -125,7 +126,7 @@ Após a implantação, seu aplicativo lógico funciona de ponta a ponta com par�
 
 Se você usar uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory (AD do Azure) em vez de autorizar conexões, saiba como [especificar parâmetros de entidade de serviço em seu modelo de aplicativo lógico](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!div class="nextstepaction"]
 > [Monitorar aplicativos lógicos](../logic-apps/monitor-logic-apps.md)

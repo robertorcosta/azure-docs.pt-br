@@ -7,12 +7,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: raynew
-ms.openlocfilehash: b71048412f5715fd1b8ef3edf742716916672bd5
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c1e14db9dafc8b03acbeb1c6b97e5ac0e27cb0fd
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718756"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163041"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidade dos negócios e recuperação de desastres (BCDR): Regiões Emparelhadas do Azure
 
@@ -23,6 +23,9 @@ O Azure opera em várias regiões geográficas em todo o mundo. Uma geografia do
 Cada região do Azure é emparelhada com outra região na mesma área geográfica, formando juntas um par regional. A exceção é o Sul do Brasil, que está associado a uma região fora de sua área geográfica. Entre os pares de região, o Azure serializa atualizações da plataforma (manutenção planejada) para que apenas uma região emparelhada seja atualizada por vez. Em caso de interrupção que afete várias regiões, pelo menos uma região em cada par será priorizada para recuperação.
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
+
+> [!NOTE]
+> Os pares regionais do Azure atribuídos não podem ser modificados.
 
 Figura 1 – Pares regionais do Azure
 
@@ -35,16 +38,16 @@ Figura 1 – Pares regionais do Azure
 | Canadá |Canadá Central |Leste do Canadá |
 | China |Norte da China |Leste da China|
 | China |Norte da China 2 |Leste da China 2|
-| Europa |Europa do Norte (Irlanda) |Europa Ocidental (Holanda) |
-| França |França Central|Sul da França|
-| Alemanha |Alemanha Central |Nordeste da Alemanha |
+| Europa |Europa Setentrional (Irlanda) |Europa Ocidental (Países Baixos) |
+| France |França Central|Sul da França|
+| Germany |Alemanha Central |Nordeste da Alemanha |
 | Índia |Índia Central |Sul da Índia |
 | Índia |Oeste da Índia |Sul da Índia |
 | Japão |Leste do Japão |Oeste do Japão |
 | Coreia do Sul |Coreia Central |Sul da Coreia |
 | América do Norte |Leste dos EUA |Oeste dos EUA |
 | América do Norte |Leste dos EUA 2 |Centro dos EUA |
-| América do Norte |Centro-Norte dos EUA |Centro-Sul dos Estados Unidos |
+| América do Norte |Centro Norte dos EUA |Centro-Sul dos Estados Unidos |
 | América do Norte |Oeste dos EUA 2 |Centro-Oeste dos EUA 
 | África do Sul | Norte da África do Sul | Oeste da África do Sul
 | Reino Unido |Oeste do Reino Unido |Sul do Reino Unido |
@@ -75,13 +78,13 @@ Figura 2 – par da região do Azure hipotético
 ## <a name="cross-region-activities"></a>Atividades entre regiões
 Como mencionado na Figura 2.
 
-![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Computação do Azure (IaaS)** – Você deve provisionar recursos de computação adicionais com antecedência para garantir que os recursos estejam disponíveis em outra região durante um desastre. Para saber mais, confira as [Orientação técnica de resiliência do Azure](https://github.com/uglide/azure-content/blob/master/articles/resiliency/resiliency-technical-guidance.md).
+![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **computação do Azure (IaaS)** – você deve provisionar recursos de computação adicionais com antecedência para garantir que os recursos estejam disponíveis em outra região durante um desastre. Para saber mais, confira as [Orientação técnica de resiliência do Azure](https://github.com/uglide/azure-content/blob/master/articles/resiliency/resiliency-technical-guidance.md).
 
 ![armazenamento](./media/best-practices-availability-paired-regions/2Green.png) **armazenamento do Azure** – se você estiver usando discos gerenciados, saiba mais sobre [backups entre regiões](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) com o backup do Azure e [replicando VMs](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) de uma região para outra com Azure site Recovery. Se você estiver usando contas de armazenamento, o armazenamento com redundância geográfica (GRS) será configurado por padrão quando uma conta de armazenamento do Azure for criada. Com o GRS, seus dados são replicados automaticamente três vezes na região primária e três vezes na região emparelhada. Para saber mais, consulte [Opções de redundância do Armazenamento do Azure](storage/common/storage-redundancy.md).
 
-![SQL Azure](./media/best-practices-availability-paired-regions/3Green.png) **Banco de Dados SQL do Azure** – Com a Replicação Geográfica do Banco de Dados SQL do Azure é possível configurar a replicação assíncrona de transações para qualquer região do mundo, no entanto, é recomendável que você implemente esses recursos em uma região emparelhada para a maioria dos cenários de recuperação de desastre. Para saber mais, confira [Replicação geográfica no Banco de Dados SQL do Azure](sql-database/sql-database-geo-replication-overview.md).
+![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **banco de dados SQL do Azure** – com a replicação geográfica do banco de dados SQL do Azure, você pode configurar a replicação assíncrona de transações para qualquer região do mundo; no entanto, recomendamos que você implante esses recursos em uma região emparelhada para a maioria dos cenários de recuperação de desastres. Para saber mais, confira [Replicação geográfica no Banco de Dados SQL do Azure](sql-database/sql-database-geo-replication-overview.md).
 
-![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png) **Azure Resource Manager** – O Resource Manager fornece de maneira inerente isolamento lógico dos componentes entre as regiões. Isso significa que falhas lógicas em uma região são apresentam menor probabilidade de afetar as outras.
+![o Resource Manager](./media/best-practices-availability-paired-regions/4Green.png) **Azure Resource Manager** -Resource Manager fornece inerentemente isolamento lógico de componentes entre regiões. Isso significa que falhas lógicas em uma região são apresentam menor probabilidade de afetar as outras.
 
 ## <a name="benefits-of-paired-regions"></a>Benefícios de uma região emparelhada
 Como mencionado na Figura 2.  

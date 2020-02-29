@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 7986a48b69b1d2c4df494dbd0a448d1bbe3091b4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 214b5eea6f8de2d59869f7279aa17bcd786d8742
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661780"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913830"
 ---
 # <a name="billing-questions"></a>Perguntas sobre cobrança
 
@@ -27,7 +27,7 @@ A Central de Segurança é oferecida em duas camadas:
 
 - A **camada gratuita** fornece visibilidade do estado de segurança de seus recursos do Azure, política básica de segurança, recomendações de segurança e integração com produtos e serviços de segurança de parceiros.
 
-- A **camada Standard** adiciona recursos avançados de detecção de ameaças, incluindo inteligência contra ameaças, análise comportamental, detecção de anomalias, incidentes de segurança e relatórios de atribuição de ameaças. Você pode iniciar uma avaliação gratuita da camada Standard. Para atualizar, selecione [Tipo de Preço](https://docs.microsoft.com/azure/security-center/security-center-pricing) na política de segurança. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+- A **camada Standard** adiciona recursos de proteção contra ameaças que incluem alertas de segurança, inteligência contra ameaças, análise comportamental, detecção de anomalias e relatórios de atribuição de ameaças. Você pode iniciar uma avaliação gratuita da camada Standard. Para atualizar, selecione [Tipo de Preço](https://docs.microsoft.com/azure/security-center/security-center-pricing) na política de segurança. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>Como posso controlar quem na minha organização realizou alterações de tipo de preço na central de segurança do Azure
 As assinaturas do Azure podem ter vários administradores com permissões para alterar o tipo de preço. Para descobrir qual usuário realizou uma alteração no tipo de preço, use o log de atividades do Azure. Para saber mais, clique [aqui](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832).

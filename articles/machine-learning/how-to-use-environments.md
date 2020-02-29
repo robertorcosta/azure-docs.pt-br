@@ -9,13 +9,13 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: cb76c7d7804a7d39e8a18c7a4cf41e9b4e0a7593
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.date: 02/27/2020
+ms.openlocfilehash: 0cb76884fd46a45bb45fa3e29a03a6f9dbd0250b
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623645"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920290"
 ---
 # <a name="reuse-environments-for-training-and-deployment-by-using-azure-machine-learning"></a>Reutilizar ambientes para treinamento e implantação usando o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,7 +33,7 @@ Os exemplos neste artigo mostram como:
 
 Para obter uma visão geral de alto nível de como os ambientes funcionam no Azure Machine Learning, consulte [o que são ambientes de ml?](concept-environments.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * O [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
 * Um [espaço de trabalho Azure Machine Learning](how-to-manage-workspace.md)
@@ -246,10 +246,20 @@ Além disso, o serviço usa automaticamente uma das [imagens base](https://githu
 # Specify custom Docker base image and registry, if you don't want to use the defaults
 myenv.docker.base_image="your_base-image"
 myenv.docker.base_image_registry="your_registry_location"
-# Alternatively, you can specify the contents of dockerfile of your base image
-with open("docker_file_of_your_base_image", "r") as f:
-    dockerfile_contents_of_your_base_image=f.read()
-myenv.docker.base_dockerfile=dockerfile_contents_of_your_base_image 
+```
+
+Como alternativa, você pode especificar um Dockerfile personalizado. É mais simples iniciar a partir de uma das Azure Machine Learning imagens base usando o comando Docker ```FROM``` e, em seguida, adicionar suas próprias etapas personalizadas. Use essa abordagem se você precisar instalar pacotes não Python como dependências.
+
+```python
+# Specify docker steps as a string. Alternatively, load the string from a file.
+dockerfile = r"""
+FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04
+RUN echo "Hello from custom container!"
+"""
+
+# Set base image to None, because the image is defined by dockerfile.
+myenv.docker.base_image = None
+myenv.docker.base_dockerfile = dockerfile
 ```
 
 > [!NOTE]
@@ -379,7 +389,7 @@ Baixe um ambiente registrado usando o comando a seguir.
 az ml environment download -n myenv -d downloaddir
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para usar um destino de computação gerenciado para treinar um modelo, consulte [tutorial: treinar um modelo](tutorial-train-models-with-aml.md).
 * Depois de ter um modelo treinado, saiba [como e onde implantar modelos](how-to-deploy-and-where.md).
