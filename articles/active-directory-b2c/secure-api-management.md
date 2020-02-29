@@ -2,26 +2,26 @@
 title: Proteger uma API de gerenciamento de API do Azure usando Azure Active Directory B2C
 description: Saiba como usar tokens de acesso emitidos pelo Azure Active Directory B2C para proteger um ponto de extremidade da API de gerenciamento de API do Azure.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/31/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 942c565c885d59a14d64e7ec06beee0354e7c4ca
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 00938d831e70289b24acb599b81016aa6e564d78
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641633"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186923"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Proteger uma API de gerenciamento de API do Azure com Azure AD B2C
 
 Saiba como restringir o acesso à sua API do APIM (gerenciamento de API do Azure) para clientes que se autenticaram com o Azure Active Directory B2C (Azure AD B2C). Siga as etapas neste artigo para criar e testar uma política de entrada no APIM que restringe o acesso apenas às solicitações que incluem um token de acesso válido emitido por Azure AD B2C.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Você precisa dos seguintes recursos em vigor antes de continuar com as etapas neste artigo:
 
@@ -37,19 +37,19 @@ Quando você protege uma API no gerenciamento de API do Azure com Azure AD B2C, 
 
 Você pode usar a experiência de **aplicativos** atual ou nossa nova experiência unificada de **registros de aplicativo (versão prévia)** para obter a ID do aplicativo. [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[Aplicativos](#tab/applications/)
+#### <a name="applications"></a>[Aplicativos](#tab/applications/)
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
-1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o diretório que contém seu locatário de Azure ad B2C.
-1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
+1. Entre no [portal do Azure](https://portal.azure.com).
+1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.
+1. No menu à esquerda, selecione **Azure AD B2C**. Ou selecione **Todos os serviços** e pesquise e selecione **Azure AD B2C**.
 1. Em **gerenciar**, selecione **aplicativos**.
 1. Registre o valor na coluna **ID do aplicativo** para *webapp1* ou outro aplicativo que você criou anteriormente.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
-1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o diretório que contém seu locatário de Azure ad B2C.
-1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
+1. Entre no [portal do Azure](https://portal.azure.com).
+1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.
+1. No menu à esquerda, selecione **Azure AD B2C**. Ou selecione **Todos os serviços** e pesquise e selecione **Azure AD B2C**.
 1. Selecione **registros de aplicativo (versão prévia)** e, em seguida, selecione a guia **aplicativos pertencentes** .
 1. Registre o valor na coluna **ID do aplicativo (cliente)** para *webapp1* ou outro aplicativo que você criou anteriormente.
 

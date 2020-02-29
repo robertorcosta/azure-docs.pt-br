@@ -1,6 +1,6 @@
 ---
-title: Restaurar um data warehouse excluído
-description: Guia de instruções para restaurar uma SQL Data Warehouse do Azure excluída.
+title: Restaurar um pool do SQL excluído
+description: Guia de instruções para restaurar um pool de SQL excluído.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e508eff3b322b49a6dc50d818c8bcccc3e924ff2
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 34851203432b7e2daf44e840e45275de76bc3b3a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759644"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196581"
 ---
-# <a name="restore-a-deleted-azure-sql-data-warehouse"></a>Restaurar um SQL Data Warehouse do Azure excluído
+# <a name="restore-a-deleted-sql-pool-using-azure-synapse-analytics"></a>Restaurar um pool do SQL excluído usando o Azure Synapse Analytics
 
-Neste artigo, você aprenderá a restaurar uma SQL Data Warehouse excluída usando o portal do Azure e o PowerShell:
+Neste artigo, você aprenderá a restaurar um SQL usando o portal do Azure ou o PowerShell.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-**Verifique sua capacidade de DTU.** Cada SQL Data Warehouse é hospedada por um SQL Server (por exemplo, myserver.database.windows.net) que tem uma cota de DTU padrão.  Verifique se o SQL Server tem uma cota de DTU suficiente restante para o banco de dados que está sendo restaurado. Para saber como calcular a DTU necessária ou para solicitar mais DTU, veja [Solicitar uma alteração de cota de DTU](sql-data-warehouse-get-started-create-support-ticket.md).
+**Verifique sua capacidade de DTU.** Cada pool do SQL é hospedado por um SQL Server (por exemplo, myserver.database.windows.net) que tem uma cota de DTU padrão.  Verifique se o SQL Server tem uma cota de DTU suficiente restante para o banco de dados que está sendo restaurado. Para saber como calcular a DTU necessária ou para solicitar mais DTU, veja [Solicitar uma alteração de cota de DTU](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## <a name="restore-a-deleted-data-warehouse-through-powershell"></a>Restaurar um data warehouse excluído por meio do PowerShell
 
-Para restaurar um SQL Data Warehouse excluído, use o cmdlet [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) . Se o servidor lógico correspondente também tiver sido excluído, você não poderá restaurar esse data warehouse.
+Para restaurar um pool do SQL excluído, use o cmdlet [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) . Se o servidor lógico correspondente também tiver sido excluído, você não poderá restaurar esse data warehouse.
 
 1. Antes de começar, certifique-se de [instalar Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 2. Abra o PowerShell.
@@ -86,5 +86,5 @@ $RestoredDatabase.status
     ![Especifique o Nome do Banco de Dados](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-21.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Restaurar um data warehouse existente](sql-data-warehouse-restore-active-paused-dw.md)
-- [Restaurar de um data warehouse de backup geográfico](sql-data-warehouse-restore-from-geo-backup.md)
+- [Restaurar um pool SQL existente](sql-data-warehouse-restore-active-paused-dw.md)
+- [Restaurar de um pool SQL de backup geográfico](sql-data-warehouse-restore-from-geo-backup.md)

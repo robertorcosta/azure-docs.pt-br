@@ -3,20 +3,20 @@ title: Exemplos de transformação de declarações de inteiros para políticas 
 titleSuffix: Azure AD B2C
 description: Exemplos de transformação de declarações de inteiro para o esquema IEF (Identity Experience Framework) de Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7295e03f0a0f94b3450b99acc4d10d6ff86c92e7
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: ece25e95bbbe9f1a1fa591c29ea9ffda0fefd369
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74948824"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187671"
 ---
 # <a name="integer-claims-transformations"></a>Transformações de declarações de inteiros
 
@@ -28,9 +28,9 @@ Este artigo fornece exemplos de como usar as transformações de declarações d
 
 Converte um tipo de dados Long em um tipo de dados String.
 
-| Item | TransformationClaimType | Tipo de Dados | Notas |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | longo | O ClaimType para converter em uma cadeia de caracteres. |
+| InputClaim | InputClaim | long | O ClaimType para converter em uma cadeia de caracteres. |
 | OutputClaim | outputClaim | string | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
 
 Neste exemplo, a declaração `numericUserId` com um tipo de valor Long é convertido em uma declaração `UserId` com um tipo de valor String.

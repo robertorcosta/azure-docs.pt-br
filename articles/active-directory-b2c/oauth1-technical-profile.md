@@ -3,20 +3,20 @@ title: Definir um perfil técnico do OAuth1 em uma política personalizada
 titleSuffix: Azure AD B2C
 description: Defina um perfil técnico do OAuth 1,0 em uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a4f26f180e34ee9c7a0222b0d7f6be95c78de1b4
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7f734844859d44e66bddbc2ddd999659e52f9668
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840376"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184070"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico do OAuth1 em uma política personalizada Azure Active Directory B2C
 
@@ -68,7 +68,7 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | Description |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | client_id | Sim | O identificador do aplicativo do provedor de identidade. |
 | ProviderName | Não | O nome do provedor de identidade. |
@@ -82,7 +82,7 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 
 O elemento **CryptographicKeys** contém o seguinte atributo:
 
-| Atributo | Obrigatório | Description |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | client_secret | Sim | O segredo do cliente do aplicativo do provedor de identidade.   |
 

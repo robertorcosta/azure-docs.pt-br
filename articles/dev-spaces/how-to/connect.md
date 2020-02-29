@@ -1,16 +1,16 @@
 ---
-title: Conectar seu computador de desenvolvimento a um cluster do AKS
+title: Conectar seu computador de desenvolvimento a um cluster do AKS (versão prévia)
 services: azure-dev-spaces
 ms.date: 11/04/2019
 ms.topic: conceptual
 description: Saiba como conectar seu computador de desenvolvimento a um cluster AKS com Azure Dev Spaces
 keywords: Azure Dev Spaces, espaços de desenvolvimento, Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres
-ms.openlocfilehash: cba68702155475832930c791c3a7be014375ba04
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 13e6f16e66941be0ae463e8280827dc0b8183450
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770672"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196086"
 ---
 # <a name="connect-your-development-machine-to-an-aks-cluster-preview"></a>Conectar seu computador de desenvolvimento a um cluster do AKS (versão prévia)
 
@@ -35,7 +35,7 @@ Este guia usa o [aplicativo de exemplo de compartilhamento de bicicletas Azure d
 
 * Não há suporte para UDP no momento.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Caso não tenha uma assinatura do Azure, é possível criar uma [conta gratuita](https://azure.microsoft.com/free).
 * A [CLI do Azure][azure-cli] instalada.
@@ -242,7 +242,7 @@ Clique na barra de status Azure Dev Spaces e escolha *Mostrar informações de d
 
 Além disso, você pode encontrar os logs de diagnóstico no diretório `Azure Dev Spaces` no [diretório *temporário* do seu computador de desenvolvimento][azds-tmp-dir].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como usar as ações Azure Dev Spaces e GitHub para testar alterações de uma solicitação pull diretamente no AKS antes que a solicitação pull seja mesclada no Branch principal do repositório.
 

@@ -1,6 +1,6 @@
 ---
 title: Pausar, retomar, dimensionar com APIs REST
-description: Gerenciar poder de computação no Azure SQL Data Warehouse por meio de APIs REST.
+description: Gerenciar poder de computação no Azure Synapse Analytics data warehouse por meio de APIs REST.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: implement
 ms.date: 03/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: f72b3fd1024a68a6f48d2e9e676fc7ca23bf2a4f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 4e3435fdaa505a73abf96b9463b061c623c192ad
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686048"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199386"
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>APIs REST para SQL Data Warehouse do Azure
-APIs REST para gerenciar computação no SQL Data Warehouse do Azure.
+APIs REST para gerenciar a computação no Azure Synapse Analytics data warehouse.
 
 ## <a name="scale-compute"></a>Computação de escala
 Para alterar as unidades do data warehouse, use a API REST [Criar ou Atualizar Banco de Dados](/rest/api/sql/databases/createorupdate). O exemplo a seguir configura as unidades do data warehouse para DW1000 para o banco de dados MySQLDW, que está hospedado no servidor MyServer. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1.
@@ -45,7 +45,7 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 
 ## <a name="resume-compute"></a>Retomar a computação
 
-Para iniciar um banco de dados, use a API REST [Retomar o banco de dados](/rest/api/sql/databases/resume) . O exemplo a seguir inicia um banco de dados chamado Database02 hospedado em um servidor chamado Server01. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1. 
+Para iniciar um banco de dados, use a API REST [Retornar o banco de dados](/rest/api/sql/databases/resume). O exemplo a seguir inicia um banco de dados chamado Database02 hospedado em um servidor chamado Server01. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1. 
 
 ```
 POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/resume?api-version=2014-04-01-preview HTTP/1.1
@@ -69,7 +69,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 ```
 
 ## <a name="set-maintenance-schedule"></a>Definir agendamento de manutenção
-Para definir e atualizar um agendamento do maintnenance em um data warehouse existente.
+Para definir e atualizar um agendamento de manutenção em um data warehouse existente.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1

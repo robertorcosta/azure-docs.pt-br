@@ -11,14 +11,15 @@ ms.date: 04/17/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 26cdbb1fc2899d1b03fea6199074467623706c63
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+tags: azure-synapse
+ms.openlocfilehash: 89ec405a348e3ace851fd5f5e17283a8036692a5
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153274"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199403"
 ---
-# <a name="secure-a-database-in-sql-data-warehouse"></a>Proteger um banco de dados no SQL Data Warehouse
+# <a name="secure-a-database-in-azure-synapse"></a>Proteger um banco de dados no Azure Synapse
 > [!div class="op_single_selector"]
 > * [Visão geral de segurança](sql-data-warehouse-overview-manage-security.md)
 > * [Autenticação](sql-data-warehouse-authentication.md)
@@ -47,7 +48,7 @@ Quando você criou o servidor lógico do banco de dados, especificou um logon de
 
 No entanto, como uma melhor prática, os usuários de sua organização devem usar uma conta diferente para a autenticação. Dessa forma, você pode limitar as permissões concedidas ao aplicativo e reduzir os riscos de atividades mal-intencionadas, caso o código do aplicativo seja vulnerável a um ataque de injeção de SQL. 
 
-Para criar um usuário Autenticado do SQL Server, conecte o banco de dados **mestre** no servidor com o logon de administrador do servidor e crie um novo logon do servidor.  É uma boa ideia também criar um usuário no banco de dados mestre do Azure Synapse usuários. A criação de um usuário mestre permite que um usuário faça logon usando ferramentas, como o SSMS, sem especificar um nome de banco de dados.  Ela também permite que o usuário utilize o pesquisador de objetos para exibir todos os bancos de dados em um SQL Server.
+Para criar um usuário Autenticado do SQL Server, conecte o banco de dados **mestre** no servidor com o logon de administrador do servidor e crie um novo logon do servidor.  É uma boa ideia também criar um usuário no banco de dados mestre. A criação de um usuário mestre permite que um usuário faça logon usando ferramentas, como o SSMS, sem especificar um nome de banco de dados.  Ela também permite que o usuário utilize o pesquisador de objetos para exibir todos os bancos de dados em um SQL Server.
 
 ```sql
 -- Connect to master database and create a login
@@ -58,7 +59,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 Em seguida, conecte-se ao **banco de dados do pool SQL** com o logon de administrador do servidor e crie um usuário de banco de dados com base no logon do servidor que você criou.
 
 ```sql
--- Connect to SQL DW database and create a database user
+-- Connect to the database and create a database user
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
@@ -76,7 +77,7 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 A conta de administrador do servidor com a qual você está se conectando é um membro de db_owner, que tem autoridade para realizar qualquer tarefa no banco de dados. Salve essa conta para implantar atualizações de esquema e outras operações de gerenciamento. Use a conta "ApplicationUser" com permissões mais limitadas para se conectar do aplicativo ao banco de dados com os privilégios mínimos necessários para seu aplicativo.
 
-Há maneiras de limitar ainda mais o que um usuário pode fazer em um data warehouse:
+Há maneiras de limitar ainda mais o que um usuário pode fazer no banco de dados:
 
 * [As permissões](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine?view=sql-server-ver15) granulares permitem controlar quais operações você pode fazer em colunas individuais, tabelas, exibições, esquemas, procedimentos e outros objetos no banco de dados. Use permissões granulares para ter maior controle e conceder as permissões mínimas necessárias. 
 * [Funções de banco de dados](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15) diferentes de db_datareader e db_datawriter podem ser usadas para criar contas de usuário de aplicativo mais potentes ou contas de gerenciamento menos potentes. As funções internas de banco de dados fixo fornecem uma maneira fácil para conceder permissões, mas podem resultar na concessão de mais permissões do que o necessário.

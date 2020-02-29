@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
-ms.date: 11/08/2019
-ms.openlocfilehash: 9b6c21c31f3f4ec45307c245c373b9e1c1480cda
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 02/27/2020
+ms.openlocfilehash: b6b7e47acdbc5bd059e17e512731bd09c8580798
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75537117"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195372"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualizar execuções e métricas de experimento com TensorBoard e Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ A maneira como você inicia o TensorBoard com Azure Machine Learning experimento
 > [!TIP]
 > As informações neste documento são basicamente para cientistas de dados e desenvolvedores que desejam monitorar o processo de treinamento de modelo. Se você for um administrador interessado em monitorar o uso de recursos e eventos do Azure Machine Learning, como cotas, execuções de treinamento concluídas ou implantações de modelo concluídas, consulte [monitoramento Azure Machine Learning](monitor-azure-machine-learning.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Para iniciar o TensorBoard e exibir seus históricos de execução de experimento, seus experimentos precisam ter o registro em log habilitado anteriormente para controlar suas métricas e desempenho.  
 
@@ -182,6 +182,10 @@ tb.start()
 tb.stop()
 ```
 
+>[!Note]
+ Embora este exemplo tenha usado TensorFlow, TensorBoard pode ser usado facilmente com modelos PyTorch ou de encadeamento. TensorFlow deve estar disponível no computador que executa o TensorBoard, mas não é necessário no computador que faz cálculos de PyTorch ou de encadeamento. 
+
+
 <a name="export"></a>
 
 ## <a name="option-2-export-history-as-log-to-view-in-tensorboard"></a>Opção 2: exportar o histórico como log para exibição no TensorBoard
@@ -289,7 +293,7 @@ Quando terminar, certifique-se de chamar o método [Stop ()](https://docs.micros
 tb.stop()
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Nestas instruções, você criou dois experimentos e aprendeu a iniciar o TensorBoard em relação a seus históricos de execução para identificar áreas para ajuste e readaptação em potencial. 
 

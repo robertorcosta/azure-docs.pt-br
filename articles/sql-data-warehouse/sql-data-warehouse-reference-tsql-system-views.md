@@ -1,6 +1,6 @@
 ---
 title: Exibições do sistema
-description: Links para a documentação para exibições do sistema compatíveis no SQL Data Warehouse do Azure.
+description: Links para a documentação de exibições do sistema com suporte na análise de SQL.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,18 +10,18 @@ ms.subservice: query
 ms.date: 01/06/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 36f0738dc478d7a1144527acb29118a7a99ef5ac
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.custom: azure-synapse
+ms.openlocfilehash: 694bb1d970f7f5c36b074e64ee41c3d34b55c482
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690777"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198296"
 ---
-# <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Exibições do sistema compatíveis com o SQL Data Warehouse do Azure
-Links para a documentação para instruções T-SQL compatíveis no SQL Data Warehouse do Azure.
+# <a name="system-views-supported-in-sql-analytics"></a>Exibições do sistema com suporte na análise do SQL
+Links para a documentação para instruções T-SQL com suporte na análise de SQL.
 
-## <a name="sql-data-warehouse-catalog-views"></a>Exibições do catálogo SQL Data Warehouse
+## <a name="sql-analytics-catalog-views"></a>Exibições do catálogo do SQL Analytics
 * [sys.pdw_column_distribution_properties](https://msdn.microsoft.com/library/mt204022.aspx)
 * [sys.pdw_distributions](https://msdn.microsoft.com/library/mt203892.aspx)
 * [sys.pdw_index_mappings](https://msdn.microsoft.com/library/mt203912.aspx)
@@ -65,8 +65,8 @@ Links para a documentação para instruções T-SQL compatíveis no SQL Data War
 * [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 * [Sys. dm_workload_management_workload_groups_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql) (versão prévia)
 
-## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>DMVs do SQL Server aplicáveis ao SQL Data Warehouse
-As DMVs a seguir são aplicáveis ao SQL Data Warehouse, mas devem ser executadas conectando-as ao banco de dados **mestre** .
+## <a name="sql-server-dmvs-applicable-to-sql-analytics"></a>SQL Server DMVs aplicáveis à análise de SQL
+As DMVs a seguir são aplicáveis à análise de SQL, mas devem ser executadas conectando-se ao banco de dados **mestre** .
 
 * [sys.database_service_objectives](https://msdn.microsoft.com/library/mt712619.aspx)
 * [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx)
@@ -145,17 +145,17 @@ As DMVs a seguir são aplicáveis ao SQL Data Warehouse, mas devem ser executada
 * [sys.types](https://msdn.microsoft.com/library/ms188021.aspx)
 * [sys.views](https://msdn.microsoft.com/library/ms190334.aspx)
 
-## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>DMVs do SQL Server disponíveis no SQL Data Warehouse
-O SQL Data Warehouse expõe muitas das exibições de gerenciamento dinâmico do SQL Server (DMVs). Essas exibições, quando consultadas no SQL Data Warehouse, estão comunicando o estado dos Bancos de Dados SQL em execução nas distribuições.
+## <a name="sql-server-dmvs-available-in-sql-analytics"></a>SQL Server DMVs disponíveis na análise de SQL
+A análise de SQL expõe muitas das SQL Server DMVs (exibições de gerenciamento dinâmico). Essas exibições, quando consultadas na análise de SQL, estão relatando o estado dos bancos de dados SQL em execução nas distribuições.
 
-O SQL Data Warehouse e o PDW (Parallel Data Warehouse) do Analytics Platform System usam as mesmas exibições do sistema. Cada DMV tem uma coluna chamada pdw_node_id, que é o identificador do nó de Computação. 
+A análise de SQL e o PDW (data warehouse paralelo) usam as mesmas exibições do sistema. Cada DMV tem uma coluna chamada pdw_node_id, que é o identificador do nó de Computação. 
 
 > [!NOTE]
 > Para usar essas exibições, insira “pdw_nodes_” no nome, conforme mostrado na seguinte tabela:
 > 
 > 
 
-| Nome DMV no SQL Data Warehouse | Artigo sobre o SQL Server Transact-SQL|
+| Nome da DMV na análise de SQL | Artigo sobre o SQL Server Transact-SQL|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)| 
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql)| 
@@ -217,8 +217,8 @@ O SQL Data Warehouse e o PDW (Parallel Data Warehouse) do Analytics Platform Sys
 | sys.dm_pdw_nodes_tran_session_transactions |[sys.dm_tran_session_transactions](https://msdn.microsoft.com/library/ms188739.aspx) |
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](https://msdn.microsoft.com/library/ms188778.aspx) |
 
-## <a name="sql-server-2016-polybase-dmvs-available-in-sql-data-warehouse"></a>DMVs do SQL Server 2016 PolyBase disponíveis no SQL Data Warehouse
-As DMVs a seguir são aplicáveis ao SQL Data Warehouse, mas devem ser executadas conectando-as ao banco de dados **mestre** .
+## <a name="sql-server-2016-polybase-dmvs-available-in-sql-analytics"></a>SQL Server DMVs 2016 do polybase disponíveis na análise de SQL
+As DMVs a seguir são aplicáveis à análise de SQL, mas devem ser executadas conectando-se ao banco de dados **mestre** .
 
 * [sys.dm_exec_compute_node_errors](https://msdn.microsoft.com/library/mt146380.aspx)
 * [sys.dm_exec_compute_node_status](https://msdn.microsoft.com/library/mt146382.aspx)
@@ -242,5 +242,5 @@ As DMVs a seguir são aplicáveis ao SQL Data Warehouse, mas devem ser executada
 * [VIEW_TABLE_USAGE](https://msdn.microsoft.com/library/ms173869.aspx)
 * [VIEWS](https://msdn.microsoft.com/library/ms181381.aspx)
 
-## <a name="next-steps"></a>Próximos passos
-Para obter mais informações de referência, consulte [Instruções T-SQL no SQL Data Warehouse do Azure](sql-data-warehouse-reference-tsql-statements.md) e [Elementos de linguagem T-QSL no SQL Data Warehouse do Azure](sql-data-warehouse-reference-tsql-language-elements.md).
+## <a name="next-steps"></a>Próximas etapas
+Para obter mais informações de referência, consulte [instruções t-SQL na análise de SQL](sql-data-warehouse-reference-tsql-statements.md)e [elementos de linguagem t-SQL na análise de SQL](sql-data-warehouse-reference-tsql-language-elements.md).

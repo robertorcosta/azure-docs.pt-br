@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c90dc7877bced8a4ceececc04b8e3d1ebdcbfe44
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 79c24eb078cc3de764ecc1c814e5b8772777eab6
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74968622"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199488"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Usar a criptografia comum dinâmica PlayReady e/ou Widevine
 
 > [!NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não há novos recursos ou funcionalidades sendo adicionados aos serviços de mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não há novos recursos ou funcionalidades sendo adicionados aos serviços de mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 >   
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
  Você pode usar os Serviços de Mídia para fornecer fluxos MPEG-DASH, Smooth Streaming e HLS (HTTP Live Streaming) protegidos com o [DRM do PlayReady](https://www.microsoft.com/playready/overview/). Também pode fornecer fluxos DASH criptografados com licenças DRM do Widevine. O PlayReady e o Widevine são criptografados de acordo com a especificação de criptografia comum (ISO/IEC 23001-7 CENC). Você pode usar o [SDK do .NET dos Serviços de Mídia](https://www.nuget.org/packages/windowsazure.mediaservices/) (começando da versão 3.5.1) ou a API REST para configurar seu AssetDeliveryConfiguration ao uso do Widevine.
 
@@ -35,13 +35,13 @@ Os Serviços de Mídia fornecem um serviço para entregar licenças DRM do PlayR
 
 Você também pode usar os seguintes parceiros dos Serviços de Mídia para ajudá-lo a fornecer licenças do Widevine: 
 
-* [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/) 
+* [Axinom](https://www.axinom.com) 
 * [EZDRM](https://ezdrm.com/) 
 * [castLabs](https://castlabs.com/company/partners/azure/) 
 
 Para saber mais, veja: integração ao [Axinom](media-services-axinom-integration.md) e ao [castLabs](media-services-castlabs-integration.md).
 
-Os serviços de mídia oferecem suporte a várias maneiras de autorizar os usuários que fazem solicitações de chave. A política de autorização da chave de conteúdo pode ter uma ou mais restrições de autorização: abertas ou de token. A política restrita de token deve ser acompanhada por um token emitido por um STS (serviço de token de segurança). Os Serviços de Mídia oferecem suporte a tokens nos formatos [Simple Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) e [Token Web JSON](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). 
+Os serviços de mídia oferecem suporte a várias maneiras de autorizar os usuários que fazem solicitações de chave. A política de autorização da chave de conteúdo pode ter uma ou mais restrições de autorização: abertas ou de token. A política restrita do token deve ser acompanhada por um token emitido por um Serviço de Token de Segurança (STS). Os Serviços de Mídia oferecem suporte a tokens nos formatos [Simple Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) e [Token Web JSON](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). 
 
 Para saber mais, veja [Configure a política de autorização da chave de conteúdo](media-services-protect-with-aes128.md#configure_key_auth_policy).
 
@@ -607,16 +607,16 @@ namespace DynamicEncryptionWithDRM
 
 ## <a name="additional-notes"></a>Observações adicionais
 
-* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+* O Widevine é um serviço fornecido pela Google Inc. e está sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Confira também
 
 * [Use o CENC com DRM múltiplo e controle de acesso](media-services-cenc-with-multidrm-access-control.md)
 * [Configurar o empacotamento Widevine com os Serviços de Mídia](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)

@@ -1,26 +1,26 @@
 ---
 title: Gerenciar e monitorar a importância da carga de trabalho
-description: Saiba como gerenciar e monitorar a importância do nível de solicitação no SQL Data Warehouse do Azure.
+description: Saiba como gerenciar e monitorar a importância do nível de solicitação no Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.subservice: workload-management
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 02/04/2020
 ms.author: rortloff
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: ee9acb873c5118733de142045457028c3f4d5f61
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.reviewer: jrasnick
+ms.custom: azure-synapse
+ms.openlocfilehash: 6274bff9f9c57bfb06e58e1c4bfce6b6e265ac62
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692717"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195610"
 ---
-# <a name="manage-and-monitor-workload-importance-in-azure-sql-data-warehouse"></a>Gerenciar e monitorar a importância da carga de trabalho no Azure SQL Data Warehouse
+# <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Gerenciar e monitorar a importância da carga de trabalho no Azure Synapse Analytics
 
-Gerencie e monitore a importância do nível de solicitação no Azure SQL Data Warehouse usando DMVs e exibições de catálogo.
+Gerencie e monitore a importância do nível de solicitação do SQL Analytics no Azure Synapse usando DMVs e exibições de catálogo.
 
 ## <a name="monitor-importance"></a>Importância do monitor
 
@@ -39,7 +39,7 @@ Para ver mais detalhadamente como as consultas estão sendo agendadas, use as ex
 
 ## <a name="manage-importance-with-catalog-views"></a>Gerenciar importância com exibições de catálogo
 
-A exibição de catálogo sys. workload_management_workload_classifiers contém informações sobre classificadores em sua instância do SQL Data Warehouse do Azure. Para excluir os classificadores definidos pelo sistema que são mapeados para classes de recurso, execute o seguinte código:
+A exibição de catálogo sys. workload_management_workload_classifiers contém informações sobre classificadores. Para excluir os classificadores definidos pelo sistema que são mapeados para classes de recurso, execute o seguinte código:
 
 ```sql
 SELECT *
@@ -57,7 +57,7 @@ SELECT c.name,cd.classifier_type, classifier_value
   WHERE c.name = 'ExecReportsClassifier'
 ```
 
-![Resultados da consulta](./media/sql-data-warehouse-how-to-manage-and-monitor-workload-importance/wlm-query-results.png)
+![resultados da consulta](./media/sql-data-warehouse-how-to-manage-and-monitor-workload-importance/wlm-query-results.png)
 
 Para simplificar a solução de problemas de classificação indesejada, recomendamos que você remova os mapeamentos de função de classe de recurso ao criar classificadores de carga de trabalho. O código a seguir retorna associações de função de classe de recurso existentes. Execute sp_droprolemember para cada ```membername``` retornado da classe de recurso correspondente.
 Abaixo está um exemplo de verificação de existência antes de remover um classificador de carga de trabalho:

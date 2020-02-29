@@ -3,20 +3,20 @@ title: 'Tutorial: registrar um aplicativo'
 titleSuffix: Azure AD B2C
 description: Saiba como registrar seus aplicativo Web no Azure Active Directory B2C usando o portal do Azure.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 10/16/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dbb689182a45367061ae129304a98a8ee9962051
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: a688f5e75f7513d0ea4308b751f87f75a2c9510a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840104"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183084"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Tutorial: registrar um aplicativo no Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Neste artigo, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Se você ainda não criou seu próprio [locatário do Azure AD B2C](tutorial-create-tenant.md), crie um agora. É possível usar um locatário existente do Azure AD B2C.
 
@@ -38,7 +38,7 @@ Se você ainda não criou seu próprio [locatário do Azure AD B2C](tutorial-cre
 
 Para registrar um aplicativo no locatário do Azure Active Directory B2C, você pode usar a experiência **Aplicativos** atual ou a nossa nova experiência **Registros de Aplicativo (versão prévia)** unificada. [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[Aplicativos](#tab/applications/)
+#### <a name="applications"></a>[Aplicativos](#tab/applications/)
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e selecione o diretório que contém seu locatário Azure ad B2C.
@@ -57,7 +57,7 @@ Para registrar um aplicativo no locatário do Azure Active Directory B2C, você 
 
 1. Selecione **criar** para concluir o registro do aplicativo.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e selecione o diretório que contém seu locatário Azure ad B2C.
@@ -90,13 +90,13 @@ Depois que o registro do aplicativo for concluído, habilite o fluxo de concess�
 
 Se seu aplicativo trocar um código de autorização para um token de acesso, você precisará criar um segredo do aplicativo.
 
-#### <a name="applicationstabapplications"></a>[Aplicativos](#tab/applications/)
+#### <a name="applications"></a>[Aplicativos](#tab/applications/)
 
 1. Na página **Azure ad B2C-aplicativos** , selecione o aplicativo que você criou, por exemplo *webapp1*.
 1. Selecione **chaves** e, em seguida, selecione **gerar chave**.
 1. Selecione **salvar** para exibir a chave. Anote o valor da **Chave do Aplicativo**. Você usa esse valor como o segredo do aplicativo no código do aplicativo.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
 
 1. Na página **Azure AD B2C registros de aplicativo (versão prévia)** , selecione o aplicativo que você criou, por exemplo *webapp1*.
 1. Em **Gerenciar**, selecione **Certificados e Segredos**.
@@ -107,7 +107,7 @@ Se seu aplicativo trocar um código de autorização para um token de acesso, vo
 
 * * *
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu a:
 

@@ -6,19 +6,20 @@ author: cawaMS
 manager: paulyuk
 editor: ''
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: cawa
-ms.openlocfilehash: 8a85dd3d3d80a8c3988c7653eb74f403fdc54cd4
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 6bbadd0deb1b7b6fe1056ed7bb47dc3e666a7b9c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772492"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197701"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Salvar com segurança as configurações de aplicativo secretas para um aplicativo Web
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Este artigo descreve como salvar com segurança os parâmetros secretos de configuração de aplicativos para aplicativos do Azure.
 
 Tradicionalmente, todas as definições de configuração de aplicativos Web são salvas em arquivos de configuração, como Web. config. Essa prática leva a verificar as configurações secretas, como credenciais de nuvem, para sistemas de controle do código-fonte público, como o GitHub. Enquanto isso, pode ser difícil seguir a melhor prática de segurança devido à sobrecarga necessária para mudar o código-fonte e redefinir as configurações de desenvolvimento.

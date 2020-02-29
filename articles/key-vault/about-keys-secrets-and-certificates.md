@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: affa182145645b9a91801a9c6b38e682e6bd77ec
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9bbbcc38116c5681e3b5c867690c296f60507ad1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720054"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196103"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre Chaves, Segredos e Certificados
 
@@ -27,7 +28,7 @@ O Azure Key Vault permite que aplicativos do Microsoft Azure e usuários armazen
 
 Para obter mais informações gerais sobre o Key Vault do Azure, consulte [O que é o Azure Key Vault?](/azure/key-vault/key-vault-overview)
 
-## <a name="azure-key-vault"></a>Azure Key Vault
+## <a name="azure-key-vault"></a>Cofre de Chave do Azure
 
 As seções a seguir oferecem informações gerais aplicável durante a implementação do serviço Key Vault.
 
@@ -363,14 +364,14 @@ A tabela a seguir representa o mapeamento de política de uso de chave x509 para
 
 |**Sinalizadores de Utilização de Chave x509**|**Operações de chave do Cofre de Chaves**|**Comportamento padrão**|
 |----------|--------|--------|
-|DataEncipherment|criptografar, descriptografar| {1&gt;N/A&lt;1} |
-|DecipherOnly|descriptografar| {1&gt;N/A&lt;1}  |
+|DataEncipherment|criptografar, descriptografar| N/D |
+|DecipherOnly|descriptografar| N/D  |
 |DigitalSignature|fazer logon, verificar| Padrão de Cofre de Chaves sem uma especificação de uso no momento da criação de certificado | 
-|EncipherOnly|encrypt| {1&gt;N/A&lt;1} |
-|KeyCertSign|fazer logon, verificar|{1&gt;N/A&lt;1}|
+|EncipherOnly|encrypt| N/D |
+|KeyCertSign|fazer logon, verificar|N/D|
 |KeyEncipherment|wrapKey, unwrapKey| Padrão de Cofre de Chaves sem uma especificação de uso no momento da criação de certificado | 
-|Não repúdio|fazer logon, verificar| {1&gt;N/A&lt;1} |
-|crlsign|fazer logon, verificar| {1&gt;N/A&lt;1} |
+|Não repúdio|fazer logon, verificar| N/D |
+|crlsign|fazer logon, verificar| N/D |
 
 ### <a name="certificate-issuer"></a>Emissor do certificado
 

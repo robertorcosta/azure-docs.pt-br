@@ -1,30 +1,30 @@
 ---
 title: Analisar sua carga de trabalho
-description: Técnicas para analisar a priorização de consulta para sua carga de trabalho no SQL Data Warehouse do Azure.
+description: Técnicas para analisar a priorização de consulta para sua carga de trabalho no Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 03/13/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 14e53c1ebe63fac0f7c8e29f66ee5aa0cb3b9526
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 9b1432c41e56c6e0bc3fd80f9c2dbb36374d9e2a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693121"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199988"
 ---
-# <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analisar sua carga de trabalho no Azure SQL Data Warehouse
+# <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Analisar sua carga de trabalho no Azure Synapse Analytics
 
-Técnicas para analisar sua carga de trabalho no Azure SQL Data Warehouse.
+Técnicas para analisar sua carga de trabalho de análise de SQL no Azure Synapse Analytics.
 
 ## <a name="resource-classes"></a>Classes de recursos
 
-SQL Data Warehouse fornece classes de recurso para atribuir recursos do sistema a consultas.  Para obter mais informações sobre classes de recursos, consulte [classes de recursos & gerenciamento de carga de trabalho](resource-classes-for-workload-management.md).  As consultas aguardarão se a classe de recurso atribuída a uma consulta precisar de mais recursos do que o disponível no momento.
+A análise de SQL fornece classes de recursos para atribuir recursos do sistema a consultas.  Para obter mais informações sobre classes de recursos, consulte [classes de recursos & gerenciamento de carga de trabalho](resource-classes-for-workload-management.md).  As consultas aguardarão se a classe de recurso atribuída a uma consulta precisar de mais recursos do que o disponível no momento.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Detecção de consulta enfileirada e outros DMVs
 
@@ -63,7 +63,7 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-O SQL Data Warehouse tem os seguintes tipos de espera:
+A análise do SQL tem os seguintes tipos de espera:
 
 * **LocalQueriesConcurrencyResourceType**: consultas que ficam fora da estrutura de slot de simultaneidade. Consultas DMV e funções de sistema, como `SELECT @@VERSION` , são exemplos de consultas de locais.
 * **UserConcurrencyResourceType**: consultas que ficam dentro da estrutura de slot de simultaneidade. Consultas em tabelas do usuário final representam exemplos que usariam esse tipo de recurso.
@@ -153,4 +153,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre como gerenciar usuários de banco de dados e segurança, confira [Proteger um banco de dados no SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como classes de recurso maiores podem melhorar a qualidade do índice columnstore clusterizado, consulte [Recriando índices para melhorar a qualidade de segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Para obter mais informações sobre como gerenciar usuários e segurança de banco de dados, consulte [proteger um banco de dados na análise de SQL](sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como classes de recurso maiores podem melhorar a qualidade do índice columnstore clusterizado, consulte [Recriando índices para melhorar a qualidade de segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).

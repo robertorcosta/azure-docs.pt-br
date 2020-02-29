@@ -2,20 +2,20 @@
 title: Tutorial – criar fluxos de usuário-Azure Active Directory B2C
 description: Saiba como criar fluxos de usuário no portal do Azure para habilitar a inscrição, a entrada e a edição de perfil de usuário para seus aplicativos no Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 06/07/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 21a3597a8c3675a060359b5e4feb9561e02f0149
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 51adbb74635f66ca86347b536dc2607566dcb725
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840138"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183560"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: criar fluxos de usuário no Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Este tutorial mostra como criar alguns fluxos dos usuários recomendados usando 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [Registre seus aplicativos](tutorial-register-applications.md) que fazem parte dos fluxos dos usuários que deseja criar.
 
@@ -115,7 +115,7 @@ Para permitir que os usuários do seu aplicativo redefinam sua senha, use um flu
 1. Clique em **executar fluxo de usuário**, verifique o endereço de email da conta que você criou anteriormente e selecione **continuar**.
 1. Agora, você pode alterar a senha para o usuário. Altere a senha e selecione **continuar**. O token é retornado para `https://jwt.ms` e deve ser exibido para você.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu a:
 

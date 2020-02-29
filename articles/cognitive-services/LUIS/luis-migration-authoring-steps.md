@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/30/2019
+ms.date: 02/28/2020
 ms.author: diberry
-ms.openlocfilehash: 9c92a3ad2fc6a372b58aa651228a7bbccdf8ba0a
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: f5197ae79670e4543c58224a33838706edae6218
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552008"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194624"
 ---
 # <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>Etapas para migrar para o recurso de criação do Azure
 
 No portal de Reconhecimento vocal (LUIS), migre todos os aplicativos que você possui para usar o recurso de criação do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * **Opcionalmente**, faça backup dos aplicativos da lista de aplicativos do portal do Luis exportando cada aplicativo ou usando a [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40)de exportação.
 * **Opcionalmente**, salve a lista de collaborator's de cada aplicativo. Todos os colaboradores podem receber um email como parte do processo de migração.
@@ -32,7 +32,10 @@ Se você não tiver uma assinatura do Azure, [Inscreva-](https://azure.microsoft
 
 ## <a name="access-the-migration-process"></a>Acessar o processo de migração
 
-Em uma base semanal, você será solicitado a migrar seus aplicativos. Você pode cancelar esta janela sem migrar. Se você quiser migrar antes do próximo período agendado, poderá iniciar o processo de migração no ícone de **cadeado** na barra de ferramentas superior do portal do Luis.
+Em uma base semanal, você será solicitado a migrar seus aplicativos. Você pode cancelar esta janela sem migrar. Se você quiser migrar antes do próximo período agendado, poderá iniciar o processo de migração no ícone **do Azure** na barra de ferramentas superior do portal do Luis.
+
+> [!div class="mx-imgBorder"]
+> ![ícone de migração](./media/migrate-authoring-key/migration-button.png)
 
 ## <a name="app-owner-begins-the-migration-process"></a>O proprietário do aplicativo inicia o processo de migração
 
@@ -113,7 +116,7 @@ Saiba [como adicionar colaboradores](luis-how-to-collaborate.md).
 
 Se você receber um erro de `MissingSubscriptionRegistration` no portal do LUIS com uma barra de notificação vermelha durante o processo de migração, crie um recurso de serviço cognitiva no [portal do Azure](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) ou [CLI do Azure](luis-how-to-azure-subscription.md#create-resources-in-azure-cli). Saiba mais sobre as [causas desse erro](../../azure-resource-manager/templates/error-register-resource-provider.md#cause).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 
 * Examinar [conceitos](luis-concept-keys.md) sobre criação e chaves de tempo de execução

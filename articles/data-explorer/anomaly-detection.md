@@ -1,5 +1,5 @@
 ---
-title: Detecção de anomalias de série temporal & previsão-Data Explorer do Azure
+title: Detecção de anomalias de série temporal & previsão no Azure Data Explorer
 description: Saiba como analisar dados de série temporal para detecção de anomalias e previsão usando o Azure Data Explorer.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: 4a7463d6149a921a4a29b43eaebb78a01543323a
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: a482fef93d43f92257608b65c9c0e2ade535bcca
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985818"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194150"
 ---
 # <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>Detecção de anomalias e previsão no Azure Data Explorer
 
@@ -20,7 +20,7 @@ O Azure Data Explorer executa a coleta contínua de dados de telemetria de servi
 
 Este artigo detalha os recursos de previsão e de detecção de anomalias da série temporal do Azure Data Explorer. As funções de série temporal aplicáveis se baseiam em um modelo de decomposição conhecido robusto, em que cada série temporal original é decomposta em componentes sazonais, de tendência e residuais. As anomalias são detectadas por exceções no componente residual, enquanto a previsão é feita por meio da extrapolação dos componentes sazonais e de tendência. A implementação de Data Explorer do Azure aprimora significativamente o modelo de decomposição básico por detecção automática de sazonalidade, análise de exceção robusta e implementação em vetor para processar milhares de séries temporais em segundos.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Leia [análise de série temporal no Azure data Explorer](/azure/data-explorer/time-series-analysis) para obter uma visão geral dos recursos de série temporal.
 
@@ -129,6 +129,6 @@ demo_make_series2
 
 Este documento detalha as funções nativas do Azure Data Explorer para detecção e previsão de anomalias de séries temporais. Cada série temporal original é decomposta em componentes sazonais, de tendência e residuais para detectar anomalias e/ou previsões. Essas funcionalidades podem ser usadas para cenários de monitoramento quase em tempo real, como detecção de falhas, manutenção preditiva e previsão de carga e demanda.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre os [recursos de aprendizado de máquina](/azure/data-explorer/machine-learning-clustering) no Azure data Explorer.

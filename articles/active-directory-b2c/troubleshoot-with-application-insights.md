@@ -3,20 +3,20 @@ title: Solucionar problemas de políticas personalizadas com Application Insight
 titleSuffix: Azure AD B2C
 description: Como configurar Application Insights para rastrear a execução de suas políticas personalizadas.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3aeef1614f22563e0fd348c5bc6ae7ff1e7b0b03
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 403dbe6106cb7a1d277ba672112d2bc45dbc2987
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848142"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186260"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Coletar logs de Azure Active Directory B2C com Application Insights
 
@@ -93,7 +93,7 @@ Há um pequeno atraso, normalmente menos de cinco minutos, antes que você possa
 
 Aqui está uma lista de consultas que você pode usar para ver os logs:
 
-| Consulta | Description |
+| Consulta | DESCRIÇÃO |
 |---------------------|--------------------|
 `traces` | Veja todos os logs gerados pelo Azure AD B2C |
 `traces | where timestamp > ago(1d)` | Veja todos os logs gerados pelo Azure AD B2C para o último dia
@@ -102,7 +102,7 @@ As entradas podem ser longas. Exporte para CSV para uma análise mais detalhada.
 
 Para obter mais informações sobre como consultar, consulte [visão geral das consultas de log no Azure monitor](../azure-monitor/log-query/log-query-overview.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 A comunidade desenvolveu um visualizador userjourney para ajudar os desenvolvedores de identidade. Ele faz leitura da instância do Application Insights e fornece uma visão bem estruturada dos eventos do percurso do usuário. Obtenha o código-fonte e o implante em sua própria solução.
 

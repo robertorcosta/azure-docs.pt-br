@@ -1,5 +1,5 @@
 ---
-title: O que é segurança em nível de coluna para SQL Data Warehouse?
+title: O que é a segurança em nível de coluna para o Azure Synapse?
 description: A segurança em nível de coluna permite que os clientes controlem o acesso a colunas de tabela de banco de dados com base no contexto de execução do usuário ou na associação de grupo, simplificando o design e codificação de segurança em seu aplicativo e permitindo que você implemente restrições na coluna às.
 services: sql-data-warehouse
 author: julieMSFT
@@ -7,16 +7,17 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 04/02/2019
+ms.date: 02/05/2020
 ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 344701989a753e17d8a026f6bb771a6030bdb71f
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+tags: azure-synapse
+ms.openlocfilehash: aa9791f019436cc5c7effc9bce197d89131a6557
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513041"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199964"
 ---
 # <a name="column-level-security"></a>Segurança de Nível da Coluna
 
@@ -24,7 +25,7 @@ A segurança em nível de coluna permite que os clientes controlem o acesso a co
 
 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
-Como esse vídeo foi lançado, a [segurança em nível de linha](/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017) ficou disponível para SQL data warehouse. 
+Como esse vídeo foi lançado, a [segurança em nível de linha](/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017) ficou disponível para o Azure Synapse. 
 
 A segurança em nível de coluna simplifica o design e a codificação de segurança em seu aplicativo, permitindo que você restrinja o acesso a colunas para proteger dados confidenciais. Por exemplo, garantir que usuários específicos possam acessar apenas certas colunas de uma tabela pertinente ao seu departamento. A lógica de restrição de acesso é localizado na camada de banco de dados, em vez de longe dos dados em outra camada de aplicativo. O banco de dados aplica as restrições de acesso toda vez que o acesso a dados é tentado em qualquer camada. Essa restrição torna sua segurança mais confiável e robusta, reduzindo a área de superfície do seu sistema de segurança geral. Além disso, a segurança em nível de coluna também elimina a necessidade de introduzir exibições para filtrar colunas para impor restrições de acesso aos usuários.
 

@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1a4fbfa87756914f169bb20387702cac69d8736d
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: f7cac849caf478850707eb0a71b2369dcfa49520
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759475"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197174"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Synapse Analytics (anteriormente conhecido como SQL DW)
 
@@ -23,9 +23,9 @@ ms.locfileid: "76759475"
 
 Q. O que é o Azure Synapse?
 
-a. O Azure Synapse é um serviço de análise ilimitado que reúne data warehousing e análise de Big Data. Ele oferece a você a liberdade de consultar dados sobre seus termos, usando recursos sem servidor sob demanda ou provisionados em escala. O Azure Synapse conecta esses dois mundos com uma experiência unificada para ingerir, preparar, gerenciar e fornecer dados para necessidades imediatas de BI e machine learning. Para obter mais informações, consulte [o que é o Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+a. O Azure Synapse é um serviço de análise ilimitado que reúne data warehousing e análise de Big Data. Ele oferece a você a liberdade de consultar dados sobre seus termos, usando recursos sem servidor sob demanda ou provisionados em escala. O Azure Synapse traz esses dois mundos junto com uma experiência unificada para ingerir, preparar, gerenciar e fornecer dados para necessidades imediatas de BI e aprendizado de máquina. Para obter mais informações, consulte [o que é o Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
-Q. O que aconteceu com o SQL Data Warehouse do Azure?
+Q. O que aconteceu com o Azure SQL Data Warehouse?
 
 a. O Azure Synapse é um SQL Data Warehouse do Azure (SQL DW) evoluído. Nós tiramos o mesmo data warehouse líder do setor para um nível totalmente novo de desempenho e recursos. Você pode continuar executando suas cargas de trabalho de data warehouse existentes em produção com o Azure Synapse e se beneficiar automaticamente dos novos recursos, que estão em versão prévia. Para obter mais informações, consulte [o que é o Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
@@ -73,7 +73,7 @@ a. Os [Tíquetes de Suporte](sql-data-warehouse-get-started-create-support-ticke
 
 ## <a name="sql-languagefeature-support"></a>Suporte a linguagem/recurso do SQL 
 
-Q. Quais tipos de DataTipo são suportados?
+Q. Há suporte para quais tipos de dados?
 
 a. Consulte [tipos de dados](sql-data-warehouse-tables-data-types.md).
 
@@ -108,7 +108,7 @@ R: não, o polybase interage apenas com os componentes de armazenamento.
 
 P: Posso me conectar ao HDI?
 
-R: O HDI pode usar o ADLS ou o WASB como a camada HDFS. Se você tiver como a camada HDFS, será possível carregar esse dados no SQL DW. No entanto, não é possível gerar o cálculo de aplicação para a instância HDI. 
+R: O HDI pode usar o ADLS ou o WASB como a camada HDFS. Se você tiver o como sua camada HDFS, poderá carregar esses dados em uma data warehouse de análise do SQL. No entanto, não é possível gerar o cálculo de aplicação para a instância HDI. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre o Azure Synapse como um todo, consulte nossa página de [visão geral](sql-data-warehouse-overview-faq.md) .

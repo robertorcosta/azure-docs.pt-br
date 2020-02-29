@@ -1,6 +1,6 @@
 ---
 title: Diretrizes de design para tabelas replicadas
-description: Recomendações para criar tabelas replicadas em seu esquema do SQL Data Warehouse do Azure. 
+description: Recomendações para a criação de tabelas replicadas na análise de SQL
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,32 +10,32 @@ ms.subservice: development
 ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 18577cb729c9f17a112979cd1ebb763af38b9ca2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: ff141b0da0eb2fe68bbeccb7e39292a70b7305f0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693050"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194743"
 ---
-# <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Diretrizes de design para usar tabelas replicadas no SQL Data Warehouse do Azure
-Este artigo fornece recomendações para criar tabelas replicadas no esquema do SQL Data Warehouse. Use essas recomendações para melhorar o desempenho da consulta ao reduzir a movimentação de dados e a complexidade da consulta.
+# <a name="design-guidance-for-using-replicated-tables-in-sql-analytics"></a>Diretrizes de design para usar tabelas replicadas na análise de SQL
+Este artigo fornece recomendações para criar tabelas replicadas em seu esquema de análise de SQL. Use essas recomendações para melhorar o desempenho da consulta ao reduzir a movimentação de dados e a complexidade da consulta.
 
 > [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
 
-## <a name="prerequisites"></a>Pré-requisitos
-Este artigo pressupõe que você esteja familiarizado com os conceitos de movimentação e distribuição de dados no SQL Data Warehouse.  Para obter mais informações, consulte o artigo [arquitetura](massively-parallel-processing-mpp-architecture.md) . 
+## <a name="prerequisites"></a>Prerequisites
+Este artigo pressupõe que você esteja familiarizado com os conceitos de distribuição de dados e movimentação de dados na análise de SQL.  Para obter mais informações, consulte o artigo [arquitetura](massively-parallel-processing-mpp-architecture.md) . 
 
 Como parte do design de tabela, compreenda seus dados o tanto quanto possível e a maneira como eles são consultados.  Por exemplo, considere estas perguntas:
 
 - Qual é o tamanho da tabela?   
 - Com que frequência a tabela é atualizada?   
-- Há tabelas de dimensões e fatos no data warehouse?   
+- Tenho tabelas de dimensões e de fatos em um banco de dados de análise de SQL?   
 
 ## <a name="what-is-a-replicated-table"></a>O que é uma tabela replicada?
 Uma tabela replicada tem uma cópia completa da tabela acessível em cada nó de computação. Replicar uma tabela elimina a necessidade de transferir dados entre nós de Computação antes de uma junção ou agregação. Como a tabela tem várias cópias, as tabelas replicadas funcionam melhor quando o tamanho da tabela é menor que 2 GB compactados.  2 GB não é um limite rígido.  Se os dados forem estáticos e não forem alterados, você poderá replicar tabelas maiores.
 
-O diagrama a seguir mostra uma tabela replicada que é acessível em cada nó de computação. No SQL Data Warehouse, a tabela replicada é totalmente copiada para um banco de dados de distribuição em cada nó de computação. 
+O diagrama a seguir mostra uma tabela replicada que é acessível em cada nó de computação. Na análise de SQL, a tabela replicada é totalmente copiada para um banco de dados de distribuição em cada nó de computação. 
 
 ![Tabela replicada](media/guidance-for-using-replicated-tables/replicated-table.png "Tabela replicada")  
 
@@ -49,8 +49,8 @@ Considere usar uma tabela replicada quando:
 As tabelas replicadas poderão não render o melhor desempenho de consulta quando:
 
 - A tabela tiver operações frequentes de inserção, atualização e exclusão. Essas operações DML (linguagem de manipulação de dados) exigem uma recompilação da tabela replicada. A recompilação com frequência pode causar um desempenho mais lento.
-- O data warehouse for dimensionado com frequência. Dimensionar um data warehouse altera o número de nós de computação, o que incorre na recriação da tabela replicada.
-- A tabela tem um grande número de colunas, mas as operações de dados normalmente acessam somente um pequeno número de colunas. Neste cenário, em vez de replicar toda a tabela, pode ser mais eficaz fazer a distribuição da tabela e, em seguida, criar um índice nas colunas acessadas com frequência. Quando uma consulta exigir a movimentação de dados, o SQL Data Warehouse só moverá dados para as colunas solicitadas. 
+- O banco de dados de análise de SQL é dimensionado com frequência. O dimensionamento de um banco de dados do SQL Analytics altera o número de nós de computação, o que incorre na recriação da tabela replicada.
+- A tabela tem um grande número de colunas, mas as operações de dados normalmente acessam somente um pequeno número de colunas. Neste cenário, em vez de replicar toda a tabela, pode ser mais eficaz fazer a distribuição da tabela e, em seguida, criar um índice nas colunas acessadas com frequência. Quando uma consulta requer movimentação de dados, a análise de SQL move apenas os dados para as colunas solicitadas. 
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Usar tabelas replicadas com predicados de consulta simples
 Antes de optar por distribuir ou replicar uma tabela, considere os tipos de consultas que você planeja executar em relação à tabela. Sempre que possível,
@@ -118,11 +118,11 @@ Recriamos `DimDate` e `DimSalesTerritory` como tabelas replicadas e executamos a
 
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>Considerações sobre o desempenho para modificar as tabelas replicadas
-O SQL Data Warehouse implementa uma tabela replicada, mantendo uma versão mestre da tabela. Ele copia a versão mestre para um banco de dados de distribuição em cada nó de computação. Quando há uma alteração, o SQL Data Warehouse primeiro atualiza a tabela mestre. Em seguida, ele recompila as tabelas em cada nó de computação. Uma recompilação de uma tabela replicada inclui copiar a tabela para cada nó de computação e, em seguida, compilar os índices.  Por exemplo, uma tabela replicada em um DW400 tem 5 cópias dos dados.  Uma cópia mestre e uma cópia completa em cada nó de Computação.  Todos os dados são armazenados em bancos de dados de distribuição. O SQL Data Warehouse usa esse modelo para dar suporte a instruções de modificação de dados mais rápidas e operações de dimensionamento flexíveis. 
+A análise de SQL implementa uma tabela replicada mantendo uma versão mestre da tabela. Ele copia a versão mestre para um banco de dados de distribuição em cada nó de computação. Quando há uma alteração, a análise do SQL primeiro atualiza a tabela mestra. Em seguida, ele recompila as tabelas em cada nó de computação. Uma recompilação de uma tabela replicada inclui copiar a tabela para cada nó de computação e, em seguida, compilar os índices.  Por exemplo, uma tabela replicada em um DW400 tem 5 cópias dos dados.  Uma cópia mestre e uma cópia completa em cada nó de Computação.  Todos os dados são armazenados em bancos de dados de distribuição. O SQL Analytics usa esse modelo para dar suporte a instruções de modificação de dados mais rápidas e operações de dimensionamento flexíveis. 
 
 As recompilações são necessárias depois que:
 - Os dados são carregados ou modificados
-- O Data Warehouse é dimensionado para um nível diferente
+- A instância de análise de SQL é dimensionada para um nível diferente
 - A definição da tabela é atualizada
 
 As recompilações não são necessárias após:
@@ -132,7 +132,7 @@ As recompilações não são necessárias após:
 A recompilação não acontece imediatamente depois que os dados são modificados. Em vez disso, a recompilação é acionada na primeira vez em que uma consulta faz uma seleção pela tabela.  A consulta que disparou a recompilação imediatamente lê da versão mestre da tabela, enquanto os dados são copiados de forma assíncrona para cada nó de Computação. Até que a cópia de dados esteja concluída, as consultas subsequentes continuarão a usar a versão mestre da tabela.  Se ocorrer qualquer atividade na tabela replicada que força outra recompilação, a cópia dos dados é invalidada e a próxima instrução SELECT disparará dados a serem copiados novamente. 
 
 ### <a name="use-indexes-conservatively"></a>Use os índices de forma prudente
-As práticas de indexação padrão se aplicam às tabelas replicadas. O SQL Data Warehouse recompila cada índice de tabela replicada como parte da recompilação. Use somente os índices quando o ganho de desempenho superar o custo de recompilar os índices.  
+As práticas de indexação padrão se aplicam às tabelas replicadas. A análise do SQL recria cada índice de tabela replicado como parte da recompilação. Use somente os índices quando o ganho de desempenho superar o custo de recompilar os índices.  
  
 ### <a name="batch-data-loads"></a>Cargas de dados em lotes
 Ao carregar dados em tabelas replicadas, tente minimizar as recompilações ao enviar as cargas de envio em lote juntas. Execute todas as cargas em lote antes de executar as instruções SELECT.
@@ -182,8 +182,8 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 ## <a name="next-steps"></a>Próximas etapas 
 Para criar uma tabela replicada, use uma dessas instruções:
 
-- [CRIAR TABELA (SQL Data Warehouse do Azure)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CREATE TABLE AS SELECT (SQL Data Warehouse do Azure)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [CREATE TABLE (análise do SQL)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [CREATE TABLE como SELECT (análise do SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 Para obter uma visão geral das tabelas distribuídas, consulte [Tabelas distribuídas](sql-data-warehouse-tables-distribute.md).
 

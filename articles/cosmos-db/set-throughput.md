@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: 236ae017832d5d613d0bf9fc948d16a7218d2269
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 31ad7a9d1108adc9071812454419252a813cb93e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77621940"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194862"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar a taxa de transferência para contêineres e bancos de dados
 
@@ -63,7 +63,8 @@ Se a carga de trabalho em uma partição lógica consumir mais do que a taxa de 
 Os contêineres em um banco de dados de produtividade compartilhado compartilham a taxa de transferência (RU/s) alocada para esse banco de dados. Você pode ter até quatro contêineres com um mínimo de 400 RU/s no banco de dados. Cada novo contêiner após os quatro primeiros precisará de mais 100 RU/s no mínimo. Por exemplo, se você tiver um banco de dados de produtividade compartilhado com oito contêineres, o RU/s mínimo no banco de dados será de 800 RU/s.
 
 > [!NOTE]
-> Em um banco de dados de produtividade compartilhado, você pode ter um máximo de 25 contêineres no banco de dados. Se você já tiver mais de 25 contêineres em um banco de dados de produtividade compartilhado, não poderá criar contêineres adicionais até que a contagem de contêineres seja menor que 25.
+> Em fevereiro de 2020, apresentamos uma alteração que permite que você tenha um máximo de 25 contêineres em um banco de dados de produtividade compartilhado, o que permite melhor o compartilhamento de produtividade entre os contêineres. Após os 25 primeiros contêineres, você poderá adicionar mais contêineres ao banco de dados somente se eles forem [provisionados com taxa de transferência dedicada](#set-throughput-on-a-database-and-a-container), que é separada da produtividade compartilhada do banco de dados.<br>
+Se sua conta de Azure Cosmos DB já contiver um banco de dados de produtividade compartilhado com > = 25 contêineres, a conta e todas as outras contas na mesma assinatura do Azure serão isentas dessa alteração. [Entre em contato com o suporte ao produto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) se você tiver comentários ou dúvidas. 
 
 Se suas cargas de trabalho envolvem excluir e recriar todas as coleções em um banco de dados, é recomendável descartar o banco de dados vazio e recriar um novo banco de dados antes da criação da coleção. A imagem a seguir mostra como uma partição física pode hospedar uma ou mais partições lógicas que pertencem a contêineres diferentes dentro de um banco de dados:
 

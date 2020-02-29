@@ -3,20 +3,20 @@ title: Visão geral de perfis técnicos em políticas personalizadas
 titleSuffix: Azure AD B2C
 description: Saiba como os perfis técnicos são usados em uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/11/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3b0e59912d740e30b0e29fb882542f1995ab6f54
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 48324d252e22ca898f923e1f0ad9b76df1c10861
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505662"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183645"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Sobre perfis técnicos em políticas personalizadas do Azure Active Directory B2C
 
@@ -40,7 +40,7 @@ Um perfil técnico permite esses tipos de cenários:
 - [Self-Asserted](self-asserted-technical-profile.md) – Interagir com o usuário. Por exemplo, colete a credencial do usuário para entrar e renderizar a página de inscrição ou a redefinição de senha.
 - [Gerenciamento de sessão](custom-policy-reference-sso.md) – lida com diferentes tipos de sessões.
 - [Application Insights](../azure-monitor/app/usage-overview.md)
-- [Senha de uma vez](one-time-password-technical-profile.md) – fornece suporte para gerenciar a geração e a verificação de uma senha de uso único. 
+- [Senha de uma vez](one-time-password-technical-profile.md) – fornece suporte para gerenciar a geração e a verificação de uma senha de uso único.
 
 ## <a name="technical-profile-flow"></a>Fluxo do perfil técnico
 
@@ -48,7 +48,7 @@ Todos os tipos de perfis técnicos compartilham o mesmo conceito. Você envia de
 
 ![Diagrama ilustrando o fluxo de perfil técnico](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
  
-1. **Gerenciamento de sessão de logon único (SSO)** – restaura o estado de sessão do perfil técnico, usando o [Gerenciamento de sessão de SSO](custom-policy-reference-sso.md). 
+1. **Gerenciamento de sessão de logon único (SSO)** – restaura o estado de sessão do perfil técnico, usando o [Gerenciamento de sessão de SSO](custom-policy-reference-sso.md).
 1. **Transformação de declarações de entrada** -as declarações de entrada de cada [transformação de declarações](claimstransformations.md) de entrada são selecionadas no recipiente de declarações.  As declarações de saída de uma transformação de declarações de entrada podem ser declarações de entrada de uma transformação de declarações de entrada subsequentes.
 1. **Declarações de entrada** -as declarações são coletadas do recipiente de declarações e são usadas para o perfil técnico. Por exemplo, um [perfil técnico autodeclarado](self-asserted-technical-profile.md) usa as declarações de entrada para preencher antecipadamente as declarações de saída fornecidas pelo usuário. Um perfil técnico da API REST usa as declarações de entrada para enviar parâmetros de entrada ao ponto de extremidade da API REST. O Azure Active Directory usa a declaração de entrada como um identificador exclusivo para ler, atualizar ou excluir uma conta.
 1. **Execução do perfil técnico** – o perfil técnico troca as declarações pela entidade configurada. Por exemplo:
@@ -64,7 +64,7 @@ Todos os tipos de perfis técnicos compartilham o mesmo conceito. Você envia de
 
 ## <a name="technical-profile-inclusion"></a>Inclusão de perfil técnico
 
-Um perfil técnico pode incluir outro perfil técnico para alterar as configurações ou adicionar uma nova funcionalidade.  O elemento `IncludeTechnicalProfile` é uma referência ao perfil técnico base do qual um perfil técnico é derivado. Não há nenhum limite ao número de níveis. 
+Um perfil técnico pode incluir outro perfil técnico para alterar as configurações ou adicionar uma nova funcionalidade.  O elemento `IncludeTechnicalProfile` é uma referência ao perfil técnico base do qual um perfil técnico é derivado. Não há nenhum limite ao número de níveis.
 
 Por exemplo, o perfil técnico **AAD-UserReadUsingAlternativeSecurityId-NoError** inclui o **AAD-UserReadUsingAlternativeSecurityId**. Este perfil técnico define o `RaiseErrorIfClaimsPrincipalDoesNotExist` item de metadados para `true`e gera um erro se uma conta social não existir no diretório. **AAD-UserReadUsingAlternativeSecurityId-NOERROR** substitui esse comportamento e desabilita essa mensagem de erro.
 

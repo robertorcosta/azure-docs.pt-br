@@ -1,17 +1,18 @@
 ---
 title: Universos de segurança do Azure Key Vault | Microsoft Docs
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 07/03/2017
-ms.openlocfilehash: 1e18befe05e5a1d33aa4e5445b80c6d6fd7239af
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 35d2683495a12b864378f8fb6f5edb6663d92c27
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883181"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194913"
 ---
 # <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Universos de segurança e limites geográficos do Azure Key Vault
 
@@ -26,7 +27,7 @@ Um backup feito de uma chave de um cofre de chaves em uma localização do Azure
 - Ambas as localizações do Azure pertencem à mesma localização geográfica
 - Ambos os cofres de chaves pertencem à mesma assinatura do Azure
 
-Por exemplo, um backup feito por determinada assinatura de uma chave em um cofre de chaves na Índia Ocidental só pode ser restaurado para outro cofre de chaves na mesma assinatura e localização geográfica: Índia Ocidental, Índia Central ou Sul da Índia.
+Por exemplo, um backup feito por determinada assinatura de uma chave em um cofre de chaves no Oeste da Índia só pode ser restaurado para outro cofre de chaves na mesma assinatura e localização geográfica: Oeste da Índia, Índia Central ou Sul da Índia.
 
 ## <a name="regions-and-products"></a>Regiões e produtos
 
@@ -38,9 +39,9 @@ Regiões são mapeadas para mundos de segurança, mostrados como cabeçalhos pri
 No artigo produtos por região, por exemplo, a guia **Américas** contém LESTE DOS EUA, EUA CENTRAL e OESTE DOS EUA todos mapeando para a região Américas. 
 
 >[!NOTE]
->Uma exceção é que US DOD LESTE e US DOD CENTRAL têm seus próprios mundos de segurança. 
+>Uma exceção é que Leste do US DoD e Região Central do US DoD têm seus próprios mundos de segurança. 
 
-Da mesma forma, na guia **Europa**, EUROPA SETENTRIONAL e EUROPA OCIDENTAL são ambos mapeados para a região Europa. O mesmo também ocorre na guia **Pacífico Asiático**.
+Da mesma forma, na guia **Europa**, NORTE DA EUROPA e EUROPA OCIDENTAL são ambos mapeados para a região Europa. O mesmo também ocorre na guia **Pacífico Asiático**.
 
 
 

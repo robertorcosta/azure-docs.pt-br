@@ -3,20 +3,20 @@ title: Migrar APIs Web baseadas em OWIN para b2clogin.com
 titleSuffix: Azure AD B2C
 description: Saiba como habilitar uma API Web .NET para dar suporte a tokens emitidos por vários emissores de token enquanto você migra seus aplicativos para o b2clogin.com.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e6a92d12e7f2f24289aafa7e4a9acc9edccbd34c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 5daf88e746ea803f345c79bd31d656f2615b6754
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840393"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184087"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migrar uma API Web baseada em OWIN para b2clogin.com
 
@@ -29,7 +29,7 @@ As seções a seguir apresentam um exemplo de como habilitar vários emissores e
 > [!NOTE]
 > Este artigo destina-se a Azure AD B2C clientes com APIs e aplicativos atualmente implantados que fazem referência a `login.microsoftonline.com` e que desejam migrar para o ponto de extremidade recomendado do `b2clogin.com`. Se você estiver configurando um novo aplicativo, use [b2clogin.com](b2clogin.md) como indicado.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Você precisa dos seguintes recursos de Azure AD B2C em vigor antes de continuar com as etapas neste artigo:
 
@@ -143,7 +143,7 @@ Depois (substitua `{your-b2c-tenant}` pelo nome do seu locatário B2C):
 
 Quando as cadeias de caracteres de ponto de extremidade são construídas durante a execução do aplicativo Web, os pontos de extremidades baseados em b2clogin.com são usados ao solicitar tokens.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Este artigo apresentou um método de configuração de uma API Web que implementa o Katana (Microsoft OWIN middleware) para aceitar tokens de vários pontos de extremidade do emissor. Como você pode observar, há várias outras cadeias de caracteres nos arquivos *Web. config* dos projetos TaskService e TaskWebApp que precisariam ser alterados se você quiser compilar e executar esses projetos em seu próprio locatário. Você é bem-vindo a modificar os projetos adequadamente se quiser vê-los em ação. no entanto, um passo a passo completo de fazer isso está fora do escopo deste artigo.
 

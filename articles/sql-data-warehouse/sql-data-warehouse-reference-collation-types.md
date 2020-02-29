@@ -1,6 +1,6 @@
 ---
-title: Ordenação
-description: Tipos de agrupamento com suporte no Azure SQL Data Warehouse.
+title: Tipos de agrupamento do data warehouse
+description: Tipos de agrupamento com suporte no pool do SQL do Azure Synapse Analytics.
 services: sql-data-warehouse
 author: antvgski
 manager: igorstan
@@ -9,21 +9,22 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 49a250a43c7b2654e1317981c853b0117fa0cf28
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 67627e4157c85853cf05dd6b24ced968a9654e62
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851784"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198432"
 ---
-# <a name="database-collation-support-for-azure-sql-data-warehouse"></a>Suporte a agrupamento de banco de dados para o Azure SQL Data Warehouse
+# <a name="database-collation-support-for-azure-synapse-analytics-sql-pool"></a>Suporte a agrupamento de banco de dados para o pool SQL do Azure Synapse Analytics
 
-Você pode alterar o agrupamento de banco de dados padrão do portal do Azure ao criar um novo banco de dados de SQL Data Warehouse do Azure. Esse recurso facilita ainda mais a criação de um novo banco de dados usando um dos 3800 agrupamentos de banco de dados com suporte para SQL Data Warehouse.
+Você pode alterar o agrupamento de banco de dados padrão do portal do Azure ao criar um novo banco de dados do pool SQL do Azure Synapse. Esse recurso facilita ainda mais a criação de um novo banco de dados usando um dos agrupamentos de banco de dados com suporte 3800. 
+
 Os agrupamentos fornecem a localidade, a página de código, a ordem de classificação e as regras de sensibilidade de caracteres para tipos de dados baseados em caracteres. Depois de escolhido, todas as colunas e expressões que exigem informações de agrupamento herdam o agrupamento escolhido da configuração do banco de dados. A herança padrão pode ser substituída informando explicitamente um agrupamento diferente para um tipo de dados baseado em caractere.
 
 ## <a name="changing-collation"></a>Alterando agrupamento
-Para alterar o agrupamento padrão, é simples atualizar para o campo de agrupamento na experiência de provisionamento.
+Para alterar o agrupamento padrão, atualize para o campo agrupamento na experiência de provisionamento.
 
 Por exemplo, se você quisesse alterar o agrupamento padrão para diferenciar maiúsculas de minúsculas, bastaria renomear o agrupamento de SQL_Latin1_General_CP1_CI_AS para SQL_Latin1_General_CP1_CS_AS. 
 
@@ -100,9 +101,12 @@ Por exemplo, se você quisesse alterar o agrupamento padrão para diferenciar ma
 *   SQL_EBCDIC277_2_CP1_CS_AS
 
 ## <a name="checking-the-current-collation"></a>Verificando o agrupamento atual
+
 Para verificar o agrupamento atual do banco de dados, você pode executar o seguinte trecho T-SQL:
+
 ```sql
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;
 ```
-Quando passou ' collation ' como o parâmetro Property, a função DatabasePropertyEx retorna o agrupamento atual para o banco de dados especificado. Você pode saber mais sobre a função DatabasePropertyEx no MSDN.
+
+Quando passou ' collation ' como o parâmetro Property, a função DatabasePropertyEx retorna o agrupamento atual para o banco de dados especificado. Para obter mais informações, consulte [DatabasePropertyEx](/sql/t-sql/functions/databasepropertyex-transact-sql).
 

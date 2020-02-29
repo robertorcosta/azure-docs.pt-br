@@ -5,12 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 33dfc91381b23bf1ac33bef5274e1098df411f4a
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 0bca690fd585b288f15cbab21c1c951474390318
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75609835"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196972"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Gerenciar aplicativos para vários ambientes
 
@@ -42,9 +42,9 @@ Ao criar instâncias de um aplicativo nomeado no Service Fabric, você tem a op�
 
   - No PowerShell, o cmdlet [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) usa os parâmetros do aplicativo como uma tabela de hash.
   - Usando o sfctl, o comando [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) aceita parâmetros como uma cadeia de caracteres JSON. O script install.sh usa sfctl.
-  - O Visual Studio fornece um conjunto de arquivos de parâmetro na pasta Parâmetros no projeto do aplicativo. Esses arquivos de parâmetro são usados durante a publicação do Visual Studio, usando o Azure DevOps Services ou o Team Foundation Server. No Visual Studio, os arquivos de parâmetro são passados para o script Deploy-FabricApplication.ps1.
+  - O Visual Studio fornece um conjunto de arquivos de parâmetro na pasta Parâmetros no projeto do aplicativo. Esses arquivos de parâmetro são usados durante a publicação do Visual Studio, usando Azure DevOps Services ou Azure DevOps Server. No Visual Studio, os arquivos de parâmetro são passados para o script Deploy-FabricApplication.ps1.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Os artigos a seguir mostram como usar alguns dos conceitos descritos aqui:
 
 - [Como especificar variáveis de ambiente para serviços no Service Fabric](service-fabric-how-to-specify-environment-variables.md)

@@ -9,16 +9,17 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/11/2020
-ms.openlocfilehash: 686e426ef0b7706eff168e42ffc67417b2c5c743
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.custom: azure-synapse
+ms.openlocfilehash: 70f37c70f685ee139db4b417c1c498f9eefb8205
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212896"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184750"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
 
-A auditoria do [banco de dados SQL](sql-database-technical-overview.md) do azure e [SQL data warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) rastreia eventos do banco de dados e os grava em um log de auditoria em sua conta de armazenamento do Azure, log Analytics espaço de trabalho ou hubs de eventos. A auditoria também:
+A auditoria do [banco de dados SQL](sql-database-technical-overview.md) do Azure e [do Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) rastreia eventos de banco de dados e os grava em um log de auditoria em sua conta de armazenamento do Azure, log Analytics espaço de trabalho ou hubs de eventos. A auditoria também:
 
 - Ajuda você a manter a conformidade regulatória, entender a atividade do banco de dados e obter informações sobre discrepâncias e anomalias que podem indicar preocupações para os negócios ou suspeitas de violações de segurança.
 
@@ -26,7 +27,7 @@ A auditoria do [banco de dados SQL](sql-database-technical-overview.md) do azure
 
 
 > [!NOTE] 
-> Este tópico aplica-se ao servidor SQL do Azure e aos bancos de dados SQL e SQL Data Warehouse criados no servidor do SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse.
+> Este tópico aplica-se ao SQL Server do Azure e aos bancos de dados SQL e do Azure Synapse Analytics criados no SQL Server do Azure. Para simplificar, o banco de dados SQL é usado ao fazer referência ao banco de dados SQL e ao Azure Synapse.
 
 ## <a id="subheading-1"></a>Visão geral da auditoria do banco de dados SQL do Azure
 
@@ -80,6 +81,16 @@ A seção a seguir descreve a configuração de auditoria usando o Portal do Azu
 
     ![Painel de navegação][3]
 
+5. **Novo** – agora você tem várias opções para configurar o local em que os logs de auditoria serão gravados. Você pode gravar logs em uma conta de armazenamento do Azure, em um espaço de trabalho Log Analytics para consumo por Azure Monitor logs ou no Hub de eventos para consumo usando o Hub de eventos. Você pode configurar qualquer combinação dessas opções, e os logs de auditoria serão gravados em cada uma.
+  
+   > [!NOTE]
+   > O cliente que deseja configurar um repositório de logs imutável para seus eventos de auditoria no nível do servidor ou banco de dados deve seguir as [instruções fornecidas pelo armazenamento do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes)
+  
+   > [!WARNING]
+   > Habilitar a auditoria para Log Analytics incorrerá em custo com base nas taxas de ingestão. Esteja ciente do custo associado com o uso dessa [opção](https://azure.microsoft.com/pricing/details/monitor/)ou considere armazenar os logs de auditoria em uma conta de armazenamento do Azure.
+
+   ![opções de armazenamento](./media/sql-database-auditing-get-started/auditing-select-destination.png)
+   
 ### <a id="audit-storage-destination">Auditoria para destino de armazenamento</a>
 
 Para configurar a gravação de logs de auditoria para uma conta de armazenamento, selecione **Armazenamento** e abra **Detalhes do armazenamento**. Selecione a conta de armazenamento do Azure na qual os logs serão salvos e, em seguida, selecione o período de retenção. Em seguida, clique em **OK**. Os logs anteriores ao período de retenção são excluídos.
@@ -105,9 +116,22 @@ Para configurar a gravação de logs de auditoria em um espaço de trabalho do L
 
 ### <a id="audit-event-hub-destination">Auditoria para destino do hub de eventos</a>
 
+< < < < < < < cabeçalho < < < < < < < HEAD = = = = = = =
+>>>>>>> a8190987e07da4c5ced6de5f588d394ace4ca31d
+> [!IMPORTANT]
+> Não é possível habilitar a auditoria em um pool SQL pausado. Para habilitá-lo, cancele a pausa do pool do SQL.
+
+> [!WARNING]
+> Habilitar a auditoria em um servidor que tenha um pool do SQL, **resultará na retomada e na repausa do pool do SQL, o** que pode incorrer em encargos de cobrança.
+< < < < < < < HEAD = = = = = = = para configurar a gravação de logs de auditoria para um hub de eventos, selecione **Hub de eventos (versão prévia)** e abra **detalhes do hub de eventos**. Selecione o hub de eventos no qual os logs serão gravados e, em seguida, clique em **OK**. Verifique se o hub de eventos está na mesma região que o banco de dados e o servidor.
+
+   ![Eventhub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
+>>>>>>> <a name="bf6444e83361ab743aca04ae233c420e51ea1e03"></a>bf6444e83361ab743aca04ae233c420e51ea1e03
+=======
 Para configurar a gravação de logs de auditoria para um hub de eventos, selecione **Hub de Eventos (versão prévia)** e abra **Detalhes do Hub de Eventos**. Selecione o hub de eventos no qual os logs serão gravados e, em seguida, clique em **OK**. Verifique se o hub de eventos está na mesma região que o banco de dados e o servidor.
 
    ![Eventhub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
+>>>>>>> a8190987e07da4c5ced6de5f588d394ace4ca31d
 
 ## <a id="subheading-3"></a>Analisar os logs e relatórios de auditoria
 

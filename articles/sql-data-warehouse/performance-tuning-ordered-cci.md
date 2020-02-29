@@ -10,22 +10,22 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 3cc2f140eeed0a4667a01aa8c5ccbad7e4411521
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: abeb5c125a746842f522030878f93941450df974
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685995"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200542"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Ajuste de desempenho com o índice columnstore clusterizado ordenado  
 
-Quando os usuários consultam uma tabela columnstore no Azure SQL Data Warehouse, o otimizador verifica os valores mínimo e máximo armazenados em cada segmento.  Os segmentos que estão fora dos limites do predicado de consulta não são lidos do disco para a memória.  Uma consulta pode obter um desempenho mais rápido se o número de segmentos a serem lidos e seu tamanho total forem pequenos.   
+Quando os usuários consultam uma tabela columnstore na análise de SQL, o otimizador verifica os valores mínimo e máximo armazenados em cada segmento.  Os segmentos que estão fora dos limites do predicado de consulta não são lidos do disco para a memória.  Uma consulta pode obter um desempenho mais rápido se o número de segmentos a serem lidos e seu tamanho total forem pequenos.   
 
 ## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>Índice columnstore clusterizado versus não ordenado 
-Por padrão, para cada tabela de data warehouse do Azure criada sem uma opção de índice, um componente interno (Construtor de índice) cria um CCI (índice columnstore clusterizado) não ordenado.  Os dados em cada coluna são compactados em um segmento de rowgroup de CCI separado.  Há metadados no intervalo de valores de cada segmento, de modo que os segmentos que estão fora dos limites do predicado de consulta não são lidos do disco durante a execução da consulta.  O CCI oferece o nível mais alto de compactação de dados e reduz o tamanho dos segmentos a serem lidos para que as consultas possam ser executadas mais rapidamente. No entanto, como o construtor de índice não classifica os dados antes de compactá-los em segmentos, os segmentos com intervalos de valores sobrepostos podem ocorrer, fazendo com que as consultas leiam mais segmentos do disco e demorem mais para serem concluídas.  
+Por padrão, para cada tabela de análise de SQL criada sem uma opção de índice, um componente interno (Construtor de índice) cria um CCI (índice columnstore clusterizado) não ordenado.  Os dados em cada coluna são compactados em um segmento de rowgroup de CCI separado.  Há metadados no intervalo de valores de cada segmento, de modo que os segmentos que estão fora dos limites do predicado de consulta não são lidos do disco durante a execução da consulta.  O CCI oferece o nível mais alto de compactação de dados e reduz o tamanho dos segmentos a serem lidos para que as consultas possam ser executadas mais rapidamente. No entanto, como o construtor de índice não classifica os dados antes de compactá-los em segmentos, os segmentos com intervalos de valores sobrepostos podem ocorrer, fazendo com que as consultas leiam mais segmentos do disco e demorem mais para serem concluídas.  
 
-Ao criar um CCI ordenado, o mecanismo de SQL Data Warehouse do Azure classifica os dados existentes na memória pelas chaves de ordem antes que o construtor de índice os compacte em segmentos de índice.  Com os dados classificados, a sobreposição de segmento é reduzida, permitindo que as consultas tenham uma eliminação de segmento mais eficiente e um desempenho mais rápido, pois o número de segmentos a serem lidos do disco é menor.  Se todos os dados puderem ser classificados na memória de uma vez, a sobreposição de segmento poderá ser evitada.  Considerando o grande tamanho dos dados em data warehouse tabelas, esse cenário não acontece com frequência.  
+Ao criar um CCI ordenado, o mecanismo de análise de SQL classifica os dados existentes na memória pelas chaves de ordem antes que o construtor de índice os compacte em segmentos de índice.  Com os dados classificados, a sobreposição de segmento é reduzida, permitindo que as consultas tenham uma eliminação de segmento mais eficiente e um desempenho mais rápido, pois o número de segmentos a serem lidos do disco é menor.  Se todos os dados puderem ser classificados na memória de uma vez, a sobreposição de segmento poderá ser evitada.  Devido ao grande tamanho dos dados nas tabelas de análise de SQL, esse cenário não acontece com frequência.  
 
 Para verificar os intervalos de segmento de uma coluna, execute este comando com o nome da tabela e o nome da coluna:
 
@@ -44,9 +44,9 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> Em uma tabela de CCI ordenada, os novos dados resultantes do mesmo lote de operações DML ou de carregamento de dados são classificados dentro desse lote, não há nenhuma classificação global em todos os dados na tabela.  Os usuários podem recriar o CCI ordenado para classificar todos os dados na tabela.  No Azure SQL Data Warehouse, a recompilação do índice columnstore é uma operação offline.  Para uma tabela particionada, a recompilação é feita uma partição por vez.  Os dados na partição que está sendo recriada são "offline" e indisponíveis até que a recompilação seja concluída para essa partição. 
+> Em uma tabela de CCI ordenada, os novos dados resultantes do mesmo lote de operações DML ou de carregamento de dados são classificados dentro desse lote, não há nenhuma classificação global em todos os dados na tabela.  Os usuários podem recriar o CCI ordenado para classificar todos os dados na tabela.  Na análise do SQL, a recompilação do índice columnstore é uma operação offline.  Para uma tabela particionada, a recompilação é feita uma partição por vez.  Os dados na partição que está sendo recriada são "offline" e indisponíveis até que a recompilação seja concluída para essa partição. 
 
-## <a name="query-performance"></a>Desempenho de consultas
+## <a name="query-performance"></a>Desempenho de consulta
 
 O lucro de desempenho de uma consulta de um CCI ordenado depende dos padrões de consulta, do tamanho dos dados, da forma como os dados são classificados, da estrutura física dos segmentos e do DWU e da classe de recursos escolhidos para a execução da consulta.  Os usuários devem revisar todos esses fatores antes de escolher as colunas de ordenação ao criar uma tabela de CCI ordenada.
 
@@ -110,7 +110,7 @@ CREATE TABLE Table1 WITH (DISTRIBUTION = HASH(c1), CLUSTERED COLUMNSTORE INDEX O
 AS SELECT * FROM ExampleTable
 OPTION (MAXDOP 1);
 ```
-- Classifique previamente os dados pelas chaves de classificação antes de carregá-los nas tabelas SQL Data Warehouse do Azure.
+- Classifique previamente os dados pelas chaves de classificação antes de carregá-los em tabelas de análise de SQL.
 
 
 Aqui está um exemplo de uma distribuição de tabela CCI ordenada que tem um segmento zero sobreposto após as recomendações acima. A tabela CCI ordenada é criada em um banco de dados DWU1000c por meio de CTAS de uma tabela de heap de 20 GB usando MAXDOP 1 e xlargerc.  O CCI é ordenado em uma coluna BIGINT sem duplicatas.  
@@ -145,4 +145,4 @@ WITH (DROP_EXISTING = ON)
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvolvimento no SQL Data Warehouse](sql-data-warehouse-overview-develop.md).
+Para obter mais dicas de desenvolvimento, confira [visão geral de desenvolvimento](sql-data-warehouse-overview-develop.md).

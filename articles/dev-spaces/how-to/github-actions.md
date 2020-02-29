@@ -1,17 +1,17 @@
 ---
-title: Ações do GitHub & serviço kubernetes do Azure
+title: Ações do GitHub & serviço kubernetes do Azure (versão prévia)
 services: azure-dev-spaces
 ms.date: 02/04/2020
 ms.topic: conceptual
 description: Revisar e testar alterações de uma solicitação pull diretamente no serviço kubernetes do Azure usando ações do GitHub e Azure Dev Spaces
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, ações do GitHub, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: 35050d0c9d1e6062866747dc8544d03574a8d8fe
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: e2b6f47483d2c7b6c4970dac531bada1cecd279e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026091"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196545"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Ações do GitHub & serviço kubernetes do Azure (versão prévia)
 
@@ -27,7 +27,7 @@ Neste guia, você aprenderá a:
 > [!IMPORTANT]
 > Esse recurso está atualmente na visualização. As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Caso não tenha uma assinatura do Azure, é possível criar uma [conta gratuita](https://azure.microsoft.com/free).
 * A [CLI do Azure][azure-cli-installed] instalada.
@@ -162,7 +162,7 @@ Se você mesclar suas alterações no Branch *mestre* na bifurcação, outra aç
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como o Azure Dev Spaces ajuda você a desenvolver aplicativos mais complexos em vários contêineres e como você pode simplificar o desenvolvimento colaborativo trabalhando com versões diferentes ou branches do seu código em diferentes espaços.
 

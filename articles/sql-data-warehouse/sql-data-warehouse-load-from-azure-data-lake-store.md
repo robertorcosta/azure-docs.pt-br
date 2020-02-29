@@ -1,34 +1,34 @@
 ---
 title: Tutorial de carregamento de dados de Azure Data Lake Storage
-description: Use tabelas externas do polybase para carregar dados de Azure Data Lake Storage para o SQL Data Warehouse do Azure.
+description: Use tabelas externas do polybase para carregar dados de Azure Data Lake Storage para análise de SQL.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 12/06/2019
+ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: fdbf0eb849549071b4cbbb961c9e9f71fce1faf8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.custom: azure-synapse
+ms.openlocfilehash: 9a567a8f62f8f12de725f6d9420576680a3005fe
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923635"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194573"
 ---
-# <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Carregar dados de Azure Data Lake Storage para SQL Data Warehouse
-Este guia descreve como usar tabelas externas do polybase para carregar dados de Azure Data Lake Storage para o SQL Data Warehouse do Azure. Embora seja possível executar consultas ad hoc em dados armazenados no Data Lake Storage, é recomendável importar os dados para o SQL Data Warehouse para obter o melhor desempenho. 
+# <a name="load-data-from-azure-data-lake-storage-for-sql-analytics"></a>Carregar dados de Azure Data Lake Storage para análise de SQL
+Este guia descreve como usar tabelas externas do polybase para carregar dados de Azure Data Lake Storage. Embora seja possível executar consultas ad hoc em dados armazenados no Data Lake Storage, é recomendável importar os dados para obter o melhor desempenho. 
 
 > [!NOTE]  
-> Uma alternativa ao carregamento é a [instrução de cópia](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) atualmente em visualização pública. Para fornecer comentários sobre a instrução de cópia, envie um email para a seguinte lista de distribuição: sqldwcopypreview@service.microsoft.com.
+> Uma alternativa ao carregamento é a [instrução de cópia](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) atualmente em visualização pública.  A instrução COPY fornece mais flexibilidade. Para fornecer comentários sobre a instrução de cópia, envie um email para a seguinte lista de distribuição: sqldwcopypreview@service.microsoft.com.
 >
 > [!div class="checklist"]
 
 > * Crie objetos de banco de dados necessários para carregar de Data Lake Storage.
 > * Conecte-se a um diretório Data Lake Storage.
-> * Carregue os dados no SQL Data Warehouse.
+> * Carregar dados no data warehouse.
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -37,7 +37,7 @@ Antes de iniciar este tutorial, baixe e instale a versão mais recente do [SSMS]
 
 Para este tutorial, você precisa do:
 
-* Um SQL Data Warehouse do Azure. Consulte [Criar e consultar um SQL Data Warehouse do Azure](create-data-warehouse-portal.md).
+* Um pool do SQL. Consulte [criar um pool de SQL e consultar dados](create-data-warehouse-portal.md).
 * Uma conta de Data Lake Storage. Consulte [introdução ao Azure data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md). Para essa conta de armazenamento, você precisará configurar ou especificar uma das seguintes credenciais a serem carregadas: uma chave de conta de armazenamento, um usuário de aplicativo do Azure Directory ou um usuário do AAD que tem a função RBAC apropriada para a conta de armazenamento. 
 
 ##  <a name="create-a-credential"></a>Criar uma credencial
@@ -194,7 +194,7 @@ OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]');
 
 
 ## <a name="optimize-columnstore-compression"></a>Otimizar a compactação columnstore
-Por padrão, o SQL Data Warehouse armazena a tabela como um índice columnstore clusterizado. Após a conclusão do carregamento, algumas das linhas de dados não podem ser compactadas no columnstore.  Há várias razões para isso acontecer. Para obter mais informações, confira [gerenciar índices columnstore](sql-data-warehouse-tables-index.md).
+Por padrão, as tabelas são definidas como um índice columnstore clusterizado. Após a conclusão do carregamento, algumas das linhas de dados não podem ser compactadas no columnstore.  Há várias razões para isso acontecer. Para obter mais informações, confira [gerenciar índices columnstore](sql-data-warehouse-tables-index.md).
 
 Para otimizar o desempenho da consulta e a compactação columnstore após um carregamento, recrie a tabela para forçar o índice columnstore a compactar todas as linhas.
 
@@ -212,19 +212,20 @@ Se você decidir criar estatísticas com uma coluna em cada coluna de cada tabel
 O exemplo a seguir é um bom ponto de partida para a criação de estatísticas. Ele cria estatísticas de coluna única em cada coluna na tabela de dimensões e em cada coluna de junção das tabelas de fatos. Você poderá adicionar estatísticas de coluna única ou múltipla às colunas de tabelas de fatos posteriormente.
 
 ## <a name="achievement-unlocked"></a>Missão cumprida!
-Você carregou com êxito os dados no SQL Data Warehouse do Azure. Bom trabalho!
+Você carregou com êxito os dados no seu data warehouse. Bom trabalho!
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Próximas etapas 
 Neste tutorial, você criou tabelas externas para definir a estrutura dos dados armazenados no Data Lake Storage Gen1 e, em seguida, usou a instrução PolyBase CREATE TABLE AS SELECT para carregar dados em seu data warehouse. 
 
 Você fez essas coisas:
 > [!div class="checklist"]
+>
 > * Foram criados objetos de banco de dados necessários para carregar de Data Lake Storage.
 > * Conectado a um Data Lake Storage Directory.
-> * Os dados foram carregados para o SQL Data Warehouse do Azure.
+> * Dados carregados no data warehouse.
 >
 
-O carregamento de dados é a primeira etapa para desenvolver uma solução de data warehouse usando o SQL Data Warehouse. Confira nossos recursos de desenvolvimento.
+Carregar dados é a primeira etapa para desenvolver uma solução de data warehouse usando o Azure Synapse Analytics. Confira nossos recursos de desenvolvimento.
 
 > [!div class="nextstepaction"]
-> [Saiba como desenvolver tabelas no SQL Data Warehouse](sql-data-warehouse-tables-overview.md)
+> [Saiba como desenvolver tabelas para data warehousing](sql-data-warehouse-tables-overview.md)

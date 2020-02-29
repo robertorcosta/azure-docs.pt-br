@@ -3,20 +3,20 @@ title: 'Tutorial: adicionar provedores de identidade a seus aplicativos'
 titleSuffix: Azure AD B2C
 description: Saiba como adicionar provedores de identidade a seus aplicativos no Azure Active Directory B2C usando o portal do Azure.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 07/08/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2bc02433be9ee7955b0e10ac659ee40e315e5a5e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 1f49061210ca8e3c106b0569f77a67d1f10757a1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840155"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183509"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Tutorial: adicionar provedores de identidade a seus aplicativos no Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ Você normalmente usa apena um provedor de identidade em seus aplicativos, mas t
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [Criar um fluxo de usuário](tutorial-create-user-flows.md) para permitir que os usuários se registrem e entrem no seu aplicativo.
 
@@ -168,7 +168,7 @@ Se a operação de entrada for bem-sucedida, você será redirecionado para `htt
 }.[Signature]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu a:
 

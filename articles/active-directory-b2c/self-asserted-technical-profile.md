@@ -3,20 +3,20 @@ title: Definir um perfil técnico autodeclarado em uma política personalizada
 titleSuffix: Azure AD B2C
 description: Defina um perfil técnico autodeclarado em uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/17/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8f2a86f72f16a23b0133601cfe41b9e636d8866d
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: e0a282be9b8a20c64cd3e74e7860a289baa5aec6
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425588"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183798"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico autodeclarado em uma política personalizada do Azure Active Directory B2C
 
@@ -198,7 +198,7 @@ Também é possível chamar um perfil técnico da API REST com a lógica de neg�
 | setting.showCancelButton | Não | Mostra o botão cancelar. Valores possíveis: `true` (padrão) ou `false` |
 | setting.showContinueButton | Não | Mostra o botão continuar. Valores possíveis: `true` (padrão) ou `false` |
 | configuração. showSignupLink <sup>2</sup>| Não | Mostra o botão de inscrição. Valores possíveis: `true` (padrão) ou `false` |
-| configuração. forgotPasswordLinkLocation <sup>2</sup>| Não| Exibe o link esqueceu a senha. Valores possíveis: `AfterInput` (padrão) o link é exibido na parte inferior da página ou `None` remove o link de senha esquecida.| 
+| configuração. forgotPasswordLinkLocation <sup>2</sup>| Não| Exibe o link esqueceu a senha. Valores possíveis: `AfterInput` (padrão) o link é exibido na parte inferior da página ou `None` remove o link de senha esquecida.|
 | IncludeClaimResolvingInClaimsHandling  | Não | Para declarações de entrada e saída, especifica se a [resolução de declarações](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true`ou `false` (padrão). Se você quiser usar um resolvedor de declarações no perfil técnico, defina isso como `true`. |
 
 Observações:

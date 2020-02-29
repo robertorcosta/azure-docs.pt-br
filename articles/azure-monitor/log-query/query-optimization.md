@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/25/2019
-ms.openlocfilehash: 874fd0ccdd2fdf0a2e75412ae2da82abb736ff3f
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.date: 02/28/2019
+ms.openlocfilehash: 4fad7d1e3359264c647ffc2d5f67dc547c87a13a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164569"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196647"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Otimizar consultas de log no Azure Monitor
 Os logs de Azure Monitor usam o [Data Explorer do Azure (ADX)](/azure/data-explorer/) para armazenar dados de log e executar consultas para analisar esses dados. Ele cria, gerencia e mantém os clusters ADX para você e os otimiza para sua carga de trabalho de análise de log. Quando você executa uma consulta, ela é otimizada e roteada para o cluster ADX apropriado que armazena os dados do espaço de trabalho. Os logs de Azure Monitor e o Data Explorer do Azure usam muitos mecanismos de otimização de consulta automática. Embora as otimizações automáticas forneçam um aumento significativo, elas estão em alguns casos em que você pode melhorar drasticamente o desempenho da consulta. Este artigo explica as considerações de desempenho e várias técnicas para corrigi-las.
@@ -258,6 +258,34 @@ by Computer
 ) on Computer
 ```
 
+Outro exemplo para essa falha é ao executar a filtragem de escopo de tempo logo após uma [União](/azure/kusto/query/unionoperator?pivots=azuremonitor) em várias tabelas. Ao executar a União, cada subconsulta deve ser delimitada. Você pode usar a instrução [Let](/azure/kusto/query/letstatement) para garantir a consistência do escopo.
+
+Por exemplo, a consulta a seguir examinará todos os dados nas tabelas de *pulsação* e de *desempenho* , não apenas os últimos 1 dia:
+
+```Kusto
+Heartbeat 
+| summarize arg_min(TimeGenerated,*) by Computer
+| union (
+    Perf 
+    | summarize arg_min(TimeGenerated,*) by Computer) 
+| where TimeGenerated > ago(1d)
+| summarize min(TimeGenerated) by Computer
+```
+
+Essa consulta deve ser corrigida da seguinte maneira:
+
+```Kusto
+let MinTime = ago(1d);
+Heartbeat 
+| where TimeGenerated > MinTime
+| summarize arg_min(TimeGenerated,*) by Computer
+| union (
+    Perf 
+    | where TimeGenerated > MinTime
+    | summarize arg_min(TimeGenerated,*) by Computer) 
+| summarize min(TimeGenerated) by Computer
+```
+
 A medida é sempre maior do que o tempo real especificado. Por exemplo, se o filtro na consulta for de sete dias, o sistema poderá verificar 7,5 ou 8,1 dias. Isso ocorre porque o sistema está particionando os dados em partes em tamanho variável. Para garantir que todos os registros relevantes sejam verificados, ele verifica toda a partição que pode abranger várias horas e ainda mais do que um dia.
 
 Há vários casos em que o sistema não pode fornecer uma medição precisa do intervalo de tempo. Isso acontece na maioria dos casos em que o intervalo da consulta é menor que um dia ou em consultas de vários espaços de trabalho.
@@ -304,7 +332,7 @@ A execução de consultas entre regiões e entre clusters exige que o sistema Se
 > [!IMPORTANT]
 > Em alguns cenários de vários espaços de trabalho, as medições de CPU e dados não serão precisas e representarão a medida apenas para alguns dos espaços de trabalho.
 
-## <a name="parallelism"></a>Parallelism
+## <a name="parallelism"></a>Paralelismo
 Os logs de Azure Monitor estão usando clusters grandes do Data Explorer do Azure para executar consultas, e esses clusters variam em escala, potencialmente chegando a dezenas de nós de computação. O sistema dimensiona automaticamente os clusters de acordo com a lógica e a capacidade de posicionamento do espaço de trabalho.
 
 Para executar uma consulta com eficiência, ela é particionada e distribuída para nós de computação com base nos dados necessários para seu processamento. Há algumas situações em que o sistema não pode fazer isso com eficiência. Isso pode levar a uma longa duração da consulta. 
@@ -319,6 +347,6 @@ Os comportamentos de consulta que podem reduzir o paralelismo incluem:
 
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Documentação de referência para a linguagem de consulta Kusto](/azure/kusto/query/).

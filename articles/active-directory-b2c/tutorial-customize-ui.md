@@ -3,20 +3,20 @@ title: 'Tutorial: personalizar a interface do usuário'
 titleSuffix: Azure AD B2C
 description: Saiba como personalizar a interface do usuário de seus aplicativos no Azure Active Directory B2C usando o portal do Azure.
 services: B2C
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1b0ad7049375cb20d2daa0e6f920b680d03530a5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: b2b2bc8dd4e60348553228b8b418df252a8c426a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840121"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186243"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutorial: personalizar a interface de experiências do usuário no Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ Neste artigo, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [Criar um fluxo de usuário](tutorial-create-user-flows.md) para permitir que os usuários se registrem e entrem no seu aplicativo.
 
@@ -39,7 +39,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Você cria um contêiner e uma conta de Armazenamento do Azure e coloca os arquivos HTML e CSS básicos no contêiner.
 
-### <a name="create-a-storage-account"></a>Crie uma conta de armazenamento
+### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Embora você possa armazenar seus arquivos de várias maneiras, para este tutorial, vai armazená-los no [Armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md).
 
@@ -156,7 +156,7 @@ Neste tutorial, você armazena os arquivos criados na conta de armazenamento par
 
     ![Navegador da Web mostrando a página de inscrição ou de entrada com elementos personalizados da interface do usuário](./media/tutorial-customize-ui/run-now.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu a:
 

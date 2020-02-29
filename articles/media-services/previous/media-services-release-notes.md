@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: 91578b5c840f589f3e49737b71e63f4d5e82a126
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: a55ef4f814c0d13a6efbeeb8cd9a5565d2869432
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919644"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183288"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure
 
@@ -32,14 +32,14 @@ Queremos ouvir nossos clientes para que possamos focar na correção de problema
 ## <a name="a-idissuesknown-issues"></a><a id="issues"/>problemas conhecidos
 ### <a name="a-idgeneral_issuesmedia-services-general-issues"></a><a id="general_issues"/>Problemas gerais dos Serviços de Mídia
 
-| Problema | Descrição |
+| Problema | DESCRIÇÃO |
 | --- | --- |
 | Vários cabeçalhos HTTP comuns não são fornecidos na API REST. |Se você desenvolver aplicativos de Serviços de Mídia usando a API REST, verá que não há compatibilidade com alguns campos de cabeçalho HTTP comuns (incluindo CLIENT-REQUEST-ID, REQUEST-ID e RETURN-CLIENT-REQUEST-ID). Os cabeçalhos serão adicionados em uma atualização futura. |
 | Não é permitida a codificação por porcentagem. |Os Serviços de Mídia usam o valor da propriedade IAssetFile.Name ao criar URLs para o conteúdo de streaming (por exemplo, `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). Por esse motivo, não é permitida a codificação por porcentagem. O valor da propriedade Name não pode ter quaisquer dos seguintes [caracteres reservados para codificação por porcentagem](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um "." para a extensão de nome de arquivo. |
 | O método ListBlobs que faz parte do SDK do Armazenamento do Azure versão 3.x falha. |Os Serviços de Mídia geram URLs SAS com base na versão de [12/02/2012](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) . Se desejar que o SDK de Armazenamento liste os blobs em um contêiner de blob, use o método [CloudBlobContainer.ListBlobs](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobs) que faz parte do SDK de Armazenamento versão 2.x. |
 | O mecanismo de limitação dos Serviços de Mídia restringe o uso dos recursos para aplicativos que fazem solicitações excessivas ao serviço. O serviço pode retornar o código de status HTTP 503, "Serviço Não Disponível". |Para obter mais informações, confira a descrição do código de status HTTP 503 em [Códigos de erro dos Serviços de Mídia](media-services-encoding-error-codes.md). |
 | Ao consultar entidades, no máximo 1.000 entidades são retornadas ao mesmo tempo porque a REST versão 2 pública limita os resultados da consulta a 1.000 resultados. |Use Skip e Take (.NET)/ top (REST), conforme descrito [neste exemplo de .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [neste exemplo de API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
-| Alguns clientes podem se deparar com um problema de marcas repetidas no manifesto do Smooth Streaming. |Para obter mais informações, consulte [esta seção](media-services-deliver-content-overview.md#known-issues). |
+| Alguns clientes podem se deparar com um problema de marcas repetidas no manifesto do Smooth Streaming. |Para saber mais, consulte [esta seção](media-services-deliver-content-overview.md#known-issues). |
 | Os objetos do SDK do .NET dos Serviços de Mídia não podem ser serializados e, por isso, não funcionam com o Cache para Redis do Azure. |Se você tentar serializar o objeto AssetCollection do SDK para adicioná-lo ao Cache para Redis do Azure, uma exceção será lançada. |
 |A API REST responde com uma mensagem de erro dizendo "o filtro não pode ser acessado por esta versão da API REST" ao tentar obter um filtro de nível de conta ou ativo.|O filtro foi criado ou modificado com uma versão de API mais recente do que está sendo usado para tentar obter o filtro. Isso pode acontecer se duas versões de API estiverem sendo usadas pelo código ou por ferramentas que estão sendo usadas pelo cliente.  A melhor solução aqui é atualizar o código ou as ferramentas para usar as duas versões de API mais recentes.|
 
@@ -179,7 +179,7 @@ Começando pela versão mais recente do serviço, após a conclusão de uma tare
 Para saber mais, confira [este blog](https://blogs.msdn.microsoft.com/randomnumber/2016/07/08/encoder-changes-within-azure-media-services-now-create-ismc-file/).
 
 ### <a name="known-issues"></a>Problemas conhecidos
-Alguns clientes podem se deparar com um problema de marcas repetidas no manifesto do Smooth Streaming. Para obter mais informações, consulte [esta seção](media-services-deliver-content-overview.md#known-issues).
+Alguns clientes podem se deparar com um problema de marcas repetidas no manifesto do Smooth Streaming. Para saber mais, consulte [esta seção](media-services-deliver-content-overview.md#known-issues).
 
 ## <a id="apr_changes16"></a>Versão de abril de 2016
 ### <a name="media-analytics"></a>Análise de Mídia
@@ -232,7 +232,7 @@ Os Serviços de Mídia agora também estão disponíveis nos seguintes data cent
 
 ## <a id="september_changes_15"></a>Versão de setembro de 2015
 Os Serviços de Mídia agora oferecem a capacidade de proteger tanto vídeo por demanda quanto fluxos ao vivo com tecnologia de DRM modular Widevine. Você pode usar os seguintes parceiros de serviços de entrega para ajudá-lo a fornecer licenças do Widevine:
-* [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/) 
+* [Axinom](https://www.axinom.com) 
 * [EZDRM](https://ezdrm.com/) 
 * [castLabs](https://castlabs.com/company/partners/azure/) 
 
@@ -476,7 +476,7 @@ As alterações mencionadas a seguir nesta seção são atualizações incluída
 * Habilidade de vincular várias contas de armazenamento a uma conta de Serviço de Mídia. 
     * StorageAccount
     * Asset.StorageAccountName e Asset.StorageAccount
-* Capacidade de atualizar Job.Priority. 
+* Habilidade de atualizar Job.Priority. 
 * Entidades e propriedades relacionadas à notificação: 
     * JobNotificationSubscription
     * NotificationEndPoint

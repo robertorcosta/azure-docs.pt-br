@@ -3,16 +3,17 @@ title: Conta de armazenamento gerenciado do Azure Key Vault - versão PowerShell
 description: O recurso de conta de armazenamento gerenciado fornece uma integração direta, entre Azure Key Vault e uma conta de armazenamento do Azure.
 ms.topic: conceptual
 ms.service: key-vault
+ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 75561c643c2b8881e4b390be885b77f2fff4971d
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: cbd7bd034c5cbbdf5308ec660a96dc52a9a2b310
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673465"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200695"
 ---
 # <a name="fetch-shared-access-signature-tokens-in-code"></a>Buscar tokens de assinatura de acesso compartilhado no código
 

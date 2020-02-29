@@ -1,6 +1,6 @@
 ---
 title: Indexando tabelas
-description: Recomendações e exemplos para indexação de tabelas no SQL Data Warehouse do Azure.
+description: Recomendações e exemplos para indexação de tabelas na análise de SQL.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,27 +10,27 @@ ms.subservice: development
 ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 079891824bf71caf1ebfa575833de650a55ed5be
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 5167c897109f9e4f050ac6f7416ecabbbb28a4a9
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685459"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196594"
 ---
-# <a name="indexing-tables-in-sql-data-warehouse"></a>Indexando tabelas no SQL Data Warehouse
+# <a name="indexing-tables-in-sql-analytics"></a>Indexando tabelas na análise de SQL
 
-Recomendações e exemplos para indexação de tabelas no SQL Data Warehouse do Azure.
+Recomendações e exemplos para indexação de tabelas na análise de SQL.
 
 ## <a name="index-types"></a>Tipos de índice
 
-O SQL Data Warehouse oferece várias opções de indexação, incluindo [índices columnstore clusterizados](/sql/relational-databases/indexes/columnstore-indexes-overview), [índices clusterizados e índices não clusterizados](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described) e uma opção de não indexação também conhecida como [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
+A análise de SQL oferece várias opções de indexação, incluindo [índices columnstore clusterizados](/sql/relational-databases/indexes/columnstore-indexes-overview), [índices clusterizados e índices não clusterizados](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described), além de uma opção que não é de índice, também conhecida como [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
 
-Para criar uma tabela com um índice, consulte a documentação [CRIAR TABELA (SQL Data Warehouse do Azure)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse).
+Para criar uma tabela com um índice, consulte a documentação do [CREATE TABLE (análise do SQL)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) .
 
 ## <a name="clustered-columnstore-indexes"></a>Índice columnstore clusterizado
 
-Por padrão, o SQL Data Warehouse cria um índice columnstore clusterizado quando nenhuma opção de índice é especificada em uma tabela. As tabelas columnstore clusterizadas oferecem o nível mais alto de compactação de dados e o melhor desempenho de consulta geral.  As tabelas columnstore clusterizadas geralmente superam as tabelas de índice clusterizado ou de heap e geralmente são a melhor opção para tabelas grandes.  Por esses motivos, columnstore clusterizado é a melhor opção para começar quando você não tem certeza de como indexar sua tabela.  
+Por padrão, a análise do SQL cria um índice columnstore clusterizado quando nenhuma opção de índice é especificada em uma tabela. As tabelas columnstore clusterizadas oferecem o nível mais alto de compactação de dados e o melhor desempenho de consulta geral.  As tabelas columnstore clusterizadas geralmente superam as tabelas de índice clusterizado ou de heap e geralmente são a melhor opção para tabelas grandes.  Por esses motivos, columnstore clusterizado é a melhor opção para começar quando você não tem certeza de como indexar sua tabela.  
 
 Para criar uma tabela columnstore clusterizada, basta especificar CLUSTERED COLUMNSTORE INDEX na cláusula WITH, ou não incluir a cláusula WITH:
 
@@ -52,7 +52,7 @@ Há alguns cenários em que columnstore clusterizado pode não ser uma boa opç�
 
 ## <a name="heap-tables"></a>Tabelas de heap
 
-Quando você estiver temporariamente destinando dados no SQL Data Warehouse, talvez você ache que usar uma tabela de heap torna o processo geral mais rápido. Isso ocorre porque carregamentos de heaps são mais rápidos que as tabelas de índice e, em alguns casos, a leitura subsequente pode ser feita no cache.  Se estiver carregando os dados apenas para prepará-los antes de executar mais transformações, carregar a tabela na tabela de heap é muito mais rápido que carregar os dados em uma tabela columnstore clusterizado. Além disso, o carregamento de dados em uma [tabela temporária](sql-data-warehouse-tables-temporary.md) carrega mais rapidamente do que o carregamento de uma tabela em um armazenamento permanente.  
+Quando você estiver temporariamente destinando dados na análise de SQL, talvez você ache que usar uma tabela de heap torna o processo geral mais rápido. Isso ocorre porque carregamentos de heaps são mais rápidos que as tabelas de índice e, em alguns casos, a leitura subsequente pode ser feita no cache.  Se estiver carregando os dados apenas para prepará-los antes de executar mais transformações, carregar a tabela na tabela de heap é muito mais rápido que carregar os dados em uma tabela columnstore clusterizado. Além disso, o carregamento de dados em uma [tabela temporária](sql-data-warehouse-tables-temporary.md) carrega mais rapidamente do que o carregamento de uma tabela em um armazenamento permanente.  
 
 Para tabelas de pesquisa pequenas, menos de 60 milhões linhas, muitas vezes as tabelas de heap fazem sentido.  As tabelas columnstore do cluster começam a alcançar uma compactação ideal quando há mais de 60 milhões linhas.
 
@@ -190,7 +190,7 @@ Esses fatores podem fazer com que um índice columnstore tenha menos que o ideal
 
 ### <a name="memory-pressure-when-index-was-built"></a>Pressão de memória quando o índice foi criado
 
-O número de linhas por grupo de linhas compactado está diretamente relacionado à largura da linha e à quantidade de memória disponível para processar o grupo de linhas.  Quando as linhas são gravadas nas tabelas columnstore sob pressão da memória, a qualidade do segmento columnstore pode ficar prejudicada.  Portanto, a prática recomendada é fornecer à sessão que está gravando o acesso de tabelas de índice columnstore o máximo de memória possível.  Como há uma compensação entre a memória e simultaneidade, a orientação sobre a alocação de memória correta depende dos dados em cada linha da tabela, das unidades de data warehouse alocadas para o seu sistema, e o número de slots de simultaneidade que pode ser dado à sessão que está gravando dados em sua tabela.
+O número de linhas por grupo de linhas compactado está diretamente relacionado à largura da linha e à quantidade de memória disponível para processar o grupo de linhas.  Quando as linhas são gravadas nas tabelas columnstore sob pressão da memória, a qualidade do segmento columnstore pode ficar prejudicada.  Portanto, a prática recomendada é fornecer à sessão que está gravando o acesso de tabelas de índice columnstore o máximo de memória possível.  Como há uma compensação entre a memória e a simultaneidade, a orientação sobre a alocação de memória correta depende dos dados em cada linha da tabela, das unidades de análise de SQL alocadas para o seu sistema e do número de Slots de simultaneidade que você pode dar à sessão, que é gravando dados em sua tabela.
 
 ### <a name="high-volume-of-dml-operations"></a>Alto volume de operações DML
 
@@ -204,13 +204,13 @@ As operações de atualização e inserção em lote que excedem o limite em mas
 
 ### <a name="small-or-trickle-load-operations"></a>Operações de carregamento pequenas ou lentas
 
-Às vezes, pequenas cargas que fluem para o SQL Data Warehouse também são chamadas de cargas lentas. Normalmente, elas representam um fluxo quase constante de dados que estão sendo incluídos pelo sistema. No entanto, como esse fluxo é quase contínuo, o volume de linhas não é grande. Frequentemente, os dados ficam consideravelmente abaixo do limite necessário para um carregamento direto no formato columnstore.
+Pequenas cargas que fluem em bancos de dados de análise do SQL também são conhecidas como cargas de Trickle. Normalmente, elas representam um fluxo quase constante de dados que estão sendo incluídos pelo sistema. No entanto, como esse fluxo é quase contínuo, o volume de linhas não é grande. Frequentemente, os dados ficam consideravelmente abaixo do limite necessário para um carregamento direto no formato columnstore.
 
 Nessas situações, é melhor levar os dados primeiro ao armazenamento de blobs do Azure e deixá-los se acumularem antes do carregamento. Essa técnica é conhecida normalmente como *micro envio em lote*.
 
 ### <a name="too-many-partitions"></a>Número excessivo de partições
 
-Outra coisa a considerar é o impacto de particionamento de suas tabelas columnstore clusterizadas.  Antes do particionamento, o SQL Data Warehouse já divide seus dados em 60 bancos de dados.  O particionamento divide ainda mais seus dados.  Se particionar seus dados, considere que **cada** partição precisa ter pelo menos um milhão de linhas para se beneficiar de um índice columnstore clusterizado.  Se você particionar sua tabela em 100 partições, sua tabela precisará de pelo menos 6.000.000.000 linhas para se beneficiar de um índice columnstore clusterizado (60 distribuições *100 partições* 1 milhão linhas). Se a tabela de cem partições não tiver seis bilhões de linhas, reduza o número de partições ou considere usar uma tabela de heap.
+Outra coisa a considerar é o impacto de particionamento de suas tabelas columnstore clusterizadas.  Antes do particionamento, a análise de SQL já divide seus dados em bancos de dado 60.  O particionamento divide ainda mais seus dados.  Se particionar seus dados, considere que **cada** partição precisa ter pelo menos um milhão de linhas para se beneficiar de um índice columnstore clusterizado.  Se você particionar sua tabela em 100 partições, sua tabela precisará de pelo menos 6.000.000.000 linhas para se beneficiar de um índice columnstore clusterizado (60 distribuições *100 partições* 1 milhão linhas). Se a tabela de cem partições não tiver seis bilhões de linhas, reduza o número de partições ou considere usar uma tabela de heap.
 
 Quando as tabelas tiverem sido carregadas com alguns dados, siga as etapas abaixo para identificar e recriar tabelas com índices columnstore clusterizados abaixo do ideal.
 
@@ -252,7 +252,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-A recriação de um índice no SQL Data Warehouse é uma operação offline.  Para obter mais informações sobre como recompilar índices, consulte a seção ALTER INDEX REBUILD em [Desfragmentação dos índices columnstore](/sql/relational-databases/indexes/columnstore-indexes-defragmentation) e [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
+A recriação de um índice na análise do SQL é uma operação offline.  Para obter mais informações sobre como recompilar índices, consulte a seção ALTER INDEX REBUILD em [Desfragmentação dos índices columnstore](/sql/relational-databases/indexes/columnstore-indexes-defragmentation) e [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Etapa 3: verificar se melhorou a qualidade do segmento columnstore clusterizado
 
@@ -283,7 +283,7 @@ AND     [OrderDateKey] <  20010101
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2 WITH (TRUNCATE_TARGET = ON);
 ```
 
-Para obter mais detalhes sobre como recriar partições usando CTAS, consulte [Usando partições no SQL Data Warehouse](sql-data-warehouse-tables-partition.md).
+Para obter mais detalhes sobre como recriar partições usando o CTAS, consulte [usando partições na análise de SQL](sql-data-warehouse-tables-partition.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

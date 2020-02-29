@@ -1,6 +1,6 @@
 ---
 title: Usando a identidade para criar chaves substitutas
-description: Recomendações e exemplos para usar a propriedade IDENTITY para criar chaves substitutas em tabelas no SQL Data Warehouse do Azure.
+description: Recomendações e exemplos para usar a propriedade IDENTITY para criar chaves substitutas em tabelas na análise de SQL.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,25 +10,25 @@ ms.subservice: development
 ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 0ee15b975b5513077b26cceeb80ea3fb8c02456b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: c29b83b3473b8a4224587195587feacf834f2d72
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692478"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199420"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Usando IDENTITY para criar chaves substitutas no SQL Data Warehouse do Azure
+# <a name="using-identity-to-create-surrogate-keys-in-sql-analytics"></a>Usando a identidade para criar chaves substitutas na análise de SQL
 
-Recomendações e exemplos para usar a propriedade IDENTITY para criar chaves substitutas em tabelas no SQL Data Warehouse do Azure.
+Recomendações e exemplos para usar a propriedade IDENTITY para criar chaves substitutas em tabelas na análise de SQL.
 
 ## <a name="what-is-a-surrogate-key"></a>O que é uma chave substituta
 
-Uma chave substituta em uma tabela é uma coluna com um identificador exclusivo para cada linha. A chave não é gerada de dados da tabela. Os modeladores de dados gostam de criar chaves substitutas em suas tabelas quando criam modelos de data warehouse. Você pode usar a propriedade IDENTITY para atingir esse objetivo de forma simples e eficiente, sem afetar o desempenho de carga.  
+Uma chave substituta em uma tabela é uma coluna com um identificador exclusivo para cada linha. A chave não é gerada de dados da tabela. Os modeladores de dados gostam de criar chaves substitutas em suas tabelas quando projetam modelos de análise de SQL. Você pode usar a propriedade IDENTITY para atingir esse objetivo de forma simples e eficiente, sem afetar o desempenho de carga.  
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Criando uma tabela com uma coluna IDENTITY
 
-A propriedade IDENTITY foi projetada para expansão em todas as distribuições no data warehouse sem afetar o desempenho de carga. Portanto, a implementação de IDENTITY é orientada para atingir esses objetivos.
+A propriedade IDENTITY é projetada para escalar horizontalmente entre todas as distribuições no banco de dados do SQL Analytics sem afetar o desempenho da carga. Portanto, a implementação de IDENTITY é orientada para atingir esses objetivos.
 
 Você pode definir uma tabela como tendo a propriedade IDENTITY quando você cria a tabela pela primeira vez usando uma sintaxe semelhante à instrução a seguir:
 
@@ -50,7 +50,7 @@ Este restante desta seção destaca as nuances da implementação para ajudá-lo
 
 ### <a name="allocation-of-values"></a>Alocação de valores
 
-A propriedade IDENTITY não garante a ordem na qual os valores substitutos são alocados, o que reflete o comportamento do SQL Server e do Banco de Dados SQL do Azure. No entanto, no SQL Data Warehouse do Azure, a ausência de uma garantia é mais pronunciada.
+A propriedade IDENTITY não garante a ordem na qual os valores substitutos são alocados, o que reflete o comportamento do SQL Server e do Banco de Dados SQL do Azure. No entanto, na análise do SQL, a ausência de uma garantia é mais pronunciada.
 
 O exemplo a seguir é uma ilustração:
 
@@ -92,7 +92,7 @@ Quando uma coluna de IDENTITY existente é selecionada em uma nova tabela, a nov
 - A coluna IDENTITY é listada mais de uma vez na lista SELECT.
 - A coluna IDENTITY é parte de uma expressão.
 
-Se qualquer uma das seguintes condições for verdadeira, a coluna é criada como NOT NULL em vez de herdar a propriedade IDENTITY.
+Se alguma dessas condições for verdadeira, a coluna será criada como NOT NULL em vez de herdar a propriedade IDENTITY.
 
 ### <a name="create-table-as-select"></a>CREATE TABLE AS SELECT
 
@@ -100,7 +100,7 @@ CREATE TABLE AS SELECT (CTAS) segue o mesmo comportamento do SQL Server que est�
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>Inserir explicitamente os valores em uma coluna IDENTITY
 
-O SQL Data Warehouse oferece suporte à sintaxe `SET IDENTITY_INSERT <your table> ON|OFF`. Você pode usar essa sintaxe para inserir explicitamente os valores na coluna IDENTITY.
+A análise do SQL dá suporte à sintaxe `SET IDENTITY_INSERT <your table> ON|OFF`. Você pode usar essa sintaxe para inserir explicitamente os valores na coluna IDENTITY.
 
 Muitos modeladores de dados gostam de usar valores negativos predefinidos para determinadas linhas em suas dimensões. Um exemplo é de -1 ou a linha "membro desconhecido".
 
@@ -161,7 +161,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > Não é possível usar `CREATE TABLE AS SELECT` atualmente ao carregar dados em uma tabela com uma coluna IDENTITY.
 >
 
-Para obter mais informações sobre o carregamento de dados, consulte [Criação de Extrair, Carregar e Transformar (ELT) para o SQL Data Warehouse do Azure](design-elt-data-loading.md) e [Práticas recomendadas de carregamento](guidance-for-loading-data.md).
+Para obter mais informações sobre como carregar dados, consulte [projetando, extração, carregamento e transformação (ELT) para análise de SQL](design-elt-data-loading.md) e [práticas recomendadas de carregamento](guidance-for-loading-data.md).
 
 ## <a name="system-views"></a>Exibições do sistema
 
@@ -195,7 +195,7 @@ A propriedade IDENTITY não pode ser usada:
 - Quando a coluna é também a chave de distribuição
 - Quando a tabela é uma tabela externa
 
-As funções relacionadas a seguir não têm suporte no SQL Data Warehouse:
+As seguintes funções relacionadas não têm suporte na análise de SQL:
 
 - [IDENTITY()](/sql/t-sql/functions/identity-function-transact-sql)
 - [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql)

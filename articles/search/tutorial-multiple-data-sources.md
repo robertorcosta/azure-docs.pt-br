@@ -7,21 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/23/2019
-ms.openlocfilehash: aac5dc300009ec682ef1599ad654415f5c4ad190
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.date: 02/28/2020
+ms.openlocfilehash: 6408689deec7de365ede86665a0eaeb0bd0de64b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75495061"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196562"
 ---
-# <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-cognitive-search-index"></a>C#Tutorial: combinar dados de várias fontes de dados em um índice de Pesquisa Cognitiva do Azure
+# <a name="tutorial-index-data-from-multiple-data-sources-in-c"></a>Tutorial: indexar dados de várias fontes de dados noC#
 
 A Pesquisa Cognitiva do Azure pode importar, analisar e indexar dados de várias fontes de dados em um único índice de pesquisa combinado. Isso dá suporte a situações em que os dados estruturados são agregados com os dados menos estruturados ou, até mesmo, de texto sem formatação de outras fontes, como texto, HTML ou documentos JSON.
 
 Este tutorial descreve como indexar dados de hotéis de uma fonte de dados do Azure Cosmos DB e mesclá-los com os detalhes de quartos de hotel extraídos de documentos do Armazenamento de Blobs do Azure. O resultado será um índice combinado de pesquisa de hotéis contendo tipos de dados complexos.
 
-Este tutorial usa o C#, o SDK do .NET para a Pesquisa Cognitiva do Azure e o portal do Azure para realizar as seguintes tarefas:
+Este tutorial usa C# o e o [SDK do .net](https://aka.ms/search-sdk) para executar as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Fazer upload de dados de exemplo e criar fontes de dados
@@ -30,19 +30,19 @@ Este tutorial usa o C#, o SDK do .NET para a Pesquisa Cognitiva do Azure e o por
 > * Indexar dados de hotéis do Azure Cosmos DB
 > * Mesclar dados de quartos de hotel do Armazenamento de Blobs
 
-## <a name="prerequisites"></a>Pré-requisitos
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Os serviços, as ferramentas e os dados a seguir são usados neste início rápido. 
+## <a name="prerequisites"></a>Prerequisites
 
-- [Crie um serviço da Pesquisa Cognitiva do Azure](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. Você pode usar um serviço gratuito para este tutorial.
++ [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal)
++ [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Visual Studio 2019](https://visualstudio.microsoft.com/)
++ [Criar](search-create-service-portal.md) ou [localizar um serviço de pesquisa existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
-- [Crie uma conta do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal) para armazenar os dados de hotéis de exemplo.
+> [!Note]
+> Você pode usar o serviço gratuito para este tutorial. Um serviço de pesquisa gratuito limita você a três índices, três indexadores e três fontes de dados. Este tutorial cria um de cada. Antes de começar, verifique se você tem espaço em seu serviço para aceitar os novos recursos.
 
-- [Crie uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para armazenar os dados de sala de exemplo.
-
-- [Instale o Visual Studio 2019](https://visualstudio.microsoft.com/) para usar como o IDE.
-
-### <a name="install-the-project-from-github"></a>Instalar o projeto por meio do GitHub
+## <a name="download-files"></a>Baixar arquivos
 
 1. Localize o repositório de exemplo no GitHub: [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 1. Selecione **Clonar ou baixar** e faça sua cópia local particular do repositório.
@@ -340,13 +340,23 @@ No portal do Azure, abra a página **Visão Geral** do serviço de pesquisa e lo
 
 Clique no índice hotel-rooms-sample na lista. Você verá uma interface do Search Explorer para o índice. Insira uma consulta para um termo como "Luxo". Você deverá ver, pelo menos, um documento nos resultados, o qual deverá mostrar uma lista de objetos de quarto em sua matriz de quartos.
 
+## <a name="reset-and-rerun"></a>Redefinir e execute novamente
+
+Nos estágios experimentais antecipados do desenvolvimento, a abordagem mais prática para a iteração de design é excluir os objetos do Azure Pesquisa Cognitiva e permitir que seu código os reconstrua. Nomes de recurso são exclusivos. Excluir um objeto permite que você recriá-la usando o mesmo nome.
+
+O código de exemplo para este tutorial verifica os objetos existentes e os exclui para que você possa executar novamente o código.
+
+Você também pode usar o portal para excluir índices, indexadores e fontes de dados.
+
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-A maneira mais rápida de fazer a limpeza depois de um tutorial é excluindo o grupo de recursos que contém o serviço da Pesquisa Cognitiva do Azure. Você pode excluir o grupo de recursos agora para excluir permanentemente todo o conteúdo. No portal, o nome do grupo de recursos está na página Visão geral do serviço da Pesquisa Cognitiva do Azure.
+Quando você está trabalhando em sua própria assinatura, no final de um projeto, é uma boa ideia remover os recursos que já não são necessários. Recursos deixados em execução podem custar dinheiro. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir todo o conjunto de recursos.
 
-## <a name="next-steps"></a>Próximos passos
+Você pode encontrar e gerenciar recursos no portal, usando o link todos os recursos ou grupos de recursos no painel de navegação esquerdo.
 
-Há várias abordagens e várias opções para indexar blobs JSON. Se os dados de origem incluírem algum conteúdo JSON, examine essas opções para ver o que funciona melhor para seu cenário.
+## <a name="next-steps"></a>Próximas etapas
+
+Agora que você está familiarizado com o conceito de ingestão de dados de várias fontes, vamos examinar mais de perto a configuração do indexador, começando com Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Como indexar blobs JSON usando o indexador de Blobs da Pesquisa Cognitiva do Azure](search-howto-index-json-blobs.md)
+> [Configurar um indexador Azure Cosmos DB](search-howto-index-cosmosdb.md)

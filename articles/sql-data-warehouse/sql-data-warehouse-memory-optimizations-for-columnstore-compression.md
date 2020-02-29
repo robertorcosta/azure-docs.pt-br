@@ -1,6 +1,6 @@
 ---
 title: Melhorar o desempenho do índice columnstore
-description: O Azure SQL Data Warehouse reduzir os requisitos de memória ou aumentar a memória disponível para maximizar o número de linhas que um índice columnstore compacta em cada rowgroup.
+description: Reduza os requisitos de memória ou aumente a memória disponível para maximizar o número de linhas em cada rowgroup.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,13 +10,13 @@ ms.subservice: load-data
 ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: d5dba4e9a086502f638252a0ce2b16b4abeeb643
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 11c0a168e4b2e8eac03eaebd37b208446082d1b4
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685662"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197191"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximizando a qualidade do grupo de linhas para o columnstore
 
@@ -34,13 +34,13 @@ Para o melhor desempenho de consulta, o objetivo é maximizar o número de linha
 
 Durante um carregamento em massa ou uma recompilação de índices columnstore, às vezes, não há memória suficiente disponível para compactar todas as linhas designadas para cada rowgroup. Quando há pressão de memória, os índices columnstore cortam o tamanho do rowgroup para que a compactação no columnstore possa ser bem-sucedida. 
 
-Quando não há memória suficiente para compactar, pelo menos, 10.000 linhas em cada rowgroup, o SQL Data Warehouse gera um erro.
+Quando não houver memória suficiente para compactar pelo menos 10.000 linhas em cada rowgroup, um erro será gerado.
 
 Para obter mais informações sobre o carregamento em massa, consulte [Carregamento em massa em um índice columnstore clusterizado](https://msdn.microsoft.com/library/dn935008.aspx#Bulk ).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Como monitorar a qualidade do grupo de linhas
 
-O DMV sys. dm_pdw_nodes_db_column_store_row_group_physical_stats ([Sys. dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) contém a definição de exibição correspondente ao banco de dados SQL para SQL data warehouse) que expõe informações úteis, como o número de linhas em RowGroups e o motivo para aparar se houver corte. Você pode criar a exibição a seguir como uma maneira útil consultar essa DMV para obter informações sobre a fragmentação do grupo de linhas.
+O DMV sys. dm_pdw_nodes_db_column_store_row_group_physical_stats ([Sys. dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) contém a definição de exibição correspondente ao banco de dados SQL) que expõe informações úteis, como o número de linhas em RowGroups e o motivo para aparar se houver corte. Você pode criar a exibição a seguir como uma maneira útil consultar essa DMV para obter informações sobre a fragmentação do grupo de linhas.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -81,7 +81,7 @@ To view an estimate of the memory requirements to compress a rowgroup of maximum
 O máximo de memória necessário para compactar um rowgroup é aproximadamente
 
 - 72 MB +
-- \#linhas \* \#colunas \* 8 bytes +
+- linhas de \#\* \#colunas \* 8 bytes +
 - \#linhas \* \#colunas de cadeia de caracteres curta \* 32 bytes +
 - \#colunas de cadeia de caracteres longa \* 16 MB para o dicionário de compactação
 
@@ -89,7 +89,7 @@ em que as colunas de cadeia de caracteres curta usam tipos de dados de cadeia de
 
 As cadeias de caracteres longas são compactadas com um método de compactação projetado para a compactação de texto. Esse método de compactação usa um *dicionário* para armazenar os padrões de texto. O tamanho máximo de um dicionário é de 16 MB. Há apenas um dicionário para cada coluna de cadeia de caracteres longa no rowgroup.
 
-Para obter uma discussão detalhada sobre os requisitos de memória de columnstore, assista ao vídeo [Escala do SQL Data Warehouse do Azure: configuração e diretrizes](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
+Para obter uma discussão aprofundada sobre os requisitos de memória columnstore, consulte o vídeo [escala de análise de SQL: configuração e diretrizes](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## <a name="ways-to-reduce-memory-requirements"></a>Maneiras de reduzir os requisitos de memória
 
@@ -109,7 +109,7 @@ Requisitos de memória adicionais para a compactação de cadeia de caracteres:
 
 ### <a name="avoid-over-partitioning"></a>Evitar o excesso de particionamento
 
-Os índices Columnstore criam um ou mais rowgroups por partição. No SQL Data Warehouse, o número de partições aumenta rapidamente porque os dados são distribuídos e cada distribuição é particionada. Se a tabela tiver um número excessivo de partições, talvez não haja linhas suficientes para preencher os rowgroups. A falta de linhas não cria a pressão de memória durante a compactação, mas leva a rowgroups que não obtêm o melhor desempenho de consulta de columnstore.
+Os índices Columnstore criam um ou mais rowgroups por partição. Para data warehousing no Azure Synapse Analytics, o número de partições aumenta rapidamente porque os dados são distribuídos e cada distribuição é particionada. Se a tabela tiver um número excessivo de partições, talvez não haja linhas suficientes para preencher os rowgroups. A falta de linhas não cria a pressão de memória durante a compactação, mas leva a rowgroups que não obtêm o melhor desempenho de consulta de columnstore.
 
 Outro motivo para evitar o excesso de particionamento é que há uma sobrecarga de memória no carregamento de linhas em um índice columnstore em uma tabela particionada. Durante o carregamento, várias partições poderão receber as linhas de entrada, que são mantidas na memória até que cada partição tenha linhas suficientes para ser compactada. Ter um número excessivo de partições cria pressão de memória adicional.
 
@@ -141,5 +141,4 @@ O tamanho da DWU e a classe de recurso de usuário em conjunto determinam a quan
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para encontrar mais maneiras de melhorar o desempenho no SQL Data Warehouse, consulte a [Visão geral do desempenho](sql-data-warehouse-overview-manage-user-queries.md).
-
+Para encontrar mais maneiras de melhorar o desempenho da análise de SQL, consulte a [visão geral de desempenho](sql-data-warehouse-overview-manage-user-queries.md).

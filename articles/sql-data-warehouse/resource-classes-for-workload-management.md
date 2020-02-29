@@ -1,30 +1,30 @@
 ---
 title: Classes de recursos para gerenciamento de carga de trabalho
-description: Diretrizes para usar classes de recursos para gerenciar a simultaneidade e computar recursos para consultas no SQL Data Warehouse do Azure.
+description: Diretrizes para usar classes de recursos para gerenciar simultaneidade e recursos de computação para consultas no Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 12/04/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 30d3c67a815d05a256717fc4447ae3687adb8146
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.custom: azure-synapse
+ms.openlocfilehash: c94b2a755d85bdf425980574b63d8fd74a232b19
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548162"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195984"
 ---
-# <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gerenciamento de carga de trabalho com classes de recursos no SQL Data Warehouse do Azure
+# <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Gerenciamento de carga de trabalho com classes de recursos no Azure Synapse Analytics
 
-Diretrizes para usar classes de recursos para gerenciar a memória e simultaneidade para consultas no SQL Data Warehouse do Azure.  
+Diretrizes para usar classes de recursos para gerenciar a memória e a simultaneidade para consultas de análise de SQL no Azure Synapse.  
 
 ## <a name="what-are-resource-classes"></a>O que são classes de recurso
 
-A capacidade de desempenho de uma consulta é determinada pela classe de recurso do usuário.  Classes de recursos são limites de recursos predeterminados no Azure SQL Data Warehouse que controlam recursos de computação e simultaneidade para execução da consulta. As classes de recursos podem ajudá-lo a configurar recursos para suas consultas definindo limites no número de consultas executadas simultaneamente e nos recursos de computação atribuídos a cada consulta.  Há uma compensação entre a memória e a simultaneidade.
+A capacidade de desempenho de uma consulta é determinada pela classe de recurso do usuário.  As classes de recursos são limites de recursos predeterminados na análise de SQL que regem os recursos de computação e a simultaneidade para a execução da consulta. As classes de recursos podem ajudá-lo a configurar recursos para suas consultas definindo limites no número de consultas executadas simultaneamente e nos recursos de computação atribuídos a cada consulta.  Há uma compensação entre a memória e a simultaneidade.
 
 - Classes de recursos menores reduzem a memória máxima por consulta, mas aumentam a simultaneidade.
 - Classes de recursos maiores aumentam a memória máxima por consulta, mas reduzem a simultaneidade.
@@ -67,7 +67,7 @@ As classes de recursos dinâmicos são implementadas com essas funções de banc
 
 A alocação de memória para cada classe de recurso é a seguinte. 
 
-| Nível do serviço  | smallrc           | mediumrc               | largerc                | xlargerc               |
+| Nível de serviço  | smallrc           | mediumrc               | largerc                | xlargerc               |
 |:--------------:|:-----------------:|:----------------------:|:----------------------:|:----------------------:|
 | DW100c         | 25%               | 25%                    | 25%                    | 70%                    |
 | DW200c         | 12,5%             | 12,5%                  | 22%                    | 70%                    |
@@ -82,7 +82,7 @@ A alocação de memória para cada classe de recurso é a seguinte.
 
 Por padrão, cada usuário é um membro da classe de recursos dinâmicos **smallrc**.
 
-A classe de recurso do administrador de serviços é fixada em smallrc e não pode ser alterada.  O administrador de serviços é o usuário criado durante o processo de provisionamento.  O administrador de serviços nesse contexto é o logon especificado para o "Logon de administrador do servidor" ao criar uma instância do SQL Data Warehouse com um novo servidor.
+A classe de recurso do administrador de serviços é fixada em smallrc e não pode ser alterada.  O administrador de serviços é o usuário criado durante o processo de provisionamento.  O administrador de serviços nesse contexto é o logon especificado para o "logon de administrador do servidor" ao criar uma nova instância do SQL Analytics com um novo servidor.
 
 > [!NOTE]
 > Usuários ou grupos definidos como administrador do Active Directory também são administradores de serviços.
@@ -143,7 +143,7 @@ Removed as these two are not confirmed / supported under SQL DW
 
 ## <a name="concurrency-slots"></a>Slots de simultaneidade
 
-Slots de simultaneidade são uma maneira conveniente para controlar os recursos disponíveis para execução da consulta. Eles são como tíquetes que você compra para reservar assentos em um concerto, pois a capacidade é limitada. O número total de slots de simultaneidade por data warehouse é determinado pelo nível de serviço. Antes de iniciar a execução de uma consulta, ela deve ser capaz de reserva slots de simultaneidade suficientes. Quando uma consulta for concluída, ela libera seus slots de simultaneidade.  
+Slots de simultaneidade são uma maneira conveniente para controlar os recursos disponíveis para execução da consulta. Eles são como tíquetes que você compra para reservar assentos em um concerto, pois a capacidade é limitada. O número total de slots de simultaneidade por data warehouse é determinado pelo nível de serviço. Antes de iniciar a execução de uma consulta, ela deve ser capaz de reserva slots de simultaneidade suficientes. Quando uma consulta é concluída, ela libera seus slots de simultaneidade.  
 
 - Uma consulta em execução com 10 slots de simultaneidade pode acessar 5 vezes mais recursos de computação que uma consulta em execução com 2 slots de simultaneidade.
 - Se cada consulta exige 10 slots de simultaneidade e houver 40 slots de simultaneidade, então, apenas 4 consultas podem ser executados simultaneamente.
@@ -592,7 +592,7 @@ SELECT  CASE
 GO
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre como gerenciar usuários de banco de dados e segurança, confira [Proteger um banco de dados no SQL Data Warehouse](./sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como classes de recursos maiores podem melhorar a qualidade do índice columnstore clusterizado, consulte [Otimizações de memória para compressão de columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Para obter mais informações sobre como gerenciar usuários e segurança de banco de dados, consulte [proteger um banco de dados na análise de SQL](./sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como classes de recursos maiores podem melhorar a qualidade do índice columnstore clusterizado, consulte [Otimizações de memória para compressão de columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 

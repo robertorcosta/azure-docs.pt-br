@@ -2,20 +2,20 @@
 title: Solicitar um token de acesso-Azure Active Directory B2C | Microsoft Docs
 description: Saiba como solicitar um token de acesso de Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d808bca17012d46d1c32658ec0069ca2e2e6a3ac
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 8358d3378ea892ebeef653bcb51243c9f1aa0b8d
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76962026"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184410"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Solicitar um token de acesso no Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Este artigo mostra como solicitar um token de acesso para um aplicativo Web e um
 > [!NOTE]
 > **Não há suporte a cadeias de API Web (em nome de) no Azure AD B2C.** -Muitas arquiteturas incluem uma API da Web que precisa chamar outra API da Web downstream, protegida por Azure AD B2C. Esse cenário é comum em clientes que têm um back-end de API Web que, por sua vez, chama um outro serviço. Este cenário de API Web encadeada pode ter suporte usando a concessão de Credencial de Portador JWT do OAuth 2.0, também conhecida como fluxo Em nome de. No entanto, o fluxo Em Nome de não está implementado atualmente no Azure AD B2C.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Criar um fluxo de usuário](tutorial-create-user-flows.md) para permitir que os usuários se registrem e entrem no seu aplicativo.
 - Se você ainda não tiver feito isso, [adicione um aplicativo de API Web ao seu locatário Azure Active Directory B2C](add-web-application.md).
@@ -135,6 +135,6 @@ Ao usar https://jwt.ms para examinar o token de acesso que foi retornado, você 
 }.[Signature]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre como [Configurar tokens no Azure ad B2C](configure-tokens.md)

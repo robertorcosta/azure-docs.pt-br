@@ -1,22 +1,22 @@
 ---
 title: Gerenciamento de carga de trabalho
-description: Diretrizes para implementar o gerenciamento de carga de trabalho no Azure SQL Data Warehouse.
+description: Diretrizes para implementar o gerenciamento de carga de trabalho no Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/13/2020
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 287ad5467f9f3aac7eb8c9d7c19ea15c380c6879
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.custom: azure-synapse
+ms.openlocfilehash: 14ea742a40afff8105560f1003655004687c7c9e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935404"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197650"
 ---
 # <a name="what-is-workload-management"></a>O que é o gerenciamento de carga de trabalho?
 
@@ -36,11 +36,11 @@ A capacidade de desempenho de um data warehouse é determinada pelo [unidades do
 
 
 ## <a name="workload-management-concepts"></a>Conceitos de gerenciamento de carga de trabalho
-No passado, você gerenciou o desempenho da consulta em SQL Data Warehouse por meio de [classes de recurso](resource-classes-for-workload-management.md).  Classes de recursos permitidas para atribuir memória a uma consulta com base na associação de função.  O principal desafio com as classes de recursos é que, uma vez configurada, não havia nenhuma governança nem capacidade de controlar a carga de trabalho.  
+No passado, para a análise de SQL no Azure Synapse, você gerenciou o desempenho da consulta por meio de [classes de recurso](resource-classes-for-workload-management.md).  Classes de recursos permitidas para atribuir memória a uma consulta com base na associação de função.  O principal desafio com as classes de recursos é que, uma vez configurada, não havia nenhuma governança nem capacidade de controlar a carga de trabalho.  
 
 Por exemplo, conceder uma associação de função de usuário ad hoc ao smallrc permitiu que o usuário consumisse 100% da memória no sistema.  Com as classes de recursos, não há como reservar e garantir que os recursos estejam disponíveis para cargas de trabalho críticas.
 
-O gerenciamento de carga de trabalho em SQL Data Warehouse consiste em três conceitos de alto nível: [classificação de carga](sql-data-warehouse-workload-classification.md)de trabalho, [importância da carga](sql-data-warehouse-workload-importance.md) de trabalho e [isolamento](sql-data-warehouse-workload-isolation.md)  Esses recursos oferecem mais controle sobre como sua carga de trabalho utiliza os recursos do sistema.
+O gerenciamento de carga de trabalho de análise de SQL no Azure Synapse consiste em três conceitos de alto nível: [classificação de carga de trabalho](sql-data-warehouse-workload-classification.md), importância de [carga](sql-data-warehouse-workload-importance.md) de trabalho e [isolamento de carga](sql-data-warehouse-workload-isolation.md)  Esses recursos oferecem mais controle sobre como sua carga de trabalho utiliza os recursos do sistema.
 
 Classificação de carga de trabalho é o conceito de atribuir uma solicitação a um grupo de carga de trabalho e definir níveis de importância.  Historicamente, essa atribuição foi feita por meio de associação de função usando [sp_addrolemember](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management#change-a-users-resource-class).  Agora, isso pode ser feito por meio da [CLASSIFER criar carga de trabalho](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  O recurso de classificação fornece um conjunto mais rico de opções, como rótulo, sessão e tempo para classificar solicitações.
 
@@ -49,7 +49,7 @@ A importância da carga de trabalho influencia a ordem em que uma solicitação 
 O isolamento da carga de trabalho reserva recursos para um grupo de cargas de trabalho.  Os recursos reservados em um grupo de carga de trabalho são mantidos exclusivamente para esse grupo de carga de trabalho para garantir a execução.  Os grupos de cargas de trabalho também permitem que você defina a quantidade de recursos atribuídos por solicitação, assim como as classes de recursos.  Os grupos de cargas de trabalho oferecem a capacidade de reservar ou limitar a quantidade de recursos que um conjunto de solicitações pode consumir.  Por fim, os grupos de cargas de trabalho são um mecanismo para aplicar regras, como tempo limite de consulta, a solicitações.  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter mais informações sobre a classificação de carga de trabalho, consulte [classificação de carga de trabalho](sql-data-warehouse-workload-classification.md).  
 - Para obter mais informações sobre isolamento de carga de trabalho, consulte [isolamento de carga de trabalho](sql-data-warehouse-workload-isolation.md).  

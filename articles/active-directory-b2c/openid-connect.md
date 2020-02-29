@@ -2,21 +2,21 @@
 title: Entrada na Web com OpenID Connect-Azure Active Directory B2C
 description: Crie aplicativos Web usando o protocolo de Autenticação OpenID Connect no Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f601fc2e415e22bdbb9e0a4d4d2072a0a33ac22e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 6640ab1660e6499a97a8c990a0001d5fbae4e997
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848818"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183985"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Entrada na Web com o OpenID Connect no Azure Active Directory B2C
 
@@ -45,7 +45,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &nonce=12345
 ```
 
-| Parâmetro | Obrigatório | Description |
+| Parâmetro | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | vários | Sim | Nome do seu locatário de Azure AD B2C |
 | regras | Sim | O fluxo do usuário a ser executado. Especifique o nome de um fluxo de usuário que você criou em seu locatário Azure AD B2C. Por exemplo: `b2c_1_sign_in`, `b2c_1_sign_up`ou `b2c_1_edit_profile`. |
@@ -71,7 +71,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| Parâmetro | Description |
+| Parâmetro | DESCRIÇÃO |
 | --------- | ----------- |
 | id_token | O token de ID que o aplicativo solicitou. Você pode usar o token de ID para verificar a identidade do usuário e iniciar uma sessão com o usuário. |
 | código | O código de autorização que o aplicativo solicitou, se você usou `response_type=code+id_token`. O aplicativo pode usar o código de autorização para solicitar um token de acesso para um recurso de destino. Os códigos de autorização normalmente expiram após cerca de 10 minutos. |
@@ -86,7 +86,7 @@ error=access_denied
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| Parâmetro | Description |
+| Parâmetro | DESCRIÇÃO |
 | --------- | ----------- |
 | erro | Um código que pode ser usado para classificar os tipos de erros que ocorrem. |
 | error_description | Uma mensagem de erro específica que pode ajudar a identificar a causa raiz de um erro de autenticação. |
@@ -144,7 +144,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
-| Parâmetro | Obrigatório | Description |
+| Parâmetro | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | vários | Sim | Nome do seu locatário de Azure AD B2C |
 | regras | Sim | O fluxo de usuário que foi usado para adquirir o código de autorização. Você não pode usar um fluxo de usuário diferente nesta solicitação. Adicione esse parâmetro à cadeia de caracteres de consulta, não ao corpo da POSTAgem. |
@@ -168,7 +168,7 @@ Uma resposta de token bem-sucedida tem a seguinte aparência:
 }
 ```
 
-| Parâmetro | Description |
+| Parâmetro | DESCRIÇÃO |
 | --------- | ----------- |
 | not_before | A hora em que o token é considerado válido, nos valores de hora da época. |
 | token_type | O valor do tipo de token. `Bearer` é o único tipo com suporte. |
@@ -186,7 +186,7 @@ As respostas de erro se parecem com:
 }
 ```
 
-| Parâmetro | Description |
+| Parâmetro | DESCRIÇÃO |
 | --------- | ----------- |
 | erro | Um código que pode ser usado para classificar tipos de erros que ocorrem. |
 | error_description | Uma mensagem que pode ajudar a identificar a causa raiz de um erro de autenticação. |
@@ -213,7 +213,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
-| Parâmetro | Obrigatório | Description |
+| Parâmetro | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | vários | Sim | Nome do seu locatário de Azure AD B2C |
 | regras | Sim | O fluxo de usuário que foi usado para adquirir o token de atualização original. Você não pode usar um fluxo de usuário diferente nesta solicitação. Adicione esse parâmetro à cadeia de caracteres de consulta, não ao corpo da POSTAgem. |
@@ -237,7 +237,7 @@ Uma resposta de token bem-sucedida tem a seguinte aparência:
 }
 ```
 
-| Parâmetro | Description |
+| Parâmetro | DESCRIÇÃO |
 | --------- | ----------- |
 | not_before | A hora em que o token é considerado válido, nos valores de hora da época. |
 | token_type | O valor do tipo de token. `Bearer` é o único tipo com suporte. |
@@ -255,7 +255,7 @@ As respostas de erro se parecem com:
 }
 ```
 
-| Parâmetro | Description |
+| Parâmetro | DESCRIÇÃO |
 | --------- | ----------- |
 | erro | Um código que pode ser usado para classificar tipos de erros que ocorrem. |
 | error_description | Uma mensagem que pode ajudar a identificar a causa raiz de um erro de autenticação. |
@@ -270,7 +270,7 @@ Para desconectar o usuário, redirecione o usuário para o ponto de extremidade 
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Fjwt.ms%2F
 ```
 
-| Parâmetro | Obrigatório | Description |
+| Parâmetro | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | vários | Sim | Nome do seu locatário de Azure AD B2C |
 | regras | Sim | O fluxo de usuário que você quer usar para desconectar o usuário do aplicativo. |

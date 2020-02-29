@@ -1,4 +1,4 @@
-- name: Documentação do Azure Blueprints
+- name: Documentação do Azure Blueprint
   href: index.yml
 - name: Visão geral
   items:
@@ -74,7 +74,7 @@
         - name: Etapas de implantação
           displayName: 'standards, fedramp, moderate'
           href: ./samples/fedramp-m/deploy.md
-    - name: FedRAMP High
+    - name: FedRAMP Alto
       items:
         - name: Visão geral
           displayName: 'standards, fedramp, high'
@@ -140,6 +140,17 @@
         - name: Etapas de implantação
           displayName: 'standards, iso, 27001'
           href: ./samples/iso27001-ase-sql-workload/deploy.md
+    - name: Mídia
+      items:
+        - name: Visão geral
+          displayName: 'standards, Media MPAA'
+          href: ./samples/media/index.md
+        - name: Mapeamento de controle
+          displayName: 'standards, Media'
+          href: ./samples/media/control-mapping.md
+        - name: Etapas de implantação
+          displayName: 'standards, Media'
+          href: ./samples/media/deploy.md
     - name: NIST SP 800-53 Rev4
       items:
         - name: Visão geral
@@ -192,7 +203,7 @@
         - name: Etapas de implantação
           displayName: 'caf, foundation, deploy'
           href: ./samples/caf-foundation/deploy.md
-    - name: Zona de destino da Migração do CAF
+    - name: Zona de aterrissagem da Migração do CAF
       items:
         - name: Visão geral
           displayName: 'caf, migrate, landing zone'

@@ -1,22 +1,23 @@
 ---
 title: Analisar dados com o Azure Machine Learning
-description: Use o Azure Machine Learning para compilar um modelo de aprendizado de máquina preditivo com base nos dados armazenados no SQL Data Warehouse do Azure.
+description: Use Azure Machine Learning para criar um modelo de aprendizado de máquina preditiva com base nos dados armazenados no Azure Synapse.
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: integration
-ms.date: 03/22/2019
+ms.date: 02/05/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 892d4642d700949d1d1169c69926021c751cef67
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+tag: azure-Synapse
+ms.openlocfilehash: f6765fdbb65f62bb790d1e8781512db572170b10
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721278"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195882"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analisar dados com o Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -28,7 +29,7 @@ ms.locfileid: "76721278"
 > 
 > 
 
-Este tutorial usa o Azure Machine Learning para compilar um modelo de aprendizado de máquina preditivo com base nos dados armazenados no SQL Data Warehouse do Azure. Especificamente, isso compila uma campanha de marketing direcionado da Adventure Works, uma loja de bicicletas, prevendo se um cliente tem probabilidade de comprar uma bicicleta ou não.
+Este tutorial usa Azure Machine Learning para criar um modelo de aprendizado de máquina preditiva com base nos dados armazenados no Azure Synapse. Especificamente, isso compila uma campanha de marketing direcionado da Adventure Works, uma loja de bicicletas, prevendo se um cliente tem probabilidade de comprar uma bicicleta ou não.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Integrating-Azure-Machine-Learning-with-Azure-SQL-Data-Warehouse/player]
 > 
@@ -37,7 +38,7 @@ Este tutorial usa o Azure Machine Learning para compilar um modelo de aprendizad
 ## <a name="prerequisites"></a>Prerequisites
 Para realizar este tutorial, você precisa:
 
-* Um SQL Data Warehouse pré-carregado com os dados de exemplo do AdventureWorksDW. Para provisionar isso, consulte [Criar um SQL Data Warehouse](create-data-warehouse-portal.md) e optar por carregar os dados de exemplo. Se você já tiver um data warehouse, mas não tiver dados de exemplo, poderá [carregar dados de exemplo manualmente](sql-data-warehouse-load-sample-databases.md).
+* Um pool do SQL pré-carregado com dados de exemplo de AdventureWorksDW. Para provisionar isso, consulte [criar um pool de SQL](create-data-warehouse-portal.md) e optar por carregar os dados de exemplo. Se você já tiver um data warehouse, mas não tiver dados de exemplo, poderá [carregar dados de exemplo manualmente](sql-data-warehouse-load-sample-databases.md).
 
 ## <a name="1-get-the-data"></a>1. obter os dados
 Os dados estão na exibição dbo.vTargetMail no banco de dados AdventureWorksDW. Para ler esses dados:
@@ -46,7 +47,7 @@ Os dados estão na exibição dbo.vTargetMail no banco de dados AdventureWorksDW
 2. Clique em **+ novo** na parte inferior esquerda da tela e selecione **experimento em branco**.
 3. Insira um nome para o seu teste: Marketing Direcionado.
 4. Arraste o módulo **importar dados** em **entrada e saída de dados** do painel módulos para a tela.
-5. Especifique os detalhes do seu banco de dados do SQL Data Warehouse no painel Propriedades.
+5. Especifique os detalhes do seu pool SQL no painel Propriedades.
 6. Especifique a **consulta** do banco de dados para ler os dados de interesse.
 
 ```sql
@@ -128,7 +129,7 @@ Você verá duas ou mais colunas adicionadas ao seu conjunto de dados de teste.
 * Probabilidades Pontuadas: a probabilidade de que um cliente é um comprador de bicicleta.
 * Rótulos Pontuados: a classificação feita pelo modelo – comprador de bicicleta (1) ou não (0). Esse limite de probabilidade para a rotulagem é definido como 50% e pode ser ajustado.
 
-Ao comparar a coluna BikeBuyer (real) com os Rótulos Pontuados (previsão), é possível ver o desempenho do modelo. Em seguida, você pode usar esse modelo para fazer previsões para novos clientes e publicar esse modelo como um serviço Web ou gravar resultados de volta para o SQL Data Warehouse.
+Ao comparar a coluna BikeBuyer (real) com os Rótulos Pontuados (previsão), é possível ver o desempenho do modelo. Em seguida, você pode usar esse modelo para fazer previsões para novos clientes e publicar esse modelo como um serviço Web ou gravar resultados de volta para o Azure Synapse.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre a criação de modelos de aprendizado de máquina de previsão, consulte [Introdução ao Machine Learning no Azure](https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/).

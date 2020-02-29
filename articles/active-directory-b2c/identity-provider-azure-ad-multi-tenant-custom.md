@@ -3,20 +3,20 @@ title: Configurar a entrada para o Azure AD de vários locatários por política
 titleSuffix: Azure AD B2C
 description: Adicione um provedor de identidade multilocatário do Azure AD usando políticas personalizadas no Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d8d13ec955867eb574b5f0d782727d6ff8d063a
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 9ad51e113a752e0692cb377a83d4819b4e284bb7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111553"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188424"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada para o Azure Active Directory multilocatário usando políticas personalizadas no Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "77111553"
 
 Este artigo mostra como habilitar o logon de usuários usando o ponto de extremidade de multi locação do Microsoft Azure Active Directory (Azure AD) usando [políticas personalizadas](custom-policy-overview.md) no Azure AD B2C. Isso permite que os usuários de vários locatários do Azure AD entrem usando Azure AD B2C, sem a necessidade de configurar um provedor de identidade para cada locatário. No entanto, os membros em qualquer desses locatários **não** será capaz de entrar. Para fazer isso, você terá que [configurar individualmente cada locatário](identity-provider-azure-ad-single-tenant-custom.md).
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 Conclua as etapas em [Introdução às políticas personalizadas no Azure Active Directory B2C](custom-policy-get-started.md).
 
@@ -224,7 +224,7 @@ Se o processo de entrada for bem-sucedido, seu navegador será redirecionado par
 
 Para testar a funcionalidade de entrada multilocatário, execute as duas últimas etapas usando as credenciais para um usuário que existe outro locatário do Azure AD.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Ao trabalhar com políticas personalizadas, às vezes você pode precisar de informações adicionais ao solucionar problemas de uma política durante seu desenvolvimento.
 

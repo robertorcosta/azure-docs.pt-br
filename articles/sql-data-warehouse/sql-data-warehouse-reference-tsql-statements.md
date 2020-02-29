@@ -1,6 +1,6 @@
 ---
 title: Instruções T-SQL
-description: Links para a documentação para instruções T-SQL compatíveis no SQL Data Warehouse do Azure.
+description: Links para a documentação para instruções T-SQL com suporte na análise de SQL.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: query
 ms.date: 05/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 861675941693697a20da189edebe33d91918782c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: d37e1b727829505940b77c7a82293f90050a87c0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685526"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198347"
 ---
-# <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>Elementos de T-SQL compatíveis com o SQL Data Warehouse do Azure
-Links para a documentação para instruções T-SQL compatíveis no SQL Data Warehouse do Azure.
+# <a name="t-sql-statements-supported-in-sql-analytics"></a>Instruções T-SQL com suporte na análise de SQL
+Links para a documentação para instruções T-SQL com suporte na análise de SQL.
 
 ## <a name="data-definition-language-ddl-statements"></a>Instruções de DDL (Linguagem de Definição de Dados)
 * [ALTER DATABASE](https://msdn.microsoft.com/library/mt204042.aspx)
@@ -55,7 +55,7 @@ Links para a documentação para instruções T-SQL compatíveis no SQL Data War
 * [DROP VIEW](https://msdn.microsoft.com/library/ms173492.aspx)
 * [REMOVER CLASSIFICADOR DE CARGA DE TRABALHO](/sql/t-sql/statements/drop-workload-classifier-transact-sql)
 * [RENAME](https://msdn.microsoft.com/library/mt631611.aspx)
-* [SET RESULT_SET_CACHING](/sql/t-sql/statements/set-result-set-caching-transact-sql) 
+* [DEFINIR RESULT_SET_CACHING](/sql/t-sql/statements/set-result-set-caching-transact-sql) 
 * [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
 * [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)
 
@@ -64,7 +64,7 @@ Links para a documentação para instruções T-SQL compatíveis no SQL Data War
 * [INSERT](https://msdn.microsoft.com/library/ms174335.aspx)
 * [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx)
 
-## <a name="database-console-commands"></a>Comandos do console do banco de dados
+## <a name="database-console-commands"></a>Comandos de Console de Banco de Dados
 * [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
 * [DBCC DROPRESULTSETCACHE](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest) (visualização)
 * [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/mt204018.aspx)
@@ -120,4 +120,4 @@ Links para a documentação para instruções T-SQL compatíveis no SQL Data War
 * [OPEN MASTER KEY](https://msdn.microsoft.com/library/ms174433.aspx)
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações de referência, consulte [Elementos da linguagem T-SQL no SQL Data Warehouse do Azure](sql-data-warehouse-reference-tsql-language-elements.md) e [Exibições do sistema no SQL Data Warehouse do Azure](sql-data-warehouse-reference-tsql-system-views.md).
+Para obter mais informações de referência, consulte [elementos da linguagem T-SQL na análise de SQL](sql-data-warehouse-reference-tsql-language-elements.md)e [exibições do sistema na análise do SQL](sql-data-warehouse-reference-tsql-system-views.md).

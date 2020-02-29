@@ -4,16 +4,17 @@ description: As chaves da conta de armazenamento fornecem integração direta en
 ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
+ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 880a85676ff7a0364431b33b90093298b12bffed
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 104f3423b07eaa3269ffccc054cd2f779bbdabf8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980458"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199811"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gerenciar chaves de conta de armazenamento com Key Vault e o CLI do Azure
 
@@ -43,11 +44,11 @@ Key Vault é um aplicativo da Microsoft que é previamente registrado em todos o
 
 | Locatários | Nuvem | ID do aplicativo |
 | --- | --- | --- |
-| AD do Azure | Azure Governamental | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
+| AD do Azure | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | AD do Azure | Público do Azure | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | Outros  | Qualquer | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este guia, primeiro você deve fazer o seguinte:
 
@@ -150,7 +151,7 @@ az keyvault secret show --vault-name <YourKeyVaultName> --id <SasDefinitionID>
 A saída desse comando mostrará a cadeia de caracteres de definição de SAS como`value`.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [chaves, segredos e certificados](https://docs.microsoft.com/rest/api/keyvault/).
 - Examine os artigos no [blog da equipe do Azure Key Vault](https://blogs.technet.microsoft.com/kv/).

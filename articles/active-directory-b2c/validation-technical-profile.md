@@ -3,20 +3,20 @@ title: Definir um perfil técnico de validação em uma política personalizada
 titleSuffix: Azure AD B2C
 description: Valide as declarações usando um perfil técnico de validação em uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: facef1e1288f2a64872efbf37a9a31fa05244a7e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 65a2eab05e7c475431602d9c2d3fc44b59bbc8f7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950792"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78185719"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de validação em uma política personalizada do Azure Active Directory B2C
 
@@ -47,36 +47,36 @@ Um perfil técnico autodeclarado pode definir um perfil técnico de validação 
 
 O elemento **ValidationTechnicalProfiles** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | DESCRIÇÃO |
 | ------- | ----------- | ----------- |
 | ValidationTechnicalProfile | 1:n | Um perfil técnico a ser usado para validar algumas ou todas as declarações de saída do perfil técnico de referência. |
 
 O elemento **ValidationTechnicalProfile** contém o seguinte atributo:
 
-| Atributo | obrigatórios | Descrição |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| ReferenceId | SIM | Um identificador de um perfil técnico já definido na política ou política pai. |
+| ReferenceId | Sim | Um identificador de um perfil técnico já definido na política ou política pai. |
 |ContinueOnError|Não| Indicando se a validação de quaisquer perfis técnicos de validação subsequentes deve continuar se esse perfil técnico de validação gerar um erro. Valores possíveis: `true` ou `false` (padrão, o processamento de perfis de validação adicional será interrompido e retornará um erro). |
-|ContinueOnSuccess | Não | Indica se a validação de qualquer perfil de validação subsequente deve continuar se esse perfil técnico de validação for bem-sucedio. Os valores possíveis são `true` ou `false`. O padrão é `true`, significando que continuará o processamento dos perfis de validação adicional. |
+|ContinueOnSuccess | Não | Indica se a validação de qualquer perfil de validação subsequente deve continuar se esse perfil técnico de validação for bem-sucedio. Valores possíveis: `true` ou `false`. O padrão é `true`, significando que continuará o processamento dos perfis de validação adicional. |
 
 O elemento **ValidationTechnicalProfile** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | DESCRIÇÃO |
 | ------- | ----------- | ----------- |
 | Pré-condições | 0:1 | Uma lista de pré-condições deve ser atendida para o perfil técnico de validação para executar. |
 
 O elemento **Precondition** contém os seguinte atributo:
 
-| Atributo | obrigatórios | Descrição |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| `Type` | SIM | O tipo de verificação ou consulta ser executada para a pré-condição. Qualquer um dos `ClaimsExist` é especificado para garantir que as ações devem ser realizadas se as declarações especificadas existem no atual conjunto de declarações do usuário, ou `ClaimEquals` for especificado que as ações devem ser executadas se a declaração especificada existe e seu valor é igual ao valor especificado. |
-| `ExecuteActionsIf` | SIM | Indica se as ações na pré-condição devem ser executadas se o teste for verdadeiro ou falso. |
+| `Type` | Sim | O tipo de verificação ou consulta ser executada para a pré-condição. Qualquer um dos `ClaimsExist` é especificado para garantir que as ações devem ser realizadas se as declarações especificadas existem no atual conjunto de declarações do usuário, ou `ClaimEquals` for especificado que as ações devem ser executadas se a declaração especificada existe e seu valor é igual ao valor especificado. |
+| `ExecuteActionsIf` | Sim | Indica se as ações na pré-condição devem ser executadas se o teste for verdadeiro ou falso. |
 
 O elemento **Precondition** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | DESCRIÇÃO |
 | ------- | ----------- | ----------- |
-| Value | 1:n | Os dados que são usados pela verificação. Se o tipo dessa verificação for `ClaimsExist`, este campo especifica um ClaimTypeReferenceId para consultar. Se o tipo dessa verificação for `ClaimEquals`, este campo especifica um ClaimTypeReferenceId para consultar. Enquanto outro elemento de valor contém o valor a ser verificado.|
+| Valor | 1:n | Os dados que são usados pela verificação. Se o tipo dessa verificação for `ClaimsExist`, este campo especifica um ClaimTypeReferenceId para consultar. Se o tipo dessa verificação for `ClaimEquals`, este campo especifica um ClaimTypeReferenceId para consultar. Enquanto outro elemento de valor contém o valor a ser verificado.|
 | Ação | 1:1 | A ação que deverá ser executada se a verificação de pré-condição dentro de uma etapa de orquestração for verdadeira. O valor da **Ação** é definido como `SkipThisValidationTechnicalProfile`. Especifica que o perfil técnico de validação associada não deve ser executado. |
 
 ### <a name="example"></a>Exemplo

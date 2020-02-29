@@ -1,6 +1,6 @@
 ---
 title: Chaves primárias, estrangeiras e exclusivas
-description: Suporte a restrições de tabela no Azure SQL Data Warehouse
+description: Suporte a restrições de tabela na análise de SQL no Azure Synapse Analytics
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,29 +10,29 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 8f3102425c6f984df0f50bc05eeb6f9a5e66d3dd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 0379bed08c3ee6931e931a78a2d2c91664535250
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685483"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198126"
 ---
-# <a name="primary-key-foreign-key-and-unique-key-in-azure-sql-data-warehouse"></a>Chave primária, chave estrangeira e chave exclusiva no Azure SQL Data Warehouse
+# <a name="primary-key-foreign-key-and-unique-key-in-sql-analytics"></a>Chave primária, chave estrangeira e chave exclusiva na análise do SQL
 
-Saiba mais sobre as restrições de tabela no SQL Data Warehouse do Azure, incluindo chave primária, chave estrangeira e chave exclusiva.
+Saiba mais sobre as restrições de tabela na análise de SQL, incluindo chave primária, chave estrangeira e chave exclusiva.
 
 ## <a name="table-constraints"></a>Restrições de tabela 
-O SQL Data Warehouse do Azure dá suporte a essas restrições de tabela: 
+A análise do SQL dá suporte a essas restrições de tabela: 
 - Só há suporte para a chave primária quando não CLUSTERIZAdo e não imposto são usados.    
 - Só há suporte para a restrição UNIQUE quando não imposta é usado.   
 
-Não há suporte para a restrição de chave estrangeira no Azure SQL Data Warehouse.  
+Não há suporte para a restrição de chave estrangeira na análise de SQL.  
 
 ## <a name="remarks"></a>Comentários
-Ter a chave primária e/ou a chave exclusiva permite que o mecanismo de data warehouse gere um plano de execução ideal para uma consulta.  Todos os valores em uma coluna de chave primária ou uma coluna de restrição UNIQUE devem ser exclusivos. 
+Ter a chave primária e/ou a chave exclusiva permite que o mecanismo de análise do SQL gere um plano de execução ideal para uma consulta.  Todos os valores em uma coluna de chave primária ou uma coluna de restrição UNIQUE devem ser exclusivos. 
 
-Depois de criar uma tabela com uma restrição PRIMARY KEY ou Unique no Azure data warehouse, os usuários precisam garantir que todos os valores nessas colunas sejam exclusivos.  Uma violação disso pode fazer com que a consulta retorne um resultado impreciso.  Este exemplo mostra como uma consulta pode retornar um resultado impreciso se a coluna de restrição PRIMARY KEY ou Unique tiver valores duplicados.  
+Depois de criar uma tabela com uma restrição PRIMARY KEY ou Unique na análise do SQL, os usuários precisam garantir que todos os valores nessas colunas sejam exclusivos.  Uma violação disso pode fazer com que a consulta retorne um resultado impreciso.  Este exemplo mostra como uma consulta pode retornar um resultado impreciso se a coluna de restrição PRIMARY KEY ou Unique tiver valores duplicados.  
 
 ```sql
  -- Create table t1
@@ -158,12 +158,12 @@ a1          total
 ```
 
 ## <a name="examples"></a>Exemplos
-Crie uma tabela de data warehouse com uma chave primária: 
+Crie uma tabela de análise de SQL com uma chave primária: 
 
 ```sql 
 CREATE TABLE mytable (c1 INT PRIMARY KEY NONCLUSTERED NOT ENFORCED, c2 INT);
 ```
-Criar uma tabela de data warehouse com uma restrição exclusiva:
+Crie uma tabela de análise de SQL com uma restrição UNIQUE:
 
 ```sql
 CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
@@ -171,4 +171,4 @@ CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de criar as tabelas para o data warehouse, a próxima etapa é carregar dados na tabela. Para obter um tutorial de carregamento, consulte [Carregamento de dados no SQL Data Warehouse](load-data-wideworldimportersdw.md).
+Depois de criar as tabelas para o banco de dados do SQL Analytics, a próxima etapa será carregar os dados na tabela. Para obter um tutorial de carregamento, consulte [carregando dados nos bancos de dado do SQL Analytics](load-data-wideworldimportersdw.md).

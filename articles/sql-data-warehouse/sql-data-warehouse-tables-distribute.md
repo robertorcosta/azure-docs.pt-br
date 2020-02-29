@@ -1,6 +1,6 @@
 ---
 title: Diretrizes de design de tabelas distribuídas
-description: Recomendações para a criação de tabelas distribuídas por hash e round-robin no SQL Data Warehouse do Azure.
+description: Recomendações para a criação de tabelas distribuídas por hash e de Round Robin na análise de SQL.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,18 +10,18 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 025c60485625a4ab4d2e29b1e81d8574f6187b93
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.custom: azure-synapse
+ms.openlocfilehash: 3a07dd6ccd5d0bf3440df21b2af4e67cbcf663c9
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74049125"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199437"
 ---
-# <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Diretrizes de design para tabelas distribuídas no SQL Data Warehouse do Azure
-Recomendações para a criação de tabelas distribuídas por hash e round-robin no SQL Data Warehouse do Azure.
+# <a name="guidance-for-designing-distributed-tables-in-sql-analytics"></a>Diretrizes para criar tabelas distribuídas na análise de SQL
+Recomendações para a criação de tabelas distribuídas por hash e de Round Robin na análise de SQL.
 
-Este artigo pressupõe que você esteja familiarizado com os conceitos de movimentação e distribuição de dados no SQL Data Warehouse.  Para obter mais informações, consulte [arquitetura de processamento paralelo maciço (MPP) do Azure SQL data warehouse](massively-parallel-processing-mpp-architecture.md). 
+Este artigo pressupõe que você esteja familiarizado com os conceitos de distribuição de dados e movimentação de dados na análise de SQL.  Para obter mais informações, consulte [arquitetura de processamento paralelo maciço (MPP) do SQL Analytics](massively-parallel-processing-mpp-architecture.md). 
 
 ## <a name="what-is-a-distributed-table"></a>O que é uma tabela distribuída?
 Uma tabela distribuída é exibida como uma única tabela, mas as linhas são armazenadas em 60 distribuições. As linhas são distribuídas com um algoritmo round-robin ou hash.  
@@ -34,7 +34,7 @@ Como parte do design de tabela, compreenda seus dados o tanto quanto possível e
 
 - Qual é o tamanho da tabela?   
 - Com que frequência a tabela é atualizada?   
-- Há tabelas de dimensões e fatos no data warehouse?   
+- Tenho tabelas de dimensões e de fatos em um banco de dados de análise de SQL?   
 
 
 ### <a name="hash-distributed"></a>Tabelas distribuídas por hash
@@ -42,7 +42,7 @@ Uma tabela distribuída por hash distribui linhas da tabela em todos os nós de 
 
 ![Tabela distribuída](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Tabela distribuída")  
 
-Como valores idênticos sempre hash para a mesma distribuição, o data warehouse tem conhecimento interno dos locais de linha. SQL Data Warehouse usa esse conhecimento para minimizar a movimentação de dados durante as consultas, o que melhora o desempenho da consulta. 
+Como valores idênticos sempre são hash para a mesma distribuição, a análise de SQL tem conhecimento interno dos locais de linha. A análise de SQL usa esse conhecimento para minimizar a movimentação de dados durante consultas, o que melhora o desempenho da consulta. 
 
 Tabelas distribuídas por hash funcionam bem para grandes tabelas de fatos em um esquema em estrela. Podem ter um grande número de linhas e ainda obter um alto desempenho. É claro, há algumas considerações de design que ajudam você a obter o desempenho que o sistema distribuído foi desenvolvido para fornecer. Escolher uma boa coluna de distribuição é uma consideração que é descrita neste artigo. 
 
@@ -65,7 +65,7 @@ Considere usar a distribuição round robin para a sua tabela nos seguintes cen�
 - Se a junção for menos significativa do que outras junções na consulta
 - Quando a tabela é uma tabela temporária de preparo
 
-O tutorial [Carregar dados do New York taxicab para o SQL Data Warehouse do Azure](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) fornece um exemplo de carregamento de dados em uma tabela de preparo de round-robin.
+O tutorial [carregar dados de Nova York dos táxis](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) fornece um exemplo de carregamento de dados em uma tabela de preparo de Round-Robin na análise de SQL.
 
 
 ## <a name="choosing-a-distribution-column"></a>Escolher uma coluna de distribuição
@@ -109,7 +109,7 @@ Para equilibrar o processamento paralelo, selecione uma coluna de distribuição
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Escolha uma coluna de distribuição que minimiza a movimentação de dados
 
-Para obter a consulta correta os resultados de consultas podem mover dados de um nó de computação para outro. Movimentação de dados geralmente acontece quando as consultas em tabelas distribuídas contêm junções e agregações. Escolher uma coluna de distribuição que ajuda a minimizar movimentação de dados é uma das estratégias mais importantes para otimizar o desempenho do SQL Data Warehouse.
+Para obter a consulta correta os resultados de consultas podem mover dados de um nó de computação para outro. Movimentação de dados geralmente acontece quando as consultas em tabelas distribuídas contêm junções e agregações. Escolher uma coluna de distribuição que ajude a minimizar a movimentação de dados é uma das estratégias mais importantes para otimizar o desempenho do banco de dados do SQL Analytics.
 
 Para minimizar a movimentação de dados selecione a coluna de distribuição que:
 
@@ -137,7 +137,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 Para identificar quais tabelas têm distorção de dados maior de 10%:
 
 1. Criar o modo de exibição dbo.vTableSizes que é mostrado no artigo [visão geral de tabelas](sql-data-warehouse-tables-overview.md#table-size-queries).  
-2. Execute a consulta a seguir:
+2. Execute a seguinte consulta:
 
 ```sql
 select *
@@ -217,7 +217,7 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 Para criar uma tabela replicada, use uma dessas instruções:
 
-- [CRIAR TABELA (SQL Data Warehouse do Azure)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CREATE TABLE AS SELECT (SQL Data Warehouse do Azure](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [CREATE TABLE (análise do SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [CREATE TABLE como SELECT (análise do SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 

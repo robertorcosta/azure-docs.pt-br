@@ -3,20 +3,20 @@ title: Exemplos de transformação de declarações de cadeia de caracteres para
 titleSuffix: Azure AD B2C
 description: Exemplos de transformação de declarações de cadeia de caracteres para o esquema IEF (Identity Experience Framework) de Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/24/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e220009ec04ce732d99a53432077d681707e28d1
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 678385d9ed16a9821fc61be476e7eb9eaf6fd4f1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585723"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183696"
 ---
 # <a name="string-claims-transformations"></a>Transformações de declarações de cadeias de caracteres
 
@@ -363,7 +363,7 @@ Use essa transformação de declarações para formatar qualquer cadeia de carac
 - Declarações de saída:
     - **outputClaim**: Joe Fernando
 
-## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation 
+## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation
 
 Copia cadeias de caracteres localizadas em declarações.
 
@@ -428,9 +428,9 @@ A transformação declarações define o valor do tipo de Declaração *sujeito*
 
 - Declarações de saída:
   - **assunto**: código de verificação de email da conta contoso
-  - **mensagem**: Obrigado por verificar sua conta! 
-  - **codeIntro**: seu código é 
-  - **assinatura**: Atenciosamente  
+  - **mensagem**: Obrigado por verificar sua conta!
+  - **codeIntro**: seu código é
+  - **assinatura**: Atenciosamente
 
 
 ## <a name="getmappedvaluefromlocalizedcollection"></a>GetMappedValueFromLocalizedCollection
@@ -618,7 +618,7 @@ Verifica se uma declaração de cadeia de caracteres `claimToMatch` e `matchTo` 
 | OutputClaim | outputClaim | string | Se a expressão regular for corresponder, essa declaração de saída conterá o valor de `outputClaimIfMatched` parâmetro de entrada. Ou NULL, se não houver correspondência. |
 | OutputClaim | regexCompareResultClaim | booleano | A expressão regular corresponde ao tipo de declaração de saída de resultado, que deve ser definido como `true` ou `false` com base no resultado da correspondência. |
 
-Por exemplo, verifica se o número de telefone fornecido é válido, com base no padrão de expressão regular de número de telefone.  
+Por exemplo, verifica se o número de telefone fornecido é válido, com base no padrão de expressão regular de número de telefone.
 
 ```XML
 <ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="setClaimsIfRegexMatch">
@@ -755,7 +755,7 @@ Determine se uma subcadeia de caracteres especificada ocorre dentro da declaraç
 Use essa transformação de declarações para verificar se um tipo de declaração de cadeia de caracteres contém uma subcadeia de caracteres. O exemplo a seguir verifica se o tipo de declaração de cadeia de caracteres `roles` contém o valor de **admin**.
 
 ```XML
-<ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains"> 
+<ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
   </InputClaims>
@@ -765,7 +765,7 @@ Use essa transformação de declarações para verificar se um tipo de declaraç
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="isAdmin" TransformationClaimType="outputClaim"/>
-  </OutputClaims>         
+  </OutputClaims>
 </ClaimsTransformation>
 ```
 
@@ -777,7 +777,7 @@ Use essa transformação de declarações para verificar se um tipo de declaraç
     - **contém**: "admin",
     - **ignoreCase**: true
 - Declarações de saída:
-    - **outputClaim**: true 
+    - **outputClaim**: true
 
 ## <a name="stringsubstring"></a>StringSubstring
 
@@ -790,7 +790,7 @@ Extrai partes de um tipo de declaração de cadeia de caracteres, começando pel
 | InputParameter | comprimento | INT | O número de caracteres na Subcadeia. |
 | OutputClaim | outputClaim | booleano | Uma cadeia de caracteres equivalente à subcadeia de caracteres que começa em startIndex nessa instância, ou vazia se startIndex for igual ao comprimento dessa instância e o comprimento for zero. |
 
-Por exemplo, obtenha o prefixo do país do número de telefone.  
+Por exemplo, obtenha o prefixo do país do número de telefone.
 
 
 ```XML
@@ -828,7 +828,7 @@ Pesquisa uma cadeia de caracteres de tipo de declaração em um valor especifica
 | InputParameter | newValue | string | A cadeia de caracteres para substituir todas as ocorrências de `oldValue` |
 | OutputClaim | outputClaim | booleano | Uma cadeia de caracteres equivalente à cadeia de caracteres atual, exceto que todas as instâncias de oldValue são substituídas por newValue. Se oldValue não for encontrado na instância atual, o método retornará a instância atual inalterada. |
 
-Por exemplo, Normalize um número de telefone removendo os caracteres `-`  
+Por exemplo, Normalize um número de telefone removendo os caracteres `-`
 
 
 ```XML
@@ -864,7 +864,7 @@ Concatena os elementos de um tipo de declaração de coleção de cadeia de cara
 | InputClaim | InputClaim | stringCollection | Uma coleção que contém as cadeias de caracteres a serem concatenadas. |
 | InputParameter | delimiter | string | A cadeia de caracteres a ser usada como separador, como `,`por vírgula. |
 | OutputClaim | outputClaim | string | Uma cadeia de caracteres que consiste nos membros da coleção de cadeia de caracteres `inputClaim`, delimitada pelo parâmetro de entrada `delimiter`. |
-  
+
 O exemplo a seguir usa uma coleção de cadeias de caracteres de funções de usuário e a converte em uma cadeia de caracteres delimitadora de vírgula. Você pode usar esse método para armazenar uma coleção de cadeia de caracteres na conta de usuário do Azure AD. Posteriormente, quando você ler a conta do diretório, use a `StringSplit` para converter a cadeia de caracteres delimitadores de vírgula para a coleção de cadeias de caracteres.
 
 ```XML
@@ -900,7 +900,7 @@ Retorna uma matriz de cadeia de caracteres que contém as subcadeias de caracter
 | InputClaim | InputClaim | string | Um tipo de declaração String que contém as subcadeias de caracteres a serem divididas. |
 | InputParameter | delimiter | string | A cadeia de caracteres a ser usada como separador, como `,`por vírgula. |
 | OutputClaim | outputClaim | stringCollection | Uma coleção de cadeias de caracteres cujos elementos contêm as subcadeias nesta cadeia de caracteres delimitadas pelo parâmetro de entrada `delimiter`. |
-  
+
 O exemplo a seguir usa uma cadeia de caracteres delimitadores de vírgula de funções de usuário e a converte em uma coleção de cadeias de caracteres.
 
 ```XML
@@ -925,7 +925,7 @@ O exemplo a seguir usa uma cadeia de caracteres delimitadores de vírgula de fun
   - **delimitador**: ","
 - Declarações de saída:
   - **outputClaim**: ["admin", "autor", "leitor"]
-  
+
 ## <a name="string-claim-transformations-expressions"></a>Expressões de transformações de declaração de cadeia de caracteres
 Expressões de transformações de declaração em Azure AD B2C políticas personalizadas fornecem informações de contexto sobre a ID do locatário e a ID do perfil técnico.
 

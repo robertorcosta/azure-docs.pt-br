@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 7c94ad096cf7d0d01bf2076f6748b49cf4ae1bb4
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 02/28/2020
+ms.openlocfilehash: aa573e84fa9fff83bd6a894f516ce5f67b3afa79
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794217"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194335"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Sinônimos no Azure Pesquisa Cognitiva
 
@@ -45,7 +45,7 @@ Você pode criar vários mapas de sinônimos para o aplicativo de pesquisa (por 
 
 #### <a name="add-or-update-a-synonym-map-under-your-service-using-post-or-put"></a>Adicione ou atualize um mapa de sinônimos em seu serviço, usando POST ou PUT.
 
-Mapas de sinônimos são carregados no serviço via POST ou PUT. Cada regra deve ser delimitada por um caractere de nova linha ('\n'). É possível definir até 5.000 regras por mapa de sinônimos em um serviço gratuito e 10.000 regras em todas as outras SKUs. Cada regra pode ter até 20 expansões.
+Mapas de sinônimos são carregados no serviço via POST ou PUT. Cada regra deve ser delimitada por um caractere de nova linha ('\n'). Você pode definir até 5.000 regras por mapa de sinônimos em um serviço gratuito e 20.000 regras por mapa em todas as outras SKUs. Cada regra pode ter até 20 expansões.
 
 Os mapas de sinônimos devem estar no formato Apache Solr explicado abaixo. Se você tiver um dicionário de sinônimos em um formato diferente e quiser usá-lo diretamente, informe-nos no [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
@@ -156,7 +156,7 @@ Se for necessário fazer uma única consulta que aplique expansão de sinônimos
 
 Se houver um índice em um ambiente de desenvolvimento (não produção), experimente um dicionário pequeno para ver como a adição de sinônimos altera a experiência de pesquisa, incluindo o impacto nos perfis de pontuação, o realce de acesso e as sugestões.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Criar um mapa de sinônimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)
