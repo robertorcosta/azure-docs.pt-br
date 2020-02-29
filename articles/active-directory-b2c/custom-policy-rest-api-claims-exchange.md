@@ -2,20 +2,20 @@
 title: Trocas de declarações da API REST-Azure Active Directory B2C
 description: Adicione trocas de declarações da API REST a políticas personalizadas no Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1caf0b3f6396cc008e77bb96e686fe78f462850b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 351b41f45fb84384ec0193f8e3130347d0b19401
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849091"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189082"
 ---
 # <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Adicionar trocas de declarações da API REST a políticas personalizadas no Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ O cenário representado neste artigo inclui as seguintes ações:
 2. Obter a cidade em que o usuário está registrado.
 3. Retornar o atributo para o aplicativo como uma declaração.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Conclua as etapas em [Introdução às políticas personalizadas](custom-policy-get-started.md).
 - Um ponto de extremidade de API REST com o qual se irá interagir. Este artigo usa uma função simples do Azure como um exemplo. Para criar a função do Azure, consulte [criar sua primeira função no portal do Azure](../azure-functions/functions-create-first-azure-function.md).
@@ -253,7 +253,7 @@ Se tudo estiver configurado corretamente, o token incluirá a nova declaração 
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Você também pode projetar a interação como um perfil de validação. Para obter mais informações, veja [Passo a passo: integrar as trocas de declarações da API REST no seu percurso do usuário do Azure AD B2C como validação sobre a entrada do usuário](custom-policy-rest-api-claims-validation.md).
 

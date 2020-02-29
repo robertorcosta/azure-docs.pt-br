@@ -3,20 +3,20 @@ title: Passar um token de acesso por meio de um fluxo de usuário para seu aplic
 titleSuffix: Azure AD B2C
 description: Saiba como passar um token de acesso para provedores de identidade OAuth 2,0 como uma declaração em um fluxo de usuário no Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/17/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 25a8181d404091064c26407c98fe31465cd4f4b3
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 312d093548b6e3cf3654f45d7610e8fc474a87b8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76838948"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187771"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Passar um token de acesso por meio de um fluxo de usuário para seu aplicativo no Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ Um [fluxo de usuário](user-flow-overview.md) no Azure Active Directory B2C (Azu
 
 O Azure Active Directory B2C atualmente suporta apenas passar o token de acesso dos provedores de identidade do [OAuth 2.0](authorization-code-flow.md), que incluem [Facebook](identity-provider-facebook.md) e [Google](identity-provider-google.md). Para todos os outros provedores de identidade, a declaração é retornada em branco.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Seu aplicativo deve estar usando um [fluxo de usuário v2](user-flow-versions.md).
 * Seu fluxo de usuário é configurado com um provedor de identidade do OAuth 2.0.
@@ -54,6 +54,6 @@ Ao testar seus aplicativos no Azure AD B2C, pode ser útil ter o token do Azure 
 
     ![Token decodificado em jwt.ms com idp_access_token bloco realçado](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-token.PNG)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais na [visão geral de tokens de Azure ad B2C](tokens-overview.md).

@@ -5,23 +5,23 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6acf66e01c4f7b4bd2735687f542a0dbf472cfb4
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 34446f98bc593c8b78cfb4a9ceae2c5e6dc6aef3
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500202"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191156"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks filhos na Automação do Azure
 
-É uma prática recomendada na automação do Azure escrever runbooks reutilizáveis e modulares com uma função discreta que é chamada por outros runbooks. Um runbook pai geralmente chama um ou mais runbooks filho para executar a funcionalidade necessária. Há duas maneiras de chamar um runbook filho, e há diferenças distintas que você deve entender para que possa determinar qual é a melhor para seus cenários.
+É uma prática recomendada na automação do Azure escrever runbooks reutilizáveis e modulares com uma função discreta que é chamada por outros runbooks. Um runbook pai geralmente chama um ou mais runbooks filho para executar a funcionalidade necessária. Há duas maneiras de chamar um runbook filho, e há diferenças distintas que você deve entender para poder determinar qual é a melhor para seus cenários.
 
 >[!NOTE]
 >Este artigo foi atualizado para usar o novo módulo Az do Azure PowerShell. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020. Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para obter instruções de instalação do módulo AZ no seu Hybrid Runbook Worker, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para sua conta de automação, você pode atualizar seus módulos para a versão mais recente usando [como atualizar os módulos de Azure PowerShell na automação do Azure](automation-update-azure-modules.md).
 
 ## <a name="invoking-a-child-runbook-using-inline-execution"></a>Invocar um runbook filho usando a execução embutida
 
-Para invocar um runbook embutido de outro runbook, use o nome do runbook e forneça valores para os parâmetros exatamente como você faria ao usar uma atividade ou um cmdlet.  Todos os runbooks na mesma conta de automação estão disponíveis para todos os outros para serem usados dessa maneira. O runbook pai aguarda que o runbook filho seja concluído antes de passar para a próxima linha, e qualquer saída é retornada diretamente para o pai.
+Para invocar um runbook embutido de outro runbook, use o nome do runbook e forneça valores para seus parâmetros, assim como você usaria uma atividade ou um cmdlet. Todos os runbooks na mesma conta de automação estão disponíveis para todos os outros para serem usados dessa maneira. O runbook pai aguarda que o runbook filho seja concluído antes de passar para a próxima linha e qualquer saída retorna diretamente para o pai.
 
 Quando você chama um runbook embutido, ele é executado no mesmo trabalho que o runbook pai. Não há nenhuma indicação no histórico de trabalhos do runbook filho. Quaisquer exceções e saídas de fluxo do runbook filho são associadas ao pai. Esse comportamento resulta em menos trabalhos e torna mais fácil controlar e solucionar problemas.
 
@@ -41,7 +41,7 @@ Quando a ordem de publicação é importante?
 
 a ordem de publicação de runbooks é importante apenas para runbooks do Fluxo de Trabalho do PowerShell e runbooks gráficos do Fluxo de Trabalho do PowerShell.
 
-Quando o runbook chama um runbook filho de fluxo de trabalho gráfico ou do PowerShell usando a execução embutida, ele usa o nome do runbook. O nome deve começar com ".\\"para especificar que o script está localizado no diretório local.
+Quando o runbook chama um runbook filho de fluxo de trabalho gráfico ou do PowerShell usando a execução embutida, ele usa o nome do runbook. O nome deve começar com **.\\** para especificar que o script está localizado no diretório local.
 
 ### <a name="example"></a>Exemplo
 
@@ -64,17 +64,17 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 > [!IMPORTANT]
 > Se o seu runbook invocar um runbook filho com o cmdlet **Start-AzAutomationRunbook** com o parâmetro *Wait* e o runbook filho produzir um resultado de objeto, a operação poderá encontrar um erro. Para contornar o erro, consulte [Runbooks filho com a saída do objeto](troubleshoot/runbooks.md#child-runbook-object) para saber como implementar a lógica para sondar os resultados usando o cmdlet [Get-AzAutomationJobOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) .
 
-Você pode usar **Start-AzAutomationRunbook** para iniciar um runbook, conforme descrito em [para iniciar um runbook com o Windows PowerShell](start-runbooks.md#start-a-runbook-with-powershell). Há dois modos de uso para esse cmdlet. Em um modo, o cmdlet retorna a ID do trabalho quando o trabalho filho é criado para o runbook filho. No outro modo, que o script permite especificando o parâmetro *Wait* , o cmdlet aguarda até que o trabalho filho seja concluído e retorna a saída do runbook filho.
+Você pode usar **Start-AzAutomationRunbook** para iniciar um runbook, conforme descrito em [para iniciar um runbook com o Windows PowerShell](start-runbooks.md#start-a-runbook-with-powershell). Há dois modos de uso para esse cmdlet. Em um modo, o cmdlet retorna a ID do trabalho quando o trabalho é criado para o runbook filho. No outro modo, que o script permite especificando o parâmetro *Wait* , o cmdlet aguarda até que o trabalho filho seja concluído e retorna a saída do runbook filho.
 
-O trabalho de um runbook filho iniciado com um cmdlet é executado em um trabalho separado do trabalho de runbook pai. Esse comportamento resulta em mais trabalhos do que iniciar o runbook embutido e torna os trabalhos mais difíceis de rastrear. O pai pode iniciar mais de um runbook filho de forma assíncrona sem aguardar a conclusão de cada um. Para essa execução paralela chamando os runbooks filho embutidos, o runbook pai deve usar a [palavra-chave Parallel](automation-powershell-workflow.md#parallel-processing).
+O trabalho de um runbook filho iniciado com um cmdlet é executado separadamente do trabalho de runbook pai. Esse comportamento resulta em mais trabalhos do que iniciar o runbook embutido e torna os trabalhos mais difíceis de rastrear. O pai pode iniciar mais de um runbook filho de forma assíncrona sem aguardar a conclusão de cada um. Para essa execução paralela chamando os runbooks filho embutidos, o runbook pai deve usar a [palavra-chave Parallel](automation-powershell-workflow.md#parallel-processing).
 
-A saída do runbook filho não é retornada ao runbook pai de forma confiável devido ao tempo. Além disso, variáveis como $VerbosePreference, $WarningPreference e outras podem não ser propagadas para os runbooks filho. Para evitar esses problemas, você pode iniciar os runbooks filho como trabalhos de automação separados usando **Start-AzAutomationRunbook** com o parâmetro *Wait* . Essa técnica bloqueia o runbook pai até que o runbook filho seja concluído.
+A saída do runbook filho não retorna ao runbook pai de forma confiável devido ao tempo. Além disso, variáveis como *$VerbosePreference*, *$WarningPreference*e outras podem não ser propagadas para os runbooks filho. Para evitar esses problemas, você pode iniciar os runbooks filho como trabalhos de automação separados usando **Start-AzAutomationRunbook** com o parâmetro *Wait* . Essa técnica bloqueia o runbook pai até que o runbook filho seja concluído.
 
 Se você não quiser que o runbook pai seja bloqueado na espera, você pode iniciar o runbook filho usando **Start-AzAutomationRunbook** sem o parâmetro *Wait* . Nesse caso, o runbook deve usar [Get-AzAutomationJob](/powershell/module/az.automation/get-azautomationjob) para aguardar a conclusão do trabalho. Ele também deve usar [Get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput) e [Get-AzAutomationJobOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) para recuperar os resultados.
 
 Os parâmetros de um runbook filho iniciados com um cmdlet são fornecidos como uma tabela de hash, conforme descrito em [parâmetros de runbook](start-runbooks.md#runbook-parameters). Somente tipos de dados simples podem ser usados. Se o runbook tiver um parâmetro com um tipo de dados complexos, ele deve ser chamado embutido.
 
-O contexto da assinatura pode ser perdido ao iniciar runbooks filho como trabalhos separados. Para que o runbook filho execute cmdlets de módulo AZ em uma assinatura específica do Azure, o runbook filho deve se autenticar para essa assinatura independentemente do runbook pai.
+O contexto da assinatura pode ser perdido ao iniciar runbooks filho como trabalhos separados. Para que o runbook filho execute cmdlets de módulo AZ em uma assinatura específica do Azure, o filho deve se autenticar nessa assinatura independentemente do runbook pai.
 
 Se os trabalhos dentro da mesma conta de automação funcionarem com mais de uma assinatura, selecionar uma assinatura em um trabalho poderá alterar o contexto de assinatura selecionado no momento para outros trabalhos. Para evitar essa situação, use `Disable-AzContextAutosave –Scope Process` no início de cada runbook. Essa ação apenas salva o contexto nessa execução de runbook.
 

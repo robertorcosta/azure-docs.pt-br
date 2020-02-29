@@ -3,12 +3,12 @@ title: Planejar uma implantação de Cluster Service Fabric do Azure
 description: Saiba mais sobre planejamento e preparação para uma implantação de cluster de Service Fabric de produção no Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 32d48f9ffa056d252bdf762304340f245d80fd26
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 1762a6975448301957579b3437a8af5c89b3accd
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834443"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193469"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planejar e preparar uma implantação de cluster
 
@@ -20,7 +20,7 @@ Para gerenciar aplicativos e clusters do Azure Service Fabric com êxito, há op
 ## <a name="select-the-os-for-the-cluster"></a>Selecione o sistema operacional para o cluster
 O Service Fabric permite a criação de clusters do Service Fabric em qualquer VM ou computador que esteja executando o Windows Server ou o Linux.  Antes de implantar o cluster, você deve escolher o sistema operacional: Windows ou Linux.  Cada nó (máquina virtual) no cluster executa o mesmo sistema operacional, não é possível misturar VMs Windows e Linux no mesmo cluster.
 
-## <a name="capacity-planning"></a>Planejamento de capacidade
+## <a name="capacity-planning"></a>planejamento de capacidade
 Para qualquer implantação de produção, o planejamento de capacidade é uma etapa importante. Aqui estão alguns pontos a serem considerados como parte desse processo.
 
 * O número inicial de tipos de nó para o cluster 
@@ -77,7 +77,6 @@ OS discos do sistema operacional efêmero não são um recurso Service Fabric es
         "virtualMachineProfile": {
             "storageProfile": {
                 "osDisk": {
-                        "vhdContainers": ["[concat(reference(concat('Microsoft.Storage/storageAccounts/', parameters('vmStorageAccountName')), variables('storageApiVersion')).primaryEndpoints.blob, parameters('vmStorageAccountContainerName'))]"],
                         "caching": "ReadOnly",
                         "createOption": "FromImage",
                         "diffDiskSettings": {
@@ -109,7 +108,7 @@ Uma parte crítica da entrega de alta disponibilidade é garantir que os serviç
 ## <a name="production-readiness-checklist"></a>Lista de verificação de preparação para produção
 O aplicativo e o cluster estão prontos para receber tráfego de produção? Antes de implantar o cluster para produção, execute a [lista de verificação de preparação de produção](service-fabric-production-readiness-checklist.md). Mantenha seu aplicativo e o cluster em execução sem problemas trabalhando nos itens desta lista de verificação. É altamente recomendável que todos esses itens sejam verificados antes de entrar em produção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Criar um Cluster Service Fabric executando o Windows](service-fabric-best-practices-overview.md)
 * [Criar um Cluster Service Fabric executando o Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 

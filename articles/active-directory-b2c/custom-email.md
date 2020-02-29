@@ -3,20 +3,20 @@ title: Verificações de email personalizadas
 titleSuffix: Azure AD B2C
 description: Saiba como personalizar o email de verificação enviado para seus clientes quando eles se inscrevem para usar seus aplicativos habilitados para Azure AD B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/05/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2bda00924015bf5abc616b7c346eacfeda53c2ed
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 32747e0e7bb1f979203fa886647712e0fd69faee
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77045949"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189524"
 ---
 # <a name="custom-email-verification-in-azure-active-directory-b2c"></a>Verificação de email personalizada no Azure Active Directory B2C
 
@@ -421,7 +421,7 @@ Para localizar o email, você deve enviar cadeias de caracteres localizadas para
 </ClaimsTransformation>
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Você pode encontrar um exemplo de uma política de verificação de email personalizada no GitHub:
 

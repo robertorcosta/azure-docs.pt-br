@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1d808210861d971b2915206e7be0fe9b955616c5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 6e4b5bc6d30f6caa2809b7aa1e72be70ae12dbc1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720309"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193027"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Arquitetura do Azure Synapse Analytics (anteriormente conhecido como SQL DW) 
 
@@ -25,7 +25,7 @@ O Azure Synapse é um serviço de análise ilimitado que reúne data warehouse e
 - Análise de SQL: concluir análise baseada em T-SQL 
     - Pool do SQL (pague por DWU provisionado) – geralmente disponível
     - SQL sob demanda (pagamento por TB processado, versão prévia)
-- Spark: Apache Spark profundamente integrados (versão prévia) 
+- Spark: Apache Spark profundamente integrados (versão prévia)
 - Integração de dados: integração de dados híbridas (versão prévia)
 - Studio: experiência do usuário unificada.  (Visualização)
 
@@ -105,7 +105,7 @@ O diagrama a seguir mostra uma tabela replicada que é armazenada em cache na pr
 
 ![Tabela replicada](media/sql-data-warehouse-distributed-data/replicated-table.png "Tabela replicada") 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Agora que você já sabe um pouco sobre o Azure Synapse, saiba como [criar rapidamente um pool do SQL](./sql-data-warehouse-get-started-provision.md) e [carregar dados de exemplo](./sql-data-warehouse-load-sample-databases.md). Se você for novo no Azure, você pode encontrar o [Glossário do Azure](../azure-glossary-cloud-terminology.md) úteis à medida que encontrar nova terminologia. Ou então, veja alguns desses outros recursos do Azure Synapse.  
 
 * [Histórias de sucesso de clientes](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)

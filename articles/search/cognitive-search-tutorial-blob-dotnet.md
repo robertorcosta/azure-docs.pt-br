@@ -8,18 +8,18 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/27/2020
-ms.openlocfilehash: 85fb709dfcca45b6ca8141c6d3de1941044f5ee5
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 0c37f1ce2f173f4bf527e7cca30f010101b01720
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78163193"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190680"
 ---
 # <a name="tutorial-use-c-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: usar C# e ia para gerar conteúdo pesquisável de BLOBs do Azure
 
 Se você tiver texto ou imagens não estruturados no armazenamento de BLOBs do Azure, um [pipeline de enriquecimento de ia](cognitive-search-concept-intro.md) poderá extrair informações e criar um novo conteúdo que seja útil para cenários de pesquisa de texto completo ou de mineração de dados de conhecimento. Neste tutorial C# , aplique o OCR (reconhecimento óptico de caracteres) em imagens e execute o processamento de idioma natural para criar novos campos que podem ser aproveitados em consultas, facetas e filtros.
 
-Neste tutorial, use C# o e o [SDK do .net](https://aka.ms/search-sdk) para executar as seguintes tarefas:
+Este tutorial usa C# o e o [SDK do .net](https://aka.ms/search-sdk) para executar as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Comece com arquivos e imagens do aplicativo no armazenamento de BLOBs do Azure.
@@ -30,7 +30,7 @@ Neste tutorial, use C# o e o [SDK do .net](https://aka.ms/search-sdk) para execu
 
 Caso não tenha uma assinatura do Azure, abra uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 + [Armazenamento do Azure](https://azure.microsoft.com/services/storage/)
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/)
@@ -929,11 +929,11 @@ Repita para campos adicionais: conteúdo, idioma, frases-chave e organizações 
 
 ## <a name="reset-and-rerun"></a>Redefinir e execute novamente
 
-Nos primeiros estágios experimentais de desenvolvimento, a abordagem mais prática para iterações de design é excluir os objetos da Pesquisa Cognitiva do Azure e permitir que seu código os reconstrua. Nomes de recurso são exclusivos. Excluir um objeto permite que você recriá-la usando o mesmo nome.
+Nos estágios experimentais antecipados do desenvolvimento, a abordagem mais prática para a iteração de design é excluir os objetos do Azure Pesquisa Cognitiva e permitir que seu código os reconstrua. Nomes de recurso são exclusivos. Excluir um objeto permite que você recriá-la usando o mesmo nome.
 
-Este tutorial abordou a verificação de indexadores e índices existentes e sua exclusão, caso eles já existam, para que você possa executar novamente seu código.
+O código de exemplo para este tutorial verifica os objetos existentes e os exclui para que você possa executar novamente o código.
 
-Você também pode usar o portal para excluir índices, indexadores e conjuntos de qualificações.
+Você também pode usar o portal para excluir índices, indexadores, fontes de dados e habilidades.
 
 ## <a name="takeaways"></a>Observações
 
@@ -945,11 +945,13 @@ Por fim, você aprendeu como resultados de teste e reinicie o sistema para obter
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-A maneira mais rápida de fazer a limpeza depois de um tutorial é excluindo o grupo de recursos que contém o serviço da Pesquisa Cognitiva do Azure e o serviço Blob do Azure. Supondo que você colocar ambos os serviços no mesmo grupo, exclua o grupo de recursos agora para excluir permanentemente todo o conteúdo, incluindo os serviços e qualquer conteúdo armazenado que você tenha criado para este tutorial. No portal, o nome do grupo de recurso está na página de Visão geral de cada serviço.
+Quando você está trabalhando em sua própria assinatura, no final de um projeto, é uma boa ideia remover os recursos que já não são necessários. Recursos deixados em execução podem custar dinheiro. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir todo o conjunto de recursos.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+Você pode encontrar e gerenciar recursos no portal, usando o link todos os recursos ou grupos de recursos no painel de navegação esquerdo.
 
-Personalizar ou estender o pipeline com qualificações personalizadas. Criando uma habilidade personalizada e adicionando-a a um conjunto de qualificações permite que você carregue texto ou análise de imagem que você escreve por conta própria.
+## <a name="next-steps"></a>Próximas etapas
+
+Agora que você está familiarizado com todos os objetos em um pipeline de enriquecimento de ia, vamos examinar mais de perto as definições de Skills e habilidades individuais.
 
 > [!div class="nextstepaction"]
-> [Exemplo: criando uma habilidade personalizada para o enriquecimento de ia](cognitive-search-create-custom-skill-example.md)
+> [Como criar um congrau de habilidade](cognitive-search-defining-skillset.md)

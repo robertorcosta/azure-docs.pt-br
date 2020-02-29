@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 571be831d337c71a084780da18b480cdd1e42d20
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: b7d876c7f865b8368451ea1b6cc96ade89a59aa8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77365218"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190952"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solucionar problemas de erros com runbooks
 
@@ -471,7 +471,7 @@ Seu runbook é exibido em um estado **Parado** após a execução por 3 horas. V
 The job was evicted and subsequently reached a Stopped state. The job cannot continue running
 ```
 
-Esse comportamento existe, por natureza, nas áreas restritas do Azure devido ao monitoramento de "Fração Justa" dos processos na Automação do Azure. Se for executado por mais de três horas, a Fração Justa interrompe automaticamente um runbook. O status de um runbook que ultrapassa o limite de tempo de compartilhamento justo difere por tipo de runbook. Os runbooks do PowerShell e do Python são definidos para um status **Parado**. Os runbooks do fluxo de trabalho do PowerShell estão definidos como **falha**.
+Esse comportamento é por design em áreas restritas do Azure por causa do monitoramento do [Fair share](../automation-runbook-execution.md#fair-share) de processos na automação do Azure. Se ele for executado por mais de três horas, Fair share interromperá automaticamente um runbook. O status de um runbook que ultrapassa o limite de tempo de compartilhamento justo difere por tipo de runbook. Os runbooks do PowerShell e do Python são definidos para um status **Parado**. Os runbooks do fluxo de trabalho do PowerShell estão definidos como **falha**.
 
 ### <a name="cause"></a>Causa
 
@@ -481,7 +481,7 @@ O runbook foi executado no limite de 3 horas permitido pelo Fair share em uma á
 
 Uma solução recomendada é executar o runbook em um [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
-Os Hybrid Workers não são limitados pelo limite de runbook [Fair share](../automation-runbook-execution.md#fair-share) de 3 horas que as áreas restritas do Azure têm. Os Runbooks executados em Hybrid runbook Workers devem ser desenvolvidos para dar suporte a comportamentos de reinicialização se houver problemas de infraestrutura local inesperados.
+Os Hybrid Workers não são limitados pelo limite de runbook de compartilhamento justo de 3 horas que as áreas restritas do Azure têm. Os Runbooks executados em Hybrid runbook Workers devem ser desenvolvidos para dar suporte a comportamentos de reinicialização se houver problemas de infraestrutura local inesperados.
 
 Outra opção é otimizar o runbook criando [runbooks filho](../automation-child-runbooks.md). Se o seu runbook percorre continuamente a mesma função em vários recursos, como uma operação de banco de dados em vários bancos de dados, é possível mover essa função para um runbook filho. Cada um desses runbooks filho é executado em paralelo em processos separados. Esse comportamento reduz a quantidade total de tempo para o runbook pai concluir.
 

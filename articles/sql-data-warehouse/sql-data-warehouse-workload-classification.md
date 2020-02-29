@@ -1,26 +1,26 @@
 ---
 title: Classificação de carga de trabalho
-description: Orientação para usar a classificação para gerenciar recursos de simultaneidade, importância e computação para consultas no Azure SQL Data Warehouse.
+description: Orientação para usar a classificação para gerenciar recursos de simultaneidade, importância e computação para consultas no Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/27/2020
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: ab7c8ba64057b4f27e00a2928a65de8eadc78c4b
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.custom: azure-synapse
+ms.openlocfilehash: f350885c2d25860c7dc83310534ca9d8c9d72555
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76768840"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191751"
 ---
-# <a name="azure-sql-data-warehouse-workload-classification"></a>Classificação de carga de trabalho do Azure SQL Data Warehouse
+# <a name="azure-synapse-analytics-workload-classification"></a>Classificação de carga de trabalho do Azure Synapse Analytics
 
-Este artigo explica o SQL Data Warehouse processo de classificação de carga de trabalho de atribuição de uma classe de recurso e a importância para solicitações de entrada.
+Este artigo explica o processo de classificação de carga de trabalho de atribuição de um grupo de carga de trabalho e a importância para solicitações de entrada com a análise de SQL no Azure Synapse.
 
 ## <a name="classification"></a>classificação
 
@@ -36,7 +36,7 @@ Nem todas as instruções são classificadas, pois não exigem recursos ou preci
 
 ## <a name="classification-process"></a>Processo de classificação
 
-A classificação no SQL Data Warehouse é obtida hoje atribuindo usuários a uma função que tenha uma classe de recurso correspondente atribuída a ele usando [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). A capacidade de caracterizar solicitações além de um logon para uma classe de recurso é limitada a esse recurso. Um método mais rico para classificação agora está disponível com a sintaxe de [criar classificação de carga de trabalho](/sql/t-sql/statements/create-workload-classifier-transact-sql) .  Com essa sintaxe, SQL Data Warehouse usuários podem atribuir importância e quantos recursos do sistema são atribuídos a uma solicitação por meio do parâmetro `workload_group`. 
+A classificação para análise de SQL no Azure Synapse é obtida hoje atribuindo usuários a uma função que tenha uma classe de recurso correspondente atribuída a ela usando [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). A capacidade de caracterizar solicitações além de um logon para uma classe de recurso é limitada a esse recurso. Um método mais rico para classificação agora está disponível com a sintaxe de [criar classificação de carga de trabalho](/sql/t-sql/statements/create-workload-classifier-transact-sql) .  Com essa sintaxe, os usuários da análise do SQL podem atribuir importância e quantos recursos do sistema são atribuídos a uma solicitação por meio do parâmetro `workload_group`. 
 
 > [!NOTE]
 > A classificação é avaliada em uma base por solicitação. Várias solicitações em uma única sessão podem ser classificadas de forma diferente.
@@ -45,7 +45,7 @@ A classificação no SQL Data Warehouse é obtida hoje atribuindo usuários a um
 
 Como parte do processo de classificação, o peso está em vigor para determinar qual grupo de carga de trabalho é atribuído.  O peso é o seguinte:
 
-|Parâmetro de classificador |Peso   |
+|Parâmetro do classificador |Peso   |
 |---------------------|---------|
 |MEMBERNAME: USUÁRIO      |64       |
 |MEMBERNAME: FUNÇÃO      |32       |
@@ -90,7 +90,7 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc','staticrc10','staticrc20','st
 sp_droprolemember ‘[Resource Class]’, membername
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter mais informações sobre como criar um classificador, consulte [criar classificação de carga de trabalho (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
 - Consulte o início rápido sobre como criar um classificador de carga de trabalho [criar um classificador de carga de trabalho](quickstart-create-a-workload-classifier-tsql.md).

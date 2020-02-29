@@ -10,28 +10,36 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 924705b7ce1d324583077797714491bdf3fc5cc9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.custom: azure-synapse
+ms.openlocfilehash: 257b33802ea95138ef8149ef9302b14ca379e7ac
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721210"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195528"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Como monitorar o cache Gen2
-A arquitetura de armazenamento Gen2 divide automaticamente em camadas seus segmentos columnstore consultados com mais frequência em um cache que reside em SSDs baseados em NVMe projetado para data warehouses Gen2. O melhor desempenho é alcançado quando suas consultas recuperam segmentos que residem no cache. Este artigo descreve como monitorar e solucionar problemas de desempenho de consultas lentas determinando se sua carga de trabalho está aproveitando da forma ideal o cache Gen2.  
+
+Este artigo descreve como monitorar e solucionar problemas de desempenho de consultas lentas determinando se sua carga de trabalho está aproveitando da forma ideal o cache Gen2.
+
+A arquitetura de armazenamento Gen2 divide automaticamente em camadas seus segmentos columnstore consultados com mais frequência em um cache que reside em SSDs baseados em NVMe projetado para data warehouses Gen2. O melhor desempenho é alcançado quando suas consultas recuperam segmentos que residem no cache.
+ 
 ## <a name="troubleshoot-using-the-azure-portal"></a>Solucionar problemas usando o Portal do Azure
-Você pode usar o Azure Monitor para exibir métricas do cache Gen2 para solucionar problemas de desempenho de consulta. Primeiro, acesse o portal do Azure e clique em Monitorar:
 
-![Azure Monitor](./media/sql-data-warehouse-cache-portal/cache_0.png)
+Você pode usar o Azure Monitor para exibir métricas do cache Gen2 para solucionar problemas de desempenho de consulta. Primeiro, acesse a portal do Azure e clique em **Monitor**, **métricas** e **+ Selecione um escopo**:
 
-Selecione o botão métricas e preencha a **assinatura**, o **grupo**de recursos, o **tipo de recurso**e o **nome do recurso** do seu data warehouse.
+![Azure Monitor](./media/sql-data-warehouse-cache-portal/cache-0.png)
 
-As principais métricas para solucionar problemas do cache Gen2 são **Percentual de ocorrência no cache** e **Percentual de uso do cache**. Configure o gráfico de métricas do Azure para exibir essas duas métricas.
+Use as barras de pesquisa e lista suspensa para localizar o data warehouse. Em seguida, selecione aplicar.
 
-![Métricas de cache](./media/sql-data-warehouse-cache-portal/cache_1.png)
+![Azure Monitor](./media/sql-data-warehouse-cache-portal/cache-1.png)
 
+As principais métricas para solucionar problemas do cache Gen2 são **Percentual de ocorrência no cache** e **Percentual de uso do cache**. Selecione **porcentagem de acesso ao cache** e, em seguida, use o botão **Adicionar métrica** para adicionar o **percentual de cache usado**. 
+
+![Métricas de cache](./media/sql-data-warehouse-cache-portal/cache-2.png)
 
 ## <a name="cache-hit-and-used-percentage"></a>Ocorrência no cache e percentual de uso
+
 A matriz a seguir descreve cenários baseados nos valores das métricas de cache:
 
 |                                | **Alto percentual de ocorrência no cache** | **Baixo percentual de ocorrência no cache** |
@@ -50,5 +58,5 @@ A matriz a seguir descreve cenários baseados nos valores das métricas de cache
 > [!IMPORTANT]
 > Se a porcentagem de acesso ao cache ou o percentual de cache usado não estiver atualizando após a reexecução da carga de trabalho, seu conjunto funcional já poderá estar residindo na memória. Somente as tabelas columnstore clusterizadas são armazenadas em cache.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre o ajuste de desempenho de consultas geral, confira [Monitorar a execução de consulta](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md#monitor-query-execution).

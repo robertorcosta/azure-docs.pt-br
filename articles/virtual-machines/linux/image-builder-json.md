@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 4ac2c1266933716697a658b1ba88efd8c2f05d34
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 08a1ca0c85d69d1a5262f1dcac5d46fb82b1c22b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905754"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191785"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Versão prévia: criar um modelo do construtor de imagens do Azure 
 
@@ -55,7 +55,7 @@ O `type` é o tipo de recurso, que deve ser `"Microsoft.VirtualMachineImages/ima
     "apiVersion": "2019-05-01-preview",
 ```
 
-## <a name="location"></a>Local
+## <a name="location"></a>Location
 
 O local é a região em que a imagem personalizada será criada. Para a visualização do Image Builder, há suporte para as seguintes regiões:
 
@@ -301,7 +301,7 @@ O personalizador de reinicialização permite reiniciar uma VM do Windows e agua
 
             {
                 "type": "WindowsRestart",
-                "restartCommand": "shutdown /r /f /t 0 /c", 
+                "restartCommand": "shutdown /r /f /t 0", 
                 "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > c:\\buildArtifacts\\azureImageBuilderRestart.txt",
                 "restartTimeout": "5m"
             }
@@ -567,7 +567,7 @@ az resource show \
 > [!NOTE]
 > Depois que o VHD tiver sido criado, copie-o para um local diferente, assim que possível. O VHD é armazenado em uma conta de armazenamento no grupo de recursos temporário criado quando o modelo de imagem é enviado para o serviço do construtor de imagem do Azure. Se você excluir o modelo de imagem, o VHD será perdido. 
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Há arquivos. JSON de exemplo para diferentes cenários no [GitHub do Azure Image Builder](https://github.com/danielsollondon/azvmimagebuilder).
  

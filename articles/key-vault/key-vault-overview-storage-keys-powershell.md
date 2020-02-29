@@ -3,16 +3,17 @@ title: Conta de armazenamento gerenciado do Azure Key Vault - versão PowerShell
 description: O recurso de conta de armazenamento gerenciado fornece uma integração direta, entre Azure Key Vault e uma conta de armazenamento do Azure.
 ms.topic: conceptual
 ms.service: key-vault
+ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 584a37ffb9727a48e2adb5e339697314cffe93f7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 833f78d89a1a9033e62c10c3b16c5adfc65e1da4
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980858"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195083"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gerenciar chaves de conta de armazenamento com Key Vault e Azure PowerShell
 
@@ -44,11 +45,11 @@ Key Vault é um aplicativo da Microsoft que é previamente registrado em todos o
 
 | Locatários | Nuvem | ID do aplicativo |
 | --- | --- | --- |
-| AD do Azure | Azure Governamental | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
+| AD do Azure | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | AD do Azure | Público do Azure | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | Outros  | Qualquer | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este guia, primeiro você deve fazer o seguinte:
 
@@ -262,7 +263,7 @@ Write-Host $secret.SecretValueText
 A saída desse comando mostrará a cadeia de caracteres de definição de SAS.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Amostras da conta de armazenamento gerenciada](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)
 - [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)

@@ -1,22 +1,22 @@
 ---
 title: TDE (Transparent Data Encryption) gerenciada pelo cliente
-description: Suporte BYOK (Bring Your Own Key) para TDE (Transparent Data Encryption) com Azure Key Vault para Banco de Dados SQL e Data Warehouse. Visão geral de TDE com BYOK, benefícios, como funciona, considerações e recomendações.
+description: Suporte a Bring Your Own Key (BYOK) para Transparent Data Encryption (TDE) com Azure Key Vault para banco de dados SQL e Azure Synapse. Visão geral de TDE com BYOK, benefícios, como funciona, considerações e recomendações.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: seo-lt-2019
+ms.custom: azure-synapse
 ms.devlang: ''
 ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/12/2020
-ms.openlocfilehash: 8e91bb9223f3e6ccd4c76614d75db8591dbed045
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: a29466ad5b261e1e2ce818d7b4a18260e35caaec
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201502"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192737"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption do SQL do Azure com chave gerenciada pelo cliente
 
@@ -24,7 +24,7 @@ O Azure SQL [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/r
 
 Nesse cenário, a chave usada para criptografia da DEK (chave de criptografia de banco de dados), chamada de protetor de TDE, é uma chave assimétrica gerenciada pelo cliente, armazenada em um [akv (Azure Key Vault)](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)de Propriedade do cliente, um sistema de gerenciamento de chaves externas baseado em nuvem. O Key Vault é um armazenamento seguro escalonável e altamente disponível para chaves de criptografia RSA, opcionalmente apoiado por HSMs (módulos de segurança de hardware) validados pelo FIPS 140-2 nível 2. Ele não permite acesso direto a uma chave armazenada, mas fornece serviços de criptografia/descriptografia usando a chave para as entidades autorizadas. A chave pode ser gerada pelo cofre de chaves, importada ou [transferida para o cofre de chaves de um dispositivo HSM local](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
 
-Para o banco de dados SQL do Azure e o Azure SQL Data Warehouse, o protetor TDE é definido no nível do servidor lógico e é herdado por todos os bancos de dados criptografados associados a esse servidor. Para o Azure SQL Instância Gerenciada, o protetor de TDE é definido no nível de instância e é herdado por todos os bancos de dados criptografados nessa instância. O termo *servidor* refere-se ao servidor lógico do banco de dados SQL e à instância gerenciada em todo este documento, a menos que indicado de forma diferente.
+Para o banco de dados SQL do Azure e o Azure Synapse, o protetor de TDE é definido no nível do servidor lógico e é herdado por todos os bancos de dados criptografados associados a esse servidor. Para o Azure SQL Instância Gerenciada, o protetor de TDE é definido no nível de instância e é herdado por todos os bancos de dados criptografados nessa instância. O termo *servidor* refere-se ao servidor lógico do banco de dados SQL e à instância gerenciada em todo este documento, a menos que indicado de forma diferente.
 
 > [!IMPORTANT]
 > Para aqueles que usam TDE gerenciados por serviços que gostariam de começar a usar o TDE gerenciado pelo cliente, os dados permanecem criptografados durante o processo de troca e não há nenhum tempo de inatividade nem nova criptografia dos arquivos de banco de dados. Alternar de uma chave gerenciada por serviço para uma chave gerenciada pelo cliente requer apenas uma nova criptografia do DEK, que é uma operação rápida e online.
@@ -163,7 +163,7 @@ Se a chave necessária para restaurar um backup não estiver mais disponível pa
 
 Para atenuá-lo, execute o cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) para o servidor lógico do banco de dados SQL de destino ou [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) para a instância gerenciada de destino para retornar a lista de chaves disponíveis e identificar os que estão faltando. Para garantir que todos os backups possam ser restaurados, verifique se o servidor de destino da restauração tem acesso a todas as chaves necessárias. Essas chaves não precisam ser marcadas como protetor de TDE.
 
-Para saber mais sobre a recuperação de backup do Banco de Dados SQL, consulte [Recuperar um banco de dados SQL do Azure](sql-database-recovery-using-backups.md). Para saber mais sobre a recuperação de backup do SQL Data Warehouse, consulte [Recuperar um Data Warehouse SQL do Azure](../sql-data-warehouse/backup-and-restore.md). Para obter o backup/restauração nativa de SQL Server com a instância gerenciada, consulte [início rápido: restaurar um banco de dados para um instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore)
+Para saber mais sobre a recuperação de backup do Banco de Dados SQL, consulte [Recuperar um banco de dados SQL do Azure](sql-database-recovery-using-backups.md). Para saber mais sobre a recuperação de backup para o pool do SQL, consulte [recuperar um pool do SQL](../sql-data-warehouse/backup-and-restore.md). Para obter o backup/restauração nativa de SQL Server com a instância gerenciada, consulte [início rápido: restaurar um banco de dados para um instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore)
 
 Considerações adicionais para arquivos de log: Arquivos de log de backup permanecem criptografados com o protetor de TDE original, mesmo que ele tenha sido girado e o banco de dados agora esteja usando um novo protetor de TDE.  No momento da restauração, ambas as chaves serão necessárias para restaurar o banco de dados.  Se o arquivo de log estiver usando um protetor de TDE armazenado em Azure Key Vault, essa chave será necessária no momento da restauração, mesmo que o banco de dados tenha sido alterado para usar o TDE gerenciado por serviço enquanto isso.
 

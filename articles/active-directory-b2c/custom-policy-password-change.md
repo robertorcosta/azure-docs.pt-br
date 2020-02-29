@@ -3,20 +3,20 @@ title: Configurar a alteração de senha usando políticas personalizadas
 titleSuffix: Azure AD B2C
 description: Saiba como permitir que usuários alterem suas senhas usando políticas personalizadas no Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6bb4b762fead279bcc8492cb902e2059d7cfc68c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2c351f8a95110a32c53c68c5eb6095918578bc5b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848935"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189167"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a alteração da senha usando políticas personalizadas no Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76848935"
 
 No Azure Active Directory B2C (Azure AD B2C), você pode habilitar os usuários que entraram com uma conta local para alterar a senha sem precisar provar sua autenticidade por verificação de email. Se a sessão expirar quando o usuário chegar ao fluxo de alteração de senha, ele receberá uma solicitação para entrar novamente. Este artigo mostra como configurar a alteração de senha em [políticas personalizadas](custom-policy-overview.md). Também é possível configurar a [redefinição de senha de autoatendimento](user-flow-self-service-password-reset.md) para fluxos de usuário.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Conclua as etapas em [Introdução às políticas personalizadas no Active Directory B2C](custom-policy-get-started.md).
 
@@ -180,6 +180,6 @@ Ao testar seus aplicativos no Azure AD B2C, pode ser útil ter o token do Azure 
 2. Para **Aplicativo**, selecione seu aplicativo que você registrou anteriormente. Para ver o token, a **URL de resposta** deve mostrar `https://jwt.ms`.
 3. Clique em **Executar agora**. Entrar com a conta criada anteriormente. Agora você deve conseguir alterar a senha.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [Configurar a complexidade da senha usando políticas personalizadas no Azure Active Directory B2C](custom-policy-password-complexity.md).

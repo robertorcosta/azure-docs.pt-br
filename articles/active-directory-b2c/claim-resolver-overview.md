@@ -3,20 +3,20 @@ title: Solicitar resolvedores em políticas personalizadas
 titleSuffix: Azure AD B2C
 description: Saiba como usar resolvedores de declarações em uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/02/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 97e51331657c62094996f79483148f2f441e6a44
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 02277d2da2e431ac1cefdd9b018af4c25f7d5a9a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161594"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189830"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre resolvedores de declaração em políticas personalizadas do Azure Active Directory B2C
 
@@ -46,16 +46,16 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 
 ### <a name="culture"></a>Cultura
 
-| Declaração | Descrição | {1&gt;Exemplo&lt;1} |
+| Declaração | DESCRIÇÃO | Exemplo |
 | ----- | ----------- | --------|
 | {Culture:LanguageName} | As duas letras do código ISO para o idioma. | en |
 | {Culture:LCID}   | O LCID do código de idioma. | 1046 |
-| {Culture:RegionName} | As duas letras do código ISO para a região. | US |
+| {Culture:RegionName} | As duas letras do código ISO para a região. | EUA |
 | {Culture:RFC5646} | O código de idioma RFC5646. | pt-BR |
 
 ### <a name="policy"></a>Política
 
-| Declaração | Descrição | {1&gt;Exemplo&lt;1} |
+| Declaração | DESCRIÇÃO | Exemplo |
 | ----- | ----------- | --------|
 | {Policy:PolicyId} | O nome da política de terceira parte confiável. | B2C_1A_signup_signin |
 | {Policy:RelyingPartyTenantId} | A ID do locatário da política de terceira parte confiável. | your-tenant.onmicrosoft.com |
@@ -64,51 +64,51 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 
 ### <a name="openid-connect"></a>OpenID Connect
 
-| Declaração | Descrição | {1&gt;Exemplo&lt;1} |
+| Declaração | DESCRIÇÃO | Exemplo |
 | ----- | ----------- | --------|
-| {OIDC:AuthenticationContextReferences} |O parâmetro de cadeia de caracteres da consulta `acr_values`. | {1&gt;N/A&lt;1} |
+| {OIDC:AuthenticationContextReferences} |O parâmetro de cadeia de caracteres da consulta `acr_values`. | N/D |
 | {OIDC:ClientId} |O parâmetro de cadeia de caracteres da consulta `client_id`. | 00000000-0000-0000-0000-000000000000 |
 | {OIDC:DomainHint} |O parâmetro de cadeia de caracteres da consulta `domain_hint`. | facebook.com |
 | {OIDC:LoginHint} |  O parâmetro de cadeia de caracteres da consulta `login_hint`. | someone@contoso.com |
-| {OIDC:MaxAge} | A `max_age`. | {1&gt;N/A&lt;1} |
+| {OIDC:MaxAge} | O `max_age`. | N/D |
 | {OIDC:Nonce} |O parâmetro de cadeia de caracteres da consulta `Nonce`. | defaultNonce |
 | {OIDC:Prompt} | O parâmetro de cadeia de caracteres da consulta `prompt`. | login |
-| {OIDC:Resource} |O parâmetro de cadeia de caracteres da consulta `resource`. | {1&gt;N/A&lt;1} |
+| {OIDC:Resource} |O parâmetro de cadeia de caracteres da consulta `resource`. | N/D |
 | {OIDC:scope} |O parâmetro de cadeia de caracteres da consulta `scope`. | openid |
 | {OIDC: RedirectUri} |O parâmetro de cadeia de caracteres da consulta `redirect_uri`. | https://jwt.ms |
 
 ### <a name="context"></a>Contexto
 
-| Declaração | Descrição | {1&gt;Exemplo&lt;1} |
+| Declaração | DESCRIÇÃO | Exemplo |
 | ----- | ----------- | --------|
 | {Context:BuildNumber} | A versão do Identity Experience Framework (número de build).  | 1.0.507.0 |
 | {Context:CorrelationId} | ID de correlação.  | 00000000-0000-0000-0000-000000000000 |
 | {Context:DateTimeInUtc} |A data e hora em UTC.  | 10/10/2018 12:00:00 PM |
-| {Context:DeploymentMode} |O modo de implantação de política.  | Production |
+| {Context:DeploymentMode} |O modo de implantação de política.  | Produção |
 | {Context:IPAddress} | O endereço IP do usuário. | 11.111.111.11 |
-| {Context: KMSI} | Indica se a caixa [de seleção manter-me conectado](custom-policy-keep-me-signed-in.md) está marcada. |  {1&gt;true&lt;1} |
+| {Context: KMSI} | Indica se a caixa [de seleção manter-me conectado](custom-policy-keep-me-signed-in.md) está marcada. |  true |
 
 ### <a name="non-protocol-parameters"></a>Parâmetros não de protocolo
 
 Qualquer nome de parâmetro incluído como parte de uma solicitação OIDC ou OAuth2 pode ser mapeado para uma declaração no percurso do usuário. Por exemplo, a solicitação do aplicativo pode incluir um parâmetro da cadeia de consulta com um nome de `app_session`, `loyalty_number` ou qualquer cadeia de consulta personalizada.
 
-| Declaração | Descrição | {1&gt;Exemplo&lt;1} |
+| Declaração | DESCRIÇÃO | Exemplo |
 | ----- | ----------------------- | --------|
 | {OAUTH-KV:campaignId} | Um parâmetro de cadeia de consulta. | havaí |
 | {OAUTH-KV:app_session} | Um parâmetro de cadeia de consulta. | A3C5R |
 | {OAUTH-KV:loyalty_number} | Um parâmetro de cadeia de consulta. | 1234 |
-| {OAUTH-KV:any custom query string} | Um parâmetro de cadeia de consulta. | {1&gt;N/A&lt;1} |
+| {OAUTH-KV:any custom query string} | Um parâmetro de cadeia de consulta. | N/D |
 
 ### <a name="oauth2"></a>OAuth2
 
-| Declaração | Descrição | {1&gt;Exemplo&lt;1} |
+| Declaração | DESCRIÇÃO | Exemplo |
 | ----- | ----------------------- | --------|
-| {oauth2:access_token} | O token de acesso. | {1&gt;N/A&lt;1} |
+| {oauth2:access_token} | O token de acesso. | N/D |
 
 
 ### <a name="saml"></a>SAML
 
-| Declaração | Descrição | {1&gt;Exemplo&lt;1} |
+| Declaração | DESCRIÇÃO | Exemplo |
 | ----- | ----------- | --------|
 | {SAML: AuthnContextClassReferences} | O valor do elemento `AuthnContextClassRef`, da solicitação SAML. | urn: Oasis: names: TC: SAML: 2.0: AC: classes: PasswordProtectedTransport |
 | {SAML: NameIdPolicyFormat} | O atributo `Format`, do elemento `NameIDPolicy` da solicitação SAML. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
@@ -117,9 +117,9 @@ Qualquer nome de parâmetro incluído como parte de uma solicitação OIDC ou OA
 | {SAML: ForceAuthn} | O valor do atributo `ForceAuthN`, do elemento `AuthnRequest` da solicitação SAML. | True |
 | {SAML: ProviderName} | O valor do atributo `ProviderName`, do elemento `AuthnRequest` da solicitação SAML.| Contoso.com |
 
-## <a name="using-claim-resolvers"></a>Usando resolvedores de declaração 
+## <a name="using-claim-resolvers"></a>Usando resolvedores de declaração
 
-Você pode usar resolvedores de declarações com os seguintes elementos: 
+Você pode usar resolvedores de declarações com os seguintes elementos:
 
 | Item | Elemento | Configurações |
 | ----- | ----------------------- | --------|
@@ -135,7 +135,7 @@ Você pode usar resolvedores de declarações com os seguintes elementos:
 |[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |
 |Perfil técnico do [RelyingParty](relyingparty.md#technicalprofile)| `OutputClaim`| 2 |
 
-Configurações: 
+Configurações:
 1. Os metadados de `IncludeClaimResolvingInClaimsHandling` devem ser definidos como `true`.
 1. O atributo de declarações de entrada ou saída `AlwaysUseDefaultValue` deve ser definido como `true`.
 
@@ -195,7 +195,7 @@ Como resultado, Azure AD B2C envia os parâmetros acima para a página de conte�
 
 ### <a name="content-definition"></a>Definição de conteúdo
 
-Em um `LoadUri`[ContentDefinition](contentdefinitions.md) , você pode enviar resolvedores de declaração para efetuar pull de conteúdo de locais diferentes, com base nos parâmetros usados. 
+Em um `LoadUri`[ContentDefinition](contentdefinitions.md) , você pode enviar resolvedores de declaração para efetuar pull de conteúdo de locais diferentes, com base nos parâmetros usados.
 
 ```XML
 <ContentDefinition Id="api.signuporsignin">
@@ -224,7 +224,7 @@ Com o Azure Application Insights e resolvedores de declaração, você pode obte
 
 ### <a name="relying-party-policy"></a>Política de terceira parte confiável
 
-Em um perfil técnico de política de terceira parte [confiável](relyingparty.md) , talvez você queira enviar a ID de locatário ou a ID de correlação para o aplicativo de terceira parte confiável dentro do JWT. 
+Em um perfil técnico de política de terceira parte [confiável](relyingparty.md) , talvez você queira enviar a ID de locatário ou a ID de correlação para o aplicativo de terceira parte confiável dentro do JWT.
 
 ```XML
 <RelyingParty>

@@ -2,20 +2,20 @@
 title: Exemplos de transformação de declarações de data para políticas personalizadas
 description: Exemplos de transformação data Claims para o esquema IEF (Identity Experience Framework) de Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/03/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b831a3175e1dc8b19395d1c923b076ac9428690c
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: f3e5a7b90892f0ed0243d448ea1ac63fb56f277f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982901"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188827"
 ---
 # <a name="date-claims-transformations"></a>Transformações de declarações de data
 
@@ -29,11 +29,11 @@ Verifica se uma declaração de data e hora (tipo de dados de cadeia de caracter
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | leftOperand | cadeia de caracteres | O tipo da primeira declaração, que deve ser posterior à segunda declaração. |
-| InputClaim | rightOperand | cadeia de caracteres | O tipo da segunda declaração, que deve ser anterior à primeira declaração. |
+| InputClaim | leftOperand | string | O tipo da primeira declaração, que deve ser posterior à segunda declaração. |
+| InputClaim | rightOperand | string | O tipo da segunda declaração, que deve ser anterior à primeira declaração. |
 | InputParameter | AssertIfEqualTo | booleano | Especifica se essa declaração deve passar se o operando esquerdo for igual ao operando direito. |
 | InputParameter | AssertIfRightOperandIsNotPresent | booleano | Especifica se essa declaração deve passar se o operando à direita estiver ausente. |
-| InputParameter | TreatAsEqualIfWithinMillseconds | int | Especifica o número de milissegundos para permitir entre as duas datas e horas para considerar os tempos de igual (por exemplo, a conta para defasagem horária). |
+| InputParameter | TreatAsEqualIfWithinMillseconds | INT | Especifica o número de milissegundos para permitir entre as duas datas e horas para considerar os tempos de igual (por exemplo, a conta para defasagem horária). |
 
 A transformação de declarações **AssertDateTimeIsGreaterThan** é sempre executada a partir um [perfil técnico de validação](validation-technical-profile.md) que é chamado por um [perfil técnico autodeclarado](self-asserted-technical-profile.md). Os metadados **DateTimeGreaterThan** do perfil técnico autodeclarado controla a mensagem de erro que o perfil técnico apresenta ao usuário.
 
@@ -114,7 +114,7 @@ O exemplo a seguir demonstra a conversão da declaração `dateOfBirth` (tipo de
 - Declarações de saída:
     - **outputClaim**: 1559347200 (1 de junho de 2019 12:00:00 AM)
 
-## <a name="convertdatetimetodateclaim"></a>ConvertDateTimeToDateClaim 
+## <a name="convertdatetimetodateclaim"></a>ConvertDateTimeToDateClaim
 
 Converte um ClaimType de **DateTime** em uma **Date** DeclareType. A transformação declarações remove o formato de hora da data.
 
@@ -172,8 +172,8 @@ Determine se uma dateTime é posterior, anterior ou igual a outra. O resultado �
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | firstDateTime | dateTime | O primeiro dateTime a fim de comparar se é anterior ou posterior ao segundo dateTime. Valor nulo gerará uma exceção. |
 | InputClaim | secondDateTime | dateTime | O segundo dateTime a fim de comparar se é anterior ou posterior ao primeiro dateTime. Valor nulo é tratado como o dateTime atual. |
-| InputParameter | operador | cadeia de caracteres | Um dos seguintes valores: mesmo, posterior ou anterior. |
-| InputParameter | timeSpanInSeconds | int | Adicione o intervalo de tempo para a primeira data e hora. |
+| InputParameter | operador | string | Um dos seguintes valores: mesmo, posterior ou anterior. |
+| InputParameter | timeSpanInSeconds | INT | Adicione o intervalo de tempo para a primeira data e hora. |
 | OutputClaim | result | booleano | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
 
 Use essa transformação de declarações para determinar se duas ClaimTypes são iguais, posteriores ou anteriores em comparação com as outras. Por exemplo, você pode armazenar a última vez em que um usuário aceitou os termos de serviço (TOS). Depois de três meses, você pode pedir ao usuário para acessar o TOS novamente.
