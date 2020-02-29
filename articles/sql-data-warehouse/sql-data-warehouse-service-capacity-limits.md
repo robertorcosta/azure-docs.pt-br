@@ -7,15 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 11/04/2019
+ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 7847e76c8f0354e3a17c7df5f3ce9227dcf0e6ce
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.custom: azure-synapse
+ms.openlocfilehash: a225c375d877ae44c2b21ea8e79e31f17db36878
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526409"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198177"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limites de capacidade do Azure Synapse Analytics (anteriormente conhecido como SQL DW)
 
@@ -30,16 +31,18 @@ Valores máximos permitidos para vários componentes do Azure Synapse.
 | Conexão de banco de dados |Máximo de sessões abertas simultâneas |1024<br/><br/>O número de sessões abertas simultâneas irá variar com base no DWU selecionado. O DWU600c e superior dão suporte a um máximo de 1024 sessões abertas. DWU500c e abaixo, dão suporte a um limite máximo de sessão de abertura simultânea de 512. Observe que há limites no número de consultas que podem ser executadas simultaneamente. Quando o limite de simultaneidade for excedido, a solicitação irá para uma fila interna onde aguardará seu processamento. |
 | Conexão de banco de dados |Memória máxima para instruções preparadas |20 MB |
 | [Gerenciamento de carga de trabalho](resource-classes-for-workload-management.md) |Máximo de consultas simultâneas |128<br/><br/>  Um máximo de 128 consultas simultâneas será executado e as consultas restantes serão enfileiradas.<br/><br/>O número de consultas simultâneas pode diminuir quando os usuários são atribuídos a classes de recursos mais altas ou quando a configuração de [unidade de data warehouse](memory-concurrency-limits.md) é reduzida. Algumas consultas, como consultas DMV, sempre podem ser executadas e não afetam o limite de consultas simultâneas. Para obter mais detalhes sobre a execução de consultas simultâneas, consulte o artigo [Limites máximos de simultaneidade](memory-concurrency-limits.md). |
-| [tempdb](sql-data-warehouse-tables-temporary.md) |GB máximo |399 GB por DW100. Portanto, em DWU1000, o tempdb é dimensionado para 3,99 TB. |
+| [tempdb](sql-data-warehouse-tables-temporary.md) |GB máximo |399 GB por DW100c. Portanto, em DWU1000c, o tempdb é dimensionado para 3,99 TB. |
+||||
 
 ## <a name="database-objects"></a>Objetos de banco de dados
+
 | Categoria | DESCRIÇÃO | Máximo |
 |:--- |:--- |:--- |
-| Banco de dados |Tamanho máx. | Gen1: 240 TB compactado no disco. Este espaço é independente do espaço de tempdb ou de log, portanto, é dedicado às tabelas permanentes.  A compactação do columnstore clusterizado é estimada em cinco vezes.  Essa compactação permite que o banco de dados aumente até aproximadamente 1 PB quando todas as tabelas são de columnstore clusterizado (o tipo de tabela padrão). <br/><br/> Gen2: 240 TB para rowstore e armazenamento ilimitado para tabelas columnstore |
-| Tabela |Tamanho máx. | Para tabelas columnstore, não há nenhum limite de uppper. <br/><br/>Para tabelas de armazenamento de linha, 60 TB compactados em disco |
+| Banco de dados |Tamanho máx. | Gen1: 240 TB compactado no disco. Este espaço é independente do espaço de tempdb ou de log, portanto, é dedicado às tabelas permanentes.  A compactação do columnstore clusterizado é estimada em cinco vezes.  Essa compactação permite que o banco de dados aumente até aproximadamente 1 PB quando todas as tabelas são de columnstore clusterizado (o tipo de tabela padrão). <br/><br/> Gen2: armazenamento ilimitado para tabelas columnstore.  A parte do repositório de dados ainda está limitada a 240 TB compactados em disco. |
+| Tabela |Tamanho máx. |Tamanho ilimitado para tabelas columnstore. <br>60 TB para tabelas do repositório de armazenamento compactadas no disco. |
 | Tabela |Tabelas por banco de dados | 100.000 |
 | Tabela |Colunas por tabela |1024 colunas |
-| Tabela |Bytes por coluna |Dependente do [tipo de dados](sql-data-warehouse-tables-data-types.md) da coluna. O limite é de 8000 para tipos de dados char, 4000 para nvarchar ou 2 GB para tipos de dados MAX. |
+| Tabela |Bytes por coluna |Dependente do [tipo de dados](sql-data-warehouse-tables-data-types.md) da coluna. Para tipos de dados de caractere, o limite máximo pode armazenar até 2 GB de armazenamento de página (estouro de linha).  Caracteres não-Unicode, como o limite char ou varchar, são 8000 em uma página de dados, os caracteres Unicode, como o limite nchar ou nvarchar, são 4000 em uma página de dados.  Use tamanhos de armazenamento de página de dados para aumentar o desempenho. |
 | Tabela |Bytes por linha, tamanho definido |8060 bytes<br/><br/>O número de bytes por linha é calculado da mesma maneira que no SQL Server, com a compactação de página. Assim como SQL Server, o armazenamento de estouro de linha tem suporte, o que permite que **colunas de comprimento variável** sejam empurradas para fora da linha. Quando as linhas de comprimento variável são colocadas para fora da linha, apenas a raiz de 24 bytes é armazenada no registro principal. Para obter mais informações, consulte [Dados de estouro de linha que excedem 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
 | Tabela |Partições por tabela |15,000<br/><br/>Para alto desempenho, recomendamos minimizar o número de partições necessárias e, ao mesmo tempo, dar suporte aos seus requisitos de negócios. À medida que o número de partições aumenta, a sobrecarga de operações de DDL (Linguagem de Definição de Dados) e DML (Linguagem de Manipulação de Dados) também aumenta e faz com que o desempenho fique mais lento. |
 | Tabela |Caracteres por valor de limite de partição. |4000 |
@@ -52,13 +55,17 @@ Valores máximos permitidos para vários componentes do Azure Synapse.
 | Estatísticas |As estatísticas criadas em colunas por tabela. |30,000 |
 | Procedimentos armazenados |Os níveis máximos de aninhamento. |8 |
 | Visualizar |Colunas por exibição |1\.024 |
+||||
 
 ## <a name="loads"></a>Cargas
+
 | Categoria | DESCRIÇÃO | Máximo |
 |:--- |:--- |:--- |
 | Cargas de Polybase |MB por segundo |1<br/><br/>O polybase carrega linhas menores que 1 MB. Não há suporte para o carregamento de tipos de dados LOB em tabelas com um CCI (índice Columnstore clusterizado).<br/><br/> |
+||||
 
 ## <a name="queries"></a>Consultas
+
 | Categoria | DESCRIÇÃO | Máximo |
 |:--- |:--- |:--- |
 | Consulta |Consultas em fila em tabelas de usuário. |1000 |
@@ -73,8 +80,10 @@ Valores máximos permitidos para vários componentes do Azure Synapse.
 | SELECT |Bytes por colunas ORDER BY |8060 bytes<br/><br/>As colunas na cláusula ORDER BY podem ter, no máximo, 8060 bytes |
 | Identificadores por instrução |Número de identificadores referenciados |65.535<br/><br/> O número de identificadores que podem estar contidos em uma única expressão de uma consulta é limitado. Exceder esse número resulta no erro 8632 do SQL Server. Para obter mais informações, veja [Erro interno: foi atingido o limite de serviços de uma expressão](https://support.microsoft.com/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
 | Literais de cadeia de caracteres | Número de literais de cadeia de caracteres em uma instrução | 20,000 <br/><br/>O número de constantes de cadeia de caracteres em uma única expressão de uma consulta é limitado. Exceder esse número resulta no erro 8632 do SQL Server.|
+||||
 
 ## <a name="metadata"></a>Metadados
+
 | Exibição do sistema | Máximo de linhas |
 |:--- |:--- |
 | sys.dm_pdw_component_health_alerts |10.000 |
@@ -86,6 +95,8 @@ Valores máximos permitidos para vários componentes do Azure Synapse.
 | sys.dm_pdw_request_steps |O número total de etapas para as 1000 solicitações de SQL mais recentes armazenadas em sys.dm_pdw_exec_requests. |
 | sys.dm_pdw_os_event_logs |10.000 |
 | sys.dm_pdw_sql_requests |As 1000 solicitações de SQL mais recentes armazenadas em sys.dm_pdw_exec_requests. |
+|||
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Para obter recomendações sobre como usar o Azure Synapse, consulte a [folha](cheat-sheet.md)de consulta.

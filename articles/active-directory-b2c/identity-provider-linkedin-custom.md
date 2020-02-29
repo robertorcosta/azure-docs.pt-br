@@ -3,20 +3,20 @@ title: Configurar a entrada com uma conta do LinkedIn usando políticas personal
 titleSuffix: Azure AD B2C
 description: Configure a entrada com uma conta do LinkedIn no Azure Active Directory B2C usando políticas personalizadas.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/25/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f4ad74104d34e7e2c3f4d6aafc05b36574f8e287
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 80bd1b65d04ea49fc742033e1850d95a85021c9f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847427"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188164"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada com uma conta do LinkedIn usando políticas personalizadas no Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76847427"
 
 Este artigo mostra como habilitar a entrada para usuários de uma conta do LinkedIn usando [políticas personalizadas](custom-policy-overview.md) no Azure Active Directory B2C (Azure ad B2C).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Conclua as etapas em [Introdução às políticas personalizadas no Azure Active Directory B2C](custom-policy-get-started.md).
 - Conta do LinkedIn-se você ainda não tiver uma, [crie uma conta](https://www.linkedin.com/start/join).
@@ -77,7 +77,7 @@ Se você quiser que os usuários entrem usando uma conta do LinkedIn, defina a c
 
 Defina uma conta do LinkedIn como um provedor de declarações adicionando-a ao elemento **ClaimsProviders** no arquivo de extensão da política.
 
-1. Abra o arquivo *SocialAndLocalAccounts/ **TrustFrameworkExtensions. xml*** em seu editor. Esse arquivo está no [pacote de início de política personalizada][starter-pack] que você baixou como parte de um dos pré-requisitos.
+1. Abra o arquivo *SocialAndLocalAccounts/* * TrustFrameworkExtensions. xml** * em seu editor. Esse arquivo está no [pacote de início de política personalizada][starter-pack] que você baixou como parte de um dos pré-requisitos.
 1. Localize o elemento **ClaimsProviders**. Se ele não existir, adicione-o sob o elemento raiz.
 1. Adicione um novo **ClaimsProvider** da seguinte maneira:
 

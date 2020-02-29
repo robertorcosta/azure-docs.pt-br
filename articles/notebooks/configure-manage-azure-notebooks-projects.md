@@ -2,13 +2,13 @@
 title: Configurar e gerenciar Azure Notebooks visualização
 description: Saiba como gerenciar metadados de projeto, arquivos de projeto, o ambiente do projeto e as etapas de instalação por meio da interface do usuário do Azure Notebooks e acesso direto ao terminal.
 ms.topic: how-to
-ms.date: 05/13/2019
-ms.openlocfilehash: 5c97372133315e6f0bcd3b854793b6b4746b5ba5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 02/28/2020
+ms.openlocfilehash: 1674effda2cb9bda45f49c91ca618225b0a75f0c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646255"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197684"
 ---
 # <a name="a-idmanage-and-configure-projects--manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" /> gerenciar e configurar projetos no Azure Notebooks Preview
 
@@ -37,7 +37,7 @@ Por padrão, os projetos são executados na camada de **computação gratuita** 
 
 No painel do projeto, selecione **Configurações do Projeto** e, em seguida, selecione a guia **Informações**, que contém os metadados do projeto, conforme descrito na tabela a seguir. Você pode alterar os metadados do projeto a qualquer momento.
 
-| Configuração | Description |
+| Configuração | DESCRIÇÃO |
 | --- | --- |
 | Nome do projeto | Um nome amigável para seu projeto que usa o Azure Notebooks para fins de exibição. Por exemplo, "Olá, Mundo no Python". |
 | Project ID | Um identificador personalizado que se torna parte da URL que você usa para compartilhar um projeto. Essa ID pode usar apenas letras, números e hifens, é limitada a 30 caracteres e não pode ser uma [ID de projeto reservada](create-clone-jupyter-notebooks.md#reserved-project-ids). Se você não tiver certeza sobre o que usar, uma convenção comum é usar uma versão em letras minúsculas do nome do seu projeto, na qual espaços são transformados em hifens, por exemplo “projeto-meu-notebook” (truncado se necessário para encaixar o limite de comprimento). |
@@ -56,7 +56,7 @@ O painel do projeto mostra o conteúdo do sistema de pastas do projeto. Você po
 
 O comando **+ Novo** (atalho de teclado: n) cria novos arquivos ou pastas. Ao usar o comando, primeiro selecione o tipo de item para criar:
 
-| Tipo de item | Description | Comportamento do comando |
+| Tipo de item | DESCRIÇÃO | Comportamento do comando |
 | --- | --- | --- |
 | **Notebook** | Um Jupyter Notebook | Exibe um pop-up em que você especifica o nome do arquivo e a linguagem de programação do notebook. |
 | **Pasta** | Uma subpasta | Cria um campo de edição na lista de arquivos do projeto em que você insere o nome da pasta. |
@@ -78,14 +78,14 @@ Cada item na lista de arquivos do projeto fornece comandos por meio de um menu d
 | Executar | r (ou clique) | Executa um arquivo do notebook. Outros tipos de arquivos são abertos para visualização.  |
 | Copiar Link | y | Copia um link para o arquivo na área de transferência. |
 | Executar no Laboratório do Jupyter | j | Executa um notebook no JupyterLab, que é uma interface mais voltada para desenvolvedores do que aquela normalmente oferecida pelo Jupyter. |
-| Versão prévia | p | Abre uma visualização do arquivo em HTML. Para notebooks, a visualização é uma renderização somente leitura do notebook. Para obter mais informações, confira a seção [Visualização](#preview). |
+| Visualização | p | Abre uma visualização do arquivo em HTML. Para notebooks, a visualização é uma renderização somente leitura do notebook. Para obter mais informações, confira a seção [Visualização](#preview). |
 | Editar arquivo | i | Abre o arquivo para edição. |
 | Baixar | d | Baixa um arquivo zip que contém o arquivo ou o conteúdo de uma pasta. |
 | Renomear | a | Solicita um novo nome para o arquivo ou pasta. |
 | Excluir | x | Solicita confirmação e, em seguida, remove permanentemente o arquivo do projeto. Exclusões não podem ser desfeitas. |
 | Mover | m | Move um arquivo para uma pasta diferente no mesmo projeto. |
 
-#### <a name="preview"></a>Versão prévia
+#### <a name="preview"></a>Visualização
 
 Uma visualização de um arquivo ou notebook é uma exibição somente leitura do conteúdo; a execução de células do notebook é desabilitada. Uma visualização é mostrada para qualquer pessoa que tenha um link para um arquivo ou notebook, mas não tenha se conectado ao Azure Notebooks. Uma vez conectado, um usuário pode clonar o notebook para sua própria conta ou pode baixar o notebook para o seu computador local.
 
@@ -93,8 +93,8 @@ A página de visualização dá suporte a vários comandos da barra de ferrament
 
 | Comando | Atalho do teclado | Ação |
 | --- | --- | --- |
-| Compartilhe | s | Exibe o pop-up de compartilhamento do qual você pode obter um link, compartilhar em mídias sociais, obter o HTML para inserção e enviar um email. |
-| Clonar | c  | Clonar o notebook para sua conta. |
+| Compartilhar | s | Exibe o pop-up de compartilhamento do qual você pode obter um link, compartilhar em mídias sociais, obter o HTML para inserção e enviar um email. |
+| Clone | c  | Clonar o notebook para sua conta. |
 | Executar | r | Executa o notebook se você tem permissão para fazer isso. |
 | Baixar | d | Baixa uma cópia do notebook. |
 
@@ -131,6 +131,9 @@ As informações que você projeta em seguida dependem do tipo de operação que
 - **Script de shell**: na segunda lista suspensa, selecione um script de shell bash no projeto (normalmente um arquivo com a extensão *. sh* ) que contém os comandos que você deseja executar para inicializar o ambiente.
 
 - **Environment. yml**: na segunda lista suspensa, selecione um arquivo *Environments. yml* para projetos do Python usando um ambiente Conda.
+
+   > [!WARNING]
+   > Como esse é um serviço de visualização em desenvolvimento, há um problema conhecido no momento em que a configuração de `Environment.yml` não é aplicada ao seu projeto conforme o esperado. O projeto e os blocos de anotações do Jupyter dentro do não carregam o arquivo de ambiente especificado no momento.
 
 Quando você terminar de adicionar etapas, selecione **Salvar**.
 
@@ -183,7 +186,7 @@ Você também pode usar o comando de uma célula de código em um notebook do Py
 !cat .nb.log
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Como trabalhar com arquivos de dados do projeto](work-with-project-data-files.md)
 - [Acessar dados de nuvem em um notebook](access-data-resources-jupyter-notebooks.md)

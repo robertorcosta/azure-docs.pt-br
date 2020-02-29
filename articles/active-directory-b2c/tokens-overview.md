@@ -2,20 +2,20 @@
 title: Visão geral de tokens-Azure Active Directory B2C
 description: Saiba mais sobre os tokens usados em Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 543a3558333933e9d8d6262c76c1e6e9419be877
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: cbbd083a6b62733d71c316af95dffaa188b28955
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848181"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186481"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Visão geral dos tokens no Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ Os tokens a seguir são usados na comunicação com o Azure AD B2C:
 - *Token de acesso* -um JWT que contém declarações que você pode usar para identificar as permissões concedidas para suas APIs. Tokens de acesso são assinados, mas não são criptografados. Tokens de acesso são usados para fornecer acesso a APIs e servidores de recursos.  Quando a API recebe um token de acesso, ela deve validar a assinatura para provar que o token é autêntico. Sua API também deve validar algumas declarações no token para provar que ele é válido. Dependendo dos requisitos do cenário, as declarações validadas por um aplicativo podem variar, mas seu aplicativo deve executar algumas validações de declaração comuns em cada cenário.
 - *Tokens de atualização –* tokens de atualização são usados para adquirir novos tokens de ID e tokens de acesso em um fluxo OAuth 2,0. Eles fornecem ao seu aplicativo um acesso de longo prazo aos recursos em nome dos usuários sem a necessidade de interação com esses usuários. Os tokens de atualização são opacos para seu aplicativo. Eles são emitidos por Azure AD B2C e podem ser inspecionados e interpretados somente pelo Azure AD B2C. Eles são de longa duração, mas seu aplicativo não deve ser escrito com a expectativa de que um token de atualização durará por um período de tempo específico. Os tokens de atualização podem ser invalidados a qualquer momento por vários motivos. A única maneira de seu aplicativo saber se um token de atualização é válido é tentar resgatá-lo fazendo uma solicitação de token para Azure AD B2C. Quando você resgatar um token de atualização para um novo token, receberá um novo token de atualização na resposta do token. Salve o novo token de atualização. Ele substitui o token de atualização que você usou anteriormente na solicitação. Essa ação ajuda a garantir que seus tokens de atualização permaneçam válidos pelo máximo de tempo possível.
 
-## <a name="endpoints"></a>Pontos de Extremidade
+## <a name="endpoints"></a>Pontos de extremidade
 
 Um [aplicativo registrado](tutorial-register-applications.md) recebe tokens e se comunica com Azure ad B2C enviando solicitações para esses pontos de extremidade:
 
@@ -50,7 +50,7 @@ As declarações em tokens de ID não são retornadas em nenhuma ordem específi
 
 A tabela a seguir lista as declarações que você pode esperar em tokens de ID e tokens de acesso emitidos por Azure AD B2C.
 
-| Nome | Declaração | Valor de exemplo | Description |
+| Nome | Declaração | Valor de exemplo | DESCRIÇÃO |
 | ---- | ----- | ------------- | ----------- |
 | Público | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Identifica o destinatário pretendido do token. Por Azure AD B2C, o público-alvo é a ID do aplicativo. Seu aplicativo deve validar esse valor e rejeitar o token se ele não corresponder. Público-alvo é sinônimo de recurso. |
 | Emissor | `iss` |`https://{tenant}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifica o STS (serviço de token de segurança) que constrói e retorna o token. Ele também identifica o diretório no qual o usuário foi autenticado. Seu aplicativo deve validar a declaração do emissor para certificar-se de que o token veio do ponto de extremidade apropriado. |
@@ -149,7 +149,7 @@ Quando seus aplicativos ou API recebem um token de ID, ele também deve executar
 
 Para obter uma lista completa de validações que seu aplicativo deve executar, consulte a [especificação do OpenID Connect](https://openid.net).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre como [usar tokens de acesso](access-tokens.md).
 

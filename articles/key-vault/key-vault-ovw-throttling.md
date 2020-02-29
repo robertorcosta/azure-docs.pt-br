@@ -5,15 +5,16 @@ services: key-vault
 author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 28e79dffb206e8a62410bf3b4e0e239879b51224
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 6c4923e86f8678458d6301503043413fb8a5629b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806670"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197361"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Diretrizes de limitação do Azure Key Vault
 
@@ -40,7 +41,7 @@ Se você descobrir que o acima ainda não atende às suas necessidades, preencha
 
 | Nome do cofre | Região do cofre | Tipo de objeto (segredo, chave ou certificado) | Operação (ões) * | Tipo de Chave | Comprimento ou curva de chave | Chave HSM?| RPS de estado estável necessário | Máximo de RPS necessário |
 |--|--|--|--|--|--|--|--|--|
-| https://mykeyvault.vault.azure.net/ | | Chave | Assinar | EC | P-256 | Não | 200 | 1\.000 |
+| https://mykeyvault.vault.azure.net/ | | Chave | Assinar | EC | P-256 | Não | 200 | 1000 |
 
 \* para obter uma lista completa de valores possíveis, consulte [Azure Key Vault operações](/rest/api/keyvault/key-operations).
 
@@ -95,7 +96,7 @@ No código de erro HTTP 429, inicie a limitação do cliente usando uma abordage
 
 Neste ponto, você não deve estar obtendo códigos de resposta HTTP 429.
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Confira também
 
 Para obter uma orientação mais profunda de limitação no Microsoft Cloud, consulte [Padrão de Limitação](https://docs.microsoft.com/azure/architecture/patterns/throttling).
 

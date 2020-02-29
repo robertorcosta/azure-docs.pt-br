@@ -3,21 +3,21 @@ title: Configurar Azure AD B2C como um IdP do SAML para seus aplicativos
 title-suffix: Azure AD B2C
 description: Como configurar Azure AD B2C para fornecer asserções de protocolo SAML para seus aplicativos (provedores de serviço). Azure AD B2C atuará como o IdP (provedor de identidade única) para seu aplicativo SAML.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/27/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: be7d798d96e61d1d753e130c5e4ad6a479f391fc
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 1c362cd2924de73b2e40e634fe554ff1526e09d8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912233"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189643"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrar um aplicativo SAML no Azure AD B2C
 
@@ -43,7 +43,7 @@ Resumindo os dois cenários de núcleo não exclusivos com SAML:
 | Meu aplicativo espera que uma Asserção SAML conclua uma autenticação. | **Azure AD B2C atua como o IdP (provedor de identidade)**<br />Azure AD B2C atua como um IdP do SAML para os aplicativos. | Este artigo. |
 | Meus usuários precisam de logon único com um provedor de identidade compatível com SAML, como ADFS, Salesforce ou Shibboleth.  | **Azure AD B2C atua como o provedor de serviços (SP)**<br />Azure AD B2C atua como um provedor de serviços ao se conectar ao provedor de identidade SAML. É um proxy de federação entre seu aplicativo e o provedor de identidade SAML.  | <ul><li>[Configurar a entrada com o ADFS como um IdP do SAML usando políticas personalizadas](identity-provider-adfs2016-custom.md)</li><li>[Configurar a entrada com um provedor SAML do Salesforce usando políticas personalizadas](identity-provider-salesforce-custom.md)</li></ul> |
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 * Conclua as etapas em introdução [às políticas personalizadas no Azure ad B2C](custom-policy-get-started.md). Você precisa da política personalizada *SocialAndLocalAccounts* do pacote de início de política personalizada abordado no artigo.
 * Noções básicas sobre o protocolo SAML (Security Assertion Markup Language).
@@ -63,7 +63,7 @@ Se você ainda não tiver um provedor de serviços SAML e um ponto de extremidad
 
 ## <a name="1-set-up-certificates"></a>1. configurar certificados
 
-Para criar uma relação de confiança entre seu provedor de serviços e Azure AD B2C, você precisa fornecer certificados X509 e suas chaves privadas.
+Para criar uma relação de confiança entre seu provedor de serviços e Azure AD B2C, você precisa fornecer os certificados X509 do aplicativo Web.
 
 * **Certificados do provedor de serviços**
   * Certificado com uma chave privada armazenada em seu aplicativo Web. Esse certificado é usado pelo seu provedor de serviços para assinar a solicitação SAML enviada para Azure AD B2C. Azure AD B2C lê a chave pública dos metadados do provedor de serviços para validar a assinatura.
@@ -373,7 +373,7 @@ Os seguintes cenários de RP (terceira parte confiável) do SAML têm suporte po
 * Especifique a chave de criptografia de token no objeto de aplicativo/entidade de serviço.
 * Atualmente, não há suporte para logons iniciados pelo provedor de identidade na versão de visualização.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Você pode encontrar mais informações sobre o [protocolo SAML no site da Oasis](https://www.oasis-open.org/).
 

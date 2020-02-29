@@ -9,14 +9,14 @@ ms.workload: big-compute
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: lahugh
-ms.openlocfilehash: 14cbacf43e83dc768e9a85620df131533b746671
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 0134e7d92ddca9bd3b45abaf642f33de9d209b33
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77463096"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192295"
 ---
-# <a name="securely-access-key-vault-with-batch"></a>Acessar Key Vault com segurança com o lote
+# <a name="securely-access-key-vault-with-batch"></a>Acessar com segurança o Key Vault com o Lote
 
 Neste artigo, você aprenderá a configurar os nós do lote para acessar com segurança as credenciais armazenadas no Azure Key Vault. Não há nenhum ponto em colocar suas credenciais de administrador em Key Vault e, em seguida, codificar as credenciais para acessar Key Vault de um script. A solução é usar um certificado que concede aos nós do lote acesso ao Key Vault. Com algumas etapas, podemos implementar o armazenamento de chaves seguro para o lote.
 
@@ -40,7 +40,7 @@ cd C:\Program Files (x86)\Windows Kits\10\bin\x64
 Em seguida, use a ferramenta `makecert` para criar arquivos de certificado autoassinados chamados `batchcertificate.cer` e `batchcertificate.pvk`. O CN (nome comum) usado não é importante para esse aplicativo, mas é útil fazê-lo algo que informe para que o certificado é usado.
 
 ```console
-makecert -sv batchcertificate.pvk -n "cn=batch.cert.mydomain.org batchcertificate.cer -b 09/23/2019 -e 09/23/2019 -r -pe -a sha256 -len 2048
+makecert -sv batchcertificate.pvk -n "cn=batch.cert.mydomain.org" batchcertificate.cer -b 09/23/2019 -e 09/23/2019 -r -pe -a sha256 -len 2048
 ```
 
 O lote requer um arquivo de `.pfx`. Use a ferramenta [pvk2pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) para converter os arquivos de `.cer` e `.pvk` criados pelo `makecert` em um único arquivo `.pfx`.

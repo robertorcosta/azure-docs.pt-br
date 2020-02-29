@@ -3,20 +3,20 @@ title: Configurar o fluxo de credenciais de senha do proprietário do recurso
 titleSuffix: Azure AD B2C
 description: Saiba como configurar o fluxo ROPC no Azure AD B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/27/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1d17f9af5700df5458cc4373dfc5cd8fb7774f91
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 70cd4f2ca3a4ac37bdf1d1e465d1f1a7d06ef9e1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912385"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189694"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configure o fluxo de credenciais de senha de proprietário do recurso no Azure AD B2C
 
@@ -56,12 +56,12 @@ Use seu aplicativo favorito de desenvolvimento de API para gerar uma chamada de 
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Chave | {1&gt;Valor&lt;1} |
+| Chave | Valor |
 | --- | ----- |
-| username | leadiocl@outlook.com |
+| Nome de Usuário | leadiocl@outlook.com |
 | password | Passxword1 |
 | grant_type | password |
-| escopo | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 offline_access |
+| scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 offline_access |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | token id_token |
 
@@ -96,7 +96,7 @@ Construa uma chamada POST como a monstrada aqui com as informações na tabela a
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Chave | {1&gt;Valor&lt;1} |
+| Chave | Valor |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |

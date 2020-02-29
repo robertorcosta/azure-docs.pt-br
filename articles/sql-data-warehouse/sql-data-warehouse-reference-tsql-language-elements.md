@@ -1,6 +1,6 @@
 ---
-title: Elementos da linguagem T-SQL
-description: Links para a documentação para instruções T-SQL compatíveis no SQL Data Warehouse do Azure.
+title: Elementos de linguagem T-SQL
+description: Links para a documentação para instruções T-SQL com suporte na análise de SQL.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: query
 ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 02f463e12547ba64a05e04988d9c192bba4f6a27
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: edd77d711654a7f2793eb3c08b93e85fc0a89e8f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692515"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198415"
 ---
-# <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Elementos de linguagem T-SQL compatíveis com o SQL Data Warehouse do Azure
-Links para a documentação para elementos da linguagem T-SQL compatíveis no SQL Data Warehouse do Azure.
+# <a name="t-sql-language-elements-supported-in-sql-analytics"></a>Elementos de linguagem T-SQL com suporte na análise de SQL
+Links para a documentação de elementos de linguagem T-SQL com suporte na análise de SQL.
 
 ## <a name="core-elements"></a>Elementos principais
 * [convenções de sintaxe](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
@@ -30,7 +30,7 @@ Links para a documentação para elementos da linguagem T-SQL compatíveis no SQ
 * [constantes](https://msdn.microsoft.com/library/ms179899.aspx)
 * [tipos de dados](https://msdn.microsoft.com/library/ms187752.aspx)
 * [EXECUTE](https://msdn.microsoft.com/library/ms188332.aspx)
-* [expressions](https://msdn.microsoft.com/library/ms190286.aspx)
+* [expressões](https://msdn.microsoft.com/library/ms190286.aspx)
 * [KILL](https://msdn.microsoft.com/library/ms173730.aspx)
 * [Solução alternativa da propriedade IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx)
 * [PRINT](https://msdn.microsoft.com/library/ms176047.aspx)
@@ -48,16 +48,16 @@ Links para a documentação para elementos da linguagem T-SQL compatíveis no SQ
 * [WHILE](https://msdn.microsoft.com/library/ms178642.aspx)
 
 ## <a name="operators"></a>Operadores
-* [+ (Adicionar)](https://msdn.microsoft.com/library/ms178565.aspx)
-* [+ (Concatenação de Cadeias de Caracteres)](https://msdn.microsoft.com/library/ms177561.aspx)
+* [+ (Somar)](https://msdn.microsoft.com/library/ms178565.aspx)
+* [+ (Concatenação de cadeias de caracteres)](https://msdn.microsoft.com/library/ms177561.aspx)
 * [- (Negativo)](https://msdn.microsoft.com/library/ms189480.aspx)
-* [- (Subtração)](https://msdn.microsoft.com/library/ms189518.aspx)
+* [- (Subtrair)](https://msdn.microsoft.com/library/ms189518.aspx)
 * [* (Multiplicar)](https://msdn.microsoft.com/library/ms176019.aspx)
-* [/ (Divisão)](https://msdn.microsoft.com/library/ms175009.aspx)
+* [/ (dividir)](https://msdn.microsoft.com/library/ms175009.aspx)
 * [Módulo](https://msdn.microsoft.com/library/ms190279.aspx)
 
 ## <a name="wildcard-characters-to-match"></a>Caracteres curinga para correspondência
-* [= (É igual a)](https://msdn.microsoft.com/library/ms175118.aspx)
+* [= (Igual a)](https://msdn.microsoft.com/library/ms175118.aspx)
 * [> (Maior que)](https://msdn.microsoft.com/library/ms178590.aspx)
 * [< (Menor que)](https://msdn.microsoft.com/library/ms179873.aspx)
 * [>= (Maior ou igual a)](https://msdn.microsoft.com/library/ms181567.aspx)
@@ -73,11 +73,11 @@ Links para a documentação para elementos da linguagem T-SQL compatíveis no SQ
 * [NOT](https://msdn.microsoft.com/library/ms189455.aspx)
 * [OR](https://msdn.microsoft.com/library/ms188361.aspx)
 
-### <a name="bitwise-operators"></a>Operadores Bit a bit
+### <a name="bitwise-operators"></a>Operadores bit a bit
 * [& (AND bit a bit)](https://msdn.microsoft.com/library/ms174965.aspx)
 * [| (OR bit a bit)](https://msdn.microsoft.com/library/ms186714.aspx)
 * [^ (OR exclusivo bit a bit)](https://msdn.microsoft.com/library/ms190277.aspx)
-* [~ (NOT bit a bit)](https://msdn.microsoft.com/library/ms173468.aspx)
+* [~ (NÃO bit a bit)](https://msdn.microsoft.com/library/ms173468.aspx)
 * [^= (OR EQUALS exclusivo bit a bit)](https://msdn.microsoft.com/library/cc627413.aspx)
 * [|= (OR EQUALS bit a bit)](https://msdn.microsoft.com/library/cc627409.aspx)
 * [&= (AND EQUALS bit a bit)](https://msdn.microsoft.com/library/cc627427.aspx)
@@ -226,7 +226,7 @@ Links para a documentação para elementos da linguagem T-SQL compatíveis no SQ
 * [YEAR](https://msdn.microsoft.com/library/ms186313.aspx)
 * [XACT_STATE](https://msdn.microsoft.com/library/ms189797.aspx)
 
-## <a name="transactions"></a>Transações
+## <a name="transactions"></a>Transactions
 * [transações](https://msdn.microsoft.com/library/mt204031.aspx)
 
 ## <a name="diagnostic-sessions"></a>Sessões de diagnóstico
@@ -255,7 +255,7 @@ Links para a documentação para elementos da linguagem T-SQL compatíveis no SQ
 * [sp_tables](https://msdn.microsoft.com/library/ms186250.aspx)
 * [sp_unprepare](https://msdn.microsoft.com/library/ff848735.aspx)
 
-## <a name="set-statements"></a>Instruções SET
+## <a name="set-statements"></a>instruções SET
 * [SET ANSI_DEFAULTS](https://msdn.microsoft.com/library/ms188340.aspx)
 * [SET ANSI_NULL_DFLT_OFF](https://msdn.microsoft.com/library/ms187356.aspx)
 * [SET ANSI_NULL_DFLT_ON](https://msdn.microsoft.com/library/ms187375.aspx)
@@ -278,5 +278,5 @@ Links para a documentação para elementos da linguagem T-SQL compatíveis no SQ
 * [SET XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações de referência, consulte [Instruções T-SQL no SQL Data Warehouse do Azure](sql-data-warehouse-reference-tsql-statements.md) e [Exibições do sistema no SQL Data Warehouse do Azure](sql-data-warehouse-reference-tsql-system-views.md).
+Para obter mais informações de referência, consulte [instruções T-SQL na análise de SQL](sql-data-warehouse-reference-tsql-statements.md)e [exibições do sistema na análise de SQL](sql-data-warehouse-reference-tsql-system-views.md).
 

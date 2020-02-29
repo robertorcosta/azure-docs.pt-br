@@ -3,20 +3,20 @@ title: Exemplos de transformação de declarações booleanas para políticas pe
 titleSuffix: Azure AD B2C
 description: Exemplos de transformação de declarações booleanas para o esquema IEF (Identity Experience Framework) de Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/03/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 130fca4d5894316e7684270ff9d6361e9d9f9dd3
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 65f5b9bc09bb74ccbc63a457ba8e5681de8eefab
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620832"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189934"
 ---
 # <a name="boolean-claims-transformations"></a>Transformações de declarações boolianas
 
@@ -116,7 +116,7 @@ O perfil técnico autodeclarado chama o perfil técnico **login-NonInteractive**
 
 ## <a name="comparebooleanclaimtovalue"></a>CompareBooleanClaimToValue
 
-Verifica se o valor booliano de uma declaração é igual a `true` ou `false`e retorna o resultado da compactação. 
+Verifica se o valor booliano de uma declaração é igual a `true` ou `false`e retorna o resultado da compactação.
 
 | Item | TransformationClaimType  | Tipo de Dados  | Observações |
 | ---- | ------------------------ | ---------- | ----- |
@@ -148,7 +148,7 @@ A transformação de declarações a seguir demonstra como verificar o valor de 
 - Parâmetros de entrada:
     - **valueToCompareTo**: true
 - Declarações de saída:
-    - **compareResult**: false 
+    - **compareResult**: false
 
 
 

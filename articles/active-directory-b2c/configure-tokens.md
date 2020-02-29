@@ -2,26 +2,26 @@
 title: Configurar tokens-Azure Active Directory B2C | Microsoft Docs
 description: Saiba como configurar a vida útil do token e as configurações de compatibilidade no Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d6b18596082df6f1cfbe2a47627712b8b69cb355
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 160898f8535d3dad4811af016ebca779b7ef43a8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836602"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189610"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configurar tokens no Azure Active Directory B2C
 
 Neste artigo, você aprenderá a configurar o [tempo de vida e a compatibilidade de um token](tokens-overview.md) no Azure Active Directory B2C (Azure ad B2C).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [Criar um fluxo de usuário](tutorial-create-user-flows.md) para permitir que os usuários se registrem e entrem no seu aplicativo.
 
@@ -52,7 +52,7 @@ Você pode configurar o tempo de vida do token em qualquer fluxo de usuário.
 
 5. Clique em **Save** (Salvar).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre como [usar tokens de acesso](access-tokens.md).
 

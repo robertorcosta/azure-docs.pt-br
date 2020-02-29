@@ -7,24 +7,24 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/14/2020
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: fd9bd846beba718cb305907d4d0c5a613d2ef816
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.custom: azure-synapse
+ms.openlocfilehash: 69a200d4fda940f072960da9224f84a22db51647
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029934"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193791"
 ---
 # <a name="azure-synapse-analytics--workload-management-portal-monitoring-preview"></a>Azure Synapse Analytics – monitoramento de carga de trabalho Portal de Gerenciamento (versão prévia)
-Este artigo explica como monitorar a utilização de recursos do [grupo de carga de trabalho](sql-data-warehouse-workload-isolation.md#workload-groups) e a atividade de consulta. Para obter detalhes sobre como configurar o Metrics Explorer do Azure, consulte o artigo [introdução ao azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) .  Consulte a seção [utilização de recursos](sql-data-warehouse-concept-resource-utilization-query-activity.md#resource-utilization) na documentação de monitoramento de SQL data warehouse do Azure para obter detalhes sobre como monitorar o consumo de recursos do sistema.
+Este artigo explica como monitorar a utilização de recursos do [grupo de carga de trabalho](sql-data-warehouse-workload-isolation.md#workload-groups) e a atividade de consulta. Para obter detalhes sobre como configurar o Metrics Explorer do Azure, consulte o artigo [introdução ao azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) .  Consulte a seção [utilização de recursos](sql-data-warehouse-concept-resource-utilization-query-activity.md#resource-utilization) na documentação de monitoramento do Azure Synapse Analytics para obter detalhes sobre como monitorar o consumo de recursos do sistema.
 Há duas categorias diferentes de métricas de grupo de carga de trabalho fornecidas para monitorar o gerenciamento de carga de trabalho: alocação de recursos e atividade de consulta.  Essas métricas podem ser divididas e filtradas por grupo de carga de trabalho.  As métricas podem ser divididas e filtradas com base em se forem definidas pelo sistema (grupos de carga de trabalho da classe de recurso) ou definidos pelo usuário (criados pelo usuário com a sintaxe [Create Workload Group](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) ).
 
 ## <a name="workload-management-metric-definitions"></a>Definições de métrica de gerenciamento de carga de trabalho
 
-|Nome da métrica                    |Description  |Tipo de agregação |
+|Nome da métrica                    |DESCRIÇÃO  |Tipo de agregação |
 |-------------------------------|-------------|-----------------|
 |Porcentagem de recursos de limite efetivo | A *porcentagem de recursos de limite efetivo* é um limite rígido na porcentagem de recursos acessíveis pelo grupo de cargas de trabalho, levando em conta a *porcentagem de recursos mín. de recurso mínima* alocada para outros grupos de carga de trabalho. A métrica de *porcentagem de recursos de Cap efetivo* é configurada usando o parâmetro `CAP_PERCENTAGE_RESOURCE` na sintaxe de [Criar grupo de carga de trabalho](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) .  O valor efetivo é descrito aqui.<br><br>Por exemplo, se um grupo de carga de trabalho `DataLoads` for criado com `CAP_PERCENTAGE_RESOURCE` = 100 e outro grupo de carga de trabalho for criado com um percentual de recursos mínimo efetivo de 25%, a *porcentagem de recurso Cap efetivo* para o grupo de carga de trabalho `DataLoads` será 75%.<br><br>A *porcentagem do recurso Cap efetivo* determina o limite superior de simultaneidade (e, portanto, a taxa de transferência potencial) que um grupo de carga de trabalho pode atingir.  Se uma taxa de transferência adicional for necessária além do que é relatado atualmente pela métrica de *porcentagem de recursos do Cap efetivo* , aumente o `CAP_PERCENTAGE_RESOURCE`, diminua a `MIN_PERCENTAGE_RESOURCE` de outros grupos de carga de trabalho ou dimensione a instância para adicionar mais recursos.  A diminuição da `REQUEST_MIN_RESOURCE_GRANT_PERCENT` pode aumentar a simultaneidade, mas pode não aumentar a taxa de transferência geral.| Mín., Méd. máx. |
 |Percentual de recurso mínimo efetivo |*Percentual de recursos mínimos efetivos* é a porcentagem mínima de recursos reservados e isolados para o grupo de carga de trabalho levando em conta o nível de serviço mínimo.  A métrica de porcentagem de recursos mínimos efetivo é configurada usando o parâmetro `MIN_PERCENTAGE_RESOURCE` na sintaxe [Criar grupo de carga de trabalho](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) .  O valor efetivo é descrito [aqui](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest#effective-values).<br><br>Use o tipo de agregação Sum quando essa métrica não estiver filtrada e desdividida para monitorar o isolamento de carga de trabalho total configurado no sistema.<br><br>O *percentual de recurso mínimo efetivo* determina o limite inferior da simultaneidade garantida (e, portanto, a taxa de transferência garantida) que um grupo de carga de trabalho pode atingir  Se forem necessários recursos adicionais garantidos além do que atualmente é relatado pela métrica de *porcentagem de recursos min efetivo* , aumente o `MIN_PERCENTAGE_RESOURCE` parâmetro configurado para o grupo de carga de trabalho.  A diminuição da `REQUEST_MIN_RESOURCE_GRANT_PERCENT` pode aumentar a simultaneidade, mas pode não aumentar a taxa de transferência geral. |Mín., Méd. máx.|
@@ -75,7 +75,7 @@ Métrica 3: *consultas em fila do grupo de cargas de trabalho* (agregação Sum,
 Filtro: [grupo de cargas de trabalho] = `wgDataAnalyst`<br>
 ![garrafa-pescoço-WG](media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png) o gráfico mostra que, com um limite de 9% nos recursos, o grupo de cargas de trabalho é 90% + utilizado (da *alocação do grupo de cargas de trabalho pela métrica de porcentagem máxima de recursos*).  Há um enfileiramento constante de consultas, conforme mostrado na *métrica de consultas em fila do grupo de cargas de trabalho*.  Nesse caso, aumentar o `CAP_PERCENTAGE_RESOURCE` para um valor maior que 9% permitirá que mais consultas sejam executadas simultaneamente.  Aumentar o `CAP_PERCENTAGE_RESOURCE` pressupõe que há recursos suficientes disponíveis e não são isolados por outros grupos de carga de trabalho.  Verifique a Cap aumentada verificando a *métrica percentual de recurso Cap efetivo*.  Se mais taxa de transferência for desejada, considere também aumentar o `REQUEST_MIN_RESOURCE_GRANT_PERCENT` para um valor maior que 3.  Aumentar o `REQUEST_MIN_RESOURCE_GRANT_PERCENT` pode permitir que as consultas sejam executadas mais rapidamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Início rápido: configurar o isolamento de carga de trabalho usando o T-SQL](quickstart-configure-workload-isolation-tsql.md)<br>
 [Criar grupo de cargas de trabalho (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)<br>
 [CRIAR CLASSIFICADOr de carga de trabalho (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest)<br>

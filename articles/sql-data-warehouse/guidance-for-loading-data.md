@@ -1,26 +1,26 @@
 ---
-title: Práticas recomendadas de carregamento de dados
-description: Recomendações e otimizações de desempenho para carregar dados no SQL Data Warehouse do Azure.
+title: Melhores práticas de carregamento de dados
+description: Recomendações e otimizações de desempenho para carregar dados na análise de SQL
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 08/08/2019
+ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 01bb53488bf63f32d2bae804e4844400a7fd2d31
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: d59a66b25b55572865f297436331971434d831c3
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686107"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199879"
 ---
-# <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Práticas recomendadas para carregar dados no SQL Data Warehouse do Azure
+# <a name="best-practices-for-loading-data-for-data-warehousing"></a>Práticas recomendadas para carregar dados para data warehousing
 
-Recomendações e otimizações de desempenho para carregar dados no SQL Data Warehouse do Azure.
+Recomendações e otimizações de desempenho para carregar dados
 
 ## <a name="preparing-data-in-azure-storage"></a>Preparando dados no Armazenamento do Azure
 
@@ -36,9 +36,9 @@ Dividir arquivos compactados grandes em arquivos compactados menores.
 
 ## <a name="running-loads-with-enough-compute"></a>Executando carregamentos com computação suficiente
 
-Para uma velocidade mais alta de carregamento, execute apenas uma carga de trabalho por vez. Se isso não for possível, execute uma quantidade mínima de carregamento simultaneamente. Caso esteja esperando um grande trabalho de carregamento, considere a possibilidade de dimensionar seu data warehouse antes do carregamento.
+Para uma velocidade mais alta de carregamento, execute apenas uma carga de trabalho por vez. Se isso não for possível, execute uma quantidade mínima de carregamento simultaneamente. Se você espera um trabalho de carregamento grande, considere escalar verticalmente seu pool SQL antes do carregamento.
 
-Para executar cargas com recursos de computação apropriados, crie usuários de carregamento designados para executar cargas. Atribua cada usuário de carregamento para uma classe de recurso específica. Para executar uma carga, entre como um dos usuários de carregamento e, em seguida, execute a carga. A carga é executada com a classe de recurso do usuário.  Esse método é mais simples do que tentar alterar a classe de recurso do usuário para se ajustar à necessidade de classe de recurso atual.
+Para executar cargas com recursos de computação apropriados, crie usuários de carregamento designados para executar cargas. Atribua cada usuário de carregamento a uma classe de recurso ou grupo de carga de trabalho específico. Para executar uma carga, entre como um dos usuários de carregamento e, em seguida, execute a carga. A carga é executada com a classe de recurso do usuário.  Esse método é mais simples do que tentar alterar a classe de recurso do usuário para se ajustar à necessidade de classe de recurso atual.
 
 ### <a name="example-of-creating-a-loading-user"></a>Exemplo de como criar um usuário de carregamento
 
@@ -89,7 +89,7 @@ Os índices columnstore exigem grandes quantidades de memória para compactar da
 - Carregue linhas suficientes para preencher completamente novos rowgroups. Durante um carregamento em massa, a cada 1.048.576 linhas são compactadas diretamente para o columnstore como um rowgroup completo. Carregamentos com menos de 102.400 linhas enviam as linhas para o deltastore, onde as linhas são mantidas em um índice de árvore b. Se você carregar um número muito pequeno de linhas, elas podem ir todas para o deltastore e não serem compactadas imediatamente no formato de columnstore.
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Aumentar o tamanho do lote ao usar a API SQLBulkCopy ou o BCP
-Como mencionado anteriormente, o carregamento com o polybase fornecerá a maior taxa de transferência com SQL Data Warehouse. Se você não pode usar o polybase para carregar e deve usar a API SQLBulkCopy (ou BCP), considere aumentar o tamanho do lote para obter uma melhor taxa de transferência. 
+Como mencionado anteriormente, o carregamento com o polybase fornecerá a maior taxa de transferência com SQL Data Warehouse. Se você não pode usar o polybase para carregar e deve usar a API SQLBulkCopy (ou BCP), considere aumentar o tamanho do lote para uma melhor taxa de transferência-uma boa regra prática é um tamanho de lote entre 100 mil e 1 milhão de linhas.
 
 ## <a name="handling-loading-failures"></a>Tratamento de falhas de carregamento
 

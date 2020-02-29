@@ -3,20 +3,20 @@ title: Adicionar declarações e personalizar a entrada do usuário em política
 titleSuffix: Azure AD B2C
 description: Saiba como personalizar a entrada do usuário e adicionar declarações ao percurso de inscrição ou de entrada no Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ebbc0c8ac067635d31714468f1aee047b3683eb0
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 737f373fb71494492f633d3297463cbef797f3d6
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846972"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189541"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas no Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76846972"
 
 Neste artigo, você adiciona uma nova entrada fornecida pelo usuário (uma declaração) à sua jornada do usuário de inscrição em Azure Active Directory B2C (Azure AD B2C).  Você configura a entrada como uma lista suspensa e define se ela é necessária.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Conclua as etapas no artigo [Introdução às políticas personalizadas](custom-policy-get-started.md). Teste o percurso do usuário de entrada ou de inscrição para inscrever uma nova conta local antes de continuar.
 
@@ -305,6 +305,6 @@ Verifique se o email está habilitado por padrão no `<TechnicalProfile Id="Loca
 <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como [Usar atributos personalizados em uma política de edição de perfil personalizada](custom-policy-custom-attributes.md).

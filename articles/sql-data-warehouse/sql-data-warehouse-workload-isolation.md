@@ -1,24 +1,24 @@
 ---
 title: Isolamento de carga de trabalho
-description: Diretrizes para definir o isolamento de carga de trabalho com grupos de carga de trabalho no Azure SQL Data Warehouse.
+description: Diretrizes para definir o isolamento de carga de trabalho com grupos de carga de trabalho no Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/23/2020
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 86390132be0440b197b680803e5b6032670a7d1c
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.custom: azure-synapse
+ms.openlocfilehash: 6b3047eb600c3d5808993c3646f718ca25824962
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721023"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192669"
 ---
-# <a name="sql-data-warehouse-workload-group-isolation-preview"></a>SQL Data Warehouse o isolamento do grupo de carga de trabalho (versão prévia)
+# <a name="azure-synapse-analytics-workload-group-isolation-preview"></a>Isolamento do grupo de cargas de trabalho do Azure Synapse Analytics (versão prévia)
 
 Este artigo explica como os grupos de cargas de trabalho podem ser usados para configurar o isolamento de carga de trabalho, conter recursos e aplicar regras de tempo de execução para execução de consulta.
 
@@ -85,7 +85,7 @@ Os recursos do pool compartilhado são os recursos não configurados para isolam
 
 O acesso aos recursos no pool compartilhado é alocado de acordo com a [importância](sql-data-warehouse-workload-importance.md) .  As solicitações com o mesmo nível de importância acessarão os recursos do pool compartilhado em uma base/primeiro a sair.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Início rápido: configurar o isolamento de carga de trabalho](quickstart-configure-workload-isolation-tsql.md)
 - [CRIAR GRUPO DE CARGA DE TRABALHO](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)

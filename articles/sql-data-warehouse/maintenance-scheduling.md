@@ -1,6 +1,6 @@
 ---
-title: Agendamentos de manutenção do Azure
-description: O agendamento de manutenção permite que os clientes planejem os eventos de manutenção programada necessários que o serviço do Azure SQL Data Warehouse usa para implantar novos recursos, atualizações e correções.
+title: Agendas de manutenção para o pool SQL Synapse
+description: O agendamento de manutenção permite que os clientes planejem os eventos de manutenção agendados necessários que o Azure Synapse Analytics usa para distribuir novos recursos, atualizações e patches.
 services: sql-data-warehouse
 author: antvgski
 manager: craigg
@@ -10,22 +10,22 @@ ms.subservice: design
 ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1cf4cc9cf4d98dfca59e01cc264549af3a4d5cb4
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 418fbd0c1262de889e0c5f318ef8ce7fe519599f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471781"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193247"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Use agendas de manutenção para gerenciar atualizações e manutenção de serviços
 
-O recurso de agendamento de manutenção integra as notificações de manutenção planejada da integridade do serviço, Resource Health Monitor de verificação e o serviço de agendamento de manutenção do Azure SQL Data Warehouse.
+O recurso de agendamento de manutenção integra as notificações de manutenção planejada de integridade do serviço, Resource Health verificação de monitor e serviço de agendamento de manutenção para o Synapse SQL pool (data warehouse) no Azure Synapse Analytics. 
 
 Você deve usar o agendamento de manutenção para escolher uma janela de tempo quando for conveniente receber novos recursos, atualizações e patches. Você precisará escolher uma janela de manutenção primária e uma secundária em um período de sete dias, cada janela deve estar dentro de intervalos de dias separados.
 
-Por exemplo, você pode agendar uma janela primária de sábado 22:00 para domingo 01:00 e, em seguida, agendar uma janela secundária da quarta-feira 19:00 a 22:00. Se o SQL Data Warehouse não puder executar manutenção durante a janela de manutenção principal, ele tentará a manutenção novamente durante a janela de manutenção secundária. A manutenção do serviço pode ocorrer durante as janelas primária e secundária. Para garantir a conclusão rápida de todas as operações de manutenção, DW400c e camadas de data warehouse inferiores podem concluir a manutenção fora de uma janela de manutenção designada.
+Por exemplo, você pode agendar uma janela primária de sábado 22:00 para domingo 01:00 e, em seguida, agendar uma janela secundária da quarta-feira 19:00 a 22:00. Se a manutenção não puder ser executada durante a janela de manutenção primária, ela tentará realizar a manutenção novamente durante a janela de manutenção secundária. A manutenção do serviço pode ocorrer durante as janelas primária e secundária. Para garantir a conclusão rápida de todas as operações de manutenção, DW400c e camadas de data warehouse inferiores podem concluir a manutenção fora de uma janela de manutenção designada.
 
-Todas as instâncias recém-criados do SQL Data Warehouse do Azure terão um agendamento de manutenção definida pelo sistema aplicada durante a implantação. O agendamento poderá ser editado assim que a implantação for concluída.
+Todas as instâncias de data warehouse criadas recentemente terão um agendamento de manutenção definido pelo sistema aplicado durante a implantação. O agendamento poderá ser editado assim que a implantação for concluída.
 
 Embora uma janela de manutenção possa estar entre três e oito horas, isso não significa que o data warehouse ficará offline durante a duração. A manutenção pode ocorrer a qualquer momento dentro dessa janela e você deve esperar uma única desconexão durante esse período duradoura ~ 5 -6 minutos, pois o serviço implanta o novo código em seu data warehouse. DW400c e Lower podem apresentar várias perdas curtas na conectividade em vários momentos durante a janela de manutenção. Quando a manutenção é iniciada, todas as sessões ativas serão canceladas e as transações não confirmadas serão revertidas. Para minimizar o tempo de inatividade da instância, certifique-se de que o data warehouse não tenha transações de longa execução antes do período de manutenção escolhido.
 
@@ -34,45 +34,43 @@ Todas as operações de manutenção devem ser concluídas dentro das janelas de
 ## <a name="alerts-and-monitoring"></a>Alertas e monitoramento
 
 A integração com notificações do Service Health e o Monitor de verificação de integridade do recurso permite que os clientes se mantenham informados sobre a atividade de manutenção iminente. Essa automação aproveita o Azure Monitor. Você pode decidir como deseja ser notificado sobre eventos de manutenção iminentes. Além disso, você pode escolher quais fluxos automatizados ajudarão você a gerenciar o tempo de inatividade e minimizar o impacto operacional.
+
 Uma notificação antecipada de 24 horas precede todos os eventos de manutenção que não são para as camadas DWC400c e inferior.
 
 > [!NOTE]
 > No caso de ser necessário implantar uma atualização crítica de tempo, os tempos de notificação avançados podem ser reduzidos significativamente.
 
-Se você recebeu uma notificação prévia de que a manutenção ocorrerá, mas o SQL Data Warehouse não pode executar manutenção durante esse período, você receberá uma notificação de cancelamento. A manutenção será retomada durante o próximo período de manutenção agendada.
+Se você recebeu a notificação antecipada de que a manutenção ocorrerá, mas a manutenção não pode ser executada durante o período de tempo na notificação, você receberá uma notificação de cancelamento. A manutenção será retomada durante o próximo período de manutenção agendada.
 
 Todos os eventos de manutenção ativos são exibidos na seção **Service Health - Planned Maintenance**. O histórico de integridade do serviço inclui um registro completo de eventos passados. Você pode monitorar a manutenção por meio do painel do portal de verificação do Funcionamento do Azure Health durante um evento ativo.
 
 ### <a name="maintenance-schedule-availability"></a>Disponibilidade do cronograma de manutenção
 
-Mesmo que o agendamento de manutenção não esteja disponível em sua região selecionada, você poderá visualizar e editar sua programação de manutenção a qualquer momento. Quando o agendamento de manutenção estiver disponível em sua região, o agendamento identificado ficará imediatamente ativo em seu data warehouse.
+Mesmo que o agendamento de manutenção não esteja disponível em sua região selecionada, você poderá visualizar e editar sua programação de manutenção a qualquer momento. Quando o agendamento de manutenção se tornar disponível em sua região, o agendamento identificado se tornará imediatamente ativo em seu pool de SQL do Synapse.
 
 ## <a name="view-a-maintenance-schedule"></a>Exibir um agendamento de manutenção 
 
-### <a name="portal"></a>Portal
+Por padrão, todas as instâncias de data warehouse recém-criadas têm uma janela de manutenção primária e secundária de oito horas aplicada durante a implantação. Conforme indicado acima, você pode alterar o Windows assim que a implantação for concluída. Nenhuma manutenção ocorrerá fora das janelas de manutenção especificadas sem notificação prévia.
 
-Por padrão, todas as instâncias do Azure SQL Data Warehouse criadas recentemente têm uma janela de manutenção de primários e secundários de oito horas aplicada durante a implantação. Conforme indicado acima, você pode alterar o Windows assim que a implantação for concluída. Nenhuma manutenção ocorrerá fora das janelas de manutenção especificadas sem notificação prévia.
-
-Para exibir o agendamento de manutenção que foi aplicado ao seu data warehouse, conclua as seguintes etapas:
+Para exibir o agendamento de manutenção que foi aplicado ao pool SQL do Synapse, conclua as seguintes etapas:
 
 1.  Entre no [portal do Azure](https://portal.azure.com/).
-2.  Selecione o data warehouse que você deseja exibir. 
-3.  O data warehouse selecionado abre a folha de visão geral. O agendamento de manutenção que é aplicado ao data warehouse aparece abaixo do **agendamento de manutenção**.
+2.  Selecione o pool SQL do Synapse que você deseja exibir. 
+3.  O pool SQL do Synapse selecionado é aberto na folha visão geral. O agendamento de manutenção que é aplicado ao data warehouse aparece abaixo do **agendamento de manutenção**.
 
 ![Folha de visão geral](media/sql-data-warehouse-maintenance-scheduling/clear-overview-blade.PNG)
 
 ## <a name="change-a-maintenance-schedule"></a>Alterar um agendamento de manutenção 
 
-### <a name="portal"></a>Portal
-Um agendamento de manutenção pode ser atualizado ou alterado a qualquer momento. Se a instância selecionada estiver passando por um ciclo de manutenção ativa, as configurações serão salvas. Elas estarão ativas durante o próximo período de manutenção identificado. [Saiba mais](https://docs.microsoft.com/azure/service-health/resource-health-overview) sobre como monitorar seu data warehouse durante um evento de manutenção ativa. 
+Um agendamento de manutenção pode ser atualizado ou alterado a qualquer momento. Se a instância selecionada estiver passando por um ciclo de manutenção ativa, as configurações serão salvas. Elas estarão ativas durante o próximo período de manutenção identificado. [Saiba mais](../service-health/resource-health-overview.md) sobre como monitorar seu data warehouse durante um evento de manutenção ativa. 
 
-### <a name="identifying-the-primary-and-secondary-windows"></a>Identificando as janelas principais e secundárias
+## <a name="identifying-the-primary-and-secondary-windows"></a>Identificando as janelas principais e secundárias
 
 As janelas principais e secundárias devem ter intervalos de dia separados. Um exemplo é uma janela principal de terça-feira – quinta-feira e um secundário da janela de domingo-sábado.
 
-Para alterar o agendamento de manutenção para seu data warehouse, conclua as seguintes etapas:
+Para alterar o agendamento de manutenção do pool SQL do Synapse, conclua as seguintes etapas:
 1.  Entre no [portal do Azure](https://portal.azure.com/).
-2.  Selecione o data warehouse que você deseja atualizar. A página será aberta na folha de visão geral. 
+2.  Selecione o pool SQL do Synapse que você deseja atualizar. A página será aberta na folha de visão geral. 
 3.  Abra a página para configurações de agendamento de manutenção selecionando o link de **Resumo do agendamento de manutenção** na folha visão geral. Ou, selecione a opção **Agendamento de Manutenção** no menu de recursos do lado esquerdo.  
 
     ![Opções da folha Visão geral](media/sql-data-warehouse-maintenance-scheduling/maintenance-change-option.png)
@@ -92,10 +90,10 @@ Para alterar o agendamento de manutenção para seu data warehouse, conclua as s
 
    Se você estiver salvando um agendamento em uma região que não dá suporte a agendamento de manutenção, a seguinte mensagem será exibida. As configurações são salvas e se tornam ativas quando o recurso estiver disponível em sua região selecionada.    
 
-   ![Mensagem sobre a disponibilidade de região](media/sql-data-warehouse-maintenance-scheduling/maintenance-notactive-toast.png)
+   ![Mensagem sobre a disponibilidade de região](media/sql-data-warehouse-maintenance-scheduling/maintenance-not-active-toast.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Saiba mais](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) sobre como criar, exibir e gerenciar alertas usando o Azure Monitor.
-- [Saiba mais](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) sobre ações de webhook para regras de alerta do log.
-- [Saiba mais](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) Criando e Gerenciar Grupo de ações.
-- [Saiba mais](https://docs.microsoft.com/azure/service-health/service-health-overview) sobre a Integridade do Serviço do Azure.
+- [Saiba mais](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) sobre como criar, exibir e gerenciar alertas usando o Azure Monitor.
+- [Saiba mais](../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md) sobre ações de webhook para regras de alerta do log.
+- [Saiba mais](../monitoring-and-diagnostics/monitoring-action-groups.md) Criando e Gerenciar Grupo de ações.
+- [Saiba mais](../service-health/service-health-overview.md) sobre a Integridade do Serviço do Azure.

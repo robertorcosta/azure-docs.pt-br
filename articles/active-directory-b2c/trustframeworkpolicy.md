@@ -2,20 +2,20 @@
 title: TrustFrameworkPolicy – Azure Active Directory B2C | Microsoft Docs
 description: Especifica o elemento TrustFrameworkPolicy de uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/31/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b49c873112358db4fec2992ef3d2d61161e8b373
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: c964a7bde0b7db9357c73fc79d2df3170075fcc1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982408"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186379"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -38,7 +38,7 @@ Uma política personalizada é representada como um ou vários arquivos formatad
 
 O elemento **TrustFrameworkPolicy** contém os seguintes atributos:
 
-| Atributo | Obrigatório | Description |
+| Atributo | Obrigatório | DESCRIÇÃO |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | Sim | A versão do esquema a ser usado para executar a política. O valor deve ser `0.3.0.0` |
 | TenantObjectId | Não | O identificador de objeto exclusivo do locatário Azure Active Directory B2C (Azure AD B2C). |
@@ -88,7 +88,7 @@ Para herdar de uma política de outra política, um elemento **BasePolicy** deve
 
 O elemento **BasePolicy** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | DESCRIÇÃO |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | O identificador do locatário do Azure AD B2C. |
 | PolicyId | 1:1 | O identificador da política pai. |

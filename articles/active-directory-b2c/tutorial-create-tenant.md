@@ -2,20 +2,20 @@
 title: Tutorial – criar um locatário Azure Active Directory B2C
 description: Saiba como preparar para registrar os aplicativos criando um locatário do Azure Active Directory B2C usando o portal do Azure.
 services: B2C
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/28/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9cb23dc11a853401d8d99a750a0c79082adbe036
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: c31f3c4c6688af7d2142180e8d9b7100965bad96
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547584"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186396"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial - Criar um locatário do Azure Active Directory B2C
 
@@ -68,8 +68,8 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
     Para **Grupo de recursos**, selecione **Criar novo**. Insira um **nome** para o grupo de recursos que conterá o locatário, selecione o **local do grupo de recursos**e, em seguida, selecione **criar**.
 
     ![Formulário vincular configurações de assinatura no portal do Azure](media/tutorial-create-tenant/portal-06-link-subscription-settings.png)
-    
-    Você pode vincular vários locatários Azure AD B2C a uma única assinatura do Azure para fins de cobrança. 
+
+    Você pode vincular vários locatários Azure AD B2C a uma única assinatura do Azure para fins de cobrança.
 
 ## <a name="select-your-b2c-tenant-directory"></a>Selecione seu diretório de locatário B2C
 
@@ -96,7 +96,7 @@ Você só precisa executar essa operação uma vez. Antes de executar essas etap
 
     ![Azure AD B2C, menu Favoritos portal do Microsoft Azure](media/tutorial-create-tenant/portal-08-b2c-favorite.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu a:
 

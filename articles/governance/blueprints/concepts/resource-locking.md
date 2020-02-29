@@ -3,12 +3,12 @@ title: Compreender o bloqueio de recursos
 description: Saiba mais sobre as opções de bloqueio em plantas do Azure para proteger recursos ao atribuir um plano gráfico.
 ms.date: 02/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1491af0ddfb0f6f5fbea322bd00dc9838c155983
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: b810e8d4ddd263f9e651704d1bf9b785ce0202db
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919865"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199692"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Entenda o bloqueio de recursos nos Blueprints do Azure
 
@@ -21,11 +21,11 @@ No entanto, os modos de bloqueio não podem ser alterados fora dos blueprints.
 
 Os recursos criados por artefatos em uma atribuição Blueprint têm quatro Estados: **não bloqueado**, **somente leitura**, **não é possível editar/Excluir**ou **não pode excluir**. Cada tipo de artefato pode estar no estado **Não Bloqueado**. A seguinte tabela pode ser usada para determinar o estado de um recurso:
 
-|Modo|Tipo de recurso do artefato|Estado|Descrição|
+|Mode|Tipo de recurso do artefato|Estado|DESCRIÇÃO|
 |-|-|-|-|
 |Não Bloquear|*|Não Bloqueado|Os recursos não são protegidos pelos blueprints. Esse estado também é usado para recursos adicionados a um artefato do grupo de recursos **Somente Leitura** ou **Não Excluir** fora de uma atribuição de blueprint.|
-|Somente Leitura|Grupo de recursos|Não é Possível Editar/Excluir|O grupo de recursos é somente leitura e as marcas no grupo de recursos não podem ser modificadas. Os recursos **Não Bloqueados** podem ser adicionados, movidos, alterados ou excluídos desse grupo de recursos.|
-|Somente Leitura|Não grupo de recursos|Somente Leitura|O recurso não pode ser alterado de forma alguma – sem alterações e não pode ser excluído.|
+|Somente leitura|Resource group|Não é Possível Editar/Excluir|O grupo de recursos é somente leitura e as marcas no grupo de recursos não podem ser modificadas. Os recursos **Não Bloqueados** podem ser adicionados, movidos, alterados ou excluídos desse grupo de recursos.|
+|Somente leitura|Não grupo de recursos|Somente leitura|O recurso não pode ser alterado de forma alguma – sem alterações e não pode ser excluído.|
 |Não exclua|*|Não é Possível Excluir|Os recursos podem ser alterados, mas não podem ser excluídos. Os recursos **Não Bloqueados** podem ser adicionados, movidos, alterados ou excluídos desse grupo de recursos.|
 
 ## <a name="overriding-locking-states"></a>Substituindo os estados de bloqueio
@@ -84,6 +84,9 @@ O corpo da solicitação da atribuição Blueprint tem esta aparência:
 
 A principal diferença nesse corpo de solicitação e um que está sendo atribuído a uma assinatura é a propriedade `properties.scope`. Essa propriedade necessária deve ser definida como a assinatura à qual a atribuição de Blueprint se aplica. A assinatura deve ser um filho direto da hierarquia do grupo de gerenciamento em que a atribuição de Blueprint está armazenada.
 
+> [!NOTE]
+> Um plano gráfico atribuído ao escopo do grupo de gerenciamento ainda funciona como uma atribuição de plano de nível de assinatura. A única diferença é onde a atribuição Blueprint é armazenada para impedir que os proprietários da assinatura removam a atribuição e os bloqueios associados.
+
 ## <a name="removing-locking-states"></a>Removendo os estados de bloqueio
 
 Se for necessário modificar ou excluir um recurso protegido por uma atribuição, haverá duas maneiras de fazer isso.
@@ -101,9 +104,9 @@ Uma ação de negação [negar atribuições](../../../role-based-access-control
 
 As [Propriedades de atribuição de negação](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) de cada modo são as seguintes:
 
-|Modo |Permissões. ações |Permissões. \ ações |Entidades de segurança [i]. Escreva |ExcludePrincipals [i]. Sessão | DoNotApplyToChildScopes |
+|Mode |Permissões. ações |Permissões. \ ações |Entidades de segurança [i]. Escreva |ExcludePrincipals [i]. Sessão | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Somente Leitura |**\*** |**\*/Read** |SystemDefined (todos) |atribuição de Blueprint e definida pelo usuário em **excludedPrincipals** |Grupo de recursos- _verdadeiro_; Recurso- _falso_ |
+|Somente leitura |**\*** |**\*/Read** |SystemDefined (todos) |atribuição de Blueprint e definida pelo usuário em **excludedPrincipals** |Grupo de recursos- _verdadeiro_; Recurso- _falso_ |
 |Não exclua |**\*/Delete** | |SystemDefined (todos) |atribuição de Blueprint e definida pelo usuário em **excludedPrincipals** |Grupo de recursos- _verdadeiro_; Recurso- _falso_ |
 
 > [!IMPORTANT]
@@ -173,7 +176,7 @@ Semelhante à [exclusão de uma entidade de segurança](#exclude-a-principal-fro
 
 Embora **excludedPrincipals** deva ser explícito, as entradas de **excludedActions** podem fazer uso de `*` para correspondência de curingas de operações de RBAC.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Siga o tutorial [proteger novos recursos](../tutorials/protect-new-resources.md) .
 - Saiba mais sobre o [ciclo de vida do blueprint](lifecycle.md).

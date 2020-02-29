@@ -2,20 +2,20 @@
 title: Habilitar a restrição etária no Azure Active Directory B2C | Microsoft Docs
 description: Saiba mais sobre como identificar menores de idade usando seu aplicativo.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1fc63b222fd2f08bb4b5596d58f825c8f6b1910e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 56cbeb8e8fe21f4b39c2f5c6af43e83ae330e5d5
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836229"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189966"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Habilitar a restrição etária no Azure Active Directory B2C
 
@@ -39,33 +39,33 @@ A restrição etária envolve dois valores de idade: a idade que alguém não é
 | BE | Bélgica | 14 | 18 |
 | BG | Bulgária | 16 | 18 |
 | BH | Bahrein | Nenhum | 21 |
-| CM | República dos Camarões | Nenhum | 21 |
+| CM | Camarões | Nenhum | 21 |
 | CY | Chipre | 16 | 18 |
 | CZ | República Tcheca | 16 | 18 |
-| Alemanha | Alemanha | 16 | 18 |
+| DE | Alemanha | 16 | 18 |
 | DK | Dinamarca | 16 | 18 |
 | EE | Estônia | 16 | 18 |
 | EG | Egito | Nenhum | 21 |
 | ES | Espanha | 13 | 18 |
 | FR | França | 16 | 18 |
-| GB | Reino Unido | 13 | 18 |
+| GB | United Kingdom | 13 | 18 |
 | GR | Grécia | 16 | 18 |
-| RH | Croácia | 16 | 18 |
+| HR | Croácia | 16 | 18 |
 | HU | Hungria | 16 | 18 |
 | IE | Irlanda | 13 | 18 |
-| TI | Itália | 16 | 18 |
+| IT | Itália | 16 | 18 |
 | KR | Coreia, República da | 14 | 18 |
 | LT | Lituânia | 16 | 18 |
 | LU | Luxemburgo | 16 | 18 |
 | LV | Letônia | 16 | 18 |
 | MT | Malta | 16 | 18 |
-| ND | Namíbia | Nenhum | 21 |
-| NL | Holanda | 16 | 18 |
+| NA | Namíbia | Nenhum | 21 |
+| NL | Países Baixos | 16 | 18 |
 | PL | Polônia | 13 | 18 |
 | PT | Portugal | 16 | 18 |
 | RO | Romênia | 16 | 18 |
 | SE | Suécia | 13 | 18 |
-| SG | Cingapura | Nenhum | 21 |
+| SG | Singapura | Nenhum | 21 |
 | SI | Eslovênia | 16 | 18 |
 | SK | Eslováquia | 16 | 18 |
 | TD | Chad | Nenhum | 21 |

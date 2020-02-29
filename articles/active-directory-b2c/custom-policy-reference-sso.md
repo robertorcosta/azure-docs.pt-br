@@ -3,20 +3,20 @@ title: Gerenciamento de sessão de logon único usando políticas personalizadas
 titleSuffix: Azure AD B2C
 description: Saiba como gerenciar sessões de SSO usando políticas personalizadas no Azure AD B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/27/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b905591266b90e5bba83e7c74b27e7f6b3cab610
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: a64af5d2b19b05ec9a5eda97c43e278cdfb8b4ff
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912538"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189099"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gerenciamento de sessão de logon único no Azure Active Directory B2C
 
@@ -39,11 +39,11 @@ As classes de gerenciamento de SSO são especificadas usando o elemento `<UseTec
 
 ## <a name="input-claims"></a>Declarações de entrada
 
-O elemento `InputClaims` está vazio ou ausente. 
+O elemento `InputClaims` está vazio ou ausente.
 
 ## <a name="persisted-claims"></a>Declarações persistentes
 
-As declarações que precisam ser retornadas para o aplicativo ou usadas pelas pré-condições nas etapas subsequentes devem ser armazenadas na sessão ou aumentadas por uma leitura do perfil do usuário no diretório. O uso de declarações persistentes garante que as viagens de autenticação não falharão em declarações ausentes. Para adicionar declarações à sessão, use o elemento `<PersistedClaims>` do perfil técnico. Quando o provedor é usado para popular novamente a sessão, as declarações persistentes são adicionadas ao conjunto de declarações. 
+As declarações que precisam ser retornadas para o aplicativo ou usadas pelas pré-condições nas etapas subsequentes devem ser armazenadas na sessão ou aumentadas por uma leitura do perfil do usuário no diretório. O uso de declarações persistentes garante que as viagens de autenticação não falharão em declarações ausentes. Para adicionar declarações à sessão, use o elemento `<PersistedClaims>` do perfil técnico. Quando o provedor é usado para popular novamente a sessão, as declarações persistentes são adicionadas ao conjunto de declarações.
 
 ## <a name="output-claims"></a>Declarações de saída
 
@@ -53,7 +53,7 @@ O `<OutputClaims>` é usado para recuperar declarações da sessão.
 
 ### <a name="noopssosessionprovider"></a>NoopSSOSessionProvider
 
-Como o nome indica, este provedor não faz nada. Esse provedor pode ser usado para suprimir o comportamento de SSO para um determinado perfil técnico. O seguinte perfil técnico de `SM-Noop` está incluído no [pacote de início de política personalizada](custom-policy-get-started.md#custom-policy-starter-pack).  
+Como o nome indica, este provedor não faz nada. Esse provedor pode ser usado para suprimir o comportamento de SSO para um determinado perfil técnico. O seguinte perfil técnico de `SM-Noop` está incluído no [pacote de início de política personalizada](custom-policy-get-started.md#custom-policy-starter-pack).
 
 ```XML
 <TechnicalProfile Id="SM-Noop">
@@ -64,7 +64,7 @@ Como o nome indica, este provedor não faz nada. Esse provedor pode ser usado pa
 
 ### <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
 
-Esse provedor pode ser usado para armazenar as declarações em uma sessão. Normalmente, esse provedor é referenciado em um perfil técnico usado para gerenciar contas locais. O seguinte perfil técnico de `SM-AAD` está incluído no [pacote de início de política personalizada](custom-policy-get-started.md#custom-policy-starter-pack). 
+Esse provedor pode ser usado para armazenar as declarações em uma sessão. Normalmente, esse provedor é referenciado em um perfil técnico usado para gerenciar contas locais. O seguinte perfil técnico de `SM-AAD` está incluído no [pacote de início de política personalizada](custom-policy-get-started.md#custom-policy-starter-pack).
 
 ```XML
 <TechnicalProfile Id="SM-AAD">
@@ -84,7 +84,7 @@ Esse provedor pode ser usado para armazenar as declarações em uma sessão. Nor
 </TechnicalProfile>
 ```
 
-O seguinte perfil técnico de `SM-MFA` está incluído no `SocialAndLocalAccountsWithMfa`do [pacote de início de política personalizada](custom-policy-get-started.md#custom-policy-starter-pack) . Este perfil técnico gerencia a sessão de autenticação multifator. 
+O seguinte perfil técnico de `SM-MFA` está incluído no `SocialAndLocalAccountsWithMfa`do [pacote de início de política personalizada](custom-policy-get-started.md#custom-policy-starter-pack) . Este perfil técnico gerencia a sessão de autenticação multifator.
 
 ```XML
 <TechnicalProfile Id="SM-MFA">
@@ -117,8 +117,8 @@ Esse provedor é usado para suprimir a tela "escolher provedor de identidade". N
 ```
 
 #### <a name="metadata"></a>Metadados
-        
-| Atributo | Obrigatório | Descrição|
+
+| Atributo | Obrigatório | DESCRIÇÃO|
 | --- | --- | --- |
 | AlwaysFetchClaimsFromProvider | Não | Não usado no momento, pode ser ignorado. |
 
@@ -138,7 +138,7 @@ Esse provedor é usado para gerenciar o Azure AD B2C sessões SAML entre um apli
 ```
 
 Ao usar o provedor para armazenar a sessão de SAML do B2C, o `IncludeSessionIndex` e `RegisterServiceProviders` devem ser definidos como `true`. O logoff da sessão de SAML requer que `SessionIndex` e `NameID` sejam concluídos.
- 
+
 O perfil técnico de `SM-Saml-idp` a seguir é usado pelo [perfil técnico do emissor SAML](connect-with-saml-service-providers.md)
 
 ```XML
@@ -148,8 +148,8 @@ O perfil técnico de `SM-Saml-idp` a seguir é usado pelo [perfil técnico do em
 </TechnicalProfile>
 ```
 #### <a name="metadata"></a>Metadados
-        
-| Atributo | Obrigatório | Descrição|
+
+| Atributo | Obrigatório | DESCRIÇÃO|
 | --- | --- | --- |
 | IncludeSessionIndex | Não | Indica ao provedor que o índice de sessão deve ser armazenado. Valores possíveis: `true` (padrão) ou `false`.|
 | RegisterServiceProviders | Não | Indica que o provedor deve registrar todos os provedores de serviço SAML que emitiram uma declaração. Valores possíveis: `true` (padrão) ou `false`.|

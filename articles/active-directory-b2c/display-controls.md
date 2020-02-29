@@ -3,20 +3,20 @@ title: Referência de controle de exibição
 titleSuffix: Azure AD B2C
 description: Referência para Azure AD B2C controles de exibição. Use controles de exibição para personalizar as viagens do usuário definidas em suas políticas personalizadas.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 12/10/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7cbd088ed7b4f6ae242cce2067e52def2dad61c9
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 4998fb19e42e123edd57bfcf10931d594ac4cb44
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77136334"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188725"
 ---
 # <a name="display-controls"></a>Controles de exibição
 
@@ -30,7 +30,7 @@ A imagem a seguir ilustra uma página de inscrição autodeclarada com dois cont
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
  Na seção de [metadados](self-asserted-technical-profile.md#metadata) de um [perfil técnico autodeclarado](self-asserted-technical-profile.md), o [ContentDefinition](contentdefinitions.md) referenciado precisa ter `DataUri` definido como a versão do contrato de página 2.0.0 ou superior. Por exemplo:
 
@@ -46,14 +46,14 @@ A imagem a seguir ilustra uma página de inscrição autodeclarada com dois cont
 
 O elemento **DisplayControl** contém os seguintes atributos:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador que é usado para o controle de exibição. Ele pode ser [referenciado](#referencing-display-controls). |
+| ID | Sim | Um identificador que é usado para o controle de exibição. Ele pode ser [referenciado](#referencing-display-controls). |
 | UserInterfaceControlType | Sim | O tipo do controle de exibição. Atualmente, há suporte para [VerificationControl](display-control-verification.md) |
 
 O elemento **DisplayControl** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | DESCRIÇÃO |
 | ------- | ----------- | ----------- |
 | InputClaims | 0:1 | **InputClaims** são usados para preencher previamente o valor das declarações a serem coletadas do usuário. |
 | DisplayClaims | 0:1 | **DisplayClaims** são usados para representar as declarações a serem coletadas do usuário. |

@@ -3,20 +3,20 @@ title: Introdução às políticas personalizadas
 titleSuffix: Azure AD B2C
 description: Saiba como começar a usar políticas personalizadas no Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 04978b561e3b0057318d08146f344411dec55ee4
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: dc87628d8b47435012c3d20ec2e72ac186983555
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161662"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189320"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introdução às políticas personalizadas no Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "78161662"
 
 [Políticas personalizadas](custom-policy-overview.md) são arquivos de configuração que definem o comportamento do seu locatário Azure Active Directory B2C (Azure ad B2C). Neste artigo, você criará uma política personalizada que dá suporte para inscrição ou entrada de conta local usando um endereço de email e uma senha. Você também pode preparar o ambiente para adicionar provedores de identidade.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 - Se você ainda não tiver um, [crie um locatário Azure ad B2C](tutorial-create-tenant.md) que esteja vinculado à sua assinatura do Azure.
 - [Registre seu aplicativo](tutorial-register-applications.md) no locatário que você criou para que ele possa se comunicar com Azure ad B2C.
@@ -139,7 +139,7 @@ Em seguida, especifique que o aplicativo deve ser tratado como um cliente públi
 1. Em **Gerenciar**, selecione **Autenticação**.
 1. Selecione **Experimentar a nova experiência** (se mostrado).
 1. Em **Configurações avançadas**, habilite **tratar aplicativo como um cliente público** (selecione **Sim**).
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Agora, conceda permissões ao escopo da API que você expôs anteriormente no registro *IdentityExperienceFramework* :
 
@@ -238,7 +238,7 @@ Conforme mencionado em [pré-requisitos](#prerequisites), o Facebook *não* é n
 1. Em **políticas personalizadas**, selecione **B2C_1A_signup_signin**.
 1. Selecione **executar agora** e selecione Facebook para entrar com o Facebook e testar a política personalizada.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Em seguida, tente adicionar Azure Active Directory (Azure AD) como um provedor de identidade. O arquivo base usado neste guia de introdução já contém parte do conteúdo de que você precisa para adicionar outros provedores de identidade, como o Azure AD.
 

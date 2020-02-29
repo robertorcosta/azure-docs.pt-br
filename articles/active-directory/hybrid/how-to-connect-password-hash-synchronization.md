@@ -9,18 +9,18 @@ ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 405b2fb9d9b8ef3bce17a9370ac87592a3437026
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: a3f7d7c9af807120457b119e0be047c7a342b961
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585944"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190527"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implemente a sincronização de hash de senha com a sincronização do Azure AD Connect
 Este artigo fornece as informações necessárias para sincronizar suas senhas de usuário de uma instância do AD (Active Directory) local para uma instância do Azure AD (Azure Active Directory) baseada na nuvem.
@@ -136,10 +136,10 @@ Para dar suporte a senhas temporárias no Azure AD para usuários sincronizados,
 `Set-ADSyncAADCompanyFeature  -ForcePasswordChangeOnLogOn $true`
 
 > [!NOTE]
-> Forçar um usuário a alterar sua senha no próximo logon requer uma alteração de senha ao mesmo tempo.  O AD Connect não selecionará o sinalizador forçar alteração de senha por si só; Ele é suplementar à alteração de senha detectada que ocorre durante a sincronização de hash de senha.
+> Forçar um usuário a alterar sua senha no próximo logon requer uma alteração de senha ao mesmo tempo.  Azure AD Connect não selecionará o sinalizador forçar alteração de senha por si só; Ele é suplementar à alteração de senha detectada que ocorre durante a sincronização de hash de senha.
 
 > [!CAUTION]
-> Se você não habilitar a redefinição de senha de autoatendimento (SSPR) nos usuários do Azure AD, haverá uma experiência confusa ao redefinir sua senha no Azure AD e, em seguida, tentar entrar no Active Directory com a nova senha, pois a nova senha não é válida em Active Directory . Você só deve usar esse recurso quando o SSPR e o Write-back de senha estiverem habilitados no locatário.
+> Você só deve usar esse recurso quando SSPR e Write-back de senha estiverem habilitados no locatário.  Isso é para que, se um usuário alterar sua senha por meio de SSPR, ele será sincronizado com Active Directory.
 
 > [!NOTE]
 > Este recurso está em visualização pública no momento.

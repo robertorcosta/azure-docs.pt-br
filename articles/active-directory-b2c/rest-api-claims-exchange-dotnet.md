@@ -3,20 +3,20 @@ title: Integrar as trocas de declarações da API REST em uma jornada do usuári
 titleSuffix: Azure AD B2C
 description: Integre as trocas de declarações da API REST no percurso do usuário Azure AD B2C como validação da entrada do usuário.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 780d575bd7f035673510d5b1e62cff4dfd6ede16
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 5976b6ef747b27a5a04c755d47ae4383fc4b2447
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848753"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187348"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação da entrada do usuário
 
@@ -28,19 +28,19 @@ Com a Estrutura de Experiência de Identidade subjacente ao Azure AD B2C (Azure 
 
 Usando o Azure AD B2C, é possível adicionar sua própria lógica de negócios a um percurso do usuário chamando o seu próprio serviço RESTful. A Estrutura de Experiência de Identidade envia dados para o serviço RESTful em uma coleção *Declarações de entrada* e recebe dados de volta do RESTful em uma coleção *Declarações de saída*. Com a integração de serviço RESTful, você pode:
 
-* **Validar os dados de entrada do usuário**: Essa ação impede que dados malformados sejam mantidos no Azure AD. Se o valor do usuário não for válido, o serviço RESTful retornará uma mensagem de erro que instrui o usuário a fornecer uma entrada. Por exemplo, você pode verificar se o endereço de email fornecido pelo usuário existe no banco de dados do cliente.
-* **Substituir declarações de entrada**: Por exemplo, se um usuário inserir o nome com todas as letras maiúsculas ou minúsculas, você poderá formatar o nome usando somente a primeira letra maiúscula.
-* **Aprimorar os dados do usuário com a integração adicional a aplicativos de linha de negócios corporativos**: Seu serviço RESTful pode receber o endereço de email do usuário, consultar o banco de dados do cliente e retornar o número de fidelidade do usuário ao Azure AD B2C. As declarações retornadas podem ser armazenadas na conta do Azure AD do usuário, avaliadas nas próximas *Etapas de Orquestração* ou incluídas no token de acesso.
-* **Executar a lógica de negócios personalizada**: Você pode enviar notificações por push, atualizar bancos de dados corporativos, executar um processo de migração de usuário, gerenciar permissões, auditar bancos de dados e realizar diversas outras ações.
+* **Validar dados de entrada do usuário**: essa ação impede que dados malformados sejam mantidos no Azure AD. Se o valor do usuário não for válido, o serviço RESTful retornará uma mensagem de erro que instrui o usuário a fornecer uma entrada. Por exemplo, você pode verificar se o endereço de email fornecido pelo usuário existe no banco de dados do cliente.
+* **Substituir declarações de entrada**: por exemplo, se um usuário inserir o nome com todas as letras maiúsculas ou minúsculas, você poderá formatar o nome usando somente a primeira letra maiúscula.
+* **Enriquecer os dados do usuário com a integração adicional com aplicativos corporativos de linha de negócios**: o serviço RESTful pode receber o endereço de email do usuário, consultar o banco de dados do cliente e retornar o número de fidelidade do usuário para o Azure AD B2C. As declarações retornadas podem ser armazenadas na conta do Azure AD do usuário, avaliadas nas próximas *Etapas de Orquestração* ou incluídas no token de acesso.
+* **Executar lógica de negócios personalizada**: é possível enviar notificações por push, atualizar bancos de dados corporativos, executar um processo de migração de usuário, gerenciar permissões e auditar bancos de dados, além de realizar diversas outras ações.
 
 É possível criar a integração com os serviços RESTful das seguintes maneiras:
 
-* **Perfil técnico de validação**: A chamada para o serviço RESTful ocorre dentro do perfil técnico de validação do perfil técnico especificado. O perfil técnico de validação valida os dados fornecido pelo usuário para que o percurso do usuário possa avançar. Com o perfil técnico de validação, é possível:
+* **Perfil técnico de validação**: a chamada para o serviço RESTful ocorre dentro do perfil técnico de validação do perfil técnico especificado. O perfil técnico de validação valida os dados fornecido pelo usuário para que o percurso do usuário possa avançar. Com o perfil técnico de validação, é possível:
   * Enviar declarações de entrada.
   * Validar as declarações de entrada e gerar mensagens de erro personalizadas.
   * Retornar declarações de saída.
 
-* **Troca de declarações**: Esse design é semelhante ao perfil técnico de validação, mas ele ocorre dentro de uma etapa de orquestração. Essa definição é limitada a:
+* **Troca de declarações**: esse design é semelhante ao perfil técnico de validação, mas ele ocorre dentro de uma etapa de orquestração. Essa definição é limitada a:
   * Enviar declarações de entrada.
   * Retornar declarações de saída.
 
@@ -57,11 +57,11 @@ Visão geral:
 * Enviar de volta um número de fidelidade
 * Adicionar o número de fidelidade a um token Web JSON (JWT)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Conclua as etapas no artigo [Introdução às políticas personalizadas](custom-policy-get-started.md).
 
-## <a name="step-1-create-an-aspnet-web-api"></a>Etapa 1: Criar um ASP.NET Web API
+## <a name="step-1-create-an-aspnet-web-api"></a>Etapa 1: Criar uma ASP.NET Web API
 
 1. No Visual Studio, crie um projeto selecionando **Arquivo** > **Novo** > **Projeto**.
 1. Na janela **Novo Projeto**, selecione **Visual C#**  > **Web** > **Aplicativo Web ASP.NET (.NET Framework)** .
@@ -85,7 +85,7 @@ Os modelos representam as declarações de entrada e os dados de declarações d
 Crie um modelo que representa as declarações de entrada fazendo o seguinte:
 
 1. Se o Gerenciador de Soluções ainda não estiver aberto, selecione **Exibir** > **Gerenciador de Soluções**.
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta **Modelos**, selecione **Adicionar** e Classe.
+1. No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta **Modelos**, selecione **Adicionar** e {7}Classe{8}.
 
     ![Adicionar item de menu de classe selecionado no Visual Studio](./media/rest-api-claims-exchange-dotnet/aadb2c-ief-rest-api-netfw-add-model.png)
 
@@ -255,13 +255,13 @@ Um provedor de declarações pode ter vários perfis técnicos por vários motiv
 
 O seguinte snippet de código XML contém um nó de provedor de declarações com dois perfis técnicos:
 
-* **TechnicalProfile Id="REST-API-SignUp"**: Define o serviço RESTful.
+* **TechnicalProfile Id="REST-API-SignUp"** : define o serviço RESTful.
   * `Proprietary` é descrito como protocolo para um provedor baseado em RESTful.
   * `InputClaims` define as declarações que serão enviadas do Azure AD B2C ao serviço REST.
 
     Neste exemplo, o conteúdo da declaração `givenName` é enviado ao serviço REST como `firstName`, o conteúdo da declaração `surname` é enviado ao serviço REST como `lastName` e `email` é enviado no estado em que se encontra. O elemento `OutputClaims` define as declarações que são recuperadas do serviço RESTful para o Azure AD B2C.
 
-* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: Adiciona um perfil técnico de validação a um perfil técnico existente (definido na política de base). Durante o percurso de inscrição, o perfil técnico de validação invoca o perfil técnico anterior. Se o serviço RESTful retornar um erro HTTP 409 (um erro de conflito), a mensagem de erro será exibida para o usuário.
+* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"** : adiciona um perfil de técnico de validação a um perfil de técnico existente (definido na política de base). Durante o percurso de inscrição, o perfil técnico de validação invoca o perfil técnico anterior. Se o serviço RESTful retornar um erro HTTP 409 (um erro de conflito), a mensagem de erro será exibida para o usuário.
 
 Localize o nó `<ClaimsProviders>` e adicione o seguinte snippet de código XML ao nó `<ClaimsProviders>`:
 
@@ -308,7 +308,7 @@ Localize o nó `<ClaimsProviders>` e adicione o seguinte snippet de código XML 
 
 Os comentários acima `AuthenticationType` e `AllowInsecureAuthInProduction` especificam as alterações que você deve fazer ao mudar para um ambiente de produção. Para saber como proteger suas APIs RESTful para produção, consulte [proteger APIs RESTful com autenticação básica](secure-rest-api-dotnet-basic-auth.md) e [proteger APIs RESTful com autenticação de certificado](secure-rest-api-dotnet-certificate-auth.md).
 
-## <a name="step-6-add-the-loyaltynumber-claim-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>Etapa 6: Adicionar a declaração `loyaltyNumber` ao seu arquivo de política de terceira parte confiável para que a declaração seja enviada ao aplicativo
+## <a name="step-6-add-the-loyaltynumber-claim-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>Etapa 6: Adicionar a declaração `loyaltyNumber` ao seu arquivo de política de terceira parte confiável para que a declaração seja enviada ao seu aplicativo
 
 Edite o arquivo RP (terceira parte confiável) *SignUpOrSignIn.xml* e modifique o elemento TechnicalProfile Id="PolicyProfile" para adicionar o seguinte: `<OutputClaim ClaimTypeReferenceId="loyaltyNumber" />`.
 
@@ -335,7 +335,7 @@ Depois de adicionar a nova declaração, o código de terceira parte confiável 
 </TrustFrameworkPolicy>
 ```
 
-## <a name="step-7-upload-the-policy-to-your-tenant"></a>Etapa 7: Carregar a política ao seu locatário
+## <a name="step-7-upload-the-policy-to-your-tenant"></a>Etapa 7: Carregar a política para o seu locatário
 
 1. Na [portal do Azure](https://portal.azure.com), selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o locatário Azure ad B2C.
 
@@ -353,7 +353,7 @@ Depois de adicionar a nova declaração, o código de terceira parte confiável 
 
 1. Repita a etapa anterior com o arquivo SignUpOrSignIn.xml.
 
-## <a name="step-8-test-the-custom-policy-by-using-run-now"></a>Etapa 8: Testar a política personalizada usando a opção Executar Agora
+## <a name="step-8-test-the-custom-policy-by-using-run-now"></a>Etapa 8: Testar a política personalizada usando Executar Agora
 
 1. Selecione **Configurações do Azure AD B2C** e acesse a **Estrutura de Experiência de Identidade**.
 
@@ -399,11 +399,11 @@ Depois de adicionar a nova declaração, o código de terceira parte confiável 
 
 * É possível baixar o código completo em [Solução de exemplo do Visual Studio para referência](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Sua próxima tarefa é proteger sua API RESTful usando a autenticação básica ou de certificado do cliente. Para saber como proteger suas APIs, consulte os seguintes artigos:
 
 * [Proteja sua API RESTful com a autenticação básica (nome de usuário e senha)](secure-rest-api-dotnet-basic-auth.md)
 * [Proteja sua API RESTful com certificados de cliente](secure-rest-api-dotnet-certificate-auth.md)
 
-Para obter informações sobre todos os elementos disponíveis em um perfil técnico RESTful, consulte [referência: ](restful-technical-profile.md)de perfil técnico RESTful.
+Para obter informações sobre todos os elementos disponíveis em um perfil técnico RESTful, consulte [referência: perfil técnico RESTful](restful-technical-profile.md).

@@ -6,15 +6,16 @@ author: amitbapat
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: d22231541a7fe29d4517985742d4bf88dc4c3fa7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: eac3850cfa0684bd1751cf7b88b4ff8e92667293
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980446"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197422"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteger o acesso a um cofre de chaves
 
@@ -51,7 +52,7 @@ Os aplicativos acessam os planos por meio de pontos de extremidade. Os controles
 
 A tabela a seguir mostra os pontos de extremidade para os planos de gerenciamento e de dados.
 
-| Plano de&nbsp;acesso | Pontos de extremidade de acesso | Operations | Mecanismo de controle de&nbsp;acesso |
+| Plano de&nbsp;acesso | Pontos de extremidade de acesso | Operações | Mecanismo de controle de&nbsp;acesso |
 | --- | --- | --- | --- |
 | Plano de gerenciamento | **Global:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure Governo dos EUA:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br> management.microsoftazure.de:443 | Criar, ler, atualizar e excluir cofres de chaves<br><br>Definir políticas de acesso do Key Vault<br><br>Definir marcas do Key Vault | RBAC do Azure Resource Manager |
 | Plano de dados | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure Governo dos EUA:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 | Chaves: descriptografar, criptografar,<br> desencapsular, encapsular, verificar, assinar,<br> obter, listar, atualizar, criar,<br> importar, excluir, fazer backup, restaurar<br><br> Segredos: obter, listar, definir, excluir | Política de acesso ao cofre de chaves |
@@ -192,7 +193,7 @@ Este exemplo descreve um cenário simples. Os cenários da vida real podem ser m
 
 É recomendável que você defina um acesso seguro adicional ao seu cofre de chaves [configurando os firewalls e redes virtuais do Key Vault](key-vault-network-security.md).
 
-## <a name="resources"></a>Implante
+## <a name="resources"></a>Recursos
 
 * [RBAC do Azure Active Directory](../role-based-access-control/role-assignments-portal.md)
 
@@ -222,7 +223,7 @@ Este exemplo descreve um cenário simples. Os cenários da vida real podem ser m
 
 * [Definir](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) e [remover](/powershell/module/az.keyvault/Remove-azKeyVaultAccessPolicy) a política de acesso ao Key Vault usando o PowerShell.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Configurar [redes virtuais e firewalls do Key Vault](key-vault-network-security.md).
 

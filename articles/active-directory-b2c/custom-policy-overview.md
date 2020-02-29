@@ -2,20 +2,20 @@
 title: Políticas personalizadas do Azure Active Directory B2C | Microsoft Docs
 description: Saiba mais sobre as políticas personalizadas do Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b1f3bbcba562d126d503920cb7b6787e2ca0025c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f72aedb010301f9c7b12778432c4f10feb10f7a3
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847037"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189219"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Políticas personalizadas no Azure Active Directory B2C
 
@@ -63,7 +63,7 @@ Uma política personalizada é representada como um ou vários arquivos formatad
 
 Quando um aplicativo chama o arquivo de política RP, a Estrutura de Experiência de Identidade no Azure AD B2C adiciona todos os elementos do arquivo base, do arquivo de extensões e, em seguida, do arquivo de política de RP para montar a política atual em vigor.  Elementos do mesmo tipo e nome no arquivo RP substituirão aqueles nas extensões e as extensões substituem a base.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Introdução às políticas personalizadas](custom-policy-get-started.md)

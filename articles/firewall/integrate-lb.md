@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 02/28/2020
 ms.author: victorh
-ms.openlocfilehash: 91f34d06532b2d7f56d293df40939212a4f3d68c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: ab9a500d9535b55702b8baff15f8cc47e6ac2c86
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167065"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196681"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integrar o Firewall do Azure com o Azure Standard Load Balancer
 
@@ -28,7 +28,7 @@ Com um balanceador de carga público, o balanceador de carga é implantado com u
 
 ### <a name="asymmetric-routing"></a>Roteamento assimétrico
 
-O roteamento assimétrico ocorre quando um pacote usa um caminho para o destino e outro caminho para retornar para a origem. Isso ocorre quando uma sub-rede tem uma rota padrão que vai para o endereço IP privado do firewall e você está usando um balanceador de carga público. Nesse caso, o tráfego de entrada do balanceador de carga é recebido por meio de seu endereço IP público, mas o caminho de retorno passa pelo endereço IP privado do firewall. Como o firewall tem monitoração de estado, ele descarta o pacote de retorno porque o firewall não está ciente de tal sessão estabelecida.
+O roteamento assimétrico ocorre quando um pacote usa um caminho para o destino e outro caminho para retornar para a origem. Isso ocorre quando uma sub-rede tem uma rota padrão que vai para o endereço IP privado do firewall e você está usando um balanceador de carga público. Nesse caso, o tráfego de entrada do balanceador de carga é recebido por meio de seu endereço IP público, mas o caminho de retorno passa pelo endereço IP privado do firewall. Como o firewall tem monitoração de estado, ele descarta o pacote de retorno porque o firewall não está ciente dessa sessão estabelecida.
 
 ### <a name="fix-the-routing-issue"></a>Corrigir o problema de roteamento
 
@@ -39,11 +39,25 @@ Para evitar esse problema, crie uma rota de host adicional para o endereço IP p
 
 ![Roteamento assimétrico](media/integrate-lb/Firewall-LB-asymmetric.png)
 
-Por exemplo, as seguintes rotas são para um firewall no endereço IP público 13.86.122.41 e o endereço IP privado 10.3.1.4.
+### <a name="route-table-example"></a>Exemplo de tabela de rotas
 
-![Tabela de rotas](media/integrate-lb/route-table.png)
+Por exemplo, as rotas a seguir são para um firewall no endereço IP público 20.185.97.136 e o endereço IP privado 10.0.1.4.
 
-## <a name="internal-load-balancer"></a>Balanceador de Carga Interno
+> [!div class="mx-imgBorder"]
+> ![Tabela de rotas](media/integrate-lb/route-table.png)
+
+### <a name="nat-rule-example"></a>Exemplo de regra NAT
+
+No exemplo a seguir, uma regra NAT traduz o tráfego RDP para o firewall em 20.185.97.136 para o balanceador de carga em 20.42.98.220:
+
+> [!div class="mx-imgBorder"]
+> ![regra NAT](media/integrate-lb/nat-rule-02.png)
+
+### <a name="health-probes"></a>Investigações de integridade
+
+Lembre-se de que você precisa ter um serviço Web em execução nos hosts no pool do balanceador de carga se usar investigações de integridade TCP para porta 80 ou investigações HTTP/HTTPS.
+
+## <a name="internal-load-balancer"></a>Balanceador de carga interno
 
 Com um balanceador de carga interno, o balanceador de carga é implantado com um endereço IP de front-end privado.
 
@@ -56,6 +70,8 @@ Portanto, você pode implantar este cenário de forma semelhante ao cenário do 
 Para melhorar ainda mais a segurança do seu cenário de balanceamento de carga, você pode usar NSGs (grupos de segurança de rede).
 
 Por exemplo, você pode criar um NSG na sub-rede de back-end em que se encontram as máquinas virtuais de balanceamento de carga. Permita o tráfego de entrada provenientes do endereço IP/porta do firewall.
+
+![Grupo de segurança de rede](media/integrate-lb/nsg-01.png)
 
 Para obter mais informações sobre os NSGs, confira [Grupos de segurança](../virtual-network/security-overview.md).
 

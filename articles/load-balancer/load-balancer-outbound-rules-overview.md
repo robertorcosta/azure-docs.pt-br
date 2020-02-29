@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
-ms.openlocfilehash: 316b28faa458b03431cb48f02a8087116415b061
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: d35241850d60e82b79bba0384f60c40e3ecd6427
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075897"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192516"
 ---
 # <a name="load-balancer-outbound-rules"></a>Regras de saída do Load Balancer
 
@@ -34,7 +34,7 @@ Regras de saída permitem que você controle:
 - como [portas SNAT de saída](load-balancer-outbound-connections.md#snat) devem ser alocadas.
 - para quais protocolos fornecer conversão de saída.
 - qual duração usar para o tempo limite de ociosidade da conexão de saída (4-120 minutos).
-- se você deseja enviar uma Redefinição de TCP no tempo limite de ociosidade (em Versão Prévia Pública). 
+- Se deseja enviar uma redefinição de TCP no tempo limite ocioso
 
 Regras de saída expandem o [cenário 2](load-balancer-outbound-connections.md#lb) descrito no artigo [conexões de saída](load-balancer-outbound-connections.md) e a precedência de cenário permanece como no estado em que se encontra.
 
@@ -95,7 +95,7 @@ Use o parâmetro a seguir para definir o tempo limite de ociosidade de saída co
 
           "idleTimeoutInMinutes": 60
 
-### <a name="tcprst"></a> <a name="tcpreset"></a> Habilitar a Redefinição de TCP no tempo limite de ociosidade (Versão Prévia)
+### <a name="tcprst"></a><a name="tcpreset"></a> Habilitar a redefinição de TCP no tempo limite ocioso
 
 O comportamento padrão do Load Balancer é remover o fluxo silenciosamente quando o tempo limite de ociosidade de saída é atingido.  Com o parâmetro enableTCPReset, você pode habilitar um comportamento mais previsível do aplicativo e controlar se deseja enviar Redefinição de TCP (RST TCP) bidirecional ao atingir o tempo limite de ociosidade de saída. 
 
@@ -103,7 +103,7 @@ Use o parâmetro a seguir para habilitar a Redefinição de TCP em uma regra de 
 
            "enableTcpReset": true
 
-Examine [Redefinição de TCP no tempo limite de ociosidade (Versão Prévia)](https://aka.ms/lbtcpreset) para obter detalhes, incluindo a disponibilidade na região.
+Examine a [redefinição de TCP no tempo limite ocioso](https://aka.ms/lbtcpreset) para obter detalhes, incluindo a disponibilidade da região.
 
 ### <a name="proto"></a> Suporte a protocolos de transporte TCP e UDP com uma única regra
 

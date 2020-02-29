@@ -1,25 +1,26 @@
 ---
 title: Mascaramento de dados dinâmicos
-description: A máscara de dados dinâmicos limita a exposição de dados confidenciais mascarando-os para usuários sem privilégios para o banco de dados SQL e data warehouse
+description: A máscara de dados dinâmicos limita a exposição de dados confidenciais mascarando-os para usuários sem privilégios para o banco de dados SQL e o Azure Synapse
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/04/2019
-ms.openlocfilehash: 149c42829762920583948958da8252a01e35ef1f
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 02/06/2020
+tags: azure-synpase
+ms.openlocfilehash: e5b281d59245d8fbd32b18f4ac5fe577fc7ff309
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721907"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192907"
 ---
-# <a name="dynamic-data-masking-for-azure-sql-database-and-data-warehouse"></a>Mascaramento de dados dinâmicos para o Azure SQL Database e data warehouse
+# <a name="dynamic-data-masking-for-azure-sql-database-and-azure-synapse-analytics"></a>Mascaramento de dados dinâmicos para o Azure Synapse
 
 A máscara de dados dinâmicos do Banco de Dados SQL limita a exposição de dados confidenciais através do mascaramento dos dados para usuários sem privilégios. 
 
@@ -29,7 +30,7 @@ Por exemplo, um representante de serviço em um centro de chamada pode identific
 
 ## <a name="dynamic-data-masking-basics"></a>Noções básicas de mascaramento de dados dinâmicos
 
-É possível configurar uma política de máscara de dados dinâmicos no Portal do Azure selecionando a operação máscara de dados dinâmicos na folha de configuração do Banco de Dados SQL ou na folha de configurações. Este recurso não pode ser definido usando o portal para SQL DW (use o PowerShell ou a API REST)
+É possível configurar uma política de máscara de dados dinâmicos no Portal do Azure selecionando a operação máscara de dados dinâmicos na folha de configuração do Banco de Dados SQL ou na folha de configurações. Este recurso não pode ser definido usando o portal para o Azure Synapse (use o PowerShell ou a API REST)
 
 ### <a name="dynamic-data-masking-permissions"></a>Permissões de mascaramento de dados dinâmico
 

@@ -3,20 +3,20 @@ title: Passar um token de acesso por meio de uma política personalizada para se
 titleSuffix: Azure AD B2C
 description: Saiba como você pode passar um token de acesso para provedores de identidade OAuth 2,0 como uma declaração por meio de uma política personalizada para seu aplicativo no Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/17/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 697c904f98ea29395d5c4e95abe27556c06bb479
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ff5ef8f742914129d868152814d84d2112267c09
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76839084"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187772"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Passar um token de acesso por meio de uma politica personalizada para seu aplicativo no Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ Uma [política personalizada](custom-policy-get-started.md) no Azure Active Dire
 
 O Azure AD B2C é compatível com passagem do token de acesso dos provedores de identidade [OAuth 2.0](authorization-code-flow.md) e [OpenID Connect](openid-connect.md). Para todos os outros provedores de identidade, a declaração é retornada em branco.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Sua política personalizada é configurada com um provedor de identidade OAuth 2.0 ou OpenID Connect.
 
@@ -103,6 +103,6 @@ Ao testar seus aplicativos no Azure AD B2C, pode ser útil ter o token do Azure 
 
     ![Token decodificado em jwt.ms com idp_access_token bloco realçado](./media/idp-pass-through-custom/idp-pass-through-custom-token.PNG)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre tokens na [referência de token de Azure Active Directory B2C](tokens-overview.md).

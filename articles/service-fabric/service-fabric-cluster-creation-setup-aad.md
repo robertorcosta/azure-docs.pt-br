@@ -3,12 +3,12 @@ title: Configurar o Azure Active Directory para autenticação de cliente
 description: Saiba como configurar o Azure AD (Azure Active Directory) para autenticar clientes para clusters do Service Fabric.
 ms.topic: conceptual
 ms.date: 6/28/2019
-ms.openlocfilehash: 2a6ffdb1c1fdc447545477286a6d131be2449cdb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 28c4c65cfcc77607dfe9a463a09ecd10389a6eca
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843813"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193366"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configurar o Azure Active Directory para autenticação de cliente
 
@@ -26,7 +26,7 @@ Um cluster do Service Fabric oferece vários pontos de entrada para a funcionali
 
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Neste artigo, partimos do pressuposto que você já tenha criado um locatário. Se não for o caso, comece lendo [Como obter um locatário do Azure Active Directory][active-directory-howto-tenant].
 
 Para simplificar algumas das etapas envolvidas na configuração do Azure AD com um cluster do Service Fabric, criamos um conjunto de scripts do Windows PowerShell.
@@ -104,7 +104,7 @@ Ao tentar entrar no Azure AD no Service Fabric Explorer, a página retorna uma f
 O aplicativo do cluster (Web) que representa o Service Fabric Explorer tenta se autenticar no Azure AD como parte da solicitação que ele fornece à URL de retorno de redirecionamento. Mas a URL não está listada na lista **URL DE RESPOSTA** do aplicativo Azure AD.
 
 #### <a name="solution"></a>Solução
-Na página Azure AD, selecione **registros de aplicativo**, selecione o aplicativo de cluster e, em seguida, selecione **URLs de resposta**. No painel **URLs de resposta** , adicione a URL de Service Fabric Explorer à lista ou substitua um dos itens na lista. Salve sua alteração.
+Na página de registro do aplicativo do Azure AD para seu cluster, selecione **autenticação**e, na seção **URIs de redirecionamento** , adicione a URL de Service Fabric Explorer à lista. Salve sua alteração.
 
 ![URL de resposta do aplicativo Web][web-application-reply-url]
 
@@ -133,7 +133,7 @@ Sim. Mas lembre-se de adicionar a URL do Service Fabric Explorer ao aplicativo d
 ### <a name="why-do-i-still-need-a-server-certificate-while-azure-ad-is-enabled"></a>Por que eu ainda preciso de um certificado de servidor quando o Azure AD está habilitado?
 FabricClient e FabricGateway realizam autenticação mútua. Durante a autenticação do Azure AD, a integração do AD do Azure fornece uma identidade de cliente para o servidor e o certificado do servidor é usado pelo cliente para verificar a identidade do servidor. Para obter mais informações sobre certificados Service Fabric, consulte [certificados X. 509 e Service Fabric][x509-certificates-and-service-fabric].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Depois de configurar os aplicativos do Azure Active Directory e definir as funções para os usuários, [configure e implante um cluster](service-fabric-cluster-creation-via-arm.md).
 
 

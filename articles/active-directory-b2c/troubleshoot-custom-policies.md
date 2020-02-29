@@ -2,20 +2,20 @@
 title: Solucionar problemas de políticas personalizadas no Azure Active Directory B2C
 description: Saiba mais sobre as abordagens para a solução de erros ao trabalhar com políticas personalizadas no Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/13/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b9a0e370643d7f2a19e6ca1629b6b522bfa396b9
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2f65e98cec04991fe9edef1b81bcb3ecc3d93d76
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848129"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186346"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Solucionar problemas de políticas personalizadas do Azure AD B2C e da Estrutura de Experiência de Identidade
 
@@ -74,7 +74,7 @@ Os erros comuns de validação incluem o seguinte:
 
 **Desenvolva e teste jornadas de usuário com perfis técnicos testados.** Altere as etapas de orquestração de uma jornada de usuário de forma incremental. Crie os seus cenários desejados de forma progressiva.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Disponível no GitHub, baixe o arquivo [Active-Directory-B2C-Custom-Policy-starterpack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) . zip. Você também pode clonar o repositório:
 

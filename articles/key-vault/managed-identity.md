@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 75317f73ad724b4ce8ad7a894890b2269bd8c5d0
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 36a4871339401629300eedd77b6441aed10aabf3
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837505"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199828"
 ---
 # <a name="provide-key-vault-authentication-with-a-managed-identity"></a>Fornecer autenticação de Key Vault com uma identidade gerenciada
 
@@ -25,14 +26,14 @@ Este artigo mostra como criar uma identidade gerenciada para um aplicativo do se
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Prerequisites 
 
 Para concluir este guia, você deve ter os seguintes recursos. 
 
-- Um cofre de chaves. Você pode usar um cofre de chaves existente ou criar um novo seguindo as etapas em um destes guias de início rápido:
-   - [Criar um cofre de chaves com o CLI do Azure](quick-create-cli.md)
-   - [Criar um cofre de chaves com Azure PowerShell](quick-create-powershell.md)
-   - [Crie um cofre de chaves com o portal do Azure](quick-create-portal.md).
+- Um cofre de chaves. Você pode usar um cofre de chaves existente ou criar um seguindo as etapas em um destes inícios rápidos:
+   - [Criar um cofre de chaves com a CLI do Azure](quick-create-cli.md)
+   - [Criar um cofre de chaves com o Azure PowerShell](quick-create-powershell.md)
+   - [Criar um cofre de chaves com o portal do Azure](quick-create-portal.md).
 - Um aplicativo do serviço de aplicativo existente ao qual conceder acesso ao cofre de chaves. Você pode criar um rapidamente seguindo as etapas na documentação do [serviço de aplicativo](../app-service/overview.md).
 - [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/overview). Como alternativa, você pode usar o [portal do Azure](https://portal.azure.com).
 
@@ -49,7 +50,7 @@ Para configurar uma identidade gerenciada no portal, primeiro, crie um aplicativ
 
 1. Selecione **Identidade gerenciada**. 
 
-1. Na guia **Sistema atribuído**, alterne o **Status** para **Ligado**. Clique em **Salvar**. 
+1. Na guia **Sistema atribuído**, alterne o **Status** para **Ligado**. Clique em **Save** (Salvar). 
 
     ![](./media/managed-identity-system-assigned.png)
 
@@ -114,6 +115,6 @@ az keyvault set-policy --name myKeyVault --object-id <PrincipalId> --secret-perm
 - [Segurança de Azure Key Vault: gerenciamento de acesso e identidade](overview-security.md#identity-and-access-management)
 - [Fornecer Key Vault autenticação com uma política de controle de acesso](key-vault-group-permissions-for-apps.md)
 - [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)
-- [Proteja seu cofre de chaves](key-vault-secure-your-key-vault.md).
-- [Guia do desenvolvedor de Azure Key Vault](key-vault-developers-guide.md)
-- Examinar [Azure Key Vault práticas recomendadas](key-vault-best-practices.md)
+- [Proteger o cofre de chaves](key-vault-secure-your-key-vault.md).
+- [Guia do desenvolvedor do Azure Key Vault](key-vault-developers-guide.md)
+- Examine as [Melhores práticas do Azure Key Vault](key-vault-best-practices.md)

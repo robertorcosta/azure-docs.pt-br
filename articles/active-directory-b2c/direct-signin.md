@@ -2,20 +2,20 @@
 title: Entrada direta usando o Microsoft Azure Active Directory B2C | Microsoft Docs
 description: Saiba como preencher previamente o nome de usuário ou redirecionar diretamente para um provedor de identidade social.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/18/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8c0f3d8f3f49001e1326688ccc794e19d1148e5d
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 9a02ad3ea43ae9d91489417bc314e3c23d54a958
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846902"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188759"
 ---
 # <a name="set-up-direct-sign-in-using-azure-active-directory-b2c"></a>Entrada direta usando o Microsoft Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Durante a configuração de entrada para seu aplicativo usando o Azure Active Di
 
 Durante um percurso do usuário de entrada, um aplicativo de terceira parte confiável pode ser direcionado a um nome de usuário ou domínio específico. Ao direcionar a um usuário, um aplicativo pode especificar, na solicitação de autorização, o `login_hint` parâmetro com o nome de logon do usuário de consulta. O Azure Active Directory B2C preenche automaticamente o nome de usuário, enquanto o usuário só precisa fornecer a senha.
 
-![Página de entrada de entrada com o parâmetro de consulta login_hint realçado na URL](./media/direct-signin/login-hint.png)
+![Página de entrada de entrada com login_hint parâmetro de consulta realçado na URL](./media/direct-signin/login-hint.png)
 
 O usuário é capaz de alterar o valor na caixa de entrada.
 
@@ -49,7 +49,7 @@ Se você estiver usando uma política personalizada, substitua o `SelfAsserted-L
 
 Se você configurou o percurso de entrada para seu aplicativo para incluir contas sociais, como Facebook, LinkedIn ou do Google, você pode especificar o `domain_hint` parâmetro. Esse parâmetro de consulta fornece uma dica para o Azure AD B2C sobre o provedor de identidade social que deve ser usado para entrar. Por exemplo, se o aplicativo especifica `domain_hint=facebook.com`, a entrada vai diretamente para a página de logon do Facebook.
 
-![Página de entrada de entrada com o parâmetro de consulta domain_hint realçado na URL](./media/direct-signin/domain-hint.png)
+![Página de entrada de entrada com domain_hint parâmetro de consulta realçado na URL](./media/direct-signin/domain-hint.png)
 
 Se você estiver usando uma política personalizada, você pode configurar o nome de domínio usando o `<Domain>domain name</Domain>` elemento XML de qualquer `<ClaimsProvider>`.
 

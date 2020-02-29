@@ -15,16 +15,16 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3786386f75f4b85fe89562254eab63471de6cb2
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: f09b2fc685881aa8a7bd87b6a855c657af9ef43d
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75549390"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190306"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-agent-automatic-upgrade"></a>Agente de provisionamento de nuvem Azure AD Connect: atualização automática
 
-Verificar se a instalação do agente de provisionamento de nuvem do Azure Active Directory (Azure AD) Connect está sempre atualizada é fácil com o recurso de atualização automática. Esse recurso é habilitado por padrão e não pode ser desabilitado.
+Verificar se a instalação do agente de provisionamento de nuvem do Azure Active Directory (Azure AD) Connect está sempre atualizada é fácil com o recurso de atualização automática.
 
 O agente é instalado aqui: "programa Programas\azure AD Connect Provisioning Agent\AADConnectProvisioningAgent.exe"
 
@@ -47,7 +47,7 @@ Para remover o agente, vá para **desinstalar ou alterar um programa** e desinst
 
 ![Remoção do agente](media/how-to-automatic-upgrade/agent3.png)
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Próximas etapas 
 
 - [O que é provisionamento?](what-is-provisioning.md)
 - [O que é o provisionamento em nuvem do Azure AD Connect?](what-is-cloud-provisioning.md)

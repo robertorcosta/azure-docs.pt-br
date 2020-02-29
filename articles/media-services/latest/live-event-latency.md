@@ -1,6 +1,6 @@
 ---
-title: Latência LiveEvent nos Serviços de Mídia do Microsoft Azure | Microsoft Docs
-description: Este tópico fornece uma visão geral de latência de LiveEvent e mostra como definir a baixa latência.
+title: Configurações de baixa latência do LiveEvent nos serviços de mídia do Azure | Microsoft Docs
+description: Este tópico fornece uma visão geral das configurações de baixa latência do LiveEvent e mostra como definir a baixa latência.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,21 +13,21 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: 393b87aeed759950b946ccb45a008da9af4b7ebe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a82a0644fac099b568ab86ea213b98cd8e7d5c22
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702781"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199641"
 ---
-# <a name="live-event-latency-in-media-services"></a>Latência do Evento ao Vivo nos Serviços de Mídia
+# <a name="live-event-low-latency-settings"></a>Configurações de baixa latência de evento ao vivo
 
 Este artigo mostra como definir baixa latência em um [Evento ao Vivo](https://docs.microsoft.com/rest/api/media/liveevents). Esta seção também discute os resultados comuns que você vê ao usar as configurações de baixa latência e de vários players. Os resultados variam com base na latência de rede e da CDN.
 
 Para usar o novo recurso **LowLatency**, você pode definir as **StreamOptionsFlag** à **LowLatency** sobre o **LiveEvent**. Ao criar [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) para reprodução HLS, defina [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) como 1. Depois que o fluxo está em execução, você pode usar o [Player de Mídia do Azure](https://ampdemo.azureedge.net/) (AMP- página de demonstração) e defina as opções de reprodução para usar a baixa latência heurística "perfil".
 
 > [!NOTE]
-> Atualmente, o LowLatency HeuristicProfile no Player de mídia do Azure foi projetado para reproduzir fluxos no protocolo de MPEG-DASH, com o formato CSF ou CMAF (por exemplo, `format=mdp-time-csf` ou `format=mdp-time-cmaf`). 
+> Atualmente, o LowLatency HeuristicProfile no Player de Mídia do Azure foi projetado para reproduzir fluxos no protocolo MPEG-DASH, com o formato CSF ou CMAF (por exemplo, `format=mdp-time-csf` ou `format=mdp-time-cmaf`). 
 
 O exemplo de .NET a seguir mostra como definir **LowLatency** sobre o **LiveEvent**:
 

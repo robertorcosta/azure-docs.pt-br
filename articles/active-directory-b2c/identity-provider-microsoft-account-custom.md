@@ -3,20 +3,20 @@ title: Configurar a entrada com uma conta da conta da Microsoft usando política
 titleSuffix: Azure AD B2C
 description: Como usar políticas personalizadas para habilitar a MSA (conta da Microsoft) como um provedor de identidade usando o protocolo OpenID Connect (OIDC).
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f4265659df786cf0a972b6dcf4f122bfc68535c1
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: b7d8fbddc86c0d05d7b0d4ce46cb06c5fc92a2cf
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77483254"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188110"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada com uma conta Microsoft usando políticas personalizadas no Azure Active Directory B2C
 

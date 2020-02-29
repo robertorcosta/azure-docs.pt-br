@@ -4,13 +4,13 @@ description: Saiba como integrar o AKS (serviço de kubernetes do Azure) com o A
 services: container-service
 manager: gwallace
 ms.topic: article
-ms.date: 09/17/2018
-ms.openlocfilehash: b1f4449728589eca4f64035d7e70d01dbc187bc4
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.date: 02/25/2020
+ms.openlocfilehash: 5d8b45137ff82db6b23b5bf31eb3e8063de343bb
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596191"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191326"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autenticar com o Registro de Contêiner do Azure do Serviço de Kubernetes do Azure
 
@@ -25,9 +25,12 @@ Estes exemplos exigem:
 * Função de **administrador da conta do Azure** ou **proprietário** na **assinatura do Azure**
 * CLI do Azure versão 2.0.73 ou posterior
 
+Para evitar a necessidade de uma função de **administrador de conta do Azure** ou **proprietário** , você pode configurar uma entidade de serviço manualmente ou usar uma entidade de serviço existente para autenticar o ACR de AKs. Para obter mais informações, consulte [autenticação de ACR com entidades de serviço](../container-registry/container-registry-auth-service-principal.md) ou [autenticar de kubernetes com um segredo de pull](../container-registry/container-registry-auth-kubernetes.md).
+
 ## <a name="create-a-new-aks-cluster-with-acr-integration"></a>Criar um novo cluster AKS com integração com ACR
 
-Você pode configurar a integração de AKS e ACR durante a criação inicial do cluster AKS.  Para permitir que um cluster AKS interaja com o ACR, é usada uma **entidade de serviço** Azure Active Directory. O comando da CLI a seguir permite autorizar um ACR existente em sua assinatura e configurar a função **ACRPull** apropriada para a entidade de serviço. Forneça valores válidos para os parâmetros abaixo. 
+Você pode configurar a integração de AKS e ACR durante a criação inicial do cluster AKS.  Para permitir que um cluster AKS interaja com o ACR, é usada uma **entidade de serviço** Azure Active Directory. O comando da CLI a seguir permite autorizar um ACR existente em sua assinatura e configurar a função **ACRPull** apropriada para a entidade de serviço. Forneça valores válidos para os parâmetros abaixo.
+
 ```azurecli
 # set this to the name of your Azure Container Registry.  It must be globally unique
 MYACR=myContainerRegistry
@@ -37,12 +40,11 @@ az acr create -n $MYACR -g myContainerRegistryResourceGroup --sku basic
 
 # Create an AKS cluster with ACR integration
 az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr $MYACR
-
 ```
 Como alternativa, você pode especificar o nome do ACR usando uma ID de recurso ACR, que tem o seguinte formato:
 
-/subscriptions/\<Subscription-ID\>/resourceGroups/\<Resource-Group-Name\>/providers/Microsoft.ContainerRegistry/registries/\<Name\> 
- 
+`/subscriptions/\<subscription-id\>/resourceGroups/\<resource-group-name\>/providers/Microsoft.ContainerRegistry/registries/\<name\>` 
+
 ```azurecli
 az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr /subscriptions/<subscription-id>/resourceGroups/myContainerRegistryResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry
 ```

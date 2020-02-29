@@ -3,12 +3,12 @@ title: Referência de desenvolvedor do Python para o Azure Functions
 description: Saiba como desenvolver funções usando Python
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: cfac28c4a759cee66c932c7b8cfea053c9c4f505
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 8ee13b59812e6a212fbafcf4ea6bfc171e735dc3
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921789"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190697"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia do desenvolvedor de Python para o Azure Functions
 
@@ -22,25 +22,9 @@ Azure Functions espera que uma função seja um método sem estado em seu script
 
 Os dados de gatilhos e associações são associados à função por meio de atributos de método usando a propriedade `name` definida no arquivo *Function. JSON* . Por exemplo, a _Function. JSON_ abaixo descreve uma função simples disparada por uma solicitação HTTP chamada `req`:
 
-```json
-{
-  "bindings": [
-    {
-      "name": "req",
-      "direction": "in",
-      "type": "httpTrigger",
-      "authLevel": "anonymous"
-    },
-    {
-      "name": "$return",
-      "direction": "out",
-      "type": "http"
-    }
-  ]
-}
-```
+:::code language="son" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 
-O arquivo `__init__.py` contém o seguinte código de função:
+Com base nessa definição, o arquivo de `__init__.py` que contém o código de função pode ser semelhante ao exemplo a seguir:
 
 ```python
 def main(req):
@@ -236,7 +220,7 @@ def main(req):
 
 Há outros métodos de registro em log disponíveis que permitem a gravação no console em níveis de rastreamento diferentes:
 
-| Método                 | Description                                |
+| Método                 | DESCRIÇÃO                                |
 | ---------------------- | ------------------------------------------ |
 | **`critical(_message_)`**   | Grava uma mensagem com nível CRÍTICO no agente raiz.  |
 | **`error(_message_)`**   | Grava uma mensagem com nível ERRO no agente raiz.    |
@@ -452,7 +436,7 @@ func azure functionapp publish <APP_NAME> --no-build
 
 Lembre-se de substituir `<APP_NAME>` pelo nome do aplicativo de funções no Azure.
 
-## <a name="unit-testing"></a>Teste de unidade
+## <a name="unit-testing"></a>Testes de unidade
 
 As funções escritas em Python podem ser testadas como outros códigos Python usando estruturas de teste padrão. Para a maioria das associações, é possível criar um objeto de entrada fictício criando uma instância de uma classe apropriada do pacote de `azure.functions`. Como o pacote de [`azure.functions`](https://pypi.org/project/azure-functions/) não está disponível imediatamente, certifique-se de instalá-lo por meio do arquivo `requirements.txt`, conforme descrito na seção [Gerenciamento de pacotes](#package-management) acima. 
 
@@ -643,7 +627,7 @@ Certifique-se de também atualizar seu function. JSON para dar suporte ao métod
 
 Esse método HTTP é usado por navegadores da Web para negociar a lista de origens permitidas. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais, consulte os recursos a seguir:
 

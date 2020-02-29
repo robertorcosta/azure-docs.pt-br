@@ -3,20 +3,20 @@ title: Configurar a entrada com uma conta do Google usando políticas personaliz
 titleSuffix: Azure AD B2C
 description: Configure a entrada com uma conta do Google no Azure Active Directory B2C usando políticas personalizadas.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ed11fcb24f06eae1b2baa6975a3cd8016042813e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 8d02c86a1ff330aa4003299e1494a164089d8470
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847453"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188215"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada com uma conta do Google usando políticas personalizadas no Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76847453"
 
 Este artigo mostra como habilitar a entrada para usuários com uma conta do Google usando [políticas personalizadas](custom-policy-overview.md) no Azure Active Directory B2C (Azure ad B2C).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Conclua as etapas em [Introdução às políticas personalizadas no Active Directory B2C](custom-policy-get-started.md).
 - Se você ainda não tiver uma conta do Google, crie uma em [Criar sua Conta do Google](https://accounts.google.com/SignUp).

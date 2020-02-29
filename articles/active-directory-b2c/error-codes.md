@@ -3,20 +3,20 @@ title: Referência do código de erro
 titleSuffix: Azure AD B2C
 description: Uma lista dos códigos de erro que podem ser retornados pelo serviço de Azure Active Directory B2C.
 services: B2C
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 01/10/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c48f7bdd51c9b8c173ee0ebed72ed8c7f4fb51fc
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 5b09b3c19ab1c5b23e56e25afc1d9631cd1caa68
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75735073"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188657"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>Códigos de erro: Azure Active Directory B2C
 
@@ -58,10 +58,10 @@ Os erros a seguir podem ser retornados pelo serviço de Azure Active Directory B
 | `AADB2C90052` | Senha ou nome de usuário inválido. |
 | `AADB2C90053` | Não foi possível encontrar um usuário com a credencial especificada. |
 | `AADB2C90054` | Senha ou nome de usuário inválido. |
-| `AADB2C90055` | O escopo '{0}' fornecido na solicitação deve especificar um recurso, como 'https://example.com/calendar.read '. |
+| `AADB2C90055` | O escopo '{0}' fornecido na solicitação deve especificar um recurso, como 'https://example.com/calendar.read'. |
 | `AADB2C90057` | O aplicativo fornecido não está configurado para permitir o fluxo implícito do OAuth. |
 | `AADB2C90058` | O aplicativo fornecido não está configurado para permitir clientes públicos. |
-| `AADB2C90067` | O URI de redirecionamento de logout pós '{0}' tem um formato inválido. Especifique uma URL baseada em https, como 'https://example.com/return ' ou para clientes nativos, use o URI de cliente nativo IETF ' urn: IETF: WG: OAuth: 2.0: OOB '. |
+| `AADB2C90067` | O URI de redirecionamento de logout pós '{0}' tem um formato inválido. Especifique uma URL baseada em https, como 'https://example.com/return' ou para clientes nativos, use o URI de cliente nativo IETF ' urn: IETF: WG: OAuth: 2.0: OOB '. |
 | `AADB2C90068` | O aplicativo fornecido com a ID '{0}' não é válido nesse serviço. Use um aplicativo criado por meio do portal B2C e tente novamente. |
 | `AADB2C90075` | A troca de declarações '{0}' especificada na etapa '{1}' retornou uma resposta de erro HTTP com o código '{2}' e o motivo '{3}'. |
 | `AADB2C90077` | O usuário não tem uma sessão existente e o parâmetro de prompt de solicitação tem um valor de '{0}'. |

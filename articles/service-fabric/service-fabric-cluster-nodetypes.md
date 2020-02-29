@@ -5,16 +5,18 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: e751b3dd9108d364c900bbd059dc89c1eb3770c4
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 37d4c27d3033545c523cefc2f317073af531f095
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722332"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199709"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nó do Service Fabric e os conjuntos de dimensionamento da máquina virtual
 
-[Conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets) são um recurso de computação do Azure. Você pode usar os conjuntos de dimensionamento para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó que você define em um cluster do Azure Service Fabric configura uma escala separada. O tempo de execução do Service Fabric é instalado em cada máquina virtual no conjunto de dimensionamento pela extensão da máquina virtual *Microsoft. Azure. perfabric* . Cada tipo de nó pode ser escalado vertical ou horizontalmente de forma independente, ter a SKU de sistema operacional em execução em cada nó de cluster, ter conjuntos diferentes de portas abertas e usar métricas de capacidade diferentes.
+[Conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets) são um recurso de computação do Azure. Você pode usar os conjuntos de dimensionamento para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó que você define em um cluster do Azure Service Fabric define exatamente um conjunto de dimensionamento: vários tipos de nó não podem ser apoiados pelo mesmo conjunto de dimensionamento e um tipo de nó não deve (na maioria dos casos) ser apoiado por vários conjuntos de dimensionamento. Uma exceção a isso é na rara situação do [dimensionamento vertical](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) de um tipo de nó, quando você tem temporariamente dois conjuntos de dimensionamento com o mesmo valor `nodeTypeRef` enquanto as réplicas são migradas do original para o conjunto de dimensionamento atualizado.
+
+O tempo de execução do Service Fabric é instalado em cada máquina virtual no conjunto de dimensionamento pela extensão da máquina virtual *Microsoft. Azure. perfabric* . Cada tipo de nó pode ser escalado vertical ou horizontalmente de forma independente, ter a SKU de sistema operacional em execução em cada nó de cluster, ter conjuntos diferentes de portas abertas e usar métricas de capacidade diferentes.
 
 A figura a seguir mostra um cluster que tem dois tipos de nó, chamados *frontend* e *back-end*. Cada tipo de nó tem cinco nós.
 
@@ -72,21 +74,21 @@ A seguir estão as descrições de propriedade:
 
 | **Nome** | **Valores permitidos** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
-| {1&gt;name&lt;1} | string | nome exclusivo para a extensão |
+| name | string | Nome exclusivo para a extensão |
 | type | "ServiceFabricLinuxNode" ou "ServiceFabricWindowsNode" | Identifica o sistema operacional Service Fabric está carregando para |
 | autoUpgradeMinorVersion | true ou false | Habilitar a atualização automática de versões secundárias do Runtime da it |
-| publisher | Microsoft.Azure.ServiceFabric | Nome do editor de extensão de Service Fabric |
+| publicador | Microsoft.Azure.ServiceFabric | Nome do editor de extensão de Service Fabric |
 | clusterEndpont | string | URI: porta para ponto de extremidade de gerenciamento |
-| nodeTypeRef | string | nome do nodeType |
-| durabilityLevel | bronze, silver, gold, platinum | tempo permitido para pausar a infraestrutura imutável do Azure |
+| nodeTypeRef | string | Nome do nodeType |
+| durabilityLevel | bronze, silver, gold, platinum | Tempo permitido para pausar a infraestrutura imutável do Azure |
 | enableParallelJobs | true ou false | Habilitar computação ParallelJobs como remover VM e reinicializar VM no mesmo conjunto de dimensionamento em paralelo |
 | nicPrefixOverride | string | Prefixo de sub-rede como "10.0.0.0/24" |
 | commonNames | string[] | Nomes comuns de certificados de cluster instalados |
 | x509StoreName | string | Nome do repositório onde o certificado de cluster instalado está localizado |
-| typeHandlerVersion | 1.1 | Versão da extensão. 1,0 a versão clássica da extensão é recomendada para atualizar para o 1,1 |
+| typeHandlerVersion | 1,1 | Versão da extensão. 1,0 a versão clássica da extensão é recomendada para atualizar para o 1,1 |
 | Caminho | string | Caminho para a unidade usada para salvar o estado de Service Fabric serviços do sistema e dados de aplicativo.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Consulte [visão geral do recurso "Implantar em qualquer lugar" e comparação com clusters gerenciados do Azure](service-fabric-deploy-anywhere.md).
 * Saiba mais sobre [segurança de cluster](service-fabric-cluster-security.md).

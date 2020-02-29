@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: gerenciar a computação com o Azure Functions'
-description: Como usar o Azure Functions para gerenciar a computação do seu data warehouse.
+description: Como usar o Azure Functions para gerenciar a computação do pool SQL no Azure Synapse Analytics.
 services: sql-data-warehouse
 author: julieMSFT
 manager: craigg
@@ -10,27 +10,27 @@ ms.subservice: consume
 ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: bc350ed092c063dcc7eca479f064114be9eb28f5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: a08c2c3c0167f0d82fe901e19b02db22b0ad56c5
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693009"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193102"
 ---
-# <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Use o Azure Functions para gerenciar recursos de computação no SQL Data Warehouse do Azure
+# <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Usar Azure Functions para gerenciar recursos de computação no pool do SQL do Azure Synapse Analytics
 
-Este tutorial usa o Azure Functions para gerenciar recursos de computação para um data warehouse do Azure SQL Data Warehouse.
+Este tutorial usa Azure Functions para gerenciar recursos de computação para um pool do SQL no Azure Synapse Analytics.
 
-Para usar o Aplicativo de funções do Azure com o Azure SQL Data Warehouse, você deve criar uma [Conta de entidade de serviço](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) com acesso de colaborador na mesma assinatura que a sua instância do data warehouse. 
+Para usar o Azure Aplicativo de funções com o pool do SQL, você deve criar uma [conta de entidade de serviço](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) com acesso de colaborador na mesma assinatura que sua instância do pool do SQL. 
 
 ## <a name="deploy-timer-based-scaling-with-an-azure-resource-manager-template"></a>Implantar o escalonador baseado em temporizador com um modelo do Azure Resource Manager
 
 Para implantar o modelo, você precisa das informações a seguir:
 
-- Nome do grupo de recursos onde está a sua instância do SQL DW
-- Nome do servidor lógico onde está a sua instância do SQL DW
-- Nome da sua instância do SQL DW
+- Nome do grupo de recursos em que sua instância do pool SQL está
+- Nome do servidor lógico em que sua instância do pool SQL está
+- Nome da sua instância do pool SQL
 - A ID de locatário (ID do diretório) do Azure Active Directory
 - ID da assinatura 
 - ID do aplicativo da entidade de serviço
@@ -119,17 +119,17 @@ Atualmente, há apenas duas funções de dimensionamento incluídas no modelo. C
 5. Defina a sua variável de operação para o comportamento desejado da seguinte maneira:
 
    ```javascript
-   // Resume the data warehouse instance
+   // Resume the SQL pool instance
    var operation = {
        "operationType": "ResumeDw"
    }
 
-   // Pause the data warehouse instance
+   // Pause the SQL pool instance
    var operation = {
        "operationType": "PauseDw"
    }
 
-   // Scale the data warehouse instance to DW600
+   // Scale the SQL pool instance to DW600
    var operation = {
        "operationType": "ScaleDw",
        "ServiceLevelObjective": "DW600"
@@ -177,7 +177,7 @@ Escalar verticalmente às 8:00 para DW1000, reduzir verticalmente uma vez para D
 
 Saiba mais sobre as funções de [gatilho de temporizador](../azure-functions/functions-create-scheduled-function.md) do Azure.
 
-Confira o [repositório de exemplos](https://github.com/Microsoft/sql-data-warehouse-samples) do SQL Data Warehouse.
+Faça checkout do [repositório de exemplos](https://github.com/Microsoft/sql-data-warehouse-samples)do pool SQL.
 
 
 

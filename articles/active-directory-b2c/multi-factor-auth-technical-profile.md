@@ -3,20 +3,20 @@ title: Perfis técnicos do Azure MFA em políticas personalizadas
 titleSuffix: Azure AD B2C
 description: Referência de política personalizada para perfis técnicos da MFA (autenticação multifator) do Azure no Azure AD B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a8aaea6b2afb4d89e6e667edba0eeba2f4ddcca8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 05851dba9de06b5dfba2da4f455fbaf5e9376d08
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480210"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184269"
 ---
 # <a name="define-an-azure-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definir um perfil técnico do Azure MFA em uma política personalizada de Azure AD B2C
 
@@ -53,7 +53,7 @@ O primeiro modo deste perfil técnico é gerar um código e enviá-lo. As opçõ
 
 O elemento **InputClaims** contém uma lista de declarações a serem enviadas para o Azure MFA. Você também pode mapear o nome da sua declaração para o nome definido no perfil técnico do MFA.
 
-| ClaimReferenceId | Obrigatório | Description |
+| ClaimReferenceId | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | userPrincipalName | Sim | O identificador do usuário que possui o número de telefone. |
 | phoneNumber | Sim | O número de telefone para o qual enviar um código SMS. |
@@ -70,7 +70,7 @@ O elemento **OutputClaimsTransformations** pode conter uma coleção de elemento
 
 ### <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | Description |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | Operação | Sim | Deve ser **OneWaySMS**.  |
 | UserMessageIfInvalidFormat | Não | Mensagem de erro personalizada se o número de telefone fornecido não for um número de telefone válido |
@@ -115,7 +115,7 @@ O segundo modo desse perfil técnico é verificar um código. As opções a segu
 
 O elemento **InputClaims** contém uma lista de declarações a serem enviadas para o Azure MFA. Você também pode mapear o nome da sua declaração para o nome definido no perfil técnico do MFA.
 
-| ClaimReferenceId | Obrigatório | Description |
+| ClaimReferenceId | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- | ----------- |
 | phoneNumber| Sim | Mesmo número de telefone usado anteriormente para enviar um código. Ele também é usado para localizar uma sessão de verificação de telefone. |
 | verificationCode  | Sim | O código de verificação fornecido pelo usuário a ser verificado |
@@ -130,7 +130,7 @@ O elemento **OutputClaimsTransformations** pode conter uma coleção de elemento
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | Description |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | Operação | Sim | Deve ser **verificar** |
 | UserMessageIfInvalidFormat | Não | Mensagem de erro personalizada se o número de telefone fornecido não for um número de telefone válido |
