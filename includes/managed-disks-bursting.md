@@ -1,21 +1,21 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/24/2019
+ms.date: 02/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7564d40aa9344288c0368818b0b6501dc22a5a27
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a04df7ed283a17ddad6af87cf8215ff8d39a5079
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705522"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78202469"
 ---
-A intermitência de disco é atualmente um recurso de visualização para SSDs Premium. A intermitência tem suporte em qualquer tamanho de disco SSD Premium < = 512 GiB (P20 ou abaixo). Esses tamanhos de disco dão suporte à intermitência em uma base de melhor esforço e utilizam um sistema de crédito para gerenciar a intermitência. Os créditos se acumulam em um Bucket de intermitência sempre que o tráfego de disco está abaixo do destino de desempenho provisionado para seu tamanho de disco e consome créditos quando o tráfego ultrapassa o destino. O tráfego de disco é rastreado em IOPS e largura de banda no destino provisionado.
+A intermitência de disco é atualmente um recurso de visualização para SSDs Premium. A intermitência tem suporte em qualquer tamanho de disco SSD Premium < = 512 GiB (P20 ou abaixo). Esses tamanhos de disco dão suporte à intermitência em uma base de melhor esforço e utilizam um sistema de crédito para gerenciar a intermitência. Os créditos se acumulam em um Bucket de intermitência sempre que o tráfego de disco está abaixo do destino de desempenho provisionado para seu tamanho de disco e consome créditos quando o tráfego ultrapassa o destino. O tráfego de disco é rastreado em IOPS e largura de banda no destino provisionado. A intermitência de disco não ignorará as limitações de tamanho de máquina virtual (VM) em IOPS ou taxa de transferência.
 
 A intermitência de disco é habilitada por padrão em novas implantações dos tamanhos de disco que dão suporte a ela. Os tamanhos de disco existentes, se oferecerem suporte a intermitência de disco, podem habilitar a intermitência por meio de qualquer um dos seguintes métodos:
 
@@ -38,7 +38,7 @@ Os tamanhos de disco que fornecem suporte de intermitência juntamente com as es
 
 Atualmente, a intermitência de disco está disponível apenas na região do EUA Central ocidental.
 
-## <a name="disk-sizes"></a>Tamanhos de disco
+## <a name="disk-sizes"></a>Tamanhos do disco
 
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 

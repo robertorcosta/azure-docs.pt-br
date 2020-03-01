@@ -1,19 +1,19 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: active-directory
 author: curtand
 ms.service: active-directory
 ms.topic: include
-ms.date: 01/22/2020
+ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 2e06a6c8dd7eb58769f504db9f96e0303c3e9f4c
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 5356252432b70654648a832f9ac27698f29b6327
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76748779"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78202512"
 ---
 Aqui estão as restrições de uso e outros limites de serviço para o serviço Microsoft Azure Active Directory (Azure AD).
 
@@ -21,7 +21,7 @@ Aqui estão as restrições de uso e outros limites de serviço para o serviço 
 | --- | --- |
 | Diretórios | Um único usuário pode pertencer a um máximo de 500 diretórios do Microsoft Azure Active Directory como um membro ou convidado.<br/>Um único usuário pode criar no máximo 20 diretórios. |
 | Domínios | É possível adicionar no máximo 900 nomes de domínio gerenciados. Ao configurar todos os domínios para a federação com o Active Directory local, você poderá adicionar no máximo 450 nomes de domínio em cada diretório. |
-|Recursos |<ul><li>Um máximo de 50.000 recursos do Azure AD pode ser criado em um único diretório por usuários da edição gratuita do Azure Active Directory por padrão. Se você tiver pelo menos um domínio verificado, a cota de serviço de diretório padrão no Azure AD será estendida para os recursos 300.000 do AD do Azure. </li><li>Um usuário não administrador pode criar no máximo 250 recursos do Azure AD. Recursos ativos e excluídos que estão disponíveis para restaurar a contagem em direção a essa cota. Somente os recursos do Azure AD excluídos que foram excluídos há menos de 30 dias estão disponíveis para restauração. Recursos do Azure AD excluídos que não estão mais disponíveis para restaurar a contagem em direção a essa cota em um valor de um trimestre por 30 dias. Se você tiver os desenvolvedores que provavelmente excederão repetidamente essa cota no decorrer de suas tarefas regulares, você poderá [criar e atribuir uma função personalizada](../articles/active-directory/users-groups-roles/roles-quickstart-app-registration-limits.md) com permissão para criar um número ilimitado de registros de aplicativo.</li></ul> |
+|Recursos |<ul><li>Um máximo de 50.000 recursos do Azure AD pode ser criado em um único diretório por usuários da edição gratuita do Azure Active Directory por padrão. Se você tiver pelo menos um domínio verificado, a cota de serviço do Azure AD padrão para sua organização será estendida para os recursos 300.000 do Azure AD. Esse limite de serviço não está relacionado ao limite do tipo de preço de 500.000 recursos na página de preços do Azure AD. Para ir além da cota padrão, você deve entrar em contato com Suporte da Microsoft.</li><li>Um usuário não administrador pode criar no máximo 250 recursos do Azure AD. Recursos ativos e excluídos que estão disponíveis para restaurar a contagem em direção a essa cota. Somente os recursos do Azure AD excluídos que foram excluídos há menos de 30 dias estão disponíveis para restauração. Recursos do Azure AD excluídos que não estão mais disponíveis para restaurar a contagem em direção a essa cota em um valor de um trimestre por 30 dias. Se você tiver os desenvolvedores que provavelmente excederão repetidamente essa cota no decorrer de suas tarefas regulares, você poderá [criar e atribuir uma função personalizada](../articles/active-directory/users-groups-roles/roles-quickstart-app-registration-limits.md) com permissão para criar um número ilimitado de registros de aplicativo.</li></ul> |
 | Extensões de esquema |<ul><li>As extensões do tipo cadeia de caracteres podem ter no máximo 256 caracteres. </li><li>As extensões do tipo binário são limitadas a 256 bytes.</li><li>Somente os valores de extensão 100, em *todos os* tipos e *todos os* aplicativos, podem ser gravados em qualquer recurso único do AD do Azure.</li><li>Somente as entidades Grupo, TenantDetail, Dispositivo, Aplicativo e ServicePrincipal podem ser estendidas com atributos de valor único do tipo cadeia de caracteres ou binário.</li><li>As extensões de esquema estão disponíveis somente na API do Graph versão 1.21 – versão prévia. O aplicativo precisa obter acesso de gravação para registrar uma extensão.</li></ul> |
 | Aplicativos |Um máximo de 100 usuários podem ser proprietários de um único aplicativo. |
 |Manifesto do Aplicativo |Um máximo de 1200 entradas pode ser adicionado no manifesto do aplicativo. |

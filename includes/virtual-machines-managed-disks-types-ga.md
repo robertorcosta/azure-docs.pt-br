@@ -1,27 +1,27 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/14/2019
+ms.date: 02/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a355307eef9f5ce1f833cfd7924f5efa234a0cd7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e145cf481dd165144b188e6205e4b78cc61359fd
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73522203"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78202535"
 ---
 ## <a name="premium-ssd"></a>SSD Premium
 
 Os SSDs Premium do Azure oferecem compatibilidade de disco de alto desempenho e baixa latência para VMs (máquinas virtuais) com cargas de trabalho com uso intensivo de E/S (entrada/saída). Para aproveitar a velocidade e o desempenho dos discos de armazenamento Premium, você pode migrar os discos de VM existentes para os SSDs Premium. Os SSDs Premium são adequados para aplicativos de produção críticos. O SSDs Premium só pode ser usado com a série de VMs que são compatíveis com o armazenamento Premium.
 
-Para saber mais sobre os tipos e tamanhos de VM individuais no Azure para Windows, incluindo quais tamanhos são compatíveis com o armazenamento Premium, consulte [tamanhos de VM do Windows](../articles/virtual-machines/windows/sizes.md). Para saber mais sobre os tipos e tamanhos de VM individuais no Azure para Linux, incluindo quais tamanhos são compatíveis com o armazenamento Premium, consulte [tamanhos de VM do Linux](../articles/virtual-machines/linux/sizes.md).
+Para saber mais sobre os tipos e tamanhos de VM individuais no Azure para Windows, incluindo quais tamanhos são compatíveis com o armazenamento Premium, consulte [tamanhos de VM do Windows](../articles/virtual-machines/windows/sizes.md). Para saber mais sobre os tipos e tamanhos de VM individuais no Azure para Linux, incluindo quais tamanhos são compatíveis com o armazenamento Premium, consulte [tamanhos de VM do Linux](../articles/virtual-machines/linux/sizes.md). A partir de qualquer um desses artigos, você precisa verificar cada artigo de tamanho de VM individual para determinar se ele é compatível com o armazenamento Premium.
 
-### <a name="disk-size"></a>Tamanho de disco
+### <a name="disk-size"></a>Tamanho do disco
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
 Quando você provisiona um disco de armazenamento premium, ao contrário do armazenamento padrão, a capacidade, IOPS e taxa de transferência de disco são garantidos. Por exemplo, se você criar um disco P50, o Azure provisionará uma capacidade de armazenamento de 4.095 GB, 7.500 IOPS e uma taxa de transferência de 250 MB/s para o disco. O aplicativo pode usar a capacidade e o desempenho no todo ou em parte. SSD Premium discos são projetados para fornecer latências de milissegundos de um dígito baixo e IOPS de destino e taxa de transferência descritas na tabela anterior 99,9% do tempo.
@@ -40,7 +40,7 @@ Para o SSDs Premium, cada operação de e/s menor ou igual a 256 KiB de taxa de 
 
 Os SSDs Standard do Azure são uma opção econômica de armazenamento otimizado para cargas de trabalho que necessitam de desempenho consistente em níveis de IOPS mais baixos. SSD padrão oferece uma experiência de bom nível de entrada para aqueles que desejam migrar para a nuvem, especialmente se passar por problemas com a variação das cargas de trabalho em execução nas soluções de HD no local. Em comparação com HDDs padrão, o SSDs padrão oferece melhor disponibilidade, consistência, confiabilidade e latência. Os SSDs Standard são adequado para servidores Web, servidores de aplicativos de IOPS baixo, aplicativos empresariais pouco usados e cargas de trabalho de Desenvolvimento/Teste. Como HDDs padrão, o SSDs padrão está disponível em todas as VMs do Azure.
 
-### <a name="disk-size"></a>Tamanho de disco
+### <a name="disk-size"></a>Tamanho do disco
 [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
 
 O SSDs padrão é projetado para fornecer latências de milissegundos de dígito único e a IOPS e a taxa de transferência até os limites descritos na tabela anterior 99% do tempo. O IOPS e a taxa de transferência reais podem variar às vezes, dependendo dos padrões de tráfego. SSDs Padrão fornecerão um desempenho mais consistente do que os discos HD com a menor latência.
@@ -53,7 +53,7 @@ Para SSDs padrão, cada operação de e/s menor ou igual a 256 KiB de taxa de tr
 
 Os HDs Standard do Azure oferecem compatibilidade de disco confiável e de baixo custo para VMs que executam cargas de trabalho insensíveis a latência. Com o Armazenamento Standard, os dados são armazenados em HDs (unidades de disco rígido). A latência, o IOPS e a taxa de transferência de discos de HDD Standard podem variar mais amplamente em comparação com discos baseados em SSD. HDD Standard discos são projetados para fornecer latências de gravação em 10 ms e latências de leitura em 20 ms para a maioria das operações de e/s, no entanto, o desempenho real pode variar dependendo do padrão de tamanho de e/s Ao trabalhar com VMs, você pode usar discos HDD padrão para cenários de desenvolvimento/teste e cargas de trabalho menos críticas. Os HDDs padrão estão disponíveis em todas as regiões do Azure e podem ser usados com todas as VMs do Azure.
 
-### <a name="disk-size"></a>Tamanho de disco
+### <a name="disk-size"></a>Tamanho do disco
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
 
 ### <a name="transactions"></a>Transações
