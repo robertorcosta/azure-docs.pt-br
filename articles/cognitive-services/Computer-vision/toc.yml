@@ -5,6 +5,8 @@
   items:
     - name: O que é a Pesquisa Visual Computacional?
       href: Home.md
+    - name: Novidades
+      href: whats-new.md
 - name: Inícios rápidos
   items:
     - name: Usando o SDK do cliente

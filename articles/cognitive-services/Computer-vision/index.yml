@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentação de Pesquisa Visual Computacional
-summary: A API da Pesquisa Visual Computacional baseada em nuvem fornece aos desenvolvedores o acesso a algoritmos avançados para processar imagens e retornar informações. Ao carregar uma imagem ou especificar uma URL de imagem, algoritmos da Pesquisa Visual Computacional da Microsoft podem analisar o conteúdo visual de maneiras diferentes com base em entradas e nas opções do usuário. Aprenda a analisar o conteúdo visual de diferentes maneiras com guias de início rápido, tutoriais e exemplos.
+summary: A API da Pesquisa Visual Computacional baseada em nuvem fornece aos desenvolvedores o acesso a algoritmos avançados para processar imagens e retornar informações. Ao fazer upload de uma imagem ou especificar uma URL de imagem, algoritmos da Pesquisa Visual Computacional da Microsoft podem analisar o conteúdo visual de maneiras diferentes com base em entradas e nas opções do usuário. Aprenda a analisar o conteúdo visual de diferentes maneiras com guias de início rápido, tutoriais e exemplos.
 metadata:
   title: Documentação da Pesquisa Visual Computacional – Inícios rápidos, tutoriais, referência de API – Serviços Cognitivos do Azure | Microsoft Docs
-  description: A API da Pesquisa Visual Computacional baseada em nuvem fornece aos desenvolvedores o acesso a algoritmos avançados para processar imagens e retornar informações. Ao carregar uma imagem ou especificar uma URL de imagem, algoritmos da Pesquisa Visual Computacional da Microsoft podem analisar o conteúdo visual de maneiras diferentes com base em entradas e nas opções do usuário. Aprenda a analisar o conteúdo visual de diferentes maneiras com guias de início rápido, tutoriais e exemplos.
+  description: A API da Pesquisa Visual Computacional baseada em nuvem fornece aos desenvolvedores o acesso a algoritmos avançados para processar imagens e retornar informações. Ao fazer upload de uma imagem ou especificar uma URL de imagem, algoritmos da Pesquisa Visual Computacional da Microsoft podem analisar o conteúdo visual de maneiras diferentes com base em entradas e nas opções do usuário. Aprenda a analisar o conteúdo visual de diferentes maneiras com guias de início rápido, tutoriais e exemplos.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: computer-vision
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/01/2019
-  ms.openlocfilehash: b17796fe07f37931c4a4924c6d4daaa8399562d2
-  ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+  ms.openlocfilehash: e7c04f587f900342031f25210f6640b46fbc358b
+  ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 11/06/2019
-  ms.locfileid: "73647833"
+  ms.lasthandoff: 03/01/2020
+  ms.locfileid: "78207074"
 landingContent:
 - title: Sobre a Pesquisa Visual Computacional
   linkLists:
@@ -24,6 +24,10 @@ landingContent:
     links:
     - text: O que é a Pesquisa Visual Computacional?
       url: Home.md
+  - linkListType: whats-new
+    links:
+    - text: Novidades
+      url: whats-new.md
   - linkListType: video
     links:
     - text: Incluir inteligência em seus aplicativos com APIs de pesquisa visual

@@ -1,9 +1,12 @@
 - name: Documentação do Serviço de Visão Personalizada
   href: index.yml
 - name: Visão geral
+  expanded: true
   items:
     - name: O que é Visão Personalizada?
       href: home.md
+    - name: Novidades
+      href: whats-new.md
 - name: Inícios rápidos
   items:
     - name: Usar o portal da Web

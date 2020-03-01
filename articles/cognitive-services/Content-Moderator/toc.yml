@@ -1,11 +1,12 @@
 - name: Documentação do Content Moderator
   href: index.yml
 - name: Visão geral
+  expanded: true
   items:
     - name: O que é o Content Moderator?
       href: overview.md
       expanded: true
-- name: Guia de início rápido
+- name: Inícios rápidos
   items:
     - name: Experimentar o Content Moderator na Web
       href: quick-start.md
