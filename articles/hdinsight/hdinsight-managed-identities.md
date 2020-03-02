@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/20/2019
-ms.openlocfilehash: c2b590e623062d5d5ae39261b3b5fa5a37a39122
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: daae9c16797ad9c1b85635f5aec7d0cf884e003f
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919213"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206003"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Identidades gerenciadas no Azure HDInsight
 
@@ -44,12 +44,12 @@ Identidades gerenciadas são usadas no Azure HDInsight em vários cenários. Con
 
 * [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md#create-a-user-assigned-managed-identity)
 * [Enterprise Security Package](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
-* [Kafka Bring Your Own Key (BYOK)](kafka/apache-kafka-byok.md#get-started-with-byok)
+* [Criptografia de disco de chave gerenciada pelo cliente](disk-encryption.md)
 
 ## <a name="faq"></a>Perguntas frequentes
 ### <a name="what-happens-if-i-delete-the-managed-identity-after-the-cluster-creation"></a>O que acontecerá se eu excluir a identidade gerenciada após a criação do cluster?
-O cluster terá problemas quando a identidade gerenciada for necessária. Atualmente, não há nenhuma maneira de atualizar ou alterar o identidade de gerenciamento após a criação do cluster. Portanto, nossa recomendação é garantir que a identidade gerenciada não seja excluída durante o tempo de execução do cluster. Como alternativa, você pode recriar o cluster e atribuir uma nova identidade gerenciada.
+O cluster terá problemas quando a identidade gerenciada for necessária. Atualmente, não há nenhuma maneira de atualizar ou alterar a identidade de gerenciamento depois que o cluster é criado. Portanto, nossa recomendação é garantir que a identidade gerenciada não seja excluída durante o tempo de execução do cluster. Como alternativa, você pode recriar o cluster e atribuir uma nova identidade gerenciada.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [O que são identidades gerenciadas para recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md)

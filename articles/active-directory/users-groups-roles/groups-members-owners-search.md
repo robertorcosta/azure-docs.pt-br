@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 02/28/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d11f5a9f2de8683365d663e85c275c3729ebf8a
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: a815446b79b3e5ec0a75e5d179953956643b16c9
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901497"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206105"
 ---
-# <a name="search-groups--and-members-preview-in-azure-active-directory"></a>Pesquisar grupos e Membros (versão prévia) no Azure Active Directory
+# <a name="search-groups-and-members-preview-in-azure-active-directory"></a>Pesquisar grupos e Membros (versão prévia) no Azure Active Directory
 
 Este artigo mostra como Pesquisar Membros e proprietários de um grupo e como usar filtros de pesquisa como parte da versão prévia de aperfeiçoamento dos grupos no portal do Azure Active Directory (AD do Azure). Há vários aprimoramentos nas experiências de grupos para ajudá-lo a gerenciar seus grupos, incluindo membros e proprietários, com rapidez e facilidade. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -45,7 +45,7 @@ Se você tiver problemas, poderá voltar à experiência herdada selecionando a 
 
 ## <a name="group-search-and-sorting"></a>Pesquisa e classificação de grupo
 
-A pesquisa da lista de grupos foi aprimorada, de modo que, quando você pode inserir uma cadeia de `startswith` caracteres de pesquisa, a pesquisa executa automaticamente uma pesquisa de Subcadeia e na lista de nomes de grupos. A pesquisa de subcadeia de caracteres é executada somente em palavras inteiras e não inclui caracteres especiais.
+A pesquisa da lista de grupos foi aprimorada, de modo que, quando você pode inserir uma cadeia de caracteres de pesquisa, a pesquisa executa automaticamente uma pesquisa de `startswith` e subcadeia de caracteres na lista de nomes de grupos. A pesquisa de subcadeia de caracteres é executada somente em palavras inteiras e não inclui caracteres especiais. A pesquisa de subcadeia de caracteres diferencia maiúsculas de minúsculas.
 
 ![novas pesquisas de subcadeias na página todos os grupos](./media/groups-members-owners-search/groups-search-preview.png)
 

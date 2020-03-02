@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/11/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 70f37c70f685ee139db4b417c1c498f9eefb8205
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 27d65c7e6bbc0af20d01d91f1472433f3e7142a9
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184750"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206598"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
 
@@ -116,22 +116,15 @@ Para configurar a gravação de logs de auditoria em um espaço de trabalho do L
 
 ### <a id="audit-event-hub-destination">Auditoria para destino do hub de eventos</a>
 
-< < < < < < < cabeçalho < < < < < < < HEAD = = = = = = =
->>>>>>> a8190987e07da4c5ced6de5f588d394ace4ca31d
 > [!IMPORTANT]
 > Não é possível habilitar a auditoria em um pool SQL pausado. Para habilitá-lo, cancele a pausa do pool do SQL.
 
 > [!WARNING]
-> Habilitar a auditoria em um servidor que tenha um pool do SQL, **resultará na retomada e na repausa do pool do SQL, o** que pode incorrer em encargos de cobrança.
-< < < < < < < HEAD = = = = = = = para configurar a gravação de logs de auditoria para um hub de eventos, selecione **Hub de eventos (versão prévia)** e abra **detalhes do hub de eventos**. Selecione o hub de eventos no qual os logs serão gravados e, em seguida, clique em **OK**. Verifique se o hub de eventos está na mesma região que o banco de dados e o servidor.
+> A habilitação da auditoria em um servidor que tem um pool do SQL faz com que **o pool SQL seja retomado e pausado novamente,** o que pode incorrer em encargos de cobrança.
 
-   ![Eventhub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
->>>>>>> <a name="bf6444e83361ab743aca04ae233c420e51ea1e03"></a>bf6444e83361ab743aca04ae233c420e51ea1e03
-=======
 Para configurar a gravação de logs de auditoria para um hub de eventos, selecione **Hub de Eventos (versão prévia)** e abra **Detalhes do Hub de Eventos**. Selecione o hub de eventos no qual os logs serão gravados e, em seguida, clique em **OK**. Verifique se o hub de eventos está na mesma região que o banco de dados e o servidor.
 
    ![Eventhub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
->>>>>>> a8190987e07da4c5ced6de5f588d394ace4ca31d
 
 ## <a id="subheading-3"></a>Analisar os logs e relatórios de auditoria
 

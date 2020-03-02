@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 6ad583fdb880e36e6ac9c2dfda56bb68378ea598
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 87eb04b7323186175195babf6a602fa12d25176f
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76313987"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206700"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicionar outras contas de armazenamento ao HDInsight
 
@@ -21,13 +21,13 @@ Saiba como usar ações de script para adicionar mais *contas* de armazenamento 
 > [!IMPORTANT]  
 > As informações neste documento são sobre como adicionar mais contas de armazenamento a um cluster depois que ele tiver sido criado. Para saber mais sobre como adicionar contas de armazenamento durante a criação do cluster, veja [Configurar clusters no HDInsight com Apache Hadoop, Apache Spark, Apache Kafka e mais](hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Um cluster Hadoop no HDInsight. Consulte [Introdução ao HDInsight no Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Nome e chave da conta de armazenamento. Consulte [gerenciar chaves de acesso da conta de armazenamento](../storage/common/storage-account-keys-manage.md).
 * Se estiver usando o PowerShell, você precisará do módulo AZ.  Consulte [visão geral do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 Durante o processamento, o script executa as ações a seguir:
 
@@ -46,13 +46,13 @@ Durante o processamento, o script executa as ações a seguir:
 
 ## <a name="add-storage-account"></a>Nova conta de armazenamento
 
-Use a [ação de script](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) para aplicar as alterações com as seguintes considerações:
+Use a [ação de script](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster) para aplicar as alterações com as seguintes considerações:
 
 |Propriedade | Valor |
 |---|---|
 |URI do script Bash|`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`|
-|Tipo(s) de nó|de Cabeçalho|
-|Parâmetros|`ACCOUNTNAME` `ACCOUNTKEY` `-p` (opcional)|
+|Tipo(s) de nó|Head|
+|parâmetros|`ACCOUNTNAME` `ACCOUNTKEY` `-p` (opcional)|
 
 * `ACCOUNTNAME` é o nome da conta de armazenamento a ser adicionada ao cluster HDInsight.
 * `ACCOUNTKEY` é a chave de acesso para `ACCOUNTNAME`.
@@ -64,7 +64,7 @@ Ao exibir o cluster HDInsight no portal do Azure, a seleção da entrada __conta
 
 Para verificar se o armazenamento adicional usa um dos métodos mostrados abaixo:
 
-### <a name="powershell"></a>Powershell
+### <a name="powershell"></a>PowerShell
 
 O script retornará os nomes de conta de armazenamento associados ao cluster especificado. Substitua `CLUSTERNAME` pelo nome real do cluster e, em seguida, execute o script.
 
@@ -141,6 +141,6 @@ Se a conta de armazenamento estiver em uma região diferente do cluster do HDIns
 
 Se a conta de armazenamento estiver em uma região diferente do cluster do HDInsight, você poderá observar encargos adicionais em sua cobrança do Azure. Um encargo de saída é aplicado quando os dados saem de um data center regional. Esse encargo se aplica mesmo se o tráfego for destinado a outro data center do Azure em uma região diferente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Você aprendeu a adicionar mais contas de armazenamento a um cluster HDInsight existente. Para saber mais sobre as ações de script, confira [Personalizar clusters HDInsight com base em Linux usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md)

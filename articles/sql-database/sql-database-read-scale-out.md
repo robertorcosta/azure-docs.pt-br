@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: f111b19eb07c218a9f3250ef3ffdb8a97cf07542
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 1a1b9907cd931716949d92d948a7d541fd2d5057
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420718"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206938"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Usar réplicas somente leitura para balancear a carga de cargas de trabalho de consulta somente leitura
 
@@ -35,7 +35,7 @@ O recurso de expansão de leitura é habilitado por padrão nos novos bancos de 
 Se você quiser garantir que o aplicativo se conecte à réplica primária independentemente da configuração de `ApplicationIntent` na cadeia de conexão SQL, você deve desabilitar explicitamente a expansão de leitura ao criar o banco de dados ou ao alterar sua configuração. Por exemplo, se você atualizar seu banco de dados da camada Standard ou Uso Geral para a camada Premium, Comercialmente Crítico ou hiperscale e quiser ter certeza de que todas as suas conexões continuam a ir para a réplica primária, desabilite a expansão de leitura. Para obter detalhes sobre como desabilitá-lo, consulte [habilitar e desabilitar a expansão de leitura](#enable-and-disable-read-scale-out).
 
 > [!NOTE]
-> Repositório de Dados de Consultas, os eventos estendidos, o SQL Profiler e os recursos de auditoria não têm suporte nas réplicas somente leitura.
+> Repositório de Dados de Consultas, os eventos estendidos e os recursos do SQL Profiler não têm suporte nas réplicas somente leitura.
 
 ## <a name="data-consistency"></a>Consistência de dados
 

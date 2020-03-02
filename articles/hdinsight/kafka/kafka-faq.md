@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: c8d2ef0330a32d5cab88355cc749322ec3a5ea30
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: ff4079263fd7afb02e132a798997687fad7e9961
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530928"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206972"
 ---
 # <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>Perguntas frequentes sobre Apache Kafka no Azure HDInsight
 
@@ -27,7 +27,7 @@ Encontre mais informações sobre as versões de componente com suporte oficial 
 Um cluster Kafka do HDInsight inclui os seguintes recursos:
 
 * Nós de cabeçalho
-* Nós do ZooKeeper
+* Nós do Zookeeper
 * Nós do agente (trabalhador) 
 * Managed Disks do Azure anexados aos nós do agente
 * Nós de gateway
@@ -50,7 +50,7 @@ Usando o [Enterprise Security Package (ESP)](../domain-joined/apache-domain-join
 
 ## <a name="is-my-data-encrypted-can-i-use-my-own-keys"></a>Meus dados estão criptografados? Posso usar minhas próprias chaves?
 
-Todas as mensagens Kafka nos discos gerenciados são criptografadas com o [Azure criptografia do serviço de armazenamento (SSE)](../../storage/common/storage-service-encryption.md). Dados em trânsito (por exemplo, dados sendo transmitidos de clientes para agentes e o contrário) não são criptografados por padrão. É possível criptografar esse tráfego [Configurando o SSL por conta própria](./apache-kafka-ssl-encryption-authentication.md). Além disso, o HDInsight permite que você gerencie suas próprias chaves para criptografar os dados em repouso. Consulte [traga sua própria chave para Apache Kafka no Azure HDInsight](apache-kafka-byok.md), para obter mais informações.
+Todas as mensagens Kafka nos discos gerenciados são criptografadas com o [Azure criptografia do serviço de armazenamento (SSE)](../../storage/common/storage-service-encryption.md). Dados em trânsito (por exemplo, dados sendo transmitidos de clientes para agentes e o contrário) não são criptografados por padrão. É possível criptografar esse tráfego [Configurando o SSL por conta própria](./apache-kafka-ssl-encryption-authentication.md). Além disso, o HDInsight permite que você gerencie suas próprias chaves para criptografar os dados em repouso. Consulte [criptografia de disco de chave gerenciada pelo cliente](../disk-encryption.md)para obter mais informações.
 
 ## <a name="how-do-i-connect-clients-to-my-cluster"></a>Como fazer conectar clientes ao meu cluster?
 
@@ -94,7 +94,7 @@ Atualmente, não há suporte para atualizações de versão de cluster in-loco. 
 
 Use o Azure monitor para analisar os [logs do Kafka](./apache-kafka-log-analytics-operations-management.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Configurar a criptografia e autenticação do protocolo SSL (SSL) para Apache Kafka no Azure HDInsight](./apache-kafka-ssl-encryption-authentication.md)
 * [Usar o MirrorMaker para replicar tópicos do Apache Kafka com Kafka no HDInsight](./apache-kafka-mirroring.md)

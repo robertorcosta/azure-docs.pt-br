@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 5e954de97e6573e330c42915b44bbc0c40abc54d
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 9e93d4b3f1880f2ac56a32a7b85aa6801fb7c14e
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063236"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205090"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutorial: configurar o ServiceNow para provisionamento automático de usuário
 
@@ -35,7 +35,7 @@ Este tutorial descreve as etapas que você precisa executar tanto no ServiceNow 
 > * Provisionar grupos e associações de grupo no ServiceNow
 > * [Logon único](servicenow-tutorial.md) no ServiceNow (recomendado)
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
@@ -104,7 +104,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Selecione **Salvar**.
+7. Clique em **Salvar**.
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para o ServiceNow**.
 
@@ -142,13 +142,13 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
 * **EntryJoiningPropertyValueIsMissing:** Examine os [mapeamentos de atributo](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) para identificar o atributo correspondente. Esse valor deve estar presente no usuário ou grupo que você está tentando provisionar. 
 * Examine a [API de SOAP do ServiceNow](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) para entender quaisquer requisitos ou limitações (por exemplo, formato para especificar o código do país para um usuário)
 * Algumas implantações do ServiceNow exigem a permissão de intervalos de IP para o serviço de provisionamento do Azure AD. Os intervalos IP reservados para o serviço de provisionamento do Azure AD podem ser encontrados [aqui](https://www.microsoft.com/download/details.aspx?id=56519) em "AzureActiveDirectoryDomainServices".
-* Atualmente, não há suporte para o provisionamento de usuários para a nuvem do ServiceNow governamental.
+* As solicitações de provisionamento são enviadas por padrão para https://{seu-Instance-Name}. serviço-agora. com/{table-name}. Se você precisar de uma URL de locatário personalizada, poderá fornecer a URL inteira no campo nome da instância.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)

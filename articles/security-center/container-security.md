@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: cd9907d041562d23bc487de319a17d36b68db6f3
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 45ce8a808efc5b882c90f99875fdde661e292774
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77916110"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205969"
 ---
 # <a name="container-security-in-security-center"></a>Segurança do contêiner na central de segurança
 
@@ -33,7 +33,7 @@ Este artigo descreve como a central de segurança ajuda você a melhorar, monito
 
 Para obter instruções sobre como usar esses recursos, consulte [monitorando a segurança de seus contêineres](monitor-container-security.md).
 
-## <a name="vulnerability-management---scanning-container-images-preview"></a>Gerenciamento de vulnerabilidades-verificação de imagens de contêiner (visualização)
+## <a name="vulnerability-management---scanning-container-images"></a>Gerenciamento de vulnerabilidades-verificação de imagens de contêiner
 Para monitorar seu registro de contêiner do Azure baseado em ARM, verifique se você está na camada Standard da central de segurança (consulte [preços](/azure/security-center/security-center-pricing)). Em seguida, habilite o pacote opcional de registros de contêiner. Quando uma nova imagem é enviada por push, a central de segurança examina a imagem usando um scanner do fornecedor de verificação de vulnerabilidade líder do setor, Qualys.
 
 Quando forem encontrados problemas – por Qualys ou pela central de segurança – você será notificado no painel da central de segurança. Para cada vulnerabilidade, a central de segurança fornece recomendações acionáveis, juntamente com uma classificação de gravidade, e orientações sobre como corrigir o problema. Para obter detalhes das recomendações da central de segurança para contêineres, consulte a [lista de recomendações de referência](recommendations-reference.md#recs-containers).
@@ -85,7 +85,7 @@ As verificações de imagem são disparadas em cada Push.
 Sim. Os resultados estão sob a [API REST de subavaliações](/rest/api/securitycenter/subassessments/list/). Além disso, você pode usar o grafo de recursos do Azure (ARG), a API do tipo Kusto para todos os seus recursos: uma consulta pode buscar uma verificação específica.
  
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre a segurança de contêiner na central de segurança do Azure, consulte estes artigos relacionados:
 

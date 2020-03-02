@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 11/12/2019
+ms.date: 02/28/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b813c1caa02ce3ffd3ab0579849dff47252e7d63
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: d024382f816e98fb5cb83331dd417f0c41362bc4
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77559157"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78207040"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -29,7 +29,7 @@ Usando o Azure Active Directory (AD do Azure), você pode designar administrador
 
 Os usuários atribuídos à função de administrador global podem ler e modificar cada configuração administrativa em sua organização do Azure AD. Por padrão, a pessoa que se inscreve para uma assinatura do Azure recebe a função de administrador global da organização do Azure AD. Somente administradores globais e administradores de função com privilégios podem delegar funções de administrador. Para reduzir o risco para seus negócios, recomendamos que você atribua essa função ao menor número possível de pessoas em sua organização.
 
-Como prática recomendada, recomendamos que você atribua essa função a menos de 5 pessoas em sua organização. Se você tiver mais de cinco usuários atribuídos à função de administrador global em sua organização, aqui estão algumas maneiras de reduzir seu uso.
+Como prática recomendada, recomendamos que você atribua essa função a menos de cinco pessoas em sua organização. Se você tiver mais de cinco administradores atribuídos à função de administrador global em sua organização, aqui estão algumas maneiras de reduzir seu uso.
 
 ### <a name="find-the-role-you-need"></a>Encontre a função de que você precisa
 
@@ -238,7 +238,7 @@ Os usuários nessa função podem ler configurações e informações administra
 >- [Portal do AD do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) -o leitor global não pode ler o modo de provisionamento de um aplicativo empresarial.
 >- [Centro de administração do M365](https://admin.microsoft.com/Adminportal/Home#/homepage) -o leitor global não pode ler solicitações de lockbox do cliente. Você não encontrará a guia **solicitações de lockbox do cliente** em **suporte** no painel esquerdo do centro de administração do M365.
 >- [Central de segurança do M365](https://security.microsoft.com/homepage) -o leitor global não pode ler rótulos de sensibilidade e retenção. Você não encontrará **Rótulos de sensibilidade**, **Rótulos de retenção**e guias de análise de **rótulo** no painel esquerdo da central de segurança do M365.
->- [Office centro de conformidade e segurança](https://sip.protection.office.com/homepage) -o leitor global não pode ler logs de auditoria SCC ou fazer pesquisa de conteúdo.
+>- [Office centro de conformidade e segurança](https://sip.protection.office.com/homepage) -o leitor global não pode ler logs de auditoria SCC, fazer pesquisa de conteúdo ou ver a pontuação segura.
 >- [Centro de administração do teams](https://admin.teams.microsoft.com) – o leitor global não pode ler o **ciclo de vida das equipes**, **relatórios de & de análise**, gerenciamento de dispositivo de **telefone IP** e **Catálogo**
 >- [Privileged Access Management (PAM)](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) não oferece suporte à função de leitor global.
 >- [Proteção de informações do Azure](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) – o leitor global tem suporte apenas [para relatórios centrais](https://docs.microsoft.com/azure/information-protection/reports-aip) e quando sua organização do Azure ad não está na [plataforma de rotulamento unificada](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
@@ -1012,7 +1012,7 @@ Configure os provedores de identidade para uso na Federação direta.
 | Microsoft. AAD. B2C/identityProviders/minhas tarefas | Ler e configurar provedores de identidade no Azure Active Directory B2C. |
 
 ### <a name="global-reader-permissions"></a>Permissões de leitor globais
-Pode ler tudo o que um administrador global pode, mas não editar nada. 
+Pode ler tudo o que um administrador global pode, mas não editar nada.
 
 > [!NOTE]
 > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a [Descrição da função](#global-reader) acima.

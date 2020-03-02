@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ee35f26f9433f6ab342c7dce105638122b9d7717
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 260811c4ae15b45de6f7bc1b22e3ed6dcea44259
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486253"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78204507"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Desempenho e escala nas Funções Duráveis (Azure Functions)
 
@@ -220,7 +220,7 @@ Os efeitos específicos das sessões estendidas no Orchestrator e nas funções 
 
 ### <a name="orchestrator-function-replay"></a>Reprodução de função do Orchestrator
 
-Conforme mencionado anteriormente, as funções do orquestrador são repetidas usando o conteúdo da tabela **Histórico**. Por padrão, o código de função do orquestrador é repetido sempre que um lote de mensagens for removido da fila de uma fila de controle. Quando as sessões estendidas são habilitadas, as instâncias de função de orquestrador são mantidas em memória por mais tempo e novas mensagens podem ser processadas sem uma reprodução de histórico completo.
+Conforme mencionado anteriormente, as funções do orquestrador são repetidas usando o conteúdo da tabela **Histórico**. Por padrão, o código de função do orquestrador é repetido sempre que um lote de mensagens for removido da fila de uma fila de controle. Mesmo se você estiver usando o padrão Fan-out e Fan-in e estiver aguardando a conclusão de todas as tarefas (por exemplo, usando `Task.WhenAll` no .NET ou `context.df.Task.all` em JavaScript), haverá repetições que ocorrem à medida que os lotes de respostas de tarefa são processados ao longo do tempo. Quando as sessões estendidas são habilitadas, as instâncias de função de orquestrador são mantidas em memória por mais tempo e novas mensagens podem ser processadas sem uma reprodução de histórico completo.
 
 A melhoria de desempenho de sessões estendidas é geralmente observada nas seguintes situações:
 

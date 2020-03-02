@@ -3,12 +3,12 @@ title: Referência de desenvolvedor do Python para o Azure Functions
 description: Saiba como desenvolver funções usando Python
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: 8ee13b59812e6a212fbafcf4ea6bfc171e735dc3
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 1b94cb51bcb4e2634cdb04c389efbab44bb024bb
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190697"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206326"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia do desenvolvedor de Python para o Azure Functions
 
@@ -101,7 +101,7 @@ Para fazer referência a módulos locais para uma função, você pode usar a si
 from . import example
 ```
 
-Ao implantar seu projeto em um aplicativo de funções no Azure, todo o conteúdo da pasta *FunctionApp* deve ser incluído no pacote, mas não na própria pasta. É recomendável que você mantenha os testes em uma pasta separada da pasta do projeto, neste exemplo `tests`. Isso impede que você implante o código de teste com seu aplicativo. Para obter mais informações, consulte [testes de unidade](#unit-testing).
+Ao implantar seu projeto em um aplicativo de funções no Azure, todo o conteúdo da pasta do projeto principal ( *\_\_aplicativo\_\_* ) deve ser incluído no pacote, mas não a pasta em si. É recomendável que você mantenha os testes em uma pasta separada da pasta do projeto, neste exemplo `tests`. Isso impede que você implante o código de teste com seu aplicativo. Para obter mais informações, consulte [testes de unidade](#unit-testing).
 
 ## <a name="triggers-and-inputs"></a>Gatilhos e entradas
 

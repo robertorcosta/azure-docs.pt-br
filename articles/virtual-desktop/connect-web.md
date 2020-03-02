@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: helohr
-ms.openlocfilehash: a29081f77587a96dc48930eab359610a42fc0be5
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 9c738c5b7f233ffa34296eed67eb0f5497f737fc
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605827"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206666"
 ---
 # <a name="connect-with-the-web-client"></a>Conectar-se ao cliente Web
 
@@ -41,3 +41,7 @@ Em um navegador, navegue até o [cliente Web da área de trabalho virtual do Win
 >Se você já tiver entrado com uma conta de Azure Active Directory diferente daquela que deseja usar para a área de trabalho virtual do Windows, você deverá sair ou usar uma janela de navegador privada.
 
 Depois de entrar, você verá agora uma lista de recursos. Você pode iniciar recursos selecionando-os como faria com um aplicativo normal na guia **todos os recursos** .
+
+## <a name="next-steps"></a>Próximas etapas
+
+Para saber mais sobre como usar o cliente Web, confira introdução [ao cliente Web](https://go.microsoft.com/fwlink/?linkid=2120256).

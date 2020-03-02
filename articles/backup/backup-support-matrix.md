@@ -3,12 +3,12 @@ title: Matriz de suporte do Backup do Azure
 description: Fornece um resumo de configurações compatíveis e limitações do serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 15c2fdfbe63dd73e665a4bac01dd2cd1b1144949
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: dd4ec646c786ee686567aa137845e583a4cf47e3
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505858"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206649"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para o backup do Azure
 
@@ -35,7 +35,7 @@ A tabela a seguir descreve os recursos dos cofres dos serviços de recuperação
 **Fontes de dados no armazenamento do cofre** | Máximo de 54.400 GB. Não há nenhum limite para backups de VM do Azure.
 **Backups no cofre** | **VMs do Azure:** Uma vez por dia.<br/><br/>**Computadores protegidos pelo DPM/mAbs:** Duas vezes por dia.<br/><br/> Backup de **máquinas diretamente usando o agente Mars:** Três vezes por dia.
 **Backups entre cofres** | O backup é dentro de uma região.<br/><br/> Você precisa de um cofre em cada região do Azure que contenha VMs que você deseja fazer backup. Você não pode fazer backup em uma região diferente.
-**Mover cofres** | Você pode [mover cofres](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) entre assinaturas ou entre grupos de recursos na mesma assinatura. No entanto, não há suporte para a movimentação de cofres entre regiões.
+**Mover cofres** | Você pode [mover cofres](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) entre assinaturas ou entre grupos de recursos na mesma assinatura. No entanto, não há suporte para a movimentação de cofres entre regiões.
 **Mover dados entre cofres** | Não há suporte para a movimentação de dados de backup entre cofres.
 **Modificar o tipo de armazenamento do cofre** | Você pode modificar o tipo de replicação de armazenamento (armazenamento com redundância geográfica ou armazenamento com redundância local) para um cofre antes de os backups serem armazenados. Após o início dos backups no cofre, o tipo de replicação não poderá ser modificado.
 

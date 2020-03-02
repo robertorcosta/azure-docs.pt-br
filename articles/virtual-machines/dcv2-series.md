@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: lahugh
-ms.openlocfilehash: d500f7a1f28eff1f638a244022226b0aa0e715cb
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: fd8f01f0fc7180d271404ffee4496ff9cbac7222
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78199590"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205918"
 ---
 # <a name="preview-dcv2-series"></a>Versão prévia: série DCv2
 
@@ -41,7 +41,9 @@ Atualizações de preservação de memória: sem suporte
 | Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128 (172)                                                         | 12800/192                                 | 2                                            |
 
 - As VMs da série DCv2 são [VMs de geração 2](./linux/generation-2.md#creating-a-generation-2-vm) e só oferecem suporte a imagens `Gen2`.
-
+- Atualmente disponível somente no Sul do Reino Unido.
+- Geração anterior de VMs de computação confidencial: [série de DC](sizes-previous-gen.md)
+- Criar VMs DCv2 usando o portal do Azure [criar VM-portal](./linux/quick-create-portal.md)
 
 
 

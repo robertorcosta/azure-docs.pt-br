@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
-ms.openlocfilehash: 9b8f1065660ea8331853f8804e709134fe682ba7
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 0e3246f9da202b54cc0d1285795c25cfafb678d8
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566107"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78207023"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-preview"></a>Importar chaves protegidas por HSM para o Key Vault (versão prévia)
 
@@ -90,6 +90,9 @@ O KEK deve ser:
 - gerado no mesmo cofre de chaves em que você pretende importar a chave de destino
 - Criado com operações de chave permitidas definidas para `import`
 
+> [!NOTE]
+> O KEK deve ter ' import ' como a única operação de chave permitida. ' import ' é mutuamente exclusivo com todas as outras operações de chave.
+
 Use o comando [AZ keyvault Key Create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) para criar um Kek que tenha operações de chave definidas como `import`. Registre o identificador de chave (`kid`) que é retornado do comando a seguir. (Você usará o valor `kid` na [etapa 3](#step-3-generate-and-prepare-your-key-for-transfer).)
 
 ```azurecli
@@ -115,7 +118,7 @@ Transfira o arquivo BYOK para o computador conectado.
 > [!NOTE] 
 > Não há suporte para a importação de chaves RSA de 1.024 bits. Atualmente, não há suporte para a importação de uma chave de curva elíptica (EC).
 > 
-> **Problema conhecido**: falha ao importar uma chave de destino RSA 4K de HSMs SafeNet Luna. Quando o problema for resolvido, este artigo será atualizado.
+> **Problema conhecido**: a importação de uma chave de destino RSA 4K de HSMs SafeNet Luna tem suporte apenas com firmware 7.4.0 ou mais recente.
 
 ### <a name="step-4-transfer-your-key-to-azure-key-vault"></a>Etapa 4: transferir sua chave para Azure Key Vault
 

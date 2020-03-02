@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: e735495038f0e5c28af31aa79a45c71225502b3c
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 13852acb39a420e2f0da84e18bef4df823c1fa78
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77918148"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206258"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Proteção avançada contra ameaças do Microsoft defender com a central de segurança do Azure
 
@@ -109,11 +109,11 @@ Para gerar um alerta de teste benigno do Microsoft defender ATP:
 
 3. Se o comando for bem-sucedido, você verá um novo alerta no painel da central de segurança do Azure e no portal do Microsoft defender ATP. Esse alerta pode levar alguns minutos para aparecer.
 
-4. Para examinar o alerta na Central de Segurança, acesse **Alertas de segurança** > **Linha de Comando do PowerShell Suspeita**.
+4. Para examinar o alerta na central de segurança, acesse **alertas de segurança** > **linha de comando do PowerShell suspeito**.
 
 5. Na janela investigação, selecione o link para acessar o portal do Microsoft defender ATP.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Plataformas e recursos compatíveis com a Central de Segurança do Azure](security-center-os-coverage.md)
 - [Como configurar políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.

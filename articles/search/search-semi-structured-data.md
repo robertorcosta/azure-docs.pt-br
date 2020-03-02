@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: f025b3357943014a6d9c6e331c47f019fe94c5bf
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 8b0ab8ca6bec07d92af1b7e0ebe7b2a3cd45899d
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196936"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206394"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Tutorial: indexar BLOBs JSON do armazenamento do Azure usando REST
 
@@ -42,21 +42,35 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) contém os dados usados neste tutorial. Baixe e descompacte este arquivo em sua própria pasta. Para este tutorial, os dados são provenientes do [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results) convertidos para JSON.
 
-## <a name="get-a-key-and-url"></a>Obter uma chave e uma URL
+## <a name="1---create-services"></a>1 – Criar serviços
 
-As chamadas REST exigem a URL do serviço e uma chave de acesso em cada solicitação. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou a Pesquisa Cognitiva do Azure à sua assinatura, siga estas etapas para obter as informações necessárias:
+Este tutorial usa Pesquisa Cognitiva do Azure para indexação e consultas e o armazenamento de BLOBs do Azure para fornecer os dados. 
 
-1. [Entre no portal do Azure](https://portal.azure.com/) e, na página **Visão Geral** do serviço de pesquisa, obtenha a URL. Um ponto de extremidade de exemplo pode parecer com `https://mydemo.search.windows.net`.
+Se possível, crie ambos na mesma região e grupo de recursos para proximidade e capacidade de gerenciamento. Na prática, sua conta de armazenamento do Azure pode estar em qualquer região.
 
-1. Em **Configurações** > **Chaves**, obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
+### <a name="start-with-azure-storage"></a>Começar com o Armazenamento do Azure
 
-![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-get-started-postman/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
+1. [Entre no portal do Azure](https://portal.azure.com/) e clique em **+ Criar Recurso**.
 
-Todas as solicitações requerem uma chave de api em cada pedido enviado ao serviço. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
+1. Pesquise *conta de armazenamento* e selecione a oferta Conta de Armazenamento da Microsoft.
 
-## <a name="prepare-sample-data"></a>Preparar os dados de exemplo
+   ![Criar conta de armazenamento](media/cognitive-search-tutorial-blob/storage-account.png "Criar Conta de Armazenamento")
 
-1. [Entre no portal do Azure](https://portal.azure.com), navegue até sua conta de Armazenamento do Azure, clique em **Blobs** e, em seguida, clique em **+ Contêiner**.
+1. Na guia Informações Básicas, os itens a seguir são obrigatórios. Aceite os padrões para todo o restante.
+
+   + **Grupo de recursos**. Selecione um grupo existente ou crie um, mas use o mesmo grupo para todos os serviços, de modo que você possa gerenciá-los em conjunto.
+
+   + **Nome da conta de armazenamento**. Se acreditar que possa ter vários recursos do mesmo tipo, use o nome para desfazer a ambiguidade por tipo e região, por exemplo, *blobstoragewestus*. 
+
+   + **Local**. Se possível, escolha a mesma localização usada para a Pesquisa Cognitiva do Azure e os Serviços Cognitivos. Uma única localização anula os encargos de largura de banda.
+
+   + **Tipo de Conta**. Escolha o padrão, *StorageV2 (Uso Geral v2)* .
+
+1. Clique em **Examinar + Criar** para criar o serviço.
+
+1. Após a criação, clique em **Ir para o recurso** para abrir a página Visão Geral.
+
+1. Clique em serviço **Blobs**.
 
 1. [Crie um contêiner de Blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) para conter dados de exemplo. Você pode definir o Nível de Acesso Público para qualquer um de seus valores válidos.
 
@@ -70,221 +84,247 @@ Todas as solicitações requerem uma chave de api em cada pedido enviado ao serv
 
 Após o upload ser concluído, os arquivos devem aparecer em sua própria subpasta dentro do contêiner de dados.
 
-## <a name="set-up-postman"></a>Configurar o Postman
+### <a name="azure-cognitive-search"></a>Pesquisa Cognitiva do Azure
+
+O próximo recurso é o Pesquisa Cognitiva do Azure, que você pode [criar no portal](search-create-service-portal.md). Use a Camada gratuita para concluir este passo a passo. 
+
+Assim como o Armazenamento de Blobs do Azure, reserve um momento para coletar a chave de acesso. Além disso, quando começar a estruturar as solicitações, você precisará fornecer a chave de API de administração e o ponto de extremidade usados para autenticar cada solicitação.
+
+### <a name="get-a-key-and-url"></a>Obter uma chave e uma URL
+
+As chamadas REST exigem a URL do serviço e uma chave de acesso em cada solicitação. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou a Pesquisa Cognitiva do Azure à sua assinatura, siga estas etapas para obter as informações necessárias:
+
+1. [Entre no portal do Azure](https://portal.azure.com/) e, na página **Visão Geral** do serviço de pesquisa, obtenha a URL. Um ponto de extremidade de exemplo pode parecer com `https://mydemo.search.windows.net`.
+
+1. Em **Configurações** > **Chaves**, obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
+
+![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-get-started-postman/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
+
+Todas as solicitações requerem uma chave de api em cada pedido enviado ao serviço. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
+
+## <a name="2---set-up-postman"></a>2 – Configurar o Postman
 
 Inicie o Postman e configure uma solicitação HTTP. Se não estiver familiarizado com essa ferramenta, consulte [Explorar APIs REST da Pesquisa Cognitiva do Azure usando Postman](search-get-started-postman.md).
 
-O método de solicitação para cada chamada neste tutorial é **POST**. As chaves de cabeçalho são "Content-type" e "api-key". Os valores das chaves de cabeçalho são "application/json" e sua "chave de administrador" (a chave de administrador é um espaço reservado para sua chave primária de pesquisa) respectivamente. O corpo é onde você coloca o conteúdo real de sua chamada. Dependendo do cliente que você está usando, talvez haja algumas variações em como você cria sua consulta, mas essas são as noções básicas.
+Os métodos de solicitação para cada chamada neste tutorial são **post** e **Get**. Você fará três chamadas à API para o serviço de pesquisa para criar uma fonte de dados, um índice e um indexador. A fonte de dados inclui um ponteiro para sua conta de armazenamento e seus dados JSON. O serviço de pesquisa faz a conexão ao carregar os dados.
 
-  ![Pesquisa semi-estruturada](media/search-semi-structured-data/postmanoverview.png)
+Em Cabeçalhos, defina "Content-Type" como `application/json` e `api-key` como a chave de API de administração do serviço da Pesquisa Cognitiva do Azure. Depois de definir os cabeçalhos, você poderá usá-los para cada solicitação neste exercício.
 
-Estamos usando o Postman fazer três chamadas à API para o serviço de pesquisa para criar uma fonte de dados, um índice e um indexador. A fonte de dados inclui um ponteiro para sua conta de armazenamento e seus dados JSON. O serviço de pesquisa faz a conexão ao carregar os dados.
+  ![URL e cabeçalho da solicitação do Postman](media/search-get-started-postman/postman-url.png "URL e cabeçalho da solicitação do Postman")
 
-Cadeias de caracteres de consulta devem especificar uma versão de API, e cada chamada de consulta deve retornar **201 criado**. A versão de API disponível em geral para o uso de matrizes JSON é `2019-05-06`.
+Os URIs devem especificar uma versão de API e cada chamada deve retornar um **201 criado**. A versão de API disponível em geral para o uso de matrizes JSON é `2019-05-06`.
 
-Execute as seguintes três chamadas à API do cliente REST.
-
-## <a name="create-a-data-source"></a>Criar uma fonte de dados
+## <a name="3---create-a-data-source"></a>3-criar uma fonte de dados
 
 A [API criar fonte de dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source) cria um objeto de pesquisa cognitiva do Azure que especifica quais dados indexar.
 
-O ponto de extremidade desta chamada é `https://[service name].search.windows.net/datasources?api-version=2019-05-06`. Substitua `[service name]` pelo nome do serviço de pesquisa. 
+1. Defina o ponto de extremidade desta chamada como `https://[service name].search.windows.net/datasources?api-version=2019-05-06`. Substitua `[service name]` pelo nome do serviço de pesquisa. 
 
-Para essa chamada, o corpo da solicitação deve incluir o nome da sua conta de armazenamento, a chave de conta de armazenamento e o nome do contêiner de blob. A chave de conta de armazenamento pode ser encontrada no Portal do Azure dentro das **Chaves de Acesso** da sua conta de armazenamento. A localização é mostrada na imagem a seguir:
+1. Copie o JSON a seguir no corpo da solicitação.
 
-  ![Pesquisa semi-estruturada](media/search-semi-structured-data/storagekeys.png)
+    ```json
+    {
+        "name" : "clinical-trials-json-ds",
+        "type" : "azureblob",
+        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=[storage account name];AccountKey=[storage account key];" },
+        "container" : { "name" : "[blob container name]"}
+    }
+    ```
 
-Substitua `[storage account name]`, `[storage account key]` e `[blob container name]` no corpo da chamada antes de executar a chamada.
+1. Substitua a cadeia de conexão por uma cadeia de caracteres válida para sua conta.
 
-```json
-{
-    "name" : "clinical-trials-json",
-    "type" : "azureblob",
-    "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=[storage account name];AccountKey=[storage account key];" },
-    "container" : { "name" : "[blob container name]"}
-}
-```
+1. Substitua "[nome do contêiner de blob]" pelo contêiner que você criou para os dados de exemplo. 
 
-A resposta deve ser semelhante a:
+1. Enviar a solicitação. A resposta deve ser semelhante a:
 
-```json
-{
-    "@odata.context": "https://exampleurl.search.windows.net/$metadata#datasources/$entity",
-    "@odata.etag": "\"0x8D505FBC3856C9E\"",
-    "name": "clinical-trials-json",
-    "description": null,
-    "type": "azureblob",
-    "subtype": null,
-    "credentials": {
-        "connectionString": "DefaultEndpointsProtocol=https;AccountName=[mystorageaccounthere];AccountKey=[[myaccountkeyhere]]];"
-    },
-    "container": {
-        "name": "[mycontainernamehere]",
-        "query": null
-    },
-    "dataChangeDetectionPolicy": null,
-    "dataDeletionDetectionPolicy": null
-}
-```
+    ```json
+    {
+        "@odata.context": "https://exampleurl.search.windows.net/$metadata#datasources/$entity",
+        "@odata.etag": "\"0x8D505FBC3856C9E\"",
+        "name": "clinical-trials-json-ds",
+        "description": null,
+        "type": "azureblob",
+        "subtype": null,
+        "credentials": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=[mystorageaccounthere];AccountKey=[[myaccountkeyhere]]];"
+        },
+        "container": {
+            "name": "[mycontainernamehere]",
+            "query": null
+        },
+        "dataChangeDetectionPolicy": null,
+        "dataDeletionDetectionPolicy": null
+    }
+    ```
 
-## <a name="create-an-index"></a>Crie um índice
+## <a name="4---create-an-index"></a>4-criar um índice
     
 A segunda chamada é à [API de Criação de Índice](https://docs.microsoft.com/rest/api/searchservice/create-index), criando um índice da Pesquisa Cognitiva do Azure que armazena todos os dados pesquisáveis. Um índice especifica todos os parâmetros e seus atributos.
 
-A URL para esta chamada é `https://[service name].search.windows.net/indexes?api-version=2019-05-06`. Substitua `[service name]` pelo nome do serviço de pesquisa.
+1. Defina o ponto de extremidade desta chamada como `https://[service name].search.windows.net/indexes?api-version=2019-05-06`. Substitua `[service name]` pelo nome do serviço de pesquisa.
 
-Primeiro, substitua a URL. Em seguida, copie e cole o código a seguir no corpo e execute a consulta.
+1. Copie o JSON a seguir no corpo da solicitação.
 
-```json
-{
-  "name": "clinical-trials-json-index",  
-  "fields": [
-  {"name": "FileName", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": false, "filterable": false, "sortable": true},
-  {"name": "Description", "type": "Edm.String", "searchable": true, "retrievable": false, "facetable": false, "filterable": false, "sortable": false},
-  {"name": "MinimumAge", "type": "Edm.Int32", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": true},
-  {"name": "Title", "type": "Edm.String", "searchable": true, "retrievable": true, "facetable": false, "filterable": true, "sortable": true},
-  {"name": "URL", "type": "Edm.String", "searchable": false, "retrievable": false, "facetable": false, "filterable": false, "sortable": false},
-  {"name": "MyURL", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": false, "filterable": false, "sortable": false},
-  {"name": "Gender", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": false},
-  {"name": "MaximumAge", "type": "Edm.Int32", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": true},
-  {"name": "Summary", "type": "Edm.String", "searchable": true, "retrievable": true, "facetable": false, "filterable": false, "sortable": false},
-  {"name": "NCTID", "type": "Edm.String", "key": true, "searchable": true, "retrievable": true, "facetable": false, "filterable": true, "sortable": true},
-  {"name": "Phase", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": false},
-  {"name": "Date", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": false, "filterable": false, "sortable": true},
-  {"name": "OverallStatus", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": false},
-  {"name": "OrgStudyId", "type": "Edm.String", "searchable": true, "retrievable": true, "facetable": false, "filterable": true, "sortable": false},
-  {"name": "HealthyVolunteers", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": false},
-  {"name": "Keywords", "type": "Collection(Edm.String)", "searchable": true, "retrievable": true, "facetable": true, "filterable": false, "sortable": false},
-  {"name": "metadata_storage_last_modified", "type":"Edm.DateTimeOffset", "searchable": false, "retrievable": true, "filterable": true, "sortable": false},
-  {"name": "metadata_storage_size", "type":"Edm.String", "searchable": false, "retrievable": true, "filterable": true, "sortable": false},
-  {"name": "metadata_content_type", "type":"Edm.String", "searchable": true, "retrievable": true, "filterable": true, "sortable": false}
-  ],
-  "suggesters": [
-  {
-    "name": "sg",
-    "searchMode": "analyzingInfixMatching",
-    "sourceFields": ["Title"]
-  }
-  ]
-}
-```
+    ```json
+    {
+      "name": "clinical-trials-json-index",  
+      "fields": [
+      {"name": "FileName", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": false, "filterable": false, "sortable": true},
+      {"name": "Description", "type": "Edm.String", "searchable": true, "retrievable": false, "facetable": false, "filterable": false, "sortable": false},
+      {"name": "MinimumAge", "type": "Edm.Int32", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": true},
+      {"name": "Title", "type": "Edm.String", "searchable": true, "retrievable": true, "facetable": false, "filterable": true, "sortable": true},
+      {"name": "URL", "type": "Edm.String", "searchable": false, "retrievable": false, "facetable": false, "filterable": false, "sortable": false},
+      {"name": "MyURL", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": false, "filterable": false, "sortable": false},
+      {"name": "Gender", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": false},
+      {"name": "MaximumAge", "type": "Edm.Int32", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": true},
+      {"name": "Summary", "type": "Edm.String", "searchable": true, "retrievable": true, "facetable": false, "filterable": false, "sortable": false},
+      {"name": "NCTID", "type": "Edm.String", "key": true, "searchable": true, "retrievable": true, "facetable": false, "filterable": true, "sortable": true},
+      {"name": "Phase", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": false},
+      {"name": "Date", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": false, "filterable": false, "sortable": true},
+      {"name": "OverallStatus", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": false},
+      {"name": "OrgStudyId", "type": "Edm.String", "searchable": true, "retrievable": true, "facetable": false, "filterable": true, "sortable": false},
+      {"name": "HealthyVolunteers", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": false},
+      {"name": "Keywords", "type": "Collection(Edm.String)", "searchable": true, "retrievable": true, "facetable": true, "filterable": false, "sortable": false},
+      {"name": "metadata_storage_last_modified", "type":"Edm.DateTimeOffset", "searchable": false, "retrievable": true, "filterable": true, "sortable": false},
+      {"name": "metadata_storage_size", "type":"Edm.String", "searchable": false, "retrievable": true, "filterable": true, "sortable": false},
+      {"name": "metadata_content_type", "type":"Edm.String", "searchable": true, "retrievable": true, "filterable": true, "sortable": false}
+      ]
+    }
+   ```
 
-A resposta deve ser semelhante a:
+1. Enviar a solicitação. A resposta deve ser semelhante a:
 
-```json
-{
-    "@odata.context": "https://exampleurl.search.windows.net/$metadata#indexes/$entity",
-    "@odata.etag": "\"0x8D505FC00EDD5FA\"",
-    "name": "clinical-trials-json-index",
-    "fields": [
-        {
-            "name": "FileName",
-            "type": "Edm.String",
-            "searchable": false,
-            "filterable": false,
-            "retrievable": true,
-            "sortable": true,
-            "facetable": false,
-            "key": false,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
+    ```json
+    {
+        "@odata.context": "https://exampleurl.search.windows.net/$metadata#indexes/$entity",
+        "@odata.etag": "\"0x8D505FC00EDD5FA\"",
+        "name": "clinical-trials-json-index",
+        "fields": [
+            {
+                "name": "FileName",
+                "type": "Edm.String",
+                "searchable": false,
+                "filterable": false,
+                "retrievable": true,
+                "sortable": true,
+                "facetable": false,
+                "key": false,
+                "indexAnalyzer": null,
+                "searchAnalyzer": null,
+                "analyzer": null,
+                "synonymMaps": []
+            },
+            {
+                "name": "Description",
+                "type": "Edm.String",
+                "searchable": true,
+                "filterable": false,
+                "retrievable": false,
+                "sortable": false,
+                "facetable": false,
+                "key": false,
+                "indexAnalyzer": null,
+                "searchAnalyzer": null,
+                "analyzer": null,
+                "synonymMaps": []
+            },
+            ...
+          }
+    ```
+
+## <a name="5---create-and-run-an-indexer"></a>5-criar e executar um indexador
+
+Um indexador se conecta à fonte de dados, importa dados para o índice de pesquisa de destino e, opcionalmente, fornece uma agenda para automatizar a atualização de dados. A API REST é [Criar Indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+
+1. Defina o URI desta chamada como `https://[service name].search.windows.net/indexers?api-version=2019-05-06`. Substitua `[service name]` pelo nome do serviço de pesquisa.
+
+1. Copie o JSON a seguir no corpo da solicitação.
+
+    ```json
+    {
+      "name" : "clinical-trials-json-indexer",
+      "dataSourceName" : "clinical-trials-json-ds",
+      "targetIndexName" : "clinical-trials-json-index",
+      "parameters" : { "configuration" : { "parsingMode" : "jsonArray" } }
+    }
+    ```
+
+1. Enviar a solicitação. A solicitação é processada imediatamente. Quando a resposta voltar, você terá um índice que é pesquisável em texto completo. A resposta deve ser semelhante a:
+
+    ```json
+    {
+        "@odata.context": "https://exampleurl.search.windows.net/$metadata#indexers/$entity",
+        "@odata.etag": "\"0x8D505FDE143D164\"",
+        "name": "clinical-trials-json-indexer",
+        "description": null,
+        "dataSourceName": "clinical-trials-json-ds",
+        "targetIndexName": "clinical-trials-json-index",
+        "schedule": null,
+        "parameters": {
+            "batchSize": null,
+            "maxFailedItems": null,
+            "maxFailedItemsPerBatch": null,
+            "base64EncodeKeys": null,
+            "configuration": {
+                "parsingMode": "jsonArray"
+            }
         },
-        {
-            "name": "Description",
-            "type": "Edm.String",
-            "searchable": true,
-            "filterable": false,
-            "retrievable": false,
-            "sortable": false,
-            "facetable": false,
-            "key": false,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
-        },
-        ...
-          "scoringProfiles": [],
-    "defaultScoringProfile": null,
-    "corsOptions": null,
-    "suggesters": [],
-    "analyzers": [],
-    "tokenizers": [],
-    "tokenFilters": [],
-    "charFilters": []
-}
-```
+        "fieldMappings": [],
+        "enrichers": [],
+        "disabled": null
+    }
+    ```
 
-## <a name="create-and-run-an-indexer"></a>Criar e executar um indexador
+## <a name="6---search-your-json-files"></a>6-pesquisar seus arquivos JSON
 
-Um indexador conecta a fonte de dados, importa dados para o índice de pesquisa de destino e, opcionalmente, fornece um planejamento para automatizar a atualização de dados. A API REST é [Criar Indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Você poderá iniciar a pesquisa assim que o primeiro documento for carregado.
 
-A URL para esta chamada é `https://[service name].search.windows.net/indexers?api-version=2019-05-06`. Substitua `[service name]` pelo nome do serviço de pesquisa.
+1. Altere o verbo para **GET**.
 
-Primeiro, substitua a URL. Em seguida, copie e cole o código a seguir no corpo e envie a solicitação. A solicitação é processada imediatamente. Quando a resposta voltar, você terá um índice que é pesquisável em texto completo.
+1. Defina o URI desta chamada como `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&api-version=2019-05-06&$count=true`. Substitua `[service name]` pelo nome do serviço de pesquisa.
 
-```json
-{
-  "name" : "clinical-trials-json-indexer",
-  "dataSourceName" : "clinical-trials-json",
-  "targetIndexName" : "clinical-trials-json-index",
-  "parameters" : { "configuration" : { "parsingMode" : "jsonArray" } }
-}
-```
+1. Enviar a solicitação. Esta é uma consulta de pesquisa de texto completo não especificada que retorna todos os campos marcados como recuperáveis no índice, juntamente com uma contagem de documentos. A resposta deve ser semelhante a:
 
-A resposta deve ser semelhante a:
+    ```json
+    {
+        "@odata.context": "https://exampleurl.search.windows.net/indexes('clinical-trials-json-index')/$metadata#docs(*)",
+        "@odata.count": 100,
+        "value": [
+            {
+                "@search.score": 1.0,
+                "FileName": "NCT00000102.txt",
+                "MinimumAge": 14,
+                "Title": "Congenital Adrenal Hyperplasia: Calcium Channels as Therapeutic Targets",
+                "MyURL": "https://azure.storagedemos.com/clinical-trials/NCT00000102.txt",
+                "Gender": "Both",
+                "MaximumAge": 35,
+                "Summary": "This study will test the ability of extended release nifedipine (Procardia XL), a blood pressure medication, to permit a decrease in the dose of glucocorticoid medication children take to treat congenital adrenal hyperplasia (CAH).",
+                "NCTID": "NCT00000102",
+                "Phase": "Phase 1/Phase 2",
+                "Date": "ClinicalTrials.gov processed this data on October 25, 2016",
+                "OverallStatus": "Completed",
+                "OrgStudyId": "NCRR-M01RR01070-0506",
+                "HealthyVolunteers": "No",
+                "Keywords": [],
+                "metadata_storage_last_modified": "2019-04-09T18:16:24Z",
+                "metadata_storage_size": "33060",
+                "metadata_content_type": null
+            },
+            . . . 
+    ```
 
-```json
-{
-    "@odata.context": "https://exampleurl.search.windows.net/$metadata#indexers/$entity",
-    "@odata.etag": "\"0x8D505FDE143D164\"",
-    "name": "clinical-trials-json-indexer",
-    "description": null,
-    "dataSourceName": "clinical-trials-json",
-    "targetIndexName": "clinical-trials-json-index",
-    "schedule": null,
-    "parameters": {
-        "batchSize": null,
-        "maxFailedItems": null,
-        "maxFailedItemsPerBatch": null,
-        "base64EncodeKeys": null,
-        "configuration": {
-            "parsingMode": "jsonArray"
-        }
-    },
-    "fieldMappings": [],
-    "enrichers": [],
-    "disabled": null
-}
-```
+1. Adicione o parâmetro de consulta `$select` para limitar os resultados a menos campos: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2019-05-06&$count=true`.  Para esta consulta, 100 documentos correspondem, mas por padrão, o Azure Pesquisa Cognitiva retorna apenas 50 nos resultados.
 
-## <a name="search-your-json-files"></a>Pesquisar os arquivos JSON
+   ![Consulta parametrizada](media/search-semi-structured-data/lastquery.png "Consulta Paramterized")
 
-Você poderá iniciar a pesquisa assim que o primeiro documento for carregado. Para essa tarefa, use o [**Gerenciador de pesquisa**](search-explorer.md) no portal.
+1. Um exemplo de consulta mais complexa incluiria `$filter=MinimumAge ge 30 and MaximumAge lt 75`, que retorna apenas os resultados em que o mínimo dos parâmetros é maior ou igual a 30 e o máximo é menor que 75. Substitua a expressão de `$select` pela expressão de `$filter`.
 
-No portal do Azure, abra a página **Visão Geral** do o serviço de pesquisa e localize o índice criado na lista **Índices**.
+   ![Pesquisa semi-estruturada](media/search-semi-structured-data/metadatashort.png)
 
-Escolha o índice que você acabou de criar. 
+Você também pode usar operadores lógicos (e, ou, não) e operadores de comparação (EQ, ne, gt, lt, GE, Le). Comparações de cadeia de caracteres diferenciam maiúsculas de minúsculas. Para obter mais informações e exemplos, consulte [criar uma consulta simples](search-query-simple-examples.md).
 
-  ![Pesquisa não estruturada](media/search-semi-structured-data/indexespane.png)
-
-### <a name="user-defined-metadata-search"></a>Pesquisa de metadados definida pelo usuário
-
-Como antes, os dados podem ser consultados de várias maneiras: pesquisa de texto completo, propriedades do sistema ou metadados definidos pelo usuário. As propriedades do sistema e os metadados definidos pelo usuário podem ser pesquisados com o parâmetro `$select` apenas se forem marcados como **recuperáveis** durante a criação do índice de destino. Os parâmetros no índice não podem ser alterados depois que são criados. No entanto, parâmetros adicionais podem ser adicionados.
-
-Um exemplo de uma consulta básica é `$select=Gender,metadata_storage_size`, que limita o retorno para esses dois parâmetros.
-
-  ![Pesquisa semi-estruturada](media/search-semi-structured-data/lastquery.png)
-
-Um exemplo de consulta mais complexa seria `$filter=MinimumAge ge 30 and MaximumAge lt 75`, que retorna apenas resultados em que o parâmetro MinimumAge é maior que ou igual a 30 e o MaximumAge é menor que 75.
-
-  ![Pesquisa semi-estruturada](media/search-semi-structured-data/metadatashort.png)
-
-Se você quiser experimentar e tentar algumas consultas adicionais por conta própria, fique à vontade para fazer isso. Saiba que você pode usar operadores lógicos (and, or, not) e operadores de comparação (eq, ne, gt, lt, ge, le). Comparações de cadeia de caracteres diferenciam maiúsculas de minúsculas.
-
-O parâmetro `$filter` funciona somente com metadados que foram marcadas como filtráveis na criação do índice.
+> [!NOTE]
+> O parâmetro `$filter` funciona somente com metadados que foram marcadas como filtráveis na criação do índice.
 
 ## <a name="reset-and-rerun"></a>Redefinir e execute novamente
 
@@ -306,7 +346,7 @@ Você pode encontrar e gerenciar recursos no portal, usando o link todos os recu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você está familiarizado com os conceitos básicos da indexação de BLOBs do Azure, vamos examinar mais de perto a configuração do indexador.
+Agora que você está familiarizado com os conceitos básicos da indexação de BLOBs do Azure, vamos examinar mais de perto a configuração do indexador para BLOBs JSON no armazenamento do Azure.
 
 > [!div class="nextstepaction"]
-> [Configurar um indexador de armazenamento de BLOBs do Azure](search-howto-indexing-azure-blob-storage.md)
+> [Configurar indexação de blob JSON](search-howto-index-json-blobs.md)

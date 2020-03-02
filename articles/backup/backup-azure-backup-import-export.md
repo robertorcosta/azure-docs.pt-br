@@ -4,12 +4,12 @@ description: Saiba como você pode usar o backup do Azure para enviar dados da r
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 60295d1c534dbd1181533190df260ed4507ec11f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 1359616e074f36a1324a418d5b2c889076ced52d
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197107"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206751"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de backup offline no backup do Azure
 
@@ -116,7 +116,7 @@ Esta seção descreve o fluxo de trabalho de backup offline para que seus dados 
 
 O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são enviadas para o datacenter do Azure mais próximo. Esse utilitário está disponível no diretório de instalação do agente de backup do Azure no seguinte caminho:
 
-    *\Microsoft Azure Recovery Services Agent\Utils\\*
+```*\Microsoft Azure Recovery Services Agent\Utils\\*```
 
 1. Vá para o diretório e copie o diretório *AzureOfflineBackupDiskPrep* para outro computador em que as unidades SATA estão conectadas. No computador com as unidades SATA conectadas, verifique se:
 

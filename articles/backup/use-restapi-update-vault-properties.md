@@ -1,15 +1,15 @@
 ---
-title: Atualizar propriedades de configuração do cofre de serviços de recuperação usando a API REST
+title: Atualizar a configuração do cofre dos serviços de recuperação com a API REST
 description: Neste artigo, saiba como atualizar a configuração do cofre usando a API REST.
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 3739f95e3962def9ab669970c48b2d1c546fdc0e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6cecbb18e0cd6f548e1688ef978f10dcee7d9fbc
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75390550"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78204490"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Atualizar as configurações do cofre dos serviços de recuperação do Azure usando a API REST
 
@@ -43,7 +43,7 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 A resposta bem-sucedida para a operação ' GET ' é mostrada abaixo:
 
-|Nome  |Tipo  |Description  |
+|Nome  |Type  |DESCRIÇÃO  |
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
@@ -83,7 +83,7 @@ As seguintes definições comuns são usadas para criar um corpo de solicitaçã
 
 Para obter mais detalhes, consulte [a documentação da API REST](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body)
 
-|Nome  |Obrigatório  |Tipo  |Description  |
+|Nome  |Obrigatório  |Type  |DESCRIÇÃO  |
 |---------|---------|---------|---------|
 |eTag     |         |   String      |  eTag Opcional       |
 |local     |  true       |String         |   Localização do recurso      |
@@ -107,7 +107,7 @@ O exemplo a seguir é usado para atualizar o estado de exclusão reversível par
 
 A resposta bem-sucedida para a operação ' PATCH ' é mostrada abaixo:
 
-|Nome  |Tipo  |Description  |
+|Nome  |Type  |DESCRIÇÃO  |
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
@@ -127,7 +127,7 @@ Depois que a solicitação ' PATCH ' for enviada, uma resposta 200 (bem-sucedida
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Crie uma política de backup para fazer backup de uma VM do Azure neste Vault](backup-azure-arm-userestapi-createorupdatepolicy.md).
 
