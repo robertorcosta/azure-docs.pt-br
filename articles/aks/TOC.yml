@@ -21,7 +21,7 @@
       items:
         - name: Usar o rascunho
           href: kubernetes-draft.md
-        - name: Azure Dev Spaces
+        - name: Espaços de Desenvolvimento do Azure
           expanded: true
           items:
             - name: Usar o Azure Dev Spaces para desenvolvimento em equipe
@@ -44,19 +44,19 @@
               maintainContext: true
 - name: Tutoriais
   items:
-    - name: 1 – Preparar aplicativo para o AKS
+    - name: 1 - Preparar aplicativo para o AKS
       href: tutorial-kubernetes-prepare-app.md
-    - name: 2 – Criar um registro de contêiner
+    - name: 2 - Criar um registro de contêiner
       href: tutorial-kubernetes-prepare-acr.md
-    - name: 3 – Criar cluster Kubernetes
+    - name: 3 - Criar cluster Kubernetes
       href: tutorial-kubernetes-deploy-cluster.md
-    - name: 4 – Executar o aplicativo
+    - name: 4 - Executar o aplicativo
       href: tutorial-kubernetes-deploy-application.md
-    - name: 5 – Dimensionar o aplicativo
+    - name: 5 - Dimensionar o aplicativo
       href: tutorial-kubernetes-scale.md
-    - name: 6 – Atualizar o aplicativo
+    - name: 6 - Atualizar o aplicativo
       href: tutorial-kubernetes-app-update.md
-    - name: 7 – Atualizar o cluster
+    - name: 7 - Fazer upgrade do cluster
       href: tutorial-kubernetes-upgrade-cluster.md
 - name: Conceitos
   items:
@@ -89,13 +89,13 @@
               href: operator-best-practices-identity.md
             - name: Segurança de cluster
               href: operator-best-practices-cluster-security.md
-            - name: Gerenciamento de imagens de contêiner
+            - name: Gerenciamento de imagens do contêiner
               href: operator-best-practices-container-image-management.md
             - name: Rede
               href: operator-best-practices-network.md
             - name: Armazenamento
               href: operator-best-practices-storage.md
-            - name: Continuidade de negócios (BC) e recuperação de desastre (DR)
+            - name: Continuidade de negócios (BC) e recuperação de desastres (DR)
               href: operator-best-practices-multi-region.md
         - name: Para desenvolvedores de aplicativos
           items:
@@ -107,7 +107,7 @@
       href: quotas-skus-regions.md
     - name: Migrar para o AKS
       href: aks-migration.md
-    - name: Versão compatível do Kubernetes
+    - name: Versão com suporte do Kubernetes
       href: supported-kubernetes-versions.md
     - name: Proteção de segurança no sistema operacional do host
       href: security-hardened-vm-host-image.md
@@ -152,13 +152,13 @@
           href: kubernetes-dashboard.md
     - name: Configurar volumes de dados
       items:
-        - name: Disco do Azure – Dinâmico
+        - name: Disco do Azure - Dinâmico
           href: azure-disks-dynamic-pv.md
-        - name: Disco do Azure – Estático
+        - name: Disco do Azure - Estático
           href: azure-disk-volume.md
-        - name: Arquivos do Azure Azure Files  Dinâmicos
+        - name: Arquivos do Azure - Dinâmicos
           href: azure-files-dynamic-pv.md
-        - name: Arquivos do Azure – Estáticos
+        - name: Arquivos do Azure - Estáticos
           href: azure-files-volume.md
         - name: Servidor NFS – estático
           href: azure-nfs-volume.md
@@ -214,7 +214,7 @@
           href: use-pod-security-policies.md
         - name: Definir intervalos de IP autorizados do servidor de API
           href: api-server-authorized-ip-ranges.md
-        - name: Controlar implantações com o Azure Policy (versão prévia)
+        - name: Controlar implantações com a política do Azure (visualização)
           href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
         - name: Atualizar as credenciais da entidade de serviço de cluster
           href: update-credentials.md
@@ -269,7 +269,7 @@
           items:
             - name: Java (VS Code e CLI)
               items:
-                - name: 1 – Introdução
+                - name: 1 - Introdução
                   href: ../dev-spaces/get-started-java.md
                   maintainContext: true
                 - name: 2 – Desenvolvimento de vários serviços
@@ -280,7 +280,7 @@
                   maintainContext: true
             - name: .NET Core (VS Code e CLI)
               items:
-                - name: 1 – Introdução
+                - name: 1 - Introdução
                   href: ../dev-spaces/get-started-netcore.md
                   maintainContext: true
                 - name: 2 – Desenvolvimento de vários serviços
@@ -291,7 +291,7 @@
                   maintainContext: true
             - name: .NET Core (Visual Studio 2017)
               items:
-                - name: 1 – Introdução
+                - name: 1 - Introdução
                   href: ../dev-spaces/get-started-netcore-visualstudio.md
                   maintainContext: true
                 - name: 2 – Desenvolvimento de vários serviços
@@ -302,7 +302,7 @@
                   maintainContext: true
             - name: Node.js (VS Code e CLI)
               items:
-                - name: 1 – Introdução
+                - name: 1 - Introdução
                   href: ../dev-spaces/get-started-nodejs.md
                   maintainContext: true
                 - name: 2 – Desenvolvimento de vários serviços
@@ -360,7 +360,7 @@
           maintainContext: true
         - name: Implantação contínua do Jenkins
           href: jenkins-continuous-deployment.md
-        - name: Projeto do Azure DevOps
+        - name: Projeto de DevOps do Azure
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
         - name: Iniciador do Centro de Implantação
@@ -375,6 +375,8 @@
           href: kube-advisor-tool.md
         - name: Acesso ao nó de SSH
           href: ssh.md
+        - name: Ferramentas de desempenho do Linux
+          href: troubleshoot-linux.md
 - name: Referência
   items:
     - name: CLI do Azure

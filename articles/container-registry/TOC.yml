@@ -19,6 +19,8 @@
           href: container-registry-get-started-powershell.md
         - name: Enviar eventos para a Grade de Eventos – CLI
           href: container-registry-event-grid-quickstart.md
+        - name: Criar e efetuar push de imagens Java – CLI
+          href: container-registry-java-quickstart.md
     - name: Tutoriais
       expanded: false
       items:

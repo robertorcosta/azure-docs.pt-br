@@ -1,16 +1,16 @@
 ---
-title: solução de problemas
+title: Solução de problemas
 services: azure-dev-spaces
 ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Saiba como solucionar problemas comuns ao habilitar e usar o Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: b926e651200a4ab23306b0ec2443cb64400b8f7b
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 061f812e7567d96bba092ebc9625756c14c46940
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605257"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662460"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solução de problemas Azure Dev Spaces
 
@@ -391,7 +391,7 @@ Para atualizar a função RBAC do usuário para o controlador:
     * Para *função*, selecione *colaborador* ou *proprietário*.
     * Para *Atribuir acesso a*, selecione *Usuário, grupo ou entidade de serviço do Azure AD*.
     * Para *selecionar*, pesquise o usuário que você deseja conceder permissões.
-1. Clique em *Save* (Salvar).
+1. Clique em *Salvar*.
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>A resolução de nomes DNS falha para uma URL pública associada a um serviço do Azure Dev Spaces
 
@@ -474,7 +474,7 @@ Para habilitar Azure Dev Spaces em um cluster AKS para o qual o tráfego de saí
 | cloudflare.docker.com | HTTPS:443 | Para efetuar pull de imagens do Linux Alpine e outras Azure Dev Spaces |
 | gcr.io | HTTP: 443 | Para efetuar pull de imagens do Helm/gaveta|
 | storage.googleapis.com | HTTP: 443 | Para efetuar pull de imagens do Helm/gaveta|
-| azds-<guid>.<location>.azds.io | HTTPS:443 | Para se comunicar com os serviços de back-end Azure Dev Spaces para seu controlador. O FQDN exato pode ser encontrado em "dataplaneFqdn" em% USERPROFILE%\.azds\settings.JSON|
+| azds-<guid>.<location>. azds.io | HTTPS:443 | Para se comunicar com os serviços de back-end Azure Dev Spaces para seu controlador. O FQDN exato pode ser encontrado em "dataplaneFqdn" em% USERPROFILE%\.azds\settings.JSON|
 
 ### <a name="error-could-not-find-the-cluster-cluster-in-subscription-subscriptionid"></a>Erro "não foi possível localizar o cluster \<cluster\> na assinatura \<SubscriptionId\>"
 
@@ -484,3 +484,14 @@ Para corrigir esse problema:
 
 * Use `az aks use-dev-spaces -g <resource group name> -n <cluster name>` para atualizar o contexto atual. Esse comando também habilita Azure Dev Spaces no cluster AKS se o ainda não estiver habilitado. Como alternativa, você pode usar `kubectl config use-context <cluster name>` para atualizar o contexto atual.
 * Use `az account show` para mostrar a assinatura atual do Azure que você está direcionando e verifique se isso está correto. Você pode alterar a assinatura que está direcionando usando `az account set`.
+
+### <a name="error-using-dev-spaces-after-rotating-aks-certificates"></a>Erro ao usar espaços de desenvolvimento após a rotação de certificados AKS
+
+Depois [de girar os certificados no cluster AKs](../aks/certificate-rotation.md), determinadas operações, como `azds space list` e `azds up`, falharão. Você também precisa atualizar os certificados em seu controlador de Azure Dev Spaces depois de girar os certificados no cluster.
+
+Para corrigir esse problema, verifique se o *kubeconfig* tem os certificados atualizados usando `az aks get-credentials` execute o comando `azds controller refresh-credentials`. Por exemplo:
+
+```azurecli
+az aks get-credentials -g <resource group name> -n <cluster name>
+azds controller refresh-credentials -g <resource group name> -n <cluster name>
+```

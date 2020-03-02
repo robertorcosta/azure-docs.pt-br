@@ -3,23 +3,22 @@ title: Como disparar ações complexas com alertas do Azure Monitor
 description: Saiba como criar uma ação do aplicativo lógico para processar alertas do Azure Monitor.
 author: dkamstra
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: ad196f52935af4ab4aa7af1b80183161065d4b4b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.openlocfilehash: adc53ad1c75b3251c5672d9078062631b107cc87
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365015"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669124"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Como disparar ações complexas com alertas do Azure Monitor
 
 Este artigo mostra como configurar e disparar um aplicativo lógico para criar uma conversa no Microsoft Teams quando um alerta é acionado.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Quando um alerta do Azure Monitor dispara, ele chama um [grupo de ações](../../azure-monitor/platform/action-groups.md). Os grupos de ações permitem que você dispare uma ou mais ações para notificar os outros sobre o alerta e até mesmo corrigi-lo.
 
 O processo geral é:
@@ -294,7 +293,7 @@ O processo para criar o alerta métrico é semelhante para [criar um alerta de r
 ## <a name="calling-other-applications-besides-microsoft-teams"></a>Chamar outros aplicativos além do Microsoft Teams
 Aplicativos Lógicos têm um número de diferentes conectores que permitem disparar ações em um intervalo amplo de aplicativos e bancos de dados. Slack, SQL Server, Oracle, Salesforce, são apenas alguns exemplos. Para obter mais informações sobre conectores, consulte [Conectores do aplicativo lógico](../../connectors/apis-list.md).  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * Obtenha uma [visão geral dos alertas do log de atividades do Microsoft Azure](../../azure-monitor/platform/alerts-overview.md) e saiba como receber alertas.  
 * Saiba como [configurar alertas sempre que uma notificação de integridade do Serviço do Azure é publicada](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 * Saiba mais sobre [grupos de ação](../../azure-monitor/platform/action-groups.md).

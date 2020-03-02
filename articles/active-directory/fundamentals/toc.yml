@@ -43,6 +43,8 @@
       href: active-directory-data-storage-australia-newzealand.md
     - name: Novidades do Microsoft 365 Governo
       href: whats-new-microsoft-365-government.md
+    - name: Comparar o Azure AD com o ADDS
+      href: active-directory-compare-azure-ad-to-ad.md
     - name: Referência de operações do Azure AD
       items:
         - name: Introdução

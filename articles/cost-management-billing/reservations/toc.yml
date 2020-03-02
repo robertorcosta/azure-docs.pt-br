@@ -12,6 +12,8 @@
           href: prepay-sql-data-warehouse-charges.md
         - name: Comprar uma reserva de máquina virtual
           href: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+        - name: Comprar uma reserva de Host Dedicado
+          href: ../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md
         - name: Armazenamento em Disco do Azure
           href: ../../virtual-machines/linux/disks-reserved-capacity.md?toc=/azure/billing/TOC.json
         - name: Comprar uma reserva de armazenamento do Azure
@@ -42,10 +44,12 @@
           href: view-reservations.md
     - name: Conceitos
       items:
-        - name: Descontos para a instância de VM Reservada
-          href: ../manage/understand-vm-reservation-charges.md
         - name: Como as recomendações de reserva são criadas
           href: reserved-instance-purchase-recommendations.md
+        - name: Descontos para a instância de VM Reservada
+          href: ../manage/understand-vm-reservation-charges.md
+        - name: Descontos para os Hosts Dedicados reservados
+          href: billing-understand-dedicated-hosts-reservation-charges.md
         - name: Descontos para a capacidade reservada do Armazenamento do Azure
           href: understand-storage-charges.md
         - name: Descontos para reservas do Armazenamento em Disco do Azure

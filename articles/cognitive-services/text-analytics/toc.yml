@@ -42,6 +42,8 @@
     - name: 'Usar o Flask para traduzir texto, analisar o sentimento e sintetizar fala'
       maintainContext: true
       href: 'https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis'
+    - name: Extrair informações no Excel com o Power Automate
+      href: tutorials/extract-excel-information.md
 - name: Guias de instruções
   items:
     - name: Chamar a API da Análise de Texto

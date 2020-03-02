@@ -6,8 +6,16 @@
       href: security-center-intro.md
     - name: Plataformas compatíveis
       href: security-center-os-coverage.md
-    - name: Recursos compatíveis
-      href: security-center-services.md
+    - name: Recursos da Central de Segurança
+      items:
+        - name: Cobertura de recursos para VMs
+          href: security-center-services.md
+        - name: Cobertura de recursos para recursos de PaaS do Azure
+          href: features-paas.md
+    - name: Recomendações de segurança
+      href: recommendations-reference.md
+    - name: Alertas de segurança e a cadeia de eliminação de intenção
+      href: alerts-reference.md
 - name: Inícios rápidos
   expanded: true
   items:
@@ -157,7 +165,7 @@
           href: security-center-apply-disk-encryption.md
         - name: Aplicar atualizações do sistema
           href: security-center-apply-system-updates.md
-        - name: Instalar o Endpoint Protection
+        - name: Instalar proteção do ponto de extremidade
           href: security-center-install-endpoint-protection.md
         - name: Relatórios de ameaça
           href: security-center-threat-report.md
@@ -187,7 +195,7 @@
           href: faq-vms.md
         - name: Usuários existentes do Azure Log Analytics
           href: faq-azure-monitor-logs.md
-    - name: Notas sobre a versão
+    - name: Notas de versão
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Recursos e desativação da API (julho de 2019)
       href: security-center-features-retirement-july2019.md

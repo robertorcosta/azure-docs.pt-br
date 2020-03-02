@@ -1,8 +1,8 @@
-- name: Documentação do Azure Cognitive Search
+- name: Documentação da pesquisa cognitiva do Azure
   href: index.yml
 - name: Visão geral
   items:
-    - name: O que é o Azure Cognitive Search?
+    - name: O que é a Pesquisa Cognitiva do Azure?
       href: search-what-is-azure-search.md
     - name: Novidades
       href: whats-new.md
@@ -19,7 +19,7 @@
           href: search-create-app-portal.md
         - name: Criar um conjunto de habilidades
           href: cognitive-search-quickstart-blob.md
-        - name: Criar um repositório de conhecimento
+        - name: Criar um repositório de dados de conhecimento
           href: knowledge-store-create-portal.md
     - name: 'C#'
       href: search-get-started-dotnet.md
@@ -35,7 +35,7 @@
       href: search-get-started-python.md
 - name: Tutoriais
   items:
-    - name: 'Crie seu primeiro aplicativo C#'
+    - name: 'Criar um aplicativo em C#'
       items:
         - name: 1 – Página de pesquisa básica
           href: tutorial-csharp-create-first-app.md
@@ -47,13 +47,15 @@
           href: tutorial-csharp-facets.md
         - name: 5 – Adicione ordem de resultados
           href: tutorial-csharp-orders.md
-    - name: Indexar Banco de Dados SQL do Azure
-      href: search-indexer-tutorial.md
-    - name: Indexar blobs JSON do Azure
-      href: search-semi-structured-data.md
-    - name: Indexar várias fontes de dados do Azure
-      href: tutorial-multiple-data-sources.md
-    - name: Enriquecer com IA (Cognitive Search)
+    - name: Indexar dados do Azure
+      items:
+        - name: Indexar Banco de Dados SQL do Azure
+          href: search-indexer-tutorial.md
+        - name: Indexar blobs JSON do Azure
+          href: search-semi-structured-data.md
+        - name: Indexar várias fontes de dados do Azure
+          href: tutorial-multiple-data-sources.md
+    - name: Usar IA para criar conteúdo
       items:
         - name: 'C#'
           href: cognitive-search-tutorial-blob-dotnet.md
@@ -187,7 +189,7 @@
           href: cognitive-search-attach-cognitive-services.md
         - name: Conjuntos de habilidades
           items:
-            - name: Definir um conjunto de habilidades
+            - name: Definir um conjunto de qualificações
               href: cognitive-search-defining-skillset.md
             - name: Fazer referência a uma anotação
               href: cognitive-search-concept-annotations-syntax.md
@@ -263,7 +265,7 @@
           href: index-add-scoring-profiles.md
     - name: Plano
       items:
-        - name: Escolha um nível
+        - name: Escolha uma faixa
           href: search-sku-tier.md
         - name: Limites de serviço
           href: search-limits-quotas-capacity.md
@@ -299,7 +301,7 @@
           href: search-api-migration.md
     - name: Seguro
       items:
-        - name: Visão Geral de Segurança
+        - name: Visão geral da segurança
           href: search-security-overview.md
         - name: Criar um ponto de extremidade privado
           href: service-create-private-endpoint.md
@@ -331,7 +333,7 @@
           href: search-monitor-logs-powerbi.md
         - name: Monitorar atividade de consulta
           href: search-monitor-queries.md
-        - name: Análise de tráfego de pesquisa
+        - name: Análise do tráfego de pesquisa
           href: search-traffic-analytics.md
     - name: Solucionar problemas
       items:
