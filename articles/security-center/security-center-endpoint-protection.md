@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/29/2019
 ms.author: memildin
-ms.openlocfilehash: 899f4cba31afed812fa1643b925a38812308042e
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: dcf7df501665ea3885d00b9f7668a95cbbf02428
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552926"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208535"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Avaliação e recomendações do Endpoint Protection na central de segurança do Azure
 
-A central de segurança do Azure fornece avaliações de integridade de versões [com suporte](security-center-services.md#supported-endpoint-protection-solutions-) das soluções do Endpoint Protection. Este artigo explica os cenários que levam à central de segurança para gerar as duas recomendações a seguir:
+A central de segurança do Azure fornece avaliações de integridade de versões [com suporte](security-center-services.md#endpoint-supported) das soluções do Endpoint Protection. Este artigo explica os cenários que levam à central de segurança para gerar as duas recomendações a seguir:
 
 * **Instalar soluções do Endpoint Protection em sua máquina virtual**
 * **Resolver problemas de integridade do Endpoint Protection em seus computadores**
@@ -90,15 +90,15 @@ A central de segurança do Azure fornece avaliações de integridade de versões
 ## <a name="symantec-endpoint-protection"></a>Symantec Endpoint Protection
 A central de segurança recomenda que você **"Instale soluções do Endpoint Protection na máquina virtual"** quando qualquer uma das seguintes verificações não for atendida:
 
-* **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
+* **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
 Ou
 
-* **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
+* **HKLM: \ Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM: \ Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
 A central de segurança recomenda que você **"resolva problemas de integridade do Endpoint Protection em suas máquinas"** quando qualquer uma das seguintes verificações não for atendida:
 
@@ -125,7 +125,7 @@ A central de segurança recomenda que você **"Instale soluções do Endpoint Pr
 
 * **HKLM: \ SOFTWARE\McAfee\Endpoint\AV\ProductVersion** existe
 
-* **HKLM:\SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
+* **HKLM: \ SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
 
 A central de segurança recomenda que você **"resolva problemas de integridade do Endpoint Protection em suas máquinas"** quando qualquer uma das seguintes verificações não for atendida:
 
@@ -175,7 +175,7 @@ A central de segurança recomenda que você **"resolva problemas de integridade 
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
 
-### <a name="troubleshoot"></a>Solucionar problemas
+### <a name="troubleshoot"></a>Solução de problemas
 
 Os logs de extensão antimalware da Microsoft estão disponíveis em: **%systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware (ou PaaSAntimalware) \1.5.5.x (Version #) \CommandExecution.log**
 

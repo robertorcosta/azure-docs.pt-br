@@ -11,33 +11,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2020
+ms.date: 03/01/2020
 ms.author: memildin
-ms.openlocfilehash: 14c54028dacb545532b540ae8ff79fc3dc5356bc
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 9d3fa1e0b62ea6f4762c3df6ac7da310d5703807
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921259"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208766"
 ---
-# <a name="supported-features-available-in-azure-security-center"></a>Recursos com suporte disponíveis na central de segurança do Azure
+# <a name="feature-coverage-for-machines"></a>Cobertura de recursos para computadores
 
-> [!NOTE]
->Alguns recursos estão disponíveis apenas com a camada Standard. Se você ainda não tiver se inscrito na camada Standard da central de segurança, um período de avaliação gratuita estará disponível. Para obter mais informações, consulte a [página de preços da central de segurança](https://azure.microsoft.com/pricing/details/security-center/).
+As tabelas a seguir mostram os recursos da central de segurança do Azure que estão disponíveis para máquinas virtuais e servidores.
 
-As seções a seguir mostram os recursos da central de segurança que estão disponíveis para suas [plataformas com suporte](security-center-os-coverage.md).
+## Recursos com suporte para máquinas virtuais e servidores<a name="vm-server-features"></a>
 
-* [Máquinas virtuais/servidores](#vm-server-features)
-* [Serviços de PaaS](#paas-services)
-
-
-## Recursos com suporte para máquina virtual/servidor<a name="vm-server-features"></a>
-
-### <a name="windows"></a>[Windows](#tab/features-windows)
+### <a name="windows-machines"></a>[Computadores Windows](#tab/features-windows)
 
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-||**Máquinas Virtuais do Azure**|**Conjuntos de dimensionamento de máquinas virtuais do Azure**|**Computadores não Azure**|**Preços**
+|**Recurso**|**Máquinas Virtuais do Azure**|**Conjuntos de dimensionamento de máquinas virtuais do Azure**|**Computadores não Azure**|**Preços**
 |[Integração do Microsoft defender ATP](security-center-wdatp.md)|✔</br>(em versões com suporte)|✔</br>(em versões com suporte)|✔|Standard|
 |[Análise comportamental de máquina virtual (e alertas de segurança)](threat-protection.md)|✔|✔|✔|Recomendações (gratuito) </br></br> Alertas de segurança (Standard)|
 |[Alertas de segurança de arquivo](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
@@ -59,11 +52,11 @@ As seções a seguir mostram os recursos da central de segurança que estão dis
 |[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Grátis|
 
 
-### <a name="linux"></a>[Linux](#tab/features-linux)
+### <a name="linux-machines"></a>[Computadores Linux](#tab/features-linux)
 
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-||**Máquinas Virtuais do Azure**|**Conjuntos de dimensionamento de máquinas virtuais do Azure**|**Computadores não Azure**|**Preços**
+|**Recurso**|**Máquinas Virtuais do Azure**|**Conjuntos de dimensionamento de máquinas virtuais do Azure**|**Computadores não Azure**|**Preços**
 |[Integração do Microsoft defender ATP](security-center-wdatp.md)|-|-|-|Standard|
 |[Análise comportamental de máquina virtual (e alertas de segurança)](security-center-alerts-iaas.md)|✔</br>(em versões com suporte)|✔</br>(em versões com suporte)|✔|Recomendações (gratuito) </br></br> Alertas de segurança (Standard)|
 |[Alertas de segurança de arquivo](alerts-reference.md#alerts-windows)|-|-|-|Standard|
@@ -85,6 +78,11 @@ As seções a seguir mostram os recursos da central de segurança que estão dis
 |[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Grátis|
 
 --- 
+
+
+> [!TIP]
+>Para experimentar os recursos que estão disponíveis apenas no tipo de preço Standard, os usuários da camada gratuita podem se registrar em uma avaliação de 30 dias. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/security-center/).
+
 
 ## Soluções de proteção de ponto de extremidade com suporte<a name="endpoint-supported"></a>
 
@@ -111,46 +109,6 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 > - A detecção do System Center Endpoint Protection (SCEP) em uma máquina virtual do Windows Server 2008 R2 exige que o SCEP seja instalado após o PowerShell 3.0 (ou uma versão superior).
 > - Há suporte para a detecção da proteção Trend Micro para agentes de segurança profundas.  Não há suporte para agentes do OfficeScan.
 
-
-## Recursos <a name="paas-services"></a> com suporte de serviços de PaaS
-
-Os recursos de PaaS a seguir têm suporte na central de segurança do Azure:
-
-|Service|Recomendações (gratuito)|Alertas de segurança (Standard)|Avaliação de vulnerabilidade (padrão)|
-|----|:----:|:----:|:----:|
-|Bancos de dados SQL|✔|✔|✔|
-|Registro de Contêiner do Azure|-|-|✔|
-|Serviço de Kubernetes do Azure|✔|✔|-|
-|Banco de dados do Azure para PostgreSQL *|✔|✔|-|
-|Banco de dados do Azure para MySQL *|✔|✔|-|
-|CosmosDB do Azure *|-|✔|-|
-|Contas de armazenamento|✔|-|-|
-|Armazenamento de Blobs|✔|✔|-|
-|Serviço de Aplicativo|✔|✔|-|
-|Aplicativo de funções|✔|-|-|
-|Cloud Services|✔|-|-|
-|Rede Virtual|✔|-|-|
-|Sub-rede|✔|-|-|
-|NIC|✔|-|-|
-|Grupos de segurança de rede|✔|-|-|
-|Assinatura|✔ **|✔|-|
-|Conta do Batch|✔|-|-|
-|Conta de Service Fabric|✔|-|-|
-|Conta de automação|✔|-|-|
-|Load Balancer|✔|-|-|
-|Pesquisa Cognitiva|✔|-|-|
-|Namespace do Barramento de Serviço|✔|-|-|
-|Stream Analytics|✔|-|-|
-|Namespace do Hub de Eventos|✔|-|-|
-|Aplicativos lógicos|✔|-|-|
-|Cache para Redis|✔|-|-|
-|Data Lake Analytics|✔|-|-|
-|Armazenamento do Azure Data Lake|✔|-|-|
-|Key Vault|✔|✔ *|-|
-
-\* esses recursos têm suporte no momento na versão prévia.
-
-as recomendações do \*\* Azure Active Directory (AD do Azure) estão disponíveis somente para assinaturas padrão.
 
 ## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 

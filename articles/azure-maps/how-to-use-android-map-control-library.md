@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 57ad9992bec3f070366134d8dfbcdafa8f2e16d4
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 1858b221418e6cc59c6441e0653299710b5c7e72
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209844"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208637"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Introdução ao Azure Maps SDK do Android
 
 O Azure Maps SDK do Android é uma biblioteca de mapas de vetor para Android. Este artigo orienta você pelos processos de instalação do Azure Maps SDK do Android e carregamento de um mapa.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 ### <a name="create-an-azure-maps-account"></a>Criar uma conta dos Mapas do Azure
 
@@ -103,7 +103,7 @@ A próxima etapa na criação do aplicativo é instalar o SDK do Android do Azur
     </FrameLayout>
     ```
 
-4. No arquivo **MainActivity. java** , você precisará:
+4. No arquivo **MainActivity.java**, você precisará:
     
     * adicionar importações para o SDK do Azure Mapas
     * definir as informações de autenticação do Azure Mapas
@@ -111,7 +111,7 @@ A próxima etapa na criação do aplicativo é instalar o SDK do Android do Azur
 
     Definir as informações de autenticação na classe `AzureMaps` globalmente usando os métodos `setSubscriptionKey` ou `setAadProperties` faz isso para que você não precise adicionar suas informações de autenticação a cada exibição. 
 
-    O controle de mapa contém seus próprios métodos de ciclo de vida para gerenciar o ciclo de vida OpenGL do Android. Esses métodos de ciclo de vida devem ser chamados diretamente da atividade que a contém. Para que seu aplicativo chame corretamente os métodos de ciclo de vida do controle de mapa, você deve substituir os seguintes métodos de ciclo de vida na atividade que contém o controle de mapa. E, você deve chamar o respectivo método de controle de mapa. 
+    O controle de mapa contém os próprios métodos de ciclo de vida para gerenciar o ciclo de vida do OpenGL do Android. Esses métodos de ciclo de vida devem ser chamados diretamente da atividade que a contém. Para que seu aplicativo chame corretamente os métodos de ciclo de vida do controle de mapa, você deve substituir os seguintes métodos de ciclo de vida na atividade que contém o controle de mapa. E, você deve chamar o respectivo método de controle de mapa. 
 
     * onCreate (pacote) 
     * OnStart () 
@@ -127,7 +127,9 @@ A próxima etapa na criação do aplicativo é instalar o SDK do Android do Azur
     ```java
     package com.example.myapplication;
 
-    import android.support.v7.app.AppCompatActivity;
+    //For older versions use: import android.support.v7.app.AppCompatActivity;
+    import androidx.appcompat.app.AppCompatActivity;
+
     import android.os.Bundle;
     import com.microsoft.azure.maps.mapcontrol.AzureMaps;
     import com.microsoft.azure.maps.mapcontrol.MapControl;
@@ -268,7 +270,7 @@ Aqui está um exemplo de mapas do Azure com a linguagem definida como "fr-FR" e 
 
 Uma lista completa de idiomas e exibições regionais compatíveis está documentada [aqui](supported-languages.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba como adicionar dados de sobreposição no mapa:
 
