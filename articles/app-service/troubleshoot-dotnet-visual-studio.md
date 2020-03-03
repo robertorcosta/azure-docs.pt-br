@@ -6,15 +6,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
-ms.openlocfilehash: 5c0a236dc6ebf02c859d9db3f25f0e9016ac35ab
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 3305cfb81980984574961b2a84a056f5d1879ead
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688378"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227900"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Solucionar problemas de um aplicativo no Serviço de Aplicativo do Azure usando o Visual Studio
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Este tutorial mostra como usar ferramentas do Visual Studio para ajudar a depurar um aplicativo no [Serviço de Aplicativo](https://go.microsoft.com/fwlink/?LinkId=529714), seja executando-o no [modo de depuração](https://docs.microsoft.com/visualstudio/debugger/) remotamente ou exibindo logs do aplicativo e do servidor Web.
 
 O que você aprenderá:
@@ -61,7 +61,7 @@ O Visual Studio fornece acesso a um subconjunto das funções de gerenciamento d
 
     Neste tutorial, você usará os menus suspensos de log e rastreamento. Você também usará a depuração remota, mas utilizará um método diferente para habilitá-la.
 
-    Para obter informações sobre as caixas configurações do aplicativo e cadeias de conexão nesta janela, consulte [Azure app Service: como as cadeias de caracteres do aplicativo e as cadeias de conexão funcionam](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
+    Para saber mais sobre as caixas Configurações do Aplicativo e Cadeias de Conexão nessa janela, confira [Serviço de Aplicativo do Azure: como as cadeias de caracteres do aplicativo e as cadeias de conexão funcionam](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
     Se desejar executar uma tarefa de gerenciamento do aplicativo que não possa ser concluída nessa janela, clique em **Abrir no Portal de Gerenciamento** para abrir uma janela do navegador para o portal do Azure.
 
@@ -139,7 +139,7 @@ Esta seção mostra como depurar remotamente usando o projeto que você criou em
 
 1. No **Gerenciador de Servidores**, clique com o botão direito do mouse no seu aplicativo e clique em **Anexar Depurador**.
 
-    ![Anexar depurador](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
+    ![Anexar Depurador](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
     O navegador é aberto automaticamente na home page em execução no Azure. Convém aguardar cerca de 20 segundos enquanto o Azure configura o servidor para depuração. Esse atraso ocorre apenas na primeira execução que você realiza em modo de depuração em um aplicativo em um período de 48 horas. Quando você começa a depurar novamente no mesmo período, não há atraso.
 
@@ -192,7 +192,7 @@ A depuração remota só funciona com Trabalhos Web contínuos. Trabalhos Web ag
 
 8. Clique em **Anexar o depurador**.
 
-    ![Anexar depurador](./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png)
+    ![Anexar Depurador](./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png)
 
     O navegador é aberto automaticamente na home page em execução no Azure. Convém aguardar cerca de 20 segundos enquanto o Azure configura o servidor para depuração. Esse atraso ocorre apenas na primeira execução que você realiza em modo de depuração em um aplicativo em um período de 48 horas. Quando você começa a depurar novamente no mesmo período, não há atraso.
 
@@ -567,7 +567,7 @@ Você pode exibir os logs de rastreamento de solicitação com falha em um naveg
 
 3. No Visual Studio, na guia **Configuração** da janela **Aplicativo Web do Azure**, clique em **Abrir no Portal de Gerenciamento**.
 
-4. Na página [Configurações](https://portal.azure.com) do **portal do Azure** do seu aplicativo, clique em **Credenciais de implantação** e insira um novo nome de usuário e uma senha.
+4. Na página **configurações** de [portal do Azure](https://portal.azure.com) para seu aplicativo, clique em **credenciais de implantação**e insira um novo nome de usuário e senha.
 
     ![Novo nome de usuário e senha FTP](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
@@ -620,7 +620,7 @@ Para saber mais sobre como solucionar problemas de aplicativos no Serviço de Ap
 Para obter ajuda com uma pergunta específica de solução de problemas, inicie um thread em um dos seguintes fóruns:
 
 * [O fórum do Azure no site do ASP.NET](https://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
-* [O fórum do Azure no MSDN](https://social.msdn.microsoft.com/Forums/windowsazure/).
+* [O fórum do Azure no Microsoft Q & A](https://docs.microsoft.com/answers/topics/azure-webapps.html).
 * [StackOverflow.com](https://www.stackoverflow.com).
 
 ### <a name="debugging-in-visual-studio"></a>Depurando no Visual Studio
@@ -645,7 +645,7 @@ Não existem introduções completas e atualizadas para rastreamento do ASP.NET 
   Antigo, mas ainda é um bom recurso para obter uma introdução básica sobre o assunto.
 * [Ouvintes de rastreamento](/dotnet/framework/debug-trace-profile/trace-listeners)<br/>
   Informações sobre ouvintes de rastreamento, mas não menciona o [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener).
-* [Passo a passo: Integrando o rastreamento do ASP.NET com rastreamento do System.Diagnostics](/previous-versions/b0ectfxd(v=vs.140))<br/>
+* [Passo a passo: integrando o rastreamento do ASP.NET com rastreamento do System.Diagnostics](/previous-versions/b0ectfxd(v=vs.140))<br/>
   Esse artigo também é antigo, mas inclui algumas informações adicionais que o artigo introdutório não cobre.
 * [Rastreamento em exibições do Razor do ASP.NET MVC](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   Além do rastreamento em exibições do Razor, a postagem também explica como criar um filtro de erros para registrar em log todas as exceções não tratadas em um aplicativo MVC. Para obter informações sobre como registrar em log exceções não tratadas em um aplicativo de formulários da Web, consulte o exemplo do Global.asax em [Concluir exemplo para manipuladores de erro](/previous-versions/bb397417(v=vs.140)) no MSDN. No MVC ou em Formulários da Web, para registrar certas exceções em log, mas deixar o tratamento da estrutura padrão cuidar deles, você poderá capturar e relançar como no exemplo a seguir:
