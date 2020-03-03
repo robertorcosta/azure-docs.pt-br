@@ -3,16 +3,16 @@ title: Instâncias reservadas de VM de EA do Azure
 description: Este artigo resume como as reservas do Azure para instâncias reservadas de VM podem ajudá-lo a economizar dinheiro com seu Registro Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/14/2020
+ms.date: 02/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 3eceef9dc0bc29f7e105ac0b110bd2550413fa61
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 53af5e69a90eb376c28ef364e7d9c5b29287790c
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200703"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560570"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Instâncias reservadas de VM de EA do Azure
 
@@ -57,10 +57,12 @@ Você pode exibir seus detalhes de compra da instância reservada por meio do me
 
 ### <a name="how-can-i-change-the-subscription-associated-with-reserved-instance-or-transfer-my-reserved-instance-benefits-to-a-subscription-under-the-same-account"></a>Como posso alterar a assinatura associada à instância reservada ou transferir meus benefícios de instância reservada para uma assinatura na mesma conta?
 
-A qualquer momento, apenas uma assinatura pode receber benefícios de instância reservada. Você pode alterar a assinatura que recebe os benefícios da instância reservada:
+Você pode alterar a assinatura que recebe os benefícios da instância reservada:
 
-- Fazendo logon no [Portal do Azure](https://aka.ms/reservations).
-- Atualizando o escopo da assinatura aplicada, associando uma assinatura diferente à mesma conta.
+- Entrar no [portal do Azure](https://aka.ms/reservations).
+- Atualizando o escopo da assinatura aplicada associando uma assinatura diferente à mesma conta.
+
+Para obter mais informações sobre como alterar o escopo de uma reserva, confira [Alterar o escopo da reserva](../reservations/manage-reserved-vm-instance.md#change-the-reservation-scope).
 
 ### <a name="how-to-view-reserved-instance-usage-details"></a>Como exibir detalhes de uso da instância reservada
 

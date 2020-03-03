@@ -6,23 +6,23 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
-ms.date: 09/25/2019
-ms.openlocfilehash: 35dc4938760ca83a6781d5791c746ee2f74310ab
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
+ms.date: 02/24/2020
+ms.openlocfilehash: 7d2dd65224aad231db9574aa5a1fa4a00b328da8
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031572"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623554"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Início Rápido: Criar cluster do Apache Hadoop no Azure HDInsight usando o portal do Azure
 
-Neste artigo, você aprenderá a criar clusters do [Apache Hadoop](https://hadoop.apache.org/) no HDInsight usando o portal do Azure e, depois, executar trabalhos do Apache Hive no HDInsight. A maioria dos trabalhos de Hadoop consiste em trabalhos em lotes. Criar um cluster, executar alguns trabalhos e excluir o cluster. Neste artigo, você deve executar as três tarefas.
+Neste artigo, você aprenderá a criar clusters do Apache Hadoop no HDInsight usando o portal do Azure e, em seguida, executar trabalhos do Apache Hive no HDInsight. A maioria dos trabalhos de Hadoop consiste em trabalhos em lotes. Criar um cluster, executar alguns trabalhos e excluir o cluster. Neste artigo, você deve executar as três tarefas. Para obter explicações detalhadas sobre as configurações disponíveis, confira [Configurar clusters no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Para obter mais informações sobre o uso do portal para criar clusters, confira [Criar clusters no portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 Neste início rápido, você usa o Portal do Azure para criar um cluster Hadoop do HDInsight. Também é possível criar um cluster usando o [modelo do Azure Resource Manager](apache-hadoop-linux-tutorial-get-started.md).
 
-Atualmente, o HDInsight vem com [sete tipos diferentes de cluster](../hdinsight-overview.md#cluster-types-in-hdinsight). Cada tipo de cluster dá suporte a um conjunto diferente de componentes. Todos os tipos de cluster dão suporte ao Hive. Para obter uma lista de componentes com suporte no HDInsight, confira [What's new in the Apache Hadoop cluster versions provided by HDInsight?](../hdinsight-component-versioning.md) (Novidades nas versões de cluster Apache Hadoop fornecidas pelo HDInsight?)  
+Atualmente, o HDInsight é fornecido com [sete tipos diferentes de cluster](../hdinsight-overview.md#cluster-types-in-hdinsight). Cada tipo de cluster dá suporte a um conjunto diferente de componentes. Todos os tipos de cluster dão suporte ao Hive. Para obter uma lista de componentes com suporte no HDInsight, confira [What's new in the Apache Hadoop cluster versions provided by HDInsight?](../hdinsight-component-versioning.md) (Novidades nas versões de cluster Apache Hadoop fornecidas pelo HDInsight?)  
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -32,20 +32,22 @@ Nesta seção, você criará um cluster Hadoop no HDInsight usando o portal do A
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
-1. No portal do Azure, vá até **Criar um recurso** > **Análise** > **HDInsight**.
+1. No menu superior, selecione **+ Criar um recurso**.
 
-    ![Criar cluster de recurso do HDInsight](./media/apache-hadoop-linux-create-cluster-get-started-portal/create-hdinsight-cluster.png "Criar cluster de recurso do HDInsight")
+    ![Criar cluster de recurso do HDInsight](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-create-resource.png "Criar cluster de recurso do HDInsight")
 
-1. Em **Conceitos Básicos**, insira ou selecione os seguintes valores:
+1. Selecione **Análise** > **Azure HDInsight** para acessar a página **Criar cluster HDInsight**.
+
+1. Na guia **Informações Básicas**, forneça as seguintes informações:
 
     |Propriedade  |Descrição  |
     |---------|---------|
-    |Subscription    |  Selecione sua assinatura do Azure. |
-    |Resource group     | Crie um grupo de recursos ou selecione um grupo de recursos existente.  Um grupo de recursos é um contêiner de componentes do Azure.  Nesse caso, o grupo de recursos contém o cluster HDInsight e a conta de Armazenamento do Azure dependente. |
-    |Nome do cluster   | Insira um nome para o cluster Hadoop. Como todos os clusters no HDInsight compartilham o mesmo namespace DNS esse nome precisa ser exclusivo. O nome pode ter até 59 caracteres incluindo letras, números e hifens. O primeiro e último caracteres do nome não podem ser hifens. |
-    |Location    | Selecione um local do Azure no qual você deseja criar o cluster.  Escolha um local mais próximo a você para obter melhor desempenho. |
+    |Subscription    |  Na lista suspensa, selecione a assinatura do Azure usada para o cluster. |
+    |Resource group     | Na lista suspensa, selecione o grupo de recursos existente ou selecione **Criar**.|
+    |Nome do cluster   | Insira um nome global exclusivo. O nome pode ter até 59 caracteres incluindo letras, números e hifens. O primeiro e último caracteres do nome não podem ser hifens. |
+    |Região    | Na lista suspensa, selecione uma região em que o cluster foi criado.  Escolha um local mais próximo a você para obter melhor desempenho. |
     |Tipo de cluster| Selecione **Selecione o tipo de cluster**. Em seguida, selecione **Hadoop** como o tipo de cluster.|
-    |Versão|A versão padrão do tipo de cluster será especificada. Selecione na lista suspensa se desejar especificar uma versão diferente.|
+    |Versão|Na lista suspensa, selecione uma **versão**. Use a versão padrão se não souber o que escolher.|
     |Nome de usuário e senha de logon do cluster    | O nome padrão de logon é **admin**. A senha deve ter no mínimo 10 caracteres e deve conter pelo menos um dígito, uma letra maiúscula, uma minúscula e um caractere não alfanumérico (exceto os caracteres ' " ` \). **Não forneça** senhas comuns, como "Pass@word1".|
     |Nome de usuário do Secure Shell (SSH) | O nome de usuário padrão é **sshuser**.  Você pode fornecer outro nome para o nome de usuário de SSH. |
     |Usar senha de logon do cluster para SSH| Marque essa caixa de seleção para usar a mesma senha para o usuário SSH que aquela fornecida para o usuário de logon do cluster.|
@@ -65,6 +67,8 @@ Nesta seção, você criará um cluster Hadoop no HDInsight usando o portal do A
 
     ![Introdução ao HDInsight Linux, fornecer valores de armazenamento de cluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-storage.png "Fornecer valores de armazenamento para criar um cluster do HDInsight")
 
+    Cada cluster tem uma dependência na [conta de Armazenamento do Azure](../hdinsight-hadoop-use-blob-storage.md) ou [conta do Azure Data Lake](../hdinsight-hadoop-use-data-lake-store.md). Ela é conhecida como a conta de armazenamento padrão. O cluster HDInsight e sua conta de armazenamento padrão devem estar colocados na mesma região do Azure. A exclusão dos clusters não exclui a conta de armazenamento.
+
     Selecione a guia **Examinar + criar**.
 
 1. Na guia **Examinar + criar**, verifique os valores selecionados nas etapas anteriores.
@@ -73,20 +77,18 @@ Nesta seção, você criará um cluster Hadoop no HDInsight usando o portal do A
 
 1. Selecione **Criar**. Demora cerca de 20 minutos para criar um cluster.
 
-Após a criação do cluster, você verá a página de visão geral do cluster no Portal do Azure.
+    Após a criação do cluster, você verá a página de visão geral do cluster no Portal do Azure.
 
-![Introdução ao HDInsight Linux, configurações do cluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/cluster-settings-overview.png "Propriedades do cluster do HDInsight")
-
-Cada cluster tem uma dependência na [conta de Armazenamento do Azure](../hdinsight-hadoop-use-blob-storage.md) ou [conta do Azure Data Lake](../hdinsight-hadoop-use-data-lake-store.md). Ela é conhecida como a conta de armazenamento padrão. O cluster HDInsight e sua conta de armazenamento padrão devem estar colocados na mesma região do Azure. A exclusão dos clusters não exclui a conta de armazenamento.
-
-> [!NOTE]  
-> Para obter outros métodos de criação de cluster e compreender as propriedades usadas neste início rápido, confira [Criar clusters do HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+    ![Introdução ao HDInsight Linux, configurações do cluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/cluster-settings-overview.png "Propriedades do cluster do HDInsight")
 
 ## <a name="run-apache-hive-queries"></a>Executar consultas do Apache Hive
 
 [Apache Hive](hdinsight-use-hive.md) é o componente mais popular usado no HDInsight. Há várias maneiras de executar trabalhos do Hive no HDInsight. Neste início rápido, você usará o modo de exibição do Ambari Hive no portal. Para obter outros métodos para enviar trabalhos do Hive, confira [Usar o Hive no HDInsight](hdinsight-use-hive.md).
 
-1. Para abrir o Ambari, na captura de tela anterior, selecione **Painel do Cluster**.  Você também pode navegar até `https://ClusterName.azurehdinsight.net`, em que `ClusterName` é o cluster que você criou na seção anterior.
+> [!NOTE]
+> O Apache Hive View não está disponível no HDInsight 4.0.
+
+1. Para abrir o Ambari, na captura de tela anterior, selecione **Painel do Cluster**.  Navegue também até `https://ClusterName.azurehdinsight.net`, em que `ClusterName` é o cluster que você criou na seção anterior.
 
     ![Introdução ao HDInsight Linux, painel do cluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-get-started-open-cluster-dashboard.png "Introdução ao HDInsight Linux, painel do cluster")
 
@@ -120,7 +122,7 @@ Cada cluster tem uma dependência na [conta de Armazenamento do Azure](../hdinsi
 
     ![Salvar resultado da consulta do Apache Hive](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-hive-view-save-results.png "Salvar resultado da consulta do Apache Hive")
 
-Depois de concluir um trabalho do Hive, você pode [exportar os resultados para o banco de dados SQL do Azure ou do SQL Server](apache-hadoop-use-sqoop-mac-linux.md). Também pode [visualizar os resultados usando o Excel](apache-hadoop-connect-excel-power-query.md). Para obter mais informações sobre como usar o Hive no HDInsight, confira [Use Apache Hive and HiveQL with Apache Hadoop in HDInsight to analyze a sample Apache log4j file](hdinsight-use-hive.md) (Usar o Apache Hive e o HiveQL com o Apache Hadoop no HDInsight para analisar um arquivo log4j do Apache de exemplo).
+Depois de concluir um trabalho do Hive, você poderá [exportar os resultados para o Banco de Dados SQL do Azure ou o banco de dados do SQL Server](apache-hadoop-use-sqoop-mac-linux.md) e [visualizar os resultados usando o Excel](apache-hadoop-connect-excel-power-query.md). Para obter mais informações sobre como usar o Hive no HDInsight, confira [Use Apache Hive and HiveQL with Apache Hadoop in HDInsight to analyze a sample Apache log4j file](hdinsight-use-hive.md) (Usar o Apache Hive e o HiveQL com o Apache Hadoop no HDInsight para analisar um arquivo log4j do Apache de exemplo).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

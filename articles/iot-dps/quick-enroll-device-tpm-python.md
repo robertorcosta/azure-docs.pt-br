@@ -9,24 +9,29 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 6266ef3479e74103d0989b8eb0286626da5eb28f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 60ce27ddc533b6c4066cea771f7a24570ff3c04c
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976784"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604903"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>Início Rápido: Registrar dispositivo TPM no Serviço de Provisionamento de Dispositivos no Hub IoT usando o SDK do serviço de provisionamento Python
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
-Estas etapas mostram como criar programaticamente um registro individual de um dispositivo TPM no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando o [SDK do Serviço de Provisionamento Python V1](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client) com a ajuda de um aplicativo Python de exemplo. Embora o SDK do serviço Python funcione em computadores Windows e Linux, este artigo usa um computador de desenvolvimento do Windows para percorrer o processo de registro.
+Neste início rápido, você criará de maneira programática um registro individual para um dispositivo TPM no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando o SDK do Serviço de Provisionamento do Python com a ajuda de um aplicativo Python de exemplo.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Conclusão de [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
+- Uma conta do Azure com uma assinatura ativa. [Crie um gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Python 2.x ou 3.x](https://www.python.org/downloads/). Este início rápido instalará o [SDK do Serviço de Provisionamento do Python](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client) abaixo.
+- [Pip](https://pip.pypa.io/en/stable/installing/), se ele não estiver incluído na distribuição do Python.
+- Chave de endosso. Use as etapas em [Criar e provisionar um dispositivo simulado](quick-create-simulated-device.md) ou use a chave de endosso fornecida com o SDK, descrito abaixo.
 
 > [!IMPORTANT]
 > Este artigo aplica-se apenas ao SDK do Python V1 preterido. Os clientes de dispositivo e serviço para o Serviço de Provisionamento de Dispositivos no Hub IoT ainda não estão disponíveis na V2. Atualmente, a equipe está empenhada no trabalho de levar a V2 à paridade de recursos.
-
-Certifique-se de [configurar o Serviço de Provisionamento de Dispositivos do Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md) antes de prosseguir.
-
 
 <a id="prepareenvironment"></a>
 
@@ -34,7 +39,7 @@ Certifique-se de [configurar o Serviço de Provisionamento de Dispositivos do Hu
 
 1. Baixe e instale o [Python 2.x ou 3.x](https://www.python.org/downloads/). Certifique-se de usar a instalação de 32 bits ou 64 bits conforme exigido pelo seu programa de instalação. Quando solicitado durante a instalação, certifique-se de adicionar Python às variáveis de ambiente específica da plataforma. 
 
-1. Escolha uma das seguintes opções:
+1. Para o [SDK do Serviço de Provisionamento do Python](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client), escolha uma das seguintes opções:
 
     - Criar e compilar o **SDK do Python do IoT Azure**. Execute [estas instruções](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md) para compilar os pacotes do Python. Se você está usando o sistema operacional Windows, instale também o [Pacote redistribuível do Visual C++](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para permitir o uso de DLLs nativas do Python.
 
@@ -107,7 +112,7 @@ Esta seção mostra como adicionar os detalhes de provisionamento do dispositivo
     ![Verifique o registro TPM bem-sucedido no portal](./media/quick-enroll-device-tpm-python/1.png)  
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se planejar explorar o exemplo do serviço Java, não limpe os recursos criados neste início rápido. Caso contrário, use as seguintes etapas para excluir todos os recursos criados por este início rápido.
 
 1. Feche a janela de saída de exemplo do Python em seu computador.

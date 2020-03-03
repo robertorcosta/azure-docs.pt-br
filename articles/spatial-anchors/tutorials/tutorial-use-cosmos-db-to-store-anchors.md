@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 57bf9c9752cf2203ffcac08c213373fd71a79148
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 71b3027d86400d6921895f86e257ddff2961f91f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276875"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615146"
 ---
 # <a name="tutorial-sharing-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Tutorial: Compartilhar Âncoras Espaciais do Azure entre sessões e dispositivos com um back-end do Azure Cosmos DB
 
@@ -42,6 +42,12 @@ No **Gerenciador de Soluções**, abra `SharingService\appsettings.json`.
 Localize a propriedade `StorageConnectionString` e defina o valor para que seja o mesmo `Connection String` que você copiou na [etapa criar uma conta de banco de dados](#create-a-database-account). Salve o arquivo.
 
 Você pode publicar o Serviço de Compartilhamento novamente e executar o aplicativo de exemplo.
+
+## <a name="troubleshooting"></a>Solução de problemas
+
+### <a name="unity-20193"></a>Unity 2019.3
+
+Devido a alterações da falha, atualmente, não há suporte para o Unity 2019.3. Use o Unity 2019.1 ou 2019.2.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

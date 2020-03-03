@@ -9,36 +9,26 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: a2787a0d5f372562f32c4d8adca3ed195d1befd5
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 534956a53615cfafeffa611127bc8c3cc4493753
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461961"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604909"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Provisionamento de Dispositivos usando Java
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-Este início rápido mostra como usar Java para registrar programaticamente um grupo de dispositivos X.509 simulados para o Serviço de Provisionamento de Dispositivos do Azure IoT Hub. Os dispositivos são registrados em uma instância de serviço de provisionamento com a criação de um [Grupo de registro](concepts-service.md#enrollment-group) ou de um [Registro Individual](concepts-service.md#individual-enrollment). Este início rápido mostra como criar ambos os tipos de registros. Os registros são criados usando o [SDK do serviço Java](https://azure.github.io/azure-iot-sdk-java/service/) com a ajuda de um aplicativo Java de exemplo. 
-
-Este início rápido espera que você já tenha criado uma instância do serviço de provisionamento de dispositivos e do Hub IoT. Se você já não tiver criado esses recursos, conclua o início rápido [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md) antes de continuar com este artigo.
-
-Embora o SDK do serviço Java funcione em computadores Windows e Linux, este artigo usa um computador de desenvolvimento do Windows para demonstrar o processo de registro.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Neste início rápido, você usará o Java para registrar de maneira programática um grupo de dispositivos simulados X.509 no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure. Os dispositivos são registrados em uma instância do serviço de provisionamento com a criação de um grupo de registro ou um registro individual. Este início rápido mostra como criar os dois tipos de registros usando o SDK do Serviço Java e um aplicativo Java de exemplo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Instale o [Java SE Development Kit 8](https://aka.ms/azure-jdks).
-* Instale o [Maven 3](https://maven.apache.org/download.cgi). Você pode verificar sua versão atual do Maven, executando:
-
-    ```cmd/sh
-    mvn --version
-    ```
-
-* Instale o [Git](https://git-scm.com/download/).
-
+- Conclusão de [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
+- Uma conta do Azure com uma assinatura ativa. [Crie um gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Java SE Development Kit 8](https://aka.ms/azure-jdks). Este início rápido instalará o [SDK do Serviço Java](https://azure.github.io/azure-iot-sdk-java/service/) abaixo. Ele funciona no Windows e no Linux. Este início rápido usará o Windows.
+- [Maven 3](https://maven.apache.org/download.cgi).
+- [Git](https://git-scm.com/download/).
 
 <a id="javasample"></a>
 
@@ -51,7 +41,7 @@ Esta seção usa um certificado X.509 autoassinado. É importante ter em mente o
 
 As etapas a seguir mostram como adicionar os detalhes de provisionamento do dispositivo X.509 ao código de exemplo. 
 
-1. Abra um prompt de comando. Clone o repositório do GitHub para o exemplo de código de registro do dispositivo usando o SDK do serviço Java:
+1. Abra um prompt de comando. Clone o repositório GitHub para o exemplo de código de registro do dispositivo usando o [SDK do Serviço Java](https://azure.github.io/azure-iot-sdk-java/service/):
     
     ```cmd\sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -140,6 +130,13 @@ As etapas a seguir mostram como adicionar os detalhes de provisionamento do disp
 <a id="runjavasample"></a>
 
 ## <a name="build-and-run-sample-group-enrollment"></a>Compilar e executar o registro do grupo de exemplo
+
+O Serviço de Provisionamento de Dispositivos de IoT do Azure dá suporte a dois tipos de registros:
+
+- [Grupos de registros](concepts-service.md#enrollment-group): usados para inscrever vários dispositivos relacionados.
+- [Registros individuais](concepts-service.md#individual-enrollment): usados para inscrever um único dispositivo.
+
+Este procedimento usa um grupo de registro. A próxima seção usa um registro individual.
 
 1. Abra uma janela de comando e navegue até a pasta **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** .
 

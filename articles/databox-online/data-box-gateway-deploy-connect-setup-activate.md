@@ -1,5 +1,5 @@
 ---
-title: Conecte-se, configure e ative o Azure Data Box Gateway no portal do Azure | Microsoft Docs
+title: Conectar, configurar e ativar o Azure Data Box Gateway no portal do Azure
 description: O terceiro tutorial para implantar o Data Box Gateway instrui você a conectar, configurar e ativar seu dispositivo virtual.
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 898cb63f8868ce2abaee8784214322edf9a56997
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 33333f8df1e4809a330815e34074d1bca556cd14
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000310"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561826"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Tutorial: Conectar, configurar e ativar o Azure Data Box Gateway
 
@@ -134,7 +134,7 @@ A configuração do dispositivo foi concluída. Agora você pode adicionar compa
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Conectar-se a um dispositivo virtual

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/14/2020
 ms.author: allensu
-ms.openlocfilehash: 341bfddb86885df225874100400a854cf12120db
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: aab6a4de7be57df1f691861533a4528a0bcae571
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76757792"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605653"
 ---
 # <a name="load-balancer-components-and-limitations"></a>Componentes e limitações do Load Balancer
 O Azure Load Balancer contém vários componentes importantes para sua operação.  Esses componentes podem ser configurados em sua assinatura por meio do portal do Azure, da CLI do Azure ou do Azure PowerShell.  
@@ -73,7 +73,9 @@ Para saber mais, confira [Configurar o modo de distribuição para o Azure Load 
 
 A imagem a seguir mostra a distribuição baseada em hash:
 
-  ![Distribuição baseada em hash](./media/load-balancer-overview/load-balancer-distribution.png)
+<p align="center">
+  <img src="./media/load-balancer-overview/load-balancer-distribution.svg" width="512" title="Distribuição baseada em hash">
+</p>
 
   *Figura: distribuição baseada em hash*
 
@@ -132,9 +134,11 @@ O Load Balancer público mapeia o endereço IP público e a porta do tráfego de
 
 A figura a seguir mostra um ponto de extremidade com balanceamento de carga para tráfego da Web que é compartilhado entre três VMs para a porta TCP 80 pública. Essas três VMs estão em um conjunto com balanceamento de carga.
 
-![Exemplo de Load Balancer público](./media/load-balancer-overview/IC727496.png)
+<p align="center">
+  <img src="./media/load-balancer-overview/load-balancer-http.svg" width="256" title="Balanceador de carga público">
+</p>
 
-*Figura: Balanceando o tráfego da Web usando um Load Balancer público*
+*Figura: Como balancear o tráfego da Web usando um balanceador de carga público*
 
 Os clientes da Internet enviam solicitações da página da Web para o endereço IP público de um aplicativo Web na porta TCP 80. O Azure Load Balancer distribui as solicitações entre as três VMs no conjunto com balanceamento de carga. Para obter mais informações sobre os algoritmos do balanceador de carga, confira os [Conceitos de Load Balancer](concepts-limitations.md#load-balancer-concepts).
 
@@ -151,7 +155,10 @@ Um Load Balancer interno habilita os seguintes tipos de balanceamento de carga:
 * **Para aplicativos de várias camadas**: balanceamento de carga para aplicativos de várias camadas voltados para a Internet em que as camadas de back-end não são voltadas para a Internet. As camadas de back-end requerem balanceamento de carga de tráfego da camada para a Internet. Veja a próxima figura.
 * **Para aplicativos de linha de negócios**: Balanceamento de carga para aplicativos de linha de negócios hospedados no Azure sem hardware ou software do balanceador de carga adicional. Esse cenário inclui servidores locais que estão no conjunto de computadores cujo tráfego tem balanceamento de carga.
 
-![Exemplo de Load Balancer Interno](./media/load-balancer-overview/IC744147.png)
+
+<p align="center">
+  <img src="./media/load-balancer-overview/load-balancer.svg" width="256" title="Balanceador de carga público">
+</p>
 
 *Figura: Balanceando aplicativos de várias camadas usando o Load Balancer interno e público*
 

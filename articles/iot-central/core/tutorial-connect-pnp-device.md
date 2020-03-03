@@ -8,16 +8,21 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: ca2ac62892d1c8d438cc37bffcbfede14058bc23
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 84db3996b49a95d1ef6a9f1e80299605cc31d669
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026369"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602604"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-and-connect-it-to-your-iot-central-application"></a>Tutorial: Usar um modelo de funcionalidade do dispositivo para criar um dispositivo IoT Plug and Play (versão prévia) e conectá-lo ao aplicativo do IoT Central
 
 Um DCM _(modelo de funcionalidade do dispositivo)_ descreve as funcionalidades de um dispositivo [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) (versão prévia). O IoT Central pode usar um DCM para criar um modelo de dispositivo e visualizações para um dispositivo quando o dispositivo se conecta pela primeira vez.
+
+O suporte para [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) está em versão prévia e só tem suporte em regiões selecionadas.
+
+> [!NOTE]
+> Entre em contato com o suporte técnico para obter acesso para criar um aplicativo de versão prévia com suporte para dispositivos IoT Plug and Play.
 
 Neste tutorial, você aprenderá como:
 
@@ -26,7 +31,7 @@ Neste tutorial, você aprenderá como:
 > * Execute o código do dispositivo no Windows e veja ele se conectar ao aplicativo do IoT Central.
 > * Exiba a telemetria simulada enviada pelo dispositivo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Conclua o início rápido [Criar um aplicativo do Azure IoT Central](./quick-deploy-iot-central.md) para criar um aplicativo do IoT Central usando o modelo de **App personalizado > Aplicativo personalizado**.
 
@@ -80,7 +85,7 @@ Neste tutorial, você usa o gerenciador de biblioteca [Vcpkg](https://github.com
 
 Para conectar um dispositivo a um aplicativo do IoT Central, é necessário ter uma chave de dispositivo. Para gerar uma chave de dispositivo:
 
-1. Entre no aplicativo IoT Central que você criou usando o modelo de **App personalizado > Aplicativo em versão prévia** no início rápido [Criar um aplicativo do Azure IoT Central](./quick-deploy-iot-central.md).
+1. Entre no aplicativo IoT Central que você criou usando o modelo de **Aplicativo personalizado** no início rápido [Criar um aplicativo do Azure IoT Central](./quick-deploy-iot-central.md).
 
 1. Acesse a página **Administração** e selecione **Conexão do Dispositivo**.
 

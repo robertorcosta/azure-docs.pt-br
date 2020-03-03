@@ -10,18 +10,18 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: e212c95a827b01485d4bdfdc557e459a92162c88
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 46bad14978957ab474cfc0eda3e523874246d3f3
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263193"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586216"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início Rápido: Executar um trabalho de Spark no Azure Databricks usando o portal do Azure
 
 Neste início rápido, você usará o portal do Azure para criar um workspace do Azure Databricks com um cluster do Apache Spark. Você executará um trabalho no cluster e usará gráficos personalizados para produzir relatórios em tempo real com base nos dados de segurança de Boston.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 
@@ -55,7 +55,7 @@ Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal 
     |**Localidade**     | Selecione **Oeste dos EUA 2**. Para outras regiões disponíveis, consulte [serviços do Azure por região](https://azure.microsoft.com/regions/services/).        |
     |**Tipo de preço**     |  Escolha entre o cluster **Standard**, **Premium** ou **Avaliação**. Para saber mais sobre essas camadas, confira [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
-4. Selecione **Examinar + Criar** e depois **Criar**. A criação do workspace leva alguns minutos. Durante a criação do workspace, você pode exibir o status da implantação em **Notificações**.
+3. Selecione **Examinar + Criar** e depois **Criar**. A criação do workspace leva alguns minutos. Durante a criação do workspace, você pode exibir o status da implantação em **Notificações**. Quando esse processo for concluído, sua conta de usuário será adicionada automaticamente como um usuário administrador no workspace.
 
     ![Bloco de implantação do Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Bloco de implantação do Databricks")
 

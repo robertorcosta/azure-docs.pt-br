@@ -1,5 +1,6 @@
 ---
 title: 'Início Rápido: Criar uma Máquina Virtual de Ciência de Dados do CentOS'
+titleSuffix: Azure Data Science Virtual Machine
 description: Configure e crie uma Máquina Virtual de Ciência de Dados para Linux (CentOS) para realizar a análise e o aprendizado de máquina.
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -7,12 +8,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/13/2019
-ms.openlocfilehash: 1761673198b3d8ffc3740d64f525c9e70bda9e3e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 73541b31125ee6e99dc2351e26f6a564a1603487
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204135"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526018"
 ---
 # <a name="quickstart-set-up-a-centos-linux-data-science-virtual-machine-in-azure"></a>Início Rápido: Configurar uma Máquina Virtual de Ciência de Dados CentOS (Linux) no Azure
 
@@ -33,7 +34,7 @@ Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dado
 
 1. Na janela subsequente, selecione **Criar**.
 
-    [![](media/linux-dsvm-intro/create-centos.png "Botão para criar um computador CentOS")](media/linux-dsvm-intro/create-centos-expanded.png#lightbox)
+    [![](media/linux-dsvm-intro/create-centos.png "Button to create a CentOS machine")](media/linux-dsvm-intro/create-centos-expanded.png#lightbox)
 
 1. Você deve ser redirecionado para a folha "Criar uma máquina virtual".
    
@@ -48,7 +49,7 @@ Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dado
        * **Nome da máquina virtual**: Insira o nome da máquina virtual. É assim que ela aparecerá no seu portal do Azure.
        * **Região**: selecione o datacenter mais apropriado. Para um acesso mais rápido à rede, é o data center que contém a maioria dos seus dados ou que está mais próximo de sua localização física. Leia mais sobre as [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/).
        * **Imagem**: Mantenha o valor padrão.
-       * **Tamanho**: Isso deve ser preenchido automaticamente com um tamanho apropriado para cargas de trabalho gerais. Leia mais sobre os [tamanhos de VM do Linux no Azure](../../virtual-machines/linux/sizes.md).
+       * **Size**: Isso deve ser preenchido automaticamente com um tamanho apropriado para cargas de trabalho gerais. Leia mais sobre os [tamanhos de VM do Linux no Azure](../../virtual-machines/linux/sizes.md).
        * **Tipo de autenticação**: Para configuração mais rápida, selecione "Senha". 
          
          > [!NOTE]

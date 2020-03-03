@@ -3,12 +3,12 @@ title: Usar o plug-in do Azure Dev Spaces para Jenkins com o Serviço de Kuberne
 description: Saiba como usar o plug-in do Azure Dev Spaces em um pipeline de integração contínua.
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: 9dba0307db8ebbf07422fd770ea336b2abc031bd
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 10dfbdb7d89d6f3870ec3b9dbd87d4d315360815
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209664"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619993"
 ---
 # <a name="tutorial-using-the-azure-dev-spaces-plug-in-for-jenkins-with-azure-kubernetes-service"></a>Tutorial: Usar o plug-in do Azure Dev Spaces para Jenkins com o Serviço de Kubernetes do Azure 
 
@@ -399,7 +399,7 @@ stage('smoketest') {
 }
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando você terminar de usar o aplicativo de exemplo, limpe os recursos do Azure excluindo o grupo de recursos:
 
@@ -409,16 +409,5 @@ az group delete -y --no-wait -n MyResourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu a usar o plug-in do Azure Dev Spaces para Jenkins e o plug-in de Registro de Contêiner do Azure para compilar o código e implantar um espaço de desenvolvimento.
-
-A lista de recursos a seguir apresenta mais informações sobre o Azure Dev Spaces, as Tarefas do ACR e CI/CD com Jenkins.
-
-Azure Dev Spaces:
-* [Como o Azure Dev Spaces funciona e é configurado](https://docs.microsoft.com/azure/dev-spaces/how-dev-spaces-works)
-
-Tarefas do ACR:
-* [Automatizar o sistema operacional e a aplicação de patches de estrutura com as Tarefas de ACR](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview)
-* [Build automático na confirmação de código](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview)
-
-CI/CD com Jenkins no Azure:
-* [Implantação contínua do Jenkins](https://docs.microsoft.com/azure/aks/jenkins-continuous-deployment)
+> [!div class="nextstepaction"]
+> [CI/CD com o Jenkins no Azure](jenkins-continuous-deployment.md)

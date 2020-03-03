@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/27/2020
-ms.openlocfilehash: 1797654f290d751eb5c1cb65a77aaa7ca7a35aa1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 837174b3ccc08a74583587cb9efd34f8f720aec5
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772883"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589446"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Tutorial: Executar o Azure Functions a partir dos trabalhos do Azure Stream Analytics 
 
@@ -191,11 +191,16 @@ Siga o tutorial [Detecção de fraudes em tempo real](stream-analytics-real-time
 
 Se ocorrer uma falha durante o envio de eventos para o Azure Functions, o Stream Analytics repetirá a maioria das operações. Todas as exceções http serão repetidas até serem bem-sucedidas, com exceção do erro http 413 (entidade grande demais). Um erro de entidade grande demais é tratado como um erro de dados que está sujeito à [política de repetição ou remoção](stream-analytics-output-error-policy.md).
 
+> [!NOTE]
+> O tempo limite para solicitações HTTP do Stream Analytics para Azure Functions é definido como 100 segundos. Se o aplicativo do Azure Functions levar mais de 100 segundos para processar um lote, o Stream Analytics apresentará erro.
+
 ## <a name="known-issues"></a>Problemas conhecidos
 
 No portal do Azure, quando você tenta redefinir o valor de Tamanho máximo do lote/Contagem máxima de lotes como vazio (padrão), o valor é alterado para o valor inserido anteriormente ao salvar. Nesse caso, insira manualmente os valores padrão para esses campos.
 
-Atualmente, o uso de [roteamento Http](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp) em seu Azure Functions não tem suporte do Stream Analytics.
+Atualmente, o uso de [roteiros HTTP](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp) em seu Azure Functions não é compatível com o Stream Analytics.
+
+O suporte para se conectar ao Azure Functions hospedado em uma rede virtual não está habilitado.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

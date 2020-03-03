@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e6fbf0e4cbfc44692292c33fc46d9ea0eccec89d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7acff7f0249cdedcebd367fc315be92cafb9ab78
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75370198"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615437"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Início Rápido: Criar um aplicativo para Unity Android com as Âncoras Espaciais do Azure
 
@@ -30,11 +30,11 @@ Você aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este início rápido, certifique-se de que:
 
-- Um computador Windows ou macOS com o <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 ou superior</a>, incluindo o Suporte de Build do Android e os módulos SDK do Android e Ferramentas NDK.
+- Um computador Windows ou macOS com o <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 ou 2019.2</a>, incluindo o Suporte de Build do Android e os módulos SDK do Android e Ferramentas NDK.
   - Se estiver executando no Windows, você também precisará do <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a> e do <a href="https://git-lfs.github.com/">Git LFS</a>.
   - Se estiver executando no macOS, instale o Git por meio do HomeBrew. Insira o seguinte comando em uma única linha do Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Em seguida, execute `brew install git` e `brew install git-lfs`.
 - Um dispositivo Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">habilitado para desenvolvedor</a> e <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">compatível com ARCore</a>.
@@ -66,9 +66,15 @@ Selecione o dispositivo em **Executar Dispositivo** e clique em **Compilar e Exe
 
 Siga as instruções no aplicativo para colocar uma âncora e fazer recall dela.
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
+
+### <a name="rendering-issues"></a>Problemas de renderização
 
 Ao executar o aplicativo, se a câmera não for exibida como a tela de fundo (por exemplo, é exibida uma tela em branco, azul ou outras texturas), você provavelmente precisará reimportar os ativos no Unity. Interrompa o aplicativo. No menu superior do Unity, escolha **Ativos -> Reimportar todos**. Em seguida, execute o aplicativo novamente.
+
+### <a name="unity-20193"></a>Unity 2019.3
+
+Devido a alterações da falha, atualmente, não há suporte para o Unity 2019.3. Use o Unity 2019.1 ou 2019.2.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

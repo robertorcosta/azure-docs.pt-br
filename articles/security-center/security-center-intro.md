@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: 759cc3f22d8b57036bad48326ffec1d6fca42696
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 884f5ab6fa57b201e1a9105729bf96e10931dca1
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939445"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604057"
 ---
 # <a name="what-is-azure-security-center"></a>O que é a Central de Segurança do Azure?
 
@@ -81,9 +81,9 @@ Uma das ferramentas mais avançadas que a Central de Segurança oferece para mon
 
 ![Mapa de rede da Central de Segurança](media/security-center-intro/sc-net-map.png)
 
-A Central de Segurança torna reduzir seus alertas de segurança uma etapa mais fácil ao adicionar uma **Secure Score**. As pontuações seguras agora estão associadas a cada recomendação que você recebe para ajudá-lo a entender a importância de cada recomendação para sua postura de segurança geral. Isso é fundamental para permitir que você **priorize seu trabalho de segurança**.
+A Central de Segurança facilita a redução de seus alertas de segurança uma etapa adicionando uma **classificação de segurança**. As classificações de segurança agora são associadas a cada recomendação que você recebe para ajudá-lo a entender a importância de cada recomendação para sua postura de segurança geral. Isso é fundamental para permitir que você **priorize seu trabalho de segurança**.
 
-![Pontuação de segurança da Central de Segurança](media/security-center-intro/sc-secure-score.png)
+![Classificação de Segurança da Central de Segurança](media/security-center-intro/sc-secure-score.png)
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Otimizar e melhorar a segurança configurando controles recomendados
 

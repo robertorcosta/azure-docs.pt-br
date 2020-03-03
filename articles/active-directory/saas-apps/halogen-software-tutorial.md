@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 02/15/2020
+ms.date: 02/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ef7d5ec33786c3c4c38525cd5ab15bee53b3493
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: 76c13a649e1c1888a11e02b83d969255615cdc67
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77373269"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561316"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-saba-talentspace"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Saba TalentSpace
 
@@ -44,7 +44,7 @@ Para começar, você precisará dos seguintes itens:
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O Saba TalentSpace dá suporte ao SSO iniciado por **SP**
-* Depois de configurar o Saba TalentSpace, você poderá impor controles de sessão, que fornecem proteção contra exportação e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Depois de configurar o Saba TalentSpace, você poderá impor controles de sessão, que fornecem proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-saba-talentspace-from-the-gallery"></a>Adicionar o Saba TalentSpace por meio da galeria
 
@@ -86,8 +86,10 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://global.hgncloud.com/[companyname]/saml/metadata`
 
+    c. Na caixa de texto **URL de Resposta (URL do Serviço do Consumidor de Declaração)** digite uma URL usando o seguinte padrão: `https://global.hgncloud.com/[companyname]/saml/SSO`
+
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do Saba TalentSpace](https://support.halogensoftware.com/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do Saba TalentSpace](https://support.saba.com/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 1. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 

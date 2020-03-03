@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2019
 ms.author: memildin
-ms.openlocfilehash: 01c0f1199ab8c376fe5bb5e864f81a2730879ed1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 1a6999c05c0b3dbaf572b376412f666c50c23df7
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112325"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604447"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Melhorar sua conformidade regulatória
 ---
@@ -62,7 +62,7 @@ Na parte superior da tela, você verá um painel com uma visão geral de seu sta
 
     O relatório fornece um resumo de alto nível do status de conformidade para o padrão escolhido tendo como base os dados das avaliações da Central de Segurança e é organizado de acordo com os controles desse padrão específico. O relatório pode ser compartilhado com stakeholders relevantes e pode servir para fornecer evidências aos auditores internos e externos.
 
-    ![baixar](./media/security-center-compliance-dashboard/download-report.png)
+    ![download](./media/security-center-compliance-dashboard/download-report.png)
 
 ## <a name="improve-your-compliance-posture"></a>Melhorar sua postura de conformidade
 
@@ -103,6 +103,4 @@ Para saber mais, confira:
 
 -   [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) – saiba como usar as recomendações da Central de Segurança do Azure para ajudar a proteger seus recursos do Azure.
 
--   [Melhorar sua classificação de segurança na Central de Segurança do Azure](security-center-secure-score.md) – saiba como priorizar as vulnerabilidades e as recomendações de segurança para oferecer melhoria máxima para sua postura de segurança.
-
--   [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre as perguntas frequentes sobre como usar o serviço.
+-   [Aprimorar sua classificação de segurança na Central de Segurança do Azure](security-center-secure-score.md) – saiba como priorizar as vulnerabilidades e as recomendações de segurança para aprimorar ao máximo sua postura de segurança.

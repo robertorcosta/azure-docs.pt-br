@@ -4,12 +4,12 @@ description: Saiba como usar o Ansible para criar e configurar um servidor do Ba
 keywords: ansible, azure, devops, bash, guia estratégico, mysql, banco de dados
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: d8c8fd361f37a9cb961012807fe40b905c10c047
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: f068b3022c94466a20b524240dc293392b1f42ff
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156535"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603116"
 ---
 # <a name="tutorial-configure-databases-in-azure-database-for-mysql-using-ansible"></a>Tutorial: Configurar bancos de dados no Banco de Dados do Azure para MySQL usando o Ansible
 
@@ -309,7 +309,7 @@ Você também verá o seguinte resultado para o banco de dados do MySQL:
 ]
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, exclua os recursos criados neste artigo. 
 

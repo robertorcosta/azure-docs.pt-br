@@ -9,35 +9,32 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 4bb3af4ddad7e40cbf7edd58cf5899ced2757512
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 35f5cc4914689fd171cc3fa8ec7d809924127f28
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548791"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605541"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Provisionamento de Dispositivos usando o Node.js
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-Este início rápido mostra como usar Node.js para criar programaticamente um [Grupo de registro](concepts-service.md#enrollment-group) que usa certificados raiz ou intermediários de autoridade de certificação X.509. O grupo de registro é criado usando o [SDK de IoT para Node.js](https://github.com/Azure/azure-iot-sdk-node) e um aplicativo do Node.js de exemplo. Um grupo de registros controla o acesso ao serviço de provisionamento para dispositivos que compartilham um certificado de autenticação comum em sua cadeia de certificados. Para saber mais, confira [Como controlar o acesso ao dispositivo para o serviço de provisionamento com certificados X.509](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). Para obter mais informações sobre como usar a Infraestrutura de Chave Pública (PKI) do X.509 baseada em certificado com o Hub IoT do Azure e o Serviço de Provisionamento do Dispositivo, confira [Visão geral de segurança do certificado de Autoridade de Certificação do X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). 
+Neste início rápido, você usará o Node.js para criar de maneira programática um grupo de registro que usa certificados X.509 intermediários ou de AC raiz. O grupo de registro é criado com o SDK de IoT para Node.js e um aplicativo Node.js de exemplo.
 
-Este início rápido espera que você já tenha criado uma instância do serviço de provisionamento de dispositivos e do Hub IoT. Se você já não tiver criado esses recursos, conclua o início rápido [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md) antes de continuar com este artigo.
+## <a name="prerequisites"></a>Pré-requisitos
 
-Embora as etapas deste artigo funcionem em computadores Windows e Linux, este artigo foi desenvolvido para um computador de desenvolvimento do Windows.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-
-## <a name="prerequisites"></a>Prerequisites
-
-- Instalar [Node.js v4.0 ou superior](https://nodejs.org).
-- Instale o [Git](https://git-scm.com/download/).
-
+- Conclusão de [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
+- Uma conta do Azure com uma assinatura ativa. [Crie um gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Node.js v4.0 e posterior](https://nodejs.org). Este início rápido instalará o [SDK de IoT para Node.js](https://github.com/Azure/azure-iot-sdk-node) abaixo.
+- [Git](https://git-scm.com/download/).
+- [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c).
 
 ## <a name="prepare-test-certificates"></a>Preparar certificados de teste
 
-Para este início rápido, você deve ter um arquivo .pem ou .cer que contém a parte pública de um certificado raiz ou intermediário de autoridade de certificação X.509. Este certificado deve ser carregado para o serviço de provisionamento e verificado pelo serviço. 
+Para este início rápido, você deve ter um arquivo .pem ou .cer que contém a parte pública de um certificado raiz ou intermediário de autoridade de certificação X.509. Este certificado deve ser carregado para o serviço de provisionamento e verificado pelo serviço.
+
+Para obter mais informações sobre como usar a Infraestrutura de Chave Pública (PKI) do X.509 baseada em certificado com o Hub IoT do Azure e o Serviço de Provisionamento do Dispositivo, confira [Visão geral de segurança do certificado de Autoridade de Certificação do X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview).
 
 O [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c) contém ferramentas de teste que podem ajudá-lo a criar uma cadeia de certificados X.509, carregar um certificado raiz ou intermediário a partir dessa cadeia e executar a prova de posse com o serviço para verificar o certificado. Os certificados criados com as ferramentas do SDK são projetados para uso **apenas para testes de desenvolvimento**. Esses certificados **não devem ser usados em produção**. Eles contêm senhas codificadas (“1234”) que expiram após 30 dias. Para obter informações sobre como obter certificados adequados para o uso de produção, confira [Como obter um certificado de Autoridade de Certificação X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) na documentação do Hub IoT do Azure.
 
@@ -63,6 +60,12 @@ Para usar essas ferramentas de teste para gerar certificados, execute as seguint
 
 ## <a name="create-the-enrollment-group-sample"></a>Criar exemplo de grupo de registros 
 
+O Serviço de Provisionamento de Dispositivos de IoT do Azure dá suporte a dois tipos de registros:
+
+- [Grupos de registros](concepts-service.md#enrollment-group): usados para inscrever vários dispositivos relacionados.
+- [Registros individuais](concepts-service.md#individual-enrollment): usados para inscrever um único dispositivo.
+
+Um grupo de registros controla o acesso ao serviço de provisionamento para dispositivos que compartilham um certificado de autenticação comum em sua cadeia de certificados. Para saber mais, confira [Como controlar o acesso ao dispositivo para o serviço de provisionamento com certificados X.509](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
  
 1. Em uma janela de comando na sua pasta de trabalho, execute:
   
@@ -125,7 +128,7 @@ Para usar essas ferramentas de teste para gerar certificados, execute as seguint
 
     ![Certificado verificado no portal](./media/quick-enroll-device-x509-node/verify-certificate.png) 
 
-1. Para criar um grupo de registros para o seu certificado, execute o seguinte comando (inclua aspas nos argumentos do comando):
+1. Para criar um [grupo de registro](concepts-service.md#enrollment-group) para o seu certificado, execute o seguinte comando (inclua as aspas nos argumentos do comando):
  
      ```cmd\sh
      node create_enrollment_group.js "<the connection string for your provisioning service>" "<your certificate's .pem file>"

@@ -1,5 +1,5 @@
 ---
-title: Tutorial para copiar dados para o dispositivo Azure Data Box Heavy por meio do serviço de cópia de dados | Microsoft Docs
+title: 'Tutorial: Copiar dados para o Azure Data Box Heavy por meio de serviço de cópia de dados'
 description: Neste tutorial, você aprenderá a copiar dados para o dispositivo Azure Data Box Heavy por meio do serviço de cópia de dados
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: adc28ea5f74ad16d4387d246ef73618a53ea26e1
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 67547db53d2b9ce05838335ffcb5d789b77ecbbe
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595815"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560213"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-heavy-preview"></a>Tutorial: Usar o serviço de cópia de dados para copiar dados para o Azure Data Box Heavy (versão prévia)
 
@@ -59,7 +59,7 @@ Para copiar dados usando o serviço de cópia de dados, é necessário criar um 
     |-------------------------------|---------|
     |**Nome do trabalho**                       |Um único nome com menos de 230 caracteres para o trabalho. Estes caracteres não são permitidos no nome do trabalho: \<, \>, \|, \?, \*, \\, \:, \/ e \\\.         |
     |**Localização de origem**                |Forneça o caminho do SMB para a fonte de dados no formato: `\\<ServerIPAddress>\<ShareName>` ou `\\<ServerName>\<ShareName>`.        |
-    |**Nome de Usuário**                       |Nome de usuário no formato `\\<DomainName><UserName>` para acessar a fonte de dados. Se um administrador local estiver se conectando, eles precisarão de permissões de segurança explícita. Clique com botão direito do mouse na pasta, selecione **Propriedades** e, em seguida, selecione **Segurança**. Isso deve adicionar o administrador local na guia **Segurança**.       |
+    |**Nome de usuário**                       |Nome de usuário no formato `\\<DomainName><UserName>` para acessar a fonte de dados. Se um administrador local estiver se conectando, eles precisarão de permissões de segurança explícita. Clique com botão direito do mouse na pasta, selecione **Propriedades** e, em seguida, selecione **Segurança**. Isso deve adicionar o administrador local na guia **Segurança**.       |
     |**Senha**                       |A senha para acessar a fonte de dados.           |
     |**Conta de armazenamento de destino**    |Selecione na lista a conta de armazenamento de destino na qual os dados serão carregados.         |
     |**Tipo de destino**       |Selecione o tipo de armazenamento de destino na lista: **Blob de Blocos**, **Blob de Páginas** ou **Arquivos do Azure**.        |
@@ -111,7 +111,7 @@ Para copiar dados usando o serviço de cópia de dados, é necessário criar um 
 
 6. Enquanto o trabalho está em andamento, na página **Copiar dados**:
 
-    - Na coluna **Status**, é possível exibir o status do trabalho de cópia. O status pode ser:
+    - Na coluna **Status**, é possível exibir o status do trabalho de cópia. Os status podem ser:
         - **Executando**
         - **Com falha**
         - **Êxito**

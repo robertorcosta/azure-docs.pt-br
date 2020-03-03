@@ -8,13 +8,13 @@ ms.author: heidist
 ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: 5e53167a083b5e89bd88a45452929dd40f0868f2
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 02/25/2020
+ms.openlocfilehash: 0b07e934625b09e7f6249dc00865465147f6f0ba
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406723"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624014"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure em Java usando APIs REST
 > [!div class="op_single_selector"]
@@ -26,13 +26,13 @@ ms.locfileid: "74406723"
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Crie um aplicativo de console Java que cria, carrega e consulta um índice da Pesquisa Cognitiva do Azure usando o [IntelliJ](https://www.jetbrains.com/idea/), o [SDK 11 do Java](/java/azure/jdk/?view=azure-java-stable) e a [API REST da Pesquisa Cognitiva do Azure](/rest/api/searchservice/). Este artigo fornece instruções passo a passo para a criação do aplicativo. Como alternativa, você pode [baixar e executar o aplicativo completo](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
+Crie um aplicativo de console Java que cria, carrega e consulta um índice de pesquisa usando o [IntelliJ](https://www.jetbrains.com/idea/), o [SDK do Java 11](/java/azure/jdk/?view=azure-java-stable) e a [API REST do Azure Cognitive Search](/rest/api/searchservice/). Este artigo fornece instruções passo a passo para a criação do aplicativo. Como alternativa, você pode [baixar e executar o aplicativo completo](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Usamos os seguintes softwares e serviços para compilar e testar este exemplo:
+Usamos os seguintes programas de software e serviços para criar e testar este início rápido:
 
 + [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
@@ -817,7 +817,7 @@ Agora que carregou os documentos de hotéis, você pode criar consultas de pesqu
 
     Procure um resumo de cada consulta e seus resultados. A execução deve ser concluída com uma mensagem de SUCESSO NO BUILD seguida de um código de saída igual a zero (0).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando você está trabalhando em sua própria assinatura, no final de um projeto, é uma boa ideia remover os recursos que já não são necessários. Recursos deixados em execução podem custar dinheiro. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir todo o conjunto de recursos.
 

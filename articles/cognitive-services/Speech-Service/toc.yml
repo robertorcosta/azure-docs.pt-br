@@ -193,6 +193,10 @@
           items:
             - name: API REST conversão de texto em fala
               href: rest-text-to-speech.md
+        - name: Uso do conjunto de telefones
+          items:
+            - name: Uso do conjunto de telefones da SAPI (Speech API)
+              href: sapi-phoneset-usage.md
     - name: Recursos
       items:
         - name: Perguntas frequentes sobre conversão de texto em fala

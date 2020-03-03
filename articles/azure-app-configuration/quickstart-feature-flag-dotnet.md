@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: bdb00bfbadec68fa110f747858d264a2c34f8bd1
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 5ea9749c07aadc7037e753160e9b053992bebae2
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76120862"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619309"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Início Rápido: Adicionar sinalizadores de recursos a um aplicativo .NET Framework
 
@@ -27,15 +27,22 @@ Neste início rápido, você incorporará a Configuração de Aplicativos do Azu
 
 As bibliotecas do Gerenciamento de Recursos do .NET estendem a estrutura com suporte abrangente a sinalizadores de recursos. Essas bibliotecas se baseiam no sistema de configuração do .NET. Elas são integradas diretamente à Configuração de Aplicativos por meio de seu provedor de configuração do .NET.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
-- [.NET Framework 4.7.2](https://dotnet.microsoft.com/download)
+- [.NET Framework 4.8](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>Criar um repositório de Configuração de Aplicativos
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. Selecione **Gerenciador de Recursos** >  **+Adicionar** para adicionar um sinalizador de recurso chamado `Beta`.
+
+    > [!div class="mx-imgBorder"]
+    > ![Habilitar o sinalizador de recurso chamado Beta](media/add-beta-feature-flag.png)
+
+    Mantenha `label` indefinido por enquanto.
 
 ## <a name="create-a-net-console-app"></a>Criar um aplicativo de console do .NET
 
@@ -43,7 +50,7 @@ As bibliotecas do Gerenciamento de Recursos do .NET estendem a estrutura com sup
 
 1. Em **Criar um projeto**, filtre o tipo de projeto **Console** e clique em **Aplicativo de Console (.NET Framework)** . Clique em **Próximo**.
 
-1. Em **Configurar seu novo projeto**, insira um nome de projeto. Em **Framework**, selecione **.NET Framework 4.7.1** ou superior. Clique em **Criar**.
+1. Em **Configurar seu novo projeto**, insira um nome de projeto. Em **Framework**, selecione **.NET Framework 4.8** ou superior. Clique em **Criar**.
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conectar um repositório de Configuração de Aplicativos
 
@@ -67,13 +74,8 @@ As bibliotecas do Gerenciamento de Recursos do .NET estendem a estrutura com sup
 1. Atualize o método `Main` para se conectar à Configuração de Aplicativos, especificando a opção `UseFeatureFlags` para que os sinalizadores de recursos sejam recuperados. Em seguida, exiba uma mensagem se o sinalizador de recursos `Beta` estiver habilitado.
 
     ```csharp
-        public static void Main(string[] args)
-        {
-            AsyncMain().Wait();
-        }
-
-        private static async Task AsyncMain()
-        {
+        public static async Task Main(string[] args)
+        {         
             IConfigurationRoot configuration = new ConfigurationBuilder()
                 .AddAzureAppConfiguration(options =>
                 {

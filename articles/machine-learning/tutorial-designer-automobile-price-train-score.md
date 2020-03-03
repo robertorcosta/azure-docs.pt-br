@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 01/30/2020
-ms.openlocfilehash: de9ed700363bd6578ac49f0add0c48dc33356692
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 972f0aa1f6d05c3cc65c62c0991fad87ab4676c4
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982582"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623626"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Prever preço de automóvel com o designer (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -260,7 +260,7 @@ Use o módulo **Avaliar Modelo** para avaliar a o desempenho do modelo na pontua
 
 ## <a name="run-the-pipeline"></a>Executar o pipeline
 
-Agora que seu pipeline está instalado, você pode enviar uma execução de pipeline.
+Agora que o pipeline está configurado, você poderá enviar uma execução de pipeline para treinar seu modelo de machine learning. Você poderá enviar uma execução de pipeline a qualquer momento ao criar pipelines no designer. Faça isso para verificar o andamento do seu trabalho e se o pipeline funciona conforme o esperado.
 
 1. Na parte superior da tela, selecione **Executar**.
 

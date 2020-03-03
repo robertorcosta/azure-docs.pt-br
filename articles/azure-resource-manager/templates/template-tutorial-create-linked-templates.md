@@ -5,12 +5,12 @@ author: mumian
 ms.date: 12/03/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a77f32620d4e3a694806cdf6c247928fa3c7ede4
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: e8f95f4987d0ce421defaed63ed9a587233d2bf4
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045297"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561571"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutorial: Criar modelos do Azure Resource Manager vinculados
 
@@ -35,7 +35,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este artigo, você precisa do seguinte:
 

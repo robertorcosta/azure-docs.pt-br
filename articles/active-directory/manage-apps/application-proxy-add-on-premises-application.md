@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b00fff9c979fe6bd2c52f67801a94cb50b1c660
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 29ab39c10686066599a23d12c4fd8e66caae732e
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970339"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586063"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar um aplicativo local para acesso remoto por meio do Proxy de Aplicativo no Azure Active Directory
 
@@ -103,7 +103,7 @@ Permita o acesso às seguintes URLs:
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicação entre o conector e o serviço de nuvem do Proxy de Aplicativo |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | O Azure usa essas URLs para verificar certificados. |
-| login.windows.net<br>Secure.aadcdn.microsoftonline p.com<br>\*.microsoftonline.com<br>\*.microsoftonline-p.com<br>\*.msauth.net<br>\*.msauthimages.net<br>\*.msecnd.net<br>\*.msftauth.net<br>\*.msftauthimages.net<br>\*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net | O conector usa essas URLs durante o processo de registro. |
+| login.windows.net<br>Secure.aadcdn.microsoftonline p.com<br>\*.microsoftonline.com<br>\*.microsoftonline-p.com<br>\*.msauth.net<br>\*.msauthimages.net<br>\*.msecnd.net<br>\*.msftauth.net<br>\*.msftauthimages.net<br>\*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | O conector usa essas URLs durante o processo de registro. |
 
 Se o firewall ou o proxy permitir a configuração de listas de permissões de DNS, você poderá permitir conexões ao \*.msappproxy.net e \*.servicebus.windows.net. Caso contrário, você precisa permitir o acesso aos [Intervalos de IP e Marcas de Serviço – Nuvem Pública do Azure](https://www.microsoft.com/download/details.aspx?id=56519). Os intervalos de IP são atualizados a cada semana.
 
@@ -175,7 +175,7 @@ Agora que você preparou seu ambiente e instalou um conector, está pronto para 
 4. Na seção **Aplicativos locais**, selecione **Adicionar um aplicativo local**.
 5. Na seção **Adicionar seu próprio aplicativo local**, forneça as seguintes informações sobre o aplicativo:
 
-    | Campo | DESCRIÇÃO |
+    | Campo | Descrição |
     | :---- | :---------- |
     | **Nome** | O nome do aplicativo que será exibido no painel de acesso e no portal do Azure. |
     | **URL Interna** | A URL para acessar o aplicativo de dentro de sua rede privada. Você pode fornecer um caminho específico no servidor back-end para publicar, enquanto o restante do servidor é não publicado. Assim, você pode publicar sites diferentes no mesmo servidor como diferentes aplicativos, e dar a cada um deles seu próprio nome e suas regras de acesso.<br><br>Se você publicar um caminho, verifique se ele inclui todas as imagens, scripts e folhas de estilo necessários para seu aplicativo. Por exemplo, se seu aplicativo estiver em https:\//yourapp/app e usar as imagens localizadas em https:\//yourapp/media, você deverá publicar https:\//yourapp/ como o caminho. Essa URL interna não precisa ser a página de aterrissagem que os usuários veem. Para obter mais informações, consulte [Definir uma página inicial personalizada para aplicativos publicados](application-proxy-configure-custom-home-page.md). |
@@ -185,7 +185,7 @@ Agora que você preparou seu ambiente e instalou um conector, está pronto para 
 
 6. Se necessário, defina **Configurações adicionais**. Para a maioria dos aplicativos, você deve manter essas configurações em seus estados padrão. 
 
-    | Campo | DESCRIÇÃO |
+    | Campo | Descrição |
     | :---- | :---------- |
     | **Tempo Limite do Aplicativo Back-end** | Defina esse valor como **Longo** somente se o aplicativo estiver lento para se autenticar e se conectar. No padrão, o tempo limite do aplicativo de back-end tem uma duração de 85 segundos. Quando definido como longo, o tempo limite de back-end é aumentado para 180 segundos. |
     | **Usar Cookie Somente HTTP** | Defina esse valor como **Sim** para que os cookies do Proxy de Aplicativo incluam o sinalizador HTTPOnly no cabeçalho da resposta HTTP. Se estiver usando os Serviços de Área de Trabalho Remota, defina esse valor como **Não**.|

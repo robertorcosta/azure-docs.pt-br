@@ -8,31 +8,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 02/25/2020
 ms.author: areddish
-ms.openlocfilehash: 2b3c6fc404e9a5fefc15aa7b7162ff5573c3be5a
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: a0cfa49dfe247a71e5c2d546e2bb7e9d9b2efc18
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76166135"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616340"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Início Rápido: Criar um projeto de classificação de imagem com o SDK de Visão Personalizada para Java
 
 Este artigo mostra como começar a usar o SDK de Visão Personalizada para Java a fim de criar um modelo de classificação de imagens. Depois de criada, você poderá adicionar marcas, carregar imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão do projeto padrão e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como modelo para criar seu próprio aplicativo Java. Se você quiser passar pelo processo de criar e usar um modelo de classificação _sem_ código, confira as [diretrizes baseadas em navegador](getting-started-build-a-classifier.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Um Java IDE de sua preferência
 - [JDK 7 ou 8](https://aka.ms/azure-jdks) instalado.
-- Maven instalado
+- [Maven](https://maven.apache.org/) instalado
 - [!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Obter o SDK de Visão Personalizada e um exemplo de código
 
 Para escrever um aplicativo Java que usa a Visão Personalizada, você precisará dos pacotes de maven da Visão Personalizada. Esses pacotes estão incluídos no projeto de exemplo que você baixará, mas é possível acessá-los individualmente aqui.
 
-Você pode instalar o SDK de Visão Personalizada do repositório central do Maven:
+Encontre o SDK da Visão Personalizada no repositório central do Maven:
 
 - [SDK de treinamento](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
 - [SDK de previsão](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
@@ -43,7 +43,10 @@ Esse projeto Java cria um novo projeto de classificação de imagem da Visão Pe
 
 [!INCLUDE [get-keys](includes/get-keys.md)]
 
-O programa está configurado para armazenar seus dados de chave como variáveis de ambiente. Defina essas variáveis navegando até a pasta **Vision/CustomVision** no PowerShell. Em seguida, insira os comandos:
+O programa está configurado para referenciar seus dados de chave como variáveis de ambiente. Navegue até a pasta **Vision/CustomVision** e insira os comandos do PowerShell a seguir para definir as variáveis de ambiente. 
+
+> [!NOTE]
+> Se estiver usando um sistema operacional não Windows, confira [Configurar variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#configure-an-environment-variable-for-authentication) para obter instruções.
 
 ```powershell
 $env:AZURE_CUSTOMVISION_TRAINING_API_KEY ="<your training api key>"
@@ -88,9 +91,9 @@ O ponto de extremidade de previsão, representado aqui pelo objeto `predictor`, 
 
 ## <a name="run-the-application"></a>Executar o aplicativo
 
-Para compilar e executar a solução usando o maven, execute o seguinte comando no diretório do projeto no PowerShell:
+Para compilar e executar a solução usando o Maven, navegue até o diretório do projeto (**Vision/CustomVision**) em um prompt de comando e execute o comando run:
 
-```powershell
+```bash
 mvn compile exec:java
 ```
 

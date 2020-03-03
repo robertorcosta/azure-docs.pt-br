@@ -8,15 +8,18 @@ ms.topic: overview
 ms.date: 01/09/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 452202555734a208a9f32d6f8899e1f679df4a68
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: aea424d4e74f0744f5891a0d7b3b08008fa227b5
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443985"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562030"
 ---
 # <a name="what-is-azure-private-link"></a>O que é o Link Privado do Azure? 
 O Link Privado do Azure te habilita a acessar os serviços de PaaS do Azure (por exemplo, Armazenamento do Azure e Banco de Dados SQL e Azure Cosmos DB) e serviços de parceiros/clientes hospedados no Azure em um [Ponto de Extremidade Privado](private-endpoint-overview.md) em sua rede virtual. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Também é possível criar seu próprio [Serviço de Link Privado](private-link-service-overview.md) em sua VNet (rede virtual) e fornecê-lo de forma privada aos seus clientes. A experiência de configuração e consumo usando o Link Privado do Azure é consistente entre os serviços de parceiro de PaaS do Azure, de propriedade do cliente e de parceiros compartilhados.
+
+> [!IMPORTANT]
+> O Link Privado do Azure já está em disponibilidade geral. O Ponto de Extremidade Privado e o serviço do Link Privado (serviço por trás do Standard Load Balancer) estão em disponibilidade geral. O Azure PaaS diferente será integrado ao Link Privado do Azure em datas diferentes. Verifique a seção [Disponibilidade](https://docs.microsoft.com/azure/private-link/private-link-overview#availability) abaixo para obter o status preciso do PaaS do Azure no Link Privado. Para conhecer as limitações conhecidas, confira [Ponto de Extremidade Privado](private-endpoint-overview.md#limitations) e [Serviço de Link Privado](private-link-service-overview.md#limitations). 
 
 ![Visão geral do ponto de extremidade privado](media/private-link-overview/private-endpoint.png)
 
@@ -37,16 +40,16 @@ O Link Privado do Azure fornece os seguintes benefícios:
 
 |Cenário  |Serviços com suporte  |Regiões disponíveis | Status  |
 |:---------|:-------------------|:-----------------|:--------|
-|Link Privado para serviços de propriedade do cliente|Serviços de Link Privado atrás do Standard Load Balancer | Todas as regiões públicas  | Visualização  |
-|Link Privado para os serviços de PaaS do Azure   | Armazenamento do Azure        |  Todas as regiões públicas      | Visualização <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints).  |
-|  | Azure Data Lake Storage Gen2        |  Todas as regiões públicas      | Visualização <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints).  |
-|  |  Banco de Dados SQL do Azure         | Todas as regiões públicas      |   Visualização      |
-||SQL Data Warehouse do Azure| Todas as regiões públicas |Visualização|
-||Azure Cosmos DB| Centro-oeste dos EUA, Oeste dos EUA e Centro-Norte dos EUA |Visualização|
-|  |  Banco de Dados do Azure para PostgreSQL – Servidor único         | Todas as regiões públicas      |   Visualização      |
-|  |  Banco de Dados do Azure para MySQL         | Todas as regiões públicas      |   Visualização      |
-|  |  Banco de Dados do Azure para MariaDB         | Todas as regiões públicas      |   Visualização      |
-|  |  Cofre de Chave do Azure         | Todas as regiões públicas      |   Visualização      |
+|Link Privado para serviços de propriedade do cliente|Serviços de Link Privado atrás do Standard Load Balancer | Todas as regiões públicas  | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
+|Link Privado para os serviços de PaaS do Azure   | Armazenamento do Azure        |  Todas as regiões públicas      | Visualização <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints)  |
+|  | Azure Data Lake Storage Gen2        |  Todas as regiões públicas      | Visualização <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints)  |
+|  |  Banco de Dados SQL do Azure         | Todas as regiões públicas      |   Visualização <br/> [Saiba mais](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
+||SQL Data Warehouse do Azure| Todas as regiões públicas |Visualização <br/> [Saiba mais](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
+||Azure Cosmos DB| Centro-oeste dos EUA, Oeste dos EUA e Centro-Norte dos EUA |Visualização <br/> [Saiba mais](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
+|  |  Banco de Dados do Azure para PostgreSQL – Servidor único         | Todas as regiões públicas      |   Visualização <br/> [Saiba mais](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
+|  |  Banco de Dados do Azure para MySQL         | Todas as regiões públicas      |   Visualização <br/> [Saiba mais](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
+|  |  Banco de Dados do Azure para MariaDB         | Todas as regiões públicas      |   Visualização <br/> [Saiba mais](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
+|  |  Cofre de Chave do Azure         | Todas as regiões públicas      |   Visualização   <br/> [Saiba mais](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
 
 Para obter as notificações mais recentes, confira a página [Atualizações de rede virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -67,6 +70,9 @@ Para perguntas frequentes, confira [Perguntas frequentes sobre Link Privado do A
  
 ## <a name="limits"></a>limites  
 Para limites, confira [Limites do Link Privado do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits).
+
+## <a name="service-level-agreement"></a>SLA (Contrato de Nível de Serviço)
+Para SLA, confira [SLA para o Link Privado do Azure](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/).
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Criar um Ponto de Extremidade Privado para o Servidor do Banco de Dados SQL usando o portal](create-private-endpoint-portal.md)

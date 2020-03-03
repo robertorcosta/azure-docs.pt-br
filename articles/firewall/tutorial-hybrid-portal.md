@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 01/18/2020
+ms.date: 02/21/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: e9ca891d2d92b6760d37108b66afc54c81ac125c
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 15901186194853aebf3b8222f271203161770380
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77442574"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561435"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutorial: Implantar e configurar o Firewall do Azure em uma rede híbrida usando o portal do Azure
 
@@ -179,9 +179,10 @@ Primeiro, adicione uma regra de rede para permitir o tráfego da Web.
 6. Em **Ação**, selecione **Permitir**.
 6. Em **Regras**, em **Nome**, digite **AllowWeb**.
 7. Em **Protocolo**, selecione **TCP**.
-8. Em **Endereços de Origem**, digite **192.168.1.0/24**.
-9. Em Endereço de destino, digite **10.6.0.0/16**
-10. Em **Portas de Destino**, digite **80**.
+8. Em **Tipo de origem**, selecione **Endereço IP**.
+9. Em **Origem**, digite **192.168.1.0/24**.
+10. Em **Endereço de destino**, digite **10.6.0.0/16**
+11. Em **Portas de Destino**, digite **80**.
 
 Agora adicione uma regra para permitir o tráfego RDP.
 
@@ -189,10 +190,11 @@ Na segunda linha de regra, digite as seguintes informações:
 
 1. **Nome**, digite **AllowRDP**.
 2. Em **Protocolo**, selecione **TCP**.
-3. Em **Endereços de Origem**, digite **192.168.1.0/24**.
-4. Em Endereço de destino, digite **10.6.0.0/16**
-5. Em **Portas de Destino**, digite **3389**.
-6. Selecione **Adicionar**.
+3. Em **Tipo de origem**, selecione **Endereço IP**.
+4. Em **Origem**, digite **192.168.1.0/24**.
+5. Em **Endereço de destino**, digite **10.6.0.0/16**
+6. Em **Portas de Destino**, digite **3389**.
+7. Selecione **Adicionar**.
 
 ## <a name="create-and-connect-the-vpn-gateways"></a>Criar e conectar os gateways de VPN
 

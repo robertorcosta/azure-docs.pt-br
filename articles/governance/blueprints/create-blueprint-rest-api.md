@@ -1,22 +1,23 @@
 ---
 title: 'Início Rápido: Criar um blueprint com a API REST'
 description: Neste início rápido, você usa o Azure Blueprints para criar, definir e implantar artefatos usando a API REST.
-ms.date: 11/21/2019
+ms.date: 02/26/2020
 ms.topic: quickstart
-ms.openlocfilehash: 13a6cce25b17fdfbfa5f62dbf16cd2cfbbdc4fe2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3e7e7c67822eec939c7d7752f8771d3b486abc3c
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436606"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650224"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Início Rápido: Definir e atribuir um Azure Blueprint com a API REST
 
 Aprender a criar e atribuir blueprints permite definir padrões comuns para desenvolver configurações reutilizáveis e que podem ser implantadas rapidamente com base em modelos do Resource Manager, políticas, segurança e muito mais. Neste tutorial, você aprenderá a usar o Blueprint do Azure para executar algumas das tarefas comuns relacionadas à criação, publicação e atribuição de um blueprint dentro de sua organização, como:
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+- Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+- Registre o provedor de recursos `Microsoft.Blueprint`. Para obter instruções, confira [Provedores e tipos de recursos](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

@@ -5,17 +5,17 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 02/06/2020
-ms.openlocfilehash: 1449b34a9bbeb5692d25a5f84c4ee38e6c4e0a33
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.date: 02/16/2020
+ms.openlocfilehash: 1d0264a0b7ac4e97d9a2811ba61ab64fcedd6fb9
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77460528"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587542"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Mapeamento de tutoriais em vídeo de fluxo de dados
 
-Veja a seguir uma lista de tutoriais em vídeo sobre o fluxo de dados de mapeamento criados pela equipe do Azure Data Factory.
+Veja a seguir uma lista de tutoriais em vídeo sobre o fluxo de dados de mapeamento criados pela equipe do Azure Data Factory. 
 
 À medida que atualizações são feitas constantemente no produto, alguns recursos passam a ter funcionalidade adicional ou diferente da experiência do usuário atual do Azure Data Factory.
 
@@ -32,6 +32,8 @@ Veja a seguir uma lista de tutoriais em vídeo sobre o fluxo de dados de mapeame
 [Ações rápidas na visualização de dados](https://www.youtube.com/watch?v=CP0TnNmaLA0)
 
 [Monitorar e gerenciar o desempenho do fluxo de dados de mapeamento](https://www.youtube.com/watch?v=fktIWdJiqTk)
+
+[Tempos de parâmetro de comparação](http://youtu.be/6CSbWm4lRhw?hd=1)
 
 ## <a name="transformation-overviews"></a>Visões gerais de transformação
 
@@ -100,6 +102,8 @@ Veja a seguir uma lista de tutoriais em vídeo sobre o fluxo de dados de mapeame
 [Diminuir tempos de inicialização](https://youtu.be/FFCbU4ujCiY?t=528)
 
 [Desempenho do Banco de Dados SQL](https://youtu.be/iyZT5CY3V_4)
+
+[Log e auditoria](https://www.youtube.com/watch?v=UC__LOyuf8M)
 
 ## <a name="mapping-data-flow-scenarios"></a>Cenários de fluxo de dados de mapeamento
 

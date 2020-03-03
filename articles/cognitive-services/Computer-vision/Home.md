@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 17dd428f79f66bc70da47527314ad43a27955c82
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: eb338c39ed3b1a095c1ad31e3f695e8d3fec0ed3
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772515"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565954"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Pesquisa Visual Computacional?
 
@@ -48,7 +48,7 @@ Você pode analisar imagens para detectar e fornecer informações sobre seus re
 
 ## <a name="extract-text-from-images"></a>Extrair texto de imagens
 
-Use a API de [Leitura](concept-recognizing-text.md#read-api) da Pesquisa Visual Computacional para extrair um texto impresso e manuscrito de imagens para um fluxo de caracteres legível por computador. A API de Leitura usa nossos modelos mais recentes e funciona com texto em uma variedade de superfícies e telas de fundo, como recibos, cartazes, cartões de visita, cartas e quadros de comunicações. Atualmente, inglês é o único idioma com suporte.
+Use a API de [Leitura](concept-recognizing-text.md#read-api) da Pesquisa Visual Computacional para extrair um texto impresso e manuscrito de imagens para um fluxo de caracteres legível por computador. A API de Leitura usa nossos modelos mais recentes e funciona com texto em uma variedade de superfícies e telas de fundo, como recibos, cartazes, cartões de visita, cartas e quadros de comunicações. Atualmente, inglês e espanhol são os únicos idiomas com suporte.
 
 Use também a API do [OCR (reconhecimento óptico de caracteres)](concept-recognizing-text.md#ocr-optical-character-recognition-api) para extrair um texto impresso em vários idiomas. Se necessário, o OCR corrige a rotação do texto reconhecido e fornece as coordenadas de quadro de cada palavra. O OCR dá suporte a 25 idiomas e detecta automaticamente o idioma do texto reconhecido.
 

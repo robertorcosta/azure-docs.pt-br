@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
-ms.openlocfilehash: e50d0772eaf706772aa89418a1ad25bf406945b5
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 166ec4db2a2891d25a1e80526f8c1bd9770f9eef
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134232"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592213"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, você configura um laboratório de sala de aula com máquinas virtuais que são usadas por alunos na sala de aula.  
@@ -72,7 +72,7 @@ Nessa etapa, você cria um laboratório para sua classe no Azure.
     4. **Pare** a VM de modelo.  
 
 ## <a name="publish-the-template-vm"></a>Publicar a VM modelo
-Nessa etapa, você publica a VM de modelo. O processo de publicação cria VMs de laboratório que são basicamente cópias da VM de modelo. 
+Nessa etapa, você publica a VM de modelo. Quando você publicar a VM do modelo, o Azure Lab Services criará VMs no laboratório usando o modelo. Todas as máquinas virtuais têm a mesma configuração que o modelo.
 
 1. Na página **Modelo**, selecione **Publicar** na barra de ferramentas. 
 
@@ -89,6 +89,9 @@ Nessa etapa, você publica a VM de modelo. O processo de publicação cria VMs d
 4. Aguarde até que a publicação seja concluída e, em seguida, alterne para a página **Pool de máquinas virtuais** selecionando **Máquinas virtuais** no menu esquerdo ou selecionando o bloco **Máquinas virtuais**. Confirme que você vê cinco máquinas virtuais no estado **Não atribuído**. Essas máquinas virtuais ainda não foram atribuídas aos alunos. Elas devem estar no estado **Parado**. Você pode iniciar a VM de um aluno, conectar-se à VM, parar a VM e excluir a VM nesta página. Você pode iniciá-los nesta página ou permitir que os alunos iniciem as máquinas virtuais. 
 
     ![Máquinas virtuais no estado parado](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)   
+
+    > [!NOTE]
+    > Quando um educador ativa a VM de um aluno, a cota do aluno não é afetada. A cota de um usuário especifica o número de horas de laboratório disponíveis para o usuário fora da hora da classe agendada. Para obter mais informações sobre cotas, confira [Definir cotas para usuários](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## <a name="set-a-schedule-for-the-lab"></a>Definir uma agenda para o laboratório
 Crie um evento agendado para o laboratório, de modo que as VMs no laboratório sejam iniciadas/paradas automaticamente em horários específicos. A cota do usuário (padrão: 10 horas) especificada anteriormente é o tempo adicional atribuído a cada usuário fora desse horário agendado. 

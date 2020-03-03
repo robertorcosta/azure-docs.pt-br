@@ -362,18 +362,21 @@
         - name: Azure Pipelines para CI/CD
           displayName: 'continuous, integration, delivery'
           href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
-        - name: 'Designer: Treinar novamente usando pipelines publicados'
+        - name: Treinar novamente com o designer usando pipelines publicados
           displayName: 'retrain, designer, published pipeline'
           href: how-to-retrain-designer.md
+        - name: Previsões em lotes do designer
+          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+          href: how-to-run-batch-predictions-designer.md
+        - name: Execução de código Python no designer
+          displayName: 'feature extraction, feature engineering'
+          href: how-to-designer-python.md
         - name: Usar etapa de execução paralela
           displayName: score scoring batch consume pipeline parallelrunstep inference
           href: how-to-use-parallel-run-step.md
         - name: Depurar e solucionar problemas de etapa de execução paralela
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
-        - name: Previsões em lotes do designer
-          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-          href: how-to-run-batch-predictions-designer.md
     - name: Gerenciar cotas de recursos
       displayName: limits
       href: how-to-manage-quotas.md

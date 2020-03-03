@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 5e969ed4f525d0b3d17339b9f9a6111ad81b0125
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: e3f09d4e2500b98a7ce68139cd97a04c0d60d73e
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931635"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612560"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Tutorial: Criar e configurar uma instância do Azure Active Directory Domain Services com opções de configuração avançadas
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará dos seguintes recursos e privilégios:
 
@@ -69,17 +69,17 @@ Ao criar uma instância do Azure AD DS, você especifica um nome DNS. Eis alguma
 * **Sufixos de domínio não roteáveis:** De modo geral, recomendamos que você evite sufixos de nome de domínio não roteáveis, tal como *contoso.local*. O sufixo *.local* não é roteável e pode causar problemas com a resolução do DNS.
 
 > [!TIP]
-> Se você criar um nome de domínio personalizado, tome cuidado com os namespaces DNS existentes. É recomendável incluir um prefixo exclusivo para o nome de domínio. Por exemplo, se o nome DNS raiz for *contoso.com*, crie um domínio gerenciado do Azure AD DS com o nome de domínio personalizado *corp.contoso.com* ou *ds.contoso.com*. Em um ambiente híbrido com um ambiente do AD DS local, esses prefixos já podem estar em uso. Use um prefixo exclusivo para o Azure AD DS.
+> Se você criar um nome de domínio personalizado, tome cuidado com os namespaces DNS existentes. Recomendamos usar um nome de domínio separado de qualquer namespace DNS local ou do Azure existente.
 >
-> Você pode usar o nome DNS raiz para o domínio gerenciado do Azure AD DS, mas talvez precise criar alguns registros DNS adicionais para outros serviços no ambiente. Por exemplo, se você executar um servidor Web que hospeda um site usando o nome DNS raiz, poderá haver conflitos de nomenclatura que exigem entradas DNS adicionais.
+> Por exemplo, se você tiver um namespace DNS existente *contoso.com*, crie um domínio gerenciado do Azure AD DS com o nome de domínio personalizado *aaddscontoso.com*. Caso precise usar o LDAP Seguro, registre e seja o proprietário desse nome de domínio personalizado para gerar os certificados necessários.
 >
-> Nestes tutoriais e nestes artigos de instruções, o domínio personalizado *aadds.contoso.com* é usado como um breve exemplo. Em todos os comandos, especifique seu próprio nome de domínio, que pode incluir um prefixo exclusivo.
+> Talvez seja necessário criar alguns registros DNS adicionais para outros serviços no ambiente ou encaminhadores DNS condicionais entre os namespaces DNS existentes no ambiente. Por exemplo, se você executar um servidor Web que hospeda um site usando o nome DNS raiz, poderá haver conflitos de nomenclatura que exigem entradas DNS adicionais.
 >
-> Para obter mais informações, confira [Selecionar um prefixo de nomenclatura para o domínio][naming-prefix].
+> Nestes tutoriais e nestes artigos de instruções, o domínio personalizado *aaddscontoso.com* é usado como um breve exemplo. Em todos os comandos, especifique o próprio nome de domínio.
 
 As seguintes restrições de nome DNS também se aplicam:
 
-* **Restrições do prefixo do domínio:** Você não pode criar um domínio gerenciado com um prefixo de mais de 15 caracteres. O prefixo do nome de domínio especificado (por exemplo, *contoso* no nome de domínio *contoso.com*) deve conter até 15 caracteres.
+* **Restrições do prefixo do domínio:** Você não pode criar um domínio gerenciado com um prefixo de mais de 15 caracteres. O prefixo do nome de domínio especificado (como *aaddscontoso* no nome de domínio *aaddscontoso.com*) precisa conter até 15 caracteres.
 * **Conflitos de nome de rede:** O nome de domínio DNS para seu domínio gerenciado não deve já existir na rede virtual. Especificamente, verifique os seguintes cenários que podem resultar em conflitos de nome:
     * Se você já tiver um domínio do Active Directory com o mesmo nome de domínio DNS na rede virtual do Azure.
     * Se a rede virtual em que você planeja habilitar o domínio gerenciado tiver uma conexão VPN com sua rede local. Nesse cenário, verifique se você não tem um domínio com o mesmo nome de domínio DNS na rede local.
@@ -170,7 +170,7 @@ Na página **Resumo** do assistente, examine as definições de configuração d
 
     ![Notificação no portal do Azure da implantação em andamento](./media/tutorial-create-instance-advanced/deployment-in-progress.png)
 
-1. Selecione seu grupo de recursos, como *myResourceGroup* e, em seguida, escolha sua instância do Azure AD DS na lista de recursos do Azure, como *aadds.contoso.com*. A guia **Visão Geral** mostra que o domínio gerenciado está sendo *implantado* no momento. Você não pode configurar o domínio gerenciado até que ele esteja totalmente provisionado.
+1. Selecione o grupo de recursos, como *myResourceGroup* e, em seguida, escolha a instância do Azure AD DS na lista de recursos do Azure, como *aaddscontoso.com*. A guia **Visão Geral** mostra que o domínio gerenciado está sendo *implantado* no momento. Você não pode configurar o domínio gerenciado até que ele esteja totalmente provisionado.
 
     ![Status do Domain Services durante o estado de provisionamento](./media/tutorial-create-instance-advanced/provisioning-in-progress.png)
 

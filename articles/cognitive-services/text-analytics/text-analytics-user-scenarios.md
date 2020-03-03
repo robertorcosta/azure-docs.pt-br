@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/29/2019
+ms.date: 02/25/2020
 ms.author: aahi
-ms.openlocfilehash: 027e6ec829e9de9956451e48e5f9e1cdd749f9f7
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 560f34d21a68cecc4950db5dcceb9c8ef7b05a49
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689326"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614423"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Exemplos de cenário do usuário para a API de Análise de Texto
 
@@ -44,6 +44,12 @@ Use a Extração de Frases-chave e o Reconhecimento de Entidade para processar s
 Monitore comentários do usuário sobre o produto no Twitter ou na página do Facebook de seu produto. Use os dados para analisar o sentimento do cliente com relação a novos lançamentos de produtos, extraia frases-chave sobre recursos e solicitações de recursos ou responda a reclamações do cliente conforme elas ocorrerem. Confira o exemplo [modelo do Microsoft Flow](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/).
 
 ![Uma imagem descrevendo como monitorar comentários sobre seu produto e sua empresa em redes sociais usando extração de frases-chave](media/use-cases/social-feed.svg)
+
+## <a name="classify-and-redact-documents-that-have-sensitive-information"></a>Classificar e editar documentos que tenham informações confidenciais
+
+Use o reconhecimento de entidade nomeada para identificar informações pessoais e confidenciais em documentos. Use os dados para classificar documentos ou editá-los, de modo que eles possam ser compartilhados com segurança.
+
+![Uma imagem que descreve como usar o NER para detectar informações pessoais e classificar e editar documentos](media/use-cases/sensitive-docs.jpg)
 
 ## <a name="next-steps"></a>Próximas etapas
 

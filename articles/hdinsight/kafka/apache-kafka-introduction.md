@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/13/2019
-ms.openlocfilehash: 7cf83af52d5bedee5b4d57ee1b4dda2fb34d1b3f
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 543a18ad48384e3502231f85516a092468db2387
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960106"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560092"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>O que é o Apache Kafka no Azure HDInsight
 
@@ -94,6 +94,8 @@ Veja a seguir tarefas e padrões comuns que podem ser executadas usando Kafka no
 Use os links a seguir para aprender a usar o Apache Kafka no HDInsight:
 
 * [Início Rápido: Criar o Apache Kafka no HDInsight](apache-kafka-get-started.md)
+
+* [Usar Kafka com proxy REST](rest-proxy.md)
 
 * [Tutorial: Usar o Apache Spark com o Apache Kafka no HDInsight](../hdinsight-apache-spark-with-kafka.md)
 

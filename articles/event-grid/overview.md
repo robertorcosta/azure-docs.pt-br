@@ -6,15 +6,15 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 10/22/2019
+ms.date: 02/20/2020
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: cfb9db7c78c57e74bfe44fe4ce1c3092e2bf3ca5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 65fd9d06c8b25e0aff94429f8eb95bb922da330c
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437299"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505916"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é a Grade de Eventos do Azure?
 
@@ -39,11 +39,15 @@ Para obter detalhes completos sobre os recursos de cada origem, bem como artigos
 * [Tópicos personalizados](event-sources.md#custom-topics)
 * [Hubs de Evento](event-sources.md#event-hubs)
 * [Hub IoT](event-sources.md#iot-hub)
+* [Key Vault (versão prévia)](event-sources.md#key-vault-preview)
 * [Serviços de Mídia](event-sources.md#media-services)
 * [Grupos de recursos (operações de gerenciamento)](event-sources.md#resource-groups)
 * [Barramento de Serviço](event-sources.md#service-bus)
 * [Armazenamento de Blobs](event-sources.md#storage)
 * [Mapas do Azure](event-sources.md#maps)
+* [Configuração de Aplicativos](event-sources.md#app-configuration)
+* [Signal R](event-sources.md#azure-signalr)
+* [Machine Learning](event-sources.md#azure-machine-learning)
 
 ## <a name="event-handlers"></a>Manipuladores de eventos
 
@@ -55,8 +59,8 @@ Para obter detalhes completos sobre os recursos de cada manipulador, bem como ar
 * [Conexões híbridas](event-handlers.md#hybrid-connections)
 * [Aplicativos Lógicos](event-handlers.md#logic-apps)
 * [Power Automate (anteriormente conhecido como Microsoft Flow)](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
-* [Armazenamento de Filas](event-handlers.md#queue-storage)
 * [Barramento de Serviço](event-handlers.md#service-bus)
+* [Armazenamento de Filas](event-handlers.md#queue-storage)
 * [Webhooks](event-handlers.md#webhooks)
 
 ## <a name="concepts"></a>Conceitos

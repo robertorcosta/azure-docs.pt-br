@@ -4,17 +4,17 @@ description: Este artigo ajuda você a entender melhor os dados incluídos em se
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 02/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 39f2aab72491ffdf2b583879181a247d3653647f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 44953a3986b5c03afa9cc4668e2563c5c5cd6c46
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199884"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560602"
 ---
 # <a name="understand-cost-management-data"></a>Entender os dados de Gerenciamento de Custos
 
@@ -135,9 +135,9 @@ Confira algumas dicas para trabalhar com marcas:
 - Use a API de Tags em conjunto com Consulta ou o UsageDetails para obter todo o custo com base nas marcas atuais.
 
 
-**Atualização da versão de avaliação gratuita para a paga conforme o uso**
+## <a name="free-trial-to-pay-as-you-go-upgrade"></a>Atualização da versão de avaliação gratuita para a paga conforme o uso
 
-Os clientes com uma oferta de avaliação gratuita (044P) que estão migrando para a oferta PAYG (003P) podem ver seu uso durante o período de avaliação gratuita. No entanto, eles perdem a visibilidade da versão para uso como avaliação gratuita após a conversão. Após a conversão, somente o uso e os custos de PAYG são mostrados no Gerenciamento de Custos.
+Para obter informações sobre a disponibilidade de serviços de nível gratuito depois de atualizar de uma Avaliação gratuita para o preço pago conforme o uso, confira as [perguntas frequentes sobre a conta gratuita do Azure](https://azure.microsoft.com/free/free-account-faq/).
 
 ## <a name="rated-usage-data-refresh-schedule"></a>Agenda de atualização de dados de uso calculados
 
@@ -157,6 +157,17 @@ Assinaturas pagas conforme o uso – Se o mês de cobrança terminar no dia 15 d
 ### <a name="rerated-data"></a>Dados recalculados
 
 Se você usa as [APIs de Gerenciamento de Custos](../index.yml), o Power BI ou o portal do Azure para recuperar dados, espere que os encargos do período de cobrança atual sejam recalculados e, consequentemente, alterados até que a fatura seja fechada.
+
+## <a name="cost-rounding"></a>Arredondamento de custo
+
+Os custos mostrados no Gerenciamento de Custos são arredondados. Os custos retornados pela API de Consulta não são arredondados. Por exemplo:
+
+- análise de custo no portal do Azure – as cobranças são arredondadas usando regras de arredondamento padrão: valores iguais a 0,5 e superiores são arredondados para cima, caso contrário os custos são arredondados para baixo. O arredondamento ocorre somente quando os valores são mostrados. O arredondamento não ocorre durante o processamento de dados e a agregação. Por exemplo, a análise de custo agrega os custos da seguinte maneira:
+  - Preço 1: $0,004
+  - Preço 2: $0,004
+  - Preço agregado renderizado: 0,004 + 0,004 = 0,008. O preço mostrado será $0,01.
+- API de consulta – os preços são mostrados em oito casas decimais e o arredondamento não ocorre.
+
 
 ## <a name="usage-data-update-frequency-varies"></a>A frequência de atualização dos dados de uso varia
 

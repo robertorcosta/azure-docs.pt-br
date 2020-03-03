@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/29/2020
 ms.author: aahi
-ms.openlocfilehash: bde8d418792e3d481c9e9a74ee98998492754aae
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 5623be028cfe10c0ea6786b24bf75ae2bf9c5255
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76992303"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560772"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-for-go"></a>Início Rápido: Usar a biblioteca de clientes da Análise de Texto para o Go
 
@@ -24,7 +24,7 @@ ms.locfileid: "76992303"
 > [!NOTE]
 > Este início rápido só se aplica à Análise de Texto versão 2.1. Atualmente, uma biblioteca de clientes v3 para o Go não está disponível.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/)
 * A versão mais recente do [Go](https://golang.org/dl/)

@@ -5,13 +5,13 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: overview
-ms.date: 02/24/2019
-ms.openlocfilehash: 67a76d3b347ef750b639225a009cc6968cb84c6f
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.date: 02/19/2020
+ms.openlocfilehash: 1f1cec68813d33e7fa19a414a30adfc9a41df91f
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467548"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523468"
 ---
 # <a name="what-is-azure-app-configuration"></a>O que é Configuração de Aplicativo do Azure?
 
@@ -19,9 +19,9 @@ A Configuração de Aplicativos do Azure fornece um serviço para gerenciar cent
 
 ## <a name="why-use-app-configuration"></a>Por que usar a Configuração de Aplicativo?
 
-Os aplicativos baseados em nuvem geralmente são executados em várias máquinas virtuais ou contêineres em várias regiões e usam diversos serviços externos. Criar um aplicativo distribuído desse tipo, robusto e escalonável, é um desafio.
+Os aplicativos baseados em nuvem geralmente são executados em várias máquinas virtuais ou contêineres em várias regiões e usam diversos serviços externos. A criação de um aplicativo robusto e escalonável em um ambiente distribuído apresenta um desafio significativo.
 
-Várias metodologias de programação ajudam os desenvolvedores a lidar com a crescente complexidade da criação de aplicativos. Por exemplo, o [Aplicativo de 12 fatores](https://12factor.net/) descreve muitos padrões de arquitetura bem testados e práticas recomendadas para uso com aplicativos em nuvem. Uma recomendação básica deste guia é separar a configuração do código. Nesse caso, as configurações de um aplicativo devem ser mantidas externas a seu executável e lidas a partir de seu ambiente de runtime ou de uma fonte externa.
+Várias metodologias de programação ajudam os desenvolvedores a lidar com a crescente complexidade da criação de aplicativos. Por exemplo, o [Aplicativo de 12 fatores](https://12factor.net/) descreve muitos padrões de arquitetura bem testados e práticas recomendadas para uso com aplicativos em nuvem. Uma recomendação básica deste guia é separar a configuração do código. As configurações de um aplicativo devem ser mantidas externas em relação ao seu executável e lidas no ambiente de runtime ou de uma fonte externa.
 
 Embora qualquer aplicativo possa fazer uso da Configuração de Aplicativo, os exemplos a seguir são os tipos de aplicativo que se beneficiam desse uso:
 
@@ -38,7 +38,7 @@ A Configuração de Aplicativo oferece os seguintes benefícios:
 * Interface do usuário dedicada para o gerenciamento de sinalizadores de recurso
 * Comparação de dois conjuntos de configurações em dimensões com definições personalizadas
 * Segurança aprimorada por meio de identidades gerenciadas do Azure
-* Criptografias de dados completas, em repouso ou em trânsito
+* Criptografia de informações confidenciais em repouso e em trânsito
 * Integração nativa com estruturas populares
 
 A Configuração de Aplicativo complementa o [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), que é usado para armazenar segredos do aplicativo. A Configuração de Aplicativo facilita a implementação dos seguintes cenários:
@@ -49,7 +49,7 @@ A Configuração de Aplicativo complementa o [Azure Key Vault](https://azure.mic
 
 ## <a name="use-app-configuration"></a>Usar Configuração de Aplicativo
 
-A maneira mais fácil de adicionar um repositório de Configuração de Aplicativos é por meio de uma biblioteca de clientes fornecida pela Microsoft. Com base na linguagem e estrutura de programação, os melhores métodos a seguir estão disponíveis para você.
+A maneira mais fácil de adicionar um repositório da Configuração de Aplicativos ao seu aplicativo é por meio de uma biblioteca de clientes fornecida pela Microsoft. Os seguintes métodos estão disponíveis para se conectar ao seu aplicativo, dependendo da estrutura e linguagem escolhida
 
 | Estrutura e linguagem de programação | Como conectar-se |
 |---|---|

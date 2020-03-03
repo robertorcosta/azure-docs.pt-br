@@ -4,12 +4,12 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: 0e81a9b6a91d2a9ed1af922dbbc53720022ff598
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 574122d3683f3de483950e2d098e890ab33dcb25
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657727"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615497"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -23,10 +23,10 @@ Para concluir este tutorial, verifique se você tem:
 * O [SDK 2.2 do .NET Core](https://dotnet.microsoft.com/download).
 * Um ou mais dispositivos (iOS ou Android) nos quais implantar e executar um aplicativo.
   * Se você estiver usando Android, será necessário ter:
-    * <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3</a> ou posterior, <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1</a> ou posterior e <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a> instalado no computador Windows.
+    * <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3</a> ou posterior, <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 ou 2019.2</a> e <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a> instalados no computador Windows.
     * Um dispositivo Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">habilitado por desenvolvedor</a> e <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">compatível com ARCore</a>.
   * Se você estiver usando iOS, será necessário ter:
-    * Um computador macOS, no qual <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10</a> ou posterior, <a href="https://cocoapods.org" target="_blank">CocoaPods</a> e <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1</a> ou posterior estejam instalados.
+    * Um computador macOS no qual o <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10</a> ou posterior, o <a href="https://cocoapods.org" target="_blank">CocoaPods</a> e o <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 ou 2019.2</a> estejam instalados.
     * Um dispositivo iOS <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">compatível com ARKit</a> habilitado por desenvolvedor.
     * Git instalado via Homebrew. Insira o seguinte comando em uma única linha no Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` Em seguida, executar `brew install git`.
 

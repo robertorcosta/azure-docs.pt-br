@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 02/19/2020
 ms.author: iainfou
-ms.openlocfilehash: 4753cc9a98cd59c0c5d446b3d92280aabfb72c12
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d15877107e49c57f8f33b8ec41caeb7d48230b91
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474703"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613873"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Tutorial: Ingressar uma máquina virtual do Windows Server em um domínio gerenciado
 
@@ -41,6 +41,8 @@ Para concluir este tutorial, você precisará dos seguintes recursos:
     * Se necessário, [crie e configure uma instância do Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Uma conta de usuário que é membro do grupo de *administradores do Azure AD DC* no locatário do Azure AD.
     * Verifique se a sincronização de hash de senha ou a redefinição de senha self-service do Azure AD Connect foram realizadas de modo que a conta possa entrar no domínio gerenciado do Azure AD DS.
+* Um host do Azure Bastion implantado na rede virtual do Azure AD DS.
+    * Se necessário, [crie um host do Azure Bastion][azure-bastion].
 
 Se você já tiver uma VM que quer ingressar em um domínio, pule para a seção de [ingressar a VM no domínio gerenciado do Azure AD DS](#join-the-vm-to-the-azure-ad-ds-managed-domain).
 
@@ -70,13 +72,13 @@ Se você já tiver uma VM que quer ingressar em um domínio, pule para a seção
     | Nome de Usuário             | Insira um nome de usuário para a conta de administrador local para criar na VM, como *azureuser* |
     | Senha             | Insira e confirme uma senha segura para o administrador local criar na VM. Não especifique as credenciais da conta de usuário de um domínio. |
 
-1. Por padrão, as VMs criadas no Azure não podem ser acessadas pela Internet. Essa configuração ajuda a aumentar a segurança da VM e reduz a área de possíveis ataques. Na próxima etapa deste tutorial, será necessário conectar-se à VM usando o protocolo RDP e, em seguida, ingressar o Windows Server no domínio gerenciado do Azure AD DS.
+1. Por padrão, as VMs criadas no Azure podem ser acessadas pela Internet usando o RDP. Quando o protocolo RDP estiver habilitado, haverá a possibilidade de ocorrer ataques automatizados de logon, o que pode desabilitar contas com nomes comuns, como *admin* ou *administrador* devido a várias tentativas seguidas de logon.
 
-    Quando o protocolo RDP estiver habilitado, haverá a possibilidade de ocorrer ataques automatizados de logon, o que pode desabilitar contas com nomes comuns, como *admin* ou *administrador* devido a várias tentativas seguidas de logon. O protocolo RDP deve ser habilitado somente quando solicitado e limitado a um conjunto de intervalos de IP autorizados. [Acesso à VM Just In Time do Azure][jit-access], como parte da Central de Segurança do Azure, pode habilitar essas sessões de RDP curtas e restritas. Também é possível [criar e usar um host do Azure Bastion (atualmente em versão prévia)][azure-bastion] para permitir acesso somente por meio do portal do Azure via SSL.
+    O protocolo RDP deve ser habilitado somente quando solicitado e limitado a um conjunto de intervalos de IP autorizados. Essa configuração ajuda a aumentar a segurança da VM e reduz a área de possíveis ataques. Ou então, crie e use um host do Azure Bastion que permita o acesso somente por meio do portal do Azure via SSL. Na próxima etapa deste tutorial, você usará um host do Azure Bastion para se conectar com segurança à VM.
 
-    Neste tutorial, habilite manualmente as conexões RDP com a VM.
+    Por enquanto, desabilite as conexões RDP diretas para a VM.
 
-    Em **Portas de entrada públicas**, selecione a opção para **Permitir portas selecionadas**. No menu suspenso **Selecionar portas de entrada**, escolha *RDP (3389)* .
+    Em **Portas de entrada públicas**, selecione *Nenhum*.
 
 1. Quando terminar, selecione **Avançar: Discos**.
 1. No menu suspenso de **Tipo de disco de SO**, escolha *SSD Standard* e **Avançar: Rede**.
@@ -120,20 +122,23 @@ São necessários alguns minutos para criar a VM. O portal do Azure mostra o sta
 
 ## <a name="connect-to-the-windows-server-vm"></a>Conectar-se à VM do Windows Server
 
-Agora, vamos nos conectar à VM do Windows Server recém-criada usando o RDP e ingressar o domínio gerenciado do Azure AD DS. Use as credenciais do administrador local especificadas quando a VM foi criada na etapa anterior, caso não existam credenciais de domínio.
+Para se conectar com segurança às suas VMs, use um host do Azure Bastion. Com o Azure Bastion, um host gerenciado é implantado na rede virtual e fornece conexões RDP ou SSH baseadas na Web com as VMs. Nenhum endereço IP público é necessário para as VMs. Você não precisará abrir as regras do grupo de segurança de rede para o tráfego remoto externo. Você se conectará às VMs usando o portal do Azure no navegador da Web.
 
-1. No painel **Visão geral**, selecione **Conectar**.
+Para usar um host do Bastion para se conectar à VM, conclua as seguintes etapas:
 
-    ![Conectar-se à uma máquina virtual do Windows no portal do Azure](./media/join-windows-vm/connect-to-vm.png)
+1. No painel **Visão geral** da VM, selecione **Conectar** e, em seguida **Bastion**.
 
-1. Selecione a opção para *Baixar o arquivo RDP*. Salve esse arquivo RDP no navegador da Web.
-1. Para se conectar à sua VM, abra o arquivo RDP baixado. Se solicitado, selecione **Conectar**.
-1. Insira as credenciais do administrador local digitadas na etapa anterior para criar a VM, como *localhost\azureuser*
-1. Se você vir um aviso de certificado durante o processo de entrada, selecione **Sim** ou **Continuar** para se conectar.
+    ![Conectar-se à uma máquina virtual do Windows usando o Bastion no portal do Azure](./media/join-windows-vm/connect-to-vm.png)
+
+1. Insira as credenciais para a VM especificadas na seção anterior e, em seguida, selecione **Conectar**.
+
+   ![Conectar-se por meio do host do Bastion no portal do Azure](./media/join-windows-vm/connect-to-bastion.png)
+
+Se necessário, permita que o navegador da Web abra pop-ups para que a conexão do Bastion seja exibida. São necessários alguns segundos para estabelecer a conexão com a VM.
 
 ## <a name="join-the-vm-to-the-azure-ad-ds-managed-domain"></a>Ingressar a VM no domínio gerenciado do Azure AD DS
 
-Com a VM criada e a conexão RDP estabelecida, agora vamos ingressar a máquina virtual do Windows Server no domínio gerenciado do Azure AD DS. É o mesmo processo quando um computador se conecta a um domínio local normal do Active Directory Domain Services.
+Com a VM criada e uma conexão RDP baseada na Web estabelecida usando o Azure Bastion, agora vamos ingressar a máquina virtual do Windows Server no domínio gerenciado do Azure AD DS. É o mesmo processo quando um computador se conecta a um domínio local normal do Active Directory Domain Services.
 
 1. Se **Gerenciador do Servidor** não abrir por padrão quando você entrar na VM, selecione o menu **Iniciar** e, em seguida, escolha **Gerenciador do Servidor**.
 1. No painel esquerdo da janela **Gerenciador do Servidor**, selecione **Servidor Local**. Em **Propriedades**, no painel direito, escolha **Grupo de trabalho**.
@@ -144,16 +149,16 @@ Com a VM criada e a conexão RDP estabelecida, agora vamos ingressar a máquina 
 
     ![Escolher alterar as propriedades do grupo de trabalho ou do domínio](./media/join-windows-vm/change-domain.png)
 
-1. Na caixa **Domínio**, especifique o nome do domínio gerenciado do Azure AD DS, como *contoso.com*, e clique em **OK**.
+1. Na caixa **Domínio**, especifique o nome do domínio gerenciado do Azure AD DS, como *aaddscontoso.com* e, em seguida, selecione **OK**.
 
     ![Especificar o domínio gerenciado do Azure AD DS a ser ingressado](./media/join-windows-vm/join-domain.png)
 
 1. Insira as credenciais do domínio para ingressá-lo. Use as credenciais de um usuário que pertença ao grupo *Administradores do Azure AD DC*. Somente os membros desse grupo têm privilégios para ingressar computadores no domínio gerenciado do Azure AD DS. A conta deve fazer parte do domínio gerenciado do Azure AD DS ou do locatário do Azure AD – contas de diretórios externos associadas ao seu locatário do Azure AD não podem ser autenticadas corretamente durante o processo de ingresso no domínio. As credenciais da conta podem ser especificadas em uma das seguintes maneiras:
 
-    * **Formato UPN** (recomendado): insira o sufixo do nome UPN da conta de usuário, conforme configurado no Azure AD. Por exemplo, o sufixo UPN do usuário *contosoadmin* seria `contosoadmin@contoso.onmicrosoft.com`. Há alguns casos de uso comuns em que o formato UPN pode ser usado de forma confiável para entrar no domínio em vez do formato *SAMAccountName*:
+    * **Formato UPN** (recomendado): insira o sufixo do nome UPN da conta de usuário, conforme configurado no Azure AD. Por exemplo, o sufixo UPN do usuário *contosoadmin* seria `contosoadmin@aaddscontoso.onmicrosoft.com`. Há alguns casos de uso comuns em que o formato UPN pode ser usado de forma confiável para entrar no domínio em vez do formato *SAMAccountName*:
         * Se o prefixo de UPN de um usuário for longo, por exemplo, *deehasareallylongname*, o *SAMAccountName* poderá ser gerado automaticamente.
         * Se vários usuários tiverem o mesmo prefixo UPN no locatário do Azure AD, por exemplo, *dee*, o formato *SAMAccountName* poderá ser gerado automaticamente.
-    * **Formato SAMAccountName:** insira o nome da conta no formato *SAMAccountName*. Por exemplo, o *SAMAccountName* do usuário *contosoadmin* seria `CONTOSO\contosoadmin`.
+    * **Formato SAMAccountName:** insira o nome da conta no formato *SAMAccountName*. Por exemplo, o *SAMAccountName* do usuário *contosoadmin* seria `AADDSCONTOSO\contosoadmin`.
 
 1. São necessários alguns segundos para ingressar no domínio gerenciado do Azure AD DS. Quando terminar, a seguinte mensagem lhe dará as boas-vindas ao domínio:
 
@@ -164,32 +169,23 @@ Com a VM criada e a conexão RDP estabelecida, agora vamos ingressar a máquina 
 1. Para concluir o processo de ingresso no domínio gerenciado do Azure AD DS, reinicie a VM.
 
 > [!TIP]
-> É possível ingressar uma VM no domínio usando o PowerShell com o cmdlet [Add-Computer][add-computer]. O exemplo a seguir ingressa o domínio *CONTOSO* e, em seguida, reinicia a VM. Quando solicitado, insira as credenciais de um usuário que pertença ao grupo de *administradores do Azure AD DC*:
+> É possível ingressar uma VM no domínio usando o PowerShell com o cmdlet [Add-Computer][add-computer]. O exemplo a seguir ingressa o domínio *AADDSCONTOSO* e, em seguida, reinicia a VM. Quando solicitado, insira as credenciais de um usuário que pertença ao grupo de *administradores do Azure AD DC*:
 >
-> `Add-Computer -DomainName CONTOSO -Restart`
+> `Add-Computer -DomainName AADDSCONTOSO -Restart`
 >
 > Para ingressar uma VM no domínio sem se conectar a ela e configurar a conexão manualmente, você pode usar o cmdlet [Set-AzVmAdDomainExtension][set-azvmaddomainextension] do Azure PowerShell.
 
 Após reiniciar a VM do Windows Server, todas as políticas aplicadas ao domínio gerenciado do Azure AD DS serão enviadas por push à VM. Agora, também é possível entrar na VM do Windows Server usando as credenciais de domínio corretas.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-No próximo tutorial, você usará essa VM do Windows Server para instalar as ferramentas de gerenciamento que permitem administrar o domínio gerenciado do Azure AD DS. Se você não quiser continuar nesta série de tutoriais, revise as seguintes etapas de limpeza para [desabilitar o RDP](#disable-rdp) ou [excluir a VM](#delete-the-vm). Caso contrário, [prossiga para o próximo tutorial](#next-steps).
+No próximo tutorial, você usará essa VM do Windows Server para instalar as ferramentas de gerenciamento que permitem administrar o domínio gerenciado do Azure AD DS. Caso não deseje continuar nesta série de tutoriais, examine as etapas de limpeza a seguir para [excluir a VM](#delete-the-vm). Caso contrário, [prossiga para o próximo tutorial](#next-steps).
 
 ### <a name="un-join-the-vm-from-azure-ad-ds-managed-domain"></a>Desfazer o ingresso da VM no domínio gerenciado do Azure AD DS
 
 Para remover a VM do domínio gerenciado do Azure AD DS, siga novamente as etapas para [ingressar a VM em um domínio](#join-the-vm-to-the-azure-ad-ds-managed-domain). Em vez de ingressar no domínio gerenciado do Azure AD DS, escolha ingressar em um grupo de trabalho, como o *WORKGROUP* padrão. Depois que a VM for reinicializada, o objeto de computador será removido do domínio gerenciado do Azure AD DS.
 
 Se você [excluir a VM](#delete-the-vm) sem deixar o domínio, um objeto de computador órfão será deixado no Azure AD DS.
-
-### <a name="disable-rdp"></a>Desabilitar o RDP
-
-Se você continuar a usar a VM do Windows Server criada neste tutorial para executar seus aplicativos e suas cargas de trabalho, lembre-se de que o RDP foi aberto na Internet. Para aumentar a segurança e reduzir o risco de ataque, o RDP precisa ser desabilitado na Internet. Para desabilitar o RDP para a VM do Windows Server pela Internet, conclua as seguintes etapas:
-
-1. No menu esquerdo, selecione **Grupos de recursos**
-1. Escolha seu grupo de recursos, por exemplo, *myResourceGroup*.
-1. Escolha sua VM, por exemplo, *myVM*, e selecione *Rede*.
-1. Nas **Regras de segurança de rede de entrada** do grupo de segurança de rede, selecione a regra que permite o RDP e escolha **Excluir**. Levam alguns segundos para remover a regra de segurança de entrada.
 
 ### <a name="delete-the-vm"></a>Excluir a VM
 
@@ -211,7 +207,7 @@ Se você não receber uma solicitação de credenciais para ingressar no domíni
 Após tentar cada uma dessas etapas de solução de problemas, tente ingressar a VM do Windows Server no domínio gerenciado novamente.
 
 * Verifique se a VM está conectada à mesma rede virtual em que o Azure AD DS está habilitado ou se há uma conexão de rede emparelhada.
-* Tente executar ping do nome de domínio DNS do domínio gerenciado, como `ping contoso.com`.
+* Tente executar ping do nome de domínio DNS do domínio gerenciado, como `ping aaddscontoso.com`.
     * Se a solicitação de ping falhar, tente executar ping dos endereços IP do domínio gerenciado, por exemplo, `ping 10.0.0.4`. O endereço IP do ambiente é exibido na página *Propriedades* quando você seleciona o domínio gerenciado do Azure AD DS na lista de recursos do Azure.
     * Se você conseguir executar o ping do endereço IP, mas não do domínio, o DNS poderá estar configurado incorretamente. Verifique se os endereços IP do domínio gerenciado estão configurados como servidores DNS para a rede virtual.
 * Tente liberar o cache do resolvedor DNS na máquina virtual usando o comando `ipconfig /flushdns`.
@@ -224,13 +220,13 @@ Após tentar cada uma dessas etapas de solução de problemas, tente ingressar a
 
 * Certifique-se de que a conta de usuário especificada pertença ao grupo *Administradores do AAD DC*.
 * Confirme se a conta faz parte do domínio gerenciado do Azure AD DS ou do locatário do Azure AD. Contas de diretórios externos associadas ao seu locatário do Azure AD não podem ser autenticadas corretamente durante o processo de ingresso no domínio.
-* Tente usar o formato UPN para especificar as credenciais, como `contosoadmin@contoso.onmicrosoft.com`. Se houver vários usuários com o mesmo prefixo UPN no seu locatário ou se o prefixo UPN for muito longo, o *SAMAccountName* da sua conta poderá ser gerado automaticamente. Nesses casos, o formato de *SAMAccountName* da sua conta pode ser diferente do que você espera ou usa em seu domínio local.
+* Tente usar o formato UPN para especificar as credenciais, como `contosoadmin@aaddscontoso.onmicrosoft.com`. Se houver vários usuários com o mesmo prefixo UPN no seu locatário ou se o prefixo UPN for muito longo, o *SAMAccountName* da sua conta poderá ser gerado automaticamente. Nesses casos, o formato de *SAMAccountName* da sua conta pode ser diferente do que você espera ou usa em seu domínio local.
 * Verifique se você [habilitou a sincronização de senhas][password-sync] para o domínio gerenciado. Sem esta etapa de configuração, os hashes de senha exigidos não estarão presentes no domínio gerenciado do Azure AD DS para autenticar corretamente sua tentativa de logon.
 * Aguarde a conclusão da sincronização de senha. Quando a senha de uma conta de usuário é alterada, uma sincronização automática em segundo plano do Azure AD a atualiza no Azure AD DS. Leva algum tempo para que a senha fique disponível para ser usada para ingresso no domínio.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Criar uma VM do Windows Server
@@ -249,6 +245,5 @@ Para administrar o domínio gerenciado do Azure AD DS, configure uma VM de geren
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [password-sync]: active-directory-ds-getting-started-password-sync.md
 [add-computer]: /powershell/module/microsoft.powershell.management/add-computer
-[jit-access]: ../security-center/security-center-just-in-time.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [set-azvmaddomainextension]: /powershell/module/az.compute/set-azvmaddomainextension

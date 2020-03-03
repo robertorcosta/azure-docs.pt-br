@@ -4,16 +4,16 @@ description: Este artigo explica como você pode obter resultados para tarefas c
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 02/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: 2102e3af26c8f5c4ed85543bc19360a923d070f3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 1d9a498185e76f9771ec98656b1cad914b0f3214
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199969"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562574"
 ---
 # <a name="common-cost-analysis-uses"></a>Usos comuns da análise de custo
 
@@ -83,6 +83,9 @@ O arquivo de relatório de detalhes de uso, no formato CSV, fornece um detalhame
 ## <a name="view-monthly-ea-cost-breakdown"></a>Exibir o detalhamento de custos do EA
 
 Seu registro no EA acumula custos para toda a sua organização. A compreensão de como os custos são acumulados e faturados ao longo do tempo ajuda a envolver os stakeholders apropriados para garantir que os custos sejam gerenciados com responsabilidade.
+
+Os custos são mostrados apenas para seu registro ativo. Se você tiver transferido um registro (inativo) para um novo (ativo), os custos do registro anterior não serão mostrados no Gerenciamento de Custos.
+
 
 1. No portal do Azure, navegue até **Gerenciamento de Custos + Cobrança** > **Visão geral**.
 1. Clique em **Detalhamento** para ver o mês atual e o seu compromisso monetário ao longo do tempo.  

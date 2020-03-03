@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5454d2f80d1febccb0c57ecf2e80d930bb5cb761
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 21725e64bb359b2f11086baceb186605f010b796
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988797"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561452"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutorial: Usar scripts de implantação para criar um certificado autoassinado (Versão prévia)
 
@@ -39,7 +39,7 @@ Este tutorial cobre as seguintes tarefas:
 > * Depurar o script com falha
 > * Limpar os recursos
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este artigo, você precisa do seguinte:
 
@@ -266,13 +266,13 @@ O script de implantação adiciona um certificado ao cofre de chaves. Configure 
     * **timeout**: especifique o tempo de execução máximo permitido do script especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O valor padrão é **P1D**.
     * **arguments**: Especifique os valores de parâmetro. os valores são separados por espaços.
     * **scriptContent**: especifique o conteúdo do script. Para executar um script externo, use **primaryScriptURI**. Para obter mais informações, confira [Usar script externo](./deployment-script-template.md#use-external-scripts).
-        Declarar **$DeploymentScriptOutputs** só é necessário ao testar o script em um computador local. Declarar a variável permite que o script seja executado em um computador local e em um recurso deploymentScript sem precisar fazer alterações. O valor atribuído a $DeploymentScriptOutputs está disponível como saídas na implantação. Para obter mais informações, confira [Trabalhar com saídas de scripts de implantação](./deployment-script-template.md#work-with-outputs-from-deployment-scripts).
+        Declarar **$DeploymentScriptOutputs** só é necessário ao testar o script em um computador local. Declarar a variável permite que o script seja executado em um computador local e em um recurso deploymentScript sem precisar fazer alterações. O valor atribuído a $DeploymentScriptOutputs está disponível como saídas na implantação. Para obter mais informações, confira [Trabalhar com saídas de scripts de implantação do PowerShell](./deployment-script-template.md#work-with-outputs-from-powershell-script) ou [Trabalhar com saídas de scripts de implantação da CLI](./deployment-script-template.md#work-with-outputs-from-cli-script).
     * **cleanupPreference**: especifique a preferência sobre quando excluir os recursos de script de implantação.  O valor padrão é **Sempre**, o que significa que os recursos do script de implantação são excluídos apesar do estado terminal (Com êxito, Com falha, Cancelado). Neste tutorial, **OnSuccess** é usado para que você tenha a oportunidade de exibir os resultados da execução do script.
     * **retentionInterval**: especifique o intervalo para o qual o serviço reterá os recursos de script após atingir um estado terminal. Os recursos serão excluídos quando essa duração expirar. A duração é baseada no padrão ISO 8601. Este tutorial usa P1D, que significa um dia.  Essa propriedade é usada quando **cleanupPreference** está configurado como **OnExpiration**. Essa propriedade não está habilitada no momento.
 
     O script da implantação usa três parâmetros: nome do cofre de chaves, nome do certificado e nome da entidade.  Ele cria um certificado e o adiciona ao cofre de chaves.
 
-    **$DeploymentScriptOutputs** é usado para armazenar o valor de saída.  Para saber mais, confira [Trabalhar com saídas de scripts de implantação](./deployment-script-template.md#work-with-outputs-from-deployment-scripts).
+    **$DeploymentScriptOutputs** é usado para armazenar o valor de saída.  Para saber mais, confira [Trabalhar com saídas de scripts de implantação do PowerShell](./deployment-script-template.md#work-with-outputs-from-powershell-script) ou [Trabalhar com saídas de scripts de implantação da CLI](./deployment-script-template.md#work-with-outputs-from-cli-script).
 
     O modelo concluído pode ser encontrado [aqui](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json).
 

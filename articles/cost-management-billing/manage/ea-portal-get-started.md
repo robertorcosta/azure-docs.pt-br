@@ -3,16 +3,16 @@ title: Introdução ao Azure Enterprise Portal
 description: Este artigo explica como os clientes do Azure EA (Contrato Enterprise do Azure) usam o Azure Enterprise Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 02/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: e1c6eac81968ef6ecbc12ec52415c2aa9680f3e1
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: fa55eebe6d051addcb5249908fd52e7e6ce44f12
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200822"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598401"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Introdução ao Azure Enterprise Portal
 
@@ -559,7 +559,7 @@ Você pode criar quantos departamentos forem necessários em seu registro do EA 
 
 Depois de criar departamentos e assinaturas, você poderá ver os dados no relatório de uso. Essas informações podem ajudá-lo a acompanhar o uso e gerenciar custos e gastos no nível do departamento.
 
-Você também pode acessar os dados de uso por meio da API de relatórios. Para obter informações detalhadas e código de exemplo, confira a [documentação da API de Relatórios](https://ea.azure.com/helpdocs/reportingAPI).
+Você também pode acessar os dados de uso por meio da API de relatórios. Para obter informações detalhadas e o código de exemplo, confira as [APIs REST do Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
 
 ### <a name="can-i-set-a-spending-quota-and-get-alerts-as-i-approach-my-limit"></a>Posso definir uma cota de gastos e receber alertas à medida que me aproximar do meu limite?
 
@@ -571,7 +571,7 @@ Para definir sua cota de gastos, selecione um departamento e, em seguida, seleci
 
 Se você usar _grupos de recursos_ e _marcas_, essas informações serão rastreadas no nível de serviço e você poderá acessá-las no arquivo detalhado de uso (CSV) para download. Confira a opção [baixar o relatório de uso](https://ea.azure.com/report/downloadusage) no Azure Enterprise Portal.
 
-Você também pode acessar o uso por meio da API. Para obter informações detalhadas e o código de exemplo, confira a [API de Relatórios](https://ea.azure.com/helpdocs/reportingAPI) na documentação do Azure Enterprise Portal.
+Você também pode acessar o uso por meio da API. Para obter informações detalhadas e o código de exemplo, confira as [APIs REST do Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
 
 > [!NOTE]
 > Você só pode aplicar marcas em recursos com suporte a operações do Azure Resource Manager. Se você tiver criado uma máquina virtual, uma rede virtual ou um armazenamento por meio do modelo de implantação clássica (como por meio do portal clássico), não poderá aplicar uma marcação a esse recurso. Para dar suporte à marcação, implante esses recursos novamente por meio do Resource Manager. Todos os outros recursos oferecem suporte à marcação.

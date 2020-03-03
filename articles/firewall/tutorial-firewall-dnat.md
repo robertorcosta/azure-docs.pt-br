@@ -1,23 +1,23 @@
 ---
-title: Filtrar o tráfego de entrada com o DNAT do Firewall do Azure usando o portal
+title: Filtrar o tráfego da Internet de entrada com o DNAT do Firewall do Azure usando o portal
 description: Neste tutorial, você aprenderá a implantar e configurar o DNAT do Firewall do Azure usando o portal do Azure.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 02/26/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2f390f3ad540a2a25055dfcc97cc3af1f22c2b73
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 1528087ced54ddcab2e3dd44b65fb3411cae3004
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195731"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621782"
 ---
-# <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutorial: Filtrar tráfego de entrada com o DNAT do Firewall do Azure usando o portal do Azure
+# <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutorial: Filtrar o tráfego da Internet de entrada com o DNAT do Firewall do Azure usando o portal do Azure
 
-Você pode configurar a Conversão de Endereço de Rede de Destino (DNAT) do Firewall do Azure para converter e filtrar o tráfego de entrada para suas sub-redes. Quando você configura o modo DNAT, a ação da coleção de regras da NAT é definida como **Dnat**. Assim, cada regra na coleção de regras NAT pode ser usada para converter o IP e a porta públicos em um IP e porta privados do firewall. As regras DNAT adicionam implicitamente uma regra de rede correspondente para permitir o tráfego convertido. Você pode substituir esse comportamento adicionando explicitamente uma coleção de regras de rede com regras de negação que correspondem ao tráfego convertido. Para saber mais sobre a lógica de processamento de regra do Firewall do Azure, confira [Lógica de processamento de regra do Firewall no Azure](rule-processing.md).
+Você pode configurar o DNAT (conversão de endereço de rede de destino) do Firewall do Azure para converter e filtrar o tráfego da Internet de entrada para as sub-redes. Quando você configura o modo DNAT, a ação da coleção de regras da NAT é definida como **Dnat**. Assim, cada regra na coleção de regras NAT pode ser usada para converter o IP e a porta públicos em um IP e porta privados do firewall. As regras DNAT adicionam implicitamente uma regra de rede correspondente para permitir o tráfego convertido. Você pode substituir esse comportamento adicionando explicitamente uma coleção de regras de rede com regras de negação que correspondem ao tráfego convertido. Para saber mais sobre a lógica de processamento de regra do Firewall do Azure, confira [Lógica de processamento de regra do Firewall no Azure](rule-processing.md).
 
 Neste tutorial, você aprenderá como:
 
@@ -151,7 +151,7 @@ Após a conclusão da implantação, observe o endereço IP privado da máquina 
 
    |Configuração  |Valor  |
    |---------|---------|
-   |NOME     |FW-DNAT-test|
+   |Nome     |FW-DNAT-test|
    |Subscription     |\<sua assinatura\>|
    |Resource group     |**Usar existente**: RG-DNAT-Test |
    |Location     |Selecionar o mesmo local usado anteriormente|
@@ -212,13 +212,13 @@ Para a sub-rede **SN-Workload**, configure a rota de saída padrão para atraves
 1. Conecte uma área de trabalho remota ao endereço IP público do firewall. Você deve estar conectado à máquina virtual **Srv-Workload**.
 2. Feche a área de trabalho remota.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Você pode manter seus recursos de firewall para o próximo tutorial ou, se não forem mais necessários, exclua o grupo de recursos **RG-DNAT-Test** para excluir todos os recursos relacionados ao firewall.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Configurar um ambiente de rede de teste

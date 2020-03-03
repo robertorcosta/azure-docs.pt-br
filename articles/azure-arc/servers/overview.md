@@ -7,14 +7,14 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 02/12/2020
+ms.date: 02/24/2020
 ms.topic: overview
-ms.openlocfilehash: 33681d5c9e296d7c292dabbd64560e3d95c45af2
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 57b44db9c1bb9a607ad8478b7208df40441020c2
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190314"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586233"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>O que é Azure Arc para servidores (versão prévia)
 
@@ -49,8 +49,12 @@ Na maioria dos casos, o local selecionado durante a criação do script de insta
 
 Há suporte oficial para as seguintes versões do sistema operacional Windows e Linux para o agente do Azure Connected Machine: 
 
-- Windows Server 2012 R2 e versões posteriores
+- Windows Server 2012 R2 e versões posteriores (incluindo o Windows Server Core)
 - Ubuntu 16.04 e 18.04
+- CentOS Linux 7
+- SLES (SUSE Linux Enterprise Server) 15
+- Red Hat Enterprise Linux (RHEL) 7
+- Amazon Linux 7
 
 >[!NOTE]
 >Essa versão prévia do agente do Connected Machine para Windows só é compatível com o Windows Server configurado para usar o idioma inglês.
@@ -65,6 +69,15 @@ Há suporte oficial para as seguintes versões do sistema operacional Windows e 
 ### <a name="azure-subscription-and-service-limits"></a>Limites de serviço e assinatura do Azure
 
 Antes de configurar seus computadores com o Azure Arc para servidores (versão prévia), você deve examinar os [limites de assinatura](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) e os [limites do grupo de recursos](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) do Azure Resource Manager para planejar o número de computadores a ser conectado.
+
+## <a name="tls-12-protocol"></a>Protocolo TLS 1.2
+
+Para garantir a segurança de dados em trânsito para o Azure, incentivamos você a configurar o computador para usar o protocolo TLS 1.2. Constatou-se que versões mais antigas do protocolo TLS/protocolo SSL eram vulneráveis e embora elas ainda funcionem no momento para permitir a compatibilidade com versões anteriores, elas **não são recomendadas**. 
+
+|Plataforma/linguagem | Suporte | Mais informações |
+| --- | --- | --- |
+|Linux | Distribuições do Linux tendem a depender do [OpenSSL](https://www.openssl.org) para suporte a TLS 1.2. | Verifique as [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) para confirmar a sua versão do OpenSSL é suportada.|
+| Windows Server 2012 R2 e versões posteriores | Suporte e habilitado por padrão. | Para confirmar que você ainda está usando o [as configurações padrão](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).|
 
 ### <a name="networking-configuration"></a>Configuração de rede
 
@@ -122,13 +135,19 @@ Você também pode registrar os provedores de recursos no portal do Azure seguin
 
 ## <a name="connected-machine-agent"></a>Agente do Connected Machine
 
-Você pode baixar o pacote do Agente do Azure Connected Machine para Windows e Linux dos locais listados abaixo.
+Você pode baixar o pacote do agente do Azure Connected Machine para Windows e Linux dos locais listados abaixo.
 
 - [Pacote do Windows Installer do agente do Windows](https://aka.ms/AzureConnectedMachineAgent) do Centro de Download da Microsoft.
 - O pacote do agente do Linux é distribuído do [repositório de pacotes](https://packages.microsoft.com/) da Microsoft usando o formato de pacote preferencial para a distribuição (.RPM ou .DEB).
 
 >[!NOTE]
 >Durante essa versão prévia, apenas um pacote foi lançado, adequado para Ubuntu 16.04 ou 18.04.
+
+O agente do Azure Connected Machine para Windows e Linux pode ser atualizado para a versão mais recente manual ou automaticamente dependendo de suas necessidades. Para o Windows, a atualização do agente pode ser realizada automaticamente usando o Windows Update; para Ubuntu, usando a ferramenta de linha de comando [apt](https://help.ubuntu.com/lts/serverguide/apt.html).
+
+### <a name="agent-status"></a>Status do agente
+
+O agente do Connected Machine envia uma mensagem de pulsação regular para o serviço a cada 5 minutos. Se uma não for recebida em 15 minutos, o computador será considerado offline e o status será alterado automaticamente para **Desconectado** no portal. Ao receber uma mensagem de pulsação subsequente do agente do Connected Machine, o status dela será alterado automaticamente para **Conectado**.
 
 ## <a name="install-and-configure-agent"></a>Instalar e configurar o agente
 
@@ -138,7 +157,6 @@ Conectar computadores em seu ambiente híbrido diretamente com o Azure pode ser 
 |--------|-------------|
 | Interativamente | Instalar manualmente o agente em um número único ou pequeno de computadores seguindo as etapas em [Conectar computadores do portal do Azure](onboard-portal.md).<br> No portal do Azure, você pode gerar um script e executá-lo no computador para automatizar as etapas de instalação e configuração do agente.|
 | Em escala | Instalar e configurar o agente para vários computadores seguindo [Conectar computadores usando uma Entidade de Serviço](onboard-service-principal.md).<br> Esse método cria uma entidade de serviço para conectar computadores de maneira não interativa.|
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

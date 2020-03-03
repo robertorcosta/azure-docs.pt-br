@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/05/2020
-ms.openlocfilehash: a933caf0b0033cdcd1f27d4f795ba6466f34072a
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: bc7e77cc498958b2f8f0c5b2d5ab2d59db97a235
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210322"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560823"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Início Rápido: Criar uma conta, um banco de dados, um contêiner e itens do Azure Cosmos usando o portal do Azure
 
@@ -100,6 +100,12 @@ Adicione dados a seu novo banco de dados usando o Data Explorer.
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+
+Se você quiser excluir apenas o banco de dados e usar a conta do Azure Cosmos no futuro, poderá excluir o banco de dados com as seguintes etapas:
+
+* Navegue até a conta do Azure Cosmos.
+* Abra **Data Explorer**, clique com o botão direito do mouse no banco de dados que você deseja excluir e selecione **Excluir Banco de Dados**.
+* Insira a ID/nome do banco de dados para confirmar a operação de exclusão. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

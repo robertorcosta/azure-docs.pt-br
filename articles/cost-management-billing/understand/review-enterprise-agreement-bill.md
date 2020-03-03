@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: tutorial
-ms.date: 02/04/2020
+ms.date: 02/24/2020
 ms.author: banders
-ms.openlocfilehash: 1affe81228b491ea45f610d741d454fa38f2029a
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 017f617bff14eb0c031c40240ca6c1ac62c9c941
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199102"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598214"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Entender sua fatura do Contrato Enterprise do Azure
 
@@ -56,7 +56,7 @@ Usuário Registrado
     - Visual Studio Professional (anual)
 - **Encargos do Marketplace**: As compras e o uso do Azure Marketplace não são cobertos pelo crédito de sua organização. Portanto, você é faturado pelos encargos do Marketplace apesar de seu saldo de crédito. No Enterprise Portal, um administrador corporativo pode habilitar e desabilitar compras do Marketplace.
 
-Sua fatura mostra todo o uso do Azure, seguida pelos encargos do Marketplace. Se você tiver um saldo de crédito, ele será aplicado ao uso do Azure.
+Sua fatura exibirá os preços de uso do Azure com custos associados a eles primeiro, seguido pelos preços do Marketplace. Se você tiver um saldo de crédito, ele será aplicado ao uso do Azure e sua fatura exibirá o uso do Azure e a utilização do Marketplace sem nenhum custo por último.
 
 Compare o valor total combinado mostrado no Enterprise Portal em **Relatórios** > **Resumo do Uso** com sua fatura do Azure. Os valores no **Resumo de Uso** não incluem os impostos.
 

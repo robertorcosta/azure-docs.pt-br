@@ -6,24 +6,24 @@
   items:
     - name: Introdução ao Data Factory
       href: introduction.md
-    - name: Comparar a versão atual com a versão 1
+    - name: Comparar a atual versão com a versão 1
       href: compare-versions.md
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Criar data factory – Interface do Usuário (IU)
+    - name: Criar data factory - Interface do Usuário (IU)
       href: quickstart-create-data-factory-portal.md
-    - name: Criar data factory – Ferramenta Copiar Dados
+    - name: Criar fábrica de dados - Ferramenta Copiar Dados
       href: quickstart-create-data-factory-copy-data-tool.md
-    - name: Criar data factory – Azure PowerShell
+    - name: Criar fábrica de dados - Azure PowerShell
       href: quickstart-create-data-factory-powershell.md
-    - name: Criar data factory – .NET
+    - name: Criar fábrica de dados - .NET
       href: quickstart-create-data-factory-dot-net.md
-    - name: Criar data factory – Python
+    - name: Criar fábrica de dados - Python
       href: quickstart-create-data-factory-python.md
-    - name: Criar data factory – REST
+    - name: Criar fábrica de dados - REST
       href: quickstart-create-data-factory-rest-api.md
-    - name: Criar data factory – Modelo do Resource Manager
+    - name: Criar fábrica de dados - Modelo do Resource Manager
       href: quickstart-create-data-factory-resource-manager-template.md
     - name: Criar fluxo de dados
       href: data-flow-create.md
@@ -82,7 +82,7 @@
                   href: tutorial-incremental-copy-multiple-tables-portal.md
                 - name: Azure PowerShell
                   href: tutorial-incremental-copy-multiple-tables-powershell.md
-            - name: Usar informações do Controle de Alterações no SQL Server
+            - name: Usando informações de controle de alteração no SQL Server
               items:
                 - name: Interface do usuário (IU)
                   href: tutorial-incremental-copy-change-tracking-feature-portal.md
@@ -98,7 +98,7 @@
           items:
             - name: Transformar dados com os fluxos de dados de mapeamento
               href: tutorial-data-flow.md
-            - name: Tutoriais de vídeo de fluxo de dados de mapeamento
+            - name: Mapeamento de tutoriais em vídeo de fluxo de dados
               href: data-flow-tutorials.md
         - name: Preparar dados com fluxos de dados de estruturação
           href: wrangling-data-flow-tutorial.md
@@ -154,7 +154,7 @@
       href: concepts-datasets-linked-services.md
     - name: Gatilhos e execução do pipeline
       href: concepts-pipeline-execution-triggers.md
-    - name: Integration Runtime
+    - name: runtime de integração
       href: concepts-integration-runtime.md
     - name: Fluxos de dados
       items:
@@ -182,7 +182,7 @@
           items:
             - name: Visão geral do fluxo de dados de estruturação
               href: wrangling-data-flow-overview.md
-            - name: Funções compatíveis
+            - name: Funções suportadas
               href: wrangling-data-flow-functions.md
     - name: Funções e permissões
       href: concepts-roles-permissions.md
@@ -214,9 +214,9 @@
           href: connector-amazon-simple-storage-service.md
         - name: Formato Avro
           href: format-avro.md
-        - name: Armazenamento de Blobs do Azure
+        - name: Armazenamento do Blobs do Azure
           href: connector-azure-blob-storage.md
-        - name: Azure Cognitive Search
+        - name: Pesquisa Cognitiva do Azure
           href: connector-azure-search.md
         - name: API do SQL do Azure Cosmos DB
           href: connector-azure-cosmos-db.md
@@ -248,7 +248,7 @@
           href: format-binary.md
         - name: Cassandra
           href: connector-cassandra.md
-        - name: Common Data Service para Aplicativos
+        - name: Serviço de dados comum para aplicativos
           href: connector-dynamics-crm-office-365.md
         - name: Concur
           href: connector-concur.md
@@ -447,7 +447,7 @@
           href: transform-data-using-stored-procedure.md
         - name: Serviços vinculados de computação
           href: compute-linked-services.md
-    - name: Fluxo de Controle
+    - name: Controlar fluxo
       items:
         - name: Acrescentar Atividade Variável
           href: control-flow-append-variable-activity.md
@@ -479,7 +479,7 @@
           href: control-flow-webhook-activity.md
     - name: Transformações do fluxo de dados
       items:
-        - name: Agregação
+        - name: Agregado
           href: data-flow-aggregate.md
         - name: Alterar linha
           href: data-flow-alter-row.md
@@ -549,11 +549,11 @@
           href: monitor-using-azure-monitor.md
         - name: Monitorar com SDKs
           href: monitor-programmatically.md
-        - name: Monitorar o Integration Runtime
+        - name: Monitorar runtime de integração
           href: monitor-integration-runtime.md
-        - name: Monitorar o Azure-SSIS Integration Runtime
+        - name: Monitorar runtime de integração do Azure-SSIS
           href: 'monitor-integration-runtime.md#azure-ssis-integration-runtime'
-        - name: Reconfigurar o Azure-SSIS Integration Runtime
+        - name: Reconfigurar o runtime de integração do Azure-SSIS
           href: manage-azure-ssis-integration-runtime.md
         - name: Copiar ou clonar um data factory
           href: copy-clone-data-factory.md
@@ -563,7 +563,7 @@
           href: create-azure-integration-runtime.md
         - name: runtime de integração auto-hospedada
           href: create-self-hosted-integration-runtime.md
-        - name: Azure-SSIS Integration Runtime
+        - name: runtime de integração do Azure-SSIS
           href: create-azure-ssis-integration-runtime.md
         - name: runtime de integração auto-hospedada compartilhado
           href: create-shared-self-hosted-integration-runtime-powershell.md
@@ -577,23 +577,23 @@
           href: how-to-invoke-ssis-package-ssis-activity.md
         - name: Executar pacotes SSIS com a atividade de Procedimento Armazenado
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
-        - name: Agendar o Azure-SSIS Integration Runtime
+        - name: Agendar o runtime de integração do Azure-SSIS
           href: how-to-schedule-azure-ssis-integration-runtime.md
-        - name: Unir o Azure-SSIS IR a uma rede virtual
+        - name: Unir o IR do Azure-SSIS a uma rede virtual
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: Configurar o IR auto-hospedado como um proxy para Azure-SSIS IR
           href: self-hosted-integration-runtime-proxy-ssis.md
-        - name: Habilitar a autenticação do Azure AD para o Azure-SSIS IR
+        - name: Habilitar a autenticação do Azure AD para IR Azure-SSIS
           href: enable-aad-authentication-azure-ssis-ir.md
-        - name: Provisionar a Edição Enterprise para o Azure-SSIS IR
+        - name: Provisionar a Enterprise Edition para IR Azure-SSIS
           href: how-to-configure-azure-ssis-ir-enterprise-edition.md
-        - name: Personalizar a instalação para o Azure-SSIS IR
+        - name: Personalizar instalação para IR Azure-SSIS
           href: how-to-configure-azure-ssis-ir-custom-setup.md
-        - name: Instalar componentes licenciados para o Azure-SSIS IR
+        - name: Instalar componentes licenciados para IR Azure-SSIS
           href: how-to-develop-azure-ssis-ir-licensed-components.md
-        - name: Configurar o alto desempenho para o Azure-SSIS IR
+        - name: Configurar o alto desempenho para IR Azure-SSIS
           href: configure-azure-ssis-integration-runtime-performance.md
-        - name: Configurar a recuperação de desastre para o Azure-SSIS IR
+        - name: Configurar a recuperação de desastres para IR Azure-SSIS
           href: configure-bcdr-azure-ssis-integration-runtime.md
         - name: Limpar logs do SSISDB com Trabalhos do Banco de Dados Elástico
           href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
@@ -625,7 +625,7 @@
           href: solution-template-migration-s3-azure.md
         - name: Mover arquivos
           href: solution-template-move-files.md
-        - name: Transformar dados com o Databricks
+        - name: Transformação com o Azure Databricks
           href: solution-template-databricks-notebook.md
     - name: Guias de solução de problemas
       items:
@@ -637,7 +637,7 @@
           href: data-flow-troubleshoot-guide.md
         - name: Integration Runtimes auto-hospedados
           href: self-hosted-integration-runtime-troubleshoot-guide.md
-        - name: Azure-SSIS Integration Runtime
+        - name: Integration Runtime do Azure-SSIS
           href: ssis-integration-runtime-management-troubleshoot.md
         - name: Execução de pacote no Azure-SSIS IR
           href: ssis-integration-runtime-ssis-activity-faq.md

@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/27/2020
+ms.date: 02/26/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 69503968ece5e68b6e4777d72713565158009949
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e5b9b989ed8111e2bf36194ae2c8a333db7e66b4
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843847"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650785"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>Início Rápido: Criar um Load Balancer para balancear a carga de VMs usando o modelo do Azure Resource Manager
 
 O balanceamento de carga fornece um nível mais alto de disponibilidade e escala com a distribuição das solicitações recebidas entre várias VMs (máquinas virtuais). Este início rápido mostra como implantar um modelo do Azure Resource Manager que cria um Standard Load Balancer para balancear a carga de VMs. Usar o modelo do Resource Manager leva menos etapas em comparação com outros métodos de implantação.
 
-O [modelo do Resource Manager](../azure-resource-manager/templates/overview.md) é um arquivo JSON (JavaScript Object Notation) que define a infraestrutura e a configuração do projeto. O modelo usa a sintaxe declarativa, que permite declarar o que você pretende implantar sem precisar gravar a sequência de comandos de programação para criá-lo. Caso deseje saber mais sobre como desenvolver modelos do Resource Manager, confira a [documentação do Resource Manager](/azure/azure-resource-manager/) e a [referência de modelos](/azure/templates/microsoft.network/loadbalancers).
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -34,22 +34,25 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Os SKUs do Load Balancer e do IP público devem coincidir. Ao criar um Standard Load Balancer, você também precisa criar um endereço IP público Standard configurado como o front-end do Standard Load Balancer. Se você quiser criar um Load Balancer Básico, use [este modelo](https://azure.microsoft.com/resources/templates/201-2-vms-loadbalancer-natrules/). A Microsoft recomenda usar o SKU Standard para cargas de trabalho de produção.
 
-O modelo usado neste início rápido é um [Modelo de início rápido](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json).
+### <a name="review-the-template"></a>Examinar o modelo
 
-[!code-json[<Azure Resource Manager template create standard load balancer>](~/quickstart-templates/101-load-balancer-standard-create/azuredeploy.json)]
+O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json).
+
+:::code language="json" source="~/quickstart-templates/101-load-balancer-standard-create/azuredeploy.json" range="1-150" highlight="58-122":::
 
 Vários recursos do Azure foram definidos no modelo:
 
-- **Microsoft.Network/loadBalancers**
-- **Microsoft.Network/publicIPAddresses**: para o balanceador de carga.
-- **Microsoft.Network/networkSecurityGroups**
-- **Microsoft.Network/virtualNetworks**
-- **Microsoft.Compute/virutalMachines** (três deles)
-- **Microsoft.Network/publicIPAddresses** (três deles): para cada uma das três máquinas virtuais.
-- **Microsoft.Network/networkInterfaces** (três deles)
-- **Microsoft.Compute/virtualMachine/extensions** (três deles): use para configurar o IIS e as páginas da Web
+- [**Microsoft.Network/loadBalancers**](/azure/templates/microsoft.network/loadbalancers)
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses): para o balanceador de carga e para cada uma das três máquinas virtuais.
+- [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
+- [**Microsoft.Compute/virutalMachines**](/azure/templates/microsoft.compute/virtualmachines) (três deles)
+- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) (três deles)
+- [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (três deles): use-o para configurar o IIS e as páginas da Web
 
 Para encontrar mais modelos relacionados ao Azure Load Balancer, confira [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
+
+### <a name="deploy-the-template"></a>Implantar o modelo
 
 1. Clique em **Experimentar** no bloco de código a seguir para abrir o Azure Cloud Shell e então acompanhe as instruções para entrar no Azure.
 

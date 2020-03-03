@@ -8,13 +8,13 @@ ms.author: heidist
 ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: fd8a053eb4ff0805b95dc11db4206e1dd2edb184
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 02/25/2020
+ms.openlocfilehash: cbef6029b93f134f95ee54aa87ce0dd65bcdf50d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406928"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624005"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure em Node.js usando APIs REST
 > [!div class="op_single_selector"]
@@ -25,25 +25,30 @@ ms.locfileid: "74406928"
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Crie um aplicativo Node.js que crie, carregue e consulte um índice da Pesquisa Cognitiva do Azure. Este artigo demonstra como criar o aplicativo passo a passo. Como alternativa, você pode [baixar o código-fonte e os dados](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/) e executar o aplicativo da linha de comando.
+Crie um aplicativo Node.js que crie, carregue e consulte um índice da Pesquisa Cognitiva do Azure. Este artigo demonstra como criar o aplicativo passo a passo. Como alternativa, você pode [baixar o código-fonte e os dados](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/) e executar o aplicativo na linha de comando.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os serviços, as ferramentas e os dados a seguir são usados neste início rápido.
+Usamos os seguintes programas de software e serviços para criar e testar este início rápido:
 
-+ [Node.js](https://nodejs.org).
-+ O [NPM](https://www.npmjs.com) deve ser instalado pelo Node.js.
-+ Uma estrutura de índice de exemplo e documentos correspondentes são fornecidos neste artigo ou no diretório [**início rápido** do repositório](https://github.com/Azure-Samples/azure-search-javascript-samples/).
++ [Node.js](https://nodejs.org)
+
++ O [npm](https://www.npmjs.com) deve ser instalado pelo Node.js
+
++ Uma estrutura de índice de exemplo e documentos correspondentes são fornecidos neste artigo ou no diretório [**início rápido** do repositório](https://github.com/Azure-Samples/azure-search-javascript-samples/)
+
 + [Crie um serviço da Pesquisa Cognitiva do Azure](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. É possível usar um serviço gratuito para este início rápido.
 
 Recomendável:
 
-* [Visual Studio Code](https://code.visualstudio.com).
+* [Visual Studio Code](https://code.visualstudio.com)
+
 * Extensões [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) e [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) para VSCode.
 
 <a name="get-service-info"></a>
+
 ## <a name="get-keys-and-urls"></a>Obter chaves e URLs
 
 As chamadas ao serviço exigem um ponto de extremidade de URL e uma chave de acesso em cada solicitação. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou a Pesquisa Cognitiva do Azure à sua assinatura, siga estas etapas para obter as informações necessárias:
@@ -108,16 +113,17 @@ Comece abrindo um console do PowerShell ou outro ambiente no qual você instalou
       }
     }
     ```
-Crie um arquivo **azure_search_config.json** para manter os dados do serviço de pesquisa:
 
-```json
-{
-    "serviceName" : "[SERVICE_NAME]",
-    "adminKey" : "[ADMIN_KEY]",
-    "queryKey" : "[QUERY_KEY]",
-    "indexName" : "hotels-quickstart"
-}
-```
+5. Crie um arquivo **azure_search_config.json** para manter os dados do serviço de pesquisa:
+
+    ```json
+    {
+        "serviceName" : "[SEARCH_SERVICE_NAME]",
+        "adminKey" : "[ADMIN_KEY]",
+        "queryKey" : "[QUERY_KEY]",
+        "indexName" : "hotels-quickstart"
+    }
+    ```
 
 Substitua o valor `[SERVICE_NAME]` pelo nome do serviço de pesquisa. Substitua `[ADMIN_KEY]` e`[QUERY_KEY]` pelos valores de chave que você registrou anteriormente. 
 
@@ -403,7 +409,7 @@ O [pacote **nconf**](https://github.com/indexzero/nconf) permite especificar dad
 ```javascript
 function getAzureConfiguration() {
     const config = nconf.file({ file: 'azure_search_config.json' });
-    if (config.get('serviceName') === '[SEARCH_SERVICE_NAME' ) {
+    if (config.get('serviceName') === '[SEARCH_SERVICE_NAME]' ) {
         throw new Error("You have not set the values in your azure_search_config.json file. Change them to match your search service's values.");
     }
     return config;
@@ -433,7 +439,7 @@ Por fim, especifique e chame a função `run` assíncrona principal. Essa funç�
 const run = async () => {
     try {
         const cfg = getAzureConfiguration();
-        const client = new AzureSearchClient(cfg.get("serviceName"), cfg.get("adminKey"), cfg.get("queryKey"), cfg.get["serviceName"]);
+        const client = new AzureSearchClient(cfg.get("serviceName"), cfg.get("adminKey"), cfg.get("queryKey"), cfg.get("indexName));
         
         const exists = await client.indexExistsAsync();
         await exists ? client.deleteIndexAsync() : Promise.resolve();
@@ -452,7 +458,7 @@ Não se esqueça dessa chamada final para `run()`. É o ponto de entrada para se
 
 Observe que `AzureSearchClient.indexExistsAsync()` e `AzureSearchClient.deleteIndexAsync()` não usam parâmetros. Essas funções chamam `AzureSearchClient.request()` sem argumentos `bodyJson`. Em `AzureSearchClient.request()`, como `bodyJson === null` é `true`, a estrutura `init` é definida para ser apenas o verbo HTTP ("GET" para `indexExistsAsync()` e "DELETE" para `deleteIndexAsync()`) e os cabeçalhos, que especificam a chave de solicitação.  
 
-Por outro lado, o método `AzureSearchClient.createIndexAsync(indexDefinition)` _usa_ um parâmetro. A função `run` em `index.js` passa o conteúdo do arquivo **hotels_quickstart_index.json** para o método `AzureSearchClient.createIndexAsync(indexDefinition)`. O método `createIndexAsync()` passa essa definição para `AzureSearchClient.request()`. Em `AzureSearchClient.request()`, como `bodyJson === null` agora é `false`, a estrutura `init` inclui não apenas o verbo HTTP ("PUT") e os cabeçalhos, mas define o `body` para os dados de definição do índice.
+Por outro lado, o método `AzureSearchClient.createIndexAsync(indexDefinition)`_usa_ um parâmetro. A função `run` em `index.js` passa o conteúdo do arquivo **hotels_quickstart_index.json** para o método `AzureSearchClient.createIndexAsync(indexDefinition)`. O método `createIndexAsync()` passa essa definição para `AzureSearchClient.request()`. Em `AzureSearchClient.request()`, como `bodyJson === null` agora é `false`, a estrutura `init` inclui não apenas o verbo HTTP ("PUT") e os cabeçalhos, mas define o `body` para os dados de definição do índice.
 
 ### <a name="prepare-and-run-the-sample"></a>Preparar e executar o exemplo
 
@@ -684,7 +690,7 @@ A classe **AzureSearchClient** encapsula a configuração, as URLs e as solicita
 
 O comportamento geral da função `run` é excluir o índice da Pesquisa Cognitiva do Azure, se ele existir, criar o índice, adicionar alguns dados e executar algumas consultas.  
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando você está trabalhando em sua própria assinatura, é uma boa ideia identificar, no final de um projeto, se você ainda precisa dos recursos criados. Recursos deixados em execução podem custar dinheiro. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir todo o conjunto de recursos.
 
