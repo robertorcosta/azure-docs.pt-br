@@ -1,14 +1,14 @@
 ---
 title: Tipos de recursos do Resource Manager com suporte
 description: Forneça uma lista dos tipos de recursos do Resource Manager com suporte do grafo de recursos do Azure e do histórico de alterações.
-ms.date: 02/25/2020
+ms.date: 03/02/2020
 ms.topic: reference
-ms.openlocfilehash: dc08c4a33ec9e0c20b865ffa4d7c6ff9d5248e90
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 3d6ba89cbf5c35c2a06a214029971341c4184b41
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602563"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227335"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Referência de tipo de recurso e tabela do grafo de recursos do Azure
 
@@ -210,6 +210,7 @@ O grafo de recursos do Azure dá suporte aos seguintes **tipos de recursos** de 
 - Microsoft. insights/metricalerts
 - Microsoft. insights/notificationgroups
 - Microsoft. insights/notificationrules
+- Microsoft. insights/privatelinkscopes
 - Microsoft. insights/scheduledqueryrules
 - Microsoft. insights/webtestes
 - Microsoft. insights/pastas de trabalho
@@ -456,7 +457,7 @@ O grafo de recursos do Azure dá suporte aos seguintes **tipos de recursos** de 
 - Microsoft. Security/securitystatuses/VirtualMachines
 - Microsoft. Security/securitystatusessummaries
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Saiba mais sobre a [linguagem de consulta](../concepts/query-language.md).
 - Saiba mais sobre como [explorar recursos](../concepts/explore-resources.md).

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/27/2020
+ms.date: 03/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a64af5d2b19b05ec9a5eda97c43e278cdfb8b4ff
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: bdea51c6cb53222f31a07906785a94073a0293a1
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189099"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226799"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gerenciamento de sessão de logon único no Azure Active Directory B2C
 
@@ -118,26 +118,25 @@ Esse provedor é usado para suprimir a tela "escolher provedor de identidade". N
 
 #### <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | DESCRIÇÃO|
+| Atributo | Obrigatório | Descrição|
 | --- | --- | --- |
 | AlwaysFetchClaimsFromProvider | Não | Não usado no momento, pode ser ignorado. |
 
 ### <a name="samlssosessionprovider"></a>SamlSSOSessionProvider
 
-Esse provedor é usado para gerenciar o Azure AD B2C sessões SAML entre um aplicativo de terceira parte confiável ou um provedor de identidade SAML federado. Ao usar o provedor de SSO para armazenar uma sessão de provedor de identidade SAML, o `IncludeSessionIndex` e `RegisterServiceProviders` devem ser definidos como `false`. O perfil técnico de `SM-Saml-idp` a seguir é usado pelo [perfil técnico SAML](saml-technical-profile.md).
+Esse provedor é usado para gerenciar o Azure AD B2C sessões SAML entre um aplicativo de terceira parte confiável ou um provedor de identidade SAML federado. Ao usar o provedor de SSO para armazenar uma sessão de provedor de identidade SAML, o `RegisterServiceProviders` deve ser definido como `false`. O perfil técnico de `SM-Saml-idp` a seguir é usado pelo [perfil técnico SAML](saml-technical-profile.md).
 
 ```XML
 <TechnicalProfile Id="SM-Saml-idp">
   <DisplayName>Session Management Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
   <Metadata>
-    <Item Key="IncludeSessionIndex">false</Item>
     <Item Key="RegisterServiceProviders">false</Item>
   </Metadata>
 </TechnicalProfile>
 ```
 
-Ao usar o provedor para armazenar a sessão de SAML do B2C, o `IncludeSessionIndex` e `RegisterServiceProviders` devem ser definidos como `true`. O logoff da sessão de SAML requer que `SessionIndex` e `NameID` sejam concluídos.
+Ao usar o provedor para armazenar a sessão de SAML do B2C, o `RegisterServiceProviders` deve ser definido como `true`. O logoff da sessão de SAML requer que `SessionIndex` e `NameID` sejam concluídos.
 
 O perfil técnico de `SM-Saml-idp` a seguir é usado pelo [perfil técnico do emissor SAML](connect-with-saml-service-providers.md)
 
@@ -149,9 +148,9 @@ O perfil técnico de `SM-Saml-idp` a seguir é usado pelo [perfil técnico do em
 ```
 #### <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | DESCRIÇÃO|
+| Atributo | Obrigatório | Descrição|
 | --- | --- | --- |
-| IncludeSessionIndex | Não | Indica ao provedor que o índice de sessão deve ser armazenado. Valores possíveis: `true` (padrão) ou `false`.|
+| IncludeSessionIndex | Não | Não usado no momento, pode ser ignorado.|
 | RegisterServiceProviders | Não | Indica que o provedor deve registrar todos os provedores de serviço SAML que emitiram uma declaração. Valores possíveis: `true` (padrão) ou `false`.|
 
 

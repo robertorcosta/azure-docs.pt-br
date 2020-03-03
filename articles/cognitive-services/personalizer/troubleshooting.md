@@ -1,15 +1,15 @@
 ---
 title: Solução de problemas-personalizador
 description: Este artigo contém respostas para perguntas frequentes sobre solução de problemas sobre o personalizador.
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 02/26/2020
 ms.author: diberry
-ms.openlocfilehash: 432b33243bdb38cf359d4fea1a336500eb244464
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 39db920b663ace12f2fc6ca35f9082a791da1541
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650513"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228041"
 ---
 # <a name="personalizer-troubleshooting"></a>Solução de problemas do personalizador
 
@@ -99,7 +99,7 @@ Quando o novo período de atualização começar, o modelo atualizado será usad
 </details>
 
 
-## <a name="learning-policy"></a>Política de aprendizagem
+## <a name="learning-policy"></a>Política de aprendizado
 
 <details>
 <summary><b>Como fazer importar uma política de aprendizado?</b></summary>
@@ -117,6 +117,6 @@ Quando o novo período de atualização começar, o modelo atualizado será usad
 
 </details>
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Configurar a frequência de atualização do modelo](how-to-settings.md#model-update-frequency)

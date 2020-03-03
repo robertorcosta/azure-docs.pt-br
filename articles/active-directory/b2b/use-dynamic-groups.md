@@ -5,43 +5,73 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/14/2017
+ms.date: 02/28/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4e3f64cb6aefb35c3f85bafc2bb408f998626d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41e8b81bc3594c6a378757636f70058510a38cc7
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112828"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226920"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Grupos dinâmicos e Colaboração do Azure Active Directory B2B
 
 ## <a name="what-are-dynamic-groups"></a>O que são grupos dinâmicos?
-A configuração dinâmica da associação de grupo de segurança para o Azure AD (Azure Active Directory) está disponível [no portal do Azure](https://portal.azure.com). Os administradores podem definir regras para preencher os grupos que são criados no Azure AD com base em atributos de usuário (como userType, departamento ou país/região). Os membros podem ser adicionados ou removidos automaticamente de um grupo de segurança com base nas alterações de seus atributos. Esses grupos podem fornecer acesso a aplicativos ou a recursos de nuvem (como sites e documentos do SharePoint) e para atribuir licenças a membros. Leia mais sobre grupos dinâmicos em [Grupos dedicados no Azure Active Directory](../active-directory-accessmanagement-dedicated-groups.md).
+A configuração dinâmica da associação de grupo de segurança para o Azure AD (Azure Active Directory) está disponível [no portal do Azure](https://portal.azure.com). Os administradores podem definir regras para popular os grupos que são criados no Azure AD com base em atributos de usuário (por exemplo, usuário, departamento ou país/região). Os membros podem ser adicionados ou removidos automaticamente de um grupo de segurança com base nas alterações de seus atributos. Esses grupos podem fornecer acesso a aplicativos ou a recursos de nuvem (como sites e documentos do SharePoint) e para atribuir licenças a membros. Leia mais sobre grupos dinâmicos em [Grupos dedicados no Azure Active Directory](../active-directory-accessmanagement-dedicated-groups.md).
 
 O [licenciamento do Azure AD Premium P1 ou P2](https://azure.microsoft.com/pricing/details/active-directory/) apropriado é necessário para criar e usar grupos dinâmicos. Saiba mais no artigo [Criar regras baseadas em atributo para associação dinâmica de grupo no Azure Active Directory](../users-groups-roles/groups-dynamic-membership.md).
 
-## <a name="what-are-the-built-in-dynamic-groups"></a>O que são os grupos dinâmicos internos?
-O grupo dinâmico **Todos os usuários**permite que administradores de locatário criem um grupo contendo todos os usuários no locatário com um único clique. Por padrão, o grupo **Todos os usuários** inclui todos os usuários no diretório, incluindo Membros e Convidados.
-No novo portal de administração do Azure Active Directory, você pode optar por habilitar o grupo **Todos os usuários** na exibição Configurações de Grupo.
+## <a name="creating-an-all-users-dynamic-group"></a>Criando um grupo dinâmico "todos os usuários"
+Você pode criar um grupo contendo todos os usuários dentro de um locatário usando uma regra de associação. Quando os usuários são adicionados ou removidos do locatário no futuro, a associação do grupo é ajustada automaticamente.
 
-![Mostra habilitar o grupo Todos os Usuários definido como Sim](media/use-dynamic-groups/enable-all-users-group.png)
+1. Entre no [portal do Azure](https://portal.azure.com) com uma conta que é atribuída à função administrador global ou administrador de usuários no locatário.
+1. Selecione **Azure Active Directory**.
+2. Em **gerenciar**, selecione **grupos**e, em seguida, selecione **novo grupo**.
+1. Na página **novo grupo** , em **tipo de grupo**, selecione **segurança**. Insira um **nome de grupo** e uma **Descrição de grupo** para o novo grupo. 
+2. Em **tipo de associação**, selecione **usuário dinâmico**e, em seguida, selecione **Adicionar consulta dinâmica**. 
+4. Acima da caixa de texto **sintaxe da regra** , selecione **Editar**. Na página **sintaxe de editar regra** , digite a seguinte expressão na caixa de texto:
 
-## <a name="hardening-the-all-users-dynamic-group"></a>Fortalecendo a proteção do grupo dinâmico Todos os usuários
-Por padrão, o grupo **Todos os usuários** também contém os usuários de colaboração B2B (convidados). Você pode proteger ainda mais o grupo **Todos os usuários** usando uma regra para remover os usuários convidados. A ilustração a seguir mostra o grupo **Todos os usuários** modificado para excluir os convidados.
+   ```
+   user.objectId -ne null
+   ```
+1. Selecione **OK**. A regra aparece na caixa sintaxe de regra:
 
-![Mostra a regra onde o tipo de usuário não é igual a convidado](media/use-dynamic-groups/exclude-guest-users.png)
+   ![Sintaxe de regra para todos os usuários grupo dinâmico](media/use-dynamic-groups/all-user-rule-syntax.png)
 
-Também pode ser útil criar um novo grupo dinâmico que contenha apenas os usuários convidados, para que você possa aplicar políticas (como as políticas de acesso condicional do Azure AD) a eles.
-Como esse grupo poderia ser:
+1.  Selecione **Salvar**. O novo grupo dinâmico agora incluirá usuários convidados B2B, bem como usuários membros.
 
-![Mostra a regra onde o tipo de usuário é igual a convidado](media/use-dynamic-groups/only-guest-users.png)
 
-## <a name="next-steps"></a>Próximas etapas
+1. Selecione **criar** na página **novo grupo** para criar o grupo.
+
+## <a name="creating-a-group-of-members-only"></a>Criando apenas um grupo de membros
+
+Se você quiser que o grupo exclua os usuários convidados e inclua somente os membros do seu locatário, crie um grupo dinâmico conforme descrito acima, mas na caixa **sintaxe de regra** , insira a seguinte expressão:
+
+```
+(user.objectId -ne null) and (user.userType -eq "Member")
+```
+
+A imagem a seguir mostra a sintaxe de regra para um grupo dinâmico modificado para incluir somente membros e excluir convidados.
+
+![Mostra a regra em que o tipo de usuário é igual ao membro](media/use-dynamic-groups/all-member-user-rule-syntax.png)
+
+## <a name="creating-a-group-of-guests-only"></a>Criando apenas um grupo de convidados
+
+Também pode ser útil criar um novo grupo dinâmico que contenha apenas os usuários convidados, para que você possa aplicar políticas (como as políticas de acesso condicional do Azure AD) a eles. Crie um grupo dinâmico conforme descrito acima, mas na caixa **sintaxe de regra** , insira a seguinte expressão:
+
+```
+(user.objectId -ne null) and (user.userType -eq "Guest")
+```
+
+A imagem a seguir mostra a sintaxe de regra para um grupo dinâmico modificado para incluir somente convidados e excluir usuários membros.
+
+![Mostra a regra onde o tipo de usuário é igual a convidado](media/use-dynamic-groups/all-guest-user-rule-syntax.png)
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Propriedades de usuário de colaboração B2B](user-properties.md)
 - [Adicionar um usuário de colaboração B2B a uma função](add-guest-to-role.md)

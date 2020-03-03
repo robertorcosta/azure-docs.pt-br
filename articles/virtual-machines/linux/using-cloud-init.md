@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: danis
-ms.openlocfilehash: e3a09a0d8412af711bfb6c539dc9d2829b1f0898
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 0309d9a794a978c736ffc4689c46565ee8fb5b00
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964576"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226690"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>suporte de inicialização de nuvem para máquinas virtuais no Azure
 Este artigo explica o suporte que existe para [Cloud-init](https://cloudinit.readthedocs.io) para configurar uma VM (máquina virtual) ou conjuntos de dimensionamento de máquinas virtuais no tempo de provisionamento no Azure. Essas configurações de inicialização de nuvem são executadas na primeira inicialização depois que os recursos são provisionados pelo Azure.  
@@ -34,33 +34,33 @@ O Azure dá suporte a dois agentes [de provisionamento Cloud-init](https://cloud
 
 Cloud-init também funciona em distribuições. Por exemplo, você não usa **apt-get install** nem **yum install** para instalar um pacote. Em vez disso, você pode definir uma lista de pacotes para instalar. Cloud-init usa automaticamente a ferramenta de gerenciamento de pacotes nativo para o distribuição que você selecionar.
 
-Trabalhamos ativamente com nossos parceiros endossados de distribuição de Linux para termos imagens de cloud-init habilitadas disponíveis no marketplace do Azure. Essas imagens farão com que as implantações e as configurações de cloud-init funcionem perfeitamente com VMs e conjuntos de dimensionamento de máquinas virtuais. Inicialmente, colaboros com os parceiros endossados do Linux distribuição e upstream para garantir as funções de Cloud-init com o sistema operacional no Azure. em seguida, os pacotes são atualizados e disponibilizados publicamente nos repositórios de pacotes do distribuição. 
+Trabalhamos ativamente com nossos parceiros endossados de distribuição de Linux para termos imagens de cloud-init habilitadas disponíveis no marketplace do Azure. Essas imagens farão com que as implantações e as configurações de cloud-init funcionem perfeitamente com VMs e conjuntos de dimensionamento de máquinas virtuais. Inicialmente, colaboros com os parceiros endossados do Linux distribuição e upstream para garantir as funções de Cloud-init com o sistema operacional no Azure, então os pacotes são atualizados e disponibilizados publicamente nos repositórios de pacotes do distribuição. 
 
 Há dois estágios para disponibilizar a Cloud-init para o sistema operacional distribuição do Linux endossado no Azure, suporte a pacotes e suporte a imagens:
 * o "suporte a pacotes Cloud-init no Azure" documenta quais pacotes Cloud-init em diante têm suporte ou em versão prévia, para que você possa usar esses pacotes com o sistema operacional em uma imagem personalizada.
 * documentos "imagem de nuvem-inicialização pronta" se a imagem já estiver configurada para usar Cloud-init.
 
 
-### <a name="canonical"></a>Canonical
-| Publicador/versão| Oferta | SKU | Versão | imagem de nuvem-inicialização pronta | suporte ao pacote Cloud-init no Azure|
+### <a name="canonical"></a>Canônico
+| Publicador/versão| Oferta | SKU | {1&gt;Version&lt;1} | imagem de nuvem-inicialização pronta | suporte ao pacote Cloud-init no Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Canonical 18, 4 |UbuntuServer |18.04-LTS |mais recente |sim | sim |
-|Canonical 16, 4|UbuntuServer |16.04-LTS |mais recente |sim | sim |
-|Canonical 14, 4|UbuntuServer |14.04.5-LTS |mais recente |sim | sim |
+|Canonical 18, 4 |UbuntuServer |18.04-LTS |latest |sim | sim |
+|Canonical 16, 4|UbuntuServer |16.04-LTS |latest |sim | sim |
+|Canonical 14, 4|UbuntuServer |14.04.5-LTS |latest |sim | sim |
 
 ### <a name="rhel"></a>RHEL
-| Publicador/versão | Oferta | SKU | Versão | imagem de nuvem-inicialização pronta | suporte ao pacote Cloud-init no Azure|
+| Publicador/versão | Oferta | SKU | {1&gt;Version&lt;1} | imagem de nuvem-inicialização pronta | suporte ao pacote Cloud-init no Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |sim | Sim-suporte da versão do pacote: *18.2-1. el7_6.2*|
 |RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | Sim (Observe que esta é uma imagem de visualização e, uma vez que todas as imagens RHEL 7,7 dão suporte a Cloud-init, isso será removido em meados de 2020, o aviso será fornecido) | Sim-suporte da versão do pacote: *18.5 -3. EL7*|
-|RedHat 7.7 |RHEL |7-RAW | N/D| nenhuma atualização de imagem para iniciar em fevereiro de 2020| Sim-suporte da versão do pacote: *18.5 -3. EL7*|
-|RedHat 7.7 |RHEL |7-LVM | N/D| nenhuma atualização de imagem para iniciar em fevereiro de 2020| Sim-suporte da versão do pacote: *18.5 -3. EL7*|
-|RedHat 7.7 |RHEL |7,7 | N/D| nenhuma atualização de imagem para iniciar em fevereiro de 2020 | Sim-suporte da versão do pacote: *18.5 -3. EL7*|
-|RedHat 7.7 |RHEL-BYOS | RHEL-lvm77 | N/D|nenhuma atualização de imagem para iniciar em fevereiro de 2020  | Sim-suporte da versão do pacote: *18.5 -3. EL7*|
+|RedHat 7.7 |RHEL |7-RAW | n/d| nenhuma atualização de imagem para iniciar em fevereiro de 2020| Sim-suporte da versão do pacote: *18.5 -3. EL7*|
+|RedHat 7.7 |RHEL |7-LVM | n/d| nenhuma atualização de imagem para iniciar em fevereiro de 2020| Sim-suporte da versão do pacote: *18.5 -3. EL7*|
+|RedHat 7.7 |RHEL |7,7 | n/d| nenhuma atualização de imagem para iniciar em fevereiro de 2020 | Sim-suporte da versão do pacote: *18.5 -3. EL7*|
+|RedHat 7.7 |RHEL-BYOS | RHEL-lvm77 | n/d|nenhuma atualização de imagem para iniciar em fevereiro de 2020  | Sim-suporte da versão do pacote: *18.5 -3. EL7*|
 
 ### <a name="centos"></a>CentOS
 
-| Publicador/versão | Oferta | SKU | Versão | imagem de nuvem-inicialização pronta | suporte ao pacote Cloud-init no Azure|
+| Publicador/versão | Oferta | SKU | {1&gt;Version&lt;1} | imagem de nuvem-inicialização pronta | suporte ao pacote Cloud-init no Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |OpenLogic 7,7 |CentOS |7-CI |7.7.20190920 |Sim (Observe que esta é uma imagem de visualização e, uma vez que todas as imagens CentOS 7,7 dão suporte a Cloud-init, isso será removido em meados de 2020, o aviso será fornecido) | Sim-suporte da versão do pacote: *18.5 -3. EL7. centos*|
 
@@ -68,7 +68,7 @@ Há dois estágios para disponibilizar a Cloud-init para o sistema operacional d
 
 ### <a name="oracle"></a>Oracle
 
-| Publicador/versão | Oferta | SKU | Versão | imagem de nuvem-inicialização pronta | suporte ao pacote Cloud-init no Azure|
+| Publicador/versão | Oferta | SKU | {1&gt;Version&lt;1} | imagem de nuvem-inicialização pronta | suporte ao pacote Cloud-init no Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |Oracle 7,7 |Oracle-Linux |77-CI |7.7.01| imagem de visualização (Observe que esta é uma imagem de visualização e, uma vez que todas as imagens do Oracle 7,7 dão suporte a Cloud-init, isso será removido em meados de 2020, o aviso será fornecido) | Não, na versão prévia, o pacote é: *18.5-3.0.1. EL7*
 
@@ -132,7 +132,7 @@ Depois que a VM tiver sido provisionada, o cloud-init será executado em todos o
 
 Para obter mais detalhes de registro do cloud-init, consulte a [documentação do cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Para obter exemplos de alterações de configuração do cloud-init, consulte os seguintes documentos:
  
 - [Add an additional Linux user to a VM](cloudinit-add-user.md) (Adicionar um usuário adicional do Linux a uma VM)

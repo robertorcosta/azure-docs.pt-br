@@ -4,16 +4,16 @@ description: Saiba como solucionar problemas com a solução Gerenciamento de At
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/31/2019
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 5ee1a20d4a3c46cab484b03b5fcc212a79d19047
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 1b0047cda3664759f4f1b6499c8a54ee22f98ab3
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513262"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227465"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Resolução de problemas com o Gerenciamento de Atualizações
 
@@ -24,6 +24,36 @@ Há uma solução de problemas de agente para o agente de Hybrid Worker para det
 Se você encontrar problemas enquanto estiver tentando integrar a solução em uma VM (máquina virtual), verifique o log de **Operations Manager** em logs de **aplicativos e serviços** no computador local em busca de eventos com a ID de evento 4502 e detalhes de eventos que contenham **Microsoft. EnterpriseManagement. HealthService. AzureAutomation. HybridAgent**.
 
 A seção a seguir realça mensagens de erro específicas e possíveis resoluções para cada uma delas. Para outros problemas de integração, consulte [solucionar problemas de integração da solução](onboarding.md).
+
+## <a name="scenario-superseded-update-indicated-as-missing-in-update-management"></a>Cenário: atualização substituída indicada como ausente no Gerenciamento de Atualizações
+
+### <a name="issue"></a>Problema
+
+As atualizações antigas são exibidas em Gerenciamento de Atualizações na conta do Azure como ausente, mesmo que tenham sido substituídas. Uma atualização substituída é aquela que não precisa ser instalada porque uma atualização posterior que corrige a mesma vulnerabilidade está disponível. Gerenciamento de Atualizações ignora a atualização substituída e a torna não aplicável em favor da atualização substituta. Para obter informações sobre um problema relacionado, consulte a [atualização é substituída](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer).
+
+### <a name="cause"></a>Causa
+
+As atualizações substituídas não estão sendo corretamente indicadas como recusadas para que possam ser consideradas não aplicáveis.
+
+### <a name="resolution"></a>Resolução
+
+Quando uma atualização substituída se tornar 100 por cento não aplicável, você deverá alterar o estado de aprovação dessa atualização para **recusada**. Para fazer isso para todas as suas atualizações:
+
+1. Na conta de automação, selecione **Gerenciamento de atualizações** para exibir o status da máquina. Consulte [Exibir avaliações de atualização](../manage-update-multi.md#view-an-update-assessment).
+
+2. Verifique a atualização substituída para certificar-se de que é 100% não aplicável. 
+
+3. Marque a atualização como recusada, a menos que você tenha uma pergunta sobre a atualização. 
+
+4. Selecione computadores e, na coluna conformidade, Force uma nova verificação de conformidade. Consulte [gerenciar atualizações para vários computadores](../manage-update-multi.md).
+
+5. Repita as etapas acima para outras atualizações substituídas.
+
+6. Execute o assistente de limpeza para excluir arquivos das atualizações recusadas. 
+
+7. Para o WSUS, limpe manualmente todas as atualizações substituídas para atualizar a infraestrutura.
+
+8. Repita esse procedimento regularmente para corrigir o problema de exibição e minimizar a quantidade de espaço em disco usada para o gerenciamento de atualizações.
 
 ## <a name="nologs"></a>Cenário: os computadores não aparecem no portal em Gerenciamento de Atualizações
 
@@ -187,7 +217,7 @@ Esse problema pode ocorrer por um dos seguintes motivos:
 
 ### <a name="resolution"></a>Resolução
 
-Quando aplicável, use [grupos dinâmicos](../automation-update-management-groups.md) para suas implantações de atualização. Adicionalmente:
+Quando aplicável, use [grupos dinâmicos](../automation-update-management-groups.md) para suas implantações de atualização. Além disso:
 
 * Verifique se o computador ainda existe e acessível. Se ele não existir, edite a implantação e remova o computador.
 * Consulte a seção [planejamento de rede](../automation-update-management.md#ports) para obter uma lista de portas e endereços necessários para gerenciamento de atualizações e, em seguida, verifique se o computador atende a esses requisitos.
@@ -220,7 +250,7 @@ Para obter mais informações, consulte [Configurando atualizações automática
 
 ### <a name="issue"></a>Problema
 
-Você vê a seguinte mensagem de erro:
+Você receberá a seguinte mensagem de erro:
 
 ```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
@@ -396,7 +426,7 @@ Se você não puder resolver um problema de aplicação de patch, faça uma cóp
 
 * KB2267602 é a [atualização de definição do Windows Defender](https://www.microsoft.com/wdsi/definitions). Ele é atualizado diariamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Se você não tiver visto o problema ou não conseguir resolver o problema, tente um dos seguintes canais para obter suporte adicional:
 

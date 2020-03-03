@@ -7,14 +7,14 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: toa, openshift, aquasec, Twistlock, Red Hat
-ms.openlocfilehash: 4241296a991283f14fbb294fdc059ecde58d6d75
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.openlocfilehash: 5d28a19126c9b7ae4ef7afe2a6b69bd4a13e0c83
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77069656"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228245"
 ---
-# <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Executar contêineres privilegiados em um cluster do Azure Red Hat OpenShift
+# <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Executar contêineres privilegiados em um cluster do Red Hat OpenShift no Azure
 
 Não é possível executar contêineres com privilégios arbitrários em clusters do Azure Red Hat OpenShift.
 Duas soluções de monitoramento e conformidade de segurança podem ser executadas em clusters de toa.
@@ -111,22 +111,27 @@ oc get route aqua-web -n aqua-security
 ### <a name="step-4-deploy-aqua-enforcers"></a>Etapa 4: implantar os executores de água
 Defina os seguintes campos ao implantar os imforçadores:
 
-| Campo          | Valor         |
+| Campo          | {1&gt;Valor&lt;1}         |
 | -------------- | ------------- |
 | Orchestrator   | OpenShift     |
 | ServiceAccount | água-conta  |
-| Project        | água-segurança |
+| {1&gt;Projeto&lt;1}        | água-segurança |
 
 ## <a name="product-specific-steps-for-prisma-cloud--twistlock"></a>Etapas específicas do produto para prisma Cloud/Twistlock
 
 As instruções básicas que vamos modificar podem ser encontradas na [documentação de implantação do prisma Cloud](https://docs.paloaltonetworks.com/prisma/prisma-cloud/19-11/prisma-cloud-compute-edition-admin/install/install_openshift.html)
 
-Comece criando um novo projeto OpenShift
+Comece instalando a ferramenta de `twistcli` conforme descrito nas seções "instalar a nuvem prisma" e "baixar o software de nuvem prisma".
+
+Criar um novo projeto OpenShift
 ```
 oc new-project twistlock
 ```
 
-Você pode seguir a documentação até a seção "instalar console", usar o registro de contêiner do prisma Cloud em vez de criar um interno.
+Ignore a seção opcional "enviar por push as imagens de nuvem prisma para um registro privado". Ele não funcionará no Azure Red Hat Openshift. Em vez disso, use o registro online.
+
+Você pode seguir a documentação oficial ao aplicar as correções descritas abaixo.
+Comece com a seção "instalar console".
 
 ### <a name="install-console"></a>Instalar console
 

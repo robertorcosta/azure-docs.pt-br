@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 31ced19e164d50030386064a81edf3322b12855d
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: c67fff32770446cac3adef8af50c9e5733077bc7
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191122"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226284"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Executar runbooks em um Hybrid Runbook Worker
 
@@ -46,7 +46,7 @@ Em vez de fazer com que seu runbook forneça sua própria autenticação para re
 
 O nome de usuário da credencial deve estar em um dos seguintes formatos:
 
-* domínio\nome de usuário
+* domain\username
 * username@domain
 * nome de usuário (para contas locais do computador local)
 
@@ -166,7 +166,7 @@ Para concluir a preparação da conta Executar como:
 
 1. Salve o runbook **Export-RunAsCertificateToHybridWorker** em seu computador com uma extensão **. ps1** .
 2. Importe-o para sua conta de automação.
-3. Edite o runbook, alterando o valor da variável *$password* para sua própria senha. 
+3. Edite o runbook, alterando o valor da variável de *senha* de sua própria senha. 
 4. Publique o runbook.
 5. Execute o runbook, direcionando o grupo de Hybrid Runbook Worker que executa e autentica runbooks usando a conta Executar como. 
 6. Examine o fluxo de trabalho para ver se ele relata a tentativa de importar o certificado para o repositório do computador local e segue várias linhas. Esse comportamento depende de quantas contas de automação você define em sua assinatura e o grau de sucesso da autenticação.
@@ -311,7 +311,7 @@ O runbook assinado é chamado de `<runbook name>.asc`.
 
 Agora você pode carregar o runbook assinado para a automação do Azure e executá-lo como um runbook regular.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para saber mais sobre os métodos para iniciar um runbook, consulte [iniciando um runbook na automação do Azure](automation-starting-a-runbook.md).
 * Para entender como usar o editor de texto para trabalhar com runbooks do PowerShell na automação do Azure, consulte [editando um runbook na automação do Azure](automation-edit-textual-runbook.md).

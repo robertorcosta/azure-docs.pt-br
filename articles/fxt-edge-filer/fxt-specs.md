@@ -3,15 +3,15 @@ title: Especificações do Microsoft Azure FXT Edge Filer | Microsoft Docs
 description: Especificações físicas e ambientais para o hardware do Azure FXT Edge Filer
 author: ekpgh
 ms.service: fxt-edge-filer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 90d56ad0cec3d187d4c7307f8c004b14c3860390
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
-ms.translationtype: HT
+ms.openlocfilehash: c06b0c79e01257eebf566b9752269cb88c072d8a
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254701"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227474"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Especificações do Azure FXT Edge Filer
 
@@ -36,8 +36,8 @@ Os números das unidades estão impressos no espaço entre elas. No Azure FXT Ed
 
 | Números de unidade    |  Uso   |  Especificações |
 |------------------|--------|-----------------|
-| 0, 1             | SO     | SSD SATA de 480 GB |
-| 2, 3, 4, 5, 6, 7, 8, 9 | Dados   | FXT 6600: SSD NVMe de 3,2 TB <br> FXT 6400: SSD NVMe de 1,6 TB |
+| 0, 1             | OS     | SSD SATA de 480 GB |
+| 2, 3, 4, 5, 6, 7, 8, 9 | Dados   | FXT 6600:3,2 TB de SSD do NVMe <br> FXT 6400:1,6 TB de SSD do NVMe |
 
 
 ## <a name="dimensions-and-weight"></a>Dimensões e peso
@@ -68,7 +68,7 @@ O Azure FXT Edge Filer foi projetado para caber em um rack de equipamento padrã
 |-------------------|-------------|--------|
 | Altura            | 311,2       | 12,25 |
 | Largura             | 642,8       | 25,31 |
-| Comprimento            | 1\.051,1     | 41,38 |
+| Duração            | 1\.051,1     | 41,38 |
 
 ## <a name="power-and-thermal-specifications"></a>Potência e especificações térmicas
 
@@ -96,7 +96,7 @@ Estes gráficos mostram o consumo de energia e as medidas térmicas em combinaç
 | Frequência (Hz) | 60 | 60 | 60 | 50 | 50 |
 | Corrente (A) | 5,02 | 4,16 |2,40 | 2,20 | 2.16 |
 | Potência aparente (VA) | 502 | 499 | 499 | 506 | 518|
-| Fator de potência | 0.99 | 0.99 |0.98 | 0.98 | 0.98 |
+| Fator de potência | 0,99 | 0,99 |0.98 | 0.98 | 0.98 |
 | Potência real (W) | 497 |494 | 489 | 496 | 508 |
 | Dissipação térmica (BTU/h) |1\.696 | 1\.686 | 1\.669 | 1\.692 | 1\.733 |
 
@@ -106,7 +106,7 @@ Estes gráficos mostram o consumo de energia e as medidas térmicas em combinaç
 | Frequência (Hz) | 60 | 60 | 60 | 50 | 50 |
 | Corrente (A) | 5,98 | 5,01 | 2.81 | 2.55 | 2,48 |
 | Potência aparente (VA) | 598 | 601 | 584 | 587 | 595 |
-| Fator de potência | 0.99 | 0.99 | 0.98 | 0.98 | 0.98 |
+| Fator de potência | 0,99 | 0,99 | 0.98 | 0.98 | 0.98 |
 | Potência real (W) | 592 | 595 | 573 | 575 | 583 |
 | Dissipação térmica (BTU/h) | 2020 |2031 | 1\.954 | 1\.961 | 1990 |
 
@@ -116,7 +116,7 @@ Estes gráficos mostram o consumo de energia e as medidas térmicas em combinaç
 | Frequência (Hz) |60 | 60 | 60 | 50 | 50 |
 | Corrente (A) | 4,63 | 3,86 | 2,24 | 2,04 | 1,94 |
 | Potência aparente (VA) | 463 | 463 | 466 | 469 | 466 |
-| Fator de potência | 0.99 | 0.99 | 0.98 | 0.98 | 0.98 | 
+| Fator de potência | 0,99 | 0,99 | 0.98 | 0.98 | 0.98 | 
 | Potência real (W) | 458 | 459 | 457 | 460 | 456 |
 | Dissipação térmica (BTU/h) | 1\.564 | 1\.565 | 1\.558 | 1\.569 | 1\.557 |
 
@@ -126,9 +126,9 @@ Estes gráficos mostram o consumo de energia e as medidas térmicas em combinaç
 | Frequência (Hz) | 60 | 60 | 60 | 50 | 50 |
 | Corrente (A) | 5.15 | 4,28 | 2,48 | 2,28 | 2,13 |
 | Potência aparente (VA) | 515 | 514 | 516 | 524 | 511 |
-| Fator de potência | 0.99 | 0.99 | 0.98 | 0.98 | 0.98 |
+| Fator de potência | 0,99 | 0,99 | 0.98 | 0.98 | 0.98 |
 | Potência real (W) | 510 | 508 | 506 | 514 | 501 |
-| Dissipação térmica (BTU/h) | 1\.740 | 1\.735 | 1\.725 | 1753 | 1\.709 |
+| Dissipação térmica (BTU/h) | 1\.740 | 1\.735 | 1\.725 | 1753 | 1709 |
 
 ## <a name="environmental-requirements"></a>Requisitos ambientais
 
@@ -140,11 +140,11 @@ Esta seção fornece especificações para o ambiente do hardware.
 |---------------------------|-----------------------------------|-----------------------------|
 | Faixa de temperatura ambiente | 10 °C a 35 °C (50 – 86 °F)          | -40 °C a 65 °C (-40 – 149 °F) |
 | Umidade relativa do ambiente | 10% – 80% sem condensação          | 5% – 95% sem condensação     |
-| Ponto de condensação máximo         | 29° C (84° F)                       | 33 °C (91 °F)                 |
+| Ponto de condensação máximo         | 29° C (84° F)                       | 33°C (91°F)                 |
 | Altitude                  | até 3.048 metros (10.000 pés), sujeito à revogação da classificação de temperatura indicada abaixo | até 12.000 metros (39.370 pés) |
 
 > [!NOTE] 
-> **Revogação da classificação de temperatura da altitude:** a temperatura máxima deve ser reduzida em 1 °C a cada 300 m (1 °F/547 pés) acima de 950 m (3.117 pés).
+> **Desclassificação de temperatura de altitude:** A temperatura máxima é reduzida em 1 ° c/300 m (1 ° f/547 pés) acima de 950 m (3.117 pés).
 
 ### <a name="airflow-shock-and-vibration"></a>Fluxo de ar, choque e vibração 
 

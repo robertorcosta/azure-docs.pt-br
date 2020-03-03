@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: fdc6834f3fb5ee97f27a6397645b965863e90a6b
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 6dc8c54b9d138ab62e086cca59cd5b4801fa6130
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190532"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228343"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Instalar drivers do AMD GPU em VMs da série N que executam o Windows
 
@@ -29,15 +29,20 @@ Para especificações básicas, capacidades de armazenamento e detalhes de disco
 
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operacionais e drivers com suporte
 
-| Sistema operacional | Driver |
+| OS | Driver |
 | -------- |------------- |
-| Windows 10 EVD-Build 1903 <br/><br/>Windows 10-Build 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [19. q 4.1](https://download.microsoft.com/download/7/e/5/7e558ac0-3fff-413d-af62-800285a2fc53/Radeon-Pro-Software-for-Enterprise-19.Q4.1-Technical-Preview.exe) (. exe) |
+| Windows 10 EVD-Build 1903 <br/><br/>Windows 10-Build 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20. q 1.1](https://download.microsoft.com/download/3/8/9/3893407b-e8aa-4079-8592-735d7dd1c19a/Radeon-Pro-Software-for-Enterprise-GA.exe) (. exe) |
+
 
 ## <a name="driver-installation"></a>Instalação do driver
 
 1. Conecte-se por Área de Trabalho Remota a cada VM da série NVv4.
 
-1. Baixe e extraia os arquivos de instalação do driver. Navegue até a pasta e execute ' Setup. exe ' para instalar o driver com suporte para o sistema operacional Windows.
+2. Se você for um cliente do NVv4 Preview, interrompa a VM e aguarde até que ela se mova para o estado parado (desalocado).
+
+3. Inicie a VM e desinstale o driver de visualização executando "amdcleanuputility-x64. exe" localizado na pasta ". ..\AMDCleanUninstallUtility". O caminho exato variará com base em onde estão os arquivos de instalação do driver anteriores.  
+
+4. Baixe e instale o driver mais recente.
 
 ## <a name="verify-driver-installation"></a>Verificar a instalação de drivers
 

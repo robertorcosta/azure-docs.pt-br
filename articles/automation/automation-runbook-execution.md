@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4070b004ee791a433b5aeb9e3e0cdd9662fb0429
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 6a51e57bd2411c19dfd5e7740f9e918d0bd09e27
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191139"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226475"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbook na Automação do Azure
 
@@ -39,7 +39,7 @@ Você pode usar um Hybrid Runbook Worker para executar runbooks diretamente no c
 
 A tabela a seguir lista algumas tarefas de execução de runbook com o ambiente de execução recomendado listado para cada uma.
 
-|Tarefa|Melhor opção|Observações|
+|{1&gt;Tarefa&lt;1}|Melhor opção|{1&gt;Observações&lt;1}|
 |---|---|---|
 |Integração com serviços do Azure|Área restrita do Azure|Hospedado no Azure, a autenticação é mais simples. Se você estiver usando uma Hybrid Runbook Worker em uma VM do Azure, poderá usar [identidades gerenciadas para recursos do Azure](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources).|
 |Obter o desempenho ideal para gerenciar recursos do Azure|Área restrita do Azure|O script é executado no mesmo ambiente, que tem menos latência.|
@@ -152,11 +152,11 @@ Start-AzAutomationRunbook `
 
 Esta seção descreve algumas maneiras de lidar com exceções ou problemas intermitentes em seus runbooks.
 
-#### <a name="erroractionpreference"></a>$ErrorActionPreference
+#### <a name="erroractionpreference"></a>ErrorActionPreference
 
-A variável [$ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) determina como o PowerShell responde a um erro de não finalização. Os erros de encerramento sempre são encerrados e não são afetados pelo *$ErrorActionPreference*.
+A variável [ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) determina como o PowerShell responde a um erro de não finalização. Os erros de encerramento sempre são encerrados e não são afetados pelo *ErrorActionPreference*.
 
-Quando o runbook usa *$ErrorActionPreference*, um erro normalmente não conclusivo, como **PathNotFound** , do cmdlet **Get-ChildItem** interrompe a conclusão do runbook. O exemplo a seguir mostra o uso de *$ErrorActionPreference*. O comando de **Write-Output** final nunca é executado, pois o script é interrompido.
+Quando o runbook usa *ErrorActionPreference*, um erro normalmente não conclusivo, como **PathNotFound** , do cmdlet **Get-ChildItem** interrompe a conclusão do runbook. O exemplo a seguir mostra o uso de *ErrorActionPreference*. O comando de **Write-Output** final nunca é executado, pois o script é interrompido.
 
 ```powershell-interactive
 $ErrorActionPreference = 'Stop'
@@ -222,18 +222,18 @@ Os trabalhos do PowerShell iniciados a partir de um runbook que é executado em 
 
 A tabela a seguir descreve os status que são possíveis para um trabalho.
 
-| Status | DESCRIÇÃO |
+| Status | Descrição |
 |:--- |:--- |
 | Concluído |Operação concluída com sucesso. |
-| Falhou |Falha na compilação de um runbook de fluxo de trabalho gráfico ou do PowerShell. Falha ao iniciar um runbook de script do PowerShell ou o trabalho tinha uma exceção. Consulte [tipos de runbook de automação do Azure](automation-runbook-types.md).|
+| Falha |Falha na compilação de um runbook de fluxo de trabalho gráfico ou do PowerShell. Falha ao iniciar um runbook de script do PowerShell ou o trabalho tinha uma exceção. Consulte [tipos de runbook de automação do Azure](automation-runbook-types.md).|
 | Erro, aguardando recursos |O trabalho falhou porque atingiu o limite de [fração justa](#fair-share) três vezes e iniciou do mesmo ponto de verificação ou desde o início do runbook em cada uma das vezes. |
 | Em fila |O trabalho está aguardando que os recursos em um trabalho de automação fiquem disponíveis para que possam ser iniciados. |
 | Iniciando |O trabalho foi atribuído a um trabalhador e o sistema está iniciando-o. |
 | Continuando |O sistema está retomando o trabalho depois que ele ter sido suspenso. |
-| Executando |O trabalho está em execução. |
+| Em execução |O trabalho está em execução. |
 | Executando, aguardando recursos |O trabalho foi descarregado porque atingiu o limite de compartilhamento justo. Ele continuará em breve a partir de seu último ponto de verificação. |
 | Parado |O trabalho foi interrompido pelo usuário antes de ser concluído. |
-| Parando |O sistema está parando o trabalho. |
+| Stopping |O sistema está parando o trabalho. |
 | Suspenso |Aplica-se somente a [runbooks de fluxo de trabalho gráfico e do PowerShell](automation-runbook-types.md) . O trabalho foi suspenso pelo usuário, pelo sistema ou por um comando no runbook. Se um runbook não tiver um ponto de verificação, ele começará do início. Se ele tiver um ponto de verificação, poderá iniciar novamente e retomar no último ponto de verificação. O sistema suspende apenas o runbook quando ocorre uma exceção. Por padrão, a variável *ErrorActionPreference* é definida como **continuar**, indicando que o trabalho continua em execução em um erro. Se a variável de preferência for definida como **parar**, o trabalho será suspenso em um erro.  |
 | Suspensão |Aplica-se somente a [runbooks de fluxo de trabalho gráfico e do PowerShell](automation-runbook-types.md) . O sistema está tentando suspender o trabalho por solicitação do usuário. O runbook precisa atingir seu próximo ponto de verificação antes de poder ser suspenso. Se já tiver passado seu último ponto de verificação, ele será concluído antes que possa ser suspenso. |
 
@@ -346,7 +346,7 @@ Outra opção é otimizar um runbook usando runbooks filho. Por exemplo, seu run
 
 O uso de runbooks filho diminui a quantidade total de tempo que o runbook pai deve concluir. Seu runbook pode usar o cmdlet **Get-AzAutomationJob** para verificar o status do trabalho para um runbook filho se ele ainda tiver operações a serem executadas após a conclusão do filho.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para saber mais sobre os métodos que podem ser usados para iniciar um runbook na automação do Azure, consulte [iniciando um runbook na automação do Azure](automation-starting-a-runbook.md).
 * Para obter mais informações sobre o PowerShell, incluindo referência de linguagem e módulos de aprendizado, consulte os [documentos do PowerShell](https://docs.microsoft.com/powershell/scripting/overview).

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 02/05/2020
-ms.openlocfilehash: c67fb21783a926f813d165528520b9d088154412
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.date: 03/01/2020
+ms.openlocfilehash: fddffee001266b96bc341738293bbdb42115a978
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162388"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228182"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Usar Data Lake Storage Gen1 com clusters Azure HDInsight
 
@@ -31,7 +31,7 @@ Neste artigo, você aprenderá como funciona o Data Lake Storage Gen1 com cluste
 
 ## <a name="availability-for-hdinsight-clusters"></a>Disponibilidade para clusters do HDInsight
 
-O Apache Hadoop dá suporte a uma noção do sistema de arquivos padrão. O sistema de arquivos padrão implica esquema e autoridade padrões. Ele também pode ser usado para resolver caminhos relativos. Durante o processo de criação do cluster HDInsight, é possível especificar um contêiner de blobs no Armazenamento do Azure como o sistema de arquivos padrão ou, com o HDInsight 3.5 e versões posteriores, é possível selecionar o Armazenamento do Azure ou o Azure Data Lake Storage Gen1 como o sistema de arquivos padrão com algumas exceções.
+O Apache Hadoop dá suporte a uma noção do sistema de arquivos padrão. O sistema de arquivos padrão implica esquema e autoridade padrões. Ele também pode ser usado para resolver caminhos relativos. Durante o processo de criação do cluster HDInsight, é possível especificar um contêiner de blobs no Armazenamento do Azure como o sistema de arquivos padrão ou, com o HDInsight 3.5 e versões posteriores, é possível selecionar o Armazenamento do Azure ou o Azure Data Lake Storage Gen1 como o sistema de arquivos padrão com algumas exceções. Observe que o cluster e a conta de armazenamento devem ser hospedados na mesma região.
 
 Os clusters HDInsight podem usar o Data Lake Storage Gen1 de duas maneiras:
 
@@ -40,7 +40,7 @@ Os clusters HDInsight podem usar o Data Lake Storage Gen1 de duas maneiras:
 
 A partir de agora, somente alguns tipos/versões do cluster HDInsight dão suporte ao uso do Data Lake Storage Gen1 como armazenamento padrão e contas de armazenamento adicionais:
 
-| Tipo de cluster HDInsight | Data Lake Storage Gen1 como armazenamento padrão | Data Lake Storage Gen1 como armazenamento adicional| Observações |
+| Tipo de cluster HDInsight | Data Lake Storage Gen1 como armazenamento padrão | Data Lake Storage Gen1 como armazenamento adicional| {1&gt;Observações&lt;1} |
 |------------------------|------------------------------------|---------------------------------------|------|
 | HDInsight versão 4,0 | Não | Não |ADLS Gen1 não tem suporte com o HDInsight 4,0 |
 | HDInsight versão 3.6 | Sim | Sim | Com exceção do HBase|
@@ -299,7 +299,7 @@ Invoke-AzResourceAction `
     -Force
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste artigo, você aprendeu a usar o Azure Data Lake Storage Gen1 compatível com HDFS com o HDInsight. Isso permite que você crie soluções de aquisição de dados para arquivamento de longo prazo escalonáveis e use o HDInsight para desbloquear as informações nos dados armazenados estruturados e não estruturados.
 

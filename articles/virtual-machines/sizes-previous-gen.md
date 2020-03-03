@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: 700847c041a5b9111414d6b43ff734d83b1ca49f
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: e0abae8ada603e4e6b98ab0dfe9d794186e00000
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913456"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226780"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Gerações anteriores de tamanhos de máquinas virtuais
 
@@ -135,7 +135,7 @@ Armazenamento em cache Premium: sem suporte
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A0&nbsp;<sup>1</sup> | 1 | 0,768 | 20 | 1 | 1 x 500 | 2/100 |
 | Standard_A1 | 1 | 1,75 | 70  | 2  | 2x500  | 2/500  |
-| Standard_A2 | 2 | 3,5  | 135 | 4  | 4x500  | 2/500  |
+| Standard_A2 | 2 | 3.5  | 135 | 4  | 4x500  | 2/500  |
 | Standard_A3 | 4 | 7    | 285 | 8  | 8 x 500  | 2/1000 |
 | Standard_A4 | 8 | 14   | 605 | 16 | 16 x 500 | 4/2000 |
 | Standard_A5 | 2 | 14   | 135 | 4  | 4x500  | 2/500  |
@@ -167,6 +167,9 @@ Os tamanhos A8-A11 e série H também são conhecidos como *instâncias de compu
 
 <sup>1</sup>Para os aplicativos MPI, a rede de back-end RDMA dedicada é habilitada pela rede InfiniBand FDR, que fornece latência ultrabaixa e largura de banda alta.  
 
+> [!NOTE]
+> As VMs A8 – a11 estão planejadas para aposentadoria em 3/2021. Para obter mais informações, consulte [Guia de migração do HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
+
 <br>
 
 ### <a name="d-series"></a>Série D  
@@ -181,7 +184,7 @@ Armazenamento em cache Premium: sem suporte
 
 | Size | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS/MBps de leitura/MBps de gravação | Máximo de discos de dados/taxa de transferência: IOPS | Máximo de NICs/largura de banda de rede esperada (Mbps) |
 |---|---|---|---|---|---|---|
-| Standard_D1  | 1 | 3,5 | 50  | 3000/46/23    | 4/4x500   | 2/500  |
+| Standard_D1  | 1 | 3.5 | 50  | 3000/46/23    | 4/4x500   | 2/500  |
 | Standard_D2  | 2 | 7   | 100 | 6000/93/46    | 8/8x500   | 2/1000 |
 | Standard_D3  | 4 | 14  | 200 | 12000/187/93  | 16/16x500 | 4/2000 |
 | Standard_D4  | 8 | 28  | 400 | 24000/375/187 | 32/32x500 | 8/4000 |
@@ -241,7 +244,7 @@ Cache de armazenamento Premium: com suporte
 
 | Size | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento em cache e temporária: IOPS/MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS/MBps | Máximo de NICs/largura de banda de rede esperada (Mbps) |
 |---|---|---|---|---|---|---|---|
-| Standard_DS1 | 1 | 3,5 | 7  | 4  | 4000/32 (43)    | 3200/32   | 2/500  |
+| Standard_DS1 | 1 | 3.5 | 7  | 4  | 4000/32 (43)    | 3200/32   | 2/500  |
 | Standard_DS2 | 2 | 7   | 14 | 8  | 8000/64 (86)    | 6400/64   | 2/1000 |
 | Standard_DS3 | 4 | 14  | 28 | 16 | 16000/128 (172) | 12800/128 | 4/2000 |
 | Standard_DS4 | 8 | 28  | 56 | 32 | 32000/256 (344) | 25600/256 | 8/4000 |
