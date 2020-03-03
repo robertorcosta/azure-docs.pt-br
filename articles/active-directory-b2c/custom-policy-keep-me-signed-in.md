@@ -2,20 +2,20 @@
 title: Mantenha-me conectado no Azure Active Directory B2C
 description: Aprenda a configurar o KMSI (Mantenha-me conectado) no Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/27/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84ba68c97f69872e39121915a6edf23aa029fa75
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
-ms.translationtype: HT
+ms.openlocfilehash: 9a27487fa69888b02883c3d9a2151887f41afc45
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161679"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189371"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Habilitar o KMSI (Mantenha-me conectado) no Azure Active Directory B2C
 
@@ -32,11 +32,11 @@ Os usuários não devem habilitar essa opção em computadores públicos.
 - Um locatário Azure AD B2C configurado para permitir a entrada da conta local. KMSI não tem suporte para contas de provedor de identidade externa.
 - Conclua as etapas em [Introdução às políticas personalizadas](custom-policy-get-started.md).
 
-## <a name="configure-the-page-identifier"></a>Configurar o identificador de página 
+## <a name="configure-the-page-identifier"></a>Configurar o identificador de página
 
 Para habilitar o KMSI, defina o elemento de definição de conteúdo `DataUri` como [identificador de página](contentdefinitions.md#datauri) `unifiedssp` e versão *1.1.0* ou superior [da página](page-layout.md) .
 
-1. Abra o arquivo de extensão da sua política. Por exemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em> . Esse arquivo de extensão é um dos arquivos de política incluídos no pacote de início de política personalizada, que você deve ter obtido no pré-requisito, [introdução às políticas personalizadas](custom-policy-get-started.md).
+1. Abra o arquivo de extensão da sua política. Por exemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em>  . Esse arquivo de extensão é um dos arquivos de política incluídos no pacote de início de política personalizada, que você deve ter obtido no pré-requisito, [introdução às políticas personalizadas](custom-policy-get-started.md).
 1. Pesquise o elemento **BuildingBlocks**. Se o elemento não existir, adicione-o.
 1. Adicione o elemento **ContentDefinitions** ao elemento **BuildingBlocks** da política.
 
@@ -51,7 +51,7 @@ Para habilitar o KMSI, defina o elemento de definição de conteúdo `DataUri` c
       </ContentDefinitions>
     </BuildingBlocks>
     ```
-    
+
 1. Salve o arquivo de extensões.
 
 
@@ -73,13 +73,13 @@ Atualize o arquivo de RP (terceira parte confiável) que iniciará o percurso do
     ```
 
     - **SessionExpiryType** -indica como a sessão é estendida pelo tempo especificado em `SessionExpiryInSeconds` e `KeepAliveInDays`. O valor de `Rolling` (padrão) indica que a sessão é estendida toda vez que o usuário executa a autenticação. O valor `Absolute` indica que o usuário é forçado a autenticar novamente após o período de tempo especificado.
- 
+
     - **SessionExpiryInSeconds** -o tempo de vida de cookies de sessão quando se *mantém conectado* não está habilitado, ou se um usuário não seleciona *manter-me conectado*. A sessão expira depois que `SessionExpiryInSeconds` foi aprovada ou o navegador é fechado.
- 
+
     - **KeepAliveInDays** -o tempo de vida de cookies de sessão quando se *mantém conectado* está habilitado e o usuário seleciona *Mantenha-me conectado*.  O valor de `KeepAliveInDays` tem precedência sobre o valor de `SessionExpiryInSeconds` e determina o tempo de expiração da sessão. Se um usuário fechar o navegador e abri-lo novamente mais tarde, ele ainda poderá entrar silenciosamente, desde que esteja dentro do período de tempo KeepAliveInDays.
-    
+
     Para obter mais informações, consulte [comportamentos de jornada do usuário](relyingparty.md#userjourneybehaviors).
- 
+
 Recomendamos que você defina o valor de SessionExpiryInSeconds como um período curto (1200 segundos), enquanto o valor de KeepAliveInDays pode ser definido como um período relativamente longo (30 dias), conforme mostrado no exemplo a seguir:
 
 ```XML

@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Saiba como solucionar problemas comuns ao habilitar e usar o Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: 061f812e7567d96bba092ebc9625756c14c46940
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: HT
+ms.openlocfilehash: 2b5a6f14899ec41b1740563f4e8174f65aa679c7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77662460"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197990"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solução de problemas Azure Dev Spaces
 
@@ -422,9 +422,8 @@ Para corrigir esse problema:
 Para corrigir esse problema:
 
 1. Se o contêiner estiver sendo compilado/implantado, você poderá aguardar de 2 a 3 segundos e tentar acessar o serviço novamente. 
-1. Verifique a configuração de porta. Os números de porta especificados devem ser **idênticos** em todos os seguintes ativos:
-    * **Dockerfile:** especificado pela instrução `EXPOSE`.
-    * **[Gráfico Helm](https://docs.helm.sh):** especificado pelos valores `externalPort` e `internalPort` para um serviço (geralmente localizado em um arquivo `values.yml`),
+1. Verifique a configuração de porta nos seguintes ativos:
+    * **[Gráfico de Helm](https://docs.helm.sh):** Especificado pelo `service.port` e `deployment.containerPort` em Values. YAML com Scaffold by `azds prep` comando.
     * Quaisquer portas sendo abertas no código do aplicativo, por exemplo, no Node.js: `var server = app.listen(80, function () {...}`
 
 ### <a name="the-type-or-namespace-name-mylibrary-couldnt-be-found"></a>Não foi possível encontrar o nome do namespace ou tipo "MyLibrary"
