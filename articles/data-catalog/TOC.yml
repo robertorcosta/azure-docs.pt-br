@@ -4,7 +4,7 @@
   items:
     - name: O que é o Catálogo de Dados?
       href: overview.md
-- name: Início rápido
+- name: Inícios rápidos
   items:
     - name: Criar um Catálogo de Dados do Azure
       href: data-catalog-get-started.md
@@ -20,11 +20,11 @@
       href: data-catalog-dsr.md
     - name: Adoção do Catálogo de Dados do Azure
       href: data-catalog-adopting-data-catalog.md
-    - name: Prerequisites
+    - name: Pré-requisitos
       href: data-catalog-prerequisites.md
     - name: Perguntas frequentes
       href: data-catalog-frequently-asked-questions.md
-- name: Como
+- name: Instruções
   items:
     - name: Registrar fontes de dados
       href: data-catalog-how-to-register.md
@@ -34,7 +34,7 @@
       href: data-catalog-how-to-annotate.md
     - name: Fontes de dados de documentos
       href: data-catalog-how-to-documentation.md
-    - name: Conectar às fontes de dados
+    - name: Conectar-se às fontes de dados
       href: data-catalog-how-to-connect.md
     - name: Trabalhar com fontes de Big Data
       href: data-catalog-how-to-big-data.md
@@ -60,7 +60,7 @@
       href: /rest/api/datacatalog/
     - name: Referência de sintaxe de pesquisa
       href: /rest/api/datacatalog/data-catalog-search-syntax-reference
-    - name: Conceitos do desenvolvedor
+    - name: Conceitos de desenvolvedor
       href: data-catalog-developer-concepts.md
 - name: Recursos
   items:
